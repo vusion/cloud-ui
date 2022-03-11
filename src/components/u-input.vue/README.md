@@ -32,10 +32,10 @@
 
 ### 加密
 
-将`type`属性设置为`password`可以加密显示。
+将`type`属性设置为`password`可以加密显示，`password` 属性增加密码显示按钮。
 
 ``` html
-<u-input type="password" maxlength="12" placeholder="请输入密码"></u-input>
+<u-input type="password" password maxlength="12" placeholder="请输入密码"></u-input>
 ```
 
 ### 双向绑定
@@ -95,40 +95,42 @@ export default {
 
 ### 大小扩展
 
+由`width`和`height`设置输入框宽高，默认值为`normal`，候选值包括：`mini`、`small`、`normal`、`medium`、`large`、`huge`、`full`。
+
 ``` html
 <u-linear-layout direction="vertical">
     <u-linear-layout>
-        <u-input size="mini" value="mini" readonly></u-input>
-        <u-input size="mini small" value="mini small" readonly></u-input>
-        <u-input size="mini normal" value="mini normal" readonly></u-input>
-        <u-input size="mini medium" value="mini medium" readonly></u-input>
+        <u-input width="mini" height="mini" value="width: mini, height:mini" readonly></u-input>
+        <u-input width="small" height="mini" value="width: small, height: mini" readonly></u-input>
+        <u-input width="normal" height="mini" value="width: normal, height: mini" readonly></u-input>
+        <u-input width="medium" height="mini" value="width: medium, height: mini" readonly></u-input>
     </u-linear-layout>
     <u-linear-layout>
-        <u-input size="small mini" value="small mini" readonly></u-input>
-        <u-input size="small" value="small" readonly></u-input>
-        <u-input size="small normal" value="small normal" readonly></u-input>
-        <u-input size="small medium" value="small medium" readonly></u-input>
+        <u-input width="mini" height="small" value="width: mini, height:small" readonly></u-input>
+        <u-input width="small" height="small" value="width: small, height: small" readonly></u-input>
+        <u-input width="normal" height="small" value="width: normal, height: small" readonly></u-input>
+        <u-input width="medium" height="small" value="width: medium, height: small" readonly></u-input>
+    </u-linear-layout>
+   <u-linear-layout>
+        <u-input width="mini" height="normal" value="width: mini, height:normal" readonly></u-input>
+        <u-input width="small" height="normal" value="width: small, height: normal" readonly></u-input>
+        <u-input width="normal" height="normal" value="width: normal, height: normal" readonly></u-input>
+        <u-input width="medium" height="normal" value="width: medium, height: normal" readonly></u-input>
     </u-linear-layout>
     <u-linear-layout>
-        <u-input size="normal mini" value="normal mini" readonly></u-input>
-        <u-input size="normal small" value="normal small" readonly></u-input>
-        <u-input value="normal" readonly></u-input>
-        <u-input size="normal medium" value="normal medium" readonly></u-input>
+        <u-input width="mini" height="medium" value="width: mini, height:medium" readonly></u-input>
+        <u-input width="small" height="medium" value="width: small, height: medium" readonly></u-input>
+        <u-input width="normal" height="medium" value="width: normal, height: medium" readonly></u-input>
+        <u-input width="medium" height="medium" value="width: medium, height: medium" readonly></u-input>
     </u-linear-layout>
     <u-linear-layout>
-        <u-input size="medium mini" value="medium mini" readonly></u-input>
-        <u-input size="medium small" value="medium small" readonly></u-input>
-        <u-input size="medium normal" value="medium normal" readonly></u-input>
-        <u-input size="medium" value="medium" readonly></u-input>
+        <u-input width="large" height="large" value="width: large, height: large" readonly></u-input>
     </u-linear-layout>
     <u-linear-layout>
-        <u-input size="large" value="large" readonly></u-input>
+        <u-input width="huge" height="huge" value="width: huge, height: huge" readonly></u-input>
     </u-linear-layout>
     <u-linear-layout>
-        <u-input size="huge" value="huge" readonly></u-input>
-    </u-linear-layout>
-    <u-linear-layout>
-        <u-input size="huge full" value="huge full" readonly></u-input>
+        <u-input width="full" height="full" value="width: full, height: full" readonly></u-input>
     </u-linear-layout>
 </u-linear-layout>
 ```
@@ -147,20 +149,22 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| type | string | `[object Object]`<br/>`[object Object]` | `'text'` | 输入框的类型 |
+| type | string | `[object Object]`<br/>`[object Object]` | `'text'` | 文本框或者密码框 |
 | value.sync, v-model | string |  |  | 输入框的值 |
-| clearable | boolean |  |  | 开启并在输入框有内容时会显示清除按钮。 |
-| placeholder | string |  |  | 原生属性 |
-| minlength | number |  |  | 最小输入长度 |
-| maxlength | number |  |  | 最大输入长度 |
+| clearable | boolean |  |  | 开启并在输入框有内容时会显示清除按钮 |
+| password | boolean |  | `false` | 切换密码的显示/隐藏 |
+| placeholder | string |  |  | 为空时的提示文本 |
+| minlength | number |  |  |  |
+| maxlength | number |  |  |  |
 | spellcheck | boolean |  |  | 原生属性 |
-| autofocus | boolean |  |  | 是否自动获取焦点 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
+| autofocus | boolean |  | `false` | 是否自动获取焦点 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
+| width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置单行输入框宽度大小 |
+| height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置单行输入框高度大小 |
 | maxlengthMessage | string |  |  | 输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效 |
-| prefix | string | `[object Object]`<br/>`[object Object]` | `''` | 前缀图标 |
-| suffix | string | `[object Object]`<br/>`[object Object]` | `''` | 后缀图标 |
+| prefix | string | `[object Object]`<br/>`[object Object]` | `''` |  |
+| suffix | string | `[object Object]`<br/>`[object Object]` | `''` |  |
 
 ### Slots
 

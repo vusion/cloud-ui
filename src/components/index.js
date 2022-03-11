@@ -8,6 +8,7 @@ export * from './f-forbidden.vue';
 export * from './f-render.vue';
 export * from './f-slot.vue';
 export * from './f-virtual-list.vue';
+export * from './f-scroll-view.vue';
 export * from './i-icon.vue';
 export * from './i-ico.vue';
 export * from './u-gallery.vue';
@@ -118,4 +119,6 @@ export * from './u-for.vue';
 export * from './u-if.vue';
 export * from './u-taskbox.vue';
 
-export * from './f-scroll-view.vue';
+export * from './u-multi-layout.vue';
+export * from './u-dropdown.vue';
+export * from './u-navbar-multi.vue';

@@ -100,7 +100,7 @@
 ``` html
 <u-info-list>
     <u-info-list-group title="基本信息">
-        <template slot="extra">
+        <template #extra>
             <u-link>设置</u-link>
         </template>
         <u-info-list-item label="VPC名称">defaultVPC</u-info-list-item>
@@ -173,6 +173,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | repeat | number |  | `3` | 整个详情列表的划分列数 |
 | label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 详情列表所有项的标签大小。 |
+| show-head | boolean |  | `true` | 是否显示表格头部 |
 
 ### Slots
 
@@ -185,9 +186,9 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| label | string |  |  | 标签 |
+| label | string |  |  |  |
 | span | string |  |  | 列跨越的格数 |
-| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 标签大小。 |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` |  |
 | ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 
 ### Slots
@@ -205,7 +206,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| title | string |  |  | 标题 |
+| title | string |  |  |  |
 | repeat | number |  |  | 当前组范围内的划分列数 |
 | label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 当前组所有项的标签大小。 |
 

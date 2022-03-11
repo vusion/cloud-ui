@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" v-show="selected" vusion-slot-name="default">
+<div :class="$style.root" v-show="selected" vusion-slot-name="default" :vusion-disabled-selected="true">
     <slot></slot>
 </div>
 </template>

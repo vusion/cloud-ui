@@ -1761,7 +1761,7 @@ export default {
 
 ### 导出 Excel
 
-要使用 exportExcel 方法, 需要向`data-source`属性中传入一个加载函数。传递给 exportExcel 的参数最终会传递给加载函数
+要使用 exportExcel 方法, 需要向`data-source`属性中可传入加载函数，也可传入数组。传递给 exportExcel 的参数最终会传递给加载函数
 
 ``` vue
 <template>
@@ -1830,42 +1830,45 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 表格的数据源，数据集对象或者返回数据集的逻辑 |
 | data-schema | schema |  |  | 表格每一行的数据类型 |
+| extra-params | object |  |  | 数据源除了DataSourceParams外还需要的参数 |
 | initial-load | boolean |  | `true` | 是否在初始时立即加载。 |
-| pageable | boolean |  | `false` | 是否分页。 |
-| page-size.sync | number |  | `20` | 分页大小。 |
-| page-number.sync | number |  | `1` | 当前页数。 |
+| pageable | boolean |  | `false` |  |
+| page-size.sync | number |  | `20` |  |
+| page-number.sync | number |  | `1` |  |
 | page-size-options | Array\<number\> |  | `[10, 20, 50]` | 分页大小的选项列表。 |
-| show-total | boolean |  | `false` | 是否显示总条目数。 |
-| show-sizer | boolean |  | `false` | 是否显示切换分页大小选项。 |
-| show-jumper | boolean |  | `false` | 是否显示页面跳转输入框。 |
+| show-total | boolean |  | `false` |  |
+| show-sizer | boolean |  | `false` |  |
+| show-jumper | boolean |  | `false` |  |
 | sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 当前排序的字段和顺序。 |
 | default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 所有列首次点击时的排序顺序。 |
-| filtering.sync | object |  |  | 筛选参数。 |
+| filtering.sync | object |  |  |  |
 | remote-paging | boolean |  | `false` | 是否使用后端分页。 |
 | remote-sorting | boolean |  | `false` | 是否使用后端排序。 |
 | remote-filtering | boolean |  | `false` | 是否使用后端筛选 |
-| title | string |  |  | 表格标题。 |
-| title-alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'center'` | 表格标题的对齐方式。 |
-| border | boolean |  | `false` | 是否显示边框。 |
+| title | string |  |  |  |
+| title-alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'center'` |  |
+| boldHeader | boolean |  | `true` |  |
+| border | boolean |  | `false` |  |
 | line | boolean |  | `false` | 单元格之间是否显示分隔线条。 |
 | striped | boolean |  | `false` | 表格行是否按斑马线条纹显示。 |
 | hover | boolean |  | `false` | 表格行在悬浮时是否高亮显示。 |
-| show-head | boolean |  | `true` | 是否显示表格头部。 |
+| show-head | boolean |  | `true` |  |
+| default-column-width | string \| number |  |  | 表格的默认列宽度，可以设置为百分比或数字。 |
 | loading | boolean |  |  | 手动设置是否正在加载中。 |
 | loading-text | string |  | `'正在加载中'` | 正在加载中的文字。 |
 | error | boolean |  |  | 手动设置是否加载失败。 |
-| error-text | string |  | `'加载失败，请重试'` | 加载失败时的文字。 |
-| empty-text | string |  | `'暂无数据'` | 暂无数据时的文字。 |
+| error-text | string |  | `'加载失败，请重试'` |  |
+| empty-text | string |  | `'暂无数据'` |  |
 | value-field | string |  |  | 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段。 |
 | value.sync, v-model | any |  |  | 单项选择的值。 |
 | values.sync | Array |  |  | 多项选择的值。 |
 | selectable | boolean |  | `false` | 是否可以单选行。 |
 | cancelable | boolean |  | `false` | 是否可以取消选择。 |
-| readonly | boolean |  | `false` | 是否只读。 |
-| disabled | boolean |  | `false` | 是否禁用。 |
-| accordion | boolean |  | `false` | 在有`expander`列的情况下，展开一行的同时，是否收起其它行。 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
+| accordion | boolean |  | `false` | 是否每次只会展开一行 |
 | resizable | boolean |  | `false` | 是否可以调整列宽。 |
 | resize-remaining | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'average'` | 调整列宽时如何处理剩余大小 |
 | tree-display | boolean |  | `false` | 以树形数据展示表格。 |
@@ -2056,6 +2059,25 @@ export default {
 | width | number | 调整后的宽度 |
 | oldWidth | number | 调整前的宽度 |
 
+#### @before-toggle-expanded
+
+点击展开按钮前触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.item | object | 选择行相关对象 |
+| $event.expanded | boolean | 展开状态值 |
+| $event.oldExpanded | boolean | 展开前状态值 |
+
+#### @toggle-expanded
+
+点击展开按钮后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.item | object | 选择行相关对象 |
+| $event.expanded | boolean | 展开状态值 |
+
 Methods
 
 #### load()
@@ -2105,8 +2127,9 @@ Methods
 | filters | Array\<{ text: string, value: any }\> |  |  | 筛选项的参数 |
 | ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | hidden | boolean |  | `false` | 是否隐藏该列。 |
-| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 列类型 |
+| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 列类型 |
 | start-index | number |  | `1` | 当`type="index"`时的起始序号。 |
+| dblclickHandler | Function |  |  | 用于可编辑表格，双击表格列时的处理函数 |
 
 ### Slots
 
@@ -2117,6 +2140,18 @@ Methods
 #### cell
 
 对单元格的数据展示进行自定义。
+
+| Prop | Type | Description |
+| ---- | ---- | ----------- |
+| item | object | 循环中的当前项。 |
+| value | any | item 中 field 字段对应的值。 |
+| columnVM | string | 该列组件实例。 |
+| rowIndex | number | 行的索引。 |
+| columnIndex | number | 列的索引。 |
+
+#### editcell
+
+对单元格的编辑数据展示进行自定义。
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |

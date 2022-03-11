@@ -134,11 +134,14 @@ export default {
 }
 
 .root[focus] {
-    border-color: var(--input-border-color-focus);
+    border-color: var(--textarea-border-color-focus);
+    box-shadow: var(--textarea-box-shadow-focus);
 }
 
 .root[disabled] {
-    background: var(--textarea-background);
+    background: var(--textarea-background-disabled);
+    border-color: var(--textarea-border-color-disabled);
+    color: var(--textarea-color-disabled);
 }
 
 .root[color="error"] {
@@ -157,6 +160,6 @@ export default {
 .root[size$="huge"] { width: var(--textarea-width-huge); }
 .root[size^="huge"] { height: var(--textarea-height-huge); line-height: inherit; }
 
-.root[size$="full"] { width: 100%; }
+.root[size$="full"] { width: 100%; min-width: 0;}
 .root[size^="full"] { height: 100%; }
 </style>

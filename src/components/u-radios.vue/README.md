@@ -72,8 +72,8 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | any |  |  | 当前选择的值 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
 
 ### Slots
 
@@ -134,11 +134,11 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| text | string |  |  | 文本内容 |
+| text | string |  |  | 显示文本内容 |
 | label | any |  |  | 单选框选项值。 |
-| readonly | boolean |  | `false` | 禁用只读 |
-| disabled | boolean |  | `false` | 禁用此项 |
-| autofocus | boolean |  | `false` | 自动获取焦点 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
+| autofocus | boolean |  | `false` |  |
 
 ### Events
 

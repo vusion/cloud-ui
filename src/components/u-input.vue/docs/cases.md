@@ -11,7 +11,7 @@
 将`type`属性设置为`password`用于加密显示。
 
 ``` html
-<u-input type="password" maxlength="12" placeholder="请输入密码"></u-input>
+<u-input type="password" password maxlength="12" placeholder="请输入密码"></u-input>
 ```
 
 ### 双向绑定

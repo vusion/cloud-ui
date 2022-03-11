@@ -68,8 +68,8 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | boolean |  | `false` | 开关状态 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
 | with-text | boolean |  | `false` | 是否显示开关`ON`和`OFF`文字 |
 
 ### Events

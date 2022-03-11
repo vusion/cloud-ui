@@ -1,11 +1,12 @@
 <template>
-<a :class="$style.root" :href="currentHref" :target="target"
+<a vusion-slot-name="text" :class="[$style.root]" 
+    :href="currentHref" :target="target"
     :noDecoration="!decoration"
     :disabled="currentDisabled" :tabindex="currentDisabled ? -1 : 0"
     :download="download"
     :loading="loading || $attrs.loading"
-    @click="onClick" v-on="listeners"
-    vusion-slot-name="text">
+    :hoverType="hoverType"
+    @click="onClick" v-on="listeners">
     <i-ico v-if="icon" :name="icon" :class="$style.btnicon" notext></i-ico>
     <slot>{{ text }}</slot>
 </a>
@@ -31,6 +32,7 @@ export default {
         decoration: { type: Boolean, default: true },
         download: { type: Boolean, default: false },
         destination: String,
+        hoverType: { type: String, default: 'underline' }
     },
     data() {
         return {
@@ -145,11 +147,18 @@ export default {
 .root {
     color: var(--link-color);
 }
-.root[noDecoration] {
-    text-decoration: none!important;
-}
+
 .root:hover {
     text-decoration: underline;
+}
+
+.root[hoverType="color"]:hover {
+    text-decoration: none;
+    color: var(--link-color-hover);
+}
+
+.root[noDecoration] {
+    text-decoration: none!important;
 }
 
 .root:focus {
@@ -162,16 +171,32 @@ export default {
     color: var(--link-color-success);
 }
 
+.root[hoverType="color"][color="success"]:hover {
+    color: var(--link-color-success-hover);
+}
+
 .root[color="warning"] {
     color: var(--link-color-warning);
+}
+
+.root[hoverType="color"][color="warning"]:hover {
+    color: var(--link-color-warning-hover);
 }
 
 .root[color="error"] {
     color: var(--link-color-error);
 }
 
+.root[hoverType="color"][color="error"]:hover {
+    color: var(--link-color-error-hover);
+}
+
 .root[color="danger"] {
     color: var(--link-color-danger);
+}
+
+.root[hoverType="color"][color="danger"]:hover {
+    color: var(--link-color-danger-hover);
 }
 
 .root[color="light"] {
@@ -186,6 +211,10 @@ export default {
     cursor: var(--cursor-not-allowed);
     color: var(--link-color-disabled);
     text-decoration: none;
+}
+
+.root[hoverType=color][disabled]:hover {
+    color: var(--link-color-disabled);
 }
 
 @keyframes spin {

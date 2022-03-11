@@ -45,9 +45,12 @@ export default {
     color: var(--sidebar-item-color);
     background: var(--sidebar-item-background);
     transition: all var(--transition-duration-base);
+    border-bottom: var(--sidebar-item-border-bottom-width) solid var(--sidebar-item-border-bottom-color);
+
 }
 
 .root:hover {
+    background: var(--sidebar-item-background-hover);
     color: var(--sidebar-item-color-hover);
 }
 
@@ -73,5 +76,14 @@ export default {
 .root [class^="i-ico_lcp-iconv"] {
     margin-left: -24px;
     margin-right: 8px;
+}
+
+.root .singleicon {
+    font-size: var(--sidebar-item-icon-font-size);
+    color: var(--sidebar-item-icon-color);
+}
+
+.root:hover .singleicon {
+    color: var(--sidebar-item-icon-color-hover);
 }
 </style>

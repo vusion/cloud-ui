@@ -9,29 +9,29 @@
       title: 绑定路由
       type: boolean
       default: false
-      description: 是否根据 vue-router 来控制选择哪个标签页。
+      description: 是否根据 vue-router 来控制选择哪个标签页
       advanced: true
     - name: value
       title: 值
       type: any
       sync: true
       model: true
-      description: 选中标签页的值。
+      description: ""
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: 是否只读。
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用。
+      description: ""
     - name: closable
       title: 可关闭
       type: boolean
       default: false
-      description: 是否可以关闭。
+      description: 是否可以关闭
       advanced: true
     - name: show-scroll-buttons
       title: 显示滚动按钮

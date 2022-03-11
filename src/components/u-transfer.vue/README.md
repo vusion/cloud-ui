@@ -718,19 +718,19 @@ export default {
 | target.sync | Array\<{ text, value }\> |  |  | 目标数据列表 |
 | text-field | string |  | `'text'` | 选项文本的字段名 |
 | value-field | string |  | `'value'` | 选项值的字段名 |
-| show-head | boolean |  | `false` | 是否显示头部 |
+| show-head | boolean |  | `false` |  |
 | source-title | string |  | `'列表'` | 左侧列表标题 |
 | target-title | string |  | `'列表'` | 右侧列表标题 |
-| show-foot | boolean |  | `false` | 是否显示尾部 |
-| filterable | boolean |  | `false` | 是否可以过滤（搜索），开启将会显示搜索框。 |
-| placeholder | string |  | `'请输入'` | 搜索框的占位符 |
-| clearable | boolean |  | `false` | 搜索框是否有清除按钮 |
+| show-foot | boolean |  | `false` |  |
+| filterable | boolean |  | `false` | 显示过滤（搜索框） |
+| placeholder | string |  | `'请输入'` | 搜索框的提示文字 |
+| clearable | boolean |  | `false` | 搜索框输入内容支持一键清除 |
 | match-method | string, Function |  | `'includes'` | 过滤时的匹配方法 |
-| case-sensitive | boolean |  | `false` | 过滤时大小写是否敏感 |
+| case-sensitive | boolean |  | `false` | 过滤时大小写敏感 |
 | pageable | boolean |  | `false` | 是否需要分页 |
-| page-size | number |  | `50` | 分页大小 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
+| page-size | number |  | `50` |  |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
 
 ### Slots
 

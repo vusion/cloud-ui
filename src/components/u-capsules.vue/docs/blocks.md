@@ -1,10 +1,10 @@
-### 基本样式
+### 基础用法
 
 ``` html
 <u-capsules>
-    <u-capsule>Apple</u-capsule>
-    <u-capsule>Banana</u-capsule>
-    <u-capsule>Cake</u-capsule>
+    <u-capsule>Option-A</u-capsule>
+    <u-capsule>Option-B</u-capsule>
+    <u-capsule>Option-C</u-capsule>
 </u-capsules>
 ```
 
@@ -13,14 +13,12 @@
 ``` html
 <u-capsules>
     <u-capsules-group>
-        <u-capsule>Apple</u-capsule>
-        <u-capsule>Banana</u-capsule>
-        <u-capsule>Cake</u-capsule>
+        <u-capsule>Option-A</u-capsule>
+        <u-capsule>Option-B</u-capsule>
     </u-capsules-group>
     <u-capsules-group>
-        <u-capsule>Apple</u-capsule>
-        <u-capsule>Banana</u-capsule>
-        <u-capsule>Cake</u-capsule>
+        <u-capsule>Option-A</u-capsule>
+        <u-capsule>Option-B</u-capsule>
     </u-capsules-group>
 </u-capsules>
 ```
@@ -28,11 +26,11 @@
 
 ``` html
 <u-capsules>
-    <u-capsule value="6" size="small">6</u-capsule>
-    <u-capsule value="7" size="small" label="88折">7</u-capsule>
-    <u-capsule value="8" size="small" label="88折">8</u-capsule>
-    <u-capsule value="9" size="small" label="88折">9</u-capsule>
-    <u-capsule value="10" size="small" label="88折">1年</u-capsule>
-    <u-capsule value="11" size="small" label="80折">2年</u-capsule>
+    <u-capsule value="1">1</u-capsule>
+    <u-capsule value="2">2</u-capsule>
+    <u-capsule value="3">3</u-capsule>
+    <u-capsule value="4" label="88折">4</u-capsule>
+    <u-capsule value="5" label="88折">5</u-capsule>
+    <u-capsule value="6" label="88折">6</u-capsule>
 </u-capsules>
 ```

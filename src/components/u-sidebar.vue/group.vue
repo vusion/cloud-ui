@@ -94,11 +94,12 @@ export default {
     line-height: var(--sidebar-group-head-height);
     transition: color 0.2s;
     position: relative;
+    border-bottom: var(--sidebar-group-head-border-bottom-width) solid var(--sidebar-group-head-border-bottom-color);
 }
 
 .head:hover {
     color: var(--sidebar-group-head-color-hover);
-    /* background-color: #dde8f0; */
+    background-color: var(--sidebar-group-head-background-hover);
 }
 
 .head[selected] {
@@ -154,7 +155,11 @@ export default {
 }
 
 .body {}
-.title {}
+.title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 .extra {
     position: absolute;
     right: 5px;

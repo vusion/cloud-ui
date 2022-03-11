@@ -1,0 +1,196 @@
+- name: u-navbar-multi
+  title: 导航栏
+  icon: navbar-multi
+  labels:
+    - Navigation
+  description: 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
+  attrs:
+    - name: router
+      title: 使用路由
+      type: boolean
+      default: true
+      description: 是否根据 vue-router 来控制选择项
+    - name: value
+      title: 值
+      type: any
+      sync: true
+      model: true
+      description: 当前选择的值
+    - name: field
+      title: 字段
+      type: string
+      default: text
+      description: 显示文本字段
+      hidden: true
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 是否禁用
+- name: u-navbar-item-multi
+  title: 导航栏项
+  attrs:
+    - name: text
+      title: 文本
+      type: string
+      description: 文本内容
+    - name: value
+      title: 值
+      type: any
+      description: 此项的值
+    - name: icon
+      title: 图标
+      type: icon
+      default: ''
+      description: 图标
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 禁用此项
+    - name: item
+      title: 相关对象
+      type: object
+      description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
+      advanced: true
+    - name: linkType
+      title: 链接类型
+      type: string
+      options:
+        - value: destination
+          title: 页面跳转
+        - value: href
+          title: 普通链接
+        - value: download
+          title: 下载链接
+      default: href
+      description: 链接类型
+      compType: linkTypeSelect
+    - name: hrefAndTo
+      title: 链接
+      type: string
+      description: 链接地址
+      compType: linkHrefInput
+    - name: target
+      title: 打开方式
+      type: string
+      options:
+        - value: _blank
+          title: 新标签页
+        - value: _self
+          title: 当前窗口
+        - value: _parent
+          title: 父级窗口
+          advanced: true
+        - value: _top
+          title: 顶级窗口
+          advanced: true
+      default: _blank
+      description: 链接跳转方式
+    - name: to
+      title: 路由链接
+      type: string, Location
+      description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
+      advanced: true
+    - name: replace
+      title: 替换地址
+      type: boolean
+      default: false
+      description: 需要
+        vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
+        `记录。
+      advanced: true
+    - name: exact
+      title: 精确匹配
+      type: boolean
+      default: false
+      description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
+      advanced: true
+  description: 导航栏的子项目
+- name: u-navbar-divider-multi
+  title: 导航栏分割线
+  description: 导航栏的分割线
+- name: u-navbar-dropdown-multi
+  title: 导航栏下拉菜单
+  attrs:
+    - name: trigger
+      title: 触发方式
+      type: string
+      options:
+        - value: click
+          title: 点击
+        - value: hover
+          title: 悬浮
+        - value: right-click
+          title: 右击
+        - value: double-click
+          title: 双击
+        - value: manual
+          title: 手动
+      default: hover
+      description: 触发方式
+    - name: placement
+      title: 弹出位置
+      type: string
+      options:
+        - value: top
+          title: 上
+        - value: bottom
+          title: 下
+        - value: left
+          title: 左
+        - value: right
+          title: 右
+        - value: top-start
+          title: 上左
+        - value: top-end
+          title: 上右
+        - value: bottom-start
+          title: 下左
+        - value: bottom-end
+          title: 下右
+        - value: left-start
+          title: 左上
+        - value: left-end
+          title: 左下
+        - value: right-start
+          title: 右上
+        - value: right-end
+          title: 右下
+      default: bottom
+      description: 弹出方位
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 是否禁用
+  description: 导航栏下拉菜单
+- name: u-navbar-menu-multi
+  title: 导航菜单
+  description: 导航菜单
+- name: u-navbar-menu-group-multi
+  title: 导航菜单分组
+  description: 导航菜单分组
+- name: u-navbar-menu-item-multi
+  title: 导航菜单项
+  description: 导航菜单项
+- name: u-navbar-menu-divider-multi
+  title: 导航菜单分割线
+  description: 导航菜单分割线
+- name: u-navbar-select-multi
+  title: 导航选择
+  description: 导航选择
+- name: u-navbar-select-group-multi
+  title: 导航选择分组
+  description: 导航选择分组
+- name: u-navbar-select-item-multi
+  title: 导航选择项
+  description: 导航选择项
+- name: u-navbar-select-divider-multi
+  title: 导航选择分割线
+  description: 导航选择分割线

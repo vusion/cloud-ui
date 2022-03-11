@@ -15,7 +15,14 @@
             <span :class="$style.textMonth">{{ monthTextList[showMonth - 1] }}{{ $t('month') }}</span>
             <m-popper trigger="click" placement="bottom-end" :opened.sync="monthvisible" append-to="reference">
                 <ul :class="$style.monthList">
-                    <li :class="$style.listitem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click.stop="monthSelect(month, mindex)">{{ monthTextList[month.value - 1] }}</li>
+                    <li v-for="(month, mindex) in monthCol" 
+                        :key="mindex"
+                        :class="$style.listitem" 
+                        :role="month.value === showMonth" 
+                        :disabled="month.disabled" 
+                        @click.stop="monthSelect(month, mindex)">
+                        {{ monthTextList[month.value - 1] }}
+                    </li>
                 </ul>
             </m-popper>
         </div>
@@ -45,18 +52,41 @@
      <div v-if="currentMode === ''">
         <div v-if="picker === 'quarter'" :class="$style.content" type="quarter">
                 <ul :class="$style.quarterBox">
-                    <li :class="$style.quarterItem" v-for="(quarter, mindex) in quarterCol" :role="quarter.value === showMonth" :disabled="quarter.disabled" @click.stop="monthSelect(quarter, mindex)">{{ $t('quarter') }}{{ quarterTextList[quarter.flag - 1] }}</li>
+                    <li v-for="(quarter, mindex) in quarterCol" 
+                        :key="mindex"
+                        :role="quarter.value === showMonth" 
+                        :disabled="quarter.disabled" 
+                        @click.stop="monthSelect(quarter, mindex)">
+                        {{ $t('quarter') }}{{ quarterTextList[quarter.flag - 1] }}
+                    </li>
                 </ul>
             </div>
         <div v-if="picker === 'month'" :class="$style.content" type="month">
                 <ul :class="$style.monthBox">
-                    <li :class="$style.boxItem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click.stop="monthSelect(month, mindex)">{{ monthTextList[month.value - 1] }}{{ $t('month') }}</li>
+                    <li v-for="(month, mindex) in monthCol" 
+                        :key="mindex"
+                        :class="$style.boxItem"
+                        :role="month.value === showMonth" 
+                        :disabled="month.disabled" 
+                        @click.stop="monthSelect(month, mindex)">
+                        {{ monthTextList[month.value - 1] }}{{ $t('month') }}
+                    </li>
                 </ul>
             </div>
     </div>
     <div :class="$style.content" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
         <div :class="$style.week"><span :class="$style.dayitem" role="week">{{ $t('Sunday') }}</span><span :class="$style.dayitem">{{ $t('Monday') }}</span><span :class="$style.dayitem">{{ $t('Tuesday') }}</span><span :class="$style.dayitem">{{ $t('Wednesday') }}</span><span :class="$style.dayitem">{{ $t('Thursday') }}</span><span :class="$style.dayitem">{{ $t('Friday') }}</span><span :class="$style.dayitem" role="week">{{ $t('Saturday') }}</span></div>
-        <div :class="$style.day"><span v-for="day in days_" :class="$style.item" :sel="getSel(day) ? 'sel' : ''" :disabled="!!isOutOfRange(day)" :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" @click.stop="select(day)">{{ day | format('dd') }}</span></div>
+        <div :class="$style.day">
+            <span v-for="(day, index) in days_" 
+                :key="index"
+                :class="$style.item" 
+                :sel="getSel(day) ? 'sel' : ''" 
+                :disabled="!!isOutOfRange(day)" 
+                :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" 
+                @click.stop="select(day)">
+                {{ day | format('dd') }}
+            </span>
+        </div>
         <slot></slot>
     </div>
 </div>
@@ -168,16 +198,7 @@ export default {
                 this.updateFlag = true;
                 this.showDate = new Date(date);
             },
-        }, // yearCol() {
-        //     const date = this.transformDate(this.showDate);
-        //     const currentYear = date.getFullYear();
-        //     const yearcol = [];
-        //     const yearmin = currentYear - this.yearDiff;
-        //     const yearmax = parseInt(currentYear) + parseInt(this.yearAdd);
-        //     for (let i = yearmin; i <= yearmax; i++)
-        //         yearcol.push(i);
-        //     return yearcol;
-        // },
+        },
     },
     watch: {
         date(newValue) {
@@ -422,8 +443,7 @@ export default {
             } 
 
             const currentYear = date.getFullYear();
-            const monthcol = []; // const mindate = currentYear - this.yearDiff;
-            // const maxdate = parseInt(currentYear) + parseInt(this.yearAdd);
+            const monthcol = [];
             for (let i = 1; i <= 12; i++) {
                 const obj = { value: i };
                 const dateFormat = currentYear + '/' + i;
@@ -545,45 +565,50 @@ this.updateFlag = true;
 .root {
     width: 238px;
     padding: 4px;
-    /* text-align: center; */
-    background: var(--field-background);
-    color: #555;
-    border: 1px solid var(--border-color-base);
-    border-radius: var(--border-radius-base);
+    border: 1px solid var(--calendar-border-color);
+    border-radius: var(--calendar-border-radius);
     box-sizing: content-box;
     user-select: none;
+    background: var(--calendar-background);
 }
+
 .item, .dayitem {
-    width: 32px;
+    width: 30px;
     height: 30px;
     line-height: 30px;
     margin: 1px;
     cursor: var(--cursor-pointer);
     display: inline-block;
     text-align: center;
-    border-radius: 50%;
+    border-radius: var(--calendar-item-border-radius);
+    background: var(--calendar-item-background);
+    color: var(--calendar-item-color);
+    border: 1px solid var(--calendar-item-border-color);
 }
+
 .dayitem[role="week"] {
     color: #f99;
 }
+
 .item:hover {
-    background: var(--background-color-lighter);
-    color: #444;
-    border-color: var(--brand-primary);
+    background: var(--calendar-item-background-hover);
+    color: var(--calendar-item-color-hover);
+    border-color: var(--calendar-item-border-color-hover);
 }
 
 .item[sel="sel"] {
-    background: var(--brand-primary);
-    color: var(--field-background);
+    background: var(--calendar-item-background-selected);
+    color: var(--calendar-item-color-selected);
+    border-color: var(--calendar-item-border-color-selected);
 }
 
 .item[role="muted"] {
-    color: var(--color-light);
+    color: var(--calendar-item-color-muted);
 }
 
 .item[disabled] {
     background: 0 0;
-    color: var(--color-light);
+    color: var(--calendar-item-border-color-disabled);
     cursor: var(--cursor-not-allowed);
 }
 
@@ -621,15 +646,18 @@ this.updateFlag = true;
     cursor: default;
     font-weight: 700;
 }
+
 .root[disabled] .item {
-    background: var(--field-background);
-    color: var(--color-light);
+    background: var(--calendar-item-background-disabled);
+    color: var( --calendar-item-color-disabled);
     cursor: var(--cursor-not-allowed);
 }
+
 .root[disabled] .item[sel="sel"] {
-    background: #eee;
-    color: var(--color-light);
+    background: var(--calendar-item-background-selected-disabled);
+    color: var(--calendar-item-color-selected-disabled);
 }
+
 .day {
     white-space: normal;
 }
@@ -737,7 +765,6 @@ this.updateFlag = true;
     color: var(--color-light);
 }
 
-
 .listitem {
     float: left;
     width: 30px;
@@ -747,22 +774,27 @@ this.updateFlag = true;
     text-align: center;
     cursor: var(--cursor-pointer);
 }
+
 .listitem[role] {
     background-color: var(--brand-primary);
     color: var(--field-background);
     border-radius: 50%;
 }
+
 .listitem[role]:hover {
     background-color: var(--brand-primary);
 }
+
 .listitem[disabled], .listitem[disabled]:hover {
     cursor: var(--cursor-not-allowed);
     background-color: var(--field-background);
     color: var(--color-light);
 }
+
 .listitem:hover {
     background: var(--background-color-lighter);
 }
+
 .month {
     float: right;
     width: 60px;
@@ -775,9 +807,11 @@ this.updateFlag = true;
     cursor: var(--cursor-pointer);
     box-sizing: border-box;
 }
+
 .textMonth {
     position: relative;
 }
+
 .textMonth::after {
     position: absolute;
     icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg');
@@ -787,6 +821,7 @@ this.updateFlag = true;
     top: 0;
     line-height: 16px;
 }
+
 .yearitem[disabled] {
     color: var(--color-light);
 }
@@ -798,6 +833,7 @@ this.updateFlag = true;
 .icon[role="next"]::before {
     icon-font: url('../i-icon.vue/assets/angle-right.svg');
 }
+
 .iconBox {
     display: flex;
     height: 20px;

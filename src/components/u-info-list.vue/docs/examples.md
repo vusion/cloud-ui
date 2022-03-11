@@ -75,7 +75,7 @@
 ``` html
 <u-info-list>
     <u-info-list-group title="基本信息">
-        <template slot="extra">
+        <template #extra>
             <u-link>设置</u-link>
         </template>
         <u-info-list-item label="VPC名称">defaultVPC</u-info-list-item>

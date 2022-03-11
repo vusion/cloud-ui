@@ -5,7 +5,9 @@
 </template>
 
 <script>
-export default { name: 'u-table' };
+export default {
+    name: 'u-table',
+};
 </script>
 
 <style module>
@@ -44,7 +46,7 @@ export default { name: 'u-table' };
 .root thead th {
     text-align: left;
     color: var(--table-head-color);
-    font-weight: var(--table-head-font-weight);
+    font-weight: normal;
 }
 
 .root tbody tr {

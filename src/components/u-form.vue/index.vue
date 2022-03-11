@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" @submit.prevent :layout="layout">
+<div :class="$style.root" @submit.prevent :layout="layoutValue">
     <slot></slot>
 </div>
 </template>
@@ -20,6 +20,7 @@ export default {
         size: { type: String, default: 'normal' },
         labelSize: { type: String, default: 'normal' },
         collapsible: { type: Boolean, default: false },
+        repeat: { type: [String, Number], default: null },
     },
     data() {
         return {
@@ -31,6 +32,13 @@ export default {
         extraSlots() {
             return this.validatorVMs.some((itemVM) => itemVM.$slots.extra);
         },
+        layoutValue() {
+            if (this.repeat > 0) {
+                return 'inline'
+            } else {
+                return this.layout
+            }
+        }
     },
     watch: {
         model: {
@@ -99,7 +107,7 @@ export default {
 }
 
 .root[layout="inline"] .item:not(:last-child) {
-    margin-right: var(--space-base);
+    padding-right: var(--space-base);
     margin-bottom: var(--space-base);
 }
 
@@ -120,7 +128,7 @@ export default {
 }
 
 .root[gap="large"][layout="inline"] .item:not(:last-child) {
-    margin-right: var(--space-large);
+    padding-right: var(--space-large);
 }
 
 .root[gap="small"][layout="block"] .item:not(:last-child) {
@@ -128,8 +136,38 @@ export default {
 }
 
 .root[gap="small"][layout="inline"] .item:not(:last-child) {
-    margin-right: var(--space-small);
+    padding-right: var(--space-small);
 }
 
-.root[gap="small"][layout="inline"] .item > .item_label { padding-right: 10px; }
+.root[gap="small"][layout="inline"] .item > .item_label { padding-right: var(--space-small); }
+
+/* gap转换成gap-height, gap-width, 保留gap为了历史遗留组件的样式兼容问题 */
+.root[gap-height="large"][layout="block"] .item:not(:last-child) {
+  margin-bottom: var(--form-item-margin-bottom-large);
+}
+
+.root[gap-width="large"][layout="inline"] .item:not(:last-child) {
+  margin-right: var(--space-large);
+}
+
+.root[gap-width="none"][layout="inline"] .item:not(:last-child) {
+  margin-right: var(--form-item-margin-bottom-none);
+}
+
+.root[gap-height="small"][layout="block"] .item:not(:last-child) {
+  margin-bottom: var(--form-item-margin-bottom-small);
+}
+
+.root[gap-height="none"][layout="block"] .item:not(:last-child) {
+  margin-bottom: var(--form-item-margin-bottom-none);
+}
+
+.root[gap-width="small"][layout="inline"] .item:not(:last-child) {
+  margin-right: var(--space-small);
+}
+
+.root[gap-width="small"][layout="inline"] .item > .item_label {
+  padding-right: var(--space-small);
+}
+
 </style>

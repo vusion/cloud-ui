@@ -1,31 +1,34 @@
 <template>
-<div :class="$style.root" ref="element" v-click-outside="handleClose">
-    <div :class="$style.head">
+<div :class="$style.root" ref="element">
+    <div :class="[$style.head, preIcon ? $style.preIconHeader: '', suffixIcon ? $style.suffixIconHeader: '']">
+        <i-ico v-if="preIcon" :name="preIcon" :class="[$style.btnicon, $style.preIcon]" notext></i-ico>
         <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
-            @focus="toggle(true)" @change="onInput($event)">
+            @click.stop="toggle(true)" @change="onInput($event)" @focus="onFocus" @blur="onBlur">
          <span v-if="dateTime && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
             <i :class="[$style.closeIcon]"></i>
         </span>
+        <i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.btnicon, $style.suffixIcon]" notext></i-ico>
     </div>
-    <div :class="$style.body" v-show="open">
-        <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate" @select="outRangeDateTime($event.date, showTime)">
-            <u-time-picker :class="$style.timePicker" :readonly="readonly" :time="showTime" width="50" :min-time="minTime" :max-time="maxTime" @change="outRangeDateTime(showDate, $event.time)"></u-time-picker>
-                <slot name="footer">
-                    <div :class="$style.footer">
-                        <u-linear-layout justify="end">
-                            <u-button size="small" @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ $t('now') }}</u-button>
-                            <u-button size="small" @click="toggle(false)" color="primary" :readonly="readonly" :disabled="disabled">{{ $t('submit') }}</u-button>
-                        </u-linear-layout>
-                    </div>
-                </slot>
-        </u-calendar>
-    </div>
+    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
+        <div :class="$style.body" @click.stop>
+            <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate" @select="outRangeDateTime($event.date, showTime)">
+                <u-time-picker :class="$style.timePicker" :readonly="readonly" :time="showTime" width="50" :min-time="minTime" :max-time="maxTime" @change="outRangeDateTime(showDate, $event.time)"></u-time-picker>
+                    <slot name="footer">
+                        <div :class="$style.footer">
+                            <u-linear-layout justify="end">
+                                <u-button size="small" @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ $t('now') }}</u-button>
+                                <u-button size="small" @click="toggle(false)" color="primary" :readonly="readonly" :disabled="disabled">{{ $t('submit') }}</u-button>
+                            </u-linear-layout>
+                        </div>
+                    </slot>
+            </u-calendar>
+        </div>
+    </m-popper>
     <slot></slot>
 </div>
 </template>
 
 <script>
-import { clickOutside } from '../../directives';
 import { format, transformDate } from '../../utils/date';
 import MField from '../m-field.vue';
 import i18n from './i18n';
@@ -46,9 +49,16 @@ import i18n from './i18n';
 export default {
     name: 'u-date-time-picker',
     i18n,
-    directives: { clickOutside },
     mixins: [MField],
     props: {
+        preIcon: { 
+            type: String, 
+            default: 'calendar'
+        },
+        suffixIcon: { 
+            type: String, 
+            default: ''
+        },
         disabled: { type: Boolean, default: false },
         placeholder: {
             type: String,
@@ -66,6 +76,19 @@ export default {
         yearAdd: { type: [String, Number], default: 20 },
         converter: { type: String, default: 'json' },
         clearable: { type: Boolean, default: false },
+        appendTo: {
+            type: String,
+            default: 'reference',
+            validator: (value) => ['body', 'reference'].includes(value),
+        },
+        opened: { type: Boolean, default: false },
+        alignment: {
+            type: String,
+            default: 'left',
+            validator(value) {
+                return ['left', 'right'].includes(value);
+            },
+        },
     },
     data() {
         return {
@@ -106,6 +129,12 @@ export default {
                 disabled = date > this.transformDate(currentMaxDate);
             }
             return disabled;
+        },
+        placement() {
+            if (this.alignment === 'left')
+                return 'bottom-start';
+            else if (this.alignment === 'right')
+                return 'bottom-end';
         },
     },
     watch: {
@@ -150,6 +179,16 @@ export default {
             'update',
             this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
         );
+        if(this.minDate)
+            this.minTime = this.format(this.minDate, 'HH:mm:ss');
+        if(this.maxDate)
+            this.maxTime = this.format(this.maxDate, 'HH:mm:ss');
+    },
+    mounted() {
+        this.autofocus && this.$refs.input.focus();
+        // 在编辑器里不要打开
+        if(!this.$env.VUE_APP_DESIGNER)
+            this.toggle(this.opened);
     },
     methods: {
         clearValue() {
@@ -221,6 +260,7 @@ date = new Date(date);
                 sender: this,
                 date: new Date(date).getTime(),
             });
+            this.preventBlur = true;
         },
         /**
          * @method onDateTimeChange(date, time) 日期或时间改变后更新日期时间
@@ -277,16 +317,10 @@ time = '00:00:00';
             );
         },
         toggle(value) {
-            if (this.readonly)
-                this.open = false;
-            else
-                this.open = value;
+            this.$refs.popper && this.$refs.popper.toggle(value);
         },
         format,
         transformDate,
-        handleClose() {
-            this.open = false;
-        },
         getMaxDate(value) {
             value = value || this.maxDate;
             const minTime = new Date(this.minDate).getTime();
@@ -296,6 +330,31 @@ time = '00:00:00';
             else
                 return this.maxDate;
         },
+        /**
+         * @method toggle(flag) 是否显示日历组件
+         * @public
+         * @param {flag} true 显示 false 隐藏
+         */
+        onToggle($event) {
+            this.$emit('toggle', $event);
+            if($event && $event.opened){
+                this.preventBlur = true;
+            }
+        },
+        onBlur(e) { //只有autofocus的input的blur
+            if (this.preventBlur)
+                return (this.preventBlur = false);
+            this.$emit('blur', e, this);
+        },
+        onFocus(e) {
+            this.$emit('focus', e, this);
+        },
+        onPopperClose(e){
+            this.$emit('blur', e, this);
+            setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
+                this.preventBlur = false;
+            }, 0);
+        }
     },
 };
 </script>
@@ -305,49 +364,82 @@ time = '00:00:00';
     display: inline-block;
     position: relative;
     max-width: 100%; /* 防止表格等小的地方超出区域 */
-    width: 170px;
+    width: var(--datetime-input-width);
 }
+
 .input {
     box-sizing: border-box;
     margin: 0;
-    padding: 0 4px;
+    padding: 0 var(--datetime-input-padding-x);
     vertical-align: middle;
-    border: 1px solid var(--border-color-base);
+    border: var(--datetime-input-border-width) solid var(--datetime-input-border-color);
     color: #555;
     background: var(--field-background);
-    border-radius: 3px;
+    border-radius: var(--datetime-input-border-radius);
     height: 34px;
     line-height: 34px;
     outline: none;
     width: 100%;
+    height: var(--datetime-input-height);
+}
+
+.preIconHeader .input {
+    padding-left: calc(var(--datetime-input-padding-x) + 26px);
+}
+
+.suffixIconHeader .input {
+    padding-right: calc(var(--datetime-input-padding-x) + 26px);
 }
 
 .placeholder, .input::placeholder {
     /* Removes placeholder transparency in Firefox. */
     opacity: 1;
     font-size: inherit;
-    color: var(--input-placeholder-color);
+    color: var(--datetime-input-placeholder-color);
 }
 
-.body {
-    position: absolute;
-    z-index: 100;
-    width: 100%;
-    top: 100%;
-    margin-top: 2px;
-    min-width: 160px;
-}
 .input[disabled] {
     cursor: var(--cursor-not-allowed);
     background: #eee;
     color: var(--color-light);
 }
+
+.input:focus {
+    outline: var(--focus-outline);
+    border-color: var(--datetime-input-border-color-focus);
+    box-shadow: var(--datetime-input-box-shadow-focus);
+}
+
+.head {
+    position: relative;
+}
+
+.btnicon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.preIcon {
+    left: 12px;
+    color: var(--datetime-input-pre-icon-color);
+}
+
+.suffixIcon {
+    right: 12px;
+    color: var(--datetime-input-after-icon-color);
+}
+
+.head:hover .input {
+    border-color: var(--datetime-input-border-color-focus);
+}
+
 .timePicker {
-    /* text-align: center; */
     width: 100%;
     box-sizing: border-box;
     padding-left: 32px;
 }
+
 .footer {
     padding: 15px 0 5px;
 }
@@ -360,13 +452,20 @@ time = '00:00:00';
     transform: translateY(-50%);
 }
 
+.suffixIconHeader .wrap  {
+    right: calc(10px + 26px);
+}
+
 .close {
     cursor: var(--cursor-pointer);
 }
 
 .closeIcon:hover {
-    color: var(--color-light);
     background-color: #ebedef;
+}
+
+.closeIcon:hover::before {
+    color: var(--datetime-input-icon-color-hover);
 }
 
 .closeIcon::before {
@@ -380,7 +479,7 @@ time = '00:00:00';
     margin: auto;
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
     cursor: var(--cursor-pointer);
-    color: var(--input-clearable-color);
+    color: var(--datetime-input-clear-icon-color);
 }
 
 </style>

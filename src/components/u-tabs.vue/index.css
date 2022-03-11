@@ -1,4 +1,6 @@
-.root {}
+.root {
+    font-size: var(--tabs-font-size);
+}
 
 .head {
     user-select: none;
@@ -246,20 +248,20 @@
 }
 
 .root[appear="line"] .item[selected] {
-    color: var(--brand-primary);
+    color: var(--tabs-item-color-selected);
 }
 
 .root[appear="line"] .item::after {
     display: block;
     content: '';
-    position: absolute;
-    height: var(--tabs-item-line-width);
-    bottom: 0;
-    background: var(--brand-primary);
     width: 0;
-    left: 50%;
+    height: var(--tabs-item-line-width);
+    background: var(--tabs-item-line-background);
     transform: translateX(-50%);
     transition: width var(--transition-duration-base);
+    position: absolute;
+    left: 50%;
+    bottom: 0;
 }
 
 .root[appear="line"] .item[selected]::after {

@@ -10,9 +10,9 @@
     - name: text
       title: 文本
       type: string
-      description: 文本内容
+      description: 显示文本内容
     - name: color
-      title: 设置颜色
+      title: 颜色
       type: string
       options:
         - value: default
@@ -26,9 +26,9 @@
         - value: error
           title: 错误色
       default: default
-      description: 设置颜色
+      description: 设置文本颜色
     - name: size
-      title: 大小
+      title: 尺寸
       type: string
       options:
         - value: small
@@ -40,14 +40,14 @@
         - value: huge
           title: 巨大
       default: normal
-      description: 设置尺寸
+      description: 设置标签大小
     - name: removable
       title: 是否显示删除图标
       type: boolean
       default: false
-      description: 是否显示删除图标
+      description: ""
     - name: display
-      title: 排列
+      title: 展示方式
       type: string
       options:
         - value: inline
@@ -55,7 +55,7 @@
         - value: block
           title: 块级
       default: inline
-      description: 展示方式
+      description: 行内展示，或块级换行展示
   events:
     - name: $listeners
       kind: trigger

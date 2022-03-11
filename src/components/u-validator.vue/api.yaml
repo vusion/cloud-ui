@@ -55,6 +55,16 @@
       default: false
       description: 是否采取手动验证。如果为`true`，则 UValidator
         将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证。
+    - name: append-to
+      title: 弹出层展示位置
+      type: string
+      default: reference
+      description: 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中
+      options:
+        - value: reference
+          title: 引用元素下
+        - value: body
+          title: 全局body
   computed:
     - name: touched
       title: 触碰
@@ -78,6 +88,60 @@
   events:
     - name: validate
       title: 验证后
+      description: 对于第一个 Field 或者所有子 UValidator：
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ValidateEvent"
+        - name: $event.trigger
+          type: string
+          description: 本次验证的触发方式
+        - name: $event.valid
+          type: boolean
+          description: 验证是否通过
+        - name: $event.touched
+          type: boolean
+          description: 用户是否触碰
+        - name: $event.dirty
+          type: boolean
+          description: 用户是否修改值
+        - name: $event.firstError
+          type: string
+          description: 第一个错误提示消息
+        - name: senderVM
+          type: UValidator
+          description: 发送事件实例
+    - name: blur-valid
+      title: 失焦验证通过后
+      description: 对于第一个 Field 或者所有子 UValidator：
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ValidateEvent"
+        - name: $event.trigger
+          type: string
+          description: 本次验证的触发方式
+        - name: $event.valid
+          type: boolean
+          description: 验证是否通过
+        - name: $event.touched
+          type: boolean
+          description: 用户是否触碰
+        - name: $event.dirty
+          type: boolean
+          description: 用户是否修改值
+        - name: $event.firstError
+          type: string
+          description: 第一个错误提示消息
+        - name: senderVM
+          type: UValidator
+          description: 发送事件实例
+    - name: blur-invalid
+      title: 失焦验证不通过后
       description: 对于第一个 Field 或者所有子 UValidator：
       params:
         - name: $event

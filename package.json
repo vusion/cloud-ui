@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.14.2",
+  "version": "0.14.4-beta1",
   "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -10,6 +10,7 @@
   ],
   "main": "./index.js",
   "scripts": {
+    "update:description": "node ./scripts/excel2yaml.js",
     "dev": "vue-cli-service doc --port 9001",
     "validator": "node ./scripts/lcap/validator.js --HELP=true",
     "dev:designer": "cross-env VUE_APP_DESIGNER=true vue-cli-service doc --port 9001",

@@ -1341,34 +1341,36 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | any |  |  | 当前选择的值 |
+| value.sync, v-model | any |  |  |  |
 | text-field | string |  | `'text'` | 选项文本的字段名 |
 | value-field | string |  | `'value'` | 选项值的字段名 |
-| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 选择框的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。 |
-| cancelable | boolean |  | `false` | 是否可以取消选择 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 选择框的数据源，数据集对象或者返回数据集的逻辑 |
+| cancelable | boolean |  | `false` |  |
 | multiple | boolean |  | `false` | 是否可以多选 |
-| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象 |
-| placeholder | string |  | `'请选择'` | 选择框的占位符。 |
-| loading-text | string |  | `'加载中...'` | 正在加载中的文字。使用分页加载时才会出现。 |
-| empty-text | string |  | `'暂无数据'` | 暂无数据时的文字。 |
-| empty-disabled | boolean |  | `false` | 没有数据时，自动禁用。 |
-| initial-load | boolean |  | `true` | 是否在初始时立即加载。 |
-| pageable | boolean |  | `false` | 是否使用分页功能加载更多。 |
-| remote-paging | boolean |  | `false` | 是否使用后端分页。 |
-| page-size.sync | number |  | `50` | 分页大小。 |
-| clearable | boolean |  | `false` | 是否有清除按钮。 |
-| filterable | boolean |  | `false` | 是否使用输入框进行筛选。 |
-| remote-filtering | boolean |  | `false` | 是否使用后端筛选。 |
-| match-method | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'includes'` | 过滤时的匹配方法。 |
+| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。 |
+| placeholder | string |  | `'请选择'` | 选择框的占位符 |
+| loading-text | string |  | `'加载中...'` | 正在加载中的文字，使用分页加载时才会出现 |
+| empty-text | string |  | `'暂无数据'` | 暂无数据时的文字 |
+| empty-disabled | boolean |  | `false` | 没有数据时，自动禁用 |
+| initial-load | boolean |  | `true` | 是否在初始时立即加载 |
+| pageable | boolean |  | `false` | 是否使用分页功能加载更多 |
+| remote-paging | boolean |  | `false` | 是否使用后端分页 |
+| page-size.sync | number |  | `50` |  |
+| clearable | boolean |  | `false` | 是否有清除按钮 |
+| filterable | boolean |  | `false` | 是否使用输入框进行筛选 |
+| remote-filtering | boolean |  | `false` | 是否使用后端筛选 |
+| match-method | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'includes'` | 过滤时的匹配方法 |
 | case-sensitive | string \| Function |  | `'includes'` | 过滤时大小写是否敏感 |
-| auto-complete | boolean |  | `false` | 是否开启自动补充模式，用于增加列表中没有的项。 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
+| auto-complete | boolean |  | `false` | 是否开启自动补充模式，用于增加列表中没有的项 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
+| width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置选择框宽度大小 |
+| height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置选择框高度大小 |
 | opened.sync | boolean |  | `false` | 切换弹出/关闭状态 |
-| autofocus | boolean |  | `false` | 自动获取焦点 |
-| prefix | string | `[object Object]`<br/>`[object Object]` | `''` | 前缀图标 |
-| suffix | string | `[object Object]`<br/>`[object Object]` | `''` | 后缀图标 |
+| autofocus | boolean |  | `false` |  |
+| prefix | string | `[object Object]`<br/>`[object Object]` | `''` |  |
+| suffix | string | `[object Object]`<br/>`[object Object]` | `''` |  |
+| append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
 
 ### Slots
 
@@ -1503,6 +1505,15 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | object | 鼠标事件对象 |
+
+#### @blur
+
+失去焦点时触发。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | FocusEvent | 原生事件对象 |
+| senderVM |  | 发送事件实例 |
 
 Methods
 

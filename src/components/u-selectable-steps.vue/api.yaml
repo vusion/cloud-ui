@@ -18,12 +18,22 @@
       title: 只读
       type: boolean
       default: false
-      description: 是否只读。非只读的情况下可以选择
+      description: 是否只读，非只读的情况下可以选择
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
+    - name: direction
+      title: 步骤条方向
+      type: string
+      options:
+        - value: horizontal
+          title: 横向
+        - value: vertical
+          title: 竖向
+      default: horizontal
+      description: ""
     - name: size
       title: 尺寸
       type: string
@@ -105,16 +115,21 @@
       title: 标题
       type: string
       default: null
-      description: 步骤名
+      description: 步骤标题文本
+    - name: desc
+      title: 描述信息
+      type: string
+      default: ""
+      description: 步骤描述信息
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用此标签页
+      description: ""
   slots:
     - name: default
       plus-empty: true
-      description: 插入文本或 HTML。
+      description: 插入文本或 HTML
     - name: title
-      description: 自定义标题文本。
+      description: 自定义标题文本
   description: 步骤条项

@@ -23,40 +23,40 @@
       title: 占位符
       type: string
       default: null
-      description: 为空时提示内容
+      description: 为空时的提示文本
     - name: minlength
       title: 最小长度
       type: number
       default: null
-      description: 原生属性
+      description: ""
       advanced: true
     - name: maxlength
       title: 最大长度
       type: number
       default: null
-      description: 原生属性
+      description: ""
     - name: spellcheck
       title: 拼写检查
       type: boolean
       default: null
-      description: 原生属性
+      description: ""
       advanced: true
     - name: autofocus
       title: 自动获取焦点
       type: boolean
       default: null
-      description: 是否自动获取焦点
-      advanced: true
+      description: ""
+      designer-value: false
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
     - name: size
       title: 尺寸
       type: string
@@ -72,7 +72,7 @@
         - value: normal
           title: 正常
       default: normal
-      description: 设置尺寸
+      description: 设置多行输入框大小
     - name: resize
       title: 调整大小
       type: string

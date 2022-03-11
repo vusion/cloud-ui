@@ -117,16 +117,16 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| page.sync | number |  | `1` | 当前页码 |
-| total | number |  | `11` | 总页数 |
+| page.sync | number |  | `1` |  |
+| total | number |  | `11` |  |
 | side | number |  | `2` | 当页数多时，两边恒定显示的数量 |
 | around | number |  | `5` | 当页数多时，中间恒定显示的数量 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
 | total-items | number |  |  | 总条数 |
-| page-size.sync | number |  | `20` | 每页条数 |
+| page-size.sync | number |  | `20` |  |
 | page-size-options | Array |  | `[10, 20, 50]` | 每页条数选项列表 |
-| show-total | boolean |  | `false` | 是否显示总条目数 |
+| show-total | boolean |  | `false` |  |
 | show-sizer | boolean |  | `false` | 是否显示切换每页条数选项 |
 | show-jumper | boolean |  | `false` | 是否显示页面跳转输入框 |
 

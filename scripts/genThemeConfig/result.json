@@ -1,586 +1,1091 @@
 [
     {
-        "name": "u-crumb",
-        "properties": {
-            "--crumb-color-link": { "type": "input", "default": "var(--brand-primary)" },
-            "--crumb-color-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--crumb-space-x": { "type": "input", "default": "6px" }
-        }
+        "id": 0,
+        "title": "快速自定义样式",
+        "toPosition": "quickSetting",
+        "items": [
+            {
+                "id": 1,
+                "title": "主题颜色",
+                "name": "color-style",
+                "toPosition": "colorStyle",
+                "type": [],
+                "cssProperty": {},
+                "preview": {
+                    "template": "<div style=\"height:100%;background: #F7F8FA;\">\n        <u-text :class=\"[$style.areaTitle, $style.base]\">主题颜色预览</u-text><br>\n        <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 16px 0;\">以按钮组件为例</div>\n        <u-button :class=\"$style.btn\" style=\"background: var(--brand-primary);\">主色</u-button>\n        <u-button :class=\"$style.btn\" style=\"background: var(--brand-success);\">成功</u-button>\n        <u-button :class=\"$style.btn\" style=\"background: var(--brand-warning);\">告警</u-button>\n        <u-button :class=\"$style.btn\" style=\"background: var(--brand-error);\">错误</u-button>\n        <u-button :class=\"$style.btn\" style=\"background: var(--brand-disabled);color:#999999;\">禁用</u-button>\n    </div>",
+                    "style": ".base {\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n}\n\n.areaTitle {\n    width: 108px;\n    height: 18px;\n    font-size: 18px;\n    line-height: 18px;\n    color: #333333;\n}\n\n.sectionTitle {\n    width: 320px;\n    height: 24px;\n    font-size: 14px;\n    line-height: 24px;\n    color: #666666;\n}\n\n.btn {\n    width: 100px;\n    height: 32px;\n    margin-right: 10px;\n    margin-bottom: 12px;\n    mix-blend-mode: normal;\n    border-radius: 4px;\n    color: white;\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n    font-size: 14px;\n    border: 0;\n    box-shadow: none;\n}"
+                }
+            },
+            {
+                "id": 2,
+                "title": "导航",
+                "name": "nav-bar",
+                "toPosition": "navBar",
+                "type": [],
+                "cssProperty": {},
+                "preview": {
+                    "template": " <div style=\"height:100%;background: #F7F8FA;\">\n        <u-text :class=\"[$style.areaTitle, $style.base]\">视觉风格预览</u-text><br>\n        <div>\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 16px 0;\">顶部导航</div>\n            <u-navbar style=\"margin-bottom: 16px;\">\n                <u-navbar-item slot=\"left\">应用名称</u-navbar-item>\n                <u-navbar-item>菜单项 1</u-navbar-item>\n                <u-navbar-item>菜单项 2</u-navbar-item>\n            </u-navbar>\n        </div>\n        <div>\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 16px 0;\">侧边导航</div>\n            <u-sidebar value=\"1\" :router=\"false\">\n                <u-sidebar-item icon=\"calendar\" value=\"1\">菜单项 1</u-sidebar-item>\n                <u-sidebar-item value=\"2\">菜单项 2</u-sidebar-item>\n                <u-sidebar-divider></u-sidebar-divider>\n                <u-sidebar-item value=\"3\">菜单项 3</u-sidebar-item>\n            </u-sidebar>\n        </div>\n        <div :class=\"$style.table\">\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 0 0 16px;\">表单</div>\n            <u-form layout=\"inline\" label-size=\"auto\" style=\"background:white;padding: 8px;\">\n                <u-grid-layout>\n                    <u-grid-layout-row :repeat=\"1\">\n                        <u-grid-layout-column>\n                            <div style=\"height: 36px;line-height:36px;background: var(--background-color-base);text-indent: 15px;\">标题</div>\n                        </u-grid-layout-column>\n                    </u-grid-layout-row>\n                </u-grid-layout>\n                <u-grid-layout gap=\"normal none\">\n                    <u-grid-layout-row :repeat=\"2\">\n                        <u-grid-layout-column style=\"padding-right: 12px;\">\n                            <u-form-item label=\"名称\" style=\"margin-bottom: var(--space-base);width: 100%;\">\n                                <u-input maxlength=\"20\" placeholder=\"请输入\" style=\"border-radius: var(--border-radius-base);border-color: var(--border-color-base);\"></u-input>\n                            </u-form-item>\n                        </u-grid-layout-column>\n                        <u-grid-layout-column style=\"padding-left: 12px;\">\n                            <u-form-item label=\"名称\" style=\"margin-bottom: var(--space-base);width: 100%;\">\n                                <u-input maxlength=\"20\" placeholder=\"请输入\" style=\"border-radius: var(--border-radius-base);border-color: var(--border-color-base);\"></u-input>\n                            </u-form-item>\n                        </u-grid-layout-column>\n                    </u-grid-layout-row>\n                </u-grid-layout>\n            </u-form>\n        </div>\n    </div>",
+                    "style":".base {\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n}\n\n.areaTitle {\n    width: 108px;\n    height: 18px;\n    font-size: 18px;\n    line-height: 18px;\n    color: #333333;\n}\n\n.sectionTitle {\n    width: 320px;\n    height: 24px;\n    font-size: 14px;\n    line-height: 24px;\n    color: #666666;\n}\n\n.table {\n    margin-top: 16px;\n}\n\n.table [class^=\"u-form_item_label\"] {\n    padding-right: 12px !important;\n    height: 14px;\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n    font-size: 14px;\n    line-height: 14px;\n    color: #999999;\n}\n\n.table [class^=\"u-form_item_field__\"] {\n    width: calc(100% - 40px);\n}"    
+                }
+            },
+            {
+                "id": 3,
+                "title": "字体",
+                "name": "font",
+                "toPosition": "font",
+                "type": [],
+                "cssProperty": {},
+                "preview": {
+                    "template": "<div style=\"height:100%;background: #F7F8FA;\">\n        <u-text :class=\"[$style.areaTitle, $style.base]\">字体预览</u-text><br>\n        <div :class=\"$style.section\">\n            <u-text :class=\"[$style.sectionTitle, $style.base]\">文本</u-text><br>\n            <u-text :class=\"$style.base\" style=\"font-family: var(--font-family-zh-CN);font-size: var(--font-size-base);line-height: 22px;color: var(--color-base);\">\n                轻舟低代码应用开发平台是面向微服务架构设计和实践的低代码平台，提供基于接口设计的可视化搭建能力，拥有丰富可复用的IT资产，并提供一键发布等特色功能，助力企业快速开发应用。\n            </u-text>\n            <u-link>超链接</u-link>\n        </div>\n    </div>",
+                    "style": ".base {\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n}\n\n.areaTitle {\n    width: 108px;\n    height: 18px;\n    font-size: 18px;\n    line-height: 18px;\n    color: #333333;\n}\n\n.section {\n    margin: 16px 0 32px 0;\n}\n\n.sectionTitle {\n    display: inline-block;\n    width: 320px;\n    height: 24px;\n    margin-bottom: 16px;\n    font-size: 14px;\n    line-height: 24px;\n    color: #666666;\n}"
+                }
+            }
+        ]
     },
     {
-        "name": "u-panel",
-        "properties": {
-            "--panel-border-width": { "type": "input", "default": "1px" },
-            "--panel-border-radius": { "type": "input", "default": "var(--border-radius-base)" },
-            "--panel-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--panel-border-color": { "type": "input", "default": "var(--border-color-light)" },
-            "--panel-box-shadow": { "type": "input", "default": "var(--box-shadow-large)" },
-            "--panel-head-padding": { "type": "input", "default": "var(--space-base)" },
-            "--panel-body-padding": { "type": "input", "default": "var(--space-base)" },
-            "--panel-title-font-size": { "type": "input", "default": "18px" },
-            "--panel-title-font-weight": { "type": "input", "default": "bold" }
-        }
-    },
-    {
-        "name": "u-collapse",
-        "properties": {
-            "--collapse-border-width": { "type": "input", "default": "var(--border-width-base)" },
-            "--collapse-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--collapse-border-radius": { "type": "input", "default": "var(--border-radius-base)" },
-            "--collapse-item-head-background": { "type": "input", "default": "var(--background-color-light)" },
-            "--collapse-item-head-color-disabled": { "type": "input", "default": "var(--brand-disabled-dark)" },
-            "--collapse-item-head-padding": { "type": "input", "default": "10px 20px 10px 40px" },
-            "--collapse-item-expander-size": { "type": "input", "default": "42px" },
-            "--collapse-item-expander-color": { "type": "input", "default": "var(--color-light)" },
-            "--collapse-item-expander-color-disabled": { "type": "input", "default": "var(--brand-disabled-dark)" },
-            "--collapse-item-expander-font-size": { "type": "input", "default": "18px" },
-            "--collapse-item-content-padding": { "type": "input", "default": "20px" },
-            "--collapse-transition-duration": { "type": "input", "default": "var(--transition-duration-base)" }
-        }
-    },
-    {
-        "name": "u-text",
-        "properties": {
-            "--text-font-size": { "type": "input", "default": "var(--font-size-base)" },
-            "--text-font-size-small": { "type": "input", "default": "var(--font-size-small)" },
-            "--text-font-size-large": { "type": "input", "default": "calc(var(--font-size-base) * (18 / 14))" },
-            "--text-color-primary": { "type": "input", "default": "var(--brand-primary)" },
-            "--text-color-secondary": { "type": "input", "default": "var(--color-light)" },
-            "--text-color-success": { "type": "input", "default": "var(--brand-success)" },
-            "--text-color-warning": { "type": "input", "default": "var(--brand-warning)" },
-            "--text-color-error": { "type": "input", "default": "var(--brand-error)" },
-            "--text-color-disabled": { "type": "input", "default": "var(--brand-disabled-dark)" }
-        }
-    },
-    {
-        "name": "u-link",
-        "properties": {
-            "--link-color": { "type": "input", "default": "#337eff" },
-            "--link-color-success": { "type": "input", "default": "var(--brand-success)" },
-            "--link-color-warning": { "type": "input", "default": "var(--brand-warning)" },
-            "--link-color-error": { "type": "input", "default": "var(--brand-error)" },
-            "--link-color-danger": { "type": "input", "default": "var(--brand-danger)" },
-            "--link-color-disabled": { "type": "input", "default": "var(--brand-disabled-dark)" }
-        }
-    },
-    {
-        "name": "u-button",
-        "properties": {
-            "--button-height": { "type": "input", "default": "var(--height-base)" },
-            "--button-height-mini": { "type": "input", "default": "var(--height-mini)" },
-            "--button-height-small": { "type": "input", "default": "var(--height-small)" },
-            "--button-height-large": { "type": "input", "default": "var(--height-large)" },
-            "--button-padding-y": { "type": "input", "default": "0px" },
-            "--button-padding-x": { "type": "input", "default": "30px" },
-            "--button-padding-x-mini": { "type": "input", "default": "8px" },
-            "--button-padding-x-small": { "type": "input", "default": "12px" },
-            "--button-padding-x-large": { "type": "input", "default": "50px" },
-            "--button-padding-x-huge": { "type": "input", "default": "64px" },
-            "--button-font-size": { "type": "input", "default": "inherit" },
-            "--button-font-size-mini": { "type": "input", "default": "var(--font-size-small)" },
-            "--button-font-size-small": { "type": "input", "default": "inherit" },
-            "--button-font-size-large": { "type": "input", "default": "var(--font-size-large)" },
-            "--button-border-width": { "type": "input", "default": "var(--border-width-base)" },
-            "--button-border-radius": { "type": "input", "default": "var(--border-radius-base)" },
-            "--button-background": { "type": "input", "default": "white" },
-            "--button-background-hover": { "type": "input", "default": "white" },
-            "--button-background-active": { "type": "input", "default": "white" },
-            "--button-background-disabled": { "type": "input", "default": "white" },
-            "--button-background-primary": { "type": "input", "default": "var(--brand-primary)" },
-            "--button-background-primary-hover": { "type": "input", "default": "var(--brand-primary-light)" },
-            "--button-background-primary-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--button-background-danger": { "type": "input", "default": "var(--brand-error)" },
-            "--button-background-danger-hover": { "type": "input", "default": "var(--brand-error-light)" },
-            "--button-background-danger-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--button-color": { "type": "input", "default": "var(--color-base)" },
-            "--button-color-hover": { "type": "input", "default": "var(--brand-primary)" },
-            "--button-color-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--button-color-primary": { "type": "input", "default": "white" },
-            "--button-color-primary-hover": { "type": "input", "default": "var(--button-color-primary)" },
-            "--button-color-primary-disabled": { "type": "input", "default": "white" },
-            "--button-color-danger": { "type": "input", "default": "white" },
-            "--button-color-danger-hover": { "type": "input", "default": "var(--button-color-danger)" },
-            "--button-color-danger-disabled": { "type": "input", "default": "white" },
-            "--button-border-color": { "type": "input", "default": "var(--border-color-dark)" },
-            "--button-border-color-hover": { "type": "input", "default": "var(--brand-primary)" },
-            "--button-border-color-disabled": { "type": "input", "default": "var(--border-color-dark)" },
-            "--button-box-shadow-focus": { "type": "input", "default": "0 0 0 2px rgba(80, 139, 233, 0.2)" },
-            "--button-box-shadow-focus-primary": { "type": "input", "default": "var(--button-box-shadow-focus)" },
-            "--button-box-shadow-focus-danger": { "type": "input", "default": "0 0 0 2px rgba(254, 90, 90, 0.2)" },
-            "--button-box-shadow-active": { "type": "input", "default": "inset 0 1px 3px rgba(0, 0, 0, 0.2)" }
-        }
-    },
-    {
-        "name": "u-label",
-        "properties": {
-            "--label-padding-x": { "type": "input", "default": "8px" },
-            "--label-padding-x-small": { "type": "input", "default": "8px" },
-            "--label-padding-x-large": { "type": "input", "default": "8px" },
-            "--label-padding-y": { "type": "input", "default": "3px" },
-            "--label-padding-y-small": { "type": "input", "default": "1px" },
-            "--label-padding-y-large": { "type": "input", "default": "3px" },
-            "--label-line-height-small": { "type": "input", "default": "18px" },
-            "--label-font-size": { "type": "input", "default": "var(--font-size-small)" },
-            "--label-font-size-small": { "type": "input", "default": "var(--font-size-small)" },
-            "--label-font-size-large": { "type": "input", "default": "var(--font-size-small)" },
-            "--label-remove-padding-x": { "type": "input", "default": "3px" },
-            "--label-remove-padding-x-small": { "type": "input", "default": "3px" },
-            "--label-remove-padding-x-large": { "type": "input", "default": "6px" },
-            "--label-background": { "type": "input", "default": "var(--background-color-base)" },
-            "--label-background-primary": { "type": "input", "default": "var(--brand-primary)" },
-            "--label-background-success": { "type": "input", "default": "var(--brand-success)" },
-            "--label-background-normal": { "type": "input", "default": "var(--brand-normal)" },
-            "--label-background-warning": { "type": "input", "default": "var(--brand-warning)" },
-            "--label-background-error": { "type": "input", "default": "var(--brand-error)" },
-            "--label-color": { "type": "input", "default": "#646a70" },
-            "--label-color-primary": { "type": "input", "default": "white" },
-            "--label-color-success": { "type": "input", "default": "white" },
-            "--label-color-normal": { "type": "input", "default": "white" },
-            "--label-color-warning": { "type": "input", "default": "white" },
-            "--label-color-error": { "type": "input", "default": "white" }
-        }
-    },
-    {
-        "name": "u-badge",
-        "properties": {
-            "--badge-background": { "type": "input", "default": "var(--brand-error)" },
-            "--badge-color": { "type": "input", "default": "white" },
-            "--badge-value-size": { "type": "input", "default": "20px" },
-            "--badge-dot-size": { "type": "input", "default": "6px" }
-        }
-    },
-    {
-        "name": "u-table-view",
-        "properties": {
-            "--table-view-head-item-color": { "type": "input", "default": "#999" }
-        }
-    },
-    {
-        "name": "u-list-view",
-        "properties": {
-            "--list-view-width": { "type": "input", "default": "var(--width-medium)" },
-            "--list-view-width-large": { "type": "input", "default": "var(--width-large)" },
-            "--list-view-width-huge": { "type": "input", "default": "var(--width-huge)" },
-            "--list-view-height": { "type": "input", "default": "calc(30px * 10 + var(--border-width-base) * 2)" },
-            "--list-view-height-large": { "type": "input", "default": "calc(30px * 18 + var(--border-width-base) * 2)" },
-            "--list-view-height-huge": { "type": "input", "default": "80vh" },
-            "--list-view-head-background": { "type": "input", "default": "var(--background-color-base)" },
-            "--list-view-body-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--list-view-body-background-disabled": { "type": "input", "default": "var(--background-color-default)" },
-            "--list-view-foot-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--list-view-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--list-view-border-color-focus": { "type": "input", "default": "var(--border-color-base)" },
-            "--list-view-border-color-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--list-view-status-color": { "type": "input", "default": "var(--color-light)" },
-            "--list-view-head-padding": { "type": "input", "default": "8px 12px" },
-            "--list-view-foot-padding": { "type": "input", "default": "8px 12px" },
-            "--list-view-item-padding": { "type": "input", "default": "4px 12px" },
-            "--list-view-item-background-hover": { "type": "input", "default": "var(--background-color-lighter)" },
-            "--list-view-item-background-hover-inverse": { "type": "input", "default": "var(--background-color-lighter-inverse)" },
-            "--list-view-item-background-readonly-initial": { "type": "input", "default": "none" },
-            "--list-view-item-background-focused": { "type": "input", "default": "var(--background-color-lighter)" },
-            "--list-view-item-background-focused-inverse": { "type": "input", "default": "var(--background-color-lighter-inverse)" },
-            "--list-view-item-background-selected": { "type": "input", "default": "var(--brand-primary-light)" },
-            "--list-view-item-background-selected-inverse": { "type": "input", "default": "var(--brand-primary-light)" },
-            "--list-view-item-color-selected": { "type": "input", "default": "white" },
-            "--list-view-item-color-selected-inverse": { "type": "input", "default": "white" },
-            "--list-view-item-color-disabled": { "type": "input", "default": "var(--brand-disabled-dark)" },
-            "--list-view-item-color-disabled-inverse": { "type": "input", "default": "var(--brand-disabled-dark-inverse)" },
-            "--list-view-item-background-disabled": { "type": "input", "default": "none" },
-            "--list-view-item-background-disabled-inverse": { "type": "input", "default": "none" },
-            "--list-view-item-background-selected-disabled": { "type": "input", "default": "var(--brand-disabled-light)" },
-            "--list-view-item-background-selected-disabled-inverse": { "type": "input", "default": "var(--brand-disabled-light-inverse)" },
-            "--list-view-divider-margin": { "type": "input", "default": "9px 0" },
-            "--list-view-divider-background": { "type": "input", "default": "var(--border-color-base)" },
-            "--list-view-group-head-padding": { "type": "input", "default": "2px 4px" },
-            "--list-view-group-head-background": { "type": "input", "default": "#ebedf5" },
-            "--list-view-group-expander-size": { "type": "input", "default": "26px" },
-            "--list-view-filter-margin": { "type": "input", "default": "5px" }
-        }
-    },
-    {
-        "name": "u-grid-view",
-        "properties": {
-            "--grid-view-item-space": { "type": "input", "default": "var(--space-base)" }
-        }
-    },
-    {
-        "name": "u-tree-view",
-        "properties": {
-            "--tree-view-background": { "type": "input", "default": "white" },
-            "--tree-view-node-margin-left": { "type": "input", "default": "30px" },
-            "--tree-view-node-expander-size": { "type": "input", "default": "30px" },
-            "--tree-view-node-expander-size-mini": { "type": "input", "default": "28px" },
-            "--tree-view-node-text-padding": { "type": "input", "default": "4px 0" },
-            "--tree-view-node-text-padding–mini": { "type": "input", "default": "4px 0" },
-            "--tree-view-node-background-active": { "type": "input", "default": "var(--background-color-base)" },
-            "--tree-view-node-background-active-inverse": { "type": "input", "default": "var(--background-color-base-inverse)" },
-            "--tree-view-node-background-selected": { "type": "input", "default": "var(--brand-primary-light)" },
-            "--tree-view-node-background-selected-inverse": { "type": "input", "default": "var(--brand-primary-light)" },
-            "--tree-view-node-background-border-radius": { "type": "input", "default": "var(--border-radius-base)" },
-            "--tree-view-node-color-selected": { "type": "input", "default": "white" },
-            "--tree-view-node-color-selected-inverse": { "type": "input", "default": "white" },
-            "--tree-view-node-color-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--tree-view-node-color-disabled-inverse": { "type": "input", "default": "var(--brand-disabled)" },
-            "--tree-view-node-expander-color-selected": { "type": "input", "default": "white" },
-            "--tree-view-node-expander-color-selected-inverse": { "type": "input", "default": "white" },
-            "--tree-view-node-background-readonly-initial": { "type": "input", "default": "none" },
-            "--tree-view-node-background-disabled": { "type": "input", "default": "none" },
-            "--tree-view-node-background-disabled-inverse": { "type": "input", "default": "none" },
-            "--tree-view-node-background-selected-disabled": { "type": "input", "default": "var(--brand-disabled-light)" },
-            "--tree-view-node-background-selected-disabled-inverse": { "type": "input", "default": "var(--brand-disabled-light-inverse)" }
-        }
-    },
-    {
-        "name": "u-transfer",
-        "properties": {
-            "--transfer-height": { "type": "input", "default": "var(--list-view-height)" },
-            "--transfer-height-large": { "type": "input", "default": "var(--list-view-height-large)" },
-            "--transfer-height-huge": { "type": "input", "default": "var(--list-view-height-huge)" },
-            "--transfer-width": { "type": "input", "default": "var(--width-medium)" },
-            "--transfer-width-large": { "type": "input", "default": "var(--width-large)" },
-            "--transfer-width-huge": { "type": "input", "default": "var(--width-huge)" },
-            "--transfer-button-size": { "type": "input", "default": "var(--height-base)" },
-            "--transfer-button-space": { "type": "input", "default": "10px" },
-            "--transfer-button-background": { "type": "input", "default": "var(--button-background-primary)" },
-            "--transfer-button-background-hover": { "type": "input", "default": "var(--button-background-primary-hover)" },
-            "--transfer-button-background-active": { "type": "input", "default": "var(--button-background-primary-hover)" },
-            "--transfer-button-background-disabled": { "type": "input", "default": "var(--button-background-primary-disabled)" },
-            "--transfer-button-color": { "type": "input", "default": "white" },
-            "--transfer-button-color-hover": { "type": "input", "default": "white" },
-            "--transfer-button-color-disabled": { "type": "input", "default": "white" },
-            "--transfer-button-border-color": { "type": "input", "default": "var(--button-background-primary)" },
-            "--transfer-button-border-color-hover": { "type": "input", "default": "var(--button-background-primary-hover)" },
-            "--transfer-button-border-color-disabled": { "type": "input", "default": "var(--button-background-primary-disabled)" }
-        }
-    },
-    {
-        "name": "u-input",
-        "properties": {
-            "--input-width": { "type": "input", "default": "var(--width-base)" },
-            "--input-width-mini": { "type": "input", "default": "var(--width-mini)" },
-            "--input-width-small": { "type": "input", "default": "var(--width-small)" },
-            "--input-width-medium": { "type": "input", "default": "var(--width-medium)" },
-            "--input-width-large": { "type": "input", "default": "var(--width-large)" },
-            "--input-width-huge": { "type": "input", "default": "var(--width-huge)" },
-            "--input-height": { "type": "input", "default": "var(--height-base)" },
-            "--input-height-mini": { "type": "input", "default": "var(--height-mini)" },
-            "--input-height-small": { "type": "input", "default": "var(--height-small)" },
-            "--input-height-medium": { "type": "input", "default": "var(--height-medium)" },
-            "--input-height-large": { "type": "input", "default": "var(--height-large)" },
-            "--input-height-huge": { "type": "input", "default": "var(--height-huge)" },
-            "--input-padding-x": { "type": "input", "default": "10px" },
-            "--input-padding-x-mini": { "type": "input", "default": "6px" },
-            "--input-padding-x-small": { "type": "input", "default": "8px" },
-            "--input-padding-x-medium": { "type": "input", "default": "10px" },
-            "--input-padding-x-large": { "type": "input", "default": "10px" },
-            "--input-padding-x-huge": { "type": "input", "default": "10px" },
-            "--input-padding-x-full": { "type": "input", "default": "10px" },
-            "--input-border-width": { "type": "input", "default": "var(--border-width-base)" },
-            "--input-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--input-background-disabled": { "type": "input", "default": "#F7F8FA" },
-            "--input-color": { "type": "input", "default": "var(--color-base)" },
-            "--input-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--input-border-color-error": { "type": "input", "default": "var(--brand-error)" },
-            "--input-border-color-focus": { "type": "input", "default": "#81abe9" },
-            "--input-placeholder-color": { "type": "input", "default": "var(--color-lighter)" },
-            "--input-icon-color": { "type": "input", "default": "#a7afbb" },
-            "--input-border-radius": { "type": "input", "default": "3px" }
-        }
-    },
-    {
-        "name": "u-textarea",
-        "properties": {
-            "--textarea-width": { "type": "input", "default": "480px" },
-            "--textarea-width-medium": { "type": "input", "default": "var(--width-medium)" },
-            "--textarea-width-large": { "type": "input", "default": "var(--width-large)" },
-            "--textarea-width-huge": { "type": "input", "default": "var(--width-huge)" },
-            "--textarea-min-width": { "type": "input", "default": "var(--width-base)" },
-            "--textarea-height": { "type": "input", "default": "120px" },
-            "--textarea-height-medium": { "type": "input", "default": "100px" },
-            "--textarea-height-large": { "type": "input", "default": "120px" },
-            "--textarea-height-huge": { "type": "input", "default": "200px" },
-            "--textarea-min-height": { "type": "input", "default": "var(--height-base)" },
-            "--textarea-border-radius": { "type": "input", "default": "var(--border-radius-medium)" },
-            "--textarea-padding": { "type": "input", "default": "5px 10px" },
-            "--textarea-color": { "type": "input", "default": "var(--color-base)" },
-            "--textarea-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--textarea-background": { "type": "input", "default": "var(--brand-disabled)" }
-        }
-    },
-    {
-        "name": "u-number-input",
-        "properties": {
-            "--number-input-height": { "type": "input", "default": "16px" },
-            "--number-input-padding": { "type": "input", "default": "0 4px" },
-            "--number-input-button-background": { "type": "input", "default": "none" },
-            "--number-input-button-background-hover": { "type": "input", "default": "none" },
-            "--number-input-button-background-active": { "type": "input", "default": "none" },
-            "--number-input-button-background-disabled": { "type": "input", "default": "none" },
-            "--number-input-button-color-disabled": { "type": "input", "default": "var(--brand-disabled)" }
-        }
-    },
-    {
-        "name": "u-radio",
-        "properties": {
-            "--radio-space-x": { "type": "input", "default": "40px" },
-            "--radio-inner-space-x": { "type": "input", "default": "5px" },
-            "--radio-size": { "type": "input", "default": "14px" },
-            "--radio-solid-circle-size": { "type": "input", "default": "10px" },
-            "--radio-solid-circle-background": { "type": "input", "default": "var(--brand-primary)" },
-            "--radio-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--radio-circle-background-disabled": { "type": "input", "default": "var(--background-color-base)" },
-            "--radio-box-shadow-focus": { "type": "input", "default": "var(--button-box-shadow-focus)" },
-            "--radio-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--radio-border-color-disabled": { "type": "input", "default": "var(--border-color-base)" }
-        }
-    },
-    {
-        "name": "u-switch",
-        "properties": {
-            "--switch-width": { "type": "input", "default": "44px" },
-            "--switch-width-small": { "type": "input", "default": "40px" },
-            "--switch-width-wide": { "type": "input", "default": "54px" },
-            "--switch-height": { "type": "input", "default": "22px" },
-            "--switch-height-small": { "type": "input", "default": "18px" },
-            "--switch-button-space": { "type": "input", "default": "2px" },
-            "--switch-button-size": { "type": "input", "default": "18px" },
-            "--switch-button-size-small": { "type": "input", "default": "14px" },
-            "--switch-button-background": { "type": "input", "default": "white" },
-            "--switch-button-radius": { "type": "input", "default": "100px" },
-            "--switch-background": { "type": "input", "default": "var(--border-color-base)" },
-            "--switch-background-checked": { "type": "input", "default": "var(--brand-primary)" },
-            "--switch-background-disabled": { "type": "input", "default": "var(--background-color-base)" },
-            "--switch-color": { "type": "input", "default": "white" },
-            "--switch-text-margin": { "type": "input", "default": "0 5px" },
-            "--switch-transition": { "type": "input", "default": "background-color var(--transition-duration-base)" },
-            "--switch-button-transition": { "type": "input", "default": "all var(--transition-duration-base)" }
-        }
-    },
-    {
-        "name": "u-checkbox",
-        "properties": {
-            "--checkbox-space-x": { "type": "input", "default": "80px" },
-            "--checkbox-inner-space-x": { "type": "input", "default": "5px" },
-            "--checkbox-size": { "type": "input", "default": "16px" },
-            "--checkbox-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--checkbox-border-color-disabled": { "type": "input", "default": "var(--border-color-base)" },
-            "--checkbox-border-radius": { "type": "input", "default": "3px" },
-            "--checkbox-background": { "type": "input", "default": "var(--brand-primary)" },
-            "--checkbox-background-default": { "type": "input", "default": "var(--background-color-default)" },
-            "--checkbox-background-disabled": { "type": "input", "default": "#EEEEF0" },
-            "--checkbox-color": { "type": "input", "default": "var(--background-color-default)" },
-            "--checkbox-color-disabled": { "type": "input", "default": "#ccc" },
-            "--checkbox-box-shadow-focus": { "type": "input", "default": "var(--button-box-shadow-focus)" }
-        }
-    },
-    {
-        "name": "u-select",
-        "properties": {
-            "--select-width": { "type": "input", "default": "var(--width-base)" },
-            "--select-width-mini": { "type": "input", "default": "var(--width-mini)" },
-            "--select-width-small": { "type": "input", "default": "var(--width-small)" },
-            "--select-width-medium": { "type": "input", "default": "var(--width-medium)" },
-            "--select-width-large": { "type": "input", "default": "var(--width-large)" },
-            "--select-width-huge": { "type": "input", "default": "var(--width-huge)" },
-            "--select-height": { "type": "input", "default": "var(--height-base)" },
-            "--select-height-mini": { "type": "input", "default": "var(--height-mini)" },
-            "--select-height-small": { "type": "input", "default": "var(--height-small)" },
-            "--select-height-medium": { "type": "input", "default": "var(--height-medium)" },
-            "--select-height-large": { "type": "input", "default": "var(--height-large)" },
-            "--select-height-huge": { "type": "input", "default": "var(--height-huge)" },
-            "--select-padding-x": { "type": "input", "default": "10px" },
-            "--select-padding-x-mini": { "type": "input", "default": "6px" },
-            "--select-padding-x-small": { "type": "input", "default": "8px" },
-            "--select-padding-x-medium": { "type": "input", "default": "10px" },
-            "--select-padding-x-large": { "type": "input", "default": "10px" },
-            "--select-padding-x-huge": { "type": "input", "default": "10px" },
-            "--select-padding-x-full": { "type": "input", "default": "10px" },
-            "--select-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--select-background-inverse": { "type": "input", "default": "var(--background-color-default-inverse)" },
-            "--select-background-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--select-border-width": { "type": "input", "default": "var(--border-width-base)" },
-            "--select-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--select-border-color-inverse": { "type": "input", "default": "var(--border-color-base-inverse)" },
-            "--select-color": { "type": "input", "default": "var(--color-base)" },
-            "--select-color-inverse": { "type": "input", "default": "var(--color-base-inverse)" },
-            "--select-color-disabled": { "type": "input", "default": "var(--brand-disabled-dark)" },
-            "--select-popper-max-height": { "type": "input", "default": "194px" },
-            "--select-popper-line-height": { "type": "input", "default": "1.6" },
-            "--select-popper-line-height-small": { "type": "input", "default": "1.6" },
-            "--select-popper-box-shadow": { "type": "input", "default": "var(--box-shadow-base)" },
-            "--select-placeholder-color": { "type": "input", "default": "var(--color-lighter)" },
-            "--select-arrow-color": { "type": "input", "default": "var(--color-light)" },
-            "--select-arrow-size": { "type": "input", "default": "18px" },
-            "--select-arrow-right-ratio": { "type": "input", "default": "0.6" },
-            "--select-tags-padding-y": { "type": "input", "default": "2px" },
-            "--select-tags-padding": { "type": "input", "default": "3px 26px 3px 5px" },
-            "--select-tags-line-height": { "type": "input", "default": "26px" },
-            "--select-tags-filterable-width": { "type": "input", "default": "40px" },
-            "--select-tag-line-height": { "type": "input", "default": "calc(var(--select-tags-line-height) - var(--select-tags-padding-y) * 2)" },
-            "--select-tag-background": { "type": "input", "default": "var(--background-color-base)" },
-            "--select-tag-padding": { "type": "input", "default": "0 6px" },
-            "--select-tag-margin-x": { "type": "input", "default": "4px" },
-            "--select-tag-remove-color": { "type": "input", "default": "var(--color-lighter)" },
-            "--select-tag-remove-color-hover": { "type": "input", "default": "var(--color-base)" },
-            "--select-tag-border-radius": { "type": "input", "default": "2px" },
-            "--select-popper-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--select-popper-background-inverse": { "type": "input", "default": "var(--background-color-default-inverse)" },
-            "--select-popper-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--select-popper-border-color-inverse": { "type": "input", "default": "var(--border-color-base-inverse)" },
-            "--select-popper-color-inverse": { "type": "input", "default": "var(--color-base-inverse)" },
-            "--select-status-color": { "type": "input", "default": "var(--color-light)" },
-            "--select-box-shadow-focus": { "type": "input", "default": "var(--button-box-shadow-focus)" }
-        }
-    },
-    {
-        "name": "u-uploader",
-        "properties": {
-            "--uploader-list-margin-top": { "type": "input", "default": "6px" },
-            "--uploader-item-space": { "type": "input", "default": "2px" },
-            "--uploader-item-padding": { "type": "input", "default": "4px" },
-            "--uploader-item-line-height": { "type": "input", "default": "1.8" },
-            "--uploader-item-border-radius": { "type": "input", "default": "var(--border-radius-base)" },
-            "--uploader-item-background": { "type": "input", "default": "transparent" },
-            "--uploader-item-background-hover": { "type": "input", "default": "var(--background-color-base)" },
-            "--uploader-item-icon-color": { "type": "input", "default": "var(--color-light)" },
-            "--uploader-link-color": { "type": "input", "default": "inherit" },
-            "--uploader-link-color-hover": { "type": "input", "default": "var(--link-color)" },
-            "--uploader-card-border-radius": { "type": "input", "default": "var(--border-radius-large)" },
-            "--uploader-card-space": { "type": "input", "default": "8px" },
-            "--uploader-mask-background": { "type": "input", "default": "rgba(0, 0, 0, 0.6)" },
-            "--uploader-draggable-background": { "type": "input", "default": "var(--background-color-lighter)" },
-            "--uploader-draggable-border-width": { "type": "input", "default": "1px" },
-            "--uploader-draggable-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--uploader-draggable-border-color-hover": { "type": "input", "default": "var(--brand-primary)" },
-            "--uploader-draggable-border-radius": { "type": "input", "default": "var(--border-radius-large)" },
-            "--uploader-draggable-padding": { "type": "input", "default": "12px 0 20px" }
-        }
-    },
-    {
-        "name": "u-tabs",
-        "properties": {
-            "--tabs-border-width": { "type": "input", "default": "1px" },
-            "--tabs-border-color": { "type": "input", "default": "var(--border-color-light)" },
-            "--tabs-head-background": { "type": "input", "default": "none" },
-            "--tabs-item-height": { "type": "input", "default": "48px" },
-            "--tabs-item-height-small": { "type": "input", "default": "30px" },
-            "--tabs-item-height-mini": { "type": "input", "default": "24px" },
-            "--tabs-item-padding-x": { "type": "input", "default": "30px" },
-            "--tabs-item-padding-x-small": { "type": "input", "default": "22px" },
-            "--tabs-item-padding-x-mini": { "type": "input", "default": "16px" },
-            "--tabs-item-line-width": { "type": "input", "default": "2px" },
-            "--tabs-item-background-text": { "type": "input", "default": "none" },
-            "--tabs-item-background-capsule": { "type": "input", "default": "none" },
-            "--tabs-item-background-hover": { "type": "input", "default": "var(--background-color-lighter)" },
-            "--tabs-item-background-selected": { "type": "input", "default": "var(--background-color-default)" },
-            "--tabs-item-background-selected-capsule": { "type": "input", "default": "none" },
-            "--tabs-item-background-disabled": { "type": "input", "default": "transparent" },
-            "--tabs-item-background-selected-disabled": { "type": "input", "default": "var(--background-color-default)" },
-            "--tabs-item-color": { "type": "input", "default": "inherit" },
-            "--tabs-item-color-hover": { "type": "input", "default": "var(--brand-primary)" },
-            "--tabs-item-color-selected": { "type": "input", "default": "var(--brand-primary)" },
-            "--tabs-item-color-selected-capsule": { "type": "input", "default": "var(--brand-primary)" },
-            "--tabs-item-color-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--tabs-item-border-color-selected": { "type": "input", "default": "var(--border-color-light)" },
-            "--tabs-item-border-color-selected-capsule": { "type": "input", "default": "var(--brand-primary)" },
-            "--tabs-item-border-radius": { "type": "input", "default": "4px" },
-            "--tabs-item-border-radius-round": { "type": "input", "default": "5px" },
-            "--tabs-body-space": { "type": "input", "default": "var(--space-base)" },
-            "--tabs-body-space-small": { "type": "input", "default": "var(--space-small)" },
-            "--tabs-body-space-mini": { "type": "input", "default": "var(--space-mini)" }
-        }
-    },
-    {
-        "name": "u-steps",
-        "properties": {
-            "--steps-item-width": { "type": "input", "default": "200px" },
-            "--steps-item-color-disabled": { "type": "input", "default": "#bbb" },
-            "--steps-item-radio-size": { "type": "input", "default": "24px" },
-            "--steps-item-radio-size-large": { "type": "input", "default": "24px" },
-            "--steps-item-radio-background": { "type": "input", "default": "var(--border-color-base)" },
-            "--steps-item-radio-background-passed": { "type": "input", "default": "var(--brand-primary)" },
-            "--steps-item-radio-color-passed": { "type": "input", "default": "white" }
-        }
-    },
-    {
-        "name": "u-pagination",
-        "properties": {
-            "--pagination-item-size": { "type": "input", "default": "var(--height-small)" },
-            "--pagination-line-height": { "type": "input", "default": "calc(var(--pagination-item-size) - var(--border-width-base) * 2)" },
-            "--pagination-item-padding": { "type": "input", "default": "0" },
-            "--pagination-item-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--pagination-item-background-hover": { "type": "input", "default": "var(--background-color-lighter)" },
-            "--pagination-item-background-selected": { "type": "input", "default": "var(--brand-primary)" },
-            "--pagination-item-background-disabled-selected": { "type": "input", "default": "var(--background-color-default)" },
-            "--pagination-item-background-blank": { "type": "input", "default": "none" },
-            "--pagination-item-color": { "type": "input", "default": "var(--color-base)" },
-            "--pagination-item-color-hover": { "type": "input", "default": "var(--brand-primary)" },
-            "--pagination-item-color-selected": { "type": "input", "default": "var(--background-color-default)" },
-            "--pagination-item-color-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--pagination-item-color-blank": { "type": "input", "default": "var(--color-base)" },
-            "--pagination-item-color-blank-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--pagination-item-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--pagination-item-border-radius": { "type": "input", "default": "4px" },
-            "--pagination-item-size-small": { "type": "input", "default": "24px" },
-            "--pagination-item-size-small-line-height": { "type": "input", "default": "var(--pagination-item-size-small)" },
-            "--pagination-item-border-radius-left": { "type": "input", "default": "var(--pagination-item-border-radius)" },
-            "--pagination-item-border-radius-right": { "type": "input", "default": "var(--pagination-item-border-radius)" },
-            "--pagination-sizer-width": { "type": "input", "default": "100px" },
-            "--pagination-jumper-width": { "type": "input", "default": "50px" }
-        }
-    },
-    {
-        "name": "u-linear-progress",
-        "properties": {
-            "--linear-progress-height": { "type": "input", "default": "4px" },
-            "--linear-progress-height-small": { "type": "input", "default": "2px" },
-            "--linear-progress-height-large": { "type": "input", "default": "8px" },
-            "--linear-progress-height-huge": { "type": "input", "default": "12px" },
-            "--linear-progress-track-background": { "type": "input", "default": "var(--background-color-base)" },
-            "--linear-progress-trail-font-size": { "type": "input", "default": "var(--font-size-small)" },
-            "--linear-progress-trail-background": { "type": "input", "default": "var(--brand-primary)" },
-            "--linear-progress-trail-color": { "type": "input", "default": "white" },
-            "--linear-progress-trail-transition": { "type": "input", "default": "width 0.6s ease" }
-        }
-    },
-    {
-        "name": "u-circular-progress",
-        "properties": {
-            "--circular-progress-size": { "type": "input", "default": "100px" },
-            "--circular-progress-stroke-width": { "type": "input", "default": "10px" },
-            "--circular-progress-track-stroke": { "type": "input", "default": "var(--background-color-base)" },
-            "--circular-progress-trail-stroke": { "type": "input", "default": "var(--brand-primary)" },
-            "--circular-progress-trail-transition": { "type": "input", "default": "stroke 0.6s ease, stroke-dasharray 0.6s ease" },
-            "--circular-progress-text-color": { "type": "input", "default": "#999" },
-            "--circular-progress-font-size": { "type": "input", "default": "var(--font-size-base)" },
-            "--circular-progress-percent-font-size": { "type": "input", "default": "var(--font-size-large)" },
-            "--circular-progress-percent-font-weight": { "type": "input", "default": "600" },
-            "--circular-progress-text-line-height": { "type": "input", "default": "normal" }
-        }
-    },
-    {
-        "name": "u-toast",
-        "properties": {
-            "--toast-margin": { "type": "input", "default": "30px" },
-            "--toast-width": { "type": "input", "default": "300px" },
-            "--toast-max-width": { "type": "input", "default": "326px" },
-            "--toast-top": { "type": "input", "default": "90px" },
-            "--toast-close-font-size": { "type": "input", "default": "18px" },
-            "--toast-close-color": { "type": "input", "default": "white" },
-            "--toast-item-color": { "type": "input", "default": "white" },
-            "--toast-item-padding": { "type": "input", "default": "8px 16px" },
-            "--toast-item-space": { "type": "input", "default": "10px" },
-            "--toast-item-border-radius": { "type": "input", "default": "var(--border-radius-large)" },
-            "--toast-item-icon-margin-right": { "type": "input", "default": "8px" },
-            "--toast-item-icon-vertical-align": { "type": "input", "default": "-1px" },
-            "--toast-item-icon-font-size": { "type": "input", "default": "16px" },
-            "--toast-item-icon-text-align": { "type": "input", "default": "left" },
-            "--toast-item-icon-color-info": { "type": "input", "default": "#4c88ff" },
-            "--toast-item-icon-color-success": { "type": "input", "default": "#26bd71" },
-            "--toast-item-icon-color-warning": { "type": "input", "default": "#ffaf0f" },
-            "--toast-item-icon-color-error": { "type": "input", "default": "#f24957" },
-            "--toast-background-color": { "type": "input", "default": "rgba(0, 0, 0, 0.6)" }
-        }
+        "id": 0.1,
+        "title": "高级设置",
+        "toPosition": "highLevelSetting",
+        "items": [
+            {
+                "id": 6,
+                "name": "u-linear-layout",
+                "title": "线性布局",
+                "toPosition": "linearLayout",
+                "type": [
+                    "vertical",
+                    "horizontal",
+                    "space-between"
+                ],
+                "cssProperty": {
+                    "--space-base": "input"
+                },
+                "preview": {
+                    "template":"<div>\n        <u-linear-layout direction=\"vertical\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"width: 100%;\"></u-block>\n            <u-block style=\"width: 100%;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            justify=\"space-between\"\n            style=\"margin-bottom:8px;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n    </div>",
+                    "style": ".linearLayout [class^=\"u-block\"] {\n    height: 48px;\n    background: #337EFF !important;\n    opacity: 0.5;\n}"
+                }
+            },
+            {
+                "id": 7,
+                "name": "u-grid-layout",
+                "title": "栅格布局",
+                "toPosition": "gridLayout",
+                "type": [],
+                "cssProperty": {
+                    "--space-base": "input"
+                },
+                "preview": {
+                    "template": "<u-grid-layout gap=\"normal none\" :class=\"$style.gridLayout\">\n    <u-grid-layout-row :repeat=\"6\">\n        <u-grid-layout-column :span=\"3\">\n            <u-block style=\"opacity: 0.5;\">3/6</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"3\">\n            <u-block style=\"opacity: 0.8;\">3/6</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n    <u-grid-layout-row :repeat=\"24\">\n        <u-grid-layout-column :span=\"2\">\n            <u-block style=\"opacity: 0.5;\">2/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"4\">\n            <u-block style=\"opacity: 0.8;\">4/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"8\">\n            <u-block style=\"opacity: 0.5;\">8/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"10\">\n            <u-block style=\"opacity: 0.8;\">10/24</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n    <u-grid-layout-row :repeat=\"3\">\n        <u-grid-layout-column :span=\"1\">\n            <u-block style=\"opacity: 0.5;\">1/3</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"2\">\n            <u-block style=\"opacity: 0.8;\">2/3</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n</u-grid-layout>",
+                    "style": ".gridLayout [class^=\"u-block\"]{\n    height: 48px;\n    line-height: 48px;\n    padding: 0;\n    background: #4C88FF !important;\n    color: white !important;\n}"
+                }
+            },
+            {
+                "id": 8,
+                "name": "u-crumb",
+                "title": "面包屑",
+                "toPosition": "crumb",
+                "type": [],
+                "cssProperty": {
+                    "--crumb-color-link": "color",
+                    "--crumb-color-disabled": "color",
+                    "--crumb-space-x": "input"
+                },
+                "preview": {
+                    "template": "<u-crumb>\n    <u-crumb-item to=\"/\">一级页面</u-crumb-item>\n    <u-crumb-item to=\"/two\">二级页面</u-crumb-item>\n    <u-crumb-item type=\"text\" to=\"/two/three\">三级页面</u-crumb-item>\n    <u-crumb-item disabled>四级页面</u-crumb-item>\n</u-crumb>"
+                }
+            },
+            {
+                "id": 9,
+                "name": "u-panel",
+                "title": "面板",
+                "toPosition": "u-panel",
+                "type": [],
+                "cssProperty": {
+                    "--panel-border-width": "input",
+                    "--panel-border-radius": "input",
+                    "--panel-background": "color",
+                    "--panel-box-shadow": "input",
+                    "--panel-head-padding-x": "input",
+                    "--panel-head-padding-y": "input",
+                    "--panel-body-padding-x": "input",
+                    "--panel-body-padding-y": "input",
+                    "--panel-title-font-size": "input",
+                    "--panel-title-font-weight": "input"
+                },
+                "preview": {
+                    "template": "<u-panel title=\"面板标题\">\n                                <u-skeleton></u-skeleton>\n                            </u-panel>"
+                }
+            },
+            {
+                "id": 10,
+                "name": "u-collapse",
+                "title": "折叠面板",
+                "toPosition": "collapse",
+                "type": [
+                    "base",
+                    "simple"
+                ],
+                "cssProperty": {
+                    "--collapse-item-fill-background": "color",
+                    "--collapse-border-width": "input",
+                    "--collapse-border-color": "color",
+                    "--collapse-border-radius": "input",
+                    "--collapse-item-head-color-disabled": "color",
+                    "--collapse-item-head-padding": "input",
+                    "--collapse-item-expander-size": "input",
+                    "--collapse-item-expander-color": "color",
+                    "--collapse-item-expander-color-disabled": "color",
+                    "--collapse-item-expander-font-size": "input",
+                    "--collapse-item-content-padding": "input",
+                    "--collapse-transition-duration": "input"
+                },
+                "preview": {
+                    "template": "<div>\n    <div class=\"componentClassTitle\">基础样式一</div>\n    <u-collapse style=\"margin-bottom:48px;\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n    <div class=\"componentClassTitle\">基础样式二</div>\n    <u-collapse appear=\"simple\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n</div>"
+                }
+            },
+            {
+                "id": 11,
+                "name": "u-text",
+                "title": "文本",
+                "toPosition": "text",
+                "type": [
+                    "normal",
+                    "small",
+                    "large",
+                    "primary",
+                    "secondary",
+                    "success",
+                    "warning",
+                    "error",
+                    "disabled",
+                    "ellipsis"
+                ],
+                "cssProperty": {
+                    "--text-font-size": "input",
+                    "--text-font-size-small": "input",
+                    "--text-font-size-large": "input",
+                    "--text-color-primary": "color",
+                    "--text-color-secondary": "color",
+                    "--text-color-success": "color",
+                    "--text-color-warning": "color",
+                    "--text-color-error": "color",
+                    "--text-color-disabled": "color"
+                },
+                "preview": {
+                    "template": "<div>\n    <div class=\"componentClassTitle\">基础样式</div>\n    <div style=\"margin-bottom:40px;\">\n        <u-text size=\"normal\" color=\"normal\" style=\"margin-right:24px;\">\n            Normal\n        </u-text>\n        <u-text size=\"small\"  style=\"margin-right:24px;\">\n            Small\n        </u-text>\n        <u-text size=\"large\" style=\"margin-right:24px;\">\n            Large\n        </u-text>\n        <u-text size=\"primary\" color=\"primary\" style=\"margin-right:24px;\">\n            Primary\n        </u-text>\n        <u-text size=\"secondary\" color=\"secondary\" style=\"margin-right:24px;\">\n            Secondary\n        </u-text>\n        <u-text size=\"success\" color=\"success\" style=\"margin-right:24px;\">\n            Success\n        </u-text>\n        <u-text size=\"warning\" color=\"warning\" style=\"margin-right:24px;\">\n            Warning\n        </u-text>\n        <u-text size=\"error\" color=\"error\" style=\"margin-right:24px;\">\n            Error\n        </u-text>\n        <u-text size=\"disabled\" color=\"disabled\" style=\"margin-right:24px;\">\n            Disabled\n        </u-text>\n    </div>\n    <div class=\"componentClassTitle\">长文本</div>\n    <u-text overflow=\"ellipsis\" size=\"normal\">\n        Content content content content content content content content content content content content content content content content content content content content content content content content content content content...\n    </u-text>\n</div>"
+                }
+            },
+            {
+                "id": 12,
+                "name": "u-link",
+                "title": "链接",
+                "toPosition": "link",
+                "type": [
+                    "",
+                    "success",
+                    "warning",
+                    "danger"
+                ],
+                "cssProperty": {
+                    "--link-color": "color",
+                    "--link-color-success": "color",
+                    "--link-color-warning": "color",
+                    "--link-color-danger": "color",
+                    "--link-color-disabled": "color",
+                    "--link-color-hover": "color",
+                    "--link-color-success-hover": "color",
+                    "--link-color-warning-hover": "color",
+                    "--link-color-danger-hover": "color"
+                },
+                "preview": {
+                    "template": "<div>\n    <div style=\"margin-bottom: 40px;\">\n        <div class=\"componentClassTitle\">鼠标悬停状态为下划线</div>\n        <u-link style=\"margin-right:24px;\">Base</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link disabled>Disabled</u-link>\n    </div>\n    <div>\n        <div class=\"componentClassTitle\">鼠标悬停状态为颜色变化</div>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\">Base</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link hovertype=\"color\" disabled>Disabled</u-link>\n    </div>\n</div>"
+                }
+            },
+            {
+                "id": 14,
+                "name": "u-label",
+                "title": "标签",
+                "toPosition": "label",
+                "type": [
+                    "",
+                    "primary",
+                    "success",
+                    "warning",
+                    "error",
+                    "small",
+                    "large"
+                ],
+                "cssProperty": {
+                    "--label-padding-x": "input",
+                    "--label-padding-x-small": "input",
+                    "--label-padding-x-large": "input",
+                    "--label-padding-y": "input",
+                    "--label-padding-y-small": "input",
+                    "--label-padding-y-large": "input",
+                    "--label-line-height-small": "input",
+                    "--label-font-size": "input",
+                    "--label-font-size-small": "input",
+                    "--label-font-size-large": "input",
+                    "--label-remove-padding-x": "input",
+                    "--label-remove-padding-x-small": "input",
+                    "--label-remove-padding-x-large": "input",
+                    "--label-background": "color",
+                    "--label-background-primary": "color",
+                    "--label-background-success": "color",
+                    "--label-background-warning": "color",
+                    "--label-background-error": "color",
+                    "--label-color": "color",
+                    "--label-color-primary": "color",
+                    "--label-color-success": "color",
+                    "--label-color-warning": "color",
+                    "--label-color-error": "color"
+                },
+                "preview": {
+                    "template": "<div>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Base</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"primary\">Primary</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"success\">Success</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"warning\">Warning</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"error\">Error</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-label>\n    <u-label removable>removable</u-label>\n</div>"
+                }
+            },
+            {
+                "id": 15,
+                "name": "u-badge",
+                "title": "徽章",
+                "toPosition": "badge",
+                "type": [
+                    "",
+                    "dot"
+                ],
+                "cssProperty": {
+                    "--badge-background": "color",
+                    "--badge-color": "color",
+                    "--badge-value-size": "input",
+                    "--badge-dot-size": "input"
+                },
+                "preview": {
+                    "template": "<div>\n    <p style=\"display:inline-block;margin-right:20px;\">\n        消息 <u-badge :value=\"3\"></u-badge>\n    </p>\n    <p style=\"display:inline-block;\">\n        <u-badge :value=\"3\" dot corner>消息</u-badge>\n    </p>\n</div>"
+                }
+            },
+            {
+                "id": 16,
+                "name": "u-carousel",
+                "title": "幻灯片",
+                "toPosition": "carousel",
+                "type": [],
+                "cssProperty": {
+                    "--carousel-width": "input",
+                    "--carousel-height": "input",
+                    "--carousel-nav-bottom": "input",
+                    "--carousel-nav-item-width": "input",
+                    "--carousel-nav-item-height": "input",
+                    "--carousel-nav-item-padding": "input",
+                    "--carousel-nav-item-background": "color",
+                    "--carousel-nav-item-background-hover": "color",
+                    "--carousel-button-space": "input",
+                    "--carousel-button-font-size": "input",
+                    "--carousel-button-color": "color",
+                    "--carousel-button-color-hover": "color",
+                    "--carousel-button-transition": "input"
+                },
+                "preview": {
+                    "template": "<u-carousel>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/2.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/3.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/4.jpg\">\n    </u-carousel-item>\n</u-carousel>"
+                }
+            },
+            {
+                "id": 18,
+                "name": "u-image",
+                "title": "图片展示",
+                "toPosition": "pictureView",
+                "type": [
+                    "fill",
+                    "fit",
+                    "contain",
+                    "cover",
+                    "none",
+                    "scale-down"
+                ],
+                "cssProperty": {
+                    "--image-width": "input",
+                    "--image-height": "input"
+                },
+                "preview": {
+                    "template": "<div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fill</div>\n        <u-image fit=\"fill\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fit</div>\n        <u-image fit=\"fit\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Contain</div>\n        <u-image fit=\"contain\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Cover</div>\n        <u-image fit=\"cover\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">None</div>\n        <u-image fit=\"none\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Scale-down</div>\n        <u-image fit=\"scale-down\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n</div>"
+                }
+            },
+            {
+                "id": 19,
+                "name": "u-button",
+                "title": "按钮",
+                "toPosition": "button",
+                "type": [
+                    "",
+                    "primary",
+                    "create",
+                    "refresh",
+                    ""
+                ],
+                "cssProperty": {
+                    "--button-height-mini": "input",
+                    "--button-height-small": "input",
+                    "--button-height": "input",
+                    "--button-height-medium": "input",
+                    "--button-height-large": "input",
+                    "--button-height-huge": "input",
+
+
+                    "--button-padding-y-mini": "input",
+                    "--button-padding-y-small": "input",
+                    "--button-padding-y": "input",
+                    "--button-padding-y-medium": "input",
+                    "--button-padding-y-large": "input",
+                    "--button-padding-y-huge": "input",
+
+                    "--button-padding-x-mini": "input",
+                    "--button-padding-x-small": "input",
+                    "--button-padding-x": "input",
+                    "--button-padding-x-medium": "input",
+                    "--button-padding-x-large": "input",
+                    "--button-padding-x-huge": "input",
+
+
+                    "--button-background-primary": "color",
+                    "--button-background-primary-secondary": "color",
+                    "--button-background": "color",
+                    "--button-background-danger": "color",
+                    "--button-background-danger-secondary": "color",
+
+                    "--button-background-primary-hover": "color",
+                    "--button-background-primary-secondary-hover": "color",
+                    "--button-background-hover": "color",
+                    "--button-background-danger-hover": "color",
+                    "--button-background-danger-secondary-hover": "color",
+
+                    "--button-background-primary-active": "color",
+                    "--button-background-primary-secondary-active": "color",
+                    "--button-background-active": "color",
+                    "--button-background-danger-active": "color",
+                    "--button-background-danger-secondary-active": "color",
+
+                    "--button-background-primary-disabled": "color",
+                    "--button-background-primary-secondary-disabled": "color",
+                    "--button-background-disabled": "color",
+                    "--button-background-danger-disabled": "color",
+                    "--button-background-danger-secondary-disabled": "color",
+
+
+                    "--button-border-color-primary": "color",
+                    "--button-border-color-primary-secondary": "color",
+                    "--button-border-color": "color",
+                    "--button-border-color-danger": "color",
+                    "--button-border-color-danger-secondary": "color",
+
+                    "--button-border-color-primary-hover": "color",
+                    "--button-border-color-primary-secondary-hover": "color",
+                    "--button-border-color-hover": "color",
+                    "--button-border-color-danger-hover": "color",
+                    "--button-border-color-danger-secondary-hover": "color",
+
+                    "--button-border-color-primary-active": "color",
+                    "--button-border-color-primary-secondary-active": "color",
+                    "--button-border-color-active": "color",
+                    "--button-border-color-danger-active": "color",
+                    "--button-border-color-danger-secondary-active": "color",
+
+                    "--button-border-color-primary-disabled": "color",
+                    "--button-border-color-primary-secondary-disabled": "color",
+                    "--button-border-color-disabled": "color",
+                    "--button-border-color-danger-disabled": "color",
+                    "--button-border-color-danger-secondary-disabled": "color",
+
+
+                    "--button-font-size-mini": "input",
+                    "--button-font-size-small": "input",
+                    "--button-font-size": "input",
+                    "--button-font-size-medium": "input",
+                    "--button-font-size-large": "input",
+                    "--button-font-size-huge": "input",
+
+                    "--button-color-primary": "color",
+                    "--button-color-primary-secondary": "color",
+                    "--button-color": "color",
+                    "--button-color-danger": "color",
+                    "--button-color-danger-secondary": "color",
+
+                    "--button-color-primary-hover": "color",
+                    "--button-color-primary-secondary-hover": "color",
+                    "--button-color-hover": "color",
+                    "--button-color-danger-hover": "color",
+                    "--button-color-danger-secondary-hover": "color",
+
+                    "--button-color-primary-active": "color",
+                    "--button-color-primary-secondary-active": "color",
+                    "--button-color-active": "color",
+                    "--button-color-danger-active": "color",
+                    "--button-color-danger-secondary-active": "color",
+
+                    "--button-color-primary-disabled": "color",
+                    "--button-color-primary-secondary-disabled": "color",
+                    "--button-color-disabled": "color",
+                    "--button-color-danger-disabled": "color",
+                    "--button-color-danger-secondary-disabled": "color",
+
+
+                    "--button-border-width": "input",
+                    "--button-border-radius": "input",
+                    "--button-box-shadow-focus-color": "color",
+                    "--button-box-shadow-focus-primary-color": "color",
+                    "--button-box-shadow-focus-danger-color": "color",
+                    "--button-box-shadow-active-color": "color",
+                    "--button-box-shadow-focus": "input",
+                    "--button-box-shadow-focus-primary": "input",
+                    "--button-box-shadow-focus-danger": "input",
+                    "--button-box-shadow-active": "input"
+                },
+                "preview": {
+                    "template": "<div>\n        <div class=\"componentClassTitle\">类型</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\">主要按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary_secondary\">次要按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\">普通按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger\">危险操作按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger_secondary\">次要危险操作按钮</u-button>\n\n        <div class=\"componentClassTitle\">禁用</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\" disabled>主要按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary_secondary\" disabled>次要按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" disabled>普通按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger\" disabled>危险操作按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger_secondary\" disabled>次要危险操作按钮禁用</u-button>\n\n        <div class=\"componentClassTitle\">尺寸</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"mini\">Mini</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Normal</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"medium\">Medium</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"huge\">Huge</u-button>\n\n        <div class=\"componentClassTitle\">图标</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"add\">Add</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"refresh\">Refresh</u-button>\n    </div>"
+                }
+            },
+            {
+                "id": 20,
+                "name": "u-form",
+                "title": "表单",
+                "toPosition": "_form",
+                "type": [
+                    "block",
+                    "inline",
+                    "grid",
+                    "group"
+                ],
+                "cssProperty": {
+                    "--form-item-label-color": "color",
+                    "--form-item-label-padding-right": "input",
+                    "--form-item-label-width": "input"
+                },
+                "preview": {
+                    "template": "<div>\n    <div class=\"componentClassTitle\">基础布局</div>\n    <u-form gap=\"large\" style=\"margin-bottom: 40px;\">\n        <u-form-item label=\"状态\">\n            <u-select auto-select>\n                <u-select-item>认证中</u-select-item>\n            </u-select>\n        </u-form-item>\n        <u-form-item label=\"用户名\">\n            <u-input maxlength=\"63\" placeholder=\"请输入用户名\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"联系号码\">\n            <u-input maxlength=\"63\" placeholder=\"请输入联系号码\"></u-input>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">查询</u-button>\n        </u-form-item>\n    </u-form>\n    <div class=\"componentClassTitle\">行内布局</div>\n    <u-form layout=\"inline\" label-size=\"auto\" style=\"margin-bottom: 40px;\">\n        <u-form-item label=\"状态\">\n            <u-select auto-select>\n                <u-select-item>认证中</u-select-item>\n            </u-select>\n        </u-form-item>\n        <u-form-item label=\"用户名\">\n            <u-input maxlength=\"63\" placeholder=\"请输入用户名\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"联系号码\">\n            <u-input maxlength=\"63\" placeholder=\"请输入联系号码\"></u-input>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">查询</u-button>\n        </u-form-item>\n    </u-form>\n    <div class=\"componentClassTitle\">栅格布局</div>\n    <u-form layout=\"inline\" style=\"margin-bottom: 8px;\">\n        <u-grid-layout>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"状态\" style=\"width: 100%;\">\n                        <u-select auto-select>\n                            <u-select-item>认证中</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案类型\" style=\"width: 100%;\">\n                        <u-select auto-select>\n                            <u-select-item>全部</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案号\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入备案号\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"用户名\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入用户名\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"单位名称\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入单位名称\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item style=\"width: 100%;\">\n                        <u-button color=\"primary\">查询</u-button>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n        </u-grid-layout>\n    </u-form>\n</div>"
+                }
+            },
+            {
+                "id": 21,
+                "name": "u-input",
+                "title": "单行输入",
+                "toPosition": "input",
+                "type": [],
+                "cssProperty": {
+                    "--input-border-color": "color",
+                    "--input-border-color-hover": "color",
+                    "--input-border-color-focus": "color",
+                    "--input-border-color-disabled": "color",
+                    "--input-box-shadow-focus-color": "color",
+                    "--input-box-shadow-focus": "input",
+                    "--input-placeholder-color": "color",
+                    "--input-border-radius": "input",
+                    "--input-width-mini": "input",
+                    "--input-width-small": "input",
+                    "--input-width": "input",
+                    "--input-width-medium": "input",
+                    "--input-width-large": "input",
+                    "--input-width-huge": "input",
+                    "--input-height-mini": "input",
+                    "--input-height-small": "input",
+                    "--input-height": "input",
+                    "--input-height-medium": "input",
+                    "--input-height-large": "input",
+                    "--input-height-huge": "input",
+                    "--input-padding-x-mini": "input",
+                    "--input-padding-x-small": "input",
+                    "--input-padding-x": "input",
+                    "--input-padding-x-medium": "input",
+                    "--input-padding-x-large": "input",
+                    "--input-padding-x-huge": "input",
+                    "--input-border-width": "input",
+                    "--input-background": "color",
+                    "--input-background-disabled": "color",
+                    "--input-color": "color",
+                    "--input-color-disabled": "color"
+                },
+                "preview": {
+                    "template": "<div>\n        <div class=\"componentClassTitle\">宽度迷你</div>\n        <u-input maxlength=\"12\" size=\"normal mini\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度小</div>\n        <u-input maxlength=\"12\" size=\"normal small\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-input maxlength=\"12\" size=\"normal medium\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-input maxlength=\"12\" size=\"normal large\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-input maxlength=\"12\" size=\"normal huge\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 80px;\"></u-input>\n\n        <div class=\"componentClassTitle\">高度迷你</div>\n        <u-input maxlength=\"12\" size=\"mini normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度小</div>\n        <u-input maxlength=\"12\" size=\"small normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-input maxlength=\"12\" size=\"medium normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-input maxlength=\"12\" size=\"large normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-input maxlength=\"12\" size=\"huge normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n\n        <div class=\"componentClassTitle\">禁用</div>\n        <u-input value=\"禁用\" maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\" disabled></u-input>\n    </div>"
+                }
+            },
+            {
+                "id": 22,
+                "name": "u-number-input",
+                "title": "数字输入",
+                "toPosition": "numberInput",
+                "type": [],
+                "cssProperty": {
+                    "--number-input-background": "color",
+                    "--number-input-background-disabled": "color",
+
+                    "--number-input-color": "color",
+                    "--number-input-color-disabled": "color",
+
+                    "--number-input-button-background": "color",
+                    "--number-input-button-both-ends-background": "color",
+                    "--number-input-button-background-hover": "color",
+                    "--number-input-button-both-ends-background-hover": "color",
+                    "--number-input-button-background-active": "color",
+                    "--number-input-button-both-ends-background-active": "color",
+                    "--number-input-button-background-focus": "color",
+                    "--number-input-button-both-ends-background-focus": "color",
+                    "--number-input-button-background-disabled": "color",
+                    "--number-input-button-both-ends-background-disabled": "color",
+
+                    "--number-input-border-color": "color",
+                    "--number-input-border-color-hover": "color",
+                    "--number-input-border-color-focus": "color",
+                    "--number-input-border-color-disabled": "color",
+
+                    "--number-input-button-color": "color",
+                    "--number-input-button-color-hover": "color",
+                    "--number-input-button-color-disabled": "color",
+
+
+
+                    "--number-input-height": "input",
+                    "--number-input-border-width": "input",
+                    "--number-input-box-shadow-focus-color": "color",
+                    "--number-input-box-shadow-focus": "input",
+                    "--number-input-button-padding": "input",
+                    "--number-input-button-outline": "input"
+                },
+                "preview": {
+                    "template": "<div>\n        <div class=\"componentClassTitle\">基本用法</div>\n        <u-number-input :value=\"6\"></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\"></u-number-input>\n        <div class=\"componentClassTitle\" style=\"margin-top: 20px;\">禁用</div>\n        <u-number-input :value=\"6\" disabled></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\" disabled></u-number-input>\n    </div>"
+                }
+            },
+            {
+                "id": 23,
+                "name": "u-textarea",
+                "title": "多行输入",
+                "toPosition": "textareaInput",
+                "type": [],
+                "cssProperty": {
+                    "--textarea-width": "input",
+                    "--textarea-width-medium": "input",
+                    "--textarea-width-large": "input",
+                    "--textarea-width-huge": "input",
+                    "--textarea-min-width": "input",
+                    "--textarea-height": "input",
+                    "--textarea-height-medium": "input",
+                    "--textarea-height-large": "input",
+                    "--textarea-height-huge": "input",
+                    "--textarea-min-height": "input",
+                    "--textarea-padding": "input",
+                    "--textarea-border-radius": "input",
+                    "--textarea-border-color": "color",
+                    "--textarea-border-color-focus": "color",
+                    "--textarea-border-color-disabled": "color",
+                    "--textarea-background": "color",
+                    "--textarea-background-disabled": "color",
+                    "--textarea-color": "color",
+                    "--textarea-color-disabled": "color",
+                    "--textarea-placeholder-color": "color",
+                    "--textarea-box-shadow-focus-color": "color",
+                    "--textarea-box-shadow-focus": "input"
+                },
+                "preview": {
+                    "template": "<div>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal medium\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal large\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal huge\" style=\"margin-bottom: 40px;\"></u-textarea>\n\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"medium normal\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"large normal\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"huge normal\" style=\"margin-bottom: 40px;\"></u-textarea>\n\n        <div class=\"componentClassTitle\">禁用</div>\n         <u-textarea value=\"禁用\" autofocus style=\"margin-bottom: 20px;\" disabled></u-textarea>\n    </div>"
+                }
+            },
+            {
+                "id": 24,
+                "name": "u-radios",
+                "title": "单选组",
+                "toPosition": "radio",
+                "type": [],
+                "cssProperty": {
+                    "--radio-space-x": "input",
+                    "--radio-size": "input",
+                    "--radio-background": "color",
+                    "--radio-box-shadow-focus": "input"
+                },
+                "preview": {
+                    "template": "<div>\n    <u-radios style=\"margin-bottom:16px;\" value=\"开\">\n        <u-radio label=\"关\">关</u-radio>\n        <u-radio label=\"开\">开</u-radio>\n    </u-radios>\n    <u-radios value=\"开\">\n        <u-radio label=\"关\" disabled>关_禁用</u-radio>\n        <u-radio label=\"开\" disabled>开_禁用</u-radio>\n    </u-radios>\n</div>"
+                }
+            },
+            {
+                "id": 25,
+                "name": "u-switch",
+                "title": "开关",
+                "toPosition": "switch",
+                "type": [],
+                "cssProperty": {
+                    "--switch-width": "input",
+                    "--switch-height": "input",
+                    "--switch-button-space": "input",
+                    "--switch-button-size": "input",
+                    "--switch-button-background": "color",
+                    "--switch-button-radius": "input",
+                    "--switch-background": "color",
+                    "--switch-background-checked": "color",
+                    "--switch-background-disabled": "color",
+                    "--switch-color": "color",
+                    "--switch-text-margin": "input",
+                    "--switch-transition": "input",
+                    "--switch-button-transition": "input"
+                },
+                "preview": {
+                    "template": "<div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch style=\"margin-right:8px;\"></u-switch>\n        <u-text>关</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch value=\"true\" readonly style=\"margin-right:8px;\"></u-switch>\n        <u-text>开</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch disabled style=\"margin-right:8px;\"></u-switch>\n        <u-text>禁用</u-text>\n    </div>\n</div>"
+                }
+            },
+            {
+                "id": 26,
+                "name": "u-checkbox",
+                "title": "多选组",
+                "toPosition": "checkbox",
+                "type": [],
+                "cssProperty": {
+                    "--checkbox-space-x": "input",
+                    "--checkbox-size": "input",
+                    "--checkbox-border-radius": "input",
+                    "--checkbox-background": "color",
+                    "--checkbox-color": "color",
+                    "--checkbox-box-shadow-focus": "input"
+                },
+                "preview": {
+                    "template": "<u-linear-layout>\n                                <u-checkbox :value=\"false\" style=\"margin-right:40px;\">关</u-checkbox>\n                                <u-checkbox :value=\"true\" readonly style=\"margin-right:40px;\">开</u-checkbox>\n                                <u-checkbox :value=\"false\" disabled style=\"margin-right:40px;\">关_禁用</u-checkbox>\n                                <u-checkbox :value=\"true\" disabled style=\"margin-right:40px;\">开_禁用</u-checkbox>\n                            </u-linear-layout>"
+                }
+            },
+            {
+                "id": 28,
+                "name": "u-select",
+                "title": "选择框",
+                "toPosition": "select",
+                "type": [],
+                "cssProperty": {
+                    "--select-popper-item-background": "color",
+                    "--select-popper-item-background-hover": "color",
+                    "--select-popper-item-background-selected": "color",
+                    "--select-popper-item-color": "color",
+                    "--select-popper-item-color-hover": "color",
+                    "--select-popper-item-color-selected": "color",
+
+                    "--select-width": "input",
+                    "--select-height": "input",
+                    "--select-padding-x": "input",
+                    "--select-background": "color",
+                    "--select-border-width": "input",
+                    "--select-border-color": "color",
+                    "--select-color": "color",
+                    "--select-popper-max-height": "input",
+                    "--select-popper-box-shadow": "input",
+                    "--select-placeholder-color": "color",
+                    "--select-arrow-color": "color",
+                    "--select-arrow-size": "input",
+                    "--select-arrow-right-ratio": "input",
+                    "--select-popper-background": "color",
+                    "--select-popper-border-color": "color",
+                    "--select-popper-border-color-inverse": "color",
+                    "--select-status-color": "color",
+                    "--select-box-shadow-focus": "input",
+                    "--select-popper-item-color-readonly": "color",
+                    "--select-popper-item-background-readonly": "color",
+                    "--select-popper-item-color-selected-disabled": "color",
+                    "--select-popper-item-background-selected-disabled": "color",
+                    "--select-popper-item-color-duplicated": "color",
+                    "--select-popper-item-background-duplicated": "color",
+                    "--select-popper-item-color-duplicated-hover": "color",
+                    "--select-popper-item-background-duplicated-hover": "color"
+                },
+                "preview": {
+                    "template": "<u-select>\n                                <u-select-item value=\"java\">Java</u-select-item>\n                                <u-select-item value=\"nodejs\">Node.js</u-select-item>\n                                <u-select-item value=\"go\">Go</u-select-item>\n                            </u-select>"
+                }
+            },
+            {
+                "id": 29,
+                "name": "u-rating",
+                "title": "评分",
+                "toPosition": "rating",
+                "type": [],
+                "cssProperty": {
+                    "--rate-space": "input",
+                    "--rate-size": "input",
+                    "--rate-color": "color",
+                    "--rate-color-full": "color"
+                },
+                "preview": {
+                    "template": "<u-rate></u-rate>"
+                }
+            },
+            {
+                "id": 30,
+                "name": "u-slider",
+                "title": "滑块",
+                "toPosition": "slider",
+                "type": [],
+                "cssProperty": {
+                    "--slider-body-margin": "input",
+                    "--slider-body-padding": "input",
+                    "--slider-track-height": "input",
+                    "--slider-track-background": "color",
+                    "--slider-trail-background": "color",
+                    "--slider-trail-background-disabled": "color",
+                    "--slider-handle-width": "input",
+                    "--slider-handle-height": "input",
+                    "--slider-handle-background": "color",
+                    "--slider-handle-border": "input"
+                },
+                "preview": {
+                    "template": "<u-slider :value=\"36\"></u-slider>"
+                }
+            },
+            {
+                "id": 31,
+                "name": "u-uploader",
+                "title": "文件上传",
+                "toPosition": "uploader",
+                "type": [
+                    "",
+                    "card",
+                    "image"
+                ],
+                "cssProperty": {
+                    "--uploader-list-margin-top": "input",
+                    "--uploader-item-space": "input",
+                    "--uploader-item-padding": "input",
+                    "--uploader-item-line-height": "input",
+                    "--uploader-item-border-radius": "input",
+                    "--uploader-item-background": "color",
+                    "--uploader-item-background-hover": "color",
+                    "--uploader-item-icon-color": "color",
+                    "--uploader-link-color": "color",
+                    "--uploader-link-color-hover": "color",
+                    "--uploader-card-border-radius": "input",
+                    "--uploader-card-space": "input",
+                    "--uploader-mask-background": "color",
+                    "--uploader-draggable-background": "color",
+                    "--uploader-draggable-border-width": "input",
+                    "--uploader-draggable-border-color": "color",
+                    "--uploader-draggable-border-color-hover": "color",
+                    "--uploader-draggable-border-radius": "input",
+                    "--uploader-draggable-padding": "input"
+                },
+                "preview": {
+                    "template": "<div>\n     <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">单文件按钮</div>\n        <u-uploader\n            url=\"http://localhost:7000/api/library/upload\" mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n    <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">单文件卡片</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"card\"\n            mutiple>\n        </u-uploader>\n    </div>\n    <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">多图片按钮</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"image\"\n            mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n</div>"
+                }
+            },
+            {
+                "id": 32,
+                "name": "u-table-view",
+                "title": "数据表格",
+                "toPosition": "tableView",
+                "type": [],
+                "cssProperty": {
+                    "--table-view-row-hover-background": "color",
+                    "--table-head-background": "color",
+                    "--table-view-head-item-size": "input",
+                    "--table-row-background-striped": "color",
+
+                    "--table-view-head-item-color": "color",
+                    "--table-background": "color",
+                    "--table-border-color": "color",
+                    "--table-td-color": "color",
+                    "--table-th-line-height": "input",
+                    "--table-th-padding": "input",
+                    "--table-td-line-height": "input",
+                    "--table-td-padding": "input"
+                },
+                "preview": {
+                    "template": "<div>\n        <u-switch v-model=\"striped\">打开斑马纹</u-switch>\n        <u-table-view :striped=\"striped\" :data-source=\"tableView\">\n            <u-table-view-column\n                title=\"用户名\"\n                field=\"name\"\n                width=\"20%\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"手机号码\"\n                field=\"phone\"\n                width=\"20%\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"地址\"\n                field=\"address\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"最近登录时间\"\n                field=\"loginTime\"\n                formatter=\"placeholder | date\"\n                width=\"20%\">\n            </u-table-view-column>\n        </u-table-view>\n    </div>",
+                    "script": "export default {\n    data() {\n        return {\n            striped: true,\n            tableView: [\n                {\n                    name: '张三',\n                    phone: '18612917895',\n                    email: 'zhangsan@163.com',\n                    address: '浙江省杭州市滨江区网商路599号网易大厦',\n                    createdTime: '1464421931000',\n                    loginTime: '1527515531000',\n                },\n                {\n                    name: '小明',\n                    phone: '13727160283',\n                    email: 'xiaoming@163.com',\n                    address: '浙江省杭州市滨江区江虹路459号英飞特科技园',\n                    createdTime: '1520864676000',\n                    loginTime: '1552400676000',\n                },\n                {\n                    name: '李四',\n                    phone: '18897127809',\n                    email: 'lisi@163.com',\n                    address: '浙江省杭州市滨江区秋溢路606号西可科技园',\n                    createdTime: '1494488730000',\n                    loginTime: '1558165530000',\n                },\n            ],\n        };\n    },\n};"
+                }
+            },
+            {
+                "id": 34,
+                "name": "u-tabs",
+                "title": "选项卡",
+                "toPosition": "tabs",
+                "type": [
+                    "",
+                    "square",
+                    "round",
+                    "line",
+                    "capsule",
+                    "text"
+                ],
+                "cssProperty": {
+                    "--tabs-border-width": "input",
+                    "--tabs-border-color": "color",
+                    "--tabs-head-background": "color",
+                    "--tabs-item-height": "input",
+                    "--tabs-item-padding-x": "input",
+                    "--tabs-item-line-width": "input",
+                    "--tabs-font-size": "input",
+                    "--tabs-item-line-background": "color",
+                    "--tabs-item-background-text": "color",
+                    "--tabs-item-background-capsule": "color",
+                    "--tabs-item-background-hover": "color",
+                    "--tabs-item-background-selected": "color",
+                    "--tabs-item-background-selected-capsule": "color",
+                    "--tabs-item-color": "color",
+                    "--tabs-item-color-hover": "color",
+                    "--tabs-item-color-selected": "color",
+                    "--tabs-item-color-selected-capsule": "color",
+                    "--tabs-item-color-disabled": "color",
+                    "--tabs-item-border-color-selected": "color",
+                    "--tabs-item-border-color-selected-capsule": "color",
+                    "--tabs-item-border-radius-round": "input",
+                    "--tabs-body-space": "input"
+                },
+                "preview": {
+                    "template": "<div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式1</div>\n            <u-tabs appear=\"square\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式2</div>\n            <u-tabs appear=\"round\" style=\"margin-bottom: 40px;\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式3</div>\n            <u-tabs appear=\"line\" style=\"margin-bottom: 40px;\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式4</div>\n            <u-tabs appear=\"capsule\" style=\"margin-bottom: 40px;\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式5</div>\n            <u-tabs appear=\"text\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n    </div>"
+                }
+            },
+            {
+                "id": 35,
+                "name": "u-selectable-steps",
+                "title": "步骤条",
+                "toPosition": "select-steps",
+                "type": [],
+                "cssProperty": {
+                    "--steps-item-color-disabled": "color",
+                    "--steps-item-radio-size": "input",
+                    "--steps-item-radio-background": "color",
+                    "--steps-item-radio-background-passed": "color",
+                    "--steps-item-radio-color-passed": "color"
+                },
+                "preview": {
+                    "template": "<u-selectable-steps :value=\"1\">\n    <u-selectable-step title=\"Step1\"></u-selectable-step>\n    <u-selectable-step title=\"Step2\"></u-selectable-step>\n    <u-selectable-step title=\"Step3\"></u-selectable-step>\n</u-selectable-steps>"
+                }
+            },
+            {
+                "id": 36,
+                "name": "u-pagination",
+                "title": "翻页器",
+                "toPosition": "pagination",
+                "type": [
+                    "",
+                    "showNum",
+                    "prevAndNext",
+                    "showSum",
+                    "showAll",
+                    "simple"
+                ],
+                "cssProperty": {
+                    "--pagination-item-border-radius": "input",
+                    "--pagination-item-border-color": "color",
+                    "--pagination-item-border-color-hover": "color",
+                    "--pagination-item-border-color-disabled": "color",
+                    "--pagination-item-height-small": "input",
+                    "--pagination-item-height": "input",
+                    "--pagination-item-width-small": "input",
+                    "--pagination-item-width": "input",
+                    "--pagination-item-font-size": "input",
+                    "--pagination-item-color": "color",
+                    "--pagination-item-color-hover": "color",
+                    "--pagination-item-color-selected": "color",
+                    "--pagination-item-color-disabled": "color",
+                    "--pagination-item-color-blank": "color",
+                    "--pagination-item-color-blank-disabled": "color",
+                    "--pagination-item-background": "color",
+                    "--pagination-item-background-hover": "color",
+                    "--pagination-item-background-selected": "color",
+                    "--pagination-item-background-blank": "color",
+                    "--pagination-item-padding": "input"
+                },
+                "preview": {
+                    "template": "<div>\n        <u-pagination style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n        <u-pagination size=\"small\" style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n        <u-pagination style=\"margin-bottom:16px;\" :total=\"11\">\n            <a slot=\"prev\" role=\"text\">Previous</a>\n            <a slot=\"next\" role=\"text\">Next</a>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total-items=\"75\"\n            show-total>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total-items=\"75\"\n            show-total\n            show-sizer\n            show-jumper>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total=\"11\"\n            simple\n            readonly>\n        </u-pagination>\n        <u-pagination\n            :total=\"11\"\n            simple\n            disabled>\n        </u-pagination>\n    </div>"
+                }
+            },
+            {
+                "id": 39,
+                "name": "u-tree-view",
+                "title": "树形视图",
+                "toPosition": "treeView",
+                "type": [],
+                "cssProperty": {
+                    "--tree-view-background": "color",
+                    "--tree-view-node-margin-left": "input",
+                    "--tree-view-node-expander-size": "input",
+                    "--tree-view-node-text-padding": "input",
+                    "--tree-view-node-background-active": "color",
+                    "--tree-view-node-background-selected": "color",
+                    "--tree-view-node-color-selected": "color",
+                    "--tree-view-node-expander-color-selected": "color",
+                    "--tree-view-node-background-selected-disabled": "color"
+                },
+                "preview": {
+                    "template": "<u-tree-view value=\"4\" :data=\"list\"></u-tree-view>",
+                    "script": "export default {\n    data() {\n        return {\n            list: [\n                {\n                    text: '一级分类',\n                    children: [\n                        {\n                            text: '二级分类选项文字极限很长...',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                },\n                            ],\n                        },\n                        {\n                            text: '二级分类',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                },\n                            ],\n                        },\n                        {\n                            text: '二级分类',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                    value: '3',\n                                    children: [\n                                        {\n                                            text: '四级分类',\n                                            value: '4',\n                                        },\n                                    ],\n                                },\n                            ],\n                        },\n                    ],\n                },\n                {\n                    text: '一级分类',\n                    children: [\n                        {\n                            text: '二级分类',\n                        },\n                        {\n                            text: '二级分类',\n                        },\n                    ],\n                },\n            ],\n        };\n    },\n};"
+                }
+            },
+            {
+                "id": 40,
+                "name": "u-transfer",
+                "title": "穿梭框",
+                "toPosition": "transfer",
+                "type": [],
+                "cssProperty": {
+                    "--transfer-height": "input",
+                    "--transfer-width": "input",
+                    "--transfer-button-size": "input",
+                    "--transfer-button-space": "input",
+                    "--transfer-button-background": "color",
+                    "--transfer-button-background-hover": "color",
+                    "--transfer-button-background-active": "color",
+                    "--transfer-button-background-disabled": "color",
+                    "--transfer-button-color": "color",
+                    "--transfer-button-color-hover": "color",
+                    "--transfer-button-color-disabled": "color",
+                    "--transfer-button-border-color": "color",
+                    "--transfer-button-border-color-hover": "color",
+                    "--transfer-button-border-color-disabled": "color"
+                },
+                "preview": {
+                    "template": "<u-transfer show-head\n    source-title=\"左列表\"\n    target-title=\"右列表\"\n    :source=\"source\"\n    :target=\"target\">\n</u-transfer>",
+                    "script": "export default {\n    data() {\n        return {\n            source: [\n                { text: 'C', value: 'c' },\n                { text: 'C#', value: 'csharp' },\n                { text: 'C++', value: 'cpp' },\n                { text: 'Coq', value: 'coq' },\n                { text: 'Go', value: 'go' },\n                { text: 'Handlebars', value: 'Handlebars' },\n                { text: 'JSON', value: 'json' },\n                { text: 'Java', value: 'java' },\n                { text: 'Makefile', value: 'makefile' },\n                { text: 'Markdown', value: 'markdown' },\n                { text: 'Objective-C', value: 'objective-c' },\n                { text: 'Objective-C++', value: 'objective-cpp' },\n                { text: 'PHP', value: 'php' },\n                { text: 'Perl', value: 'perl' },\n                { text: 'PowerShell', value: 'powershell' },\n                { text: 'Python', value: 'python' },\n                { text: 'Ruby', value: 'ruby' },\n                { text: 'SQL', value: 'sql' },\n                { text: 'SVG', value: 'svg' },\n                { text: 'Shell Script', value: 'shellscript' },\n                { text: 'Swift', value: 'swift' },\n                { text: 'Visual Basic', value: 'vb' },\n                { text: 'XML', value: 'xml' },\n                { text: 'YAML', value: 'yaml' },\n            ],\n            target: [\n                { text: 'CSS', value: 'css' },\n                { text: 'HTML', value: 'html' },\n                { text: 'JavaScript', value: 'javascript' },\n                { text: 'Vue', value: 'vue' },\n            ],\n        };\n    },\n};"
+                }
+            },
+            {
+                "id": 44,
+                "name": "u-linear-progress",
+                "title": "线型进度条",
+                "toPosition": "linearProgress",
+                "type": [],
+                "cssProperty": {
+                    "--linear-progress-height": "input",
+                    "--linear-progress-track-background": "color",
+                    "--linear-progress-trail-font-size": "input",
+                    "--linear-progress-trail-background": "color",
+                    "--linear-progress-trail-color": "color",
+                    "--linear-progress-trail-transition": "input"
+                },
+                "preview": {
+                    "template": "<u-linear-progress :percent=\"25\"></u-linear-progress>"
+                }
+            },
+            {
+                "id": 45,
+                "name": "u-circular-progress",
+                "title": "圆形进度条",
+                "toPosition": "circularProgress",
+                "type": [],
+                "cssProperty": {
+                    "--circular-progress-size": "input",
+                    "--circular-progress-stroke-width": "input",
+                    "--circular-progress-track-stroke": "color",
+                    "--circular-progress-trail-stroke": "color",
+                    "--circular-progress-trail-transition": "input",
+                    "--circular-progress-percent-font-size": "input"
+                },
+                "preview": {
+                    "template": "<u-circular-progress :percent=\"25\"></u-circular-progress>"
+                }
+            },
+            {
+                "id": 46,
+                "name": "u-popup",
+                "title": "弹出框",
+                "toPosition": "popup",
+                "type": [],
+                "cssProperty": {
+                    "--popup-padding": "input",
+                    "--popup-arrow-size": "input",
+                    "--popup-arrow-offset": "input",
+                    "--popup-outer-arrow-size": "input",
+                    "--popup-background": "color",
+                    "--popup-box-shadow": "input",
+                    "--popup-border-color": "color"
+                },
+                "preview": {
+                    "template": "<div>\n    <u-button style=\"box-shadow:none;margin-right:40px;\">\n        内容\n        <u-popup>使用 content 属性添加内容</u-popup>\n    </u-button>\n    <u-button style=\"box-shadow:none;\">\n        内容\n        <u-popup trigger=\"hover\">使用 content 属性添加内容</u-popup>\n    </u-button>\n</div>"
+                }
+            },
+            {
+                "id": 47,
+                "title": "弹窗",
+                "name": "u-modal",
+                "toPosition": "modal",
+                "type": [],
+                "cssProperty": {
+                    "--modal-dialog-width": "input",
+                    "--modal-dialog-border-radius": "input",
+                    "--modal-dialog-background": "color",
+                    "--modal-dialog-box-shadow": "input",
+                    "--modal-title-font-size": "input",
+                    "--modal-close-right": "input",
+                    "--modal-close-color": "color",
+                    "--modal-close-color-hover": "color",
+                    "--modal-body-margin": "input",
+                    "--modal-foot-margin": "input",
+                    "--modal-foot-padding": "input",
+                    "--modal-border-color": "color"
+                },
+                "preview": {
+                    "template": "<div>\n        <u-modal :visible.sync=\"exampleModalvisible\" title=\"标题\">\n            <div style=\"position:relative;width:100%;height:85px;background:#F2F3F5;text-align:center;\">\n                <u-text style=\"position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);\">对话框内容</u-text>\n            </div>\n        </u-modal>\n        <u-linear-layout>\n            <u-button @click=\"onOpen\">Modal</u-button>\n        </u-linear-layout>\n    </div>",
+                    "script": "export default {\n    data() {\n        return {\n            exampleModalvisible: false,\n        };\n    },\n    methods: {\n        onOpen() {\n            this.exampleModalvisible = true;\n        },\n    },\n};"
+                }
+            },
+            {
+                "id": 48,
+                "title": "日历面板",
+                "name": "u-calendar",
+                "toPosition": "calendar",
+                "type": [],
+                "cssProperty": {
+                    "--calendar-border-color": "color",
+                    "--calendar-background": "color",
+                    "--calendar-border-radius": "input",
+                    "--calendar-item-color": "color",
+                    "--calendar-item-border-radius": "input",
+                    "--calendar-item-border-color": "color",
+                    "--calendar-item-background": "color",
+                    "--calendar-item-color-hover": "color",
+                    "--calendar-item-border-color-hover": "color",
+                    "--calendar-item-background-hover": "color",
+                    "--calendar-item-color-selected": "color",
+                    "--calendar-item-border-color-selected": "color",
+                    "--calendar-item-background-selected": "color",
+                    "--calendar-item-color-muted": "color",
+                    "--calendar-item-color-disabled": "color",
+                    "--calendar-item-background-disabled":"color",
+                    "--calendar-item-color-selected-disabled": "color",
+                    "--calendar-item-background-selected-disabled": "color"
+                },
+                "preview": {
+                    "template": "<u-calendar picker=\"date\"></u-calendar>"
+                }
+            },
+            {
+                "id": 49,
+                "title": "日期选择器",
+                "name": "u-datepicker",
+                "toPosition": "datepicker",
+                "type": [],
+                "cssProperty": {
+                    "--datepicker-input-width": "input",
+                    "--datepicker-input-height": "input",
+                    "--datepicker-input-pre-icon-color": "color",
+                    "--datepicker-input-after-icon-color": "color",
+                    "--datepicker-input-padding-x": "input",
+                    "--datepicker-input-placeholder-color": "color",
+                    "--datepicker-input-border-width": "input",
+                    "--datepicker-input-border-color": "color",
+                    "--datepicker-input-border-radius": "input"
+                },
+                "preview": {
+                    "template": "<u-date-picker date=\"2018-08-08\" clearable></u-date-picker>"
+                }
+            },
+            {
+                "id": 50,
+                "name": "u-date-time-picker",
+                "title": "日期时间选择器",
+                "toPosition": "u-date-time-picker",
+                "type": [],
+                "cssProperty": {
+                    "--datetime-input-width": "input",
+                    "--datetime-input-height": "input",
+                    "--datetime-input-pre-icon-color": "color",
+                    "--datetime-input-after-icon-color": "color",
+                    "--datetime-input-padding-x": "input",
+                    "--datetime-input-placeholder-color": "color",
+                    "--datetime-input-border-width": "input",
+                    "--datetime-input-border-color": "color",
+                    "--datetime-input-border-radius": "input"
+                },
+                "preview": {
+                    "template": "<u-date-time-picker  date=\"2018-08-08\" clearable></u-date-time-picker>"
+                }
+            }
+        ]
     }
 ]

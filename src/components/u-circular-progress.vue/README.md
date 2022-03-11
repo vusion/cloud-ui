@@ -30,7 +30,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| percent | number |  | `0` | 百分比 |
+| percent | number |  | `0` | 进度条显示的进度百分比，1-100之间的数字 |
 
 ### Slots
 

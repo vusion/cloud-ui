@@ -10,8 +10,8 @@
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object | DataSource
-      designer-value: '[{}, {}, {}]'
-      description: 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。
+      designer-value: "[{}, {}, {}]"
+      description: 表格的数据源，数据集对象或者返回数据集的逻辑
       group: 数据属性
     - name: data-schema
       title: 数据类型
@@ -19,6 +19,11 @@
       description: 表格每一行的数据类型
       group: 数据属性
       compType: dataTypeSelect
+    - name: extra-params
+      title: 数据源参数
+      type: object
+      description: 数据源除了DataSourceParams外还需要的参数
+      group: 数据属性
     - name: initial-load
       title: 初始加载
       type: boolean
@@ -29,21 +34,21 @@
       title: 可分页
       type: boolean
       default: false
-      description: 是否分页。
+      description: ""
       group: 数据属性
     - name: page-size
       title: 分页大小
       type: number
       sync: true
       default: 20
-      description: 分页大小。
+      description: ""
       group: 数据属性
     - name: page-number
       title: 当前页数
       type: number
       sync: true
       default: 1
-      description: 当前页数。
+      description: ""
       group: 数据属性
       schema:
         $ref: "#/basicTypes/Integer"
@@ -60,19 +65,19 @@
       title: 显示总条目数
       type: boolean
       default: false
-      description: 是否显示总条目数。
+      description: ""
       group: 数据属性
     - name: show-sizer
       title: 显示分页大小
       type: boolean
       default: false
-      description: 是否显示切换分页大小选项。
+      description: ""
       group: 数据属性
     - name: show-jumper
       title: 显示跳转输入
       type: boolean
       default: false
-      description: 是否显示页面跳转输入框。
+      description: ""
       group: 数据属性
     - name: sorting
       title: 排序参数
@@ -96,7 +101,7 @@
       title: 筛选参数
       type: object
       sync: true
-      description: 筛选参数。
+      description: ""
       advanced: true
       group: 数据属性
     - name: remote-paging
@@ -121,7 +126,7 @@
     - name: title
       title: 表格标题
       type: string
-      description: 表格标题。
+      description: ""
       group: 样式属性
     - name: title-alignment
       title: 标题对齐方式
@@ -134,13 +139,19 @@
         - value: right
           title: 右对齐
       default: center
-      description: 表格标题的对齐方式。
+      description: ""
+      group: 样式属性
+    - name: boldHeader
+      title: 表头加粗
+      type: boolean
+      default: true
+      description: ""
       group: 样式属性
     - name: border
       title: 显示边框
       type: boolean
       default: false
-      description: 是否显示边框。
+      description: ""
       group: 样式属性
     - name: line
       title: 分隔线条
@@ -154,7 +165,6 @@
       default: false
       description: 表格行是否按斑马线条纹显示。
       group: 样式属性
-      hidden: true
     - name: hover
       title: 悬浮高亮行
       type: boolean
@@ -166,7 +176,12 @@
       title: 显示表格头部
       type: boolean
       default: true
-      description: 是否显示表格头部。
+      description: ""
+      group: 样式属性
+    - name: default-column-width
+      title: 默认列宽度
+      type: string | number
+      description: 表格的默认列宽度，可以设置为百分比或数字。
       group: 样式属性
     - name: loading
       title: 是否加载中
@@ -190,13 +205,13 @@
       title: 加载失败文字
       type: string
       default: 加载失败，请重试
-      description: 加载失败时的文字。
+      description: ""
       group: 状态属性
     - name: empty-text
       title: 暂无数据文字
       type: string
       default: 暂无数据
-      description: 暂无数据时的文字。
+      description: ""
       group: 状态属性
     - name: value-field
       title: 值字段名
@@ -232,19 +247,19 @@
       title: 只读
       type: boolean
       default: false
-      description: 是否只读。
+      description: ""
       group: 选择属性
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用。
+      description: ""
       group: 选择属性
     - name: accordion
       title: 手风琴模式
       type: boolean
       default: false
-      description: 在有`expander`列的情况下，展开一行的同时，是否收起其它行。
+      description: 是否每次只会展开一行
       group: 其它属性
     - name: resizable
       title: 可调整列宽
@@ -291,7 +306,8 @@
       support:
         - name: u-table-view-column
           title: 表格列
-          snippet: '<u-table-view-column title="表格列"><template #cell="scope"></template></u-table-view-column>'
+          snippet: '<u-table-view-column title="表格列"><template
+            #cell="scope"></template></u-table-view-column>'
     - name: loading
       title: 加载中内容
       description: 自定义加载中内容。
@@ -579,6 +595,29 @@
         - name: oldWidth
           type: number
           description: 调整前的宽度
+    - name: before-toggle-expanded
+      title: 展开行前
+      description: 点击展开按钮前触发
+      params:
+        - name: $event.item
+          type: object
+          description: 选择行相关对象
+        - name: $event.expanded
+          type: boolean
+          description: 展开状态值
+        - name: $event.oldExpanded
+          type: boolean
+          description: 展开前状态值
+    - name: toggle-expanded
+      title: 展开行后
+      description: 点击展开按钮后触发
+      params:
+        - name: $event.item
+          type: object
+          description: 选择行相关对象
+        - name: $event.expanded
+          type: boolean
+          description: 展开状态值
   methods:
     - name: load
       description: 带缓存地加载
@@ -597,21 +636,21 @@
           description: 当前页码
           default: 1
           designerDefault:
-            label: '原子项'
-            level: 'expressionNode'
-            type: 'NumericLiteral'
+            label: 原子项
+            level: expressionNode
+            type: NumericLiteral
             value: 1
-            valueType: 'int'
+            valueType: int
         - name: size
           type: number
           description: 每页条数
           default: 2000
           designerDefault:
-            label: '原子项'
-            level: 'expressionNode'
-            type: 'NumericLiteral'
+            label: 原子项
+            level: expressionNode
+            type: NumericLiteral
             value: 2000
-            valueType: 'int'
+            valueType: int
         - name: sort
           type: string
           description: 排序字段
@@ -698,6 +737,8 @@
           title: 展开列
         - value: tree
           title: 树形列
+        - value: editable
+          title: 编辑列
       default: normal
       description: 列类型
     - name: start-index
@@ -705,6 +746,10 @@
       type: number
       default: 1
       description: 当`type="index"`时的起始序号。
+    - name: dblclickHandler
+      title: 双击处理函数
+      type: Function
+      description: 用于可编辑表格，双击表格列时的处理函数
   slots:
     - name: default
       title: 默认
@@ -714,6 +759,31 @@
     - name: cell
       plus-empty: true
       description: 对单元格的数据展示进行自定义。
+      props:
+        - name: item
+          title: 当前项
+          type: object
+          description: 循环中的当前项。
+        - name: value
+          title: 字段值
+          type: any
+          description: item 中 field 字段对应的值。
+        - name: columnVM
+          title: 列实例
+          type: string
+          description: 该列组件实例。
+        - name: rowIndex
+          title: 行索引
+          type: number
+          description: 行的索引。
+        - name: columnIndex
+          title: 列索引
+          type: number
+          description: 列的索引。
+    - name: editcell
+      plus-empty: true
+      plus-empty-tag: editcell-plus-empty
+      description: 对单元格的编辑数据展示进行自定义。
       props:
         - name: item
           title: 当前项
@@ -751,6 +821,8 @@
           type: number
           description: 列的索引。
     - name: expand-content
+      plus-empty: true
+      plus-empty-tag: expand-content-plus-empty
       title: 展开列内容
       accept-type: all
       description: 展开列的内容。

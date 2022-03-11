@@ -76,7 +76,7 @@
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁止复制
+      description: 禁止复制
   slots:
     - name: default
       description: 修改默认触发元素

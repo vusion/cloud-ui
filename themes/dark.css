@@ -24,10 +24,10 @@
 
     --brand-primary: var(--brand-theme);
 
-    --brand-error: #f24957; 
+    --brand-error: #f24957;
     --brand-disabled: #595959; /* 禁用文本的颜色 */
     --brand-disabled-dark: var(--brand-disabled); /* 禁用文本的颜色 */
-    
+
     --color-lighter: #585c63;
     --color-light: #595959;
     --color-base: white;    /* 基础字色, 一级字色 */
@@ -57,6 +57,8 @@
     --scrollbar-background-inverse: rgba(48, 48, 48, 0.2);
     --scrollbar-background-hover-inverse: rgba(48, 48, 48, 0.4);
     --scrollbar-border-radius: 6px;
+    --scrollbar-border-color: hsla(220 8% 36% / 0.6);
+    --scrollbar-border-width: 4px;
 
     --button-padding-x: 25px;
     --button-height: 32px;
@@ -101,12 +103,13 @@
 
     /* --input-border-color: 0; */
     --input-background: var(--background-color-base);
-    --input-background-disabled: rgba(36, 36, 36, 0.75);
+    --input-background-disabled: #F5F5F5;
     --input-border-color: var(--background-color-base);
     --input-border-radius: 4px;
     --input-icon-color: rgba(255,255,255,0.6);
     --input-border-color-focus: #4c88FF;
-    --input-box-shadow-focus: 0 0 0 2px rgba(76, 136, 255, 0.25);
+    --input-box-shadow-focus-color: rgba(76, 136, 255, 0.25);
+    --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color);
     --input-height-small: 32px;
     --input-placeholder-color: var(--color-light);
     --input-padding-x: 8px;
@@ -118,7 +121,6 @@
     --textarea-background: rgba(36, 36, 36, 0.75);
 
     /* your variables */
-    --collapse-item-head-background: var(--background-color-base);
     --collapse-border-color: var(--border-color-base);
 
     --switch-background: #61656b;
@@ -183,7 +185,7 @@
     --form-group-head-padding: 8px 10px;
     --form-group-head-line-height: 1;
     --form-group-space: 10px;
-    --form-item-text-color: #aaaaaa;
+    --form-item-label-color: #aaaaaa;
     --form-table-head-background: transparent;
     --form-table-head-color: #aaaaaa;
     --form-table-head-padding: 0;
@@ -254,21 +256,21 @@
     --radio-border-color-disabled: rgba(255, 255, 255, 0.4);
     --radio-circle-background-disabled: rgba(255, 255, 255, 0.2);
     --radio-background: transparent;
-    
+
     /* 黑色背景字体默认白色 */
     --font-color-primary: #fff;
 
     --toast-top: 110px;
     --toast-item-icon-vertical-align: -2px;
 
-    
+
 
     --table-background: var(--background-color-gray);
     --table-head-font-weight: 500;
     --table-border-color: var(--divider-list-color);
     --table-td-color: #fff;
     --table-hover-border-shadow-display: none;
-    
+
     --table-view-row-selected-background: transparent;
     --table-view-row-hover-background: rgba(64, 64, 65, 0.6);
     --table-view-head-item-color: #fff;
@@ -288,7 +290,7 @@
     --editor-content-background-color: #ebebeb;
 
     --tree-data-list-popper-offset-y: 5;
-    
+
     --popper-arrow-isShow: 1;
 
     --pagination-item-color-selected: #fff;

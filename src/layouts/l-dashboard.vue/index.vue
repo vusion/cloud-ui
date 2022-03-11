@@ -28,6 +28,7 @@ export default { name: 'l-dashboard' };
     top: 0;
     height: 100%;
     min-height: 600px;
+    background: var(--dashboard-background);
 }
 
 .head {
@@ -61,6 +62,6 @@ export default { name: 'l-dashboard' };
 .content {
     position: relative;
     min-width: 1020px;
-    padding: 40px;
+    padding: var(--dashboard-padding);
 }
 </style>

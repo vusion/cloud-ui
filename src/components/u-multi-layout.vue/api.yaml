@@ -1,0 +1,122 @@
+- name: u-multi-layout
+  title: 分栏布局
+  description: 一定的规则布局
+  icon: multi-layout
+  labels:
+    - Layout
+  attrs:
+    - name: direction
+      title: 排列方向
+      type: string
+      options:
+        - value: horizontal
+          title: 横向排列
+        - value: vertical
+          title: 纵向排列
+      default: horizontal
+      description: 布局中模块的排列方向
+    - name: gap
+      title: 间隙
+      type: string
+      options:
+        - value: shrink
+          title: 收缩
+        - value: none
+          title: 无
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+      default: none
+      description: 布局中各分栏间的空隙大小
+  slots:
+    - name: default
+      description: 插入`<u-multi-layout-item>`子组件。
+      support:
+        - name: u-multi-layout-item
+          title: 布局栏
+          snippet: <u-multi-layout-item></u-multi-layout-item>
+  events:
+    - name: $listeners
+      kind: trigger
+      description: 监听所有事件。
+      params: []
+- name: u-multi-layout-item
+  title: 布局栏
+  description: 一定的规则布局
+  icon: multi-layout-item
+  labels:
+    - Layout
+  attrs:
+    - name: fixed
+      title: 固定展示
+      type: boolean
+      default: false
+      advanced: true
+      description: 开启后滚动时该项固定显示
+    - name: fixdirec
+      title: 固定位置
+      type: string
+      advanced: true
+      options:
+        - value: left
+          title: 左
+        - value: right
+          title: 右
+      default: left
+      description: 固定在左侧还是右侧
+    - name: display
+      title: 展示方式
+      type: string
+      options:
+        - value: block
+          title: 块级
+        - value: inline
+          title: 行内
+      default: block
+      description: 行内展示，或块级换行展示
+    - name: justify
+      title: 主轴分布方式
+      type: string
+      options:
+        - value: start
+          title: 左对齐
+        - value: center
+          title: 居中对齐
+        - value: end
+          title: 右对齐
+        - value: space-between
+          title: 各行之间留有空
+          advanced: true
+        - value: space-around
+          title: 之前、之间、之后都留有空白
+          advanced: true
+      default: start
+      description: 内容对齐方式
+    - name: alignment
+      title: 纵轴对齐方式
+      type: string
+      options:
+        - value: start
+          title: 头对齐
+        - value: center
+          title: 居中对齐
+        - value: end
+          title: 尾对齐
+        - value: baseline
+          title: 基线对齐
+        - value: stretch
+          title: 拉伸子元素充满整个父元素空间
+      default: stretch
+      description: flex布局模式下的交叉轴对齐方式
+      advanced: true
+  slots:
+    - name: default
+      description: 内容
+  events:
+    - name: $listeners
+      kind: trigger
+      description: 监听所有事件。
+      params: []

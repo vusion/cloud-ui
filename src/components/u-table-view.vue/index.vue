@@ -9,53 +9,56 @@
         <div v-if="showHead" :class="$style.head" ref="head" :style="{ width: number2Pixel(tableWidth) }">
             <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped">
                 <colgroup>
-                    <col v-for="columnVM in visibleColumnVMs" :width="columnVM.computedWidth"></col>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
-                <thead><tr>
-                    <th ref="th" :class="$style['head-title']" v-for="(columnVM, columnIndex) in visibleColumnVMs"
-                        :is-sub="columnVM.$attrs['is-sub']"
-                        :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
-                        :vusion-node-path="columnVM.$attrs['vusion-node-path']"
-                        :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
-                        :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
-                        :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
-                        :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
-                        :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)">
-                        <!-- type === 'checkbox' -->
-                        <span v-if="columnVM.type === 'checkbox'">
-                            <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
-                        </span>
-                        <!-- Normal title -->
-                        <template>
-                            <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">
-                                <span vusion-slot-name="title" :class="$style['column-title']">{{ columnVM.title }}</span>
-                            </f-slot>
-                        </template>
-                        <!-- Sortable -->
-                        <span v-if="columnVM.sortable" :class="$style.sort"
-                            :sorting="currentSorting && currentSorting.field === columnVM.field" :order="currentSorting && currentSorting.order"
-                            @click="sortTrigger === 'icon' && ($event.stopPropagation(), onClickSort(columnVM))"></span>
-                        <!-- Filterable -->
-                        <span v-if="columnVM.filters" :class="$style['filter-wrap']">
-                            <u-table-view-filters :value="getFiltersValue(columnVM.field)" @select="onSelectFilters(columnVM.field, $event)">
-                                <u-table-view-filter v-for="filter in columnVM.filters" :key="filter.value" :value="filter.value">{{ filter.text }}</u-table-view-filter>
-                            </u-table-view-filters>
-                        </span>
-                        <!-- Resizable -->
-                        <f-dragger v-if="resizable && columnIndex !== visibleColumnVMs.length - 1" axis="horizontal"
-                            @dragstart="onResizerDragStart($event, columnVM)"
-                            @drag="onResizerDrag($event, columnVM, columnIndex)"
-                            @dragend="onResizerDragEnd($event, columnVM, columnIndex)">
-                            <div :class="$style.resizer" @click.stop></div>
-                        </f-dragger>
-                    </th>
-                </tr></thead>
+                <thead>
+                    <tr>
+                        <th ref="th" :class="[$style['head-title'], boldHeader ? $style.boldHeader : null]" v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                            :key="columnIndex"
+                            :is-sub="columnVM.$attrs['is-sub']"
+                            :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
+                            :vusion-node-path="columnVM.$attrs['vusion-node-path']"
+                            :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
+                            :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
+                            :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
+                            :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
+                            :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)">
+                            <!-- type === 'checkbox' -->
+                            <span v-if="columnVM.type === 'checkbox'">
+                                <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
+                            </span>
+                            <!-- Normal title -->
+                            <template>
+                                <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">
+                                    <span vusion-slot-name="title" :class="$style['column-title']">{{ columnVM.title }}</span>
+                                </f-slot>
+                            </template>
+                            <!-- Sortable -->
+                            <span v-if="columnVM.sortable" :class="$style.sort"
+                                :sorting="currentSorting && currentSorting.field === columnVM.field" :order="currentSorting && currentSorting.order"
+                                @click="sortTrigger === 'icon' && ($event.stopPropagation(), onClickSort(columnVM))"></span>
+                            <!-- Filterable -->
+                            <span v-if="columnVM.filters" :class="$style['filter-wrap']">
+                                <u-table-view-filters :value="getFiltersValue(columnVM.field)" @select="onSelectFilters(columnVM.field, $event)">
+                                    <u-table-view-filter v-for="filter in columnVM.filters" :key="filter.value" :value="filter.value">{{ filter.text }}</u-table-view-filter>
+                                </u-table-view-filters>
+                            </span>
+                            <!-- Resizable -->
+                            <f-dragger v-if="resizable && columnIndex !== visibleColumnVMs.length - 1" axis="horizontal"
+                                @dragstart="onResizerDragStart($event, columnVM)"
+                                @drag="onResizerDrag($event, columnVM, columnIndex)"
+                                @dragend="onResizerDragEnd($event, columnVM, columnIndex)">
+                                <div :class="$style.resizer" @click.stop></div>
+                            </f-dragger>
+                        </th>
+                    </tr>
+                </thead>
             </u-table>
         </div>
         <div :class="$style.body" ref="body" :style="{ width: number2Pixel(tableWidth), height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped">
                 <colgroup>
-                    <col v-for="columnVM in visibleColumnVMs" :width="columnVM.computedWidth"></col>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
                 <tbody>
                     <template v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
@@ -65,12 +68,14 @@
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
                                         allowChild
                                         vusion-slot-name="cell"
+                                        :key="columnIndex"
                                         :vusion-next="true"
                                         :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
                                         :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
                                         :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
                                         :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
                                         :vusion-template-cell-node-path="columnVM.$attrs['vusion-template-cell-node-path']"
+                                        :vusion-template-editcell-node-path="columnVM.$attrs['vusion-template-editcell-node-path']"
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                         <!--可视化占据的虚拟填充区域-->
@@ -97,12 +102,17 @@
                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                             </f-slot>
                                        </div>
+                                       <div v-if="columnVM.type === 'editable'" vusion-slot-name="editcell" :plus-empty="columnVM.$attrs['editcell-plus-empty']" style="margin-top:10px">
+                                            <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                            </f-slot>
+                                       </div>
                                     </td>
                                 </template>
                                 <template v-else>
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" 
                                         :ellipsis="columnVM.ellipsis" 
                                         v-ellipsis-title
+                                        :key="columnIndex"
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
                                         :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
@@ -119,26 +129,65 @@
                                                 <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled" @check="check(item, $event.value)"></u-checkbox>
                                             </span>
                                             <!-- type === 'expander' -->
-                                            <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
+                                            <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" :disabled="item.disabled" @click="toggleExpanded(item)"></span>
                                             <template v-if="item.level !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: 16*item.level + 'px' }"></span>
                                                 <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- Normal text -->
-                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
-                                                <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
-                                            </f-slot>
+                                            <template v-if="columnVM.type === 'editable'">
+                                                <div @dblclick="onSetEditing(item, columnVM)" :class="$style.editablewrap">
+                                                    <div>
+                                                        <template v-if="item.editing === columnVM.field">
+                                                            <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                                <span v-if="columnVM.field" vusion-slot-name="editcell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                            </f-slot>
+                                                        </template>
+                                                        <template v-else>
+                                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                                <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                            </f-slot>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                            </template>
+                                            <template v-else>
+                                                <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                    <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                </f-slot>
+                                            </template>
+                                            
                                     </td>
                                 </template>
                             </tr>
-                            <tr :class="$style['expand-content']" v-if="expanderColumnVM && item.expanded">
-                                <f-collapse-transition>
-                                    <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded" vusion-slot-name="expand-content">
-                                        <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
-                                    </td>
-                                </f-collapse-transition>
-                            </tr>
+                            <template v-if="$env.VUE_APP_DESIGNER && expanderColumnVM && rowIndex===0">
+                                <tr :class="$style['expand-content']">
+                                    <f-collapse-transition>
+                                        <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']"
+                                        vusion-slot-name="expand-content"
+                                        :vusion-disabled-selected="true"
+                                        :vusion-node-tag="expanderColumnVM.$attrs['vusion-node-tag']"
+                                        :vusion-template-expand-content-node-path="expanderColumnVM.$attrs['vusion-template-expand-content-node-path']"
+                                        :vusion-scope-id="expanderColumnVM.$vnode.context.$options._scopeId"
+                                        :vusion-node-path="expanderColumnVM.$attrs['vusion-node-path']"
+                                        style="background: #F7F8FA;">
+                                            <div :plus-empty="expanderColumnVM.$attrs['expand-content-plus-empty']" color="inverse"></div>
+                                            <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }">
+                                            </f-slot>
+                                        </td>
+                                    </f-collapse-transition>
+                                </tr>
+                            </template>
+                            <template v-else>
+                                <tr :class="$style['expand-content']" v-if="expanderColumnVM && item.expanded">
+                                    <f-collapse-transition>
+                                        <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded">
+                                            <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
+                                        </td>
+                                    </f-collapse-transition>
+                                </tr>
+                            </template>
                         </template>
                     </template>
                     <tr key="no-data-source" v-if="currentData === undefined && !currentError && $env.VUE_APP_DESIGNER">
@@ -193,13 +242,16 @@ import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
-import { rest } from 'lodash';
 
 export default {
     name: 'u-table-view',
     mixins: [MEmitter],
     i18n,
     props: {
+        boldHeader: {
+            type: Boolean,
+            default: true
+        },
         data: Array,
         dataSource: [DataSource, Function, Object, Array],
         initialLoad: { type: Boolean, default: true },
@@ -268,6 +320,8 @@ export default {
         hasChildrenField: { type: String, default: 'hasChildren' },
         treeDataSource: [Function],
         minColumnWidth: { type: Number, default: 44 },
+        extraParams: Object,
+        defaultColumnWidth: [String, Number],
     },
     data() {
         return {
@@ -455,7 +509,7 @@ export default {
     },
     methods: {
         typeCheck(type) {
-            return ['index', 'radio', 'checkbox'].includes(type);
+            return ['index', 'radio', 'checkbox', 'expander'].includes(type);
         },
         clearTimeout() {
             if (this.timer) {
@@ -466,6 +520,7 @@ export default {
             const selectable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'radio');
             const checkable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'checkbox');
             const expandable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'expander');
+            const editable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'editable');
             if (selectable) {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('disabled'))
@@ -486,6 +541,12 @@ export default {
                         this.$set(item, 'expanded', false);
                 });
             }
+            if (editable) {
+                data.forEach((item) => {
+                    if (!item.hasOwnProperty('editing'))
+                        this.$set(item, 'editing', '');
+                });
+            }
             return data;
         },
         handleData() {
@@ -496,7 +557,7 @@ export default {
             this.handleResize();
         },
         getExtraParams() {
-            return undefined;
+            return this.extraParams;
         },
         getDataSourceOptions() {
             return {
@@ -519,8 +580,8 @@ export default {
                 options.data = Array.from(dataSource);
                 return new DataSource(options);
             } else if (dataSource instanceof Function) {
-                options.load = function load(params) {
-                    const result = dataSource(params);
+                options.load = function load(params, extraParams) {
+                    const result = dataSource(params, extraParams);
                     if (result instanceof Promise)
                         return result;
                     else if (result instanceof Array)
@@ -538,8 +599,7 @@ export default {
             return isNumber(value) ? value + 'px' : '';
         },
         handleResize() {
-            this.tableWidth = undefined;
-            // this.bodyHeight = undefined;
+            this.bodyHeight = undefined;
             this.clearTimeout();
             this.timer = setTimeout(() => {
                 this.timer = undefined;
@@ -560,10 +620,15 @@ export default {
                 let fixedLeftCount = 0;
                 let fixedRightCount = 0;
                 let lastIsFixed = false;
+                let defaultColumnWidth = this.defaultColumnWidth;
+                if (String(defaultColumnWidth).endsWith('%')) {
+                    defaultColumnWidth = (parseFloat(defaultColumnWidth) * rootWidth) / 100;
+                }
+                defaultColumnWidth = defaultColumnWidth? defaultColumnWidth: 0;
                 this.visibleColumnVMs.forEach((columnVM, index) => {
-                    if (!columnVM.currentWidth)
+                    if (!columnVM.currentWidth){
                         noWidthColumnVMs.push(columnVM);
-                    else if (String(columnVM.currentWidth).endsWith('%'))
+                    } else if (String(columnVM.currentWidth).endsWith('%'))
                         percentColumnVMs.push(columnVM);
                     else
                         valueColumnVMs.push(columnVM);
@@ -603,7 +668,8 @@ export default {
                 const remainingWidth = rootWidth - percentWidthSum - valueWidthSum;
                 if (remainingWidth > 0 && noWidthColumnVMs.length) {
                     const averageWidth = remainingWidth / noWidthColumnVMs.length;
-                    noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = averageWidth);
+                    const finalWidth = averageWidth > defaultColumnWidth ? averageWidth : defaultColumnWidth;
+                    noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = finalWidth);
                 } else if (remainingWidth > 0 && valueWidthSum !== 0) {
                     const averageWidth = remainingWidth / valueColumnVMs.length;
                     valueColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
@@ -611,7 +677,7 @@ export default {
 
                 // 如果所有列均有值，则总宽度有超出的可能。否则总宽度为根节点的宽度。
                 let tableWidth = '';
-                if (this.visibleColumnVMs.every((columnVM) => columnVM.currentWidth)) {
+                if (this.visibleColumnVMs.every((columnVM) => columnVM.currentWidth) || defaultColumnWidth) {
                     tableWidth = this.visibleColumnVMs.reduce((prev, columnVM) => {
                         if (String(columnVM.currentWidth).endsWith('%'))
                             return (prev + (parseFloat(columnVM.currentWidth) * rootWidth) / 100);
@@ -820,11 +886,30 @@ export default {
             document.addEventListener('keydown', fn, true)
 
             try {
-                // console.time('加载数据');
-                const res = await this.currentDataSource._load({ page, size, sort, order });
-                // console.timeEnd('加载数据');
 
-                const content = await this.getRenderResult(res.content);
+                let content = [];
+                if (!this.remote) {
+                    content = await this.getRenderResult(this.currentDataSource.data);
+                } else {
+                    // console.time('加载数据');
+                    let res = await this.currentDataSource._load({ page, size, sort, order });
+                    // console.timeEnd('加载数据');
+
+                    if (res instanceof Object) {
+                        if (res.hasOwnProperty('content'))
+                            res = res.content;
+                        else if (res.hasOwnProperty('data'))
+                            res = res.data;
+                    }
+
+                    if(!(res instanceof Array)) {
+                        this.$toast.show('数据格式不是数组');
+                        return;
+                    }  
+
+                    content = await this.getRenderResult(res);
+                }
+                
 
                 // console.time('生成文件');
                 const sheetData = this.getSheetData(content);
@@ -863,7 +948,8 @@ export default {
             }
  
             let res = [];
-            const page = this.currentDataSource.paging.size;
+            // this.currentDataSource.paging.size 会受可分页选项影响，直接改成pageSize
+            const page = this.pageSize;
             for(let i=0;i<arr.length;i += page) {
                 this.exportData = arr.slice(i, i + page);
                 await new Promise((res) => {
@@ -1082,6 +1168,8 @@ export default {
             this.$emit('check', { values: this.currentValues, oldValues, checked }, this);
         },
         toggleExpanded(item, expanded) {
+            if (item.disabled)
+                return;
             // Method overloading
             if (expanded === undefined)
                 expanded = !item.expanded; // Emit a `before-` event with preventDefault()
@@ -1193,6 +1281,13 @@ export default {
             });
             this.$forceUpdate(); // 有loading的情况下，forceUpdate才会更新
         },
+        onSetEditing(item, columnVM) {
+            const fieldName = columnVM.field;
+            item.editing = fieldName;
+            if(columnVM.dblclickHandler){
+                columnVM.dblclickHandler({ item, columnVM });
+            }
+        }
     },
 };
 </script>
@@ -1201,6 +1296,29 @@ export default {
 .root {
     position: relative;
     /* 不能加这句，会使分页器的 Select 无法显示！ overflow: hidden; */
+}
+
+.root[editable] td{
+    padding-top: 4px;
+    padding-bottom: 4px;
+    min-height: var(--table-view-editable-td-min-height);
+    height: 1px;
+}
+.editablewrap{
+    display: table;
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+    min-height: var(--table-view-editable-td-min-height);
+}
+.editablewrap > div {
+    display: table-cell;
+    vertical-align: middle;
+}
+.cell[ellipsis] .editablewrap > div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .title {
@@ -1256,6 +1374,10 @@ export default {
 }
 .head-title[sortable]:hover .sort{
     color: var(--table-view-sort-color-hover);
+}
+
+.head-title.boldHeader {
+    font-weight: var(--table-head-font-weight);
 }
 
 .extra {
@@ -1380,23 +1502,66 @@ export default {
     height: var(--table-view-expander-size);
     line-height: var(--table-view-expander-size);
     vertical-align: -2px;
-    text-align: center;
-    transform: rotate(-180deg);
+    /* text-align: center;
+    transform: rotate(-180deg); */
+    position: relative;
+    background-color: var(--table-view-expander-background);
+    cursor: pointer;
+    border: 1px solid var(--table-view-expander-border-color);
+    border-radius: var(--table-view-expander-border-radius);
+}
+.expander:hover{
+    background-color: var(--table-view-expander-background-hover);
+    border-color: var(--table-view-expander-border-color-hover);
+}
+.expander::before,
+.expander::after {
+    position: absolute;
+    background: currentcolor;
+    content: "";
+    background: var(--table-view-expander-color);
+    transition: transform .2s ease-out;
+}
+.expander:hover::before,
+.expander:hover::after{
+    background: var(--table-view-expander-color-hover);
 }
 
 .expander::before {
-    icon-font: url('../i-icon.vue/icons/square-down.svg');
+    top: 6px;
+    right: 3px;
+    left: 3px;
+    height: 2px;
+    transform: rotate(-180deg);
+}
+.expander::after {
+    top: 3px;
+    bottom: 3px;
+    left: 6px;
+    width: 2px;
+    transform: rotate(0deg);
 }
 
-.expander[expanded] {
-    transform: rotate(0);
+.expander[expanded]::after {
+   transform: rotate(90deg);
+}
+.expander[disabled] {
+    border: 1px solid var(--table-view-expander-border-color-disabled);
+    background: var(--table-view-expander-background-disabled);
+    cursor: not-allowed;
+}
+.expander[disabled]::before,
+.expander[disabled]::after{
+    background: var(--table-view-expander-color-disabled);
 }
 
 .expand-td {
     /* transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out; */
+    background-color: var(--table-view-expand-td-background);
 }
 
 .column-title {
+    font-size: var(--table-view-head-item-size);
     color: var(--table-view-head-item-color);
 }
 

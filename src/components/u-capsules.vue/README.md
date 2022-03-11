@@ -71,7 +71,7 @@
 
 ### 可取消
 
-点击两次同一项，可取消状态
+点击两次同一项，可取消状态
 
 ``` html
 <u-capsules value="C" cancelable>
@@ -123,13 +123,12 @@
 ### 标签
 
 ``` html
-<u-capsules>
-    <u-capsule value="6" size="small">6</u-capsule>
-    <u-capsule value="7" size="small" label="88折">7</u-capsule>
-    <u-capsule value="8" size="small" label="88折">8</u-capsule>
-    <u-capsule value="9" size="small" label="88折">9</u-capsule>
-    <u-capsule value="10" size="small" label="88折">1年</u-capsule>
-    <u-capsule value="11" size="small" label="80折">2年</u-capsule>
+<u-capsules size="small">
+    <u-capsule value="1" >1月</u-capsule>
+    <u-capsule value="3">3月</u-capsule>
+    <u-capsule value="6" label="95折">6月</u-capsule>
+    <u-capsule value="12" label="88折">1年</u-capsule>
+    <u-capsule value="24" label="80折">2年</u-capsule>
 </u-capsules>
 ```
 
@@ -138,12 +137,12 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | any |  |  | 当前选择的值 |
+| value.sync, v-model | any |  |  |  |
 | auto-select | boolean |  | `false` | 是否自动选择第一个非禁用的项 |
 | cancelable | boolean |  | `false` | 是否可以取消选择 |
 | multiple | boolean |  | `false` | 是否可以多选 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
 
 ### Slots
 

@@ -1,5 +1,5 @@
 <template>
-<span :class="$style.root">
+<span :class="$style.root" v-click-outside="handleClickOutside">
     <u-number-input :class="$style.item" :min="hourmin" :max="hourmax" formatter="00" fix-on="input" :value="hour" :readonly="readonly" :disabled="disabled" :autofocus="autofocus" @input="changeHour"></u-number-input>
     <span :class="$style.dot">:</span>
     <u-number-input :class="$style.item" :min="minutemin" :max="minutemax" formatter="00" fix-on="input" :value="minute" :readonly="readonly" :disabled="disabled" @input="changeMinute"></u-number-input>
@@ -43,8 +43,11 @@ const TimeRangeError = function (minTime, maxTime) {
 TimeRangeError.prototype = Object.create(Error.prototype);
 TimeRangeError.prototype.constructor = TimeRangeError;
 
+import { clickOutside } from '../../directives';
+
 export default {
     name: 'u-time-picker',
+    directives: { clickOutside },
     props: {
         minUnit: { type: String, default: 'second' },
         time: { type: String, default: '00:00:00' },
@@ -65,6 +68,20 @@ export default {
             secondmin: SECOND_MIN,
             secondmax: SECOND_MAX,
         };
+    },
+    created(){
+        if(this.minTime && this.checkTime(this.minTime)){
+            const newValueArr = this.minTime.split(':');
+            this.hourmin = newValueArr[0] / 1;
+            this.minutemin = newValueArr[1] / 1;
+            this.secondmin = newValueArr[2] / 1;
+        }
+        if(this.maxTime && this.checkTime(this.minTime)){
+            const newValueArr = this.maxTime.split(':');
+            this.hourmax = newValueArr[0] / 1;
+            this.minutemax = newValueArr[1] / 1;
+            this.secondmax = newValueArr[2] / 1;
+        }
     },
     computed: {
         hour() {
@@ -221,14 +238,17 @@ export default {
         changeHour(hour, senderVM) {
             hour = senderVM.formattedValue;
             this.showTime = this.getTime(hour, this.minute, this.second);
+            this.hasFocus = true;
         },
         changeMinute(minute, senderVM) {
             minute = senderVM.formattedValue;
             this.showTime = this.getTime(this.hour, minute, this.second);
+            this.hasFocus = true;
         },
         changeSecond(second, senderVM) {
             second = senderVM.formattedValue;
             this.showTime = this.getTime(this.hour, this.minute, second);
+            this.hasFocus = true;
         },
         getTime(hour, minute, second) {
             const fix = (str) => {
@@ -240,6 +260,15 @@ export default {
                 formatTime.push(fix(second));
             }
             return formatTime.join(':');
+        },
+        handleClickOutside(){
+            if(this.hasFocus){
+                this.$emit('blur');
+                this.hasFocus = false;
+            }
+        },
+        checkTime(time){
+            return /^(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d$/.test(time);
         },
     },
 };

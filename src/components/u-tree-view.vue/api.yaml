@@ -16,7 +16,7 @@
       type: any
       sync: true
       model: true
-      description: 当前选择的值
+      description: ""
     - name: text-field
       title: 文本字段
       type: string
@@ -56,12 +56,12 @@
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
     - name: check-controlled
       title: 完全受控
       type: boolean
@@ -266,30 +266,30 @@
     - name: value
       title: 值
       type: any
-      description: 此项的值
+      description: 节点的值
     - name: text
       title: 文本
       type: string
-      description: 此项的显示值
+      description: 节点的文本
     - name: expanded
       title: 展开折叠状态
       type: boolean
       sync: true
-      description: 展开/折叠状态
+      description: 节点默认展开
     - name: checked
       title: 选中取消状态
       type: boolean
       sync: true
-      description: 选中/取消状态
+      description: 是否可以选中/取消
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 禁用此项
+      description: ""
     - name: node
       title: 相关对象
       type: object
-      description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
+      description: 当选择此节点时，抛出的事件会传递该对象，便于开发
       advanced: true
   slots:
     - name: default

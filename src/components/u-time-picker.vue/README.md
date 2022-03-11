@@ -86,13 +86,13 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| time.sync, v-model | string |  | `'00:00'` | 当前的时间值 |
+| time.sync, v-model | string |  | `'00:00'` | 默认显示的时间值，格式如08:08:08 |
 | minUnit | string | `[object Object]`<br/>`[object Object]` | `'second'` | 最小时间单位 |
-| minTime | string |  | `'00:00:00'` | 最小时间 |
-| maxTime | string |  | `'23:59:59'` | 最大时间 |
+| minTime | string |  | `'00:00:00'` | 支持输入的最小时间 |
+| maxTime | string |  | `'23:59:59'` | 支持输入的最大时间 |
 | autofocus | boolean |  | `false` | 是否自动获得焦点 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
 | visible | boolean |  | `true` | 是否显示 |
 
 ### Events
@@ -105,4 +105,13 @@ export default {
 | ----- | ---- | ----------- |
 | $event | object | 自定义事件对象 |
 | time | object | 改变后的时间 |
+
+#### @blur
+
+失去焦点时触发。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | FocusEvent | 原生事件对象 |
+| senderVM |  | 发送事件实例 |
 

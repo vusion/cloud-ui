@@ -45,7 +45,7 @@
 
 .placeholder { /* for IE9 */
     display: none;
-    display: block\9; /* stylelint-disable-line declaration-block-no-duplicate-properties */
+    display: block \9; /* stylelint-disable-line declaration-block-no-duplicate-properties */
     position: absolute;
     left: 0;
     top: 0;
@@ -55,7 +55,9 @@
     overflow: hidden;
 }
 
-.clearable::before {
+.clearable::before,
+.password::before {
+    visibility: hidden;
     display: block;
     position: absolute;
     right: 8px;
@@ -64,12 +66,37 @@
     line-height: 1;
     height: 1em;
     margin: auto;
-    icon-font: url('../i-icon.vue/assets/close-solid.svg');
     cursor: var(--cursor-pointer);
-    color: var(--input-clear-icon-color);
+    color: var(--input-icon-color);
 }
-.clearable:hover::before {
+
+.clearable:hover::before,
+.password:hover::before {
     color: var(--input-icon-color-hover);
+}
+
+.clearable::before {
+    icon-font: url('../i-icon.vue/assets/close-solid.svg');
+}
+
+.password::before {
+    icon-font: url('../i-icon.vue/assets/hide.svg');
+}
+
+.root:hover .clearable::before,
+.root:hover .password::before,
+.input:focus ~ .clearable::before,
+.input:focus ~ .password::before {
+    visibility: visible;
+}
+
+.root[password][show-password] .password::before {
+    icon-font: url('../i-icon.vue/assets/show.svg');
+}
+
+.root[password][suffix] .password::before,
+.root[password][clearable]:not([password][clearable=""]) .password::before {
+    right: var(--input-suffix-padding-right);
 }
 
 .input:focus {
@@ -77,7 +104,7 @@
 }
 
 .root:hover {
-    border-color: var(--input-border-color-focus);
+    border-color: var(--input-border-color-hover);
 }
 
 .root[focus] {
@@ -85,7 +112,8 @@
     box-shadow: var(--input-box-shadow-focus);
 }
 
-.root[color="default"] { /* By default */ }
+.root[color="default"] { /* By default */
+}
 
 .root[color="error"] {
     border-color: var(--input-border-color-error);
@@ -95,14 +123,29 @@
     cursor: var(--cursor-not-allowed);
     background: var(--input-background-disabled);
     color: var(--input-color-disabled);
+    border-color: var(--input-border-color-disabled);
 }
-.root[disabled]:hover{
+
+.root[disabled]:hover {
     border-color: var(--input-border-color);
 }
 
-.root[size="normal"] { /* By default */ }
+.root[size="normal"] { /* By default */
+}
 
-.root[display="inline"] { /* By default */ }
+.root[display="inline"] { /* By default */
+}
+
+.root[size^=mini] {
+    height: var(--input-height-mini);
+    line-height: calc(var(--input-height-mini) - var(--input-border-width)*2);
+}
+
+.root[size$=mini] {
+    width: var(--input-width-mini);
+    padding-left: var(--input-padding-x-mini);
+    padding-right: var(--input-padding-x-mini);
+}
 
 .root[display="block"] {
     display: block;
@@ -110,7 +153,7 @@
 }
 
 .root[clearable] .input .input {
-    padding-right: 30px;
+    padding-right: var(--input-suffix-padding-right);
 }
 
 .prefix, .suffix {
@@ -133,8 +176,15 @@
     padding-left: var(--input-prefix-padding-left);
 }
 
-.root[clearable] .input, .root[suffix] .input {
+.root[suffix] .input,
+.root[password] .input,
+.root[clearable] .input {
     padding-right: var(--input-suffix-padding-right);
+}
+
+.root[password][suffix] .input,
+.root[password][clearable]:not([password][clearable=""]) .input {
+    padding-right: 50px;
 }
 
 .prefix[name="search"]::before, .suffix[name="search"]::before {
@@ -143,9 +193,7 @@
     color: var(--input-icon-color);
 }
 
-.root[size$="mini"] { width: var(--input-width-mini); padding-left: var(--input-padding-x-mini); padding-right: var(--input-padding-x-mini); }
-.root[size^="mini"] { height: var(--input-height-mini); line-height: calc(var(--input-height-mini) - var(--input-border-width) * 2); }
-
+/* 兼容历史遗留组件中的size属性 */
 .root[size$="small"] { width: var(--input-width-small); padding-left: var(--input-padding-x-small); padding-right: var(--input-padding-x-small); }
 .root[size^="small"] { height: var(--input-height-small); line-height: calc(var(--input-height-small) - var(--input-border-width) * 2); }
 
@@ -163,3 +211,80 @@
 
 .root[size$="full"] { width: 100%; padding-left: var(--input-padding-x-full); padding-right: var(--input-padding-x-full); }
 .root[size^="full"] { height: 100%; }
+
+/* 针对新的组件中设置尺寸width和height， 同时存在时，width和height会自动覆盖size */
+.root[width="mini"] {
+    width: var(--input-width-mini);
+    padding-left: var(--input-padding-x-mini);
+    padding-right: var(--input-padding-x-mini);
+}
+
+.root[height="mini"] {
+    height: var(--input-height-mini);
+    line-height: calc(var(--input-height-mini) - var(--input-border-width) * 2);
+}
+
+.root[width="small"] {
+    width: var(--input-width-small);
+    padding-left: var(--input-padding-x-small);
+    padding-right: var(--input-padding-x-small);
+}
+
+.root[height="small"] {
+    height: var(--input-height-small);
+    line-height: calc(var(--input-height-small) - var(--input-border-width) * 2);
+}
+
+.root[width="normal"] {
+    width: var(--input-width);
+    padding-left: var(--input-padding-x);
+    padding-right: var(--input-padding-x);
+}
+
+.root[height="normal"] {
+    height: var(--input-height);
+    line-height: calc(var(--input-height) - var(--input-border-width) * 2);
+}
+
+.root[width="medium"] {
+    width: var(--input-width-medium);
+    padding-left: var(--input-padding-x-medium);
+    padding-right: var(--input-padding-x-medium);
+}
+
+.root[height="medium"] {
+    height: var(--input-height-medium);
+    line-height: calc(var(--input-height-medium) - var(--input-border-width) * 2);
+}
+
+.root[width="large"] {
+    width: var(--input-width-large);
+    padding-left: var(--input-padding-x-large);
+    padding-right: var(--input-padding-x-large);
+}
+
+.root[height="large"] {
+    height: var(--input-height-large);
+    line-height: calc(var(--input-height-large) - var(--input-border-width) * 2);
+}
+
+.root[width="huge"] {
+    width: var(--input-width-huge);
+    padding-left: var(--input-padding-x-huge);
+    padding-right: var(--input-padding-x-huge);
+}
+
+.root[height="huge"] {
+    height: var(--input-height-huge);
+    line-height: calc(var(--input-height-huge) - var(--input-border-width) * 2);
+}
+
+.root[width="full"] {
+    width: 100%;
+    padding-left: var(--input-padding-x-full);
+    padding-right: var(--input-padding-x-full);
+}
+
+.root[height="full"] {
+    height: 100%;
+}

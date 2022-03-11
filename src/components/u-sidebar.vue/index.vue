@@ -20,6 +20,7 @@ export default {
 
 <style module>
 .root {
+    width: 100%;
     user-select: none;
     border-right: 1px solid #E9E9EB;
     background: var(--sidebar-background);
@@ -32,7 +33,6 @@ export default {
     height: var(--sidebar-item-height-small);
     line-height: var(--sidebar-item-height-small);
     font-size: 12px;
-    /* background: transparent; */
     cursor: default;
 }
 

@@ -4,6 +4,8 @@
 
 - [示例](#示例)
     - [基本用法](#基本用法)
+    - [分隔符](#分隔符)
+    - [带图标面包屑](#带图标面包屑)
 - [UCrumb API](#ucrumb-api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
@@ -11,7 +13,7 @@
     - [Props/Attrs](#propsattrs-2)
     - [Events](#events)
 
-**Layout**
+**Navigation**
 
 导航指引
 
@@ -33,12 +35,34 @@
 </u-crumb>
 ```
 
+### 分隔符
+
+``` html
+<u-crumb separator="slash">
+    <u-crumb-item to="/">首页</u-crumb-item>
+    <u-crumb-item to="/cloud-ui">原型组件</u-crumb-item>
+    <u-crumb-item disabled>Navigation</u-crumb-item>
+</u-crumb>
+```
+
+### 带图标面包屑
+
+``` html
+<u-crumb icon>
+    <u-crumb-item to="/" icon="home">首页</u-crumb-item>
+    <u-crumb-item to="/cloud-ui" icon="file">原型组件</u-crumb-item>
+    <u-crumb-item disabled icon="task">Navigation</u-crumb-item>
+</u-crumb>
+```
+
 ## UCrumb API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| auto | boolean |  | `false` | 是否自动根据配置的 items 生成面包屑 |
+| auto | boolean |  | `false` | 是否自动根据子页面配置的面包屑属性自动生成 |
+| separator | string | `[object Object]`<br/>`[object Object]` | `'arrow'` | 面包屑分隔符 |
+| icon | boolean |  | `false` | 是否显示面包屑图标 |
 
 ### Slots
 
@@ -51,6 +75,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| icon | icon |  |  | 面包屑图标 |
 | text | string |  |  | 文本内容 |
 | type | string | `[object Object]`<br/>`[object Object]` | `'link'` | 类型 |
 | linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |

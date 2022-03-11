@@ -25,6 +25,12 @@
           title: 大
       default: auto
       description: 详情列表所有项的标签大小。
+    - name: show-head
+      title: 显示表格头部
+      type: boolean
+      default: true
+      description: 是否显示表格头部
+      group: 样式属性
   slots:
     - name: default
       title: 默认
@@ -43,9 +49,9 @@
   title: 详情列表项
   attrs:
     - name: label
-      title: 标签
+      title: 标签名
       type: string
-      description: 标签
+      description: ""
     - name: span
       title: 占据数
       type: string
@@ -63,7 +69,7 @@
         - value: large
           title: 大
       default: auto
-      description: 标签大小。
+      description: ""
     - name: ellipsis
       title: 省略显示
       type: boolean
@@ -83,7 +89,7 @@
     - name: title
       title: 标签
       type: string
-      description: 标题
+      description: ""
     - name: repeat
       title: 列数
       type: number

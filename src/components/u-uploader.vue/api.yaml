@@ -27,11 +27,11 @@
     - name: accept
       title: 接受的上传类型
       type: string
-      description: 接受的上传类型
+      description: ""
     - name: headers
       title: 请求 headers
       type: Object
-      description: 请求 headers
+      description: ""
     - name: with-credentials
       title: 设置cookie值
       type: boolean
@@ -41,7 +41,7 @@
       title: 多文件上传
       type: boolean
       default: false
-      description: 多文件上传
+      description: ""
     - name: multiple-once
       title: 一次性上传多文件
       type: boolean
@@ -58,12 +58,12 @@
       title: 附加数据
       type: object
       default: null
-      description: 附加数据
+      description: ""
     - name: limit
       title: 列表数量上限
       type: number
       default: 999
-      description: 列表数量上限
+      description: ""
     - name: max-size
       title: 最大文件大小
       type: string
@@ -90,23 +90,23 @@
       title: 是否自动上传
       type: boolean
       default: true
-      description: 是否自动上传
+      description: ""
     - name: draggable
       title: 是否可以拖拽
       type: boolean
       default: false
-      description: 是否可以拖拽上传
+      description: ""
     - name: pastable
       title: 是否可以粘贴
       type: boolean
       default: false
-      description: 是否可以粘贴
+      description: ""
       advanced: true
     - name: show-file-list
       title: 是否显示文件列表
       type: boolean
       default: true
-      description: 是否显示文件列表
+      description: ""
     - name: converter
       title: 转换器
       type: string
@@ -116,17 +116,17 @@
         - title: Simple
           value: simple
       default: json
-      description: 转换器
+      description: ""
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
     - name: display
       title: 展示方式
       type: string
@@ -136,7 +136,7 @@
         - value: block
           title: 块级展示，宽度会充满父元素
       default: block
-      description: 展示方式
+      description: 行内展示，或块级换行展示
     - name: description
       title: 上传提示信息
       type: string
