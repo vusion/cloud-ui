@@ -494,6 +494,9 @@ export default {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
             this.initialLoad && this.load();
             this.handleResize();
+            this.$nextTick(() => {
+                this.$forceUpdate();
+            });
         },
         getExtraParams() {
             return undefined;
