@@ -1,0 +1,65 @@
+- name: u-cascader
+  title: 级联选择
+  icon: cascade-select
+  labels:
+    - Selector
+  description: 一次选择多个相关联的项
+  next: true
+  nested: false
+  attrs:
+    - name: data
+      title: 数据
+      type: Array<{ text, value }>
+      default: null
+      description: 数据列表
+    - name: placeholder
+      title: 选择框占位符
+      type: string
+      default: 请选择
+      description: 搜索框为空时提示文本
+    - name: trigger
+      title: 触发方式
+      type: string
+      options:
+        - value: click
+          title: 点击
+        - value: hover
+          title: 悬浮
+    - name: join
+      title: 连接符
+      type: string
+      options:
+        - value: ','
+          title: 以','连接
+        - value: '|'
+          title: 以'|'连接
+        - value: ' / '
+          title: 以' / '连接
+      default: ' / '
+      description: 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值
+      advanced: true
+    - name: field
+      title: 文本字段
+      type: string
+      default: text
+      description: 显示文本字段
+    - name: filterable
+      title: 可筛选
+      type: boolean
+      default: false
+      description: 是否可以过滤（搜索），开启将会显示搜索框。
+    - name: clearable
+      title: 可清空
+      type: boolean
+      default: false
+      description: 开启并在输入框有内容时会显示清除按钮。
+    - name: showFinalValue
+      title: 只显示最后一项
+      type: boolean
+      default: false
+      description: 定义是否显示完整的路径，ture时只显示最后一项
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: ""
