@@ -1192,6 +1192,7 @@
     --rate-space: 6px;
     --rate-color: var(--background-color-dark);
     --rate-color-full: var(--brand-warning);
+    --rate-text-color: inherit;
 
     /* @component u-slider */
     --slider-body-margin: 0 10px;
