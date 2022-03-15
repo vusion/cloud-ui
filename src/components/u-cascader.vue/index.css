@@ -1,0 +1,44 @@
+.root{
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.root[opened]::after{
+    -webkit-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+.root::after {
+    position: absolute;
+    /* icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg'); */
+    font-size: var(--select-arrow-size);
+    right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x));
+    top: 0;
+    bottom: 0;
+    line-height: 1.2;
+    height: 1em;
+    margin: auto;
+    color: var(--select-arrow-color);
+    transition: transform var(--transition-duration-base);
+    pointer-events: none;
+}
+
+.root[clearable]::after{
+    display: none;
+}
+
+
+.input[class^="u-input__"]{
+    cursor: var(--cursor-pointer);
+}
+
+.input [class^="u-input_input__"]{
+    text-overflow: ellipsis;
+}
+
+.popperShape{
+    height: 195px;
+}
+

@@ -1,0 +1,45 @@
+
+.select_item[select]{  
+    color: #409eff;
+    font-weight: 700;
+}
+
+.umenuShape{
+    min-height: 195px;
+}
+
+.scrollShape{
+    max-width: 100%;
+    width: 180px;
+    height: 195px;
+}
+
+.searchShape{
+    max-width: 130%;
+    width: 280px;
+    height: 195px;
+}
+
+.spinner{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x));;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes linear-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinner::after{
+    position: absolute;
+    display: inline-block;
+    /* icon-font: url('../u-spinner.vue/assets/spinner.svg'); */
+    right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x) - 2px);
+    top: 5px;
+    color: black;
+    animation: linear-spin var(--spinner-animation-duration) linear 0s infinite;
+}
