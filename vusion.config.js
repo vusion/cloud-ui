@@ -98,6 +98,7 @@ module.exports = {
             { group: '选择器', name: 'u-pagination', alias: '翻页器' },
             { group: '选择器', name: 'u-tree-select', alias: '树型选择框', advanced: true },
             { group: '选择器', name: 'u-cascade-select', alias: '级联选择' },
+            { group: '选择器', name: 'u-cascader', alias: '新级联选择' },
             { group: '选择器', name: 'u-region-select', alias: '地区选择' },
             { group: '选择器', name: 'u-calendar', alias: '日历', advanced: true },
             { group: '选择器', name: 'u-date-picker', alias: '日期选择' },
