@@ -1,7 +1,7 @@
 ### 基本样式
 
 ``` html
-<u-card title="卡片总览">卡片内容</u-card>
+<u-card title="卡片">卡片内容</u-card>
 ```
 
 ### 带分割线样式
