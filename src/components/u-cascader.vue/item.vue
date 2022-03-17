@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { findScrollParent } from '../../utils/dom';
+
 export default {
     name: "u-cascader-item",
     props: {
@@ -66,7 +68,8 @@ export default {
             if(this.trigger.toLowerCase() === "hover"){
                 newDatas.forEach((_, index) => {
                     let currentIndex = length + index;
-                    this.$refs[currentIndex][0].$el.addEventListener("mouseenter",() => {  //v-for中使用ref，vue的内部逻辑会自动将ref生成数组，所以要添一个xxx[0]
+                    // v-for中使用ref，vue的内部逻辑会自动将ref生成数组，所以要添一个xxx[0]
+                    this.$refs[currentIndex][0].$el.addEventListener("mouseenter",() => {
                         if(!newDatas[index].disabled)
                             this.hoverSelect(newDatas[index], currentIndex);
                     })
@@ -83,7 +86,7 @@ export default {
         ensureFocusedInView(){
             let focusedEl = this.$refs[this.umenuIndex][0].$el;
             let parentEl = focusedEl.parentElement;
-            parentEl = this.findScrollParent(focusedEl);
+            parentEl = findScrollParent(focusedEl);
 
             if(parentEl){
                 if (parentEl.scrollTop < focusedEl.offsetTop + focusedEl.offsetHeight - parentEl.clientHeight){
@@ -93,17 +96,6 @@ export default {
                 }
                 if(parentEl.scrollTop > focusedEl.offsetTop)
                     parentEl.scrollTop = focusedEl.offsetTop;
-            }
-        },
-        findScrollParent(el) {      //合并后删除
-            el = el.parentElement;
-            if (!el)
-                return window;
-            const styles = window.getComputedStyle(el);
-            if (styles.overflowY === 'auto' || styles.overflowY === 'scroll') {
-                return el;
-            } else {
-                return this.findScrollParent(el);
             }
         },
         keyboardShift(count, enter){
@@ -124,7 +116,7 @@ export default {
             if(item.children || ('leaf' in item && !item.leaf))
                 if(!item.loading)
                     show = true;
-            return show
+            return show;
         }
     }
 };

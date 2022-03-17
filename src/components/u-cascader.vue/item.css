@@ -37,7 +37,7 @@
 .spinner::after{
     position: absolute;
     display: inline-block;
-    /* icon-font: url('../u-spinner.vue/assets/spinner.svg'); */
+    icon-font: url('../u-spinner.vue/assets/spinner.svg');
     right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x) - 2px);
     top: 5px;
     color: black;

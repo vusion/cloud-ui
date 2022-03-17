@@ -12,7 +12,7 @@
 
 .root::after {
     position: absolute;
-    /* icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg'); */
+    icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg');
     font-size: var(--select-arrow-size);
     right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x));
     top: 0;
@@ -29,16 +29,30 @@
     display: none;
 }
 
-
 .input[class^="u-input__"]{
     cursor: var(--cursor-pointer);
 }
 
 .input [class^="u-input_input__"]{
     text-overflow: ellipsis;
+    width: 91%;
 }
 
 .popperShape{
     height: 195px;
 }
 
+.root:hover .clearable:before {
+    display: block;
+    position: absolute;
+    right: 8px;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    line-height: 1;
+    height: 1em;
+    margin: auto;
+    icon-font: url('../i-icon.vue/assets/close-solid.svg');
+    cursor: var(--cursor-pointer);
+    color: var(--select-icon-color);
+}
