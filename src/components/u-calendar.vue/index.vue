@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :disabled="disabled">
-    <div :class="$style.head" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
-        <div :class="$style.year">
+    <div :class="$style.headCenter" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
+        <!-- <div :class="$style.year">
             <span :class="$style.textYear" >{{ showYear }}{{ $t('year') }}</span>
             <m-popper trigger="click" :opened.sync="yearvisible" append-to="reference">
                 <div :class="$style.yearList" @click.stop>
@@ -25,7 +25,47 @@
                     </li>
                 </ul>
             </m-popper>
+        </div> -->
+        <a :class="$style.icon" role="yearprev" :disabled="!this.getYearPrev()" @click="handleYearPrev()"></a>
+        <a :class="$style.icon" role="prev" :disabled="!this.getMonthPrev()" @click="handleMonthPrev()"></a>
+        <div :class="$style.yearCenter">
+            <span>
+                <span :class="$style.yeartext">{{ showYear }} {{ $t('year') }} </span>
+                <m-popper trigger="click" placement="bottom" :opened.sync="yearvisible" append-to="reference">
+                    <f-scroll-view :class="$style.scrollview" @click.stop>
+                        <div :class="$style.yearList" @click.stop>
+                            <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="yearSelect($event)">
+                                <u-list-view-item :class="$style.yearitem" v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{ year.value }}</u-list-view-item>
+                            </u-list-view>
+                        </div>
+                    </f-scroll-view>
+                </m-popper>
+            </span>
+            <span>
+                <span>{{ monthTextList[showMonth - 1] }} {{ $t('month') }}</span>
+                    <m-popper trigger="click" placement="bottom" :opened.sync="monthvisible" append-to="reference">
+                        <f-scroll-view :class="$style.scrollview" @click.stop>
+                            <!-- <ul :class="$style.monthList">
+                                <li v-for="(month, mindex) in monthCol" 
+                                    :key="mindex"
+                                    :class="$style.listitem" 
+                                    :role="month.value === showMonth" 
+                                    :disabled="month.disabled" 
+                                    @click.stop="monthSelect(month, mindex)">
+                                    {{ monthTextList[month.value - 1] }}
+                                </li>
+                            </ul> -->
+                            <div :class="$style.yearList" @click.stop>
+                                <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="monthSelect($event)">
+                                    <u-list-view-item :class="$style.yearitem" v-for="(month, mindex) in monthCol" :key="mindex" :value="month.value" :disabled="month.disabled" :role="month.value === showMonth" >{{ month.value }} {{ $t('month') }}</u-list-view-item>
+                                </u-list-view>
+                            </div>
+                        </f-scroll-view>
+                    </m-popper>
+                </span>
         </div>
+        <a :class="$style.icon" role="yearnext" :disabled="!this.getMonthNext()" @click="handleMonthNext()"></a>
+        <a :class="$style.icon" role="next" :disabled="!this.getYearNext()" @click="handleYearNext()"></a>
     </div>
     <div :class="$style.headCenter" v-if="(picker === 'month' || picker === 'quarter') && currentMode === ''">
         <a :class="$style.icon" role="prev" :disabled="!this.getYearPrev()" @click="handleYearPrev()"></a>
@@ -83,9 +123,7 @@
                 :sel="getSel(day) ? 'sel' : ''" 
                 :disabled="!!isOutOfRange(day)" 
                 :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" 
-                @click.stop="select(day)">
-                {{ day | format('dd') }}
-            </span>
+                @click.stop="select(day)">{{ day | format('dd') }}</span>
         </div>
         <slot></slot>
     </div>
@@ -265,13 +303,17 @@ export default {
                 }
             }
 
-            this.showYear = this.showYear - 1;
+            // this.showYear = this.showYear - 1;
             // 设置为最早的时间
-            const date = this.showDate;
-            date.setMonth(0);
-            date.setDate(1);
-            date.setHours(0, 0, 0, 0);
-            this.selectedDate = date;
+            // const date = this.showDate;
+            // date.setMonth(0);
+            // date.setDate(1);
+            // date.setHours(0, 0, 0, 0);
+            // this.selectedDate = date;
+            let date = this.showDate;
+            date.setYear(this.showYear - 1);
+            this.updateFlag = true;
+            this.showDate = new Date(date);
         },
         handleYearNext() {
             let maxDate = null;
@@ -282,13 +324,39 @@ export default {
                 }
             }
             
-            this.showYear = this.showYear + 1;
+            // this.showYear = this.showYear + 1;
             // 设置为最早的时间
-            const date = this.showDate;
-            date.setMonth(0);
-            date.setDate(1);
-            date.setHours(0, 0, 0, 0);
-            this.selectedDate = date;
+            // const date = this.showDate;
+            // date.setMonth(0);
+            // date.setDate(1);
+            // date.setHours(0, 0, 0, 0);
+            // this.selectedDate = date;
+            let date = this.showDate;
+            date.setYear(this.showYear + 1);
+            this.updateFlag = true;
+            this.showDate = new Date(date);
+        },
+        getMonthPrev(){
+            return !this.minDate || this.minDate && +this.showDate > +this.minDate;
+        },
+        getMonthNext(){
+            return !this.maxDate || this.maxDate && +this.showDate < +this.maxDate;
+        },
+        handleMonthPrev(){
+            if(!this.getMonthPrev())
+                return;
+            let date = this.showDate;
+            date.setMonth(date.getMonth() - 1);
+            this.updateFlag = true;
+            this.showDate = new Date(date);
+        },
+        handleMonthNext(){
+            if(!this.getMonthNext())
+                return;
+            let date = this.showDate;
+            date.setMonth(date.getMonth() + 1);
+            this.updateFlag = true;
+            this.showDate = new Date(date);
         },
         handlerMode() {
             // 切换到年份选择模式
@@ -462,7 +530,8 @@ export default {
          * @method update() 日期改变后更新日历
          * @private
          * @return {void}
-         */ update() {
+         */ 
+        update() {
             this.days_ = [];
             this.showDate = this.transformDate(this.showDate);
             const date = this.showDate;
@@ -470,14 +539,20 @@ export default {
             const mfirst = new Date(date);
             mfirst.setDate(1);
             mfirst.setHours(0, 0, 0, 0);
-            const mfirstTime = +mfirst;
+            let mfirstTime = +mfirst;
+            // 如果1号是星期天，前面再加7天
+            if (mfirst.getDay() === 0) {
+                mfirstTime = mfirstTime - 7 * MS_OF_DAY;
+            } else {
+                mfirstTime = mfirstTime - mfirst.getDay() * MS_OF_DAY;
+            }
             const nfirst = new Date(mfirst);
             nfirst.setMonth(month + 1);
             nfirst.setDate(1);
             const nfirstTime = +nfirst;
-            const lastTime
+            let lastTime
                 = nfirstTime + (((7 - nfirst.getDay()) % 7) - 1) * MS_OF_DAY;
-            let num = -mfirst.getDay();
+            let num = 0;
             let tmpTime;
             let tmp;
             do {
@@ -485,6 +560,15 @@ export default {
                 tmp = new Date(tmpTime);
                 this.days_.push(tmp);
             } while (tmpTime < lastTime);
+            // 补齐6行
+            if (this.days_.length < 6 * 7) {
+                lastTime = lastTime + (6 * 7 - this.days_.length) * MS_OF_DAY;
+                do {
+                    tmpTime = mfirstTime + num++ * MS_OF_DAY;
+                    tmp = new Date(tmpTime);
+                    this.days_.push(tmp);
+                } while (tmpTime < lastTime);
+            }
         },
         /**
          * @method addYear(year) 调整年份
@@ -527,12 +611,13 @@ date.setDate(0);
          * @public
          * @param  {Date=null} date 选择的日期
          * @return {void}
-         */ select(date) {
+         */ 
+        select(date) {
             if (this.readonly || this.disabled || this.isOutOfRange(date))
                 return;
             const _month = date.getMonth() + 1;
             if (this.showMonth !== _month)
-this.updateFlag = true;
+                this.updateFlag = true;
             this.showDate = new Date(date);
             this.selectedDate = new Date(this.transformDate(date));
             /**
@@ -546,7 +631,8 @@ this.updateFlag = true;
          * @public
          * @param {Date} date 待测的日期
          * @return {boolean|Date} date 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
-         */ isOutOfRange(date) {
+         */ 
+        isOutOfRange(date) {
             let minDate = ChangeDate(this.transformDate(this.minDate), this.picker);
             let maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker); // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
             minDate = minDate && minDate.setHours(0, 0, 0, 0);
@@ -563,19 +649,19 @@ this.updateFlag = true;
 
 <style module>
 .root {
-    width: 238px;
-    padding: 4px;
+    width: var(--calendar-width);
+    padding: var(--calendar-padding);
     border: 1px solid var(--calendar-border-color);
     border-radius: var(--calendar-border-radius);
     box-sizing: content-box;
     user-select: none;
     background: var(--calendar-background);
+    box-sizing: border-box;
 }
 
 .item, .dayitem {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
+    width: 24px;
+    height: 24px;
     margin: 1px;
     cursor: var(--cursor-pointer);
     display: inline-block;
@@ -584,6 +670,8 @@ this.updateFlag = true;
     background: var(--calendar-item-background);
     color: var(--calendar-item-color);
     border: 1px solid var(--calendar-item-border-color);
+    margin: 7px;
+    box-sizing: border-box;
 }
 
 .dayitem[role="week"] {
@@ -684,10 +772,12 @@ this.updateFlag = true;
 }
 .yearList {
     z-index: 10;
+    font-size: 12px;
+    max-height: 304px;
 }
 .yearListInner {
-    height: 160px;
-    overflow-y: scroll;
+    height: 100%;
+    min-width: auto;
 }
 .textYear {
     position: relative;
@@ -702,14 +792,14 @@ this.updateFlag = true;
     line-height: 16px;
 }
 .monthList {
-    z-index: 10;
+    /* z-index: 10;
     width: 138px;
     padding: 10px 6px;
     box-sizing: border-box;
     list-style: none;
     overflow: hidden;
     background: white;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc; */
 }
 
 .monthBox {
@@ -822,6 +912,12 @@ this.updateFlag = true;
     line-height: 16px;
 }
 
+.yearitem{
+    padding: 0;
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+}
 .yearitem[disabled] {
     color: var(--color-light);
 }
@@ -831,6 +927,14 @@ this.updateFlag = true;
 }
 
 .icon[role="next"]::before {
+    icon-font: url('../i-icon.vue/assets/angle-right.svg');
+}
+
+.icon[role="yearprev"]::before {
+    icon-font: url('../i-icon.vue/assets/angle-left.svg');
+}
+
+.icon[role="yearnext"]::before {
     icon-font: url('../i-icon.vue/assets/angle-right.svg');
 }
 
@@ -845,6 +949,15 @@ this.updateFlag = true;
     cursor: var(--cursor-not-allowed);
     background-color: var(--field-background);
     color: var(--color-light);
+}
+
+.yeartext:hover {
+    color: var(--calendar-yeartext-color-hover);
+    background: var(--calendar-yeartext-background-hover);
+}
+
+.scrollview {
+    /* max-height: 304px; */
 }
 
 </style>

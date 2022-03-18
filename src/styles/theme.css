@@ -1485,7 +1485,8 @@
     --calendar-date-background: var(--brand-primary-lightest);
     --calendar-date-disabled: var(--brand-disabled-dark);
     --calendar-date-background-disabled: var(--brand-disabled);
-
+    --calendar-yeartext-color-hover: var(--brand-primary);
+    --calendar-yeartext-background-hover: #EBF3FF;
 
     /* @component u-calendar */
     --calendar-border-color: var(--border-color-base);
@@ -1493,14 +1494,14 @@
     --calendar-border-radius: var(--border-radius-base);
 
 
-    --calendar-item-color: #555;
-    --calendar-item-border-radius: 50%;
+    --calendar-item-color: #333;
+    --calendar-item-border-radius: 4px;
     --calendar-item-border-color: transparent;
     --calendar-item-background: var(--calendar-background);
 
-    --calendar-item-color-hover: #444;
+    --calendar-item-color-hover: #333;
     --calendar-item-border-color-hover: var(--calendar-item-border-color);
-    --calendar-item-background-hover: var(--background-color-lighter);
+    --calendar-item-background-hover: var(--background-color-hover);
 
     --calendar-item-color-selected: var(--field-background);
     --calendar-item-border-color-selected: var(--calendar-item-border-color);
@@ -1513,6 +1514,9 @@
 
     --calendar-item-color-selected-disabled: var(--color-light);
     --calendar-item-background-selected-disabled: #eee;
+
+    --calendar-width: 300px;
+    --calendar-padding: 15px;
 
     /* @component u-date-picker */
     --datepicker-input-width: 300px;
