@@ -6,6 +6,7 @@
           v-for="(item2, index2) in item"
           :key="index2"
           :item="item2"
+          :colnum="colnum"
         >
           <template v-slot="item2">
             <slot :item="item2.item"></slot>
