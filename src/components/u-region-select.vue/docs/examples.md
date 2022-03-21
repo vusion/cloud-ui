@@ -3,7 +3,7 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-region-select></u-region-select>
-    <u-region-select value="浙江,杭州,滨江区"></u-region-select>
+    <u-region-select defaultValue="浙江 / 杭州 / 滨江区"></u-region-select>
 </u-linear-layout>
 ```
 
@@ -29,19 +29,14 @@ export default {
 ### Placeholder
 
 ``` html
-<u-region-select :categories="[
-    { label: '省', placeholder: '请选择省份' },
-    { label: '市', placeholder: '请选择城市' },
-    { label: '区', placeholder: '请选择县区' },
-]"></u-region-select>
+<u-region-select placeholder='请选择省份' ></u-region-select>
 ```
 
-### 隐藏空列表
+
+### 仅显示什么区
+
+只想输入框中显示最后一项时，使用showFinalValue
 
 ``` html
-<u-region-select hide-empty :categories="[
-    { label: '省', placeholder: '请选择省份' },
-    { label: '市', placeholder: '请选择城市' },
-    { label: '区', placeholder: '请选择县区' },
-]"></u-region-select>
+<u-region-select showFinalValue trigger="hover"></u-region-select>
 ```

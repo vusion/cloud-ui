@@ -6,14 +6,16 @@
         @keydown.right.prevent="horizontalShift(+1)"
         @keydown.esc.stop="close()"
         @keydown.enter="$refs.popper.currentOpened ? onEnter() : open()">
-        <u-input :class="$style.input" :placeholder="placeholder" :readonly="!filterable"
+        <u-input :class="$style.input"
+            :placeholder="placeholder" :readonly="!filterable"
             v-model="value" :disabled="disabled"
             @input="onInput"
             @clear="clear">
             <m-popper v-if="!disabled" :class="$style.popperShape" ref="popper"
+                @mousedown.stop.prevent
                 @open="getSubComponents" @close="resetInput">
-                <u-cascader-item v-for="(item, index) in typeMpopper" :key="(item[0] && item[0].text) + index" :ref="index"
-                    @select-umenuitem="addCascaderItem"
+                <u-cascader-item v-for="(item, index) in typeMpopper" :key="$at(item[0], field) + index" :ref="index"
+                    @select-umenuitem="selectCascaderItem"
                     @select-lastvalue="selectEnd"
                     :componentIndex="index"
                     :selectSubIdnex="selectSubIdnex"
@@ -24,7 +26,7 @@
                 </u-cascader-item>
             </m-popper>
         </u-input>
-        <span v-show="clearable && value" :class="$style.clearable" @click="clear"></span>
+        <span v-show="clearable && value" :class="$style.clearable" @click="clear" @mousedown.prevent></span>
     </div>
 </template>
 
@@ -36,12 +38,13 @@ export default {
     props: {
         data: { type: Array, default: () => [] },
         placeholder: { type: String, default: "请选择" },
-        filterable: { type: Boolean, default: false },
+        field: { type: String, default: "text" },
         trigger: { type: String, default: "click"} ,
+        join: { type: String, default: " / "},
+        defaultValue: { type: String, default: ''},
+        filterable: { type: Boolean, default: false },
         clearable: { type: Boolean, default: false },
         showFinalValue: { type: Boolean, default: false },
-        field: { type: String, default: "text" },
-        join: { type: String, default: " / "},
         disabled: { type: Boolean, default: false},
         lazy: { type: Boolean, default: false},
         lazyLoad: { type:Function, default: () => {} }
@@ -50,7 +53,7 @@ export default {
     data() {
         return {
             value: '',
-            lazyData: [],   //动态加载时的数据
+            currentData: [],   //动态加载时的数据
             lastValueString: '',
             lastValueArray: [],
             allMergeText: [],     //过滤时的搜索内容
@@ -61,13 +64,22 @@ export default {
             opened: false
         };
     },
+    watch: {
+        value(value) {
+            this.$emit("input", value);
+        }
+    },
     created(){
-        this.allMergeText = this.getMergeText(this.data);
+        if(!this.currentData.length)
+            this.currentData = this.data;
+        this.value = this.defaultValue;
+        this.lastValueString = this.defaultValue;
+        this.allMergeText = this.getMergeText(this.currentData);
         if(this.lazy)
             this.triggerLazyLoad();
     },
     methods: {
-        addCascaderItem(selectNode,subIndex){
+        selectCascaderItem(selectNode,subIndex){
             this.selectSubIdnex = subIndex;
 
             this.subComponents.splice(subIndex+1);
@@ -116,7 +128,7 @@ export default {
             this.opened = true;
             if(this.isInput)
                 return ;
-            this.subComponents = this.lazy? [this.lazyData] : [this.data];
+            this.subComponents = [this.currentData];
             // 当使用完搜索功能时，lastvalue的格式是不对的，每次open时需要重置成正确格式
             this.lastValueArray = [];       
             if(this.value){
@@ -124,6 +136,7 @@ export default {
 
                 inputValues.forEach( (inputvalue, currentref) => {
                     this.lastValueArray.push(inputvalue);
+                    console.log(this.data);
                     let sub = this.subComponents[currentref].find( (item, index) => {
                         if(this.$at(item, this.field) === inputvalue){
                             this.$nextTick(() => {
@@ -133,7 +146,7 @@ export default {
                         }
                         return false
                     })
-                    if(sub.children){
+                    if(sub?.children){
                         this.subComponents.push(sub.children);
                     }
                 })
@@ -161,14 +174,14 @@ export default {
                 if(node.root){
                     // 防止点击级联时，第一层的数据还在加载，push会出bug
                     this.subComponents[0] = dataList;       
-                    this.lazyData.push(...dataList);
+                    this.currentData.push(...dataList);
                 }
                 else{
                     this.subComponents.push(dataList);
                     // 等于lazyData[node, node[, ...[, nodeN]]].children = dataList
                     node.children = dataList;   
                 }
-                this.allMergeText = this.getMergeText(this.lazyData);
+                this.allMergeText = this.getMergeText(this.currentData);
             }
             this.lazyLoad(node, resolve);
         },

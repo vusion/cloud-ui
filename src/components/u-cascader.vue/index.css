@@ -2,6 +2,7 @@
     position: relative;
     display: inline-block;
     max-width: 100%;
+    width: 360px;
 }
 
 .root[opened]::after{
@@ -31,6 +32,7 @@
 
 .input[class^="u-input__"]{
     cursor: var(--cursor-pointer);
+    width: 100%;
 }
 
 .input [class^="u-input_input__"]{

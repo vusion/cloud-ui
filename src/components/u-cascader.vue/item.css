@@ -1,7 +1,12 @@
 
-.select_item[select]{  
+.select_item[select]{
     color: #409eff;
     font-weight: 700;
+}
+
+.select_item{
+    text-overflow: ellipsis;
+    overflow: hidden;  
 }
 
 .umenuShape{
@@ -10,13 +15,13 @@
 
 .scrollShape{
     max-width: 100%;
-    width: 180px;
+    width: 120px;
     height: 195px;
 }
 
 .searchShape{
     max-width: 130%;
-    width: 280px;
+    width: 360px;
     height: 195px;
 }
 

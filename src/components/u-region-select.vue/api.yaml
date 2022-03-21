@@ -10,50 +10,60 @@
     - name: data
       title: 数据
       type: Array<{ text, value }>
-      default: 数据
-      description: 数据列表，当前地区数据集合不满足需求，可以重设此数据
-    - name: value
-      title: 值
-      type: any
-      sync: true
-      model: true
       default: null
-      description: ""
-    - name: categories
-      title: 多级分类
-      type: Array<{ label, key, placeholder }>
-      default: 数据
-      description: 多级分类
-    - name: hide-empty
-      title: 隐藏空列表
-      type: boolean
-      default: false
-      description: 是否隐藏空列表
-    - name: converter
-      title: 转换器
+      description: 数据列表
+    - name: placeholder
+      title: 选择框占位符
+      type: string
+      default: 请选择
+      description: 搜索框为空时提示文本
+    - name: trigger
+      title: 触发方式
       type: string
       options:
-        - value: join
+        - value: click
+          title: 点击
+        - value: hover
+          title: 悬浮
+      description: 触发方式
+    - name: v-model
+      title: 双向绑定
+      type: String
+      default: null
+      description: "双向绑定"
+    - name: join
+      title: 连接符
+      type: string
+      options:
+        - value: ','
           title: 以','连接
-        - value: join:|
+        - value: '|'
           title: 以'|'连接
-        - value: join:;
-          title: 以';'连接
-        - value: json
-          title: json
-      default: join
-      description: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
+        - value: ' / '
+          title: 以' / '连接
+      default: ' / '
+      description: 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值
       advanced: true
     - name: field
       title: 文本字段
       type: string
-      default: value
+      default: text
       description: 显示文本字段
-    - name: readonly
-      title: 只读
+    - name: filterable
+      title: 可筛选
       type: boolean
       default: false
-      description: ""
+      description: 是否可以过滤（搜索），开启将会显示搜索框。
+    - name: clearable
+      title: 可清空
+      type: boolean
+      default: false
+      description: 开启并在输入框有内容时会显示清除按钮。
+    - name: showFinalValue
+      title: 只显示最后一项
+      type: boolean
+      default: false
+      description: 定义是否显示完整的路径，ture时只显示最后一项
     - name: disabled
       title: 禁用
       type: boolean

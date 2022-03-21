@@ -25,6 +25,12 @@
           title: 点击
         - value: hover
           title: 悬浮
+      description: 触发方式
+    - name: v-model
+      title: 双向绑定
+      type: String
+      default: null
+      description: "双向绑定"
     - name: join
       title: 连接符
       type: string
