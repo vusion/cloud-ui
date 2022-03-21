@@ -102,6 +102,10 @@
     --background-color-disabled: #f5f5f5;
     --background-color-hover: #f5f5f5;
     --background-color-disabled-light: #F7F8FA;
+    --background-color-brand-primary: rgba(51, 126, 255, 0.1);
+    --background-color-brand-success: rgba(38, 189, 113, 0.1);
+    --background-color-brand-warning: rgba(255, 178, 26, 0.1);
+    --background-color-brand-error: rgba(242, 73, 87, 0.1);
     --color-lighter: #ccc; /* Placeholder 字体颜色 */
     --color-light: #999999; /* 次级字体颜色 */
     --color-base: #333333; /* 默认字体颜色 */
@@ -1376,6 +1380,20 @@
      * ========================
      */
 
+    /* @component u-alert */
+    --alert-title-color: var(--font-fourth-color);
+    --alert-desc-color: var(--font-second-color);
+    --alert-color-info: var(--brand-primary);
+    --alert-color-success: var(--brand-success);
+    --alert-color-warning: var(--brand-warning);
+    --alert-color-error: var(--brand-error);
+    --alert-background-color-info: var(--background-color-brand-primary);
+    --alert-background-color-success: var(--background-color-brand-success);
+    --alert-background-color-warning: var(--background-color-brand-warning);
+    --alert-background-color-error: var(--background-color-brand-error);
+    --alert-close-color: var(--font-third-color);
+    --alert-close-hover-color: var(--font-second-color);
+
     /* @component u-popup */
     --popup-padding: 5px 12px;
     --popup-arrow-size: 4px;
@@ -1426,10 +1444,10 @@
     --toast-item-icon-vertical-align: -1px;
     --toast-item-icon-font-size: 16px;
     --toast-item-icon-text-align: left;
-    --toast-item-icon-color-info: #4c88ff;
-    --toast-item-icon-color-success: #26bd71;
-    --toast-item-icon-color-warning: #ffaf0f;
-    --toast-item-icon-color-error: #f24957;
+    --toast-item-icon-color-info: var(--brand-primary);
+    --toast-item-icon-color-success: var(--brand-success);
+    --toast-item-icon-color-warning: var(--brand-warning);
+    --toast-item-icon-color-error: var(--brand-error);
     --toast-background-color: rgba(0, 0, 0, 0.6);
 
     /* @component u-modal */

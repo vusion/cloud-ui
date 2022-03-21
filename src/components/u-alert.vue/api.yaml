@@ -1,0 +1,55 @@
+- name: u-alert
+  title: 警告提示
+  labels:
+    - 块级展示
+  description: 警告提示横幅。
+  attrs:
+    - name: title
+      title: 标题
+      type: string
+      default: ""
+      description: 提示标题
+    - name: desc
+      title: 辅助文本
+      type: string
+      default: ""
+      description: 提示辅助文本
+    - name: type
+      title: 提示类型
+      type: string
+      options:
+        - value: info
+          title: 信息提示
+        - value: success
+          title: 成功提示
+        - value: warning
+          title: 警告提示
+        - value: error
+          title: 错误提示
+      default: "info"
+      description: 选择提示类型
+    - name: closeable
+      title: 手动关闭
+      type: boolean
+      default: false
+      description: 是否可手动关闭
+    - name: bordered
+      title: 边框
+      type: boolean
+      default: true
+      description: 显示/隐藏边框
+    - name: showIcon
+      title: 图标
+      type: boolean
+      default: true
+      description: 显示/隐藏图标
+  events:
+    - name: close
+      title: 关闭时
+      description: 关闭时触发
+      params: []
+  slots:
+    - name: default
+      description: 辅助文本
+    - name: title
+      description: 标题

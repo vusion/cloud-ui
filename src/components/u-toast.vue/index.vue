@@ -208,17 +208,13 @@ export default {
 }
 
 .item::before {
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 48%, rgba(255,255,255,0) 48%);
+    background: radial-gradient(circle, #fff 45%, transparent 45%);
     font-size: var(--toast-item-icon-font-size);
     vertical-align: var(--toast-item-icon-vertical-align);
     margin-right: var(--toast-item-icon-margin-right);
 }
-.item[color="info"] {
-    /* background: #00c0ef;
-    color: white; */
-}
 .item[color="info"]::before {
-    icon-font: url(./assets/warning.svg);
+    icon-font: url(./assets/info.svg);
     color: var(--toast-item-icon-color-info);
 }
 .item[color="success"]::before {
