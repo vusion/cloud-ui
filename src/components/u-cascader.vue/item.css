@@ -15,13 +15,13 @@
 
 .scrollShape{
     max-width: 100%;
-    width: 120px;
+    width: var(--cascader-scroll-width);
     height: 195px;
 }
 
 .searchShape{
-    max-width: 130%;
-    width: 360px;
+    max-width: 100%;
+    width: var(--cascader-width);
     height: 195px;
 }
 

@@ -2,7 +2,7 @@
     position: relative;
     display: inline-block;
     max-width: 100%;
-    width: 360px;
+    width: var(--cascader-width);
 }
 
 .root[opened]::after{

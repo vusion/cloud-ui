@@ -9,6 +9,7 @@
         <u-input :class="$style.input"
             :placeholder="placeholder" :readonly="!filterable"
             v-model="value" :disabled="disabled"
+            @focus="this.$emit('focus', ...arguments)" @blur="this.$emit('blur', ...arguments)"
             @input="onInput"
             @clear="clear">
             <m-popper v-if="!disabled" :class="$style.popperShape" ref="popper"
@@ -66,7 +67,7 @@ export default {
     },
     watch: {
         value(value) {
-            this.$emit("input", value);
+            this.$emit("input", value, this);
         }
     },
     created(){
@@ -95,6 +96,14 @@ export default {
         selectEnd(){
             this.lastValueString = this.lastValueArray.join(this.join);
             this.close();
+
+            this.$emit("select", {
+                value: this.lastValueString,
+                values: this.lastValueArray,
+                items: this.subComponents,
+                },
+                this
+            )
         },
         // 返回每个属性合并后的value和它们所在嵌套数组的位置
         getMergeText(data){
@@ -136,7 +145,6 @@ export default {
 
                 inputValues.forEach( (inputvalue, currentref) => {
                     this.lastValueArray.push(inputvalue);
-                    console.log(this.data);
                     let sub = this.subComponents[currentref].find( (item, index) => {
                         if(this.$at(item, this.field) === inputvalue){
                             this.$nextTick(() => {
@@ -239,6 +247,8 @@ export default {
             this.lastValueString = '';
             this.selectSubIdnex = -1;
             this.close()
+
+            this.$emit('clear', ...arguments)
         },
         resetInput(){
             if(!this.showFinalValue)

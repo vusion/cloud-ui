@@ -69,3 +69,90 @@
       type: boolean
       default: false
       description: ""
+  events:
+    - name: input
+      title: 输入时
+      description: 选择某一项时触发
+      params:
+        - name: $event
+          type: any
+          description: 选择项的值
+          schema:
+            $ref: "#/basicTypes/String"
+        - name: senderVM
+          type: UCascadeSelect
+          description: 发送事件实例
+    - name: select
+      title: 选择后
+      description: 选择某一项时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CascadeCapsulesEvent"
+        - name: $event.level
+          type: number
+          description: 选择的层级
+        - name: $event.value
+          type: any
+          description: 改变后的值
+        - name: $event.values
+          type: Array
+          description: 改变后每项值的数组
+        - name: senderVM
+          type: UCascadeSelect
+          description: 发送事件实例
+    - name: focus
+      title: 获得焦点
+      description: 获得焦点时触发。
+      params:
+        - name: $event
+          type: FocusEvent
+          description: 原生事件对象
+          schema:
+            $ref: "#/systemTypes/FocusEvent"
+        - name: senderVM
+          type: UInput
+          description: 发送事件实例
+    - name: blur
+      title: 失去焦点
+      description: 失去焦点时触发。
+      params:
+        - name: $event
+          type: FocusEvent
+          description: 原生事件对象
+          schema:
+            $ref: "#/systemTypes/FocusEvent"
+        - name: senderVM
+          type: UInput
+          description: 发送事件实例
+    - name: clear
+      title: 清空后
+      description: 清空后触发。
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
+        - name: $event.value
+          type: string
+          description: 清空后的值
+        - name: $event.oldValue
+          type: string
+          description: 旧的值
+        - name: senderVM
+          type: UInput
+          description: 发送事件实例
+  methods:
+    - name: open
+      description: 弹出实例。
+      params: []
+    - name: close
+      description: 关闭实例。
+      params: []
+    - name: clear
+      description: 清空输入框。
+      params: []
+
