@@ -1,27 +1,48 @@
 <template>
-<div :class="$style.root" :disabled="disabled">
-    <div :class="$style.title" vusion-slot-name="title" no-for-edit vusion-click-enabled can-nodeinfo>
-        <slot name="title"></slot>
-        <s-empty v-if="(!$slots.title && ($scopedSlots && !($scopedSlots.title && $scopedSlots.title()))) && $env.VUE_APP_DESIGNER"></s-empty>
+    <div :class="$style.root" :disabled="disabled" :type="type">
+        <div
+            :class="$style.title"
+            vusion-slot-name="title"
+            no-for-edit
+            vusion-click-enabled
+            can-nodeinfo
+        >
+            <slot name="title"></slot>
+            <s-empty
+                v-if="
+                    !$slots.title &&
+                    $scopedSlots &&
+                    !($scopedSlots.title && $scopedSlots.title()) &&
+                    $env.VUE_APP_DESIGNER
+                "
+            ></s-empty>
+            <i :class="$style.icon"></i>
+        </div>
+        <m-popper
+            :class="$style.popper"
+            :trigger="trigger"
+            :placement="placement"
+            :disabled="disabled"
+            append-to="reference"
+            :opened="opened"
+            @update:opened="$emit('update:opened', $event)"
+        >
+            <slot></slot>
+        </m-popper>
     </div>
-    <m-popper :class="$style.popper" :trigger="trigger" :placement="placement" :disabled="disabled" append-to="reference"
-        :opened="opened" @update:opened="$emit('update:opened', $event)">
-        <slot></slot>
-    </m-popper>
-</div>
 </template>
 
 <script>
 import { MSinglex } from '../m-singlex.vue';
-import UDropdwonItem from './item.vue';
+import UDropdownItem from './item.vue';
 import SEmpty from '../s-empty.vue';
-
 
 export default {
     name: 'u-dropdown',
     childName: 'u-dropdown-item',
     extends: MSinglex,
     props: {
+        type: { type: String, default: 'text' },
         router: { type: Boolean, default: true },
         animation: { type: String, default: '1' },
         title: String,
@@ -35,12 +56,8 @@ export default {
         opened: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
     },
-    data() {
-        return {
-        }
-    },
     components: {
-        UDropdwonItem,
+        UDropdownItem,
         SEmpty,
     },
     created() {
@@ -62,7 +79,7 @@ export default {
                 const eqPos = cookie.indexOf('=');
                 const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
                 const d = new Date();
-                d.setTime(d.getTime() - (1 * 24 * 60 * 60 * 1000));
+                d.setTime(d.getTime() - 1 * 24 * 60 * 60 * 1000);
                 document.cookie = `${name}=; expires=${d.toGMTString()}; path=/`;
             });
         },
@@ -74,46 +91,136 @@ export default {
 .root {
     display: inline-block;
     position: relative;
-    z-index: 1;
+    font-size: 14px;
     cursor: var(--cursor-pointer);
-    height: var(--navbar-height);
-    line-height: var(--navbar-height);
-    border: none;
-    padding: 0 20px;
-    font-size: var(--navbar-item-font-size);
-    color: #666;
+    transition: var(--transition-duration-base);
 }
-
+.root[disabled] {
+    cursor: var(--cursor-not-allowed);
+}
 .root:not(:last-child) {
     margin-right: var(--navbar-item-space);
 }
 
-.title {
-    position: relative;
+/* text */
+.root[type="text"] {
+    padding-right: 24px;
+    color: var(--dropdown-color-text);
+}
+.root[type="text"]:not([disabled]):hover {
+    color: var(--dropdown-color-text-hover);
+}
+.root[type="text"]:not([disabled]):active {
+    color: var(--dropdown-color-text-active);
+}
+.root[type="text"][disabled] {
+    color: var(--dropdown-color-text-disabled);
 }
 
-.title::after {
+.root[type="primary"],
+.root[type="primary_secondary"],
+.root[type="normal"] {
+    line-height: 30px;
+    padding: 0 39px 0 15px;
+    border-radius: 4px;
+}
+.root[type="primary"] .icon,
+.root[type="primary_secondary"] .icon,
+.root[type="normal"] .icon {
+    right: 13px;
+}
+/* primary */
+.root[type="primary"] {
+    border: var(--button-border-width) solid var(--button-border-color-primary);
+    background: var(--button-background-primary);
+    color: var(--button-color-primary);
+}
+.root[type="primary"]:hover {
+    border: var(--button-border-width) solid
+        var(--button-border-color-primary-hover);
+    background: var(--button-background-primary-hover);
+    color: var(--button-color-primary-hover);
+}
+.root[type="primary"]:active {
+    border: var(--button-border-width) solid
+        var(--button-border-color-primary-hover);
+    background: var(--button-background-primary-hover);
+    color: var(--button-color-primary-hover);
+    box-shadow: var(--button-box-shadow-active-primary);
+}
+
+/* primary_secondary */
+.root[type="primary_secondary"] {
+    border: var(--button-border-width) solid
+        var(--button-border-color-primary-secondary);
+    background: var(--button-background-primary-secondary);
+    color: var(--button-color-primary-secondary);
+}
+.root[type="primary_secondary"]:hover {
+    border: var(--button-border-width) solid
+        var(--button-border-color-primary-secondary-hover);
+    background: var(--button-background-primary-secondary-hover);
+    color: var(--button-color-primary-secondary-hover);
+}
+.root[type="primary_secondary"]:active {
+    border: var(--button-border-width) solid
+        var(--button-border-color-primary-secondary-hover);
+    background: var(--button-background-primary-secondary-active);
+    color: var(--button-color-primary-secondary-active);
+    box-shadow: var(--button-box-shadow-active-primary-secondary);
+}
+
+/* normal */
+.root[type="normal"] {
+    border: var(--button-border-width) solid var(--button-border-color);
+    background: var(--button-background);
+    color: var(--button-color);
+}
+.root[type="normal"]:hover {
+    border: var(--button-border-width) solid var(--button-border-color-hover);
+    background: var(--button-background-hover);
+    color: var(--button-color-hover);
+}
+.root[type="normal"]:active {
+    border: var(--button-border-width) solid var(--button-border-color-active);
+    background: var(--button-background-active);
+    color: var(--button-color-active);
+    box-shadow: var(--button-box-shadow-active);
+}
+
+.root[type="primary"][disabled],
+.root[type="primary_secondary"][disabled],
+.root[type="normal"][disabled] {
+    border: var(--button-border-width) solid var(--button-border-color-disabled);
+    background: var(--button-background-disabled);
+    color: var(--button-color-disabled);
+    box-shadow: none;
+}
+
+.title {
+}
+
+.icon {
     position: absolute;
-    icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg');
-    height: auto;
-    line-height: var(--navbar-height);
-    color: var(--navbar-color);
-    font-size: 20px;
-    right: -18px;
-    top: 0;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 18px;
+}
+
+.icon::before {
+    icon-font: url("../i-icon.vue/icons/keyboard-arrow-down.svg");
 }
 
 .popper {
-    background: #fff;
-    font-size: var(--navbar-dropdown-popper-font-size);
+    width: 120px;
     min-width: 100%;
     line-height: var(--navbar-dropdown-popper-line-height);
-    /* padding-top: 3px; */
-    /* padding: var(--navbar-dropdown-popper-padding); */
-}
-
-.root[disabled] {
-    cursor: var(--cursor-not-allowed);
-    color: var(--navbar-dropdown-color-disabled);
+    font-size: var(--navbar-dropdown-popper-font-size);
+    padding: 8px 0px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    background: #fff;
 }
 </style>

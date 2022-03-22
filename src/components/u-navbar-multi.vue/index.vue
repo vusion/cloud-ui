@@ -1,6 +1,14 @@
 <template>
-    <div :class="$style.root" :animation="animation" :readonly="readonly" :disabled="disabled">
-        <u-multi-layout :vusion-scope-id="$vnode.context.$options._scopeId" vusion-node-tag="u-multi-layout">
+    <div
+        :class="$style.root"
+        :animation="animation"
+        :readonly="readonly"
+        :disabled="disabled"
+    >
+        <u-multi-layout
+            :vusion-scope-id="$vnode.context.$options._scopeId"
+            vusion-node-tag="u-multi-layout"
+        >
             <slot name="left"></slot>
             <slot></slot>
             <slot name="right"></slot>
@@ -19,16 +27,8 @@ export default {
         router: { type: Boolean, default: true },
         animation: { type: String, default: '1' },
     },
-    data() {
-        return {
-        };
-    },
-    watch: {
-    },
     created() {
         this.$on('select', ({ itemVM }) => this.router && itemVM.navigate());
-    },
-    methods: {
     },
 };
 </script>
@@ -38,10 +38,12 @@ export default {
     width: 100%;
     user-select: none;
     height: var(--navbar-height);
+    line-height: var(--navbar-height);
     /* display: flex;
     justify-content: space-between; */
     background: var(--navbar-background);
     white-space: nowrap;
+    color: var(--navbar-color);
 }
 
 .left {
@@ -87,7 +89,7 @@ export default {
 }
 
 .root[animation="1"] .item::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     height: var(--navbar-item-line-height);
@@ -115,7 +117,7 @@ export default {
 }
 
 .root[animation="2"] .item::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     left: 0;
@@ -149,13 +151,13 @@ export default {
 }
 
 .root[animation="3"] .item::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     left: 50%;
     bottom: 0;
     color: transparent;
-    content: '\2022';
+    content: "\2022";
     font-size: 1.2em;
     line-height: 1;
     transform: translateX(-50%);
@@ -167,7 +169,8 @@ export default {
 
 .root[animation="3"] .item:hover::after {
     color: var(--navbar-item-line-background);
-    text-shadow: 10px 0 var(--navbar-item-line-background), -10px 0 var(--navbar-item-line-background);
+    text-shadow: 10px 0 var(--navbar-item-line-background),
+        -10px 0 var(--navbar-item-line-background);
 }
 
 .root[animation="3"] .item[selected] {
@@ -175,7 +178,8 @@ export default {
 
 .root[animation="3"] .item[selected]::after {
     color: var(--navbar-item-line-background);
-    text-shadow: 10px 0 var(--navbar-item-line-background), -10px 0 var(--navbar-item-line-background);
+    text-shadow: 10px 0 var(--navbar-item-line-background),
+        -10px 0 var(--navbar-item-line-background);
 }
 
 .root[animation="3"] .item[disabled]::after {
@@ -196,17 +200,18 @@ export default {
 
 .root[animation="4"] .item::before {
     margin-right: 8px;
-    content: '[';
+    content: "[";
     transform: translateX(20px);
 }
 
 .root[animation="4"] .item::after {
     margin-left: 8px;
-    content: ']';
+    content: "]";
     transform: translateX(-20px);
 }
 
-.root[animation="4"] .item:hover {}
+.root[animation="4"] .item:hover {
+}
 
 .root[animation="4"] .item:hover::before,
 .root[animation="4"] .item:hover::after {
@@ -214,7 +219,8 @@ export default {
     transform: translateX(0);
 }
 
-.root[animation="4"] .item[selected] {}
+.root[animation="4"] .item[selected] {
+}
 
 .root[animation="4"] .item[selected]::before,
 .root[animation="4"] .item[selected]::after {

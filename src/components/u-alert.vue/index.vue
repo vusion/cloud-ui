@@ -60,7 +60,7 @@ export default {
     },
     methods: {
         close() {
-            this.$emit('close');
+            this.$emit('close', this);
             this.currentVisible = false;
             this.$nextTick(() => this.$destroy());
         },

@@ -407,7 +407,7 @@
     "--button-border-color-danger-secondary-hover": "var(--brand-error-light)",
 
     "--button-border-color-primary-active": "var(--button-background-primary-active)",
-    "--button-border-color-primary-secondary-active": "var(--button-background-primary-secondary-active)",
+    "--button-border-color-primary-secondary-active": "var(--brand-primary-light)",
     "--button-border-color-active": "var(--brand-primary)",
     "--button-border-color-danger-active": "var(--button-background-danger-active)",
     "--button-border-color-danger-secondary-active": "var(--button-background-danger-secondary-active)",
@@ -929,7 +929,7 @@
     "--datepicker-input-icon-color-hover": "var(--input-icon-color-hover)",
     "--datepicker-input-clear-icon-color": "var(--input-clear-icon-color)",
 
-    
+
 
     "--datepicker-popper-box-shadow": "var(--select-popper-box-shadow)",
     "--datepicker-popper-border-radius": "var(--border-radius-base)",

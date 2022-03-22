@@ -6,16 +6,16 @@
      */
 
     /* Brand Colors */
-    --brand-primary-lightest: #e8f1ff;
+    --brand-primary-lightest: #eaf2ff;
     --brand-primary-lighter: #bbd4ff;
-    --brand-primary-light: #70A4FF;
+    --brand-primary-light: #5c98ff;
     --brand-primary: #337EFF;
     --brand-primary-dark: #1168ff;
     --brand-primary-darker: #004bcc;
     --brand-primary-darkest: #003eaa;
     --brand-primary-disabled: #adcbff;
 
-    --brand-success-lightest: #e5faef;
+    --brand-success-lightest: #e9f8f1;
     --brand-success-lighter: #b0efd0;
     --brand-success-light: #2ed581;
     --brand-success: #26BD71;
@@ -39,15 +39,15 @@
     --brand-problem-darker: #c9a000;
     --brand-problem-darkest: #a78600;
 
-    --brand-warning-lightest: #fff6e4;
-    --brand-warning-lighter: #ffe4af;
+    --brand-warning-lightest: #fef7e8;
+    --brand-warning-lighter: #ffb21a;
     --brand-warning-light: #ffb82a;
     --brand-warning: #FFB21A;
     --brand-warning-dark: #f0a000;
     --brand-warning-darker: #b47800;
     --brand-warning-darkest: #966400;
 
-    --brand-error-lightest: #feebec;
+    --brand-error-lightest: #feecee;
     --brand-error-lighter: #fab6bc;
     --brand-error-light: #f56d79;
     --brand-error: #F24957;
@@ -102,10 +102,6 @@
     --background-color-disabled: #f5f5f5;
     --background-color-hover: #f5f5f5;
     --background-color-disabled-light: #F7F8FA;
-    --background-color-brand-primary: rgba(51, 126, 255, 0.1);
-    --background-color-brand-success: rgba(38, 189, 113, 0.1);
-    --background-color-brand-warning: rgba(255, 178, 26, 0.1);
-    --background-color-brand-error: rgba(242, 73, 87, 0.1);
     --color-lighter: #ccc; /* Placeholder 字体颜色 */
     --color-light: #999999; /* 次级字体颜色 */
     --color-base: #333333; /* 默认字体颜色 */
@@ -523,7 +519,7 @@
     --button-border-color-danger-secondary-hover: var(--brand-error-light);
     /* 按钮边框颜色-active */
     --button-border-color-primary-active: var(--button-background-primary-active);
-    --button-border-color-primary-secondary-active: var(--button-background-primary-secondary-active);
+    --button-border-color-primary-secondary-active: var(--brand-primary-light);
     --button-border-color-active: var(--brand-primary);
     --button-border-color-danger-active: var(--button-background-danger-active);
     --button-border-color-danger-secondary-active: var(--button-background-danger-secondary-active);
@@ -569,32 +565,24 @@
     --button-color-danger-disabled: white;
     --button-color-danger-secondary-disabled: var(--button-color-disabled);
 
-
-
-
     --button-font-weight: normal;
     --button-border-width: var(--border-width-base);
     --button-border-radius: var(--border-radius-medium);
 
-
-
-
-
-
-
-    --button-box-shadow-focus-color:rgba(80, 139, 233, 0.2);
+    /* button-shadow */
+    --button-box-shadow-focus-color: rgba(80, 139, 233, 0.2);
     --button-box-shadow-focus: 0 0 0 2px var(--button-box-shadow-focus-color);
-    --button-box-shadow-focus-primary-color:rgba(80, 139, 233, 0.2);
+    --button-box-shadow-focus-primary-color: var(--button-box-shadow-focus-color);
     --button-box-shadow-focus-primary: 0 0 0 2px var(--button-box-shadow-focus-primary-color);
     --button-box-shadow-focus-primary-secondary: none;
-    --button-box-shadow-focus-danger-color: rgba(254, 90, 90, 0.2);
+    --button-box-shadow-focus-danger-color: rgba(242, 73, 87, 0.2);
     --button-box-shadow-focus-danger: 0 0 0 2px var(--button-box-shadow-focus-danger-color);
     --button-box-shadow-focus-danger-secondary: none;
-    --button-box-shadow-active-color: rgba(61, 111, 196, 0.2);
+    --button-box-shadow-active-color: rgba(51, 126, 255, 0.2);
     --button-box-shadow-active: 0 0 0 2px var(--button-box-shadow-active-color);
     --button-box-shadow-active-primary: var(--button-box-shadow-active);
     --button-box-shadow-active-primary-secondary: var(--button-box-shadow-active-primary);
-    --button-box-shadow-active-danger: 0 0 0 2px rgba(254, 90, 90, 0.2);
+    --button-box-shadow-active-danger: 0 0 0 2px var(--button-box-shadow-focus-danger-color);
     --button-box-shadow-active-danger-secondary: var(--button-box-shadow-active-danger);
     --button-loading-size: 18px; /* @hidden */
     --button-loading-width: 1.5px; /* @hidden */
@@ -735,7 +723,13 @@
     --timeline-tail-width: 2px;
     --timeline-dot-background-color: white;
 
-    /**
+    /* @component u-dropdown */
+    --dropdown-color-text: var(--brand-primary);
+    --dropdown-color-text-hover: var(--brand-primary-light);
+    --dropdown-color-text-active: var(--dropdown-color-text);
+    --dropdown-color-text-disabled: var(--font-disabled-color);
+
+    /*
      * ========================
      *   数据
      * ========================
@@ -1387,10 +1381,10 @@
     --alert-color-success: var(--brand-success);
     --alert-color-warning: var(--brand-warning);
     --alert-color-error: var(--brand-error);
-    --alert-background-color-info: var(--background-color-brand-primary);
-    --alert-background-color-success: var(--background-color-brand-success);
-    --alert-background-color-warning: var(--background-color-brand-warning);
-    --alert-background-color-error: var(--background-color-brand-error);
+    --alert-background-color-info: var(--brand-primary-lightest);
+    --alert-background-color-success: var(--brand-success-lightest);
+    --alert-background-color-warning: var(--brand-warning-lightest);
+    --alert-background-color-error: var(--brand-error-lightest);
     --alert-close-color: var(--font-third-color);
     --alert-close-hover-color: var(--font-second-color);
 

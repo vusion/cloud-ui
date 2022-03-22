@@ -4,16 +4,6 @@
     - 块级展示
   description: 警告提示横幅。
   attrs:
-    - name: title
-      title: 标题
-      type: string
-      default: ""
-      description: 提示标题
-    - name: desc
-      title: 辅助文本
-      type: string
-      default: ""
-      description: 提示辅助文本
     - name: type
       title: 提示类型
       type: string
@@ -28,26 +18,49 @@
           title: 错误提示
       default: "info"
       description: 选择提示类型
-    - name: closeable
-      title: 手动关闭
-      type: boolean
-      default: false
-      description: 是否可手动关闭
-    - name: bordered
-      title: 边框
-      type: boolean
-      default: true
-      description: 显示/隐藏边框
+    - name: title
+      title: 标题
+      type: string
+      default: ""
+      description: 提示标题
+    - name: desc
+      title: 辅助文本
+      type: string
+      default: ""
+      description: 提示辅助文本
+    - name: horizontal
+      title: 对其方式
+      type: string
+      default: left
+      options:
+        - value: left
+          name: 左对齐
+        - value: center
+          name: 居中对齐
+      description: 选择对齐方式
     - name: showIcon
       title: 图标
       type: boolean
       default: true
       description: 显示/隐藏图标
+    - name: bordered
+      title: 边框
+      type: boolean
+      default: true
+      description: 显示/隐藏边框
+    - name: closeable
+      title: 手动关闭
+      type: boolean
+      default: false
+      description: 是否可手动关闭
   events:
     - name: close
       title: 关闭时
       description: 关闭时触发
-      params: []
+      params:
+        - name: senderVM
+          type: UAlter
+          description: 发送事件实例
   slots:
     - name: default
       description: 辅助文本
