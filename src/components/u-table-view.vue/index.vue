@@ -77,7 +77,9 @@
                                         :vusion-template-cell-node-path="columnVM.$attrs['vusion-template-cell-node-path']"
                                         :vusion-template-editcell-node-path="columnVM.$attrs['vusion-template-editcell-node-path']"
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
-                                        :vusion-node-path="columnVM.$attrs['vusion-node-path']">
+                                        :vusion-node-path="columnVM.$attrs['vusion-node-path']"
+                                        :vusion-disabled-selected="rowIndex !== 0">
+                                        <div :class="$style.tdmask" v-if="rowIndex !== 0"></div>
                                         <!--可视化占据的虚拟填充区域-->
                                         <div vusion-slot-name="cell" :plus-empty="typeCheck(columnVM.type) ? false : columnVM.$attrs['plus-empty']">
                                             <!-- type === 'index' -->
@@ -1617,6 +1619,16 @@ export default {
 .tree_placeholder + div
 {
     display: inline;
+}
+
+.tdmask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.8);
+    z-index: 999;
 }
 
 @keyframes rotate {

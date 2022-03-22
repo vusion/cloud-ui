@@ -22,7 +22,6 @@
 
 <script>
 import UListComponentsItem from './item.vue';
-
 export default {
     name: 'u-list-components',
     components: {
