@@ -6,6 +6,7 @@
           v-for="(item2, index2) in item"
           :key="index2"
           :item="item2"
+          :colnum="colnum"
         >
           <template v-slot="item2">
             <slot :item="item2.item"></slot>
@@ -21,7 +22,6 @@
 
 <script>
 import UListComponentsItem from './item.vue';
-
 export default {
     name: 'u-list-components',
     components: {
@@ -98,13 +98,7 @@ export default {
 <style>
 .u-for-com-frag {
   display: flex;
-  overflow-x: auto;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  white-space: nowrap;
-}
-
-.u-com-frag::-webkit-scrollbar {
-  display: none;
+  flex-basis: auto;
+  flex-wrap: wrap;
 }
 </style>
