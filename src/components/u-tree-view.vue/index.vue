@@ -79,7 +79,7 @@ export default {
         },
         selectedVM(selectedVM, oldVM) {
             this.$emit('change', {
-                value: selectedVM ? selectedVM.value : undefined,
+                value: selectedVM ? selectedVM.value || selectedVM[this.valueField] : undefined,
                 oldValue: oldVM ? oldVM.value : undefined,
                 node: selectedVM ? selectedVM.node : undefined,
                 oldNode: oldVM ? oldVM.node : undefined,
@@ -210,14 +210,14 @@ export default {
                 this.selectedVM = undefined;
             else
                 this.selectedVM = nodeVM;
-            const value = this.selectedVM && this.selectedVM.value;
-            const node = this.selectedVM && this.selectedVM.node;
-            this.$emit('input', value, this);
-            this.$emit('update:value', value, this);
+            const { value, node } = this.selectedVM || {};
+            const actualValue = value || node && node[this.valueField] || this.selectedVM[this.valueField];
+            this.$emit('input', actualValue, this);
+            this.$emit('update:value', actualValue, this);
             this.$emit(
                 'select',
                 {
-                    value,
+                    value: actualValue,
                     oldValue,
                     node,
                     oldNode: oldVM && oldVM.node,

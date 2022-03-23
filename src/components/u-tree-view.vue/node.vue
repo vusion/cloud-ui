@@ -34,7 +34,7 @@
             </f-slot>
         </div>
     </div>
-    <div :class="$style.sub" v-if="rootVM.ifExpanded && !childrenRendered && !node.childrenRendered ? currentExpanded : true" v-show="currentExpanded">
+    <div :class="$style.sub" v-if="rootVM.ifExpanded && !childrenRendered && node && !node.childrenRendered ? currentExpanded : true" v-show="currentExpanded">
         <template v-if="node && $at(node, currentChildrenField) && !rootVM.excludeFields.includes(currentChildrenField)">
             <u-tree-view-node
                 v-for="subNode in $at(node, currentChildrenField)"
