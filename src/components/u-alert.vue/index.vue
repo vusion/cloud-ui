@@ -73,7 +73,6 @@ export default {
     display: flex;
     padding: 4px 16px;
     border-radius: 2px;
-    margin-bottom: 24px;
 }
 .root[bordered] {
     border: 1px solid currentColor;
