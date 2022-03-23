@@ -24,7 +24,7 @@
                     name="selected"
                     :vm="this"
                     :props="{
-                        text: selectedItem.text,
+                        text: selectedItem[this.textField] || selectedItem.text,
                         node: selectedItem.node,
                         parent: selectedItem.parent,
                     }">
