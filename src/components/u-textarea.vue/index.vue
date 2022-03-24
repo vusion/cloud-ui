@@ -127,8 +127,8 @@ export default {
     cursor: nwse-resize;
 }
 
-.input::placeholder {
-    /* Removes placeholder transparency in Firefox. */
+.input::placeholder, input:-ms-input-placeholder, input::-ms-input-placeholder {
+    /* Removes placeholder transparency in Firefox, IE, Edge. */
     opacity: 1;
     color: var(--textarea-placeholder-color);
 }

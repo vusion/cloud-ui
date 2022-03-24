@@ -322,8 +322,8 @@ time = '00:00:00';
     width: 100%;
 }
 
-.placeholder, .input::placeholder {
-    /* Removes placeholder transparency in Firefox. */
+.placeholder, .input::placeholder, input:-ms-input-placeholder, input::-ms-input-placeholder {
+    /* Removes placeholder transparency in Firefox, IE, Edge. */
     opacity: 1;
     font-size: inherit;
     color: var(--input-placeholder-color);
