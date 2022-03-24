@@ -59,6 +59,8 @@ export default {
 
             this.moveY = (wrapEl.scrollTop * 100) / wrapEl.clientHeight;
             this.moveX = (wrapEl.scrollLeft * 100) / wrapEl.clientWidth;
+
+            this.$emit('scroll', { scrollTop: wrapEl.scrollTop });
         },
         handleResize() {
             const wrapEl = this.$refs.wrap;
@@ -109,5 +111,14 @@ export default {
 
 .root[color="light"] .bar_thumb:hover {
     background-color: rgba(48,48,48,.4);
+}
+/** hover时才出现bar */
+.root[trigger="hover"] .bar {
+     opacity: 0;
+}
+.root[trigger="hover"]:hover > .bar,
+.root:focus > .bar,
+.root[trigger="hover"]:active > .bar {
+    opacity: 1;
 }
 </style>

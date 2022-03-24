@@ -654,6 +654,26 @@
     --carousel-button-background-hover: rgba(0, 0, 0, 0.2);
     --carousel-button-transition: all 0.3s;
 
+    /* @component u-time-picker */
+    --timepicker-input-width: 240px;
+    --timepicker-bacground-selected: var(--brand-primary-light);
+    --timepicker-color-selected: white;
+    --timepicker-panel-background: white;
+    --timepicker-foot-background: white;
+    --timepicker-foot-border-color: var(--border-color-base);
+    --timepicker-item-background-selected: transparent;
+    --timepicker-item-background-hover:#f5f5f5;
+    --timepicker-item-background-disabled: transparent;
+    --timepicker-item-color-disabled: #ccc;
+    --timepicker-item-color-disabled-selected: rgba(255, 255, 255, 0.4);
+    --timepicker-item-color: var(--font-first-color);
+    --timepicker-popper-max-width: 300px;
+    --timepicker-popper-background: white;
+    --timepicker-popper-border-color: var(--border-color-base);
+    --timepicker-popper-border-radius: var(--border-radius-base);
+    --timepicker-input-pre-icon-color: var(--gray-light);
+    --timepicker-input-padding-x: 8px;
+
     /* @component u-avatar @hidden */
     --avatar-size: 44px;
     --avatar-size-mini: 18px;
@@ -1543,7 +1563,7 @@
     --datepicker-popper-border-radius: var(--border-radius-base);
 
     /* @component u-date-time-picker */
-    --datetime-input-width: 300px;
+    --datetime-input-width: 240px;
     --datetime-input-height: var(--input-height);
 
     --datetime-input-pre-icon-color: var(--gray-light);
@@ -1561,6 +1581,9 @@
 
     --datetime-input-icon-color-hover: var(--input-icon-color-hover);
     --datetime-input-clear-icon-color: var(--input-icon-color);
+
+    --datetime-popper-border-color: var(--border-color-base);
+    --datetime-popper-border-radius: var(--border-radius-base);
 
      /* @component u-taskbox @hidden */
     --taskbox-badge-box-shadow: none;

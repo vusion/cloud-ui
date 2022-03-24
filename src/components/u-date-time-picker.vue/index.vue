@@ -2,26 +2,43 @@
 <div :class="$style.root" ref="element">
     <div :class="[$style.head, preIcon ? $style.preIconHeader: '', suffixIcon ? $style.suffixIconHeader: '']">
         <i-ico v-if="preIcon" :name="preIcon" :class="[$style.btnicon, $style.preIcon]" notext></i-ico>
-        <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
+        <input :class="$style.input" :placeholder="placeholder" :value="finalDateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
             @click.stop="toggle(true)" @change="onInput($event)" @focus="onFocus" @blur="onBlur">
-         <span v-if="dateTime && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
+         <span v-if="finalDateTime && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
             <i :class="[$style.closeIcon]"></i>
         </span>
         <i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.btnicon, $style.suffixIcon]" notext></i-ico>
     </div>
-    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
+    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement"
+        @toggle="onToggle($event)"
+        @close="onPopperClose"
+        @open="onPopperOpen">
         <div :class="$style.body" @click.stop>
-            <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate" @select="outRangeDateTime($event.date, showTime)">
-                <u-time-picker :class="$style.timePicker" :readonly="readonly" :time="showTime" width="50" :min-time="minTime" :max-time="maxTime" @change="outRangeDateTime(showDate, $event.time)"></u-time-picker>
-                    <slot name="footer">
-                        <div :class="$style.footer">
-                            <u-linear-layout justify="end">
-                                <u-button size="small" @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ $t('now') }}</u-button>
-                                <u-button size="small" @click="toggle(false)" color="primary" :readonly="readonly" :disabled="disabled">{{ $t('submit') }}</u-button>
-                            </u-linear-layout>
-                        </div>
-                    </slot>
+            <div :class="$style.popperhead">
+                <u-input :placeholder="popperplaceholder" :class="$style.pickerinput" v-model="showDate" clearable></u-input>
+                <u-time-picker :class="$style.pickerinput" :readonly="readonly" :time="showTime" 
+                    width="50" :min-time="minTime" :max-time="maxTime"
+                    :simple-foot="true" pre-icon=""
+                    :disabled="!showDate"
+                    @change="outRangeDateTime(showDate, $event.time)">
+                </u-time-picker>
+            </div>
+            <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" 
+                :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate"
+                :border="false"
+                @select="outRangeDateTime($event.date, showTime)">
             </u-calendar>
+            <div :class="$style.footer">
+                <u-linear-layout justify="space-between">
+                    <u-linear-layout :class="$style.ctimewrap">
+                        <u-link @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ $t('now') }}</u-link>
+                    </u-linear-layout>
+                    <u-linear-layout>
+                        <u-button @click="onCancel">{{ $t('cancel') }}</u-button>
+                        <u-button @click="onConfirm" color="primary" :readonly="readonly" :disabled="disabled">{{ $t('submit') }}</u-button>
+                    </u-linear-layout>
+                </u-linear-layout>
+            </div>
         </div>
     </m-popper>
     <slot></slot>
@@ -97,15 +114,19 @@ export default {
             minTime: undefined,
             maxTime: undefined,
             currentMaxDate: this.getMaxDate(), // 可能会存在最大值小于最小值情况，组件需要内部处理让最大值和最小值一样
+            popperplaceholder: this.$t('selectPopperDateText'),
+            finalDateTime: this.format(this.date, 'YYYY-MM-DD HH:mm:ss'),
+            showDate: undefined,
+            showTime: undefined,
         };
     },
     computed: {
-        showTime() {
-            return this.format(this.dateTime, 'HH:mm:ss');
-        },
-        showDate() {
-            return this.format(this.dateTime, 'YYYY-MM-DD');
-        },
+        // showTime() {
+        //     return this.format(this.dateTime, 'HH:mm:ss');
+        // },
+        // showDate() {
+        //     return this.format(this.dateTime, 'YYYY-MM-DD');
+        // },
         minCalendarDate() {
             return this.format(this.minDate, 'YYYY-MM-DD');
         },
@@ -151,16 +172,18 @@ export default {
                     newValue = this.format(isOutOfRange, 'YYYY-MM-DD HH:mm:ss');
             }
             const newDateTime = newValue ? this.toValue(new Date(newValue.replace(/-/g, '/'))) : undefined;
-            this.$emit('update:date', newDateTime);
-            /**
-             * @event change 日期时间改变时触发
-             * @property {object} sender 事件发送对象
-             * @property {object} date 改变后的日期时间
-             */ this.$emit('change', {
-                sender: this,
-                date: newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : undefined,
-            }); // 方便u-field组件捕获到其值
-            this.$emit('input', newDateTime);
+            this.showDate = this.format(newDateTime, 'YYYY-MM-DD');
+            this.showTime = this.format(newDateTime, 'HH:mm:ss');
+            // this.$emit('update:date', newDateTime);
+            // /**
+            //  * @event change 日期时间改变时触发
+            //  * @property {object} sender 事件发送对象
+            //  * @property {object} date 改变后的日期时间
+            //  */ this.$emit('change', {
+            //     sender: this,
+            //     date: newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : undefined,
+            // }); // 方便u-field组件捕获到其值
+            // this.$emit('input', newDateTime);
         },
         maxDate(value) {
             this.currentMaxDate = this.getMaxDate(value);
@@ -192,7 +215,7 @@ export default {
     },
     methods: {
         clearValue() {
-            this.dateTime = undefined;
+            this.finalDateTime = undefined;
         },
         toValue(date) {
             if (!date)
@@ -210,11 +233,12 @@ export default {
          * @method outRangeDateTime(date, time) 修改日期为最大日期或最小日期
          * @private
          * @return {void}
-         */ outRangeDateTime(date, time) {
+         */ 
+        outRangeDateTime(date, time) {
             if (!time)
-time = '00:00:00';
+                time = '00:00:00';
             if (date)
-date = new Date(date);
+                date = new Date(date);
             else {
                 this.$emit('select', { sender: this, date: '' });
                 return;
@@ -266,9 +290,10 @@ date = new Date(date);
          * @method onDateTimeChange(date, time) 日期或时间改变后更新日期时间
          * @private
          * @return {void}
-         */ onDateTimeChange(date, time) {
+         */ 
+        onDateTimeChange(date, time) {
             if (!time)
-time = '00:00:00';
+                time = '00:00:00';
             date = new Date(date);
             time = time.split(':');
             date.setHours(time[0]);
@@ -285,7 +310,8 @@ time = '00:00:00';
          * @private
          * @param  {object} $event
          * @return {void}
-         */ onInput($event) {
+         */ 
+        onInput($event) {
             const value = $event.target.value;
             this.updateDate(value);
         },
@@ -307,7 +333,8 @@ time = '00:00:00';
          * @public
          * @param {Date} date 待测的日期时间
          * @return {boolean|Date} date 如果没有超出日期时间范围，则返回false；如果超出日期时间范围，则返回范围边界的日期时间
-         */ isOutOfRange(date) {
+         */ 
+        isOutOfRange(date) {
             date = this.transformDate(date);
             const minDate = this.transformDate(this.minDate);
             const maxDate = this.transformDate(this.currentMaxDate); // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期时间。
@@ -354,6 +381,36 @@ time = '00:00:00';
             setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
                 this.preventBlur = false;
             }, 0);
+            this.showDate = undefined;
+            this.showTime = undefined;
+        },
+        onCancel() {
+
+        },
+        onConfirm() {
+            console.log('ddd');
+            this.toggle(false);
+            this.finalDateTime = this.dateTime;
+            console.log('this.dateTime', this.dateTime);
+            this.emitValue();
+        },
+        emitValue() {
+            this.$emit('update:date', this.finalDateTime);
+            /**
+             * @event change 日期时间改变时触发
+             * @property {object} sender 事件发送对象
+             * @property {object} date 改变后的日期时间
+             */ 
+            this.$emit('change', {
+                sender: this,
+                date: this.finalDateTime ? new Date(this.finalDateTime.replace(/-/g, '/')).getTime() : undefined,
+            }); // 方便u-field组件捕获到其值
+            this.$emit('input', this.finalDateTime);
+        },
+        onPopperOpen() {
+            this.dateTime = this.format(new Date(this.finalDateTime), 'YYYY-MM-DD HH:mm:ss');
+            this.showDate = this.format(this.dateTime, 'YYYY-MM-DD');
+            this.showTime = this.format(this.dateTime, 'HH:mm:ss');
         }
     },
 };
@@ -441,7 +498,8 @@ time = '00:00:00';
 }
 
 .footer {
-    padding: 15px 0 5px;
+    padding: 10px 8px;
+    border-top: 1px solid var(--datetime-popper-border-color);
 }
 
 .wrap {
@@ -480,6 +538,34 @@ time = '00:00:00';
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
     cursor: var(--cursor-pointer);
     color: var(--datetime-input-clear-icon-color);
+}
+
+.pickerinput {
+    width: 134px;
+}
+
+.pickerinput + .pickerinput {
+    margin-left: 8px;
+}
+
+.popperhead {
+    padding: 12px;
+    border-bottom: 1px solid var(--datetime-popper-border-color);
+}
+
+.popper {
+    background: white;
+    border: 1px solid var(--datetime-popper-border-color);
+    border-radius: var(--datetime-popper-border-radius);
+}
+.footbtn {
+    width: 80px;
+    height: 32px;
+    padding: 0;
+    line-height: 30px;
+}
+.ctimewrap {
+    padding: 3px 0 0 7px;
 }
 
 </style>
