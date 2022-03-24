@@ -25,6 +25,7 @@ module.exports = {
 
             { group: '容器', name: 'u-router-view', alias: '子页面容器' },
             { group: '容器', name: 'u-iframe', alias: 'iFrame' },
+            { group: '容器', name: 'u-report', alias: '分析报告' },
 
             { group: '布局', name: 'u-linear-layout', alias: '线性布局' },
             { group: '布局', name: 'u-multi-layout', alias: '分栏布局' },

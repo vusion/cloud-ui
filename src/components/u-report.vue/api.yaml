@@ -1,0 +1,82 @@
+- name: u-report
+  title: 分析报告
+  labels:
+    - Container
+  icon: report
+  attrs:
+    - name: url
+      title: 报告
+      type: string
+      default: ''
+    - name: mode
+      title: 页面切换方式
+      type: string
+      default: ''
+      options:
+        - name: 正常
+          value: normal
+        - name: 简单
+          value: simple
+    - name: showTitle
+      opposite: true
+      title: 显示标题栏
+      type: boolean
+      default: false
+    - name: showScaleBar
+      opposite: true
+      title: 显示缩放栏
+      type: boolean
+      default: false
+    - name: showPageBar
+      title: 显示底部栏
+      opposite: true
+      type: boolean
+      default: false
+    - name: showProgressBar
+      title: 显示进度条
+      opposite: true
+      type: boolean
+      default: false
+    - name: scale
+      title: 缩放配置
+      type: string
+      default: '100'
+      options: 
+        - name: 缩放100%
+          value: '100'
+        - name: 自适应宽度
+          value: 'width'
+        - name: 自适应窗口
+          value: 'screen'
+    - name: bottomBarPosTop
+      title: 底部栏显示至顶部
+      type: boolean
+      default: false
+    - name: selectId
+      group: 筛选器属性
+      type: object
+      default: {}
+      mapOptions: 
+        - name: selectName
+          type: string
+          title: 筛选器名
+          value: ''
+        - name: selectValue
+          type: objectString
+          title: 值
+          value: ''
+    - name: selectParam
+      group: 筛选器参数属性
+      type: object
+      default: {}
+      mapOptions: 
+        - name: paramName
+          type: string
+          title: 参数名
+          value: ''
+        - name: paramValue
+          type: string
+          title: 值
+          value: ''
+
+    

@@ -1,6 +1,7 @@
 module.exports = [
     { group: 'Container', show: true, name: 'u-router-view', alias: '子页面容器' },
     { group: 'Container', show: true, name: 'u-iframe', alias: 'Iframe' },
+    { group: 'Container', show: true, name: 'u-report', alias: '分析报告' },
     { group: 'Layout', show: true, name: 'u-linear-layout', alias: '线性布局', vscode: false },
     { group: 'Layout', show: true, name: 'u-grid-layout', alias: '栅格布局', vscode: false },
     { group: 'Layout', show: true, name: 'u-multi-layout', alias: '分栏布局' },
