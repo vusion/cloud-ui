@@ -1,5 +1,5 @@
 <template>
-<div :class="[$style.header, preIcon ? $style.preIconHeader: '', suffixIcon ? $style.suffixIconHeader: '']" :style="{ 
+<div :class="[$style.header, preIcon ? $style.preIconHeader: '', suffixIcon ? $style.suffixIconHeader: '']" :style="{
     width: `${width}px`
 }">
     <i-ico v-if="preIcon" :name="preIcon" :class="[$style.btnicon, $style.preIcon]" notext></i-ico>
@@ -43,12 +43,12 @@ export default {
     directives: { clickOutside },
     mixins: [MField],
     props: {
-        preIcon: { 
-            type: String, 
+        preIcon: {
+            type: String,
             default: 'calendar'
         },
-        suffixIcon: { 
-            type: String, 
+        suffixIcon: {
+            type: String,
             default: ''
         },
         date: [String, Number, Date],
@@ -378,8 +378,8 @@ export default {
     box-shadow: var(--datepicker-input-box-shadow-focus);
 }
 
-.placeholder, .input::placeholder {
-    /* Removes placeholder transparency in Firefox. */
+.placeholder, .input::placeholder, input:-ms-input-placeholder, input::-ms-input-placeholder {
+    /* Removes placeholder transparency in Firefox, IE, Edge. */
     opacity: 1;
     font-size: inherit;
     color: var(--datepicker-input-placeholder-color);
