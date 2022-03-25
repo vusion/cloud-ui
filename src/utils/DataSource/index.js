@@ -216,7 +216,7 @@ const VueDataSource = Vue.extend({
                 offset = this.offset;
             if (limit === undefined)
                 limit = this.limit;
-            const newOffset = offset + limit;
+            let newOffset = offset + limit;
 
             const queryChanged = Object.keys(this.params).length;
             // 调用前端缓存数据
@@ -225,6 +225,10 @@ const VueDataSource = Vue.extend({
                 if (queryChanged) {
                     this.arrange();
                     this.params = {};
+                    if (this.paging)
+                        this.paging.number = 1;
+                    offset = 0;
+                    newOffset = limit;
                 }
                 return Promise.resolve(this.arrangedData.slice(offset, newOffset));
             }
@@ -234,6 +238,9 @@ const VueDataSource = Vue.extend({
             if (queryChanged) {
                 this.clearLocalData();
                 this.params = {};
+                if (this.paging)
+                    this.paging.number = 1;
+                offset = 0;
             }
             const paging = Object.assign({ offset: offset - this.prependedData.length, limit: this.limit }, this.paging);
             if (newPageNumber !== undefined) {

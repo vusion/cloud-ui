@@ -72,7 +72,9 @@ export default {
             let selectedVMs = [];
             const selectedMap = {}; // 对于过滤、分页等功能，需要保留原来的 selectedVMs
             this.selectedVMs.forEach((selectedVM) => {
-                if (value.includes(selectedVM.value))
+                // 使用了converter="join:|"后，会使数组里的值是string，但value是number，导致没有选中
+                // 添加判断string值
+                if (value.includes(selectedVM.value) || value.includes('' + selectedVM.value))
                     selectedMap[selectedVM.value] = selectedVM;
             });
             if (value) {
@@ -95,7 +97,7 @@ export default {
                 selectedVMs = Object.values(selectedMap); // 必须单独指定一遍，因为有取消掉的
                 this.itemVMs.forEach(
                     (itemVM) =>
-                        (itemVM.currentSelected = value.includes(itemVM.value)),
+                        (itemVM.currentSelected = (value.includes(itemVM.value) || value.includes('' + itemVM.value))),
                 );
             } else {
                 this.itemVMs.forEach(

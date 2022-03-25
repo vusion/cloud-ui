@@ -236,6 +236,9 @@ export default {
         this.toggle(this.opened);
         this.setPopperWidth();
     },
+    destroyed() {
+        clearTimeout(this.inputDeleteTimer);
+    },
     methods: {
         getExtraParams() {
             return { filterText: this.filterText };
@@ -437,13 +440,24 @@ export default {
             this.popperOpened ? this.close() : this.open();
         },
         onInputDelete() {
-            if (this.filterable && this.filterText === '') {
-                if (!this.selectedVMs.length)
-                    return;
-                const lastItemVM = this.selectedVMs[
-                    this.selectedVMs.length - 1
-                ];
-                this.select(lastItemVM, false);
+            // 增加setTimeout原因：没有setTimeout，该函数会在onInput前执行，filterText会差一个字母
+            // multiple下，第一次删除为空时不希望处理selectedVMs，所以不用放到setTimeout里
+            if (!this.multiple) {
+                clearTimeout(this.inputDeleteTimer);
+                this.inputDeleteTimer = setTimeout(()=>{
+                    if (this.filterable && this.filterText === '') {
+                        this.selectedVM = undefined; // 清空时清除下拉选中项
+                    }
+                }, 0);
+            } else {
+                if (this.filterable && this.filterText === '') {
+                    if (!this.selectedVMs.length)
+                        return;
+                    const lastItemVM = this.selectedVMs[
+                        this.selectedVMs.length - 1
+                    ];
+                    this.select(lastItemVM, false);
+                }
             }
         },
         clear() {
