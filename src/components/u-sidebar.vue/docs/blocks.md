@@ -1,7 +1,7 @@
 ### 基本用法
 
 ``` html
-<u-sidebar value="3" :router="false">
+<u-sidebar value="3" :router="true">
     <u-sidebar-item value="1" text="导航一"></u-sidebar-item>
     <u-sidebar-item value="2" text="导航二"></u-sidebar-item>
     <u-sidebar-item value="3" text="导航三"></u-sidebar-item>
@@ -11,7 +11,7 @@
 ### 折叠功能
 
 ``` html
-<u-sidebar collapsible>
+<u-sidebar collapsible :router="true">
     <u-sidebar-group title="导航一" expanded>
         <u-sidebar-item text="选项一"></u-sidebar-item>
     </u-sidebar-group>
@@ -25,7 +25,7 @@
 ### 分组
 
 ``` html
-<u-sidebar>
+<u-sidebar :router="true">
     <u-sidebar-group title="导航一" expanded>
         <u-sidebar-item text="选项一"></u-sidebar-item>
     </u-sidebar-group>
@@ -38,7 +38,7 @@
 ### 手风琴模式
 
 ```html
-<u-sidebar collapsible accordion>
+<u-sidebar collapsible accordion :router="true">
     <u-sidebar-group title="导航一">
         <u-sidebar-item text="选项一"></u-sidebar-item>
     </u-sidebar-group>

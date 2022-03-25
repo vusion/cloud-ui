@@ -51,12 +51,12 @@ export default {
     i18n,
     mixins: [MField],
     props: {
-        preIcon: { 
-            type: String, 
+        preIcon: {
+            type: String,
             default: 'calendar'
         },
-        suffixIcon: { 
-            type: String, 
+        suffixIcon: {
+            type: String,
             default: ''
         },
         disabled: { type: Boolean, default: false },
@@ -391,8 +391,8 @@ time = '00:00:00';
     padding-right: calc(var(--datetime-input-padding-x) + 26px);
 }
 
-.placeholder, .input::placeholder {
-    /* Removes placeholder transparency in Firefox. */
+.placeholder, .input::placeholder, input:-ms-input-placeholder, input::-ms-input-placeholder {
+    /* Removes placeholder transparency in Firefox, IE, Edge. */
     opacity: 1;
     font-size: inherit;
     color: var(--datetime-input-placeholder-color);
