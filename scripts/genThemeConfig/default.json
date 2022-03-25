@@ -945,5 +945,10 @@
     "--datetime-input-placeholder-color": "var(--input-placeholder-color)",
     "--datetime-input-border-width": "var(--input-border-width)",
     "--datetime-input-border-color": "var(--input-border-color)",
-    "--datetime-input-border-radius": "3px"
+    "--datetime-input-border-radius": "3px",
+
+    "--dropdown-color-text": "var(--brand-primary)",
+    "--dropdown-color-text-hover": "var(--brand-primary-light)",
+    "--dropdown-color-text-active": "var(--dropdown-color-text)",
+    "--dropdown-color-text-disabled": "var(--font-disabled-color)"
 }

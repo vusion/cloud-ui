@@ -1091,6 +1091,22 @@
                 "preview": {
                     "template": "<u-date-time-picker  date=\"2018-08-08\" clearable></u-date-time-picker>"
                 }
+            },
+            {
+                "id": 50,
+                "name": "u-dropdown",
+                "title": "下拉菜单",
+                "toPosition": "dropdown",
+                "type": [],
+                "cssProperty": {
+                    "--dropdown-color-text": "color",
+                    "--dropdown-color-text-hover": "color",
+                    "--dropdown-color-text-active": "color",
+                    "--dropdown-color-text-disabled": "color"
+                },
+                "preview": {
+                    "template": "<u-dropdown><template #title=\"scope\"><u-text text=\"下拉菜单\"></u-text></template><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item disabled text=\"item\"></u-dropdown-item></u-dropdown>"
+                }
             }
         ]
     }
