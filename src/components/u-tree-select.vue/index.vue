@@ -160,7 +160,7 @@ export default {
             popperOpened: false,
             vnodes: [],
             dataSourceObj: {},
-            actualValue: this.value
+            actualValue: this.value,
         };
     },
     computed: {
@@ -200,7 +200,15 @@ export default {
             this.toggle(opened);
         },
     },
+    // dirty hack：每次插槽变化时，vue都会将实例上的$slots对象重新赋值，因此只要比较上一次和现在的slots引用是否改变，就能判断出
+    // 当前插槽内容是否发生变化
+    updated() {
+        if(this.slots !== this.$slots) {
+            this.collectFromVNodes();
+        }
+    },
     mounted() {
+        console.log(this);
         this.collectFromVNodes();
         this.handleData();
         this.autofocus && this.$el.focus();
@@ -217,6 +225,8 @@ export default {
         },
         // 从虚拟节点中收集数据
         collectFromVNodes() {
+            // dirty hack：每次插槽变化时，vue都会将实例上的$slots对象重新赋值
+            this.slots = this.$slots;
             this.vnodes = this.collectTreeNode(this.$slots.default);
             this.handleDataSourceObj(this.vnodes);
         },
