@@ -23,7 +23,7 @@
                         <div :class="$style.text">
                             <div :class="$style.heading"><slot name="heading">{{ heading }}</slot></div>
                             <div :class="$style.content"><slot>{{ content }}</slot></div>
-                            <div v-if="!!description" :class="$style.description"><slot name="description">{{ description }}</slot></div>
+                            <div v-if="!!description || $slots.description" :class="$style.description"><slot name="description">{{ description }}</slot></div>
                         </div>
                     </slot>
                 </div>
@@ -60,6 +60,7 @@ export const UModal = {
             },
         },
         content: String,
+        heading: String,
         description: String,
         okButton: {
             type: String,
@@ -79,7 +80,7 @@ export const UModal = {
         width: { type: [String, Number], default: '' },
         size: { type: String, default: 'normal' },
         static: { type: Boolean, default: false },
-        icon: String,
+        icon: { type: String, default: null },
         maskClose: { type: Boolean, default: false },
         disableEsc: { type: Boolean, default: false },
     },
@@ -332,7 +333,7 @@ export default UModal;
 }
 
 .body[icon] .content {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .body[icon] > :not(.text){
@@ -341,9 +342,8 @@ export default UModal;
 }
 
 .description {
-    margin-top: 5px;
-    font-size: 12px;
-    color: var(--color-base);
+    font-size: 14px;
+    color: var(--font-second-color);
 }
 
 .foot {
