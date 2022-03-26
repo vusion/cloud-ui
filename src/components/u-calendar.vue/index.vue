@@ -1,38 +1,14 @@
 <template>
-<div :class="$style.root" :disabled="disabled">
+<div :class="$style.root" :disabled="disabled" :border="border">
     <div :class="$style.headCenter" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
-        <!-- <div :class="$style.year">
-            <span :class="$style.textYear" >{{ showYear }}{{ $t('year') }}</span>
-            <m-popper trigger="click" :opened.sync="yearvisible" append-to="reference">
-                <div :class="$style.yearList" @click.stop>
-                    <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="yearSelect($event)">
-                        <u-list-view-item :class="$style.yearitem" v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{ year.value }}{{ $t('year') }}</u-list-view-item>
-                    </u-list-view>
-                </div>
-            </m-popper>
-        </div>
-        <div v-if="picker === 'date' || picker === 'week' || picker === 'time'" :class="$style.month">
-            <span :class="$style.textMonth">{{ monthTextList[showMonth - 1] }}{{ $t('month') }}</span>
-            <m-popper trigger="click" placement="bottom-end" :opened.sync="monthvisible" append-to="reference">
-                <ul :class="$style.monthList">
-                    <li v-for="(month, mindex) in monthCol" 
-                        :key="mindex"
-                        :class="$style.listitem" 
-                        :role="month.value === showMonth" 
-                        :disabled="month.disabled" 
-                        @click.stop="monthSelect(month, mindex)">
-                        {{ monthTextList[month.value - 1] }}
-                    </li>
-                </ul>
-            </m-popper>
-        </div> -->
-        <a :class="$style.icon" role="yearprev" :disabled="!this.getYearPrev()" @click="handleYearPrev()"></a>
-        <a :class="$style.icon" role="prev" :disabled="!this.getMonthPrev()" @click="handleMonthPrev()"></a>
+        <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!this.getYearPrev()" @click="handleYearPrev()"></i-ico>
+        <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!this.getMonthPrev()" @click="handleMonthPrev()"></i-ico>
         <div :class="$style.yearCenter">
             <span>
-                <span :class="$style.yeartext">{{ showYear }} {{ $t('year') }} </span>
-                <m-popper trigger="click" placement="bottom" :opened.sync="yearvisible" append-to="reference">
-                    <f-scroll-view :class="$style.scrollview" @click.stop>
+                <span :class="$style.showtext" :active="yearvisible">{{ showYear }} {{ $t('year') }} </span>
+                <m-popper trigger="click" placement="bottom" :opened.sync="yearvisible" append-to="reference"
+                    @click.stop @mousedown.stop>
+                    <f-scroll-view @click.stop>
                         <div :class="$style.yearList" @click.stop>
                             <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="yearSelect($event)">
                                 <u-list-view-item :class="$style.yearitem" v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{ year.value }}</u-list-view-item>
@@ -42,19 +18,10 @@
                 </m-popper>
             </span>
             <span>
-                <span>{{ monthTextList[showMonth - 1] }} {{ $t('month') }}</span>
-                    <m-popper trigger="click" placement="bottom" :opened.sync="monthvisible" append-to="reference">
-                        <f-scroll-view :class="$style.scrollview" @click.stop>
-                            <!-- <ul :class="$style.monthList">
-                                <li v-for="(month, mindex) in monthCol" 
-                                    :key="mindex"
-                                    :class="$style.listitem" 
-                                    :role="month.value === showMonth" 
-                                    :disabled="month.disabled" 
-                                    @click.stop="monthSelect(month, mindex)">
-                                    {{ monthTextList[month.value - 1] }}
-                                </li>
-                            </ul> -->
+                <span :class="$style.showtext" :active="monthvisible">{{ monthTextList[showMonth - 1] }} {{ $t('month') }}</span>
+                    <m-popper trigger="click" placement="bottom" :opened.sync="monthvisible" append-to="reference"
+                        @click.stop @mousedown.stop>
+                        <f-scroll-view @click.stop>
                             <div :class="$style.yearList" @click.stop>
                                 <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="monthSelect($event)">
                                     <u-list-view-item :class="$style.yearitem" v-for="(month, mindex) in monthCol" :key="mindex" :value="month.value" :disabled="month.disabled" :role="month.value === showMonth" >{{ month.value }} {{ $t('month') }}</u-list-view-item>
@@ -64,15 +31,15 @@
                     </m-popper>
                 </span>
         </div>
-        <a :class="$style.icon" role="yearnext" :disabled="!this.getMonthNext()" @click="handleMonthNext()"></a>
-        <a :class="$style.icon" role="next" :disabled="!this.getYearNext()" @click="handleYearNext()"></a>
+        <i-ico :class="$style.hicon" name="right-arrow" notext :disabled="!this.getMonthNext()" @click="handleMonthNext()"></i-ico>
+        <i-ico :class="$style.hicon" name="right-arrow" notext :disabled="!this.getYearNext()" @click="handleYearNext()"></i-ico>
     </div>
     <div :class="$style.headCenter" v-if="(picker === 'month' || picker === 'quarter') && currentMode === ''">
-        <a :class="$style.icon" role="prev" :disabled="!this.getYearPrev()" @click="handleYearPrev()"></a>
+        <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!this.getYearPrev()" @click="handleYearPrev()"></i-ico>
         <div :class="$style.yearCenter">
             <span @click="handlerMode" >{{ showYear }}{{ $t('year') }}</span>
         </div>
-        <a :class="$style.icon" role="next" :disabled="!this.getYearNext()" @click="handleYearNext()"></a>
+        <i-ico :class="$style.hicon" name="right-arrow" notext :disabled="!this.getYearNext()" @click="handleYearNext()"></i-ico>
     </div>
     <div v-if="picker === 'year' || currentMode === 'year'" :class="$style.content" type="year">
         <year-page
@@ -94,10 +61,11 @@
                 <ul :class="$style.quarterBox">
                     <li v-for="(quarter, mindex) in quarterCol" 
                         :key="mindex"
+                        :class="[$style.boxItem, $style.quarterItem]"
                         :role="quarter.value === showMonth" 
                         :disabled="quarter.disabled" 
                         @click.stop="monthSelect(quarter, mindex)">
-                        {{ $t('quarter') }}{{ quarterTextList[quarter.flag - 1] }}
+                        <div :class="$style.sitem">{{ $t('quarter') }}{{ quarterTextList[quarter.flag - 1] }}</div>
                     </li>
                 </ul>
             </div>
@@ -107,9 +75,10 @@
                         :key="mindex"
                         :class="$style.boxItem"
                         :role="month.value === showMonth" 
-                        :disabled="month.disabled" 
-                        @click.stop="monthSelect(month, mindex)">
-                        {{ monthTextList[month.value - 1] }}{{ $t('month') }}
+                        :disabled="month.disabled"
+                        @click.stop="monthSelect(month, mindex)"
+                        :sindex="mindex%3">
+                        <div :class="$style.sitem">{{ monthTextList[month.value - 1] }}{{ $t('month') }}</div>
                     </li>
                 </ul>
             </div>
@@ -119,11 +88,14 @@
         <div :class="$style.day">
             <span v-for="(day, index) in days_" 
                 :key="index"
-                :class="$style.item" 
+                :class="$style.daywrap" 
                 :sel="getSel(day) ? 'sel' : ''" 
                 :disabled="!!isOutOfRange(day)" 
                 :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" 
-                @click.stop="select(day)">{{ day | format('dd') }}</span>
+                @click.stop="select(day)"
+                :sindex="index%7">
+                <span :class="$style.item">{{ day | format('dd') }}</span>
+            </span>
         </div>
         <slot></slot>
     </div>
@@ -171,6 +143,7 @@ export default {
         yearDiff: { type: [String, Number], default: 20 },
         yearAdd: { type: [String, Number], default: 4 },
         yearPageSize: { type: Number, default: 12 },
+        border: { type: Boolean, default: true },
     },
     data() {
         const date = this.transformDate(this.date);
@@ -651,14 +624,76 @@ date.setDate(0);
 .root {
     width: var(--calendar-width);
     padding: var(--calendar-padding);
-    border: 1px solid var(--calendar-border-color);
-    border-radius: var(--calendar-border-radius);
-    box-sizing: content-box;
     user-select: none;
     background: var(--calendar-background);
     box-sizing: border-box;
 }
+.root[border] {
+    border: 1px solid var(--calendar-border-color);
+    border-radius: var(--calendar-border-radius);
+}
+.root[disabled] .daywrap {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--calendar-item-background-disabled);
+    color: var(--color-light);
+    border-radius: initial;
+}
+.root[disabled] .daywrap[sindex="0"]{
+    border-top-left-radius: var(--calendar-border-radius);
+    border-bottom-left-radius: var(--calendar-border-radius);
+}
+.root[disabled] .daywrap[sindex="6"]{
+    border-top-right-radius: var(--calendar-border-radius);
+    border-bottom-right-radius: var(--calendar-border-radius);
+}
 
+.daywrap {
+    width: 14.2%;
+    height: 24px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--calendar-border-radius);
+    position: relative;
+}
+.daywrap[role][disabled] .item, 
+.daywrap[role][disabled]:hover .item, 
+.daywrap[disabled] .item, 
+.daywrap[disabled]:hover .item {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--calendar-item-background-disabled);
+    color: var(--color-light);
+}
+
+.daywrap[sindex="0"] {
+    justify-content: start;
+}
+.daywrap[sindex="0"][disabled] .item {
+    border-top-left-radius: var(--calendar-border-radius);
+    border-bottom-left-radius: var(--calendar-border-radius);
+}
+
+.daywrap[sindex="6"] {
+    justify-content: end;
+}
+.daywrap[sindex="6"][disabled] .item {
+    border-top-right-radius: var(--calendar-border-radius);
+    border-bottom-right-radius: var(--calendar-border-radius);
+}
+.daywrap[disabled] + .daywrap[disabled]:not([sindex="0"])::before {
+    content: '';
+    position: absolute;
+    background-color: var(--calendar-item-background-disabled);
+    width: 20px;
+    height: 100%;
+    left: -10px;
+    cursor: var(--cursor-not-allowed);
+}
+.daywrap:not([disabled]) + .daywrap[disabled] {
+    background: transparent;
+}
 .item, .dayitem {
     width: 24px;
     height: 24px;
@@ -684,17 +719,18 @@ date.setDate(0);
     border-color: var(--calendar-item-border-color-hover);
 }
 
-.item[sel="sel"] {
+.daywrap[sel="sel"] .item,
+.daywrap[sel="sel"][role="muted"] .item {
     background: var(--calendar-item-background-selected);
     color: var(--calendar-item-color-selected);
     border-color: var(--calendar-item-border-color-selected);
 }
 
-.item[role="muted"] {
+.daywrap[role="muted"] .item {
     color: var(--calendar-item-color-muted);
 }
 
-.item[disabled] {
+.daywrap[disabled] .item {
     background: 0 0;
     color: var(--calendar-item-border-color-disabled);
     cursor: var(--cursor-not-allowed);
@@ -763,6 +799,8 @@ date.setDate(0);
 .headCenter {
     display: flex;
     line-height: 32px;
+    margin: 3px 0 12px;
+    padding: 0 12px;
 }
 
 .yearCenter {
@@ -804,55 +842,94 @@ date.setDate(0);
 
 .monthBox {
     list-style: none;
+    margin-bottom: -15px;
 }
 
 .boxItem {
     cursor: pointer;
     width: 33.3%;
     display: inline-flex;
-    padding: 10px 0;
+    /* padding: 10px 0; */
     align-items: center;
     justify-content: center;
+    margin-bottom: 24px;
+    border-radius: var(--calendar-border-radius);
+    position: relative;
 }
 
-.boxItem[role] {
+/* .boxItem[role] {
     background-color: var(--brand-primary);
     color: var(--field-background);
-}
-.boxItem[role]:hover {
+} */
+/* .boxItem[role]:hover {
     background-color: var(--brand-primary);
+} */
+
+.boxItem[role][disabled] .sitem , 
+.boxItem[role][disabled]:hover .sitem , 
+.boxItem[disabled] .sitem , 
+.boxItem[disabled]:hover .sitem {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--calendar-item-background-disabled);
+    color: var(--color-light);
 }
 
-.boxItem[disabled], .boxItem[disabled]:hover {
+.boxItem[sindex="0"] {
+    justify-content: start;
+}
+.boxItem[sindex="0"][disabled] .sitem {
+    border-top-left-radius: var(--calendar-border-radius);
+    border-bottom-left-radius: var(--calendar-border-radius);
+}
+
+.boxItem[sindex="2"] {
+    justify-content: end;
+}
+.boxItem[sindex="2"][disabled] .sitem {
+    border-top-right-radius: var(--calendar-border-radius);
+    border-bottom-right-radius: var(--calendar-border-radius);
+}
+.boxItem[disabled] + .boxItem[disabled]:not([sindex="0"])::before {
+    content: '';
+    position: absolute;
+    background-color: var(--calendar-item-background-disabled);
+    width: 40px;
+    height: 100%;
+    left: -15px;
     cursor: var(--cursor-not-allowed);
-    background-color: var(--field-background);
-    color: var(--color-light);
+}
+.boxItem:not([disabled]) + .boxItem[disabled] {
+    background: transparent;
+}
+
+.sitem {
+    width: 68px;
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+    border-radius: var(--calendar-border-radius);
+}
+.sitem:hover {
+    background: var(--calendar-item-background-hover);
+    color: var(--calendar-item-color-hover);
+    border-color: var(--calendar-item-border-color-hover);
+}
+.boxItem[role] .sitem {
+    background-color: var(--brand-primary);
+    color: var(--field-background);
 }
 
 .quarterBox {
     list-style: none;
+    margin-bottom: -15px;
 }
 
 .quarterItem {
-    cursor: pointer;
     width: 25%;
-    display: inline-flex;
-    justify-content: center;
-    padding: 10px 0;
 }
 
-.quarterItem[role] {
-    background-color: var(--brand-primary);
-    color: var(--field-background);
-}
-.quarterItem[role]:hover {
-    background-color: var(--brand-primary);
-}
-
-.quarterItem[disabled], .quarterItem[disabled]:hover {
-    cursor: var(--cursor-not-allowed);
-    background-color: var(--field-background);
-    color: var(--color-light);
+.quarterItem .sitem {
+    width: 51px;
 }
 
 .listitem {
@@ -951,13 +1028,25 @@ date.setDate(0);
     color: var(--color-light);
 }
 
-.yeartext:hover {
-    color: var(--calendar-yeartext-color-hover);
-    background: var(--calendar-yeartext-background-hover);
+.showtext:hover,
+.showtext[active]{
+    color: var(--calendar-showtext-color-hover);
 }
 
-.scrollview {
-    /* max-height: 304px; */
+.hicon {
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--calendar-icon-color);
 }
-
+.hicon + .hicon {
+    margin-left: 25px;
+}
+.hicon:hover {
+    color: var(--calendar-icon-color-hover);
+}
+.hicon[disabled],
+.hicon[disabled]:hover {
+    color: var(--calendar-icon-color-disabled);
+    cursor: var(--cursor-not-allowed);
+}
 </style>

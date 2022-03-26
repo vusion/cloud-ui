@@ -54,6 +54,26 @@
       default: true
       description: 是否显示
       hidden: true
+    - name: preIcon
+      title: 前缀图标
+      type: string
+      options:
+        - value: time
+          title: 时间
+        - value: ""
+          title: 暂无
+      default: "time"
+      description: ""
+    - name: suffixIcon
+      title: 后缀图标
+      type: string
+      options:
+        - value: time
+          title: 时间
+        - value: ""
+          title: 暂无
+      default: ""
+      description: ""
   events:
     - name: change
       title: 改变后

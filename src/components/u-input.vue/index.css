@@ -54,15 +54,13 @@
     height: 100%;
     overflow: hidden;
 }
-
 .clearable::before,
 .password::before {
-    visibility: hidden;
-    display: block;
-    position: absolute;
+    display: inline-block;
+    /* position: absolute;
     right: 8px;
     top: 0;
-    bottom: 0;
+    bottom: 0; */
     line-height: 1;
     height: 1em;
     margin: auto;
@@ -83,11 +81,19 @@
     icon-font: url('../i-icon.vue/assets/hide.svg');
 }
 
-.root:hover .clearable::before,
-.root:hover .password::before,
-.input:focus ~ .clearable::before,
-.input:focus ~ .password::before {
-    visibility: visible;
+.clearable,
+.password {
+    display: none;
+}
+.root:hover .clearable,
+.root:hover .password,
+.input:focus ~ .clearable,
+.input:focus ~ .password {
+    display: inline-block;
+}
+
+.suffix span + span {
+    margin-left: 5px;
 }
 
 .root[password][show-password] .password::before {
@@ -128,6 +134,13 @@
 
 .root[disabled]:hover {
     border-color: var(--input-border-color);
+}
+
+.root[readonly] {
+    border-color: var(--input-border-color-disabled);
+}
+.root[readonly][focus] {
+    box-shadow: none;
 }
 
 .root[size="normal"] { /* By default */
@@ -184,6 +197,11 @@
 
 .root[password][suffix] .input,
 .root[password][clearable]:not([password][clearable=""]) .input {
+    padding-right: 50px;
+}
+
+.root[suffix][clearable]:hover .input,
+.root[suffix][clearable]:not([suffix][clearable=""])[focus] .input {
     padding-right: 50px;
 }
 

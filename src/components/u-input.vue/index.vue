@@ -13,10 +13,12 @@
         @compositionend="onCompositionEnd"
         :title="currentValue && !disabled ? '' : ($attrs.title || placeholder)">
     <slot></slot>
-    <span :class="$style.password" v-if="password" @click.stop="togglePassword"></span>
-    <span v-if="suffix" v-show="!clearable || !currentValue" :class="$style.suffix" :name="suffix"
-        @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
-    <span :class="$style.clearable" v-if="clearable && currentValue" @click.stop="clear"></span>
+    <span :class="$style.suffix" v-if="password || suffix || clearable">
+        <span :class="$style.password" v-if="password" @click.stop="togglePassword"></span>
+        <span v-if="suffix" :name="suffix"
+            @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
+        <span :class="$style.clearable" v-if="clearable && currentValue" @click.stop="clear"></span>
+    </span>
 </div>
 </template>
 

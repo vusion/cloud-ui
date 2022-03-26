@@ -1,14 +1,15 @@
 <template>
 <span :class="$style.root">
-    <div :class="[$style.head, preIcon ? $style.preIconHeader: '']">
-        <i-ico v-if="preIcon" :name="preIcon" :class="[$style.btnicon, $style.preIcon]" notext></i-ico>
-        <u-input :class="$style.input" size="full" v-model="validShowTime" :disabled="!!readonly || currentDisabled"
-            :clearable="true" :placeholder="placeholder"
-            @update:value="onInputChange($event)"
-            @click="currentOpened=true"
-            @blur="onInputBlur">
-        </u-input>
-    </div>
+    <u-input :class="$style.input" size="full" v-model="validShowTime" :disabled="!!readonly || currentDisabled"
+        :clearable="true" :placeholder="placeholder"
+        @update:value="onInputChange($event)"
+        @click="currentOpened=true"
+        @blur="onInputBlur"
+        :prefix="preIcon"
+        :suffix="suffixIcon">
+        <template #prefix><i-ico v-if="preIcon" :name="preIcon" :class="[$style.preIcon]" notext></i-ico></template>
+        <template #suffix><i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.suffixIcon]" notext></i-ico></template>
+    </u-input>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo"
         :disabled="!!readonly || currentDisabled"
         trigger="manual"
@@ -162,6 +163,10 @@ export default {
         preIcon: { 
             type: String, 
             default: 'time'
+        },
+        suffixIcon: { 
+            type: String, 
+            default: ''
         },
     },
     data() {
@@ -675,22 +680,12 @@ export default {
     margin-right: 4px;
     color: var(--timepicker-item-color);
 }
-.btnicon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-}
 
 .preIcon {
-    left: 12px;
     color: var(--datetime-input-pre-icon-color);
 }
 
-.head {
-    position: relative;
-}
-.preIconHeader .input {
-    padding-left: calc(var(--timepicker-input-padding-x) + 26px);
+.suffixIcon {
+    color: var(--datetime-input-after-icon-color);
 }
 </style>
