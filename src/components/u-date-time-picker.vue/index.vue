@@ -1,14 +1,16 @@
 <template>
 <div :class="$style.root" ref="element">
-    <div :class="[$style.head, preIcon ? $style.preIconHeader: '', suffixIcon ? $style.suffixIconHeader: '']">
-        <i-ico v-if="preIcon" :name="preIcon" :class="[$style.btnicon, $style.preIcon]" notext></i-ico>
-        <input :class="$style.input" :placeholder="placeholder" :value="finalDateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
-            @click.stop="toggle(true)" @change="onInput($event)" @focus="onFocus" @blur="onBlur">
-         <span v-if="finalDateTime && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
-            <i :class="[$style.closeIcon]"></i>
-        </span>
-        <i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.btnicon, $style.suffixIcon]" notext></i-ico>
-    </div>
+    <u-input :class="$style.input" size="full" :value="finalDateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
+        :clearable="clearable" :placeholder="placeholder"
+        @click.stop="toggle(true)"
+        @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
+        @clear="clearValue"
+        :prefix="preIcon"
+        :suffix="suffixIcon"
+        :color="formItemVM && formItemVM.color">
+        <template #prefix><i-ico v-if="preIcon" :name="preIcon" :class="[$style.preIcon]" notext slot="prefix"></i-ico></template>
+        <template #suffix><i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.suffixIcon]" notext></i-ico></template>
+    </u-input>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement"
         @toggle="onToggle($event)"
         @close="onPopperClose"
@@ -312,8 +314,12 @@ export default {
          * @return {void}
          */ 
         onInput($event) {
-            const value = $event.target.value;
+            const value = $event;
             this.updateDate(value);
+            if(!value) {
+                this.finalDateTime = value;
+                this.emitValue();
+            }
         },
         updateDate(value) {
             let date = value ? new Date(value) : null;
@@ -321,7 +327,7 @@ export default {
                 date = this.isOutOfRange(date) || date;
                 this.dateTime = this.format(date, 'YYYY-MM-DD HH:mm:ss');
             } else {
-                this.$refs.input.value = '';
+                // this.$refs.input.value = '';
                 this.dateTime = '';
             }
         },
@@ -381,17 +387,20 @@ export default {
             setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
                 this.preventBlur = false;
             }, 0);
+            const inputValue = this.$refs.input.$refs.input.value;
+            if(this.finalDateTime && this.finalDateTime !== inputValue) {
+                this.finalDateTime = this.dateTime;
+                this.$refs.input.updateCurrentValue(this.finalDateTime);
+            }
             this.showDate = undefined;
             this.showTime = undefined;
         },
         onCancel() {
-
+            this.toggle(false);
         },
         onConfirm() {
-            console.log('ddd');
             this.toggle(false);
             this.finalDateTime = this.dateTime;
-            console.log('this.dateTime', this.dateTime);
             this.emitValue();
         },
         emitValue() {
@@ -424,59 +433,6 @@ export default {
     width: var(--datetime-input-width);
 }
 
-.input {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0 var(--datetime-input-padding-x);
-    vertical-align: middle;
-    border: var(--datetime-input-border-width) solid var(--datetime-input-border-color);
-    color: #555;
-    background: var(--field-background);
-    border-radius: var(--datetime-input-border-radius);
-    height: 34px;
-    line-height: 34px;
-    outline: none;
-    width: 100%;
-    height: var(--datetime-input-height);
-}
-
-.preIconHeader .input {
-    padding-left: calc(var(--datetime-input-padding-x) + 26px);
-}
-
-.suffixIconHeader .input {
-    padding-right: calc(var(--datetime-input-padding-x) + 26px);
-}
-
-.placeholder, .input::placeholder {
-    /* Removes placeholder transparency in Firefox. */
-    opacity: 1;
-    font-size: inherit;
-    color: var(--datetime-input-placeholder-color);
-}
-
-.input[disabled] {
-    cursor: var(--cursor-not-allowed);
-    background: #eee;
-    color: var(--color-light);
-}
-
-.input:focus {
-    outline: var(--focus-outline);
-    border-color: var(--datetime-input-border-color-focus);
-    box-shadow: var(--datetime-input-box-shadow-focus);
-}
-
-.head {
-    position: relative;
-}
-
-.btnicon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
 .preIcon {
     left: 12px;
     color: var(--datetime-input-pre-icon-color);
@@ -485,10 +441,6 @@ export default {
 .suffixIcon {
     right: 12px;
     color: var(--datetime-input-after-icon-color);
-}
-
-.head:hover .input {
-    border-color: var(--datetime-input-border-color-focus);
 }
 
 .timePicker {
@@ -500,44 +452,6 @@ export default {
 .footer {
     padding: 10px 8px;
     border-top: 1px solid var(--datetime-popper-border-color);
-}
-
-.wrap {
-    position: absolute;
-    text-align: center;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.suffixIconHeader .wrap  {
-    right: calc(10px + 26px);
-}
-
-.close {
-    cursor: var(--cursor-pointer);
-}
-
-.closeIcon:hover {
-    background-color: #ebedef;
-}
-
-.closeIcon:hover::before {
-    color: var(--datetime-input-icon-color-hover);
-}
-
-.closeIcon::before {
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    line-height: 1;
-    height: 1em;
-    margin: auto;
-    icon-font: url('../i-icon.vue/assets/close-solid.svg');
-    cursor: var(--cursor-pointer);
-    color: var(--datetime-input-clear-icon-color);
 }
 
 .pickerinput {

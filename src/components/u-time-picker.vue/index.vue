@@ -6,7 +6,8 @@
         @click="currentOpened=true"
         @blur="onInputBlur"
         :prefix="preIcon"
-        :suffix="suffixIcon">
+        :suffix="suffixIcon"
+        :color="formItemVM && formItemVM.color">
         <template #prefix><i-ico v-if="preIcon" :name="preIcon" :class="[$style.preIcon]" notext></i-ico></template>
         <template #suffix><i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.suffixIcon]" notext></i-ico></template>
     </u-input>
@@ -141,10 +142,12 @@ TimeRangeError.prototype = Object.create(Error.prototype);
 TimeRangeError.prototype.constructor = TimeRangeError;
 
 import i18n from './i18n';
+import MField from '../m-field.vue';
 
 export default {
     name: 'u-time-picker',
     i18n,
+    mixins: [MField],
     props: {
         minUnit: { type: String, default: 'second' },
         time: { type: String, default: '00:00:00' },
@@ -531,7 +534,7 @@ export default {
             }
         },
         onPopperClose() {
-            if(!this.validShowTime === '') {
+            if(!(this.validShowTime === '')) {
                 const isOutOfRange = this.isOutOfRange(this.showTime);
                 this.validShowTime = isOutOfRange? this.lastValidShowTime : this.showTime;
                 this.showTime = this.validShowTime;

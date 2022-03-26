@@ -1543,7 +1543,7 @@
     --calendar-icon-color-disabled: var(--gray-lighter);
 
     /* @component u-date-picker */
-    --datepicker-input-width: 300px;
+    --datepicker-input-width: 240px;
     --datepicker-input-height: var(--input-height);
 
     --datepicker-input-pre-icon-color: var(--gray-light);
