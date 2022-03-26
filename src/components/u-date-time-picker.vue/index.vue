@@ -322,11 +322,17 @@ time = '00:00:00';
     width: 100%;
 }
 
-.placeholder, .input::placeholder, input:-ms-input-placeholder, input::-ms-input-placeholder {
+.input:-ms-input-placeholder, .input::-ms-input-placeholder {
     /* Removes placeholder transparency in Firefox, IE, Edge. */
     opacity: 1;
     font-size: inherit;
     color: var(--input-placeholder-color);
+}
+
+.placeholder, .input::placeholder {
+    opacity: 1;
+    font-size: inherit;
+    color: var(--datetime-input-placeholder-color);
 }
 
 .body {
@@ -337,6 +343,7 @@ time = '00:00:00';
     margin-top: 2px;
     min-width: 160px;
 }
+
 .input[disabled] {
     cursor: var(--cursor-not-allowed);
     background: #eee;
