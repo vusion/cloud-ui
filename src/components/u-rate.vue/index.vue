@@ -5,8 +5,12 @@
         @click="select(i)" :half="getHalfStatus(i)"
         ref="star">
         <span :class="$style.mask" :style="{width: decimalWidth + '%'}"></span>
+        <u-popup :class="$style.popup" v-if="showTooltip" trigger="manual" :opened="hoverIndex === i" :placement="placement">
+            {{ tooltips[tooltipIndex] }}
+        </u-popup>
     </span>
-    <span :class="$style.text" v-if="showText">{{ tooltips[tooltipIndex] }}</span>
+    <span :class="$style.text" v-if="showText">{{ texts[tooltipIndex] }}</span>
+    <span :class="$style.text" v-if="showValue"> {{ value }} </span>
 </div>
 </template>
 
@@ -20,11 +24,18 @@ export default {
         value: { type: Number, default: 0 },
         max: { type: Number, default: 5 },
         readonly: { type: Boolean, default: false },
-        texts: { type: Array },
+        texts: {
+            type: Array,
+            default() {
+                return ['极差', '失望', '一般', '满意', '惊喜'];
+            },
+        },
         allowHalf: { type: Boolean, default: false },
         clearable: { type: Boolean, default: false },
         showText: { type: Boolean, default: false },
-        showTips: { type: Boolean, default: false },
+        showTooltip: { type: Boolean, default: false },
+        showValue: { type: Boolean, default: false },
+        placement: { type: String, default: 'top' },
         tooltips: {
             type: Array,
             default() {
@@ -152,7 +163,7 @@ export default {
 }
 
 .item:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .item::before {
@@ -185,7 +196,11 @@ export default {
 }
 
 .text {
-    vertical-align: 2px;
     color: var(--rate-text-color);
+}
+
+.popup {
+    background: var(--rate-popup-background);
+    min-width: initial;
 }
 </style>

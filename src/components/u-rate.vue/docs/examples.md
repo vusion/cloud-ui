@@ -19,7 +19,7 @@ export default {
 
 ``` vue
 <template>
-<u-rate v-model="rating" :allow-half="true"></u-rate>
+<u-rate v-model="rating" allowHalf></u-rate>
 </template>
 <script>
 export default {
@@ -36,7 +36,7 @@ export default {
 
 ``` vue
 <template>
-<u-rate v-model="rating" :allow-clear="true"></u-rate>
+<u-rate v-model="rating" :clearable="true"></u-rate>
 </template>
 <script>
 export default {
@@ -70,13 +70,33 @@ export default {
 
 ``` vue
 <template>
+<div>
 <u-rate :value="rating" readonly></u-rate>
+<u-rate :value="rating" readonly showValue></u-rate>
+</div>
 </template>
 <script>
 export default {
     data() {
         return {
             rating: 3.6,
+        };
+    },
+};
+</script>
+```
+
+### 辅助文字
+
+``` vue
+<template>
+<u-rate :value="rating" showText showTooltip></u-rate>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            rating: 3,
         };
     },
 };

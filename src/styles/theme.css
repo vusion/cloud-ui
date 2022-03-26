@@ -1188,11 +1188,12 @@
     --select-arrow-color-hover: var(--font-second-color);
 
     /* @component u-rate */
-    --rate-size: 20px;
+    --rate-size: 16px;
     --rate-space: 6px;
     --rate-color: var(--background-color-dark);
     --rate-color-full: var(--brand-warning);
-    --rate-text-color: inherit;
+    --rate-text-color: #333;
+    --rate-popup-background: var(--color-white);
 
     /* @component u-slider */
     --slider-body-margin: 0 10px;
