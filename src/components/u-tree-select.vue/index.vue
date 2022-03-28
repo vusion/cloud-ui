@@ -208,7 +208,6 @@ export default {
         }
     },
     mounted() {
-        console.log(this);
         this.collectFromVNodes();
         this.handleData();
         this.autofocus && this.$el.focus();
@@ -289,11 +288,11 @@ export default {
                       };
                     }
                     const currentChildrenField = childrenField || this.childrenField;
-                    this.trans2Obj(obj, item[currentChildrenField], item);
+                    this.trans2Obj(obj, this.$at(item, currentChildrenField), item);
                     const currentMoreChildrenFields = moreChildrenFields || this.moreChildrenFields;
                     if(Array.isArray(currentMoreChildrenFields)) {
                       currentMoreChildrenFields.forEach((subField) => {
-                        this.trans2Obj(obj, item[subField], item);
+                        this.trans2Obj(obj, this.$at(item, subField), item);     
                       });
                     }
                 });
