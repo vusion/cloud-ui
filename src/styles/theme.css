@@ -1209,6 +1209,10 @@
     --slider-handle-background: var(--brand-primary);
     --slider-handle-border: 1px solid white;
 
+    /* @component u-cascader */
+    --cascader-width: 360px;
+    --cascader-scroll-width: 120px;
+
     /* @component u-combo-slider @hidden */
     --combo-slider-slider-width: 100%;
     --combo-slider-input-width: 50px;
