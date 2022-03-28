@@ -12,7 +12,7 @@
     @keydown.delete.stop="clearable && clear()"
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
-    <span v-show="!filterable && !filterText && (multiple ? !selectedVMs.length : !selectedVM)" :class="$style.placeholder">{{ placeholder }}</span>
+    <span v-show="multiple ? !selectedVMs.length : !selectedVM" :class="$style.placeholder">{{ placeholder }}</span>
     <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}">
         <!-- @override: 添加了flag功能 -->
@@ -43,7 +43,7 @@
             </template>
         </template>
         <u-input v-if="filterable" :class="$style.input" ref="input" :readonly="readonly" :disabled="currentDisabled"
-            :placeholder="multiple && selectedVMs.length ? '' : placeholder" :filterable="filterable" :multiple-tags="multiple && multipleAppearance === 'tags'"
+            :filterable="filterable" :multiple-tags="multiple && multipleAppearance === 'tags'"
             :value="filterText" @input="onInput" @focus="onFocus" @blur="onBlur"
             @keydown.enter.stop.prevent="onInputEnter" @keydown.delete.stop="onInputDelete"
             :style="{ width: multiple && (inputWidth + 'px') }">
@@ -233,11 +233,14 @@ export default {
     },
     mounted() {
         this.autofocus && this.$el.focus();
-        this.toggle(this.opened);
+        // 在编辑器里不要打开
+        if(!this.$env.VUE_APP_DESIGNER)
+            this.toggle(this.opened);
         this.setPopperWidth();
     },
     destroyed() {
-        clearTimeout(this.inputDeleteTimer);
+        clearTimeout(this.inputBlurTimer);
+        clearTimeout(this.rootBlurTimer);
     },
     methods: {
         getExtraParams() {
@@ -315,6 +318,9 @@ export default {
             this.popperOpened = false;
             this.focusedVM = undefined;
             this.preventRootBlur = false;
+            this.preventBlur = false;
+            clearTimeout(this.inputBlurTimer);
+            clearTimeout(this.rootBlurTimer);
             this.$emit('close', $event, this);
             this.$emit('update:opened', false);
         },
@@ -358,7 +364,7 @@ export default {
         onBlur(e) {
             if (!this.filterable)
                 return; // 这边必须要用 setTimeout，$nextTick 也不行，需要保证在 @select 之后完成
-            setTimeout(() => {
+            this.inputBlurTimer = setTimeout(() => {
                 if (this.preventBlur)
                     return (this.preventBlur = false);
                 this.selectByText(this.filterText);
@@ -366,7 +372,7 @@ export default {
             }, 200);
         },
         onRootBlur(e) {
-            setTimeout(() => {
+            this.rootBlurTimer = setTimeout(() => {
                 if (this.$refs.input && this.$refs.input.focused || this.preventBlur)
                     return;
                 if (this.preventRootBlur)
@@ -440,24 +446,13 @@ export default {
             this.popperOpened ? this.close() : this.open();
         },
         onInputDelete() {
-            // 增加setTimeout原因：没有setTimeout，该函数会在onInput前执行，filterText会差一个字母
-            // multiple下，第一次删除为空时不希望处理selectedVMs，所以不用放到setTimeout里
-            if (!this.multiple) {
-                clearTimeout(this.inputDeleteTimer);
-                this.inputDeleteTimer = setTimeout(()=>{
-                    if (this.filterable && this.filterText === '') {
-                        this.selectedVM = undefined; // 清空时清除下拉选中项
-                    }
-                }, 0);
-            } else {
-                if (this.filterable && this.filterText === '') {
-                    if (!this.selectedVMs.length)
-                        return;
-                    const lastItemVM = this.selectedVMs[
-                        this.selectedVMs.length - 1
-                    ];
-                    this.select(lastItemVM, false);
-                }
+            if (this.filterable && this.filterText === '') {
+                if (!this.selectedVMs.length)
+                    return;
+                const lastItemVM = this.selectedVMs[
+                    this.selectedVMs.length - 1
+                ];
+                this.select(lastItemVM, false);
             }
         },
         clear() {
