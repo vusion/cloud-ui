@@ -84,7 +84,9 @@ export default {
                 = (this.groupVM && this.groupVM.repeat)
                     || (this.parentVM && this.parentVM.repeat)
                     || 3;
-            return (span / repeat) * 100 + '%';
+            // return (span / repeat) * 100 + '%';
+            //兼容ie宽度有小数点添1
+            return ((span / repeat) * 100) - 0.2 + '%';  
         },
     },
 };
