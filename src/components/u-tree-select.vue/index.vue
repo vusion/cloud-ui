@@ -24,28 +24,28 @@
                     name="selected"
                     :vm="this"
                     :props="{
-                        text: selectedItem[this.textField] || selectedItem.text,
+                        text: $at(selectedItem, this.textField) || selectedItem.text,
                         node: selectedItem.node,
                         parent: selectedItem.parent,
                     }">
                     <span>
-                        {{ selectedItem[this.textField] || selectedItem.text }}
+                        {{ $at(selectedItem, this.textField) || selectedItem.text }}
                     </span>
                 </f-slot>
                 <f-slot v-else-if="$scopedSlots.text"
                     name="text"
                     :vm="this"
                     :props="{
-                        text: selectedItem[this.textField] || selectedItem.text,
+                        text: $at(selectedItem, this.textField) || selectedItem.text,
                         node: selectedItem.node,
                         parent: selectedItem.parent,
                     }">
                     <span>
-                        {{ selectedItem[this.textField] || selectedItem.text }}
+                        {{ $at(selectedItem, this.textField) || selectedItem.text }}
                     </span>
                 </f-slot>
                 <span v-else>
-                    {{ selectedItem[this.textField] || selectedItem.text }}
+                    {{ $at(selectedItem, this.textField) || selectedItem.text }}
                 </span>
             </template>
         </div>
@@ -173,7 +173,7 @@ export default {
                 return false;
         },
         selectedItem() {
-            return this.dataSourceObj[this.actualValue];
+            return this.$at(this.dataSourceObj, this.actualValue);
         },
     },
     watch: {
@@ -266,7 +266,7 @@ export default {
                         } else {
                             const children = this.collectTreeNode(childrenVNodes);
                             if(Array.isArray(children) && children.length) {
-                                item[currentChildrenField] = children;
+                                this.$setAt(item, currentChildrenField, children);
                             }
                         }
                         return item;                        
@@ -280,11 +280,11 @@ export default {
             if(Array.isArray(list)) {
                 list.forEach((item) => {
                     const { childrenField, moreChildrenFields } = item;
-                    if(item[this.valueField] != undefined) {
-                        obj[item[this.valueField]] = {
+                    if(this.$at(item, this.valueField) != undefined) {
+                        obj[this.$at(item, this.valueField)] = {
                           parent,
                           node: item,
-                          text: item[this.textField]
+                          text: this.$at(item, this.textField)
                       };
                     }
                     const currentChildrenField = childrenField || this.childrenField;
@@ -328,7 +328,7 @@ export default {
             if(Array.isArray(list) && list.length) {
                 for(let i = 0; i < list.length; i++) {
                     const { childrenField, isLoaded } = list[i];
-                    const children = list[i][childrenField];
+                    const children = this.$at(list[i], childrenField);
                     if(Array.isArray(children) && children.length) {
                         item = this.loadChildren(children);
                     } else if(childrenField && !isLoaded) {
@@ -346,21 +346,21 @@ export default {
                 data: [],
                 load: undefined,
             };
-            function createLoad(rawLoad) {
-                return async function (params = {}) {
+            const createLoad = (rawLoad) => {
+                return async (params = {}) => {
                     const result = await rawLoad(params);
                     if (result) {
                         const { node } = params || {};
                         if (node) {
                             const { childrenField } = node;
-                            node[childrenField] = result;
+                            this.$setAt(node, childrenField, result);
                             node.isLoaded = true;
                         } else {
                             final.data = result;
                         }
                     }
                 };
-            }
+            };
             if (Array.isArray(dataSource))
                 final.data = dataSource;
             else if (typeof dataSource === 'function') {
