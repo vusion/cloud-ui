@@ -9,7 +9,7 @@
         <u-input :class="$style.input"
             :placeholder="placeholder" :readonly="!filterable"
             v-model="value" :disabled="disabled"
-            @focus="this.$emit('focus', ...arguments)" @blur="this.$emit('blur', ...arguments)"
+            @focus="focus" @blur="blur"
             @input="onInput"
             @clear="clear">
             <m-popper v-if="!disabled" :class="$style.popperShape" ref="popper"
@@ -258,6 +258,12 @@ export default {
             this.isInput = false;
             this.opened = false;
         },
+        focus(){
+            this.$emit('focus', ...arguments)
+        },
+        blur(){
+            this.$emit('blur', ...arguments)
+        }
     },
 }
 </script>

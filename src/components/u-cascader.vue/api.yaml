@@ -80,7 +80,7 @@
           schema:
             $ref: "#/basicTypes/String"
         - name: senderVM
-          type: UCascadeSelect
+          type: UCascader
           description: 发送事件实例
     - name: select
       title: 选择后
@@ -101,7 +101,7 @@
           type: Array
           description: 改变后每项值的数组
         - name: senderVM
-          type: UCascadeSelect
+          type: UCascader
           description: 发送事件实例
     - name: focus
       title: 获得焦点

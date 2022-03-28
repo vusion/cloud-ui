@@ -1,7 +1,9 @@
 
 .select_item[select]{
-    color: #409eff;
-    font-weight: 700;
+    /* color: #409eff;
+    font-weight: 700; */
+    background: #337EFF;
+    color: #FFFFFF;
 }
 
 .select_item{
@@ -10,19 +12,19 @@
 }
 
 .umenuShape{
-    min-height: 195px;
+    min-height: 200px;
 }
 
 .scrollShape{
     max-width: 100%;
     width: var(--cascader-scroll-width);
-    height: 195px;
+    height: 200px;
 }
 
 .searchShape{
     max-width: 100%;
     width: var(--cascader-width);
-    height: 195px;
+    height: 200px;
 }
 
 .spinner{

@@ -33,6 +33,7 @@
 .input[class^="u-input__"]{
     cursor: var(--cursor-pointer);
     width: 100%;
+    height: 100%;
 }
 
 .input [class^="u-input_input__"]{
@@ -41,10 +42,10 @@
 }
 
 .popperShape{
-    height: 195px;
+    height: 200px;
 }
 
-.root:hover .clearable:before {
+.clearable:before {
     display: block;
     position: absolute;
     right: 8px;
@@ -56,5 +57,9 @@
     margin: auto;
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
     cursor: var(--cursor-pointer);
-    color: var(--select-icon-color);
+    color: #CCCCCC;
+}
+
+.root:hover .clearable:before {
+    color: #999999;
 }
