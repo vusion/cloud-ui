@@ -8,6 +8,7 @@
 import MEmitter from '../m-emitter.vue';
 import { MParent } from '../m-parent.vue';
 import MConverter from '../m-converter.vue';
+import { isIE } from '../../utils/dom';
 
 export default {
     name: 'm-multiplex',
@@ -68,7 +69,7 @@ export default {
         this.$emit('update', this.value, this);
 
         // fix: IE11下在子组件添加到itemVMs里时，itemVMs的watcher没有执行，需要再添加下watch才执行
-        if (this.isIE()) {
+        if (isIE()) {
             this.$watch('itemVMs', (value) => {
                 this.watchValue(this.value);
             });
@@ -183,9 +184,6 @@ export default {
                 oldVMs,
             }, this);
         },
-        isIE() {
-            return !!window.ActiveXObject || "ActiveXObject" in window;
-        }
     },
 };
 </script>
