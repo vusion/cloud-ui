@@ -68,9 +68,11 @@ export default {
         this.$emit('update', this.value, this);
 
         // fix: IE11下在子组件添加到itemVMs里时，itemVMs的watcher没有执行，需要再添加下watch才执行
-        this.$watch('itemVMs', (value) => {
-            this.watchValue(this.value);
-        });
+        if (this.isIE()) {
+            this.$watch('itemVMs', (value) => {
+                this.watchValue(this.value);
+            });
+        }
     },
     methods: {
         watchValue(value) {
@@ -181,6 +183,9 @@ export default {
                 oldVMs,
             }, this);
         },
+        isIE() {
+            return !!window.ActiveXObject || "ActiveXObject" in window;
+        }
     },
 };
 </script>
