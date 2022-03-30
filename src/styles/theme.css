@@ -951,6 +951,7 @@
     --input-padding-x-huge: 10px;
     --input-padding-x-full: 10px;
     --input-prefix-padding-left: 36px;
+    --input-prefix-placeholder-left: 27px;
     --input-suffix-padding-right: 30px;
     --input-border-width: var(--border-width-base);
     --input-background: var(--background-color-default);

@@ -378,8 +378,14 @@ export default {
     box-shadow: var(--datepicker-input-box-shadow-focus);
 }
 
+.input:-ms-input-placeholder, .input::-ms-input-placeholder {
+    /* Removes placeholder transparency in Firefox, IE, Edge. */
+    opacity: 1;
+    font-size: inherit;
+    color: var(--datepicker-input-placeholder-color);
+}
+
 .placeholder, .input::placeholder {
-    /* Removes placeholder transparency in Firefox. */
     opacity: 1;
     font-size: inherit;
     color: var(--datepicker-input-placeholder-color);

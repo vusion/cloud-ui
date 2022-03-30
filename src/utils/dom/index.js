@@ -203,4 +203,8 @@ export function findScrollParent(el) {
     }
 }
 
+export function isIE() {
+    return !!window.ActiveXObject || 'ActiveXObject' in window;
+}
+
 export * from './resize-event';
