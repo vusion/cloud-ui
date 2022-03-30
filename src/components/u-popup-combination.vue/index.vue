@@ -1,5 +1,5 @@
 <template>
-    <span :class="$env.VUE_APP_DESIGNER? [$style.root, $style.rootDesigner]:$style.root" :display="display">
+    <span :class="$env.VUE_APP_DESIGNER? [$style.root, $style.rootDesigner]:$style.root" :display="display" :ellipsis="ellipsis">
         <span vusion-slot-name="reference" :class="$style.reference">
             <slot name="reference"></slot>
             <s-empty v-if="$env.VUE_APP_DESIGNER && !$slots.reference"></s-empty>
@@ -18,6 +18,7 @@ export default {
     components: { SEmpty, UPopup },
     props: {
         display: String,
+        ellipsis: Boolean,
     },
     methods: {
         // 双击打开弹出框
@@ -35,6 +36,21 @@ export default {
 }
 .root[display="block"]{
     display: block;
+}
+.root[ellipsis] {
+    width: 100%;
+}
+.root[ellipsis] .reference {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.root[ellipsis] .reference > * {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .rootDesigner{
     padding: 5px;

@@ -3,7 +3,7 @@
     :focus="focused" :clearable="clearable && currentValue" :prefix="prefix" :suffix="suffix"
     @click.self="!focused && focus()">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
-    <span :class="$style.placeholder" v-show="placeholder">{{ currentValue ? '' : placeholder }}</span><!-- 兼容 IE9 -->
+    <span :class="$style.placeholder" v-show="placeholder">{{ currentValue === '' ? placeholder : ''}}</span><!-- 兼容 IE9 -->
     <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <input ref="input" :class="$style.input" v-bind="$attrs" :value="currentValue"
         v-focus="autofocus" :readonly="readonly" :disabled="disabled"
