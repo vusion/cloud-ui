@@ -1515,6 +1515,15 @@ export default {
 | $event | FocusEvent | 原生事件对象 |
 | senderVM |  | 发送事件实例 |
 
+#### @before-filter
+
+可搜索输入框，在输入搜索文字时
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.filterText | string | 搜索值 |
+
 Methods
 
 #### open()
