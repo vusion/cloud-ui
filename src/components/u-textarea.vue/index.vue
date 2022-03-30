@@ -2,9 +2,9 @@
 <div :class="$style.root" :readonly="readonly" :disabled="disabled" :style="{ width, height }" :color="currentColor || this.formItemVM && this.formItemVM.color"
     :focus="focused" @click.self="!focused && focus()">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
-    <span :class="$style.placeholder">{{ currentValue ? '' : placeholder }}</span><!-- 兼容 IE9 -->
+    <span :class="$style.placeholder" v-if="placeholder">{{ currentValue ? '' : placeholder }}</span>
     <textarea ref="input" :class="$style.input" v-bind="$attrs" :value="currentValue"
-        :placeholder="placeholder" v-focus="autofocus" :readonly="readonly" :disabled="disabled"
+        v-focus="autofocus" :readonly="readonly" :disabled="disabled"
         @input="onInput" @focus="onFocus" @blur="onBlur" v-on="listeners"
         @compositionstart="compositionInputing = true"
         @compositionend="onCompositionEnd"></textarea>
@@ -125,17 +125,6 @@ export default {
 }
 .handle[resize="both"]{
     cursor: nwse-resize;
-}
-
-.input:-ms-input-placeholder, .input::-ms-input-placeholder {
-    /* Removes placeholder transparency in Firefox, IE, Edge. */
-    opacity: 1;
-    color: var(--textarea-placeholder-color);
-}
-
-.input::placeholder {
-    opacity: 1;
-    color: var(--textarea-placeholder-color);
 }
 
 .root[focus] {
