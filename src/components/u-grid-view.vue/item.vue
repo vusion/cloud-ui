@@ -32,7 +32,7 @@ export default {
 
 .root {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 .root:hover {

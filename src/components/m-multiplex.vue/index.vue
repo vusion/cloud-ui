@@ -8,6 +8,7 @@
 import MEmitter from '../m-emitter.vue';
 import { MParent } from '../m-parent.vue';
 import MConverter from '../m-converter.vue';
+import { isIE } from '../../utils/dom';
 
 export default {
     name: 'm-multiplex',
@@ -66,13 +67,22 @@ export default {
         // Because there's a watcher for itemVMs.
         // this.watchValue(this.value);
         this.$emit('update', this.value, this);
+
+        // fix: IE11下在子组件添加到itemVMs里时，itemVMs的watcher没有执行，需要再添加下watch才执行
+        if (isIE()) {
+            this.$watch('itemVMs', (value) => {
+                this.watchValue(this.value);
+            });
+        }
     },
     methods: {
         watchValue(value) {
             let selectedVMs = [];
             const selectedMap = {}; // 对于过滤、分页等功能，需要保留原来的 selectedVMs
             this.selectedVMs.forEach((selectedVM) => {
-                if (value.includes(selectedVM.value))
+                // 使用了converter="join:|"后，会使数组里的值是string，但value是number，导致没有选中
+                // 添加判断string值
+                if (value.includes(selectedVM.value) || value.includes('' + selectedVM.value))
                     selectedMap[selectedVM.value] = selectedVM;
             });
             if (value) {
@@ -95,7 +105,7 @@ export default {
                 selectedVMs = Object.values(selectedMap); // 必须单独指定一遍，因为有取消掉的
                 this.itemVMs.forEach(
                     (itemVM) =>
-                        (itemVM.currentSelected = value.includes(itemVM.value)),
+                        (itemVM.currentSelected = (value.includes(itemVM.value) || value.includes('' + itemVM.value))),
                 );
             } else {
                 this.itemVMs.forEach(

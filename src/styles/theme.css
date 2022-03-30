@@ -949,6 +949,7 @@
     --input-padding-x-huge: 10px;
     --input-padding-x-full: 10px;
     --input-prefix-padding-left: 36px;
+    --input-prefix-placeholder-left: 27px;
     --input-suffix-padding-right: 30px;
     --input-border-width: var(--border-width-base);
     --input-background: var(--background-color-default);
@@ -1206,6 +1207,10 @@
     --slider-handle-height: 16px;
     --slider-handle-background: var(--brand-primary);
     --slider-handle-border: 1px solid white;
+
+    /* @component u-cascader */
+    --cascader-width: 360px;
+    --cascader-scroll-width: 120px;
 
     /* @component u-combo-slider @hidden */
     --combo-slider-slider-width: 100%;

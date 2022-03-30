@@ -391,11 +391,26 @@ time = '00:00:00';
     padding-right: calc(var(--datetime-input-padding-x) + 26px);
 }
 
-.placeholder, .input::placeholder, input:-ms-input-placeholder, input::-ms-input-placeholder {
+.input:-ms-input-placeholder, .input::-ms-input-placeholder {
     /* Removes placeholder transparency in Firefox, IE, Edge. */
     opacity: 1;
     font-size: inherit;
     color: var(--datetime-input-placeholder-color);
+}
+
+.placeholder, .input::placeholder {
+    opacity: 1;
+    font-size: inherit;
+    color: var(--datetime-input-placeholder-color);
+}
+
+.body {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    top: 100%;
+    margin-top: 2px;
+    min-width: 160px;
 }
 
 .input[disabled] {

@@ -16,6 +16,7 @@
 <script>
 import MEmitter from '../m-emitter.vue';
 import SEmpty from '../s-empty.vue';
+import { isIE } from '../../utils/dom';
 
 export default {
     name: 'u-info-list-item',
@@ -84,7 +85,13 @@ export default {
                 = (this.groupVM && this.groupVM.repeat)
                     || (this.parentVM && this.parentVM.repeat)
                     || 3;
-            return (span / repeat) * 100 + '%';
+           
+            if (isIE()) {
+                //兼容ie宽度有小数点添1
+                return ((span / repeat) * 100) - 0.2 + '%';
+            } else {
+                return (span / repeat) * 100 + '%';
+            }
         },
     },
 };

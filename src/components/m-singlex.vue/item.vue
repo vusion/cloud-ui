@@ -55,9 +55,9 @@ export default {
             let to = this.to;
             if (this.destination) {
                 const destination = this.destination.split('/');
-                destination.splice(1, 1);
+                const baseDestination = destination.splice(1, 1);
                 to = destination.join('/');
-                if (!to)
+                if (!to || '/'+ baseDestination !== this.$router.options.base)
                     return false;
             }
             const target = this.$router.resolve(to).route;

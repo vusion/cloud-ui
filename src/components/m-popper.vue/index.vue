@@ -114,6 +114,7 @@ export default {
             // 不直接用样式的显隐，而是用 popper 的 create 和 destroy，是因为 popper 有可能是从不同的地方触发的，reference 对象会变
             this.destroyTimer = clearTimeout(this.destroyTimer);
             if (currentOpened) {
+                this.popper && this.destroyPopper();
                 this.createPopper();
                 this.$emit('open', undefined, this);
             } else {

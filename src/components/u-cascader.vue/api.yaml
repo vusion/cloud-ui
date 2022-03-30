@@ -1,9 +1,9 @@
-- name: u-region-select
-  title: 地区选择
-  icon: region-select
+- name: u-cascader
+  title: 级联选择
+  icon: cascade-select
   labels:
     - Selector
-  description: 该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。
+  description: 一次选择多个相关联的项
   next: true
   nested: false
   attrs:

@@ -92,6 +92,7 @@ const files = [
     'e-watermark.vue',
     'u-copy.vue',
     'u-taskbox.vue',
+    'u-cascader',
 ].map((component) => path.resolve(cwd, 'src/components', component, 'api.yaml'));
 
 const yamlMap = {};

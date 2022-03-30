@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.14.7-beta.1",
+  "version": "0.14.7-beta.4",
   "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -51,7 +51,7 @@
   ],
   "dependencies": {
     "@popperjs/core": "^2.10.2",
-    "@vusion/utils": "^0.4.10",
+    "@vusion/utils": "0.4.11",
     "@vusion/validator": "^0.4.1",
     "animate.css": "^4.1.1",
     "countup.js": "^1.9.3",
