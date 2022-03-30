@@ -413,6 +413,18 @@
           description: 鼠标事件对象
           schema:
             $ref: "#/systemTypes/MouseEvent"
+    - name: before-filter
+      title: 搜索前
+      description: 可搜索输入框，在输入搜索文字时
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/DataSourceParam"
+        - name: $event.filterText
+          type: string
+          description: 搜索值
   methods:
     - name: open
       description: 弹出选择框。
