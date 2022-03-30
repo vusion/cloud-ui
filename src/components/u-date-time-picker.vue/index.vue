@@ -326,13 +326,13 @@ time = '00:00:00';
     /* Removes placeholder transparency in Firefox, IE, Edge. */
     opacity: 1;
     font-size: inherit;
-    color: var(--input-placeholder-color);
+    color: var(--datepicker-input-placeholder-color);
 }
 
 .placeholder, .input::placeholder {
     opacity: 1;
     font-size: inherit;
-    color: var(--datetime-input-placeholder-color);
+    color: var(--datepicker-input-placeholder-color);
 }
 
 .body {
