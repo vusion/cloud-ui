@@ -4367,6 +4367,10 @@
     ],
     "description": "展示方式"
   },
+  "u-popup-combination/ellipsis": {
+    "type": "boolean",
+    "description": "文字过长是否省略显示。"
+  },
   "u-popup/title": {
     "type": "string",
     "description": "弹出框标题"

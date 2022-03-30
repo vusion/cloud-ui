@@ -27,6 +27,7 @@
 | disabled | boolean |  | `false` | 是否禁用 |
 | merge-borders | boolean |  | `true` | 是否自动合并内外边框 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 展示方式 |
+| ellipsis | boolean |  | `false` | 文字过长是否省略显示。 |
 
 ### Slots
 
