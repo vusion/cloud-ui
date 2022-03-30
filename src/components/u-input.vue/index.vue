@@ -144,6 +144,7 @@ export default {
         onBlur(e) {
             this.focused = false;
             this.$emit('blur', e, this);
+            this.$emit('blur:value', this.currentValue);
         },
         onCompositionEnd(e) {
             // 中文输入的时候，会先触发 onInput 事件，再触发此事件，导致不能捕捉到中文输入

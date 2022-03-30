@@ -1,5 +1,5 @@
 <template>
-<div :class="[$style.header]" :style="{ 
+<div :class="[$style.root]" :style="{ 
     width: `${width}px`
 }">
     <u-input :class="$style.input" size="full" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
@@ -318,7 +318,7 @@ export default {
 </script>
 
 <style module>
-.header {
+.root {
     width: var(--datepicker-input-width);
     display: inline-block;
     position: relative;

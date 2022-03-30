@@ -91,6 +91,7 @@ export default {
 .wrap {
     overflow: scroll;
     height: 100%;
+    -ms-overflow-style: none;
 }
 
 .root > .bar {

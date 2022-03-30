@@ -10,7 +10,7 @@
                     @click.stop @mousedown.stop>
                     <f-scroll-view @click.stop>
                         <div :class="$style.yearList" @click.stop>
-                            <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="yearSelect($event)">
+                            <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="yearSelect($event, false)">
                                 <u-list-view-item :class="$style.yearitem" v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{ year.value }}</u-list-view-item>
                             </u-list-view>
                         </div>
@@ -23,7 +23,7 @@
                         @click.stop @mousedown.stop>
                         <f-scroll-view @click.stop>
                             <div :class="$style.yearList" @click.stop>
-                                <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="monthSelect($event)">
+                                <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="monthSelect($event, '' ,false)">
                                     <u-list-view-item :class="$style.yearitem" v-for="(month, mindex) in monthCol" :key="mindex" :value="month.value" :disabled="month.disabled" :role="month.value === showMonth" >{{ month.value }} {{ $t('month') }}</u-list-view-item>
                                 </u-list-view>
                             </div>
@@ -90,6 +90,7 @@
                 :key="index"
                 :class="$style.daywrap" 
                 :sel="getSel(day) ? 'sel' : ''" 
+                :today="isCurrentDay(day)"
                 :disabled="!!isOutOfRange(day)" 
                 :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" 
                 @click.stop="select(day)"
@@ -179,6 +180,7 @@ export default {
                 this.$t('November'),
                 this.$t('December'),
             ],
+            currentDay: this.transformDate(new Date()),
         };
     },
     computed: {
@@ -368,7 +370,7 @@ export default {
                 this.updateFlag = true;
             }
         },
-        yearSelect({ value }) {
+        yearSelect({ value }, isEmit) {
             this.showYear = value;
             this.yearvisible = false;
             // 设置为最早的时间
@@ -381,9 +383,10 @@ export default {
                 // 选择年份后模式设置为普通模式
                 this.currentMode = '';
             }
-            this.$emit('select', { sender: this, date });
+            if(isEmit !== false)
+                this.$emit('select', { sender: this, date });
         },
-        monthSelect(month, flag) {
+        monthSelect(month, flag, isEmit) {
             if (!month.disabled) {
                 this.showMonth = month.value;
                 this.monthvisible = false;
@@ -394,7 +397,8 @@ export default {
                 date.setDate(1);
                 date.setHours(0, 0, 0, 0);
                 this.selectedDate = date;
-                this.$emit('select', { sender: this, date, flag });
+                if (isEmit !== false)
+                    this.$emit('select', { sender: this, date, flag });
             }
         },
         getQuarterCol(value) {
@@ -616,6 +620,9 @@ date.setDate(0);
             );
         },
         transformDate,
+        isCurrentDay(day) {
+            return this.currentDay.toDateString() === day.toDateString();
+        },
     },
 };
 </script>
@@ -693,6 +700,9 @@ date.setDate(0);
 }
 .daywrap:not([disabled]) + .daywrap[disabled] {
     background: transparent;
+}
+.daywrap[today] .item {
+    color: var(--calendar-item-color-today);
 }
 .item, .dayitem {
     width: 24px;

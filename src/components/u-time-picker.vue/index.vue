@@ -25,7 +25,7 @@
                     @scroll="handleScroll($event, 'hours')"
                     @mousemove.native="adjustSpinner('hours', hour)">
                     <div :class="$style.wrap">
-                        <div :class="$style.itemwrap">
+                        <div :class="$style.itemwrap" ref="itemwrap">
                             <div :class="$style.item"
                                 v-for="temphour in getRangeHours()" 
                                 :key="temphour.value"
@@ -426,7 +426,10 @@ export default {
         },
         handleScroll(event, type) {
             this.isScrolling = true;
-            const value = Math.min(Math.round(event.scrollTop / 28), (type === 'hours' ? 23 : 59));
+            if (!this.itemHeight) {
+                this.itemHeight = this.getItemHeight() || 28;
+            }
+            const value = Math.min(Math.round(event.scrollTop / this.itemHeight), (type === 'hours' ? 23 : 59));
             this.setShowTime(type, value);
             clearTimeout(this.scrollTimer);
             this.scrollTimer = setTimeout(()=>{
@@ -443,7 +446,10 @@ export default {
         adjustSpinner(type, value) {
             const el = this.$refs[type] && this.$refs[type].$refs.wrap;
             if (el) {
-                el.scrollTop = Math.max(0, value * 28);
+                if (!this.itemHeight) {
+                    this.itemHeight = this.getItemHeight() || 28;
+                }
+                el.scrollTop = Math.max(0, value * this.itemHeight);
             }
         },
         handleClick(type, value) {
@@ -545,6 +551,11 @@ export default {
         onPopperOpen() {
             this.restoredValue = this.validShowTime; // 用于点取消时复原上一次的值
             this.adjustSpinners();
+        },
+        getItemHeight() {
+            if(this.$refs.itemwrap) {
+                return this.$refs.itemwrap.children[0].offsetHeight
+            }
         }
     },
 };

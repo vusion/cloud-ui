@@ -4,6 +4,7 @@
         :clearable="clearable" :placeholder="placeholder"
         @click.stop="toggle(true)"
         @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
+        @blur:value="onBlurInput($event)"
         @clear="clearValue"
         :prefix="preIcon"
         :suffix="suffixIcon"
@@ -17,7 +18,10 @@
         @open="onPopperOpen">
         <div :class="$style.body" @click.stop>
             <div :class="$style.popperhead">
-                <u-input :placeholder="popperplaceholder" :class="$style.pickerinput" v-model="showDate" clearable></u-input>
+                <u-input :placeholder="popperplaceholder" :class="$style.pickerinput" :value="showDate" clearable
+                    ref="dateInput"
+                    @blur:value="onDateChange($event)">
+                </u-input>
                 <u-time-picker :class="$style.pickerinput" :readonly="readonly" :time="showTime" 
                     width="50" :min-time="minTime" :max-time="maxTime"
                     :simple-foot="true" pre-icon=""
@@ -315,10 +319,17 @@ export default {
          */ 
         onInput($event) {
             const value = $event;
-            this.updateDate(value);
-            if(!value) {
-                this.finalDateTime = value;
-                this.emitValue();
+            if(this.checkValid(value)) {
+                this.updateDate(value);
+                if(!value) {
+                    this.finalDateTime = value;
+                    this.emitValue();
+                }
+            }
+        },
+        onBlurInput(value) {
+            if(!this.checkValid(value)) {
+                this.$refs.input.updateCurrentValue();
             }
         },
         updateDate(value) {
@@ -420,6 +431,22 @@ export default {
             this.dateTime = this.format(new Date(this.finalDateTime), 'YYYY-MM-DD HH:mm:ss');
             this.showDate = this.format(this.dateTime, 'YYYY-MM-DD');
             this.showTime = this.format(this.dateTime, 'HH:mm:ss');
+        },
+        /**
+         * 时间输入框输入的时候
+         */
+        onDateChange(value) {
+            const date = new Date(value);
+            if (date.toDateString() === 'Invalid Date' || date === 'NaN') {
+                this.$refs.dateInput.updateCurrentValue(this.showDate);
+                return;
+            }
+            this.showDate = this.format(date, 'YYYY-MM-DD');
+             this.$refs.dateInput.updateCurrentValue(this.showDate);
+        },
+        checkValid(value) {
+            const reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])\s+(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d$/;
+            return reg.test(value);
         }
     },
 };

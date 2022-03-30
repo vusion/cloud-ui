@@ -1528,6 +1528,7 @@
     --calendar-item-background-selected: var(--brand-primary);
 
     --calendar-item-color-muted: var(--color-light);
+    --calendar-item-color-today: var(--brand-primary);
 
     --calendar-item-color-disabled: var(--color-light);
     --calendar-item-background-disabled: var(--background-color-disabled);
