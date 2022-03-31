@@ -1,5 +1,5 @@
 - name: u-alert
-  title: 警告提示
+  title: 公告
   labels:
     - 块级展示
   description: 警告提示横幅。

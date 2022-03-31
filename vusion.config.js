@@ -63,6 +63,7 @@ module.exports = {
             { group: '展示', name: 'u-countup', alias: '数字渐变', advanced: true },
             { group: '展示', name: 'u-dynamic-cards', alias: '动态卡片', advanced: true },
             { group: '展示', name: 'u-dropdown', alias: '下拉菜单' },
+            { group: '展示', name: 'u-alert', alias: '公告' },
 
             { group: '数据', name: 'u-table-view', alias: '数据表格' },
             { group: '数据', name: 'u-list-view', alias: '数据列表' },
@@ -108,7 +109,6 @@ module.exports = {
             { group: '图表', name: 'u-linear-progress', alias: '线型进度条' },
             { group: '图表', name: 'u-circular-progress', alias: '圆型进度条' },
 
-            { group: '反馈', name: 'u-alert', alias: '警告提示' },
             { group: '反馈', name: 'u-popup', alias: '弹出框' },
             { group: '反馈', name: 'u-popup-combination', alias: '弹出框组合' },
             { group: '反馈', name: 'u-tooltip', alias: '工具提示', advanced: true },
