@@ -230,7 +230,7 @@
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
         :size="paginationSize"
-        @change="page($event.page)" @change-page-size="page(currentDataSource.paging.number, $event.pageSize)">
+        @change="page($event.page)" @change-page-size="page(1, $event.pageSize)">
     </u-pagination>
     <div><slot></slot></div>
 </div>
