@@ -169,7 +169,7 @@ export default {
                 return true;
             else if (this.emptyDisabled)
                 return this.currentData? !this.currentData.length : !this.itemVMs.length;
-            else 
+            else
                 return false;
         },
         selectedItem() {
@@ -249,7 +249,7 @@ export default {
                             childrenField: propsChildrenField,
                             moreChildrenFields: propsMoreChildrenFields
                         } = propsData || {};
-                        const { 
+                        const {
                           childrenField: nodeChildrenField,
                           moreChildrenFields: nodeMoreChildrenFields
                         } = node || {};
@@ -269,11 +269,11 @@ export default {
                                 this.$setAt(item, currentChildrenField, children);
                             }
                         }
-                        return item;                        
+                        return item;
                     }
                 }).filter((item) => {
                     return !!item;
-                });  
+                });
             }
         },
         trans2Obj(obj, list, parent) {
@@ -402,8 +402,8 @@ export default {
                 return;
             }
             this.currentText = value;
-            if (this.$emitPrevent("before-filter", { 
-                filterText: value 
+            if (this.$emitPrevent("before-filter", {
+                filterText: value
             }, this)) {
                 return;
             }

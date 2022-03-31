@@ -198,6 +198,7 @@ export default {
 
 .close {
     float: right;
+    margin-left: 8px;
     color: var(--toast-close-color);
 }
 

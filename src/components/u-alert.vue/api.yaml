@@ -1,7 +1,7 @@
 - name: u-alert
   title: 公告
   labels:
-    - 块级展示
+    - Display
   description: 警告提示横幅。
   attrs:
     - name: type

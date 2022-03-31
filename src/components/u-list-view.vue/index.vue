@@ -12,7 +12,7 @@
             </div>
         </slot>
     </div>
-    <u-input v-if="filterable" :class="$style.filter" :disabled="disabled" :placeholder="placeholder" size="small" suffix="search" :clearable="clearable"
+    <u-input v-if="filterable" :class="$style.filter" :disabled="disabled" :placeholder="placeholder" :size="filterSize" suffix="search" :clearable="clearable"
         :value="filterText" @input="onInput">
     </u-input>
     <div ref="body" :class="$style.body" @scroll.stop="onScroll">
@@ -119,6 +119,7 @@ export default {
         },
         initialLoad: { type: Boolean, default: true },
         filterable: { type: Boolean, default: false },
+        filterSize: { type: String, default: 'small' },
         placeholder: { type: String, default: '请输入' },
         clearable: { type: Boolean, default: true },
         matchMethod: { type: [String, Function], default: 'includes' },
@@ -435,8 +436,8 @@ export default {
         },
         reload() {
             this.currentDataSource.clearLocalData();
-            const { 
-                paging: oldPaging 
+            const {
+                paging: oldPaging
             } = this.currentDataSource;
             let paging = undefined;
             if(oldPaging) {
