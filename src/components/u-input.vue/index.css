@@ -73,6 +73,17 @@
     color: var(--input-icon-color-hover);
 }
 
+.root[disabled] .clearable:hover::before,
+.root[disabled] .password:hover::before {
+    color: var(--input-icon-color-disabled);
+    cursor: var(--cursor-not-allowed);
+}
+
+.root[readonly] .clearable:hover::before,
+.root[readonly] .password:hover::before {
+    color: var(--input-icon-color-disabled);
+}
+
 .clearable::before {
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
 }

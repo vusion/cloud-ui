@@ -1,11 +1,10 @@
 <template>
-<div :class="[$style.root]" :style="{ 
-    width: `${width}px`
-}">
-    <u-input :class="$style.input" size="full" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
+<div :class="$style.root">
+    <u-input :class="$style.input" :width="width" :height="height" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
         :clearable="clearable" :placeholder="placeholder"
         @click.stop="toggle(true)"
         @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
+        @blur:value="onBlurInputValue($event)"
         @clear="clearValue"
         :prefix="preIcon"
         :suffix="suffixIcon"
@@ -13,9 +12,9 @@
         <template #prefix><i-ico v-if="preIcon" :name="preIcon" :class="[$style.preIcon]" notext slot="prefix"></i-ico></template>
         <template #suffix><i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.suffixIcon]" notext></i-ico></template>
     </u-input>
-    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
+    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
         <div :class="$style.body" @click.stop>
-            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="validShowDate" :value="date" @select="select($event.date)"></u-calendar>
+            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="calendarDate" :value="date" @select="select($event.date)"></u-calendar>
         </div>
     </m-popper>
 </div>
@@ -70,7 +69,6 @@ export default {
                 return this.$t('selectDateText');
             },
         },
-        width: { type: [String, Number], default: '' },
         alignment: {
             type: String,
             default: 'left',
@@ -89,14 +87,15 @@ export default {
             validator: (value) => ['body', 'reference'].includes(value),
         },
         opened: { type: Boolean, default: false },
+        width: { type: String, default: 'full' },
+        height: { type: String, default: 'full' },
     },
     data() {
         const date = this.date || this.value;
         const showDate = this.format(date, this.getFormatString());
         return { 
             showDate,
-            validShowDate: showDate, 
-            lastDate: ''
+            calendarDate: showDate, // calendar里的值
         };
     },
     computed: {
@@ -124,7 +123,7 @@ export default {
             this.$emit('update:date', this.toValue(newDate));
             this.$emit('change', { sender: this, date: newDate });
             this.$emit('input', this.toValue(newDate));
-            this.validShowDate = newDate;
+            this.calendarDate = newDate; // showDate改变时设置calendar里的值
         },
         minDate(newValue) {
             return this.checkDate(newValue);
@@ -224,13 +223,18 @@ export default {
          */
         onInput($event) {
             const value = $event;
-            let date = value ? new Date(this.transformDate(value)) : null;
-            this.lastDate = this.showDate;
-            let showDate = '';
-            if (date !== null && date.toString() !== 'Invalid Date') {
-                date = this.isOutOfRange(date) || date; // 此处有坑 需要特殊处理 由于改成最小值 再次输入不合法的值会变成最小值 认为没有发生变化
-                showDate = this.format(date, this.getFormatString());
-                this.validShowDate = showDate;
+            if(value === '') { // 可以输空值
+                this.showDate = undefined;
+                return;
+            }
+            if(this.checkValid(value)) {
+                let date = new Date(this.transformDate(value));
+                const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
+                date = isOutOfRange ? this.showDate : date;
+                const showDate = this.format(date, this.getFormatString());
+                this.showDate = showDate;
+                this.calendarDate = showDate;
+                this.$refs.input.updateCurrentValue(this.showDate);
             }
         },
         /**
@@ -262,18 +266,6 @@ export default {
         },
         format,
         transformDate,
-        closeCalendar(e) {
-            if(this.showDate !== this.$refs.input.$refs.input.value) {
-                this.showDate = this.validShowDate;
-                this.$refs.input.updateCurrentValue(this.showDate);
-            }
-            if (this.showDate)
-                this.$refs.calendar.updateShowDate(this.showDate);
-            this.$emit('blur', e, this);
-            setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
-                this.preventBlur = false;
-            }, 0);
-        },
         returnTime(date) {
             if (!date)
                 return;
@@ -312,6 +304,23 @@ export default {
         },
         toggle(value) {
             this.$refs.popper && this.$refs.popper.toggle(value);
+        },
+        checkValid(value) {
+            const reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+            return reg.test(value);
+        },
+        onBlurInputValue(value) {
+            // 当输入框输入的值不合法，需还原成上一次合法的值
+            if(value && !this.checkValid(value)) {
+                this.showDate = this.format(this.calendarDate, this.getFormatString())
+                this.$refs.input.updateCurrentValue(this.showDate);
+            }
+        },
+        onPopperClose(e) {
+            this.$emit('blur', e, this);
+            setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
+                this.preventBlur = false;
+            }, 0);
         },
     },
 };

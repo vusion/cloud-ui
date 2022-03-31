@@ -212,6 +212,7 @@ export default {
                 this.showDate = new Date(date);
             },
         },
+
     },
     watch: {
         date(newValue) {
@@ -263,10 +264,14 @@ export default {
     },
     methods: {
         getYearPrev() {
-            return this.showYear > this.yearmin;
+            let yearmin = this.getRangeYear(this.minDate);
+            yearmin = yearmin > this.yearmin ? yearmin : this.yearmin;
+            return this.showYear > yearmin;
         },
         getYearNext() {
-            return this.showYear < this.yearmax;
+            let yearmax = this.getRangeYear(this.maxDate);
+            yearmax = yearmax < this.yearmax ? yearmax : this.yearmax;
+            return this.showYear < yearmax;
         },
         handleYearPrev() {
             let minDate = null;
@@ -312,10 +317,10 @@ export default {
             this.showDate = new Date(date);
         },
         getMonthPrev(){
-            return !this.minDate || this.minDate && +this.showDate > +this.minDate;
+            return !this.minDate || this.minDate && this.getTime(this.showDate) > this.getTime(this.minDate);
         },
         getMonthNext(){
-            return !this.maxDate || this.maxDate && +this.showDate < +this.maxDate;
+            return !this.maxDate || this.maxDate && this.getTime(this.showDate) < this.getTime(this.maxDate);
         },
         handleMonthPrev(){
             if(!this.getMonthPrev())
@@ -623,6 +628,24 @@ date.setDate(0);
         isCurrentDay(day) {
             return this.currentDay.toDateString() === day.toDateString();
         },
+        isValidDate(value) {
+            const date = new Date(value);
+            return date.toString() !== 'Invalid Date';
+        },
+        getTime(value) {
+            if(this.isValidDate(value)){
+                const date = new Date(value);
+                date.setDate(1);
+                date.setHours(0, 0, 0, 0);
+                return date.getTime();
+            }
+        },
+        getRangeYear(value) {
+            if(this.isValidDate(value)){
+                const date = new Date(value);
+                return date.getFullYear();
+            }
+        }
     },
 };
 </script>

@@ -1,10 +1,10 @@
 <template>
 <div :class="$style.root" ref="element">
-    <u-input :class="$style.input" size="full" :value="finalDateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
+    <u-input :class="$style.input" :width="width" :height="height" :value="finalDateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
         :clearable="clearable" :placeholder="placeholder"
         @click.stop="toggle(true)"
         @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
-        @blur:value="onBlurInput($event)"
+        @blur:value="onBlurInputValue($event)"
         @clear="clearValue"
         :prefix="preIcon"
         :suffix="suffixIcon"
@@ -94,7 +94,6 @@ export default {
         minDate: [String, Number, Date],
         maxDate: [String, Number, Date],
         date: [String, Number, Date],
-        width: { type: [String, Number], default: 170 },
         yearDiff: { type: [String, Number], default: 20 },
         yearAdd: { type: [String, Number], default: 20 },
         converter: { type: String, default: 'json' },
@@ -112,27 +111,23 @@ export default {
                 return ['left', 'right'].includes(value);
             },
         },
+        width: { type: String, default: 'full' },
+        height: { type: String, default: 'full' },
     },
     data() {
         return {
-            dateTime: this.format(this.date, 'YYYY-MM-DD HH:mm:ss'),
+            dateTime: this.format(this.date, 'YYYY-MM-DD HH:mm:ss'), // popper选择以后的值
             open: false,
             minTime: undefined,
             maxTime: undefined,
             currentMaxDate: this.getMaxDate(), // 可能会存在最大值小于最小值情况，组件需要内部处理让最大值和最小值一样
             popperplaceholder: this.$t('selectPopperDateText'),
-            finalDateTime: this.format(this.date, 'YYYY-MM-DD HH:mm:ss'),
-            showDate: undefined,
-            showTime: undefined,
+            finalDateTime: this.format(this.date, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
+            showDate: undefined, // popper里的日期输入框
+            showTime: undefined, // popper里的时间输入框
         };
     },
     computed: {
-        // showTime() {
-        //     return this.format(this.dateTime, 'HH:mm:ss');
-        // },
-        // showDate() {
-        //     return this.format(this.dateTime, 'YYYY-MM-DD');
-        // },
         minCalendarDate() {
             return this.format(this.minDate, 'YYYY-MM-DD');
         },
@@ -180,6 +175,8 @@ export default {
             const newDateTime = newValue ? this.toValue(new Date(newValue.replace(/-/g, '/'))) : undefined;
             this.showDate = this.format(newDateTime, 'YYYY-MM-DD');
             this.showTime = this.format(newDateTime, 'HH:mm:ss');
+
+            // 点击确定后才抛出事件，所以这里注释掉
             // this.$emit('update:date', newDateTime);
             // /**
             //  * @event change 日期时间改变时触发
@@ -208,10 +205,6 @@ export default {
             'update',
             this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
         );
-        if(this.minDate)
-            this.minTime = this.format(this.minDate, 'HH:mm:ss');
-        if(this.maxDate)
-            this.maxTime = this.format(this.maxDate, 'HH:mm:ss');
     },
     mounted() {
         this.autofocus && this.$refs.input.focus();
@@ -319,17 +312,23 @@ export default {
          */ 
         onInput($event) {
             const value = $event;
+            if(value === '') { // 可以输空值
+                this.finalDateTime = undefined;
+                this.emitValue();
+                return;
+            }
             if(this.checkValid(value)) {
-                this.updateDate(value);
-                if(!value) {
-                    this.finalDateTime = value;
-                    this.emitValue();
-                }
+                let date = new Date((value));
+                const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
+                date = isOutOfRange ? this.finalDateTime : date;
+                this.finalDateTime = this.format(date, 'YYYY-MM-DD HH:mm:ss');
+                this.$refs.input.updateCurrentValue(this.finalDateTime);
+                this.emitValue();
             }
         },
-        onBlurInput(value) {
+        onBlurInputValue(value) {
             if(!this.checkValid(value)) {
-                this.$refs.input.updateCurrentValue();
+                this.$refs.input.updateCurrentValue(this.finalDateTime);
             }
         },
         updateDate(value) {
@@ -338,7 +337,6 @@ export default {
                 date = this.isOutOfRange(date) || date;
                 this.dateTime = this.format(date, 'YYYY-MM-DD HH:mm:ss');
             } else {
-                // this.$refs.input.value = '';
                 this.dateTime = '';
             }
         },
@@ -398,11 +396,6 @@ export default {
             setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
                 this.preventBlur = false;
             }, 0);
-            const inputValue = this.$refs.input.$refs.input.value;
-            if(this.finalDateTime && this.finalDateTime !== inputValue) {
-                this.finalDateTime = this.dateTime;
-                this.$refs.input.updateCurrentValue(this.finalDateTime);
-            }
             this.showDate = undefined;
             this.showTime = undefined;
         },
@@ -415,7 +408,8 @@ export default {
             this.emitValue();
         },
         emitValue() {
-            this.$emit('update:date', this.finalDateTime);
+            const newDateTime = this.finalDateTime ? this.toValue(new Date(this.finalDateTime.replace(/-/g, '/'))) : undefined;
+            this.$emit('update:date', newDateTime);
             /**
              * @event change 日期时间改变时触发
              * @property {object} sender 事件发送对象
@@ -436,18 +430,32 @@ export default {
          * 时间输入框输入的时候
          */
         onDateChange(value) {
-            const date = new Date(value);
-            if (date.toDateString() === 'Invalid Date' || date === 'NaN') {
-                this.$refs.dateInput.updateCurrentValue(this.showDate);
+            if(value === ''){
+                this.showDate = undefined;
                 return;
             }
-            this.showDate = this.format(date, 'YYYY-MM-DD');
-             this.$refs.dateInput.updateCurrentValue(this.showDate);
+            let showDate = this.format(this.finalDateTime, 'YYYY-MM-DD');
+            if(this.checkDate(value)) {
+                const date = new Date(this.transformDate(value + ' ' + this.spMinTime));
+                const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
+                console.log('date', date);
+                console.log('isOutOfRange', isOutOfRange);
+                if(!isOutOfRange){
+                    showDate = this.format(date, 'YYYY-MM-DD');
+                }
+            }
+            this.showDate = showDate;
+            this.$refs.dateInput.updateCurrentValue(this.showDate);
+            this.outRangeDateTime(this.showDate, this.showTime);
         },
         checkValid(value) {
             const reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])\s+(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d$/;
             return reg.test(value);
-        }
+        },
+        checkDate(value) {
+            const reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+            return reg.test(value);
+        },
     },
 };
 </script>

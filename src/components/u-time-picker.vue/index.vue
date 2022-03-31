@@ -1,10 +1,10 @@
 <template>
 <span :class="$style.root">
-    <u-input :class="$style.input" size="full" v-model="validShowTime" :disabled="!!readonly || currentDisabled"
+    <u-input :class="$style.input" size="full" v-model="validShowTime" :autofocus="autofocus" :disabled="!!readonly || currentDisabled"
         :clearable="true" :placeholder="placeholder"
         @update:value="onInputChange($event)"
         @click="currentOpened=true"
-        @blur="onInputBlur"
+        @focus="onFocus" @blur="onBlur"
         :prefix="preIcon"
         :suffix="suffixIcon"
         :color="formItemVM && formItemVM.color">
@@ -176,8 +176,8 @@ export default {
         const validTime = this.isOutOfRange(this.time) ? this.isOutOfRange(this.time) : this.time || '00:00:00';
         return {
             showTime: validTime,
-            validShowTime: validTime,
-            lastValidShowTime: validTime,
+            validShowTime: this.time,
+            lastValidShowTime: this.time,
             hoverItem: {
                 hours: {},
                 minutes: {},
@@ -520,7 +520,7 @@ export default {
         emitValue() {
             this.$emit('input', this.validShowTime, this);
             this.$emit('update:time', this.validShowTime, this);
-            this.$emit('change', { time: this.validShowTime }, this);
+            this.$emit('change', { sender: this, time: this.validShowTime, value: this.validShowTime }, this);
         },
         /**
          * 输入框输入后，输入值的合法性处理
@@ -532,12 +532,15 @@ export default {
                 this.adjustSpinners();
             }
         },
-        onInputBlur() {
+        onBlur() {
             // 直接点击清除按钮，popper没有展开，blur的时候需要emit事件
             if(!this.currentOpened){
                 this.$emit('blur');
                 this.emitValue();
             }
+        },
+        onFocus(e) {
+            this.$emit('focus', e, this);
         },
         onPopperClose() {
             if(!(this.validShowTime === '')) {

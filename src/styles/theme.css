@@ -985,6 +985,7 @@
     --input-placeholder-color: var(--color-lighter);
     --input-icon-color: var(--color-lighter);
     --input-icon-color-hover: var(--font-third-color);
+    --input-icon-color-disabled: var(--color-lighter);
     --input-border-radius: var(--border-radius-base);
     --input-box-shadow-focus-color: rgba(77, 136, 255, 0.2);
     --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color);

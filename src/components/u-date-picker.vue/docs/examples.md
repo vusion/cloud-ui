@@ -90,7 +90,7 @@ export default {
         	console.log(newVal);
         },
         toggle(event) {
-        	console.log(event.open);
+        	console.log(event.opened);
         }
     },
     watch: {
