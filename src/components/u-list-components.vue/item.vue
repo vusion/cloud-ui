@@ -16,6 +16,10 @@ export default {
         colnum: {
             type: Number
         },
+        ifwidth: {
+            type: Boolean,
+            default: true,
+        },
     },
     data() {
         return {
@@ -23,13 +27,14 @@ export default {
     },
     computed: {
       comStyle() {
-        if (this.colnum) {
+        if (this.colnum && this.ifwidth) {
           const num = this.colnum;
           const width = 100 / num;
           return {
-            maxWidth: width + '%'
+            width: width + '%'
           }
         }
+        return {};
       }
     },
     watch: {
