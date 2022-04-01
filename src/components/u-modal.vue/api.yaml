@@ -61,6 +61,8 @@
       title: 提示图标
       type: string
       options:
+        - value: null
+          title: 暂无
         - value: success
           title: 成功
         - value: warning

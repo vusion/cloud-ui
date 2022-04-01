@@ -7,6 +7,237 @@ export default {
     "description": "",
     "glyphs": [
         {
+            "icon_id": "28533947",
+            "name": "新增文件",
+            "font_class": "folder-add",
+            "unicode": "e665",
+            "unicode_decimal": 58981
+        },
+        {
+            "icon_id": "28533948",
+            "name": "上方向",
+            "font_class": "up",
+            "unicode": "e666",
+            "unicode_decimal": 58982
+        },
+        {
+            "icon_id": "28533949",
+            "name": "下方向",
+            "font_class": "down",
+            "unicode": "e667",
+            "unicode_decimal": 58983
+        },
+        {
+            "icon_id": "28533950",
+            "name": "右方向",
+            "font_class": "right",
+            "unicode": "e668",
+            "unicode_decimal": 58984
+        },
+        {
+            "icon_id": "28533951",
+            "name": "文件夹",
+            "font_class": "folder",
+            "unicode": "e669",
+            "unicode_decimal": 58985
+        },
+        {
+            "icon_id": "28533952",
+            "name": "左方向",
+            "font_class": "left",
+            "unicode": "e66a",
+            "unicode_decimal": 58986
+        },
+        {
+            "icon_id": "28533953",
+            "name": "地图",
+            "font_class": "map",
+            "unicode": "e66b",
+            "unicode_decimal": 58987
+        },
+        {
+            "icon_id": "28533954",
+            "name": "定位",
+            "font_class": "position",
+            "unicode": "e66c",
+            "unicode_decimal": 58988
+        },
+        {
+            "icon_id": "28533955",
+            "name": "缺陷",
+            "font_class": "bug",
+            "unicode": "e66d",
+            "unicode_decimal": 58989
+        },
+        {
+            "icon_id": "28533945",
+            "name": "双左箭头",
+            "font_class": "d-left-arrow",
+            "unicode": "e663",
+            "unicode_decimal": 58979
+        },
+        {
+            "icon_id": "28533946",
+            "name": "双右箭头",
+            "font_class": "d-right-arrow",
+            "unicode": "e664",
+            "unicode_decimal": 58980
+        },
+        {
+            "icon_id": "27976277",
+            "name": "组织架构",
+            "font_class": "organization",
+            "unicode": "e65d",
+            "unicode_decimal": 58973
+        },
+        {
+            "icon_id": "27918237",
+            "name": "卡片视图",
+            "font_class": "display-card",
+            "unicode": "e63d",
+            "unicode_decimal": 58941
+        },
+        {
+            "icon_id": "27918238",
+            "name": "清空",
+            "font_class": "clear",
+            "unicode": "e64c",
+            "unicode_decimal": 58956
+        },
+        {
+            "icon_id": "27918239",
+            "name": "数据报告",
+            "font_class": "data-report",
+            "unicode": "e654",
+            "unicode_decimal": 58964
+        },
+        {
+            "icon_id": "27918240",
+            "name": "时间升序",
+            "font_class": "order-asc",
+            "unicode": "e655",
+            "unicode_decimal": 58965
+        },
+        {
+            "icon_id": "27918241",
+            "name": "列表视图",
+            "font_class": "list-display",
+            "unicode": "e656",
+            "unicode_decimal": 58966
+        },
+        {
+            "icon_id": "27918242",
+            "name": "时间降序",
+            "font_class": "order-desc",
+            "unicode": "e657",
+            "unicode_decimal": 58967
+        },
+        {
+            "icon_id": "27918243",
+            "name": "统计图表",
+            "font_class": "chart",
+            "unicode": "e658",
+            "unicode_decimal": 58968
+        },
+        {
+            "icon_id": "27918244",
+            "name": "安全",
+            "font_class": "safe",
+            "unicode": "e659",
+            "unicode_decimal": 58969
+        },
+        {
+            "icon_id": "27918245",
+            "name": "数据分析",
+            "font_class": "data-analysis",
+            "unicode": "e65a",
+            "unicode_decimal": 58970
+        },
+        {
+            "icon_id": "27918246",
+            "name": "用户信息",
+            "font_class": "user-info",
+            "unicode": "e65b",
+            "unicode_decimal": 58971
+        },
+        {
+            "icon_id": "27918247",
+            "name": "字母升序",
+            "font_class": "word-order-asc",
+            "unicode": "e65c",
+            "unicode_decimal": 58972
+        },
+        {
+            "icon_id": "27918249",
+            "name": "用户群组",
+            "font_class": "user-group",
+            "unicode": "e65e",
+            "unicode_decimal": 58974
+        },
+        {
+            "icon_id": "27918250",
+            "name": "数据展示",
+            "font_class": "data-display",
+            "unicode": "e65f",
+            "unicode_decimal": 58975
+        },
+        {
+            "icon_id": "27918251",
+            "name": "数据分类",
+            "font_class": "data-class",
+            "unicode": "e660",
+            "unicode_decimal": 58976
+        },
+        {
+            "icon_id": "27918252",
+            "name": "设置",
+            "font_class": "setting",
+            "unicode": "e661",
+            "unicode_decimal": 58977
+        },
+        {
+            "icon_id": "27918253",
+            "name": "字母降序",
+            "font_class": "word-order-desc",
+            "unicode": "e662",
+            "unicode_decimal": 58978
+        },
+        {
+            "icon_id": "27336423",
+            "name": "create",
+            "font_class": "create",
+            "unicode": "e617",
+            "unicode_decimal": 58903
+        },
+        {
+            "icon_id": "26661904",
+            "name": "刷新",
+            "font_class": "refresh",
+            "unicode": "e60c",
+            "unicode_decimal": 58892
+        },
+        {
+            "icon_id": "26587645",
+            "name": "下载",
+            "font_class": "download",
+            "unicode": "e60b",
+            "unicode_decimal": 58891
+        },
+        {
+            "icon_id": "26587643",
+            "name": "上传",
+            "font_class": "upload",
+            "unicode": "e609",
+            "unicode_decimal": 58889
+        },
+        {
+            "icon_id": "26558404",
+            "name": "默认",
+            "font_class": "default",
+            "unicode": "e606",
+            "unicode_decimal": 58886
+        },
+        {
             "icon_id": "26506487",
             "name": "左箭头",
             "font_class": "left-arrow",
@@ -54,13 +285,6 @@ export default {
             "font_class": "search",
             "unicode": "e64d",
             "unicode_decimal": 58957
-        },
-        {
-            "icon_id": "26661904",
-            "name": "刷新",
-            "font_class": "refresh",
-            "unicode": "e60c",
-            "unicode_decimal": 58892
         },
         {
             "icon_id": "26504251",
@@ -161,20 +385,6 @@ export default {
             "unicode_decimal": 58942
         },
         {
-            "icon_id": "26587645",
-            "name": "下载",
-            "font_class": "download",
-            "unicode": "e60b",
-            "unicode_decimal": 58891
-        },
-        {
-            "icon_id": "26587643",
-            "name": "上传",
-            "font_class": "upload",
-            "unicode": "e609",
-            "unicode_decimal": 58889
-        },
-        {
             "icon_id": "26503937",
             "name": "时间",
             "font_class": "time",
@@ -229,132 +439,6 @@ export default {
             "font_class": "notice",
             "unicode": "e634",
             "unicode_decimal": 58932
-        },
-        {
-            "icon_id": "27918238",
-            "name": "清空",
-            "font_class": "clear",
-            "unicode": "e64c",
-            "unicode_decimal": 58956
-        },
-        {
-            "icon_id": "27918242",
-            "name": "时间降序",
-            "font_class": "order-desc",
-            "unicode": "e657",
-            "unicode_decimal": 58967
-        },
-        {
-            "icon_id": "27918240",
-            "name": "时间升序",
-            "font_class": "order-asc",
-            "unicode": "e655",
-            "unicode_decimal": 58965
-        },
-        {
-            "icon_id": "27918253",
-            "name": "字母降序",
-            "font_class": "word-order-desc",
-            "unicode": "e662",
-            "unicode_decimal": 58978
-        },
-        {
-            "icon_id": "27918247",
-            "name": "字母升序",
-            "font_class": "word-order-asc",
-            "unicode": "e65c",
-            "unicode_decimal": 58972
-        },
-        {
-            "icon_id": "27918237",
-            "name": "卡片视图",
-            "font_class": "display-card",
-            "unicode": "e63d",
-            "unicode_decimal": 58941
-        },
-        {
-            "icon_id": "27918241",
-            "name": "列表视图",
-            "font_class": "list-display",
-            "unicode": "e656",
-            "unicode_decimal": 58966
-        },
-        {
-            "icon_id": "27918243",
-            "name": "统计",
-            "font_class": "chart",
-            "unicode": "e658",
-            "unicode_decimal": 58968
-        },
-        {
-            "icon_id": "27918245",
-            "name": "数据分析",
-            "font_class": "data-analysis",
-            "unicode": "e65a",
-            "unicode_decimal": 58970
-        },
-        {
-            "icon_id": "27918251",
-            "name": "数据分类",
-            "font_class": "data-class",
-            "unicode": "e660",
-            "unicode_decimal": 58976
-        },
-        {
-            "icon_id": "27918239",
-            "name": "数据报告",
-            "font_class": "data-report",
-            "unicode": "e654",
-            "unicode_decimal": 58964
-        },
-        {
-            "icon_id": "27918250",
-            "name": "数据展示",
-            "font_class": "data-display",
-            "unicode": "e65f",
-            "unicode_decimal": 58975
-        },
-        {
-            "icon_id": "27976277",
-            "name": "组织架构",
-            "font_class": "organization",
-            "unicode": "e65d",
-            "unicode_decimal": 58973
-        },
-        {
-            "icon_id": "27918246",
-            "name": "用户信息",
-            "font_class": "user-info",
-            "unicode": "e65b",
-            "unicode_decimal": 58971
-        },
-        {
-            "icon_id": "27918249",
-            "name": "用户群组",
-            "font_class": "user-group",
-            "unicode": "e65e",
-            "unicode_decimal": 58974
-        },
-        {
-            "icon_id": "27918244",
-            "name": "安全",
-            "font_class": "safe",
-            "unicode": "e659",
-            "unicode_decimal": 58969
-        },
-        {
-            "icon_id": "27918252",
-            "name": "设置",
-            "font_class": "setting",
-            "unicode": "e661",
-            "unicode_decimal": 58977
-        },
-        {
-            "icon_id": "26558404",
-            "name": "默认",
-            "font_class": "default",
-            "unicode": "e606",
-            "unicode_decimal": 58886
         },
     ]
 }

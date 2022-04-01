@@ -1,12 +1,24 @@
 <template>
-<a :class="$style.root"
-    :selected="parentVM.router ? active : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
-    :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
-    v-ellipsis-title
-    vusion-slot-name="text">
-    <i-ico v-if="icon" :name="icon" :class="$style.singleicon" notext></i-ico>
-    <slot>{{ text }}</slot>
-</a>
+    <a
+        :class="$style.root"
+        :selected="parentVM.router ? active : isSelected"
+        :readonly="parentVM.readonly"
+        :disabled="disabled || parentVM.disabled"
+        :href="currentHref"
+        :target="target"
+        @click="parentVM.router ? onClick($event) : select($event)"
+        v-on="listeners"
+        v-ellipsis-title
+        vusion-slot-name="text"
+    >
+        <i-ico
+            v-if="icon"
+            :name="icon"
+            :class="$style.singleicon"
+            notext
+        ></i-ico>
+        <slot>{{ text }}</slot>
+    </a>
 </template>
 
 <script>
@@ -15,8 +27,6 @@ import { MSinglexItem } from '../m-singlex.vue';
 export default {
     name: 'u-dropdown-item',
     extends: MSinglexItem,
-    props: {
-    },
     parentName: 'u-dropdown',
 };
 </script>
@@ -27,16 +37,14 @@ export default {
     position: relative;
     z-index: 1;
     cursor: var(--cursor-pointer);
-    height: var(--navbar-height);
-    line-height: var(--navbar-height);
-    border: none;
-    padding: 0 10px;
-    font-size: var(--navbar-item-font-size);
+    line-height: 32px;
+    padding: 0 12px;
+    font-size: 14px;
     color: var(--color-base);
     text-align: left;
 }
 .root:hover {
-     color: var(--brand-primary);
+    color: var(--brand-primary);
 }
 
 .root[readonly] {
@@ -52,10 +60,10 @@ export default {
     /* @Private */
     cursor: var(--cursor-not-allowed);
     background: none;
-    color: var(--color-light);
+    color: var(--font-disabled-color);
 }
 
 .root[selected][disabled] {
-    background: var(--gray-lighter);
+    background: var(--background-color-disabled);
 }
 </style>

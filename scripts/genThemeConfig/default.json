@@ -407,7 +407,7 @@
     "--button-border-color-danger-secondary-hover": "var(--brand-error-light)",
 
     "--button-border-color-primary-active": "var(--button-background-primary-active)",
-    "--button-border-color-primary-secondary-active": "var(--button-background-primary-secondary-active)",
+    "--button-border-color-primary-secondary-active": "var(--brand-primary-light)",
     "--button-border-color-active": "var(--brand-primary)",
     "--button-border-color-danger-active": "var(--button-background-danger-active)",
     "--button-border-color-danger-secondary-active": "var(--button-background-danger-secondary-active)",
@@ -848,13 +848,16 @@
     "--transfer-button-border-color": "var(--button-background-primary)",
     "--transfer-button-border-color-hover": "var(--button-background-primary-hover)",
     "--transfer-button-border-color-disabled": "var(--button-background-primary-disabled)",
-    "--linear-progress-height": "4px",
-    "--linear-progress-height-small": "2px",
-    "--linear-progress-height-large": "8px",
-    "--linear-progress-height-huge": "12px",
+    "--linear-progress-size": "4px",
+    "--linear-progress-size-small": "2px",
+    "--linear-progress-size-large": "8px",
+    "--linear-progress-size-huge": "12px",
+    "--linear-progress-vertical-height": "512px",
     "--linear-progress-track-background": "var(--background-color-base)",
     "--linear-progress-trail-font-size": "var(--font-size-small)",
-    "--linear-progress-trail-background": "var(--brand-primary)",
+    "--linear-progress-trail-background-primary": "var(--brand-primary)",
+    "--linear-progress-trail-background-success": "var(--brand-success)",
+    "--linear-progress-trail-background-error": "var(--brand-error)",
     "--linear-progress-trail-color": "white",
     "--linear-progress-trail-transition": "width 0.6s ease",
     "--circular-progress-size": "100px",
@@ -929,7 +932,7 @@
     "--datepicker-input-icon-color-hover": "var(--input-icon-color-hover)",
     "--datepicker-input-clear-icon-color": "var(--input-clear-icon-color)",
 
-    
+
 
     "--datepicker-popper-box-shadow": "var(--select-popper-box-shadow)",
     "--datepicker-popper-border-radius": "var(--border-radius-base)",
@@ -942,5 +945,10 @@
     "--datetime-input-placeholder-color": "var(--input-placeholder-color)",
     "--datetime-input-border-width": "var(--input-border-width)",
     "--datetime-input-border-color": "var(--input-border-color)",
-    "--datetime-input-border-radius": "3px"
+    "--datetime-input-border-radius": "3px",
+
+    "--dropdown-color-text": "var(--brand-primary)",
+    "--dropdown-color-text-hover": "var(--brand-primary-light)",
+    "--dropdown-color-text-active": "var(--dropdown-color-text)",
+    "--dropdown-color-text-disabled": "var(--font-disabled-color)"
 }

@@ -27,6 +27,7 @@ export * from './m-pub-sub.vue';
 export * from './m-root.vue';
 export * from './m-singlex.vue';
 export * from './u-actions.vue';
+export * from './u-alert.vue';
 export * from './u-article.vue';
 export * from './u-auto-complete.vue';
 export * from './u-avatar.vue';

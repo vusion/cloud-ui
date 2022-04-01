@@ -15,7 +15,7 @@
     </u-multi-layout-item>
     <template #right>
         <u-multi-layout-item align-items="center" justify="end">
-            <u-dropdown style="margin-right: 10px;">
+            <u-dropdown style="margin-right: 10px; color: inherit">
                 <template #title>
                     <u-linear-layout gap="small" v-if="$global.userInfo">
                         <u-image fit="cover" src="https://static-vusion.163yun.com/assets/avatar-default.svg" style="width: 36px; height: 36px; vertical-align: middle;"></u-image>

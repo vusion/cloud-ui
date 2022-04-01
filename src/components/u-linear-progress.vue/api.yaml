@@ -34,6 +34,15 @@
         - 100
       description: 百分比范围限制
       advanced: true
+    - name: direction
+      title: 进度条方向
+      type: string
+      default: horizontal
+      options:
+        - value: horizontal
+          title: 水平
+        - value: vertical
+          title: 垂直
   slots:
     - name: default
       description: 插入文本或HTML。
