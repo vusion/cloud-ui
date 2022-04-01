@@ -5,7 +5,7 @@
         @click="select(i)" :half="getHalfStatus(i)"
         ref="star">
         <span :class="$style.mask" :style="{width: decimalWidth + '%'}"></span>
-        <u-popup :class="$style.popup" v-if="showTooltip" trigger="manual" :opened="hoverIndex === i" :placement="placement">
+        <u-popup :class="$style.popup" v-if="showTooltip && !$env.VUE_APP_DESIGNER" trigger="manual" :opened="hoverIndex === i" :placement="placement">
             {{ tooltips[tooltipIndex] }}
         </u-popup>
     </span>
@@ -55,7 +55,7 @@ export default {
             if (this.isHover) {
                 return this.hoverIndex - 1;
             } else {
-                const value = Math.floor(this.currentValue);
+                const value = Math.ceil(this.currentValue);
                 return value - 1;
             }
         }
