@@ -232,4 +232,9 @@ export default {
 .root[animation="4"] .item[disabled]::after {
     opacity: 0;
 }
+
+.root [class^="u-dropdown__"][type=text],
+.root [class^="u-dropdown__"][type=text]:not([disabled]):hover {
+    color: inherit;
+}
 </style>
