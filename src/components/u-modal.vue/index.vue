@@ -306,7 +306,7 @@ export default UModal;
     min-height: 48px;
 }
 
-.body[icon] ::before {
+.body[icon]::before {
     position: absolute;
     left: 0;
     top: 0;
