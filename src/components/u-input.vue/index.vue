@@ -10,7 +10,7 @@
         @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" @keyup="onKeyup" v-on="listeners"
         @compositionstart="compositionInputing = true"
         @compositionend="onCompositionEnd"
-        :title="currentValue && !disabled ? '' : ($attrs.title || placeholder)">
+        :title="!showTitle || (currentValue && !disabled) ? null : ($attrs.title || placeholder)">
     <slot></slot>
     <span v-if="suffix" v-show="!clearable || !currentValue" :class="$style.suffix" :name="suffix"
         @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
@@ -42,6 +42,7 @@ export default {
             validator: (value) =>
                 ['horizontal', 'vertical', 'both'].includes(value),
         },
+        showTitle: { type: Boolean, default: false },
     },
     data() {
         return {
