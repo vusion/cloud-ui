@@ -2,20 +2,34 @@
 <template>
       <div>
        <div v-if="currentMode === 'year'"  :class="$style.iconBox">
-          <a :class="$style.icon" role="prev" :disabled="!this.getPrev()" @click="handlePrev()"></a>
+          <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!this.getPrev()" @click="handlePrev()"></i-ico>
            <span @click="handleRange()">{{ getCurrentRange() }}</span>
-          <a :class="$style.icon" role="next" :disabled="!this.getNext()" @click="handleNext()"></a>
+          <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!this.getNext()" @click="handleNext()"></i-ico>
       </div>
       <div v-if="currentMode === 'range'"  :class="$style.iconBox">
-          <a  :class="$style.icon" role="prev" :disabled="!this.getPrev()" @click="handleRangePrev()"></a>
+          <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!this.getPrev()" @click="handleRangePrev()"></i-ico>
            <span @click="handleRange()">{{ getCurrentRanges() }}</span>
-          <a  :class="$style.icon" role="next" :disabled="!this.getNext()" @click="handleRangeNext()"></a>
+          <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!this.getNext()" @click="handleRangeNext()"></i-ico>
       </div>
           <ul v-if="currentMode === 'year'":class="$style.yearBox">
-              <li :class="$style.yearItem" v-for="(year, index) in getCurrentList()" :role="year.value === showYear" :disabled="year.disabled" @click.stop="select(year, index)">{{ year.value }}</li>
+            <li :class="$style.boxItem"
+                v-for="(year, index) in getCurrentList()"
+                :role="year.value === showYear"
+                :disabled="year.disabled"
+                :sindex="index%3"
+                @click.stop="select(year, index)">
+                <div :class="$style.yearItem">{{ year.value }}</div>
+            </li>
           </ul>
-           <ul v-if="currentMode === 'range'":class="$style.yearBox">
-              <li :class="$style.yearItem" v-for="(range, index) in getRangeList()" :role="range.value === getCurrentRange()" :disabled="range.disabled" @click.stop="handerRangeSelect(range, index)">{{ range.value }}</li>
+           <ul v-if="currentMode === 'range'" :class="$style.yearBox">
+                <li :class="[$style.boxItem, $style.boxItemRange]"
+                v-for="(range, index) in getRangeList()"
+                :role="range.value === getCurrentRange()"
+                :sindex="index%3"
+                :disabled="range.disabled"
+                @click.stop="handerRangeSelect(range, index)">
+                    <div :class="$style.yearItem">{{ range.value }}</div>
+                </li>
           </ul>
       </div>
 </template>
@@ -212,9 +226,10 @@ export default {
 
 .yearBox {
     list-style: none;
+    margin-bottom: -15px;
 }
 
-.yearItem {
+/* .yearItem {
     width: 33.3%;
     display: inline-flex;
     justify-content: center;
@@ -234,6 +249,93 @@ export default {
     cursor: var(--cursor-not-allowed);
     background-color: var(--field-background);
     color: var(--color-light);
+} */
+.boxItem {
+    cursor: pointer;
+    width: 33.3%;
+    display: inline-flex;
+    /* padding: 10px 0; */
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    border-radius: var(--calendar-border-radius);
+    position: relative;
+}
+.boxItem[disabled],
+.boxItem[disabled]:hover,
+.boxItem[role][disabled] .yearItem , 
+.boxItem[role][disabled]:hover .yearItem , 
+.boxItem[disabled] .yearItem , 
+.boxItem[disabled]:hover .yearItem {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--calendar-item-background-disabled);
+    color: var(--color-light);
+}
+
+.boxItem[sindex="0"] {
+    justify-content: start;
+}
+.boxItem[sindex="0"][disabled] .yearItem {
+    border-top-left-radius: var(--calendar-border-radius);
+    border-bottom-left-radius: var(--calendar-border-radius);
+}
+.boxItem[disabled] + .boxItem[disabled]:not([sindex="0"])::before {
+    content: '';
+    position: absolute;
+    background-color: var(--calendar-item-background-disabled);
+    width: 30px;
+    height: 100%;
+    left: -20px;
+    cursor: var(--cursor-not-allowed);
+}
+.boxItem:not([disabled]) + .boxItem[disabled] {
+    background: transparent;
+}
+
+.boxItem[sindex="2"] {
+    justify-content: end;
+}
+.boxItem[sindex="2"][disabled] .yearItem {
+    border-top-right-radius: var(--calendar-border-radius);
+    border-bottom-right-radius: var(--calendar-border-radius);
+}
+
+.yearItem {
+    width: 68px;
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+    border-radius: var(--calendar-border-radius);
+}
+.yearItem:hover {
+    background: var(--calendar-item-background-hover);
+    color: var(--calendar-item-color-hover);
+    border-color: var(--calendar-item-border-color-hover);
+}
+.boxItem[role] .yearItem {
+    background-color: var(--brand-primary);
+    color: var(--field-background);
+}
+.boxItemRange .yearItem {
+    width: 85px;
+}
+.boxItemRange[disabled] + .boxItemRange[disabled]:not([sindex="0"])::before {
+    width: 8px;
+    left: -4px;
+}
+
+.hicon {
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--calendar-icon-color);
+}
+.hicon:hover {
+    color: var(--calendar-icon-color-hover);
+}
+.hicon[disabled],
+.hicon[disabled]:hover {
+    color: var(--calendar-icon-color-disabled);
+    cursor: var(--cursor-not-allowed);
 }
 
 </style>

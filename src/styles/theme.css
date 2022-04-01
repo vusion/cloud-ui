@@ -642,6 +642,57 @@
     --carousel-button-background: rgba(0, 0, 0, 0.2); /* @hidden */
     --carousel-button-background-hover: rgba(0, 0, 0, 0.2); /* @hidden */
 
+    /* @component u-time-picker */
+    --timepicker-input-width-mini: var(--input-width-mini);
+    --timepicker-input-padding-x-mini: var(--input-padding-x-mini);
+    --timepicker-input-height-mini: var(-input-height-mini);
+    --timepicker-input-width-small: var(--input-width-small);
+    --timepicker-input-padding-x-small: var(--input-padding-x-small);
+    --timepicker-input-height-small: var(--input-height-small);
+    --timepicker-input-width: var(--input-width);
+    --timepicker-input-height: var(--input-height);
+    --timepicker-input-padding-x: var(--input-padding-x);
+    --timepicker-input-width-medium: var(--input-width-medium);
+    --timepicker-input-padding-x-medium: var(--input-padding-x-medium);
+    --timepicker-input-height-medium: var(--input-height-medium);
+    --timepicker-input-width-large: var(--input-width-large);
+    --timepicker-input-padding-x-large: var(--input-padding-x-large);
+    --timepicker-input-height-large: var(--input-height-large);
+    --timepicker-input-width-huge: var(--input-width-huge);
+    --timepicker-input-padding-x-huge: var(--input-padding-x-huge);
+    --timepicker-input-height-huge: var(--input-height-huge);
+    --timepicker-input-padding-x-full: var(--input-padding-x-full);
+
+    --timepicker-input-border-color: var(--input-border-color);
+    --timepicker-input-border-width: var(--input-border-width);
+    --timepicker-input-color: var(--input-color);
+    --timepicker-input-background: var(--input-background);
+    --timepicker-input-border-radius: var(--input-border-radius);
+    --timepicker-input-background-disabled: var(--input-background-disabled);
+    --timepicker-input-border-color-error: var(--input-border-color-error);
+    --timepicker-input-border-color-focus: var(--input-border-color-focus);
+    --timepicker-input-box-shadow-focus: var(--input-box-shadow-focus);
+    --timepicker-input-placeholder-color: var(--input-placeholder-color);
+
+    --timepicker-bacground-selected: var(--brand-primary-light);
+    --timepicker-color-selected: white;
+    --timepicker-panel-background: white;
+    --timepicker-foot-background: white;
+    --timepicker-foot-border-color: var(--border-color-base);
+    --timepicker-item-background-selected: transparent;
+    --timepicker-item-background-hover:#f5f5f5;
+    --timepicker-item-background-disabled: transparent;
+    --timepicker-item-color-disabled: #ccc;
+    --timepicker-item-color-disabled-selected: rgba(255, 255, 255, 0.4);
+    --timepicker-item-color: var(--font-first-color);
+    --timepicker-popper-max-width: 300px;
+    --timepicker-popper-background: white;
+    --timepicker-popper-border-color: var(--border-color-base);
+    --timepicker-popper-border-radius: var(--border-radius-base);
+    --timepicker-input-pre-icon-color: var(--gray-light);
+    --timepicker-input-after-icon-color: var(--gray-light);
+    --timepicker-textbrn-color: #333;
+
     /* @component u-avatar @hidden */
     --avatar-size: 44px;
     --avatar-size-mini: 18px;
@@ -943,15 +994,23 @@
     --input-padding-x-large: 10px;
     --input-padding-x-huge: 10px;
     --input-border-width: var(--border-width-base);
-    --input-background: var(--background-color-default); /* @type color */
+    --input-background: var(--background-color-default);  /* @type color */
     --input-background-disabled: var(--background-color-disabled-light); /* @type color */
     --input-color: var(--color-base); /* @type color */
     --input-color-disabled: var(--color-light); /* @type color */
-
-    --input-padding-x-full: 10px; /* @hidden */
+    --input-border-color: var(--border-color-base);
+    --input-border-color-hover: #4c88FF;
+    --input-border-color-focus: #4c88FF;
+    --input-border-color-disabled: var(--input-border-color);
+    --input-border-color-error: var(--brand-error); /* @hidden */
+    --input-placeholder-color: var(--color-lighter);
     --input-icon-color: var(--color-lighter); /* @hidden */
     --input-icon-color-hover: var(--font-third-color); /* @hidden */
-    --input-border-color-error: var(--brand-error); /* @hidden */
+    --input-icon-color-disabled: var(--color-lighter); /* @hidden */
+    --input-border-radius: var(--border-radius-base);
+    --input-box-shadow-focus-color: rgba(77, 136, 255, 0.2);
+    --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color);
+    --input-padding-x-full: 10px; /* @hidden */
     --input-prefix-padding-left: 36px; /* @hidden */
     --input-suffix-padding-right: 30px; /* @hidden */
 
@@ -1503,67 +1562,129 @@
     --calendar-date-text-align: right;
     --calendar-date-background: var(--brand-primary-lightest);
     --calendar-date-disabled: var(--brand-disabled-dark);
-    --calendar-date-background-disabled: var(--brand-disabled);
-
 
     /* @component u-calendar */
-    --calendar-border-color: var(--border-color-base); /* @type color */
-    --calendar-background: var(--field-background); /* @type color */
+    --calendar-border-color: var(--border-color-base);
+    --calendar-background: var(--field-background);
+    /* --calendar-border-radius: var(--border-radius-base); */
     --calendar-border-radius: var(--border-radius-base);
-    --calendar-item-color: #555; /* @type color */
-    --calendar-item-border-radius: 50%;
+
+
+    --calendar-item-color: #333; /* @type color */
+    --calendar-item-border-radius: 4px; 
     --calendar-item-border-color: transparent; /* @type color */
     --calendar-item-background: var(--calendar-background); /* @type color */
-    --calendar-item-color-hover: #444; /* @type color */
+
+    --calendar-item-color-hover: #333; /* @type color */
     --calendar-item-border-color-hover: var(--calendar-item-border-color); /* @type color */
-    --calendar-item-background-hover: var(--background-color-lighter); /* @type color */
+    --calendar-item-background-hover: var(--background-color-hover);  /* @type color */
+
     --calendar-item-color-selected: var(--field-background); /* @type color */
     --calendar-item-border-color-selected: var(--calendar-item-border-color); /* @type color */
     --calendar-item-background-selected: var(--brand-primary); /* @type color */
+
     --calendar-item-color-muted: var(--color-light); /* @type color */
+    --calendar-item-color-today: var(--brand-primary); /* @type color */
+
     --calendar-item-color-disabled: var(--color-light); /* @type color */
-    --calendar-item-background-disabled: var(--field-background); /* @type color */
+    --calendar-item-background-disabled: var(--background-color-disabled); /* @type color */
+
     --calendar-item-color-selected-disabled: var(--color-light); /* @type color */
     --calendar-item-background-selected-disabled: #eee; /* @type color */
 
-    /* @component u-datepicker */
-    --datepicker-input-width: 300px;
-    --datepicker-input-height: var(--input-height);
+    --calendar-width: 300px;
+    --calendar-padding: 15px;
+
+    --calendar-icon-color: var(--gray-dark); /* @type color */
+    --calendar-icon-color-hover: var(--gray-darker); /* @type color */
+    --calendar-icon-color-disabled: var(--gray-lighter); /* @type color */
+
+    --calendar-date-background-disabled: var(--brand-disabled); /* @type color */
+    --calendar-showtext-color-hover: var(--brand-primary); /* @type color */
+
+    /* @component u-date-picker */
     --datepicker-input-pre-icon-color: var(--gray-light); /* @type color */
     --datepicker-input-after-icon-color: var(--gray-light); /* @type color */
-    --datepicker-input-padding-x: 8px;
-    --datepicker-input-placeholder-color: var(--input-placeholder-color); /* @type color */
-    --datepicker-input-border-width: var(--input-border-width);
-    --datepicker-input-border-color: var(--input-border-color); /* @type color */
-    --datepicker-input-border-radius: 3px;
 
-    --datepicker-input-color: var(--input-color); /* @hidden */
-    --datepicker-input-background: var(--input-background); /* @hidden */
-    --datepicker-input-background-disabled: var(--input-background-disabled); /* @hidden */
-    --datepicker-input-border-color-error: var(--input-border-color-error); /* @hidden */
-    --datepicker-input-border-color-focus: var(--input-border-color-focus); /* @hidden */
-    --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus); /* @hidden */
-    --datepicker-input-icon-color-hover: var(--input-icon-color-hover); /* @hidden */
-    --datepicker-input-clear-icon-color: var(--input-icon-color); /* @hidden */
-    --datepicker-popper-box-shadow: var(--select-popper-box-shadow); /* @hidden */
-    --datepicker-popper-border-radius: var(--border-radius-base); /* @hidden */
+    --datepicker-input-border-color: var(--input-border-color); /* @type color */
+    --datepicker-input-border-width: var(--input-border-width); /* @type color */
+    --datepicker-input-color: var(--input-color); /* @type color */
+    --datepicker-input-background: var(--input-background); /* @type color */
+    --datepicker-input-border-radius: var(--input-border-radius); 
+    --datepicker-input-background-disabled: var(--input-background-disabled); 
+    --datepicker-input-border-color-error: var(--input-border-color-error);
+    --datepicker-input-border-color-focus: var(--input-border-color-focus);
+    --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus);
+    --datepicker-input-placeholder-color: var(--input-placeholder-color);
+    --datepicker-input-icon-color-hover: var(--input-icon-color-hover);
+    --datepicker-input-clear-icon-color: var(--input-icon-color);
+    --datepicker-popper-box-shadow: var(--select-popper-box-shadow);
+    --datepicker-popper-border-radius: var(--border-radius-base);
+
+    --datepicker-input-width: var(--input-width); 
+    --datepicker-input-height: var(--input-height); 
+    --datepicker-input-padding-x: var(--input-padding-x); 
+    --datepicker-input-width-mini: var(--input-width-mini); 
+    --datepicker-input-padding-x-mini: var(--input-padding-x-mini); 
+    --datepicker-input-height-mini: var(-input-height-mini); 
+    --datepicker-input-width-small: var(--input-width-small); 
+    --datepicker-input-padding-x-small: var(--input-padding-x-small); 
+    --datepicker-input-height-small: var(--input-height-small); 
+    --datepicker-input-width-medium: var(--input-width-medium); 
+    --datepicker-input-padding-x-medium: var(--input-padding-x-medium); 
+    --datepicker-input-height-medium: var(--input-height-medium); 
+    --datepicker-input-width-large: var(--input-width-large); 
+    --datepicker-input-padding-x-large: var(--input-padding-x-large); 
+    --datepicker-input-height-large: var(--input-height-large); 
+    --datepicker-input-width-huge: var(--input-width-huge); 
+    --datepicker-input-padding-x-huge: var(--input-padding-x-huge); 
+    --datepicker-input-height-huge: var(--input-height-huge); 
+    --datepicker-input-padding-x-full: var(--input-padding-x-full); 
+
 
     /* @component u-date-time-picker */
-    --datetime-input-width: 300px;
-    --datetime-input-height: var(--input-height);
+    --datetime-input-width: var(--input-width); 
+    --datetime-input-height: var(--input-height); 
+    --datetime-input-padding-x: var(--input-padding-x); 
+    --datetime-input-width-mini: var(--input-width-mini); 
+    --datetime-input-padding-x-mini: var(--input-padding-x-mini); 
+    --datetime-input-height-mini: var(-input-height-mini); 
+    --datetime-input-width-small: var(--input-width-small); 
+    --datetime-input-padding-x-small: var(--input-padding-x-small); 
+    --datetime-input-height-small: var(--input-height-small); 
+    --datetime-input-width-medium: var(--input-width-medium); 
+    --datetime-input-padding-x-medium: var(--input-padding-x-medium); 
+    --datetime-input-height-medium: var(--input-height-medium); 
+    --datetime-input-width-large: var(--input-width-large); 
+    --datetime-input-padding-x-large: var(--input-padding-x-large); 
+    --datetime-input-height-large: var(--input-height-large); 
+    --datetime-input-width-huge: var(--input-width-huge); 
+    --datetime-input-padding-x-huge: var(--input-padding-x-huge); 
+    --datetime-input-height-huge: var(--input-height-huge); 
+    --datetime-input-padding-x-full: var(--input-padding-x-full); 
+
     --datetime-input-pre-icon-color: var(--gray-light); /* @type color */
     --datetime-input-after-icon-color: var(--gray-light); /* @type color */
-    --datetime-input-padding-x: 8px;
-    --datetime-input-placeholder-color: var(--input-placeholder-color); /* @type color */
-    --datetime-input-border-width: var(--input-border-width);
+    --datetime-input-border-color-focus: var(--input-border-color-focus);  /* @hidden */
+    --datetime-input-box-shadow-focus: var(--input-box-shadow-focus); /* @hidden */
+
     --datetime-input-border-color: var(--input-border-color); /* @type color */
-    --datetime-input-border-radius: 3px;
+    --datetime-input-border-width: var(--input-border-width); /* @type color */
+
+    --datetime-input-placeholder-color: var(--input-placeholder-color); /* @type color */
+    --datetime-input-border-radius: var(--input-border-radius); 
 
 
     --datetime-input-icon-color-hover: var(--input-icon-color-hover); /* @hidden */
     --datetime-input-border-color-focus: var(--input-border-color-focus); /* @hidden */
     --datetime-input-clear-icon-color: var(--input-icon-color); /* @hidden */
     --datetime-input-box-shadow-focus: var(--input-box-shadow-focus); /* @hidden */
+
+    --datetime-input-color: var(--input-color); /* @type color */
+    --datetime-input-background: var(--input-background); /* @type color */
+
+    --datetime-popper-border-color: var(--border-color-base); /* @type color */
+    --datetime-popper-border-radius: var(--border-radius-base); 
 
      /* @component u-taskbox @hidden */
     --taskbox-badge-box-shadow: none;

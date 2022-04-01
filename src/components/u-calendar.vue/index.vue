@@ -1,38 +1,45 @@
 <template>
-<div :class="$style.root" :disabled="disabled">
-    <div :class="$style.head" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
-        <div :class="$style.year">
-            <span :class="$style.textYear" >{{ showYear }}{{ $t('year') }}</span>
-            <m-popper trigger="click" :opened.sync="yearvisible" append-to="reference">
-                <div :class="$style.yearList" @click.stop>
-                    <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="yearSelect($event)">
-                        <u-list-view-item :class="$style.yearitem" v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{ year.value }}{{ $t('year') }}</u-list-view-item>
-                    </u-list-view>
-                </div>
-            </m-popper>
+<div :class="$style.root" :disabled="disabled" :border="border">
+    <div :class="$style.headCenter" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
+        <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!this.getYearPrev()" @click="handleYearPrev()"></i-ico>
+        <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!this.getMonthPrev()" @click="handleMonthPrev()"></i-ico>
+        <div :class="$style.yearCenter">
+            <span>
+                <span :class="$style.showtext" :active="yearvisible">{{ showYear }} {{ $t('year') }} </span>
+                <m-popper trigger="click" placement="bottom" :opened.sync="yearvisible" append-to="reference"
+                    @click.stop @mousedown.stop>
+                    <f-scroll-view @click.stop>
+                        <div :class="$style.yearList" @click.stop>
+                            <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="yearSelect($event, false)">
+                                <u-list-view-item :class="$style.yearitem" v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{ year.value }}</u-list-view-item>
+                            </u-list-view>
+                        </div>
+                    </f-scroll-view>
+                </m-popper>
+            </span>
+            <span>
+                <span :class="$style.showtext" :active="monthvisible">{{ monthTextList[showMonth - 1] }} {{ $t('month') }}</span>
+                    <m-popper trigger="click" placement="bottom" :opened.sync="monthvisible" append-to="reference"
+                        @click.stop @mousedown.stop>
+                        <f-scroll-view @click.stop>
+                            <div :class="$style.yearList" @click.stop>
+                                <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="monthSelect($event, '' ,false)">
+                                    <u-list-view-item :class="$style.yearitem" v-for="(month, mindex) in monthCol" :key="mindex" :value="month.value" :disabled="month.disabled" :role="month.value === showMonth" >{{ month.value }} {{ $t('month') }}</u-list-view-item>
+                                </u-list-view>
+                            </div>
+                        </f-scroll-view>
+                    </m-popper>
+                </span>
         </div>
-        <div v-if="picker === 'date' || picker === 'week' || picker === 'time'" :class="$style.month">
-            <span :class="$style.textMonth">{{ monthTextList[showMonth - 1] }}{{ $t('month') }}</span>
-            <m-popper trigger="click" placement="bottom-end" :opened.sync="monthvisible" append-to="reference">
-                <ul :class="$style.monthList">
-                    <li v-for="(month, mindex) in monthCol" 
-                        :key="mindex"
-                        :class="$style.listitem" 
-                        :role="month.value === showMonth" 
-                        :disabled="month.disabled" 
-                        @click.stop="monthSelect(month, mindex)">
-                        {{ monthTextList[month.value - 1] }}
-                    </li>
-                </ul>
-            </m-popper>
-        </div>
+        <i-ico :class="$style.hicon" name="right-arrow" notext :disabled="!this.getMonthNext()" @click="handleMonthNext()"></i-ico>
+        <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!this.getYearNext()" @click="handleYearNext()"></i-ico>
     </div>
     <div :class="$style.headCenter" v-if="(picker === 'month' || picker === 'quarter') && currentMode === ''">
-        <a :class="$style.icon" role="prev" :disabled="!this.getYearPrev()" @click="handleYearPrev()"></a>
+        <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!this.getYearPrev()" @click="handleYearPrev()"></i-ico>
         <div :class="$style.yearCenter">
             <span @click="handlerMode" >{{ showYear }}{{ $t('year') }}</span>
         </div>
-        <a :class="$style.icon" role="next" :disabled="!this.getYearNext()" @click="handleYearNext()"></a>
+        <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!this.getYearNext()" @click="handleYearNext()"></i-ico>
     </div>
     <div v-if="picker === 'year' || currentMode === 'year'" :class="$style.content" type="year">
         <year-page
@@ -54,10 +61,11 @@
                 <ul :class="$style.quarterBox">
                     <li v-for="(quarter, mindex) in quarterCol" 
                         :key="mindex"
+                        :class="[$style.boxItem, $style.quarterItem]"
                         :role="quarter.value === showMonth" 
                         :disabled="quarter.disabled" 
                         @click.stop="monthSelect(quarter, mindex)">
-                        {{ $t('quarter') }}{{ quarterTextList[quarter.flag - 1] }}
+                        <div :class="$style.sitem">{{ $t('quarter') }}{{ quarterTextList[quarter.flag - 1] }}</div>
                     </li>
                 </ul>
             </div>
@@ -67,9 +75,10 @@
                         :key="mindex"
                         :class="$style.boxItem"
                         :role="month.value === showMonth" 
-                        :disabled="month.disabled" 
-                        @click.stop="monthSelect(month, mindex)">
-                        {{ monthTextList[month.value - 1] }}{{ $t('month') }}
+                        :disabled="month.disabled"
+                        @click.stop="monthSelect(month, mindex)"
+                        :sindex="mindex%3">
+                        <div :class="$style.sitem">{{ monthTextList[month.value - 1] }}{{ $t('month') }}</div>
                     </li>
                 </ul>
             </div>
@@ -79,12 +88,14 @@
         <div :class="$style.day">
             <span v-for="(day, index) in days_" 
                 :key="index"
-                :class="$style.item" 
+                :class="$style.daywrap" 
                 :sel="getSel(day) ? 'sel' : ''" 
+                :today="isCurrentDay(day)"
                 :disabled="!!isOutOfRange(day)" 
                 :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" 
-                @click.stop="select(day)">
-                {{ day | format('dd') }}
+                @click.stop="select(day)"
+                :sindex="index%7">
+                <span :class="$style.item">{{ day | format('dd') }}</span>
             </span>
         </div>
         <slot></slot>
@@ -133,6 +144,7 @@ export default {
         yearDiff: { type: [String, Number], default: 20 },
         yearAdd: { type: [String, Number], default: 4 },
         yearPageSize: { type: Number, default: 12 },
+        border: { type: Boolean, default: true },
     },
     data() {
         const date = this.transformDate(this.date);
@@ -168,6 +180,7 @@ export default {
                 this.$t('November'),
                 this.$t('December'),
             ],
+            currentDay: this.transformDate(new Date()),
         };
     },
     computed: {
@@ -199,6 +212,7 @@ export default {
                 this.showDate = new Date(date);
             },
         },
+
     },
     watch: {
         date(newValue) {
@@ -250,45 +264,83 @@ export default {
     },
     methods: {
         getYearPrev() {
-            return this.showYear > this.yearmin;
+            let yearmin = this.getRangeYear(this.minDate);
+            return !yearmin || this.showYear > yearmin;
         },
         getYearNext() {
-            return this.showYear < this.yearmax;
+            let yearmax = this.getRangeYear(this.maxDate);
+            return !yearmax || this.showYear < yearmax;
         },
         handleYearPrev() {
-            let minDate = null;
+            // let minDate = null;
            
-            if (this.minDate) {
-                minDate = this.transformDate(this.minDate).getFullYear();
-                if (minDate >= this.showYear) {
-                    return;
-                }
-            }
+            // if (this.minDate) {
+            //     minDate = this.transformDate(this.minDate).getFullYear();
+            //     if (minDate >= this.showYear) {
+            //         return;
+            //     }
+            // }
 
-            this.showYear = this.showYear - 1;
+            // this.showYear = this.showYear - 1;
             // 设置为最早的时间
-            const date = this.showDate;
-            date.setMonth(0);
-            date.setDate(1);
-            date.setHours(0, 0, 0, 0);
-            this.selectedDate = date;
+            // const date = this.showDate;
+            // date.setMonth(0);
+            // date.setDate(1);
+            // date.setHours(0, 0, 0, 0);
+            // this.selectedDate = date;
+
+            if(!this.getYearPrev())
+                return;
+            let date = this.showDate;
+            date.setYear(this.showYear - 1);
+            this.updateFlag = true;
+            this.showDate = new Date(date);
         },
         handleYearNext() {
-            let maxDate = null;
-            if (this.maxDate) {
-                maxDate = this.transformDate(this.maxDate).getFullYear();
-                if (maxDate <= this.showYear) {
-                    return;
-                }
-            }
+            // let maxDate = null;
+            // if (this.maxDate) {
+            //     maxDate = this.transformDate(this.maxDate).getFullYear();
+            //     if (maxDate <= this.showYear) {
+            //         return;
+            //     }
+            // }
             
-            this.showYear = this.showYear + 1;
+            // this.showYear = this.showYear + 1;
             // 设置为最早的时间
-            const date = this.showDate;
-            date.setMonth(0);
-            date.setDate(1);
-            date.setHours(0, 0, 0, 0);
-            this.selectedDate = date;
+            // const date = this.showDate;
+            // date.setMonth(0);
+            // date.setDate(1);
+            // date.setHours(0, 0, 0, 0);
+            // this.selectedDate = date;
+
+            if(!this.getYearNext())
+                return;
+            let date = this.showDate;
+            date.setYear(this.showYear + 1);
+            this.updateFlag = true;
+            this.showDate = new Date(date);
+        },
+        getMonthPrev(){
+            return !this.minDate || this.minDate && this.getTime(this.showDate) > this.getTime(this.minDate);
+        },
+        getMonthNext(){
+            return !this.maxDate || this.maxDate && this.getTime(this.showDate) < this.getTime(this.maxDate);
+        },
+        handleMonthPrev(){
+            if(!this.getMonthPrev())
+                return;
+            let date = this.showDate;
+            date.setMonth(date.getMonth() - 1);
+            this.updateFlag = true;
+            this.showDate = new Date(date);
+        },
+        handleMonthNext(){
+            if(!this.getMonthNext())
+                return;
+            let date = this.showDate;
+            date.setMonth(date.getMonth() + 1);
+            this.updateFlag = true;
+            this.showDate = new Date(date);
         },
         handlerMode() {
             // 切换到年份选择模式
@@ -327,7 +379,7 @@ export default {
                 this.updateFlag = true;
             }
         },
-        yearSelect({ value }) {
+        yearSelect({ value }, isEmit) {
             this.showYear = value;
             this.yearvisible = false;
             // 设置为最早的时间
@@ -340,9 +392,10 @@ export default {
                 // 选择年份后模式设置为普通模式
                 this.currentMode = '';
             }
-            this.$emit('select', { sender: this, date });
+            if(isEmit !== false)
+                this.$emit('select', { sender: this, date });
         },
-        monthSelect(month, flag) {
+        monthSelect(month, flag, isEmit) {
             if (!month.disabled) {
                 this.showMonth = month.value;
                 this.monthvisible = false;
@@ -353,7 +406,8 @@ export default {
                 date.setDate(1);
                 date.setHours(0, 0, 0, 0);
                 this.selectedDate = date;
-                this.$emit('select', { sender: this, date, flag });
+                if (isEmit !== false)
+                    this.$emit('select', { sender: this, date, flag });
             }
         },
         getQuarterCol(value) {
@@ -462,7 +516,8 @@ export default {
          * @method update() 日期改变后更新日历
          * @private
          * @return {void}
-         */ update() {
+         */ 
+        update() {
             this.days_ = [];
             this.showDate = this.transformDate(this.showDate);
             const date = this.showDate;
@@ -470,14 +525,20 @@ export default {
             const mfirst = new Date(date);
             mfirst.setDate(1);
             mfirst.setHours(0, 0, 0, 0);
-            const mfirstTime = +mfirst;
+            let mfirstTime = +mfirst;
+            // 如果1号是星期天，前面再加7天
+            if (mfirst.getDay() === 0) {
+                mfirstTime = mfirstTime - 7 * MS_OF_DAY;
+            } else {
+                mfirstTime = mfirstTime - mfirst.getDay() * MS_OF_DAY;
+            }
             const nfirst = new Date(mfirst);
             nfirst.setMonth(month + 1);
             nfirst.setDate(1);
             const nfirstTime = +nfirst;
-            const lastTime
+            let lastTime
                 = nfirstTime + (((7 - nfirst.getDay()) % 7) - 1) * MS_OF_DAY;
-            let num = -mfirst.getDay();
+            let num = 0;
             let tmpTime;
             let tmp;
             do {
@@ -485,6 +546,15 @@ export default {
                 tmp = new Date(tmpTime);
                 this.days_.push(tmp);
             } while (tmpTime < lastTime);
+            // 补齐6行
+            if (this.days_.length < 6 * 7) {
+                lastTime = lastTime + (6 * 7 - this.days_.length) * MS_OF_DAY;
+                do {
+                    tmpTime = mfirstTime + num++ * MS_OF_DAY;
+                    tmp = new Date(tmpTime);
+                    this.days_.push(tmp);
+                } while (tmpTime < lastTime);
+            }
         },
         /**
          * @method addYear(year) 调整年份
@@ -527,12 +597,13 @@ date.setDate(0);
          * @public
          * @param  {Date=null} date 选择的日期
          * @return {void}
-         */ select(date) {
+         */ 
+        select(date) {
             if (this.readonly || this.disabled || this.isOutOfRange(date))
                 return;
             const _month = date.getMonth() + 1;
             if (this.showMonth !== _month)
-this.updateFlag = true;
+                this.updateFlag = true;
             this.showDate = new Date(date);
             this.selectedDate = new Date(this.transformDate(date));
             /**
@@ -546,7 +617,8 @@ this.updateFlag = true;
          * @public
          * @param {Date} date 待测的日期
          * @return {boolean|Date} date 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
-         */ isOutOfRange(date) {
+         */ 
+        isOutOfRange(date) {
             let minDate = ChangeDate(this.transformDate(this.minDate), this.picker);
             let maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker); // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
             minDate = minDate && minDate.setHours(0, 0, 0, 0);
@@ -557,25 +629,111 @@ this.updateFlag = true;
             );
         },
         transformDate,
+        isCurrentDay(day) {
+            return this.currentDay.toDateString() === day.toDateString();
+        },
+        isValidDate(value) {
+            const date = new Date(value);
+            return date.toString() !== 'Invalid Date';
+        },
+        getTime(value) {
+            if(this.isValidDate(value)){
+                const date = new Date(value);
+                date.setDate(1);
+                date.setHours(0, 0, 0, 0);
+                return date.getTime();
+            }
+        },
+        getRangeYear(value) {
+            if(this.isValidDate(value)){
+                const date = new Date(value);
+                return date.getFullYear();
+            }
+        }
     },
 };
 </script>
 
 <style module>
 .root {
-    width: 238px;
-    padding: 4px;
-    border: 1px solid var(--calendar-border-color);
-    border-radius: var(--calendar-border-radius);
-    box-sizing: content-box;
+    width: var(--calendar-width);
+    padding: var(--calendar-padding);
     user-select: none;
     background: var(--calendar-background);
+    box-sizing: border-box;
+}
+.root[border] {
+    border: 1px solid var(--calendar-border-color);
+    border-radius: var(--calendar-border-radius);
+}
+.root[disabled] .daywrap {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--calendar-item-background-disabled);
+    color: var(--color-light);
+    border-radius: initial;
+}
+.root[disabled] .daywrap[sindex="0"]{
+    border-top-left-radius: var(--calendar-border-radius);
+    border-bottom-left-radius: var(--calendar-border-radius);
+}
+.root[disabled] .daywrap[sindex="6"]{
+    border-top-right-radius: var(--calendar-border-radius);
+    border-bottom-right-radius: var(--calendar-border-radius);
 }
 
+.daywrap {
+    width: 14.2%;
+    height: 24px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--calendar-border-radius);
+    position: relative;
+}
+.daywrap[role][disabled] .item, 
+.daywrap[role][disabled]:hover .item, 
+.daywrap[disabled] .item, 
+.daywrap[disabled]:hover .item {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--calendar-item-background-disabled);
+    color: var(--color-light);
+}
+
+.daywrap[sindex="0"] {
+    justify-content: start;
+}
+.daywrap[sindex="0"][disabled] .item {
+    border-top-left-radius: var(--calendar-border-radius);
+    border-bottom-left-radius: var(--calendar-border-radius);
+}
+
+.daywrap[sindex="6"] {
+    justify-content: end;
+}
+.daywrap[sindex="6"][disabled] .item {
+    border-top-right-radius: var(--calendar-border-radius);
+    border-bottom-right-radius: var(--calendar-border-radius);
+}
+.daywrap[disabled] + .daywrap[disabled]:not([sindex="0"])::before {
+    content: '';
+    position: absolute;
+    background-color: var(--calendar-item-background-disabled);
+    width: 20px;
+    height: 100%;
+    left: -10px;
+    cursor: var(--cursor-not-allowed);
+}
+.daywrap:not([disabled]) + .daywrap[disabled] {
+    background: transparent;
+}
+.daywrap[today] .item {
+    color: var(--calendar-item-color-today);
+}
 .item, .dayitem {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
+    width: 24px;
+    height: 24px;
     margin: 1px;
     cursor: var(--cursor-pointer);
     display: inline-block;
@@ -584,6 +742,8 @@ this.updateFlag = true;
     background: var(--calendar-item-background);
     color: var(--calendar-item-color);
     border: 1px solid var(--calendar-item-border-color);
+    margin: 7px;
+    box-sizing: border-box;
 }
 
 .dayitem[role="week"] {
@@ -596,17 +756,18 @@ this.updateFlag = true;
     border-color: var(--calendar-item-border-color-hover);
 }
 
-.item[sel="sel"] {
+.daywrap[sel="sel"] .item,
+.daywrap[sel="sel"][role="muted"] .item {
     background: var(--calendar-item-background-selected);
     color: var(--calendar-item-color-selected);
     border-color: var(--calendar-item-border-color-selected);
 }
 
-.item[role="muted"] {
+.daywrap[role="muted"] .item {
     color: var(--calendar-item-color-muted);
 }
 
-.item[disabled] {
+.daywrap[disabled] .item {
     background: 0 0;
     color: var(--calendar-item-border-color-disabled);
     cursor: var(--cursor-not-allowed);
@@ -675,6 +836,8 @@ this.updateFlag = true;
 .headCenter {
     display: flex;
     line-height: 32px;
+    margin: 3px 0 12px;
+    padding: 0 12px;
 }
 
 .yearCenter {
@@ -684,10 +847,12 @@ this.updateFlag = true;
 }
 .yearList {
     z-index: 10;
+    font-size: 12px;
+    max-height: 304px;
 }
 .yearListInner {
-    height: 160px;
-    overflow-y: scroll;
+    height: 100%;
+    min-width: auto;
 }
 .textYear {
     position: relative;
@@ -702,67 +867,106 @@ this.updateFlag = true;
     line-height: 16px;
 }
 .monthList {
-    z-index: 10;
+    /* z-index: 10;
     width: 138px;
     padding: 10px 6px;
     box-sizing: border-box;
     list-style: none;
     overflow: hidden;
     background: white;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc; */
 }
 
 .monthBox {
     list-style: none;
+    margin-bottom: -15px;
 }
 
 .boxItem {
     cursor: pointer;
     width: 33.3%;
     display: inline-flex;
-    padding: 10px 0;
+    /* padding: 10px 0; */
     align-items: center;
     justify-content: center;
+    margin-bottom: 24px;
+    border-radius: var(--calendar-border-radius);
+    position: relative;
 }
 
-.boxItem[role] {
+/* .boxItem[role] {
     background-color: var(--brand-primary);
     color: var(--field-background);
-}
-.boxItem[role]:hover {
+} */
+/* .boxItem[role]:hover {
     background-color: var(--brand-primary);
+} */
+
+.boxItem[role][disabled] .sitem , 
+.boxItem[role][disabled]:hover .sitem , 
+.boxItem[disabled] .sitem , 
+.boxItem[disabled]:hover .sitem {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--calendar-item-background-disabled);
+    color: var(--color-light);
 }
 
-.boxItem[disabled], .boxItem[disabled]:hover {
+.boxItem[sindex="0"] {
+    justify-content: start;
+}
+.boxItem[sindex="0"][disabled] .sitem {
+    border-top-left-radius: var(--calendar-border-radius);
+    border-bottom-left-radius: var(--calendar-border-radius);
+}
+
+.boxItem[sindex="2"] {
+    justify-content: end;
+}
+.boxItem[sindex="2"][disabled] .sitem {
+    border-top-right-radius: var(--calendar-border-radius);
+    border-bottom-right-radius: var(--calendar-border-radius);
+}
+.boxItem[disabled] + .boxItem[disabled]:not([sindex="0"])::before {
+    content: '';
+    position: absolute;
+    background-color: var(--calendar-item-background-disabled);
+    width: 40px;
+    height: 100%;
+    left: -15px;
     cursor: var(--cursor-not-allowed);
-    background-color: var(--field-background);
-    color: var(--color-light);
+}
+.boxItem:not([disabled]) + .boxItem[disabled] {
+    background: transparent;
+}
+
+.sitem {
+    width: 68px;
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+    border-radius: var(--calendar-border-radius);
+}
+.sitem:hover {
+    background: var(--calendar-item-background-hover);
+    color: var(--calendar-item-color-hover);
+    border-color: var(--calendar-item-border-color-hover);
+}
+.boxItem[role] .sitem {
+    background-color: var(--brand-primary);
+    color: var(--field-background);
 }
 
 .quarterBox {
     list-style: none;
+    margin-bottom: -15px;
 }
 
 .quarterItem {
-    cursor: pointer;
     width: 25%;
-    display: inline-flex;
-    justify-content: center;
-    padding: 10px 0;
 }
 
-.quarterItem[role] {
-    background-color: var(--brand-primary);
-    color: var(--field-background);
-}
-.quarterItem[role]:hover {
-    background-color: var(--brand-primary);
-}
-
-.quarterItem[disabled], .quarterItem[disabled]:hover {
-    cursor: var(--cursor-not-allowed);
-    background-color: var(--field-background);
-    color: var(--color-light);
+.quarterItem .sitem {
+    width: 51px;
 }
 
 .listitem {
@@ -822,6 +1026,12 @@ this.updateFlag = true;
     line-height: 16px;
 }
 
+.yearitem{
+    padding: 0;
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+}
 .yearitem[disabled] {
     color: var(--color-light);
 }
@@ -831,6 +1041,14 @@ this.updateFlag = true;
 }
 
 .icon[role="next"]::before {
+    icon-font: url('../i-icon.vue/assets/angle-right.svg');
+}
+
+.icon[role="yearprev"]::before {
+    icon-font: url('../i-icon.vue/assets/angle-left.svg');
+}
+
+.icon[role="yearnext"]::before {
     icon-font: url('../i-icon.vue/assets/angle-right.svg');
 }
 
@@ -847,4 +1065,25 @@ this.updateFlag = true;
     color: var(--color-light);
 }
 
+.showtext:hover,
+.showtext[active]{
+    color: var(--calendar-showtext-color-hover);
+}
+
+.hicon {
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--calendar-icon-color);
+}
+.hicon + .hicon {
+    margin-left: 25px;
+}
+.hicon:hover {
+    color: var(--calendar-icon-color-hover);
+}
+.hicon[disabled],
+.hicon[disabled]:hover {
+    color: var(--calendar-icon-color-disabled);
+    cursor: var(--cursor-not-allowed);
+}
 </style>

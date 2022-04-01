@@ -7,26 +7,6 @@
   next: true
   nested: false
   attrs:
-    - name: preIcon
-      title: 前缀图标
-      type: string
-      options:
-        - value: calendar
-          title: 日历
-        - value: ""
-          title: 暂无
-      default: "calendar"
-      description: ""
-    - name: suffixIcon
-      title: 后缀图标
-      type: string
-      options:
-        - value: calendar
-          title: 日历
-        - value: ""
-          title: 暂无
-      default: ""
-      description: ""
     - name: date
       title: 值
       type: string, number, Date
@@ -101,6 +81,66 @@
       default: format
       description: 转换器
       advanced: true
+    - name: preIcon
+      title: 前缀图标
+      type: string
+      options:
+        - value: calendar
+          title: 日历
+        - value: ""
+          title: 暂无
+      default: "calendar"
+      description: ""
+    - name: suffixIcon
+      title: 后缀图标
+      type: string
+      options:
+        - value: calendar
+          title: 日历
+        - value: ""
+          title: 暂无
+      default: ""
+      description: ""
+    - name: width
+      title: 宽度
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
+      default: normal
+      description: 设置日期时间选择输入框宽度大小
+    - name: height
+      title: 高度
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
+      default: normal
+      description: 设置日期时间选择输入框高度大小
     - name: append-to
       title: 弹出层展示位置
       type: string

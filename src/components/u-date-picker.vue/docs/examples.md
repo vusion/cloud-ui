@@ -2,8 +2,8 @@
 
 ``` html
 <u-linear-layout>
-    <u-date-picker preIcon suffixIcon="calendar" width="400" clearable></u-date-picker>
     <u-date-picker date="2018-08-08" clearable></u-date-picker>
+    <u-date-picker preIcon suffixIcon="calendar" width="400" clearable></u-date-picker>
 </u-linear-layout>
 ```
 ### 自动对焦
@@ -90,7 +90,7 @@ export default {
         	console.log(newVal);
         },
         toggle(event) {
-        	console.log(event.open);
+        	console.log(event.opened);
         }
     },
     watch: {

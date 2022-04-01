@@ -7,40 +7,6 @@
   next: true
   nested: false
   attrs:
-    - name: preIcon
-      title: 前缀图标
-      type: string
-      options:
-        - value: calendar
-          title: 日历
-        - value: ""
-          title: 暂无
-      default: "calendar"
-      description: ""
-    - name: suffixIcon
-      title: 后缀图标
-      type: string
-      options:
-        - value: calendar
-          title: 日历
-        - value: ""
-          title: 暂无
-      default: ""
-      description: ""
-    - name: picker
-      title: 格式
-      type: string
-      options:
-        - title: 日期
-          value: date
-        - title: 月份
-          value: month
-        - title: 季度
-          value: quarter
-        - title: 年份
-          value: year
-      default: date
-      description: 日期格式设置
     - name: date
       title: 值
       type: string,number,Date
@@ -80,7 +46,7 @@
       description: 是否自动获取焦点
       designer-value: false
     - name: placeholder
-      title: 文本框默认提示
+      title: 默认提示文字
       type: string
       default: 请输入
       description: 输入框的提示文字
@@ -129,6 +95,80 @@
           value: ""
       default: format
       description: 转换器，用于转换时间结果
+    - name: picker
+      title: 格式
+      type: string
+      options:
+        - title: 日期
+          value: date
+        - title: 月份
+          value: month
+        - title: 季度
+          value: quarter
+        - title: 年份
+          value: year
+      default: date
+      description: 日期格式设置
+    - name: preIcon
+      title: 前缀图标
+      type: string
+      options:
+        - value: calendar
+          title: 日历
+        - value: ""
+          title: 暂无
+      default: "calendar"
+      description: ""
+    - name: suffixIcon
+      title: 后缀图标
+      type: string
+      options:
+        - value: calendar
+          title: 日历
+        - value: ""
+          title: 暂无
+      default: ""
+      description: ""
+    - name: width
+      title: 宽度
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
+      default: normal
+      description: 设置日期选择输入框宽度大小
+    - name: height
+      title: 高度
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
+      default: normal
+      description: 设置日期选择输入框高度大小
     - name: append-to
       title: 弹出层展示位置
       type: string
