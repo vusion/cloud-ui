@@ -7,6 +7,7 @@
         @click="currentOpened=true"
         @focus="onFocus" @blur="onBlur"
         @blur:value="onBlurInputValue($event)"
+        @clear="clearValue"
         :prefix="preIcon"
         :suffix="suffixIcon"
         :color="formItemVM && formItemVM.color">
@@ -549,6 +550,10 @@ export default {
             }
         },
         onBlurInputValue(value) {
+            if(value === '') {
+                this.validShowTime = '';
+                this.emitValue();
+            }
             this.$refs.input.updateCurrentValue(this.validShowTime);
         },
         onFocus(e) {
@@ -560,14 +565,25 @@ export default {
         },
         onPopperOpen() {
             this.restoredValue = this.validShowTime; // 用于点取消时复原上一次的值
-            this.showTime = this.validShowTime? this.validShowTime : '00:00:00';
+            this.initValidShowTime = true;
+            if(this.validShowTime) {
+                this.showTime = this.validShowTime;
+            } else {
+                this.initValidShowTime = false;
+                const currentTime = this.getCurrentTime();
+                const isOutOfRange = this.isOutOfRange(currentTime);
+                this.showTime = isOutOfRange? isOutOfRange : currentTime;
+            }
             this.adjustSpinners();
         },
         getItemHeight() {
             if(this.$refs.itemwrap) {
                 return this.$refs.itemwrap.children[0].offsetHeight
             }
-        }
+        },
+        clearValue() {
+            this.validShowTime = '';
+        },
     },
 };
 </script>
