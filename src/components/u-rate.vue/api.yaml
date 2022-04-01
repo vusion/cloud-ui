@@ -24,6 +24,36 @@
       type: boolean
       default: false
       description: ""
+    - name: allow-half
+      title: 允许半选
+      type: boolean
+      default: false
+      description: "是否允许半选"
+    - name: clearable
+      title: 允许清除
+      type: boolean
+      default: false
+      description: "是否允许选中后点击清除"
+    - name: show-text
+      title: 展示辅助文字
+      type: boolean
+      default: false
+      description: "在评分后展示辅助文字"
+    - name: texts
+      title: 辅助文字
+      type: Array
+      default: ['极差', '失望', '一般', '满意', '惊喜']
+      description: "辅助文字设置，与showText配合使用"
+    - name: show-tooltip
+      title: 展示Tooltip
+      type: boolean
+      default: false
+      description: "鼠标悬浮时展示提示文字"
+    - name: tooltips
+      title: Tooltip文字
+      type: Array
+      default: ['极差', '失望', '一般', '满意', '惊喜']
+      description: "Tooltip文字设置，与showTooltip配合使用"
   events:
     - name: change
       title: 改变后
