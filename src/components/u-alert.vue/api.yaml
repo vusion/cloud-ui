@@ -1,5 +1,6 @@
 - name: u-alert
   title: 公告
+  icon: alert
   labels:
     - Display
   description: 公告提示。
