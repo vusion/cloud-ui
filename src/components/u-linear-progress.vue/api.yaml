@@ -40,9 +40,9 @@
       default: horizontal
       options:
         - value: horizontal
-          title: 水平
+          title: 横向
         - value: vertical
-          title: 垂直
+          title: 竖向
   slots:
     - name: default
       description: 插入文本或HTML。

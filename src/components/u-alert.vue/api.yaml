@@ -2,7 +2,7 @@
   title: 公告
   labels:
     - Display
-  description: 警告提示横幅。
+  description: 公告提示。
   attrs:
     - name: type
       title: 提示类型

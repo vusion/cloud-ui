@@ -21,6 +21,19 @@
           title: 手动
       default: hover
       description: 触发方式
+    - name: type
+      title: 下拉按钮样式
+      type: string
+      options:
+        - value: text
+          title: 基础按钮样式
+        - value: primary
+          title: 主要按钮样式
+        - value: primary_secondary
+          title: 次要按钮样式
+        - value: normal
+          title: 普通按钮样式
+      default: text
     - name: placement
       title: 弹出位置
       type: string
@@ -70,20 +83,6 @@
   labels:
     - Display
   attrs:
-    - name: type
-      title: 下拉按钮样式
-      type: string
-      options:
-        - value: text
-          title: 基础按钮样式
-          advanced: true
-        - value: primary
-          title: 主要按钮样式
-        - value: primary_secondary
-          title: 次要按钮样式
-        - value: normal
-          title: 普通按钮样式
-      default: text
     - name: text
       title: 文本
       type: string

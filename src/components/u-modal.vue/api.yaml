@@ -41,6 +41,20 @@
       default: 取消
       description: 取消按钮文本，如果为空则不显示
       advanced: true
+    - name: icon
+      title: 提示图标
+      type: string
+      options:
+        - value: ""
+          title: 暂无
+        - value: success
+          title: 成功
+        - value: warning
+          title: 警告
+        - value: error
+          title: 错误
+      default: null
+      description: ""
     - name: size
       title: 尺寸
       type: string
@@ -57,20 +71,6 @@
           title: 自适应
       default: normal
       description: 弹窗的尺寸
-    - name: icon
-      title: 提示图标
-      type: string
-      options:
-        - value: null
-          title: 暂无
-        - value: success
-          title: 成功
-        - value: warning
-          title: 警告
-        - value: error
-          title: 错误
-      default: null
-      description: ""
     - name: static
       title: 嵌入页面显示
       type: boolean
