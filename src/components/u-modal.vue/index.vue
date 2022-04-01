@@ -296,7 +296,17 @@ export default UModal;
     margin: 34px 60px;
 }
 
-.body[icon]:not([icon=""]) ::before {
+.body[icon]:not([icon=""]) .text {
+    margin-left: calc(48px + 16px);
+    min-height: 48px;
+}
+
+.body[icon]:not([icon=""]) > :not(.text){
+    margin-left: calc(48px + 16px);
+    min-height: 48px;
+}
+
+.body[icon] ::before {
     position: absolute;
     left: 0;
     top: 0;
@@ -323,19 +333,9 @@ export default UModal;
     line-height: 48px;
 }
 
-.body[icon]:not([icon=""]) .text {
-    margin-left: calc(48px + 16px);
-    min-height: 48px;
-}
-
 .content {
     color: var(--color-base);
     font-size: 16px;
-}
-
-.body[icon]:not([icon=""]) > :not(.text){
-    margin-left: calc(48px + 16px);
-    min-height: 48px;
 }
 
 .description {
