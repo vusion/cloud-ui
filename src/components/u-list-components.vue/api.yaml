@@ -19,7 +19,7 @@
       type: number
       default: 5
       description: 为空时自适应宽度，自动换行
-    - name: ifwidth
+    - name: ifequalwidth
       title: 是否每项均分宽度
       type: boolean
       default: true

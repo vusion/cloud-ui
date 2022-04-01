@@ -16,7 +16,7 @@ export default {
         colnum: {
             type: Number
         },
-        ifwidth: {
+        ifequalwidth: {
             type: Boolean,
             default: true,
         },
@@ -27,7 +27,7 @@ export default {
     },
     computed: {
       comStyle() {
-        if (this.colnum && this.ifwidth) {
+        if (this.colnum && this.ifequalwidth) {
           const num = this.colnum;
           const width = 100 / num;
           return {

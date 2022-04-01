@@ -7,7 +7,7 @@
           :key="index2"
           :item="item2"
           :colnum="colnum"
-          :ifwidth="ifwidth"
+          :ifequalwidth="ifequalwidth"
         >
           <template v-slot="item2">
             <slot :item="item2.item"></slot>
@@ -37,7 +37,7 @@ export default {
             type: Number,
             default: 5,
         },
-        ifwidth: {
+        ifequalwidth: {
             type: Boolean,
             default: true,
         },
