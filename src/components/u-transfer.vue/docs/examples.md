@@ -292,8 +292,7 @@ export default {
 <template>
 <u-transfer :source="source" :target="target" show-head>
     <template #item="{ item }">
-        <h3 :class="$style.title">{{ item.text }}</h3>
-        <u-text wrap="ellipsis">{{ item.text + ' is a specfic language with some features that ...' }}</u-text>
+        <i :class="$style.title">{{ item.text }}</i>
     </template>
 </u-transfer>
 </template>
@@ -340,6 +339,7 @@ export default {
 <style module>
 .title {
     margin: 0;
+    font-weight: bolder;
 }
 </style>
 ```

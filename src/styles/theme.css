@@ -263,7 +263,7 @@
 
     --panel-border-color: var(--border-color-light); /* @hidden */
     --panel-box-shadow-hover: var(--box-shadow-small-hover); /* @hidden */
-    
+
     /* @component u-collapse */
     --collapse-item-fill-background: var(--background-color-light); /* @type color */
     --collapse-border-width: var(--border-width-base);
@@ -297,7 +297,7 @@
     --card-body-padding-y: 12px;
     --card-title-font-size: 18px;
     --card-title-font-weight: bold;
-    
+
     /* @component u-navbar @hidden */
     --navbar-height: 60px;
     --navbar-space-x: 40px;
@@ -569,7 +569,7 @@
     --button-box-shadow-focus-primary: 0 0 0 2px var(--button-box-shadow-focus-primary-color);
     --button-box-shadow-focus-danger: 0 0 0 2px var(--button-box-shadow-focus-danger-color);
     --button-box-shadow-active: 0 0 0 2px var(--button-box-shadow-active-color);
-    
+
     --button-box-shadow-focus-primary-secondary: none; /* @hidden */
     --button-box-shadow-focus-danger-secondary: none; /* @hidden */
     --button-font-weight: normal; /* @hidden */
@@ -640,7 +640,7 @@
     --carousel-button-transition: all 0.3s;
 
     --carousel-button-background: rgba(0, 0, 0, 0.2); /* @hidden */
-    --carousel-button-background-hover: rgba(0, 0, 0, 0.2); /* @hidden */ 
+    --carousel-button-background-hover: rgba(0, 0, 0, 0.2); /* @hidden */
 
     /* @component u-avatar @hidden */
     --avatar-size: 44px;
@@ -776,7 +776,7 @@
     --list-view-height: calc(30px * 10 + var(--border-width-base) * 2);
     --list-view-height-large: calc(30px * 18 + var(--border-width-base) * 2);
     --list-view-height-huge: 80vh;
-    --list-view-head-background: var(--background-color-base);
+    --list-view-head-background: var(--background-color-disabled-light);
     --list-view-body-background: var(--background-color-default);
     --list-view-body-background-disabled: var(--background-color-default);
     --list-view-foot-background: var(--background-color-default);
@@ -784,9 +784,9 @@
     --list-view-border-color-focus: var(--border-color-base);
     --list-view-border-color-disabled: var(--brand-disabled);
     --list-view-status-color: var(--color-light);
-    --list-view-head-padding: 8px 8px;
+    --list-view-head-padding: 8px 12px;
     --list-view-foot-padding: 8px 8px;
-    --list-view-item-padding: 4px 8px;
+    --list-view-item-padding: 5px 12px;
     --list-view-item-background-hover: #ededed;
     --list-view-item-background-hover-inverse: var(--background-color-lighter-inverse);
     --list-view-item-background-readonly-initial: none;
@@ -807,7 +807,7 @@
     --list-view-group-head-padding: 2px 4px;
     --list-view-group-head-background: #ebedf5;
     --list-view-group-expander-size: 26px;
-    --list-view-filter-margin: 5px;
+    --list-view-filter-margin: 12px;
 
     /* @component u-grid-view @hidden */
     --grid-view-item-space: var(--space-base);
@@ -844,24 +844,12 @@
 
     /* @component u-transfer @hidden */
     --transfer-height: var(--list-view-height);
-    --transfer-width: var(--width-medium);
-    --transfer-button-size: var(--height-base);
-    --transfer-button-space: 10px;
-    --transfer-button-background: var(--button-background-primary); /* @type color */
-    --transfer-button-background-hover: var(--button-background-primary-hover); /* @type color */
-    --transfer-button-background-active: var(--button-background-primary-hover); /* @type color */
-    --transfer-button-background-disabled: var(--button-background-primary-disabled); /* @type color */
-    --transfer-button-color: white; /* @type color */
-    --transfer-button-color-hover: white; /* @type color */
-    --transfer-button-color-disabled: white; /* @type color */
-    --transfer-button-border-color: var(--button-background-primary); /* @type color */
-    --transfer-button-border-color-hover: var(--button-background-primary-hover); /* @type color */
-    --transfer-button-border-color-disabled: var(--button-background-primary-disabled); /* @type color */
-
     --transfer-height-large: var(--list-view-height-large); /* @hidden */
     --transfer-height-huge: var(--list-view-height-huge); /* @hidden */
+    --transfer-width: var(--width-medium);
     --transfer-width-large: var(--width-large); /* @hidden */
     --transfer-width-huge: var(--width-huge); /* @hidden */
+    --transfer-button-space: 8px;
 
     /**
      * ========================
@@ -1048,7 +1036,7 @@
     --radio-cursor-readonly: default; /* @hidden */
     --radio-box-shadow-active: var(--button-box-shadow-active); /* @hidden */
     --radio-box-shadow-active-disabled: none; /* @hidden */
-   
+
     /* @component u-switch */
     --switch-width: 40px;
     --switch-height: 20px;
@@ -1236,7 +1224,7 @@
     --uploader-draggable-border-color-hover: var(--brand-primary); /* @type color */
     --uploader-draggable-border-radius: var(--border-radius-large);
     --uploader-draggable-padding: 12px 0 20px;
-    
+
     --uploader-list-image-margin-top: 6px; /* @hidden */
     --uploader-draggable-color: #666; /* @hidden */
     --uploader-draggable-icon-color: #ccc; /* @hidden */
@@ -1249,7 +1237,7 @@
     --uploader-border-color: var(--border-color-base); /* @hidden */
     --uploader-card-icon-font-size: 24px; /* @hidden */
 
-    
+
 
     /**
      * ========================
@@ -1460,7 +1448,7 @@
     --toast-item-icon-color-success: var(--brand-success);
     --toast-item-icon-color-warning: var(--brand-warning);
     --toast-item-icon-color-error: var(--brand-error);
-    --toast-background-color: rgba(0, 0, 0, 0.6);
+    --toast-background-color: rgba(48, 48, 48, 0.8);
 
     /* @component u-modal */
     --modal-dialog-width: 400px;

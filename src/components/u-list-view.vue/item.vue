@@ -3,10 +3,16 @@
     :selected="parentVM.multiple ? currentSelected : isSelected"
     :readonly="parentVM.readonly" :readonly-mode="parentVM.readonlyMode"
     :disabled="disabled || parentVM.disabled"
+    :checkbox="parentVM.multiple && parentVM.checkbox"
     @click="select"
     v-ellipsis-title
     :designer="$env.VUE_APP_DESIGNER"
     vusion-slot-name="item">
+    <u-checkbox v-if="parentVM.multiple && parentVM.checkbox"
+        :readonly="parentVM.readonly"
+        :disabled="disabled || parentVM.disabled"
+        :value="currentSelected"
+    ></u-checkbox>
     <slot>{{ text }}</slot>
 </div>
 </template>

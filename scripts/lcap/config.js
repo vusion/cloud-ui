@@ -24,6 +24,7 @@ module.exports = [
     { group: 'Display', show: true, name: 'u-carousel', alias: '走马灯' },
     { group: 'Display', show: true, name: 'u-info-list', alias: '详情列表' },
     { group: 'Display', show: true, name: 'u-image', alias: '图片展示' },
+    { group: 'Display', show: true, name: 'u-alert', alias: '公告' },
     { group: 'Navigation', show: true, name: 'u-dropdown', alias: '下拉菜单' },
 
     { group: 'Table', show: true, name: 'u-table-view', alias: '数据表格' },

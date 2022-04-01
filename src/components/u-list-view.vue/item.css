@@ -22,7 +22,7 @@
     background: transparent;
 }
 
-.root[selected] {
+.root[selected]:not([checkbox]) {
     background: var(--list-view-item-background-selected);
     color: var(--list-view-item-color-selected);
 }
@@ -33,7 +33,7 @@
     color: var(--list-view-item-color-disabled);
 }
 
-.root[selected][disabled] {
+.root[selected][disabled]:not([checkbox]) {
     background: var(--list-view-item-background-selected-disabled);
 }
 
