@@ -34,7 +34,7 @@
       type: boolean
       default: false
       description: "是否允许选中后点击清除"
-    - name: showText
+    - name: show-text
       title: 展示辅助文字
       type: boolean
       default: false
@@ -44,7 +44,7 @@
       type: Array
       default: ['极差', '失望', '一般', '满意', '惊喜']
       description: "辅助文字设置，与showText配合使用"
-    - name: showTooltip
+    - name: show-tooltip
       title: 展示Tooltip
       type: boolean
       default: false
