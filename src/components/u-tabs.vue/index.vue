@@ -9,7 +9,7 @@
                 <div ref="scrollView" :class="$style['scroll-view']">
                     <div :class="$style.scroll">
                         <template v-for="(itemVM, index) in itemVMs">
-                            <a v-show="!itemVM.hidden" :class="$style.item" 
+                            <a v-show="!itemVM.hidden" :class="$style.item"
                                 ref="item"
                                 :key="index"
                                 :is-sub="itemVM.$attrs['is-sub']"
@@ -19,7 +19,7 @@
                                 :vusion-disabled-move="itemVM.$attrs['vusion-disabled-move']"
                                 :vusion-disabled-duplicate="itemVM.$attrs['vusion-disabled-duplicate']"
                                 :vusion-disabled-cut="itemVM.$attrs['vusion-disabled-cut']"
-                                :href="itemVM.currentHref" :target="itemVM.target" :title="itemVM.title"
+                                :href="itemVM.currentHref" :target="itemVM.target" :title="showTitle ? itemVM.title : null"
                                 :selected="router ? itemVM.active : itemVM === selectedVM"
                                 :disabled="itemVM.disabled || disabled"
                                 :style="{ width: currentItemWidth }"
@@ -65,6 +65,7 @@ export default {
         size: { type: String, default: 'normal' },
         itemWidth: { type: String, default: 'auto' },
         itemAlign: { type: String, default: 'center' },
+        showTitle: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -165,7 +166,7 @@ export default {
                         const itemEl = children[i] || {};
                         activeMin += itemEl.offsetWidth || 0;
                     }
-                    const activeMax = activeMin + ((children[index] || {}).offsetWidth || 0) ;    
+                    const activeMax = activeMin + ((children[index] || {}).offsetWidth || 0) ;
                     // 可视区宽度
                     const scrollWidth = scrollViewEl.clientWidth;
                     // 可视区域左侧
