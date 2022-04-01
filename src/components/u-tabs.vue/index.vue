@@ -84,7 +84,8 @@ export default {
     watch: {
         itemVMs(itemVMs) {
             this.$nextTick(() => {
-                this.scrollable = this.$refs.scrollView.scrollWidth > this.$refs.scrollView.clientWidth;
+                const threshold = 1;  // IE 浏览器缩放时，scrollWidth 可能会比 clientWidth 大 1 像素
+                this.scrollable = this.$refs.scrollView.scrollWidth - this.$refs.scrollView.clientWidth > threshold;
                 this.$refs.item
                     && this.$refs.item.forEach((itemEl, index) => {
                         itemEl.__vue__ = itemVMs[index];
