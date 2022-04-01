@@ -916,18 +916,7 @@
                 "cssProperty": {
                     "--transfer-height": "input",
                     "--transfer-width": "input",
-                    "--transfer-button-size": "input",
-                    "--transfer-button-space": "input",
-                    "--transfer-button-background": "color",
-                    "--transfer-button-background-hover": "color",
-                    "--transfer-button-background-active": "color",
-                    "--transfer-button-background-disabled": "color",
-                    "--transfer-button-color": "color",
-                    "--transfer-button-color-hover": "color",
-                    "--transfer-button-color-disabled": "color",
-                    "--transfer-button-border-color": "color",
-                    "--transfer-button-border-color-hover": "color",
-                    "--transfer-button-border-color-disabled": "color"
+                    "--transfer-button-space": "input"
                 },
                 "preview": {
                     "template": "<u-transfer show-head\n    source-title=\"左列表\"\n    target-title=\"右列表\"\n    :source=\"source\"\n    :target=\"target\">\n</u-transfer>",

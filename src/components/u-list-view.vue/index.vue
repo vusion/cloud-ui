@@ -12,7 +12,7 @@
             </div>
         </slot>
     </div>
-    <u-input v-if="filterable" :class="$style.filter" :disabled="disabled" :placeholder="placeholder" :size="filterSize" suffix="search" :clearable="clearable"
+    <u-input v-if="filterable" :class="$style.filter" :disabled="disabled" :placeholder="placeholder" :size="filterSize" prefix="search" :clearable="clearable"
         :value="filterText" @input="onInput">
     </u-input>
     <div ref="body" :class="$style.body" @scroll.stop="onScroll">
@@ -142,6 +142,7 @@ export default {
         // @inherit: virtualCount: { type: Number, default: 60 },
         // @inherit: throttle: { type: Number, default: 60 },
         listKey: { type: String, default: 'currentData' },
+        checkbox: { type: Boolean, default: false },
     },
     data() {
         return {

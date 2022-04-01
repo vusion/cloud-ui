@@ -1,51 +1,81 @@
 <template>
-<div :class="$style.root">
-    <u-list-view :class="$style.listView" multiple :data-source="source" v-model="sourceValues"
-        :text-field="textField"
-        :value-field="valueField"
-        :show-head="showHead"
-        :title="sourceTitle"
-        :show-foot="showFoot"
-        :loading="loading"
-        :error="error"
-        :filterable="filterable"
-        :placeholder="placeholder"
-        :clearable="clearable"
-        :match-method="matchMethod"
-        :case-sensitive="caseSensitive"
-        :pageable="pageable"
-        ref="source"
-        :page-size="pageSize">
-        <template #item="props">
-            <slot name="item" v-bind="props"></slot>
-        </template>
-    </u-list-view>
-    <div :class="$style.buttons">
-        <span :class="$style.button" role="reverse" :disabled="!targetValues.length" @click="reverse()"></span>
-        <span :class="$style.button" role="forward" :disabled="!sourceValues.length" @click="forward()"></span>
+    <div :class="$style.root">
+        <u-list-view
+            :class="$style.listView"
+            multiple
+            :checkbox="checkbox"
+            :data-source="source"
+            v-model="sourceValues"
+            :text-field="textField"
+            :value-field="valueField"
+            :show-head="showHead"
+            :title="sourceTitle"
+            :show-foot="showFoot"
+            :loading="loading"
+            :error="error"
+            :filterable="filterable"
+            :filter-size="filterSize"
+            :placeholder="placeholder"
+            :clearable="clearable"
+            :match-method="matchMethod"
+            :case-sensitive="caseSensitive"
+            :pageable="pageable"
+            ref="source"
+            :page-size="pageSize"
+        >
+            <template #item="props">
+                <slot name="item" v-bind="props"></slot>
+            </template>
+        </u-list-view>
+        <div :class="$style.buttons">
+            <u-button
+                color="primary"
+                shape="square"
+                icon="left-arrow"
+                role="reverse"
+                :class="$style.button"
+                :disabled="!targetValues.length"
+                @click="reverse()"
+            ></u-button>
+            <u-button
+                color="primary"
+                shape="square"
+                icon="right-arrow"
+                role="forward"
+                :class="$style.button"
+                :disabled="!sourceValues.length"
+                @click="forward()"
+            ></u-button>
+        </div>
+        <u-list-view
+            :class="$style.listView"
+            multiple
+            :checkbox="checkbox"
+            :data-source="target"
+            v-model="targetValues"
+            :text-field="textField"
+            :value-field="valueField"
+            :show-head="showHead"
+            :title="targetTitle"
+            :show-foot="showFoot"
+            :loading="loading"
+            :error="error"
+            :filterable="filterable"
+            :filter-size="filterSize"
+            :placeholder="placeholder"
+            :clearable="clearable"
+            :match-method="matchMethod"
+            :case-sensitive="caseSensitive"
+            :pageable="pageable"
+            ref="target"
+            :page-size="pageSize"
+        >
+            <template #item="props">
+                <slot name="item" v-bind="props"></slot>
+            </template>
+        </u-list-view>
+        <slot></slot>
     </div>
-    <u-list-view :class="$style.listView" multiple :data-source="target" v-model="targetValues"
-        :text-field="textField"
-        :value-field="valueField"
-        :show-head="showHead"
-        :title="targetTitle"
-        :show-foot="showFoot"
-        :loading="loading"
-        :error="error"
-        :filterable="filterable"
-        :placeholder="placeholder"
-        :clearable="clearable"
-        :match-method="matchMethod"
-        :case-sensitive="caseSensitive"
-        :pageable="pageable"
-        ref="target"
-        :page-size="pageSize">
-        <template #item="props">
-            <slot name="item" v-bind="props"></slot>
-        </template>
-    </u-list-view>
-    <slot></slot>
-</div>
 </template>
 
 <script>
@@ -65,6 +95,8 @@ export default {
         error: UListView.props.error,
         showFoot: UListView.props.showFoot,
         filterable: UListView.props.filterable,
+        filterSize: { type: String, default: 'medium' },
+        checkbox: { type: Boolean, default: true },
         placeholder: UListView.props.placeholder,
         clearable: UListView.props.clearable,
         matchMethod: UListView.props.matchMethod,
@@ -135,71 +167,41 @@ export default {
 }
 
 .buttons {
-    margin: var(--transfer-button-space);
-}
-
-.button {
+    margin: 0 12px;
     display: block;
-    text-align: center;
-    width: var(--transfer-button-size);
-    height: var(--transfer-button-size);
-    line-height: calc(var(--transfer-button-size) - var(--border-width-base) * 2);
-    background: var(--transfer-button-background);
-    color: var(--transfer-button-color);
-    border: var(--border-width-base) solid var(--transfer-button-border-color);
-    border-radius: 100%;
-    transition: all var(--transition-duration-base);
 }
-
 .button:not(:last-child) {
     margin-bottom: var(--transfer-button-space);
 }
 
-.button:hover {
-    /* Required for `a` elements */
-    text-decoration: none;
-    background: var(--transfer-button-background-hover);
-    color: var(--transfer-button-color-hover);
-    border-color: var(--transfer-button-border-color-hover);
+.root[size^="normal"] .listView {
+    height: var(--transfer-height);
 }
-
-.button:focus {
-    /* Remove default focus style */
-    outline: var(--focus-outline);
-    /* Required for `a` elements */
-    text-decoration: none;
+.root[size^="large"] .listView {
+    height: var(--transfer-height-large);
 }
-
-.button:active {
-    background: var(--transfer-button-background-active);
+.root[size^="huge"] .listView {
+    height: var(--transfer-height-huge);
 }
-
-.button[disabled] {
-    /* @Private */
-    cursor: var(--cursor-not-allowed);
-
-    /* @Public */
-    background: var(--transfer-button-background-disabled);
-    border-color: var(--transfer-button-border-color-disabled);
-    color: var(--transfer-button-color-disabled);
+.root[size^="full"] .listView {
+    height: 100%;
 }
-
-.button[role="reverse"]::before {
-    content: '\276e';
+.root[size^="auto"] .listView {
+    height: auto;
 }
-
-.button[role="forward"]::after {
-    content: '\276f';
+.root[size$="normal"] .listView {
+    width: var(--transfer-width);
 }
-
-.root[size^="normal"] .listView { height: var(--transfer-height); }
-.root[size^="large"] .listView { height: var(--transfer-height-large); }
-.root[size^="huge"] .listView { height: var(--transfer-height-huge); }
-.root[size^="full"] .listView { height: 100%; }
-.root[size^="auto"] .listView { height: auto; }
-.root[size$="normal"] .listView { width: var(--transfer-width); }
-.root[size$="large"] .listView { width: var(--transfer-width-large); }
-.root[size$="huge"] .listView { width: var(--transfer-width-huge); }
-.root[size$="full"] .listView { width: 100%; }
-.root[size$="auto"] .listView { width: auto; }
+.root[size$="large"] .listView {
+    width: var(--transfer-width-large);
+}
+.root[size$="huge"] .listView {
+    width: var(--transfer-width-huge);
+}
+.root[size$="full"] .listView {
+    width: 100%;
+}
+.root[size$="auto"] .listView {
+    width: auto;
+}
 </style>

@@ -779,7 +779,7 @@
     --list-view-height: calc(30px * 10 + var(--border-width-base) * 2);
     --list-view-height-large: calc(30px * 18 + var(--border-width-base) * 2);
     --list-view-height-huge: 80vh;
-    --list-view-head-background: var(--background-color-base);
+    --list-view-head-background: var(--background-color-disabled-light);
     --list-view-body-background: var(--background-color-default);
     --list-view-body-background-disabled: var(--background-color-default);
     --list-view-foot-background: var(--background-color-default);
@@ -787,9 +787,9 @@
     --list-view-border-color-focus: var(--border-color-base);
     --list-view-border-color-disabled: var(--brand-disabled);
     --list-view-status-color: var(--color-light);
-    --list-view-head-padding: 8px 8px;
+    --list-view-head-padding: 8px 12px;
     --list-view-foot-padding: 8px 8px;
-    --list-view-item-padding: 4px 8px;
+    --list-view-item-padding: 5px 12px;
     --list-view-item-background-hover: #ededed;
     --list-view-item-background-hover-inverse: var(--background-color-lighter-inverse);
     --list-view-item-background-readonly-initial: none;
@@ -810,7 +810,7 @@
     --list-view-group-head-padding: 2px 4px;
     --list-view-group-head-background: #ebedf5;
     --list-view-group-expander-size: 26px;
-    --list-view-filter-margin: 5px;
+    --list-view-filter-margin: 12px;
 
     /* @component u-grid-view */
     --grid-view-item-space: var(--space-base);
@@ -851,18 +851,7 @@
     --transfer-width: var(--width-medium);
     --transfer-width-large: var(--width-large);
     --transfer-width-huge: var(--width-huge);
-    --transfer-button-size: var(--height-base);
-    --transfer-button-space: 10px;
-    --transfer-button-background: var(--button-background-primary);
-    --transfer-button-background-hover: var(--button-background-primary-hover);
-    --transfer-button-background-active: var(--button-background-primary-hover);
-    --transfer-button-background-disabled: var(--button-background-primary-disabled);
-    --transfer-button-color: white;
-    --transfer-button-color-hover: white;
-    --transfer-button-color-disabled: white;
-    --transfer-button-border-color: var(--button-background-primary);
-    --transfer-button-border-color-hover: var(--button-background-primary-hover);
-    --transfer-button-border-color-disabled: var(--button-background-primary-disabled);
+    --transfer-button-space: 8px;
 
     /**
      * ========================
@@ -1450,7 +1439,7 @@
     --toast-item-icon-color-success: var(--brand-success);
     --toast-item-icon-color-warning: var(--brand-warning);
     --toast-item-icon-color-error: var(--brand-error);
-    --toast-background-color: rgba(0, 0, 0, 0.6);
+    --toast-background-color: rgba(48, 48, 48, 0.8);
 
     /* @component u-modal */
     --modal-dialog-width: 400px;
