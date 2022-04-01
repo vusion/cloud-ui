@@ -1,16 +1,20 @@
 <template>
-<div :class="[$style.header, preIcon ? $style.preIconHeader: '', suffixIcon ? $style.suffixIconHeader: '']" :style="{
-    width: `${width}px`
-}">
-    <i-ico v-if="preIcon" :name="preIcon" :class="[$style.btnicon, $style.preIcon]" notext></i-ico>
-    <input :class="$style.input" :placeholder="placeholder" @click.stop="toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
-    <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
-        <i :class="[$style.closeIcon]"></i>
-    </span>
-    <i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.btnicon, $style.suffixIcon]" notext></i-ico>
-    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
+<div :class="$style.root">
+    <u-input :class="$style.input" :width="width" :height="height" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
+        :clearable="clearable" :placeholder="placeholder"
+        @click.stop="toggle(true)"
+        @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
+        @blur:value="onBlurInputValue($event)"
+        @clear="clearValue"
+        :prefix="preIcon"
+        :suffix="suffixIcon"
+        :color="formItemVM && formItemVM.color">
+        <template #prefix><i-ico v-if="preIcon" :name="preIcon" :class="[$style.preIcon]" notext slot="prefix"></i-ico></template>
+        <template #suffix><i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.suffixIcon]" notext></i-ico></template>
+    </u-input>
+    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
         <div :class="$style.body" @click.stop>
-            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="showDate" :value="date" @select="select($event.date)"></u-calendar>
+            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="calendarDate" :value="date" @select="select($event.date)"></u-calendar>
         </div>
     </m-popper>
 </div>
@@ -65,7 +69,6 @@ export default {
                 return this.$t('selectDateText');
             },
         },
-        width: { type: [String, Number], default: '' },
         alignment: {
             type: String,
             default: 'left',
@@ -84,10 +87,16 @@ export default {
             validator: (value) => ['body', 'reference'].includes(value),
         },
         opened: { type: Boolean, default: false },
+        width: { type: String, default: 'full' },
+        height: { type: String, default: 'full' },
     },
     data() {
         const date = this.date || this.value;
-        return { showDate: this.format(date, this.getFormatString()), lastDate: '' };
+        const showDate = this.format(date, this.getFormatString());
+        return { 
+            showDate,
+            calendarDate: showDate, // calendar里的值
+        };
     },
     computed: {
         placement() {
@@ -114,6 +123,7 @@ export default {
             this.$emit('update:date', this.toValue(newDate));
             this.$emit('change', { sender: this, date: newDate });
             this.$emit('input', this.toValue(newDate));
+            this.calendarDate = newDate; // showDate改变时设置calendar里的值
         },
         minDate(newValue) {
             return this.checkDate(newValue);
@@ -140,7 +150,7 @@ export default {
         );
     },
     mounted() {
-        this.autofocus && this.$refs.input.focus();
+        // this.autofocus && this.$refs.input.focus();
         // 在编辑器里不要打开
         if(!this.$env.VUE_APP_DESIGNER)
             this.toggle(this.opened);
@@ -212,19 +222,20 @@ export default {
          * @return {void}
          */
         onInput($event) {
-            const value = $event.target.value;
-            let date = value ? new Date(this.transformDate(value)) : null;
-            this.lastDate = this.showDate;
-            let showDate = '';
-            if (date !== null && date.toString() !== 'Invalid Date') {
-                date = this.isOutOfRange(date) || date; // 此处有坑 需要特殊处理 由于改成最小值 再次输入不合法的值会变成最小值 认为没有发生变化
-                showDate = this.format(date, this.getFormatString());
-            } else
-                showDate = this.$refs.input.value = this.format(
-                    this.lastDate,
-                    this.getFormatString(),
-                );
-            this.showDate = showDate;
+            const value = $event;
+            if(value === '') { // 可以输空值
+                this.showDate = undefined;
+                return;
+            }
+            if(this.checkValid(value)) {
+                let date = new Date(this.transformDate(value));
+                const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
+                date = isOutOfRange ? this.showDate : date;
+                const showDate = this.format(date, this.getFormatString());
+                this.showDate = showDate;
+                this.calendarDate = showDate;
+                this.$refs.input.updateCurrentValue(this.showDate);
+            }
         },
         /**
          * @method isOutOfRange(date) 是否超出规定的日期范围
@@ -255,14 +266,6 @@ export default {
         },
         format,
         transformDate,
-        closeCalendar(e) {
-            if (this.showDate)
-                this.$refs.calendar.updateShowDate(this.showDate);
-            this.$emit('blur', e, this);
-            setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
-                this.preventBlur = false;
-            }, 0);
-        },
         returnTime(date) {
             if (!date)
                 return;
@@ -302,21 +305,32 @@ export default {
         toggle(value) {
             this.$refs.popper && this.$refs.popper.toggle(value);
         },
+        checkValid(value) {
+            const reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+            return reg.test(value);
+        },
+        onBlurInputValue(value) {
+            // 当输入框输入的值不合法，需还原成上一次合法的值
+            if(value && !this.checkValid(value)) {
+                this.showDate = this.format(this.calendarDate, this.getFormatString())
+                this.$refs.input.updateCurrentValue(this.showDate);
+            }
+        },
+        onPopperClose(e) {
+            this.$emit('blur', e, this);
+            setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
+                this.preventBlur = false;
+            }, 0);
+        },
     },
 };
 </script>
 
 <style module>
-.header {
+.root {
     width: var(--datepicker-input-width);
     display: inline-block;
     position: relative;
-}
-
-.btnicon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .preIcon {
@@ -329,107 +343,11 @@ export default {
     color: var(--datepicker-input-after-icon-color);
 }
 
-.input {
-    width: 100%;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0 var(--datepicker-input-padding-x);
-    vertical-align: middle;
-    border: var(--datepicker-input-border-width) solid var(--datepicker-input-border-color);
-    color: var(--datepicker-input-color);
-    background: var(--datepicker-input-background);
-    border-radius: var(--datepicker-input-border-radius);
-    height: var(--datepicker-input-height);
-    line-height: calc(var(--datepicker-input-height) - var(--datepicker-input-border-width) * 2);
-    outline: none;
-}
-
-.preIconHeader .input {
-    padding-left: calc(var(--datepicker-input-padding-x) + 26px);
-}
-
-.suffixIconHeader .input {
-    padding-right: calc(var(--datepicker-input-padding-x) + 26px);
-}
-
-.input[disabled] {
-    width: 100%;
-    cursor: var(--cursor-not-allowed);
-    background: var(--datepicker-input-background-disabled);
-    color: var(--color-light);
-}
-
-.input[color="error"] {
-    border-color: var(--datepicker-input-border-color-error);
-}
-
-.input:focus {
-    outline: var(--focus-outline);
-    border-color: var(--datepicker-input-border-color-focus);
-    box-shadow: var(--datepicker-input-box-shadow-focus);
-}
-
-.header:hover .input{
-    border-color: var(--datepicker-input-border-color-focus);
-}
-
-.input[focus] {
-    border-color: var(--datepicker-input-border-color-focus);
-    box-shadow: var(--datepicker-input-box-shadow-focus);
-}
-
-.input:-ms-input-placeholder, .input::-ms-input-placeholder {
-    /* Removes placeholder transparency in Firefox, IE, Edge. */
-    opacity: 1;
-    font-size: inherit;
-    color: var(--datepicker-input-placeholder-color);
-}
-
-.placeholder, .input::placeholder {
-    opacity: 1;
-    font-size: inherit;
-    color: var(--datepicker-input-placeholder-color);
-}
-
 .body {
     position: relative;
     z-index: 100;
     width: 248px;
     top: 100%;
-}
-
-.wrap {
-    position: absolute;
-    text-align: center;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.suffixIconHeader .wrap  {
-    right: calc(10px + 26px);
-}
-
-.close {
-    cursor: var(--cursor-pointer);
-}
-
-.closeIcon:hover::before {
-    color: var(--datepicker-input-icon-color-hover);
-}
-
-.closeIcon::before {
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    line-height: 1;
-    height: 1em;
-    margin: auto;
-    icon-font: url('../i-icon.vue/assets/close-solid.svg');
-    cursor: var(--cursor-pointer);
-    color: var(--datepicker-input-clear-icon-color);
 }
 
 .popper {

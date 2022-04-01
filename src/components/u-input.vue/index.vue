@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :readonly="readonly" :disabled="disabled" :color="currentColor || formItemVM && formItemVM.color"
-    :focus="focused" :clearable="clearable && currentValue" :prefix="prefix" :suffix="suffix"
+    :focus="focused" :clearable="clearable && currentValue" :prefix="prefix?prefix:undefined" :suffix="suffix?suffix:undefined"
     :show-password="showPassword" :password="password"
     @click.self="!focused && focus()">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
@@ -13,10 +13,12 @@
         @compositionend="onCompositionEnd"
         :title="currentValue && !disabled ? '' : ($attrs.title || placeholder)">
     <slot></slot>
-    <span :class="$style.password" v-if="password" @click.stop="togglePassword"></span>
-    <span v-if="suffix" v-show="!clearable || !currentValue" :class="$style.suffix" :name="suffix"
-        @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
-    <span :class="$style.clearable" v-if="clearable && currentValue" @click.stop="clear"></span>
+    <span :class="$style.suffix" v-if="password || suffix || clearable">
+        <span :class="$style.password" v-if="password" @click.stop="togglePassword"></span>
+        <span v-if="suffix" :name="suffix"
+            @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
+        <span :class="$style.clearable" v-if="clearable && currentValue" @click.stop="clear"></span>
+    </span>
 </div>
 </template>
 
@@ -142,6 +144,7 @@ export default {
         onBlur(e) {
             this.focused = false;
             this.$emit('blur', e, this);
+            this.$emit('blur:value', this.currentValue);
         },
         onCompositionEnd(e) {
             // 中文输入的时候，会先触发 onInput 事件，再触发此事件，导致不能捕捉到中文输入
@@ -202,6 +205,9 @@ export default {
                     + 'px';
                 inputEl.style.height = '';
             }
+        },
+        updateCurrentValue(value) {
+            this.currentValue = value;
         },
     },
 };

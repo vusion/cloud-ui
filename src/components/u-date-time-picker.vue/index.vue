@@ -1,27 +1,50 @@
 <template>
 <div :class="$style.root" ref="element">
-    <div :class="[$style.head, preIcon ? $style.preIconHeader: '', suffixIcon ? $style.suffixIconHeader: '']">
-        <i-ico v-if="preIcon" :name="preIcon" :class="[$style.btnicon, $style.preIcon]" notext></i-ico>
-        <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
-            @click.stop="toggle(true)" @change="onInput($event)" @focus="onFocus" @blur="onBlur">
-         <span v-if="dateTime && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
-            <i :class="[$style.closeIcon]"></i>
-        </span>
-        <i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.btnicon, $style.suffixIcon]" notext></i-ico>
-    </div>
-    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
+    <u-input :class="$style.input" :width="width" :height="height" :value="finalDateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
+        :clearable="clearable" :placeholder="placeholder"
+        @click.stop="toggle(true)"
+        @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
+        @blur:value="onBlurInputValue($event)"
+        @clear="clearValue"
+        :prefix="preIcon"
+        :suffix="suffixIcon"
+        :color="formItemVM && formItemVM.color">
+        <template #prefix><i-ico v-if="preIcon" :name="preIcon" :class="[$style.preIcon]" notext slot="prefix"></i-ico></template>
+        <template #suffix><i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.suffixIcon]" notext></i-ico></template>
+    </u-input>
+    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement"
+        @toggle="onToggle($event)"
+        @close="onPopperClose"
+        @open="onPopperOpen">
         <div :class="$style.body" @click.stop>
-            <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate" @select="outRangeDateTime($event.date, showTime)">
-                <u-time-picker :class="$style.timePicker" :readonly="readonly" :time="showTime" width="50" :min-time="minTime" :max-time="maxTime" @change="outRangeDateTime(showDate, $event.time)"></u-time-picker>
-                    <slot name="footer">
-                        <div :class="$style.footer">
-                            <u-linear-layout justify="end">
-                                <u-button size="small" @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ $t('now') }}</u-button>
-                                <u-button size="small" @click="toggle(false)" color="primary" :readonly="readonly" :disabled="disabled">{{ $t('submit') }}</u-button>
-                            </u-linear-layout>
-                        </div>
-                    </slot>
+            <div :class="$style.popperhead">
+                <u-input :placeholder="popperplaceholder" :class="$style.pickerinput" :value="showDate" clearable
+                    ref="dateInput"
+                    @blur:value="onDateChange($event)">
+                </u-input>
+                <u-time-picker :class="$style.pickerinput" :readonly="readonly" :time="showTime" 
+                    width="50" :min-time="minTime" :max-time="maxTime"
+                    :simple-foot="true" pre-icon=""
+                    :disabled="!showDate"
+                    @change="outRangeDateTime(showDate, $event.time)">
+                </u-time-picker>
+            </div>
+            <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" 
+                :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate"
+                :border="false"
+                @select="outRangeDateTime($event.date, showTime)">
             </u-calendar>
+            <div :class="$style.footer">
+                <u-linear-layout justify="space-between">
+                    <u-linear-layout :class="$style.ctimewrap">
+                        <u-link @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ $t('now') }}</u-link>
+                    </u-linear-layout>
+                    <u-linear-layout>
+                        <u-button @click="onCancel">{{ $t('cancel') }}</u-button>
+                        <u-button @click="onConfirm" color="primary" :readonly="readonly" :disabled="disabled">{{ $t('submit') }}</u-button>
+                    </u-linear-layout>
+                </u-linear-layout>
+            </div>
         </div>
     </m-popper>
     <slot></slot>
@@ -71,7 +94,6 @@ export default {
         minDate: [String, Number, Date],
         maxDate: [String, Number, Date],
         date: [String, Number, Date],
-        width: { type: [String, Number], default: 170 },
         yearDiff: { type: [String, Number], default: 20 },
         yearAdd: { type: [String, Number], default: 20 },
         converter: { type: String, default: 'json' },
@@ -89,23 +111,23 @@ export default {
                 return ['left', 'right'].includes(value);
             },
         },
+        width: { type: String, default: 'full' },
+        height: { type: String, default: 'full' },
     },
     data() {
         return {
-            dateTime: this.format(this.date, 'YYYY-MM-DD HH:mm:ss'),
+            dateTime: this.format(this.date, 'YYYY-MM-DD HH:mm:ss'), // popper选择以后的值
             open: false,
             minTime: undefined,
             maxTime: undefined,
             currentMaxDate: this.getMaxDate(), // 可能会存在最大值小于最小值情况，组件需要内部处理让最大值和最小值一样
+            popperplaceholder: this.$t('selectPopperDateText'),
+            finalDateTime: this.format(this.date, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
+            showDate: undefined, // popper里的日期输入框
+            showTime: undefined, // popper里的时间输入框
         };
     },
     computed: {
-        showTime() {
-            return this.format(this.dateTime, 'HH:mm:ss');
-        },
-        showDate() {
-            return this.format(this.dateTime, 'YYYY-MM-DD');
-        },
         minCalendarDate() {
             return this.format(this.minDate, 'YYYY-MM-DD');
         },
@@ -151,16 +173,20 @@ export default {
                     newValue = this.format(isOutOfRange, 'YYYY-MM-DD HH:mm:ss');
             }
             const newDateTime = newValue ? this.toValue(new Date(newValue.replace(/-/g, '/'))) : undefined;
-            this.$emit('update:date', newDateTime);
-            /**
-             * @event change 日期时间改变时触发
-             * @property {object} sender 事件发送对象
-             * @property {object} date 改变后的日期时间
-             */ this.$emit('change', {
-                sender: this,
-                date: newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : undefined,
-            }); // 方便u-field组件捕获到其值
-            this.$emit('input', newDateTime);
+            this.showDate = this.format(newDateTime, 'YYYY-MM-DD');
+            this.showTime = this.format(newDateTime, 'HH:mm:ss');
+
+            // 点击确定后才抛出事件，所以这里注释掉
+            // this.$emit('update:date', newDateTime);
+            // /**
+            //  * @event change 日期时间改变时触发
+            //  * @property {object} sender 事件发送对象
+            //  * @property {object} date 改变后的日期时间
+            //  */ this.$emit('change', {
+            //     sender: this,
+            //     date: newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : undefined,
+            // }); // 方便u-field组件捕获到其值
+            // this.$emit('input', newDateTime);
         },
         maxDate(value) {
             this.currentMaxDate = this.getMaxDate(value);
@@ -179,10 +205,6 @@ export default {
             'update',
             this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
         );
-        if(this.minDate)
-            this.minTime = this.format(this.minDate, 'HH:mm:ss');
-        if(this.maxDate)
-            this.maxTime = this.format(this.maxDate, 'HH:mm:ss');
     },
     mounted() {
         this.autofocus && this.$refs.input.focus();
@@ -192,7 +214,7 @@ export default {
     },
     methods: {
         clearValue() {
-            this.dateTime = undefined;
+            this.finalDateTime = undefined;
         },
         toValue(date) {
             if (!date)
@@ -210,11 +232,12 @@ export default {
          * @method outRangeDateTime(date, time) 修改日期为最大日期或最小日期
          * @private
          * @return {void}
-         */ outRangeDateTime(date, time) {
+         */ 
+        outRangeDateTime(date, time) {
             if (!time)
-time = '00:00:00';
+                time = '00:00:00';
             if (date)
-date = new Date(date);
+                date = new Date(date);
             else {
                 this.$emit('select', { sender: this, date: '' });
                 return;
@@ -266,9 +289,10 @@ date = new Date(date);
          * @method onDateTimeChange(date, time) 日期或时间改变后更新日期时间
          * @private
          * @return {void}
-         */ onDateTimeChange(date, time) {
+         */ 
+        onDateTimeChange(date, time) {
             if (!time)
-time = '00:00:00';
+                time = '00:00:00';
             date = new Date(date);
             time = time.split(':');
             date.setHours(time[0]);
@@ -285,9 +309,27 @@ time = '00:00:00';
          * @private
          * @param  {object} $event
          * @return {void}
-         */ onInput($event) {
-            const value = $event.target.value;
-            this.updateDate(value);
+         */ 
+        onInput($event) {
+            const value = $event;
+            if(value === '') { // 可以输空值
+                this.finalDateTime = undefined;
+                this.emitValue();
+                return;
+            }
+            if(this.checkValid(value)) {
+                let date = new Date((value));
+                const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
+                date = isOutOfRange ? this.finalDateTime : date;
+                this.finalDateTime = this.format(date, 'YYYY-MM-DD HH:mm:ss');
+                this.$refs.input.updateCurrentValue(this.finalDateTime);
+                this.emitValue();
+            }
+        },
+        onBlurInputValue(value) {
+            if(!this.checkValid(value)) {
+                this.$refs.input.updateCurrentValue(this.finalDateTime);
+            }
         },
         updateDate(value) {
             let date = value ? new Date(value) : null;
@@ -295,7 +337,6 @@ time = '00:00:00';
                 date = this.isOutOfRange(date) || date;
                 this.dateTime = this.format(date, 'YYYY-MM-DD HH:mm:ss');
             } else {
-                this.$refs.input.value = '';
                 this.dateTime = '';
             }
         },
@@ -307,7 +348,8 @@ time = '00:00:00';
          * @public
          * @param {Date} date 待测的日期时间
          * @return {boolean|Date} date 如果没有超出日期时间范围，则返回false；如果超出日期时间范围，则返回范围边界的日期时间
-         */ isOutOfRange(date) {
+         */ 
+        isOutOfRange(date) {
             date = this.transformDate(date);
             const minDate = this.transformDate(this.minDate);
             const maxDate = this.transformDate(this.currentMaxDate); // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期时间。
@@ -354,7 +396,66 @@ time = '00:00:00';
             setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
                 this.preventBlur = false;
             }, 0);
-        }
+            this.showDate = undefined;
+            this.showTime = undefined;
+        },
+        onCancel() {
+            this.toggle(false);
+        },
+        onConfirm() {
+            this.toggle(false);
+            this.finalDateTime = this.dateTime;
+            this.emitValue();
+        },
+        emitValue() {
+            const newDateTime = this.finalDateTime ? this.toValue(new Date(this.finalDateTime.replace(/-/g, '/'))) : undefined;
+            this.$emit('update:date', newDateTime);
+            /**
+             * @event change 日期时间改变时触发
+             * @property {object} sender 事件发送对象
+             * @property {object} date 改变后的日期时间
+             */ 
+            this.$emit('change', {
+                sender: this,
+                date: this.finalDateTime ? new Date(this.finalDateTime.replace(/-/g, '/')).getTime() : undefined,
+            }); // 方便u-field组件捕获到其值
+            this.$emit('input', this.finalDateTime);
+        },
+        onPopperOpen() {
+            this.dateTime = this.format(new Date(this.finalDateTime), 'YYYY-MM-DD HH:mm:ss');
+            this.showDate = this.format(this.dateTime, 'YYYY-MM-DD');
+            this.showTime = this.format(this.dateTime, 'HH:mm:ss');
+        },
+        /**
+         * 时间输入框输入的时候
+         */
+        onDateChange(value) {
+            if(value === ''){
+                this.showDate = undefined;
+                return;
+            }
+            let showDate = this.format(this.finalDateTime, 'YYYY-MM-DD');
+            if(this.checkDate(value)) {
+                const date = new Date(this.transformDate(value + ' ' + this.spMinTime));
+                const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
+                console.log('date', date);
+                console.log('isOutOfRange', isOutOfRange);
+                if(!isOutOfRange){
+                    showDate = this.format(date, 'YYYY-MM-DD');
+                }
+            }
+            this.showDate = showDate;
+            this.$refs.dateInput.updateCurrentValue(this.showDate);
+            this.outRangeDateTime(this.showDate, this.showTime);
+        },
+        checkValid(value) {
+            const reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])\s+(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d$/;
+            return reg.test(value);
+        },
+        checkDate(value) {
+            const reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+            return reg.test(value);
+        },
     },
 };
 </script>
@@ -367,43 +468,6 @@ time = '00:00:00';
     width: var(--datetime-input-width);
 }
 
-.input {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0 var(--datetime-input-padding-x);
-    vertical-align: middle;
-    border: var(--datetime-input-border-width) solid var(--datetime-input-border-color);
-    color: #555;
-    background: var(--field-background);
-    border-radius: var(--datetime-input-border-radius);
-    height: 34px;
-    line-height: 34px;
-    outline: none;
-    width: 100%;
-    height: var(--datetime-input-height);
-}
-
-.preIconHeader .input {
-    padding-left: calc(var(--datetime-input-padding-x) + 26px);
-}
-
-.suffixIconHeader .input {
-    padding-right: calc(var(--datetime-input-padding-x) + 26px);
-}
-
-.input:-ms-input-placeholder, .input::-ms-input-placeholder {
-    /* Removes placeholder transparency in Firefox, IE, Edge. */
-    opacity: 1;
-    font-size: inherit;
-    color: var(--datepicker-input-placeholder-color);
-}
-
-.placeholder, .input::placeholder {
-    opacity: 1;
-    font-size: inherit;
-    color: var(--datepicker-input-placeholder-color);
-}
-
 .body {
     position: absolute;
     z-index: 100;
@@ -411,28 +475,6 @@ time = '00:00:00';
     top: 100%;
     margin-top: 2px;
     min-width: 160px;
-}
-
-.input[disabled] {
-    cursor: var(--cursor-not-allowed);
-    background: #eee;
-    color: var(--color-light);
-}
-
-.input:focus {
-    outline: var(--focus-outline);
-    border-color: var(--datetime-input-border-color-focus);
-    box-shadow: var(--datetime-input-box-shadow-focus);
-}
-
-.head {
-    position: relative;
-}
-
-.btnicon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .preIcon {
@@ -445,10 +487,6 @@ time = '00:00:00';
     color: var(--datetime-input-after-icon-color);
 }
 
-.head:hover .input {
-    border-color: var(--datetime-input-border-color-focus);
-}
-
 .timePicker {
     width: 100%;
     box-sizing: border-box;
@@ -456,45 +494,36 @@ time = '00:00:00';
 }
 
 .footer {
-    padding: 15px 0 5px;
+    padding: 10px 8px;
+    border-top: 1px solid var(--datetime-popper-border-color);
 }
 
-.wrap {
-    position: absolute;
-    text-align: center;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+.pickerinput {
+    width: 134px;
 }
 
-.suffixIconHeader .wrap  {
-    right: calc(10px + 26px);
+.pickerinput + .pickerinput {
+    margin-left: 8px;
 }
 
-.close {
-    cursor: var(--cursor-pointer);
+.popperhead {
+    padding: 12px;
+    border-bottom: 1px solid var(--datetime-popper-border-color);
 }
 
-.closeIcon:hover {
-    background-color: #ebedef;
+.popper {
+    background: white;
+    border: 1px solid var(--datetime-popper-border-color);
+    border-radius: var(--datetime-popper-border-radius);
 }
-
-.closeIcon:hover::before {
-    color: var(--datetime-input-icon-color-hover);
+.footbtn {
+    width: 80px;
+    height: 32px;
+    padding: 0;
+    line-height: 30px;
 }
-
-.closeIcon::before {
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    line-height: 1;
-    height: 1em;
-    margin: auto;
-    icon-font: url('../i-icon.vue/assets/close-solid.svg');
-    cursor: var(--cursor-pointer);
-    color: var(--datetime-input-clear-icon-color);
+.ctimewrap {
+    padding: 3px 0 0 7px;
 }
 
 </style>

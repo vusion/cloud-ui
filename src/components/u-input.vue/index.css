@@ -52,15 +52,13 @@
     overflow: hidden;
     color: var(--input-placeholder-color);
 }
-
 .clearable::before,
 .password::before {
-    visibility: hidden;
-    display: block;
-    position: absolute;
+    display: inline-block;
+    /* position: absolute;
     right: 8px;
     top: 0;
-    bottom: 0;
+    bottom: 0; */
     line-height: 1;
     height: 1em;
     margin: auto;
@@ -73,6 +71,17 @@
     color: var(--input-icon-color-hover);
 }
 
+.root[disabled] .clearable:hover::before,
+.root[disabled] .password:hover::before {
+    color: var(--input-icon-color-disabled);
+    cursor: var(--cursor-not-allowed);
+}
+
+.root[readonly] .clearable:hover::before,
+.root[readonly] .password:hover::before {
+    color: var(--input-icon-color-disabled);
+}
+
 .clearable::before {
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
 }
@@ -81,11 +90,19 @@
     icon-font: url('../i-icon.vue/assets/hide.svg');
 }
 
-.root:hover .clearable::before,
-.root:hover .password::before,
-.input:focus ~ .clearable::before,
-.input:focus ~ .password::before {
-    visibility: visible;
+.clearable,
+.password {
+    display: none;
+}
+.root:hover .clearable,
+.root:hover .password,
+.input:focus ~ .clearable,
+.input:focus ~ .password {
+    display: inline-block;
+}
+
+.suffix span + span {
+    margin-left: 5px;
 }
 
 .root[password][show-password] .password::before {
@@ -126,6 +143,13 @@
 
 .root[disabled]:hover {
     border-color: var(--input-border-color);
+}
+
+.root[readonly] {
+    border-color: var(--input-border-color-disabled);
+}
+.root[readonly][focus] {
+    box-shadow: none;
 }
 
 .root[size="normal"] { /* By default */
@@ -190,6 +214,11 @@
 .root[prefix] .placeholder, 
 .root[suffix] .placeholder {
     width: calc(100% - var(--input-prefix-placeholder-left));
+}
+
+.root[suffix][clearable]:hover .input,
+.root[suffix][clearable]:not([suffix][clearable=""])[focus] .input {
+    padding-right: 50px;
 }
 
 .prefix[name="search"]::before, .suffix[name="search"]::before {

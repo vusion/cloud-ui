@@ -646,6 +646,26 @@
     --carousel-button-background-hover: rgba(0, 0, 0, 0.2);
     --carousel-button-transition: all 0.3s;
 
+    /* @component u-time-picker */
+    --timepicker-input-width: 240px;
+    --timepicker-bacground-selected: var(--brand-primary-light);
+    --timepicker-color-selected: white;
+    --timepicker-panel-background: white;
+    --timepicker-foot-background: white;
+    --timepicker-foot-border-color: var(--border-color-base);
+    --timepicker-item-background-selected: transparent;
+    --timepicker-item-background-hover:#f5f5f5;
+    --timepicker-item-background-disabled: transparent;
+    --timepicker-item-color-disabled: #ccc;
+    --timepicker-item-color-disabled-selected: rgba(255, 255, 255, 0.4);
+    --timepicker-item-color: var(--font-first-color);
+    --timepicker-popper-max-width: 300px;
+    --timepicker-popper-background: white;
+    --timepicker-popper-border-color: var(--border-color-base);
+    --timepicker-popper-border-radius: var(--border-radius-base);
+    --timepicker-input-pre-icon-color: var(--gray-light);
+    --timepicker-input-padding-x: 8px;
+
     /* @component u-avatar @hidden */
     --avatar-size: 44px;
     --avatar-size-mini: 18px;
@@ -964,6 +984,7 @@
     --input-placeholder-color: var(--color-lighter);
     --input-icon-color: var(--color-lighter);
     --input-icon-color-hover: var(--font-third-color);
+    --input-icon-color-disabled: var(--color-lighter);
     --input-border-radius: var(--border-radius-base);
     --input-box-shadow-focus-color: rgba(77, 136, 255, 0.2);
     --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color);
@@ -1507,37 +1528,46 @@
     --calendar-date-background: var(--brand-primary-lightest);
     --calendar-date-disabled: var(--brand-disabled-dark);
     --calendar-date-background-disabled: var(--brand-disabled);
-
+    --calendar-showtext-color-hover: var(--brand-primary);
 
     /* @component u-calendar */
     --calendar-border-color: var(--border-color-base);
     --calendar-background: var(--field-background);
+    /* --calendar-border-radius: var(--border-radius-base); */
     --calendar-border-radius: var(--border-radius-base);
 
 
-    --calendar-item-color: #555;
-    --calendar-item-border-radius: 50%;
+    --calendar-item-color: #333;
+    --calendar-item-border-radius: 4px;
     --calendar-item-border-color: transparent;
     --calendar-item-background: var(--calendar-background);
 
-    --calendar-item-color-hover: #444;
+    --calendar-item-color-hover: #333;
     --calendar-item-border-color-hover: var(--calendar-item-border-color);
-    --calendar-item-background-hover: var(--background-color-lighter);
+    --calendar-item-background-hover: var(--background-color-hover);
 
     --calendar-item-color-selected: var(--field-background);
     --calendar-item-border-color-selected: var(--calendar-item-border-color);
     --calendar-item-background-selected: var(--brand-primary);
 
     --calendar-item-color-muted: var(--color-light);
+    --calendar-item-color-today: var(--brand-primary);
 
     --calendar-item-color-disabled: var(--color-light);
-    --calendar-item-background-disabled: var(--field-background);
+    --calendar-item-background-disabled: var(--background-color-disabled);
 
     --calendar-item-color-selected-disabled: var(--color-light);
     --calendar-item-background-selected-disabled: #eee;
 
+    --calendar-width: 300px;
+    --calendar-padding: 15px;
+
+    --calendar-icon-color: var(--gray-dark);
+    --calendar-icon-color-hover: var(--gray-darker);
+    --calendar-icon-color-disabled: var(--gray-lighter);
+
     /* @component u-date-picker */
-    --datepicker-input-width: 300px;
+    --datepicker-input-width: 240px;
     --datepicker-input-height: var(--input-height);
 
     --datepicker-input-pre-icon-color: var(--gray-light);
@@ -1561,7 +1591,7 @@
     --datepicker-popper-border-radius: var(--border-radius-base);
 
     /* @component u-date-time-picker */
-    --datetime-input-width: 300px;
+    --datetime-input-width: 240px;
     --datetime-input-height: var(--input-height);
 
     --datetime-input-pre-icon-color: var(--gray-light);
@@ -1579,6 +1609,9 @@
 
     --datetime-input-icon-color-hover: var(--input-icon-color-hover);
     --datetime-input-clear-icon-color: var(--input-icon-color);
+
+    --datetime-popper-border-color: var(--border-color-base);
+    --datetime-popper-border-radius: var(--border-radius-base);
 
      /* @component u-taskbox @hidden */
     --taskbox-badge-box-shadow: none;
