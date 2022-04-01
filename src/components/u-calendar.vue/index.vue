@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :disabled="disabled" :border="border">
     <div :class="$style.headCenter" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
-        <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!this.getYearPrev()" @click="handleYearPrev()"></i-ico>
+        <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!this.getYearPrev()" @click="handleYearPrev()"></i-ico>
         <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!this.getMonthPrev()" @click="handleMonthPrev()"></i-ico>
         <div :class="$style.yearCenter">
             <span>
@@ -32,14 +32,14 @@
                 </span>
         </div>
         <i-ico :class="$style.hicon" name="right-arrow" notext :disabled="!this.getMonthNext()" @click="handleMonthNext()"></i-ico>
-        <i-ico :class="$style.hicon" name="right-arrow" notext :disabled="!this.getYearNext()" @click="handleYearNext()"></i-ico>
+        <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!this.getYearNext()" @click="handleYearNext()"></i-ico>
     </div>
     <div :class="$style.headCenter" v-if="(picker === 'month' || picker === 'quarter') && currentMode === ''">
-        <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!this.getYearPrev()" @click="handleYearPrev()"></i-ico>
+        <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!this.getYearPrev()" @click="handleYearPrev()"></i-ico>
         <div :class="$style.yearCenter">
             <span @click="handlerMode" >{{ showYear }}{{ $t('year') }}</span>
         </div>
-        <i-ico :class="$style.hicon" name="right-arrow" notext :disabled="!this.getYearNext()" @click="handleYearNext()"></i-ico>
+        <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!this.getYearNext()" @click="handleYearNext()"></i-ico>
     </div>
     <div v-if="picker === 'year' || currentMode === 'year'" :class="$style.content" type="year">
         <year-page
@@ -265,23 +265,21 @@ export default {
     methods: {
         getYearPrev() {
             let yearmin = this.getRangeYear(this.minDate);
-            yearmin = yearmin > this.yearmin ? yearmin : this.yearmin;
-            return this.showYear > yearmin;
+            return !yearmin || this.showYear > yearmin;
         },
         getYearNext() {
             let yearmax = this.getRangeYear(this.maxDate);
-            yearmax = yearmax < this.yearmax ? yearmax : this.yearmax;
-            return this.showYear < yearmax;
+            return !yearmax || this.showYear < yearmax;
         },
         handleYearPrev() {
-            let minDate = null;
+            // let minDate = null;
            
-            if (this.minDate) {
-                minDate = this.transformDate(this.minDate).getFullYear();
-                if (minDate >= this.showYear) {
-                    return;
-                }
-            }
+            // if (this.minDate) {
+            //     minDate = this.transformDate(this.minDate).getFullYear();
+            //     if (minDate >= this.showYear) {
+            //         return;
+            //     }
+            // }
 
             // this.showYear = this.showYear - 1;
             // 设置为最早的时间
@@ -290,19 +288,22 @@ export default {
             // date.setDate(1);
             // date.setHours(0, 0, 0, 0);
             // this.selectedDate = date;
+
+            if(!this.getYearPrev())
+                return;
             let date = this.showDate;
             date.setYear(this.showYear - 1);
             this.updateFlag = true;
             this.showDate = new Date(date);
         },
         handleYearNext() {
-            let maxDate = null;
-            if (this.maxDate) {
-                maxDate = this.transformDate(this.maxDate).getFullYear();
-                if (maxDate <= this.showYear) {
-                    return;
-                }
-            }
+            // let maxDate = null;
+            // if (this.maxDate) {
+            //     maxDate = this.transformDate(this.maxDate).getFullYear();
+            //     if (maxDate <= this.showYear) {
+            //         return;
+            //     }
+            // }
             
             // this.showYear = this.showYear + 1;
             // 设置为最早的时间
@@ -311,6 +312,9 @@ export default {
             // date.setDate(1);
             // date.setHours(0, 0, 0, 0);
             // this.selectedDate = date;
+
+            if(!this.getYearNext())
+                return;
             let date = this.showDate;
             date.setYear(this.showYear + 1);
             this.updateFlag = true;

@@ -1,10 +1,12 @@
 <template>
-<span :class="$style.root">
-    <u-input :class="$style.input" size="full" v-model="validShowTime" :autofocus="autofocus" :disabled="!!readonly || currentDisabled"
-        :clearable="true" :placeholder="placeholder"
+<span :class="$style.root" :width="width" :height="height">
+    <u-input :class="$style.input" width="full" height="full" :value="validShowTime" :autofocus="autofocus" :disabled="!!readonly || currentDisabled"
+        ref="input"
+        :clearable="clearable" :placeholder="placeholder"
         @update:value="onInputChange($event)"
         @click="currentOpened=true"
         @focus="onFocus" @blur="onBlur"
+        @blur:value="onBlurInputValue($event)"
         :prefix="preIcon"
         :suffix="suffixIcon"
         :color="formItemVM && formItemVM.color">
@@ -150,11 +152,10 @@ export default {
     mixins: [MField],
     props: {
         minUnit: { type: String, default: 'second' },
-        time: { type: String, default: '00:00:00' },
+        time: { type: String, default: '' },
         autofocus: [String, Boolean],
         disabled: [String, Boolean],
         readonly: [String, Boolean],
-        width: String,
         minTime: { type: String, default: '00:00:00' },
         maxTime: { type: String, default: '23:59:59' },
         appendTo: {
@@ -171,6 +172,9 @@ export default {
             type: String, 
             default: ''
         },
+        clearable: { type: Boolean, default: true },
+        width: String,
+        height: String,
     },
     data() {
         const validTime = this.isOutOfRange(this.time) ? this.isOutOfRange(this.time) : this.time || '00:00:00';
@@ -264,6 +268,11 @@ export default {
                     newValue = this.getCurrentTime();
                 }
                 this.showTime = newValue;
+                // this.showTime默认设置的是'00:00:00'，如果time初始是'00:00:00'，showTime的watch会没有进入，导致validShowTime没有设置
+                if(this.showTime === '00:00:00'){
+                    this.validShowTime = this.showTime;
+                    this.lastValidShowTime = this.showTime;
+                }
             }
         },
         showTime(newValue) {
@@ -518,17 +527,17 @@ export default {
             return this.hoverItem[type] && this.hoverItem[type].value === item.value && !this.isScrolling;
         },
         emitValue() {
-            this.$emit('input', this.validShowTime, this);
-            this.$emit('update:time', this.validShowTime, this);
-            this.$emit('change', { sender: this, time: this.validShowTime, value: this.validShowTime }, this);
+            const value = this.validShowTime ? this.validShowTime : undefined;
+            this.$emit('input', value, this);
+            this.$emit('update:time', value, this);
+            this.$emit('change', { sender: this, time: value, value: value }, this);
         },
         /**
          * 输入框输入后，输入值的合法性处理
          */
         onInputChange(value) {
             if(this.checkTime(value)) {
-                this.valid = true;
-                this.showTime = value;
+                this.showTime = value; // showTime更改，会进入watch，设置validShowTime
                 this.adjustSpinners();
             }
         },
@@ -539,20 +548,19 @@ export default {
                 this.emitValue();
             }
         },
+        onBlurInputValue(value) {
+            this.$refs.input.updateCurrentValue(this.validShowTime);
+        },
         onFocus(e) {
             this.$emit('focus', e, this);
         },
         onPopperClose() {
-            if(!(this.validShowTime === '')) {
-                const isOutOfRange = this.isOutOfRange(this.showTime);
-                this.validShowTime = isOutOfRange? this.lastValidShowTime : this.showTime;
-                this.showTime = this.validShowTime;
-            }
             this.$emit('blur');
             this.emitValue();
         },
         onPopperOpen() {
             this.restoredValue = this.validShowTime; // 用于点取消时复原上一次的值
+            this.showTime = this.validShowTime? this.validShowTime : '00:00:00';
             this.adjustSpinners();
         },
         getItemHeight() {
@@ -570,6 +578,117 @@ export default {
     position: relative;
     width: var(--timepicker-input-width);
 }
+
+.input {
+    padding: 0 var(--timepicker-input-padding-x);
+    border: var(--timepicker-input-border-width) solid var(--timepicker-input-border-color);
+    color: var(--timepicker-input-color);
+    background: var(--timepicker-input-background);
+    border-radius: var(--timepicker-input-border-radius);
+    width: var(--timepicker-input-width);
+    height: var(--timepicker-input-height);
+}
+.input [class^="u-input_placeholder__"] {
+    color: var(--timepicker-input-placeholder-color);
+}
+
+.root[width="mini"] {
+    width: var(--timepicker-input-width-mini);
+}
+.root[width="mini"] .input {
+    padding-left: var(--timepicker-input-padding-x-mini);
+    padding-right: var(--timepicker-input-padding-x-mini);
+}
+
+.root[height="mini"] .input {
+    height: var(--timepicker-input-height-mini);
+    line-height: calc(var(--timepicker-input-height-mini) - var(--timepicker-input-border-width) * 2);
+}
+
+.root[width="small"] {
+    width: var(--timepicker-input-width-small);
+}
+
+.root[width="small"] .input{
+    padding-left: var(--timepicker-input-padding-x-small);
+    padding-right: var(--timepicker-input-padding-x-small);
+}
+
+.root[height="small"] .input {
+    height: var(--timepicker-input-height-small);
+    line-height: calc(var(--timepicker-input-height-small) - var(--timepicker-input-border-width) * 2);
+}
+
+.root[width="normal"] {
+    width: var(--timepicker-input-width);
+}
+
+.root[width="normal"] .input {
+    padding-left: var(--timepicker-input-padding-x);
+    padding-right: var(--timepicker-input-padding-x);
+}
+
+.root[height="normal"] .input {
+    height: var(--timepicker-input-height);
+    line-height: calc(var(--timepicker-input-height) - var(--timepicker-input-border-width) * 2);
+}
+
+.root[width="medium"] {
+    width: var(--timepicker-input-width-medium);
+}
+
+.root[width="medium"] .input {
+    padding-left: var(--timepicker-input-padding-x-medium);
+    padding-right: var(--timepicker-input-padding-x-medium);
+}
+
+.root[height="medium"] .input {
+    height: var(--timepicker-input-height-medium);
+    line-height: calc(var(--timepicker-input-height-medium) - var(--timepicker-input-border-width) * 2);
+}
+
+.root[width="large"] {
+    width: var(--timepicker-input-width-large);
+}
+
+.root[width="large"] .input {
+    padding-left: var(--timepicker-input-padding-x-large);
+    padding-right: var(--timepicker-input-padding-x-large);
+}
+
+.root[height="large"] .input {
+    height: var(--timepicker-input-height-large);
+    line-height: calc(var(--timepicker-input-height-large) - var(--timepicker-input-border-width) * 2);
+}
+
+.root[width="huge"] {
+    width: var(--timepicker-input-width-huge);
+}
+
+.root[width="huge"] .input {
+    padding-left: var(--timepicker-input-padding-x-huge);
+    padding-right: var(--timepicker-input-padding-x-huge);
+}
+
+.root[height="huge"] .input {
+    height: var(--timepicker-input-height-huge);
+    line-height: calc(var(--timepicker-input-height-huge) - var(--timepicker-input-border-width) * 2);
+}
+
+.root[width="full"] {
+    width: 100%;
+    padding-right: var(--timepicker-input-padding-x-full);
+}
+
+.root[width="full"] .input {
+    padding-left: var(--timepicker-input-padding-x-full);
+    padding-right: var(--timepicker-input-padding-x-full);
+}
+
+.root[height="full"] .input {
+    height: 100%;
+}
+
 .root .dot {
     padding: 0 5px;
     user-select: none;
@@ -695,14 +814,14 @@ export default {
 }
 .textbtn {
     margin-right: 4px;
-    color: var(--timepicker-item-color);
+    color: var(--timepicker-textbtn-color);
 }
 
 .preIcon {
-    color: var(--datetime-input-pre-icon-color);
+    color: var(--timepicker-input-pre-icon-color);
 }
 
 .suffixIcon {
-    color: var(--datetime-input-after-icon-color);
+    color: var(--timepicker-input-after-icon-color);
 }
 </style>

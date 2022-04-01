@@ -148,7 +148,7 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 设置单行输入框宽度大小
+      description: 设置日期选择输入框宽度大小
     - name: height
       title: 高度
       type: string
@@ -168,7 +168,7 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 设置单行输入框高度大小
+      description: 设置日期选择输入框高度大小
     - name: append-to
       title: 弹出层展示位置
       type: string

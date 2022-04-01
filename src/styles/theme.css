@@ -647,7 +647,37 @@
     --carousel-button-transition: all 0.3s;
 
     /* @component u-time-picker */
-    --timepicker-input-width: 240px;
+    --timepicker-input-width-mini: var(--input-width-mini);
+    --timepicker-input-padding-x-mini: var(--input-padding-x-mini);
+    --timepicker-input-height-mini: var(-input-height-mini);
+    --timepicker-input-width-small: var(--input-width-small);
+    --timepicker-input-padding-x-small: var(--input-padding-x-small);
+    --timepicker-input-height-small: var(--input-height-small);
+    --timepicker-input-width: var(--input-width);
+    --timepicker-input-height: var(--input-height);
+    --timepicker-input-padding-x: var(--input-padding-x);
+    --timepicker-input-width-medium: var(--input-width-medium);
+    --timepicker-input-padding-x-medium: var(--input-padding-x-medium);
+    --timepicker-input-height-medium: var(--input-height-medium);
+    --timepicker-input-width-large: var(--input-width-large);
+    --timepicker-input-padding-x-large: var(--input-padding-x-large);
+    --timepicker-input-height-large: var(--input-height-large);
+    --timepicker-input-width-huge: var(--input-width-huge);
+    --timepicker-input-padding-x-huge: var(--input-padding-x-huge);
+    --timepicker-input-height-huge: var(--input-height-huge);
+    --timepicker-input-padding-x-full: var(--input-padding-x-full);
+
+    --timepicker-input-border-color: var(--input-border-color);
+    --timepicker-input-border-width: var(--input-border-width);
+    --timepicker-input-color: var(--input-color);
+    --timepicker-input-background: var(--input-background);
+    --timepicker-input-border-radius: var(--input-border-radius);
+    --timepicker-input-background-disabled: var(--input-background-disabled);
+    --timepicker-input-border-color-error: var(--input-border-color-error);
+    --timepicker-input-border-color-focus: var(--input-border-color-focus);
+    --timepicker-input-box-shadow-focus: var(--input-box-shadow-focus);
+    --timepicker-input-placeholder-color: var(--input-placeholder-color);
+
     --timepicker-bacground-selected: var(--brand-primary-light);
     --timepicker-color-selected: white;
     --timepicker-panel-background: white;
@@ -664,7 +694,8 @@
     --timepicker-popper-border-color: var(--border-color-base);
     --timepicker-popper-border-radius: var(--border-radius-base);
     --timepicker-input-pre-icon-color: var(--gray-light);
-    --timepicker-input-padding-x: 8px;
+    --timepicker-input-after-icon-color: var(--gray-light);
+    --timepicker-textbrn-color: #333;
 
     /* @component u-avatar @hidden */
     --avatar-size: 44px;
@@ -1527,8 +1558,6 @@
     --calendar-date-text-align: right;
     --calendar-date-background: var(--brand-primary-lightest);
     --calendar-date-disabled: var(--brand-disabled-dark);
-    --calendar-date-background-disabled: var(--brand-disabled);
-    --calendar-showtext-color-hover: var(--brand-primary);
 
     /* @component u-calendar */
     --calendar-border-color: var(--border-color-base);
@@ -1566,20 +1595,18 @@
     --calendar-icon-color-hover: var(--gray-darker);
     --calendar-icon-color-disabled: var(--gray-lighter);
 
-    /* @component u-date-picker */
-    --datepicker-input-width: 240px;
-    --datepicker-input-height: var(--input-height);
+    --calendar-date-background-disabled: var(--brand-disabled);
+    --calendar-showtext-color-hover: var(--brand-primary);
 
+    /* @component u-date-picker */
     --datepicker-input-pre-icon-color: var(--gray-light);
     --datepicker-input-after-icon-color: var(--gray-light);
-
 
     --datepicker-input-border-color: var(--input-border-color);
     --datepicker-input-border-width: var(--input-border-width);
     --datepicker-input-color: var(--input-color);
     --datepicker-input-background: var(--input-background);
-    --datepicker-input-border-radius: 3px;
-    --datepicker-input-padding-x: 8px;
+    --datepicker-input-border-radius: var(--input-border-radius);
     --datepicker-input-background-disabled: var(--input-background-disabled);
     --datepicker-input-border-color-error: var(--input-border-color-error);
     --datepicker-input-border-color-focus: var(--input-border-color-focus);
@@ -1590,25 +1617,64 @@
     --datepicker-popper-box-shadow: var(--select-popper-box-shadow);
     --datepicker-popper-border-radius: var(--border-radius-base);
 
+    --datepicker-input-width: var(--input-width);
+    --datepicker-input-height: var(--input-height);
+    --datepicker-input-padding-x: var(--input-padding-x);
+    --datepicker-input-width-mini: var(--input-width-mini);
+    --datepicker-input-padding-x-mini: var(--input-padding-x-mini);
+    --datepicker-input-height-mini: var(-input-height-mini);
+    --datepicker-input-width-small: var(--input-width-small);
+    --datepicker-input-padding-x-small: var(--input-padding-x-small);
+    --datepicker-input-height-small: var(--input-height-small);
+    --datepicker-input-width-medium: var(--input-width-medium);
+    --datepicker-input-padding-x-medium: var(--input-padding-x-medium);
+    --datepicker-input-height-medium: var(--input-height-medium);
+    --datepicker-input-width-large: var(--input-width-large);
+    --datepicker-input-padding-x-large: var(--input-padding-x-large);
+    --datepicker-input-height-large: var(--input-height-large);
+    --datepicker-input-width-huge: var(--input-width-huge);
+    --datepicker-input-padding-x-huge: var(--input-padding-x-huge);
+    --datepicker-input-height-huge: var(--input-height-huge);
+    --datepicker-input-padding-x-full: var(--input-padding-x-full);
+
+
     /* @component u-date-time-picker */
-    --datetime-input-width: 240px;
+    --datetime-input-width: var(--input-width);
     --datetime-input-height: var(--input-height);
+    --datetime-input-padding-x: var(--input-padding-x);
+    --datetime-input-width-mini: var(--input-width-mini);
+    --datetime-input-padding-x-mini: var(--input-padding-x-mini);
+    --datetime-input-height-mini: var(-input-height-mini);
+    --datetime-input-width-small: var(--input-width-small);
+    --datetime-input-padding-x-small: var(--input-padding-x-small);
+    --datetime-input-height-small: var(--input-height-small);
+    --datetime-input-width-medium: var(--input-width-medium);
+    --datetime-input-padding-x-medium: var(--input-padding-x-medium);
+    --datetime-input-height-medium: var(--input-height-medium);
+    --datetime-input-width-large: var(--input-width-large);
+    --datetime-input-padding-x-large: var(--input-padding-x-large);
+    --datetime-input-height-large: var(--input-height-large);
+    --datetime-input-width-huge: var(--input-width-huge);
+    --datetime-input-padding-x-huge: var(--input-padding-x-huge);
+    --datetime-input-height-huge: var(--input-height-huge);
+    --datetime-input-padding-x-full: var(--input-padding-x-full);
 
     --datetime-input-pre-icon-color: var(--gray-light);
     --datetime-input-after-icon-color: var(--gray-light);
     --datetime-input-border-color-focus: var(--input-border-color-focus);
     --datetime-input-box-shadow-focus: var(--input-box-shadow-focus);
 
-
     --datetime-input-border-color: var(--input-border-color);
     --datetime-input-border-width: var(--input-border-width);
 
-    --datetime-input-padding-x: 8px;
     --datetime-input-placeholder-color: var(--input-placeholder-color);
-    --datetime-input-border-radius: 3px;
+    --datetime-input-border-radius: var(--input-border-radius);
 
     --datetime-input-icon-color-hover: var(--input-icon-color-hover);
     --datetime-input-clear-icon-color: var(--input-icon-color);
+
+    --datetime-input-color: var(--input-color);
+    --datetime-input-background: var(--input-background);
 
     --datetime-popper-border-color: var(--border-color-base);
     --datetime-popper-border-radius: var(--border-radius-base);

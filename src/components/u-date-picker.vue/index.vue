@@ -1,6 +1,6 @@
 <template>
-<div :class="$style.root">
-    <u-input :class="$style.input" :width="width" :height="height" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
+<div :class="$style.root" :width="width" :height="height">
+    <u-input :class="$style.input" width="full" height="full" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
         :clearable="clearable" :placeholder="placeholder"
         @click.stop="toggle(true)"
         @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
@@ -87,8 +87,8 @@ export default {
             validator: (value) => ['body', 'reference'].includes(value),
         },
         opened: { type: Boolean, default: false },
-        width: { type: String, default: 'full' },
-        height: { type: String, default: 'full' },
+        width: String,
+        height: String,
     },
     data() {
         const date = this.date || this.value;
@@ -328,9 +328,119 @@ export default {
 
 <style module>
 .root {
-    width: var(--datepicker-input-width);
     display: inline-block;
     position: relative;
+    width: var(--datepicker-input-width);
+}
+
+.input {
+    padding: 0 var(--datepicker-input-padding-x);
+    border: var(--datepicker-input-border-width) solid var(--datepicker-input-border-color);
+    color: var(--datepicker-input-color);
+    background: var(--datepicker-input-background);
+    border-radius: var(--datepicker-input-border-radius);
+    height: var(--datepicker-input-height);
+    line-height: calc(var(--datepicker-input-height) - var(--datepicker-input-border-width) * 2);
+}
+.input [class^="u-input_placeholder__"] {
+    color: var(--datepicker-input-placeholder-color);
+}
+
+.root[width="mini"] {
+    width: var(--datepicker-input-width-mini);
+}
+.root[width="mini"] .input {
+    padding-left: var(--datepicker-input-padding-x-mini);
+    padding-right: var(--datepicker-input-padding-x-mini);
+}
+
+.root[height="mini"] .input {
+    height: var(--datepicker-input-height-mini);
+    line-height: calc(var(--datepicker-input-height-mini) - var(--datepicker-input-border-width) * 2);
+}
+
+.root[width="small"] {
+    width: var(--datepicker-input-width-small);
+}
+
+.root[width="small"] .input{
+    padding-left: var(--datepicker-input-padding-x-small);
+    padding-right: var(--datepicker-input-padding-x-small);
+}
+
+.root[height="small"] .input {
+    height: var(--datepicker-input-height-small);
+    line-height: calc(var(--datepicker-input-height-small) - var(--datepicker-input-border-width) * 2);
+}
+
+.root[width="normal"] {
+    width: var(--datepicker-input-width);
+}
+
+.root[width="normal"] .input {
+    padding-left: var(--datepicker-input-padding-x);
+    padding-right: var(--datepicker-input-padding-x);
+}
+
+.root[height="normal"] .input {
+    height: var(--datepicker-input-height);
+    line-height: calc(var(--datepicker-input-height) - var(--datepicker-input-border-width) * 2);
+}
+
+.root[width="medium"] {
+    width: var(--datepicker-input-width-medium);
+}
+
+.root[width="medium"] .input {
+    padding-left: var(--datepicker-input-padding-x-medium);
+    padding-right: var(--datepicker-input-padding-x-medium);
+}
+
+.root[height="medium"] .input {
+    height: var(--datepicker-input-height-medium);
+    line-height: calc(var(--datepicker-input-height-medium) - var(--datepicker-input-border-width) * 2);
+}
+
+.root[width="large"] {
+    width: var(--datepicker-input-width-large);
+}
+
+.root[width="large"] .input {
+    padding-left: var(--datepicker-input-padding-x-large);
+    padding-right: var(--datepicker-input-padding-x-large);
+}
+
+.root[height="large"] .input {
+    height: var(--datepicker-input-height-large);
+    line-height: calc(var(--datepicker-input-height-large) - var(--datepicker-input-border-width) * 2);
+}
+
+.root[width="huge"] {
+    width: var(--datepicker-input-width-huge);
+}
+
+.root[width="huge"] .input {
+    padding-left: var(--datepicker-input-padding-x-huge);
+    padding-right: var(--datepicker-input-padding-x-huge);
+}
+
+.root[height="huge"] .input {
+    height: var(--datepicker-input-height-huge);
+    line-height: calc(var(--datepicker-input-height-huge) - var(--datepicker-input-border-width) * 2);
+}
+
+.root[width="full"] {
+    width: 100%;
+    padding-right: var(--datepicker-input-padding-x-full);
+}
+
+.root[width="full"] .input {
+    padding-left: var(--datepicker-input-padding-x-full);
+    padding-right: var(--datepicker-input-padding-x-full);
+}
+
+.root[height="full"] .input {
+    height: 100%;
 }
 
 .preIcon {

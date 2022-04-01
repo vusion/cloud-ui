@@ -2,14 +2,14 @@
 <template>
       <div>
        <div v-if="currentMode === 'year'"  :class="$style.iconBox">
-          <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!this.getPrev()" @click="handlePrev()"></i-ico>
+          <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!this.getPrev()" @click="handlePrev()"></i-ico>
            <span @click="handleRange()">{{ getCurrentRange() }}</span>
-          <i-ico :class="$style.hicon" name="right-arrow" notext :disabled="!this.getNext()" @click="handleNext()"></i-ico>
+          <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!this.getNext()" @click="handleNext()"></i-ico>
       </div>
       <div v-if="currentMode === 'range'"  :class="$style.iconBox">
-          <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!this.getPrev()" @click="handleRangePrev()"></i-ico>
+          <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!this.getPrev()" @click="handleRangePrev()"></i-ico>
            <span @click="handleRange()">{{ getCurrentRanges() }}</span>
-          <i-ico :class="$style.hicon" name="right-arrow" notext :disabled="!this.getNext()" @click="handleRangeNext()"></i-ico>
+          <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!this.getNext()" @click="handleRangeNext()"></i-ico>
       </div>
           <ul v-if="currentMode === 'year'":class="$style.yearBox">
             <li :class="$style.boxItem"
@@ -22,7 +22,7 @@
             </li>
           </ul>
            <ul v-if="currentMode === 'range'" :class="$style.yearBox">
-                <li :class="$style.boxItem"
+                <li :class="[$style.boxItem, $style.boxItemRange]"
                 v-for="(range, index) in getRangeList()"
                 :role="range.value === getCurrentRange()"
                 :sindex="index%3"
@@ -315,6 +315,13 @@ export default {
 .boxItem[role] .yearItem {
     background-color: var(--brand-primary);
     color: var(--field-background);
+}
+.boxItemRange .yearItem {
+    width: 85px;
+}
+.boxItemRange[disabled] + .boxItemRange[disabled]:not([sindex="0"])::before {
+    width: 8px;
+    left: -4px;
 }
 
 .hicon {

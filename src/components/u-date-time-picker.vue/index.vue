@@ -1,6 +1,6 @@
 <template>
-<div :class="$style.root" ref="element">
-    <u-input :class="$style.input" :width="width" :height="height" :value="finalDateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
+<div :class="$style.root" :width="width" :height="height">
+    <u-input :class="$style.input" width="full" height="full" :value="finalDateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
         :clearable="clearable" :placeholder="placeholder"
         @click.stop="toggle(true)"
         @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
@@ -16,7 +16,7 @@
         @toggle="onToggle($event)"
         @close="onPopperClose"
         @open="onPopperOpen">
-        <div :class="$style.body" @click.stop>
+        <div @click.stop>
             <div :class="$style.popperhead">
                 <u-input :placeholder="popperplaceholder" :class="$style.pickerinput" :value="showDate" clearable
                     ref="dateInput"
@@ -111,8 +111,8 @@ export default {
                 return ['left', 'right'].includes(value);
             },
         },
-        width: { type: String, default: 'full' },
-        height: { type: String, default: 'full' },
+        width: String,
+        height: String,
     },
     data() {
         return {
@@ -468,13 +468,114 @@ export default {
     width: var(--datetime-input-width);
 }
 
-.body {
-    position: absolute;
-    z-index: 100;
+.input {
+    padding: 0 var(--datetime-input-padding-x);
+    border: var(--datetime-input-border-width) solid var(--datetime-input-border-color);
+    color: var(--datetime-input-color);
+    background: var(--datetime-input-background);
+    border-radius: var(--datetime-input-border-radius);
+    width: var(--datetime-input-width);
+    height: var(--datetime-input-height);
+}
+.input [class^="u-input_placeholder__"] {
+    color: var(--datetime-input-placeholder-color);
+}
+
+.root[width="mini"] {
+    width: var(--datetime-input-width-mini);
+}
+.root[width="mini"] .input {
+    padding-left: var(--datetime-input-padding-x-mini);
+    padding-right: var(--datetime-input-padding-x-mini);
+}
+
+.root[height="mini"] .input {
+    height: var(--datetime-input-height-mini);
+    line-height: calc(var(--datetime-input-height-mini) - var(--datetime-input-border-width) * 2);
+}
+
+.root[width="small"] {
+    width: var(--datetime-input-width-small);
+}
+
+.root[width="small"] .input{
+    padding-left: var(--datetime-input-padding-x-small);
+    padding-right: var(--datetime-input-padding-x-small);
+}
+
+.root[height="small"] .input {
+    height: var(--datetime-input-height-small);
+    line-height: calc(var(--datetime-input-height-small) - var(--datetime-input-border-width) * 2);
+}
+
+.root[width="normal"] {
+    width: var(--datetime-input-width);
+}
+
+.root[width="normal"] .input {
+    padding-left: var(--datetime-input-padding-x);
+    padding-right: var(--datetime-input-padding-x);
+}
+
+.root[height="normal"] .input {
+    height: var(--datetime-input-height);
+    line-height: calc(var(--datetime-input-height) - var(--datetime-input-border-width) * 2);
+}
+
+.root[width="medium"] {
+    width: var(--datetime-input-width-medium);
+}
+
+.root[width="medium"] .input {
+    padding-left: var(--datetime-input-padding-x-medium);
+    padding-right: var(--datetime-input-padding-x-medium);
+}
+
+.root[height="medium"] .input {
+    height: var(--datetime-input-height-medium);
+    line-height: calc(var(--datetime-input-height-medium) - var(--datetime-input-border-width) * 2);
+}
+
+.root[width="large"] {
+    width: var(--datetime-input-width-large);
+}
+
+.root[width="large"] .input {
+    padding-left: var(--datetime-input-padding-x-large);
+    padding-right: var(--datetime-input-padding-x-large);
+}
+
+.root[height="large"] .input {
+    height: var(--datetime-input-height-large);
+    line-height: calc(var(--datetime-input-height-large) - var(--datetime-input-border-width) * 2);
+}
+
+.root[width="huge"] {
+    width: var(--datetime-input-width-huge);
+}
+
+.root[width="huge"] .input {
+    padding-left: var(--datetime-input-padding-x-huge);
+    padding-right: var(--datetime-input-padding-x-huge);
+}
+
+.root[height="huge"] .input {
+    height: var(--datetime-input-height-huge);
+    line-height: calc(var(--datetime-input-height-huge) - var(--datetime-input-border-width) * 2);
+}
+
+.root[width="full"] {
     width: 100%;
-    top: 100%;
-    margin-top: 2px;
-    min-width: 160px;
+    padding-right: var(--datetime-input-padding-x-full);
+}
+
+.root[width="full"] .input {
+    padding-left: var(--datetime-input-padding-x-full);
+    padding-right: var(--datetime-input-padding-x-full);
+}
+
+.root[height="full"] .input {
+    height: 100%;
 }
 
 .preIcon {
@@ -500,6 +601,7 @@ export default {
 
 .pickerinput {
     width: 134px;
+    height: 32px;
 }
 
 .pickerinput + .pickerinput {
