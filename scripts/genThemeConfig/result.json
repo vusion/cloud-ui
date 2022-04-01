@@ -25,7 +25,7 @@
                 "cssProperty": {},
                 "preview": {
                     "template": " <div style=\"height:100%;background: #F7F8FA;\">\n        <u-text :class=\"[$style.areaTitle, $style.base]\">视觉风格预览</u-text><br>\n        <div>\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 16px 0;\">顶部导航</div>\n            <u-navbar style=\"margin-bottom: 16px;\">\n                <u-navbar-item slot=\"left\">应用名称</u-navbar-item>\n                <u-navbar-item>菜单项 1</u-navbar-item>\n                <u-navbar-item>菜单项 2</u-navbar-item>\n            </u-navbar>\n        </div>\n        <div>\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 16px 0;\">侧边导航</div>\n            <u-sidebar value=\"1\" :router=\"false\">\n                <u-sidebar-item icon=\"calendar\" value=\"1\">菜单项 1</u-sidebar-item>\n                <u-sidebar-item value=\"2\">菜单项 2</u-sidebar-item>\n                <u-sidebar-divider></u-sidebar-divider>\n                <u-sidebar-item value=\"3\">菜单项 3</u-sidebar-item>\n            </u-sidebar>\n        </div>\n        <div :class=\"$style.table\">\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 0 0 16px;\">表单</div>\n            <u-form layout=\"inline\" label-size=\"auto\" style=\"background:white;padding: 8px;\">\n                <u-grid-layout>\n                    <u-grid-layout-row :repeat=\"1\">\n                        <u-grid-layout-column>\n                            <div style=\"height: 36px;line-height:36px;background: var(--background-color-base);text-indent: 15px;\">标题</div>\n                        </u-grid-layout-column>\n                    </u-grid-layout-row>\n                </u-grid-layout>\n                <u-grid-layout gap=\"normal none\">\n                    <u-grid-layout-row :repeat=\"2\">\n                        <u-grid-layout-column style=\"padding-right: 12px;\">\n                            <u-form-item label=\"名称\" style=\"margin-bottom: var(--space-base);width: 100%;\">\n                                <u-input maxlength=\"20\" placeholder=\"请输入\" style=\"border-radius: var(--border-radius-base);border-color: var(--border-color-base);\"></u-input>\n                            </u-form-item>\n                        </u-grid-layout-column>\n                        <u-grid-layout-column style=\"padding-left: 12px;\">\n                            <u-form-item label=\"名称\" style=\"margin-bottom: var(--space-base);width: 100%;\">\n                                <u-input maxlength=\"20\" placeholder=\"请输入\" style=\"border-radius: var(--border-radius-base);border-color: var(--border-color-base);\"></u-input>\n                            </u-form-item>\n                        </u-grid-layout-column>\n                    </u-grid-layout-row>\n                </u-grid-layout>\n            </u-form>\n        </div>\n    </div>",
-                    "style":".base {\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n}\n\n.areaTitle {\n    width: 108px;\n    height: 18px;\n    font-size: 18px;\n    line-height: 18px;\n    color: #333333;\n}\n\n.sectionTitle {\n    width: 320px;\n    height: 24px;\n    font-size: 14px;\n    line-height: 24px;\n    color: #666666;\n}\n\n.table {\n    margin-top: 16px;\n}\n\n.table [class^=\"u-form_item_label\"] {\n    padding-right: 12px !important;\n    height: 14px;\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n    font-size: 14px;\n    line-height: 14px;\n    color: #999999;\n}\n\n.table [class^=\"u-form_item_field__\"] {\n    width: calc(100% - 40px);\n}"
+                    "style": ".base {\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n}\n\n.areaTitle {\n    width: 108px;\n    height: 18px;\n    font-size: 18px;\n    line-height: 18px;\n    color: #333333;\n}\n\n.sectionTitle {\n    width: 320px;\n    height: 24px;\n    font-size: 14px;\n    line-height: 24px;\n    color: #666666;\n}\n\n.table {\n    margin-top: 16px;\n}\n\n.table [class^=\"u-form_item_label\"] {\n    padding-right: 12px !important;\n    height: 14px;\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n    font-size: 14px;\n    line-height: 14px;\n    color: #999999;\n}\n\n.table [class^=\"u-form_item_field__\"] {\n    width: calc(100% - 40px);\n}"
                 }
             },
             {
@@ -61,7 +61,7 @@
                     "--space-base": "input"
                 },
                 "preview": {
-                    "template":"<div>\n        <u-linear-layout direction=\"vertical\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"width: 100%;\"></u-block>\n            <u-block style=\"width: 100%;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            justify=\"space-between\"\n            style=\"margin-bottom:8px;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n    </div>",
+                    "template": "<div>\n        <u-linear-layout direction=\"vertical\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"width: 100%;\"></u-block>\n            <u-block style=\"width: 100%;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            justify=\"space-between\"\n            style=\"margin-bottom:8px;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n    </div>",
                     "style": ".linearLayout [class^=\"u-block\"] {\n    height: 48px;\n    background: #337EFF !important;\n    opacity: 0.5;\n}"
                 }
             },
@@ -328,105 +328,84 @@
                     "--button-height-medium": "input",
                     "--button-height-large": "input",
                     "--button-height-huge": "input",
-
-
                     "--button-padding-y-mini": "input",
                     "--button-padding-y-small": "input",
                     "--button-padding-y": "input",
                     "--button-padding-y-medium": "input",
                     "--button-padding-y-large": "input",
                     "--button-padding-y-huge": "input",
-
                     "--button-padding-x-mini": "input",
                     "--button-padding-x-small": "input",
                     "--button-padding-x": "input",
                     "--button-padding-x-medium": "input",
                     "--button-padding-x-large": "input",
                     "--button-padding-x-huge": "input",
-
-
                     "--button-background-primary": "color",
                     "--button-background-primary-secondary": "color",
                     "--button-background": "color",
                     "--button-background-danger": "color",
                     "--button-background-danger-secondary": "color",
-
                     "--button-background-primary-hover": "color",
                     "--button-background-primary-secondary-hover": "color",
                     "--button-background-hover": "color",
                     "--button-background-danger-hover": "color",
                     "--button-background-danger-secondary-hover": "color",
-
                     "--button-background-primary-active": "color",
                     "--button-background-primary-secondary-active": "color",
                     "--button-background-active": "color",
                     "--button-background-danger-active": "color",
                     "--button-background-danger-secondary-active": "color",
-
                     "--button-background-primary-disabled": "color",
                     "--button-background-primary-secondary-disabled": "color",
                     "--button-background-disabled": "color",
                     "--button-background-danger-disabled": "color",
                     "--button-background-danger-secondary-disabled": "color",
-
-
                     "--button-border-color-primary": "color",
                     "--button-border-color-primary-secondary": "color",
                     "--button-border-color": "color",
                     "--button-border-color-danger": "color",
                     "--button-border-color-danger-secondary": "color",
-
                     "--button-border-color-primary-hover": "color",
                     "--button-border-color-primary-secondary-hover": "color",
                     "--button-border-color-hover": "color",
                     "--button-border-color-danger-hover": "color",
                     "--button-border-color-danger-secondary-hover": "color",
-
                     "--button-border-color-primary-active": "color",
                     "--button-border-color-primary-secondary-active": "color",
                     "--button-border-color-active": "color",
                     "--button-border-color-danger-active": "color",
                     "--button-border-color-danger-secondary-active": "color",
-
                     "--button-border-color-primary-disabled": "color",
                     "--button-border-color-primary-secondary-disabled": "color",
                     "--button-border-color-disabled": "color",
                     "--button-border-color-danger-disabled": "color",
                     "--button-border-color-danger-secondary-disabled": "color",
-
-
                     "--button-font-size-mini": "input",
                     "--button-font-size-small": "input",
                     "--button-font-size": "input",
                     "--button-font-size-medium": "input",
                     "--button-font-size-large": "input",
                     "--button-font-size-huge": "input",
-
                     "--button-color-primary": "color",
                     "--button-color-primary-secondary": "color",
                     "--button-color": "color",
                     "--button-color-danger": "color",
                     "--button-color-danger-secondary": "color",
-
                     "--button-color-primary-hover": "color",
                     "--button-color-primary-secondary-hover": "color",
                     "--button-color-hover": "color",
                     "--button-color-danger-hover": "color",
                     "--button-color-danger-secondary-hover": "color",
-
                     "--button-color-primary-active": "color",
                     "--button-color-primary-secondary-active": "color",
                     "--button-color-active": "color",
                     "--button-color-danger-active": "color",
                     "--button-color-danger-secondary-active": "color",
-
                     "--button-color-primary-disabled": "color",
                     "--button-color-primary-secondary-disabled": "color",
                     "--button-color-disabled": "color",
                     "--button-color-danger-disabled": "color",
                     "--button-color-danger-secondary-disabled": "color",
-
-
                     "--button-border-width": "input",
                     "--button-border-radius": "input",
                     "--button-box-shadow-focus-color": "color",
@@ -514,10 +493,8 @@
                 "cssProperty": {
                     "--number-input-background": "color",
                     "--number-input-background-disabled": "color",
-
                     "--number-input-color": "color",
                     "--number-input-color-disabled": "color",
-
                     "--number-input-button-background": "color",
                     "--number-input-button-both-ends-background": "color",
                     "--number-input-button-background-hover": "color",
@@ -528,18 +505,13 @@
                     "--number-input-button-both-ends-background-focus": "color",
                     "--number-input-button-background-disabled": "color",
                     "--number-input-button-both-ends-background-disabled": "color",
-
                     "--number-input-border-color": "color",
                     "--number-input-border-color-hover": "color",
                     "--number-input-border-color-focus": "color",
                     "--number-input-border-color-disabled": "color",
-
                     "--number-input-button-color": "color",
                     "--number-input-button-color-hover": "color",
                     "--number-input-button-color-disabled": "color",
-
-
-
                     "--number-input-height": "input",
                     "--number-input-border-width": "input",
                     "--number-input-box-shadow-focus-color": "color",
@@ -657,7 +629,6 @@
                     "--select-popper-item-color": "color",
                     "--select-popper-item-color-hover": "color",
                     "--select-popper-item-color-selected": "color",
-
                     "--select-width": "input",
                     "--select-height": "input",
                     "--select-padding-x": "input",
@@ -773,7 +744,6 @@
                     "--table-head-background": "color",
                     "--table-view-head-item-size": "input",
                     "--table-row-background-striped": "color",
-
                     "--table-view-head-item-color": "color",
                     "--table-background": "color",
                     "--table-border-color": "color",
@@ -1042,7 +1012,7 @@
                     "--calendar-item-background-selected": "color",
                     "--calendar-item-color-muted": "color",
                     "--calendar-item-color-disabled": "color",
-                    "--calendar-item-background-disabled":"color",
+                    "--calendar-item-background-disabled": "color",
                     "--calendar-item-color-selected-disabled": "color",
                     "--calendar-item-background-selected-disabled": "color"
                 },
