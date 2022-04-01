@@ -101,6 +101,11 @@
           title: 块级展示，宽度会充满父元素
       default: inline
       description: 展示方式
+    - name: ellipsis
+      title: 省略显示
+      type: boolean
+      default: false
+      description: 文字过长是否省略显示。
   slots:
     - name: default
       description: 自定义弹出的内容。

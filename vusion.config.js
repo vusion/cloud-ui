@@ -92,6 +92,7 @@ module.exports = {
             { group: '表单', name: 'u-slider', alias: '滑块' },
             { group: '表单', name: 'u-combo-slider', alias: '复合滑块', advanced: true },
             { group: '表单', name: 'u-uploader', alias: '文件上传' },
+            { group: '表单', name: 'u-rate', alias: '评分' },
 
             { group: '选择器', name: 'u-tabs', alias: '选项卡' },
             { group: '选择器', name: 'u-steps', alias: '步骤条' },

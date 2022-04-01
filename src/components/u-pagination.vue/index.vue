@@ -36,7 +36,7 @@
         <span v-if="showJumper" :class="$style['jumper-wrap']">{{ $t('goto') }}
             <u-number-input :class="$style.jumper" :value="currentPage"
                 :min="1" :max="currentTotalPage" hide-buttons :readonly="readonly" :disabled="disabled"
-                @change="onChange($event.value, $event.oldValue)">
+                @change="onChange($event.value, $event.oldValue)" :defaultValue="1">
             </u-number-input>
             {{ $t('pageUnit') }}</span>
         <slot></slot>
