@@ -67,6 +67,7 @@ export default {
             return listeners;
         },
         showPlaceholder() {
+            const { currentValue } = this;
             return currentValue === undefined || currentValue === '' || currentValue === null;
         },
     },

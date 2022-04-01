@@ -1,6 +1,7 @@
 <template>
 <div :class="$style.header">
-    <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}" @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
+    <span :class="$style.placeholder" v-show="placeholder">{{ showPlaceholder ? placeholder : ''}}</span><!-- 兼容 IE9 -->
+    <input :class="$style.input" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}" @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
     <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
         <i :class="[$style.closeIcon]"></i>
     </span>
@@ -77,6 +78,10 @@ export default {
                 return 'bottom-start';
             else if (this.alignment === 'right')
                 return 'bottom-end';
+        },
+        showPlaceholder() {
+            const { showDate } = this;
+            return showDate === undefined || showDate === '' || showDate === null;
         },
     },
     watch: {
@@ -310,17 +315,17 @@ export default {
     box-shadow: var(--datepicker-input-box-shadow-focus);
 }
 
-.input:-ms-input-placeholder, .input::-ms-input-placeholder {
-    /* Removes placeholder transparency in Firefox, IE, Edge. */
-    opacity: 1;
-    font-size: inherit;
+.placeholder { /* for IE9 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     color: var(--datepicker-input-placeholder-color);
-}
-
-.placeholder, .input::placeholder {
-    opacity: 1;
-    font-size: inherit;
-    color: var(--datepicker-input-placeholder-color);
+    height: var(--datepicker-input-height);
+    line-height: calc(var(--datepicker-input-height) - var(--datepicker-input-border-width) * 2);
+    padding: 0 12px;
 }
 
 .body {
