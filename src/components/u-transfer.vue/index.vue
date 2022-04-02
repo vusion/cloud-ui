@@ -168,6 +168,9 @@ export default {
 
 .buttons {
     margin: 0 12px;
+}
+
+.button {
     display: block;
 }
 .button:not(:last-child) {
