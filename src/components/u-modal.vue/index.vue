@@ -13,14 +13,20 @@
                 <div :class="$style.head" vusion-slot-name="head" :child-cut-disabled="true">
                     <slot name="head">
                         <div v-if="title" vusion-slot-name="title" :class="$style.title" :child-cut-disabled="true">
-                            <slot name="title">{{ title }}</slot>
+                            <slot name="title">
+                                <s-empty v-if="(!$slots.title) && $env.VUE_APP_DESIGNER"></s-empty>
+                                <template v-else>
+                                    {{ title }}
+                                </template>
+                            </slot>
                         </div>
                         <a :class="$style.close" @click="cancel()"></a>
                     </slot>
                 </div>
                 <div :class="$style.body" :icon="icon" vusion-slot-name="body" :child-cut-disabled="true">
                     <slot name="body">
-                        <div :class="$style.text">
+                        <s-empty v-if="(!$slots.body) && $env.VUE_APP_DESIGNER"></s-empty>
+                        <div :class="$style.text" v-else>
                             <div :class="$style.heading"><slot name="heading">{{ heading }}</slot></div>
                             <div :class="$style.content"><slot>{{ content }}</slot></div>
                             <div v-if="!!description || $slots.description" :class="$style.description"><slot name="description">{{ description }}</slot></div>
@@ -29,7 +35,8 @@
                 </div>
                 <div :class="$style.foot" vusion-slot-name="foot" :child-cut-disabled="true" v-if="okButton || cancelButton">
                     <slot name="foot">
-                        <u-linear-layout gap="small" justify="end">
+                        <s-empty v-if="(!$slots.foot) && $env.VUE_APP_DESIGNER"></s-empty>
+                        <u-linear-layout gap="small" justify="end" v-else>
                             <u-button :class="$style.button" v-if="cancelButton" :color="primaryButton === 'cancelButton' ? 'primary' : ''" :disabled="disableCancel" @click="cancel()">{{ cancelButton }}</u-button>
                             <u-button :class="$style.button" v-if="okButton" :color="primaryButton === 'okButton' ? 'primary' : ''" :disabled="disableOk" @click="ok()">{{ okButton }}</u-button>
                         </u-linear-layout>
@@ -45,9 +52,11 @@
 import { clickOutside } from '../../directives';
 import i18n from './i18n';
 import MEmitter from '../m-emitter.vue';
+import SEmpty from '../../components/s-empty.vue';
 
 export const UModal = {
     name: 'u-modal',
+    components: {  SEmpty },
     directives: { clickOutside },
     mixins: [MEmitter],
     i18n,

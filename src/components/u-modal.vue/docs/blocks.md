@@ -6,7 +6,7 @@
         <u-text text="标题"></u-text>
     </template>
     <template #body>
-        <u-linear-layout direction="vertical">内容</u-linear-layout>
+        <u-text>内容</u-text>
     </template>
     <template #foot>
         <u-linear-layout>

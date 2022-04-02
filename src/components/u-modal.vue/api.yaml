@@ -17,6 +17,7 @@
       type: string
       default: 提示内容
       description: 弹窗的内容
+      advanced: true
     - name: description
       title: 详情描述
       type: string
