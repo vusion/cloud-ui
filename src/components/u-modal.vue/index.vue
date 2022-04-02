@@ -264,6 +264,7 @@ export default UModal;
 
 .dialog[size="auto"] {
     width: auto;
+    max-width: 99%;
 }
 
 .head {
