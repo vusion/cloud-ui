@@ -88,6 +88,11 @@ export default {
     mounted() {
         this.$emit('update', this.value, this);
         this.autoSize && this.autoResize();
+
+        // 刷新浏览器之后，IE11 会自动在 input 填充上一次输入的内容，导致 input value 和 绑定值不一致
+        setTimeout(() => {
+            this.$refs.input.value = this.currentValue !== undefined ? this.currentValue: '';
+        });
     },
     methods: {
         onKeypress(e) {

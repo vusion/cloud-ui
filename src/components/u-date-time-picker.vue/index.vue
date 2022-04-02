@@ -156,7 +156,13 @@ export default {
             this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
         );
     },
-    methods: {
+    mounted() {
+        // 刷新浏览器之后，IE11 会自动在 input 填充上一次输入的内容，导致 input value 和 绑定值不一致
+        setTimeout(() => {
+            this.$refs.input.value = this.dateTime !== undefined ? this.dateTime: '';
+        });
+    },
+    methods: { 
         clearValue() {
             this.dateTime = undefined;
         },
@@ -256,7 +262,7 @@ time = '00:00:00';
         },
         updateDate(value) {
             // ie11, '2022-04-08 00:00:01' 是 'Invalid Date'
-            if(/\d{4}-\d{1,2}-\d{1,2}\s+\d{1,2}:\d{1,2}:\d{1,2}/.test(value))
+            if(typeof value === 'string')
                 value = value.replace(/-/g, '/');
 
             let date = value ? new Date(value) : null;
