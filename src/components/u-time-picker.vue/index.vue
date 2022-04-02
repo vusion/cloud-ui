@@ -161,7 +161,7 @@ export default {
         maxTime: { type: String, default: '23:59:59' },
         appendTo: {
             type: String,
-            default: 'reference',
+            default: 'body',
             validator: (value) => ['body', 'reference'].includes(value),
         },
         simpleFoot: { type: Boolean, default: false },
@@ -178,11 +178,11 @@ export default {
         height: String,
     },
     data() {
-        const validTime = this.isOutOfRange(this.time) ? this.isOutOfRange(this.time) : this.time || '00:00:00';
+        const validTime = this.getUnitFormatTime(this.isOutOfRange(this.time) ? this.isOutOfRange(this.time) : this.time || '00:00:00');
         return {
             showTime: validTime,
-            validShowTime: this.time,
-            lastValidShowTime: this.time,
+            validShowTime: this.getUnitFormatTime(this.time),
+            lastValidShowTime: this.getUnitFormatTime(this.time),
             hoverItem: {
                 hours: {},
                 minutes: {},
@@ -194,20 +194,6 @@ export default {
             valid: true,
         };
     },
-    // created(){
-    //     if(this.minTime && this.checkTime(this.minTime)){
-    //         const newValueArr = this.minTime.split(':');
-    //         this.hourmin = newValueArr[0] / 1;
-    //         this.minutemin = newValueArr[1] / 1;
-    //         this.secondmin = newValueArr[2] / 1;
-    //     }
-    //     if(this.maxTime && this.checkTime(this.minTime)){
-    //         const newValueArr = this.maxTime.split(':');
-    //         this.hourmax = newValueArr[0] / 1;
-    //         this.minutemax = newValueArr[1] / 1;
-    //         this.secondmax = newValueArr[2] / 1;
-    //     }
-    // },
     destroyed() {
         clearTimeout(this.adjustSpinnersTimer);
     },
@@ -251,12 +237,6 @@ export default {
     },
     watch: {
         time(newValue) {
-            // if (!newValue)
-            //     throw new TypeError('Invalid Time'); // 如果超出时间范围，则设置为范围边界的时间
-            // const isOutOfRange = this.isOutOfRange(newValue);
-            // if (isOutOfRange)
-            //     return (this.showTime = isOutOfRange);
-            // this.showTime = newValue;
             if (!newValue) {
                 this.initValidShowTime = false; // 控制为空设置showTime值时，不设置validShowTime值
                 this.validShowTime = newValue;
@@ -268,7 +248,7 @@ export default {
                 if(!this.checkTime(newValue)){
                     newValue = this.getCurrentTime();
                 }
-                this.showTime = newValue;
+                this.showTime = this.getUnitFormatTime(newValue);
                 // this.showTime默认设置的是'00:00:00'，如果time初始是'00:00:00'，showTime的watch会没有进入，导致validShowTime没有设置
                 if(this.showTime === '00:00:00'){
                     this.validShowTime = this.showTime;
@@ -286,86 +266,14 @@ export default {
                 this.lastValidShowTime = showTime;
             }
             this.initValidShowTime = true;
-            // const showTimeArr = showTime.split(':');
-            // const currentHour = showTimeArr[0] / 1;
-            // const currentMinute = showTimeArr[1] / 1; // const currentSecond = showTimeArr[2] / 1;
-            // if (showTime === this.minTime) {
-            //     this.hourmin = this.sphourmin;
-            //     this.minutemin = this.spminutemin;
-            //     this.secondmin = this.spsecondmin;
-            // } else if (showTime === this.maxTime) {
-            //     this.hourmax = this.sphourmax;
-            //     this.minutemax = this.spminutemax;
-            //     this.secondmax = this.spsecondmax;
-            // } else if (currentHour === this.sphourmin) {
-            //     this.hourmin = currentHour;
-            //     this.minutemin = this.spminutemin;
-            //     this.minutemax = MINUTE_MAX;
-            //     if (currentMinute === this.spminutemin) {
-            //         this.secondmin = this.spsecondmin;
-            //         this.secondmax = SECOND_MAX;
-            //     } else if (currentMinute === this.spminutemax) {
-            //         this.secondmin = SECOND_MIN;
-            //         this.secondmax = this.spsecondmax;
-            //     } else {
-            //         this.secondmin = SECOND_MIN;
-            //         this.secondmax = SECOND_MAX;
-            //     }
-            // } else if (currentHour === this.sphourmax) {
-            //     this.hourmax = currentHour;
-            //     this.minutemin = MINUTE_MIN;
-            //     this.minutemax = this.spminutemax;
-            //     if (currentMinute === this.spminutemin) {
-            //         this.secondmin = this.spsecondmin;
-            //         this.secondmax = SECOND_MAX;
-            //     } else if (currentMinute === this.spminutemax) {
-            //         this.secondmin = SECOND_MIN;
-            //         this.secondmax = this.spsecondmax;
-            //     } else {
-            //         this.secondmin = SECOND_MIN;
-            //         this.secondmax = SECOND_MAX;
-            //     }
-            // } else {
-            //     this.hourmin = HOUR_MIN;
-            //     this.minutemin = MINUTE_MIN;
-            //     this.secondmin = SECOND_MIN;
-            //     this.hourmax = HOUR_MAX;
-            //     this.minutemax = MINUTE_MAX;
-            //     this.secondmax = SECOND_MAX;
-            // }
-            // /**
-            //  * @event change 时间改变时触发
-            //  * @property {object} sender 事件发送对象
-            //  * @property {object} time 改变后的时间
-            //  */
-            // this.$emit('input', newValue, this);
-            // this.$emit('update:time', newValue, this);
-            // this.$emit('change', { time: newValue }, this);
         },
-        // minTime(newValue, oldValue) {
-        //     if (newValue) {
-        //         const newValueArr = newValue.split(':');
-        //         this.hourmin = newValueArr[0] / 1;
-        //         this.minutemin = newValueArr[1] / 1;
-        //         this.secondmin = newValueArr[2] / 1;
-        //     } else {
-        //         this.hourmin = HOUR_MIN;
-        //         this.minutemin = MINUTE_MIN;
-        //         this.secondmin = SECOND_MIN;
-        //     }
-        // },
-        // maxTime(newValue, oldValue) {
-        //     if (newValue) {
-        //         const newValueArr = newValue.split(':');
-        //         this.hourmax = newValueArr[0] / 1;
-        //         this.minutemax = newValueArr[1] / 1;
-        //         this.secondmax = newValueArr[2] / 1;
-        //     } else {
-        //         this.hourmax = HOUR_MAX;
-        //         this.minutemax = MINUTE_MAX;
-        //         this.secondmax = SECOND_MAX;
-        //     }
-        // },
+        minUnit(newValue) {
+            if(this.time) {
+                const showTime = this.getUnitFormatTime(this.time);
+                const isOutOfRange = this.isOutOfRange(showTime);
+                this.showTime = isOutOfRange? isOutOfRange : showTime;
+            }
+        }
     },
     methods: {
         /**
@@ -394,13 +302,25 @@ export default {
             if (this.minUnit === 'second') {
                 formatTime.push(fix(second));
             }
-            return formatTime.join(':');
+            return formatTime.join(':');;
         },
-        checkTime(time){
-            if(this.minUnit === 'second')
-                return /^(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d$/.test(time);
-            else
-                return /^(20|21|22|23|[0-1]\d):[0-5]\d$/.test(time);
+        getUnitFormatTime(value) {
+            if(this.checkTime(value, false)) {
+                const values = value.split(':');
+                return this.getTime(values[0], values[1], values[2] ? values[2] : '00');
+            }
+        },
+        checkTime(time, strict = true){
+            const secondReg = /^(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d$/;
+            const minuteReg = /^(20|21|22|23|[0-1]\d):[0-5]\d$/;
+            if(strict) {
+                if(this.minUnit === 'second')
+                    return secondReg.test(time);
+                else
+                    return minuteReg.test(time);
+            } else {
+                return secondReg.test(time) || minuteReg.test(time);
+            }
         },
         getRangeHours() {
             const hours = [];

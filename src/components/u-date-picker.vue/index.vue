@@ -83,7 +83,7 @@ export default {
         converter: { type: String, default: 'format' },
         appendTo: {
             type: String,
-            default: 'reference',
+            default: 'body',
             validator: (value) => ['body', 'reference'].includes(value),
         },
         opened: { type: Boolean, default: false },

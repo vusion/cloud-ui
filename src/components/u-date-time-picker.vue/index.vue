@@ -100,7 +100,7 @@ export default {
         clearable: { type: Boolean, default: false },
         appendTo: {
             type: String,
-            default: 'reference',
+            default: 'body',
             validator: (value) => ['body', 'reference'].includes(value),
         },
         opened: { type: Boolean, default: false },

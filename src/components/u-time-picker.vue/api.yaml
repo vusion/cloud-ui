@@ -22,12 +22,12 @@
           title: 分
       default: second
       description: 最小时间单位
-    - name: minTime
+    - name: min-time
       title: 最小时间
       type: string
       default: '00:00:00'
       description: 支持输入的最小时间
-    - name: maxTime
+    - name: max-time
       title: 最大时间
       type: string
       default: '23:59:59'
@@ -119,6 +119,16 @@
           title: 迷你
       default: normal
       description: 设置时间选择输入框高度大小
+    - name: append-to
+      title: 弹出层展示位置
+      type: string
+      default: body
+      description: 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中
+      options:
+        - value: reference
+          title: 引用元素下
+        - value: body
+          title: 全局body
   events:
     - name: change
       title: 改变后
