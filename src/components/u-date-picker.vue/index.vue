@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.header">
-    <span :class="$style.placeholder" v-show="placeholder">{{ showPlaceholder ? placeholder : ''}}</span><!-- 兼容 IE9 -->
+    <span :class="$style.placeholder" v-show="showPlaceholder">{{ showPlaceholder ? placeholder : ''}}</span><!-- 兼容 IE11 -->
     <input :class="$style.input" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}" @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
     <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
         <i :class="[$style.closeIcon]"></i>
