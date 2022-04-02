@@ -4,20 +4,20 @@
     :show-password="showPassword" :password="password"
     @click.self="!focused && focus()">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
-    <span :class="$style.placeholder" v-show="placeholder">{{ currentValue === undefined || currentValue === '' ? placeholder : ''}}</span><!-- 兼容 IE9 -->
+    <span :class="$style.placeholder" v-show="placeholder">{{ valueEmpty ? placeholder : ''}}</span><!-- 兼容 IE9 -->
     <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <input ref="input" :class="$style.input" v-bind="$attrs" :type="curType" :value="currentValue"
         v-focus="autofocus" :readonly="readonly" :disabled="disabled"
         @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" @keyup="onKeyup" v-on="listeners"
         @compositionstart="compositionInputing = true"
         @compositionend="onCompositionEnd"
-        :title="currentValue && !disabled ? '' : ($attrs.title || placeholder)">
+        :title="!showTitle || (!valueEmpty && !disabled) ? null : ($attrs.title || placeholder)">
     <slot></slot>
     <span :class="$style.suffix" v-if="password || suffix || clearable">
         <span :class="$style.password" v-if="password" @click.stop="togglePassword"></span>
         <span v-if="suffix" :name="suffix"
             @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
-        <span :class="$style.clearable" v-if="clearable && currentValue" @click.stop="clear"></span>
+        <span :class="$style.clearable" v-if="clearable && !valueEmpty" @click.stop="clear"></span>
     </span>
 </div>
 </template>
@@ -48,6 +48,7 @@ export default {
             validator: (value) =>
                 ['horizontal', 'vertical', 'both'].includes(value),
         },
+        showTitle: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -81,6 +82,10 @@ export default {
                 && !this.disabled
                 && !this.readonly
             );
+        },
+        valueEmpty() {
+            const { currentValue } = this;
+            return currentValue === undefined || currentValue === '' || currentValue === null;
         },
     },
     watch: {

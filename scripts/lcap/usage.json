@@ -8308,6 +8308,13 @@
                     "type": "number",
                     "default": 5,
                     "description": "为空时自适应宽度，自动换行"
+                },
+                {
+                    "name": "equalWidth",
+                    "title": "是否均分宽度",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "是否均分宽度"
                 }
             ],
             "slots": [
