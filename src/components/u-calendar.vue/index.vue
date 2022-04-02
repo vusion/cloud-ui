@@ -747,7 +747,7 @@ date.setDate(0);
 }
 
 .dayitem[role="week"] {
-    color: #f99;
+    color: var(--calendar-item-week-color);;
 }
 
 .item:hover {
@@ -1065,6 +1065,9 @@ date.setDate(0);
     color: var(--color-light);
 }
 
+.showtext {
+    font-weight: 500;
+}
 .showtext:hover,
 .showtext[active]{
     color: var(--calendar-showtext-color-hover);

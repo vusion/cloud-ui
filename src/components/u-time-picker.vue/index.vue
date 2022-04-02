@@ -21,7 +21,8 @@
         @click.stop @scroll.stop="onScroll" @mousedown.stop
         @open="onPopperOpen"
         @toggle="$emit('toggle', $event, this)"
-        @close="onPopperClose">
+        @close="onPopperClose"
+        :style="{ width: currentPopperWidth }">
         <div :class="$style.panel" :type="minUnit">
             <div :class="$style.spinner">
                 <f-scroll-view @click.stop trigger="hover" ref="hours" 
@@ -176,6 +177,7 @@ export default {
         clearable: { type: Boolean, default: true },
         width: String,
         height: String,
+        popperWidth: { type: String, default: '' },
     },
     data() {
         const validTime = this.getUnitFormatTime(this.isOutOfRange(this.time) ? this.isOutOfRange(this.time) : this.time || '00:00:00');
@@ -191,7 +193,7 @@ export default {
             isScrolling: false, // 控制滚动hover态
             placeholder: this.$t('selectTimeText'),
             currentOpened: false,
-            valid: true,
+            currentPopperWidth: '100%',
         };
     },
     destroyed() {
@@ -273,7 +275,14 @@ export default {
                 const isOutOfRange = this.isOutOfRange(showTime);
                 this.showTime = isOutOfRange? isOutOfRange : showTime;
             }
-        }
+        },
+        appendTo(appendTo) {
+            this.setPopperWidth();
+        },
+    },
+    mounted() {
+        this.setPopperWidth();
+        console.log('mounted');
     },
     methods: {
         /**
@@ -504,6 +513,13 @@ export default {
         clearValue() {
             this.validShowTime = '';
         },
+        setPopperWidth() {
+            if (this.appendTo === 'body') {
+                this.currentPopperWidth = this.popperWidth ? this.popperWidth : this.$el && (this.$el.offsetWidth + 'px');
+            } else {
+                this.currentPopperWidth = this.popperWidth || '100%';
+            }
+        },
     },
 };
 </script>
@@ -635,8 +651,8 @@ export default {
     box-shadow: var(--datepicker-popper-box-shadow);
     border: 1px solid var(--timepicker-popper-background);
     border-radius: var(--timepicker-popper-border-radius);
-    width: 100%;
-    position: absolute;
+    /* width: 100%; */
+    /* position: absolute; */
     max-width: var(--timepicker-popper-max-width);
 }
 

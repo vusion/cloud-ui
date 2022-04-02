@@ -13,7 +13,7 @@
         <template #suffix><i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.suffixIcon]" notext></i-ico></template>
     </u-input>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
-        <div :class="$style.body" @click.stop>
+        <div @click.stop>
             <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="calendarDate" :value="date" @select="select($event.date)"></u-calendar>
         </div>
     </m-popper>
@@ -451,13 +451,6 @@ export default {
 .suffixIcon {
     right: 12px;
     color: var(--datepicker-input-after-icon-color);
-}
-
-.body {
-    position: relative;
-    z-index: 100;
-    width: 248px;
-    top: 100%;
 }
 
 .popper {

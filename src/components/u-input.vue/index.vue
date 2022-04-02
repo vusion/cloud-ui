@@ -17,7 +17,7 @@
         <span :class="$style.password" v-if="password" @click.stop="togglePassword"></span>
         <span v-if="suffix" :name="suffix"
             @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
-        <span :class="$style.clearable" v-if="clearable && !valueEmpty" @click.stop="clear"></span>
+        <span :class="$style.clearable" v-if="clearable && !valueEmpty && !readonly && !disabled" @click.stop="clear"></span>
     </span>
 </div>
 </template>

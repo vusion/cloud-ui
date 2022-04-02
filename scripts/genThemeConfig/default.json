@@ -903,6 +903,7 @@
     "--calendar-item-background-disabled": "var(--field-background)",
     "--calendar-item-color-selected-disabled": "var(--color-light)",
     "--calendar-item-background-selected-disabled": "#eee",
+    "--calendar-item-week-color": "#F24957",
     "--calendar-width": "300px",
     "--calendar-padding": "15px",
     "--calendar-icon-color": "var(--gray-dark)",

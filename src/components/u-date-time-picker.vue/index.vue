@@ -20,13 +20,15 @@
             <div :class="$style.popperhead">
                 <u-input :placeholder="popperplaceholder" :class="$style.pickerinput" :value="showDate" clearable
                     ref="dateInput"
+                    @clear="showDate=undefined"
                     @blur:value="onDateChange($event)">
                 </u-input>
                 <u-time-picker :class="$style.pickerinput" :readonly="readonly" :time="showTime" 
                     width="50" :min-time="minTime" :max-time="maxTime"
                     :simple-foot="true" pre-icon=""
                     :disabled="!showDate"
-                    @change="outRangeDateTime(showDate, $event.time)">
+                    @change="outRangeDateTime(showDate, $event.time)"
+                    popper-width="134px">
                 </u-time-picker>
             </div>
             <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" 
@@ -39,7 +41,7 @@
                     <u-linear-layout :class="$style.ctimewrap">
                         <u-link @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ $t('now') }}</u-link>
                     </u-linear-layout>
-                    <u-linear-layout>
+                    <u-linear-layout :class="$style.btnwrap">
                         <u-button @click="onCancel">{{ $t('cancel') }}</u-button>
                         <u-button @click="onConfirm" color="primary" :readonly="readonly" :disabled="disabled">{{ $t('submit') }}</u-button>
                     </u-linear-layout>
@@ -430,7 +432,8 @@ export default {
          * 时间输入框输入的时候
          */
         onDateChange(value) {
-            if(value === ''){
+            console.log(value);
+            if(!value){
                 this.showDate = undefined;
                 return;
             }
@@ -626,6 +629,9 @@ export default {
 }
 .ctimewrap {
     padding: 3px 0 0 7px;
+}
+.btnwrap[direction="horizontal"] > *:not(:last-child){
+    margin-right: 10px;
 }
 
 </style>

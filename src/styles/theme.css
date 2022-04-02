@@ -1585,6 +1585,7 @@
 
     --calendar-item-color-selected-disabled: var(--color-light); /* @type color */
     --calendar-item-background-selected-disabled: #eee; /* @type color */
+    --calendar-item-week-color: #F24957; /* @type color */
 
     --calendar-width: 300px; /* @hidden */
     --calendar-padding: 15px; /* @hidden */
