@@ -93,7 +93,7 @@ export default {
     data() {
         const date = this.date || this.value;
         const showDate = this.format(date, this.getFormatString());
-        return { 
+        return {
             showDate,
             calendarDate: showDate, // calendar里的值
         };
