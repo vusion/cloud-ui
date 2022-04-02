@@ -643,6 +643,17 @@
     --carousel-button-background-hover: rgba(0, 0, 0, 0.2); /* @hidden */
 
     /* @component u-time-picker */
+    --timepicker-input-border-color: var(--input-border-color); /* @type color */
+    --timepicker-input-border-width: var(--input-border-width);
+    --timepicker-input-color: var(--input-color); /* @type color */
+    --timepicker-input-background: var(--input-background); /* @type color */
+    --timepicker-input-border-radius: var(--input-border-radius);
+    --timepicker-input-background-disabled: var(--input-background-disabled); /* @type color */
+    --timepicker-input-border-color-error: var(--input-border-color-error); /* @hidden */
+    --timepicker-input-border-color-focus: var(--input-border-color-focus); /* @hidden */
+    --timepicker-input-box-shadow-focus: var(--input-box-shadow-focus); /* @hidden */
+    --timepicker-input-placeholder-color: var(--input-placeholder-color); /* @type color */
+
     --timepicker-input-width-mini: var(--input-width-mini);
     --timepicker-input-padding-x-mini: var(--input-padding-x-mini);
     --timepicker-input-height-mini: var(-input-height-mini);
@@ -662,17 +673,6 @@
     --timepicker-input-padding-x-huge: var(--input-padding-x-huge);
     --timepicker-input-height-huge: var(--input-height-huge);
     --timepicker-input-padding-x-full: var(--input-padding-x-full);
-
-    --timepicker-input-border-color: var(--input-border-color); /* @type color */
-    --timepicker-input-border-width: var(--input-border-width);
-    --timepicker-input-color: var(--input-color);
-    --timepicker-input-background: var(--input-background);
-    --timepicker-input-border-radius: var(--input-border-radius);
-    --timepicker-input-background-disabled: var(--input-background-disabled);
-    --timepicker-input-border-color-error: var(--input-border-color-error); /* @type color */
-    --timepicker-input-border-color-focus: var(--input-border-color-focus); /* @type color */
-    --timepicker-input-box-shadow-focus: var(--input-box-shadow-focus); 
-    --timepicker-input-placeholder-color: var(--input-placeholder-color); /* @type color */
 
     --timepicker-bacground-selected: var(--brand-primary-light); /* @hidden */
     --timepicker-color-selected: white; /* @hidden */
@@ -971,10 +971,12 @@
     --input-border-color-hover: #4c88FF; /* @type color */
     --input-border-color-focus: #4c88FF; /* @type color */
     --input-border-color-disabled: var(--input-border-color); /* @type color */
+    --input-border-width: var(--border-width-base);
+    --input-border-radius: var(--border-radius-base);
+    --input-border-color-error: var(--brand-error); /* @hidden */
     --input-box-shadow-focus-color: rgba(77, 136, 255, 0.2); /* @type color */
     --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color);
     --input-placeholder-color: var(--color-lighter); /* @type color */
-    --input-border-radius: var(--border-radius-base);
     --input-width-mini: var(--width-mini);
     --input-width-small: var(--width-small);
     --input-width: var(--width-base);
@@ -993,29 +995,17 @@
     --input-padding-x-medium: 10px;
     --input-padding-x-large: 10px;
     --input-padding-x-huge: 10px;
+    --input-padding-x-full: 10px;
     --input-prefix-padding-left: 36px;
     --input-prefix-placeholder-left: 27px;
     --input-suffix-padding-right: 30px;
-    --input-border-width: var(--border-width-base);
     --input-background: var(--background-color-default);  /* @type color */
     --input-background-disabled: var(--background-color-disabled-light); /* @type color */
     --input-color: var(--color-base); /* @type color */
     --input-color-disabled: var(--color-light); /* @type color */
-    --input-border-color: var(--border-color-base);
-    --input-border-color-hover: #4c88FF;
-    --input-border-color-focus: #4c88FF;
-    --input-border-color-disabled: var(--input-border-color);
-    --input-border-color-error: var(--brand-error); /* @hidden */
-    --input-placeholder-color: var(--color-lighter);
     --input-icon-color: var(--color-lighter); /* @hidden */
     --input-icon-color-hover: var(--font-third-color); /* @hidden */
     --input-icon-color-disabled: var(--color-lighter); /* @hidden */
-    --input-border-radius: var(--border-radius-base);
-    --input-box-shadow-focus-color: rgba(77, 136, 255, 0.2);
-    --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color);
-    --input-padding-x-full: 10px; /* @hidden */
-    --input-prefix-padding-left: 36px; /* @hidden */
-    --input-suffix-padding-right: 30px; /* @hidden */
 
     /* @component u-textarea */
     --textarea-width: var(--width-base);
@@ -1571,7 +1561,6 @@
     /* @component u-calendar */
     --calendar-border-color: var(--border-color-base); /* @type color */
     --calendar-background: var(--field-background); /* @type color */
-    /* --calendar-border-radius: var(--border-radius-base); */
     --calendar-border-radius: var(--border-radius-base);
 
 
@@ -1597,8 +1586,8 @@
     --calendar-item-color-selected-disabled: var(--color-light); /* @type color */
     --calendar-item-background-selected-disabled: #eee; /* @type color */
 
-    --calendar-width: 300px;
-    --calendar-padding: 15px;
+    --calendar-width: 300px; /* @hidden */
+    --calendar-padding: 15px; /* @hidden */
 
     --calendar-icon-color: var(--gray-dark); /* @type color */
     --calendar-icon-color-hover: var(--gray-darker); /* @type color */
@@ -1612,19 +1601,17 @@
     --datepicker-input-after-icon-color: var(--gray-light); /* @type color */
 
     --datepicker-input-border-color: var(--input-border-color); /* @type color */
-    --datepicker-input-border-width: var(--input-border-width); /* @type color */
+    --datepicker-input-border-width: var(--input-border-width);
     --datepicker-input-color: var(--input-color); /* @type color */
     --datepicker-input-background: var(--input-background); /* @type color */
     --datepicker-input-border-radius: var(--input-border-radius); 
-    --datepicker-input-background-disabled: var(--input-background-disabled); 
-    --datepicker-input-border-color-error: var(--input-border-color-error);
-    --datepicker-input-border-color-focus: var(--input-border-color-focus);
-    --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus);
-    --datepicker-input-placeholder-color: var(--input-placeholder-color);
-    --datepicker-input-icon-color-hover: var(--input-icon-color-hover);
-    --datepicker-input-clear-icon-color: var(--input-icon-color);
-    --datepicker-popper-box-shadow: var(--select-popper-box-shadow);
-    --datepicker-popper-border-radius: var(--border-radius-base);
+    --datepicker-input-background-disabled: var(--input-background-disabled); /* @type color */
+    --datepicker-input-border-color-error: var(--input-border-color-error); /* hidden */
+    --datepicker-input-border-color-focus: var(--input-border-color-focus); /* hidden */
+    --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus); /* hidden */
+    --datepicker-input-placeholder-color: var(--input-placeholder-color); /* @type color */
+    --datepicker-popper-box-shadow: var(--select-popper-box-shadow); /* hidden */
+    --datepicker-popper-border-radius: var(--border-radius-base); /* hidden */
 
     --datepicker-input-width: var(--input-width); 
     --datepicker-input-height: var(--input-height); 
@@ -1648,6 +1635,25 @@
 
 
     /* @component u-date-time-picker */
+
+    --datetime-input-pre-icon-color: var(--gray-light); /* @type color */
+    --datetime-input-after-icon-color: var(--gray-light); /* @type color */
+    --datetime-input-border-color-focus: var(--input-border-color-focus);  /* @hidden */
+    --datetime-input-box-shadow-focus: var(--input-box-shadow-focus); /* @hidden */
+
+    --datetime-input-border-color: var(--input-border-color); /* @type color */
+    --datetime-input-border-width: var(--input-border-width);
+
+    --datetime-input-placeholder-color: var(--input-placeholder-color); /* @type color */
+    --datetime-input-border-radius: var(--input-border-radius); 
+
+
+    --datetime-input-icon-color-hover: var(--input-icon-color-hover); /* @hidden */
+    --datetime-input-clear-icon-color: var(--input-icon-color); /* @hidden */
+
+    --datetime-input-color: var(--input-color); /* @type color */
+    --datetime-input-background: var(--input-background); /* @type color */
+
     --datetime-input-width: var(--input-width); 
     --datetime-input-height: var(--input-height); 
     --datetime-input-padding-x: var(--input-padding-x); 
@@ -1667,26 +1673,6 @@
     --datetime-input-padding-x-huge: var(--input-padding-x-huge); 
     --datetime-input-height-huge: var(--input-height-huge); 
     --datetime-input-padding-x-full: var(--input-padding-x-full); 
-
-    --datetime-input-pre-icon-color: var(--gray-light); /* @type color */
-    --datetime-input-after-icon-color: var(--gray-light); /* @type color */
-    --datetime-input-border-color-focus: var(--input-border-color-focus);  /* @hidden */
-    --datetime-input-box-shadow-focus: var(--input-box-shadow-focus); /* @hidden */
-
-    --datetime-input-border-color: var(--input-border-color); /* @type color */
-    --datetime-input-border-width: var(--input-border-width);
-
-    --datetime-input-placeholder-color: var(--input-placeholder-color); /* @type color */
-    --datetime-input-border-radius: var(--input-border-radius); 
-
-
-    --datetime-input-icon-color-hover: var(--input-icon-color-hover); /* @hidden */
-    --datetime-input-border-color-focus: var(--input-border-color-focus); /* @hidden */
-    --datetime-input-clear-icon-color: var(--input-icon-color); /* @hidden */
-    --datetime-input-box-shadow-focus: var(--input-box-shadow-focus); /* @hidden */
-
-    --datetime-input-color: var(--input-color); /* @type color */
-    --datetime-input-background: var(--input-background); /* @type color */
 
     --datetime-popper-border-color: var(--border-color-base); /* @type color */
     --datetime-popper-border-radius: var(--border-radius-base); 
