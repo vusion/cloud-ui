@@ -1010,6 +1010,7 @@
                     "--calendar-item-background-disabled": "color",
                     "--calendar-item-color-selected-disabled": "color",
                     "--calendar-item-background-selected-disabled": "color",
+                    "--calendar-item-week-color": "color",
                     "--calendar-icon-color": "color",
                     "--calendar-icon-color-hover": "color",
                     "--calendar-icon-color-disabled": "color",
