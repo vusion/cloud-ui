@@ -3514,6 +3514,10 @@
     "type": "number",
     "description": "为空时自适应宽度，自动换行"
   },
+  "u-list-components/equalWidth": {
+    "type": "boolean",
+    "description": "是否均分宽度"
+  },
   "u-list-view/data-source": {
     "type": "Array<Item> | Function | object | DataSource",
     "description": "列表的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。"

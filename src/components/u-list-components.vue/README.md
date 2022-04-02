@@ -33,6 +33,7 @@
 | data-source | array |  |  | 一个包含字符串或对象的数组 |
 | data-schema | schema |  |  | 组件列表每一项的结构 |
 | colnum | number |  | `5` | 为空时自适应宽度，自动换行 |
+| equalWidth | boolean |  | `true` | 是否均分宽度 |
 
 ### Slots
 

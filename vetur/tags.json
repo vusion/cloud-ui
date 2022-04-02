@@ -1016,7 +1016,8 @@
     "attributes": [
       "data-source",
       "data-schema",
-      "colnum"
+      "colnum",
+      "equalWidth"
     ],
     "description": "组件列表"
   },
