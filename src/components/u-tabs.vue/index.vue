@@ -19,7 +19,7 @@
                                 :vusion-disabled-move="itemVM.$attrs['vusion-disabled-move']"
                                 :vusion-disabled-duplicate="itemVM.$attrs['vusion-disabled-duplicate']"
                                 :vusion-disabled-cut="itemVM.$attrs['vusion-disabled-cut']"
-                                :href="itemVM.currentHref" :target="itemVM.target"
+                                :href="itemVM.currentHref" :target="itemVM.target" :title="showTitle ? itemVM.title : null"
                                 :selected="router ? itemVM.active : itemVM === selectedVM"
                                 :disabled="itemVM.disabled || disabled"
                                 :style="{ width: currentItemWidth }"
@@ -65,6 +65,7 @@ export default {
         size: { type: String, default: 'normal' },
         itemWidth: { type: String, default: 'auto' },
         itemAlign: { type: String, default: 'center' },
+        showTitle: { type: Boolean, default: false },
     },
     data() {
         return {

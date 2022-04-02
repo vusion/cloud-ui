@@ -7,6 +7,7 @@
           :key="index2"
           :item="item2"
           :colnum="colnum"
+          :equalWidth="equalWidth"
         >
           <template v-slot="item2">
             <slot :item="item2.item"></slot>
@@ -35,6 +36,10 @@ export default {
         colnum: {
             type: Number,
             default: 5,
+        },
+        equalWidth: {
+            type: Boolean,
+            default: true,
         },
     },
     data() {

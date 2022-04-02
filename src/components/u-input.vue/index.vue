@@ -3,18 +3,18 @@
     :focus="focused" :clearable="clearable && currentValue" :prefix="prefix" :suffix="suffix"
     @click.self="!focused && focus()">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
-    <span :class="$style.placeholder" v-show="placeholder">{{ showPlaceholder ? placeholder : ''}}</span><!-- 兼容 IE9 -->
+    <span :class="$style.placeholder" v-show="placeholder">{{ valueEmpty ? placeholder : ''}}</span><!-- 兼容 IE9 -->
     <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <input ref="input" :class="$style.input" v-bind="$attrs" :value="currentValue"
         v-focus="autofocus" :readonly="readonly" :disabled="disabled"
         @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" @keyup="onKeyup" v-on="listeners"
         @compositionstart="compositionInputing = true"
         @compositionend="onCompositionEnd"
-    >
+        :title="!showTitle || (!valueEmpty && !disabled) ? null : ($attrs.title || placeholder)">
     <slot></slot>
-    <span v-if="suffix" v-show="!clearable || !currentValue" :class="$style.suffix" :name="suffix"
+    <span v-if="suffix" v-show="!clearable || valueEmpty" :class="$style.suffix" :name="suffix"
         @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
-    <span :class="$style.clearable" v-if="clearable && currentValue" @click.stop="clear"></span>
+    <span :class="$style.clearable" v-if="clearable && !valueEmpty" @click.stop="clear"></span>
 </div>
 </template>
 
@@ -42,6 +42,7 @@ export default {
             validator: (value) =>
                 ['horizontal', 'vertical', 'both'].includes(value),
         },
+        showTitle: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -66,7 +67,7 @@ export default {
             });
             return listeners;
         },
-        showPlaceholder() {
+        valueEmpty() {
             const { currentValue } = this;
             return currentValue === undefined || currentValue === '' || currentValue === null;
         },
@@ -87,6 +88,11 @@ export default {
     mounted() {
         this.$emit('update', this.value, this);
         this.autoSize && this.autoResize();
+
+        // 刷新浏览器之后，IE11 会自动在 input 填充上一次输入的内容，导致 input value 和 绑定值不一致
+        setTimeout(() => {
+            this.$refs.input.value = this.currentValue !== undefined ? this.currentValue: '';
+        });
     },
     methods: {
         onKeypress(e) {

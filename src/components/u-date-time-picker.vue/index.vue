@@ -1,8 +1,9 @@
 <template>
 <div :class="$style.root" ref="element" v-click-outside="handleClose">
     <div :class="$style.head">
-        <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
-            @focus="toggle(true)" @change="onInput($event)">
+        <span :class="$style.placeholder" v-show="showPlaceholder" @click="!disabled && toggle(true)">{{ placeholder }}</span><!-- 兼容 IE11 -->
+        <input :class="$style.input" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
+            @focus="toggle(true)" @change="onInput($event)" >
          <span v-if="dateTime && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
             <i :class="[$style.closeIcon]"></i>
         </span>
@@ -107,6 +108,10 @@ export default {
             }
             return disabled;
         },
+        showPlaceholder() {
+            const { dateTime } = this;
+            return dateTime === undefined || dateTime === '' || dateTime === null;
+        },
     },
     watch: {
         date(newValue) {
@@ -151,7 +156,13 @@ export default {
             this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
         );
     },
-    methods: {
+    mounted() {
+        // 刷新浏览器之后，IE11 会自动在 input 填充上一次输入的内容，导致 input value 和 绑定值不一致
+        setTimeout(() => {
+            this.$refs.input.value = this.dateTime !== undefined ? this.dateTime: '';
+        });
+    },
+    methods: { 
         clearValue() {
             this.dateTime = undefined;
         },
@@ -250,6 +261,10 @@ time = '00:00:00';
             this.updateDate(value);
         },
         updateDate(value) {
+            // ie11, '2022-04-08 00:00:01' 是 'Invalid Date'
+            if(typeof value === 'string')
+                value = value.replace(/-/g, '/');
+
             let date = value ? new Date(value) : null;
             if (date !== null && date.toString() !== 'Invalid Date') {
                 date = this.isOutOfRange(date) || date;
@@ -322,17 +337,16 @@ time = '00:00:00';
     width: 100%;
 }
 
-.input:-ms-input-placeholder, .input::-ms-input-placeholder {
-    /* Removes placeholder transparency in Firefox, IE, Edge. */
-    opacity: 1;
-    font-size: inherit;
+.placeholder { /* for IE9 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
     color: var(--datepicker-input-placeholder-color);
-}
-
-.placeholder, .input::placeholder {
-    opacity: 1;
-    font-size: inherit;
-    color: var(--datepicker-input-placeholder-color);
+    height: 34px;
+    line-height: 34px;
+    padding: 0 4px;
 }
 
 .body {

@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.header">
-    <span :class="$style.placeholder" v-show="placeholder">{{ showPlaceholder ? placeholder : ''}}</span><!-- 兼容 IE9 -->
+    <span :class="$style.placeholder" v-show="showPlaceholder">{{ showPlaceholder ? placeholder : ''}}</span><!-- 兼容 IE11 -->
     <input :class="$style.input" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}" @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
     <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
         <i :class="[$style.closeIcon]"></i>
@@ -125,6 +125,12 @@ export default {
             'update',
             this.toValue(this.showDate ? new Date(this.transformDate(this.showDate)) : ''),
         );
+    },
+    mounted() {
+        // 刷新浏览器之后，IE11 会自动在 input 填充上一次输入的内容，导致 input value 和 绑定值不一致
+        setTimeout(() => {
+            this.$refs.input.value = this.showDate !== undefined ? this.showDate: '';
+        });
     },
     methods: {
         getFormatString() {
