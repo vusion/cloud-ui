@@ -1231,7 +1231,7 @@
     /* @component u-rating */
     --rate-space: 6px;
     --rate-size: 20px;
-    --rate-color: var(--background-color-dark); /* @type color */
+    --rate-color: #e5e5e5; /* @type color */
     --rate-color-full: var(--brand-warning); /* @type color */
     --rate-text-color: #333; /* @type color */
     --rate-popup-background: var(--color-white); /* @hidden */

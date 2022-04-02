@@ -197,6 +197,7 @@ export default {
 
 .text {
     color: var(--rate-text-color);
+    vertical-align: 2px;
 }
 
 .popup {
