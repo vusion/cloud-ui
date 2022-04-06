@@ -446,7 +446,7 @@
     --link-color-success: var(--brand-success); /* @type color */
     --link-color-warning: var(--brand-warning); /* @type color */
     --link-color-danger: var(--brand-danger); /* @type color */
-    --link-color-disabled: var(--brand-disabled); /* @type color */
+    --link-color-disabled: var(--font-disabled-color); /* @type color */
     --link-color-hover: var(--brand-primary-light); /* @type color */
     --link-color-success-hover: var(--brand-success-light); /* @type color */
     --link-color-warning-hover: var(--brand-warning-light); /* @type color */
@@ -1565,7 +1565,7 @@
 
 
     --calendar-item-color: #333; /* @type color */
-    --calendar-item-border-radius: 4px; 
+    --calendar-item-border-radius: 4px;
     --calendar-item-border-color: transparent; /* @type color */
     --calendar-item-background: var(--calendar-background); /* @type color */
 
@@ -1605,7 +1605,7 @@
     --datepicker-input-border-width: var(--input-border-width);
     --datepicker-input-color: var(--input-color); /* @type color */
     --datepicker-input-background: var(--input-background); /* @type color */
-    --datepicker-input-border-radius: var(--input-border-radius); 
+    --datepicker-input-border-radius: var(--input-border-radius);
     --datepicker-input-background-disabled: var(--input-background-disabled); /* @type color */
     --datepicker-input-border-color-error: var(--input-border-color-error); /* hidden */
     --datepicker-input-border-color-focus: var(--input-border-color-focus); /* hidden */
@@ -1614,25 +1614,25 @@
     --datepicker-popper-box-shadow: var(--select-popper-box-shadow); /* hidden */
     --datepicker-popper-border-radius: var(--border-radius-base); /* hidden */
 
-    --datepicker-input-width: var(--input-width); 
-    --datepicker-input-height: var(--input-height); 
-    --datepicker-input-padding-x: var(--input-padding-x); 
-    --datepicker-input-width-mini: var(--input-width-mini); 
-    --datepicker-input-padding-x-mini: var(--input-padding-x-mini); 
-    --datepicker-input-height-mini: var(-input-height-mini); 
-    --datepicker-input-width-small: var(--input-width-small); 
-    --datepicker-input-padding-x-small: var(--input-padding-x-small); 
-    --datepicker-input-height-small: var(--input-height-small); 
-    --datepicker-input-width-medium: var(--input-width-medium); 
-    --datepicker-input-padding-x-medium: var(--input-padding-x-medium); 
-    --datepicker-input-height-medium: var(--input-height-medium); 
-    --datepicker-input-width-large: var(--input-width-large); 
-    --datepicker-input-padding-x-large: var(--input-padding-x-large); 
-    --datepicker-input-height-large: var(--input-height-large); 
-    --datepicker-input-width-huge: var(--input-width-huge); 
-    --datepicker-input-padding-x-huge: var(--input-padding-x-huge); 
-    --datepicker-input-height-huge: var(--input-height-huge); 
-    --datepicker-input-padding-x-full: var(--input-padding-x-full); 
+    --datepicker-input-width: var(--input-width);
+    --datepicker-input-height: var(--input-height);
+    --datepicker-input-padding-x: var(--input-padding-x);
+    --datepicker-input-width-mini: var(--input-width-mini);
+    --datepicker-input-padding-x-mini: var(--input-padding-x-mini);
+    --datepicker-input-height-mini: var(-input-height-mini);
+    --datepicker-input-width-small: var(--input-width-small);
+    --datepicker-input-padding-x-small: var(--input-padding-x-small);
+    --datepicker-input-height-small: var(--input-height-small);
+    --datepicker-input-width-medium: var(--input-width-medium);
+    --datepicker-input-padding-x-medium: var(--input-padding-x-medium);
+    --datepicker-input-height-medium: var(--input-height-medium);
+    --datepicker-input-width-large: var(--input-width-large);
+    --datepicker-input-padding-x-large: var(--input-padding-x-large);
+    --datepicker-input-height-large: var(--input-height-large);
+    --datepicker-input-width-huge: var(--input-width-huge);
+    --datepicker-input-padding-x-huge: var(--input-padding-x-huge);
+    --datepicker-input-height-huge: var(--input-height-huge);
+    --datepicker-input-padding-x-full: var(--input-padding-x-full);
 
 
     /* @component u-date-time-picker */
@@ -1646,7 +1646,7 @@
     --datetime-input-border-width: var(--input-border-width);
 
     --datetime-input-placeholder-color: var(--input-placeholder-color); /* @type color */
-    --datetime-input-border-radius: var(--input-border-radius); 
+    --datetime-input-border-radius: var(--input-border-radius);
 
 
     --datetime-input-icon-color-hover: var(--input-icon-color-hover); /* @hidden */
@@ -1655,28 +1655,28 @@
     --datetime-input-color: var(--input-color); /* @type color */
     --datetime-input-background: var(--input-background); /* @type color */
 
-    --datetime-input-width: var(--input-width); 
-    --datetime-input-height: var(--input-height); 
-    --datetime-input-padding-x: var(--input-padding-x); 
-    --datetime-input-width-mini: var(--input-width-mini); 
-    --datetime-input-padding-x-mini: var(--input-padding-x-mini); 
-    --datetime-input-height-mini: var(-input-height-mini); 
-    --datetime-input-width-small: var(--input-width-small); 
-    --datetime-input-padding-x-small: var(--input-padding-x-small); 
-    --datetime-input-height-small: var(--input-height-small); 
-    --datetime-input-width-medium: var(--input-width-medium); 
-    --datetime-input-padding-x-medium: var(--input-padding-x-medium); 
-    --datetime-input-height-medium: var(--input-height-medium); 
-    --datetime-input-width-large: var(--input-width-large); 
-    --datetime-input-padding-x-large: var(--input-padding-x-large); 
-    --datetime-input-height-large: var(--input-height-large); 
-    --datetime-input-width-huge: var(--input-width-huge); 
-    --datetime-input-padding-x-huge: var(--input-padding-x-huge); 
-    --datetime-input-height-huge: var(--input-height-huge); 
-    --datetime-input-padding-x-full: var(--input-padding-x-full); 
+    --datetime-input-width: var(--input-width);
+    --datetime-input-height: var(--input-height);
+    --datetime-input-padding-x: var(--input-padding-x);
+    --datetime-input-width-mini: var(--input-width-mini);
+    --datetime-input-padding-x-mini: var(--input-padding-x-mini);
+    --datetime-input-height-mini: var(-input-height-mini);
+    --datetime-input-width-small: var(--input-width-small);
+    --datetime-input-padding-x-small: var(--input-padding-x-small);
+    --datetime-input-height-small: var(--input-height-small);
+    --datetime-input-width-medium: var(--input-width-medium);
+    --datetime-input-padding-x-medium: var(--input-padding-x-medium);
+    --datetime-input-height-medium: var(--input-height-medium);
+    --datetime-input-width-large: var(--input-width-large);
+    --datetime-input-padding-x-large: var(--input-padding-x-large);
+    --datetime-input-height-large: var(--input-height-large);
+    --datetime-input-width-huge: var(--input-width-huge);
+    --datetime-input-padding-x-huge: var(--input-padding-x-huge);
+    --datetime-input-height-huge: var(--input-height-huge);
+    --datetime-input-padding-x-full: var(--input-padding-x-full);
 
     --datetime-popper-border-color: var(--border-color-base); /* @type color */
-    --datetime-popper-border-radius: var(--border-radius-base); 
+    --datetime-popper-border-radius: var(--border-radius-base);
 
      /* @component u-taskbox @hidden */
     --taskbox-badge-box-shadow: none;
