@@ -22,6 +22,7 @@
             :pageable="pageable"
             ref="source"
             :page-size="pageSize"
+            emptyText="请从右侧添加"
         >
             <template #item="props">
                 <slot name="item" v-bind="props"></slot>
@@ -69,6 +70,7 @@
             :pageable="pageable"
             ref="target"
             :page-size="pageSize"
+            emptyText="请从左侧添加"
         >
             <template #item="props">
                 <slot name="item" v-bind="props"></slot>

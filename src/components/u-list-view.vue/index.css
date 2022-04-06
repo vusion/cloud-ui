@@ -40,7 +40,7 @@
 
 .extra {
     float: right;
-    color: var(--color-light);
+    color: var(--color-base);
 }
 
 .body {
