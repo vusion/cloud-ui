@@ -503,7 +503,7 @@ export default {
 }
 
 .list {
-    min-width: 400px;
+    /* min-width: 400px; */
 }
 
 .list[list-type="text"] .thumb::before {
@@ -537,6 +537,16 @@ export default {
 .link {
     color: var(--uploader-link-color);
     cursor: var(--cursor-pointer);
+    width: calc(100% - 50px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.list[list-type="image"] .link {
+    width: calc(100% - 75px);
 }
 
 .item:hover .link {
