@@ -43,7 +43,7 @@
       title: 辅助文字
       type: Array
       default: ['极差', '失望', '一般', '满意', '惊喜']
-      description: "辅助文字设置，与showText配合使用"
+      description: "辅助文字设置。在展示辅助文字开关打开的情况下才会生效"
     - name: show-tooltip
       title: 展示Tooltip
       type: boolean
@@ -53,7 +53,7 @@
       title: Tooltip文字
       type: Array
       default: ['极差', '失望', '一般', '满意', '惊喜']
-      description: "Tooltip文字设置，与showTooltip配合使用"
+      description: "Tooltip文字设置。在展示Tooltip开关打开的情况下才会生效"
   events:
     - name: change
       title: 改变后
