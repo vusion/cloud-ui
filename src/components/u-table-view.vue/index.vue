@@ -871,19 +871,20 @@ export default {
                 sort = sort || sorting.field;
                 order = order || sorting.order;
             }
-            if(typeof page ==="number"){
-                if(page<1){
-                    this.$toast.show('页数page必须大于0');
-                    return;
-                }
-                if(!(typeof size === 'number' && size > 0 && size <= 2000)) {
+            if(typeof page !=="number"){
+                page = 1   
+            }
+            if(typeof size !=="number"){
+                size=2000
+            }
+            if(!(typeof page === 'number' && page > 0)) {
+                this.$toast.show('页数page必须大于0');
+                return;
+            }
+             if(!(typeof size === 'number' && size > 0 && size <= 2000)) {
                     this.$toast.show('数据条数size必须在1-2000之间');
                     return;
                 }   
-            }else{
-                page = 1
-                size = 2000
-            }
                    
 
 
