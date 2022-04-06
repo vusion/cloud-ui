@@ -9,6 +9,7 @@
     -webkit-transform: rotate(-180deg);
     -ms-transform: rotate(-180deg);
     transform: rotate(-180deg);
+    color: #666666;
 }
 
 .root::after {
@@ -21,7 +22,7 @@
     line-height: 1.2;
     height: 1em;
     margin: auto;
-    color: var(--select-arrow-color);
+    color: #999999;
     transition: transform var(--transition-duration-base);
     pointer-events: none;
 }
@@ -34,6 +35,16 @@
     cursor: var(--cursor-pointer);
     width: 100%;
     height: 100%;
+}
+/* 覆盖原本u-input属性是readonly时，边框不变蓝 */
+.input[readonly]:not([disabled]):hover{
+    border-color: var(--input-border-color-hover);
+}
+
+.input[readonly][opened]{
+    border-color: var(--input-border-color-focus);
+    -webkit-box-shadow: var(--input-box-shadow-focus);
+    box-shadow: var(--input-box-shadow-focus);
 }
 
 .input [class^="u-input_input__"]{
@@ -63,3 +74,36 @@
 .root:hover .clearable:before {
     color: #999999;
 }
+
+.root[width="mini"]  { width: var(--cascader-width-mini); }
+.root[height="mini"] { height: var(--cascader-height-mini); }
+.root[height="mini"] [class^="u-input_placeholder__"]{
+    line-height: var(--cascader-height-mini)
+}
+
+.root[width="small"]  { width: var(--cascader-width-small); }
+.root[height="small"] { height: var(--cascader-height-small);  }
+.root[height="small"] [class^="u-input_placeholder__"]{
+    line-height: var(--cascader-height-small)
+}
+
+.root[width="medium"]  { width: var(--cascader-width-medium); }
+.root[height="medium"] { height: var(--cascader-height-medium); }
+.root[height="medium"] [class^="u-input_placeholder__"]{
+    line-height: var(--cascader-height-medium)
+}
+
+.root[width="large"]  { width: var(--cascader-width-large); }
+.root[height="large"] { height: var(--cascader-height-large);}
+.root[height="large"] [class^="u-input_placeholder__"]{
+    line-height: var(--cascader-height-large)
+}
+
+.root[width="huge"]  { width: var(--cascader-width-huge); }
+.root[height="huge"] { height: var(--cascader-height-huge);  }
+.root[height="huge"] [class^="u-input_placeholder__"]{
+    line-height: var(--cascader-height-huge)
+}
+
+.root[width="full"]  { width: 100%; }
+.root[height="full"] { height: 100%; }

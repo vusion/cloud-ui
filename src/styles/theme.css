@@ -1250,8 +1250,19 @@
     --slider-bound-background: url("../assets/images/stripe.png") repeat-x; /* @hidden */
 
     /* @component u-cascader @hidden */
-    --cascader-width: 360px;
+    --cascader-width: 240px;
     --cascader-scroll-width: 120px;
+
+    --cascader-width-mini: var(--width-mini); /* @hidden */
+    --cascader-width-small: var(--width-small); /* @hidden */
+    --cascader-width-medium: var(--width-medium); /* @hidden */
+    --cascader-width-large: var(--width-large); /* @hidden */
+    --cascader-width-huge: var(--width-huge); /* @hidden */
+    --cascader-height-mini: var(--height-mini); /* @hidden */
+    --cascader-height-small: var(--height-small); /* @hidden */
+    --cascader-height-medium: var(--height-medium); /* @hidden */
+    --cascader-height-large: var(--height-large); /* @hidden */
+    --cascader-height-huge: var(--height-huge); /* @hidden */
 
     /* @component u-combo-slider @hidden */
     --combo-slider-slider-width: 100%;

@@ -13,6 +13,7 @@
 
 .umenuShape{
     min-height: 200px;
+    border-width: 1px 1px 1px 0px;
 }
 
 .scrollShape{
@@ -26,6 +27,21 @@
     width: var(--cascader-width);
     height: 200px;
 }
+
+.scrollShape:first-child .umenuShape{
+    border-radius: 4px 0px 0px 4px;
+}
+.scrollShape:last-child .umenuShape{
+    border-radius: 0px 4px 4px 0px;
+}
+.scrollShape:only-child .umenuShape{
+    border-radius: 4px 4px 4px 4px;
+}
+
+.searchShape .umenuShape{
+    border-radius: 4px;
+}
+
 
 .spinner{
     position: absolute;
