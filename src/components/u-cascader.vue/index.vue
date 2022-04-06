@@ -6,7 +6,7 @@
         @keydown.right.prevent="horizontalShift(+1)"
         @keydown.esc.stop="close()"
         @keydown.enter="$refs.popper.currentOpened ? onEnter() : open()">
-        <u-input :class="$style.input"
+        <u-input :class="$style.input" :opened="opened"
             :placeholder="placeholder" :readonly="!filterable"
             v-model="value" :disabled="disabled"
             @focus="focus" @blur="blur"
