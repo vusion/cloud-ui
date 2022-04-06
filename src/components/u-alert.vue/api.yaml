@@ -3,42 +3,43 @@
   icon: alert
   labels:
     - Display
-  description: 公告提示。
+  description: 公告。
   attrs:
     - name: type
-      title: 提示类型
+      title: 公告类型
       type: string
       options:
         - value: info
-          title: 信息提示
+          title: 信息
         - value: success
-          title: 成功提示
+          title: 成功
         - value: warning
-          title: 警告提示
+          title: 警告
         - value: error
-          title: 错误提示
+          title: 错误
       default: "info"
-      description: 选择提示类型
+      description: 选择公告类型
     - name: title
       title: 标题
       type: string
       default: ""
-      description: 提示标题
+      description: 公告标题
     - name: desc
       title: 辅助文本
       type: string
       default: ""
-      description: 提示辅助文本
+      description: 公告辅助文本
     - name: horizontal
       title: 对其方式
       type: string
       default: left
       options:
         - value: left
-          name: 左对齐
+          title: 左对齐
         - value: center
-          name: 居中对齐
+          title: 居中对齐
       description: 选择对齐方式
+      advanced: true
     - name: showIcon
       title: 图标
       type: boolean
