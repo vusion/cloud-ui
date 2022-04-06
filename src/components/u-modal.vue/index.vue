@@ -303,7 +303,7 @@ export default UModal;
 }
 
 .body[icon]:not([icon=""]) {
-    margin: 34px 60px;
+    margin: 32px 48px;
 }
 
 .body[icon]:not([icon=""]) .text {
