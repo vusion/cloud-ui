@@ -68,6 +68,9 @@ export default {
     opacity: 0;
     height: 0;
     width: 0;
+    margin: 0;
+    font-size: 0;
+    line-height: 0;
 }
 
 .icon {
