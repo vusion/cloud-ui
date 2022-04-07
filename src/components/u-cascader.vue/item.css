@@ -5,11 +5,19 @@
     background: #337EFF;
     color: #FFFFFF;
 }
+.select_item[select]::after{
+    color: #FFFFFF;
+}
 
 .select_item{
     text-overflow: ellipsis;
     overflow: hidden;  
+    margin-top: 8px;
 }
+.select_item::after{
+    color: #999999;
+}
+
 
 .umenuShape{
     min-height: 200px;

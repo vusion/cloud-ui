@@ -92,6 +92,11 @@ export default {
     resize: none;
 }
 
+.clearable {
+    position: absolute;
+    right: 2px;
+}
+
 .clearable::before {
     top: 2px;
     right: 4px;
