@@ -282,7 +282,6 @@ export default {
     },
     mounted() {
         this.setPopperWidth();
-        console.log('mounted');
     },
     methods: {
         /**

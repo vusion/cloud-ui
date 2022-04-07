@@ -424,7 +424,9 @@ export default {
             this.$emit('input', this.finalDateTime);
         },
         onPopperOpen() {
-            this.dateTime = this.format(new Date(this.finalDateTime), 'YYYY-MM-DD HH:mm:ss');
+            if(!this.finalDateTime)
+                return;
+            this.dateTime = this.format(new Date(this.finalDateTime.replace(/-/g, '/')), 'YYYY-MM-DD HH:mm:ss');
             this.showDate = this.format(this.dateTime, 'YYYY-MM-DD');
             this.showTime = this.format(this.dateTime, 'HH:mm:ss');
         },
@@ -432,7 +434,6 @@ export default {
          * 时间输入框输入的时候
          */
         onDateChange(value) {
-            console.log(value);
             if(!value){
                 this.showDate = undefined;
                 return;
@@ -441,8 +442,6 @@ export default {
             if(this.checkDate(value)) {
                 const date = new Date(this.transformDate(value + ' ' + this.spMinTime));
                 const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
-                console.log('date', date);
-                console.log('isOutOfRange', isOutOfRange);
                 if(!isOutOfRange){
                     showDate = this.format(date, 'YYYY-MM-DD');
                 }

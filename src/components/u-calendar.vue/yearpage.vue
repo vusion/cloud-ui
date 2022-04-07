@@ -257,6 +257,7 @@ export default {
     /* padding: 10px 0; */
     align-items: center;
     justify-content: center;
+    vertical-align: middle;
     margin-bottom: 24px;
     border-radius: var(--calendar-border-radius);
     position: relative;
@@ -286,6 +287,7 @@ export default {
     width: 30px;
     height: 100%;
     left: -20px;
+    top: 0px;
     cursor: var(--cursor-not-allowed);
 }
 .boxItem:not([disabled]) + .boxItem[disabled] {

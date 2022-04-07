@@ -689,6 +689,7 @@ date.setDate(0);
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    vertical-align: middle;
     border-radius: var(--calendar-border-radius);
     position: relative;
 }
@@ -723,6 +724,7 @@ date.setDate(0);
     width: 20px;
     height: 100%;
     left: -10px;
+    top: 0px;
     cursor: var(--cursor-not-allowed);
 }
 .daywrap:not([disabled]) + .daywrap[disabled] {
@@ -889,6 +891,7 @@ date.setDate(0);
     /* padding: 10px 0; */
     align-items: center;
     justify-content: center;
+    vertical-align: middle;
     margin-bottom: 24px;
     border-radius: var(--calendar-border-radius);
     position: relative;
@@ -933,6 +936,7 @@ date.setDate(0);
     width: 40px;
     height: 100%;
     left: -15px;
+    top: 0px;
     cursor: var(--cursor-not-allowed);
 }
 .boxItem:not([disabled]) + .boxItem[disabled] {
