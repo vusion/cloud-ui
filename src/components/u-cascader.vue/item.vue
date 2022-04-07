@@ -5,7 +5,8 @@
                 <u-menu-item v-for="(item, index) in data" :key="index" :ref="index" 
                     :has-sub="hasSub(item)" 
                     :disabled="item.disabled"
-                    :class="$style.select_item" :select="index === umenuIndex"
+                    :class="$style.select_item" 
+                    :select="index === umenuIndex"
                     @click="clickMenuitem(item, index)">
                     {{ $at(item, field) }}
                     <span :class="$style.spinner" v-if="item.loading"></span>
