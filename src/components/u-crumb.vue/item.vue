@@ -61,8 +61,13 @@ export default {
     icon-font: url("../i-icon.vue/icons/slash.svg");
 }
 
+/* 在 Safari 中 :last-child 与 display: none 并存时偶现渲染问题 */
 .root:last-child .separator {
-    display: none;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    width: 0;
 }
 
 .icon {
