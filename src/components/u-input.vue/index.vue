@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :readonly="readonly" :disabled="disabled" :color="currentColor || formItemVM && formItemVM.color"
-    :focus="focused" :clearable="clearable && currentValue" :prefix="prefix?prefix:undefined" :suffix="suffix?suffix:undefined"
+    :focus="focused" :clearable="clearable && currentValue" :prefix="prefix" :suffix="suffix"
     :show-password="showPassword" :password="password"
     @click.self="!focused && focus()">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->

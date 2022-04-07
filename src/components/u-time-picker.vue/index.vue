@@ -8,8 +8,8 @@
         @focus="onFocus" @blur="onBlur"
         @blur:value="onBlurInputValue($event)"
         @clear="clearValue"
-        :prefix="preIcon"
-        :suffix="suffixIcon"
+        :prefix="preIcon?preIcon:undefined"
+        :suffix="suffixIcon?suffixIcon:undefined"
         :color="formItemVM && formItemVM.color">
         <template #prefix><i-ico v-if="preIcon" :name="preIcon" :class="[$style.preIcon]" notext></i-ico></template>
         <template #suffix><i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.suffixIcon]" notext></i-ico></template>
