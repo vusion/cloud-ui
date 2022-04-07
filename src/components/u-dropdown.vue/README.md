@@ -20,26 +20,75 @@
 
 ``` html
 <u-dropdown>
-    <u-dropdown-item text="item">
-    </u-dropdown-item>
-    <u-dropdown-item text="item">
-    </u-dropdown-item>
-    <u-dropdown-item text="item">
-    </u-dropdown-item>
-    <u-dropdown-item text="item">
-    </u-dropdown-item>
     <template #title="scope">
         <u-text text="下拉菜单"></u-text>
-        <i-ico name="bottom-arrow" notext></i-ico>
+    </template>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item disabled text="item"></u-dropdown-item>
+</u-dropdown>
+<u-dropdown type="primary">
+    <template #title="scope">
+        <u-text text="下拉按钮"></u-text>
+    </template>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item disabled text="item"></u-dropdown-item>
+</u-dropdown>
+<u-dropdown type="primary_secondary">
+    <template #title="scope">
+        <u-text text="下拉按钮"></u-text>
+    </template>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item disabled text="item"></u-dropdown-item>
+</u-dropdown>
+<u-dropdown type="normal">
+    <template #title="scope">
+        <u-text text="下拉按钮"></u-text>
+    </template>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item disabled text="item"></u-dropdown-item>
+</u-dropdown>
+```
+
+## 禁用状态
+
+``` html
+<u-dropdown disabled>
+    <template #title="scope">
+        <u-text text="下拉菜单"></u-text>
+    </template>
+</u-dropdown>
+<u-dropdown disabled type="primary">
+    <template #title="scope">
+        <u-text text="下拉按钮"></u-text>
+    </template>
+</u-dropdown>
+<u-dropdown disabled type="primary_secondary">
+    <template #title="scope">
+        <u-text text="下拉按钮"></u-text>
+    </template>
+</u-dropdown>
+<u-dropdown disabled type="normal">
+    <template #title="scope">
+        <u-text text="下拉按钮"></u-text>
     </template>
 </u-dropdown>
 ```
+
 ## UDropdown API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | trigger | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'hover'` | 触发方式 |
+| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'text'` | undefined |
 | placement | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'bottom'` | 弹出方位 |
 | disabled | boolean |  | `false` | 是否禁用 |
 

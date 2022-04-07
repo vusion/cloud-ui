@@ -279,6 +279,18 @@
     ],
     "description": "单个操作项"
   },
+  "u-alert": {
+    "attributes": [
+      "type",
+      "title",
+      "desc",
+      "horizontal",
+      "showIcon",
+      "bordered",
+      "closeable"
+    ],
+    "description": "公告。"
+  },
   "u-article": {
     "attributes": []
   },
@@ -467,6 +479,26 @@
     ],
     "description": "一次选择多个相关联的项"
   },
+  "u-cascader": {
+    "attributes": [
+      "data",
+      "placeholder",
+      "trigger",
+      "v-model",
+      "join",
+      "field",
+      "filterable",
+      "clearable",
+      "showFinalValue",
+      "disabled",
+      "width",
+      "height"
+    ],
+    "description": "一次选择多个相关联的项",
+    "defaults": [
+      "v-model"
+    ]
+  },
   "u-checkbox-card": {
     "attributes": [
       "data",
@@ -604,9 +636,6 @@
   },
   "u-date-picker": {
     "attributes": [
-      "preIcon",
-      "suffixIcon",
-      "picker",
       "date",
       "minDate",
       "maxDate",
@@ -621,14 +650,17 @@
       "yearDiff",
       "yearAdd",
       "converter",
+      "picker",
+      "preIcon",
+      "suffixIcon",
+      "width",
+      "height",
       "append-to"
     ],
     "description": "日期选择器"
   },
   "u-date-time-picker": {
     "attributes": [
-      "preIcon",
-      "suffixIcon",
       "date",
       "minDate",
       "maxDate",
@@ -641,6 +673,10 @@
       "yearDiff",
       "yearAdd",
       "converter",
+      "preIcon",
+      "suffixIcon",
+      "width",
+      "height",
       "append-to"
     ],
     "description": "日期时间选择器"
@@ -680,6 +716,7 @@
   "u-dropdown": {
     "attributes": [
       "trigger",
+      "type",
       "placement",
       "disabled"
     ],
@@ -1038,7 +1075,8 @@
     "attributes": [
       "percent",
       "size",
-      "range"
+      "range",
+      "direction"
     ],
     "description": "以线条的形式描述当前进度"
   },
@@ -1063,7 +1101,8 @@
     "attributes": [
       "data-source",
       "data-schema",
-      "colnum"
+      "colnum",
+      "equalWidth"
     ],
     "description": "组件列表"
   },
@@ -1172,8 +1211,8 @@
       "visible",
       "ok-button",
       "cancel-button",
-      "size",
       "icon",
+      "size",
       "static",
       "mask-close"
     ],
@@ -1505,22 +1544,33 @@
     "attributes": [
       "value",
       "max",
-      "readonly"
+      "readonly",
+      "allow-half",
+      "clearable",
+      "show-text",
+      "texts",
+      "show-tooltip",
+      "tooltips"
     ],
     "description": "评分组件。"
   },
   "u-region-select": {
     "attributes": [
       "data",
-      "value",
-      "categories",
-      "hide-empty",
-      "converter",
+      "placeholder",
+      "trigger",
+      "v-model",
+      "join",
       "field",
-      "readonly",
+      "filterable",
+      "clearable",
+      "showFinalValue",
       "disabled"
     ],
-    "description": "该组件从 UCascadeSelect 继承，仅填充了中国的行政区数据，其他功能与 UCascadeSelect 相同。"
+    "description": "该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。",
+    "defaults": [
+      "v-model"
+    ]
   },
   "u-router-view": {
     "attributes": [],
@@ -1874,12 +1924,18 @@
     "attributes": [
       "time",
       "minUnit",
-      "minTime",
-      "maxTime",
+      "min-time",
+      "max-time",
       "autofocus",
       "readonly",
       "disabled",
-      "visible"
+      "visible",
+      "clearable",
+      "preIcon",
+      "suffixIcon",
+      "width",
+      "height",
+      "append-to"
     ],
     "description": "时间选择器"
   },

@@ -25,8 +25,8 @@
 
 ``` html
 <u-linear-layout>
-    <u-date-picker preIcon suffixIcon="calendar" width="400" clearable></u-date-picker>
     <u-date-picker date="2018-08-08" clearable></u-date-picker>
+    <u-date-picker preIcon suffixIcon="calendar" width="400" clearable></u-date-picker>
 </u-linear-layout>
 ```
 ### 自动对焦
@@ -113,7 +113,7 @@ export default {
         	console.log(newVal);
         },
         toggle(event) {
-        	console.log(event.open);
+        	console.log(event.opened);
         }
     },
     watch: {
@@ -196,9 +196,6 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| preIcon | string | `[object Object]`<br/>`[object Object]` | `'calendar'` |  |
-| suffixIcon | string | `[object Object]`<br/>`[object Object]` | `''` |  |
-| picker | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'date'` | 日期格式设置 |
 | date.sync, v-model | string,number,Date |  |  | 默认显示的日期值，格式如2018-08-08 |
 | minDate | string,number,Date |  |  | 支持输入的最小日期，不限制填写null |
 | maxDate | string,number,Date |  |  | 支持输入的最大日期，不限制填写null |
@@ -213,7 +210,12 @@ export default {
 | yearDiff | number |  | `20` | 最小可选年份值为当前年减去此值 |
 | yearAdd | number |  | `20` | 最大可选年份值为当前年加上此值 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'format'` | 转换器，用于转换时间结果 |
-| append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
+| picker | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'date'` | 日期格式设置 |
+| preIcon | string | `[object Object]`<br/>`[object Object]` | `'calendar'` |  |
+| suffixIcon | string | `[object Object]`<br/>`[object Object]` | `''` |  |
+| width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置日期选择输入框宽度大小 |
+| height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置日期选择输入框高度大小 |
+| append-to | string | `[object Object]`<br/>`[object Object]` | `'body'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
 
 ### Events
 

@@ -102,8 +102,6 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| preIcon | string | `[object Object]`<br/>`[object Object]` | `'calendar'` |  |
-| suffixIcon | string | `[object Object]`<br/>`[object Object]` | `''` |  |
 | date.sync, v-model | string, number, Date |  |  | 默认显示的日期时间值，格式如2018-08-08 08:08:08 |
 | minDate | string, number, Date |  |  | 支持输入的最小日期时间，不限制填写null |
 | maxDate | string, number, Date |  |  | 支持输入的最大日期时间，不限制填写null |
@@ -116,7 +114,11 @@ export default {
 | yearDiff | number |  | `20` | 最小可选年份值为当前年减去此值 |
 | yearAdd | number |  | `20` | 最大可选年份值为当前年加上此值 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'format'` | 转换器 |
-| append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
+| preIcon | string | `[object Object]`<br/>`[object Object]` | `'calendar'` |  |
+| suffixIcon | string | `[object Object]`<br/>`[object Object]` | `''` |  |
+| width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置日期时间选择输入框宽度大小 |
+| height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置日期时间选择输入框高度大小 |
+| append-to | string | `[object Object]`<br/>`[object Object]` | `'body'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
 
 ### Events
 

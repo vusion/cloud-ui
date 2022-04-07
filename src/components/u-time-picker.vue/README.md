@@ -86,14 +86,20 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| time.sync, v-model | string |  | `'00:00'` | 默认显示的时间值，格式如08:08:08 |
+| time.sync, v-model | string |  | `''` | 默认显示的时间值，格式如08:08:08 |
 | minUnit | string | `[object Object]`<br/>`[object Object]` | `'second'` | 最小时间单位 |
-| minTime | string |  | `'00:00:00'` | 支持输入的最小时间 |
-| maxTime | string |  | `'23:59:59'` | 支持输入的最大时间 |
+| min-time | string |  | `'00:00:00'` | 支持输入的最小时间 |
+| max-time | string |  | `'23:59:59'` | 支持输入的最大时间 |
 | autofocus | boolean |  | `false` | 是否自动获得焦点 |
 | readonly | boolean |  | `false` |  |
 | disabled | boolean |  | `false` |  |
 | visible | boolean |  | `true` | 是否显示 |
+| clearable | boolean |  | `true` | 开启并在输入框有内容时会显示清除按钮 |
+| preIcon | string | `[object Object]`<br/>`[object Object]` | `'time'` |  |
+| suffixIcon | string | `[object Object]`<br/>`[object Object]` | `''` |  |
+| width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置时间选择输入框宽度大小 |
+| height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置时间选择输入框高度大小 |
+| append-to | string | `[object Object]`<br/>`[object Object]` | `'body'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
 
 ### Events
 

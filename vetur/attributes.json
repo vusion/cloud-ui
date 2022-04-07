@@ -725,6 +725,62 @@
     ],
     "description": "展示方式"
   },
+  "u-alert/type": {
+    "type": "string",
+    "options": [
+      {
+        "value": "info",
+        "title": "信息"
+      },
+      {
+        "value": "success",
+        "title": "成功"
+      },
+      {
+        "value": "warning",
+        "title": "警告"
+      },
+      {
+        "value": "error",
+        "title": "错误"
+      }
+    ],
+    "description": "选择公告类型"
+  },
+  "u-alert/title": {
+    "type": "string",
+    "description": "公告标题"
+  },
+  "u-alert/desc": {
+    "type": "string",
+    "description": "公告辅助文本"
+  },
+  "u-alert/horizontal": {
+    "type": "string",
+    "options": [
+      {
+        "value": "left",
+        "title": "左对齐"
+      },
+      {
+        "value": "center",
+        "title": "居中对齐"
+      }
+    ],
+    "description": "选择对齐方式"
+  },
+  "u-alert/showIcon": {
+    "type": "boolean",
+    "description": "显示/隐藏图标"
+  },
+  "u-alert/bordered": {
+    "type": "boolean",
+    "description": "显示/隐藏边框"
+  },
+  "u-alert/closeable": {
+    "type": "boolean",
+    "description": "是否可手动关闭"
+  },
   "u-auto-complete/value": {
     "type": "string",
     "description": "输入框的值"
@@ -1322,6 +1378,138 @@
     "type": "boolean",
     "description": ""
   },
+  "u-cascader/data": {
+    "type": "Array<{ text, value }>",
+    "description": "数据列表"
+  },
+  "u-cascader/placeholder": {
+    "type": "string",
+    "description": "搜索框为空时提示文本"
+  },
+  "u-cascader/trigger": {
+    "type": "string",
+    "options": [
+      {
+        "value": "click",
+        "title": "点击"
+      },
+      {
+        "value": "hover",
+        "title": "悬浮"
+      }
+    ],
+    "description": "触发方式"
+  },
+  "u-cascader/v-model": {
+    "type": "String",
+    "description": "双向绑定"
+  },
+  "u-cascader/join": {
+    "type": "string",
+    "options": [
+      {
+        "value": ",",
+        "title": "以','连接"
+      },
+      {
+        "value": "|",
+        "title": "以'|'连接"
+      },
+      {
+        "value": " / ",
+        "title": "以' / '连接"
+      }
+    ],
+    "description": "将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值"
+  },
+  "u-cascader/field": {
+    "type": "string",
+    "description": "显示文本字段"
+  },
+  "u-cascader/filterable": {
+    "type": "boolean",
+    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
+  },
+  "u-cascader/clearable": {
+    "type": "boolean",
+    "description": "开启并在输入框有内容时会显示清除按钮。"
+  },
+  "u-cascader/showFinalValue": {
+    "type": "boolean",
+    "description": "定义是否显示完整的路径，ture时只显示最后一项"
+  },
+  "u-cascader/disabled": {
+    "type": "boolean",
+    "description": ""
+  },
+  "u-cascader/width": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置级联框宽度大小"
+  },
+  "u-cascader/height": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置级联框高度大小"
+  },
   "u-checkbox-card/data": {
     "type": "array",
     "description": "可供选择的数据"
@@ -1819,56 +2007,6 @@
     "type": "boolean",
     "description": "是否不可点击。如果为`true`，则不会响应`click`事件。"
   },
-  "u-date-picker/preIcon": {
-    "type": "string",
-    "options": [
-      {
-        "value": "calendar",
-        "title": "日历"
-      },
-      {
-        "value": "",
-        "title": "暂无"
-      }
-    ],
-    "description": ""
-  },
-  "u-date-picker/suffixIcon": {
-    "type": "string",
-    "options": [
-      {
-        "value": "calendar",
-        "title": "日历"
-      },
-      {
-        "value": "",
-        "title": "暂无"
-      }
-    ],
-    "description": ""
-  },
-  "u-date-picker/picker": {
-    "type": "string",
-    "options": [
-      {
-        "title": "日期",
-        "value": "date"
-      },
-      {
-        "title": "月份",
-        "value": "month"
-      },
-      {
-        "title": "季度",
-        "value": "quarter"
-      },
-      {
-        "title": "年份",
-        "value": "year"
-      }
-    ],
-    "description": "日期格式设置"
-  },
   "u-date-picker/date": {
     "type": "string,number,Date",
     "description": "默认显示的日期值，格式如2018-08-08"
@@ -1957,6 +2095,124 @@
     ],
     "description": "转换器，用于转换时间结果"
   },
+  "u-date-picker/picker": {
+    "type": "string",
+    "options": [
+      {
+        "title": "日期",
+        "value": "date"
+      },
+      {
+        "title": "月份",
+        "value": "month"
+      },
+      {
+        "title": "季度",
+        "value": "quarter"
+      },
+      {
+        "title": "年份",
+        "value": "year"
+      }
+    ],
+    "description": "日期格式设置"
+  },
+  "u-date-picker/preIcon": {
+    "type": "string",
+    "options": [
+      {
+        "value": "calendar",
+        "title": "日历"
+      },
+      {
+        "value": "",
+        "title": "暂无"
+      }
+    ],
+    "description": ""
+  },
+  "u-date-picker/suffixIcon": {
+    "type": "string",
+    "options": [
+      {
+        "value": "calendar",
+        "title": "日历"
+      },
+      {
+        "value": "",
+        "title": "暂无"
+      }
+    ],
+    "description": ""
+  },
+  "u-date-picker/width": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置日期选择输入框宽度大小"
+  },
+  "u-date-picker/height": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置日期选择输入框高度大小"
+  },
   "u-date-picker/append-to": {
     "type": "string",
     "options": [
@@ -1970,34 +2226,6 @@
       }
     ],
     "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中"
-  },
-  "u-date-time-picker/preIcon": {
-    "type": "string",
-    "options": [
-      {
-        "value": "calendar",
-        "title": "日历"
-      },
-      {
-        "value": "",
-        "title": "暂无"
-      }
-    ],
-    "description": ""
-  },
-  "u-date-time-picker/suffixIcon": {
-    "type": "string",
-    "options": [
-      {
-        "value": "calendar",
-        "title": "日历"
-      },
-      {
-        "value": "",
-        "title": "暂无"
-      }
-    ],
-    "description": ""
   },
   "u-date-time-picker/date": {
     "type": "string, number, Date",
@@ -2068,6 +2296,102 @@
       }
     ],
     "description": "转换器"
+  },
+  "u-date-time-picker/preIcon": {
+    "type": "string",
+    "options": [
+      {
+        "value": "calendar",
+        "title": "日历"
+      },
+      {
+        "value": "",
+        "title": "暂无"
+      }
+    ],
+    "description": ""
+  },
+  "u-date-time-picker/suffixIcon": {
+    "type": "string",
+    "options": [
+      {
+        "value": "calendar",
+        "title": "日历"
+      },
+      {
+        "value": "",
+        "title": "暂无"
+      }
+    ],
+    "description": ""
+  },
+  "u-date-time-picker/width": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置日期时间选择输入框宽度大小"
+  },
+  "u-date-time-picker/height": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置日期时间选择输入框高度大小"
   },
   "u-date-time-picker/append-to": {
     "type": "string",
@@ -2172,6 +2496,27 @@
       }
     ],
     "description": "触发方式"
+  },
+  "u-dropdown/type": {
+    "type": "string",
+    "options": [
+      {
+        "value": "text",
+        "title": "基础按钮样式"
+      },
+      {
+        "value": "primary",
+        "title": "主要按钮样式"
+      },
+      {
+        "value": "primary_secondary",
+        "title": "次要按钮样式"
+      },
+      {
+        "value": "normal",
+        "title": "普通按钮样式"
+      }
+    ]
   },
   "u-dropdown/placement": {
     "type": "string",
@@ -3812,6 +4157,19 @@
     "type": "array<number>",
     "description": "百分比范围限制"
   },
+  "u-linear-progress/direction": {
+    "type": "string",
+    "options": [
+      {
+        "value": "horizontal",
+        "title": "横向"
+      },
+      {
+        "value": "vertical",
+        "title": "竖向"
+      }
+    ]
+  },
   "u-link/text": {
     "type": "string",
     "description": "显示文本内容"
@@ -3947,6 +4305,10 @@
   "u-list-components/colnum": {
     "type": "number",
     "description": "为空时自适应宽度，自动换行"
+  },
+  "u-list-components/equalWidth": {
+    "type": "boolean",
+    "description": "是否均分宽度"
   },
   "u-list-view/data-source": {
     "type": "Array<Item> | Function | object | DataSource",
@@ -4274,6 +4636,28 @@
     "type": "string",
     "description": "取消按钮文本，如果为空则不显示"
   },
+  "u-modal/icon": {
+    "type": "string",
+    "options": [
+      {
+        "value": "",
+        "title": "暂无"
+      },
+      {
+        "value": "success",
+        "title": "成功"
+      },
+      {
+        "value": "warning",
+        "title": "警告"
+      },
+      {
+        "value": "error",
+        "title": "错误"
+      }
+    ],
+    "description": ""
+  },
   "u-modal/size": {
     "type": "string",
     "options": [
@@ -4299,24 +4683,6 @@
       }
     ],
     "description": "弹窗的尺寸"
-  },
-  "u-modal/icon": {
-    "type": "string",
-    "options": [
-      {
-        "value": "success",
-        "title": "成功"
-      },
-      {
-        "value": "warning",
-        "title": "警告"
-      },
-      {
-        "value": "error",
-        "title": "错误"
-      }
-    ],
-    "description": ""
   },
   "u-modal/static": {
     "type": "boolean",
@@ -5351,51 +5717,89 @@
     "type": "boolean",
     "description": ""
   },
+  "u-rate/allow-half": {
+    "type": "boolean",
+    "description": "是否允许半选"
+  },
+  "u-rate/clearable": {
+    "type": "boolean",
+    "description": "是否允许选中后点击清除"
+  },
+  "u-rate/show-text": {
+    "type": "boolean",
+    "description": "在评分后展示辅助文字"
+  },
+  "u-rate/texts": {
+    "type": "Array",
+    "description": "辅助文字设置。在展示辅助文字开关打开的情况下才会生效"
+  },
+  "u-rate/show-tooltip": {
+    "type": "boolean",
+    "description": "鼠标悬浮时展示提示文字"
+  },
+  "u-rate/tooltips": {
+    "type": "Array",
+    "description": "Tooltip文字设置。在展示Tooltip开关打开的情况下才会生效"
+  },
   "u-region-select/data": {
     "type": "Array<{ text, value }>",
-    "description": "数据列表，当前地区数据集合不满足需求，可以重设此数据"
+    "description": "数据列表"
   },
-  "u-region-select/value": {
-    "type": "any",
-    "description": ""
+  "u-region-select/placeholder": {
+    "type": "string",
+    "description": "搜索框为空时提示文本"
   },
-  "u-region-select/categories": {
-    "type": "Array<{ label, key, placeholder }>",
-    "description": "多级分类"
-  },
-  "u-region-select/hide-empty": {
-    "type": "boolean",
-    "description": "是否隐藏空列表"
-  },
-  "u-region-select/converter": {
+  "u-region-select/trigger": {
     "type": "string",
     "options": [
       {
-        "value": "join",
+        "value": "click",
+        "title": "点击"
+      },
+      {
+        "value": "hover",
+        "title": "悬浮"
+      }
+    ],
+    "description": "触发方式"
+  },
+  "u-region-select/v-model": {
+    "type": "String",
+    "description": "双向绑定"
+  },
+  "u-region-select/join": {
+    "type": "string",
+    "options": [
+      {
+        "value": ",",
         "title": "以','连接"
       },
       {
-        "value": "join:|",
+        "value": "|",
         "title": "以'|'连接"
       },
       {
-        "value": "join:;",
-        "title": "以';'连接"
-      },
-      {
-        "value": "json",
-        "title": "json"
+        "value": " / ",
+        "title": "以' / '连接"
       }
     ],
-    "description": "将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式"
+    "description": "将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值"
   },
   "u-region-select/field": {
     "type": "string",
     "description": "显示文本字段"
   },
-  "u-region-select/readonly": {
+  "u-region-select/filterable": {
     "type": "boolean",
-    "description": ""
+    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
+  },
+  "u-region-select/clearable": {
+    "type": "boolean",
+    "description": "开启并在输入框有内容时会显示清除按钮。"
+  },
+  "u-region-select/showFinalValue": {
+    "type": "boolean",
+    "description": "定义是否显示完整的路径，ture时只显示最后一项"
   },
   "u-region-select/disabled": {
     "type": "boolean",
@@ -6647,11 +7051,11 @@
     ],
     "description": "最小时间单位"
   },
-  "u-time-picker/minTime": {
+  "u-time-picker/min-time": {
     "type": "string",
     "description": "支持输入的最小时间"
   },
-  "u-time-picker/maxTime": {
+  "u-time-picker/max-time": {
     "type": "string",
     "description": "支持输入的最大时间"
   },
@@ -6670,6 +7074,120 @@
   "u-time-picker/visible": {
     "type": "boolean",
     "description": "是否显示"
+  },
+  "u-time-picker/clearable": {
+    "type": "boolean",
+    "description": "开启并在输入框有内容时会显示清除按钮"
+  },
+  "u-time-picker/preIcon": {
+    "type": "string",
+    "options": [
+      {
+        "value": "time",
+        "title": "时间"
+      },
+      {
+        "value": "",
+        "title": "暂无"
+      }
+    ],
+    "description": ""
+  },
+  "u-time-picker/suffixIcon": {
+    "type": "string",
+    "options": [
+      {
+        "value": "time",
+        "title": "时间"
+      },
+      {
+        "value": "",
+        "title": "暂无"
+      }
+    ],
+    "description": ""
+  },
+  "u-time-picker/width": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置时间选择输入框宽度大小"
+  },
+  "u-time-picker/height": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置时间选择输入框高度大小"
+  },
+  "u-time-picker/append-to": {
+    "type": "string",
+    "options": [
+      {
+        "value": "reference",
+        "title": "引用元素下"
+      },
+      {
+        "value": "body",
+        "title": "全局body"
+      }
+    ],
+    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中"
   },
   "u-timeline/mode": {
     "type": "enum",
