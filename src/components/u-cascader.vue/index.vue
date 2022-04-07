@@ -117,7 +117,7 @@ export default {
                 return [];
             data.forEach((item, index) => {
                 let markData = {};
-                if(item.children.length && !item.disabled){
+                if(item.children && item.children.length && !item.disabled){
                     this.getMergeText(item.children).forEach(childItem => {
                         markData = {};
                         // 设置为.text是配合props传入的data数据格式

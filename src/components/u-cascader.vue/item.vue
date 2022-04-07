@@ -101,7 +101,7 @@ export default {
         },
         keyboardShift(count, enter){
             let newUmenuIndex = this.umenuIndex + count;
-            while(this.data[newUmenuIndex].disabled){
+            while(this.data[newUmenuIndex] && this.data[newUmenuIndex].disabled){
                 newUmenuIndex += count;
             }
             if(newUmenuIndex < 0 || newUmenuIndex >= this.data.length)
