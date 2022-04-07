@@ -1,11 +1,11 @@
 <template>
-    <f-scroll-view color="light" style="display: inline-block" 
+    <f-scroll-view color="light" style="display: inline-block"
         :class="isInput? $style.searchShape : $style.scrollShape">
             <u-menu :class="$style.umenuShape">
-                <u-menu-item v-for="(item, index) in data" :key="index" :ref="index" 
-                    :has-sub="hasSub(item)" 
+                <u-menu-item v-for="(item, index) in data" :key="index" :ref="index"
+                    :has-sub="hasSub(item)"
                     :disabled="item.disabled"
-                    :class="$style.select_item" 
+                    :class="$style.select_item"
                     :select="index === umenuIndex"
                     @click="clickMenuitem(item, index)">
                     {{ $at(item, field) }}
@@ -91,8 +91,8 @@ export default {
 
             if(parentEl){
                 if (parentEl.scrollTop < focusedEl.offsetTop + focusedEl.offsetHeight - parentEl.clientHeight){
-                    parentEl.scrollTop = focusedEl.offsetTop 
-                                        + focusedEl.offsetHeight 
+                    parentEl.scrollTop = focusedEl.offsetTop
+                                        + focusedEl.offsetHeight
                                         - parentEl.clientHeight;
                 }
                 if(parentEl.scrollTop > focusedEl.offsetTop)
@@ -101,11 +101,11 @@ export default {
         },
         keyboardShift(count, enter){
             let newUmenuIndex = this.umenuIndex + count;
-            while(this.data[newUmenuIndex]?.disabled){
+            while(this.data[newUmenuIndex].disabled){
                 newUmenuIndex += count;
             }
             if(newUmenuIndex < 0 || newUmenuIndex >= this.data.length)
-                return 
+                return
             let selectItem = this.data[newUmenuIndex];
             this.selectMenuitem(newUmenuIndex);
             this.$emit("select-umenuitem", selectItem, this.componentIndex);

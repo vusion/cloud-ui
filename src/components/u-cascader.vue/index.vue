@@ -94,7 +94,7 @@ export default {
             // 判断是否是动态加载
             else if('leaf' in selectNode && !selectNode.leaf && !('loading' in selectNode))
                 this.triggerLazyLoad(selectNode);
-                
+
             this.lastValueArray.splice(subIndex);
             this.lastValueArray.push(this.$at(selectNode, this.field));
         },
@@ -113,11 +113,11 @@ export default {
         // 返回每个属性合并后的value和它们所在嵌套数组的位置
         getMergeText(data){
             let combinedText = [];
-            if(!Array.isArray(data)) 
+            if(!Array.isArray(data))
                 return [];
             data.forEach((item, index) => {
                 let markData = {};
-                if(item.children?.length && !item.disabled){
+                if(item.children.length && !item.disabled){
                     this.getMergeText(item.children).forEach(childItem => {
                         markData = {};
                         // 设置为.text是配合props传入的data数据格式
@@ -144,7 +144,7 @@ export default {
                 return ;
             this.subComponents = [this.currentData];
             // 当使用完搜索功能时，lastvalue的格式是不对的，每次open时需要重置成正确格式
-            this.lastValueArray = [];       
+            this.lastValueArray = [];
             if(this.value){
                 let inputValues = this.lastValueString.split(this.join)
 
@@ -159,18 +159,18 @@ export default {
                         }
                         return false
                     })
-                    if(sub?.children){
+                    if(sub.children){
                         this.subComponents.push(sub.children);
                     }
                 })
             }else{
                 this.$nextTick(() => {
                     // clearable时，重置ucascaderitem选中样式
-                    this.$refs[0][0].selectMenuitem(-1);    
+                    this.$refs[0][0].selectMenuitem(-1);
                 })
             }
             // open时，光标设置已选中的last ucascaderitem
-            this.selectSubIdnex = this.lastValueArray.length? this.lastValueArray.length - 1 : 0; 
+            this.selectSubIdnex = this.lastValueArray.length? this.lastValueArray.length - 1 : 0;
 
             this.typeMpopper = this.subComponents;
         },
@@ -179,20 +179,20 @@ export default {
                 node = {root: true, level : 0, leaf: false};
             else
                 node.level = this.selectSubIdnex + 1;
-                
+
             this.$set(node, 'loading', true)
             const resolve = dataList => {
                 node.loading = false;
                 this.subComponents.splice(this.selectSubIdnex + 1);
                 if(node.root){
                     // 防止点击级联时，第一层的数据还在加载，push会出bug
-                    this.subComponents[0] = dataList;       
+                    this.subComponents[0] = dataList;
                     this.currentData.push(...dataList);
                 }
                 else{
                     this.subComponents.push(dataList);
                     // 等于lazyData[node, node[, ...[, nodeN]]].children = dataList
-                    node.children = dataList;   
+                    node.children = dataList;
                 }
                 this.allMergeText = this.getMergeText(this.currentData);
             }
@@ -217,7 +217,7 @@ export default {
             if(this.value){
                 this.isInput = true;
                 // 搜索框只有一栏,keyboard光标复原
-                this.selectSubIdnex = 0     
+                this.selectSubIdnex = 0
                 this.typeMpopper = Array(this.filter(this.value));
             }
             else{
