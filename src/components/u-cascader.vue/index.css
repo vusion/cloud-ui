@@ -31,10 +31,14 @@
     display: none;
 }
 
-.input[class^="u-input__"]{
+.input{
     cursor: var(--cursor-pointer);
     width: 100%;
     height: 100%;
+}
+
+.input[color="error"]{
+    border-color: var(--input-border-color-error);
 }
 /* 覆盖原本u-input属性是readonly时，边框不变蓝 */
 .input[readonly]:not([disabled]):hover{
@@ -77,31 +81,31 @@
 
 .root[width="mini"]  { width: var(--cascader-width-mini); }
 .root[height="mini"] { height: var(--cascader-height-mini); }
-.root[height="mini"] [class^="u-input_placeholder__"]{
+.root[height="mini"] .input{/* placeholder文字居中 */
     line-height: var(--cascader-height-mini)
 }
 
 .root[width="small"]  { width: var(--cascader-width-small); }
 .root[height="small"] { height: var(--cascader-height-small);  }
-.root[height="small"] [class^="u-input_placeholder__"]{
+.root[height="small"] .input{
     line-height: var(--cascader-height-small)
 }
 
 .root[width="medium"]  { width: var(--cascader-width-medium); }
 .root[height="medium"] { height: var(--cascader-height-medium); }
-.root[height="medium"] [class^="u-input_placeholder__"]{
+.root[height="medium"] .input{
     line-height: var(--cascader-height-medium)
 }
 
 .root[width="large"]  { width: var(--cascader-width-large); }
 .root[height="large"] { height: var(--cascader-height-large);}
-.root[height="large"] [class^="u-input_placeholder__"]{
+.root[height="large"] .input{
     line-height: var(--cascader-height-large)
 }
 
 .root[width="huge"]  { width: var(--cascader-width-huge); }
 .root[height="huge"] { height: var(--cascader-height-huge);  }
-.root[height="huge"] [class^="u-input_placeholder__"]{
+.root[height="huge"] .input{
     line-height: var(--cascader-height-huge)
 }
 

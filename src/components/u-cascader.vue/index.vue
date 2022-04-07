@@ -11,7 +11,8 @@
             v-model="value" :disabled="disabled"
             @focus="focus" @blur="blur"
             @input="onInput"
-            @clear="clear">
+            @clear="clear"
+            :color="formItemVM && formItemVM.color">
             <m-popper v-if="!disabled" :class="$style.popperShape" ref="popper"
                 @mousedown.stop.prevent
                 @open="getSubComponents" @close="resetInput">
@@ -33,9 +34,11 @@
 
 <script>
 import UCascaderItem from "./item.vue"
+import MField from '../m-field.vue';
 
 export default {
     name: "u-cascader",
+    mixins: [MField],
     props: {
         data: { type: Array, default: () => [] },
         placeholder: { type: String, default: "请选择" },
@@ -67,6 +70,8 @@ export default {
     },
     watch: {
         value(value) {
+            this.$emit('update:date', value);
+            this.$emit('change', { sender: this, date: value, value });
             this.$emit("input", value, this);
         }
     },
