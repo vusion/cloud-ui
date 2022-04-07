@@ -25,6 +25,7 @@
 <script>
 import MField from '../m-field.vue';
 import { focus } from '../../directives';
+import { isIE } from '../../utils/dom';
 
 export default {
     name: 'u-input',
@@ -107,6 +108,15 @@ export default {
     mounted() {
         this.$emit('update', this.value, this);
         this.autoSize && this.autoResize();
+        // 在ie11，刷新页面会保留输入框输入的值，这里强制同步
+        if (isIE()) {
+            clearInterval(this.inputTimer);
+            this.inputTimer = setTimeout(() => {
+                if (this.$refs.input && this.$refs.input.value !== this.currentValue) {
+                    this.$refs.input.value = this.valueEmpty ? '' : this.currentValue;
+                }
+            });
+        }
     },
     methods: {
         onKeypress(e) {
