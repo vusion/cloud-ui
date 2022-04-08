@@ -36,6 +36,7 @@ export default {
     /* display: flex;
     justify-content: space-between; */
     background: var(--navbar-background);
+    color: var(--navbar-color);
     white-space: nowrap;
 }
 
