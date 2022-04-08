@@ -331,6 +331,7 @@ export default {
                 popperEl.parentElement === referenceEl && referenceEl.removeChild(popperEl);
             this.popper && this.popper.destroy();
             this.popper = undefined;
+            this.resetScrollFun();
         },
         /**
          * 添加延时 DOM 销毁操作，保障动画效果
@@ -399,10 +400,6 @@ export default {
             this.currentOpened = false;
             this.$emit('update:opened', false, this); // Emit `after-` events
             // this.$emit('close', undefined, this);
-            if (this.disabledScroll) {
-                document.removeEventListener('DOMMouseScroll', this.scrollFunc, {passive: false});  
-                document.removeEventListener('mousewheel',this.scrollFunc, {passive: false});
-            }
         },
         designerControl() {
             this.toggle();
@@ -431,6 +428,12 @@ export default {
             events.preventDefault();  
             events.stopPropagation();
             return false;
+        },
+        resetScrollFun() {
+            if (this.disabledScroll) {
+                document.removeEventListener('DOMMouseScroll', this.scrollFunc, {passive: false});  
+                document.removeEventListener('mousewheel',this.scrollFunc, {passive: false});
+            }
         }
     },
 };
