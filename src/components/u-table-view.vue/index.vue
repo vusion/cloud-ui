@@ -541,7 +541,7 @@ export default {
             return isNumber(value) ? value + 'px' : '';
         },
         handleResize() {
-            this.tableWidth = undefined;
+            // this.tableWidth = undefined;
             // this.bodyHeight = undefined;
             this.clearTimeout();
             this.timer = setTimeout(() => {
