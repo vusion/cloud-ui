@@ -19,6 +19,7 @@ ul[class], ol[class] {
     border-radius: var(--scrollbar-border-radius);
     background-color: var(--scrollbar-background);
     transition: background-color var(--transition-duration-base);
+    border: var(--scrollbar-border-width) solid var(--scrollbar-border-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
