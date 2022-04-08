@@ -69,6 +69,9 @@ export default {
         },
         valueEmpty() {
             const { currentValue } = this;
+            if(this.compositionInputing) {
+                return false;
+            }
             return currentValue === undefined || currentValue === '' || currentValue === null;
         },
     },
