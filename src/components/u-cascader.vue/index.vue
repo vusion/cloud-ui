@@ -159,7 +159,7 @@ export default {
                         }
                         return false
                     })
-                    if(sub.children){
+                    if(sub && sub.children){
                         this.subComponents.push(sub.children);
                     }
                 })
