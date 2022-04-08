@@ -2,14 +2,14 @@
 <div :class="$style.root" :readonly="readonly" :disabled="disabled" :style="{ width, height }" :color="currentColor || this.formItemVM && this.formItemVM.color"
     :focus="focused" @click.self="!focused && focus()">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
-    <span :class="$style.placeholder" v-if="placeholder">{{ currentValue ? '' : placeholder }}</span>
+    <span :class="$style.placeholder" v-if="placeholder">{{ valueEmpty ? placeholder : '' }}</span>
     <textarea ref="input" :class="$style.input" v-bind="$attrs" :value="currentValue"
         v-focus="autofocus" :readonly="readonly" :disabled="disabled"
         @input="onInput" @focus="onFocus" @blur="onBlur" v-on="listeners"
         @compositionstart="compositionInputing = true"
         @compositionend="onCompositionEnd"></textarea>
     <slot></slot>
-    <span v-if="clearable && currentValue" :class="$style.clearable" @click.stop="clear"></span>
+    <span v-if="clearable && !valueEmpty" :class="$style.clearable" @click.stop="clear"></span>
     <f-dragger @dragstart="onDragStart" @drag="onDrag">
         <div ref="handle" :class="$style.handle" v-show="resize !== 'none'" :resize="resize"></div>
     </f-dragger>
