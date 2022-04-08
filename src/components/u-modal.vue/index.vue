@@ -345,7 +345,7 @@ export default UModal;
 
 .content {
     color: var(--color-base);
-    font-size: 16px;
+    /* font-size: 16px; */
 }
 
 .description {
