@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import UPopup from '../u-popup.vue/wrapPopup.vue';
+import UPopup from '../u-popup.vue/index.vue';
 import SEmpty from '../../components/s-empty.vue';
 export default {
     name: 'u-popup-combination',
@@ -22,8 +22,12 @@ export default {
     },
     methods: {
         // 双击打开弹出框
-        designerDbControl() {
-            this.$refs.popup.designerDbControl();
+        // designerDbControl() {
+        //     this.$refs.popup.designerDbControl();
+        // },
+        // 单击打开弹出框
+        designerControl() {
+            this.$refs.popup.toggle();
         },
     },
 };
@@ -53,9 +57,9 @@ export default {
     white-space: nowrap;
 }
 .rootDesigner{
-    padding: 5px;
+    padding: 2px;
     border: 1px dashed #C3C3C3;
-    min-height: 100px;
+    /* min-height: 100px; */
 }
 .reference{
     display: inline-block;
