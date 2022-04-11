@@ -87,10 +87,6 @@ export default {
     mounted() {
         this.autofocus && this.$refs.input.focus();
     },
-    destroyed() {
-        clearTimeout(this.timer);
-        this.timer = null;
-    },
     methods: {
         strip(num, precision = 17) {
             return +parseFloat(num).toPrecision(precision);
@@ -183,17 +179,11 @@ export default {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
             this.adjust(+this.currentValue + (step - 0));
             this.preventBlur = true;
-            this.timer = setTimeout(()=>{
-                this.$refs.input.focus();
-            }, 0);
         },
         decrease() {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : +this.step;
             this.adjust(+this.currentValue - step);
             this.preventBlur = true;
-            this.timer = setTimeout(()=>{
-                this.$refs.input.focus();
-            }, 0);
         },
         onInput(rawValue) {
             if (this.readonly || this.disabled)
