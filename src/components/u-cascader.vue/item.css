@@ -28,12 +28,14 @@
     max-width: 100%;
     width: var(--cascader-scroll-width);
     height: 200px;
+    vertical-align: top;
 }
 
 .searchShape{
     max-width: 100%;
     width: var(--cascader-width);
     height: 200px;
+    vertical-align: top;
 }
 
 .scrollShape:first-child .umenuShape{
