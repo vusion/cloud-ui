@@ -492,6 +492,10 @@ export default {
             this.emitValue();
         },
         onPopperOpen() {
+            // 有时候加载时机问题，popperWidth会没有获取到，重新获取
+            if (this.currentPopperWidth === '0px') {
+                this.setPopperWidth();
+            }
             this.restoredValue = this.validShowTime; // 用于点取消时复原上一次的值
             this.initValidShowTime = true;
             if(this.validShowTime) {
