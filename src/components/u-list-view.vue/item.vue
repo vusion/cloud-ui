@@ -4,7 +4,7 @@
     :readonly="parentVM.readonly" :readonly-mode="parentVM.readonlyMode"
     :disabled="disabled || parentVM.disabled"
     @click="select"
-    v-ellipsis-title
+    v-ellipsis-title="ellipsisTitle"
     :designer="$env.VUE_APP_DESIGNER"
     vusion-slot-name="item">
     <slot>{{ text }}</slot>
@@ -20,7 +20,10 @@ export default {
     parentName: 'u-list-view',
     groupName: 'u-list-view-group',
     extends: MComplexItem,
-    props: { text: { type: String } },
+    props: {
+        text: { type: String },
+        ellipsisTitle: { type: [Boolean, String], default: false },
+    },
 };
 </script>
 
