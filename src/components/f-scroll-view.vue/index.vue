@@ -91,7 +91,11 @@ export default {
 .wrap {
     overflow: scroll;
     height: 100%;
-    -ms-overflow-style: none;
+}
+
+.root:not([native]) .wrap {
+    -ms-overflow-style: none; /** IE11 */
+    scrollbar-width: none; /** firefox */
 }
 
 .root > .bar {
