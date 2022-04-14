@@ -70,8 +70,8 @@ export default {
     },
     watch: {
         value(value) {
-            this.$emit('update:date', value);
-            this.$emit('change', { sender: this, date: value, value });
+            this.$emit('update:value', value);
+            this.$emit('change', { sender: this, value });
             this.$emit("input", value, this);
         }
     },
