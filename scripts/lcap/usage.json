@@ -12938,7 +12938,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.8/src/components/u-uploader.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.8/src/components/u-uploader.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.8/src/components/u-uploader.vue/screenshots/2.png",
-        "blocks": "[{\"title\":\"单个文件按钮\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader display=\\\"inline\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    maxSize=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    maxSize=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多图片按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    maxSize=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n</u-uploader>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"单个文件按钮\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader display=\\\"inline\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多图片按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n</u-uploader>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-uploader",
             "title": "文件上传",
@@ -12950,17 +12950,17 @@
                 {
                     "title": "单个文件按钮",
                     "description": "下面的例子为单文件上传。\n",
-                    "code": "<template>\n<u-uploader display=\"inline\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    :limit=\"999\"\n    maxSize=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\" icon=\"upload\">上传</u-button>\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader display=\"inline\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\" icon=\"upload\">上传</u-button>\n</u-uploader>\n</template>\n"
                 },
                 {
                     "title": "单文件卡片",
                     "description": "不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\n",
-                    "code": "<template>\n<u-uploader list-type=\"card\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    :limit=\"999\"\n    maxSize=\"50MB\"\n    converter=\"json\">\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader list-type=\"card\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n</u-uploader>\n</template>\n"
                 },
                 {
                     "title": "多图片按钮",
                     "description": "",
-                    "code": "<template>\n<u-uploader multiple list-type=\"image\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    :limit=\"999\"\n    maxSize=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\" icon=\"upload\">上传</u-button>\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader multiple list-type=\"image\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\" icon=\"upload\">上传</u-button>\n</u-uploader>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -14953,11 +14953,13 @@
                     "description": "触发方式"
                 },
                 {
-                    "name": "v-model",
-                    "title": "双向绑定",
-                    "type": "String",
+                    "name": "value",
+                    "title": "值",
+                    "type": "any",
+                    "sync": true,
+                    "model": true,
                     "default": null,
-                    "description": "双向绑定"
+                    "description": ""
                 },
                 {
                     "name": "join",
@@ -15297,11 +15299,13 @@
                     "description": "触发方式"
                 },
                 {
-                    "name": "v-model",
-                    "title": "双向绑定",
-                    "type": "String",
+                    "name": "value",
+                    "title": "值",
+                    "type": "any",
+                    "sync": true,
+                    "model": true,
                     "default": null,
-                    "description": "双向绑定"
+                    "description": ""
                 },
                 {
                     "name": "join",
