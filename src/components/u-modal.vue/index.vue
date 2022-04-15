@@ -6,7 +6,7 @@
         <transition
             enter-active-class="animate__animated animate__fadeInDownSmall"
             leave-active-class="animate__animated animate__fadeOutUpSmall animate__fast">
-            <div :class="[$style.dialog, this.$env.VUE_APP_DESIGNER ? $style.pos : null]" ref="dialog"
+            <div :class="[$style.dialog, this.$env.VUE_APP_DESIGNER ? $style.pos : null, customClass]" ref="dialog"
                 v-if="currentVisible && animationVisible"
                 :style="{ width: width + 'px' }" :size="size">
                 <slot name="inject"></slot>
@@ -31,6 +31,7 @@
                             <div :class="$style.content"><slot>{{ content }}</slot></div>
                             <div v-if="!!description || $slots.description" :class="$style.description"><slot name="description">{{ description }}</slot></div>
                         </div>
+                        <slot name="extra"></slot>
                     </slot>
                 </div>
                 <div :class="$style.foot" vusion-slot-name="foot" :child-cut-disabled="true" v-if="okButton || cancelButton">
@@ -92,6 +93,7 @@ export const UModal = {
         icon: { type: String, default: null },
         maskClose: { type: Boolean, default: false },
         disableEsc: { type: Boolean, default: false },
+        customClass: {type: String, default: undefined }
     },
     data() {
         return {
