@@ -279,7 +279,7 @@ export default {
 ``` vue
 <template>
 <u-linear-layout >
-    <u-cascader trigger="hover" :data="data" v-model="value">
+    <u-cascader trigger="hover" :data="data" :value.sync="value">
     </u-cascader>
 </u-linear-layout>
 </template>

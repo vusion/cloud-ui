@@ -5,7 +5,7 @@
     :disabled="disabled || parentVM.disabled"
     :checkbox="parentVM.multiple && parentVM.checkbox"
     @click="select"
-    v-ellipsis-title
+    v-ellipsis-title="ellipsisTitle"
     :designer="$env.VUE_APP_DESIGNER"
     vusion-slot-name="item">
     <u-checkbox v-if="parentVM.multiple && parentVM.checkbox"
@@ -26,7 +26,10 @@ export default {
     parentName: 'u-list-view',
     groupName: 'u-list-view-group',
     extends: MComplexItem,
-    props: { text: { type: String } },
+    props: {
+        text: { type: String },
+        ellipsisTitle: { type: [Boolean, String], default: false },
+    },
 };
 </script>
 

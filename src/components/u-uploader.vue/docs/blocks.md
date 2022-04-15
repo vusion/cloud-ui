@@ -6,7 +6,7 @@
 <u-uploader display="inline"
     url="/gateway/lowcode/api/v1/app/upload" url-field="result"
     :limit="999"
-    maxSize="50MB"
+    max-size="50MB"
     converter="json">
     <u-button color="primary" icon="upload">上传</u-button>
 </u-uploader>
@@ -21,7 +21,7 @@
     accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
     url="/gateway/lowcode/api/v1/app/upload" url-field="result"
     :limit="999"
-    maxSize="50MB"
+    max-size="50MB"
     converter="json">
 </u-uploader>
 ```
@@ -33,7 +33,7 @@
     accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
     url="/gateway/lowcode/api/v1/app/upload" url-field="result"
     :limit="999"
-    maxSize="50MB"
+    max-size="50MB"
     converter="json">
     <u-button color="primary" icon="upload">上传</u-button>
 </u-uploader>

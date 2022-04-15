@@ -26,11 +26,13 @@
         - value: hover
           title: 悬浮
       description: 触发方式
-    - name: v-model
-      title: 双向绑定
-      type: String
+    - name: value
+      title: 值
+      type: any
+      sync: true
+      model: true
       default: null
-      description: "双向绑定"
+      description: ""
     - name: join
       title: 连接符
       type: string
