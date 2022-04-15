@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.root" :clearable="clearable && !!value" :opened="opened"
+    <div :class="$style.root" :clearable="clearable && !!currentValue" :opened="opened"
         @keydown.up.prevent="$refs.popper.currentOpened ? shift(-1) : open()"
         @keydown.down.prevent="$refs.popper.currentOpened ? shift(+1) : open()"
         @keydown.left.prevent="horizontalShift(-1)"
@@ -8,7 +8,7 @@
         @keydown.enter="$refs.popper.currentOpened ? onEnter() : open()">
         <u-input :class="$style.input" :opened="opened"
             :placeholder="placeholder" :readonly="!filterable"
-            v-model="value" :disabled="disabled"
+            v-model="currentValue" :disabled="disabled"
             @focus="focus" @blur="blur"
             @input="onInput"
             @clear="clear"
@@ -28,7 +28,7 @@
                 </u-cascader-item>
             </m-popper>
         </u-input>
-        <span v-show="clearable && value" :class="$style.clearable" @click="clear" @mousedown.prevent></span>
+        <span v-show="clearable && currentValue" :class="$style.clearable" @click="clear" @mousedown.prevent></span>
     </div>
 </template>
 
@@ -41,11 +41,11 @@ export default {
     mixins: [MField],
     props: {
         data: { type: Array, default: () => [] },
+        value: { type: String, default: "" },
         placeholder: { type: String, default: "请选择" },
         field: { type: String, default: "text" },
         trigger: { type: String, default: "click"} ,
         join: { type: String, default: " / "},
-        defaultValue: { type: String, default: ''},
         filterable: { type: Boolean, default: false },
         clearable: { type: Boolean, default: false },
         showFinalValue: { type: Boolean, default: false },
@@ -56,7 +56,7 @@ export default {
     components: { UCascaderItem },
     data() {
         return {
-            value: '',
+            currentValue: '',
             currentData: [],   //动态加载时的数据
             lastValueString: '',
             lastValueArray: [],
@@ -69,17 +69,20 @@ export default {
         };
     },
     watch: {
-        value(value) {
+        currentValue(value) {
             this.$emit('update:value', value);
             this.$emit('change', { sender: this, value });
             this.$emit("input", value, this);
+        },
+        value(value) {
+            this.currentValue = value;
         }
     },
     created(){
         if(!this.currentData.length)
             this.currentData = this.data;
-        this.value = this.defaultValue;
-        this.lastValueString = this.defaultValue;
+        this.currentValue = this.value;
+        this.lastValueString = this.value;
         this.allMergeText = this.getMergeText(this.currentData);
         if(this.lazy)
             this.triggerLazyLoad();
@@ -145,7 +148,7 @@ export default {
             this.subComponents = [this.currentData];
             // 当使用完搜索功能时，lastvalue的格式是不对的，每次open时需要重置成正确格式
             this.lastValueArray = [];
-            if(this.value){
+            if(this.currentValue){
                 let inputValues = this.lastValueString.split(this.join)
 
                 inputValues.forEach( (inputvalue, currentref) => {
@@ -214,11 +217,11 @@ export default {
                 this.shift(0);
         },
         onInput(){
-            if(this.value){
+            if(this.currentValue){
                 this.isInput = true;
                 // 搜索框只有一栏,keyboard光标复原
                 this.selectSubIdnex = 0
-                this.typeMpopper = Array(this.filter(this.value));
+                this.typeMpopper = Array(this.filter(this.currentValue));
             }
             else{
                 this.isInput = false;
@@ -235,7 +238,7 @@ export default {
             let refVM = this.$refs[this.selectSubIdnex][0];
             if(!refVM)
                 return ;
-            if(!this.value)
+            if(!this.currentValue)
                 this.lastValueString = '';
             refVM.keyboardShift(0, true);
             this.close();
@@ -248,7 +251,7 @@ export default {
             this.isInput = false;
         },
         clear(){
-            this.value = '';
+            this.currentValue = '';
             this.lastValueString = '';
             this.selectSubIdnex = -1;
             this.close()
@@ -257,9 +260,9 @@ export default {
         },
         resetInput(){
             if(!this.showFinalValue)
-                this.value = this.lastValueString;
+                this.currentValue = this.lastValueString;
             else
-                this.value = this.lastValueString.split(this.join).slice(-1)[0];
+                this.currentValue = this.lastValueString.split(this.join).slice(-1)[0];
             this.isInput = false;
             this.opened = false;
         },
