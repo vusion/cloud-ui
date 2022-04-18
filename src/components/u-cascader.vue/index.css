@@ -44,7 +44,10 @@
 .input[readonly]:not([disabled]):hover{
     border-color: var(--input-border-color-hover);
 }
-
+.root:focus {
+    outline: var(--focus-outline);
+}
+.root:not([readonly]):not([disabled]) .input[focus],
 .input[readonly][opened]{
     border-color: var(--input-border-color-focus);
     -webkit-box-shadow: var(--input-box-shadow-focus);

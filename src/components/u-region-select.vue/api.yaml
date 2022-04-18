@@ -71,6 +71,17 @@
       type: boolean
       default: false
       description: ""
+    - name: opened
+      title: 弹出状态
+      type: boolean
+      default: false
+      description: 切换弹出/关闭状态
+    - name: autofocus
+      title: 自动获取焦点
+      type: boolean
+      default: false
+      description: 是否自动获取焦点
+      designer-value: false
   events:
     - name: input
       title: 输入时
