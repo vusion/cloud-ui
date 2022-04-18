@@ -1,19 +1,23 @@
 <template>
-    <div :class="$style.root" :clearable="clearable && !!currentValue" :opened="opened"
+    <div :class="$style.root" :clearable="clearable && !!currentValue" :opened="currentOpened"
         @keydown.up.prevent="$refs.popper.currentOpened ? shift(-1) : open()"
         @keydown.down.prevent="$refs.popper.currentOpened ? shift(+1) : open()"
         @keydown.left.prevent="horizontalShift(-1)"
         @keydown.right.prevent="horizontalShift(+1)"
         @keydown.esc.stop="close()"
-        @keydown.enter="$refs.popper.currentOpened ? onEnter() : open()">
-        <u-input :class="$style.input" :opened="opened"
-            :placeholder="placeholder" :readonly="!filterable"
-            v-model="currentValue" :disabled="disabled"
+        @keydown.enter="$refs.popper.currentOpened ? onEnter() : open()"
+        :disabled="disabled"
+        :readonly="readonly">
+        <u-input :class="$style.input" :opened="currentOpened"
+            :placeholder="placeholder" :readonly="!filterable || readonly"
+            :value="currentValue" :disabled="disabled"
             @focus="focus" @blur="blur"
             @input="onInput"
             @clear="clear"
-            :color="formItemVM && formItemVM.color">
-            <m-popper v-if="!disabled" :class="$style.popperShape" ref="popper"
+            :color="formItemVM && formItemVM.color"
+            :autofocus="autofocus"
+            ref="input">
+            <m-popper v-if="!disabled && !readonly" :class="$style.popperShape" ref="popper"
                 @mousedown.stop.prevent
                 @open="getSubComponents" @close="resetInput">
                 <u-cascader-item v-for="(item, index) in typeMpopper" :key="$at(item[0], field) + index" :ref="index"
@@ -49,14 +53,17 @@ export default {
         filterable: { type: Boolean, default: false },
         clearable: { type: Boolean, default: false },
         showFinalValue: { type: Boolean, default: false },
+        readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false},
         lazy: { type: Boolean, default: false},
-        lazyLoad: { type:Function, default: () => {} }
+        lazyLoad: { type:Function, default: () => {} },
+        autofocus: { type: Boolean, default: false },
+        opened: { type: Boolean, default: false },
     },
     components: { UCascaderItem },
     data() {
         return {
-            currentValue: '',
+            currentValue: this.value,
             currentData: [],   //动态加载时的数据
             lastValueString: '',
             lastValueArray: [],
@@ -65,7 +72,7 @@ export default {
             subComponents: [],  //mpopper真正内容的数据
             typeMpopper: [],    //mpopper显示的数据（有真正内容数据和搜索内容数据）
             isInput: false,
-            opened: false
+            currentOpened: false,
         };
     },
     watch: {
@@ -76,16 +83,34 @@ export default {
         },
         value(value) {
             this.currentValue = value;
-        }
+        },
+        opened(value) {
+            if (value === this.currentOpened)
+                return;
+            this.currentOpened = value;
+            this.toggle(value);
+        },
     },
     created(){
         if(!this.currentData.length)
             this.currentData = this.data;
-        this.currentValue = this.value;
+        // this.currentValue = this.value; // 这里会引起currentValue change，emit事件导致validator执行
         this.lastValueString = this.value;
         this.allMergeText = this.getMergeText(this.currentData);
         if(this.lazy)
             this.triggerLazyLoad();
+        
+        // validator
+        this.$emit('update', this.currentValue);
+    },
+    mounted() {
+        // 输入框是readonly时，autofocus不起作用，需要这样进行focus
+        this.autofocus && this.$refs.input.focus();
+        // 在编辑器里不要打开
+        if(!this.$env.VUE_APP_DESIGNER && this.currentData.length){
+            this.currentOpened = this.opened;
+            this.toggle(this.opened);
+        }
     },
     methods: {
         selectCascaderItem(selectNode,subIndex){
@@ -142,7 +167,7 @@ export default {
         },
         // mpopper打开时，根据value值展开mpopper框内部组件
         getSubComponents(){
-            this.opened = true;
+            this.currentOpened = true;
             if(this.isInput)
                 return ;
             this.subComponents = [this.currentData];
@@ -153,7 +178,7 @@ export default {
 
                 inputValues.forEach( (inputvalue, currentref) => {
                     this.lastValueArray.push(inputvalue);
-                    let sub = this.subComponents[currentref].find( (item, index) => {
+                    let sub = (this.subComponents[currentref] || []).find( (item, index) => {
                         if(this.$at(item, this.field) === inputvalue){
                             this.$nextTick(() => {
                                 this.$refs[currentref][0].selectMenuitem(index);
@@ -216,12 +241,12 @@ export default {
             else
                 this.shift(0);
         },
-        onInput(){
-            if(this.currentValue){
+        onInput(value){
+            if(value){
                 this.isInput = true;
                 // 搜索框只有一栏,keyboard光标复原
                 this.selectSubIdnex = 0
-                this.typeMpopper = Array(this.filter(this.currentValue));
+                this.typeMpopper = Array(this.filter(value));
             }
             else{
                 this.isInput = false;
@@ -250,6 +275,9 @@ export default {
             this.$refs.popper.close();
             this.isInput = false;
         },
+        toggle(opened) {
+            this.$refs.popper && this.$refs.popper.toggle(opened);
+        },
         clear(){
             this.currentValue = '';
             this.lastValueString = '';
@@ -264,14 +292,17 @@ export default {
             else
                 this.currentValue = this.lastValueString.split(this.join).slice(-1)[0];
             this.isInput = false;
-            this.opened = false;
+            this.currentOpened = false;
+
+            // filterable，需要强制更新下
+            this.$refs.input.updateCurrentValue(this.currentValue);
         },
         focus(){
             this.$emit('focus', ...arguments)
         },
         blur(){
             this.$emit('blur', ...arguments)
-        }
+        },
     },
 }
 </script>
