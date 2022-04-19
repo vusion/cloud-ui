@@ -53,10 +53,8 @@ export default {
     computed: {
         percent: {
             get() {
-                return (
-                    ((this.currentValue - this.min) / (this.max - this.min))
-                    * 100
-                );
+                let percent = ((this.currentValue - this.min) / (this.max - this.min)) * 100;
+                return percent < 0 ? 0 : percent;
             },
             set(percent) {
                 const value = this.fix(
