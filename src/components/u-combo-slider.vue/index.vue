@@ -134,7 +134,7 @@ export default {
 
 .input {
     margin-left: var(--combo-slider-input-margin-left);
-    width: var(--combo-slider-input-width);
+    width: var(--combo-slider-input-width) !important;
     margin-right: 0.5em;
     border-radius: 0;
     padding: 0 4px;
