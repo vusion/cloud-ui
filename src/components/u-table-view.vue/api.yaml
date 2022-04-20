@@ -552,6 +552,9 @@
         - name: $event.item
           type: object
           description: 选择行相关对象
+        - name: $event.items
+          type: object
+          description: 所有选择行相关对象
         - name: senderVM
           type: UTableView
           description: 发送事件实例
@@ -573,6 +576,9 @@
         - name: $event.item
           type: object
           description: 选择行相关对象
+        - name: $event.items
+          type: object
+          description: 所有选择行相关对象
         - name: $event.oldItem
           type: object
           description: 旧的选择行相关对象

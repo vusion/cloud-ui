@@ -342,6 +342,7 @@ export default {
             currentValues: this.values || [],
             tableHeight: undefined,
             exportData: undefined,
+            checkedItems: {}, // 暂存选中行
         };
     },
     computed: {
@@ -459,7 +460,8 @@ export default {
             this.watchValues(values);
         },
         currentValues(values, oldValues) {
-            this.$emit('change', { values, oldValues });
+            const checkedItems = this.getCheckedItems();
+            this.$emit('change', { values, oldValues, items: checkedItems });
         },
         columnVMs(columnVMs) {
             this.$nextTick(() => {
@@ -1102,6 +1104,15 @@ export default {
                 this.currentData && this.currentData.forEach((item) => item.checked && values.push(this.$at(item, this.valueField)));
                 this.currentValues = values;
             }
+            // 暂存选中行
+            if (this.currentData) {
+                this.currentData.forEach((item)=>{
+                    if(item.checked) {
+                        const label = this.$at(item, this.valueField);
+                        this.checkedItems[label] = item;
+                    }
+                });
+            }
         },
         select(item, cancelable) {
             // Check if enabled
@@ -1153,9 +1164,15 @@ export default {
                     this.currentValues.push(label);
                 else if (!checked && this.currentValues.includes(label))
                     this.currentValues.splice(this.currentValues.indexOf(label), 1);
+                if (checked) {
+                    this.checkedItems[label] = item;
+                } else {
+                    delete this.checkedItems[label];
+                }
             }
+            const checkedItems = this.getCheckedItems();
             this.$emit('update:values', this.currentValues, this);
-            this.$emit('check', { values: this.currentValues, oldValues, item, checked }, this);
+            this.$emit('check', { values: this.currentValues, oldValues, item, checked, items: checkedItems }, this);
         },
         checkAll(checked) {
             // Check if enabled
@@ -1172,10 +1189,28 @@ export default {
                         this.currentValues.push(label);
                     else if (!checked && this.currentValues.includes(label))
                         this.currentValues.splice(this.currentValues.indexOf(label), 1);
+                    if (checked) {
+                        this.checkedItems[label] = item;
+                    } else {
+                        delete this.checkedItems[label];
+                    }
                 }
             });
+            const checkedItems = this.getCheckedItems();
             this.$emit('update:values', this.currentValues, this);
-            this.$emit('check', { values: this.currentValues, oldValues, checked }, this);
+            this.$emit('check', { values: this.currentValues, oldValues, checked, items: checkedItems }, this);
+        },
+        /**
+         * 获取所有选中行
+         */
+        getCheckedItems() {
+            const items = [];
+            Object.keys(this.checkedItems).forEach((itemKey)=>{
+                if (this.currentValues.includes(itemKey)) {
+                    items.push(this.checkedItems[itemKey]);
+                }
+            });
+            return items;
         },
         toggleExpanded(item, expanded) {
             if (item.disabled)
