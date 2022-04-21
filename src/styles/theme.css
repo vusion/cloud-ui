@@ -1301,7 +1301,9 @@
     --uploader-color: #999; /* @hidden */
     --uploader-border-color: var(--border-color-base); /* @hidden */
     --uploader-card-icon-font-size: 24px; /* @hidden */
-
+    --uploader-error-box-height: 205px; /* @hidden */
+    --uploader-error-box-max-width: 400px; /* @hidden */
+    --uploader-root-inline-max-width: 100%; /* @hidden */
 
 
     /**

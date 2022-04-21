@@ -20,7 +20,11 @@
     </div>
     <template v-if="listType !== 'card'">
         <div v-if="description" :class="$style.description">{{ description }}</div>
-        <div v-if="showErrorMessage && errorMessage" :class="$style.errmessage">{{ errorMessage }}</div>
+        <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length" >
+            <div :class="$style.errwrap">
+                <div v-for="errItem in errorMessage" :key="errItem" :class="$style.errmessage">{{ errItem }}</div>
+            </div>
+        </f-scroll-view>
     </template>
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
         <template v-if="listType !== 'card'">
@@ -49,7 +53,11 @@
                     <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
                 </div>
                 <div v-if="description" :class="$style.description">{{ description }}</div>
-                <div v-if="showErrorMessage && errorMessage" :class="$style.errmessage">{{ errorMessage }}</div>
+                <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length" >
+                    <div :class="$style.errwrap">
+                        <div v-for="errItem in errorMessage" :key="errItem" :class="$style.errmessage">{{ errItem }}</div>
+                    </div>
+                </f-scroll-view>
             </div>
         </template>
     </div>
@@ -66,6 +74,7 @@ import ajax from './ajax';
 
 const SIZE_UNITS = {
     kB: 1024,
+    KB: 1024, // 兼容KB单位
     MB: Math.pow(1024, 2),
     GB: Math.pow(1024, 3),
     TB: Math.pow(1024, 4),
@@ -105,6 +114,7 @@ export default {
         },
         description: String, // 上传限制描述等
         showErrorMessage: { type: Boolean, default: true },
+        checkFile: [Function],
     },
     data() {
         return {
@@ -116,7 +126,7 @@ export default {
             dragover: false,
             lightboxVisible: false,
             currentIndex: 0,
-            errorMessage: '',
+            errorMessage: [],
         };
     },
     computed: {
@@ -208,27 +218,28 @@ export default {
 
             return (file.size || 0) <= maxSize;
         },
-        uploadFiles(files) {
+        async uploadFiles(files) {
             files = Array.from(files);
             if (!this.multiple)
                 files = files.slice(0, 1);
             if (files.length === 0)
                 return;
 
+            this.errorMessage = [];
+
             const count = this.currentValue.length + files.length;
             if (count > this.limit) {
-                this.errorMessage = `文件数量${count}超出限制 ${this.limit}！`;
+                this.errorMessage[0] = `文件数量${count}超出限制 ${this.limit}！`;
                 this.$emit('count-exceed', {
                     files,
                     value: this.currentValue,
                     count,
                     limit: this.limit,
-                    message: this.errorMessage,
+                    message: this.errorMessage[0],
                 }, this);
                 return;
-            } else {
-                this.errorMessage = '';
             }
+            files = await this.checkFiles(files);
 
             if (!this.multipleOnce) {
                 files.map((file) => this.upload(file));
@@ -245,17 +256,17 @@ export default {
             }, this))
                 return null;
 
-            if (!this.checkSize(file)) {
-                this.errorMessage = `文件${file.name} ${file.size}超出大小${this.maxSize}！`;
-                this.$emit('size-exceed', {
-                    maxSize: this.maxSize,
-                    size: file.size,
-                    message: this.errorMessage,
-                });
-                return null;
-            } else {
-                this.errorMessage = '';
-            }
+            // if (!this.checkSize(file)) {
+            //     this.errorMessage = `文件${file.name} ${file.size}超出大小${this.maxSize}！`;
+            //     this.$emit('size-exceed', {
+            //         maxSize: this.maxSize,
+            //         size: file.size,
+            //         message: this.errorMessage,
+            //     });
+            //     return null;
+            // } else {
+            //     this.errorMessage = '';
+            // }
             // check format
             // if (this.format.length) {
             //     const _file_format = file.name.split('.').pop().toLocaleLowerCase();
@@ -313,6 +324,9 @@ export default {
             //         return null;
             //     }
             // }
+
+            if(!files || !files.length)
+                return;
 
             const file = files[0];
             const item = {
@@ -444,6 +458,41 @@ export default {
             if (this.pastable)
                 this.uploadFiles(e.clipboardData.files);
         },
+        /**
+         * 验证文件：包括文件大小，用户自定义验证函数调用
+         */
+        async checkFiles(files) {
+            const validFiles = [];
+            const tasks = files.map(async (file) => {
+                if (!this.checkSize(file)) {
+                    const errorMessage = `文件${file.name} ${file.size}超出大小${this.maxSize}！`;
+                    this.$emit('size-exceed', {
+                        maxSize: this.maxSize,
+                        size: file.size,
+                        message: errorMessage,
+                        name: file.name,
+                        file,
+                    });
+                    this.errorMessage.push(errorMessage);
+                    return null;
+                }
+                if (this.checkFile && (this.checkFile instanceof Promise || typeof this.checkFile === 'function')) {
+                    const message = await this.checkFile(file);
+                    if (message) {
+                        this.$emit('check-file', {
+                            file,
+                            message,
+                            name: file.name,
+                        });
+                        this.errorMessage.push(message);
+                        return null;
+                    }
+                }
+                validFiles.push(file);
+            });
+            await Promise.all(tasks);
+            return validFiles;
+        },
     },
 };
 </script>
@@ -456,6 +505,7 @@ export default {
 
 .root[display="inline"] {
     display: inline-block;
+    max-width: var(--uploader-root-inline-max-width);
 }
 
 .select {
@@ -725,6 +775,10 @@ export default {
     margin-bottom: 10px;
     color: var(--uploader-draggable-color);
 }
+.errwrap {
+    max-height: var(--uploader-error-box-height);
+    padding: 0 5px 5px 0;
+}
 
 .errmessage {
     display: block;
@@ -751,6 +805,9 @@ export default {
 .cardwrap .description,
 .cardwrap .errmessage {
     margin-left: var(--uploader-card-space);
+}
+.cardwrap .errwrap {
+    max-width: var(--uploader-error-box-max-width);
 }
 
 
