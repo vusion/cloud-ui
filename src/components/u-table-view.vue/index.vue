@@ -457,7 +457,9 @@ export default {
             this.$emit('change', { value, oldValue, item, oldItem }, this);
         },
         values(values) {
-            this.watchValues(values);
+            this.$nextTick(()=>{
+                this.watchValues(values);
+            });
         },
         currentValues(values, oldValues) {
             const checkedItems = this.getCheckedItems();
