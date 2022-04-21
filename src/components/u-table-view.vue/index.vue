@@ -1208,7 +1208,8 @@ export default {
         getCheckedItems() {
             const items = [];
             Object.keys(this.checkedItems).forEach((itemKey)=>{
-                if (this.currentValues.includes(itemKey)) {
+                const inValues = this.currentValues.find((value) => '' + value === itemKey);
+                if (inValues) {
                     items.push(this.checkedItems[itemKey]);
                 }
             });
