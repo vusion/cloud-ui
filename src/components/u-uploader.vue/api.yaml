@@ -268,6 +268,24 @@
         - name: senderVM
           type: UUploader
           description: 发送事件对象
+    - name: remove
+      title: 删除时
+      description: 点击删除按钮时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/OperatorItemEvent"
+        - name: $event.value
+          type: object
+          description: 当前展示项的数据信息
+        - name: $event.item
+          type: object
+          description: 删除项的数据信息
+        - name: $event.index
+          type: number
+          description: 删除项在数据列表中的索引
   methods:
     - name: select
       title: 选择
