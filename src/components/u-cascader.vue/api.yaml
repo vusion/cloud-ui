@@ -25,6 +25,7 @@
           title: 点击
         - value: hover
           title: 悬浮
+      default: click
       description: 触发方式
     - name: value
       title: 值
