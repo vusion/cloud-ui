@@ -6241,6 +6241,11 @@
                             "description": "选择行相关对象"
                         },
                         {
+                            "name": "$event.items",
+                            "type": "object",
+                            "description": "所有选择行相关对象"
+                        },
+                        {
                             "name": "senderVM",
                             "type": "UTableView",
                             "description": "发送事件实例"
@@ -6274,6 +6279,11 @@
                             "name": "$event.item",
                             "type": "object",
                             "description": "选择行相关对象"
+                        },
+                        {
+                            "name": "$event.items",
+                            "type": "object",
+                            "description": "所有选择行相关对象"
                         },
                         {
                             "name": "$event.oldItem",
@@ -13177,6 +13187,12 @@
                     "type": "string",
                     "default": "点击/拖动/粘贴文件到这里",
                     "description": "拖拽描述信息"
+                },
+                {
+                    "name": "check-file",
+                    "title": "文件校验",
+                    "type": "Function",
+                    "description": "文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息"
                 }
             ],
             "slots": [
@@ -14950,6 +14966,7 @@
                             "title": "悬浮"
                         }
                     ],
+                    "default": "click",
                     "description": "触发方式"
                 },
                 {
@@ -15017,6 +15034,21 @@
                     "type": "boolean",
                     "default": false,
                     "description": ""
+                },
+                {
+                    "name": "opened",
+                    "title": "弹出状态",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "切换弹出/关闭状态"
+                },
+                {
+                    "name": "autofocus",
+                    "title": "自动获取焦点",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否自动获取焦点",
+                    "designer-value": false
                 },
                 {
                     "name": "width",
@@ -15296,6 +15328,7 @@
                             "title": "悬浮"
                         }
                     ],
+                    "default": "click",
                     "description": "触发方式"
                 },
                 {
@@ -15363,6 +15396,21 @@
                     "type": "boolean",
                     "default": false,
                     "description": ""
+                },
+                {
+                    "name": "opened",
+                    "title": "弹出状态",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "切换弹出/关闭状态"
+                },
+                {
+                    "name": "autofocus",
+                    "title": "自动获取焦点",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否自动获取焦点",
+                    "designer-value": false
                 }
             ],
             "methods": [
