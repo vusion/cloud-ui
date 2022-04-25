@@ -102,6 +102,11 @@ export default {
 <style module>
 .root {}
 
+.root[layout="inline"] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .root[layout="inline"] .item {
     display: inline-block;
 }
