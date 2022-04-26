@@ -2,7 +2,7 @@
 <transition v-if="(currentVisible || animationVisible)"
     enter-active-class="animate__animated animate__fadeIn"
     leave-active-class="animate__animated animate__fadeOut animate__fast">
-    <div :class="$style.root" :static="this.static" @click="handleClose">
+    <div :class="$style.root" :static="this.static" @click="handleClose" :functional-modal="functionalModal">
         <transition
             enter-active-class="animate__animated animate__fadeInDownSmall"
             leave-active-class="animate__animated animate__fadeOutUpSmall animate__fast">
@@ -93,7 +93,8 @@ export const UModal = {
         icon: { type: String, default: null },
         maskClose: { type: Boolean, default: false },
         disableEsc: { type: Boolean, default: false },
-        customClass: {type: String, default: undefined }
+        customClass: {type: String, default: undefined },
+        functionalModal: {type: Boolean, default: false }
     },
     data() {
         return {
@@ -174,7 +175,10 @@ export const UModal = {
         Vue.prototype.$alert = (content, title, okButton) => new Promise((resolve, reject) => {
             const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
             const instance = new Ctor({
-                propsData,
+                propsData: {
+                    functionalModal: true,
+                    ...propsData,
+                },
             });
 
             instance.$on('ok', () => resolve(true));
@@ -183,7 +187,10 @@ export const UModal = {
         Vue.prototype.$confirm = (content, title, okButton, cancelButton) => new Promise((resolve, reject) => {
             const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
             const instance = new Ctor({
-                propsData,
+                propsData: {
+                    functionalModal: true,
+                    ...propsData,
+                },
             });
 
             instance.$on('ok', () => resolve(true));
@@ -193,7 +200,10 @@ export const UModal = {
         Vue.prototype.$confirmResult = (content, title, okButton, cancelButton) => new Promise((resolve, reject) => {
             const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
             const instance = new Ctor({
-                propsData,
+                propsData: {
+                    functionalModal: true,
+                    ...propsData,
+                },
             });
 
             instance.$on('ok', () => resolve(true));
