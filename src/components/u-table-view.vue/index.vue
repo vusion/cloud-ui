@@ -682,11 +682,13 @@ export default {
                 } else if (remainingWidth > 0 && valueWidthSum !== 0) {
                     const averageWidth = remainingWidth / valueColumnVMs.length;
                     valueColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
+                } else if (remainingWidth < 0 && noWidthColumnVMs.length) {
+                    noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = defaultColumnWidth || 100);
                 }
 
                 // 如果所有列均有值，则总宽度有超出的可能。否则总宽度为根节点的宽度。
                 let tableWidth = '';
-                if (this.visibleColumnVMs.every((columnVM) => columnVM.currentWidth) || defaultColumnWidth) {
+                if (this.visibleColumnVMs.some((columnVM) => columnVM.currentWidth) || defaultColumnWidth) {
                     tableWidth = this.visibleColumnVMs.reduce((prev, columnVM) => {
                         if (String(columnVM.currentWidth).endsWith('%'))
                             return (prev + (parseFloat(columnVM.currentWidth) * rootWidth) / 100);
