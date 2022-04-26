@@ -32,6 +32,23 @@
       type: boolean
       default: false
       description: 是否禁用
+  slots:
+    - name: default
+      description: 链接区域
+      title: 链接区域
+      support:
+        - name: u-navbar-item-multi
+          title: 添加导航项
+          snippet: <u-navbar-item-multi>导航项</u-navbar-item-multi>
+        - name: u-navbar-divider-multi
+          title: 添加分隔线
+          snippet: <u-navbar-divider-multi></u-navbar-divider-multi>
+    - name: left
+      title: 左部区域
+      description: 左部区域，一般放置 logo 等
+    - name: right
+      title: 右部区域
+      description: 右部区域，一般放置用户个人信息等
 - name: u-navbar-item-multi
   title: 导航栏项
   attrs:

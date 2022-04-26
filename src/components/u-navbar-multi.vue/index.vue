@@ -5,24 +5,33 @@
         :readonly="readonly"
         :disabled="disabled"
     >
-        <u-multi-layout
-            :vusion-scope-id="$vnode.context.$options._scopeId"
-            vusion-node-tag="u-multi-layout"
-        >
-            <slot name="left"></slot>
-            <slot></slot>
-            <slot name="right"></slot>
+        <u-multi-layout>
+            <u-multi-layout-item align-items="center" :class="$style.layoutleft" vusion-slot-name="left" v-if="$slots.left || $env.VUE_APP_DESIGNER">
+                <slot name="left">
+                    <s-empty v-if="(!$slots.left) && $env.VUE_APP_DESIGNER"></s-empty>
+                </slot>
+            </u-multi-layout-item>
+            <u-multi-layout-item align-items="center">
+                <slot></slot>
+            </u-multi-layout-item>
+             <u-multi-layout-item align-items="center" justify="end" :class="$style.layoutright" v-if="$slots.right || $env.VUE_APP_DESIGNER" vusion-slot-name="right">
+                <slot name="right">
+                    <s-empty v-if="(!$slots.left) && $env.VUE_APP_DESIGNER"></s-empty>
+                </slot>
+            </u-multi-layout-item>
         </u-multi-layout>
     </div>
 </template>
 
 <script>
 import { MSinglex } from '../m-singlex.vue';
+import SEmpty from '../../components/s-empty.vue';
 
 export default {
     name: 'u-navbar-multi',
     childName: 'u-navbar-item-multi',
     extends: MSinglex,
+    components: {  SEmpty },
     props: {
         router: { type: Boolean, default: true },
         animation: { type: String, default: '1' },
@@ -236,5 +245,11 @@ export default {
 .root [class^="u-dropdown__"][type=text],
 .root [class^="u-dropdown__"][type=text]:not([disabled]):hover {
     color: inherit;
+}
+.layoutleft {
+    max-width: var(--navbar-left-width);
+}
+.layoutright {
+    max-width: var(--navbar-right-width);
 }
 </style>
