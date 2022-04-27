@@ -220,6 +220,49 @@ export default {
 </script>
 ```
 
+#### 检查文件格式等
+
+``` vue
+<template>
+<u-uploader v-model="files" multiple list-type="card"
+    url="http://localhost:7000/api/library/upload"
+    :check-file="checkFile">
+    <u-button color="primary">Upload</u-button>
+</u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: [{
+                uid: '1',
+                name: 'breakfast.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/breakfast.png',
+            }, {
+                uid: '2',
+                name: 'salad.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/salad.png',
+            }],
+        };
+    },
+    methods: {
+        checkFile(file) {
+            const fileName = file.name;
+            if(fileName.includes('&')) {
+                return `${fileName} 文件名不能包含&字符`;
+            } else if (fileName.length > 20) {
+                return `${fileName} 文件名长度不能大于20`;
+            } else {
+                return '';
+            }
+        }
+    }
+};
+</script>
+```
+
 ## API
 ### Props/Attrs
 
@@ -250,6 +293,7 @@ export default {
 | description | string |  |  | 在上传组件下方展示一些提示信息，如上传的数量、大小等 |
 | showErrorMessage | boolean |  | `true` | 是否展示上传时的出错信息，如超出数量、大小 |
 | dragDescription | string |  | `'点击/拖动/粘贴文件到这里'` | 拖拽描述信息 |
+| check-file | Function |  |  | 文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息 |
 
 ### Slots
 
@@ -324,6 +368,17 @@ export default {
 | $event.maxSize | number | 限制大小 |
 | $event.size | number | 当前大小 |
 | senderVM | UUploader | 发送事件对象 |
+
+#### @remove
+
+点击删除按钮时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.value | object | 当前展示项的数据信息 |
+| $event.item | object | 删除项的数据信息 |
+| $event.index | number | 删除项在数据列表中的索引 |
 
 Methods
 

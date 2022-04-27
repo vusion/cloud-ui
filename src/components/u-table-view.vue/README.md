@@ -2033,6 +2033,7 @@ export default {
 | $event.values | Array | 选择后的值 |
 | $event.oldValues | Array | 旧的值 |
 | $event.item | object | 选择行相关对象 |
+| $event.items | object | 所有选择行相关对象 |
 | senderVM | UTableView | 发送事件实例 |
 
 #### @change
@@ -2045,6 +2046,7 @@ export default {
 | $event.value | any | 选择行的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择行相关对象 |
+| $event.items | object | 所有选择行相关对象 |
 | $event.oldItem | object | 旧的选择行相关对象 |
 | senderVM | UTableView | 发送事件实例 |
 

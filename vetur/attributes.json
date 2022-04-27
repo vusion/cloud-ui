@@ -1400,9 +1400,9 @@
     ],
     "description": "触发方式"
   },
-  "u-cascader/v-model": {
-    "type": "String",
-    "description": "双向绑定"
+  "u-cascader/value": {
+    "type": "any",
+    "description": ""
   },
   "u-cascader/join": {
     "type": "string",
@@ -1441,6 +1441,14 @@
   "u-cascader/disabled": {
     "type": "boolean",
     "description": ""
+  },
+  "u-cascader/opened": {
+    "type": "boolean",
+    "description": "切换弹出/关闭状态"
+  },
+  "u-cascader/autofocus": {
+    "type": "boolean",
+    "description": "是否自动获取焦点"
   },
   "u-cascader/width": {
     "type": "string",
@@ -5763,9 +5771,9 @@
     ],
     "description": "触发方式"
   },
-  "u-region-select/v-model": {
-    "type": "String",
-    "description": "双向绑定"
+  "u-region-select/value": {
+    "type": "any",
+    "description": ""
   },
   "u-region-select/join": {
     "type": "string",
@@ -5804,6 +5812,14 @@
   "u-region-select/disabled": {
     "type": "boolean",
     "description": ""
+  },
+  "u-region-select/opened": {
+    "type": "boolean",
+    "description": "切换弹出/关闭状态"
+  },
+  "u-region-select/autofocus": {
+    "type": "boolean",
+    "description": "是否自动获取焦点"
   },
   "u-select/value": {
     "type": "any",
@@ -7785,6 +7801,10 @@
   "u-uploader/dragDescription": {
     "type": "string",
     "description": "拖拽描述信息"
+  },
+  "u-uploader/check-file": {
+    "type": "Function",
+    "description": "文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息"
   },
   "u-validator/name": {
     "type": "string",
