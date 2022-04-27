@@ -476,6 +476,30 @@ export default {
                     this.errorMessage.push(errorMessage);
                     return null;
                 }
+                if (this.accept) {
+                    const extension = file.name.indexOf('.') > -1 ? `.${ file.name.split('.').pop() }`: '';
+                    const type = file.type;
+                    const baseType = type.replace(/\/.*$/, '');
+                    const accept = this.accept.split(',')
+                        .map(type => type.trim())
+                        .filter(type => type)
+                        .some(acceptedType => {
+                            if (/^\..+$/.test(acceptedType)) {
+                                return extension === acceptedType;
+                            }
+                            if (/\/\*$/.test(acceptedType)) {
+                                return baseType === acceptedType.replace(/\/\*$/, '');
+                            }
+                            if (/^[^\/]+\/[^\/]+$/.test(acceptedType)) {
+                                return type === acceptedType;
+                            }
+                            return false;
+                        });
+                    if (!accept) {
+                        this.errorMessage.push('文件类型不匹配，请上传'+this.accept+'的文件类型');
+                        return null;
+                    }
+                }
                 if (this.checkFile && (this.checkFile instanceof Promise || typeof this.checkFile === 'function')) {
                     const message = await this.checkFile(file);
                     if (message) {
