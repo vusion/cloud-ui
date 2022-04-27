@@ -459,6 +459,8 @@
     --link-color-white: white; /* @hidden */
 
     /* @component u-button */
+    /* 宽度 */
+    --button-min-width: 78px; /* @hidden */
     /* 高度 */
     --button-height-mini: var(--height-mini);
     --button-height-small: var(--height-small);

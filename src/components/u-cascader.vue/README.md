@@ -306,7 +306,7 @@ export default {
 ``` vue
 <template>
 <u-linear-layout >
-    <u-cascader trigger="hover" :data="data" v-model="value">
+    <u-cascader trigger="hover" :data="data" :value.sync="value">
     </u-cascader>
 </u-linear-layout>
 </template>
@@ -586,14 +586,16 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | data | Array\<{ text, value }\> |  |  | 数据列表 |
 | placeholder | string |  | `'请选择'` | 搜索框为空时提示文本 |
-| trigger | string | `[object Object]`<br/>`[object Object]` |  | 触发方式 |
-| v-model | String |  |  | 双向绑定 |
+| trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 触发方式 |
+| value.sync, v-model | any |  |  |  |
 | join | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `' / '` | 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值 |
 | field | string |  | `'text'` | 显示文本字段 |
 | filterable | boolean |  | `false` | 是否可以过滤（搜索），开启将会显示搜索框。 |
 | clearable | boolean |  | `false` | 开启并在输入框有内容时会显示清除按钮。 |
 | showFinalValue | boolean |  | `false` | 定义是否显示完整的路径，ture时只显示最后一项 |
 | disabled | boolean |  | `false` |  |
+| opened | boolean |  | `false` | 切换弹出/关闭状态 |
+| autofocus | boolean |  | `false` | 是否自动获取焦点 |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置级联框宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置级联框高度大小 |
 

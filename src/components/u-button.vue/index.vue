@@ -37,6 +37,7 @@ export default {
     transition: all var(--transition-duration-base);
     font-weight: var(--button-font-weight);
     font-size: var(--button-font-size);
+    min-width: var(--button-min-width);
 }
 
 .root:hover {

@@ -484,20 +484,19 @@
       "data",
       "placeholder",
       "trigger",
-      "v-model",
+      "value",
       "join",
       "field",
       "filterable",
       "clearable",
       "showFinalValue",
       "disabled",
+      "opened",
+      "autofocus",
       "width",
       "height"
     ],
-    "description": "一次选择多个相关联的项",
-    "defaults": [
-      "v-model"
-    ]
+    "description": "一次选择多个相关联的项"
   },
   "u-checkbox-card": {
     "attributes": [
@@ -1559,18 +1558,17 @@
       "data",
       "placeholder",
       "trigger",
-      "v-model",
+      "value",
       "join",
       "field",
       "filterable",
       "clearable",
       "showFinalValue",
-      "disabled"
+      "disabled",
+      "opened",
+      "autofocus"
     ],
-    "description": "该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。",
-    "defaults": [
-      "v-model"
-    ]
+    "description": "该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。"
   },
   "u-router-view": {
     "attributes": [],
@@ -2090,7 +2088,8 @@
       "display",
       "description",
       "showErrorMessage",
-      "dragDescription"
+      "dragDescription",
+      "check-file"
     ],
     "description": "通过点击或者拖拽上传文件。"
   },
