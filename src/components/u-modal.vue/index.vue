@@ -332,6 +332,7 @@ export default UModal;
     position: absolute;
     left: 0;
     top: 0;
+    background: radial-gradient(circle, #fff 45%, transparent 45%);
 }
 
 .body[icon="warning"]::before {
@@ -361,7 +362,7 @@ export default UModal;
 }
 
 .description {
-    font-size: 14px;
+    font-size: var(--font-size-base);
     color: var(--font-second-color);
 }
 
