@@ -717,6 +717,13 @@ export default {
                 }
                 this.tableMetaList = tableMetaList;
 
+                // 当设置line的时候，会有1px的偏差，导致出现滚动条，这里暂时将最后一列的width减1
+                // 需要在总width计算完后处理，要不然总width会少1，导致自后一列的右侧线条看不见
+                if (this.line) {
+                    const lastColumnVM = this.visibleColumnVMs[this.visibleColumnVMs.length - 1];
+                    lastColumnVM.computedWidth = lastColumnVM.computedWidth - 1;
+                }
+
                 /**
                  * 根节点高度优先，头部固定，计算身体高度
                  */
