@@ -477,15 +477,16 @@ export default {
                     return null;
                 }
                 if (this.accept) {
-                    const extension = file.name.indexOf('.') > -1 ? `.${ file.name.split('.').pop() }`: '';
-                    const type = file.type;
-                    const baseType = type.replace(/\/.*$/, '');
+                    const extension = (file.name.indexOf('.') > -1 ? `.${ file.name.split('.').pop() }`: '').toLowerCase();
+                    const type = file.type.toLowerCase();
+                    const baseType = type.replace(/\/.*$/, '').toLowerCase();
                     const accept = this.accept.split(',')
                         .map(type => type.trim())
                         .filter(type => type)
                         .some(acceptedType => {
+                            acceptedType = acceptedType.toLowerCase();
                             if (/^\..+$/.test(acceptedType)) {
-                                return extension === acceptedType;
+                                return extension.toLowerCase() === acceptedType;
                             }
                             if (/\/\*$/.test(acceptedType)) {
                                 return baseType === acceptedType.replace(/\/\*$/, '');
