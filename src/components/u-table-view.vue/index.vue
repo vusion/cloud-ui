@@ -911,7 +911,7 @@ export default {
             try {
 
                 let content = [];
-                if (!this.remote) {
+                if (!this.currentDataSource._load) {
                     content = await this.getRenderResult(this.currentDataSource.data);
                 } else {
                     // console.time('加载数据');
