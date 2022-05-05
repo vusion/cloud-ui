@@ -256,11 +256,13 @@ export default {
 .root[square], /* @deprecated */
 .root[shape="square"] {
     width: var(--button-height);
+    min-width: auto;
     padding: 0;
 }
 
 .root[shape="circle"] {
     width: var(--button-height);
+    min-width: auto;
     padding: 0;
     border-radius: 1000px;
 }
