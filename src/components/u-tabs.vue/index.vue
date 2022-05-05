@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.root" :disabled="disabled" :appear="appear" :size="size" :item-width="itemWidth">
+    <div :class="$style.root" :disabled="disabled" :appear="direction === 'vertical'? undefined: appear" :size="size" :item-width="itemWidth" :direction="direction">
         <div :class="$style.head">
             <span :class="[$style.extra, $env.VUE_APP_DESIGNER ? $style.gap : null]" vusion-slot-name="extra">
                 <slot name="extra"></slot>
@@ -66,6 +66,7 @@ export default {
         itemWidth: { type: String, default: 'auto' },
         itemAlign: { type: String, default: 'center' },
         showTitle: { type: Boolean, default: false },
+        direction: { type: String, default: 'horizontal' },
     },
     data() {
         return {
@@ -86,7 +87,11 @@ export default {
         itemVMs(itemVMs) {
             this.$nextTick(() => {
                 const threshold = 1;  // IE 浏览器缩放时，scrollWidth 可能会比 clientWidth 大 1 像素
-                this.scrollable = this.$refs.scrollView.scrollWidth - this.$refs.scrollView.clientWidth > threshold;
+                if (this.direction === 'vertical') {
+                    this.scrollable = this.$refs.scrollView.scrollHeight - this.$refs.scrollView.clientHeight > threshold;
+                } else {
+                    this.scrollable = this.$refs.scrollView.scrollWidth - this.$refs.scrollView.clientWidth > threshold;
+                }
                 this.$refs.item
                     && this.$refs.item.forEach((itemEl, index) => {
                         itemEl.__vue__ = itemVMs[index];
@@ -157,31 +162,62 @@ export default {
         scrollToSelectedVM() {
             const scrollViewEl = this.$refs.scrollView;
             const children = this.$refs.item;
-            if(scrollViewEl && this.selectedVM && Array.isArray(children)) {
-                const index = this.itemVMs.indexOf(this.selectedVM);
-                if(index !== -1) {
-                    // 选中节点的右侧距离
-                    let activeMin = 0;
-                    for(let i = 0; i < index; i++) {
-                        const itemEl = children[i] || {};
-                        activeMin += itemEl.offsetWidth || 0;
+            if (this.direction === 'vertical') {
+                if(scrollViewEl && this.selectedVM && Array.isArray(children)) {
+                    const index = this.itemVMs.indexOf(this.selectedVM);
+                    if(index !== -1) {
+                        // 选中节点的上侧距离
+                        let activeMin = 0;
+                        for(let i = 0; i < index; i++) {
+                            const itemEl = children[i] || {};
+                            activeMin += itemEl.offsetHeight || 0;
+                        }
+                        const activeMax = activeMin + ((children[index] || {}).offsetHeight || 0) ;
+                        // 可视区高度
+                        const scrollHeight = scrollViewEl.clientHeight;
+                        // 可视区域上侧
+                        const scrollMin = scrollViewEl.scrollTop;
+                        // 可视区域下侧
+                        const scrollMax = scrollMin + scrollHeight;
+                        let accHeight = scrollMin;
+                        // 至少有一部分在可视区域上侧
+                        if(scrollMax < activeMax) {
+                            accHeight = activeMax - scrollHeight;
+                        } else if (activeMin < scrollMin) { // 至少有一部分在可视区域下侧
+                            accHeight = activeMin;
+                        }
+                        if(accHeight !== scrollMin) {
+                            scrollTo(scrollViewEl, { top: accHeight, duration: 1000 });
+                        }
                     }
-                    const activeMax = activeMin + ((children[index] || {}).offsetWidth || 0) ;
-                    // 可视区宽度
-                    const scrollWidth = scrollViewEl.clientWidth;
-                    // 可视区域左侧
-                    const scrollMin = scrollViewEl.scrollLeft;
-                    // 可视区域右侧
-                    const scrollMax = scrollMin + scrollWidth;
-                    let accWidth = scrollMin;
-                    // 至少有一部分在可视区域右侧
-                    if(scrollMax < activeMax) {
-                        accWidth = activeMax - scrollWidth;
-                    } else if (activeMin < scrollMin) { // 至少有一部分在可视区域左侧
-                        accWidth = activeMin;
-                    }
-                    if(accWidth !== scrollMin) {
-                        scrollTo(scrollViewEl, { left: accWidth, duration: 1000 });
+                }
+            } else {
+                if(scrollViewEl && this.selectedVM && Array.isArray(children)) {
+                    const index = this.itemVMs.indexOf(this.selectedVM);
+                    if(index !== -1) {
+                        // 选中节点的右侧距离
+                        let activeMin = 0;
+                        for(let i = 0; i < index; i++) {
+                            const itemEl = children[i] || {};
+                            activeMin += itemEl.offsetWidth || 0;
+                        }
+                        const activeMax = activeMin + ((children[index] || {}).offsetWidth || 0) ;
+                        // 可视区宽度
+                        const scrollWidth = scrollViewEl.clientWidth;
+                        // 可视区域左侧
+                        const scrollMin = scrollViewEl.scrollLeft;
+                        // 可视区域右侧
+                        const scrollMax = scrollMin + scrollWidth;
+                        let accWidth = scrollMin;
+                        // 至少有一部分在可视区域右侧
+                        if(scrollMax < activeMax) {
+                            accWidth = activeMax - scrollWidth;
+                        } else if (activeMin < scrollMin) { // 至少有一部分在可视区域左侧
+                            accWidth = activeMin;
+                        }
+                        if(accWidth !== scrollMin) {
+                            scrollTo(scrollViewEl, { left: accWidth, duration: 1000 });
+                        }
                     }
                 }
             }
@@ -189,28 +225,52 @@ export default {
         scrollPrev() {
             const scrollViewEl = this.$refs.scrollView;
             const children = this.$refs.item; // 查找第一个不截断的项
-            let accWidth = 0;
-            if (scrollViewEl.scrollLeft - scrollViewEl.clientWidth > 0) {
-                for (let i = 0; i < children.length; i++) {
-                    const itemEl = children[i];
-                    accWidth += itemEl.offsetWidth;
-                    if (accWidth + itemEl.offsetWidth > scrollViewEl.scrollLeft - scrollViewEl.clientWidth)
-                        break;
+            if (this.direction === 'vertical') {
+                let accHeight = 0;
+                if (scrollViewEl.scrollTop - scrollViewEl.clientHeight > 0) {
+                    for (let i = 0; i < children.length; i++) {
+                        const itemEl = children[i];
+                        accHeight += itemEl.offsetHeight;
+                        if (accHeight + itemEl.offsetHeight > scrollViewEl.scrollTop - scrollViewEl.clientHeight)
+                            break;
+                    }
                 }
+                scrollTo(scrollViewEl, { top: accHeight, duration: 1000 });
+            } else {
+                let accWidth = 0;
+                if (scrollViewEl.scrollLeft - scrollViewEl.clientWidth > 0) {
+                    for (let i = 0; i < children.length; i++) {
+                        const itemEl = children[i];
+                        accWidth += itemEl.offsetWidth;
+                        if (accWidth + itemEl.offsetWidth > scrollViewEl.scrollLeft - scrollViewEl.clientWidth)
+                            break;
+                    }
+                }
+                scrollTo(scrollViewEl, { left: accWidth, duration: 1000 });
             }
-            scrollTo(scrollViewEl, { left: accWidth, duration: 1000 });
         },
         scrollNext() {
             const scrollViewEl = this.$refs.scrollView;
             const children = this.$refs.item; // 查找第一个不截断的项
-            let accWidth = 0;
-            for (let i = 0; i < children.length; i++) {
-                const itemEl = children[i];
-                if (accWidth + itemEl.offsetWidth > scrollViewEl.scrollLeft + scrollViewEl.clientWidth)
-                    break;
-                accWidth += itemEl.offsetWidth;
+            if (this.direction === 'vertical') {
+                let accHeight = 0;
+                for (let i = 0; i < children.length; i++) {
+                    const itemEl = children[i];
+                    if (accHeight + itemEl.offsetHeight > scrollViewEl.scrollTop + scrollViewEl.clientHeight)
+                        break;
+                    accHeight += itemEl.offsetHeight;
+                }
+                scrollTo(scrollViewEl, { top: accHeight, duration: 1000 });
+            } else {
+                let accWidth = 0;
+                for (let i = 0; i < children.length; i++) {
+                    const itemEl = children[i];
+                    if (accWidth + itemEl.offsetWidth > scrollViewEl.scrollLeft + scrollViewEl.clientWidth)
+                        break;
+                    accWidth += itemEl.offsetWidth;
+                }
+                scrollTo(scrollViewEl, { left: accWidth, duration: 1000 });
             }
-            scrollTo(scrollViewEl, { left: accWidth, duration: 1000 });
         },
     },
 };

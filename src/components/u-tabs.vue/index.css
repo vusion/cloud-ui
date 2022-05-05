@@ -400,3 +400,81 @@
     justify-content: center;
     font-weight: var(--tabs-item-title-font-weight);
 }
+.root[direction="vertical"] {
+    overflow: hidden;
+    height: 100%;
+}
+.root[direction="vertical"] .head {
+    float: left;
+    border-right: 1px solid var(--tabs-border-color);
+    border-bottom: none;
+    margin-right: 10px;
+    height: 100%;
+}
+.root[direction="vertical"] .nav {
+    height: 100% !important;
+}
+.root[direction="vertical"] .item {
+    display: block;
+    border: none;
+    border-radius: initial;
+    border-right: var(--tabs-item-line-width) solid transparent;
+}
+.root[direction="vertical"] .item[selected] {
+    border-right: var(--tabs-item-line-width) solid var(--brand-primary);
+    border-top: none;
+    padding-bottom: 0;
+}
+.root[direction="vertical"] .scroll a:last-child {
+    border-radius: initial;
+}
+.root[direction="vertical"] .scroll-view::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+.root[direction="vertical"] .scroll-view {
+    overflow-y: auto;
+    -ms-overflow-style: none; /** IE11 */
+    scrollbar-width: none; /** firefox */
+    height: 100%;
+}
+.root[direction="vertical"] .nav[scrollable] {
+    padding: var(--tabs-vertical-scroll-icon-height) 0;
+}
+.root[direction="vertical"] .nav[scrollable] .scroll-view {
+    margin: 0;
+}
+.root[direction="vertical"] .prev,
+.root[direction="vertical"] .next {
+    height: var(--tabs-vertical-scroll-icon-height);
+    width: var(--tabs-vertical-scroll-icon-height);
+    line-height: var(--tabs-vertical-scroll-icon-height);
+}
+.root[direction="vertical"] .prev {
+    top: 0;
+    left: calc(50% - var(--tabs-vertical-scroll-icon-height) / 2);
+    transform: rotate(90deg);
+}
+.root[direction="vertical"] .next {
+    bottom: 0;
+    right: calc(50% - var(--tabs-vertical-scroll-icon-height) / 2);
+    transform: rotate(90deg);
+}
+.root[direction="vertical"][position="right"] .head {
+    float: right;
+    border-left: 1px solid var(--tabs-border-color);
+    border-right: none;
+    margin-left: 10px;
+}
+.root[direction="vertical"][position="right"] .item {
+    border-left: var(--tabs-item-line-width) solid transparent;
+    border-right: none;
+}
+.root[direction="vertical"][position="right"] .item[selected] {
+    border-left: var(--tabs-item-line-width) solid var(--brand-primary);
+}
+.root[direction="vertical"] .body {
+    height: 100%;
+    overflow: auto;
+    margin-top: 0;
+}

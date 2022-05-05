@@ -153,3 +153,33 @@ export default {
     <u-checkbox slot="extra">全选</u-checkbox>
 </u-tabs>
 ```
+
+### 垂直排列
+
+``` html
+<div style="height: 400px">
+    <u-tabs direction="vertical">
+        <u-tab title="模板">模板内容</u-tab>
+        <u-tab title="样式">样式内容</u-tab>
+        <u-tab title="逻辑">逻辑内容</u-tab>
+        <u-tab title="文档">文档内容</u-tab>
+        <u-tab title="资源1">资源内容1</u-tab>
+        <u-tab title="资源2">资源内容2</u-tab>
+        <u-tab title="资源3">资源内容3</u-tab>
+        <u-tab title="资源4">资源内容4</u-tab>
+        <u-tab title="资源5">资源内容5</u-tab>
+        <u-tab title="资源6">资源内容6</u-tab>
+    </u-tabs>
+</div>
+```
+
+### 垂直排列-右侧
+
+``` html
+<u-tabs direction="vertical" position="right">
+    <u-tab title="模板">模板内容</u-tab>
+    <u-tab title="样式">样式内容</u-tab>
+    <u-tab title="逻辑">逻辑内容</u-tab>
+    <u-tab title="文档">文档内容</u-tab>
+</u-tabs>
+```

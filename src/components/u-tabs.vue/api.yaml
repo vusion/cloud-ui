@@ -74,6 +74,26 @@
           title: 迷你
       default: normal
       description: 标签尺寸
+    - name: direction
+      title: 排列方向
+      type: string
+      options:
+        - value: horizontal
+          title: 横向排列
+        - value: vertical
+          title: 纵向排列
+      default: horizontal
+      description: 可更改选项卡的排列方向
+    - name: position
+      title: 位置
+      type: string
+      options:
+        - value: left
+          title: 左侧
+        - value: right
+          title: 右侧
+      default: left
+      description: 当选项卡为纵向排列时，该属性生效
   slots:
     - name: default
       title: 默认

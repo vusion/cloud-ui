@@ -1347,6 +1347,7 @@
     --tabs-body-space-small: var(--space-small); /* @hidden */
     --tabs-body-space-mini: var(--space-mini); /* @hidden */
     --tabs-item-title-font-weight: inherit; /* @hidden */
+    --tabs-vertical-scroll-icon-height: 30px; /* @hidden */
 
     /* @component u-selectable-steps */
     --steps-item-color-disabled: var(--brand-disabled-dark); /* @type color */
