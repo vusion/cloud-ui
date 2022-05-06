@@ -170,6 +170,7 @@ export default {
                 dragX: 0,
                 dragY: 0,
             });
+            this.$emit('mousedown', e);
             window.addEventListener('mousemove', this.onMouseMove);
             window.addEventListener('mouseup', this.onMouseUp);
             this.immediate && this.onMouseMoveStart(e);
@@ -209,6 +210,7 @@ export default {
             });
             manager.left = manager.startLeft;
             manager.top = manager.startTop;
+            
             !override && this.dragStart();
         },
         onMouseMoving(e) {

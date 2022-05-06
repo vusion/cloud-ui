@@ -7,35 +7,42 @@
             <nav :class="$style.nav" :scrollable="showScrollButtons === 'always' || (showScrollButtons === 'auto' && scrollable)">
                 <span :class="$style.prev" @click="scrollPrev"></span>
                 <div ref="scrollView" :class="$style['scroll-view']">
-                    <div :class="$style.scroll">
+                    <div :class="$style.scroll" ref="scrollPanel">
                         <template v-for="(itemVM, index) in itemVMs">
-                            <a v-show="!itemVM.hidden" :class="$style.item"
-                                ref="item"
-                                :key="index"
-                                :is-sub="itemVM.$attrs['is-sub']"
-                                :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
-                                :vusion-node-path="itemVM.$attrs['vusion-node-path']"
-                                :vusion-node-tag="itemVM.$attrs['vusion-node-tag']"
-                                :vusion-disabled-move="itemVM.$attrs['vusion-disabled-move']"
-                                :vusion-disabled-duplicate="itemVM.$attrs['vusion-disabled-duplicate']"
-                                :vusion-disabled-cut="itemVM.$attrs['vusion-disabled-cut']"
-                                :href="itemVM.currentHref" :target="itemVM.target" :title="showTitle ? itemVM.title : null"
-                                :selected="router ? itemVM.active : itemVM === selectedVM"
-                                :disabled="itemVM.disabled || disabled"
-                                :style="{ width: currentItemWidth }"
-                                :width-fixed="!!currentItemWidth"
-                                :alignment="itemAlign"
-                                @click="onClick(itemVM, $event)">
-                                <span :class="$style.title" vusion-slot-name="title">
-                                    <f-slot
-                                        :vm="itemVM"
-                                        name="title"
-                                        :props="{ selected: router ? itemVM.active : itemVM === selectedVM }">
-                                        {{ itemVM.title }}
-                                    </f-slot>
-                                </span>
-                                <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
-                            </a>
+                            <f-dragger :key="index" :axis="direction" 
+                                @drag="onDrag" 
+                                @dragstart="onDragstart(itemVM, index, $event)" 
+                                @dragend="onDragEnd"
+                                @mousedown="onMouseDown(itemVM, index, $event)"
+                                :range="dragRange">
+                                <a v-show="!itemVM.hidden" :class="$style.item"
+                                    ref="item"
+                                    :key="index"
+                                    :is-sub="itemVM.$attrs['is-sub']"
+                                    :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
+                                    :vusion-node-path="itemVM.$attrs['vusion-node-path']"
+                                    :vusion-node-tag="itemVM.$attrs['vusion-node-tag']"
+                                    :vusion-disabled-move="itemVM.$attrs['vusion-disabled-move']"
+                                    :vusion-disabled-duplicate="itemVM.$attrs['vusion-disabled-duplicate']"
+                                    :vusion-disabled-cut="itemVM.$attrs['vusion-disabled-cut']"
+                                    :href="itemVM.currentHref" :target="itemVM.target" :title="showTitle ? itemVM.title : null"
+                                    :selected="router ? itemVM.active : itemVM === selectedVM"
+                                    :disabled="itemVM.disabled || disabled"
+                                    :style="{ width: currentItemWidth }"
+                                    :width-fixed="!!currentItemWidth"
+                                    :alignment="itemAlign"
+                                    @click="onClick(itemVM, $event)">
+                                    <span :class="$style.title" vusion-slot-name="title">
+                                        <f-slot
+                                            :vm="itemVM"
+                                            name="title"
+                                            :props="{ selected: router ? itemVM.active : itemVM === selectedVM }">
+                                            {{ itemVM.title }}
+                                        </f-slot>
+                                    </span>
+                                    <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
+                                </a>
+                            </f-dragger>
                         </template>
                     </div>
                 </div>
@@ -70,7 +77,8 @@ export default {
     },
     data() {
         return {
-            scrollable: false
+            scrollable: false,
+            dragRange: undefined,
         };
     },
     computed: {
@@ -108,6 +116,10 @@ export default {
     },
     methods: {
         onClick(itemVM, e) {
+            if (this.drop) {
+                this.drop = false;
+                return;
+            }
             this.click(itemVM);
             this.select(itemVM); // 为了兼容
             if (this.router) {
@@ -272,6 +284,86 @@ export default {
                 scrollTo(scrollViewEl, { left: accWidth, duration: 1000 });
             }
         },
+        onDrag(event) {
+            let moveIndex = this.moveIndex;
+            let left = +event.sourceEl.style.left.slice(0, -2);
+            if(this.startLeft - left >= 0) { //往左移
+                let preIndex = moveIndex - 1;
+                if(preIndex < 0)
+                    return;
+                const preLeft = this.manager[preIndex].accOffsetWidth;
+                const preLeftHalf = this.manager[preIndex].accOffsetWidth + this.manager[moveIndex].offsetWidth / 2;
+                if(left>=preLeft && left<=preLeftHalf){
+                    this.moveIndex = preIndex;
+                    this.$refs.scrollPanel.insertBefore(this.newItem, this.$refs.item[this.moveIndex]);
+                }
+            } else { // 往右移
+                left = left + this.manager[this.dragIndex].offsetWidth;
+                let nextIndex = moveIndex + 1;
+                if(nextIndex > this.$refs.item.length)
+                    return;
+                const preLeft = this.manager[nextIndex].accOffsetWidth + this.manager[nextIndex].offsetWidth / 2;
+                const preLeftHalf = this.manager[nextIndex].accOffsetWidth + this.manager[nextIndex].offsetWidth;
+                if(left>=preLeft && left<=preLeftHalf){
+                    this.moveIndex = nextIndex;
+                    this.$refs.scrollPanel.insertBefore(this.newItem, this.$refs.item[this.moveIndex].nextSibling);
+                }
+            }
+            this.startLeft = left;
+        },
+        onDragstart(itemVm, itemIndex, event) {
+            this.dragIndex = itemIndex;
+            this.moveIndex = itemIndex;
+            this.startLeft = +event.sourceEl.style.left.slice(0, -2);
+            event.sourceEl.style.position = 'absolute';
+            this.newItem.style.opacity = '0';
+            this.newItem.style.position = 'relative';
+            this.$refs.scrollPanel.insertBefore(this.newItem, this.$refs.item[itemIndex]);
+        },
+        onDragEnd(event) {
+            console.log('this.moveIndex', this.moveIndex);
+            const dragItem = this.itemVMs[this.dragIndex];
+            this.itemVMs.splice(this.dragIndex, 1);
+            if (this.moveIndex === 0) {
+                this.itemVMs.unshift(dragItem);
+            } else {
+                this.itemVMs.splice(this.moveIndex, 0, dragItem);
+            }
+            this.$refs.scrollPanel.removeChild(this.newItem);
+            this.resetStyle(this.$refs.item[this.dragIndex]);
+            // setTimeout(() => {
+            //     this.select(dragItem);
+            // }, 0);
+            this.drop = true;
+        },
+        onMouseDown(itemVm, itemIndex, event) {
+            this.select(itemVm);
+            this.manager = [];
+            this.$refs.item.forEach((item, index)=>{
+                this.resetStyle(item);
+                const pre = this.manager[index - 1];
+                this.manager[index] = {
+                    accOffsetWidth: pre ? pre.accOffsetWidth + item.offsetWidth : 0,
+                    offsetWidth: item.offsetWidth
+                }
+            });
+            const moveItem = this.$refs.item[itemIndex];
+            this.newItem = moveItem.cloneNode(true);
+            moveItem.style.position = 'static';
+            moveItem.style.zIndex = 111;
+            moveItem.style.left = this.manager[itemIndex].accOffsetWidth + 'px';
+            let right = this.manager[this.manager.length - 1].accOffsetWidth + this.manager[this.manager.length - 1].offsetWidth;
+            if(itemIndex !== this.manager.length - 1) {
+                right = right + this.manager[itemIndex].offsetWidth;
+            }
+            this.dragRange = {left: 0, right: right};
+        },
+        resetStyle(item) {
+            item.style.position = '';
+            item.style.left = '';
+            item.style.top = '';
+            item.style.zIndex = '';
+        }
     },
 };
 </script>
