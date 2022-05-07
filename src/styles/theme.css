@@ -618,6 +618,14 @@
     --label-padding-x-huge: 12px; /* @hidden */
     --label-padding-y-huge: 8px; /* @hidden */
 
+    --label-line-background: transparent; /* @type color */
+    --label-line-border-color: #e5e5e5; /* @type color */
+    --label-line-color-primary: var(--brand-primary); /* @type color */
+    --label-line-color-success: var(--brand-success); /* @type color */
+    --label-line-color-warning: var(--brand-warning); /* @type color */
+    --label-line-color-error: var(--brand-error); /* @type color */
+    --label-line-color-normal: var(--brand-normal); /* @type color */
+
     /* @component u-badge */
     --badge-background: var(--brand-error); /* @type color */
     --badge-color: white; /* @type color */

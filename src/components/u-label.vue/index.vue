@@ -1,5 +1,5 @@
 <template>
-<span :class="$style.root" v-on="$listeners">
+<span :class="$style.root" v-on="$listeners" :type="type">
     <span vusion-slot-name="text"><slot>{{ text }}</slot></span>
     <span v-if="removable" :class="$style.remove" @click="remove()"></span>
 </span>
@@ -14,6 +14,7 @@ export default {
     props: {
         text: String,
         removable: { type: Boolean, default: false },
+        type: { type: String, default: 'filled' }, // 填充or线性 line
     },
     methods: {
         remove() {
@@ -111,5 +112,30 @@ export default {
 
 .root[display="block"] {
     display: block;
+}
+
+.root[type="line"] {
+    background: var(--label-line-background);
+    border: 1px solid var(--label-line-border-color);
+}
+.root[type="line"][color="primary"]{
+    color: var(--label-line-color-primary);
+    border-color: var(--label-line-color-primary);
+}
+.root[type="line"][color="success"]{
+    color: var(--label-line-color-success);
+    border-color: var(--label-line-color-success);
+}
+.root[type="line"][color="normal"]{
+    color: var(--label-line-color-normal);
+    border-color: var(--label-line-color-normal);
+}
+.root[type="line"][color="warning"]{
+    color: var(--label-line-color-warning);
+    border-color: var(--label-line-color-warning);
+}
+.root[type="line"][color="error"]{
+    color: var(--label-line-color-error);
+    border-color: var(--label-line-color-error);
 }
 </style>
