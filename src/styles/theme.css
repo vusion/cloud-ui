@@ -1438,13 +1438,23 @@
     --linear-progress-height-huge: 12px; /* @hidden */
 
     /* @component u-circular-progress */
-    --circular-progress-size: 100px;
-    --circular-progress-stroke-width: 10px;
+    --circular-progress-size: 90px;
+    --circular-progress-size-small: 74px;
+    --circular-progress-size-large: 112px;
+    --circular-progress-size-huge: 142px;
+    --circular-progress-stroke-width: 6px;
+    --circular-progress-stroke-width-small: 5px;
+    --circular-progress-stroke-width-large: 8px;
+    --circular-progress-stroke-width-huge: 10px;
     --circular-progress-track-stroke: var(--background-color-base); /* @type color */
     --circular-progress-trail-stroke: var(--brand-primary); /* @type color */
     --circular-progress-trail-transition: stroke 0.6s ease, stroke-dasharray 0.6s ease;
-    --circular-progress-percent-font-size: var(--font-size-large);
+    --circular-progress-percent-font-size: 18px;
+    --circular-progress-percent-font-size-small: 14px;
+    --circular-progress-percent-font-size-large: 24px;
+    --circular-progress-percent-font-size-huge: 32px;
 
+    --circular-progress-percent-color: #666; /* @type color */
     --circular-progress-text-color: #999; /* @hidden */
     --circular-progress-font-size: var(--font-size-base); /* @hidden */
     --circular-progress-percent-font-weight: 600; /* @hidden */
