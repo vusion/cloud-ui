@@ -553,6 +553,7 @@ export default {
     bottom: 0;
     opacity: 0;
     cursor: var(--cursor-pointer);
+    z-index: -1\0;
 }
 
 .file[readonly], .file[disabled] {
