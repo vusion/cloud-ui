@@ -117,6 +117,7 @@ export default {
 .root[type="line"] {
     background: var(--label-line-background);
     border: 1px solid var(--label-line-border-color);
+    padding: calc( var(--label-padding-y) - 1px ) calc( var(--label-padding-x) - 1px );
 }
 .root[type="line"][color="primary"]{
     color: var(--label-line-color-primary);
@@ -137,5 +138,14 @@ export default {
 .root[type="line"][color="error"]{
     color: var(--label-line-color-error);
     border-color: var(--label-line-color-error);
+}
+.root[type="line"][size="small"] {
+    padding: calc( var(--label-padding-y-small) - 1px ) calc( var(--label-padding-x-small) - 1px );
+}
+.root[type="line"][size="large"] {
+    padding: calc( var(--label-padding-y-large) - 1px ) calc( var(--label-padding-x-large) - 1px );
+}
+.root[type="line"][size="huge"] {
+    padding: calc( var(--label-padding-y-huge) - 1px ) calc( var(--label-padding-x-huge) - 1px );
 }
 </style>
