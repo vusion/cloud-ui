@@ -4,7 +4,7 @@
 <u-navbar-multi>
     <template #left>
         <u-multi-layout-item align-items="center" style="width: 200px;">
-            <u-image fit="cover" src="https://static-vusion.163yun.com/assets/lcap-logo-light.svg"
+            <u-image fit="cover" src="/assets/lcap-logo-light.svg"
                     style="width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;"></u-image>
             <u-text text="应用名称" size="large" style="color: white; --custom-start: auto; vertical-align: middle;"></u-text>
         </u-multi-layout-item>
@@ -18,7 +18,7 @@
             <u-dropdown style="margin-right: 10px; color: inherit">
                 <template #title>
                     <u-linear-layout gap="small" v-if="$global.userInfo">
-                        <u-image fit="cover" src="https://static-vusion.163yun.com/assets/avatar-default.svg" style="width: 36px; height: 36px; vertical-align: middle;"></u-image>
+                        <u-image fit="cover" src="/assets/avatar-default.svg" style="width: 36px; height: 36px; vertical-align: middle;"></u-image>
                         <span style="display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;">
                             <u-text :text="$global.userInfo.UserName"></u-text>
                         </span>
