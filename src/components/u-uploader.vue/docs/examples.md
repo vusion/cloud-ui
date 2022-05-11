@@ -21,6 +21,26 @@ export default {
 
 > 注意：在IE中实现上传功能时，需要将响应头的`Content-Type`设置为`text/plain`或`text/html`，而不能是`application/json`，否则IE会提示用户下载返回的数据。
 
+### 基本用法simple
+
+下面的例子为单文件上传。
+
+``` vue
+<template>
+<u-uploader v-model="files" converter="simple" list-type="card" url="/gateway/lowcode/api/v1/app/upload">
+    <u-button color="primary">Upload</u-button>
+</u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: "",
+        };
+    },
+}
+</script>
+```
 ### 多文件上传
 
 设置`multiple`可以选择多个文件，通过`value`属性可以设置已上传的文件。
@@ -46,6 +66,27 @@ export default {
                 status: 'success',
                 url: 'https://static-vusion.163yun.com/assets/salad.png',
             }],
+        };
+    },
+};
+</script>
+```
+
+### 多文件上传simple
+
+设置`multiple`可以选择多个文件，通过`value`属性可以设置已上传的文件。
+
+``` vue
+<template>
+<u-uploader v-model="files" converter="simple" multiple list-type="card" url="/gateway/lowcode/api/v1/app/upload">
+    <u-button color="primary">Upload</u-button>
+</u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: 'https://static-vusion.163yun.com/assets/breakfast.png,https://static-vusion.163yun.com/assets/salad.png',
         };
     },
 };
@@ -81,6 +122,27 @@ export default {
                 status: 'success',
                 url: 'https://static-vusion.163yun.com/assets/salad.png',
             }],
+        };
+    },
+};
+</script>
+```
+
+#### 图片列表simple
+
+``` vue
+<template>
+<u-uploader v-model="files" converter="simple" multiple list-type="card"
+    accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
+    url="http://localhost:7000/api/library/upload">
+    <u-button color="primary">Upload</u-button>
+</u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: 'https://static-vusion.163yun.com/assets/breakfast.png,https://static-vusion.163yun.com/assets/salad.png',
         };
     },
 };
