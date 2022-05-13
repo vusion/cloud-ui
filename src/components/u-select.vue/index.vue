@@ -454,6 +454,9 @@ export default {
                 this.inputDeleteTimer = setTimeout(()=>{
                     if (this.filterable && this.filterText === '') {
                         this.selectedVM = undefined; // 清空时清除下拉选中项
+                        const value = undefined;
+                        this.$emit('input', value, this);
+                        this.$emit('update:value', value, this);
                     }
                 }, 0);
             } else {
@@ -464,6 +467,9 @@ export default {
                         this.selectedVMs.length - 1
                     ];
                     this.select(lastItemVM, false);
+                    if(!this.selectedVMs.length) {
+                        this.fastLoad();
+                    }
                 }
             }
         },
