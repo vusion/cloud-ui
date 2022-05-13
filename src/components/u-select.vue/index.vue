@@ -29,13 +29,13 @@
             <template v-if="tagsOverflow === 'hidden' || tagsOverflow === 'visible'">
                 <span :class="$style.tag" v-for="(itemVM, index) in selectedVMs" :key="duplicated ? itemVM.value + '_' + index : itemVM.value">
                     <span :class="$style['tag-text']">{{ itemVM.currentText }}</span>
-                    <span :class="$style['tag-remove']" @click.stop="select(itemVM, false)"></span>
+                    <span :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
                 </span>
             </template>
             <template v-else-if="tagsOverflow === 'collapse'">
                 <span :class="$style.tag" v-if="selectedVMs[0]" :key="selectedVMs[0].value">
                     <span :class="$style['tag-text']">{{ selectedVMs[0].currentText }}</span>
-                    <span :class="$style['tag-remove']" @click.stop="select(selectedVMs[0], false)"></span>
+                    <span :class="$style['tag-remove']" @click.stop="removeTag(selectedVMs[0], false)"></span>
                 </span>
                 <span :class="$style.tag" v-if="selectedVMs.length > 1">
                     <span :class="$style['tag-text']">+{{ selectedVMs.length - 1 }}</span>
@@ -467,9 +467,7 @@ export default {
                         this.selectedVMs.length - 1
                     ];
                     this.select(lastItemVM, false);
-                    if(!this.selectedVMs.length) {
-                        this.fastLoad();
-                    }
+                    this.resetFilterList();
                 }
             }
         },
@@ -527,6 +525,17 @@ export default {
         rootFocus() {
             this.$el.focus();
         },
+        resetFilterList() {
+            if(this.multiple) {
+                if(!this.selectedVMs.length) {
+                    this.fastLoad();
+                }
+            }
+        },
+        removeTag(itemVm, flag) {
+            this.select(itemVm, flag);
+            this.resetFilterList();
+        }
     },
 };
 </script>
