@@ -23,7 +23,7 @@
                     @clear="showDate=undefined"
                     @blur:value="onDateChange($event)">
                 </u-input>
-                <u-time-picker :class="$style.pickerinput" :readonly="readonly" :time="showTime" 
+                <u-time-picker :class="$style.pickerinput" :readonly="readonly" :time="showTime"
                     width="50" :min-time="minTime" :max-time="maxTime"
                     :simple-foot="true" pre-icon=""
                     :disabled="!showDate"
@@ -31,7 +31,7 @@
                     popper-width="134px">
                 </u-time-picker>
             </div>
-            <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" 
+            <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd"
                 :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate"
                 :border="false"
                 @select="outRangeDateTime($event.date, showTime)">
@@ -164,6 +164,7 @@ export default {
     watch: {
         date(newValue) {
             this.dateTime = this.format(newValue, 'YYYY-MM-DD HH:mm:ss');
+            this.finalDateTime = this.dateTime;
         },
         dateTime(newValue) {
             // 字符类型自动转为日期类型
@@ -234,7 +235,7 @@ export default {
          * @method outRangeDateTime(date, time) 修改日期为最大日期或最小日期
          * @private
          * @return {void}
-         */ 
+         */
         outRangeDateTime(date, time) {
             if (!time)
                 time = '00:00:00';
@@ -291,7 +292,7 @@ export default {
          * @method onDateTimeChange(date, time) 日期或时间改变后更新日期时间
          * @private
          * @return {void}
-         */ 
+         */
         onDateTimeChange(date, time) {
             if (!time)
                 time = '00:00:00';
@@ -311,7 +312,7 @@ export default {
          * @private
          * @param  {object} $event
          * @return {void}
-         */ 
+         */
         onInput($event) {
             const value = $event;
             if(value === '') { // 可以输空值
@@ -350,7 +351,7 @@ export default {
          * @public
          * @param {Date} date 待测的日期时间
          * @return {boolean|Date} date 如果没有超出日期时间范围，则返回false；如果超出日期时间范围，则返回范围边界的日期时间
-         */ 
+         */
         isOutOfRange(date) {
             date = this.transformDate(date);
             const minDate = this.transformDate(this.minDate);
@@ -416,7 +417,7 @@ export default {
              * @event change 日期时间改变时触发
              * @property {object} sender 事件发送对象
              * @property {object} date 改变后的日期时间
-             */ 
+             */
             this.$emit('change', {
                 sender: this,
                 date: this.finalDateTime ? new Date(this.finalDateTime.replace(/-/g, '/')).getTime() : undefined,
