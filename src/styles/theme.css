@@ -1249,15 +1249,20 @@
     /* @component u-slider */
     --slider-body-margin: 0 10px;
     --slider-body-padding: 9px 0;
+    --silder-background-disabled: var(--brand-disabled); /* @type color */
     --slider-track-height: 6px;
     --slider-track-background: var(--background-color-base); /* @type color */
     --slider-trail-background: var(--brand-primary);  /* @type color */
-    --slider-trail-background-disabled: var(--brand-disabled);  /* @type color */
+    --slider-trail-background-disabled: #bfbfbf;  /* @type color */
+    --slider-track-border-radius: 3px;
     --slider-handle-width: 16px;
     --slider-handle-height: 16px;
     --slider-handle-background: var(--brand-primary); /* @type color */
-    --slider-handle-border: 1px solid white;
+    --slider-handle-border: 2px solid white;
     --slider-bound-background: url("../assets/images/stripe.png") repeat-x; /* @hidden */
+    --silder-box-shadow-hover: rgba(51, 126, 255, 0.2); /* @type color */
+    --silder-handle-background-disabled: var(--slider-trail-background-disabled); /* @type color */
+    --silder-popup-background: var(--color-white); /* @hidden */
 
     /* @component u-cascader @hidden */
     --cascader-width: 240px;
@@ -1276,8 +1281,12 @@
 
     /* @component u-combo-slider @hidden */
     --combo-slider-slider-width: 100%;
-    --combo-slider-input-width: 50px;
+    --combo-slider-input-width: 56px;
     --combo-slider-input-margin-left: 10px;
+    --combo-slider-input-background: var(--number-input-background);
+    --combo-slider-input-border-color: var(--number-input-border-color);
+    --combo-slider-input-border-radius: var(--number-input-border-radius);
+    --combo-slider-input-color: var(--number-input-color);
 
     /* @component u-uploader */
     --uploader-list-margin-top: 6px;

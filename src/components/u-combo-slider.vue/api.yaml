@@ -80,6 +80,14 @@
       type: string
       default: null
       description: ""
+    - name: show-tooltip
+      title: 展示Tooltip
+      type: boolean
+      default: false
+      description: 鼠标悬浮时展示提示文字
+    - name: tooltip
+      type: string
+      description: Tooltip文字设置。在展示Tooltip开关打开的情况下才会生效
   events:
     - name: input
       description: 滑块的值改变时触发
