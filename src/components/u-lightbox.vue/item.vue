@@ -53,6 +53,7 @@ export default {
         });
         this.resetImgWrap = this.resetImg.bind(this);
         this.$on('rotate', this.rotate);
+        this.$on('restore', this.restoreOriginalImg);
     },
     mounted() {
         this.wrapper = this.$refs.wrapper;
@@ -128,6 +129,10 @@ export default {
             const initHeight = this.parentVM.initHeight;
             let w = this.img.width;
             let h = this.img.height;
+
+            if(w === 0 || h === 0)
+                return;
+
             const radio = w / h;
             if (initWidth / initHeight > radio) {
                 h = initHeight;
@@ -166,6 +171,22 @@ export default {
             options.allowWheel = this.parentVM.zoomWheel;
             return options;
         },
+        restoreOriginalImg() {
+            if (!this.img)
+                return;
+            let w = this.img.naturalWidth || this.img.width;
+            let h = this.img.naturalHeight || this.img.height;
+            this.wrapper.style.width = w + 'px';
+            this.wrapper.style.height = h + 'px';
+            // 设置垂直居中
+            this.wrapper.style.left = (window.innerWidth - w) / 2 + 'px';
+            this.wrapper.style.top = (window.innerHeight - h) / 2 + 'px';
+            // 还原状态
+            this.zoomImg = null;
+            this.initZoomImg();
+            this.img.style.transform = 'rotate(0deg)'; // 把旋转的图片恢复原样
+            this.current = 0;
+        }
     },
 };
 </script>

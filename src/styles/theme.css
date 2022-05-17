@@ -1587,6 +1587,10 @@
 
     /* @component u-lightbox @hidden */
     --lightbox-head-height: 64px;
+    --lightbox-icon-background: #252525;
+    --lightbox-icon-background-hover: #121212;
+    --lightbox-icon-background-disabled: #666;
+    --lightbox-icon-color: white;
 
     /* @component u-skeleton @hidden */
     --skeleton-background: var(--background-color-base);
