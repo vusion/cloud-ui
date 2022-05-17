@@ -51,7 +51,8 @@ export default {
 .root {
     border-radius: var(--card-border-radius);
     background: var(--card-background);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .root[shadow="always"] {
