@@ -790,7 +790,7 @@
     --table-row-background-striped: var(--background-color-lighter); /* @type color */
     --table-view-head-item-color: var(--gray-dark); /* @type color */
     --table-background: var(--background-color-default); /* @type color */
-    --table-border-color: var(--border-color-light); /* @type color */
+    --table-border-color: var(--border-color-base); /* @type color */
     --table-td-color: var(--color-base); /* @type color */
     --table-th-line-height: 20px;
     --table-th-padding: 10px 6px 10px 10px;
@@ -802,11 +802,17 @@
     --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
     --table-view-table-right-shadow: -2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
     --table-view-filter-color-hover: #aaa; /* @hidden */
-    --table-view-filter-item-hover: var(--background-color-light); /* @hidden */
+    --table-view-filter-color-active: var(--brand-primary); /* @hidden */
+    --table-view-filter-item-hover: var(--table-view-row-hover-background); /* @hidden */
     --table-view-filter-item-focus: var(--background-color-light); /* @hidden */
+    --table-view-filter-item-background-selected: var(--brand-primary); /* @hidden */
+    --table-view-filter-item-checkbox-background-selected: white; /* @hidden */
+    --table-view-filter-item-checkbox-color-selected: var(--table-view-filter-item-background-selected); /* @hidden */
+    --table-view-filter-item-color-disabled: #ccc; /* @hidden */
     --table-view-filter-background: white; /* @hidden */
     --table-view-filter-max-height: 180px; /* @hidden */
     --table-view-filter-line-height: 1.6; /* @hidden */
+    --table-view-filter-border-color: var(--border-color-base); /* @hidden */
     --table-view-title-space: 10px; /* @hidden */
     --table-view-table-background: white; /* @hidden */
     --table-view-sort-color: var(--brand-disabled); /* @hidden */
