@@ -73,12 +73,10 @@
     - name: unit
       title: 单位
       type: string
-      default: null
       description: ""
     - name: tip
       title: 提示
       type: string
-      default: null
       description: ""
     - name: show-tooltip
       title: 展示Tooltip
