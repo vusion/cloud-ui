@@ -113,7 +113,7 @@
       options:
         - title: JSON
           value: json
-        - title: Simple
+        - title: URL字符串
           value: simple
       default: json
       description: ""
