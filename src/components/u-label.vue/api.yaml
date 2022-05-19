@@ -28,7 +28,7 @@
         - value: default
           title: 默认
         - value: primary
-          title: 主要色
+          title: 主题色
         - value: success
           title: 成功色
         - value: warning
