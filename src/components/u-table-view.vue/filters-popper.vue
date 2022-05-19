@@ -19,7 +19,7 @@
 export default {
     name: 'u-table-view-filters-popper',
     props: {
-        value:  [Array, String],
+        value:  [Array, String, Number],
         data: Array,
         multiple: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
@@ -27,7 +27,7 @@ export default {
     },
     data(){
         return {
-            currentValue: this.value || [],
+            currentValue: this.value,
             currentData: this.data,
         }
     },
@@ -93,7 +93,7 @@ export default {
         transfomValue() {
             if(!this.multiple)
                 return;
-            if(this.value) {
+            if(this.value !== undefined) {
                 this.currentValue = !Array.isArray(this.value) ? [this.value] : this.value;
             }
         },
@@ -118,7 +118,6 @@ export default {
     max-width: 300px;
 }
 .wrap {
-    display: inline-block;
     min-width: 100%;
     max-height: var(--table-view-filter-max-height);
 }
@@ -130,5 +129,9 @@ export default {
 }
 .scrollview {
     padding: 8px 0;
+}
+/* 作用：出滚动条时hover背景能展示全 */
+.scrollview [class^="f-scroll-view_wrap__"] > div {
+    display: inline-flex;
 }
 </style>

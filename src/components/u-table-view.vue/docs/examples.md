@@ -1139,7 +1139,13 @@ export default {
     :filtering="{ address: ['浙江省杭州市滨江区网商路599号网易大厦', '浙江省杭州市滨江区网商路599号网易大厦二期'] }"
     :filterMultiple="true">
     <u-table-view-column sortable title="用户名" field="name" width="15%"></u-table-view-column>
-    <u-table-view-column sortable title="手机号码" field="phone" width="20%"></u-table-view-column>
+    <u-table-view-column sortable title="手机号码" field="phone" width="20%" :filters="[
+        { text: '18612917895', value: '18612917895' },
+        { text: '13727160283', value: '13727160283' },
+        { text: '18897127809', value: '18897127809' },
+        { text: '18749261214', value: '18749261214' },
+        { text: '13579340020', value: '13579340020' },
+    ]"></u-table-view-column>
     <u-table-view-column title="地址" field="address" :filters="[
         { text: '网易大厦', value: '浙江省杭州市滨江区网商路599号网易大厦' },
         { text: '网易二期', value: '浙江省杭州市滨江区网商路599号网易大厦二期' },

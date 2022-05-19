@@ -38,7 +38,7 @@
                                 :sorting="currentSorting && currentSorting.field === columnVM.field" :order="currentSorting && currentSorting.order"
                                 @click="sortTrigger === 'icon' && ($event.stopPropagation(), onClickSort(columnVM))"></span>
                             <!-- Filterable -->
-                            <span v-if="columnVM.filters" :class="$style['filter-wrap']" :active="!!currentDataSource.filtering">
+                            <span v-if="columnVM.filters" :class="$style['filter-wrap']" :active="isFilterActive(columnVM.field)">
                                 <!-- <u-table-view-filters :value="getFiltersValue(columnVM.field)" @select="onSelectFilters(columnVM.field, $event)">
                                     <u-table-view-filter v-for="filter in columnVM.filters" :key="filter.value" :value="filter.value">{{ filter.text }}</u-table-view-filter>
                                 </u-table-view-filters> -->
@@ -1068,18 +1068,27 @@ export default {
             this.$emit('update:sorting', sorting, this);
         },
         onSelectFilters(field, $event) {
-            const filtering = $event.value || $event.value === 0 ? { [field]: $event.value } : undefined;
+            // const filtering = $event.value || $event.value === 0 ? { [field]: $event.value } : undefined;
+            const filtering = { [field]: $event.value }
             this.filter(filtering);
         },
         getFiltersValue(field) {
             const filtering = this.currentDataSource && this.currentDataSource.filtering;
             if (!filtering)
                 return undefined;
-            const filterField = Object.keys(filtering)[0];
-            if (filterField !== field)
+            // const filterField = Object.keys(filtering)[0];
+            // if (filterField !== field)
+            //     return undefined;
+            // else
+            //     return this.$at(filtering, field);
+            return this.$at(filtering, field);
+        },
+        isFilterActive(field) {
+            const filtering = this.currentDataSource && this.currentDataSource.filtering;
+            if (!filtering)
                 return undefined;
-            else
-                return this.$at(filtering, field);
+            const value = this.$at(filtering, field);
+            return value !== undefined && value !== 'ALL' && value !== 'all';
         },
         filter(filtering) {
             if (filtering) {
@@ -1090,10 +1099,12 @@ export default {
                 if (this.$emitPrevent('before-filter', {}, this))
                     return;
             }
-            this.currentDataSource.filter(filtering);
+            const mergedFiltering = this.currentDataSource && this.currentDataSource.filtering;
+            Object.assign(mergedFiltering, filtering);
+            this.currentDataSource.filter(mergedFiltering);
             this.load();
-            this.$emit('filter', filtering, this);
-            this.$emit('update:filtering', filtering, this);
+            this.$emit('filter', mergedFiltering, this);
+            this.$emit('update:filtering', mergedFiltering, this);
         },
         watchCurrentData() {
             this.$watch(() => this.currentData, (currentData) => {

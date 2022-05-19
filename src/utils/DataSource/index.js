@@ -11,6 +11,8 @@ export const solveCondition = (condition, obj) => {
     else if (typeof condition === 'object') {
         return Object.keys(condition).every((key) => {
             let expression = condition[key];
+            if (expression === undefined)
+                return true;
             if (typeof expression !== 'object')
                 expression = ['=', expression];
             if (Array.isArray(expression)) {
