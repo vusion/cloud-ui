@@ -25,13 +25,11 @@ export const ellipsisTitle = {
                     el.style.whiteSpace = '';
                     el.style.overflow = '';
                     el.style.wordBreak = '';
-                    if(newHeight > height) {
+                    if (newHeight > height) {
                         el.setAttribute('title', title);
                     }
-                } else {
-                    if(el.scrollWidth > el.offsetWidth) {
-                        el.setAttribute('title', title);
-                    }
+                } else if (el.scrollWidth > el.offsetWidth) {
+                    el.setAttribute('title', title);
                 }
             } else if (el.getAttribute('title')) {
                 // 不满足配置 title 场景时，删除冗余 title
