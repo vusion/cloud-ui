@@ -4,6 +4,7 @@
 
 - [示例](#示例)
     - [基本用法](#基本用法)
+    - [尺寸设置](#尺寸设置)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
@@ -25,12 +26,24 @@
 </u-circular-progress>
 ```
 
+### 尺寸设置
+
+``` html
+<u-linear-layout>
+    <u-circular-progress :percent="36" size="huge"></u-circular-progress>
+    <u-circular-progress :percent="36" size="large"></u-circular-progress>
+    <u-circular-progress :percent="36"></u-circular-progress>
+    <u-circular-progress :percent="36" size="small"></u-circular-progress>
+</u-linear-layout>
+```
+
 ## API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | percent | number |  | `0` | 进度条显示的进度百分比，1-100之间的数字 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 进度条大小 |
 
 ### Slots
 

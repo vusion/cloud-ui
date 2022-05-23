@@ -535,7 +535,8 @@
   },
   "u-circular-progress": {
     "attributes": [
-      "percent"
+      "percent",
+      "size"
     ],
     "description": "以圆形的形式描述当前进度"
   },
@@ -574,7 +575,9 @@
       "readonly",
       "disabled",
       "unit",
-      "tip"
+      "tip",
+      "show-tooltip",
+      "tooltip"
     ],
     "description": "滑动选择"
   },
@@ -1035,6 +1038,7 @@
   "u-label": {
     "attributes": [
       "text",
+      "type",
       "color",
       "size",
       "removable",
@@ -1125,6 +1129,7 @@
       "show-head",
       "title",
       "show-foot",
+      "border",
       "width",
       "height",
       "loading-text",
@@ -1716,7 +1721,9 @@
       "precision",
       "range",
       "readonly",
-      "disabled"
+      "disabled",
+      "show-tooltip",
+      "tooltip"
     ]
   },
   "u-spinner": {

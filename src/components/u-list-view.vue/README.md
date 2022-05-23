@@ -1408,6 +1408,7 @@ export default {
 | show-head | boolean |  | `false` |  |
 | title | string |  | `'列表'` |  |
 | show-foot | boolean |  | `true` |  |
+| border | boolean |  | `true` |  |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 设置数据列表宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置数据列表高度大小 |
 | loading-text | string |  | `'加载中...'` | 加载时的文字。使用分页加载时才会出现 |

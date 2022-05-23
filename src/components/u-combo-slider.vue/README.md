@@ -11,6 +11,8 @@
     - [范围](#范围)
     - [同步时机](#同步时机)
     - [格式化](#格式化)
+    - [显示输入框button](#显示输入框button)
+    - [显示tooltip](#显示tooltip)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -124,6 +126,18 @@
 </u-grid-layout>
 ```
 
+### 显示输入框button
+
+``` html
+<u-combo-slider :hide-buttons="false"></u-combo-slider>
+```
+
+### 显示tooltip
+
+``` html
+<u-combo-slider :show-tooltip="true"></u-combo-slider>
+```
+
 ## API
 ### Props/Attrs
 
@@ -142,6 +156,8 @@
 | disabled | boolean |  | `false` |  |
 | unit | string |  |  |  |
 | tip | string |  |  |  |
+| show-tooltip | boolean |  | `false` | 鼠标悬浮时展示提示文字 |
+| tooltip | string |  |  | Tooltip文字设置。在展示Tooltip开关打开的情况下才会生效 |
 
 ### Events
 
