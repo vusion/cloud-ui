@@ -234,7 +234,7 @@ export default {
     mounted() {
         this.autofocus && this.$el.focus();
         // 在编辑器里不要打开
-        if(!this.$env.VUE_APP_DESIGNER)
+        if (!this.$env.VUE_APP_DESIGNER)
             this.toggle(this.opened);
         this.setPopperWidth();
     },
@@ -361,6 +361,7 @@ export default {
             this.filterText = value;
             this.fastLoad(false, true);
             this.open();
+            this.hasFilter = true; // 控制blur时是否重置列表，避免每次blur都重置
         },
         onBlur(e) {
             if (!this.filterable)
@@ -370,6 +371,10 @@ export default {
                     return (this.preventBlur = false);
                 this.selectByText(this.filterText);
                 this.close();
+                if (this.hasFilter) {
+                    this.resetFilterList();
+                    this.hasFilter = false;
+                }
             }, 200);
         },
         onRootBlur(e) {
@@ -451,7 +456,7 @@ export default {
             // multiple下，第一次删除为空时不希望处理selectedVMs，所以不用放到setTimeout里
             if (!this.multiple) {
                 clearTimeout(this.inputDeleteTimer);
-                this.inputDeleteTimer = setTimeout(()=>{
+                this.inputDeleteTimer = setTimeout(() => {
                     if (this.filterable && this.filterText === '') {
                         this.selectedVM = undefined; // 清空时清除下拉选中项
                         const value = undefined;
@@ -526,16 +531,14 @@ export default {
             this.$el.focus();
         },
         resetFilterList() {
-            if(this.multiple) {
-                if(!this.selectedVMs.length) {
-                    this.fastLoad();
-                }
+            if (this.multiple) {
+                this.fastLoad();
             }
         },
         removeTag(itemVm, flag) {
             this.select(itemVm, flag);
             this.resetFilterList();
-        }
+        },
     },
 };
 </script>
