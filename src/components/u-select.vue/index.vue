@@ -12,7 +12,7 @@
     @keydown.delete.stop="clearable && clear()"
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
-    <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM)" :class="$style.placeholder">{{ placeholder }}</span>
+    <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing" :class="$style.placeholder">{{ placeholder }}</span>
     <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}">
         <!-- @override: 添加了flag功能 -->
@@ -46,7 +46,9 @@
             :filterable="filterable" :multiple-tags="multiple && multipleAppearance === 'tags'"
             :value="filterText" @input="onInput" @focus="onFocus" @blur="onBlur"
             @keydown.enter.stop.prevent="onInputEnter" @keydown.delete.stop="onInputDelete"
-            :style="{ width: multiple && (inputWidth + 'px') }">
+            :style="{ width: multiple && (inputWidth + 'px') }"
+            @compositionstart="compositionInputing = true"
+            @compositionend="compositionInputing = false">
         </u-input>
     </div>
     <span v-if="suffix" v-show="!(clearable && !!(filterable ? filterText : currentText))" :class="$style.suffix" :name="suffix"
@@ -157,6 +159,7 @@ export default {
             inputWidth: 20,
             popperOpened: false,
             currentPopperWidth: this.popperWidth || '100%',
+            compositionInputing: false,
         };
     },
     computed: {
@@ -234,7 +237,7 @@ export default {
     mounted() {
         this.autofocus && this.$el.focus();
         // 在编辑器里不要打开
-        if(!this.$env.VUE_APP_DESIGNER)
+        if (!this.$env.VUE_APP_DESIGNER)
             this.toggle(this.opened);
         this.setPopperWidth();
     },
@@ -361,6 +364,7 @@ export default {
             this.filterText = value;
             this.fastLoad(false, true);
             this.open();
+            this.hasFilter = true; // 控制blur时是否重置列表，避免每次blur都重置
         },
         onBlur(e) {
             if (!this.filterable)
@@ -370,6 +374,10 @@ export default {
                     return (this.preventBlur = false);
                 this.selectByText(this.filterText);
                 this.close();
+                if (this.hasFilter) {
+                    this.resetFilterList();
+                    this.hasFilter = false;
+                }
             }, 200);
         },
         onRootBlur(e) {
@@ -451,7 +459,7 @@ export default {
             // multiple下，第一次删除为空时不希望处理selectedVMs，所以不用放到setTimeout里
             if (!this.multiple) {
                 clearTimeout(this.inputDeleteTimer);
-                this.inputDeleteTimer = setTimeout(()=>{
+                this.inputDeleteTimer = setTimeout(() => {
                     if (this.filterable && this.filterText === '') {
                         this.selectedVM = undefined; // 清空时清除下拉选中项
                         const value = undefined;
@@ -526,16 +534,14 @@ export default {
             this.$el.focus();
         },
         resetFilterList() {
-            if(this.multiple) {
-                if(!this.selectedVMs.length) {
-                    this.fastLoad();
-                }
+            if (this.multiple) {
+                this.fastLoad();
             }
         },
         removeTag(itemVm, flag) {
             this.select(itemVm, flag);
             this.resetFilterList();
-        }
+        },
     },
 };
 </script>
