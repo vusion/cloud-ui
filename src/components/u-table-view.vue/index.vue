@@ -118,8 +118,8 @@
                                     </td>
                                 </template>
                                 <template v-else>
-                                    <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" 
-                                        :ellipsis="columnVM.ellipsis" 
+                                    <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                                        :ellipsis="columnVM.ellipsis"
                                         v-ellipsis-title
                                         :key="columnIndex"
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
@@ -166,7 +166,7 @@
                                                     <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                 </f-slot>
                                             </template>
-                                            
+
                                     </td>
                                 </template>
                             </tr>
@@ -259,7 +259,7 @@ export default {
     props: {
         boldHeader: {
             type: Boolean,
-            default: true
+            default: true,
         },
         data: Array,
         dataSource: [DataSource, Function, Object, Array],
@@ -356,7 +356,7 @@ export default {
     },
     computed: {
         currentData() {
-            if(this.exportData)
+            if (this.exportData)
                 return this.exportData;
 
             setTimeout(() => {
@@ -466,7 +466,7 @@ export default {
             this.$emit('change', { value, oldValue, item, oldItem }, this);
         },
         values(values) {
-            this.$nextTick(()=>{
+            this.$nextTick(() => {
                 this.watchValues(values);
             });
         },
@@ -643,9 +643,9 @@ export default {
                 if (String(defaultColumnWidth).endsWith('%')) {
                     defaultColumnWidth = (parseFloat(defaultColumnWidth) * rootWidth) / 100;
                 }
-                defaultColumnWidth = defaultColumnWidth? defaultColumnWidth: 0;
+                defaultColumnWidth = defaultColumnWidth || 0;
                 this.visibleColumnVMs.forEach((columnVM, index) => {
-                    if (!columnVM.currentWidth){
+                    if (!columnVM.currentWidth) {
                         noWidthColumnVMs.push(columnVM);
                     } else if (String(columnVM.currentWidth).endsWith('%'))
                         percentColumnVMs.push(columnVM);
@@ -746,15 +746,14 @@ export default {
                         const headHeight = this.$refs.head[0] ? this.$refs.head[0].offsetHeight : 0;
                         this.bodyHeight = rootHeight - titleHeight - headHeight;
                     }
-                }else{
+                } else {
                     this.bodyHeight = undefined;
                 }
 
                 // 当 root 设置了 height，设置 table 的 height，避免隐藏列时的闪烁
-                if (this.$el.style.height !== '' && this.$el.style.height !== 'auto'){
+                if (this.$el.style.height !== '' && this.$el.style.height !== 'auto') {
                     this.tableHeight = this.$el.offsetHeight;
-                }
-                else{
+                } else {
                     this.tableHeight = undefined;
                 }
                 this.$emit('resize', undefined, this);
@@ -894,32 +893,29 @@ export default {
                 sort = sort || sorting.field;
                 order = order || sorting.order;
             }
-            if(typeof page !=="number"){
-                page = 1   
+            if (typeof page !== 'number') {
+                page = 1;
             }
-            if(typeof size !=="number"){
-                size=2000
+            if (typeof size !== 'number') {
+                size = 2000;
             }
-            if(!(typeof page === 'number' && page > 0)) {
+            if (!(typeof page === 'number' && page > 0)) {
                 this.$toast.show('页数page必须大于0');
                 return;
             }
-             if(!(typeof size === 'number' && size > 0 && size <= 2000)) {
-                    this.$toast.show('数据条数size必须在1-2000之间');
-                    return;
-                }   
-                   
-
+            if (!(typeof size === 'number' && size > 0 && size <= 2000)) {
+                this.$toast.show('数据条数size必须在1-2000之间');
+                return;
+            }
 
             const fn = (event) => {
                 event.stopPropagation();
                 event.preventDefault();
-            }
+            };
             document.addEventListener('click', fn, true);
-            document.addEventListener('keydown', fn, true)
+            document.addEventListener('keydown', fn, true);
 
             try {
-
                 let content = [];
                 if (!this.currentDataSource._load) {
                     content = await this.getRenderResult(this.currentDataSource.data);
@@ -935,14 +931,13 @@ export default {
                             res = res.data;
                     }
 
-                    if(!(res instanceof Array)) {
+                    if (!(res instanceof Array)) {
                         this.$toast.show('数据格式不是数组');
                         return;
-                    }  
+                    }
 
                     content = await this.getRenderResult(res);
                 }
-                
 
                 // console.time('生成文件');
                 const sheetData = this.getSheetData(content);
@@ -951,12 +946,12 @@ export default {
                 fileName += format(new Date(), '_YYYYMMDD_HHmmss');
 
                 const { exportExcel } = await import(/* webpackChunkName: 'xlsx' */ '../../utils/xlsx');
-                exportExcel(sheetData, 'Sheet1', fileName);  
-                // console.timeEnd('生成文件');       
-            } catch(err) {
+                exportExcel(sheetData, 'Sheet1', fileName);
+                // console.timeEnd('生成文件');
+            } catch (err) {
                 console.error(err);
             }
-            
+
             await new Promise((res) => {
                 setTimeout(res);
             });
@@ -964,40 +959,36 @@ export default {
             document.removeEventListener('keydown', fn, true);
         },
         async getRenderResult(arr = []) {
-            if(arr.length === 0) {
-                const res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => {
-                    return Array.from(tr.querySelectorAll('th')).map((node) => node.innerText);
-                });
+            if (arr.length === 0) {
+                const res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
                 res[1] = res[0].map((item) => '');
                 return res;
             }
 
             // console.time('渲染数据');
             const startIndexes = [];
-            for(let i=0;i<this.visibleColumnVMs.length;i++){
+            for (let i = 0; i < this.visibleColumnVMs.length; i++) {
                 const vm = this.visibleColumnVMs[i];
-                if(vm.type === 'index')
+                if (vm.type === 'index')
                     startIndexes[i] = +vm.startIndex;
             }
- 
+
             let res = [];
             // this.currentDataSource.paging.size 会受可分页选项影响，直接改成pageSize
             const page = this.pageSize;
-            for(let i=0;i<arr.length;i += page) {
+            for (let i = 0; i < arr.length; i += page) {
                 this.exportData = arr.slice(i, i + page);
                 await new Promise((res) => {
                     this.$once('hook:updated', res);
                 });
-                const res1 = Array.from(this.$el.querySelectorAll(i === 0 ? '[position=static] tr' : '[position=static] tbody tr')).map((tr) => {
-                    return Array.from(tr.querySelectorAll('th, td')).map((node) => node.innerText);
-                });
+                const res1 = Array.from(this.$el.querySelectorAll(i === 0 ? '[position=static] tr' : '[position=static] tbody tr')).map((tr) => Array.from(tr.querySelectorAll('th, td')).map((node) => node.innerText));
                 res = res.concat(res1);
             }
 
-            for(let rowIndex=1;rowIndex<res.length;rowIndex++) {
+            for (let rowIndex = 1; rowIndex < res.length; rowIndex++) {
                 const item = res[rowIndex];
-                for(let j=0;j<item.length;j++){
-                    if(startIndexes[j] !== undefined)
+                for (let j = 0; j < item.length; j++) {
+                    if (startIndexes[j] !== undefined)
                         item[j] = startIndexes[j] + (rowIndex - 1);
                 }
             }
@@ -1008,21 +999,21 @@ export default {
             await new Promise((res) => {
                 this.$once('hook:updated', res);
             });
-            // console.timeEnd('复原表格'); 
+            // console.timeEnd('复原表格');
 
             return res;
         },
         getSheetData(arr) {
             const titles = arr[0];
             const sheetData = [];
-            for(let i=1;i<arr.length;i++){
+            for (let i = 1; i < arr.length; i++) {
                 const item = {};
-                for(let j=0;j<titles.length;j++){
+                for (let j = 0; j < titles.length; j++) {
                     item[titles[j]] = arr[i][j];
                 }
                 sheetData.push(item);
             }
-            return sheetData;            
+            return sheetData;
         },
         page(number, size) {
             if (size === undefined)
@@ -1069,7 +1060,7 @@ export default {
         },
         onSelectFilters(field, $event) {
             // const filtering = $event.value || $event.value === 0 ? { [field]: $event.value } : undefined;
-            const filtering = { [field]: $event.value }
+            const filtering = { [field]: $event.value };
             this.filter(filtering);
         },
         getFiltersValue(field) {
@@ -1138,8 +1129,8 @@ export default {
             }
             // 暂存选中行
             if (this.currentData) {
-                this.currentData.forEach((item)=>{
-                    if(item.checked) {
+                this.currentData.forEach((item) => {
+                    if (item.checked) {
                         const label = this.$at(item, this.valueField);
                         this.checkedItems[label] = item;
                     }
@@ -1237,7 +1228,7 @@ export default {
          */
         getCheckedItems() {
             const items = [];
-            Object.keys(this.checkedItems).forEach((itemKey)=>{
+            Object.keys(this.checkedItems).forEach((itemKey) => {
                 const inValues = this.currentValues.find((value) => '' + value === itemKey);
                 if (inValues) {
                     items.push(this.checkedItems[itemKey]);
@@ -1362,10 +1353,10 @@ export default {
         onSetEditing(item, columnVM) {
             const fieldName = columnVM.field;
             item.editing = fieldName;
-            if(columnVM.dblclickHandler){
+            if (columnVM.dblclickHandler) {
                 columnVM.dblclickHandler({ item, columnVM });
             }
-        }
+        },
     },
 };
 </script>
@@ -1405,7 +1396,7 @@ export default {
 }
 
 .table {
-    overflow-x: auto;
+    overflow-x: var(--table-view-overflow-x);
     overflow-y: hidden;
     max-height: inherit;
 }
