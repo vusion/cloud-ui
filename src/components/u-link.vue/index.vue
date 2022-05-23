@@ -3,7 +3,7 @@
     :href="currentHref" :target="target"
     :noDecoration="!decoration"
     :disabled="currentDisabled" :tabindex="currentDisabled ? -1 : 0"
-    :download="download"
+    :download="currentDownload"
     :loading="loading || $attrs.loading"
     :hoverType="hoverType"
     @click="onClick" v-on="listeners">
@@ -62,6 +62,12 @@ export default {
         currentDisabled() {
             return this.disabled || this.loading;
         },
+        currentDownload() {
+            if (this.download && this.href) {
+                const fileName = this.href.split('/').pop();
+                return fileName;
+            }
+        }
     },
     watch: {
         $listeners(listeners) {
