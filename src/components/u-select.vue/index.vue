@@ -12,7 +12,7 @@
     @keydown.delete.stop="clearable && clear()"
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
-    <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM)" :class="$style.placeholder">{{ placeholder }}</span>
+    <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing" :class="$style.placeholder">{{ placeholder }}</span>
     <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}">
         <!-- @override: 添加了flag功能 -->
@@ -46,7 +46,9 @@
             :filterable="filterable" :multiple-tags="multiple && multipleAppearance === 'tags'"
             :value="filterText" @input="onInput" @focus="onFocus" @blur="onBlur"
             @keydown.enter.stop.prevent="onInputEnter" @keydown.delete.stop="onInputDelete"
-            :style="{ width: multiple && (inputWidth + 'px') }">
+            :style="{ width: multiple && (inputWidth + 'px') }"
+            @compositionstart="compositionInputing = true"
+            @compositionend="compositionInputing = false">
         </u-input>
     </div>
     <span v-if="suffix" v-show="!(clearable && !!(filterable ? filterText : currentText))" :class="$style.suffix" :name="suffix"
@@ -157,6 +159,7 @@ export default {
             inputWidth: 20,
             popperOpened: false,
             currentPopperWidth: this.popperWidth || '100%',
+            compositionInputing: false,
         };
     },
     computed: {
