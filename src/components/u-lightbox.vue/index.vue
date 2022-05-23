@@ -1,18 +1,16 @@
 <template>
 <div :class="$style.root" v-if="currentVisible" @click="closeOnMask && close()">
     <slot></slot>
-    <div :class="$style.top">
-        <a v-if="closeButton" :class="$style.close" @click="close()"></a>
-        <div :class="$style.title" v-if="title">{{ title }}</div>
-    </div>
+    <a v-if="closeButton" :class="$style.close" @click="close()"><i-ico name="close" :class="$style.opicon"></i-ico></a>
+    <a v-show="showButton" :class="$style.prev" role="prev" :disabled="!hasPrev" @click.stop="prev()"><i-ico name="left-arrow" :class="$style.opicon"></i-ico></a>
+    <a v-show="showButton" :class="$style.next" role="next" :disabled="!hasNext" @click.stop="next()"><i-ico name="right-arrow" :class="$style.opicon"></i-ico></a>
     <div :class="$style.optionsColl">
-        <ul :class="$style.operation" v-if="currentVisible && (zoomButton || showButton)" @click.stop>
-            <li v-show="showButton" :class="$style.button" role="prev" :disabled="!hasPrev" @click="prev()"></li>
-            <li :class="$style.button" role="rotateLeft" @click="rotate('left')"></li>
-            <li :class="$style.button" rolo="zoomin" @click="zoom('in')">＋</li>
-            <li :class="$style.button" rolo="zoomout" @click="zoom('out')">－</li>
-            <li :class="$style.button" role="rotateRight" @click="rotate('right')"></li>
-            <li v-show="showButton" :class="$style.button" role="next" :disabled="!hasNext" @click="next()"></li>
+        <ul :class="$style.operation" v-if="currentVisible && zoomButton" @click.stop>
+            <li :class="$style.button" role="rotateRight" @click="rotate('right')"><i-ico name="rotate-right" :class="$style.opicon"></i-ico></li>
+            <li :class="$style.button" role="rotateLeft" @click="rotate('left')"><i-ico name="rotate-left" :class="$style.opicon"></i-ico></li>
+            <li :class="$style.button" rolo="zoomin" @click="zoom('in')"><i-ico name=zoomin :class="$style.opicon"></i-ico></li>
+            <li :class="$style.button" rolo="zoomout" @click="zoom('out')"><i-ico name=zoomout :class="$style.opicon"></i-ico></li>
+            <li :class="[$style.button, $style.opicon]" role="one" @click="restoreImgSize()">1:1</li>
         </ul>
     </div>
 </div>
@@ -22,7 +20,7 @@
 export default {
     name: 'u-lightbox',
     props: {
-        closeButton: { type: Boolean, default: false },
+        closeButton: { type: Boolean, default: true },
         closeOnMask: { type: Boolean, default: true },
         visible: { type: Boolean, default: false },
         static: { type: Boolean, default: false },
@@ -53,6 +51,8 @@ export default {
             },
         },
         zoomRadio: { type: Number, default: 0.1 },
+        initWidthRadio: { type: Number, default: 0.84 },
+        initHeightRadio: { type: Number, default: 0.75 },
     },
     data() {
         const animationMap = {
@@ -70,8 +70,8 @@ export default {
             animationEndNum: 0,
             maxWidthRadio: 0.67,
             maxHeightRadio: 0.75,
-            initWidthRadio: 0.42, // 初始img固定宽高
-            initHeightRadio: 0.6,
+            // initWidthRadio: 0.42, // 初始img固定宽高
+            // initHeightRadio: 0.6,
             selectedVM: undefined,
         };
     },
@@ -137,6 +137,12 @@ export default {
         },
         itemVMs() {
             this.watchValue(this.value);
+        },
+        initWidthRadio(value) {
+            this.initWidth = this._computeInit();
+        },
+        initHeightRadio(value) {
+            this.initHeight = this._computeInit('h');
         },
     },
     created() {
@@ -228,6 +234,9 @@ export default {
                     (itemVM) => itemVM.value === value,
                 );
         },
+        restoreImgSize() {
+            this.selectedVM.$emit('restore');
+        }
     },
 };
 </script>
@@ -239,11 +248,11 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 3000;
+    z-index: var(--z-index-popper);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .root::before {
@@ -269,17 +278,20 @@ export default {
 
 .close {
     position: absolute;
-    top: 0;
-    right: 10px;
-    bottom: 0;
+    top: 100px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    background: var(--lightbox-icon-background);
+    color: var(--lightbox-icon-color);
+    z-index: 20;
 }
 
-.close:hover { color: #888; }
-
-.close::before {
-    content: '\00d7';
-    font-size: 40px;
-    line-height: var(--lightbox-head-height);
+.close:hover { 
+    background: var(--lightbox-icon-background-hover);
 }
 
 .wrapper {
@@ -295,33 +307,12 @@ export default {
     padding: var(--space-base);
 }
 
-.button[role='prev'] {
-    transform: rotate(180deg);
-    transform-origin: 50% 43%;
-}
-
-.button[role='prev']::before {
-    icon-font: url('../i-icon.vue/icons/keyboard-arrow-right.svg');
-}
-
-.button[role='next']::before {
-    icon-font: url('../i-icon.vue/icons/keyboard-arrow-right.svg');
-}
-
-.button[role='rotateRight']::before {
-    icon-font: url('../i-icon.vue/icons/rotate-right.svg');
-}
-
-.button[role='rotateLeft']::before {
-    icon-font: url('../i-icon.vue/icons/rotate-left.svg');
-}
-
 .optionsColl {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
-    height: 60px;
+    bottom: 40px;
+    height: 40px;
     text-align: center;
     z-index: 10;
 }
@@ -330,12 +321,12 @@ export default {
     display: inline-block;
     margin: 0;
     padding: 0;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 60px;
-    height: 60px;
-    line-height: 1;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 30px;
+    color: var(--lightbox-icon-color);
+    /* font-size: 60px; */
+    height: 40px;
+    line-height: 40px;
+    background: var(--lightbox-icon-background);
+    border-radius: 3px;
     user-select: none;
     overflow: hidden;
 }
@@ -343,17 +334,47 @@ export default {
 .operation > li {
     display: inline-block;
     float: left;
-    padding: 0 30px;
+    width: 40px;
+    text-align: center;
 }
 
 .operation > li[disabled] {
     color: rgba(256, 256, 256, 0.2);
 }
 .operation > li:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: var(--lightbox-icon-background-hover);
     cursor: var(--cursor-pointer);
 }
 .operation > li[disabled]:hover {
     cursor: auto;
+}
+.prev, .next {
+    position: absolute;
+    top: calc(50% - 20px);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    background: var(--lightbox-icon-background);
+    color: var(--lightbox-icon-color);
+    z-index: 20;
+}
+.prev:hover, .next:hover {
+    background: var(--lightbox-icon-background-hover);
+}
+.prev[disabled], .next[disabled] {
+    background: var(--lightbox-icon-background-disabled);
+    cursor: not-allowed;
+    color: #999;
+}
+.prev {
+    left: 40px;
+}
+.next {
+    right: 40px;
+}
+.opicon {
+    font-size: 20px;
 }
 </style>

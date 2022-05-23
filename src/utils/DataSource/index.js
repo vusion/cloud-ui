@@ -1,14 +1,26 @@
 import Vue from 'vue';
 
+const isOperator = (value) => {
+    const operators = ['=', '==', 'eq', '!=', 'neq', '<', 'lt', '<=', 'lte', '>', 'gt', '>=', 'gte', 'includes', 'startsWith', 'endsWith'];
+    return typeof value === 'function' || operators.includes(value);
+}
+
 export const solveCondition = (condition, obj) => {
     if (Array.isArray(condition))
         return condition.some((cond) => solveCondition(cond, obj));
     else if (typeof condition === 'object') {
         return Object.keys(condition).every((key) => {
             let expression = condition[key];
+            if (expression === undefined)
+                return true;
             if (typeof expression !== 'object')
                 expression = ['=', expression];
             if (Array.isArray(expression)) {
+                if(!isOperator(expression[0])) { // 多选项过滤，暂时简单处理
+                    let sourceValue = obj[key];
+                    let targetValue = expression;
+                    return targetValue.includes(sourceValue);
+                }
                 expression = {
                     operator: expression[0],
                     value: expression[1],
@@ -153,6 +165,7 @@ const VueDataSource = Vue.extend({
             }
 
             this.arrangedData = arrangedData;
+            this.originTotal = !this.remoteSorting && arrangedData.length; // 有filtering的时候，total需要重新设值
         },
         _process(data) {
             return data;

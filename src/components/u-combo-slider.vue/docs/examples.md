@@ -100,3 +100,15 @@
     </u-grid-layout-column>
 </u-grid-layout>
 ```
+
+### 显示输入框button
+
+``` html
+<u-combo-slider :hide-buttons="false"></u-combo-slider>
+```
+
+### 显示tooltip
+
+``` html
+<u-combo-slider :show-tooltip="true"></u-combo-slider>
+```

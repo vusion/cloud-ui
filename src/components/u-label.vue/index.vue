@@ -1,5 +1,5 @@
 <template>
-<span :class="$style.root" v-on="$listeners">
+<span :class="$style.root" v-on="$listeners" :type="type">
     <span vusion-slot-name="text"><slot>{{ text }}</slot></span>
     <span v-if="removable" :class="$style.remove" @click="remove()"></span>
 </span>
@@ -14,6 +14,7 @@ export default {
     props: {
         text: String,
         removable: { type: Boolean, default: false },
+        type: { type: String, default: 'filled' }, // 填充or线性 line
     },
     methods: {
         remove() {
@@ -111,5 +112,40 @@ export default {
 
 .root[display="block"] {
     display: block;
+}
+
+.root[type="line"] {
+    background: var(--label-line-background);
+    border: 1px solid var(--label-line-border-color);
+    padding: calc( var(--label-padding-y) - 1px ) calc( var(--label-padding-x) - 1px );
+}
+.root[type="line"][color="primary"]{
+    color: var(--label-line-color-primary);
+    border-color: var(--label-line-color-primary);
+}
+.root[type="line"][color="success"]{
+    color: var(--label-line-color-success);
+    border-color: var(--label-line-color-success);
+}
+.root[type="line"][color="normal"]{
+    color: var(--label-line-color-normal);
+    border-color: var(--label-line-color-normal);
+}
+.root[type="line"][color="warning"]{
+    color: var(--label-line-color-warning);
+    border-color: var(--label-line-color-warning);
+}
+.root[type="line"][color="error"]{
+    color: var(--label-line-color-error);
+    border-color: var(--label-line-color-error);
+}
+.root[type="line"][size="small"] {
+    padding: calc( var(--label-padding-y-small) - 1px ) calc( var(--label-padding-x-small) - 1px );
+}
+.root[type="line"][size="large"] {
+    padding: calc( var(--label-padding-y-large) - 1px ) calc( var(--label-padding-x-large) - 1px );
+}
+.root[type="line"][size="huge"] {
+    padding: calc( var(--label-padding-y-huge) - 1px ) calc( var(--label-padding-x-huge) - 1px );
 }
 </style>

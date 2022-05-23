@@ -2,7 +2,7 @@
     <u-input ref="input" :class="$style.root" :buttonDisplay="buttonDisplay" :value="formattedValue"
         :readonly="readonly" :disabled="disabled" :clearable="clearable"
         @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
-        @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside">
+        @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside" :hideButtons="hideButtons">
         <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue >= max" role="up" v-repeat-click="increase"
             tabindex="0" @keydown.prevent></span>
         <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue <= min" role="down" v-repeat-click="decrease"
@@ -229,6 +229,9 @@ export default {
     border: var(--number-input-border-width) solid var(--number-input-border-color);
     border-radius: var(--number-input-border-radius);
     color: var(--number-input-color);
+}
+.root:not([hideButtons="true"]) {
+    padding-right: 28px;
 }
 
 .root[buttonDisplay="bothEnds"]  {

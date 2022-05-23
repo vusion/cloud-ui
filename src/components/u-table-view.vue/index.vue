@@ -38,10 +38,17 @@
                                 :sorting="currentSorting && currentSorting.field === columnVM.field" :order="currentSorting && currentSorting.order"
                                 @click="sortTrigger === 'icon' && ($event.stopPropagation(), onClickSort(columnVM))"></span>
                             <!-- Filterable -->
-                            <span v-if="columnVM.filters" :class="$style['filter-wrap']">
-                                <u-table-view-filters :value="getFiltersValue(columnVM.field)" @select="onSelectFilters(columnVM.field, $event)">
+                            <span v-if="columnVM.filters" :class="$style['filter-wrap']" :active="isFilterActive(columnVM.field)">
+                                <!-- <u-table-view-filters :value="getFiltersValue(columnVM.field)" @select="onSelectFilters(columnVM.field, $event)">
                                     <u-table-view-filter v-for="filter in columnVM.filters" :key="filter.value" :value="filter.value">{{ filter.text }}</u-table-view-filter>
-                                </u-table-view-filters>
+                                </u-table-view-filters> -->
+                                <u-table-view-filters-popper
+                                    :value="getFiltersValue(columnVM.field)"
+                                    :data="columnVM.filters"
+                                    :multiple="columnVM.filterMultiple || filterMultiple"
+                                    :max="columnVM.filterMax || filterMax"
+                                    @select="onSelectFilters(columnVM.field, $event)">
+                                </u-table-view-filters-popper>
                             </span>
                             <!-- Resizable -->
                             <f-dragger v-if="resizable && columnIndex !== visibleColumnVMs.length - 1" axis="horizontal"
@@ -199,7 +206,7 @@
                     </tr>
                     <tr key="loading" v-else-if="(currentData === undefined && !currentError) || currentLoading"><!-- 初次加载与加载更多 loading 合并在一起 -->
                         <td :class="$style.center" :colspan="visibleColumnVMs.length" vusion-slot-name="loading">
-                            <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
+                            <slot name="loading"><u-spinner :class="$style.spinner"></u-spinner> {{ loadingText }}</slot>
                         </td>
                     </tr>
                     <tr key="error" v-else-if="currentData === null || currentError">
@@ -324,6 +331,8 @@ export default {
         minColumnWidth: { type: Number, default: 44 },
         extraParams: Object,
         defaultColumnWidth: [String, Number],
+        filterMultiple: { type: Boolean, default: false },
+        filterMax: Number,
     },
     data() {
         return {
@@ -579,6 +588,7 @@ export default {
                 remoteFiltering: this.remoteFiltering,
                 getExtraParams: this.getExtraParams,
                 process: this.processData,
+                filterMultiple: this.filterMultiple,
             };
         },
         normalizeDataSource(dataSource) {
@@ -1058,18 +1068,27 @@ export default {
             this.$emit('update:sorting', sorting, this);
         },
         onSelectFilters(field, $event) {
-            const filtering = $event.value || $event.value === 0 ? { [field]: $event.value } : undefined;
+            // const filtering = $event.value || $event.value === 0 ? { [field]: $event.value } : undefined;
+            const filtering = { [field]: $event.value }
             this.filter(filtering);
         },
         getFiltersValue(field) {
             const filtering = this.currentDataSource && this.currentDataSource.filtering;
             if (!filtering)
                 return undefined;
-            const filterField = Object.keys(filtering)[0];
-            if (filterField !== field)
+            // const filterField = Object.keys(filtering)[0];
+            // if (filterField !== field)
+            //     return undefined;
+            // else
+            //     return this.$at(filtering, field);
+            return this.$at(filtering, field);
+        },
+        isFilterActive(field) {
+            const filtering = this.currentDataSource && this.currentDataSource.filtering;
+            if (!filtering)
                 return undefined;
-            else
-                return this.$at(filtering, field);
+            const value = this.$at(filtering, field);
+            return value !== undefined && value !== 'ALL' && value !== 'all';
         },
         filter(filtering) {
             if (filtering) {
@@ -1080,10 +1099,12 @@ export default {
                 if (this.$emitPrevent('before-filter', {}, this))
                     return;
             }
-            this.currentDataSource.filter(filtering);
+            const mergedFiltering = this.currentDataSource && this.currentDataSource.filtering;
+            Object.assign(mergedFiltering, filtering);
+            this.currentDataSource.filter(mergedFiltering);
             this.load();
-            this.$emit('filter', filtering, this);
-            this.$emit('update:filtering', filtering, this);
+            this.$emit('filter', mergedFiltering, this);
+            this.$emit('update:filtering', mergedFiltering, this);
         },
         watchCurrentData() {
             this.$watch(() => this.currentData, (currentData) => {
@@ -1449,6 +1470,7 @@ export default {
 
 .center {
     text-align: center;
+    color: #999 !important;
 }
 
 .sort {
@@ -1459,6 +1481,7 @@ export default {
     vertical-align: -1px;
     color: var(--table-view-sort-color);
     cursor: var(--cursor-pointer);
+    margin-left: 5px;
 }
 
 .sort::before {
@@ -1486,11 +1509,11 @@ export default {
 }
 
 .filter-wrap {
-    float: right;
     cursor: var(--cursor-pointer);
     padding-bottom: 6px;
     margin-bottom: -6px;
     color: var(--brand-disabled);
+    margin-left: 5px;
 }
 .filter-wrap:hover{
     color: var(--table-view-filter-color-hover);
@@ -1500,7 +1523,9 @@ export default {
     icon-font: url('../i-icon.vue/assets/filter.svg');
     color: inherit;
     font-size: var(--font-size-small);
-    vertical-align: -2px;
+}
+.filter-wrap[active] {
+    color: var(--table-view-filter-color-active);
 }
 
 .resizer {
@@ -1681,6 +1706,9 @@ export default {
     bottom: 0;
     background: rgba(255,255,255,0.8);
     z-index: 999;
+}
+.spinner {
+    margin-right: 4px;
 }
 
 @keyframes rotate {
