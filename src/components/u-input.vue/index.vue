@@ -4,12 +4,12 @@
     :show-password="showPassword" :password="password"
     @click.self="!focused && focus()">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
-    <span :class="$style.placeholder" v-show="placeholder">{{ valueEmpty ? placeholder : ''}}</span><!-- 兼容 IE9 -->
+    <span :class="$style.placeholder" v-show="placeholder">{{ valueEmpty ? placeholder : '' }}</span><!-- 兼容 IE9 -->
     <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <input ref="input" :class="$style.input" v-bind="$attrs" :type="curType" :value="currentValue"
         v-focus="autofocus" :readonly="readonly" :disabled="disabled"
         @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" @keyup="onKeyup" v-on="listeners"
-        @compositionstart="compositionInputing = true"
+        @compositionstart="onCompositionStart"
         @compositionend="onCompositionEnd"
         :title="!showTitle || (!valueEmpty && !disabled) ? null : ($attrs.title || placeholder)">
     <slot></slot>
@@ -86,7 +86,7 @@ export default {
         },
         valueEmpty() {
             const { currentValue } = this;
-            if(this.compositionInputing) {
+            if (this.compositionInputing) {
                 return false;
             }
             return currentValue === undefined || currentValue === '' || currentValue === null;
@@ -164,6 +164,10 @@ export default {
             this.$emit('blur', e, this);
             this.$emit('blur:value', this.currentValue);
         },
+        onCompositionStart(e) {
+            this.compositionInputing = true;
+            this.$emit('compositionstart', e);
+        },
         onCompositionEnd(e) {
             // 中文输入的时候，会先触发 onInput 事件，再触发此事件，导致不能捕捉到中文输入
             // 因此需要特殊处理，此时 compositionInputing 值为 true
@@ -177,6 +181,7 @@ export default {
             this.currentValue = $event.value;
             this.$emit('input', $event.value, this);
             this.$emit('update:value', $event.value, this);
+            this.$emit('compositionend', e);
         },
         focus() {
             this.$refs.input.focus();
@@ -211,16 +216,16 @@ export default {
                 inputEl.style.width = '3px';
                 this.$el.style.width
                     = inputEl.scrollWidth
-                    + (this.$el.offsetWidth - this.$el.clientWidth)
-                    + 'px';
+                        + (this.$el.offsetWidth - this.$el.clientWidth)
+                        + 'px';
                 inputEl.style.width = '';
             }
             if (this.autoSize === 'both' || this.autoSize === 'vertical') {
                 inputEl.style.height = '3px';
                 this.$el.style.height
                     = inputEl.scrollHeight
-                    + (this.$el.offsetHeight - this.$el.clientHeight)
-                    + 'px';
+                        + (this.$el.offsetHeight - this.$el.clientHeight)
+                        + 'px';
                 inputEl.style.height = '';
             }
         },
