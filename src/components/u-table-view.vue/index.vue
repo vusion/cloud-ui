@@ -1503,7 +1503,7 @@ export default {
     cursor: var(--cursor-pointer);
     padding-bottom: 6px;
     margin-bottom: -6px;
-    color: var(--brand-disabled);
+    color: var(--table-view-sort-color);
     margin-left: 5px;
 }
 .filter-wrap:hover{

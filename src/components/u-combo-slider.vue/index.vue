@@ -148,7 +148,7 @@ export default {
 
 .main {
     display: inline-block;
-    width: calc(100% - 100px);
+    width: calc(100% - var(--combo-slider-input-width) - 20px);
     vertical-align: -20px;
 }
 

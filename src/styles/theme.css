@@ -225,13 +225,13 @@
     --kbd-border-radius: var(--border-radius-base);
     --kbd-box-shadow: 0 1px 1px rgba(0,0,0,.2), 0 2px 0 0 rgba(255,255,255,.7) inset;
 
-    --scrollbar-size: 6px;
-    --scrollbar-background: rgba(92, 110, 130, 0.3);
-    --scrollbar-background-inverse: rgba(92, 110, 130, 0.3);
-    --scrollbar-background-hover: rgba(92, 110, 130, 0.6);
-    --scrollbar-background-hover-inverse: rgba(92, 110, 130, 0.6);
+    --scrollbar-size: 4px;
+    --scrollbar-background: rgba(0, 0, 0, 0.15);
+    --scrollbar-background-inverse: rgba(0, 0, 0, 0.15);
+    --scrollbar-background-hover: rgba(0, 0, 0, 0.25);
+    --scrollbar-background-hover-inverse: rgba(0, 0, 0, 0.25);
     --scrollbar-border-radius: 3px;
-    --scrollbar-border-color: rgba(92, 110, 130, 0.3);
+    --scrollbar-border-color: transparent;
     --scrollbar-border-width: 4px;
 
     /**
@@ -815,7 +815,7 @@
     --table-view-filter-border-color: var(--border-color-base); /* @hidden */
     --table-view-title-space: 10px; /* @hidden */
     --table-view-table-background: white; /* @hidden */
-    --table-view-sort-color: var(--brand-disabled); /* @hidden */
+    --table-view-sort-color: #ccc; /* @hidden */
     --table-view-sort-color-active: var(--brand-primary); /* @hidden */
     --table-view-sort-size: 1em; /* @hidden */
     --table-view-expander-size: 16px; /* @hidden */
@@ -1072,7 +1072,7 @@
     --number-input-button-color-disabled: #CCCCCC; /* @type color */
     --number-input-height: var(--input-height);
     --number-input-border-width: var(--input-border-width);
-    --number-input-box-shadow-focus-color: rgba(77, 136, 255, 0.2); /* @type color */
+    --number-input-box-shadow-focus-color: var(--input-box-shadow-focus-color); /* @type color */
     --number-input-box-shadow-focus: 0 0 0 2px var(--number-input-box-shadow-focus-color);
     --number-input-button-padding: 0 4px;
     --number-input-button-outline: var(--focus-outline);

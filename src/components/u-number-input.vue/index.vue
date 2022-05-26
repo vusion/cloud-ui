@@ -365,7 +365,6 @@ export default {
 }
 
 .root .button[disabled]:hover, 
-.root[readonly] .button:hover, 
 .root[disabled] .button:hover {
      color: var(--number-input-button-color-disabled);
 }
@@ -403,6 +402,18 @@ export default {
 .root[readonly] .button {
     background: var(--number-input-button-background);
     cursor: default;
+}
+.root[readonly]:hover,
+.root[readonly][focus] {
+    border-color: var(--number-input-border-color);
+}
+.root[readonly] .button:hover {
+    color: var(--number-input-button-color);
+}
+.root[readonly][buttonDisplay="bothEnds"] .button:focus,
+.root[readonly][buttonDisplay="bothEnds"] .button:hover,
+.root[readonly][buttonDisplay="bothEnds"] .button:active {
+    background: var(--number-input-button-background);
 }
 
 .root[size="mini"] .button , .root[height="mini"] .button {

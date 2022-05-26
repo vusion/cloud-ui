@@ -22,6 +22,11 @@ export default {
 <style module>
 @import '../u-list-view.vue/index.css';
 
+/** 避免父级设置了white-space:nowrap，导致item没有换行 */
+.root {
+    white-space: normal;
+}
+
 .body{
     margin: 0 calc(var(--grid-view-item-space) / (-2));
 }
