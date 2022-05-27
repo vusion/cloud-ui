@@ -122,7 +122,7 @@
         - value: _top
           title: 顶级窗口
           advanced: true
-      default: _blank
+      default: _self
       description: 链接打开方式
     - name: to
       title: 路由链接

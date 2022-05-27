@@ -148,7 +148,7 @@
       title: 打开方式
       type: enum
       options:
-        - title: 新标签页
+        - title: 新窗口
           value: _blank
         - title: 当前窗口
           value: _self
@@ -158,7 +158,7 @@
         - title: 顶级窗口
           value: _top
           advanced: true
-      default: _blank
+      default: _self
       description: 链接打开方式
     - name: replace
       type: boolean
