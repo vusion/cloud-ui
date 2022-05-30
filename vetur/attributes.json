@@ -684,7 +684,7 @@
     "options": [
       {
         "value": "_blank",
-        "title": "新标签页"
+        "title": "新窗口"
       },
       {
         "value": "_self",
@@ -2014,7 +2014,7 @@
     "options": [
       {
         "value": "_blank",
-        "title": "新标签页"
+        "title": "新窗口"
       },
       {
         "value": "_self",
@@ -2653,7 +2653,7 @@
     "options": [
       {
         "value": "_blank",
-        "title": "新标签页"
+        "title": "新窗口"
       },
       {
         "value": "_self",
@@ -4279,7 +4279,7 @@
     "options": [
       {
         "value": "_blank",
-        "title": "新标签页"
+        "title": "新窗口"
       },
       {
         "value": "_self",
@@ -4637,7 +4637,7 @@
     "options": [
       {
         "value": "_blank",
-        "title": "新标签页"
+        "title": "新窗口"
       },
       {
         "value": "_self",
@@ -4941,7 +4941,7 @@
     "options": [
       {
         "value": "_blank",
-        "title": "新标签页"
+        "title": "新窗口"
       },
       {
         "value": "_self",
@@ -5123,7 +5123,7 @@
     "options": [
       {
         "value": "_blank",
-        "title": "新标签页"
+        "title": "新窗口"
       },
       {
         "value": "_self",
@@ -6874,7 +6874,7 @@
     "options": [
       {
         "value": "_blank",
-        "title": "新标签页"
+        "title": "新窗口"
       },
       {
         "value": "_self",
@@ -7424,7 +7424,7 @@
     "type": "enum",
     "options": [
       {
-        "title": "新标签页",
+        "title": "新窗口",
         "value": "_blank"
       },
       {
