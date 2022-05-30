@@ -62,7 +62,7 @@
         </template>
     </div>
     <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
-        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url"></u-lightbox-item>
+        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url || item"></u-lightbox-item>
     </u-lightbox>
 </div>
 </template>
@@ -153,9 +153,16 @@ export default {
     },
     methods: {
         fromValue(value) {
-            if (this.converter === 'json' || this.converter === 'simple')
+            if (this.converter === 'json')
                 try {
                     return JSON.parse(value || '[]');
+                } catch (err) {
+                    return [];
+                }
+            else if (this.converter === 'simple')
+                try {
+                    if(!value) return [];
+                    return value.split(",");
                 } catch (err) {
                     return [];
                 }
@@ -167,15 +174,15 @@ export default {
                 // fix for u-validator rules="required"
                 return Array.isArray(value) && value.length === 0 ? null : JSON.stringify(value);
             if (this.converter === 'simple')
-                return Array.isArray(value) && value.length === 0 ? null : JSON.stringify(this.simpleConvert(value));
+                return Array.isArray(value) && value.length === 0 ? null : (this.simpleConvert(value));
             else
                 return value;
         },
         simpleConvert(value) {
-            return value.map((x) => ({ url: x.url }));
+            return value.map((x) => (x.url)).join(",");
         },
         getUrl(item) {
-            return item.thumb || item.url;
+            return item.thumb || item.url || item;
         },
         select() {
             if (this.readonly || this.disabled || this.sending)

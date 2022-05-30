@@ -8,6 +8,7 @@
     - [连续和间隔](#连续和间隔)
     - [范围](#范围)
     - [只读和禁用](#只读和禁用)
+    - [展示 ToolTip](#展示-tooltip)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -67,6 +68,13 @@
 </u-grid-layout>
 ```
 
+### 展示 ToolTip
+
+``` html
+<u-slider :value="36" :show-tooltip="true"></u-slider>
+<u-slider :value="36" :show-tooltip="true" tooltip="展示 ToolTip"></u-slider>
+```
+
 ## API
 ### Props/Attrs
 
@@ -80,6 +88,8 @@
 | range | Array |  | `[]` | 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值。 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
+| show-tooltip | boolean |  | `false` | 鼠标悬浮时展示提示文字 |
+| tooltip | string |  |  | Tooltip文字设置。在展示Tooltip开关打开的情况下才会生效 |
 
 ### Events
 

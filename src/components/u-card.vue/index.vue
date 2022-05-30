@@ -1,29 +1,31 @@
 <template>
 <div :class="$style.root" v-on="$listeners" :shadow="shadow" :border="border" :split="split"
     :style="{width: /^\d+$/.test(width)? width+'px': width}" :designer="$env.VUE_APP_DESIGNER">
-    <div :class="$style.cover" vusion-slot-name="cover">
-        <slot name="cover"></slot>
-        <s-empty v-if="coverSlot && (!$slots.cover)"></s-empty>
-    </div>
-    <div :class="$style.head">
-        <slot name="head">
-            <div v-if="title" :class="$style.title">
-                <slot name="title">{{ title }}</slot>
-            </div>
-            <a :class="$style.close" @click="cancel()"></a>
-            <div :class="$style.extra">
-                <slot name="extra"></slot>
-            </div>
-        </slot>
-    </div>
-    <div :class="$style.body" vusion-slot-name="default">
-        <slot>{{ content }}</slot>
-        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
-    </div>
-    <div :class="$style.foot">
-        <slot name="foot">
-        </slot>
-    </div>
+    <f-scroll-view :class="$style.scrollview">
+        <div :class="$style.cover" vusion-slot-name="cover">
+            <slot name="cover"></slot>
+            <s-empty v-if="coverSlot && (!$slots.cover)"></s-empty>
+        </div>
+        <div :class="$style.head">
+            <slot name="head">
+                <div v-if="title" :class="$style.title">
+                    <slot name="title">{{ title }}</slot>
+                </div>
+                <a :class="$style.close" @click="cancel()"></a>
+                <div :class="$style.extra">
+                    <slot name="extra"></slot>
+                </div>
+            </slot>
+        </div>
+        <div :class="$style.body" vusion-slot-name="default">
+            <slot>{{ content }}</slot>
+            <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+        </div>
+        <div :class="$style.foot">
+            <slot name="foot">
+            </slot>
+        </div>
+    </f-scroll-view>
 </div>
 </template>
 
@@ -117,5 +119,8 @@ export default {
 .body {
     clear: both;
     padding: var(--card-body-padding-y) var(--card-body-padding-x);
+}
+.scrollview {
+    height: 100%;
 }
 </style>

@@ -2,7 +2,7 @@
     <u-input ref="input" :class="$style.root" :buttonDisplay="buttonDisplay" :value="formattedValue"
         :readonly="readonly" :disabled="disabled" :clearable="clearable"
         @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
-        @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside">
+        @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside" :hideButtons="hideButtons">
         <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue >= max" role="up" v-repeat-click="increase"
             tabindex="0" @keydown.prevent></span>
         <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue <= min" role="down" v-repeat-click="decrease"
@@ -230,6 +230,9 @@ export default {
     border-radius: var(--number-input-border-radius);
     color: var(--number-input-color);
 }
+.root:not([hideButtons="true"]) {
+    padding-right: 28px;
+}
 
 .root[buttonDisplay="bothEnds"]  {
     text-align: center;
@@ -362,7 +365,6 @@ export default {
 }
 
 .root .button[disabled]:hover, 
-.root[readonly] .button:hover, 
 .root[disabled] .button:hover {
      color: var(--number-input-button-color-disabled);
 }
@@ -400,6 +402,18 @@ export default {
 .root[readonly] .button {
     background: var(--number-input-button-background);
     cursor: default;
+}
+.root[readonly]:hover,
+.root[readonly][focus] {
+    border-color: var(--number-input-border-color);
+}
+.root[readonly] .button:hover {
+    color: var(--number-input-button-color);
+}
+.root[readonly][buttonDisplay="bothEnds"] .button:focus,
+.root[readonly][buttonDisplay="bothEnds"] .button:hover,
+.root[readonly][buttonDisplay="bothEnds"] .button:active {
+    background: var(--number-input-button-background);
 }
 
 .root[size="mini"] .button , .root[height="mini"] .button {

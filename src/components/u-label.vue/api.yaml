@@ -11,6 +11,16 @@
       title: 文本
       type: string
       description: 显示文本内容
+    - name: type
+      title: 标签样式
+      type: string
+      options:
+        - value: filled
+          title: 主要标签
+        - value: line
+          title: 普通标签
+      default: filled
+      description: 设置标签样式，主要标签有背景，次要标签没有背景
     - name: color
       title: 颜色
       type: string
@@ -18,7 +28,7 @@
         - value: default
           title: 默认
         - value: primary
-          title: 主要色
+          title: 主题色
         - value: success
           title: 成功色
         - value: warning

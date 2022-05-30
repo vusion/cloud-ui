@@ -225,13 +225,13 @@
     --kbd-border-radius: var(--border-radius-base);
     --kbd-box-shadow: 0 1px 1px rgba(0,0,0,.2), 0 2px 0 0 rgba(255,255,255,.7) inset;
 
-    --scrollbar-size: 6px;
-    --scrollbar-background: rgba(92, 110, 130, 0.3);
-    --scrollbar-background-inverse: rgba(92, 110, 130, 0.3);
-    --scrollbar-background-hover: rgba(92, 110, 130, 0.6);
-    --scrollbar-background-hover-inverse: rgba(92, 110, 130, 0.6);
+    --scrollbar-size: 4px;
+    --scrollbar-background: rgba(0, 0, 0, 0.15);
+    --scrollbar-background-inverse: rgba(0, 0, 0, 0.15);
+    --scrollbar-background-hover: rgba(0, 0, 0, 0.25);
+    --scrollbar-background-hover-inverse: rgba(0, 0, 0, 0.25);
     --scrollbar-border-radius: 3px;
-    --scrollbar-border-color: rgba(92, 110, 130, 0.3);
+    --scrollbar-border-color: transparent;
     --scrollbar-border-width: 4px;
 
     /**
@@ -618,6 +618,14 @@
     --label-padding-x-huge: 12px; /* @hidden */
     --label-padding-y-huge: 8px; /* @hidden */
 
+    --label-line-background: transparent; /* @type color */
+    --label-line-border-color: #e5e5e5; /* @type color */
+    --label-line-color-primary: var(--brand-primary); /* @type color */
+    --label-line-color-success: var(--brand-success); /* @type color */
+    --label-line-color-warning: var(--brand-warning); /* @type color */
+    --label-line-color-error: var(--brand-error); /* @type color */
+    --label-line-color-normal: var(--brand-normal); /* @type color */
+
     /* @component u-badge */
     --badge-background: var(--brand-error); /* @type color */
     --badge-color: white; /* @type color */
@@ -782,7 +790,7 @@
     --table-row-background-striped: var(--background-color-lighter); /* @type color */
     --table-view-head-item-color: var(--gray-dark); /* @type color */
     --table-background: var(--background-color-default); /* @type color */
-    --table-border-color: var(--border-color-light); /* @type color */
+    --table-border-color: var(--border-color-base); /* @type color */
     --table-td-color: var(--color-base); /* @type color */
     --table-th-line-height: 20px;
     --table-th-padding: 10px 6px 10px 10px;
@@ -794,14 +802,20 @@
     --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
     --table-view-table-right-shadow: -2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
     --table-view-filter-color-hover: #aaa; /* @hidden */
-    --table-view-filter-item-hover: var(--background-color-light); /* @hidden */
+    --table-view-filter-color-active: var(--brand-primary); /* @hidden */
+    --table-view-filter-item-hover: var(--table-view-row-hover-background); /* @hidden */
     --table-view-filter-item-focus: var(--background-color-light); /* @hidden */
+    --table-view-filter-item-background-selected: var(--brand-primary); /* @hidden */
+    --table-view-filter-item-checkbox-background-selected: white; /* @hidden */
+    --table-view-filter-item-checkbox-color-selected: var(--table-view-filter-item-background-selected); /* @hidden */
+    --table-view-filter-item-color-disabled: #ccc; /* @hidden */
     --table-view-filter-background: white; /* @hidden */
     --table-view-filter-max-height: 180px; /* @hidden */
     --table-view-filter-line-height: 1.6; /* @hidden */
+    --table-view-filter-border-color: var(--border-color-base); /* @hidden */
     --table-view-title-space: 10px; /* @hidden */
     --table-view-table-background: white; /* @hidden */
-    --table-view-sort-color: var(--brand-disabled); /* @hidden */
+    --table-view-sort-color: #ccc; /* @hidden */
     --table-view-sort-color-active: var(--brand-primary); /* @hidden */
     --table-view-sort-size: 1em; /* @hidden */
     --table-view-expander-size: 16px; /* @hidden */
@@ -821,6 +835,7 @@
     --table-view-expander-border-color-disabled: #e5e5e5; /* @hidden */
     --table-view-expand-td-background: #F7F8FA; /* @hidden */
     --table-view-editable-td-min-height: 34px; /* @hidden */
+    --table-view-overflow-x: auto; /* @hidden */
 
     /* @component u-list-view @hidden */
     --list-view-width: var(--width-medium);
@@ -1057,7 +1072,7 @@
     --number-input-button-color-disabled: #CCCCCC; /* @type color */
     --number-input-height: var(--input-height);
     --number-input-border-width: var(--input-border-width);
-    --number-input-box-shadow-focus-color: rgba(77, 136, 255, 0.2); /* @type color */
+    --number-input-box-shadow-focus-color: var(--input-box-shadow-focus-color); /* @type color */
     --number-input-box-shadow-focus: 0 0 0 2px var(--number-input-box-shadow-focus-color);
     --number-input-button-padding: 0 4px;
     --number-input-button-outline: var(--focus-outline);
@@ -1241,15 +1256,20 @@
     /* @component u-slider */
     --slider-body-margin: 0 10px;
     --slider-body-padding: 9px 0;
+    --silder-background-disabled: var(--brand-disabled); /* @type color */
     --slider-track-height: 6px;
     --slider-track-background: var(--background-color-base); /* @type color */
     --slider-trail-background: var(--brand-primary);  /* @type color */
-    --slider-trail-background-disabled: var(--brand-disabled);  /* @type color */
+    --slider-trail-background-disabled: #bfbfbf;  /* @type color */
+    --slider-track-border-radius: 3px;
     --slider-handle-width: 16px;
     --slider-handle-height: 16px;
     --slider-handle-background: var(--brand-primary); /* @type color */
-    --slider-handle-border: 1px solid white;
+    --slider-handle-border: 2px solid white;
     --slider-bound-background: url("../assets/images/stripe.png") repeat-x; /* @hidden */
+    --silder-box-shadow-hover: rgba(51, 126, 255, 0.2); /* @type color */
+    --silder-handle-background-disabled: var(--slider-trail-background-disabled); /* @type color */
+    --silder-popup-background: var(--color-white); /* @hidden */
 
     /* @component u-cascader @hidden */
     --cascader-width: 240px;
@@ -1268,8 +1288,12 @@
 
     /* @component u-combo-slider @hidden */
     --combo-slider-slider-width: 100%;
-    --combo-slider-input-width: 50px;
+    --combo-slider-input-width: 56px;
     --combo-slider-input-margin-left: 10px;
+    --combo-slider-input-background: var(--number-input-background);
+    --combo-slider-input-border-color: var(--number-input-border-color);
+    --combo-slider-input-border-radius: var(--number-input-border-radius);
+    --combo-slider-input-color: var(--number-input-color);
 
     /* @component u-uploader */
     --uploader-list-margin-top: 6px;
@@ -1430,13 +1454,23 @@
     --linear-progress-height-huge: 12px; /* @hidden */
 
     /* @component u-circular-progress */
-    --circular-progress-size: 100px;
-    --circular-progress-stroke-width: 10px;
+    --circular-progress-size: 90px;
+    --circular-progress-size-small: 74px;
+    --circular-progress-size-large: 112px;
+    --circular-progress-size-huge: 142px;
+    --circular-progress-stroke-width: 6px;
+    --circular-progress-stroke-width-small: 5px;
+    --circular-progress-stroke-width-large: 8px;
+    --circular-progress-stroke-width-huge: 10px;
     --circular-progress-track-stroke: var(--background-color-base); /* @type color */
     --circular-progress-trail-stroke: var(--brand-primary); /* @type color */
     --circular-progress-trail-transition: stroke 0.6s ease, stroke-dasharray 0.6s ease;
-    --circular-progress-percent-font-size: var(--font-size-large);
+    --circular-progress-percent-font-size: 18px;
+    --circular-progress-percent-font-size-small: 14px;
+    --circular-progress-percent-font-size-large: 24px;
+    --circular-progress-percent-font-size-huge: 32px;
 
+    --circular-progress-percent-color: #666; /* @type color */
     --circular-progress-text-color: #999; /* @hidden */
     --circular-progress-font-size: var(--font-size-base); /* @hidden */
     --circular-progress-percent-font-weight: 600; /* @hidden */
@@ -1560,6 +1594,10 @@
 
     /* @component u-lightbox @hidden */
     --lightbox-head-height: 64px;
+    --lightbox-icon-background: #252525;
+    --lightbox-icon-background-hover: #121212;
+    --lightbox-icon-background-disabled: #666;
+    --lightbox-icon-color: white;
 
     /* @component u-skeleton @hidden */
     --skeleton-background: var(--background-color-base);

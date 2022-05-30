@@ -29,6 +29,8 @@ export default {
         formatter: { type: [String, Object, Function, Formatter], default: 'placeholder' },
         hidden: { type: Boolean, default: false },
         dblclickHandler: Function,
+        filterMultiple: { type: Boolean, default: false },
+        filterMax: Number,
     },
     data() {
         const data = {

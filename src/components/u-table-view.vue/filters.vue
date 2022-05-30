@@ -1,7 +1,7 @@
 <template>
-<m-popper :class="$style.root" ref="popper" trigger="click.stop" placement="bottom-end" :disabled="disabled" @click.stop>
-    <slot></slot>
-</m-popper>
+    <div>
+        <slot></slot>
+    </div>
 </template>
 
 <script>
@@ -62,10 +62,22 @@ export default {
 .root {
     position: absolute;
     line-height: var(--table-view-filter-line-height);
-    max-height: var(--table-view-filter-max-height);
-    overflow: auto;
+    /* max-height: var(--table-view-filter-max-height); */
+    /* overflow: auto; */
     background: var(--table-view-filter-background);
     border: 1px solid var(--border-color-base);
     z-index: var(--z-index-popper);
+    max-width: 300px;
+}
+.wrap {
+    display: inline-block;
+    min-width: 100%;
+    max-height: var(--table-view-filter-max-height);
+}
+.footer {
+    padding: 0 12px;
+    height: 36px;
+    line-height: 36px;
+    border-top: 1px solid var(--table-view-filter-border-color);
 }
 </style>

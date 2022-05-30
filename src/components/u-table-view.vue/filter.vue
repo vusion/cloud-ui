@@ -4,6 +4,11 @@
     :disabled="disabled || parentVM.disabled"
     @click="select"
     v-ellipsis-title>
+    <u-checkbox v-if="parentVM.multiple"
+        :readonly="parentVM.readonly"
+        :disabled="disabled || parentVM.disabled"
+        :value="currentSelected"
+    ></u-checkbox>
     <slot></slot>
 </div>
 </template>
@@ -25,7 +30,8 @@ export default {
     cursor: var(--cursor-pointer);
 
     /* @Public */
-    padding: 4px 12px;
+    padding: 5px 12px;
+    position: relative;
 }
 
 .root:hover {
@@ -42,7 +48,7 @@ export default {
 }
 
 .root[selected] {
-    background: var(--brand-primary);
+    background: var(--table-view-filter-item-background-selected);
     color: var(--color-white);
 }
 
@@ -50,7 +56,7 @@ export default {
     /* @Private */
     cursor: var(--cursor-not-allowed);
     background: none;
-    color: var(--brand-disabled);
+    color: var(--table-view-filter-item-color-disabled);
 }
 
 .root[selected][disabled] {
@@ -60,5 +66,14 @@ export default {
 .root {
     display: block;
     white-space: nowrap;
+}
+.root [class^="u-checkbox_box__"] {
+    top: -2px;
+}
+.root[selected] [status="true"] {
+    background-color: var(--table-view-filter-item-checkbox-background-selected);
+}
+.root[selected] [status="true"]::before {
+    color: var(--table-view-filter-item-checkbox-color-selected);
 }
 </style>

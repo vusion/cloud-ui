@@ -8,6 +8,7 @@
     - [拉伸](#拉伸)
     - [填充](#填充)
     - [原尺寸](#原尺寸)
+    - [多个url](#多个url)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -45,6 +46,11 @@
 
 ``` html
 <u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" style="width: 300px; height: 150px;" fit="none"></u-image>
+```
+### 多个url
+
+``` html
+<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg,https://static-vusion.163yun.com/assets/cloud-ui/1.jpg,https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" style="width: 300px; height: 150px;" fit="none"></u-image>
 ```
 
 ## API

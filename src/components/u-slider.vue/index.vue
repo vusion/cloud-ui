@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :disabled="disabled">
+<div :class="$style.root" :disabled="disabled" :readonly="readonly">
     <div :class="$style.body">
         <div :class="$style.track">
             <div :class="$style.trail" :style="{ width: percent + '%' }"></div>
@@ -10,8 +10,13 @@
             axis="horizontal" :grid="grid"
             source="parent" range="offset-parent" range-mode="center"
             @dragstart="onDragStart($event)"
-            @drag="onDrag($event)">
-            <div :class="$style.handle" ref="handle"></div>
+            @drag="onDrag($event)"
+            @dragend="dragging=false">
+            <div :class="$style.handle" ref="handle" @mouseover="tooltipOpened=true" @mouseleave="tooltipOpened=false">
+                <u-popup :class="$style.popup" :placement="placement" trigger="manual" :opened="tooltipOpened && !dragging" v-if="showTooltip">
+                    {{ tooltip || currentValue }}
+                </u-popup>
+            </div>
         </f-dragger>
     </div>
 </div>
@@ -41,6 +46,9 @@ export default {
         },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        showTooltip: { type: Boolean, default: false },
+        tooltip: String,
+        placement: { type: String, default: 'top' },
     },
     data() {
         return {
@@ -48,6 +56,8 @@ export default {
             currentRange: this.normalizeRange(this.range),
             grid: { x: 0, y: 0 },
             handleEl: undefined,
+            tooltipOpened: false,
+            dragging: false,
         };
     },
     computed: {
@@ -142,6 +152,7 @@ export default {
                 { oldValue, value: this.currentValue, percent },
                 this,
             );
+            this.dragging = true;
         },
     },
 };
@@ -223,6 +234,10 @@ export default {
     right: 3px;
 } */
 
+.handle:hover {
+    box-shadow: 0 0 0 2px var(--silder-box-shadow-hover);
+}
+
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
 }
@@ -238,6 +253,8 @@ export default {
     left: -7px;
     height: 100%;
     background: var(--brand-primary);
+    border-top-left-radius: var(--slider-track-border-radius);
+    border-bottom-left-radius: var(--slider-track-border-radius);
 }
 
 .track::after {
@@ -247,9 +264,30 @@ export default {
     right: -7px;
     height: 100%;
     background: var(--slider-track-background);
+    border-top-right-radius: var(--slider-track-border-radius);
+    border-bottom-right-radius: var(--slider-track-border-radius);
 }
 
 .root[disabled] .track::before {
-    background: var(--brand-disabled);
+    background: var(--slider-trail-background-disabled);
+}
+.root[disabled] .track,
+.root[disabled] .handle {
+    cursor: not-allowed;
+}
+.root[readonly] .track,
+.root[readonly] .handle {
+    cursor: default;
+}
+.root[disabled] .handle:hover,
+.root[readonly] .handle:hover {
+    box-shadow: none;
+}
+.root[disabled] .handle {
+    background-color: var(--silder-handle-background-disabled);
+}
+.popup {
+    background: var(--silder-popup-background);
+    min-width: initial;
 }
 </style>

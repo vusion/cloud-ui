@@ -238,7 +238,14 @@
                     "--label-color-primary": "color",
                     "--label-color-success": "color",
                     "--label-color-warning": "color",
-                    "--label-color-error": "color"
+                    "--label-color-error": "color",
+                    "--label-line-background": "color",
+                    "--label-line-border-color": "color",
+                    "--label-line-color-primary": "color",
+                    "--label-line-color-success": "color",
+                    "--label-line-color-warning": "color",
+                    "--label-line-color-error": "color",
+                    "--label-line-color-normal": "color"
                 },
                 "preview": {
                     "template": "<div>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Base</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"primary\">Primary</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"success\">Success</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"warning\">Warning</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"error\">Error</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-label>\n    <u-label removable>removable</u-label>\n</div>"
@@ -690,14 +697,18 @@
                 "cssProperty": {
                     "--slider-body-margin": "input",
                     "--slider-body-padding": "input",
+                    "--silder-background-disabled": "color",
                     "--slider-track-height": "input",
                     "--slider-track-background": "color",
                     "--slider-trail-background": "color",
                     "--slider-trail-background-disabled": "color",
+                    "--slider-track-border-radius": "input",
                     "--slider-handle-width": "input",
                     "--slider-handle-height": "input",
                     "--slider-handle-background": "color",
-                    "--slider-handle-border": "input"
+                    "--slider-handle-border": "input",
+                    "--silder-box-shadow-hover": "color",
+                    "--silder-handle-background-disabled": "color"
                 },
                 "preview": {
                     "template": "<u-slider :value=\"36\"></u-slider>"
@@ -930,11 +941,21 @@
                 "type": [],
                 "cssProperty": {
                     "--circular-progress-size": "input",
+                    "--circular-progress-size-small": "input",
+                    "--circular-progress-size-large": "input",
+                    "--circular-progress-size-huge": "input",
                     "--circular-progress-stroke-width": "input",
+                    "--circular-progress-stroke-width-small": "input",
+                    "--circular-progress-stroke-width-large": "input",
+                    "--circular-progress-stroke-width-huge": "input",
                     "--circular-progress-track-stroke": "color",
                     "--circular-progress-trail-stroke": "color",
                     "--circular-progress-trail-transition": "input",
-                    "--circular-progress-percent-font-size": "input"
+                    "--circular-progress-percent-font-size": "input",
+                    "--circular-progress-percent-font-size-small": "input",
+                    "--circular-progress-percent-font-size-large": "input",
+                    "--circular-progress-percent-font-size-huge": "input",
+                    "--circular-progress-percent-color": "color"
                 },
                 "preview": {
                     "template": "<u-circular-progress :percent=\"25\"></u-circular-progress>"

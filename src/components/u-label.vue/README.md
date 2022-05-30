@@ -7,6 +7,7 @@
     - [可删除标签](#可删除标签)
     - [设置尺寸](#设置尺寸)
     - [块级展示](#块级展示)
+    - [线性标签](#线性标签)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -79,12 +80,48 @@
 </u-linear-layout>
 ```
 
+### 线性标签
+
+通过`type="line"`属性设置。
+
+``` html
+<u-linear-layout direction="vertical">
+    <u-linear-layout gap="small">
+        <u-label text="Label" type="line"></u-label>
+        <u-label color="primary" text="Primary" type="line"></u-label>
+        <u-label color="success" text="Success" type="line"></u-label>
+        <u-label color="normal" text="Normal" type="line"></u-label>
+        <u-label color="warning" text="Warning" type="line"></u-label>
+        <u-label color="error" text="Error" type="line"></u-label>
+    </u-linear-layout>
+    <u-linear-layout gap="small">
+        <u-label removable text="Label" type="line"></u-label>
+        <u-label removable color="primary" text="Primary" type="line"></u-label>
+        <u-label removable color="success" text="Success" type="line"></u-label>
+        <u-label removable color="normal" text="Normal" type="line"></u-label>
+        <u-label removable color="warning" text="Warning" type="line"></u-label>
+        <u-label removable color="error" text="Error" type="line"></u-label>
+    </u-linear-layout>
+    <u-linear-layout gap="small">
+        <u-label size="small" text="Small" type="line"></u-label>
+        <u-label size="small" color="primary" removable text="Small" type="line"></u-label>
+        <u-label text="Normal" type="line"></u-label>
+        <u-label color="primary" removable text="Normal" type="line"></u-label>
+        <u-label size="large" text="Large" type="line"></u-label>
+        <u-label size="large" color="primary" removable text="Large" type="line"></u-label>
+        <u-label size="huge" text="Huge" type="line"></u-label>
+        <u-label size="huge" color="primary" removable text="Huge" type="line"></u-label>
+    </u-linear-layout>
+</u-linear-layout>
+```
+
 ## API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | text | string |  |  | 显示文本内容 |
+| type | string | `[object Object]`<br/>`[object Object]` | `'filled'` | 设置标签样式，主要标签有背景，次要标签没有背景 |
 | color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置文本颜色 |
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置标签大小 |
 | removable | boolean |  | `false` |  |

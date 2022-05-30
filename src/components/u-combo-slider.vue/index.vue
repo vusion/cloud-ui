@@ -5,6 +5,7 @@
         <div :class="$style.tip">{{ tip }}</div>
         <u-slider :class="$style.slider" @mousedown.native="onMousedown" :value="currentValue" @input="onInput" @slide="onSlide"
             :min="min" :max="max" :step="step" :precision="precision" :range="range" :readonly="readonly" :disabled="disabled"
+            :show-tooltip="showTooltip" :tooltip="tooltip" :placement="placement"
         ></u-slider>
          <!-- @override: 增加数值显示 -->
         <div :class="$style.scales">
@@ -54,6 +55,9 @@ export default {
         tip: String,
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        showTooltip: { type: Boolean, default: false },
+        tooltip: String,
+        placement: { type: String, default: 'top' },
     },
     data() {
         return { currentValue: this.value, isMousedown: false };
@@ -136,16 +140,15 @@ export default {
     margin-left: var(--combo-slider-input-margin-left);
     width: var(--combo-slider-input-width) !important;
     margin-right: 0.5em;
-    border-radius: 0;
     padding: 0 4px;
-    height: 28px;
-    line-height: 26px;
+    height: 32px;
+    line-height: 32px;
     text-align: center;
 }
 
 .main {
     display: inline-block;
-    width: calc(100% - 100px);
+    width: calc(100% - var(--combo-slider-input-width) - 20px);
     vertical-align: -20px;
 }
 

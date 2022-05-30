@@ -232,6 +232,7 @@ export default UModal;
     background: rgba(0, 0, 0, 0.6);
     padding-top: 65px;
     padding-bottom: 30px;
+    white-space: nowrap;
 }
 
 .root::before {
@@ -251,6 +252,7 @@ export default UModal;
     border: 1px solid var(--modal-border-color);
     border-radius: var(--modal-dialog-border-radius);
     box-shadow: var(--modal-dialog-box-shadow);
+    white-space: initial;
 }
 
 .pos {

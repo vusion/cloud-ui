@@ -49,3 +49,10 @@
     </u-grid-layout-column>
 </u-grid-layout>
 ```
+
+### 展示 ToolTip
+
+``` html
+<u-slider :value="36" :show-tooltip="true"></u-slider>
+<u-slider :value="36" :show-tooltip="true" tooltip="展示 ToolTip"></u-slider>
+```
