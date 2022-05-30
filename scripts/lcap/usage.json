@@ -999,7 +999,7 @@
                             "options": [
                                 {
                                     "value": "_blank",
-                                    "title": "新标签页"
+                                    "title": "新窗口"
                                 },
                                 {
                                     "value": "_self",
@@ -1016,7 +1016,7 @@
                                     "advanced": true
                                 }
                             ],
-                            "default": "_blank",
+                            "default": "_self",
                             "description": "链接打开方式"
                         },
                         {
@@ -1917,7 +1917,7 @@
                                     "advanced": true
                                 }
                             ],
-                            "default": "_blank",
+                            "default": "_self",
                             "description": "链接跳转方式"
                         },
                         {
@@ -2379,7 +2379,7 @@
                             "options": [
                                 {
                                     "value": "_blank",
-                                    "title": "新标签页"
+                                    "title": "新窗口"
                                 },
                                 {
                                     "value": "_self",
@@ -2396,7 +2396,7 @@
                                     "advanced": true
                                 }
                             ],
-                            "default": "_blank",
+                            "default": "_self",
                             "description": "链接跳转方式"
                         },
                         {
@@ -2831,7 +2831,7 @@
                             "options": [
                                 {
                                     "value": "_blank",
-                                    "title": "新标签页"
+                                    "title": "新窗口"
                                 },
                                 {
                                     "value": "_self",
@@ -2848,7 +2848,7 @@
                                     "advanced": true
                                 }
                             ],
-                            "default": "_blank",
+                            "default": "_self",
                             "description": "链接跳转方式"
                         },
                         {
@@ -3336,7 +3336,7 @@
                     "options": [
                         {
                             "value": "_blank",
-                            "title": "新标签页"
+                            "title": "新窗口"
                         },
                         {
                             "value": "_self",
@@ -3751,7 +3751,7 @@
                             "advanced": true
                         }
                     ],
-                    "default": "_blank",
+                    "default": "_self",
                     "description": "链接打开方式"
                 },
                 {
@@ -5275,7 +5275,7 @@
                             "options": [
                                 {
                                     "value": "_blank",
-                                    "title": "新标签页"
+                                    "title": "新窗口"
                                 },
                                 {
                                     "value": "_self",
@@ -5292,7 +5292,7 @@
                                     "advanced": true
                                 }
                             ],
-                            "default": "_blank",
+                            "default": "_self",
                             "description": "链接打开方式"
                         },
                         {
@@ -14150,7 +14150,7 @@
                             "options": [
                                 {
                                     "value": "_blank",
-                                    "title": "新标签页"
+                                    "title": "新窗口"
                                 },
                                 {
                                     "value": "_self",
@@ -14167,7 +14167,7 @@
                                     "advanced": true
                                 }
                             ],
-                            "default": "_blank",
+                            "default": "_self",
                             "description": "打开方式",
                             "advanced": true
                         },
