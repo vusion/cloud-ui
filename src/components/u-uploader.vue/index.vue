@@ -142,8 +142,8 @@ export default {
             handler(currentValue, oldValue) {
                 const value = this.toValue(currentValue);
 
-                this.$emit('input', value);
-                this.$emit('update:value', value);
+                // this.$emit('input', value);
+                // this.$emit('update:value', value);
                 this.$emit('change', {
                     value,
                     oldValue: this.toValue(oldValue),
@@ -171,16 +171,21 @@ export default {
                     return [];
                 }
             else
-                return value || [];
+                return value && value.slice() || []; // 增加slice原因：未增加的情况下，currentValue改变了，双向绑定的值也会改变
         },
         toValue(value) {
             if (this.converter === 'json')
                 // fix for u-validator rules="required"
-                return Array.isArray(value) && value.length === 0 ? null : JSON.stringify(value);
+                return Array.isArray(value) && value.length === 0 ? null : JSON.stringify(this.jsonConvert(value));
             if (this.converter === 'simple')
                 return Array.isArray(value) && value.length === 0 ? null : (this.simpleConvert(value));
             else
                 return value;
+        },
+        jsonConvert(value) {
+            return value.filter((x) => {
+                return !x.status || x.status === 'success';
+            })
         },
         simpleConvert(value) {
             return value.filter((x) => {
@@ -405,9 +410,9 @@ export default {
                     const item = this.currentValue[index];
                     item.status = 'error';
 
-                    const value = this.toValue(this.currentValue);
-                    this.$emit('input', value);
-                    this.$emit('update:value', value);
+                    // const value = this.toValue(this.currentValue);
+                    // this.$emit('input', value);
+                    // this.$emit('update:value', value);
 
                     this.$emit('error', {
                         e,
@@ -535,6 +540,9 @@ export default {
             await Promise.all(tasks);
             return validFiles;
         },
+        /**
+         * Simple形式，从URL处解析fileName
+         */
         getUrlFileName(item) {
             if (typeof item === 'string') {
                 let url = decodeURI(item);
