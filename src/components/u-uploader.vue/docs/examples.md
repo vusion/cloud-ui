@@ -76,11 +76,32 @@ export default {
 
 设置`multiple`可以选择多个文件，通过`value`属性可以设置已上传的文件。
 
+卡片形式
+
 ``` vue
 <template>
-<u-uploader v-model="files" converter="simple" multiple list-type="card" url="/gateway/lowcode/api/v1/app/upload">
-    <u-button color="primary">Upload</u-button>
-</u-uploader>
+    <u-uploader v-model="files" converter="simple" multiple list-type="card" url="/gateway/lowcode/api/v1/app/upload">
+        <u-button color="primary">Upload</u-button>
+    </u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: 'https://static-vusion.163yun.com/assets/breakfast.png,https://static-vusion.163yun.com/assets/salad.png',
+        };
+    },
+};
+</script>
+```
+
+基本形式
+
+``` vue
+<template>
+    <u-uploader v-model="files" converter="simple" multiple url="/gateway/lowcode/api/v1/app/upload">
+        <u-button color="primary">Upload</u-button>
+    </u-uploader>
 </template>
 <script>
 export default {

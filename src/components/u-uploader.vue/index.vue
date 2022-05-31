@@ -8,7 +8,7 @@
         @dragleave.prevent="dragover = false">
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
         <div>
-            <div v-if="dragDescription" vusion-slot-name="dragDescription" :class="$style.dragDescription"><slot name="dragDescription">{{dragDescription}}</slot></div>
+            <div v-if="dragDescription" vusion-slot-name="dragDescription" :class="$style.dragDescription"><slot name="dragDescription">{{ dragDescription }}</slot></div>
             <slot></slot>
         </div>
     </div>
@@ -20,7 +20,7 @@
     </div>
     <template v-if="listType !== 'card'">
         <div v-if="description" :class="$style.description">{{ description }}</div>
-        <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length" >
+        <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length">
             <div :class="$style.errwrap">
                 <div v-for="errItem in errorMessage" :key="errItem" :class="$style.errmessage">{{ errItem }}</div>
             </div>
@@ -53,7 +53,7 @@
                     <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
                 </div>
                 <div v-if="description" :class="$style.description">{{ description }}</div>
-                <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length" >
+                <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length">
                     <div :class="$style.errwrap">
                         <div v-for="errItem in errorMessage" :key="errItem" :class="$style.errmessage">{{ errItem }}</div>
                     </div>
@@ -62,7 +62,7 @@
         </template>
     </div>
     <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
-        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url || item"></u-lightbox-item>
+        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url"></u-lightbox-item>
     </u-lightbox>
 </div>
 </template>
@@ -161,8 +161,12 @@ export default {
                 }
             else if (this.converter === 'simple')
                 try {
-                    if(!value) return [];
-                    return value.split(",");
+                    if (!value)
+                        return [];
+                    return value.split(',').map((item) => ({ // 组件里保持对象数组的形式，利于数据处理和模式中的字段使用
+                        url: item,
+                        name: this.getUrlFileName(item),
+                    }));
                 } catch (err) {
                     return [];
                 }
@@ -179,7 +183,13 @@ export default {
                 return value;
         },
         simpleConvert(value) {
-            return value.map((x) => (x.url)).join(",");
+            return value.filter((x) => {
+                if (x.status) { // 未上传完成的不同步到value
+                    return x.status === 'success';
+                } else {
+                    return x.url;
+                }
+            }).map((x) => (x.url)).join(',');
         },
         getUrl(item) {
             return item.thumb || item.url || item;
@@ -283,7 +293,6 @@ export default {
             //         return null;
             //     }
             // }
-
             const item = {
                 uid: file.uid !== undefined ? file.uid : Date.now() + this.currentValue.length,
                 status: 'uploading',
@@ -332,7 +341,7 @@ export default {
             //     }
             // }
 
-            if(!files || !files.length)
+            if (!files || !files.length)
                 return;
 
             const file = files[0];
@@ -381,20 +390,25 @@ export default {
                     item.response = res;
                     item.showProgress = false;
 
+                    const value = this.toValue(this.currentValue);
+                    this.$emit('input', value);
+                    this.$emit('update:value', value);
+
                     this.$emit('success', {
                         res,
                         file,
                         item,
                         xhr,
                     }, this);
-
-                    const value = this.toValue(this.currentValue);
-                    this.$emit('input', value);
-                    this.$emit('update:value', value);
                 },
                 onError: (e, res) => {
                     const item = this.currentValue[index];
                     item.status = 'error';
+
+                    const value = this.toValue(this.currentValue);
+                    this.$emit('input', value);
+                    this.$emit('update:value', value);
+
                     this.$emit('error', {
                         e,
                         res,
@@ -402,10 +416,6 @@ export default {
                         item,
                         xhr,
                     }, this);
-
-                    const value = this.toValue(this.currentValue);
-                    this.$emit('input', value);
-                    this.$emit('update:value', value);
                 },
             });
         },
@@ -484,13 +494,13 @@ export default {
                     return null;
                 }
                 if (this.accept) {
-                    const extension = (file.name.indexOf('.') > -1 ? `.${ file.name.split('.').pop() }`: '').toLowerCase();
+                    const extension = (file.name.indexOf('.') > -1 ? `.${file.name.split('.').pop()}` : '').toLowerCase();
                     const type = file.type.toLowerCase();
                     const baseType = type.replace(/\/.*$/, '').toLowerCase();
                     const accept = this.accept.split(',')
-                        .map(type => type.trim())
-                        .filter(type => type)
-                        .some(acceptedType => {
+                        .map((type) => type.trim())
+                        .filter((type) => type)
+                        .some((acceptedType) => {
                             acceptedType = acceptedType.toLowerCase();
                             if (/^\..+$/.test(acceptedType)) {
                                 return extension.toLowerCase() === acceptedType;
@@ -504,7 +514,7 @@ export default {
                             return false;
                         });
                     if (!accept) {
-                        this.errorMessage.push('文件类型不匹配，请上传'+this.accept+'的文件类型');
+                        this.errorMessage.push('文件类型不匹配，请上传' + this.accept + '的文件类型');
                         return null;
                     }
                 }
@@ -524,6 +534,15 @@ export default {
             });
             await Promise.all(tasks);
             return validFiles;
+        },
+        getUrlFileName(item) {
+            if (typeof item === 'string') {
+                let url = decodeURI(item);
+                url = url.split('?')[0];
+                return url && url.split('/').pop();
+            } else {
+                return item.name;
+            }
         },
     },
 };
@@ -842,6 +861,5 @@ export default {
 .cardwrap .errwrap {
     max-width: var(--uploader-error-box-max-width);
 }
-
 
 </style>
