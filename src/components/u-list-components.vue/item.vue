@@ -1,6 +1,6 @@
 <template>
   <div class="u-for-com-item" :style="comStyle">
-    <slot :item="item"></slot>
+    <slot :item="item" :index="index"></slot>
   </div>
 </template>
 
@@ -11,6 +11,9 @@ export default {
     },
     props: {
         item: {
+            type: [Object, String, Number],
+        },
+        index: {
             type: [Object, String, Number],
         },
         colnum: {
