@@ -5,7 +5,6 @@
     :disabled="disabled || parentVM.disabled"
     @click="select"
     :style="{ width: parentVM.itemWidth }"
-    v-ellipsis-title
     :designer="$env.VUE_APP_DESIGNER"
     vusion-slot-name="item">
     <slot></slot>
@@ -14,15 +13,11 @@
 
 <script>
 import { UListViewItem } from '../u-list-view.vue';
-import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-grid-view-item',
     parentName: 'u-grid-view',
     groupName: 'u-grid-view-group',
-    components: {
-        SEmpty,
-    },
     extends: UListViewItem,
 };
 </script>
