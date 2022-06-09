@@ -32,7 +32,7 @@
     - name: repeat
       title: 列数
       type: number
-      default: 0
+      default: 1
       description: 整个表单的划分列数
     - name: gap-width
       title: 列间隔
@@ -110,22 +110,18 @@
     - name: touched
       title: 触碰
       type: boolean
-      default: null
       description: 用户是否触碰
     - name: dirty
       title: 修改值
       type: boolean
-      default: null
       description: 用户是否修改值
     - name: valid
       title: 验证通过
       type: boolean
-      default: null
       description: 验证是否通过
     - name: firstError
       title: 错误消息
       type: string
-      default: null
       description: 第一个错误提示消息
   slots:
     - name: default
@@ -184,7 +180,6 @@
       params:
         - name: name
           type: string
-          default: null
           description: 表单项的 name
         - name: trigger
           type: string
@@ -202,7 +197,6 @@
     - name: name
       title: 字段名称
       type: string
-      default: null
       description: 表单项名称。已废弃
       advanced: true
       deprecated: true
@@ -381,12 +375,11 @@
     - name: title
       title: 标题
       type: string
-      default: null
       description: 显示的标题
     - name: repeat
       title: 列数
       type: number
-      default: 0
+      default: 1
       description: 整个表单的划分列数
     - name: collapsible
       title: 是否可折叠

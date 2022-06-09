@@ -8,7 +8,6 @@
     - name: value
       title: 需要复制的值
       type: string
-      default: null
       description: 需要复制的值
     - name: text
       title: 默认显示文本

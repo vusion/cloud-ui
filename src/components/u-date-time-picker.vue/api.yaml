@@ -12,17 +12,14 @@
       type: string, number, Date
       sync: true
       model: true
-      default: null
       description: 默认显示的日期时间值，格式如2018-08-08 08:08:08
     - name: minDate
       title: 最小日期值
       type: string, number, Date
-      default: null
       description: 支持输入的最小日期时间，不限制填写null
     - name: maxDate
       title: 最大日期值
       type: string, number, Date
-      default: null
       description: 支持输入的最大日期时间，不限制填写null
     - name: placeholder
       title: 默认提示文案

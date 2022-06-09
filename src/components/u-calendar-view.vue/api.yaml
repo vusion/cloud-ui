@@ -17,12 +17,10 @@
     - name: min-date
       title: 最小日期
       type: Date | string ｜ number
-      default: null
       description: 最小日期，默认 10 年前
     - name: max-date
       title: 最大日期
       type: Date | string ｜ number
-      default: null
       description: 最大日期，默认 9 年后
     - name: data-source
       title: 数据源

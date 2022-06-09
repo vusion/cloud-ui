@@ -12,17 +12,14 @@
       type: string,number,Date
       sync: true
       model: true
-      default: null
       description: 默认显示的日期值，格式如2018-08-08
     - name: minDate
       title: 最小日期
       type: string,number,Date
-      default: null
       description: 支持输入的最小日期，不限制填写null
     - name: maxDate
       title: 最大日期
       type: string,number,Date
-      default: null
       description: 支持输入的最大日期，不限制填写null
     - name: readonly
       title: 只读
@@ -67,7 +64,7 @@
     - name: time
       title: 时间格式
       type: string, number
-      default: 0:00:00
+      default: '00:00:00'
       description: 输入对应格式的字符串（8:00:00）即可
     - name: yearDiff
       title: 最小可选年份与当前年份的差值

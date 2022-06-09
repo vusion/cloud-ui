@@ -6,11 +6,9 @@
   attrs:
     - name: type
       type: string
-      default: null
       description: 列表前缀，如：`'disc'`, `'circle'`, `'decimal'`，与原生样式属性`list-style-type`的值对应。
     - name: line
       type: string
-      default: null
       description: 列表行之间显示分隔线条。可选值：`'both'`, `'horizontal'`, `'vertical'`
     - name: striped
       type: boolean

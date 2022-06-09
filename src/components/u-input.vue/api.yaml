@@ -109,7 +109,6 @@
     - name: maxlengthMessage
       title: 长度上限提示
       type: string
-      default: null
       description: "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
       advanced: true
     - name: prefix

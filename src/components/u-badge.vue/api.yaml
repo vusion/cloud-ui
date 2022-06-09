@@ -13,6 +13,7 @@
       title: 最大值
       type: number
       description: 最大值，超过最大值会显示为“最大值+”的形式，当最大值是数字类型时生效
+      default: 99
     - name: corner
       title: 插入右上角
       type: boolean
