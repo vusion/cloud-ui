@@ -9,8 +9,9 @@ export const ellipsisTitle = {
             // 如果判断已存在`title`属性而不添加`title`的话，会导致`<u-select>`在某些场景下`value`不变`text`变，而`title`不会更新
             const style = window.getComputedStyle(el);
             let title;
-            if (typeof value === 'boolean' && value) {
-                title = el.innerText;
+            if (typeof value === 'boolean') {
+                // value 为 false 时，表示无需 title
+                title = value ? el.innerText : null;
             } else {
                 title = value === undefined ? el.innerText : value;
             }
