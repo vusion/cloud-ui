@@ -1,6 +1,7 @@
 <script>
 import { UListView } from '../u-list-view.vue';
 import i18n from './i18n';
+import { isIE } from '../../utils/dom';
 
 export default {
     name: 'u-grid-view',
@@ -10,6 +11,7 @@ export default {
     i18n,
     props: {
         repeat: { type: Number, default: 5 },
+        showTitle: { type: Boolean, default: () => !isIE() }, // IE 默认不展示 title
     },
     computed: {
         itemWidth() {
