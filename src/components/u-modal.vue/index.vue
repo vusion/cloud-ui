@@ -318,15 +318,14 @@ export default UModal;
 
 .body[icon]:not([icon=""]) {
     margin: 32px 48px;
+    padding-left: calc(48px + 16px);
 }
 
 .body[icon]:not([icon=""]) .text {
-    margin-left: calc(48px + 16px);
     min-height: 48px;
 }
 
 .body[icon]:not([icon=""]) > :not(.text){
-    margin-left: calc(48px + 16px);
     min-height: 48px;
 }
 

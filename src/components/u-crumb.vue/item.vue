@@ -1,16 +1,19 @@
 <template>
 <div :class="$style.root">
-    <span v-if="readonly" :class="$style.readonly">
+    <span v-if="readonly" :class="$style.readonly" vusion-slot-name="default">
         <i-ico v-if="!parentVM.auto && parentVM.icon" :name="icon" notext :class="$style.icon"></i-ico>
         <slot>{{ text }}</slot>
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER" :class="$style.empty"></s-empty>
     </span>
-    <span v-else-if="disabled" :class="$style.disabled">
+    <span v-else-if="disabled" :class="$style.disabled" vusion-slot-name="default">
         <i-ico v-if="!parentVM.auto && parentVM.icon" :name="icon" notext :class="$style.icon"></i-ico>
         <slot>{{ text }}</slot>
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER" :class="$style.empty"></s-empty>
     </span>
-    <a v-else :class="$style.link" :href="currentHref" :target="target" :disabled="disabled" @click="onClick" v-on="listeners">
+    <a v-else :class="$style.link" :href="currentHref" :target="target" :disabled="disabled" @click="onClick" v-on="listeners" vusion-slot-name="default">
         <i-ico v-if="!parentVM.auto && parentVM.icon" :name="icon" notext :class="$style.icon"></i-ico>
         <slot>{{ text }}</slot>
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER" :class="$style.empty"></s-empty>
     </a>
     <span :class="$style.separator" :icon="parentVM.separator"></span>
 </div>
@@ -20,11 +23,12 @@
 import { MChild } from '../m-parent.vue';
 import ULink from '../u-link.vue';
 import IIco from '../i-ico.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-crumb-item',
     parentName: 'u-crumb',
-    components: { IIco },
+    components: { IIco, SEmpty },
     mixins: [MChild, ULink],
     props: {
         text: String,
@@ -42,7 +46,7 @@ export default {
 
 <style module>
 .root {
-    display: inline;
+    display: inline-block;
     color: var(--crumb-color-disabled);
 }
 
@@ -94,5 +98,9 @@ export default {
 .disabled {
     color: var(--crumb-color-disabled);
     cursor: default;
+}
+
+.empty {
+    width: calc(100% - 25px);
 }
 </style>

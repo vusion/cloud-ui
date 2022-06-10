@@ -88,10 +88,9 @@
           value: date
         - title: YYYY-MM-DD
           value: format
-        - title: 暂无
-          value: ""
       default: format
       description: 转换器，用于转换时间结果
+      clearable: true
     - name: picker
       title: 格式
       type: string
@@ -112,20 +111,17 @@
       options:
         - value: calendar
           title: 日历
-        - value: ""
-          title: 暂无
       default: "calendar"
       description: ""
+      clearable: true
     - name: suffixIcon
       title: 后缀图标
       type: string
       options:
         - value: calendar
           title: 日历
-        - value: ""
-          title: 暂无
-      default: ""
       description: ""
+      clearable: true
     - name: width
       title: 宽度
       type: string

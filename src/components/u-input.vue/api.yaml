@@ -117,20 +117,16 @@
       options:
         - value: search
           title: 搜索
-        - value: ""
-          title: 暂无
-      default: ""
       description: ""
+      clearable: true
     - name: suffix
       title: 后缀图标
       type: string
       options:
         - value: search
           title: 搜索
-        - value: ""
-          title: 暂无
-      default: ""
       description: ""
+      clearable: true
   slots:
     - name: default
       advanced: true

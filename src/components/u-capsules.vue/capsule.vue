@@ -6,19 +6,23 @@
     :disabled="disabled || parentVM.disabled"
     @click="select()"
     allowChild
-    v-ellipsis-title>
+    v-ellipsis-title
+    vusion-slot-name="default">
     <!-- @override: 添加了label功能 -->
     <span v-if="label" :class="$style.label">{{ label }}</span>
     <slot></slot>
+    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
 </div>
 </template>
 
 <script>
 import { UListViewItem } from '../u-list-view.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-capsule',
     parentName: 'u-capsules',
+    components: { SEmpty },
     extends: UListViewItem,
     props: { label: String },
 };
@@ -38,6 +42,7 @@ export default {
     background: var(--color-white);
     color: var(--color-base);
     cursor: var(--cursor-pointer);
+    vertical-align: middle;
 }
 
 .root:first-child {
