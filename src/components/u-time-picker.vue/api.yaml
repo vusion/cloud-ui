@@ -65,20 +65,17 @@
       options:
         - value: time
           title: 时间
-        - value: ""
-          title: 暂无
       default: "time"
       description: ""
+      clearable: true
     - name: suffixIcon
       title: 后缀图标
       type: string
       options:
         - value: time
           title: 时间
-        - value: ""
-          title: 暂无
-      default: ""
       description: ""
+      clearable: true
     - name: width
       title: 宽度
       type: string

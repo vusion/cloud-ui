@@ -221,7 +221,7 @@
     padding-right: 50px;
 }
 
-.prefix[name="search"]::before, .suffix[name="search"]::before {
+.prefix[name="search"]::before, .suffix > [name="search"]::before {
     icon-font: url("./assets/search.svg");
     font-size: 16px;
     color: var(--input-icon-color);
