@@ -40,10 +40,10 @@
                 v-for="subNode in $at(node, currentChildrenField)"
                 :text="$at(subNode, rootVM.field || rootVM.textField)"
                 :value="$at(subNode, rootVM.valueField)"
-                :expanded="$at(subNode, rootVM.expandedField)"
+                :expanded="rootVM.filterText ? $at(subNode, 'expandedByFilter') : $at(subNode, rootVM.expandedField)"
                 :checked.sync="subNode.checked"
                 :disabled="subNode.disabled"
-                :hidden="$at(subNode, rootVM.hiddenField)"
+                :hidden="rootVM.filterText ? $at(subNode, 'hiddenByFilter') : $at(subNode, rootVM.hiddenField)"
                 :node="subNode"
                 :parent="node"
                 :level="level + 1"
@@ -55,10 +55,10 @@
                     v-for="subNode in $at(node, subField)"
                     :text="$at(subNode, rootVM.field || rootVM.textField)"
                     :value="$at(subNode, rootVM.valueField)"
-                    :expanded="$at(subNode, rootVM.expandedField)"
+                    :expanded="rootVM.filterText ? $at(subNode, 'expandedByFilter') : $at(subNode, rootVM.expandedField)"
                     :checked.sync="subNode.checked"
                     :disabled="subNode.disabled"
-                    :hidden="$at(subNode, rootVM.hiddenField)"
+                    :hidden="rootVM.filterText ? $at(subNode, 'hiddenByFilter') : $at(subNode, rootVM.hiddenField)"
                     :node="subNode"
                     :parent="node"
                     :level="level + 1"
@@ -213,6 +213,9 @@ export default {
         },
         'rootVM.value'() {
             this.renderSelectedVm();
+        },
+        'rootVM.filterText'(filterText) {
+            this.filter();
         },
     },
 
@@ -437,6 +440,49 @@ export default {
                     that.$set(parent, 'childrenRendered', true);
             }
             dfs(node, null, currentFields);
+        },
+
+        filter() {
+            if(this.$parent?.$options.name !== 'u-tree-view') return;
+            if(!this.rootVM?.filterable) return;
+
+            let { filterText, filterFields } = this.rootVM;
+            filterText = filterText.trim().toLowerCase();
+            const { currentFields, node, $at } = this;
+
+            const that = this;
+            function dfs(node, parent = null, fields) {
+                if(!node) return;
+
+                const hiddenByFilter = filterFields.every((field) => !$at(node, field)?.toLowerCase().includes(filterText));
+                that.$set(node, 'hiddenByFilter', hiddenByFilter);
+                that.$set(node, 'expandedByFilter', false);
+
+                if(!fields) {
+                    const childrenField = node.childrenField || that.rootVM.childrenField;
+                    const moreChildrenFields = node.moreChildrenFields || that.rootVM.moreChildrenFields;
+                    fields = [childrenField];
+                    if(moreChildrenFields)
+                        fields = fields.concat(moreChildrenFields);
+                }
+
+                for(const field of fields) {
+                    if(!$at(node, field)) continue;
+
+                    for(const child of $at(node, field)) {
+                        dfs(child, node);
+                    }
+                }
+
+                if((!hiddenByFilter || node.expandedByFilter) && parent) {
+                    that.$set(parent, 'expandedByFilter', true);
+                    that.$set(parent, 'hiddenByFilter', false);
+                }
+            }
+            dfs(node, null, currentFields);
+
+            if(node.expandedByFilter)
+                this.currentExpanded = node.expandedByFilter;
         },
     },
 };
