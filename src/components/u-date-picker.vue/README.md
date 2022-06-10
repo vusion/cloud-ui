@@ -206,7 +206,7 @@ export default {
 | placeholder | string |  | `'请输入'` | 输入框的提示文字 |
 | clearable | boolean |  |  | 输入框输入内容支持一键清除 |
 | alignment | string | `[object Object]`<br/>`[object Object]` | `'left'` | 日历弹窗对齐方式 |
-| time | string, number |  | `'0:00:00'` | 输入对应格式的字符串（8:00:00）即可 |
+| time | string, number |  | `'00:00:00'` | 输入对应格式的字符串（8:00:00）即可 |
 | yearDiff | number |  | `20` | 最小可选年份值为当前年减去此值 |
 | yearAdd | number |  | `20` | 最大可选年份值为当前年加上此值 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'format'` | 转换器，用于转换时间结果 |

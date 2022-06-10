@@ -79,9 +79,9 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | date.sync, v-model | Date \| string |  | `'TODAY'` | 当前选择的日期 |
 | min-date | Date \| string |  |  | 最小日期，如果为空则不限制 |
-| max-date | Date \| string |  | `'text'` | 最大日期，如果为空则不限制 |
-| year-diff | string \| number |  | `3` | 当前年份往前展示的年数，例：当前为`2018`年，则从`2015`年开始展示 |
-| year-add | string \| number |  | `1` | 当前年份往后展示的年数，例：当前为`2018`年，则展示至`2019`年 |
+| max-date | Date \| string |  |  | 最大日期，如果为空则不限制 |
+| year-diff | string \| number |  | `20` | 当前年份往前展示的年数，例：当前为`2018`年，则从`2015`年开始展示 |
+| year-add | string \| number |  | `4` | 当前年份往后展示的年数，例：当前为`2018`年，则展示至`2019`年 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 

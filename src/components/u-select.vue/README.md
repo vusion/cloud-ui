@@ -1347,7 +1347,7 @@ export default {
 | data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 选择框的数据源，数据集对象或者返回数据集的逻辑 |
 | cancelable | boolean |  | `false` |  |
 | multiple | boolean |  | `false` | 是否可以多选 |
-| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。 |
+| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `''` | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。 |
 | placeholder | string |  | `'请选择'` | 选择框的占位符 |
 | loading-text | string |  | `'加载中...'` | 正在加载中的文字，使用分页加载时才会出现 |
 | empty-text | string |  | `'暂无数据'` | 暂无数据时的文字 |

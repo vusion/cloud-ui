@@ -377,7 +377,7 @@ export default {
 | model | object |  |  | 表单数据模型 |
 | rules | object |  |  | 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules |
 | layout | string | `[object Object]`<br/>`[object Object]` | `'block'` |  |
-| repeat | number |  | `0` | 整个表单的划分列数 |
+| repeat | number |  | `1` | 整个表单的划分列数 |
 | gap-width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置表单列间隔大小 |
 | gap-height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置表单行间隔大小 |
 | label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` |  |
@@ -510,7 +510,7 @@ Methods
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 显示的标题 |
-| repeat | number |  | `0` | 整个表单的划分列数 |
+| repeat | number |  | `1` | 整个表单的划分列数 |
 | collapsible | boolean |  | `false` | 分组是否可以折叠 |
 | expanded.sync | boolean |  | `false` | 展开/折叠状态 |
 | disabled | boolean |  | `false` | 是否禁用。禁用时无法展开/折叠 |

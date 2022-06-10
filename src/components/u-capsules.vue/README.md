@@ -137,7 +137,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | any |  |  |  |
+| value.sync, v-model | any |  |  | 当前选中的值 |
 | auto-select | boolean |  | `false` | 是否自动选择第一个非禁用的项 |
 | cancelable | boolean |  | `false` | 是否可以取消选择 |
 | multiple | boolean |  | `false` | 是否可以多选 |

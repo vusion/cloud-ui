@@ -342,8 +342,8 @@ export default {
 | multiple-once | boolean |  | `false` | 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件 |
 | data-type | string |  | `'json'` | 接收数据类型。可选值：`text`、`xml`、`json` |
 | data | object |  |  |  |
-| limit | number |  | `999` |  |
-| max-size | string |  | `'50MB'` | 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB` |
+| limit | number |  |  |  |
+| max-size | string |  |  | 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`KB`、`MB`、`GB` |
 | list-type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'text'` | 列表展示类型 |
 | url-field | string |  | `'url'` | 请求返回的 URL 字段名 |
 | auto-upload | boolean |  | `true` |  |
