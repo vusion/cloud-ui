@@ -923,7 +923,6 @@ export default {
                     // console.time('加载数据');
                     let res = await this.currentDataSource._load({ page, size, sort, order });
                     // console.timeEnd('加载数据');
-
                     if (res instanceof Object) {
                         if (res.hasOwnProperty('content'))
                             res = res.content;
@@ -961,7 +960,6 @@ export default {
             document.removeEventListener('keydown', fn, true);
         },
       async getRenderResult(arr = []) {
-
         if (arr.length === 0) {
           const res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
           res[1] = res[0].map((item) => '');
@@ -984,7 +982,17 @@ export default {
           await new Promise((res) => {
             this.$once('hook:updated', res);
           });
-          const res1 = Array.from(this.$el.querySelectorAll(i === 0 ? '[position=static] tr' : '[position=static] tbody tr')).map((tr) => Array.from(tr.querySelectorAll('th, td')).map((node) => node.innerText));
+          const res1 = Array.from(this.$el.querySelectorAll(i === 0 ? '[position=static] tr' : '[position=static] tbody tr')).map((tr) => Array.from(tr.querySelectorAll('th, td')).map(
+            (node) => {
+              // 如果列表里是输入框，拿框里的结果填入excel
+              let inputElement = node.getElementsByTagName('input');
+              if (inputElement.length !== 0) {
+                return inputElement[0].value;
+              } else {
+                return node.innerText
+              }
+            }
+          ));
           res = res.concat(res1);
         }
 
