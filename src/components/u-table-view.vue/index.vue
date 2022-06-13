@@ -986,10 +986,15 @@ export default {
             (node) => {
               // 如果列表里是输入框，拿框里的结果填入excel
               let inputElement = node.getElementsByTagName('input');
+              let placeholderElement = Array.from(node.getElementsByTagName('span')).filter((item) => item.className.includes('u-select_placeholder'));
               if (inputElement.length !== 0) {
                 return inputElement[0].value;
               } else {
-                return node.innerText
+                // 下拉框未选则时，placeholder内容不显示
+                if (placeholderElement.length !== 0 && placeholderElement[0].innerText === node.innerText) {
+                  return '';
+                }
+                return node.innerText;
               }
             }
           ));

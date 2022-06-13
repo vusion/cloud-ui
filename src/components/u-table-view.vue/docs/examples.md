@@ -1901,6 +1901,16 @@ export default {
                     </u-linear-layout>
                 </template>
             </u-table-view-column>
+            <u-table-view-column title="选择">
+                <template #cell="scope">
+                    <u-linear-layout gap="small">
+                           <u-select placeholder="自定义">
+                                <u-select-item value="java">JS</u-select-item>
+                                <u-select-item value="nodejs">Node.js</u-select-item>
+                            </u-select>
+                    </u-linear-layout>
+                </template>
+            </u-table-view-column>
             <u-table-view-column title="操作">
                 <template #cell="scope">
                     <u-linear-layout gap="small">
