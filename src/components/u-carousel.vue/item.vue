@@ -1,7 +1,6 @@
 <template>
 <transition :name="animation">
     <div :class="$style.root"
-        allowChild
         v-show="!!selected"
         :animation="animation">
         <div :class="$style.body"><slot></slot></div>

@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :column="currentColumn" allowChild :label-size="currentLabelSize" :style="responsiveStyle">
+<div :class="$style.root" :column="currentColumn" :label-size="currentLabelSize" :style="responsiveStyle">
     <div :class="$style.label" vusion-slot-name="label">
         <slot name="label">{{ label }}</slot>
     </div>

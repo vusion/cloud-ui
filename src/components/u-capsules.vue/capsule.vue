@@ -5,7 +5,6 @@
     :readonly="parentVM.readonly"
     :disabled="disabled || parentVM.disabled"
     @click="select()"
-    allowChild
     v-ellipsis-title
     vusion-slot-name="default">
     <!-- @override: 添加了label功能 -->

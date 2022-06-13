@@ -1,5 +1,5 @@
 <template>
-<label :class="$style.root" allowChild :disabled="currentDisabled" @click="select()"
+<label :class="$style.root" :disabled="currentDisabled" @click="select()"
 tabindex="0" @keydown.space.prevent @keyup.space.prevent="select()"
 @focus="onFocus" @blur="onBlur" v-on="listeners" :readonly="currentReadonly">
     <span :class="$style.radio" :selected="selected" :disabled="currentDisabled" :readonly="currentReadonly"></span>
