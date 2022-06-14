@@ -37,7 +37,7 @@ export default {
         SEmpty,
     },
     props: {
-        title: { type: String, default: '提示' },
+        title: String,
         content: String,
         shadow: { type: String, default: 'always' },
         border: { type: Boolean, default: true },

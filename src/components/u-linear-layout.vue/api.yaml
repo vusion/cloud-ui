@@ -62,7 +62,6 @@
       options:
         - value: flex
           title: flex 布局模式
-      default: null
       description: 布局模式
       advanced: true
     - name: justify

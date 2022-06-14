@@ -7,7 +7,6 @@
       description: 渐变开始数值
     - name: end
       type: number
-      default: null
       description: 渐变结束数值
     - name: duration
       type: number
@@ -57,7 +56,6 @@
       description: 后缀内容
     - name: endCallback
       type: Function
-      default: null
       description: 渐变结束后的回调函数
     - name: autoStart
       type: boolean

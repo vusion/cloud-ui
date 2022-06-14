@@ -10,8 +10,7 @@
       type: any
       sync: true
       model: true
-      default: null
-      description: ""
+      description: "当前选中的值"
     - name: auto-select
       title: 自动选择
       type: boolean

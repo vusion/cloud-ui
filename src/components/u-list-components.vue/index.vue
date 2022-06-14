@@ -10,7 +10,7 @@
           :equalWidth="equalWidth"
         >
           <template v-slot="item2">
-            <slot :item="item2.item"></slot>
+            <slot :item="item2.item" :index="index2"></slot>
           </template>
         </u-list-components-item>
       </div>

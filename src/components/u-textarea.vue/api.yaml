@@ -12,7 +12,6 @@
       type: string
       sync: true
       model: true
-      default: null
       description: 输入框的值
     - name: clearable
       title: 清空
@@ -22,29 +21,25 @@
     - name: placeholder
       title: 占位符
       type: string
-      default: null
       description: 为空时的提示文本
     - name: minlength
       title: 最小长度
       type: number
-      default: null
       description: ""
       advanced: true
     - name: maxlength
       title: 最大长度
       type: number
-      default: null
       description: ""
     - name: spellcheck
       title: 拼写检查
       type: boolean
-      default: null
       description: ""
       advanced: true
     - name: autofocus
       title: 自动获取焦点
       type: boolean
-      default: null
+      default: false
       description: ""
       designer-value: false
     - name: readonly

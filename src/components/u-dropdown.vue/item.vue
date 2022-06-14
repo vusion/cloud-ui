@@ -9,8 +9,7 @@
         @click="parentVM.router ? onClick($event) : select($event)"
         v-on="listeners"
         v-ellipsis-title
-        vusion-slot-name="text"
-    >
+        vusion-slot-name="default">
         <i-ico
             v-if="icon"
             :name="icon"
@@ -18,14 +17,17 @@
             notext
         ></i-ico>
         <slot>{{ text }}</slot>
+        <s-empty v-if="!text && (!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
     </a>
 </template>
 
 <script>
 import { MSinglexItem } from '../m-singlex.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-dropdown-item',
+    components: { SEmpty },
     extends: MSinglexItem,
     parentName: 'u-dropdown',
 };

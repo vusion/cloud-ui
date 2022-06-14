@@ -4,14 +4,12 @@
     - name: data
       title: 数据
       type: Array<{ text, value }>
-      default: null
       description: Data书写方式中的数据列表
     - name: value
       title: 值
       type: any
       sync: true
       model: true
-      default: null
       description: 当前选择的值
     - name: field
       title: 字段
@@ -107,7 +105,6 @@
     - name: value
       title: 值
       type: any
-      default: null
       description: 此项的值
     - name: disabled
       title: 禁用
@@ -117,7 +114,6 @@
     - name: item
       title: 相关对象
       type: object
-      default: null
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
   slots:
     - name: default
