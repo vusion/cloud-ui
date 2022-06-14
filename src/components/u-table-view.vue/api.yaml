@@ -657,6 +657,11 @@
             type: NumericLiteral
             value: 2000
             valueType: int
+        - name: filename
+          type: string
+          description: 导出文件名
+          required: true
+          default: tableView.params.filename
         - name: sort
           type: string
           description: 排序字段
