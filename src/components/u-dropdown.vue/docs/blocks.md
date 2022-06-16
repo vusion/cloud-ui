@@ -3,9 +3,9 @@
 ``` html
 <u-dropdown>
     <template #title="scope"><u-text text="下拉菜单"></u-text></template>
-    <u-dropdown-item text="选项1"></u-dropdown-item>
-    <u-dropdown-item text="选项2"></u-dropdown-item>
-    <u-dropdown-item text="选项3"></u-dropdown-item>
+    <u-dropdown-item text="选项一"></u-dropdown-item>
+    <u-dropdown-item text="选项二"></u-dropdown-item>
+    <u-dropdown-item text="选项三"></u-dropdown-item>
 </u-dropdown>
 ```
 
@@ -14,8 +14,8 @@
 ``` html
 <u-dropdown type="primary">
     <template #title="scope"><u-text text="下拉按钮"></u-text></template>
-    <u-dropdown-item text="选项1"></u-dropdown-item>
-    <u-dropdown-item text="选项2"></u-dropdown-item>
-    <u-dropdown-item text="选项3"></u-dropdown-item>
+    <u-dropdown-item text="选项一"></u-dropdown-item>
+    <u-dropdown-item text="选项二"></u-dropdown-item>
+    <u-dropdown-item text="选项三"></u-dropdown-item>
 </u-dropdown>
 ```
