@@ -333,6 +333,7 @@ export default {
         defaultColumnWidth: [String, Number],
         filterMultiple: { type: Boolean, default: false },
         filterMax: Number,
+        resizeAble: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -618,7 +619,9 @@ export default {
             return isNumber(value) ? value + 'px' : '';
         },
         handleResize() {
-            this.bodyHeight = undefined;
+            if (this.resizeAble) {
+                this.bodyHeight = undefined;
+            }
             this.clearTimeout();
             this.timer = setTimeout(() => {
                 this.timer = undefined;
