@@ -38,7 +38,7 @@
                                         {{ itemVM.title }}
                                     </f-slot>
                                 </span>
-                                <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
+                                <span v-if="closable && itemVM.closable" :class="$style.close" @click.stop="close(itemVM)"></span>
                             </a>
                         </template>
                     </div>
