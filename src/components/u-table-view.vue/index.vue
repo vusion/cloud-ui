@@ -333,7 +333,7 @@ export default {
         defaultColumnWidth: [String, Number],
         filterMultiple: { type: Boolean, default: false },
         filterMax: Number,
-        resizeAble: { type: Boolean, default: true },
+        resizeBodyHeight: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -619,7 +619,7 @@ export default {
             return isNumber(value) ? value + 'px' : '';
         },
         handleResize() {
-            if (this.resizeAble) {
+            if (this.resizeBodyHeight) {
                 this.bodyHeight = undefined;
             }
             this.clearTimeout();
