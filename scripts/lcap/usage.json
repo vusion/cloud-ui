@@ -5814,6 +5814,13 @@
                             }
                         },
                         {
+                            "name": "filename",
+                            "type": "string",
+                            "description": "导出文件名",
+                            "required": false,
+                            "default": "tableView.params.filename"
+                        },
+                        {
                             "name": "sort",
                             "type": "string",
                             "description": "排序字段",
