@@ -132,6 +132,7 @@
     padding: 0 var(--tabs-item-padding-x);
     transition: color var(--transition-duration-base);
     color: var(--tabs-item-color);
+    vertical-align: middle;
 }
 
 .item[disabled] {

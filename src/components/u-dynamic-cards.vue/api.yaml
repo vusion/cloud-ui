@@ -3,7 +3,6 @@
   attrs:
     - name: data
       type: Array
-      default: null
       description: 数据
     - name: dynamic
       type: boolean
@@ -11,7 +10,6 @@
       description: 是否可以动态添加/删除项
     - name: get-default-item
       type: Function
-      default: null
       description: 传入获取默认项的方法
     - name: initial-add
       type: boolean
@@ -40,24 +38,19 @@
       description: 添加按钮的文本
     - name: mini-formatter
       type: Function
-      default: null
       description: mini 显示时的格式器
   computed:
     - name: touched
       type: boolean
-      default: null
       description: 用户是否触碰
     - name: dirty
       type: boolean
-      default: null
       description: 用户是否修改值
     - name: valid
       type: boolean
-      default: null
       description: 验证是否通过
     - name: firstError
       type: string
-      default: null
       description: 第一个错误提示消息
   slots:
     - name: default
@@ -65,22 +58,18 @@
       props:
         - name: item
           type: object
-          default: null
           description: 项目
         - name: index
           type: number
-          default: null
           description: 索引
     - name: mini
       description: 收起时 mini 显示区的内容
       props:
         - name: item
           type: object
-          default: null
           description: 项目
         - name: index
           type: number
-          default: null
           description: 索引
   events:
     - name: before-add

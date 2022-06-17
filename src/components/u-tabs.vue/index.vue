@@ -1,8 +1,12 @@
 <template>
     <div :class="$style.root" :disabled="disabled" :appear="appear" :size="size" :item-width="itemWidth">
         <div :class="$style.head">
-            <span :class="[$style.extra, $env.VUE_APP_DESIGNER ? $style.gap : null]" vusion-slot-name="extra">
+            <span :class="$style.extra" vusion-slot-name="extra">
                 <slot name="extra"></slot>
+                <s-empty v-if="!$slots.extra
+                    && $scopedSlots
+                    && !($scopedSlots.extra && $scopedSlots.extra())
+                    && $env.VUE_APP_DESIGNER"></s-empty>
             </span>
             <nav :class="$style.nav" :scrollable="showScrollButtons === 'always' || (showScrollButtons === 'auto' && scrollable)">
                 <span :class="$style.prev" @click="scrollPrev"></span>
@@ -34,7 +38,7 @@
                                         {{ itemVM.title }}
                                     </f-slot>
                                 </span>
-                                <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
+                                <span v-if="closable && itemVM.closable" :class="$style.close" @click.stop="close(itemVM)"></span>
                             </a>
                         </template>
                     </div>
@@ -51,11 +55,13 @@
 <script>
 import { MSinglex } from '../m-singlex.vue';
 import { scrollTo } from '../../utils/dom';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-tabs',
     childName: 'u-tab',
     extends: MSinglex,
+    components: { SEmpty },
     props: {
         autoSelect: { type: Boolean, default: true },
         closable: { type: Boolean, default: false },

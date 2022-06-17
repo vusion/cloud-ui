@@ -1244,6 +1244,7 @@
     --select-icon-color-hover: var(--font-fourth-color); /* @hidden */
     --select-popper-padding: 8px 0; /* @hidden */
     --select-arrow-color-hover: var(--font-second-color); /* @hidden */
+    --select-search-icon-color: #ccc; /* @hidden */
 
     /* @component u-rating */
     --rate-space: 6px;

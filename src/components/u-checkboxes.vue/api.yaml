@@ -22,7 +22,6 @@
     - name: max
       title: 选中最大数
       type: number
-      default: 999
       description: 可以勾选多选框的最大数量
     - name: readonly
       title: 只读

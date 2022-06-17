@@ -10,7 +10,6 @@
     - name: data
       title: 数据
       type: Array<{ text, value }>
-      default: null
       description: 数据列表
     - name: placeholder
       title: 选择框占位符
@@ -32,7 +31,6 @@
       type: any
       sync: true
       model: true
-      default: null
       description: ""
     - name: join
       title: 连接符

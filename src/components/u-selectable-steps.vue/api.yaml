@@ -114,7 +114,6 @@
     - name: title
       title: 标题
       type: string
-      default: null
       description: 步骤标题文本
     - name: desc
       title: 描述信息

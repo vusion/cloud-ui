@@ -42,7 +42,6 @@
     - name: formatter
       title: 格式化
       type: string, object
-      default: null
       description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象
       advanced: true
     - name: sync-on

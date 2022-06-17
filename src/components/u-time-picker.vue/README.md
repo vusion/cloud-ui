@@ -95,8 +95,8 @@ export default {
 | disabled | boolean |  | `false` |  |
 | visible | boolean |  | `true` | 是否显示 |
 | clearable | boolean |  | `true` | 开启并在输入框有内容时会显示清除按钮 |
-| preIcon | string | `[object Object]`<br/>`[object Object]` | `'time'` |  |
-| suffixIcon | string | `[object Object]`<br/>`[object Object]` | `''` |  |
+| preIcon | string | `[object Object]` | `'time'` |  |
+| suffixIcon | string | `[object Object]` |  |  |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置时间选择输入框宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置时间选择输入框高度大小 |
 | append-to | string | `[object Object]`<br/>`[object Object]` | `'body'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |

@@ -20,13 +20,11 @@
       description: 是否可循环播放灯箱内容
     - name: animation
       type: string
-      default: null
       description: 动画（可选fade/zoom-out）
     - name: value
       type: any
       sync: true
       model: true
-      default: null
       description: 当前选择的值
     - name: zoomable
       type: boolean

@@ -52,6 +52,9 @@ export default {
         checkControlled: { type: Boolean, default: false },
         expanderWidth: {type: Number, default: 30 },
         paddingLeft: {type: Number, default: 0 },
+        filterable: { type: Boolean, default: false },
+        filterText: { type: String, default: '' },
+        filterFields: { type: Array, default: () => ['text'] },
     },
     data() {
         return {
