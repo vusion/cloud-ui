@@ -284,7 +284,7 @@ export default {
         remotePaging: { type: Boolean, default: false },
         remoteSorting: { type: Boolean, default: false },
         remoteFiltering: { type: Boolean, default: false },
-        title: String,
+        title: { type: String, default: '' },
         titleAlignment: { type: String, default: 'center' },
         border: { type: Boolean, default: false },
         line: { type: Boolean, default: false },
@@ -887,7 +887,7 @@ export default {
                 .filter((item) => !!item)
                 .join(',');
         },
-        async exportExcel(page = 1, size = 2000, sort, order) {
+        async exportExcel(page = 1, size = 2000, filename, sort,order) {
             if (this.currentDataSource.sorting && this.currentDataSource.sorting.field) {
                 const { sorting } = this.currentDataSource;
                 sort = sort || sorting.field;
@@ -923,7 +923,6 @@ export default {
                     // console.time('加载数据');
                     let res = await this.currentDataSource._load({ page, size, sort, order });
                     // console.timeEnd('加载数据');
-
                     if (res instanceof Object) {
                         if (res.hasOwnProperty('content'))
                             res = res.content;
@@ -940,13 +939,15 @@ export default {
                 }
 
                 // console.time('生成文件');
+                console.log('content', content);
                 const sheetData = this.getSheetData(content);
-
-                let fileName = document.title.split(' ').shift() || 'Export';
-                fileName += format(new Date(), '_YYYYMMDD_HHmmss');
-
+                let myFileName;
+                myFileName = filename || document.title.split(' ').shift() || 'Export';
+                myFileName += format(new Date(), '_YYYYMMDD_HHmmss');
+                const columns = this.visibleColumnVMs.length;
+                const sheetTitle = this.title || undefined;
                 const { exportExcel } = await import(/* webpackChunkName: 'xlsx' */ '../../utils/xlsx');
-                exportExcel(sheetData, 'Sheet1', fileName);
+                exportExcel(sheetData, 'Sheet1', myFileName, sheetTitle, columns);
                 // console.timeEnd('生成文件');
             } catch (err) {
                 console.error(err);
@@ -958,51 +959,66 @@ export default {
             document.removeEventListener('click', fn, true);
             document.removeEventListener('keydown', fn, true);
         },
-        async getRenderResult(arr = []) {
-            if (arr.length === 0) {
-                const res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
-                res[1] = res[0].map((item) => '');
-                return res;
-            }
+      async getRenderResult(arr = []) {
+        if (arr.length === 0) {
+          const res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
+          res[1] = res[0].map((item) => '');
+          return res;
+        }
 
-            // console.time('渲染数据');
-            const startIndexes = [];
-            for (let i = 0; i < this.visibleColumnVMs.length; i++) {
-                const vm = this.visibleColumnVMs[i];
-                if (vm.type === 'index')
-                    startIndexes[i] = +vm.startIndex;
-            }
+        // console.time('渲染数据');
+        const startIndexes = [];
+        for (let i = 0; i < this.visibleColumnVMs.length; i++) {
+          const vm = this.visibleColumnVMs[i];
+          if (vm.type === 'index')
+            startIndexes[i] = +vm.startIndex;
+        }
 
-            let res = [];
-            // this.currentDataSource.paging.size 会受可分页选项影响，直接改成pageSize
-            const page = this.pageSize;
-            for (let i = 0; i < arr.length; i += page) {
-                this.exportData = arr.slice(i, i + page);
-                await new Promise((res) => {
-                    this.$once('hook:updated', res);
-                });
-                const res1 = Array.from(this.$el.querySelectorAll(i === 0 ? '[position=static] tr' : '[position=static] tbody tr')).map((tr) => Array.from(tr.querySelectorAll('th, td')).map((node) => node.innerText));
-                res = res.concat(res1);
-            }
-
-            for (let rowIndex = 1; rowIndex < res.length; rowIndex++) {
-                const item = res[rowIndex];
-                for (let j = 0; j < item.length; j++) {
-                    if (startIndexes[j] !== undefined)
-                        item[j] = startIndexes[j] + (rowIndex - 1);
+        let res = [];
+        // this.currentDataSource.paging.size 会受可分页选项影响，直接改成pageSize
+        const page = this.pageSize;
+        for (let i = 0; i < arr.length; i += page) {
+          this.exportData = arr.slice(i, i + page);
+          await new Promise((res) => {
+            this.$once('hook:updated', res);
+          });
+          const res1 = Array.from(this.$el.querySelectorAll(i === 0 ? '[position=static] tr' : '[position=static] tbody tr')).map((tr) => Array.from(tr.querySelectorAll('th, td')).map(
+            (node) => {
+              // 如果列表里是输入框，拿框里的结果填入excel
+              let inputElement = node.getElementsByTagName('input');
+              let placeholderElement = Array.from(node.getElementsByTagName('span')).filter((item) => item.className.includes('u-select_placeholder'));
+              if (inputElement.length !== 0) {
+                return inputElement[0].value;
+              } else {
+                // 下拉框未选则时，placeholder内容不显示
+                if (placeholderElement.length !== 0 && placeholderElement[0].innerText === node.innerText) {
+                  return '';
                 }
+                return node.innerText;
+              }
             }
-            // console.timeEnd('渲染数据');
+          ));
+          res = res.concat(res1);
+        }
 
-            // console.time('复原表格');
-            this.exportData = undefined;
-            await new Promise((res) => {
-                this.$once('hook:updated', res);
-            });
-            // console.timeEnd('复原表格');
+        for (let rowIndex = 1; rowIndex < res.length; rowIndex++) {
+          const item = res[rowIndex];
+          for (let j = 0; j < item.length; j++) {
+            if (startIndexes[j] !== undefined)
+              item[j] = startIndexes[j] + (rowIndex - 1);
+          }
+        }
+        // console.timeEnd('渲染数据');
 
-            return res;
-        },
+        // console.time('复原表格');
+        this.exportData = undefined;
+        await new Promise((res) => {
+          this.$once('hook:updated', res);
+        });
+        // console.timeEnd('复原表格');
+
+        return res;
+      },
         getSheetData(arr) {
             const titles = arr[0];
             const sheetData = [];
