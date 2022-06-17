@@ -660,7 +660,7 @@
         - name: filename
           type: string
           description: 导出文件名
-          required: true
+          required: false
           default: tableView.params.filename
         - name: sort
           type: string
