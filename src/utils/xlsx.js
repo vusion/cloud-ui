@@ -7,9 +7,10 @@ export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns)
         const endCell = XLSX.utils.encode_col(columns - 1) + 1;
         XLSX.utils.sheet_add_aoa(sheet, [[sheetTitle]], {origin: {r:0, c:0}});
         sheet["!merges"] = [XLSX.utils.decode_range(`A1:${endCell}`)];
+        XLSX.utils.sheet_add_json(sheet, sheetData, {origin: -1});
+    } else {
+        XLSX.utils.sheet_add_json(sheet, sheetData);
     }
-    // 添加数据到后续行
-    XLSX.utils.sheet_add_json(sheet, sheetData, {origin: -1});
     const wb = XLSX.utils.book_new()
     XLSX.utils.book_append_sheet(wb, sheet, sheetName)
     const workbookBlob = workbook2blob(wb)

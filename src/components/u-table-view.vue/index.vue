@@ -910,21 +910,25 @@ export default {
                 this.$toast.show('数据条数size必须在1-2000之间');
                 return;
             }
-
             const fn = (event) => {
                 event.stopPropagation();
                 event.preventDefault();
             };
             document.addEventListener('click', fn, true);
             document.addEventListener('keydown', fn, true);
-
+            // 空值和boolean值时到处默认文件名
+            if (!filename || filename === true ) {
+                filename = document.title.split(' ').shift() || 'Export';
+                filename += format(new Date(), '_YYYYMMDD_HHmmss');
+            }
+            console.log('filename', filename);
             try {
                 let content = [];
                 if (!this.currentDataSource._load) {
                     content = await this.getRenderResult(this.currentDataSource.data);
                 } else {
                     // console.time('加载数据');
-                    let res = await this.currentDataSource._load({ page, size, sort, order });
+                    let res = await this.currentDataSource._load({ page, size, filename, sort, order });
                     // console.timeEnd('加载数据');
                     if (res instanceof Object) {
                         if (res.hasOwnProperty('content'))
@@ -942,15 +946,12 @@ export default {
                 }
 
                 // console.time('生成文件');
-                console.log('content', content);
+                // console.log('excel-content', content);
                 const sheetData = this.getSheetData(content);
-                let myFileName;
-                myFileName = filename || document.title.split(' ').shift() || 'Export';
-                myFileName += format(new Date(), '_YYYYMMDD_HHmmss');
                 const columns = this.visibleColumnVMs.length;
                 const sheetTitle = this.title || undefined;
                 const { exportExcel } = await import(/* webpackChunkName: 'xlsx' */ '../../utils/xlsx');
-                exportExcel(sheetData, 'Sheet1', myFileName, sheetTitle, columns);
+                exportExcel(sheetData, 'Sheet1', filename, sheetTitle, columns);
                 // console.timeEnd('生成文件');
             } catch (err) {
                 console.error(err);
