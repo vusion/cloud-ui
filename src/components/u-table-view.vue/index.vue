@@ -916,10 +916,12 @@ export default {
             };
             document.addEventListener('click', fn, true);
             document.addEventListener('keydown', fn, true);
-            if (!filename) {
+            // 空值和boolean值时到处默认文件名
+            if (!filename || filename === true ) {
                 filename = document.title.split(' ').shift() || 'Export';
                 filename += format(new Date(), '_YYYYMMDD_HHmmss');
             }
+            console.log('filename', filename);
             try {
                 let content = [];
                 if (!this.currentDataSource._load) {
