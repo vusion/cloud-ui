@@ -1130,7 +1130,7 @@
   },
   "u-capsules/value": {
     "type": "any",
-    "description": ""
+    "description": "当前选中的值"
   },
   "u-capsules/auto-select": {
     "type": "boolean",
@@ -2125,10 +2125,6 @@
       {
         "title": "YYYY-MM-DD",
         "value": "format"
-      },
-      {
-        "title": "暂无",
-        "value": ""
       }
     ],
     "description": "转换器，用于转换时间结果"
@@ -2161,10 +2157,6 @@
       {
         "value": "calendar",
         "title": "日历"
-      },
-      {
-        "value": "",
-        "title": "暂无"
       }
     ],
     "description": ""
@@ -2175,10 +2167,6 @@
       {
         "value": "calendar",
         "title": "日历"
-      },
-      {
-        "value": "",
-        "title": "暂无"
       }
     ],
     "description": ""
@@ -2327,10 +2315,6 @@
       {
         "title": "YYYY-MM-DD HH:mm:ss",
         "value": "format"
-      },
-      {
-        "title": "暂无",
-        "value": ""
       }
     ],
     "description": "转换器"
@@ -2341,10 +2325,6 @@
       {
         "value": "calendar",
         "title": "日历"
-      },
-      {
-        "value": "",
-        "title": "暂无"
       }
     ],
     "description": ""
@@ -2355,10 +2335,6 @@
       {
         "value": "calendar",
         "title": "日历"
-      },
-      {
-        "value": "",
-        "title": "暂无"
       }
     ],
     "description": ""
@@ -3888,10 +3864,6 @@
       {
         "value": "search",
         "title": "搜索"
-      },
-      {
-        "value": "",
-        "title": "暂无"
       }
     ],
     "description": ""
@@ -3902,10 +3874,6 @@
       {
         "value": "search",
         "title": "搜索"
-      },
-      {
-        "value": "",
-        "title": "暂无"
       }
     ],
     "description": ""
@@ -6075,10 +6043,6 @@
       {
         "value": "search",
         "title": "搜索"
-      },
-      {
-        "value": "",
-        "title": "暂无"
       }
     ],
     "description": ""
@@ -6089,10 +6053,6 @@
       {
         "value": "search",
         "title": "搜索"
-      },
-      {
-        "value": "",
-        "title": "暂无"
       }
     ],
     "description": ""
@@ -7157,10 +7117,6 @@
       {
         "value": "time",
         "title": "时间"
-      },
-      {
-        "value": "",
-        "title": "暂无"
       }
     ],
     "description": ""
@@ -7171,10 +7127,6 @@
       {
         "value": "time",
         "title": "时间"
-      },
-      {
-        "value": "",
-        "title": "暂无"
       }
     ],
     "description": ""
@@ -7770,7 +7722,7 @@
   },
   "u-uploader/max-size": {
     "type": "string",
-    "description": "可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`"
+    "description": "可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`KB`、`MB`、`GB`"
   },
   "u-uploader/list-type": {
     "type": "string",

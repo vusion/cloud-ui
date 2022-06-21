@@ -88,7 +88,6 @@
     - name: title
       title: 标题
       type: string
-      default: null
       description: 显示的标题
     - name: expanded
       title: 当前"展开/折叠"状态

@@ -1368,8 +1368,8 @@ export default {
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置选择框高度大小 |
 | opened.sync | boolean |  | `false` | 切换弹出/关闭状态 |
 | autofocus | boolean |  | `false` |  |
-| prefix | string | `[object Object]`<br/>`[object Object]` | `''` |  |
-| suffix | string | `[object Object]`<br/>`[object Object]` | `''` |  |
+| prefix | string | `[object Object]` |  |  |
+| suffix | string | `[object Object]` |  |  |
 | append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
 
 ### Slots

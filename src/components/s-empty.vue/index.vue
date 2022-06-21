@@ -14,7 +14,7 @@ export default {
     border: 1px dashed #C3C3C3;
     text-align: center;
     color: #999;
-    min-height: 32px;
+    min-height: 30px;
     min-width: 90px;
     width: 100%;
     align-items: center;

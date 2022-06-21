@@ -15,7 +15,6 @@
       type: any
       sync: true
       model: true
-      default: null
       description: 当前选择的值
     - name: collapsible
       title: 是否可折叠
@@ -80,7 +79,6 @@
     - name: value
       title: 值
       type: any
-      default: null
       description: 此项的值
     - name: icon
       title: 图标
@@ -95,7 +93,6 @@
     - name: item
       title: 相关对象
       type: object
-      default: null
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
       advanced: true
     - name: linkType
@@ -158,7 +155,6 @@
     - name: title
       title: 标题
       type: string
-      default: null
       description: 显示的标题
     - name: collapsible
       title: 是否可折叠

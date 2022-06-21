@@ -204,7 +204,7 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | Array |  | `[]` | 多选组的选中项 |
 | min | number |  | `0` | 可以勾选多选框的最小数量 |
-| max | number |  | `999` | 可以勾选多选框的最大数量 |
+| max | number |  |  | 可以勾选多选框的最大数量 |
 | readonly | boolean |  | `false` |  |
 | disabled | boolean |  | `false` |  |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `''` | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式 |

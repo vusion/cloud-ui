@@ -128,7 +128,7 @@ export default {
 | minlength | number |  |  |  |
 | maxlength | number |  |  |  |
 | spellcheck | boolean |  |  |  |
-| autofocus | boolean |  |  |  |
+| autofocus | boolean |  | `false` |  |
 | readonly | boolean |  | `false` |  |
 | disabled | boolean |  | `false` |  |
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置多行输入框大小 |

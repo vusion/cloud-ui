@@ -101,8 +101,8 @@
                                             </span>
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
-                                            <template v-if="item.level !== undefined && columnIndex === treeColumnIndex">
-                                                <span :class="$style.indent" :style="{ paddingLeft: 16*item.level + 'px' }"></span>
+                                            <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
+                                                <span :class="$style.indent" :style="{ paddingLeft: 16*item.tableTreeItemLevel + 'px' }"></span>
                                                 <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
@@ -139,8 +139,8 @@
                                             </span>
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" :disabled="item.disabled" @click="toggleExpanded(item)"></span>
-                                            <template v-if="item.level !== undefined && columnIndex === treeColumnIndex">
-                                                <span :class="$style.indent" :style="{ paddingLeft: 16*item.level + 'px' }"></span>
+                                            <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
+                                                <span :class="$style.indent" :style="{ paddingLeft: 16*item.tableTreeItemLevel + 'px' }"></span>
                                                 <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
@@ -1259,7 +1259,7 @@ export default {
         processTreeData(data, level = 0, parent) {
             let newData = [];
             for (const item of data) {
-                item.level = level;
+                item.tableTreeItemLevel = level;
                 item.parentPointer = parent && this.$at(parent, this.valueField);
                 if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
                     this.$setAt(item, this.hasChildrenField, true);
@@ -1307,7 +1307,7 @@ export default {
                     const index = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(item, this.valueField));
                     const newDataIndex = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(result[0], this.valueField));
                     if (index !== -1 && newDataIndex === -1) {
-                        const treeData = this.processTreeData(result, item.level + 1, item);
+                        const treeData = this.processTreeData(result, item.tableTreeItemLevel + 1, item);
                         this.currentData.splice(index + 1, 0, ...treeData);
                     }
                     this.updateTreeExpanded(item, expanded);

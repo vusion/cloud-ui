@@ -4,14 +4,12 @@
     - name: data
       title: 数据
       type: Array<{ text, value }>
-      default: null
       description: 数据列表
     - name: value
       title: 值
       type: any
       sync: true
       model: true
-      default: null
       description: 当前选择的值
     - name: label-size
       title: 标签尺寸
@@ -28,7 +26,6 @@
     - name: categories
       title: 多级分类
       type: Array<{ label, key, tip }>
-      default: null
       description: 多级分类，其中`label`为标签名，`tip`为该标签的提示
     - name: auto-select
       title: 自动选中

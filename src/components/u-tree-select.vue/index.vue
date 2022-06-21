@@ -48,6 +48,15 @@
                     {{ $at(selectedItem, this.textField) || selectedItem.text }}
                 </span>
             </template>
+            <u-input 
+              v-if="filterable"
+              v-show="filtering" 
+              ref="input" 
+              :class="$style.input" 
+              :value="filterText"
+              @click.stop
+              @input="onInput">
+          </u-input>
         </div>
         <span v-if="clearable && !!currentText"
             :class="$style.clearable"
@@ -85,6 +94,9 @@
                 :readonly="readonly"
                 :disabled="disabled"
                 :expanderWidth="expanderWidth"
+                :filterable="filterable"
+                :filterText="filterText"
+                :filterFields="filterFields"
                 @change="$emit('change', $event, this)"
                 @before-select="$emit('before-select', $event, this)"
                 @select="$emit('select', $event, this)"
@@ -147,6 +159,7 @@ export default {
             type: Number,
             default: 30
         },
+        filterFields: { type: Array, default: () => ['text'] },
     },
     data() {
         return {
@@ -161,6 +174,7 @@ export default {
             vnodes: [],
             dataSourceObj: {},
             actualValue: this.value,
+            filtering: false,
         };
     },
     computed: {
@@ -301,6 +315,10 @@ export default {
         onUpdateValue($event) {
             this.actualValue = $event;
             this.$emit('update:value', $event, this)
+            if(this.filterable) {
+              this.filterText = '';
+              this.filtering = false;              
+            }
         },
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
@@ -387,12 +405,23 @@ export default {
             this.popperOpened = true; // 刚打开时，除非是没有加载，否则保留上次的 filter 过的数据
             this.$emit("open", $event, this);
             this.$emit("update:opened", true);
+            if(this.filterable) {
+              this.filtering = true;
+              setTimeout(() => {
+                this.$refs.input.focus();
+              }); 
+            }
         },
         onClose($event) {
             this.popperOpened = false;
             this.focusedVM = undefined;
             this.$emit("close", $event, this);
             this.$emit("update:opened", false);
+            if(this.filterable) {
+              this.filtering = false;
+              this.$refs.input.blur();
+              this.filterText = '';
+            }
         },
         onFocus() {
             // @disabled
@@ -408,7 +437,7 @@ export default {
                 return;
             }
             this.filterText = value;
-            this.fastLoad(false, true);
+            // this.fastLoad(false, true);
             this.open();
         },
         onBlur() { },
@@ -573,6 +602,8 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: #fff;
+  color: #212121;
 }
 
 .popper {

@@ -10,19 +10,16 @@
     - name: data
       title: 数据
       type: Array<{ text, value }>
-      default: null
       description: 数据列表
     - name: value
       title: 值
       type: any
       sync: true
       model: true
-      default: null
       description: ""
     - name: categories
       title: 多级分类
       type: Array<{ label, key, placeholder }>
-      default: null
       designer-value: "[{}, {}, {}]"
       description: 多级分类
     - name: hide-empty

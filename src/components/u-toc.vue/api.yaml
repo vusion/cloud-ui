@@ -15,7 +15,6 @@
       type: any
       sync: true
       model: true
-      default: null
       description: 当前选择的值
     - name: scroll-spy
       title: 滚动监听
@@ -109,12 +108,10 @@
     - name: label
       title: 标签
       type: string
-      default: null
       description: 此项显示的文本
     - name: value
       title: 值
       type: any
-      default: null
       description: 此项的值
     - name: disabled
       title: 禁用
@@ -124,7 +121,6 @@
     - name: item
       title: 相关对象
       type: object
-      default: null
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
     - name: linkType
       title: 链接类型

@@ -11,7 +11,6 @@
     - name: data
       title: 数据
       type: Array
-      default: null
       description: 数据
     - name: dynamic
       title: 动态添加
@@ -21,7 +20,6 @@
     - name: get-default-item
       title: 默认项的方法
       type: Function
-      default: null
       description: 传入获取默认项的方法
     - name: initial-add
       title: 自动补充项
@@ -168,17 +166,14 @@
     - name: title
       title: 列标题
       type: string
-      default: null
       description: 列标题
     - name: field
       title: 区域
       type: string
-      default: null
       description: data 中的字段名
     - name: width
       title: 宽度
       type: string, number
-      default: null
       description: 给列指定宽度，可以为数字或百分比
     - name: ellipsis
       title: 省略显示
@@ -203,17 +198,14 @@
     - name: label
       title: 标签
       type: string
-      default: null
       description: 标签。用于提示消息的合成
     - name: muted
       title: 静默消息提示
       type: string
-      default: null
       description: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
     - name: rules
       title: 验证规则
       type: string, Array
-      default: null
       description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
       compType: validationRulesSelect
     - name: ignore-validation
@@ -229,18 +221,15 @@
     - name: validating-options
       title: 验证辅助对象
       type: object
-      default: null
       description: "验证辅助对象。在 Rule 的 `validate` 方法中使用。表格中会额外将`{ data: currentData,
         item, rowIndex }`注入"
     - name: validating-value
       title: 验证值
       type: any
-      default: null
       description: 临时修改验证值
     - name: validating-process
       title: 验证前对值进行的预处理
       type: Function
-      default: null
       description: 验证前对值进行预处理
   slots:
     - name: default
