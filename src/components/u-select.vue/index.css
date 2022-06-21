@@ -191,7 +191,10 @@
     right: 8px;
 }
 
-.root[clearable] .text, .root[suffix] .text {
+.root[clearable],
+.root[suffix],
+.root .input[filterable],
+.root[clearable] .input {
     padding-right: 30px;
 }
 
