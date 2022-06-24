@@ -16,7 +16,7 @@ export default {
 <style module>
 .root {
     width: 100%;
-    margin: 0 calc(var(--space-base) / (-2));
+    overflow: hidden;
 }
 
 .root .column {
