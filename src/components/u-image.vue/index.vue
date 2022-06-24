@@ -36,7 +36,7 @@ export default {
         convertSrcFn: {
             type: Function,
             default: (src) => {
-                if (src.indexOf('base64') !== -1) {
+                if (src.indexOf && src.indexOf('base64') !== -1) {
                     return src;
                 }
                 const reg = /^([^\[\]]+)(\,([^\[\]]+)){0,}$/g;
