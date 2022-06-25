@@ -1,6 +1,8 @@
 <template>
 <div :class="$style.root">
-    <slot></slot>
+    <div :class="$style.wrap">
+        <slot></slot>
+    </div>
 </div>
 </template>
 
@@ -23,6 +25,10 @@ export default {
     padding: calc(var(--space-base) / 2);
 }
 
+.root .wrap {
+    margin: 0 calc(var(--space-base) / (-2));
+}
+
 .root[gap^="none"] {
     margin-top: 0;
     margin-bottom: 0;
@@ -31,6 +37,9 @@ export default {
 .root[gap^="none"] .column {
     padding-top: 0;
     padding-bottom: 0;
+}
+.root[gap^="none"] .wrap {
+    margin: 0 0;
 }
 
 .root[gap$="none"] {
@@ -43,6 +52,10 @@ export default {
     padding-right: 0;
 }
 
+.root[gap$="none"] .wrap {
+    margin: 0 0;
+}
+
 .root[gap^="small"] {
     margin-top: calc(var(--space-small) / (-2));
     margin-bottom: calc(var(--space-small) / (-2));
@@ -53,14 +66,17 @@ export default {
     padding-bottom: calc(var(--space-small) / 2);
 }
 
-.root[gap$="small"] {
-    margin-left: calc(var(--space-small) / (-2));
-    margin-right: calc(var(--space-small) / (-2));
+.root[gap^="small"] .wrap {
+   margin: 0 calc(var(--space-small) / (-2));
 }
 
 .root[gap$="small"] .column {
     padding-left: calc(var(--space-small) / 2);
     padding-right: calc(var(--space-small) / 2);
+}
+
+.root[gap$="small"] .wrap {
+    margin: 0 calc(var(--space-small) / (-2));
 }
 
 .root[gap^="large"] {
@@ -73,14 +89,17 @@ export default {
     padding-bottom: calc(var(--space-large) / 2);
 }
 
-.root[gap$="large"] {
-    margin-left: calc(var(--space-large) / (-2));
-    margin-right: calc(var(--space-large) / (-2));
+.root[gap^="large"] .wrap {
+    margin: 0 calc(var(--space-large) / (-2));
 }
 
 .root[gap$="large"] .column {
     padding-left: calc(var(--space-large) / 2);
     padding-right: calc(var(--space-large) / 2);
+}
+
+.root[gap$="normal"] .wrap {
+    margin: 0 calc(var(--space-base) / (-2));
 }
 
 </style>

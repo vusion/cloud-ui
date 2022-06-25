@@ -12,7 +12,6 @@ export default { name: 'u-grid-layout-row', props: { repeat: Number } };
 .root {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 calc(var(--space-base) / (-2));
 }
 
 .root[justify="start"] { justify-content: flex-start; }
