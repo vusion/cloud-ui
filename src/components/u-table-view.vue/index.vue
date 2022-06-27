@@ -1110,7 +1110,7 @@ export default {
                 if (this.$emitPrevent('before-filter', {}, this))
                     return;
             }
-            const mergedFiltering = this.currentDataSource && this.currentDataSource.filtering;
+            const mergedFiltering = this.currentDataSource && this.currentDataSource.filtering || {};
             Object.assign(mergedFiltering, filtering);
             this.currentDataSource.filter(mergedFiltering);
             this.load();
