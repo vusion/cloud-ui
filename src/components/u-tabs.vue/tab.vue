@@ -18,6 +18,7 @@ export default {
             type: Boolean,
             default: false,
         },
+        closable: { type: Boolean, default: true },
     },
     computed: {
         selected() {

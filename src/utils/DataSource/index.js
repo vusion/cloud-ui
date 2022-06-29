@@ -1,9 +1,10 @@
 import Vue from 'vue';
+import get from 'lodash/get';
 
 const isOperator = (value) => {
     const operators = ['=', '==', 'eq', '!=', 'neq', '<', 'lt', '<=', 'lte', '>', 'gt', '>=', 'gte', 'includes', 'startsWith', 'endsWith'];
     return typeof value === 'function' || operators.includes(value);
-}
+};
 
 export const solveCondition = (condition, obj) => {
     if (Array.isArray(condition))
@@ -16,9 +17,9 @@ export const solveCondition = (condition, obj) => {
             if (typeof expression !== 'object')
                 expression = ['=', expression];
             if (Array.isArray(expression)) {
-                if(!isOperator(expression[0])) { // 多选项过滤，暂时简单处理
-                    let sourceValue = obj[key];
-                    let targetValue = expression;
+                if (!isOperator(expression[0])) { // 多选项过滤，暂时简单处理
+                    const sourceValue = get(obj, key);
+                    const targetValue = expression;
                     return targetValue.includes(sourceValue);
                 }
                 expression = {
@@ -27,7 +28,7 @@ export const solveCondition = (condition, obj) => {
                 };
             }
 
-            let sourceValue = obj[key];
+            let sourceValue = get(obj, key);
             let targetValue = expression.value;
             if (expression.caseInsensitive) {
                 sourceValue = typeof sourceValue === 'string' ? sourceValue.toLowerCase() : sourceValue;
