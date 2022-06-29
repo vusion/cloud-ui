@@ -1914,7 +1914,7 @@ export default {
 <template>
     <u-linear-layout direction="vertical">
         <u-button color="primary" @click="() => $refs.tableView.exportExcel()">导出 Excel</u-button>
-        <u-table-view ref="tableView" pageable :remote-paging="true" :data-source="load">
+        <u-table-view ref="tableView" pageable :remote-paging="true" :data-source="load" title="表格标题">
             <u-table-view-column type="index" width="60" title="序号"></u-table-view-column>
             <u-table-view-column title="创建时间">
                 <template #cell="scope">
@@ -1931,9 +1931,21 @@ export default {
                         <u-text :text="scope.item.student.name"></u-text>
                 </template>
             </u-table-view-column>
-            <u-table-view-column title="age">
+            <u-table-view-column title="输入">
                 <template #cell="scope">
-                        <u-text :text="scope.item.student.age"></u-text>
+                    <u-linear-layout gap="small">
+                        <u-input :value="100"></u-input>
+                    </u-linear-layout>
+                </template>
+            </u-table-view-column>
+            <u-table-view-column title="选择">
+                <template #cell="scope">
+                    <u-linear-layout gap="small">
+                           <u-select placeholder="自定义">
+                                <u-select-item value="java">JS</u-select-item>
+                                <u-select-item value="nodejs">Node.js</u-select-item>
+                            </u-select>
+                    </u-linear-layout>
                 </template>
             </u-table-view-column>
             <u-table-view-column title="操作">
@@ -2250,7 +2262,7 @@ Methods
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
 
-#### exportExcel(page, size, sort, order)
+#### exportExcel(page, size, filename, sort, order)
 
 导出 excel 文件
 
@@ -2258,6 +2270,7 @@ Methods
 | ----- | ---- | ------- | ----------- |
 | page | number | `1` | 当前页码 |
 | size | number | `2000` | 每页条数 |
+| filename | string | `'tableView.params.filename'` | 导出文件名 |
 | sort | string | `'tableView.params.sort'` | 排序字段 |
 | order | string | `'tableView.params.order'` | 排序顺序，'asc' 或 'desc' |
 
