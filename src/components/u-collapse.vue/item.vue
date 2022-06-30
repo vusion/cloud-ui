@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :disabled="disabled" :expanded="currentExpanded">
     <div :class="$style.head" :expand-trigger="parentVM.expandTrigger" @click="parentVM.expandTrigger === 'click' && toggle()">
-        <span :class="$style.title" vusion-slot-name="title">
+        <span :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
             <slot name="title">{{ title }}</slot>
         </span>
         <span :class="$style.expander"
@@ -34,10 +34,10 @@ import SEmpty from '../s-empty.vue';
 export default {
     name: 'u-collapse-item',
     parentName: 'u-collapse',
-    mixins: [MChild],
     components: {
         SEmpty,
     },
+    mixins: [MChild],
     props: {
         title: String,
         expanded: { type: Boolean, default: false },

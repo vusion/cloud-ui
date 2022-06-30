@@ -3,7 +3,7 @@
 tabindex="0" @keydown.space.prevent @keyup.space.prevent="select()"
 @focus="onFocus" @blur="onBlur" v-on="listeners" :readonly="currentReadonly">
     <span :class="$style.radio" :selected="selected" :disabled="currentDisabled" :readonly="currentReadonly"></span>
-    <span vusion-slot-name="text"><slot>{{ text }}</slot></span>
+    <span vusion-slot-name-edit="text"><slot>{{ text }}</slot></span>
 </label>
 </template>
 
@@ -123,7 +123,6 @@ export default {
     box-shadow: var(--radio-box-shadow-active-disabled);
 }
 
-
 .radio {
     display: inline-block;
     position: relative;
@@ -147,7 +146,6 @@ export default {
 .radio[disabled]:hover {
     border-color: var(--radio-border-color-disabled);
 }
-
 
 .radio::before {
     display: inline-block;

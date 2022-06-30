@@ -3,6 +3,7 @@
         <div
             :class="$style.title"
             vusion-slot-name="title"
+            vusion-slot-name-edit="title"
             no-for-edit
             vusion-click-enabled
             can-nodeinfo
@@ -40,6 +41,10 @@ import SEmpty from '../s-empty.vue';
 export default {
     name: 'u-dropdown',
     childName: 'u-dropdown-item',
+    components: {
+        UDropdownItem,
+        SEmpty,
+    },
     extends: MSinglex,
     props: {
         type: { type: String, default: 'text' },
@@ -55,10 +60,6 @@ export default {
         },
         opened: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
-    },
-    components: {
-        UDropdownItem,
-        SEmpty,
     },
     created() {
         this.$on('select', ({ itemVM }) => this.router && itemVM.navigate());

@@ -3,7 +3,7 @@
     :selected="parentVM.router ? active : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
     :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
     v-ellipsis-title
-    vusion-slot-name="text">
+    vusion-slot-name-edit="text">
     <i-ico v-if="icon" :name="icon" :class="$style.singleicon" notext></i-ico>
     <slot>{{ text }}</slot>
 </a>
@@ -57,7 +57,7 @@ export default {
                 const destination = this.destination.split('/');
                 const baseDestination = destination.splice(1, 1);
                 to = destination.join('/');
-                if (!to || '/'+ baseDestination !== this.$router.options.base)
+                if (!to || '/' + baseDestination !== this.$router.options.base)
                     return false;
             }
             const target = this.$router.resolve(to).route;
