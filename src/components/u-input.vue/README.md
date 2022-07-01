@@ -163,8 +163,8 @@ export default {
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置单行输入框宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置单行输入框高度大小 |
 | maxlengthMessage | string |  |  | 输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效 |
-| prefix | string | `[object Object]`<br/>`[object Object]` | `''` |  |
-| suffix | string | `[object Object]`<br/>`[object Object]` | `''` |  |
+| prefix | string | `[object Object]` |  |  |
+| suffix | string | `[object Object]` |  |  |
 
 ### Slots
 

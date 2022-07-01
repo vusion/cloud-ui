@@ -443,8 +443,8 @@ export default {
         },
 
         filter() {
-            if(this.$parent?.$options.name !== 'u-tree-view') return;
-            if(!this.rootVM?.filterable) return;
+            if(!this.$parent || this.$parent.$options.name !== 'u-tree-view') return;
+            if(!this.rootVM || !this.rootVM.filterable) return;
 
             let { filterText, filterFields } = this.rootVM;
             filterText = filterText.trim().toLowerCase();
@@ -454,7 +454,7 @@ export default {
             function dfs(node, parent = null, fields) {
                 if(!node) return;
 
-                const hiddenByFilter = filterFields.every((field) => !$at(node, field)?.toLowerCase().includes(filterText));
+                const hiddenByFilter = filterFields.every((field) => !$at(node, field) || !$at(node, field).toLowerCase().includes(filterText));
                 that.$set(node, 'hiddenByFilter', hiddenByFilter);
                 that.$set(node, 'expandedByFilter', false);
 

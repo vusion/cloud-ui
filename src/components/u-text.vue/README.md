@@ -80,9 +80,9 @@
 
 ### Events
 
-#### @$listeners
+#### @click
 
-监听所有`<span>`元素的事件。
+监听单击事件。
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |

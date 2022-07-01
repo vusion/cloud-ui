@@ -70,7 +70,7 @@
       default: normal
       description: 文本过长的处理方式
   events:
-    - name: $listeners
-      title: 监听事件
-      description: 监听所有`<span>`元素的事件。
+    - name: click
+      title: 单击事件
+      description: 监听单击事件。
       params: []

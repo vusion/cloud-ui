@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.14.11-beta.0",
+  "version": "0.14.11",
   "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -25,8 +25,9 @@
     "lint": "eslint --fix --ext .js,.vue src && stylelint --fix ./src/**/*.css",
     "ghpages": "vusion ghpages",
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
-    "deploy:dev": "node ./scripts/lcap && lcap deploy dist-theme --platform http://lcp.vusion.top && node bin/deploy-lcp-images --platform=http://lcp.vusion.top",
-    "deploy:test": "node ./scripts/lcap && lcap deploy dist-theme --platform http://defaulttenant.qa-ci.lcap.group && node bin/deploy-lcp-images --platform=http://defaulttenant.qa-ci.lcap.group",
+    "deploy:dev": "node ./scripts/lcap && lcap deploy dist-theme --platform http://defaulttenant.lcap.ha.dt.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.ha.dt.com",
+    "deploy:test": "node ./scripts/lcap && lcap deploy dist-theme --platform http://defaulttenant.lcap.qa-ci.lcap.group && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.qa-ci.lcap.group",
+    "deploy:pre": "node ./scripts/lcap && lcap deploy dist-theme --platform http://defaulttenant.lcap.ha.dri.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.ha.dri.com",
     "deploy:online": "node ./scripts/lcap && vusion deploy --framework cloud-ui.vusion@0.11 -v minor && vusion deploy --framework cloud-ui dist-theme && node bin/deploy-screenshots && node bin/deploy-drawings",
     "prepublishOnly": "rm -rf node_modules/.cache && npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
     "postpublish": "npm run build:docs && npm run deploy:online && vusion ghpages"
