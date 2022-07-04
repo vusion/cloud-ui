@@ -1,7 +1,7 @@
 ### 基础表单
 
 ``` html
-<u-form gap="large"
+<u-form
     ><u-form-item label="名称" required>
         <u-input placeholder="由字母、数字和中划线组成"></u-input>
     </u-form-item

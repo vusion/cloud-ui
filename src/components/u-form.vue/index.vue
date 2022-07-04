@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" @submit.prevent :layout="layoutValue">
+<div :class="$style.root" @submit.prevent :layout="layoutValue" :repeat="repeat">
     <slot></slot>
 </div>
 </template>
@@ -151,11 +151,15 @@ export default {
   margin-bottom: var(--form-item-margin-bottom-large);
 }
 
-.root[gap-width="large"][layout="inline"] .item:not(:last-child) {
+.root[gap-height="normal"][layout="block"] .item:not(:last-child) {
+    margin-bottom: var(--form-item-margin-bottom);
+}
+
+.root[gap-width="large"][layout="inline"]:not([repeat]) .item:not(:last-child) {
   margin-right: var(--space-large);
 }
 
-.root[gap-width="none"][layout="inline"] .item:not(:last-child) {
+.root[gap-width="none"][layout="inline"]:not([repeat]) .item:not(:last-child) {
   margin-right: var(--form-item-margin-bottom-none);
 }
 
@@ -167,12 +171,17 @@ export default {
   margin-bottom: var(--form-item-margin-bottom-none);
 }
 
-.root[gap-width="small"][layout="inline"] .item:not(:last-child) {
+.root[gap-width="small"][layout="inline"]:not([repeat]) .item:not(:last-child) {
   margin-right: var(--space-small);
 }
 
-.root[gap-width="small"][layout="inline"] .item > .item_label {
+/* 会导致label样式错乱 先去掉了 */
+/* .root[layout="inline"][gap-width="small"]:not([repeat]) .item > .item_label {
   padding-right: var(--space-small);
+} */
+
+.root[gap-width="normal"][layout="inline"]:not([repeat]) .item:not(:last-child) {
+  margin-right: var(--space-medium);
 }
 
 </style>
