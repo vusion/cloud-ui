@@ -85,6 +85,9 @@ const encode = function (str) {
 };
 
 const encodeUrl = function (url) {
+    if (!url) {
+        return url;
+    }
     const parsedPath = parsePath(url || '');
     const path = parsedPath.path;
     const hash = parsedPath.hash;
