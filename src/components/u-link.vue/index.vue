@@ -14,6 +14,7 @@
 
 <script>
 import IIco from '../i-ico.vue';
+import encodeUrl from '../../utils/encodeUrl';
 
 export default {
     name: 'u-link',
@@ -48,9 +49,9 @@ export default {
             if (this.href !== undefined)
                 return this.href;
             if (this.destination !== undefined)
-                return this.destination;
+                return encodeUrl(this.destination);
             else if (this.$router && this.to !== undefined)
-                return this.$router.resolve(this.to, this.$route, this.append).href;
+                return encodeUrl(this.$router.resolve(this.to, this.$route, this.append).href);
             else
                 return undefined;
         },

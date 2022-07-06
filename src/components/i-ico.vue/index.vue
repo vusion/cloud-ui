@@ -23,6 +23,7 @@
 import './icon.js';
 import iconconfig from './iconconfig.js';
 import SEmpty from '../../components/s-empty.vue';
+import encodeUrl from '../../utils/encodeUrl';
 
 export default {
     name: 'i-ico',
@@ -63,7 +64,7 @@ export default {
                 else
                     return undefined;
             }
-            const hrefR = currentHref();
+            const hrefR = encodeUrl(currentHref());
             this.$emit('click', ev);
             // @ts-ignore：没办法
             // if (props.target !== '_self')
@@ -77,7 +78,7 @@ export default {
                     const path = window.location.href.replace(origin, '').split('/');
                     const destination = props.destination.replace(origin, '').split('/');
                     if (path[1] === destination[1]) {
-                        to = '/' + destination.slice(2).join('/');
+                        to = encodeUrl('/' + destination.slice(2).join('/'));
                     } else {
                         return;
                     }
