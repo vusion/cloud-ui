@@ -1,7 +1,7 @@
 <template>
     <div :class="$style.root" :collapsible="currentCollapsible" :size="currentSize">
         <div :class="$style.head" @click="parentVM.expandTrigger === 'click' && toggle()" :title="title">
-            <div :class="$style.title" vusion-slot-name="title">
+            <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
                 <slot name="title">{{ title }}</slot>
             </div>
             <span v-if="currentCollapsible" :class="$style.expander"
@@ -13,7 +13,6 @@
         <f-collapse-transition>
             <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true">
                 <slot></slot>
-                <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
             </div>
         </f-collapse-transition>
     </div>

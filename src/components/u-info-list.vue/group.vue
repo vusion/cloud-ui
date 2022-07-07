@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root">
     <div v-if="!parentVM || parentVM.showHead" :class="$style.head">
-        <div :class="$style.title" vusion-slot-name="title"><slot name="title">{{ title }}</slot></div>
+        <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title"><slot name="title">{{ title }}</slot></div>
         <div :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></div>
     </div>
     <div :class="$style.body" vusion-slot-name="default">
@@ -19,10 +19,10 @@ export default {
     name: 'u-info-list-group',
     parentName: 'u-info-list',
     childName: 'u-info-list-item',
-    mixins: [MEmitter],
     components: {
         SEmpty,
     },
+    mixins: [MEmitter],
     props: {
         title: String,
         column: [String, Number],

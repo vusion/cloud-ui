@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''" :style="responsiveStyle">
-    <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'" vusion-slot-name="label">
+    <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'" vusion-slot-name="label" vusion-slot-name-edit="label">
         <slot name="label">{{ label || title }}</slot>
     </label>
     <span :class="$style.extra" v-if="!hideSlots && rootVM && rootVM.extraSlots" vusion-slot-name="extra">
@@ -8,7 +8,7 @@
     </span>
     <div :class="[$style.field, $env.VUE_APP_DESIGNER ? $style.full : null]">
         <!-- 添加了描述功能 -->
-        <div :class="$style.description" vusion-slot-name="description">
+        <div :class="$style.description" vusion-slot-name="description" vusion-slot-name-edit="description">
             <slot name="description">{{ description }}</slot>
         </div>
         <div :class="[$style.wrap, $env.VUE_APP_DESIGNER ? $style.full : null]" vusion-slot-name="default">
@@ -28,10 +28,10 @@ import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-form-item',
-    mixins: [UValidator],
     components: {
         SEmpty,
     },
+    mixins: [UValidator],
     props: {
         // name: String,
         // label: String,

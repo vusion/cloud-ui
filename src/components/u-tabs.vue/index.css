@@ -284,15 +284,15 @@
 }
 
 .body {
-    margin-top: var(--tabs-body-space);
+    padding-top: var(--tabs-body-space);
 }
 
 .root[size="small"] .body {
-    margin-top: var(--tabs-body-space-small);
+    padding-top: var(--tabs-body-space-small);
 }
 
 .root[size="mini"] .body {
-    margin-top: var(--tabs-body-space-mini);
+    padding-top: var(--tabs-body-space-mini);
 }
 
 .root[size="small"] .nav {
