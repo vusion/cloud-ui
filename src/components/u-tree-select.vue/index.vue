@@ -76,7 +76,7 @@
             @click.stop>
             <!-- 目前只支持单选 -->
             <u-tree-view v-if="popperOpened" ref="treeView"
-                ifExpanded
+                :ifExpanded="ifExpanded"
                 style="border: none; min-width: 100%; display: inline-block"
                 :value="value"
                 :data="data"
@@ -160,6 +160,7 @@ export default {
             default: 30
         },
         filterFields: { type: Array, default: () => ['text'] },
+        ifExpanded: { type: Boolean, default: true },
     },
     data() {
         return {
