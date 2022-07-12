@@ -230,10 +230,7 @@ export default {
                 this,
             );
         },
-        async selectAndReveal(value, options) {
-            this.value = value;
-            await this.$nextTick();
-
+        selectAndReveal(value, options) {
             this.selectedVM = this.find((nodeVM) => nodeVM.value === value);
             if (this.selectedVM) {
                 let nodeVM = this.selectedVM.parentVM;
