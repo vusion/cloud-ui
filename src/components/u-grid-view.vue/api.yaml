@@ -71,12 +71,6 @@
       default: false
       description: ""
       group: 数据属性
-    - name: filterable
-      title: 可筛选
-      type: boolean
-      default: false
-      description: 是否可以过滤（搜索），开启将会显示搜索框。
-      group: 数据属性
     - name: remote-paging
       title: 后端分页
       type: boolean
