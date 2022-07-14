@@ -255,6 +255,7 @@
       description: 自定义选项的结构和样式
   events:
     - name: before-select
+      title: 选择前
       description: 选择某一项前触发
       advanced: true
       params:
