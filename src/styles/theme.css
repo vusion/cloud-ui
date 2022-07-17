@@ -888,9 +888,18 @@
     --tree-view-node-text-padding: 4px 0;
     --tree-view-node-background-active: var(--background-color-base); /* @type color */
     --tree-view-node-background-selected: var(--brand-primary-light); /* @type color */
+    --tree-view-node-background-dragging: #e5e5e5; /* @type color */
     --tree-view-node-color-selected: white; /* @type color */
+    --tree-view-node-color-dragging: #999; /* @type color */
     --tree-view-node-expander-color-selected: white; /* @type color */
     --tree-view-node-background-selected-disabled: var(--brand-disabled-light); /* @type color */
+    --tree-view-subnode-background-selected: rgba(237, 243, 255, 1); /* @type color */
+    --tree-view-subnode-background-dragging:  rgba(237, 237, 237, 0.5);  /* @type color */
+    --tree-view-subnode-color-dragging: #999; /* @type color */
+    --tree-view-subnode-background-selected-hover:  #DBE7FF;
+    --tree-view-node-expander-color-dragging: #aaa; /* @type color */
+
+
 
     --tree-view-node-text-padding–mini: 4px 0;  /* @hidden */
     --tree-view-node-expander-size-mini: 26px; /* @hidden */
