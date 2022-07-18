@@ -22,7 +22,8 @@
             v-else-if="hasChildren || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
             :expand-trigger="rootVM.expandTrigger" :expanded="currentExpanded"
             @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
-            :style="{ width : expanderWidth? expanderWidth + 'px':'' }"></div>
+            :style="{ width : expanderWidth? expanderWidth + 'px':'' }"
+            :dragover="expanderDragover"></div>
         <div :class="$style.text" :style="{ marginLeft : expanderWidth? expanderWidth + 'px':'' }" :draggable="draggable || rootVM.draggable">
             <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
             <f-slot name="text" :vm="currentTextSlotVM" :props="{
@@ -117,6 +118,7 @@ export default {
             currentChecked: this.checked,
             childrenRendered: this.expanded,
             currentDragging: false,
+            expanderDragover: false,
         };
     },
     computed: {
@@ -520,15 +522,17 @@ export default {
             const clickExpanderEl = this.$refs.clickExpander;
             if (clickExpanderEl) {
                 const clickExpanderRect = clickExpanderEl.getBoundingClientRect();
-                if (clickExpanderRect.right >= e.x) {
+                if (clickExpanderRect.right >= e.x && (e.y<=clickExpanderRect.bottom && e.y>=clickExpanderRect.top)) {
                     if (!this.expanderTimer) {
                         this.expanderTimer = setTimeout(() => {
-                            this.currentExpanded = true;
+                            this.currentExpanded = !this.currentExpanded;
                         }, this.dragExpanderDelay);
                     }
+                    this.expanderDragover = true;
                 } else {
                     clearTimeout(this.expanderTimer);
                     this.expanderTimer = null;
+                    this.expanderDragover = false;
                 }
             }
             this.rootVM.$emit('dragover', {
@@ -543,6 +547,7 @@ export default {
         onDragLeave(e) {
             clearTimeout(this.expanderTimer);
             this.expanderTimer = null;
+            this.expanderDragover = false;
         },
         onDragEnd(e) {
             this.currentDragging = false;
@@ -604,6 +609,10 @@ export default {
 
 .expander[expanded] {
     transform: rotate(90deg);
+}
+
+.expander[dragover] {
+    color: var(--tree-view-node-expander-color-hover);
 }
 
 .loading {

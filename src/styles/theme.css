@@ -899,8 +899,6 @@
     --tree-view-subnode-background-selected-hover:  #DBE7FF;
     --tree-view-node-expander-color-dragging: #aaa; /* @type color */
 
-
-
     --tree-view-node-text-padding–mini: 4px 0;  /* @hidden */
     --tree-view-node-expander-size-mini: 26px; /* @hidden */
     --tree-view-node-background-active-inverse: var(--background-color-base-inverse); /* @hidden */
