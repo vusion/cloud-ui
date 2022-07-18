@@ -3264,10 +3264,6 @@
     "type": "boolean",
     "description": ""
   },
-  "u-grid-view/filterable": {
-    "type": "boolean",
-    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
-  },
   "u-grid-view/remote-paging": {
     "type": "boolean",
     "description": ""

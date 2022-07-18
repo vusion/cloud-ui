@@ -1671,7 +1671,6 @@ export default {
 | show-total | boolean |  | `false` |  |
 | show-sizer | boolean |  | `false` |  |
 | show-jumper | boolean |  | `false` |  |
-| filterable | boolean |  | `false` | 是否可以过滤（搜索），开启将会显示搜索框。 |
 | remote-paging | boolean |  | `false` |  |
 | remote-filtering | boolean |  | `false` |  |
 | match-method | string, Function |  | `'includes'` | 过滤时的匹配方法 |

@@ -884,9 +884,16 @@
                     "--tree-view-node-text-padding": "input",
                     "--tree-view-node-background-active": "color",
                     "--tree-view-node-background-selected": "color",
+                    "--tree-view-node-background-dragging": "color",
                     "--tree-view-node-color-selected": "color",
+                    "--tree-view-node-color-dragging": "color",
                     "--tree-view-node-expander-color-selected": "color",
-                    "--tree-view-node-background-selected-disabled": "color"
+                    "--tree-view-node-background-selected-disabled": "color",
+                    "--tree-view-subnode-background-selected": "color",
+                    "--tree-view-subnode-background-dragging": "color",
+                    "--tree-view-subnode-color-dragging": "color",
+                    "--tree-view-subnode-background-selected-hover": "input",
+                    "--tree-view-node-expander-color-dragging": "color"
                 },
                 "preview": {
                     "template": "<u-tree-view value=\"4\" :data=\"list\"></u-tree-view>",

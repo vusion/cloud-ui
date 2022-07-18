@@ -912,7 +912,6 @@
       "show-total",
       "show-sizer",
       "show-jumper",
-      "filterable",
       "remote-paging",
       "remote-filtering",
       "match-method",
