@@ -193,8 +193,8 @@
 
 .root[clearable],
 .root[suffix],
-.root .input[filterable],
-.root[clearable] .input {
+.root .input:not([multiple-tags])[filterable],
+.root[clearable] .input:not([multiple-tags]) {
     padding-right: 30px;
 }
 
