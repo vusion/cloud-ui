@@ -35,5 +35,6 @@
     <i-ico name=star><u-text>收藏</u-text></i-ico>
     <i-ico name=attachment><u-text>附件</u-text></i-ico>
     <i-ico name=notice><u-text>通知</u-text></i-ico>
+    <i-ico name="https://static-vusion.nos-eastchina1.126.net/h5-template/svgviewer-output.svg"><u-text>自定义</u-text></i-ico>
 </u-linear-layout>
 ```
