@@ -216,9 +216,8 @@ export default {
                 this.close();
             } else {
                 this.preventBlur = true;
-                if (this.appendTo === 'body') {
-                    this.preventRootBlur = true;
-                }
+                // 去掉appendTo判断：filterable的多选，会选择后关闭，也需要preventBlur
+                this.preventRootBlur = true;
             }
             if (this.filterable) {
                 this.filterText = this.selectedVM ? this.selectedVM.currentText : '';
