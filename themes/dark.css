@@ -169,6 +169,12 @@
     --tree-view-node-expander-color: #FFFFFF99;
     --tree-view-node-expander-color-hover: white;
     --tree-view-node-expander-color-disabled: #FFFFFF33;
+    --tree-view-node-background-dragging:#48494D;
+    --tree-view-node-color-dragging: #aaa;
+    --tree-view-subnode-background-selected: #364259;
+    --tree-view-subnode-background-dragging: #373739;
+    --tree-view-subnode-color-dragging: #aaa;
+    --tree-view-subnode-selected-background-hover: #3B5383;
 
     --menu-padding-y: 8px;
     --menu-min-width: 160px;

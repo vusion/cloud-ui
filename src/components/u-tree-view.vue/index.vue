@@ -12,6 +12,7 @@
             :hidden="$at(node, hiddenField)"
             :node="node"
             :level="0"
+            :draggable="node.draggable"
         ></component>
     </template>
     <slot></slot>
@@ -50,11 +51,12 @@ export default {
         readonlyMode: String,
         disabled: { type: Boolean, default: false },
         checkControlled: { type: Boolean, default: false },
-        expanderWidth: {type: Number, default: 30 },
-        paddingLeft: {type: Number, default: 0 },
+        expanderWidth: { type: Number, default: 30 },
+        paddingLeft: { type: Number, default: 0 },
         filterable: { type: Boolean, default: false },
         filterText: { type: String, default: '' },
         filterFields: { type: Array, default: () => ['text'] },
+        draggable: { type: Boolean, default: false },
     },
     data() {
         return {
