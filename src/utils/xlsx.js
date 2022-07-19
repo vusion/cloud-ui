@@ -15,7 +15,7 @@ export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns)
     Object.keys(sheet).forEach((item) => {
         const cell = sheet[item];
         // console.log('cell', cell);
-        const dateRegx = /^\d+-\d+-\d+$/;
+        const dateRegx = /\d{2,4}-\d{2,4}-\d{2,4}/;
         const value = cell.v;
         if (cell.t === 's' && value.indexOf('%') > -1) {
             cell.z = '0.00%';
