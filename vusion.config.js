@@ -60,6 +60,7 @@ module.exports = {
             { group: '展示', name: 'u-form-table', alias: '表单表格', advanced: true, infrequent: true },
             { group: '展示', name: 'u-article', alias: '文章', advanced: true, infrequent: true },
             { group: '展示', name: 'u-timeline', alias: '时间线', advanced: true },
+            { group: '展示', name: 'u-count-down', alias: '计时器', advanced: true },
             { group: '展示', name: 'u-countup', alias: '数字渐变', advanced: true },
             { group: '展示', name: 'u-dynamic-cards', alias: '动态卡片', advanced: true },
             { group: '展示', name: 'u-dropdown', alias: '下拉菜单' },
