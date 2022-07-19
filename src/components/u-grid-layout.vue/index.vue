@@ -18,7 +18,6 @@ export default {
 <style module>
 .root {
     width: 100%;
-    overflow: hidden;
 }
 
 .root .column {
