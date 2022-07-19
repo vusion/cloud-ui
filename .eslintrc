@@ -9,6 +9,7 @@
         "function-paren-newline": [0],
         "vue/html-indent": [0],
         "vue/no-unused-vars": [0],
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "vue/component-definition-name-casing": [2, "kebab-case"]
     }
 }
