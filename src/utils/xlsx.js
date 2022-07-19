@@ -11,6 +11,22 @@ export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns)
     } else {
         XLSX.utils.sheet_add_json(sheet, sheetData);
     }
+    // 将文本格式的内容，转化为日期和数字格式
+    Object.keys(sheet).forEach((item) => {
+        const cell = sheet[item];
+        // console.log('cell', cell);
+        const dateRegx = /\d{2,4}-\d{2,4}-\d{2,4}/;
+        const value = cell.v;
+        if (cell.t === 's' && value.indexOf('%') > -1) {
+            cell.z = '0.00%';
+            cell.t = 'n';
+            cell.v = Number(value.substring(0, value.length - 1)) / 100;
+        } else if (!isNaN(Number(value))) {
+            cell.t = 'n';
+        } else if (dateRegx.test(value)) {
+            cell.t = 'd';
+        }
+    });
     const wb = XLSX.utils.book_new()
     XLSX.utils.book_append_sheet(wb, sheet, sheetName)
     const workbookBlob = workbook2blob(wb)
