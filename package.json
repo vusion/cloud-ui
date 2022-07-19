@@ -63,6 +63,7 @@
     "js-yaml": "^3.14.0",
     "lodash": "^4.17.5",
     "normalize.css": "^7.0.0",
+    "online-svg-icon-vue2": "^1.2.3",
     "regenerator-runtime": "^0.13.9",
     "resize-observer-polyfill": "^1.5.1",
     "swiper": "^7.4.1",

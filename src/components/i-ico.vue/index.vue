@@ -7,8 +7,9 @@
     @mouseleave="onmouseout($event)"
     @mousedown="onmousedown($event)"
 >
-    <span :class="$style.iconwrap">
-        <svg :class="$style.iconsvg" aria-hidden="true">
+    <span :class="[$style.iconwrap, isSvgUrl(this.name) ? $style.iconwrapsvg : '']">
+        <online-svg-icon v-if="isSvgUrl(this.name)" :url="this.name" :purecss="!ie11()"></online-svg-icon>
+        <svg :class="$style.iconsvg" aria-hidden="true" v-else>
             <use :xlink:href="`#${iconconfig.css_prefix_text}${getName()}`" />
         </svg>
     </span>
@@ -25,9 +26,11 @@ import iconconfig from './iconconfig.js';
 import SEmpty from '../../components/s-empty.vue';
 import encodeUrl from '../../utils/encodeUrl';
 
+import {onlineSvgIcon, ie11} from 'online-svg-icon-vue2';
+
 export default {
     name: 'i-ico',
-    components: { SEmpty },
+    components: { SEmpty, onlineSvgIcon },
     props: {
         name: String,
         notext: Boolean,
@@ -43,6 +46,7 @@ export default {
     data() {
         return {
             iconconfig,
+            ie11,
         };
     },
     methods: {
@@ -128,6 +132,9 @@ export default {
         onmousedown(ev) {
             this.$emit('down', ev);
         },
+        isSvgUrl(name) {
+            return name.indexOf('/') !== -1 && /\.svg/i.test(name);
+        }
     },
 };
 </script>
@@ -142,6 +149,10 @@ export default {
 .iconwrap {
     /* font-size: 16px;  */
     /* padding: 8px; */
+}
+.iconwrapsvg {
+    line-height: 1;
+    vertical-align: middle;
 }
 .iconsvg {
     width: 1em; height: 1em;
