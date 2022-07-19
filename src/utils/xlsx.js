@@ -11,6 +11,18 @@ export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns)
     } else {
         XLSX.utils.sheet_add_json(sheet, sheetData);
     }
+    Object.keys(sheet).forEach((item) => {
+        const cell = sheet[item];
+        // console.log('cell', cell);
+        const value = cell.v;
+        if (cell.t === 's' && value.indexOf('%') > -1) {
+            cell.z = '0.00%';
+            cell.t = 'n';
+            cell.v = Number(value.substring(0, value.length - 1)) / 100;
+        } else if (!isNaN(Number(value))) {
+            cell.t = 'n';
+        }
+    });
     const wb = XLSX.utils.book_new()
     XLSX.utils.book_append_sheet(wb, sheet, sheetName)
     const workbookBlob = workbook2blob(wb)
