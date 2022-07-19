@@ -5046,6 +5046,75 @@
         }
     },
     {
+        "symbol": "u-count-down",
+        "name": "计时器",
+        "icon": "countdown",
+        "depDescription": {},
+        "description": "用于计时",
+        "labels": [
+            "Display"
+        ],
+        "screenShot": "",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-count-down></u-count-down>\\n</template>\\n\"}]",
+        "jsonSchema": {
+            "name": "u-count-down",
+            "title": "计时器",
+            "description": "用于计时",
+            "category": "Display",
+            "screenShot": "",
+            "drawings": "",
+            "blocks": [
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<u-count-down></u-count-down>\n</template>\n"
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "minute",
+                    "type": "number",
+                    "default": 1,
+                    "description": "设置定时时间"
+                },
+                {
+                    "name": "reverse",
+                    "title": "是否正计时",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "转为正计时"
+                }
+            ],
+            "methods": [
+                {
+                    "name": "start",
+                    "description": "开始倒计时",
+                    "params": []
+                },
+                {
+                    "name": "stop",
+                    "description": "停止倒计时",
+                    "params": []
+                }
+            ],
+            "events": [
+                {
+                    "name": "start",
+                    "title": "倒计时开始",
+                    "description": "倒计时开始时触发"
+                },
+                {
+                    "name": "stop",
+                    "title": "倒计时结束",
+                    "description": "倒计时结束时触发"
+                }
+            ],
+            "next": true,
+            "nested": false,
+            "children": []
+        }
+    },
+    {
         "symbol": "u-dropdown",
         "name": "下拉菜单",
         "icon": "dropdown-new",
@@ -7025,6 +7094,7 @@
             "events": [
                 {
                     "name": "before-select",
+                    "title": "选择前",
                     "description": "选择某一项前触发",
                     "advanced": true,
                     "params": [
@@ -7352,14 +7422,6 @@
                     "group": "数据属性"
                 },
                 {
-                    "name": "filterable",
-                    "title": "可筛选",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否可以过滤（搜索），开启将会显示搜索框。",
-                    "group": "数据属性"
-                },
-                {
                     "name": "remote-paging",
                     "title": "后端分页",
                     "type": "boolean",
@@ -7620,6 +7682,7 @@
             "events": [
                 {
                     "name": "before-select",
+                    "title": "选择前",
                     "description": "选择某一项前触发",
                     "params": [
                         {
@@ -7656,6 +7719,7 @@
                 },
                 {
                     "name": "input",
+                    "title": "选择时",
                     "description": "选择某一项时触发",
                     "params": [
                         {
@@ -7672,6 +7736,7 @@
                 },
                 {
                     "name": "select",
+                    "title": "选择后",
                     "description": "选择某一项时触发。单选模式中：",
                     "params": [
                         {
@@ -7713,6 +7778,7 @@
                 },
                 {
                     "name": "change",
+                    "title": "改变后",
                     "description": "选择值改变时触发。单选模式中：",
                     "params": [
                         {
@@ -7754,6 +7820,7 @@
                 },
                 {
                     "name": "before-load",
+                    "title": "加载前",
                     "description": "加载前触发",
                     "params": [
                         {
@@ -7770,6 +7837,7 @@
                 },
                 {
                     "name": "load",
+                    "title": "加载后",
                     "description": "加载时触发",
                     "params": [
                         {
