@@ -39,6 +39,11 @@ export default {
     color: initial;
 }
 
+/* 选中后卡片字体会变白，而卡片的背景是白色的，导致字看不见 */
+.root[selected] [class^="u-card__"] {
+    color: var(--color-base);
+}
+
 .root[designer]{
     position: relative;
 }
