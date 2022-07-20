@@ -593,6 +593,13 @@
     ],
     "description": "复制文本到剪切板"
   },
+  "u-count-down": {
+    "attributes": [
+      "minute",
+      "reverse"
+    ],
+    "description": "用于计时"
+  },
   "u-count-up": {
     "attributes": [
       "start",
