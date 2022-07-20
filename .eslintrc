@@ -10,6 +10,9 @@
         "vue/html-indent": [0],
         "vue/no-unused-vars": [0],
         "linebreak-style": 0,
-        "vue/component-definition-name-casing": [2, "kebab-case"]
+        "vue/component-definition-name-casing": [2, "kebab-case"],
+        "vue/first-attribute-linebreak": [0],
+        "vue/no-mutating-props": [0],
+        "vue/name-property-casing": 0
     }
 }
