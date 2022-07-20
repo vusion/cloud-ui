@@ -1,5 +1,6 @@
 <template>
-    <div :class="$style.root">{{ crtTime }}</div>
+  <div v-if="isAppDesigner" :class="$style.root">{{ initialTime }}</div>
+  <div v-else :class="$style.root">{{ crtTime }}</div>
 </template>
 
 <script>
@@ -45,6 +46,9 @@ export default {
         };
     },
     computed: {
+        isAppDesigner() {
+            return !!this.$env.VUE_APP_DESIGNER;
+        },
         crtTime() {
             const { second } = this;
             const totalSecond = this.minute * 60;
@@ -59,6 +63,16 @@ export default {
             }
 
         },
+        initialTime() {
+          const totalSecond = this.minute * 60;
+          if (!this.reverse) {
+            const min = String(Math.floor(totalSecond / 60)).padStart(2, "0");
+            const sec = String(totalSecond % 60).padStart(2, "0");
+            return `${min}:${sec}`;
+          } else {
+            return '00:00';
+          }
+        }
     },
     watch: {
         minute(min) {
@@ -99,7 +113,8 @@ export default {
     },
     methods: {
         start() {
-            this.worker.postMessage({
+          this.$emit("start");
+          this.worker.postMessage({
                 state: "start",
                 second: this.minute * 60,
             });
