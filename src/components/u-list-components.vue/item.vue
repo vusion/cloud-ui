@@ -1,5 +1,5 @@
 <template>
-  <div class="u-for-com-item" :style="comStyle">
+  <div class="u-for-com-item" :style="comStyle" vusion-slot-name="default">
     <slot :item="item" :index="index"></slot>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
             type: [Object, String, Number],
         },
         colnum: {
-            type: Number
+            type: Number,
         },
         equalWidth: {
             type: Boolean,
@@ -29,16 +29,16 @@ export default {
         };
     },
     computed: {
-      comStyle() {
-        if (this.colnum && this.equalWidth) {
-          const num = this.colnum;
-          const width = 100 / num;
-          return {
-            width: width + '%'
-          }
-        }
-        return {};
-      }
+        comStyle() {
+            if (this.colnum && this.equalWidth) {
+                const num = this.colnum;
+                const width = 100 / num;
+                return {
+                    width: width + '%',
+                };
+            }
+            return {};
+        },
     },
     watch: {
     },
