@@ -519,22 +519,6 @@ export default {
             });
         },
         onDragOver(e) {
-            const clickExpanderEl = this.$refs.clickExpander;
-            if (clickExpanderEl) {
-                const clickExpanderRect = clickExpanderEl.getBoundingClientRect();
-                if (clickExpanderRect.right >= e.x && (e.y<=clickExpanderRect.bottom && e.y>=clickExpanderRect.top)) {
-                    if (!this.expanderTimer) {
-                        this.expanderTimer = setTimeout(() => {
-                            this.currentExpanded = !this.currentExpanded;
-                        }, this.dragExpanderDelay);
-                    }
-                    this.expanderDragover = true;
-                } else {
-                    clearTimeout(this.expanderTimer);
-                    this.expanderTimer = null;
-                    this.expanderDragover = false;
-                }
-            }
             this.rootVM.$emit('dragover', {
                 node: this.node,
                 nodeVM: this,
@@ -543,11 +527,10 @@ export default {
                 level: this.level,
                 event: e,
             });
+            this.startExpanderTimer(e);
         },
         onDragLeave(e) {
-            clearTimeout(this.expanderTimer);
-            this.expanderTimer = null;
-            this.expanderDragover = false;
+            this.clearExpanderTimer();
         },
         onDragEnd(e) {
             this.currentDragging = false;
@@ -559,6 +542,7 @@ export default {
                 level: this.level,
                 event: e,
             });
+            this.clearExpanderTimer();
         },
         onDrop(e) {
             this.rootVM.$emit('drop', {
@@ -569,6 +553,38 @@ export default {
                 level: this.level,
                 event: e,
             });
+            this.clearExpanderTimer();
+        },
+        /**
+         * 悬停1.5s,展开收起
+         */
+        startExpanderTimer(e) {
+            const clickExpanderEl = this.$refs.clickExpander;
+            if (clickExpanderEl) {
+                const clickExpanderRect = clickExpanderEl.getBoundingClientRect();
+                if (clickExpanderRect.right >= e.x && (e.y <= clickExpanderRect.bottom && e.y >= clickExpanderRect.top)) {
+                    if (!this.expanderTimer) {
+                        this.startPosition = e;
+                        this.expanderTimer = setInterval(() => {
+                            this.currentExpanded = !this.currentExpanded;
+                            if (!(Math.abs(this.startPosition.x - e.x) <= 5 && Math.abs(this.startPosition.y - e.y) <= 5)) {
+                                clearTimeout(this.expanderTimer);
+                                this.expanderTimer = null;
+                            }
+                        }, 1500);
+                    }
+                    this.expanderDragover = true;
+                } else {
+                    clearTimeout(this.expanderTimer);
+                    this.expanderTimer = null;
+                    this.expanderDragover = false;
+                }
+            }
+        },
+        clearExpanderTimer() {
+            clearTimeout(this.expanderTimer);
+            this.expanderTimer = null;
+            this.expanderDragover = false;
         },
     },
 };
