@@ -200,19 +200,11 @@
       designer-value: false
     - name: prefix
       title: 前缀图标
-      type: string
-      options:
-        - value: search
-          title: 搜索
-      description: ""
+      type: icon
       clearable: true
     - name: suffix
       title: 后缀图标
-      type: string
-      options:
-        - value: search
-          title: 搜索
-      description: ""
+      type: icon
       clearable: true
     - name: append-to
       title: 弹出层展示位置
