@@ -98,8 +98,10 @@
   slots:
     - name: default
       description: 插入文本或 HTML
+      advanced: true
     - name: item
       description: 自定义选项的结构和样式
+      advanced: true
   events:
     - name: transfer
       title: 数据转移时
