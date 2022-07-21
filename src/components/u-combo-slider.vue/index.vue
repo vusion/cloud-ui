@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root">
-    <div :class="$style.main">
+    <div :class="$style.main" :unit="!!unit">
          <!-- @override: 增加提示 tip -->
         <div :class="$style.tip">{{ tip }}</div>
         <u-slider :class="$style.slider" @mousedown.native="onMousedown" :value="currentValue" @input="onInput" @slide="onSlide"
@@ -150,6 +150,9 @@ export default {
     display: inline-block;
     width: calc(100% - var(--combo-slider-input-width) - 20px);
     vertical-align: -20px;
+}
+.main[unit="true"] {
+    width: calc(100% - var(--combo-slider-input-width) - 20px - var(--combo-slider-input-margin-left) - 0.5em);
 }
 
 .body {
