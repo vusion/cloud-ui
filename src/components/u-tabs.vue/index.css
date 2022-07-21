@@ -7,9 +7,9 @@
     background: var(--tabs-head-background);
 }
 
-.root[appear="square"] .head,
-.root[appear="round"] .head,
-.root[appear="line"] .head {
+.root[appear="square"] > .head,
+.root[appear="round"] > .head,
+.root[appear="line"] > .head {
     border-bottom: var(--tabs-border-width) solid var(--tabs-border-color);
 }
 
@@ -139,46 +139,46 @@
     cursor: var(--cursor-not-allowed);
 }
 
-.root[appear="text"] .item {
+.root[appear="text"] > .head .item {
     background: var(--tabs-item-background-text);
 }
 
-.root[appear="text"] .item:hover {
+.root[appear="text"] > .head .item:hover {
     background: var(--tabs-item-background-hover);
     color: var(--tabs-item-color-hover);
 }
 
-.root[appear="text"] .item[selected] {
+.root[appear="text"] > .head .item[selected] {
     background: var(--tabs-item-background-selected);
     color: var(--tabs-item-color-selected);
 }
 
-.root[appear="capsule"] .item {
+.root[appear="capsule"] > .head .item {
     background: var(--tabs-item-background-capsule);
     margin-right: -1px;
     line-height: calc(var(--tabs-item-height) - var(--tabs-border-width) * 2);
     border: var(--tabs-border-width) solid var(--tabs-border-color);
 }
 
-.root[appear="capsule"] .item:hover {
+.root[appear="capsule"] > .head .item:hover {
     color: var(--tabs-item-color-hover);
 }
 
-.root[appear="capsule"] .item[selected] {
+.root[appear="capsule"] > .head .item[selected] {
     z-index: 2;
     background: var(--tabs-item-background-selected-capsule);
     color: var(--tabs-item-color-selected-capsule);
     border-color: var(--tabs-item-border-color-selected-capsule);
 }
-.root[appear="capsule"] .item[disabled]{
+.root[appear="capsule"] > .head .item[disabled]{
     background: var(--tabs-item-background-disabled-capsule);
     color: var(--tabs-item-color-disabled);
 }
-.root[appear="capsule"] .item[disabled]:hover{
+.root[appear="capsule"] > .head .item[disabled]:hover{
     color: var(--tabs-item-color-disabled);
 }
 
-.root[appear="square"] .item {
+.root[appear="square"] > .head .item {
     box-sizing: content-box;
     height: var(--tabs-item-height);
     line-height: var(--tabs-item-height);
@@ -186,12 +186,12 @@
     border-bottom: none;
 }
 
-.root[appear="square"] .item:hover {
+.root[appear="square"] > .head .item:hover {
     background: var(--tabs-item-background-hover);
     color: var(--tabs-item-color-hover);
 }
 
-.root[appear="square"] .item[selected] {
+.root[appear="square"] > .head .item[selected] {
     background: var(--tabs-item-background-selected);
     color: var(--tabs-item-color-selected);
     border-color: var(--tabs-item-border-color-selected);
@@ -200,28 +200,28 @@
     border-top: var(--tabs-item-line-width) solid var(--brand-primary);
 }
 
-.root[appear="square"] .item[disabled] {
+.root[appear="square"] > .head .item[disabled] {
     background: var(--tabs-item-background-disabled);
     color: var(--tabs-item-color-disabled);
 }
 
-.root[appear="square"] .item[selected][disabled] {
+.root[appear="square"] > .head .item[selected][disabled] {
     background: var(--tabs-item-background-selected-disabled);
 }
 
-.root[appear="round"] .item {
+.root[appear="round"] > .head .item {
     box-sizing: content-box;
     line-height: var(--tabs-item-height);
     border: var(--tabs-border-width) solid transparent;
     border-bottom: none;
 }
 
-.root[appear="round"] .item:hover {
+.root[appear="round"] > .head .item:hover {
     background: var(--tabs-item-background-hover);
     color: var(--tabs-item-color-hover);
 }
 
-.root[appear="round"] .item[selected] {
+.root[appear="round"] > .head .item[selected] {
     background: var(--tabs-item-background-selected);
     color: var(--tabs-item-color-selected);
     border-color: var(--tabs-item-border-color-selected);
@@ -230,29 +230,29 @@
     border-radius: var(--tabs-item-border-radius-round) var(--tabs-item-border-radius-round) 0 0;
 }
 
-.root[appear="round"] .item[disabled] {
+.root[appear="round"] > .head .item[disabled] {
     background: var(--tabs-item-background-disabled);
     color: var(--tabs-item-color-disabled);
 }
 
-.root[appear="round"] .item[selected][disabled] {
+.root[appear="round"] > .head .item[selected][disabled] {
     background: var(--tabs-item-background-selected-disabled);
 }
 
-.root[appear="line"] .item {
+.root[appear="line"] > .head .item {
     padding-bottom: var(--tabs-item-line-width);
 }
 
-.root[appear="line"] .item:hover {
+.root[appear="line"] > .head .item:hover {
     background: none;
     color: var(--tabs-item-color-hover);
 }
 
-.root[appear="line"] .item[selected] {
+.root[appear="line"] > .head .item[selected] {
     color: var(--tabs-item-color-selected);
 }
 
-.root[appear="line"] .item::after {
+.root[appear="line"] > .head .item::after {
     display: block;
     content: '';
     width: 0;
@@ -265,7 +265,7 @@
     bottom: 0;
 }
 
-.root[appear="line"] .item[selected]::after {
+.root[appear="line"] > .head .item[selected]::after {
     width: 100%;
 }
 
@@ -287,80 +287,81 @@
     padding-top: var(--tabs-body-space);
 }
 
-.root[size="small"] .body {
+.root[size="small"] > .body {
     padding-top: var(--tabs-body-space-small);
 }
 
-.root[size="mini"] .body {
+.root[size="mini"] > .body {
     padding-top: var(--tabs-body-space-mini);
 }
 
-.root[size="small"] .nav {
+.root[size="small"] > .head .nav {
     height: var(--tabs-item-height-small);
 }
 
-.root[size="mini"] .nav {
+.root[size="mini"] > .head .nav {
     height: var(--tabs-item-height-mini);
 }
 
-.root[appear="round"] .nav,
-.root[appear="line"] .nav {
+.root[appear="round"] > .head .nav,
+.root[appear="line"] > .head .nav {
     height: calc(var(--tabs-item-height) + var(--tabs-item-line-width));
 }
 
-.root[size="small"][appear="round"] .nav,
-.root[size="small"][appear="line"] .nav {
+.root[size="small"][appear="round"] > .head .nav,
+.root[size="small"][appear="line"] > .head .nav {
     height: calc(var(--tabs-item-height-small) + var(--tabs-item-line-width));
 }
 
-.root[size="mini"][appear="round"] .nav,
-.root[size="mini"][appear="line"] .nav {
+.root[size="mini"][appear="round"] > .head .nav,
+.root[size="mini"][appear="line"] > .head .nav {
     height: calc(var(--tabs-item-height-mini) + var(--tabs-item-line-width));
 }
 
-.root[appear="square"] .nav {
+.root[appear="square"] > .head .nav {
     height: calc(var(--tabs-item-height) + var(--tabs-border-width) + var(--tabs-item-line-width));
 }
 
-.root[size="small"][appear="square"] .nav {
+.root[size="small"][appear="square"] > .head .nav {
     height: calc(var(--tabs-item-height-small) + var(--tabs-border-width) + var(--tabs-item-line-width));
 }
 
-.root[size="mini"][appear="square"] .nav {
+.root[size="mini"][appear="square"] > .head .nav {
     height: calc(var(--tabs-item-height-mini) + var(--tabs-border-width) + var(--tabs-item-line-width));
 }
 
-.root[appear="square"] .item,
-.root[appear="round"] .item {
+.root[appear="square"] > .head .item,
+.root[appear="round"] > .head .item {
     height: var(--tabs-item-height);
 }
 
-.root[size="small"] .item {
+.root[size="small"] > .head .item {
     line-height: var(--tabs-item-height-small);
     padding: 0 var(--tabs-item-padding-x-small);
 }
 
-.root[size="small"][appear="square"] .item,
-.root[size="small"][appear="round"] .item {
+.root[size="small"][appear="square"] > .head .item,
+.root[size="small"][appear="round"] > .head .item {
     height: var(--tabs-item-height-small);
 }
 
-.root[size="small"][appear="capsule"] .item {
+.root[size="small"][appear="capsule"] > .head .item {
     line-height: calc(var(--tabs-item-height-small) - var(--tabs-border-width) * 2);
 }
 
-.root[size="mini"] .item {
+.root[size="mini"] > .head .item {
     line-height: var(--tabs-item-height-mini);
     padding: 0 var(--tabs-item-padding-x-mini);
 }
 
-.root[size="mini"][appear="square"] .item,
-.root[size="mini"][appear="round"] .item {
+.root[size="mini"][appear="square"] > .head .item,
+.root[size="mini"][appear="round"] > .head .item {
     height: var(--tabs-item-height-mini);
 }
 
-.root[size="mini"][appear="capsule"] .item {
+.root[size="mini"][appear="capsule"] > .head .item {
     line-height: calc(var(--tabs-item-height-mini) - var(--tabs-border-width) * 2);
+    vertical-align: initial;
 }
 
 .item[width-fixed] {
