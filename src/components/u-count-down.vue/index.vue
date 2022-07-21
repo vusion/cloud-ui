@@ -4,6 +4,7 @@
 </template>
 
 <script>
+let totalMinutes;
 class WebWorker {
     constructor(worker) {
         const code = worker.toString();
@@ -19,18 +20,31 @@ function work() {
         if (state === "stop") {
             if (timer) {
                 clearInterval(timer);
+                this.postMessage(0);
                 if (second === 0) this.postMessage(--second);
                 timer = null;
             }
-            return;
+            this.lastPauseTime = undefined;
         } else if (state === "start") {
-            if (!timer) {
+            if (timer) {
+              clearInterval(timer);
+            }
+            timer = setInterval(() => {
+            this.postMessage(--second);
+          }, 1000);
+        } else if (state === "pause") {
+            if (!this.lastPauseTime) {
+                clearInterval(timer);
+                this.postMessage(--second);
+                this.lastPauseTime = second;
+            } else {
                 timer = setInterval(() => {
                     this.postMessage(--second);
                 }, 1000);
+                this.lastPauseTime = undefined;
             }
         }
-    };
+    }
 }
 
 export default {
@@ -43,6 +57,7 @@ export default {
         return {
             second: 60 * this.minute,
             worker: undefined,
+            lastPauseTime: undefined,
         };
     },
     computed: {
@@ -85,6 +100,7 @@ export default {
         },
     },
     created() {
+        totalMinutes = this.minute;
         const worker = new WebWorker(work);
 
         worker.postMessage({
@@ -92,14 +108,13 @@ export default {
             second: this.second,
         });
         this.$emit("start");
-        console.log('begin');
-
-
+        // console.log('begin');
+        
         worker.onmessage = (e) => {
             if (e.data < 0) {
                 worker.postMessage({ state: "stop" });
                 this.$emit("stop");
-                console.log('end')
+                // console.log('end')
                 return;
             }
             this.second = e.data;
@@ -123,6 +138,13 @@ export default {
             this.worker.postMessage({
                 state: "stop",
                 second: 0,
+            });
+        },
+        pause() {
+          this.$emit("pause");
+          this.worker.postMessage({
+                state: "pause",
+                second: this.second,
             });
         },
     },
