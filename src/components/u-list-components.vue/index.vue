@@ -1,5 +1,5 @@
 <template>
-  <div class="u-for-com">
+  <div class="u-for-com" vusion-slot-name="default">
     <template v-if="options.length > 0">
       <div v-for="(item, index) in options" :key="index" class="u-for-com-frag">
         <u-list-components-item
@@ -7,26 +7,32 @@
           :key="index2"
           :item="item2"
           :colnum="colnum"
-          :equalWidth="equalWidth"
+          :equal-wdth="equalWidth"
         >
-          <template v-slot="item2">
+          <template #default="item2">
             <slot :item="item2.item" :index="index2"></slot>
+            <s-empty v-if="$scopedSlots
+                &&!($scopedSlots.default && $scopedSlots.default(item2))
+                &&$env.VUE_APP_DESIGNER"></s-empty>
           </template>
         </u-list-components-item>
       </div>
     </template>
     <template v-else>
-      <slot></slot>
+        <slot></slot>
+        <s-empty v-if="!$slots.default && $env.VUE_APP_DESIGNER"></s-empty>
     </template>
   </div>
 </template>
 
 <script>
 import UListComponentsItem from './item.vue';
+import SEmpty from '../../components/s-empty.vue';
 export default {
     name: 'u-list-components',
     components: {
         UListComponentsItem,
+        SEmpty,
     },
     props: {
         dataSource: {

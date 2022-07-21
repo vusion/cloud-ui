@@ -1921,11 +1921,6 @@ export default {
                         <u-text :text="scope.item.student.createdTime"></u-text>
                 </template>
             </u-table-view-column>
-            <u-table-view-column title="更新时间">
-                <template #cell="scope">
-                        <u-text :text="scope.item.student.updatedTime"></u-text>
-                </template>
-            </u-table-view-column>
             <u-table-view-column title="name">
                 <template #cell="scope">
                         <u-text :text="scope.item.student.name"></u-text>
@@ -1954,6 +1949,11 @@ export default {
                         <u-link text="修改" @click="modify($event,scope)"></u-link>
                         <u-link text="删除" @click="remove($event,scope)"></u-link>
                     </u-linear-layout>
+                </template>
+            </u-table-view-column>
+            <u-table-view-column title="日期">
+                <template #cell="scope">
+                    <u-date-picker date="2018-08-08"></u-date-picker>
                 </template>
             </u-table-view-column>
         </u-table-view>
@@ -2294,10 +2294,6 @@ Methods
 | dblclickHandler | Function |  |  | 用于可编辑表格，双击表格列时的处理函数 |
 
 ### Slots
-
-#### (default)
-
-默认值
 
 #### cell
 

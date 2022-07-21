@@ -40,8 +40,11 @@
             @select="$emit('select', $event, this)"
             @change="$emit('change', $event, this)"
         >
-            <template v-slot="scope">
+            <template #default="scope">
                 <slot :item="scope.item"></slot>
+                <s-empty v-if="$scopedSlots
+                    &&!($scopedSlots.default && $scopedSlots.default(scope))
+                    &&$env.VUE_APP_DESIGNER"></s-empty>
             </template>
         </date-table>
     </div>
@@ -54,12 +57,14 @@ import i18n from './i18n';
 import DateTable from './date-table.vue';
 import './initDayjs';
 import { getDay } from './utils';
+import SEmpty from '../../components/s-empty.vue';
 
 export default {
     name: 'u-calendar-view',
     i18n,
     components: {
         DateTable,
+        SEmpty,
     },
     props: {
         value: {

@@ -2659,5 +2659,11 @@
                 }
             }
         ]
+    },
+    {
+        "id": 0.2,
+        "title": "标签页设置",
+        "toPosition": "tabStyle",
+        "items": []
     }
 ]

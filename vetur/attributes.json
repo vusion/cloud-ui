@@ -1887,6 +1887,14 @@
     "type": "boolean",
     "description": "禁止复制"
   },
+  "u-count-down/minute": {
+    "type": "number",
+    "description": "设置定时时间"
+  },
+  "u-count-down/reverse": {
+    "type": "boolean",
+    "description": "转为正计时"
+  },
   "u-count-up/start": {
     "type": "number",
     "description": "渐变开始数值"
@@ -3855,24 +3863,10 @@
     "description": "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
   },
   "u-input/prefix": {
-    "type": "string",
-    "options": [
-      {
-        "value": "search",
-        "title": "搜索"
-      }
-    ],
-    "description": ""
+    "type": "icon"
   },
   "u-input/suffix": {
-    "type": "string",
-    "options": [
-      {
-        "value": "search",
-        "title": "搜索"
-      }
-    ],
-    "description": ""
+    "type": "icon"
   },
   "u-label/text": {
     "type": "string",
@@ -6034,24 +6028,10 @@
     "description": ""
   },
   "u-select/prefix": {
-    "type": "string",
-    "options": [
-      {
-        "value": "search",
-        "title": "搜索"
-      }
-    ],
-    "description": ""
+    "type": "icon"
   },
   "u-select/suffix": {
-    "type": "string",
-    "options": [
-      {
-        "value": "search",
-        "title": "搜索"
-      }
-    ],
-    "description": ""
+    "type": "icon"
   },
   "u-select/append-to": {
     "type": "string",
