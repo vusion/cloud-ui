@@ -133,7 +133,7 @@ export default {
             this.$emit('down', ev);
         },
         isSvgUrl(name) {
-            return name.indexOf('/') !== -1 && /\.svg/i.test(name);
+            return name && name.indexOf('/') !== -1 && /\.svg/i.test(name);
         }
     },
 };
