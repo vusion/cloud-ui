@@ -4,7 +4,6 @@
 </template>
 
 <script>
-let totalMinutes;
 class WebWorker {
     constructor(worker) {
         const code = worker.toString();
@@ -53,7 +52,7 @@ export default {
     name: "u-count-down",
     props: {
         minute: { type: Number, default: 1 },
-        reverse: { type: Boolean, default: false },
+        reverse: { type: String, default: 'positive' },
         autostart: { type: Boolean, default: true },
     },
     data() {
@@ -70,7 +69,7 @@ export default {
         crtTime() {
             const { second } = this;
             const totalSecond = this.minute * 60;
-            if (!this.reverse) {
+            if (this.reverse === 'negative') {
                 const min = String(Math.floor(second / 60)).padStart(2, "0");
                 const sec = String(second % 60).padStart(2, "0");
                 return `${min}:${sec}`;
@@ -83,7 +82,7 @@ export default {
         },
         initialTime() {
           const totalSecond = this.minute * 60;
-          if (!this.reverse) {
+          if (this.reverse === 'negative') {
             const min = String(Math.floor(totalSecond / 60)).padStart(2, "0");
             const sec = String(totalSecond % 60).padStart(2, "0");
             return `${min}:${sec}`;
@@ -103,7 +102,6 @@ export default {
         },
     },
     created() {
-        totalMinutes = this.minute;
         const worker = new WebWorker(work);
         if (this.autostart) {
             worker.postMessage({

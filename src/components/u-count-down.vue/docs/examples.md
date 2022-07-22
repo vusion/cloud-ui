@@ -4,21 +4,21 @@
 <template>
 <u-linear-layout>
     <u-linear-layout>
-        <u-count-down ref="timer1" :minute="0.2"></u-count-down>
+        <u-count-down ref="timer1" :minute="0.2" reverse="negative"></u-count-down>
         <u-button @click="startTimer1">开始</u-button>
         <u-button @click="endTimer1">结束</u-button>
         <u-button @click="pauseTimer1">暂停</u-button>
         <u-button @click="continueTimer1">继续</u-button>        
     </u-linear-layout>
     <u-linear-layout >
-        <u-count-down ref="timer2" :minute="5" :reverse=true></u-count-down>
+        <u-count-down ref="timer2" :minute="5" reverse="positive"></u-count-down>
         <u-button @click="startTimer2">开始</u-button>
         <u-button @click="endTimer2">结束</u-button>
         <u-button @click="pauseTimer2">暂停</u-button>
         <u-button @click="continueTimer2">继续</u-button>
     </u-linear-layout>
     <u-linear-layout >
-        <u-count-down ref="timer3" :minute="5" :reverse=false :autostart=false ></u-count-down>
+        <u-count-down ref="timer3" :minute="5" reverse="negative" :autostart=false ></u-count-down>
         <u-button @click="startTimer3">开始</u-button>
         <u-button @click="endTimer3">结束</u-button>
         <u-button @click="pauseTimer3">暂停</u-button>
