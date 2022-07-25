@@ -1,5 +1,5 @@
 <template>
-<span :class="[$style['lcp-iconv']]"
+<span :class="[$style['lcp-iconv'], isSvgUrl(this.name) ? $style.iconcus : '']"
     @click="onClick($event)"
     @dblclick="onDblclick($event)"
     @contextmenu="onContextMenu($event)"
@@ -149,6 +149,10 @@ export default {
 .iconwrap {
     /* font-size: 16px;  */
     /* padding: 8px; */
+}
+
+.iconcus {
+    color: #666;
 }
 .iconwrapsvg {
     line-height: 1;
