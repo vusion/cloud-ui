@@ -401,6 +401,9 @@ export default {
                     const selectedVM = this.itemVMs.find((itemVM) => this.$at(this.selectedVM.item, this.valueField) && this.$at(this.selectedVM.item, this.valueField) === this.$at(itemVM.item, this.valueField));
                     if (selectedVM)
                         this.selectedVM = selectedVM;
+                } else if (!this.selectedVM) {
+                    this.selectedVM = undefined;
+                    this.watchValue(this.value);
                 }
             } // MComplex.watch.itemVMs.handler.call(this, this.itemVMs);
         },
