@@ -239,6 +239,7 @@
       description: 链接类型
       advanced: true
       compType: linkTypeSelect
+      bindHide: true
     - name: href
       title: 链接
       type: string

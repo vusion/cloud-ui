@@ -40,6 +40,7 @@
       default: href
       description: ""
       compType: linkTypeSelect
+      bindHide: true
     - name: hrefAndTo
       title: 链接地址
       type: string
