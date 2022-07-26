@@ -92,18 +92,9 @@
                 "toPosition": "crumb",
                 "type": [],
                 "cssProperty": {
-                    "--crumb-color-link": {
-                        "type": "color",
-                        "desc": "可跳转链接的默认文字颜色,如：#223325"
-                    },
-                    "--crumb-color-disabled": {
-                        "type": "color",
-                        "desc": "禁用链接的默认文字颜色,如：#223325"
-                    },
-                    "--crumb-space-x": {
-                        "type": "input",
-                        "desc": "链接与箭头符号之间的间距,如：1px"
-                    }
+                    "--crumb-color-link": "color",
+                    "--crumb-color-disabled": "color",
+                    "--crumb-space-x": "input"
                 },
                 "preview": {
                     "template": "<u-crumb>\n    <u-crumb-item to=\"/\">一级页面</u-crumb-item>\n    <u-crumb-item to=\"/two\">二级页面</u-crumb-item>\n    <u-crumb-item type=\"text\" to=\"/two/three\">三级页面</u-crumb-item>\n    <u-crumb-item disabled>四级页面</u-crumb-item>\n</u-crumb>"
@@ -116,46 +107,16 @@
                 "toPosition": "u-panel",
                 "type": [],
                 "cssProperty": {
-                    "--panel-border-width": {
-                        "type": "input",
-                        "desc": "面板外边框宽度,如：1px"
-                    },
-                    "--panel-border-radius": {
-                        "type": "input",
-                        "desc": "面板外边框圆角,如：1px"
-                    },
-                    "--panel-background": {
-                        "type": "color",
-                        "desc": "面板背景色,如：#223325"
-                    },
-                    "--panel-box-shadow": {
-                        "type": "input",
-                        "desc": "面板外边框阴影,如：1px"
-                    },
-                    "--panel-head-padding-x": {
-                        "type": "input",
-                        "desc": "面板标题左右内边距,如：1px"
-                    },
-                    "--panel-head-padding-y": {
-                        "type": "input",
-                        "desc": "面板标题左右内边距,如：1px"
-                    },
-                    "--panel-body-padding-x": {
-                        "type": "input",
-                        "desc": "面板内容区内边距,如：1px"
-                    },
-                    "--panel-body-padding-y": {
-                        "type": "input",
-                        "desc": "面板内容区内边距,如：1px"
-                    },
-                    "--panel-title-font-size": {
-                        "type": "input",
-                        "desc": "面板标题字号大小,如：1px"
-                    },
-                    "--panel-title-font-weight": {
-                        "type": "input",
-                        "desc": "面板标题字体粗细,如：bold"
-                    }
+                    "--panel-border-width": "input",
+                    "--panel-border-radius": "input",
+                    "--panel-background": "color",
+                    "--panel-box-shadow": "input",
+                    "--panel-head-padding-x": "input",
+                    "--panel-head-padding-y": "input",
+                    "--panel-body-padding-x": "input",
+                    "--panel-body-padding-y": "input",
+                    "--panel-title-font-size": "input",
+                    "--panel-title-font-weight": "input"
                 },
                 "preview": {
                     "template": "<u-panel title=\"面板标题\">\n                                <u-skeleton></u-skeleton>\n                            </u-panel>"
@@ -171,53 +132,18 @@
                     "simple"
                 ],
                 "cssProperty": {
-                    "--collapse-item-fill-background": {
-                        "type": "color"
-                    },
-                    "--collapse-border-width": {
-                        "type": "input",
-                        "desc": "面板边框宽度,如：1px"
-                    },
-                    "--collapse-border-color": {
-                        "type": "color",
-                        "desc": "面板边框颜色,如：#223325"
-                    },
-                    "--collapse-border-radius": {
-                        "type": "input",
-                        "desc": "面板边框圆角,如：1px"
-                    },
-                    "--collapse-item-head-color-disabled": {
-                        "type": "color",
-                        "desc": "面板禁用项折叠表头文字颜色,如：#223325"
-                    },
-                    "--collapse-item-head-padding": {
-                        "type": "input",
-                        "desc": "面板项折叠表头内边距,如：1px"
-                    },
-                    "--collapse-item-expander-size": {
-                        "type": "input",
-                        "desc": "面板项展开箭头容器元素大小,如：1px"
-                    },
-                    "--collapse-item-expander-color": {
-                        "type": "color",
-                        "desc": "面板项展开箭头颜色,如：#223325"
-                    },
-                    "--collapse-item-expander-color-disabled": {
-                        "type": "color",
-                        "desc": "面板项展开箭头颜色（禁用状态）,如：#223325"
-                    },
-                    "--collapse-item-expander-font-size": {
-                        "type": "input",
-                        "desc": "面板项展开箭头大小,如：1px"
-                    },
-                    "--collapse-item-content-padding": {
-                        "type": "input",
-                        "desc": "面板项内容区内边距,如：1px"
-                    },
-                    "--collapse-transition-duration": {
-                        "type": "input",
-                        "desc": "面板展开动画快慢参数,如：0"
-                    }
+                    "--collapse-item-fill-background": "color",
+                    "--collapse-border-width": "input",
+                    "--collapse-border-color": "color",
+                    "--collapse-border-radius": "input",
+                    "--collapse-item-head-color-disabled": "color",
+                    "--collapse-item-head-padding": "input",
+                    "--collapse-item-expander-size": "input",
+                    "--collapse-item-expander-color": "color",
+                    "--collapse-item-expander-color-disabled": "color",
+                    "--collapse-item-expander-font-size": "input",
+                    "--collapse-item-content-padding": "input",
+                    "--collapse-transition-duration": "input"
                 },
                 "preview": {
                     "template": "<div>\n    <div class=\"componentClassTitle\">基础样式一</div>\n    <u-collapse style=\"margin-bottom:48px;\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n    <div class=\"componentClassTitle\">基础样式二</div>\n    <u-collapse appear=\"simple\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n</div>"
@@ -241,42 +167,15 @@
                     "ellipsis"
                 ],
                 "cssProperty": {
-                    "--text-font-size": {
-                        "type": "input",
-                        "desc": "文本字号大小,如：1px"
-                    },
-                    "--text-font-size-small": {
-                        "type": "input",
-                        "desc": "小号文本字号大小,如：1px"
-                    },
-                    "--text-font-size-large": {
-                        "type": "input",
-                        "desc": "大号文本字号大小,如：1px"
-                    },
-                    "--text-color-primary": {
-                        "type": "color",
-                        "desc": "主要文本字体颜色,如：#223325"
-                    },
-                    "--text-color-secondary": {
-                        "type": "color",
-                        "desc": "次要文本字体颜色,如：#223325"
-                    },
-                    "--text-color-success": {
-                        "type": "color",
-                        "desc": "成功文本字体颜色,如：#223325"
-                    },
-                    "--text-color-warning": {
-                        "type": "color",
-                        "desc": "警告文本字体颜色,如：#223325"
-                    },
-                    "--text-color-error": {
-                        "type": "color",
-                        "desc": "错误文本字体颜色,如：#223325"
-                    },
-                    "--text-color-disabled": {
-                        "type": "color",
-                        "desc": "禁用文本字体颜色,如：#223325"
-                    }
+                    "--text-font-size": "input",
+                    "--text-font-size-small": "input",
+                    "--text-font-size-large": "input",
+                    "--text-color-primary": "color",
+                    "--text-color-secondary": "color",
+                    "--text-color-success": "color",
+                    "--text-color-warning": "color",
+                    "--text-color-error": "color",
+                    "--text-color-disabled": "color"
                 },
                 "preview": {
                     "template": "<div>\n    <div class=\"componentClassTitle\">基础样式</div>\n    <div style=\"margin-bottom:40px;\">\n        <u-text size=\"normal\" color=\"normal\" style=\"margin-right:24px;\">\n            Normal\n        </u-text>\n        <u-text size=\"small\"  style=\"margin-right:24px;\">\n            Small\n        </u-text>\n        <u-text size=\"large\" style=\"margin-right:24px;\">\n            Large\n        </u-text>\n        <u-text size=\"primary\" color=\"primary\" style=\"margin-right:24px;\">\n            Primary\n        </u-text>\n        <u-text size=\"secondary\" color=\"secondary\" style=\"margin-right:24px;\">\n            Secondary\n        </u-text>\n        <u-text size=\"success\" color=\"success\" style=\"margin-right:24px;\">\n            Success\n        </u-text>\n        <u-text size=\"warning\" color=\"warning\" style=\"margin-right:24px;\">\n            Warning\n        </u-text>\n        <u-text size=\"error\" color=\"error\" style=\"margin-right:24px;\">\n            Error\n        </u-text>\n        <u-text size=\"disabled\" color=\"disabled\" style=\"margin-right:24px;\">\n            Disabled\n        </u-text>\n    </div>\n    <div class=\"componentClassTitle\">长文本</div>\n    <u-text overflow=\"ellipsis\" size=\"normal\">\n        Content content content content content content content content content content content content content content content content content content content content content content content content content content content...\n    </u-text>\n</div>"
@@ -294,38 +193,15 @@
                     "danger"
                 ],
                 "cssProperty": {
-                    "--link-color": {
-                        "type": "color",
-                        "desc": "默认链接字体颜色,如：#223325"
-                    },
-                    "--link-color-success": {
-                        "type": "color",
-                        "desc": "成功链接字体颜色,如：#223325"
-                    },
-                    "--link-color-warning": {
-                        "type": "color",
-                        "desc": "警告链接字体颜色,如：#223325"
-                    },
-                    "--link-color-danger": {
-                        "type": "color",
-                        "desc": "危险链接字体颜色,如：#223325"
-                    },
-                    "--link-color-disabled": {
-                        "type": "color",
-                        "desc": "禁用链接字体颜色,如：#223325"
-                    },
-                    "--link-color-hover": {
-                        "type": "color"
-                    },
-                    "--link-color-success-hover": {
-                        "type": "color"
-                    },
-                    "--link-color-warning-hover": {
-                        "type": "color"
-                    },
-                    "--link-color-danger-hover": {
-                        "type": "color"
-                    }
+                    "--link-color": "color",
+                    "--link-color-success": "color",
+                    "--link-color-warning": "color",
+                    "--link-color-danger": "color",
+                    "--link-color-disabled": "color",
+                    "--link-color-hover": "color",
+                    "--link-color-success-hover": "color",
+                    "--link-color-warning-hover": "color",
+                    "--link-color-danger-hover": "color"
                 },
                 "preview": {
                     "template": "<div>\n    <div style=\"margin-bottom: 40px;\">\n        <div class=\"componentClassTitle\">鼠标悬停状态为下划线</div>\n        <u-link style=\"margin-right:24px;\">Base</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link disabled>Disabled</u-link>\n    </div>\n    <div>\n        <div class=\"componentClassTitle\">鼠标悬停状态为颜色变化</div>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\">Base</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link hovertype=\"color\" disabled>Disabled</u-link>\n    </div>\n</div>"
@@ -346,119 +222,36 @@
                     "large"
                 ],
                 "cssProperty": {
-                    "--label-padding-x": {
-                        "type": "input",
-                        "desc": "标签水平方向内边距,如：1px"
-                    },
-                    "--label-padding-x-small": {
-                        "type": "input",
-                        "desc": "小号标签水平方向内边距,如：1px"
-                    },
-                    "--label-padding-x-large": {
-                        "type": "input",
-                        "desc": "大号标签水平方向内边距,如：1px"
-                    },
-                    "--label-padding-y": {
-                        "type": "input",
-                        "desc": "标签垂直方向内边距,如：1px"
-                    },
-                    "--label-padding-y-small": {
-                        "type": "input",
-                        "desc": "小号标签垂直方向内边距,如：1px"
-                    },
-                    "--label-padding-y-large": {
-                        "type": "input",
-                        "desc": "大号标签垂直方向内边距,如：1px"
-                    },
-                    "--label-line-height-small": {
-                        "type": "input",
-                        "desc": "小号标签的行高,如：1px"
-                    },
-                    "--label-font-size": {
-                        "type": "input",
-                        "desc": "标签的字号大小,如：1px"
-                    },
-                    "--label-font-size-small": {
-                        "type": "input",
-                        "desc": "小号标签的字号大小,如：1px"
-                    },
-                    "--label-font-size-large": {
-                        "type": "input",
-                        "desc": "大号标签的字号大小,如：1px"
-                    },
-                    "--label-remove-padding-x": {
-                        "type": "input",
-                        "desc": "可删除标签的删除图标与文本之间的内边距,如：1px"
-                    },
-                    "--label-remove-padding-x-small": {
-                        "type": "input",
-                        "desc": "可删除小号标签的删除图标与文本之间的内边距,如：1px"
-                    },
-                    "--label-remove-padding-x-large": {
-                        "type": "input",
-                        "desc": "可删除大号标签的删除图标与文本之间的内边距,如：1px"
-                    },
-                    "--label-background": {
-                        "type": "color",
-                        "desc": "默认标签的背景色,如：#223325"
-                    },
-                    "--label-background-primary": {
-                        "type": "color",
-                        "desc": "主要标签的背景色,如：#223325"
-                    },
-                    "--label-background-success": {
-                        "type": "color",
-                        "desc": "成功标签的背景色,如：#223325"
-                    },
-                    "--label-background-warning": {
-                        "type": "color",
-                        "desc": "警告标签的背景色,如：#223325"
-                    },
-                    "--label-background-error": {
-                        "type": "color",
-                        "desc": "错误标签的背景色,如：#223325"
-                    },
-                    "--label-color": {
-                        "type": "color",
-                        "desc": "默认标签的字体颜色,如：#223325"
-                    },
-                    "--label-color-primary": {
-                        "type": "color",
-                        "desc": "主要标签的字体颜色,如：#223325"
-                    },
-                    "--label-color-success": {
-                        "type": "color",
-                        "desc": "成功标签的字体颜色,如：#223325"
-                    },
-                    "--label-color-warning": {
-                        "type": "color",
-                        "desc": "警告标签的字体颜色,如：#223325"
-                    },
-                    "--label-color-error": {
-                        "type": "color",
-                        "desc": "错误标签的字体颜色,如：#223325"
-                    },
-                    "--label-line-background": {
-                        "type": "color"
-                    },
-                    "--label-line-border-color": {
-                        "type": "color"
-                    },
-                    "--label-line-color-primary": {
-                        "type": "color"
-                    },
-                    "--label-line-color-success": {
-                        "type": "color"
-                    },
-                    "--label-line-color-warning": {
-                        "type": "color"
-                    },
-                    "--label-line-color-error": {
-                        "type": "color"
-                    },
-                    "--label-line-color-normal": {
-                        "type": "color"
-                    }
+                    "--label-padding-x": "input",
+                    "--label-padding-x-small": "input",
+                    "--label-padding-x-large": "input",
+                    "--label-padding-y": "input",
+                    "--label-padding-y-small": "input",
+                    "--label-padding-y-large": "input",
+                    "--label-line-height-small": "input",
+                    "--label-font-size": "input",
+                    "--label-font-size-small": "input",
+                    "--label-font-size-large": "input",
+                    "--label-remove-padding-x": "input",
+                    "--label-remove-padding-x-small": "input",
+                    "--label-remove-padding-x-large": "input",
+                    "--label-background": "color",
+                    "--label-background-primary": "color",
+                    "--label-background-success": "color",
+                    "--label-background-warning": "color",
+                    "--label-background-error": "color",
+                    "--label-color": "color",
+                    "--label-color-primary": "color",
+                    "--label-color-success": "color",
+                    "--label-color-warning": "color",
+                    "--label-color-error": "color",
+                    "--label-line-background": "color",
+                    "--label-line-border-color": "color",
+                    "--label-line-color-primary": "color",
+                    "--label-line-color-success": "color",
+                    "--label-line-color-warning": "color",
+                    "--label-line-color-error": "color",
+                    "--label-line-color-normal": "color"
                 },
                 "preview": {
                     "template": "<div>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Base</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"primary\">Primary</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"success\">Success</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"warning\">Warning</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"error\">Error</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-label>\n    <u-label removable>removable</u-label>\n</div>"
@@ -474,22 +267,10 @@
                     "dot"
                 ],
                 "cssProperty": {
-                    "--badge-background": {
-                        "type": "color",
-                        "desc": "徽章背景色,如：#223325"
-                    },
-                    "--badge-color": {
-                        "type": "color",
-                        "desc": "徽章字体颜色,如：#223325"
-                    },
-                    "--badge-value-size": {
-                        "type": "input",
-                        "desc": "徽章圆点大小（数值模式）,如：1px"
-                    },
-                    "--badge-dot-size": {
-                        "type": "input",
-                        "desc": "徽章圆点大小（圆点模式）,如：1px"
-                    }
+                    "--badge-background": "color",
+                    "--badge-color": "color",
+                    "--badge-value-size": "input",
+                    "--badge-dot-size": "input"
                 },
                 "preview": {
                     "template": "<div>\n    <p style=\"display:inline-block;margin-right:20px;\">\n        消息 <u-badge :value=\"3\"></u-badge>\n    </p>\n    <p style=\"display:inline-block;\">\n        <u-badge :value=\"3\" dot corner>消息</u-badge>\n    </p>\n</div>"
@@ -502,58 +283,19 @@
                 "toPosition": "carousel",
                 "type": [],
                 "cssProperty": {
-                    "--carousel-width": {
-                        "type": "input",
-                        "desc": "幻灯片图片宽度,如：1px"
-                    },
-                    "--carousel-height": {
-                        "type": "input",
-                        "desc": "幻灯片图片高度,如：1px"
-                    },
-                    "--carousel-nav-bottom": {
-                        "type": "input",
-                        "desc": "幻灯片底部按钮下边距,如：1px"
-                    },
-                    "--carousel-nav-item-width": {
-                        "type": "input",
-                        "desc": "幻灯片底部按钮宽度（未高亮状态）,如：1px"
-                    },
-                    "--carousel-nav-item-height": {
-                        "type": "input",
-                        "desc": "幻灯片底部按钮高度,如：1px"
-                    },
-                    "--carousel-nav-item-padding": {
-                        "type": "input",
-                        "desc": "幻灯片底部按钮内边距（高亮状态）,如：1px"
-                    },
-                    "--carousel-nav-item-background": {
-                        "type": "color",
-                        "desc": "幻灯片底部按钮背景色（未高亮状态）,如：#223325"
-                    },
-                    "--carousel-nav-item-background-hover": {
-                        "type": "color",
-                        "desc": "幻灯片底部按钮背景色（高亮状态）,如：#223325"
-                    },
-                    "--carousel-button-space": {
-                        "type": "input",
-                        "desc": "幻灯片左右换页按钮的外边距,如：1px"
-                    },
-                    "--carousel-button-font-size": {
-                        "type": "input",
-                        "desc": "幻灯片左右换页按钮大小,如：1px"
-                    },
-                    "--carousel-button-color": {
-                        "type": "color",
-                        "desc": "幻灯片左右换页按钮颜色,如：#223325"
-                    },
-                    "--carousel-button-color-hover": {
-                        "type": "color",
-                        "desc": "幻灯片左右换页按钮颜色（高亮状态）,如：#223325"
-                    },
-                    "--carousel-button-transition": {
-                        "type": "input",
-                        "desc": "幻灯片左右换页按钮显现动画快慢参数,如：all 0"
-                    }
+                    "--carousel-width": "input",
+                    "--carousel-height": "input",
+                    "--carousel-nav-bottom": "input",
+                    "--carousel-nav-item-width": "input",
+                    "--carousel-nav-item-height": "input",
+                    "--carousel-nav-item-padding": "input",
+                    "--carousel-nav-item-background": "color",
+                    "--carousel-nav-item-background-hover": "color",
+                    "--carousel-button-space": "input",
+                    "--carousel-button-font-size": "input",
+                    "--carousel-button-color": "color",
+                    "--carousel-button-color-hover": "color",
+                    "--carousel-button-transition": "input"
                 },
                 "preview": {
                     "template": "<u-carousel>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/2.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/3.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/4.jpg\">\n    </u-carousel-item>\n</u-carousel>"
@@ -573,14 +315,8 @@
                     "scale-down"
                 ],
                 "cssProperty": {
-                    "--image-width": {
-                        "type": "input",
-                        "desc": "图片宽度,如：1px"
-                    },
-                    "--image-height": {
-                        "type": "input",
-                        "desc": "图片高度,如：1px"
-                    }
+                    "--image-width": "input",
+                    "--image-height": "input"
                 },
                 "preview": {
                     "template": "<div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fill</div>\n        <u-image fit=\"fill\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fit</div>\n        <u-image fit=\"fit\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Contain</div>\n        <u-image fit=\"contain\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Cover</div>\n        <u-image fit=\"cover\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">None</div>\n        <u-image fit=\"none\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Scale-down</div>\n        <u-image fit=\"scale-down\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n</div>"
@@ -599,312 +335,100 @@
                     ""
                 ],
                 "cssProperty": {
-                    "--button-height-mini": {
-                        "type": "input"
-                    },
-                    "--button-height-small": {
-                        "type": "input"
-                    },
-                    "--button-height": {
-                        "type": "input",
-                        "desc": "按钮高度,如：1px"
-                    },
-                    "--button-height-medium": {
-                        "type": "input"
-                    },
-                    "--button-height-large": {
-                        "type": "input"
-                    },
-                    "--button-height-huge": {
-                        "type": "input"
-                    },
-                    "--button-padding-y-mini": {
-                        "type": "input"
-                    },
-                    "--button-padding-y-small": {
-                        "type": "input"
-                    },
-                    "--button-padding-y": {
-                        "type": "input",
-                        "desc": "按钮垂直方向内边距,如：1px"
-                    },
-                    "--button-padding-y-medium": {
-                        "type": "input"
-                    },
-                    "--button-padding-y-large": {
-                        "type": "input"
-                    },
-                    "--button-padding-y-huge": {
-                        "type": "input"
-                    },
-                    "--button-padding-x-mini": {
-                        "type": "input"
-                    },
-                    "--button-padding-x-small": {
-                        "type": "input"
-                    },
-                    "--button-padding-x": {
-                        "type": "input",
-                        "desc": "按钮水平方向内边距,如：1px"
-                    },
-                    "--button-padding-x-medium": {
-                        "type": "input"
-                    },
-                    "--button-padding-x-large": {
-                        "type": "input"
-                    },
-                    "--button-padding-x-huge": {
-                        "type": "input"
-                    },
-                    "--button-background-primary": {
-                        "type": "color",
-                        "desc": "主要按钮背景色,如：#223325"
-                    },
-                    "--button-background-primary-secondary": {
-                        "type": "color"
-                    },
-                    "--button-background": {
-                        "type": "color",
-                        "desc": "按钮默认背景色,如：#223325"
-                    },
-                    "--button-background-danger": {
-                        "type": "color"
-                    },
-                    "--button-background-danger-secondary": {
-                        "type": "color"
-                    },
-                    "--button-background-primary-hover": {
-                        "type": "color"
-                    },
-                    "--button-background-primary-secondary-hover": {
-                        "type": "color"
-                    },
-                    "--button-background-hover": {
-                        "type": "color",
-                        "desc": "按钮hover背景色,如：#223325"
-                    },
-                    "--button-background-danger-hover": {
-                        "type": "color"
-                    },
-                    "--button-background-danger-secondary-hover": {
-                        "type": "color"
-                    },
-                    "--button-background-primary-active": {
-                        "type": "color"
-                    },
-                    "--button-background-primary-secondary-active": {
-                        "type": "color"
-                    },
-                    "--button-background-active": {
-                        "type": "color",
-                        "desc": "按钮背景色（激活状态）,如：#223325"
-                    },
-                    "--button-background-danger-active": {
-                        "type": "color"
-                    },
-                    "--button-background-danger-secondary-active": {
-                        "type": "color"
-                    },
-                    "--button-background-primary-disabled": {
-                        "type": "color",
-                        "desc": "主要按钮背景色（禁用状态）,如：#223325"
-                    },
-                    "--button-background-primary-secondary-disabled": {
-                        "type": "color"
-                    },
-                    "--button-background-disabled": {
-                        "type": "color",
-                        "desc": "按钮背景色（禁用状态）,如：#223325"
-                    },
-                    "--button-background-danger-disabled": {
-                        "type": "color"
-                    },
-                    "--button-background-danger-secondary-disabled": {
-                        "type": "color"
-                    },
-                    "--button-border-color-primary": {
-                        "type": "color"
-                    },
-                    "--button-border-color-primary-secondary": {
-                        "type": "color"
-                    },
-                    "--button-border-color": {
-                        "type": "color",
-                        "desc": "按钮边框颜色,如：#223325"
-                    },
-                    "--button-border-color-danger": {
-                        "type": "color"
-                    },
-                    "--button-border-color-danger-secondary": {
-                        "type": "color"
-                    },
-                    "--button-border-color-primary-hover": {
-                        "type": "color"
-                    },
-                    "--button-border-color-primary-secondary-hover": {
-                        "type": "color"
-                    },
-                    "--button-border-color-hover": {
-                        "type": "color",
-                        "desc": "按钮边框颜色(hover状态),如：#223325"
-                    },
-                    "--button-border-color-danger-hover": {
-                        "type": "color"
-                    },
-                    "--button-border-color-danger-secondary-hover": {
-                        "type": "color"
-                    },
-                    "--button-border-color-primary-active": {
-                        "type": "color"
-                    },
-                    "--button-border-color-primary-secondary-active": {
-                        "type": "color"
-                    },
-                    "--button-border-color-active": {
-                        "type": "color"
-                    },
-                    "--button-border-color-danger-active": {
-                        "type": "color"
-                    },
-                    "--button-border-color-danger-secondary-active": {
-                        "type": "color"
-                    },
-                    "--button-border-color-primary-disabled": {
-                        "type": "color"
-                    },
-                    "--button-border-color-primary-secondary-disabled": {
-                        "type": "color"
-                    },
-                    "--button-border-color-disabled": {
-                        "type": "color",
-                        "desc": "按钮边框颜色（禁用状态）,如：#223325"
-                    },
-                    "--button-border-color-danger-disabled": {
-                        "type": "color"
-                    },
-                    "--button-border-color-danger-secondary-disabled": {
-                        "type": "color"
-                    },
-                    "--button-font-size-mini": {
-                        "type": "input"
-                    },
-                    "--button-font-size-small": {
-                        "type": "input"
-                    },
-                    "--button-font-size": {
-                        "type": "input",
-                        "desc": "按钮文本字体大小,如：1px"
-                    },
-                    "--button-font-size-medium": {
-                        "type": "input"
-                    },
-                    "--button-font-size-large": {
-                        "type": "input"
-                    },
-                    "--button-font-size-huge": {
-                        "type": "input"
-                    },
-                    "--button-color-primary": {
-                        "type": "color",
-                        "desc": "主要按钮字体颜色,如：#223325"
-                    },
-                    "--button-color-primary-secondary": {
-                        "type": "color"
-                    },
-                    "--button-color": {
-                        "type": "color",
-                        "desc": "默认按钮字体颜色,如：#223325"
-                    },
-                    "--button-color-danger": {
-                        "type": "color"
-                    },
-                    "--button-color-danger-secondary": {
-                        "type": "color"
-                    },
-                    "--button-color-primary-hover": {
-                        "type": "color",
-                        "desc": "主要按钮字体颜色（hover状态）,如：#223325"
-                    },
-                    "--button-color-primary-secondary-hover": {
-                        "type": "color"
-                    },
-                    "--button-color-hover": {
-                        "type": "color",
-                        "desc": "默认按钮字体颜色（hover状态）,如：#223325"
-                    },
-                    "--button-color-danger-hover": {
-                        "type": "color"
-                    },
-                    "--button-color-danger-secondary-hover": {
-                        "type": "color"
-                    },
-                    "--button-color-primary-active": {
-                        "type": "color"
-                    },
-                    "--button-color-primary-secondary-active": {
-                        "type": "color"
-                    },
-                    "--button-color-active": {
-                        "type": "color"
-                    },
-                    "--button-color-danger-active": {
-                        "type": "color"
-                    },
-                    "--button-color-danger-secondary-active": {
-                        "type": "color"
-                    },
-                    "--button-color-primary-disabled": {
-                        "type": "color",
-                        "desc": "主要按钮字体颜色（禁用状态）,如：#223325"
-                    },
-                    "--button-color-primary-secondary-disabled": {
-                        "type": "color"
-                    },
-                    "--button-color-disabled": {
-                        "type": "color",
-                        "desc": "默认按钮字体颜色（禁用状态）,如：#223325"
-                    },
-                    "--button-color-danger-disabled": {
-                        "type": "color"
-                    },
-                    "--button-color-danger-secondary-disabled": {
-                        "type": "color"
-                    },
-                    "--button-border-width": {
-                        "type": "input",
-                        "desc": "按钮边框宽度,如：1px"
-                    },
-                    "--button-border-radius": {
-                        "type": "input",
-                        "desc": "按钮边框圆角,如：1px"
-                    },
-                    "--button-box-shadow-focus-color": {
-                        "type": "color"
-                    },
-                    "--button-box-shadow-focus-primary-color": {
-                        "type": "color"
-                    },
-                    "--button-box-shadow-focus-danger-color": {
-                        "type": "color"
-                    },
-                    "--button-box-shadow-active-color": {
-                        "type": "color"
-                    },
-                    "--button-box-shadow-focus": {
-                        "type": "input",
-                        "desc": "按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0"
-                    },
-                    "--button-box-shadow-focus-primary": {
-                        "type": "input",
-                        "desc": "主要按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0"
-                    },
-                    "--button-box-shadow-focus-danger": {
-                        "type": "input"
-                    },
-                    "--button-box-shadow-active": {
-                        "type": "input",
-                        "desc": "按钮边框阴影效果（激活状态）,如：inset 0 1px 3px rgba(0, 0, 0, 0"
-                    }
+                    "--button-height-mini": "input",
+                    "--button-height-small": "input",
+                    "--button-height": "input",
+                    "--button-height-medium": "input",
+                    "--button-height-large": "input",
+                    "--button-height-huge": "input",
+                    "--button-padding-y-mini": "input",
+                    "--button-padding-y-small": "input",
+                    "--button-padding-y": "input",
+                    "--button-padding-y-medium": "input",
+                    "--button-padding-y-large": "input",
+                    "--button-padding-y-huge": "input",
+                    "--button-padding-x-mini": "input",
+                    "--button-padding-x-small": "input",
+                    "--button-padding-x": "input",
+                    "--button-padding-x-medium": "input",
+                    "--button-padding-x-large": "input",
+                    "--button-padding-x-huge": "input",
+                    "--button-background-primary": "color",
+                    "--button-background-primary-secondary": "color",
+                    "--button-background": "color",
+                    "--button-background-danger": "color",
+                    "--button-background-danger-secondary": "color",
+                    "--button-background-primary-hover": "color",
+                    "--button-background-primary-secondary-hover": "color",
+                    "--button-background-hover": "color",
+                    "--button-background-danger-hover": "color",
+                    "--button-background-danger-secondary-hover": "color",
+                    "--button-background-primary-active": "color",
+                    "--button-background-primary-secondary-active": "color",
+                    "--button-background-active": "color",
+                    "--button-background-danger-active": "color",
+                    "--button-background-danger-secondary-active": "color",
+                    "--button-background-primary-disabled": "color",
+                    "--button-background-primary-secondary-disabled": "color",
+                    "--button-background-disabled": "color",
+                    "--button-background-danger-disabled": "color",
+                    "--button-background-danger-secondary-disabled": "color",
+                    "--button-border-color-primary": "color",
+                    "--button-border-color-primary-secondary": "color",
+                    "--button-border-color": "color",
+                    "--button-border-color-danger": "color",
+                    "--button-border-color-danger-secondary": "color",
+                    "--button-border-color-primary-hover": "color",
+                    "--button-border-color-primary-secondary-hover": "color",
+                    "--button-border-color-hover": "color",
+                    "--button-border-color-danger-hover": "color",
+                    "--button-border-color-danger-secondary-hover": "color",
+                    "--button-border-color-primary-active": "color",
+                    "--button-border-color-primary-secondary-active": "color",
+                    "--button-border-color-active": "color",
+                    "--button-border-color-danger-active": "color",
+                    "--button-border-color-danger-secondary-active": "color",
+                    "--button-border-color-primary-disabled": "color",
+                    "--button-border-color-primary-secondary-disabled": "color",
+                    "--button-border-color-disabled": "color",
+                    "--button-border-color-danger-disabled": "color",
+                    "--button-border-color-danger-secondary-disabled": "color",
+                    "--button-font-size-mini": "input",
+                    "--button-font-size-small": "input",
+                    "--button-font-size": "input",
+                    "--button-font-size-medium": "input",
+                    "--button-font-size-large": "input",
+                    "--button-font-size-huge": "input",
+                    "--button-color-primary": "color",
+                    "--button-color-primary-secondary": "color",
+                    "--button-color": "color",
+                    "--button-color-danger": "color",
+                    "--button-color-danger-secondary": "color",
+                    "--button-color-primary-hover": "color",
+                    "--button-color-primary-secondary-hover": "color",
+                    "--button-color-hover": "color",
+                    "--button-color-danger-hover": "color",
+                    "--button-color-danger-secondary-hover": "color",
+                    "--button-color-primary-active": "color",
+                    "--button-color-primary-secondary-active": "color",
+                    "--button-color-active": "color",
+                    "--button-color-danger-active": "color",
+                    "--button-color-danger-secondary-active": "color",
+                    "--button-color-primary-disabled": "color",
+                    "--button-color-primary-secondary-disabled": "color",
+                    "--button-color-disabled": "color",
+                    "--button-color-danger-disabled": "color",
+                    "--button-color-danger-secondary-disabled": "color",
+                    "--button-border-width": "input",
+                    "--button-border-radius": "input",
+                    "--button-box-shadow-focus-color": "color",
+                    "--button-box-shadow-focus-primary-color": "color",
+                    "--button-box-shadow-focus-danger-color": "color",
+                    "--button-box-shadow-active-color": "color",
+                    "--button-box-shadow-focus": "input",
+                    "--button-box-shadow-focus-primary": "input",
+                    "--button-box-shadow-focus-danger": "input",
+                    "--button-box-shadow-active": "input"
                 },
                 "preview": {
                     "template": "<div>\n        <div class=\"componentClassTitle\">类型</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\">主要按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary_secondary\">次要按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\">普通按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger\">危险操作按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger_secondary\">次要危险操作按钮</u-button>\n\n        <div class=\"componentClassTitle\">禁用</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\" disabled>主要按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary_secondary\" disabled>次要按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" disabled>普通按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger\" disabled>危险操作按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger_secondary\" disabled>次要危险操作按钮禁用</u-button>\n\n        <div class=\"componentClassTitle\">尺寸</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"mini\">Mini</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Normal</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"medium\">Medium</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"huge\">Huge</u-button>\n\n        <div class=\"componentClassTitle\">图标</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"add\">Add</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"refresh\">Refresh</u-button>\n    </div>"
@@ -922,17 +446,9 @@
                     "group"
                 ],
                 "cssProperty": {
-                    "--form-item-label-color": {
-                        "type": "color"
-                    },
-                    "--form-item-label-padding-right": {
-                        "type": "input",
-                        "desc": "表单项 label文本右边距,如 1px"
-                    },
-                    "--form-item-label-width": {
-                        "type": "input",
-                        "desc": "表单项 label宽度,如 1px"
-                    }
+                    "--form-item-label-color": "color",
+                    "--form-item-label-padding-right": "input",
+                    "--form-item-label-width": "input"
                 },
                 "preview": {
                     "template": "<div>\n    <div class=\"componentClassTitle\">基础布局</div>\n    <u-form gap=\"large\" style=\"margin-bottom: 40px;\">\n        <u-form-item label=\"状态\">\n            <u-select auto-select>\n                <u-select-item>认证中</u-select-item>\n            </u-select>\n        </u-form-item>\n        <u-form-item label=\"用户名\">\n            <u-input maxlength=\"63\" placeholder=\"请输入用户名\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"联系号码\">\n            <u-input maxlength=\"63\" placeholder=\"请输入联系号码\"></u-input>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">查询</u-button>\n        </u-form-item>\n    </u-form>\n    <div class=\"componentClassTitle\">行内布局</div>\n    <u-form layout=\"inline\" label-size=\"auto\" style=\"margin-bottom: 40px;\">\n        <u-form-item label=\"状态\">\n            <u-select auto-select>\n                <u-select-item>认证中</u-select-item>\n            </u-select>\n        </u-form-item>\n        <u-form-item label=\"用户名\">\n            <u-input maxlength=\"63\" placeholder=\"请输入用户名\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"联系号码\">\n            <u-input maxlength=\"63\" placeholder=\"请输入联系号码\"></u-input>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">查询</u-button>\n        </u-form-item>\n    </u-form>\n    <div class=\"componentClassTitle\">栅格布局</div>\n    <u-form layout=\"inline\" style=\"margin-bottom: 8px;\">\n        <u-grid-layout>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"状态\" style=\"width: 100%;\">\n                        <u-select auto-select>\n                            <u-select-item>认证中</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案类型\" style=\"width: 100%;\">\n                        <u-select auto-select>\n                            <u-select-item>全部</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案号\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入备案号\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"用户名\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入用户名\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"单位名称\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入单位名称\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item style=\"width: 100%;\">\n                        <u-button color=\"primary\">查询</u-button>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n        </u-grid-layout>\n    </u-form>\n</div>"
@@ -945,121 +461,41 @@
                 "toPosition": "input",
                 "type": [],
                 "cssProperty": {
-                    "--input-border-color": {
-                        "type": "color",
-                        "desc": "输入框边框颜色,如 #223325"
-                    },
-                    "--input-border-color-hover": {
-                        "type": "color"
-                    },
-                    "--input-border-color-focus": {
-                        "type": "color",
-                        "desc": "输入框边框颜色（选中状态）,如 #223325"
-                    },
-                    "--input-border-color-disabled": {
-                        "type": "color"
-                    },
-                    "--input-border-width": {
-                        "type": "input",
-                        "desc": "输入框边框宽度,如 1px"
-                    },
-                    "--input-border-radius": {
-                        "type": "input",
-                        "desc": "输入框圆角,如 1px"
-                    },
-                    "--input-box-shadow-focus-color": {
-                        "type": "color"
-                    },
-                    "--input-box-shadow-focus": {
-                        "type": "input"
-                    },
-                    "--input-placeholder-color": {
-                        "type": "color",
-                        "desc": "输入框占位符文本颜色,如 #223325"
-                    },
-                    "--input-width-mini": {
-                        "type": "input"
-                    },
-                    "--input-width-small": {
-                        "type": "input"
-                    },
-                    "--input-width": {
-                        "type": "input",
-                        "desc": "输入框高度,如 1px"
-                    },
-                    "--input-width-medium": {
-                        "type": "input"
-                    },
-                    "--input-width-large": {
-                        "type": "input"
-                    },
-                    "--input-width-huge": {
-                        "type": "input"
-                    },
-                    "--input-height-mini": {
-                        "type": "input"
-                    },
-                    "--input-height-small": {
-                        "type": "input"
-                    },
-                    "--input-height": {
-                        "type": "input",
-                        "desc": "输入框高度,如 1px"
-                    },
-                    "--input-height-medium": {
-                        "type": "input"
-                    },
-                    "--input-height-large": {
-                        "type": "input"
-                    },
-                    "--input-height-huge": {
-                        "type": "input"
-                    },
-                    "--input-padding-x-mini": {
-                        "type": "input"
-                    },
-                    "--input-padding-x-small": {
-                        "type": "input"
-                    },
-                    "--input-padding-x": {
-                        "type": "input",
-                        "desc": "输入框水平方向内边距,如 1px"
-                    },
-                    "--input-padding-x-medium": {
-                        "type": "input"
-                    },
-                    "--input-padding-x-large": {
-                        "type": "input"
-                    },
-                    "--input-padding-x-huge": {
-                        "type": "input"
-                    },
-                    "--input-padding-x-full": {
-                        "type": "input"
-                    },
-                    "--input-prefix-padding-left": {
-                        "type": "input"
-                    },
-                    "--input-prefix-placeholder-left": {
-                        "type": "input"
-                    },
-                    "--input-suffix-padding-right": {
-                        "type": "input"
-                    },
-                    "--input-background": {
-                        "type": "color",
-                        "desc": "输入框背景色,如 #223325"
-                    },
-                    "--input-background-disabled": {
-                        "type": "color"
-                    },
-                    "--input-color": {
-                        "type": "color",
-                        "desc": "输入框文字颜色,如 #223325"
-                    },
-                    "--input-color-disabled": {
-                        "type": "color"
-                    }
+                    "--input-border-color": "color",
+                    "--input-border-color-hover": "color",
+                    "--input-border-color-focus": "color",
+                    "--input-border-color-disabled": "color",
+                    "--input-border-width": "input",
+                    "--input-border-radius": "input",
+                    "--input-box-shadow-focus-color": "color",
+                    "--input-box-shadow-focus": "input",
+                    "--input-placeholder-color": "color",
+                    "--input-width-mini": "input",
+                    "--input-width-small": "input",
+                    "--input-width": "input",
+                    "--input-width-medium": "input",
+                    "--input-width-large": "input",
+                    "--input-width-huge": "input",
+                    "--input-height-mini": "input",
+                    "--input-height-small": "input",
+                    "--input-height": "input",
+                    "--input-height-medium": "input",
+                    "--input-height-large": "input",
+                    "--input-height-huge": "input",
+                    "--input-padding-x-mini": "input",
+                    "--input-padding-x-small": "input",
+                    "--input-padding-x": "input",
+                    "--input-padding-x-medium": "input",
+                    "--input-padding-x-large": "input",
+                    "--input-padding-x-huge": "input",
+                    "--input-padding-x-full": "input",
+                    "--input-prefix-padding-left": "input",
+                    "--input-prefix-placeholder-left": "input",
+                    "--input-suffix-padding-right": "input",
+                    "--input-background": "color",
+                    "--input-background-disabled": "color",
+                    "--input-color": "color",
+                    "--input-color-disabled": "color"
                 },
                 "preview": {
                     "template": "<div>\n        <div class=\"componentClassTitle\">宽度迷你</div>\n        <u-input maxlength=\"12\" size=\"normal mini\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度小</div>\n        <u-input maxlength=\"12\" size=\"normal small\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-input maxlength=\"12\" size=\"normal medium\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-input maxlength=\"12\" size=\"normal large\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-input maxlength=\"12\" size=\"normal huge\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 80px;\"></u-input>\n\n        <div class=\"componentClassTitle\">高度迷你</div>\n        <u-input maxlength=\"12\" size=\"mini normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度小</div>\n        <u-input maxlength=\"12\" size=\"small normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-input maxlength=\"12\" size=\"medium normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-input maxlength=\"12\" size=\"large normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-input maxlength=\"12\" size=\"huge normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n\n        <div class=\"componentClassTitle\">禁用</div>\n        <u-input value=\"禁用\" maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\" disabled></u-input>\n    </div>"
@@ -1072,91 +508,33 @@
                 "toPosition": "numberInput",
                 "type": [],
                 "cssProperty": {
-                    "--number-input-background": {
-                        "type": "color"
-                    },
-                    "--number-input-background-disabled": {
-                        "type": "color"
-                    },
-                    "--number-input-color": {
-                        "type": "color"
-                    },
-                    "--number-input-color-disabled": {
-                        "type": "color"
-                    },
-                    "--number-input-button-background": {
-                        "type": "color",
-                        "desc": "输入框上下按钮背景色,如 #223325"
-                    },
-                    "--number-input-button-both-ends-background": {
-                        "type": "color"
-                    },
-                    "--number-input-button-background-hover": {
-                        "type": "color",
-                        "desc": "输入框上下按钮背景色（hover状态）,如 #223325"
-                    },
-                    "--number-input-button-both-ends-background-hover": {
-                        "type": "color"
-                    },
-                    "--number-input-button-background-active": {
-                        "type": "color",
-                        "desc": "输入框上下按钮背景色（激活状态）,如 #223325"
-                    },
-                    "--number-input-button-both-ends-background-active": {
-                        "type": "color"
-                    },
-                    "--number-input-button-background-focus": {
-                        "type": "color"
-                    },
-                    "--number-input-button-both-ends-background-focus": {
-                        "type": "color"
-                    },
-                    "--number-input-button-background-disabled": {
-                        "type": "color"
-                    },
-                    "--number-input-button-both-ends-background-disabled": {
-                        "type": "color"
-                    },
-                    "--number-input-border-color": {
-                        "type": "color"
-                    },
-                    "--number-input-border-color-hover": {
-                        "type": "color"
-                    },
-                    "--number-input-border-color-focus": {
-                        "type": "color"
-                    },
-                    "--number-input-border-color-disabled": {
-                        "type": "color"
-                    },
-                    "--number-input-button-color": {
-                        "type": "color"
-                    },
-                    "--number-input-button-color-hover": {
-                        "type": "color"
-                    },
-                    "--number-input-button-color-disabled": {
-                        "type": "color"
-                    },
-                    "--number-input-height": {
-                        "type": "input",
-                        "desc": "输入框按钮高度,如 1px"
-                    },
-                    "--number-input-border-width": {
-                        "type": "input"
-                    },
-                    "--number-input-box-shadow-focus-color": {
-                        "type": "color"
-                    },
-                    "--number-input-box-shadow-focus": {
-                        "type": "input"
-                    },
-                    "--number-input-button-padding": {
-                        "type": "input"
-                    },
-                    "--number-input-button-outline": {
-                        "type": "input"
-                    }
+                    "--number-input-background": "color",
+                    "--number-input-background-disabled": "color",
+                    "--number-input-color": "color",
+                    "--number-input-color-disabled": "color",
+                    "--number-input-button-background": "color",
+                    "--number-input-button-both-ends-background": "color",
+                    "--number-input-button-background-hover": "color",
+                    "--number-input-button-both-ends-background-hover": "color",
+                    "--number-input-button-background-active": "color",
+                    "--number-input-button-both-ends-background-active": "color",
+                    "--number-input-button-background-focus": "color",
+                    "--number-input-button-both-ends-background-focus": "color",
+                    "--number-input-button-background-disabled": "color",
+                    "--number-input-button-both-ends-background-disabled": "color",
+                    "--number-input-border-color": "color",
+                    "--number-input-border-color-hover": "color",
+                    "--number-input-border-color-focus": "color",
+                    "--number-input-border-color-disabled": "color",
+                    "--number-input-button-color": "color",
+                    "--number-input-button-color-hover": "color",
+                    "--number-input-button-color-disabled": "color",
+                    "--number-input-height": "input",
+                    "--number-input-border-width": "input",
+                    "--number-input-box-shadow-focus-color": "color",
+                    "--number-input-box-shadow-focus": "input",
+                    "--number-input-button-padding": "input",
+                    "--number-input-button-outline": "input"
                 },
                 "preview": {
                     "template": "<div>\n        <div class=\"componentClassTitle\">基本用法</div>\n        <u-number-input :value=\"6\"></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\"></u-number-input>\n        <div class=\"componentClassTitle\" style=\"margin-top: 20px;\">禁用</div>\n        <u-number-input :value=\"6\" disabled></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\" disabled></u-number-input>\n    </div>"
@@ -1169,79 +547,28 @@
                 "toPosition": "textareaInput",
                 "type": [],
                 "cssProperty": {
-                    "--textarea-width": {
-                        "type": "input",
-                        "desc": "文本框宽度, 如 1px"
-                    },
-                    "--textarea-width-medium": {
-                        "type": "input"
-                    },
-                    "--textarea-width-large": {
-                        "type": "input"
-                    },
-                    "--textarea-width-huge": {
-                        "type": "input"
-                    },
-                    "--textarea-min-width": {
-                        "type": "input",
-                        "desc": "文本框最小宽度, 如 1px"
-                    },
-                    "--textarea-height": {
-                        "type": "input",
-                        "desc": "文本框高度, 如 1px"
-                    },
-                    "--textarea-height-medium": {
-                        "type": "input"
-                    },
-                    "--textarea-height-large": {
-                        "type": "input"
-                    },
-                    "--textarea-height-huge": {
-                        "type": "input"
-                    },
-                    "--textarea-min-height": {
-                        "type": "input"
-                    },
-                    "--textarea-padding": {
-                        "type": "input",
-                        "desc": "文本框内边距, 如 1px"
-                    },
-                    "--textarea-border-radius": {
-                        "type": "input",
-                        "desc": "文本框圆角, 如 1px"
-                    },
-                    "--textarea-border-color": {
-                        "type": "color",
-                        "desc": "文本框边框颜色, 如 #223325"
-                    },
-                    "--textarea-border-color-focus": {
-                        "type": "color"
-                    },
-                    "--textarea-border-color-disabled": {
-                        "type": "color"
-                    },
-                    "--textarea-background": {
-                        "type": "color"
-                    },
-                    "--textarea-background-disabled": {
-                        "type": "color"
-                    },
-                    "--textarea-color": {
-                        "type": "color",
-                        "desc": "文本框内容区文字颜色, 如 #223325"
-                    },
-                    "--textarea-color-disabled": {
-                        "type": "color"
-                    },
-                    "--textarea-placeholder-color": {
-                        "type": "color"
-                    },
-                    "--textarea-box-shadow-focus-color": {
-                        "type": "color"
-                    },
-                    "--textarea-box-shadow-focus": {
-                        "type": "input"
-                    }
+                    "--textarea-width": "input",
+                    "--textarea-width-medium": "input",
+                    "--textarea-width-large": "input",
+                    "--textarea-width-huge": "input",
+                    "--textarea-min-width": "input",
+                    "--textarea-height": "input",
+                    "--textarea-height-medium": "input",
+                    "--textarea-height-large": "input",
+                    "--textarea-height-huge": "input",
+                    "--textarea-min-height": "input",
+                    "--textarea-padding": "input",
+                    "--textarea-border-radius": "input",
+                    "--textarea-border-color": "color",
+                    "--textarea-border-color-focus": "color",
+                    "--textarea-border-color-disabled": "color",
+                    "--textarea-background": "color",
+                    "--textarea-background-disabled": "color",
+                    "--textarea-color": "color",
+                    "--textarea-color-disabled": "color",
+                    "--textarea-placeholder-color": "color",
+                    "--textarea-box-shadow-focus-color": "color",
+                    "--textarea-box-shadow-focus": "input"
                 },
                 "preview": {
                     "template": "<div>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal medium\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal large\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal huge\" style=\"margin-bottom: 40px;\"></u-textarea>\n\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"medium normal\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"large normal\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"huge normal\" style=\"margin-bottom: 40px;\"></u-textarea>\n\n        <div class=\"componentClassTitle\">禁用</div>\n         <u-textarea value=\"禁用\" autofocus style=\"margin-bottom: 20px;\" disabled></u-textarea>\n    </div>"
@@ -1254,22 +581,10 @@
                 "toPosition": "radio",
                 "type": [],
                 "cssProperty": {
-                    "--radio-space-x": {
-                        "type": "input",
-                        "desc": "单选项之间的间距,如 1px"
-                    },
-                    "--radio-size": {
-                        "type": "input",
-                        "desc": "单选项按钮大小,如 1px"
-                    },
-                    "--radio-background": {
-                        "type": "color",
-                        "desc": "单选项按钮背景色,如 #223325"
-                    },
-                    "--radio-box-shadow-focus": {
-                        "type": "input",
-                        "desc": "单选项边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0"
-                    }
+                    "--radio-space-x": "input",
+                    "--radio-size": "input",
+                    "--radio-background": "color",
+                    "--radio-box-shadow-focus": "input"
                 },
                 "preview": {
                     "template": "<div>\n    <u-radios style=\"margin-bottom:16px;\" value=\"开\">\n        <u-radio label=\"关\">关</u-radio>\n        <u-radio label=\"开\">开</u-radio>\n    </u-radios>\n    <u-radios value=\"开\">\n        <u-radio label=\"关\" disabled>关_禁用</u-radio>\n        <u-radio label=\"开\" disabled>开_禁用</u-radio>\n    </u-radios>\n</div>"
@@ -1282,58 +597,19 @@
                 "toPosition": "switch",
                 "type": [],
                 "cssProperty": {
-                    "--switch-width": {
-                        "type": "input",
-                        "desc": "开关宽度,如 1px"
-                    },
-                    "--switch-height": {
-                        "type": "input",
-                        "desc": "开关高度,如 1px"
-                    },
-                    "--switch-button-space": {
-                        "type": "input",
-                        "desc": "开关按钮内边距,如 1px"
-                    },
-                    "--switch-button-size": {
-                        "type": "input",
-                        "desc": "开关按钮大小,如 1px"
-                    },
-                    "--switch-button-background": {
-                        "type": "color",
-                        "desc": "开关按钮背景色,如 #223325"
-                    },
-                    "--switch-button-radius": {
-                        "type": "input",
-                        "desc": "开关按钮圆角,如 1px"
-                    },
-                    "--switch-background": {
-                        "type": "color",
-                        "desc": "开关背景色（关状态）,如 #223325"
-                    },
-                    "--switch-background-checked": {
-                        "type": "color",
-                        "desc": "开关背景色（开状态）,如 #223325"
-                    },
-                    "--switch-background-disabled": {
-                        "type": "color",
-                        "desc": "开关背景色（禁用状态）,如 #223325"
-                    },
-                    "--switch-color": {
-                        "type": "color",
-                        "desc": "开关按钮文字颜色,如 #223325"
-                    },
-                    "--switch-text-margin": {
-                        "type": "input",
-                        "desc": "开关按钮文字外边距,如 1px"
-                    },
-                    "--switch-transition": {
-                        "type": "input",
-                        "desc": "开关背景色渐变动画快慢参数,如 background"
-                    },
-                    "--switch-button-transition": {
-                        "type": "input",
-                        "desc": "开关按钮移动动画快慢参数,如 all 2s"
-                    }
+                    "--switch-width": "input",
+                    "--switch-height": "input",
+                    "--switch-button-space": "input",
+                    "--switch-button-size": "input",
+                    "--switch-button-background": "color",
+                    "--switch-button-radius": "input",
+                    "--switch-background": "color",
+                    "--switch-background-checked": "color",
+                    "--switch-background-disabled": "color",
+                    "--switch-color": "color",
+                    "--switch-text-margin": "input",
+                    "--switch-transition": "input",
+                    "--switch-button-transition": "input"
                 },
                 "preview": {
                     "template": "<div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch style=\"margin-right:8px;\"></u-switch>\n        <u-text>关</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch value=\"true\" readonly style=\"margin-right:8px;\"></u-switch>\n        <u-text>开</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch disabled style=\"margin-right:8px;\"></u-switch>\n        <u-text>禁用</u-text>\n    </div>\n</div>"
@@ -1346,30 +622,12 @@
                 "toPosition": "checkbox",
                 "type": [],
                 "cssProperty": {
-                    "--checkbox-space-x": {
-                        "type": "input",
-                        "desc": "多选项之间的间距,如 1px"
-                    },
-                    "--checkbox-size": {
-                        "type": "input",
-                        "desc": "多选项按钮的大小,如 1px"
-                    },
-                    "--checkbox-border-radius": {
-                        "type": "input",
-                        "desc": "多选项按钮圆角,如 1px"
-                    },
-                    "--checkbox-background": {
-                        "type": "color",
-                        "desc": "多选项按钮的背景色,如 #223325"
-                    },
-                    "--checkbox-color": {
-                        "type": "color",
-                        "desc": "多选项按钮的内容颜色,如 #223325"
-                    },
-                    "--checkbox-box-shadow-focus": {
-                        "type": "input",
-                        "desc": "多选项按钮的阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0"
-                    }
+                    "--checkbox-space-x": "input",
+                    "--checkbox-size": "input",
+                    "--checkbox-border-radius": "input",
+                    "--checkbox-background": "color",
+                    "--checkbox-color": "color",
+                    "--checkbox-box-shadow-focus": "input"
                 },
                 "preview": {
                     "template": "<u-linear-layout>\n                                <u-checkbox :value=\"false\" style=\"margin-right:40px;\">关</u-checkbox>\n                                <u-checkbox :value=\"true\" readonly style=\"margin-right:40px;\">开</u-checkbox>\n                                <u-checkbox :value=\"false\" disabled style=\"margin-right:40px;\">关_禁用</u-checkbox>\n                                <u-checkbox :value=\"true\" disabled style=\"margin-right:40px;\">开_禁用</u-checkbox>\n                            </u-linear-layout>"
@@ -1382,118 +640,38 @@
                 "toPosition": "select",
                 "type": [],
                 "cssProperty": {
-                    "--select-popper-item-background": {
-                        "type": "color"
-                    },
-                    "--select-popper-item-background-hover": {
-                        "type": "color"
-                    },
-                    "--select-popper-item-background-selected": {
-                        "type": "color"
-                    },
-                    "--select-popper-item-color": {
-                        "type": "color"
-                    },
-                    "--select-popper-item-color-hover": {
-                        "type": "color"
-                    },
-                    "--select-popper-item-color-selected": {
-                        "type": "color"
-                    },
-                    "--select-width": {
-                        "type": "input",
-                        "desc": "选择框的宽度,如 1px"
-                    },
-                    "--select-height": {
-                        "type": "input",
-                        "desc": "选择框的高度,如 1px"
-                    },
-                    "--select-padding-x": {
-                        "type": "input",
-                        "desc": "选择框水平方向内边距,如 1px"
-                    },
-                    "--select-background": {
-                        "type": "color",
-                        "desc": "选择框的背景色,如 #223325"
-                    },
-                    "--select-border-width": {
-                        "type": "input",
-                        "desc": "选择框的边框宽度,如 1px"
-                    },
-                    "--select-border-color": {
-                        "type": "color",
-                        "desc": "选择框的边框颜色,如 #223325"
-                    },
-                    "--select-color": {
-                        "type": "color",
-                        "desc": "选择框的字体颜色,如 #223325"
-                    },
-                    "--select-popper-max-height": {
-                        "type": "input",
-                        "desc": "选择框的弹出层最大高度,如 1px"
-                    },
-                    "--select-popper-box-shadow": {
-                        "type": "input",
-                        "desc": "选择框的弹出层阴影效果,如 1px"
-                    },
-                    "--select-placeholder-color": {
-                        "type": "color",
-                        "desc": "选择框的占位符文字颜色,如 #223325"
-                    },
-                    "--select-arrow-color": {
-                        "type": "color",
-                        "desc": "选择框的下拉箭头颜色,如 #223325"
-                    },
-                    "--select-arrow-size": {
-                        "type": "input",
-                        "desc": "选择框的下拉箭头大小,如 1px"
-                    },
-                    "--select-arrow-right-ratio": {
-                        "type": "input",
-                        "desc": "选择框的下拉箭头右边距计算倍数,如 1px"
-                    },
-                    "--select-popper-background": {
-                        "type": "color",
-                        "desc": "选择框的弹出层背景色,如 #223325"
-                    },
-                    "--select-popper-border-color": {
-                        "type": "color",
-                        "desc": "选择框的弹出层边框颜色,如 #223325"
-                    },
-                    "--select-popper-border-color-inverse": {
-                        "type": "color"
-                    },
-                    "--select-status-color": {
-                        "type": "color"
-                    },
-                    "--select-box-shadow-focus": {
-                        "type": "input",
-                        "desc": "选择框的弹出层边框阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0"
-                    },
-                    "--select-popper-item-color-readonly": {
-                        "type": "color"
-                    },
-                    "--select-popper-item-background-readonly": {
-                        "type": "color"
-                    },
-                    "--select-popper-item-color-selected-disabled": {
-                        "type": "color"
-                    },
-                    "--select-popper-item-background-selected-disabled": {
-                        "type": "color"
-                    },
-                    "--select-popper-item-color-duplicated": {
-                        "type": "color"
-                    },
-                    "--select-popper-item-background-duplicated": {
-                        "type": "color"
-                    },
-                    "--select-popper-item-color-duplicated-hover": {
-                        "type": "color"
-                    },
-                    "--select-popper-item-background-duplicated-hover": {
-                        "type": "color"
-                    }
+                    "--select-popper-item-background": "color",
+                    "--select-popper-item-background-hover": "color",
+                    "--select-popper-item-background-selected": "color",
+                    "--select-popper-item-color": "color",
+                    "--select-popper-item-color-hover": "color",
+                    "--select-popper-item-color-selected": "color",
+                    "--select-width": "input",
+                    "--select-height": "input",
+                    "--select-padding-x": "input",
+                    "--select-background": "color",
+                    "--select-border-width": "input",
+                    "--select-border-color": "color",
+                    "--select-color": "color",
+                    "--select-popper-max-height": "input",
+                    "--select-popper-box-shadow": "input",
+                    "--select-placeholder-color": "color",
+                    "--select-arrow-color": "color",
+                    "--select-arrow-size": "input",
+                    "--select-arrow-right-ratio": "input",
+                    "--select-popper-background": "color",
+                    "--select-popper-border-color": "color",
+                    "--select-popper-border-color-inverse": "color",
+                    "--select-status-color": "color",
+                    "--select-box-shadow-focus": "input",
+                    "--select-popper-item-color-readonly": "color",
+                    "--select-popper-item-background-readonly": "color",
+                    "--select-popper-item-color-selected-disabled": "color",
+                    "--select-popper-item-background-selected-disabled": "color",
+                    "--select-popper-item-color-duplicated": "color",
+                    "--select-popper-item-background-duplicated": "color",
+                    "--select-popper-item-color-duplicated-hover": "color",
+                    "--select-popper-item-background-duplicated-hover": "color"
                 },
                 "preview": {
                     "template": "<u-select>\n                                <u-select-item value=\"java\">Java</u-select-item>\n                                <u-select-item value=\"nodejs\">Node.js</u-select-item>\n                                <u-select-item value=\"go\">Go</u-select-item>\n                            </u-select>"
@@ -1523,57 +701,20 @@
                 "toPosition": "slider",
                 "type": [],
                 "cssProperty": {
-                    "--slider-body-margin": {
-                        "type": "input",
-                        "desc": "滑道两侧的缩进距离,如 1px"
-                    },
-                    "--slider-body-padding": {
-                        "type": "input",
-                        "desc": "组件垂直方向的内边距（滑道上下的外边距）,如 1px"
-                    },
-                    "--silder-background-disabled": {
-                        "type": "color"
-                    },
-                    "--slider-track-height": {
-                        "type": "input",
-                        "desc": "滑道高度,如 1px"
-                    },
-                    "--slider-track-background": {
-                        "type": "color",
-                        "desc": "滑道背景色（已覆盖部分）,如 #223325"
-                    },
-                    "--slider-trail-background": {
-                        "type": "color",
-                        "desc": "滑道背景色（未覆盖部分）,如 #223325"
-                    },
-                    "--slider-trail-background-disabled": {
-                        "type": "color"
-                    },
-                    "--slider-track-border-radius": {
-                        "type": "input"
-                    },
-                    "--slider-handle-width": {
-                        "type": "input",
-                        "desc": "滑块按钮宽度,如 1px"
-                    },
-                    "--slider-handle-height": {
-                        "type": "input",
-                        "desc": "滑块按钮高度,如 1px"
-                    },
-                    "--slider-handle-background": {
-                        "type": "color",
-                        "desc": "滑块按钮背景色（未覆盖部分）,如 #223325"
-                    },
-                    "--slider-handle-border": {
-                        "type": "input",
-                        "desc": "滑块按钮边框,如 1px solid white"
-                    },
-                    "--silder-box-shadow-hover": {
-                        "type": "color"
-                    },
-                    "--silder-handle-background-disabled": {
-                        "type": "color"
-                    }
+                    "--slider-body-margin": "input",
+                    "--slider-body-padding": "input",
+                    "--silder-background-disabled": "color",
+                    "--slider-track-height": "input",
+                    "--slider-track-background": "color",
+                    "--slider-trail-background": "color",
+                    "--slider-trail-background-disabled": "color",
+                    "--slider-track-border-radius": "input",
+                    "--slider-handle-width": "input",
+                    "--slider-handle-height": "input",
+                    "--slider-handle-background": "color",
+                    "--slider-handle-border": "input",
+                    "--silder-box-shadow-hover": "color",
+                    "--silder-handle-background-disabled": "color"
                 },
                 "preview": {
                     "template": "<u-slider :value=\"36\"></u-slider>"
@@ -1590,75 +731,25 @@
                     "image"
                 ],
                 "cssProperty": {
-                    "--uploader-list-margin-top": {
-                        "type": "input",
-                        "desc": "文件上传列表项顶部外间距,如 1px"
-                    },
-                    "--uploader-item-space": {
-                        "type": "input",
-                        "desc": "文件上传列表项之间的间距,如 1px"
-                    },
-                    "--uploader-item-padding": {
-                        "type": "input",
-                        "desc": "文件上传列表项的内间距,如 1px"
-                    },
-                    "--uploader-item-line-height": {
-                        "type": "input",
-                        "desc": "文件上传列表项的行高,如 1px"
-                    },
-                    "--uploader-item-border-radius": {
-                        "type": "input",
-                        "desc": "文件上传列表项的圆角,如 1px"
-                    },
-                    "--uploader-item-background": {
-                        "type": "color",
-                        "desc": "文件上传列表项背景色,如 #223325"
-                    },
-                    "--uploader-item-background-hover": {
-                        "type": "color",
-                        "desc": "文件上传列表项背景色(hover状态) ,如 #223325"
-                    },
-                    "--uploader-item-icon-color": {
-                        "type": "color"
-                    },
-                    "--uploader-link-color": {
-                        "type": "color",
-                        "desc": "文件上传列表项链接文本颜色,如 #223325"
-                    },
-                    "--uploader-link-color-hover": {
-                        "type": "color",
-                        "desc": "文件上传列表项链接文本颜色(hover状态),如 #223325"
-                    },
-                    "--uploader-card-border-radius": {
-                        "type": "input",
-                        "desc": "卡片式文件上传按钮的圆角,如 1px"
-                    },
-                    "--uploader-card-space": {
-                        "type": "input",
-                        "desc": "卡片式文件上传文件项之间的间距,如 1px"
-                    },
-                    "--uploader-mask-background": {
-                        "type": "color",
-                        "desc": "卡片式文件上传遮罩层颜色,如 #223325"
-                    },
-                    "--uploader-draggable-background": {
-                        "type": "color"
-                    },
-                    "--uploader-draggable-border-width": {
-                        "type": "input"
-                    },
-                    "--uploader-draggable-border-color": {
-                        "type": "color"
-                    },
-                    "--uploader-draggable-border-color-hover": {
-                        "type": "color"
-                    },
-                    "--uploader-draggable-border-radius": {
-                        "type": "input"
-                    },
-                    "--uploader-draggable-padding": {
-                        "type": "input"
-                    }
+                    "--uploader-list-margin-top": "input",
+                    "--uploader-item-space": "input",
+                    "--uploader-item-padding": "input",
+                    "--uploader-item-line-height": "input",
+                    "--uploader-item-border-radius": "input",
+                    "--uploader-item-background": "color",
+                    "--uploader-item-background-hover": "color",
+                    "--uploader-item-icon-color": "color",
+                    "--uploader-link-color": "color",
+                    "--uploader-link-color-hover": "color",
+                    "--uploader-card-border-radius": "input",
+                    "--uploader-card-space": "input",
+                    "--uploader-mask-background": "color",
+                    "--uploader-draggable-background": "color",
+                    "--uploader-draggable-border-width": "input",
+                    "--uploader-draggable-border-color": "color",
+                    "--uploader-draggable-border-color-hover": "color",
+                    "--uploader-draggable-border-radius": "input",
+                    "--uploader-draggable-padding": "input"
                 },
                 "preview": {
                     "template": "<div>\n     <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">单文件按钮</div>\n        <u-uploader\n            url=\"http://localhost:7000/api/library/upload\" mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n    <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">单文件卡片</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"card\"\n            mutiple>\n        </u-uploader>\n    </div>\n    <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">多图片按钮</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"image\"\n            mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n</div>"
@@ -1671,51 +762,18 @@
                 "toPosition": "tableView",
                 "type": [],
                 "cssProperty": {
-                    "--table-view-row-hover-background": {
-                        "type": "color"
-                    },
-                    "--table-head-background": {
-                        "type": "color",
-                        "desc": "表格表头背景色,如 #223325"
-                    },
-                    "--table-view-head-item-size": {
-                        "type": "input"
-                    },
-                    "--table-row-background-striped": {
-                        "type": "color"
-                    },
-                    "--table-view-head-item-color": {
-                        "type": "color",
-                        "desc": "表格表头文字颜色,如 #223325"
-                    },
-                    "--table-background": {
-                        "type": "color",
-                        "desc": "表格内容区背景色,如 #223325"
-                    },
-                    "--table-border-color": {
-                        "type": "color",
-                        "desc": "表格内容区边框颜色,如 #223325"
-                    },
-                    "--table-td-color": {
-                        "type": "color",
-                        "desc": "表格内容区文字颜色,如 #223325"
-                    },
-                    "--table-th-line-height": {
-                        "type": "input",
-                        "desc": "表格表头行高,如 1px"
-                    },
-                    "--table-th-padding": {
-                        "type": "input",
-                        "desc": "表格表头内间距,如 1px"
-                    },
-                    "--table-td-line-height": {
-                        "type": "input",
-                        "desc": "表格内容区行高,如 1px"
-                    },
-                    "--table-td-padding": {
-                        "type": "input",
-                        "desc": "表格内容区内间距,如 1px"
-                    }
+                    "--table-view-row-hover-background": "color",
+                    "--table-head-background": "color",
+                    "--table-view-head-item-size": "input",
+                    "--table-row-background-striped": "color",
+                    "--table-view-head-item-color": "color",
+                    "--table-background": "color",
+                    "--table-border-color": "color",
+                    "--table-td-color": "color",
+                    "--table-th-line-height": "input",
+                    "--table-th-padding": "input",
+                    "--table-td-line-height": "input",
+                    "--table-td-padding": "input"
                 },
                 "preview": {
                     "template": "<div>\n        <u-switch v-model=\"striped\">打开斑马纹</u-switch>\n        <u-table-view :striped=\"striped\" :data-source=\"tableView\">\n            <u-table-view-column\n                title=\"用户名\"\n                field=\"name\"\n                width=\"20%\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"手机号码\"\n                field=\"phone\"\n                width=\"20%\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"地址\"\n                field=\"address\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"最近登录时间\"\n                field=\"loginTime\"\n                formatter=\"placeholder | date\"\n                width=\"20%\">\n            </u-table-view-column>\n        </u-table-view>\n    </div>",
@@ -1736,92 +794,28 @@
                     "text"
                 ],
                 "cssProperty": {
-                    "--tabs-border-width": {
-                        "type": "input",
-                        "desc": "tab项边框宽度,如 1px"
-                    },
-                    "--tabs-border-color": {
-                        "type": "color",
-                        "desc": "tab项边框颜色,如 #223325"
-                    },
-                    "--tabs-head-background": {
-                        "type": "color",
-                        "desc": "tab组件背景色（未选中部分）,如 #223325"
-                    },
-                    "--tabs-item-height": {
-                        "type": "input",
-                        "desc": "tab项高度,如 1px"
-                    },
-                    "--tabs-item-padding-x": {
-                        "type": "input",
-                        "desc": "tab项水平方向内间距,如 1px"
-                    },
-                    "--tabs-item-line-width": {
-                        "type": "input",
-                        "desc": "tab项高亮指示线高度,如 1px"
-                    },
-                    "--tabs-font-size": {
-                        "type": "input"
-                    },
-                    "--tabs-item-line-background": {
-                        "type": "input"
-                    },
-                    "--tabs-item-background-text": {
-                        "type": "color",
-                        "desc": "tab项背景色（文本模式"
-                    },
-                    "--tabs-item-background-capsule": {
-                        "type": "color",
-                        "desc": "tab项背景色（胶囊模式"
-                    },
-                    "--tabs-item-background-hover": {
-                        "type": "color",
-                        "desc": "tab项背景色（hover状态"
-                    },
-                    "--tabs-item-background-selected": {
-                        "type": "color",
-                        "desc": "tab项背景色（选中部分"
-                    },
-                    "--tabs-item-background-selected-capsule": {
-                        "type": "color",
-                        "desc": "tab项背景色（选中部分"
-                    },
-                    "--tabs-item-color": {
-                        "type": "color",
-                        "desc": "tab项文字颜色（未选中部分"
-                    },
-                    "--tabs-item-color-hover": {
-                        "type": "color",
-                        "desc": "tab项文字颜色（未选中部分"
-                    },
-                    "--tabs-item-color-selected": {
-                        "type": "color",
-                        "desc": "tab项文字颜色（未选中部分"
-                    },
-                    "--tabs-item-color-selected-capsule": {
-                        "type": "color",
-                        "desc": "tab项文字颜色（胶囊模式"
-                    },
-                    "--tabs-item-color-disabled": {
-                        "type": "color",
-                        "desc": "tab禁用项文字颜色,如 #223325"
-                    },
-                    "--tabs-item-border-color-selected": {
-                        "type": "color",
-                        "desc": "tab项边框颜色（选中部分"
-                    },
-                    "--tabs-item-border-color-selected-capsule": {
-                        "type": "color",
-                        "desc": "tab项边框颜色（选中部分"
-                    },
-                    "--tabs-item-border-radius-round": {
-                        "type": "input",
-                        "desc": "tab项边框圆角（选中部分"
-                    },
-                    "--tabs-body-space": {
-                        "type": "input",
-                        "desc": "组件的tab项和内容区之间的间距,如 1px"
-                    }
+                    "--tabs-border-width": "input",
+                    "--tabs-border-color": "color",
+                    "--tabs-head-background": "color",
+                    "--tabs-item-height": "input",
+                    "--tabs-item-padding-x": "input",
+                    "--tabs-item-line-width": "input",
+                    "--tabs-font-size": "input",
+                    "--tabs-item-line-background": "color",
+                    "--tabs-item-background-text": "color",
+                    "--tabs-item-background-capsule": "color",
+                    "--tabs-item-background-hover": "color",
+                    "--tabs-item-background-selected": "color",
+                    "--tabs-item-background-selected-capsule": "color",
+                    "--tabs-item-color": "color",
+                    "--tabs-item-color-hover": "color",
+                    "--tabs-item-color-selected": "color",
+                    "--tabs-item-color-selected-capsule": "color",
+                    "--tabs-item-color-disabled": "color",
+                    "--tabs-item-border-color-selected": "color",
+                    "--tabs-item-border-color-selected-capsule": "color",
+                    "--tabs-item-border-radius-round": "input",
+                    "--tabs-body-space": "input"
                 },
                 "preview": {
                     "template": "<div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式1</div>\n            <u-tabs appear=\"square\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式2</div>\n            <u-tabs appear=\"round\" style=\"margin-bottom: 40px;\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式3</div>\n            <u-tabs appear=\"line\" style=\"margin-bottom: 40px;\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式4</div>\n            <u-tabs appear=\"capsule\" style=\"margin-bottom: 40px;\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式5</div>\n            <u-tabs appear=\"text\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n    </div>"
@@ -1834,26 +828,11 @@
                 "toPosition": "select-steps",
                 "type": [],
                 "cssProperty": {
-                    "--steps-item-color-disabled": {
-                        "type": "color",
-                        "desc": "步骤条禁用项文字颜色,如 #223325"
-                    },
-                    "--steps-item-radio-size": {
-                        "type": "input",
-                        "desc": "步骤条按钮大小,如 1px"
-                    },
-                    "--steps-item-radio-background": {
-                        "type": "color",
-                        "desc": "步骤条按钮之间的进度条颜色（未完成部分）,如 #223325"
-                    },
-                    "--steps-item-radio-background-passed": {
-                        "type": "color",
-                        "desc": "步骤条按钮和进度条颜色（已完成部分）,如 #223325"
-                    },
-                    "--steps-item-radio-color-passed": {
-                        "type": "color",
-                        "desc": "步骤条按钮图标颜色（已完成部分）,如 #223325"
-                    }
+                    "--steps-item-color-disabled": "color",
+                    "--steps-item-radio-size": "input",
+                    "--steps-item-radio-background": "color",
+                    "--steps-item-radio-background-passed": "color",
+                    "--steps-item-radio-color-passed": "color"
                 },
                 "preview": {
                     "template": "<u-selectable-steps :value=\"1\">\n    <u-selectable-step title=\"Step1\"></u-selectable-step>\n    <u-selectable-step title=\"Step2\"></u-selectable-step>\n    <u-selectable-step title=\"Step3\"></u-selectable-step>\n</u-selectable-steps>"
@@ -1873,78 +852,26 @@
                     "simple"
                 ],
                 "cssProperty": {
-                    "--pagination-item-border-radius": {
-                        "type": "input"
-                    },
-                    "--pagination-item-border-color": {
-                        "type": "color",
-                        "desc": "翻页器的按钮边框颜色,如 #223325"
-                    },
-                    "--pagination-item-border-color-hover": {
-                        "type": "color"
-                    },
-                    "--pagination-item-border-color-disabled": {
-                        "type": "color"
-                    },
-                    "--pagination-item-height-small": {
-                        "type": "input"
-                    },
-                    "--pagination-item-height": {
-                        "type": "input"
-                    },
-                    "--pagination-item-width-small": {
-                        "type": "input"
-                    },
-                    "--pagination-item-width": {
-                        "type": "input"
-                    },
-                    "--pagination-item-font-size": {
-                        "type": "input"
-                    },
-                    "--pagination-item-color": {
-                        "type": "color",
-                        "desc": "翻页器的页数文本颜色,如 #223325"
-                    },
-                    "--pagination-item-color-hover": {
-                        "type": "color",
-                        "desc": "翻页器的页数文本颜色(hover状态),如 #223325"
-                    },
-                    "--pagination-item-color-selected": {
-                        "type": "color",
-                        "desc": "翻页器的页数文本颜色(选中状态),如 #223325"
-                    },
-                    "--pagination-item-color-disabled": {
-                        "type": "color",
-                        "desc": "翻页器的按钮文本颜色(禁用状态),如 #223325"
-                    },
-                    "--pagination-item-color-blank": {
-                        "type": "color",
-                        "desc": "翻页器的省略方块文本颜色,如 #223325"
-                    },
-                    "--pagination-item-color-blank-disabled": {
-                        "type": "color",
-                        "desc": "翻页器的省略方块文本颜色（禁用状态）,如 #223325"
-                    },
-                    "--pagination-item-background": {
-                        "type": "color",
-                        "desc": "翻页器的按钮背景色（未选中状态）,如 #223325"
-                    },
-                    "--pagination-item-background-hover": {
-                        "type": "color",
-                        "desc": "翻页器的按钮背景色（hover状态"
-                    },
-                    "--pagination-item-background-selected": {
-                        "type": "color",
-                        "desc": "翻页器的按钮背景色（选中状态）,如 #223325"
-                    },
-                    "--pagination-item-background-blank": {
-                        "type": "color",
-                        "desc": "翻页器的省略方块背景色,如 #223325"
-                    },
-                    "--pagination-item-padding": {
-                        "type": "input",
-                        "desc": "翻页器的内边距,如 1px"
-                    }
+                    "--pagination-item-border-radius": "input",
+                    "--pagination-item-border-color": "color",
+                    "--pagination-item-border-color-hover": "color",
+                    "--pagination-item-border-color-disabled": "color",
+                    "--pagination-item-height-small": "input",
+                    "--pagination-item-height": "input",
+                    "--pagination-item-width-small": "input",
+                    "--pagination-item-width": "input",
+                    "--pagination-item-font-size": "input",
+                    "--pagination-item-color": "color",
+                    "--pagination-item-color-hover": "color",
+                    "--pagination-item-color-selected": "color",
+                    "--pagination-item-color-disabled": "color",
+                    "--pagination-item-color-blank": "color",
+                    "--pagination-item-color-blank-disabled": "color",
+                    "--pagination-item-background": "color",
+                    "--pagination-item-background-hover": "color",
+                    "--pagination-item-background-selected": "color",
+                    "--pagination-item-background-blank": "color",
+                    "--pagination-item-padding": "input"
                 },
                 "preview": {
                     "template": "<div>\n        <u-pagination style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n        <u-pagination size=\"small\" style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n        <u-pagination style=\"margin-bottom:16px;\" :total=\"11\">\n            <a slot=\"prev\" role=\"text\">Previous</a>\n            <a slot=\"next\" role=\"text\">Next</a>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total-items=\"75\"\n            show-total>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total-items=\"75\"\n            show-total\n            show-sizer\n            show-jumper>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total=\"11\"\n            simple\n            readonly>\n        </u-pagination>\n        <u-pagination\n            :total=\"11\"\n            simple\n            disabled>\n        </u-pagination>\n    </div>"
@@ -1957,63 +884,22 @@
                 "toPosition": "treeView",
                 "type": [],
                 "cssProperty": {
-                    "--tree-view-node-background-dragging": {
-                        "type": "color"
-                    },
-                    "--tree-view-node-color-dragging": {
-                        "type": "color"
-                    },
-                    "--tree-view-subnode-background-selected": {
-                        "type": "color"
-                    },
-                    "--tree-view-subnode-background-dragging": {
-                        "type": "color"
-                    },
-                    "--tree-view-subnode-color-dragging": {
-                        "type": "color"
-                    },
-                    "--tree-view-subnode-background-selected-hover": {
-                        "type": "input"
-                    },
-                    "--tree-view-node-expander-color-dragging": {
-                        "type": "color"
-                    },
-                    "--tree-view-background": {
-                        "type": "color",
-                        "desc": "树形列表节点的背景色,如 #223325"
-                    },
-                    "--tree-view-node-margin-left": {
-                        "type": "input",
-                        "desc": "树形列表节点的左侧缩进距离,如 1px"
-                    },
-                    "--tree-view-node-expander-size": {
-                        "type": "input",
-                        "desc": "树形列表节点的展开箭头的容器大小,如 1px"
-                    },
-                    "--tree-view-node-text-padding": {
-                        "type": "input",
-                        "desc": "树形列表节点的文本内边距,如 1px"
-                    },
-                    "--tree-view-node-background-active": {
-                        "type": "color",
-                        "desc": "树形列表节点的背景色（hover状态）,如 #223325"
-                    },
-                    "--tree-view-node-background-selected": {
-                        "type": "color",
-                        "desc": "树形列表节点的背景色（选中状态）,如 #223325"
-                    },
-                    "--tree-view-node-color-selected": {
-                        "type": "color",
-                        "desc": "树形列表节点的文本颜色（选中状态）,如 #223325"
-                    },
-                    "--tree-view-node-expander-color-selected": {
-                        "type": "color",
-                        "desc": "树形列表节点的展开箭头颜色（选中状态）,如 #223325"
-                    },
-                    "--tree-view-node-background-selected-disabled": {
-                        "type": "color",
-                        "desc": "树形列表节点的背景色（选中且禁用）,如 #223325"
-                    }
+                    "--tree-view-background": "color",
+                    "--tree-view-node-margin-left": "input",
+                    "--tree-view-node-expander-size": "input",
+                    "--tree-view-node-text-padding": "input",
+                    "--tree-view-node-background-active": "color",
+                    "--tree-view-node-background-selected": "color",
+                    "--tree-view-node-background-dragging": "color",
+                    "--tree-view-node-color-selected": "color",
+                    "--tree-view-node-color-dragging": "color",
+                    "--tree-view-node-expander-color-selected": "color",
+                    "--tree-view-node-background-selected-disabled": "color",
+                    "--tree-view-subnode-background-selected": "color",
+                    "--tree-view-subnode-background-dragging": "color",
+                    "--tree-view-subnode-color-dragging": "color",
+                    "--tree-view-subnode-background-selected-hover": "input",
+                    "--tree-view-node-expander-color-dragging": "color"
                 },
                 "preview": {
                     "template": "<u-tree-view value=\"4\" :data=\"list\"></u-tree-view>",
@@ -2043,45 +929,18 @@
                 "toPosition": "linearProgress",
                 "type": [],
                 "cssProperty": {
-                    "--linear-progress-size": {
-                        "type": "input"
-                    },
-                    "--linear-progress-size-small": {
-                        "type": "input"
-                    },
-                    "--linear-progress-size-large": {
-                        "type": "input"
-                    },
-                    "--linear-progress-size-huge": {
-                        "type": "input"
-                    },
-                    "--linear-progress-vertical-height": {
-                        "type": "input"
-                    },
-                    "--linear-progress-track-background": {
-                        "type": "color",
-                        "desc": "进度条轨道背景色 (未完成部分),如 #223325"
-                    },
-                    "--linear-progress-trail-font-size": {
-                        "type": "input"
-                    },
-                    "--linear-progress-trail-background-primary": {
-                        "type": "color"
-                    },
-                    "--linear-progress-trail-background-success": {
-                        "type": "color"
-                    },
-                    "--linear-progress-trail-background-error": {
-                        "type": "color"
-                    },
-                    "--linear-progress-trail-color": {
-                        "type": "color",
-                        "desc": "进度条轨道背景色 (已完成部分),如 #223325"
-                    },
-                    "--linear-progress-trail-transition": {
-                        "type": "input",
-                        "desc": "进度条轨道的动画快慢参数,如 width 0"
-                    }
+                    "--linear-progress-size": "input",
+                    "--linear-progress-size-small": "input",
+                    "--linear-progress-size-large": "input",
+                    "--linear-progress-size-huge": "input",
+                    "--linear-progress-vertical-height": "input",
+                    "--linear-progress-track-background": "color",
+                    "--linear-progress-trail-font-size": "input",
+                    "--linear-progress-trail-background-primary": "color",
+                    "--linear-progress-trail-background-success": "color",
+                    "--linear-progress-trail-background-error": "color",
+                    "--linear-progress-trail-color": "color",
+                    "--linear-progress-trail-transition": "input"
                 },
                 "preview": {
                     "template": "<u-linear-progress :percent=\"25\"></u-linear-progress>"
@@ -2094,59 +953,22 @@
                 "toPosition": "circularProgress",
                 "type": [],
                 "cssProperty": {
-                    "--circular-progress-size": {
-                        "type": "input",
-                        "desc": "圆型进度条圆形大小,如 1px"
-                    },
-                    "--circular-progress-size-small": {
-                        "type": "input"
-                    },
-                    "--circular-progress-size-large": {
-                        "type": "input"
-                    },
-                    "--circular-progress-size-huge": {
-                        "type": "input"
-                    },
-                    "--circular-progress-stroke-width": {
-                        "type": "input",
-                        "desc": "进度条轨道宽度,如 1px"
-                    },
-                    "--circular-progress-stroke-width-small": {
-                        "type": "input"
-                    },
-                    "--circular-progress-stroke-width-large": {
-                        "type": "input"
-                    },
-                    "--circular-progress-stroke-width-huge": {
-                        "type": "input"
-                    },
-                    "--circular-progress-track-stroke": {
-                        "type": "color",
-                        "desc": "进度条轨道背景色 (未完成部分),如 #223325"
-                    },
-                    "--circular-progress-trail-stroke": {
-                        "type": "color",
-                        "desc": "进度条轨道背景色 (已完成部分),如 #223325"
-                    },
-                    "--circular-progress-trail-transition": {
-                        "type": "input"
-                    },
-                    "--circular-progress-percent-font-size": {
-                        "type": "input",
-                        "desc": "进度条文本内容字号,如 1px"
-                    },
-                    "--circular-progress-percent-font-size-small": {
-                        "type": "input"
-                    },
-                    "--circular-progress-percent-font-size-large": {
-                        "type": "input"
-                    },
-                    "--circular-progress-percent-font-size-huge": {
-                        "type": "input"
-                    },
-                    "--circular-progress-percent-color": {
-                        "type": "color"
-                    }
+                    "--circular-progress-size": "input",
+                    "--circular-progress-size-small": "input",
+                    "--circular-progress-size-large": "input",
+                    "--circular-progress-size-huge": "input",
+                    "--circular-progress-stroke-width": "input",
+                    "--circular-progress-stroke-width-small": "input",
+                    "--circular-progress-stroke-width-large": "input",
+                    "--circular-progress-stroke-width-huge": "input",
+                    "--circular-progress-track-stroke": "color",
+                    "--circular-progress-trail-stroke": "color",
+                    "--circular-progress-trail-transition": "input",
+                    "--circular-progress-percent-font-size": "input",
+                    "--circular-progress-percent-font-size-small": "input",
+                    "--circular-progress-percent-font-size-large": "input",
+                    "--circular-progress-percent-font-size-huge": "input",
+                    "--circular-progress-percent-color": "color"
                 },
                 "preview": {
                     "template": "<u-circular-progress :percent=\"25\"></u-circular-progress>"
@@ -2159,34 +981,13 @@
                 "toPosition": "popup",
                 "type": [],
                 "cssProperty": {
-                    "--popup-padding": {
-                        "type": "input",
-                        "desc": "弹出层的内边距,如 1px"
-                    },
-                    "--popup-arrow-size": {
-                        "type": "input",
-                        "desc": "弹出层的内层三角箭头大小,如 1px"
-                    },
-                    "--popup-arrow-offset": {
-                        "type": "input",
-                        "desc": "弹出层的三角箭头平移位置,如 1px"
-                    },
-                    "--popup-outer-arrow-size": {
-                        "type": "input",
-                        "desc": "弹出层的外层三角箭头大小,如 1px"
-                    },
-                    "--popup-background": {
-                        "type": "color",
-                        "desc": "弹出层的背景色,如 #223325"
-                    },
-                    "--popup-box-shadow": {
-                        "type": "input",
-                        "desc": "弹出层的阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0"
-                    },
-                    "--popup-border-color": {
-                        "type": "color",
-                        "desc": "弹出层的边框颜色,如 #223325"
-                    }
+                    "--popup-padding": "input",
+                    "--popup-arrow-size": "input",
+                    "--popup-arrow-offset": "input",
+                    "--popup-outer-arrow-size": "input",
+                    "--popup-background": "color",
+                    "--popup-box-shadow": "input",
+                    "--popup-border-color": "color"
                 },
                 "preview": {
                     "template": "<div>\n    <u-button style=\"box-shadow:none;margin-right:40px;\">\n        内容\n        <u-popup>使用 content 属性添加内容</u-popup>\n    </u-button>\n    <u-button style=\"box-shadow:none;\">\n        内容\n        <u-popup trigger=\"hover\">使用 content 属性添加内容</u-popup>\n    </u-button>\n</div>"
@@ -2199,54 +1000,18 @@
                 "toPosition": "modal",
                 "type": [],
                 "cssProperty": {
-                    "--modal-dialog-width": {
-                        "type": "input",
-                        "desc": "弹窗的宽度,如 1px"
-                    },
-                    "--modal-dialog-border-radius": {
-                        "type": "input",
-                        "desc": "弹窗的圆角,如 1px"
-                    },
-                    "--modal-dialog-background": {
-                        "type": "color",
-                        "desc": "弹窗的背景色,如 #223325"
-                    },
-                    "--modal-dialog-box-shadow": {
-                        "type": "input",
-                        "desc": "弹窗的阴影效果,如 1px"
-                    },
-                    "--modal-title-font-size": {
-                        "type": "input",
-                        "desc": "弹窗标题的字号,如 1px"
-                    },
-                    "--modal-close-right": {
-                        "type": "input",
-                        "desc": "弹窗关闭按钮的右边距,如 1px"
-                    },
-                    "--modal-close-color": {
-                        "type": "color",
-                        "desc": "弹窗关闭按钮的颜色,如 #223325"
-                    },
-                    "--modal-close-color-hover": {
-                        "type": "color",
-                        "desc": "弹窗关闭按钮的颜色（hover状态）,如 #223325"
-                    },
-                    "--modal-body-margin": {
-                        "type": "input",
-                        "desc": "弹窗内容区的外间距,如 1px"
-                    },
-                    "--modal-foot-margin": {
-                        "type": "input",
-                        "desc": "弹窗底部区域的外间距,如 1px"
-                    },
-                    "--modal-foot-padding": {
-                        "type": "input",
-                        "desc": "弹窗底部区域的内间距,如 1px"
-                    },
-                    "--modal-border-color": {
-                        "type": "color",
-                        "desc": "弹窗边框颜色,如 #223325"
-                    }
+                    "--modal-dialog-width": "input",
+                    "--modal-dialog-border-radius": "input",
+                    "--modal-dialog-background": "color",
+                    "--modal-dialog-box-shadow": "input",
+                    "--modal-title-font-size": "input",
+                    "--modal-close-right": "input",
+                    "--modal-close-color": "color",
+                    "--modal-close-color-hover": "color",
+                    "--modal-body-margin": "input",
+                    "--modal-foot-margin": "input",
+                    "--modal-foot-padding": "input",
+                    "--modal-border-color": "color"
                 },
                 "preview": {
                     "template": "<div>\n        <u-modal :visible.sync=\"exampleModalvisible\" title=\"标题\">\n            <div style=\"position:relative;width:100%;height:85px;background:#F2F3F5;text-align:center;\">\n                <u-text style=\"position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);\">对话框内容</u-text>\n            </div>\n        </u-modal>\n        <u-linear-layout>\n            <u-button @click=\"onOpen\">Modal</u-button>\n        </u-linear-layout>\n    </div>",
@@ -2260,81 +1025,31 @@
                 "toPosition": "calendar",
                 "type": [],
                 "cssProperty": {
-                    "--calendar-border-color": {
-                        "type": "color"
-                    },
-                    "--calendar-background": {
-                        "type": "color"
-                    },
-                    "--calendar-border-radius": {
-                        "type": "input"
-                    },
-                    "--calendar-item-color": {
-                        "type": "color"
-                    },
-                    "--calendar-item-border-radius": {
-                        "type": "input"
-                    },
-                    "--calendar-item-border-color": {
-                        "type": "color"
-                    },
-                    "--calendar-item-background": {
-                        "type": "color"
-                    },
-                    "--calendar-item-color-hover": {
-                        "type": "color"
-                    },
-                    "--calendar-item-border-color-hover": {
-                        "type": "color"
-                    },
-                    "--calendar-item-background-hover": {
-                        "type": "color"
-                    },
-                    "--calendar-item-color-selected": {
-                        "type": "color"
-                    },
-                    "--calendar-item-border-color-selected": {
-                        "type": "color"
-                    },
-                    "--calendar-item-background-selected": {
-                        "type": "color"
-                    },
-                    "--calendar-item-color-muted": {
-                        "type": "color"
-                    },
-                    "--calendar-item-color-today": {
-                        "type": "color"
-                    },
-                    "--calendar-item-color-disabled": {
-                        "type": "color"
-                    },
-                    "--calendar-item-background-disabled": {
-                        "type": "color"
-                    },
-                    "--calendar-item-color-selected-disabled": {
-                        "type": "color"
-                    },
-                    "--calendar-item-background-selected-disabled": {
-                        "type": "color"
-                    },
-                    "--calendar-item-week-color": {
-                        "type": "color"
-                    },
-                    "--calendar-icon-color": {
-                        "type": "color"
-                    },
-                    "--calendar-icon-color-hover": {
-                        "type": "color"
-                    },
-                    "--calendar-icon-color-disabled": {
-                        "type": "color"
-                    },
-                    "--calendar-date-background-disabled": {
-                        "type": "color"
-                    },
-                    "--calendar-showtext-color-hover": {
-                        "type": "color"
-                    }
+                    "--calendar-border-color": "color",
+                    "--calendar-background": "color",
+                    "--calendar-border-radius": "input",
+                    "--calendar-item-color": "color",
+                    "--calendar-item-border-radius": "input",
+                    "--calendar-item-border-color": "color",
+                    "--calendar-item-background": "color",
+                    "--calendar-item-color-hover": "color",
+                    "--calendar-item-border-color-hover": "color",
+                    "--calendar-item-background-hover": "color",
+                    "--calendar-item-color-selected": "color",
+                    "--calendar-item-border-color-selected": "color",
+                    "--calendar-item-background-selected": "color",
+                    "--calendar-item-color-muted": "color",
+                    "--calendar-item-color-today": "color",
+                    "--calendar-item-color-disabled": "color",
+                    "--calendar-item-background-disabled": "color",
+                    "--calendar-item-color-selected-disabled": "color",
+                    "--calendar-item-background-selected-disabled": "color",
+                    "--calendar-item-week-color": "color",
+                    "--calendar-icon-color": "color",
+                    "--calendar-icon-color-hover": "color",
+                    "--calendar-icon-color-disabled": "color",
+                    "--calendar-date-background-disabled": "color",
+                    "--calendar-showtext-color-hover": "color"
                 },
                 "preview": {
                     "template": "<u-calendar picker=\"date\"></u-calendar>"
@@ -2347,105 +1062,39 @@
                 "toPosition": "u-date-picker",
                 "type": [],
                 "cssProperty": {
-                    "--datepicker-input-pre-icon-color": {
-                        "type": "color"
-                    },
-                    "--datepicker-input-after-icon-color": {
-                        "type": "color"
-                    },
-                    "--datepicker-input-border-color": {
-                        "type": "color"
-                    },
-                    "--datepicker-input-border-width": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-color": {
-                        "type": "color"
-                    },
-                    "--datepicker-input-background": {
-                        "type": "color"
-                    },
-                    "--datepicker-input-border-radius": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-background-disabled": {
-                        "type": "color"
-                    },
-                    "--datepicker-input-border-color-error": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-border-color-focus": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-box-shadow-focus": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-placeholder-color": {
-                        "type": "color"
-                    },
-                    "--datepicker-popper-box-shadow": {
-                        "type": "input"
-                    },
-                    "--datepicker-popper-border-radius": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-width": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-height": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-padding-x": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-width-mini": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-padding-x-mini": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-height-mini": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-width-small": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-padding-x-small": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-height-small": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-width-medium": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-padding-x-medium": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-height-medium": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-width-large": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-padding-x-large": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-height-large": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-width-huge": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-padding-x-huge": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-height-huge": {
-                        "type": "input"
-                    },
-                    "--datepicker-input-padding-x-full": {
-                        "type": "input"
-                    }
+                    "--datepicker-input-pre-icon-color": "color",
+                    "--datepicker-input-after-icon-color": "color",
+                    "--datepicker-input-border-color": "color",
+                    "--datepicker-input-border-width": "input",
+                    "--datepicker-input-color": "color",
+                    "--datepicker-input-background": "color",
+                    "--datepicker-input-border-radius": "input",
+                    "--datepicker-input-background-disabled": "color",
+                    "--datepicker-input-border-color-error": "input",
+                    "--datepicker-input-border-color-focus": "input",
+                    "--datepicker-input-box-shadow-focus": "input",
+                    "--datepicker-input-placeholder-color": "color",
+                    "--datepicker-popper-box-shadow": "input",
+                    "--datepicker-popper-border-radius": "input",
+                    "--datepicker-input-width": "input",
+                    "--datepicker-input-height": "input",
+                    "--datepicker-input-padding-x": "input",
+                    "--datepicker-input-width-mini": "input",
+                    "--datepicker-input-padding-x-mini": "input",
+                    "--datepicker-input-height-mini": "input",
+                    "--datepicker-input-width-small": "input",
+                    "--datepicker-input-padding-x-small": "input",
+                    "--datepicker-input-height-small": "input",
+                    "--datepicker-input-width-medium": "input",
+                    "--datepicker-input-padding-x-medium": "input",
+                    "--datepicker-input-height-medium": "input",
+                    "--datepicker-input-width-large": "input",
+                    "--datepicker-input-padding-x-large": "input",
+                    "--datepicker-input-height-large": "input",
+                    "--datepicker-input-width-huge": "input",
+                    "--datepicker-input-padding-x-huge": "input",
+                    "--datepicker-input-height-huge": "input",
+                    "--datepicker-input-padding-x-full": "input"
                 },
                 "preview": {
                     "template": "<u-date-picker date=\"2018-08-08\" clearable></u-date-picker>"
@@ -2458,93 +1107,35 @@
                 "toPosition": "u-date-time-picker",
                 "type": [],
                 "cssProperty": {
-                    "--datetime-input-pre-icon-color": {
-                        "type": "color"
-                    },
-                    "--datetime-input-after-icon-color": {
-                        "type": "color"
-                    },
-                    "--datetime-input-border-color": {
-                        "type": "color"
-                    },
-                    "--datetime-input-border-width": {
-                        "type": "input"
-                    },
-                    "--datetime-input-placeholder-color": {
-                        "type": "color"
-                    },
-                    "--datetime-input-border-radius": {
-                        "type": "input"
-                    },
-                    "--datetime-input-color": {
-                        "type": "color"
-                    },
-                    "--datetime-input-background": {
-                        "type": "color"
-                    },
-                    "--datetime-input-width": {
-                        "type": "input"
-                    },
-                    "--datetime-input-height": {
-                        "type": "input"
-                    },
-                    "--datetime-input-padding-x": {
-                        "type": "input"
-                    },
-                    "--datetime-input-width-mini": {
-                        "type": "input"
-                    },
-                    "--datetime-input-padding-x-mini": {
-                        "type": "input"
-                    },
-                    "--datetime-input-height-mini": {
-                        "type": "input"
-                    },
-                    "--datetime-input-width-small": {
-                        "type": "input"
-                    },
-                    "--datetime-input-padding-x-small": {
-                        "type": "input"
-                    },
-                    "--datetime-input-height-small": {
-                        "type": "input"
-                    },
-                    "--datetime-input-width-medium": {
-                        "type": "input"
-                    },
-                    "--datetime-input-padding-x-medium": {
-                        "type": "input"
-                    },
-                    "--datetime-input-height-medium": {
-                        "type": "input"
-                    },
-                    "--datetime-input-width-large": {
-                        "type": "input"
-                    },
-                    "--datetime-input-padding-x-large": {
-                        "type": "input"
-                    },
-                    "--datetime-input-height-large": {
-                        "type": "input"
-                    },
-                    "--datetime-input-width-huge": {
-                        "type": "input"
-                    },
-                    "--datetime-input-padding-x-huge": {
-                        "type": "input"
-                    },
-                    "--datetime-input-height-huge": {
-                        "type": "input"
-                    },
-                    "--datetime-input-padding-x-full": {
-                        "type": "input"
-                    },
-                    "--datetime-popper-border-color": {
-                        "type": "color"
-                    },
-                    "--datetime-popper-border-radius": {
-                        "type": "input"
-                    }
+                    "--datetime-input-pre-icon-color": "color",
+                    "--datetime-input-after-icon-color": "color",
+                    "--datetime-input-border-color": "color",
+                    "--datetime-input-border-width": "input",
+                    "--datetime-input-placeholder-color": "color",
+                    "--datetime-input-border-radius": "input",
+                    "--datetime-input-color": "color",
+                    "--datetime-input-background": "color",
+                    "--datetime-input-width": "input",
+                    "--datetime-input-height": "input",
+                    "--datetime-input-padding-x": "input",
+                    "--datetime-input-width-mini": "input",
+                    "--datetime-input-padding-x-mini": "input",
+                    "--datetime-input-height-mini": "input",
+                    "--datetime-input-width-small": "input",
+                    "--datetime-input-padding-x-small": "input",
+                    "--datetime-input-height-small": "input",
+                    "--datetime-input-width-medium": "input",
+                    "--datetime-input-padding-x-medium": "input",
+                    "--datetime-input-height-medium": "input",
+                    "--datetime-input-width-large": "input",
+                    "--datetime-input-padding-x-large": "input",
+                    "--datetime-input-height-large": "input",
+                    "--datetime-input-width-huge": "input",
+                    "--datetime-input-padding-x-huge": "input",
+                    "--datetime-input-height-huge": "input",
+                    "--datetime-input-padding-x-full": "input",
+                    "--datetime-popper-border-color": "color",
+                    "--datetime-popper-border-radius": "input"
                 },
                 "preview": {
                     "template": "<u-date-time-picker  date=\"2018-08-08\" clearable></u-date-time-picker>"
@@ -2557,84 +1148,32 @@
                 "toPosition": "u-time-picker",
                 "type": [],
                 "cssProperty": {
-                    "--timepicker-input-border-color": {
-                        "type": "color"
-                    },
-                    "--timepicker-input-border-width": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-color": {
-                        "type": "color"
-                    },
-                    "--timepicker-input-background": {
-                        "type": "color"
-                    },
-                    "--timepicker-input-border-radius": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-background-disabled": {
-                        "type": "color"
-                    },
-                    "--timepicker-input-placeholder-color": {
-                        "type": "color"
-                    },
-                    "--timepicker-input-width-mini": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-padding-x-mini": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-height-mini": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-width-small": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-padding-x-small": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-height-small": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-width": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-height": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-padding-x": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-width-medium": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-padding-x-medium": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-height-medium": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-width-large": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-padding-x-large": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-height-large": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-width-huge": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-padding-x-huge": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-height-huge": {
-                        "type": "input"
-                    },
-                    "--timepicker-input-padding-x-full": {
-                        "type": "input"
-                    }
+                    "--timepicker-input-border-color": "color",
+                    "--timepicker-input-border-width": "input",
+                    "--timepicker-input-color": "color",
+                    "--timepicker-input-background": "color",
+                    "--timepicker-input-border-radius": "input",
+                    "--timepicker-input-background-disabled": "color",
+                    "--timepicker-input-placeholder-color": "color",
+                    "--timepicker-input-width-mini": "input",
+                    "--timepicker-input-padding-x-mini": "input",
+                    "--timepicker-input-height-mini": "input",
+                    "--timepicker-input-width-small": "input",
+                    "--timepicker-input-padding-x-small": "input",
+                    "--timepicker-input-height-small": "input",
+                    "--timepicker-input-width": "input",
+                    "--timepicker-input-height": "input",
+                    "--timepicker-input-padding-x": "input",
+                    "--timepicker-input-width-medium": "input",
+                    "--timepicker-input-padding-x-medium": "input",
+                    "--timepicker-input-height-medium": "input",
+                    "--timepicker-input-width-large": "input",
+                    "--timepicker-input-padding-x-large": "input",
+                    "--timepicker-input-height-large": "input",
+                    "--timepicker-input-width-huge": "input",
+                    "--timepicker-input-padding-x-huge": "input",
+                    "--timepicker-input-height-huge": "input",
+                    "--timepicker-input-padding-x-full": "input"
                 },
                 "preview": {
                     "template": "<u-time-picker  date=\"15:46:33\"></u-time-picker>"
@@ -2647,18 +1186,10 @@
                 "toPosition": "dropdown",
                 "type": [],
                 "cssProperty": {
-                    "--dropdown-color-text": {
-                        "type": "color"
-                    },
-                    "--dropdown-color-text-hover": {
-                        "type": "color"
-                    },
-                    "--dropdown-color-text-active": {
-                        "type": "color"
-                    },
-                    "--dropdown-color-text-disabled": {
-                        "type": "color"
-                    }
+                    "--dropdown-color-text": "color",
+                    "--dropdown-color-text-hover": "color",
+                    "--dropdown-color-text-active": "color",
+                    "--dropdown-color-text-disabled": "color"
                 },
                 "preview": {
                     "template": "<u-dropdown><template #title=\"scope\"><u-text text=\"下拉菜单\"></u-text></template><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item disabled text=\"item\"></u-dropdown-item></u-dropdown>"
