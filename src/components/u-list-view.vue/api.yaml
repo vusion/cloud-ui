@@ -19,6 +19,7 @@
       description: 表格每一行的数据类型
       group: 数据属性
       compType: dataTypeSelect
+      advanced: true
     - name: initial-load
       type: boolean
       title: 初始加载

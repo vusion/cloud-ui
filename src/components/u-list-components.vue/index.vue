@@ -19,8 +19,7 @@
       </div>
     </template>
     <template v-else>
-        <slot></slot>
-        <s-empty v-if="!$slots.default && $env.VUE_APP_DESIGNER"></s-empty>
+        <slot><s-empty v-if="!$slots.default && $env.VUE_APP_DESIGNER"></s-empty></slot>
     </template>
   </div>
 </template>

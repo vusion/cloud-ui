@@ -34,6 +34,7 @@
       description: 日历中每天的数据类型
       group: 数据属性
       compType: dataTypeSelect
+      advanced: true
     - name: start-key
       type: string
       title: 数据内表示开始时间的字段

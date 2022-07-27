@@ -14,6 +14,7 @@
       type: schema
       description: 组件列表每一项的结构
       compType: dataTypeComsItem
+      advanced: true
     - name: colnum
       title: 每行排列项数
       type: number

@@ -184,8 +184,8 @@
     cursor: pointer;
     top: 0;
     z-index: 1;
-    font-size: 16px;
-    color: var(--input-icon-color);
+    /* font-size: 16px;
+    color: var(--input-icon-color); */
 }
 
 .prefix {
@@ -223,11 +223,11 @@
     padding-right: 50px;
 }
 
-/* .prefix[name="search"]::before, .suffix > [name="search"]::before {
+.prefix[name="search"]::before, .suffix > [name="search"]::before {
     icon-font: url("./assets/search.svg");
     font-size: 16px;
     color: var(--input-icon-color);
-} */
+}
 
 /* 兼容历史遗留组件中的size属性 */
 .root[size$="small"] { width: var(--input-width-small); padding-left: var(--input-padding-x-small); padding-right: var(--input-padding-x-small); }
