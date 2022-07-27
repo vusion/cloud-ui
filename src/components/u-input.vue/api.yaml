@@ -113,12 +113,19 @@
       advanced: true
     - name: prefix
       title: 前缀图标
-      type: icon
+      type: string
+      options:
+        - value: search
+          title: 搜索
+      description: ""
       clearable: true
     - name: suffix
       title: 后缀图标
-      type: icon
-      clearable: true
+      type: string
+      options:
+        - value: search
+          title: 搜索
+      description: ""
   slots:
     - name: default
       advanced: true
