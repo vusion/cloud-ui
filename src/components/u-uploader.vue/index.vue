@@ -117,6 +117,7 @@ export default {
         showErrorMessage: { type: Boolean, default: true },
         checkFile: [Function],
         downLoadFilename: String,
+        authorization: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -360,9 +361,21 @@ export default {
             return item;
         },
         post(file, item, index) {
+            let Authorization = null
+            if (this.authorization) {
+                const cookies = document.cookie.split(';');
+                cookies.forEach((item) => {
+                    if (item.split('=')[0] === 'authorization' || item.split('=')[0] === 'Authorization') {
+                        Authorization = item.split('=')[1]
+                    }
+                })
+            }
             const xhr = ajax({
                 url: this.url,
-                headers: this.headers,
+                headers: {
+                    ...this.headers,
+                    Authorization
+                },
                 withCredentials: this.withCredentials,
                 file,
                 data: this.data,
