@@ -1892,8 +1892,22 @@
     "description": "设置定时时间"
   },
   "u-count-down/reverse": {
+    "type": "string",
+    "options": [
+      {
+        "value": "positive",
+        "title": "正计时"
+      },
+      {
+        "value": "negative",
+        "title": "倒计时"
+      }
+    ],
+    "description": "设置计时器计时方式"
+  },
+  "u-count-down/autostart": {
     "type": "boolean",
-    "description": "转为正计时"
+    "description": "设置是否自动开始计时器"
   },
   "u-count-up/start": {
     "type": "number",
@@ -3863,10 +3877,24 @@
     "description": "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
   },
   "u-input/prefix": {
-    "type": "icon"
+    "type": "string",
+    "options": [
+      {
+        "value": "search",
+        "title": "搜索"
+      }
+    ],
+    "description": ""
   },
   "u-input/suffix": {
-    "type": "icon"
+    "type": "string",
+    "options": [
+      {
+        "value": "search",
+        "title": "搜索"
+      }
+    ],
+    "description": ""
   },
   "u-label/text": {
     "type": "string",

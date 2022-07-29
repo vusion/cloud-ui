@@ -596,7 +596,8 @@
   "u-count-down": {
     "attributes": [
       "minute",
-      "reverse"
+      "reverse",
+      "autostart"
     ],
     "description": "用于计时"
   },
