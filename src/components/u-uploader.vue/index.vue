@@ -362,10 +362,11 @@ export default {
         },
         post(file, item, index) {
             let Authorization = null
+            debugger
             if (this.authorization) {
                 const cookies = document.cookie.split(';');
                 cookies.forEach((item) => {
-                    if (item.split('=')[0] === 'authorization' || item.split('=')[0] === 'Authorization') {
+                    if (item.split('=')[0].trim() === 'authorization' || item.split('=')[0].trim() === 'Authorization') {
                         Authorization = item.split('=')[1]
                     }
                 })
