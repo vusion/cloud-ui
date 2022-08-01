@@ -24,7 +24,7 @@
             :trigger="trigger"
             :placement="placement"
             :disabled="disabled"
-            append-to="reference"
+            :append-to="appendTo"
             :opened="opened"
             @update:opened="$emit('update:opened', $event)"
         >
@@ -60,6 +60,11 @@ export default {
         },
         opened: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        appendTo: {
+            type: String,
+            default: 'reference',
+            validator: (value) => ['body', 'reference'].includes(value),
+        },
     },
     created() {
         this.$on('select', ({ itemVM }) => this.router && itemVM.navigate());
