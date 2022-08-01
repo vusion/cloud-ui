@@ -362,14 +362,8 @@ export default {
         },
         post(file, item, index) {
             let Authorization = null
-            debugger
             if (this.authorization) {
-                const cookies = document.cookie.split(';');
-                cookies.forEach((item) => {
-                    if (item.split('=')[0].trim() === 'authorization' || item.split('=')[0].trim() === 'Authorization') {
-                        Authorization = item.split('=')[1]
-                    }
-                })
+                Authorization = this.getCookie('authorization') || null;
             }
             const xhr = ajax({
                 url: this.url,
@@ -541,6 +535,16 @@ export default {
             await Promise.all(tasks);
             return validFiles;
         },
+        getCookie(cname) {
+            const name = `${cname}=`;
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                const c = ca[i].trim();
+                if (c.indexOf(name) === 0)
+                    return c.substring(name.length, c.length);
+            }
+            return '';
+        }
     },
 };
 </script>
