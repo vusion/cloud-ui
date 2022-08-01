@@ -57,6 +57,7 @@ export default {
         filterText: { type: String, default: '' },
         filterFields: { type: Array, default: () => ['text'] },
         draggable: { type: Boolean, default: false },
+        subBackground: { type: Boolean, default: false },
     },
     data() {
         return {
