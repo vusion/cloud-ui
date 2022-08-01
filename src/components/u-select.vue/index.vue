@@ -13,8 +13,7 @@
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing" :class="$style.placeholder">{{ placeholder }}</span>
-    <span v-if="prefix && $slot.prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
-    <i-ico v-else-if="prefix" notext :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"></i-ico>
+    <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}">
         <!-- @override: 添加了flag功能 -->
         <slot name="flag">
@@ -52,10 +51,8 @@
             @compositionend="compositionInputing = false">
         </u-input>
     </div>
-    <span v-if="suffix && $slots.suffix" v-show="!(clearable && !!(filterable ? filterText : currentText))" :class="$style.suffix" :name="suffix"
-        @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
-    <i-ico v-else-if="suffix" notext v-show="!(clearable && !!(filterable ? filterText : currentText))" :class="$style.suffix" :name="suffix"
-        @click="$emit('click-suffix', $event, this)"></i-ico>
+    <span v-if="suffix" :name="suffix"
+            @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
     <span v-if="clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click="clear"></span>
     <m-popper :class="$style.popper" ref="popper" :color="color" :placement="placement" :append-to="appendTo" :disabled="readonly || currentDisabled"
         :style="{ width: currentPopperWidth }"
@@ -91,13 +88,11 @@
 import { UListView } from '../u-list-view.vue';
 import { ellipsisTitle } from '../../directives';
 import i18n from './i18n';
-import IIco from '../i-ico.vue';
 
 
 export default {
     name: 'u-select',
     component: {
-        IIco,
     },
     childName: 'u-select-item',
     groupName: 'u-select-group',
