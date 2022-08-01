@@ -595,7 +595,7 @@
   },
   "u-count-down": {
     "attributes": [
-      "minute",
+      "timer",
       "reverse",
       "autostart"
     ],

@@ -1887,7 +1887,7 @@
     "type": "boolean",
     "description": "禁止复制"
   },
-  "u-count-down/minute": {
+  "u-count-down/timer": {
     "type": "number",
     "description": "设置定时时间"
   },
@@ -6056,10 +6056,24 @@
     "description": ""
   },
   "u-select/prefix": {
-    "type": "icon"
+    "type": "string",
+    "options": [
+      {
+        "value": "search",
+        "title": "搜索"
+      }
+    ],
+    "description": ""
   },
   "u-select/suffix": {
-    "type": "icon"
+    "type": "string",
+    "options": [
+      {
+        "value": "search",
+        "title": "搜索"
+      }
+    ],
+    "description": ""
   },
   "u-select/append-to": {
     "type": "string",
