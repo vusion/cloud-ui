@@ -51,7 +51,7 @@
             @compositionend="compositionInputing = false">
         </u-input>
     </div>
-    <span v-if="suffix" :name="suffix"
+    <span v-if="suffix" :name="suffix" :class="$style.suffix"
             @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
     <span v-if="clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click="clear"></span>
     <m-popper :class="$style.popper" ref="popper" :color="color" :placement="placement" :append-to="appendTo" :disabled="readonly || currentDisabled"

@@ -205,6 +205,7 @@
         - value: search
           title: 搜索
       description: ""
+      clearable: true
     - name: suffix
       title: 后缀图标
       type: string
@@ -212,6 +213,7 @@
         - value: search
           title: 搜索
       description: ""
+      clearable: true
     - name: append-to
       title: 弹出层展示位置
       type: string
