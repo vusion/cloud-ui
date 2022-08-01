@@ -10,6 +10,7 @@
     - [图标、小标题与描述](#图标-小标题与描述)
     - [改变主要按钮](#改变主要按钮)
     - [禁用按钮](#禁用按钮)
+    - [隐藏底部栏](#隐藏底部栏)
     - [自定义](#自定义)
     - [大小扩展](#大小扩展)
     - [点击遮罩关闭](#点击遮罩关闭)
@@ -125,6 +126,12 @@ export default {
 <u-modal title="标题" visible static disable-ok>内容</u-modal>
 ```
 
+### 隐藏底部栏
+
+``` html
+<u-modal title="标题" visible static :show-foot="false">内容</u-modal>
+```
+
 ### 自定义
 
 ``` html
@@ -172,6 +179,7 @@ export default {
 | visible.sync | boolean |  | `false` | 弹窗默认打开 |
 | ok-button | string |  | `'确定'` | 确定按钮文本，如果为空则不显示 |
 | cancel-button | string |  | `'取消'` | 取消按钮文本，如果为空则不显示 |
+| show-foot | boolean |  | `true` | 控制底部栏的显示 |
 | icon | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `''` |  |
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 弹窗的尺寸 |
 | static | boolean |  | `false` | 是否嵌入页面显示 |
