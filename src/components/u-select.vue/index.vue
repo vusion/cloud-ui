@@ -13,7 +13,7 @@
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing" :class="$style.placeholder">{{ placeholder }}</span>
-    <span v-if="prefix && $slot.prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
+    <span v-if="prefix && $slots.prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <i-ico v-else-if="prefix" notext :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"></i-ico>
     <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}">
         <!-- @override: 添加了flag功能 -->
@@ -92,7 +92,6 @@ import { UListView } from '../u-list-view.vue';
 import { ellipsisTitle } from '../../directives';
 import i18n from './i18n';
 import IIco from '../i-ico.vue';
-
 
 export default {
     name: 'u-select',
