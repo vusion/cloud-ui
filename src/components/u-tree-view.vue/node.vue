@@ -2,6 +2,7 @@
 <div :class="$style.root" v-show="!hidden">
     <div :class="$style.item" :selected="selected" :style="{ paddingLeft: level * expanderWidth + paddingLeft + 'px' }"
         :readonly="rootVM.readonly" :readonly-mode="rootVM.readonlyMode"
+        :subBackground="rootVM.subBackground"
         :disabled="currentDisabled"
         :tabindex="disabled || rootVM.readonly || rootVM.disabled ? '' : 0"
         @click="select(), rootVM.expandTrigger === 'click' && toggle()"
@@ -699,10 +700,10 @@ export default {
 .item[disabled] .expander {
     color: var(--tree-view-node-expander-color-disabled);
 }
-.item[selected] + .sub {
+.item[subBackground][selected] + .sub {
     background: var(--tree-view-subnode-background-selected);
 }
-.item[selected] + .sub .item:hover {
+.item[subBackground][selected] + .sub .item:hover {
     background: var(--tree-view-subnode-background-selected-hover);
 }
 .item[dragging] {
