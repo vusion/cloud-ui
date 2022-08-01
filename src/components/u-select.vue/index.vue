@@ -89,7 +89,6 @@ import { UListView } from '../u-list-view.vue';
 import { ellipsisTitle } from '../../directives';
 import i18n from './i18n';
 
-
 export default {
     name: 'u-select',
     component: {
