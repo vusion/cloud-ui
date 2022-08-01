@@ -99,6 +99,12 @@ export default {
 <u-modal title="标题" visible static disable-ok>内容</u-modal>
 ```
 
+### 隐藏底部栏
+
+``` html
+<u-modal title="标题" visible static :show-foot="false">内容</u-modal>
+```
+
 ### 自定义
 
 ``` html

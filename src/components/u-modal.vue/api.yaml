@@ -42,6 +42,11 @@
       default: 取消
       description: 取消按钮文本，如果为空则不显示
       advanced: true
+    - name: show-foot
+      title: 显示底部栏
+      type: boolean
+      default: true
+      description: 控制底部栏的显示
     - name: icon
       title: 提示图标
       type: string
