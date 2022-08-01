@@ -12,6 +12,7 @@
         @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" @keyup="onKeyup" v-on="listeners"
         @compositionstart="onCompositionStart"
         @compositionend="onCompositionEnd"
+        @keydown.enter="onEnter"
         :title="!showTitle || (!valueEmpty && !disabled) ? null : ($attrs.title || placeholder)">
     <slot></slot>
     <span :class="$style.suffix" v-if="password || suffix || clearable">
@@ -30,7 +31,6 @@ import MField from '../m-field.vue';
 import { focus } from '../../directives';
 import { isIE } from '../../utils/dom';
 // import IIco from '../i-ico.vue';
-
 
 export default {
     name: 'u-input',
@@ -242,6 +242,12 @@ export default {
         },
         updateCurrentValue(value) {
             this.currentValue = value;
+        },
+        onEnter(e) {
+            if (this.compositionInputing) {
+                this.compositionInputing = false;
+                this.onInput(e);
+            }
         },
     },
 };
