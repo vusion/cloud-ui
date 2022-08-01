@@ -34,7 +34,7 @@
                         <slot name="extra"></slot>
                     </slot>
                 </div>
-                <div :class="$style.foot" vusion-slot-name="foot" :child-cut-disabled="true" v-if="okButton || cancelButton">
+                <div :class="$style.foot" vusion-slot-name="foot" :child-cut-disabled="true" v-if="showFoot && (okButton || cancelButton)">
                     <slot name="foot">
                         <s-empty v-if="(!$slots.foot) && $env.VUE_APP_DESIGNER"></s-empty>
                         <u-linear-layout gap="small" justify="end" v-else>
@@ -95,6 +95,7 @@ export const UModal = {
         disableEsc: { type: Boolean, default: false },
         customClass: { type: String, default: undefined },
         functionalModal: { type: Boolean, default: false },
+        showFoot: { type: Boolean, default: true }
     },
     data() {
         return {
