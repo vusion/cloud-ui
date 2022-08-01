@@ -982,7 +982,8 @@
                             ],
                             "default": "href",
                             "description": "链接类型",
-                            "compType": "linkTypeSelect"
+                            "compType": "linkTypeSelect",
+                            "bindHide": true
                         },
                         {
                             "name": "hrefAndTo",
@@ -1879,7 +1880,8 @@
                             ],
                             "default": "href",
                             "description": "链接类型",
-                            "compType": "linkTypeSelect"
+                            "compType": "linkTypeSelect",
+                            "bindHide": true
                         },
                         {
                             "name": "hrefAndTo",
@@ -2357,7 +2359,8 @@
                             ],
                             "default": "href",
                             "description": "链接类型",
-                            "compType": "linkTypeSelect"
+                            "compType": "linkTypeSelect",
+                            "bindHide": true
                         },
                         {
                             "name": "hrefAndTo",
@@ -2809,7 +2812,8 @@
                             ],
                             "default": "href",
                             "description": "链接类型",
-                            "compType": "linkTypeSelect"
+                            "compType": "linkTypeSelect",
+                            "bindHide": true
                         },
                         {
                             "name": "hrefAndTo",
@@ -3314,7 +3318,8 @@
                     ],
                     "default": "href",
                     "description": "",
-                    "compType": "linkTypeSelect"
+                    "compType": "linkTypeSelect",
+                    "bindHide": true
                 },
                 {
                     "name": "hrefAndTo",
@@ -3712,7 +3717,8 @@
                     ],
                     "default": "href",
                     "description": "",
-                    "compType": "linkTypeSelect"
+                    "compType": "linkTypeSelect",
+                    "bindHide": true
                 },
                 {
                     "name": "hrefAndTo",
@@ -3915,7 +3921,8 @@
                     ],
                     "default": "href",
                     "description": "",
-                    "compType": "linkTypeSelect"
+                    "compType": "linkTypeSelect",
+                    "bindHide": true
                 },
                 {
                     "name": "hrefAndTo",
@@ -5072,15 +5079,16 @@
             ],
             "attrs": [
                 {
-                    "name": "minute",
-                    "title": "计时器时长（min）",
+                    "name": "timer",
+                    "title": "计时器时长（秒）",
                     "type": "number",
-                    "default": 1,
+                    "default": 60,
                     "description": "设置定时时间"
                 },
                 {
                     "name": "reverse",
                     "title": "计时方式",
+                    "type": "string",
                     "options": [
                         {
                             "value": "positive",
@@ -5360,7 +5368,8 @@
                             ],
                             "default": "href",
                             "description": "链接类型",
-                            "compType": "linkTypeSelect"
+                            "compType": "linkTypeSelect",
+                            "bindHide": true
                         },
                         {
                             "name": "hrefAndTo",
@@ -5456,7 +5465,8 @@
                     "type": "schema",
                     "description": "表格每一行的数据类型",
                     "group": "数据属性",
-                    "compType": "dataTypeSelect"
+                    "compType": "dataTypeSelect",
+                    "advanced": true
                 },
                 {
                     "name": "extra-params",
@@ -6777,7 +6787,8 @@
                     "type": "schema",
                     "description": "表格每一行的数据类型",
                     "group": "数据属性",
-                    "compType": "dataTypeSelect"
+                    "compType": "dataTypeSelect",
+                    "advanced": true
                 },
                 {
                     "name": "initial-load",
@@ -7377,7 +7388,8 @@
                     "type": "schema",
                     "description": "表格每一行的数据类型",
                     "group": "数据属性",
-                    "compType": "dataTypeSelect"
+                    "compType": "dataTypeSelect",
+                    "advanced": true
                 },
                 {
                     "name": "initial-load",
@@ -8227,7 +8239,8 @@
                             "title": "验证规则",
                             "type": "string, Array",
                             "description": "验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型",
-                            "compType": "validationRulesSelect"
+                            "compType": "validationRulesSelect",
+                            "bindHide": true
                         },
                         {
                             "name": "ignore-validation",
@@ -8415,7 +8428,8 @@
                     "type": "schema",
                     "description": "日历中每天的数据类型",
                     "group": "数据属性",
-                    "compType": "dataTypeSelect"
+                    "compType": "dataTypeSelect",
+                    "advanced": true
                 },
                 {
                     "name": "start-key",
@@ -8548,7 +8562,8 @@
                     "title": "数据类型",
                     "type": "schema",
                     "description": "组件列表每一项的结构",
-                    "compType": "dataTypeComsItem"
+                    "compType": "dataTypeComsItem",
+                    "advanced": true
                 },
                 {
                     "name": "colnum",
@@ -9025,7 +9040,8 @@
                             "title": "验证规则",
                             "type": "string | Array",
                             "description": "验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型",
-                            "compType": "validationRulesSelect"
+                            "compType": "validationRulesSelect",
+                            "bindHide": true
                         },
                         {
                             "name": "ignore-validation",
@@ -13501,7 +13517,8 @@
                     "title": "规则",
                     "type": "string | Array",
                     "description": "验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型",
-                    "compType": "validationRulesSelect"
+                    "compType": "validationRulesSelect",
+                    "bindHide": true
                 },
                 {
                     "name": "message",
@@ -14167,7 +14184,8 @@
                             "default": "href",
                             "description": "链接类型",
                             "advanced": true,
-                            "compType": "linkTypeSelect"
+                            "compType": "linkTypeSelect",
+                            "bindHide": true
                         },
                         {
                             "name": "href",
