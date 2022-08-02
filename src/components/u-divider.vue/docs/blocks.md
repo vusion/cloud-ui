@@ -1,6 +1,5 @@
 ### 基本用法
 
 ``` html
-<u-divider>
-</u-divider>
+<u-divider title="内容"></u-divider>
 ```

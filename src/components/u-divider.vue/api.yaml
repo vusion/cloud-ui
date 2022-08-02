@@ -33,6 +33,15 @@
       title: 文本
       type: string
       description: 文本
+    - name: direction
+      title: 方向
+      type: string
+      options:
+        - value: horizontal
+          title: 横向
+        - value: column
+          title: 竖向
+      default: horizontal
   slots:
     - name: default
       title: 默认
