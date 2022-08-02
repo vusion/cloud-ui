@@ -125,3 +125,4 @@ export * from './u-count-down.vue';
 export * from './u-multi-layout.vue';
 export * from './u-dropdown.vue';
 export * from './u-navbar-multi.vue';
+export * from './u-divider.vue';

@@ -1,0 +1,41 @@
+- name: u-divider
+  title: 分隔线
+  icon: divider
+  labels:
+    - Display
+  description: 用于将内容分隔为多个区域
+  next: true
+  nested: false
+  attrs:
+    - name: dashed
+      title: 线条类型
+      type: string
+      options:
+        - value: b
+          title: 虚线
+        - value: a
+          title: 实线
+      default: a
+      description: 线条类型
+    - name: content-position
+      title: 内容位置
+      type: string
+      options:
+        - value: center
+          title: 居中
+        - value: left
+          title: 左
+        - value: right
+          title: 右
+      default: center
+      description: 内容位置
+    - name: title
+      title: 文本
+      type: string
+      description: 文本
+  slots:
+    - name: default
+      title: 默认
+      description: 显示的文本
+      advanced: true
+  events: []
