@@ -103,4 +103,7 @@ export default {
 .empty {
     width: calc(100% - 25px);
 }
+.icon + .empty {
+    width: calc(100% - 50px);
+}
 </style>
