@@ -12,7 +12,7 @@ export default {
 .root {
     /* @Private */
     user-select: none;
-    display: inline-block;
+    display: inline-table;
     font-size: 0;
 }
 
