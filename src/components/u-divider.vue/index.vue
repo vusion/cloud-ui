@@ -2,7 +2,7 @@
     <div
         role="separator"
         :direction="direction"
-        :style="{ borderColor: borderColor }"
+        :style="{ borderColor: borderColor, padding: direction==='column' && !title ? '0 4px' : '0' }"
         :class="{
             [$style.root]: true,
             [$style.dashed]: dashed !== 'a',
