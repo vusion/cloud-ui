@@ -15,7 +15,7 @@ export default {
                 { text: '节点 1', total: {
                     pages: [
                         { text: '节点 1.1' },
-                        { text: '节点 1.2', disabled: true, pages: [
+                        { text: '节点 1.2', pages: [
                             { text: '节点 1.2.1' },
                             { text: '节点 1.2.2'}
                         ] },
@@ -27,7 +27,7 @@ export default {
                         Employee: { text: 'employee' },
                         Asset: { text: 'asset' },
                     } },
-                { text: '节点 2', disabled: true  },
+                { text: '节点 2' },
                 { text: '节点 3', pages: [
                     { text: '节点 3.1' },
                     { text: '节点 3.2'}

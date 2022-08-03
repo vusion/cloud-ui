@@ -58,6 +58,7 @@ module.exports = [
     { group: 'Selector', show: true, name: 'u-cascader', alias: '新级联选择' },
     { group: 'Selector', show: true, name: 'u-region-select', alias: '地区选择' },
     { group: 'Selector', show: true, name: 'u-tree-view', alias: '树型列表' },
+    { group: 'Selector', show: true, name: 'u-tree-view-plus', alias: '树型列表(新)' },
     { group: 'Selector', show: true, name: 'u-transfer', alias: '穿梭框' },
     { group: 'Selector', show: true, name: 'u-date-picker', alias: '日期选择' },
     { group: 'Selector', show: true, name: 'u-time-picker', alias: '时间选择' },

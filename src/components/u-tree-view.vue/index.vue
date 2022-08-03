@@ -111,6 +111,7 @@ export default {
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
             this.load();
+        console.log('dataSource', this.currentDataSource);
     },
     mounted() {
         // Must trigger `value` watcher at mounted hook.
