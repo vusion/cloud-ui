@@ -1076,7 +1076,7 @@
     --number-input-button-color: #989898; /* @type color */
     --number-input-button-color-hover: var(--brand-primary); /* @type color */
     --number-input-button-color-disabled: #CCCCCC; /* @type color */
-    --number-input-height: var(--input-height); /* @desc 输入框按钮高度,如 1px */
+    --number-input-height: var(--height-base); /* @desc 输入框按钮高度,如 1px */
     --number-input-border-width: var(--input-border-width);
     --number-input-box-shadow-focus-color: var(--input-box-shadow-focus-color); /* @type color */
     --number-input-box-shadow-focus: 0 0 0 2px var(--number-input-box-shadow-focus-color);
@@ -1088,7 +1088,7 @@
     --number-input-both-ends-button-height: calc(var(--number-input-height) - 2 * var(--number-input-border-width)); /* @hidden */
     --number-input-button-both-ends-outline: var(--number-input-button-outline); /* @hidden */
     --number-input-button-border-radius: var(--input-border-radius); /* @hidden */
-    --number-input-width: 142px; /* @hidden */
+    --number-input-width: var(--width-base); /* @hidden */
     --number-input-border-radius: var(--input-border-radius); /* @hidden */
 
     /* @component u-radios */
