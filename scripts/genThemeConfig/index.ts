@@ -44,7 +44,7 @@ _root.nodes.forEach((node) => {
                 const cap = /@type\s+([\w-]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].type = cap[1].trim();
             } else if (node.text.includes('@desc ')) {
-                const cap = /@desc\s+([\u4e00-\u9fa5|\w|,|\s|：|\#|（|）|(|)|\.]+)/.exec(node.text.trim());
+                const cap = /@desc\s+([\u4e00-\u9fa5|\w|,|\s|：|\#|（|）|(|)|\.|，]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].desc = cap[1].trim()
             }
         }
