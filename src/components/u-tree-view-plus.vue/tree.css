@@ -412,3 +412,6 @@
 
 .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
     background-color: #f0f7ff; }
+.el-tree-node__expand-icon::before {
+    icon-font: url('i-material-design.vue/assets/filled/arrow_right.svg');
+}

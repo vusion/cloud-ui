@@ -34,7 +34,6 @@
 import TreeStore from './model/tree-store';
 import { getNodeKey, findNearestComponent } from './model/util';
 import UTreeNodePlus from './node.vue';
-import {t} from './tools/locale';
 import emitter from './tools/emitter';
 import { addClass, removeClass } from './tools/dom';
 
@@ -68,9 +67,6 @@ export default {
         },
         emptyText: {
             type: String,
-            default() {
-                return t('el.tree.emptyText');
-            }
         },
         renderAfterExpand: {
             type: Boolean,
