@@ -172,7 +172,8 @@
                 ],
                 "cssProperty": {
                     "--collapse-item-fill-background": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "面板项背景颜色,如：#223325"
                     },
                     "--collapse-border-width": {
                         "type": "input",
@@ -315,16 +316,20 @@
                         "desc": "禁用链接字体颜色,如：#223325"
                     },
                     "--link-color-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "默认链接字体颜色,如：#223325"
                     },
                     "--link-color-success-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "成功链接字体颜色,如：#223325"
                     },
                     "--link-color-warning-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "警告链接字体颜色,如：#223325"
                     },
                     "--link-color-danger-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险链接字体颜色,如：#223325"
                     }
                 },
                 "preview": {
@@ -439,25 +444,32 @@
                         "desc": "错误标签的字体颜色,如：#223325"
                     },
                     "--label-line-background": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "线性标签的背景颜色,如：#223325"
                     },
                     "--label-line-border-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "线性标签的边框颜色,如：#223325"
                     },
                     "--label-line-color-primary": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "主要线性标签的字体颜色,如：#223325"
                     },
                     "--label-line-color-success": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "成功线性标签的字体颜色,如：#223325"
                     },
                     "--label-line-color-warning": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "警告线性标签的字体颜色,如：#223325"
                     },
                     "--label-line-color-error": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "错误线性标签的字体颜色,如：#223325"
                     },
                     "--label-line-color-normal": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "普通线性标签的字体颜色,如：#223325"
                     }
                 },
                 "preview": {
@@ -600,275 +612,340 @@
                 ],
                 "cssProperty": {
                     "--button-height-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini按钮高度,如：1px"
                     },
                     "--button-height-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small按钮高度,如：1px"
                     },
                     "--button-height": {
                         "type": "input",
                         "desc": "按钮高度,如：1px"
                     },
                     "--button-height-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium按钮高度,如：1px"
                     },
                     "--button-height-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large按钮高度,如：1px"
                     },
                     "--button-height-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge按钮高度,如：1px"
                     },
                     "--button-padding-y-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini按钮垂直方向内边距,如：1px"
                     },
                     "--button-padding-y-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small按钮垂直方向内边距,如：1px"
                     },
                     "--button-padding-y": {
                         "type": "input",
                         "desc": "按钮垂直方向内边距,如：1px"
                     },
                     "--button-padding-y-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium按钮垂直方向内边距,如：1px"
                     },
                     "--button-padding-y-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large按钮垂直方向内边距,如：1px"
                     },
                     "--button-padding-y-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge按钮垂直方向内边距,如：1px"
                     },
                     "--button-padding-x-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini按钮水平方向内边距,如：1px"
                     },
                     "--button-padding-x-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small按钮水平方向内边距,如：1px"
                     },
                     "--button-padding-x": {
                         "type": "input",
                         "desc": "按钮水平方向内边距,如：1px"
                     },
                     "--button-padding-x-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium按钮水平方向内边距,如：1px"
                     },
                     "--button-padding-x-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large按钮水平方向内边距,如：1px"
                     },
                     "--button-padding-x-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge按钮水平方向内边距,如：1px"
                     },
                     "--button-background-primary": {
                         "type": "color",
                         "desc": "主要按钮背景色,如：#223325"
                     },
                     "--button-background-primary-secondary": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要按钮背景色,如：#223325"
                     },
                     "--button-background": {
                         "type": "color",
                         "desc": "按钮默认背景色,如：#223325"
                     },
                     "--button-background-danger": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险按钮背景色,如：#223325"
                     },
                     "--button-background-danger-secondary": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要危险按钮背景色,如：#223325"
                     },
                     "--button-background-primary-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "主要按钮hover背景色,如：#223325"
                     },
                     "--button-background-primary-secondary-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要按钮hover背景色,如：#223325"
                     },
                     "--button-background-hover": {
                         "type": "color",
                         "desc": "按钮hover背景色,如：#223325"
                     },
                     "--button-background-danger-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险按钮hover背景色,如：#223325"
                     },
                     "--button-background-danger-secondary-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要危险按钮hover背景色,如：#223325"
                     },
                     "--button-background-primary-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "主要按钮背景色（激活状态）,如：#223325"
                     },
                     "--button-background-primary-secondary-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要按钮背景色（激活状态）,如：#223325"
                     },
                     "--button-background-active": {
                         "type": "color",
                         "desc": "按钮背景色（激活状态）,如：#223325"
                     },
                     "--button-background-danger-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险按钮背景色（激活状态）,如：#223325"
                     },
                     "--button-background-danger-secondary-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要危险按钮背景色（激活状态）,如：#223325"
                     },
                     "--button-background-primary-disabled": {
                         "type": "color",
                         "desc": "主要按钮背景色（禁用状态）,如：#223325"
                     },
                     "--button-background-primary-secondary-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要按钮背景色（禁用状态）,如：#223325"
                     },
                     "--button-background-disabled": {
                         "type": "color",
                         "desc": "按钮背景色（禁用状态）,如：#223325"
                     },
                     "--button-background-danger-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险按钮背景色（禁用状态）,如：#223325"
                     },
                     "--button-background-danger-secondary-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要危险按钮背景色（禁用状态）,如：#223325"
                     },
                     "--button-border-color-primary": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "主要按钮边框颜色,如：#223325"
                     },
                     "--button-border-color-primary-secondary": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要按钮边框颜色,如：#223325"
                     },
                     "--button-border-color": {
                         "type": "color",
                         "desc": "按钮边框颜色,如：#223325"
                     },
                     "--button-border-color-danger": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险按钮边框颜色,如：#223325"
                     },
                     "--button-border-color-danger-secondary": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要危险按钮边框颜色,如：#223325"
                     },
                     "--button-border-color-primary-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "主要按钮边框颜色(hover状态),如：#223325"
                     },
                     "--button-border-color-primary-secondary-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要按钮边框颜色(hover状态),如：#223325"
                     },
                     "--button-border-color-hover": {
                         "type": "color",
                         "desc": "按钮边框颜色(hover状态),如：#223325"
                     },
                     "--button-border-color-danger-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险按钮边框颜色(hover状态),如：#223325"
                     },
                     "--button-border-color-danger-secondary-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要危险按钮边框颜色(hover状态),如：#223325"
                     },
                     "--button-border-color-primary-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "主要按钮边框颜色(active状态),如：#223325"
                     },
                     "--button-border-color-primary-secondary-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要按钮边框颜色(active状态),如：#223325"
                     },
                     "--button-border-color-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "按钮边框颜色(active状态),如：#223325"
                     },
                     "--button-border-color-danger-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险按钮边框颜色(active状态),如：#223325"
                     },
                     "--button-border-color-danger-secondary-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要危险按钮边框颜色(active状态),如：#223325"
                     },
                     "--button-border-color-primary-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "主要按钮边框颜色（禁用状态）,如：#223325"
                     },
                     "--button-border-color-primary-secondary-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要按钮边框颜色（禁用状态）,如：#223325"
                     },
                     "--button-border-color-disabled": {
                         "type": "color",
                         "desc": "按钮边框颜色（禁用状态）,如：#223325"
                     },
                     "--button-border-color-danger-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险按钮边框颜色（禁用状态）,如：#223325"
                     },
                     "--button-border-color-danger-secondary-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要危险按钮边框颜色（禁用状态）,如：#223325"
                     },
                     "--button-font-size-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini按钮文本字体大小,如：1px"
                     },
                     "--button-font-size-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small按钮文本字体大小,如：1px"
                     },
                     "--button-font-size": {
                         "type": "input",
                         "desc": "按钮文本字体大小,如：1px"
                     },
                     "--button-font-size-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium按钮文本字体大小,如：1px"
                     },
                     "--button-font-size-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large按钮文本字体大小,如：1px"
                     },
                     "--button-font-size-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge按钮文本字体大小,如：1px"
                     },
                     "--button-color-primary": {
                         "type": "color",
                         "desc": "主要按钮字体颜色,如：#223325"
                     },
                     "--button-color-primary-secondary": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要按钮字体颜色,如：#223325"
                     },
                     "--button-color": {
                         "type": "color",
                         "desc": "默认按钮字体颜色,如：#223325"
                     },
                     "--button-color-danger": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险按钮字体颜色,如：#223325"
                     },
                     "--button-color-danger-secondary": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要危险按钮字体颜色,如：#223325"
                     },
                     "--button-color-primary-hover": {
                         "type": "color",
                         "desc": "主要按钮字体颜色（hover状态）,如：#223325"
                     },
                     "--button-color-primary-secondary-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要按钮字体颜色（hover状态）,如：#223325"
                     },
                     "--button-color-hover": {
                         "type": "color",
                         "desc": "默认按钮字体颜色（hover状态）,如：#223325"
                     },
                     "--button-color-danger-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险按钮字体颜色（hover状态）,如：#223325"
                     },
                     "--button-color-danger-secondary-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要危险按钮字体颜色（hover状态）,如：#223325"
                     },
                     "--button-color-primary-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "主要按钮字体颜色（active状态）,如：#223325"
                     },
                     "--button-color-primary-secondary-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要按钮字体颜色（active状态）,如：#223325"
                     },
                     "--button-color-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "默认按钮字体颜色（active状态）,如：#223325"
                     },
                     "--button-color-danger-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险按钮字体颜色（active状态）,如：#223325"
                     },
                     "--button-color-danger-secondary-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要危险按钮字体颜色（active状态）,如：#223325"
                     },
                     "--button-color-primary-disabled": {
                         "type": "color",
                         "desc": "主要按钮字体颜色（禁用状态）,如：#223325"
                     },
                     "--button-color-primary-secondary-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要按钮字体颜色（禁用状态）,如：#223325"
                     },
                     "--button-color-disabled": {
                         "type": "color",
                         "desc": "默认按钮字体颜色（禁用状态）,如：#223325"
                     },
                     "--button-color-danger-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险按钮字体颜色（禁用状态）,如：#223325"
                     },
                     "--button-color-danger-secondary-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "次要危险按钮字体颜色（禁用状态）,如：#223325"
                     },
                     "--button-border-width": {
                         "type": "input",
@@ -879,16 +956,20 @@
                         "desc": "按钮边框圆角,如：1px"
                     },
                     "--button-box-shadow-focus-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "按钮边框阴影背景颜色（选中状态）,如：#223325"
                     },
                     "--button-box-shadow-focus-primary-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "主要按钮边框阴影背景颜色（选中状态）,如：#223325"
                     },
                     "--button-box-shadow-focus-danger-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "危险按钮边框阴影背景颜色（选中状态）,如：#223325"
                     },
                     "--button-box-shadow-active-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "按钮边框阴影背景颜色（激活状态）,如：#223325"
                     },
                     "--button-box-shadow-focus": {
                         "type": "input",
@@ -899,7 +980,8 @@
                         "desc": "主要按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     },
                     "--button-box-shadow-focus-danger": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "危险按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     },
                     "--button-box-shadow-active": {
                         "type": "input",
@@ -923,7 +1005,8 @@
                 ],
                 "cssProperty": {
                     "--form-item-label-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "表单项 label字体颜色,如 #223325"
                     },
                     "--form-item-label-padding-right": {
                         "type": "input",
@@ -950,14 +1033,16 @@
                         "desc": "输入框边框颜色,如 #223325"
                     },
                     "--input-border-color-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框边框颜色（hover状态）,如 #223325"
                     },
                     "--input-border-color-focus": {
                         "type": "color",
                         "desc": "输入框边框颜色（选中状态）,如 #223325"
                     },
                     "--input-border-color-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框边框颜色（禁用状态）,如 #223325"
                     },
                     "--input-border-width": {
                         "type": "input",
@@ -968,97 +1053,120 @@
                         "desc": "输入框圆角,如 1px"
                     },
                     "--input-box-shadow-focus-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框边框阴影颜色（选中状态）,如 #223325"
                     },
                     "--input-box-shadow-focus": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "输入框边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     },
                     "--input-placeholder-color": {
                         "type": "color",
                         "desc": "输入框占位符文本颜色,如 #223325"
                     },
                     "--input-width-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini输入框高度,如 1px"
                     },
                     "--input-width-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small输入框高度,如 1px"
                     },
                     "--input-width": {
                         "type": "input",
                         "desc": "输入框高度,如 1px"
                     },
                     "--input-width-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium输入框高度,如 1px"
                     },
                     "--input-width-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large输入框高度,如 1px"
                     },
                     "--input-width-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge输入框高度,如 1px"
                     },
                     "--input-height-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini输入框高度,如 1px"
                     },
                     "--input-height-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small输入框高度,如 1px"
                     },
                     "--input-height": {
                         "type": "input",
                         "desc": "输入框高度,如 1px"
                     },
                     "--input-height-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium输入框高度,如 1px"
                     },
                     "--input-height-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large输入框高度,如 1px"
                     },
                     "--input-height-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge输入框高度,如 1px"
                     },
                     "--input-padding-x-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini输入框水平方向内边距,如 1px"
                     },
                     "--input-padding-x-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small输入框水平方向内边距,如 1px"
                     },
                     "--input-padding-x": {
                         "type": "input",
                         "desc": "输入框水平方向内边距,如 1px"
                     },
                     "--input-padding-x-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium输入框水平方向内边距,如 1px"
                     },
                     "--input-padding-x-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large输入框水平方向内边距,如 1px"
                     },
                     "--input-padding-x-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge输入框水平方向内边距,如 1px"
                     },
                     "--input-padding-x-full": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Full输入框水平方向内边距,如 1px"
                     },
                     "--input-prefix-padding-left": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "输入框前缀左边距,如 1px"
                     },
                     "--input-prefix-placeholder-left": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "输入框前缀提示信息左边距,如 1px"
                     },
                     "--input-suffix-padding-right": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "输入框后缀右边距,如 1px"
                     },
                     "--input-background": {
                         "type": "color",
                         "desc": "输入框背景色,如 #223325"
                     },
                     "--input-background-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "禁用输入框背景色,如 #223325"
                     },
                     "--input-color": {
                         "type": "color",
                         "desc": "输入框文字颜色,如 #223325"
                     },
                     "--input-color-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "禁用输入框文字颜色,如 #223325"
                     }
                 },
                 "preview": {
@@ -1073,89 +1181,112 @@
                 "type": [],
                 "cssProperty": {
                     "--number-input-background": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框背景色,如 #223325"
                     },
                     "--number-input-background-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "禁用状态输入框背景色,如 #223325"
                     },
                     "--number-input-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框字体颜色,如 #223325"
                     },
                     "--number-input-color-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "禁用输入框字体颜色,如 #223325"
                     },
                     "--number-input-button-background": {
                         "type": "color",
                         "desc": "输入框上下按钮背景色,如 #223325"
                     },
                     "--number-input-button-both-ends-background": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框左右按钮背景色,如 #223325"
                     },
                     "--number-input-button-background-hover": {
                         "type": "color",
                         "desc": "输入框上下按钮背景色（hover状态）,如 #223325"
                     },
                     "--number-input-button-both-ends-background-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框左右按钮背景色（hover状态）,如 #223325"
                     },
                     "--number-input-button-background-active": {
                         "type": "color",
                         "desc": "输入框上下按钮背景色（激活状态）,如 #223325"
                     },
                     "--number-input-button-both-ends-background-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框左右按钮背景色（激活状态）,如 #223325"
                     },
                     "--number-input-button-background-focus": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框上下按钮背景色（选中状态）,如 #223325"
                     },
                     "--number-input-button-both-ends-background-focus": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框左右按钮背景色（选中状态）,如 #223325"
                     },
                     "--number-input-button-background-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框上下按钮背景色（禁用状态）,如 #223325"
                     },
                     "--number-input-button-both-ends-background-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框左右按钮背景色（禁用状态）,如 #223325"
                     },
                     "--number-input-border-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框边框背景色,如 #223325"
                     },
                     "--number-input-border-color-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框边框背景色（hover状态）,如 #223325"
                     },
                     "--number-input-border-color-focus": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框边框背景色（选中状态）,如 #223325"
                     },
                     "--number-input-border-color-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框边框背景色（禁用状态）,如 #223325"
                     },
                     "--number-input-button-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框按钮字体色,如 #223325"
                     },
                     "--number-input-button-color-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框按钮字体色（hover状态）,如 #223325"
                     },
                     "--number-input-button-color-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框按钮字体色（禁用状态）,如 #223325"
                     },
                     "--number-input-height": {
                         "type": "input",
                         "desc": "输入框按钮高度,如 1px"
                     },
                     "--number-input-border-width": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "输入框边框宽度,如 1px"
                     },
                     "--number-input-box-shadow-focus-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "输入框边框阴影色,如 #223325"
                     },
                     "--number-input-box-shadow-focus": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "输入框边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     },
                     "--number-input-button-padding": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "输入框按钮边距,如 1px 1px"
                     },
                     "--number-input-button-outline": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "输入框轮廓,如 1px ridge rgba(0, 0, 0, 0.2)"
                     }
                 },
                 "preview": {
@@ -1174,13 +1305,16 @@
                         "desc": "文本框宽度, 如 1px"
                     },
                     "--textarea-width-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium文本框宽度, 如 1px"
                     },
                     "--textarea-width-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large文本框宽度, 如 1px"
                     },
                     "--textarea-width-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge文本框宽度, 如 1px"
                     },
                     "--textarea-min-width": {
                         "type": "input",
@@ -1191,16 +1325,20 @@
                         "desc": "文本框高度, 如 1px"
                     },
                     "--textarea-height-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium文本框高度, 如 1px"
                     },
                     "--textarea-height-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large文本框高度, 如 1px"
                     },
                     "--textarea-height-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge文本框高度, 如 1px"
                     },
                     "--textarea-min-height": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "文本框最小高度, 如 1px"
                     },
                     "--textarea-padding": {
                         "type": "input",
@@ -1215,32 +1353,40 @@
                         "desc": "文本框边框颜色, 如 #223325"
                     },
                     "--textarea-border-color-focus": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "文本框边框颜色（选中状态）, 如 #223325"
                     },
                     "--textarea-border-color-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "文本框边框颜色（禁用状态）, 如 #223325"
                     },
                     "--textarea-background": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "文本框背景颜色, 如 #223325"
                     },
                     "--textarea-background-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "文本框背景颜色（禁用状态）, 如 #223325"
                     },
                     "--textarea-color": {
                         "type": "color",
                         "desc": "文本框内容区文字颜色, 如 #223325"
                     },
                     "--textarea-color-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "文本框内容区文字颜色（禁用状态）, 如 #223325"
                     },
                     "--textarea-placeholder-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "文本框提示内容文字颜色, 如 #223325"
                     },
                     "--textarea-box-shadow-focus-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选中状态文本框边框阴影色,如 rgba(0, 0, 0, 0.2)"
                     },
                     "--textarea-box-shadow-focus": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "选中状态文本框边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     }
                 },
                 "preview": {
@@ -1383,22 +1529,28 @@
                 "type": [],
                 "cssProperty": {
                     "--select-popper-item-background": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项背景色,如 #223325"
                     },
                     "--select-popper-item-background-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项背景色（hover状态）,如 #223325"
                     },
                     "--select-popper-item-background-selected": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项背景色（禁用状态）,如 #223325"
                     },
                     "--select-popper-item-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项字体颜色,如 #223325"
                     },
                     "--select-popper-item-color-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项字体颜色（hover状态）,如 #223325"
                     },
                     "--select-popper-item-color-selected": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项字体颜色（选中状态）,如 #223325"
                     },
                     "--select-width": {
                         "type": "input",
@@ -1461,38 +1613,48 @@
                         "desc": "选择框的弹出层边框颜色,如 #223325"
                     },
                     "--select-popper-border-color-inverse": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "Inverse选择框的弹出层边框颜色,如 #223325"
                     },
                     "--select-status-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框状态颜色,如 #223325"
                     },
                     "--select-box-shadow-focus": {
                         "type": "input",
                         "desc": "选择框的弹出层边框阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     },
                     "--select-popper-item-color-readonly": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项的字体颜色（只读状态下）,如 #223325"
                     },
                     "--select-popper-item-background-readonly": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项的背景颜色（只读状态下）,如 #223325"
                     },
                     "--select-popper-item-color-selected-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项的字体颜色（禁用状态下）,如 #223325"
                     },
                     "--select-popper-item-background-selected-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项的背景颜色（禁用状态下）,如 #223325"
                     },
                     "--select-popper-item-color-duplicated": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项的字体颜色（多选状态下）,如 #223325"
                     },
                     "--select-popper-item-background-duplicated": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项的背景颜色（多选状态下）,如 #223325"
                     },
                     "--select-popper-item-color-duplicated-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项的字体颜色（多选hover状态下）,如 #223325"
                     },
                     "--select-popper-item-background-duplicated-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "选择框下拉项的背景颜色（多选hover状态下）,如 #223325"
                     }
                 },
                 "preview": {
@@ -1501,16 +1663,31 @@
             },
             {
                 "id": 29,
-                "name": "u-rate",
+                "name": "u-rating",
                 "title": "评分",
-                "toPosition": "u-rate",
+                "toPosition": "u-rating",
                 "type": [],
                 "cssProperty": {
-                    "--rate-space": "input",
-                    "--rate-size": "input",
-                    "--rate-color": "color",
-                    "--rate-color-full": "color",
-                    "--rate-text-color": "color"
+                    "--rate-space": {
+                        "type": "input",
+                        "desc": "五角星之间的间距,如 1px"
+                    },
+                    "--rate-size": {
+                        "type": "input",
+                        "desc": "五角星的大小,如 1px"
+                    },
+                    "--rate-color": {
+                        "type": "color",
+                        "desc": "五角星未选中的颜色,如 #223325"
+                    },
+                    "--rate-color-full": {
+                        "type": "color",
+                        "desc": "五角星填充的颜色,如 #223325"
+                    },
+                    "--rate-text-color": {
+                        "type": "color",
+                        "desc": "字体颜色,如 #223325"
+                    }
                 },
                 "preview": {
                     "template": "<u-rate></u-rate>"
@@ -1532,7 +1709,8 @@
                         "desc": "组件垂直方向的内边距（滑道上下的外边距）,如 1px"
                     },
                     "--silder-background-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "滑道背景色（禁用状态下）,如 #223325"
                     },
                     "--slider-track-height": {
                         "type": "input",
@@ -1547,10 +1725,12 @@
                         "desc": "滑道背景色（未覆盖部分）,如 #223325"
                     },
                     "--slider-trail-background-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "滑道背景色（未覆盖部分禁用状态下）,如 #223325"
                     },
                     "--slider-track-border-radius": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "滑道圆角大小（未覆盖部分）,如 1px"
                     },
                     "--slider-handle-width": {
                         "type": "input",
@@ -1569,10 +1749,12 @@
                         "desc": "滑块按钮边框,如 1px solid white"
                     },
                     "--silder-box-shadow-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "滑块阴影色（hover状态）,如 #223325"
                     },
                     "--silder-handle-background-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "滑块按钮背景色（禁用状态）,如 #223325"
                     }
                 },
                 "preview": {
@@ -1619,7 +1801,8 @@
                         "desc": "文件上传列表项背景色(hover状态) ,如 #223325"
                     },
                     "--uploader-item-icon-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "文件上传列表项图标颜色 ,如 #223325"
                     },
                     "--uploader-link-color": {
                         "type": "color",
@@ -1642,22 +1825,28 @@
                         "desc": "卡片式文件上传遮罩层颜色,如 #223325"
                     },
                     "--uploader-draggable-background": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "拖拽上传文件窗口背景色,如 #223325"
                     },
                     "--uploader-draggable-border-width": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "拖拽上传文件窗口边框宽度,如 1px"
                     },
                     "--uploader-draggable-border-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "拖拽上传文件窗口边框颜色,如 #223325"
                     },
                     "--uploader-draggable-border-color-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "拖拽上传文件窗口边框颜色（hover状态）,如 #223325"
                     },
                     "--uploader-draggable-border-radius": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "拖拽上传文件窗口圆角大小,如 1px"
                     },
                     "--uploader-draggable-padding": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "拖拽上传文件窗口内边距大小,如 1px"
                     }
                 },
                 "preview": {
@@ -1672,17 +1861,20 @@
                 "type": [],
                 "cssProperty": {
                     "--table-view-row-hover-background": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "表格行背景色（hover状态）,如 #223325"
                     },
                     "--table-head-background": {
                         "type": "color",
                         "desc": "表格表头背景色,如 #223325"
                     },
                     "--table-view-head-item-size": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "表格表头字体大小,如 1px"
                     },
                     "--table-row-background-striped": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "表格条纹展示行背景色,如 #223325"
                     },
                     "--table-view-head-item-color": {
                         "type": "color",
@@ -1761,46 +1953,48 @@
                         "desc": "tab项高亮指示线高度,如 1px"
                     },
                     "--tabs-font-size": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "tab项字体大小,如 1px"
                     },
                     "--tabs-item-line-background": {
-                        "type": "input"
+                        "type": "color",
+                        "desc": "tab选中项线条背景色（线条导航方式）,如 #223325"
                     },
                     "--tabs-item-background-text": {
                         "type": "color",
-                        "desc": "tab项背景色（文本模式"
+                        "desc": "tab项背景色（文本模式, 未选中部分）,如 #223325"
                     },
                     "--tabs-item-background-capsule": {
                         "type": "color",
-                        "desc": "tab项背景色（胶囊模式"
+                        "desc": "tab项背景色（胶囊模式, 未选中部分）,如 #223325"
                     },
                     "--tabs-item-background-hover": {
                         "type": "color",
-                        "desc": "tab项背景色（hover状态"
+                        "desc": "tab项背景色（hover状态, 胶囊模式和底线模式不生效）,如 #223325"
                     },
                     "--tabs-item-background-selected": {
                         "type": "color",
-                        "desc": "tab项背景色（选中部分"
+                        "desc": "tab项背景色（选中部分, 胶囊模式和底线模式不生效）,如 #223325"
                     },
                     "--tabs-item-background-selected-capsule": {
                         "type": "color",
-                        "desc": "tab项背景色（选中部分"
+                        "desc": "tab项背景色（选中部分, 胶囊模式生效）,如 #223325"
                     },
                     "--tabs-item-color": {
                         "type": "color",
-                        "desc": "tab项文字颜色（未选中部分"
+                        "desc": "tab项文字颜色（未选中部分, 仅文本模式生效）,如 #223325"
                     },
                     "--tabs-item-color-hover": {
                         "type": "color",
-                        "desc": "tab项文字颜色（未选中部分"
+                        "desc": "tab项文字颜色（未选中部分, hover状态, 文本模式和胶囊模式生效）,如 #223325"
                     },
                     "--tabs-item-color-selected": {
                         "type": "color",
-                        "desc": "tab项文字颜色（未选中部分"
+                        "desc": "tab项文字颜色（未选中部分, hover状态, 文本模式和文本模式生效）,如 #223325"
                     },
                     "--tabs-item-color-selected-capsule": {
                         "type": "color",
-                        "desc": "tab项文字颜色（胶囊模式"
+                        "desc": "tab项文字颜色（胶囊模式, 选中部分）,如 #223325"
                     },
                     "--tabs-item-color-disabled": {
                         "type": "color",
@@ -1808,15 +2002,15 @@
                     },
                     "--tabs-item-border-color-selected": {
                         "type": "color",
-                        "desc": "tab项边框颜色（选中部分"
+                        "desc": "tab项边框颜色（选中部分, 默认模式和圆角模式生效）,如 #223325"
                     },
                     "--tabs-item-border-color-selected-capsule": {
                         "type": "color",
-                        "desc": "tab项边框颜色（选中部分"
+                        "desc": "tab项边框颜色（选中部分, 胶囊模式）,如 #223325"
                     },
                     "--tabs-item-border-radius-round": {
                         "type": "input",
-                        "desc": "tab项边框圆角（选中部分"
+                        "desc": "tab项边框圆角（选中部分, 圆角模式）,如 1px"
                     },
                     "--tabs-body-space": {
                         "type": "input",
@@ -1874,32 +2068,40 @@
                 ],
                 "cssProperty": {
                     "--pagination-item-border-radius": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "翻页器的按钮圆角大小,如 1px"
                     },
                     "--pagination-item-border-color": {
                         "type": "color",
                         "desc": "翻页器的按钮边框颜色,如 #223325"
                     },
                     "--pagination-item-border-color-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "翻页器的按钮边框颜色（hover状态）,如 #223325"
                     },
                     "--pagination-item-border-color-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "翻页器的按钮边框颜色（hover状态）,如 #223325"
                     },
                     "--pagination-item-height-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small翻页器的按钮高度,如 1px"
                     },
                     "--pagination-item-height": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "翻页器的按钮高度,如 1px"
                     },
                     "--pagination-item-width-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small翻页器的按钮宽度,如 1px"
                     },
                     "--pagination-item-width": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "翻页器的按钮宽度,如 1px"
                     },
                     "--pagination-item-font-size": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "翻页器的字体大小,如 1px"
                     },
                     "--pagination-item-color": {
                         "type": "color",
@@ -1931,7 +2133,7 @@
                     },
                     "--pagination-item-background-hover": {
                         "type": "color",
-                        "desc": "翻页器的按钮背景色（hover状态"
+                        "desc": "翻页器的按钮背景色（hover状态，未选中状态）,如 #223325"
                     },
                     "--pagination-item-background-selected": {
                         "type": "color",
@@ -1958,25 +2160,32 @@
                 "type": [],
                 "cssProperty": {
                     "--tree-view-node-background-dragging": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "树形列表可拖拽节点的背景色,如 #223325"
                     },
                     "--tree-view-node-color-dragging": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "树形列表可拖拽节点的字体颜色,如 #223325"
                     },
                     "--tree-view-subnode-background-selected": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "树形列表子节点的背景色（选中状态）,如 #223325"
                     },
                     "--tree-view-subnode-background-dragging": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "树形列表可拖拽子节点的背景色,如 #223325"
                     },
                     "--tree-view-subnode-color-dragging": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "树形列表可拖拽子节点的字体颜色,如 #223325"
                     },
                     "--tree-view-subnode-background-selected-hover": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "树形列表子节点的背景色（选中状态）,如 #223325"
                     },
                     "--tree-view-node-expander-color-dragging": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "树形列表可拖拽节点的前缀箭头颜色,如 #223325"
                     },
                     "--tree-view-background": {
                         "type": "color",
@@ -2044,35 +2253,44 @@
                 "type": [],
                 "cssProperty": {
                     "--linear-progress-size": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "进度条大小,如 1px"
                     },
                     "--linear-progress-size-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small进度条大小,如 1px"
                     },
                     "--linear-progress-size-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large进度条大小,如 1px"
                     },
                     "--linear-progress-size-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge进度条大小,如 1px"
                     },
                     "--linear-progress-vertical-height": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "垂直进度条高度,如 1px"
                     },
                     "--linear-progress-track-background": {
                         "type": "color",
                         "desc": "进度条轨道背景色 (未完成部分),如 #223325"
                     },
                     "--linear-progress-trail-font-size": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "进度条轨道字体大小 (完成部分),如 #223325"
                     },
                     "--linear-progress-trail-background-primary": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "主要进度条轨道背景颜色 (完成部分),如 #223325"
                     },
                     "--linear-progress-trail-background-success": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "成功进度条轨道背景颜色 (完成部分),如 #223325"
                     },
                     "--linear-progress-trail-background-error": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "错误进度条轨道背景颜色 (完成部分),如 #223325"
                     },
                     "--linear-progress-trail-color": {
                         "type": "color",
@@ -2099,26 +2317,32 @@
                         "desc": "圆型进度条圆形大小,如 1px"
                     },
                     "--circular-progress-size-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small圆型进度条圆形大小,如 1px"
                     },
                     "--circular-progress-size-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large圆型进度条圆形大小,如 1px"
                     },
                     "--circular-progress-size-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge圆型进度条圆形大小,如 1px"
                     },
                     "--circular-progress-stroke-width": {
                         "type": "input",
                         "desc": "进度条轨道宽度,如 1px"
                     },
                     "--circular-progress-stroke-width-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small进度条轨道宽度,如 1px"
                     },
                     "--circular-progress-stroke-width-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large进度条轨道宽度,如 1px"
                     },
                     "--circular-progress-stroke-width-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge进度条轨道宽度,如 1px"
                     },
                     "--circular-progress-track-stroke": {
                         "type": "color",
@@ -2129,23 +2353,28 @@
                         "desc": "进度条轨道背景色 (已完成部分),如 #223325"
                     },
                     "--circular-progress-trail-transition": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "进度条轨道动画 (已完成部分),如 stroke 0.6s ease, stroke"
                     },
                     "--circular-progress-percent-font-size": {
                         "type": "input",
                         "desc": "进度条文本内容字号,如 1px"
                     },
                     "--circular-progress-percent-font-size-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small进度条文本内容字号,如 1px"
                     },
                     "--circular-progress-percent-font-size-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large进度条文本内容字号,如 1px"
                     },
                     "--circular-progress-percent-font-size-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge进度条文本内容字号,如 1px"
                     },
                     "--circular-progress-percent-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "进度条文本内容字体颜色,如 #223325"
                     }
                 },
                 "preview": {
@@ -2261,79 +2490,104 @@
                 "type": [],
                 "cssProperty": {
                     "--calendar-border-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板边框颜色,如：#223325"
                     },
                     "--calendar-background": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板背景颜色,如：#223325"
                     },
                     "--calendar-border-radius": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日历面板边框圆角,如：1px"
                     },
                     "--calendar-item-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板本月日期字体颜色,如：#223325"
                     },
                     "--calendar-item-border-radius": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日历面板日期圆角大小,如：1px"
                     },
                     "--calendar-item-border-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板日期边框颜色,如：#223325"
                     },
                     "--calendar-item-background": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板日期背景颜色,如：#223325"
                     },
                     "--calendar-item-color-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板日期字体颜色（hover状态）,如：#223325"
                     },
                     "--calendar-item-border-color-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板日期边框颜色（选中状态）,如：#223325"
                     },
                     "--calendar-item-background-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板日期背景颜色（选中状态）,如：#223325"
                     },
                     "--calendar-item-color-selected": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板日期字体颜色（选中状态）,如：#223325"
                     },
                     "--calendar-item-border-color-selected": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板日期边框颜色（选中状态）,如：#223325"
                     },
                     "--calendar-item-background-selected": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板日期背景颜色（选中状态）,如：#223325"
                     },
                     "--calendar-item-color-muted": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板其他月份日期字体颜色,如：#223325"
                     },
                     "--calendar-item-color-today": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板今日字体颜色,如：#223325"
                     },
                     "--calendar-item-color-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板禁用日期字体颜色,如：#223325"
                     },
                     "--calendar-item-background-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板禁用日期背景颜色,如：#223325"
                     },
                     "--calendar-item-color-selected-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板日期字体颜色（禁用选择状态）,如：#223325"
                     },
                     "--calendar-item-background-selected-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板日期背景颜色（禁用选择状态）,如：#223325"
                     },
                     "--calendar-item-week-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板week字体颜色,如：#223325"
                     },
                     "--calendar-icon-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板icon字体颜色,如：#223325"
                     },
                     "--calendar-icon-color-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板icon字体颜色（hover状态）,如：#223325"
                     },
                     "--calendar-icon-color-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板icon字体颜色（禁用状态）,如：#223325"
                     },
                     "--calendar-date-background-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "时间表格背景颜色（禁用状态）,如：#223325"
                     },
                     "--calendar-showtext-color-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日历面板头部年月字体颜色,如：#223325"
                     }
                 },
                 "preview": {
@@ -2348,103 +2602,127 @@
                 "type": [],
                 "cssProperty": {
                     "--datepicker-input-pre-icon-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日期选择器前缀图标颜色,如：#223325"
                     },
                     "--datepicker-input-after-icon-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日期选择器后缀图标颜色,如：#223325"
                     },
                     "--datepicker-input-border-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日期选择器输入框边框颜色,如：#223325"
                     },
                     "--datepicker-input-border-width": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日期选择器输入框边框宽度,如：1px"
                     },
                     "--datepicker-input-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日期选择器输入框字体颜色,如：#223325"
                     },
                     "--datepicker-input-background": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日期选择器输入框背景颜色,如：#223325"
                     },
                     "--datepicker-input-border-radius": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日期选择器输入框圆角,如：1px"
                     },
                     "--datepicker-input-background-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日期选择器输入框背景颜色（禁用状态）,如：1px"
                     },
                     "--datepicker-input-border-color-error": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日期选择器输入框边框颜色（错误状态）,如：1px"
                     },
                     "--datepicker-input-border-color-focus": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日期选择器输入框边框颜色（选中状态）,如：1px"
                     },
                     "--datepicker-input-box-shadow-focus": {
                         "type": "input"
                     },
                     "--datepicker-input-placeholder-color": {
-                        "type": "color"
-                    },
-                    "--datepicker-popper-box-shadow": {
-                        "type": "input"
-                    },
-                    "--datepicker-popper-border-radius": {
-                        "type": "input"
+                        "type": "color",
+                        "desc": "日期选择器输入框提示字体颜色,如：#223325"
                     },
                     "--datepicker-input-width": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日期选择器输入框宽度,如：1px"
                     },
                     "--datepicker-input-height": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日期选择器输入框高度,如：1px"
                     },
                     "--datepicker-input-padding-x": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日期选择器输入框水平内边距,如：1px"
                     },
                     "--datepicker-input-width-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini日期选择器输入框宽度,如：1px"
                     },
                     "--datepicker-input-padding-x-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini日期选择器输入框水平内边距,如：1px"
                     },
                     "--datepicker-input-height-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini日期选择器输入框高度,如：1px"
                     },
                     "--datepicker-input-width-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small日期选择器输入框宽度,如：1px"
                     },
                     "--datepicker-input-padding-x-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small日期选择器输入框水平内边距,如：1px"
                     },
                     "--datepicker-input-height-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small日期选择器输入框高度,如：1px"
                     },
                     "--datepicker-input-width-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium日期选择器输入框宽度,如：1px"
                     },
                     "--datepicker-input-padding-x-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium日期选择器输入框水平内边距,如：1px"
                     },
                     "--datepicker-input-height-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium日期选择器输入框高度,如：1px"
                     },
                     "--datepicker-input-width-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large日期选择器输入框宽度,如：1px"
                     },
                     "--datepicker-input-padding-x-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large日期选择器输入框水平内边距,如：1px"
                     },
                     "--datepicker-input-height-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large日期选择器输入框高度,如：1px"
                     },
                     "--datepicker-input-width-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge日期选择器输入框宽度,如：1px"
                     },
                     "--datepicker-input-padding-x-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge日期选择器输入框水平内边距,如：1px"
                     },
                     "--datepicker-input-height-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge日期选择器输入框高度,如：1px"
                     },
                     "--datepicker-input-padding-x-full": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Full日期选择器输入框水平内边距,如：1px"
                     }
                 },
                 "preview": {
@@ -2459,91 +2737,120 @@
                 "type": [],
                 "cssProperty": {
                     "--datetime-input-pre-icon-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日期时间选择器输入框前缀图标颜色,如：#223325"
                     },
                     "--datetime-input-after-icon-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日期时间选择器输入框后缀图标颜色,如：#223325"
                     },
                     "--datetime-input-border-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日期时间选择器输入框边框颜色,如：#223325"
                     },
                     "--datetime-input-border-width": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日期时间选择器输入框边框宽度,如：1px"
                     },
                     "--datetime-input-placeholder-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日期时间选择器输入框提示字体颜色,如：#223325"
                     },
                     "--datetime-input-border-radius": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日期时间选择器输入框圆角大小,如：1px"
                     },
                     "--datetime-input-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日期时间选择器输入框字体颜色,如：#223325"
                     },
                     "--datetime-input-background": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日期时间选择器输入框背景颜色,如：#223325"
                     },
                     "--datetime-input-width": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日期时间选择器输入框宽度,如：1px"
                     },
                     "--datetime-input-height": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日期时间选择器输入框高度,如：1px"
                     },
                     "--datetime-input-padding-x": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日期时间选择器输入框水平内边距,如：1px"
                     },
                     "--datetime-input-width-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini日期时间选择器输入框宽度,如：1px"
                     },
                     "--datetime-input-padding-x-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini日期时间选择器输入框水平内边距,如：1px"
                     },
                     "--datetime-input-height-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini日期时间选择器输入框高度,如：1px"
                     },
                     "--datetime-input-width-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small日期时间选择器输入框宽度,如：1px"
                     },
                     "--datetime-input-padding-x-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small日期时间选择器输入框水平内边距,如：1px"
                     },
                     "--datetime-input-height-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small日期时间选择器输入框高度,如：1px"
                     },
                     "--datetime-input-width-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium日期时间选择器输入框宽度,如：1px"
                     },
                     "--datetime-input-padding-x-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium日期时间选择器输入框水平内边距,如：1px"
                     },
                     "--datetime-input-height-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium日期时间选择器输入框高度,如：1px"
                     },
                     "--datetime-input-width-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large日期时间选择器输入框宽度,如：1px"
                     },
                     "--datetime-input-padding-x-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large日期时间选择器输入框水平内边距,如：1px"
                     },
                     "--datetime-input-height-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large日期时间选择器输入框高度,如：1px"
                     },
                     "--datetime-input-width-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge日期时间选择器输入框宽度,如：1px"
                     },
                     "--datetime-input-padding-x-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge日期时间选择器输入框水平内边距,如：1px"
                     },
                     "--datetime-input-height-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge日期时间选择器输入框高度,如：1px"
                     },
                     "--datetime-input-padding-x-full": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Full日期时间选择器输入框水平内边距,如：1px"
                     },
                     "--datetime-popper-border-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "日期时间选择器选择框边框颜色,如：#223325"
                     },
                     "--datetime-popper-border-radius": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "日期时间选择器选择框圆角,如：1px"
                     }
                 },
                 "preview": {
@@ -2558,82 +2865,108 @@
                 "type": [],
                 "cssProperty": {
                     "--timepicker-input-border-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "时间选择框输入框边框颜色,如 #223325"
                     },
                     "--timepicker-input-border-width": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "时间选择框输入框边框宽度,如 1px"
                     },
                     "--timepicker-input-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "时间选择框输入框字体颜色,如 #223325"
                     },
                     "--timepicker-input-background": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "时间选择框输入框背景颜色,如 #223325"
                     },
                     "--timepicker-input-border-radius": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "时间选择框输入框圆角,如 1px"
                     },
                     "--timepicker-input-background-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "时间选择框输入框背景颜色（禁用状态）,如 #223325"
                     },
                     "--timepicker-input-placeholder-color": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "时间选择框输入框提示字体颜色,如 #223325"
                     },
                     "--timepicker-input-width-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini时间选择框输入框宽度,如 1px"
                     },
                     "--timepicker-input-padding-x-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini时间选择框输入框水平内边距,如 1px"
                     },
                     "--timepicker-input-height-mini": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Mini时间选择框输入框高度,如 1px"
                     },
                     "--timepicker-input-width-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small时间选择框输入框宽度,如 1px"
                     },
                     "--timepicker-input-padding-x-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small时间选择框输入框水平内边距,如 1px"
                     },
                     "--timepicker-input-height-small": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Small时间选择框输入框高度,如 1px"
                     },
                     "--timepicker-input-width": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "时间选择框输入框宽度,如 1px"
                     },
                     "--timepicker-input-height": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "时间选择框输入框高度,如 1px"
                     },
                     "--timepicker-input-padding-x": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "时间选择框输入框水平内边距,如 1px"
                     },
                     "--timepicker-input-width-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium时间选择框输入框宽度,如 1px"
                     },
                     "--timepicker-input-padding-x-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium时间选择框输入框水平内边距,如 1px"
                     },
                     "--timepicker-input-height-medium": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Medium时间选择框输入框高度,如 1px"
                     },
                     "--timepicker-input-width-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large时间选择框输入框宽度,如 1px"
                     },
                     "--timepicker-input-padding-x-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large时间选择框输入框水平内边距,如 1px"
                     },
                     "--timepicker-input-height-large": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Large时间选择框输入框高度,如 1px"
                     },
                     "--timepicker-input-width-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge时间选择框输入框宽度,如 1px"
                     },
                     "--timepicker-input-padding-x-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge时间选择框输入框水平内边距,如 1px"
                     },
                     "--timepicker-input-height-huge": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Huge时间选择框输入框高度,如 1px"
                     },
                     "--timepicker-input-padding-x-full": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "Full时间选择框输入框水平内边距,如 1px"
                     }
                 },
                 "preview": {
@@ -2648,16 +2981,20 @@
                 "type": [],
                 "cssProperty": {
                     "--dropdown-color-text": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "下拉菜单字体颜色,如 #223325"
                     },
                     "--dropdown-color-text-hover": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "下拉菜单字体颜色（hover状态）,如 #223325"
                     },
                     "--dropdown-color-text-active": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "下拉菜单字体颜色（激活状态）,如 #223325"
                     },
                     "--dropdown-color-text-disabled": {
-                        "type": "color"
+                        "type": "color",
+                        "desc": "下拉菜单字体颜色（禁用状态）,如 #223325"
                     }
                 },
                 "preview": {
