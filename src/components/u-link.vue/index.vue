@@ -47,7 +47,7 @@ export default {
          */
         currentHref() {
             if (this.href !== undefined)
-                return this.href;
+                return encodeUrl(this.href);
             if (this.destination !== undefined)
                 return encodeUrl(this.destination);
             else if (this.$router && this.to !== undefined)

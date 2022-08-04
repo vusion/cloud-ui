@@ -17,7 +17,8 @@ export default {
 
 <style module>
 .root {
-    width: 100%;
+    /* width: 100%; */ /* Bug-48296 设置了margin后会导致超出父元素 */
+    overflow-x: clip; /* 没有这个的话会有横向滚动条，但如果是hidden，在里面放置有dropdown等组件时，打开的时候会有竖向滚动条，所以使用clip */
 }
 
 .root .column {

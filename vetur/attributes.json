@@ -2612,6 +2612,20 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-dropdown/append-to": {
+    "type": "string",
+    "options": [
+      {
+        "value": "reference",
+        "title": "引用元素下"
+      },
+      {
+        "value": "body",
+        "title": "全局body"
+      }
+    ],
+    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中"
+  },
   "u-dropdown-item/text": {
     "type": "string",
     "description": "显示文本内容"
@@ -4677,6 +4691,10 @@
   "u-modal/cancel-button": {
     "type": "string",
     "description": "取消按钮文本，如果为空则不显示"
+  },
+  "u-modal/show-foot": {
+    "type": "boolean",
+    "description": "控制底部栏的显示"
   },
   "u-modal/icon": {
     "type": "string",

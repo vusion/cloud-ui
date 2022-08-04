@@ -728,7 +728,8 @@
       "trigger",
       "type",
       "placement",
-      "disabled"
+      "disabled",
+      "append-to"
     ],
     "description": "下拉菜单",
     "subtags": [
@@ -1222,6 +1223,7 @@
       "visible",
       "ok-button",
       "cancel-button",
+      "show-foot",
       "icon",
       "size",
       "static",

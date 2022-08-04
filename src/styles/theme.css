@@ -1088,7 +1088,7 @@
     --number-input-both-ends-button-height: calc(var(--number-input-height) - 2 * var(--number-input-border-width)); /* @hidden */
     --number-input-button-both-ends-outline: var(--number-input-button-outline); /* @hidden */
     --number-input-button-border-radius: var(--input-border-radius); /* @hidden */
-    --number-input-width: 142px; /* @hidden */
+    --number-input-width: var(--width-base); /* @hidden */
     --number-input-border-radius: var(--input-border-radius); /* @hidden */
 
     /* @component u-radios */

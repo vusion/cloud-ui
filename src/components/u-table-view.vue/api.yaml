@@ -19,7 +19,6 @@
       description: 表格每一行的数据类型
       group: 数据属性
       compType: dataTypeSelect
-      advanced: true
     - name: extra-params
       title: 数据源参数
       type: object
