@@ -719,4 +719,8 @@ export default {
     background: var(--tree-view-subnode-background-dragging);
     color: var(--tree-view-subnode-color-dragging);
 }
+.item[dragging][selected] + .sub {
+    background: var(--tree-view-subnode-background-dragging);
+    color: var(--tree-view-subnode-color-dragging);
+}
 </style>
