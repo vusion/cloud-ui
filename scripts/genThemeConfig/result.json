@@ -2648,6 +2648,12 @@
                         "type": "color",
                         "desc": "日期选择器输入框提示字体颜色,如：#223325"
                     },
+                    "--datepicker-popper-box-shadow": {
+                        "type": "input"
+                    },
+                    "--datepicker-popper-border-radius": {
+                        "type": "input"
+                    },
                     "--datepicker-input-width": {
                         "type": "input",
                         "desc": "日期选择器输入框宽度,如：1px"
