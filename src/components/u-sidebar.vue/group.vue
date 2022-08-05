@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :disabled="disabled">
     <div :class="$style.head" :selected="selected" @click="parentVM.expandTrigger === 'click' && toggle()" :title="title">
-        <div :class="$style.title" vusion-slot-name="title">
+        <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
             <slot name="title">{{ title }}</slot>
         </div>
         <span v-if="currentCollapsible && !parentVM.collapse" :class="$style.expander"
@@ -32,10 +32,10 @@ export default {
     name: 'u-sidebar-group',
     parentName: 'u-sidebar',
     childName: 'u-sidebar-item',
-    extends: MGroup,
     components: {
         SEmpty,
     },
+    extends: MGroup,
     computed: {
         selected() {
             return this.itemVMs.some((item) => item.active);

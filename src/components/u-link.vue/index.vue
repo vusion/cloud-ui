@@ -1,5 +1,5 @@
 <template>
-<a vusion-slot-name="text" :class="[$style.root]" 
+<a vusion-slot-name-edit="text" :class="[$style.root]"
     :href="currentHref" :target="target"
     :noDecoration="!decoration"
     :disabled="currentDisabled" :tabindex="currentDisabled ? -1 : 0"
@@ -33,7 +33,7 @@ export default {
         decoration: { type: Boolean, default: true },
         download: { type: Boolean, default: false },
         destination: String,
-        hoverType: { type: String, default: 'underline' }
+        hoverType: { type: String, default: 'underline' },
     },
     data() {
         return {
@@ -47,7 +47,7 @@ export default {
          */
         currentHref() {
             if (this.href !== undefined)
-                return this.href;
+                return encodeUrl(this.href);
             if (this.destination !== undefined)
                 return encodeUrl(this.destination);
             else if (this.$router && this.to !== undefined)
@@ -68,7 +68,7 @@ export default {
                 const fileName = this.href.split('/').pop();
                 return fileName;
             }
-        }
+        },
     },
     watch: {
         $listeners(listeners) {

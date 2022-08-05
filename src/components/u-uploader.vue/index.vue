@@ -44,7 +44,8 @@
                     <div :class="$style.buttons">
                         <span v-if="!readonly && !disabled" :class="$style.button" role="remove" @click.stop="remove(index)"></span>
                         <span :class="$style.button" role="preview" @click="onPreview(item, index)"></span>
-                        <a :class="$style.button" :href="item.url" target="_blank" role="download"></a>
+                        <a v-if="downLoadFilename" :class="$style.button" :href="item.url" target="_blank" role="download" :download="downLoadFilename"></a>
+                        <a v-else :class="$style.button" :href="item.url" target="_blank" role="download"></a>
                     </div>
                 </div>
             </div>
@@ -53,7 +54,7 @@
                     <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
                 </div>
                 <div v-if="description" :class="$style.description">{{ description }}</div>
-                <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length" >
+                <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length">
                     <div :class="$style.errwrap">
                         <div v-for="errItem in errorMessage" :key="errItem" :class="$style.errmessage">{{ errItem }}</div>
                     </div>
@@ -115,6 +116,8 @@ export default {
         description: String, // 上传限制描述等
         showErrorMessage: { type: Boolean, default: true },
         checkFile: [Function],
+        downLoadFilename: String,
+        authorization: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -358,9 +361,16 @@ export default {
             return item;
         },
         post(file, item, index) {
+            let Authorization = null
+            if (this.authorization) {
+                Authorization = this.getCookie('authorization') || null;
+            }
             const xhr = ajax({
                 url: this.url,
-                headers: this.headers,
+                headers: {
+                    ...this.headers,
+                    Authorization
+                },
                 withCredentials: this.withCredentials,
                 file,
                 data: this.data,
@@ -525,6 +535,16 @@ export default {
             await Promise.all(tasks);
             return validFiles;
         },
+        getCookie(cname) {
+            const name = `${cname}=`;
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                const c = ca[i].trim();
+                if (c.indexOf(name) === 0)
+                    return c.substring(name.length, c.length);
+            }
+            return '';
+        }
     },
 };
 </script>

@@ -5,7 +5,6 @@
     :readonly="parentVM.readonly"
     :disabled="disabled || parentVM.disabled"
     @click="select()"
-    allowChild
     v-ellipsis-title
     vusion-slot-name="default">
     <!-- @override: 添加了label功能 -->
@@ -30,15 +29,16 @@ export default {
 
 <style module>
 .root {
-    display: inline-block;
+    display: table-cell;
     position: relative;
-    height: 32px;
-    line-height: 30px;
+    /* height: 32px;
+    line-height: 30px; */
     font-size: var(--font-size-base);
     text-align: center;
-    margin-right: -1px;
-    padding: 0 20px;
+    /* margin-right: -1px; */
+    padding: 4px 20px;
     border: 1px solid var(--border-color-base);
+    border-left-color: transparent;
     background: var(--color-white);
     color: var(--color-base);
     cursor: var(--cursor-pointer);
@@ -48,6 +48,7 @@ export default {
 .root:first-child {
     border-top-left-radius: var(--border-radius-base);
     border-bottom-left-radius: var(--border-radius-base);
+    border-left-color: var(--border-color-base);
 }
 
 .root:last-child {

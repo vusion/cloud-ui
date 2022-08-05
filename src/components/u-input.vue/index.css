@@ -184,6 +184,8 @@
     cursor: pointer;
     top: 0;
     z-index: 1;
+    /* font-size: 16px;
+    color: var(--input-icon-color); */
 }
 
 .prefix {

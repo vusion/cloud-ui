@@ -19,6 +19,7 @@
       type: string | Array
       description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
       compType: validationRulesSelect
+      bindHide: true
     - name: message
       title: 提示信息
       type: string

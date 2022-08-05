@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" ref="root" :border="border">
-    <div v-if="title" :class="$style.title" ref="title" :style="{ textAlign: titleAlignment }" vusion-slot-name="title">
+    <div v-if="title" :class="$style.title" ref="title" :style="{ textAlign: titleAlignment }" vusion-slot-name="title" vusion-slot-name-edit="title">
         <slot name="title">{{ title }}</slot>
     </div>
     <div :class="$style.table" v-for="tableMeta in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
@@ -30,7 +30,7 @@
                             <!-- Normal title -->
                             <template>
                                 <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">
-                                    <span vusion-slot-name="title" :class="$style['column-title']">{{ columnVM.title }}</span>
+                                    <span vusion-slot-name="title" vusion-slot-name-edit="title" :class="$style['column-title']">{{ columnVM.title }}</span>
                                 </f-slot>
                             </template>
                             <!-- Sortable -->
@@ -73,7 +73,6 @@
                             <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }">
                                 <template v-if="$env.VUE_APP_DESIGNER">
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
-                                        allowChild
                                         vusion-slot-name="cell"
                                         :key="columnIndex"
                                         :vusion-next="true"
@@ -890,7 +889,7 @@ export default {
                 .filter((item) => !!item)
                 .join(',');
         },
-        async exportExcel(page = 1, size = 2000, filename, sort,order) {
+        async exportExcel(page = 1, size = 2000, filename, sort, order) {
             if (this.currentDataSource.sorting && this.currentDataSource.sorting.field) {
                 const { sorting } = this.currentDataSource;
                 sort = sort || sorting.field;
@@ -917,7 +916,7 @@ export default {
             document.addEventListener('click', fn, true);
             document.addEventListener('keydown', fn, true);
             // 空值和boolean值时到处默认文件名
-            if (!filename || filename === true ) {
+            if (!filename || filename === true) {
                 filename = document.title.split(' ').shift() || 'Export';
                 filename += format(new Date(), '_YYYYMMDD_HHmmss');
             }
@@ -963,66 +962,66 @@ export default {
             document.removeEventListener('click', fn, true);
             document.removeEventListener('keydown', fn, true);
         },
-      async getRenderResult(arr = []) {
-        if (arr.length === 0) {
-          const res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
-          res[1] = res[0].map((item) => '');
-          return res;
-        }
-
-        // console.time('渲染数据');
-        const startIndexes = [];
-        for (let i = 0; i < this.visibleColumnVMs.length; i++) {
-          const vm = this.visibleColumnVMs[i];
-          if (vm.type === 'index')
-            startIndexes[i] = +vm.startIndex;
-        }
-
-        let res = [];
-        // this.currentDataSource.paging.size 会受可分页选项影响，直接改成pageSize
-        const page = this.pageSize;
-        for (let i = 0; i < arr.length; i += page) {
-          this.exportData = arr.slice(i, i + page);
-          await new Promise((res) => {
-            this.$once('hook:updated', res);
-          });
-          const res1 = Array.from(this.$el.querySelectorAll(i === 0 ? '[position=static] tr' : '[position=static] tbody tr')).map((tr) => Array.from(tr.querySelectorAll('th, td')).map(
-            (node) => {
-              // 如果列表里是输入框，拿框里的结果填入excel
-              let inputElement = node.getElementsByTagName('input');
-              let placeholderElement = Array.from(node.getElementsByTagName('span')).filter((item) => item.className.includes('u-select_placeholder'));
-              if (inputElement.length !== 0) {
-                return inputElement[0].value;
-              } else {
-                // 下拉框未选则时，placeholder内容不显示
-                if (placeholderElement.length !== 0 && placeholderElement[0].innerText === node.innerText) {
-                  return '';
-                }
-                return node.innerText;
-              }
+        async getRenderResult(arr = []) {
+            if (arr.length === 0) {
+                const res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
+                res[1] = res[0].map((item) => '');
+                return res;
             }
-          ));
-          res = res.concat(res1);
-        }
 
-        for (let rowIndex = 1; rowIndex < res.length; rowIndex++) {
-          const item = res[rowIndex];
-          for (let j = 0; j < item.length; j++) {
-            if (startIndexes[j] !== undefined)
-              item[j] = startIndexes[j] + (rowIndex - 1);
-          }
-        }
-        // console.timeEnd('渲染数据');
+            // console.time('渲染数据');
+            const startIndexes = [];
+            for (let i = 0; i < this.visibleColumnVMs.length; i++) {
+                const vm = this.visibleColumnVMs[i];
+                if (vm.type === 'index')
+                    startIndexes[i] = +vm.startIndex;
+            }
 
-        // console.time('复原表格');
-        this.exportData = undefined;
-        await new Promise((res) => {
-          this.$once('hook:updated', res);
-        });
-        // console.timeEnd('复原表格');
+            let res = [];
+            // this.currentDataSource.paging.size 会受可分页选项影响，直接改成pageSize
+            const page = this.pageSize;
+            for (let i = 0; i < arr.length; i += page) {
+                this.exportData = arr.slice(i, i + page);
+                await new Promise((res) => {
+                    this.$once('hook:updated', res);
+                });
+                const res1 = Array.from(this.$el.querySelectorAll(i === 0 ? '[position=static] tr' : '[position=static] tbody tr')).map((tr) => Array.from(tr.querySelectorAll('th, td')).map(
+                    (node) => {
+                        // 如果列表里是输入框，拿框里的结果填入excel
+                        const inputElement = node.getElementsByTagName('input');
+                        const placeholderElement = Array.from(node.getElementsByTagName('span')).filter((item) => item.className.includes('u-select_placeholder'));
+                        if (inputElement.length !== 0) {
+                            return inputElement[0].value;
+                        } else {
+                            // 下拉框未选则时，placeholder内容不显示
+                            if (placeholderElement.length !== 0 && placeholderElement[0].innerText === node.innerText) {
+                                return '';
+                            }
+                            return node.innerText;
+                        }
+                    },
+                ));
+                res = res.concat(res1);
+            }
 
-        return res;
-      },
+            for (let rowIndex = 1; rowIndex < res.length; rowIndex++) {
+                const item = res[rowIndex];
+                for (let j = 0; j < item.length; j++) {
+                    if (startIndexes[j] !== undefined)
+                        item[j] = startIndexes[j] + (rowIndex - 1);
+                }
+            }
+            // console.timeEnd('渲染数据');
+
+            // console.time('复原表格');
+            this.exportData = undefined;
+            await new Promise((res) => {
+                this.$once('hook:updated', res);
+            });
+            // console.timeEnd('复原表格');
+
+            return res;
+        },
         getSheetData(arr) {
             const titles = arr[0];
             const sheetData = [];

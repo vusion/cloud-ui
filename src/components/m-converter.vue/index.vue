@@ -5,6 +5,7 @@ export default {
     },
     data() {
         let currentConverter = {};
+        let types = []
         if (this.converter) {
             if (this.converter instanceof Object)
                 currentConverter = this.converter;
@@ -16,14 +17,29 @@ export default {
                 const sep = m[2] ? m[2].slice(1) : ',';
                 currentConverter = {
                     get(values) {
-                        if (Array.isArray(values))
+                        if (Array.isArray(values)) {
+                            types = values.map(v => typeof v)
                             return values.join(sep);
+                        }
                     },
                     set(value) {
                         if (Array.isArray(value))
                             return value;
                         const values = value ? value.split(sep) : [];
-                        return number ? values.map((i) => +i) : values;
+                        return number ? values.map((i) => +i) : values.map((v, i) => {
+                            const type = types[i]
+                            if (type === 'string') {
+                                return v.toString()
+                            } else if (type === 'number') {
+                                return +v
+                            } else if (type === 'undefined') {
+                                return
+                            } else if (type === 'boolean') {
+                                return v === 'true'
+                            } else {
+                                return v
+                            }
+                        });
                     },
                 };
             } else if (this.converter === 'json') {

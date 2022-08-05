@@ -36,7 +36,7 @@
                 >
                     <div :class="$style.date">
                         {{ cell.date }}
-                        <div :class="$style.column">
+                        <div :class="$style.column" vusion-slot-name="default">
                             <slot :item="cell"></slot>
                         </div>
                     </div>

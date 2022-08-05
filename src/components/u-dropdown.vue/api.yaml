@@ -69,6 +69,16 @@
       type: boolean
       default: false
       description: 是否禁用
+    - name: append-to
+      title: 弹出层展示位置
+      type: string
+      default: reference
+      description: 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中
+      options:
+        - value: reference
+          title: 引用元素下
+        - value: body
+          title: 全局body
   slots:
     - name: default
       description: 插入`<u-dropdown-item>`子组件。
@@ -110,6 +120,7 @@
       default: href
       description: 链接类型
       compType: linkTypeSelect
+      bindHide: true
     - name: hrefAndTo
       title: 链接
       type: string

@@ -51,8 +51,8 @@
             @compositionend="compositionInputing = false">
         </u-input>
     </div>
-    <span v-if="suffix" v-show="!(clearable && !!(filterable ? filterText : currentText))" :class="$style.suffix" :name="suffix"
-        @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
+    <span v-if="suffix" :name="suffix" :class="$style.suffix"
+            @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
     <span v-if="clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click="clear"></span>
     <m-popper :class="$style.popper" ref="popper" :color="color" :placement="placement" :append-to="appendTo" :disabled="readonly || currentDisabled"
         :style="{ width: currentPopperWidth }"
@@ -91,6 +91,8 @@ import i18n from './i18n';
 
 export default {
     name: 'u-select',
+    component: {
+    },
     childName: 'u-select-item',
     groupName: 'u-select-group',
     isSelect: true,

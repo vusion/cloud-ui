@@ -5,7 +5,6 @@
         <a :class="$style.item"
             v-for="(itemVM, index) in itemVMs"
             ref="item"
-            allowChild
             :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
             :vusion-node-path="itemVM.$attrs['vusion-node-path']"
             :vusion-node-tag="itemVM.$attrs['vusion-node-tag']"

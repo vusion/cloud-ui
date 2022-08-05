@@ -2,6 +2,7 @@
 <div :class="$style.root" v-show="!hidden">
     <div :class="$style.item" :selected="selected" :style="{ paddingLeft: level * expanderWidth + paddingLeft + 'px' }"
         :readonly="rootVM.readonly" :readonly-mode="rootVM.readonlyMode"
+        :subBackground="rootVM.subBackground"
         :disabled="currentDisabled"
         :tabindex="disabled || rootVM.readonly || rootVM.disabled ? '' : 0"
         @click="select(), rootVM.expandTrigger === 'click' && toggle()"
@@ -9,14 +10,22 @@
         @contextmenu="onRightClick($event)"
         @keyup.enter="select()"
         @keyup.left="toggle(false)"
-        @keyup.right="toggle(true)">
+        @keyup.right="toggle(true)"
+        :dragging="currentDragging"
+        @dragstart="onDragStart($event)"
+        @dragover="onDragOver($event)"
+        @dragleave="onDragLeave($event)"
+        @dragend="onDragEnd($event)"
+        @drop="onDrop($event)">
         <u-loading v-if="loading" :class="$style.loading" size="small"></u-loading>
         <div :class="$style.expander"
+            ref="clickExpander"
             v-else-if="hasChildren || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
             :expand-trigger="rootVM.expandTrigger" :expanded="currentExpanded"
             @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
-            :style="{ width : expanderWidth? expanderWidth + 'px':'' }"></div>
-        <div :class="$style.text" :style="{ marginLeft : expanderWidth? expanderWidth + 'px':'' }">
+            :style="{ width : expanderWidth? expanderWidth + 'px':'' }"
+            :dragover="expanderDragover"></div>
+        <div :class="$style.text" :style="{ marginLeft : expanderWidth? expanderWidth + 'px':'' }" :draggable="draggable || rootVM.draggable">
             <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
             <f-slot name="text" :vm="currentTextSlotVM" :props="{
                 data: node && $at(node, currentChildrenField),
@@ -29,6 +38,8 @@
                 nodeVM: this,
                 parent,
                 selected,
+                draggable,
+                dragging: currentDragging,
             }">
                 <span>{{ text }}</span>
             </f-slot>
@@ -47,6 +58,7 @@
                 :node="subNode"
                 :parent="node"
                 :level="level + 1"
+                :draggable="subNode.draggable"
             ></u-tree-view-node>
         </template>
         <template v-if="currentMoreChildrenFields">
@@ -62,6 +74,7 @@
                     :node="subNode"
                     :parent="node"
                     :level="level + 1"
+                    :draggable="subNode.draggable"
                 ></u-tree-view-node>
             </template>
         </template>
@@ -93,6 +106,8 @@ export default {
             // eslint-disable-next-line no-nested-ternary
             return this.$parent ? (this.$parent.level !== undefined ? this.$parent.level + 1 : 0) : 0;
         } },
+        draggable: { type: Boolean, default: false },
+        dragExpanderDelay: { type: Number, default: 1500 },
     },
     data() {
         return {
@@ -103,10 +118,9 @@ export default {
             currentExpanded: this.expanded,
             currentChecked: this.checked,
             childrenRendered: this.expanded,
+            currentDragging: false,
+            expanderDragover: false,
         };
-    },
-    created() {
-        this.renderSelectedVm();
     },
     computed: {
         selected() {
@@ -167,27 +181,27 @@ export default {
         currentFields() {
             const { currentChildrenField, currentMoreChildrenFields } = this;
             let fields = [];
-            if(!this.rootVM.excludeFields.includes(currentChildrenField))
+            if (!this.rootVM.excludeFields.includes(currentChildrenField))
                 fields = [currentChildrenField];
-            if(currentMoreChildrenFields)
+            if (currentMoreChildrenFields)
                 fields = fields.concat(currentMoreChildrenFields);
             return fields;
         },
         hasChildren() {
             const { node } = this;
-            if(!node)
+            if (!node)
                 return false;
 
-            for(const field of this.currentFields) {
-                if(this.$at(node, field) && this.$at(node, field).length !== 0)
+            for (const field of this.currentFields) {
+                if (this.$at(node, field) && this.$at(node, field).length !== 0)
                     return true;
             }
             return false;
         },
-        expanderWidth(){
+        expanderWidth() {
             return this.rootVM && this.rootVM.expanderWidth || 30;
         },
-        paddingLeft(){
+        paddingLeft() {
             return this.rootVM && this.rootVM.paddingLeft || 0;
         },
     },
@@ -204,11 +218,11 @@ export default {
             this.rootVM.watchValue(this.rootVM.value);
         },
         currentExpanded(currentExpanded) {
-            if(currentExpanded)
+            if (currentExpanded)
                 this.childrenRendered = true;
         },
         'node.childrenRendered'(childrenRendered) {
-            if(childrenRendered)
+            if (childrenRendered)
                 this.childrenRendered = true;
         },
         'rootVM.value'() {
@@ -217,6 +231,9 @@ export default {
         'rootVM.filterText'(filterText) {
             this.filter();
         },
+    },
+    created() {
+        this.renderSelectedVm();
     },
 
     methods: {
@@ -403,48 +420,53 @@ export default {
             this.rootVM.onCheck(this, checked, oldChecked);
         },
         renderSelectedVm() {
-            if(!this.$parent || !this.$parent.$options.name === 'u-tree-view') return;
-            if(!this.rootVM || !this.rootVM.value) return;
+            if (!this.$parent || !this.$parent.$options.name === 'u-tree-view')
+                return;
+            if (!this.rootVM || !this.rootVM.value)
+                return;
 
             const { value, valueField } = this.rootVM;
             const { currentFields, node, $at } = this;
 
             const that = this;
             function dfs(node, parent = null, fields) {
-                if(!node) return;
+                if (!node)
+                    return;
 
-                if($at(node, valueField) === value) {
-                    if(parent)
+                if ($at(node, valueField) === value) {
+                    if (parent)
                         that.$set(parent, 'childrenRendered', true);
                     return;
                 }
 
-                if(!fields) {
+                if (!fields) {
                     const childrenField = node.childrenField || that.rootVM.childrenField;
                     const moreChildrenFields = node.moreChildrenFields || that.rootVM.moreChildrenFields;
                     fields = [childrenField];
-                    if(moreChildrenFields)
+                    if (moreChildrenFields)
                         fields = fields.concat(moreChildrenFields);
                 }
 
-                for(const field of fields) {
-                    if(!$at(node, field)) continue;
+                for (const field of fields) {
+                    if (!$at(node, field))
+                        continue;
 
-                    for(const child of $at(node, field)) {
+                    for (const child of $at(node, field)) {
                         dfs(child, node);
                     }
-
                 }
 
-                if(node.childrenRendered && parent)
+                if (node.childrenRendered && parent)
                     that.$set(parent, 'childrenRendered', true);
             }
             dfs(node, null, currentFields);
         },
 
         filter() {
-            if(!this.$parent || this.$parent.$options.name !== 'u-tree-view') return;
-            if(!this.rootVM || !this.rootVM.filterable) return;
+            if (!this.$parent || this.$parent.$options.name !== 'u-tree-view')
+                return;
+            if (!this.rootVM || !this.rootVM.filterable)
+                return;
 
             let { filterText, filterFields } = this.rootVM;
             filterText = filterText.trim().toLowerCase();
@@ -452,37 +474,118 @@ export default {
 
             const that = this;
             function dfs(node, parent = null, fields) {
-                if(!node) return;
+                if (!node)
+                    return;
 
                 const hiddenByFilter = filterFields.every((field) => !$at(node, field) || !$at(node, field).toLowerCase().includes(filterText));
                 that.$set(node, 'hiddenByFilter', hiddenByFilter);
                 that.$set(node, 'expandedByFilter', false);
 
-                if(!fields) {
+                if (!fields) {
                     const childrenField = node.childrenField || that.rootVM.childrenField;
                     const moreChildrenFields = node.moreChildrenFields || that.rootVM.moreChildrenFields;
                     fields = [childrenField];
-                    if(moreChildrenFields)
+                    if (moreChildrenFields)
                         fields = fields.concat(moreChildrenFields);
                 }
 
-                for(const field of fields) {
-                    if(!$at(node, field)) continue;
+                for (const field of fields) {
+                    if (!$at(node, field))
+                        continue;
 
-                    for(const child of $at(node, field)) {
+                    for (const child of $at(node, field)) {
                         dfs(child, node);
                     }
                 }
 
-                if((!hiddenByFilter || node.expandedByFilter) && parent) {
+                if ((!hiddenByFilter || node.expandedByFilter) && parent) {
                     that.$set(parent, 'expandedByFilter', true);
                     that.$set(parent, 'hiddenByFilter', false);
                 }
             }
             dfs(node, null, currentFields);
 
-            if(node.expandedByFilter)
+            if (node.expandedByFilter)
                 this.currentExpanded = node.expandedByFilter;
+        },
+        onDragStart(e) {
+            this.currentDragging = true;
+            this.rootVM.$emit('dragstart', {
+                node: this.node,
+                nodeVM: this,
+                value: this.value,
+                parent: this.parent,
+                level: this.level,
+                event: e,
+            });
+        },
+        onDragOver(e) {
+            this.rootVM.$emit('dragover', {
+                node: this.node,
+                nodeVM: this,
+                value: this.value,
+                parent: this.parent,
+                level: this.level,
+                event: e,
+            });
+            this.startExpanderTimer(e);
+        },
+        onDragLeave(e) {
+            this.clearExpanderTimer();
+        },
+        onDragEnd(e) {
+            this.currentDragging = false;
+            this.rootVM.$emit('dragend', {
+                node: this.node,
+                nodeVM: this,
+                value: this.value,
+                parent: this.parent,
+                level: this.level,
+                event: e,
+            });
+            this.clearExpanderTimer();
+        },
+        onDrop(e) {
+            this.rootVM.$emit('drop', {
+                node: this.node,
+                nodeVM: this,
+                value: this.value,
+                parent: this.parent,
+                level: this.level,
+                event: e,
+            });
+            this.clearExpanderTimer();
+        },
+        /**
+         * 悬停1.5s,展开收起
+         */
+        startExpanderTimer(e) {
+            const clickExpanderEl = this.$refs.clickExpander;
+            if (clickExpanderEl) {
+                const clickExpanderRect = clickExpanderEl.getBoundingClientRect();
+                if (clickExpanderRect.right >= e.x && (e.y <= clickExpanderRect.bottom && e.y >= clickExpanderRect.top)) {
+                    if (!this.expanderTimer) {
+                        this.startPosition = e;
+                        this.expanderTimer = setInterval(() => {
+                            this.currentExpanded = !this.currentExpanded;
+                            if (!(Math.abs(this.startPosition.x - e.x) <= 5 && Math.abs(this.startPosition.y - e.y) <= 5)) {
+                                clearTimeout(this.expanderTimer);
+                                this.expanderTimer = null;
+                            }
+                        }, 1500);
+                    }
+                    this.expanderDragover = true;
+                } else {
+                    clearTimeout(this.expanderTimer);
+                    this.expanderTimer = null;
+                    this.expanderDragover = false;
+                }
+            }
+        },
+        clearExpanderTimer() {
+            clearTimeout(this.expanderTimer);
+            this.expanderTimer = null;
+            this.expanderDragover = false;
         },
     },
 };
@@ -523,6 +626,10 @@ export default {
 
 .expander[expanded] {
     transform: rotate(90deg);
+}
+
+.expander[dragover] {
+    color: var(--tree-view-node-expander-color-hover);
 }
 
 .loading {
@@ -590,7 +697,30 @@ export default {
 .item[selected][disabled] {
     background: var(--tree-view-node-background-selected-disabled);
 }
-.item[disabled] .expander{
+.item[disabled] .expander {
     color: var(--tree-view-node-expander-color-disabled);
+}
+.item[subBackground][selected] + .sub {
+    background: var(--tree-view-subnode-background-selected);
+}
+.item[subBackground][selected] + .sub .item:hover {
+    background: var(--tree-view-subnode-background-selected-hover);
+}
+.item[dragging] {
+    background: var(--tree-view-node-background-dragging);
+}
+.item[dragging] .expander {
+    color: var(--tree-view-node-expander-color-dragging);
+}
+.item[dragging] .text {
+    color: var(--tree-view-node-color-dragging);
+}
+.item[dragging] + .sub {
+    background: var(--tree-view-subnode-background-dragging);
+    color: var(--tree-view-subnode-color-dragging);
+}
+.item[dragging][selected] + .sub {
+    background: var(--tree-view-subnode-background-dragging);
+    color: var(--tree-view-subnode-color-dragging);
 }
 </style>

@@ -762,11 +762,6 @@
       type: Function
       description: 用于可编辑表格，双击表格列时的处理函数
   slots:
-    - name: default
-      title: 默认
-      description: 默认值
-      accept-type: all
-      plus-empty: true
     - name: cell
       plus-empty: true
       description: 对单元格的数据展示进行自定义。

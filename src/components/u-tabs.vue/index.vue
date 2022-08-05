@@ -30,7 +30,7 @@
                                 :width-fixed="!!currentItemWidth"
                                 :alignment="itemAlign"
                                 @click="onClick(itemVM, $event)">
-                                <span :class="$style.title" vusion-slot-name="title">
+                                <span :class="$style.title" vusion-slot-name-edit="title">
                                     <f-slot
                                         :vm="itemVM"
                                         name="title"
@@ -60,8 +60,8 @@ import SEmpty from '../s-empty.vue';
 export default {
     name: 'u-tabs',
     childName: 'u-tab',
-    extends: MSinglex,
     components: { SEmpty },
+    extends: MSinglex,
     props: {
         autoSelect: { type: Boolean, default: true },
         closable: { type: Boolean, default: false },
@@ -75,7 +75,7 @@ export default {
     },
     data() {
         return {
-            scrollable: false
+            scrollable: false,
         };
     },
     computed: {
@@ -91,7 +91,7 @@ export default {
     watch: {
         itemVMs(itemVMs) {
             this.$nextTick(() => {
-                const threshold = 1;  // IE 浏览器缩放时，scrollWidth 可能会比 clientWidth 大 1 像素
+                const threshold = 1; // IE 浏览器缩放时，scrollWidth 可能会比 clientWidth 大 1 像素
                 this.scrollable = this.$refs.scrollView.scrollWidth - this.$refs.scrollView.clientWidth > threshold;
                 this.$refs.item
                     && this.$refs.item.forEach((itemEl, index) => {
@@ -104,8 +104,8 @@ export default {
             immediate: true,
             handler() {
                 this.scrollToSelectedVM();
-            }
-        }
+            },
+        },
     },
     methods: {
         onClick(itemVM, e) {
@@ -163,16 +163,16 @@ export default {
         scrollToSelectedVM() {
             const scrollViewEl = this.$refs.scrollView;
             const children = this.$refs.item;
-            if(scrollViewEl && this.selectedVM && Array.isArray(children)) {
+            if (scrollViewEl && this.selectedVM && Array.isArray(children)) {
                 const index = this.itemVMs.indexOf(this.selectedVM);
-                if(index !== -1) {
+                if (index !== -1) {
                     // 选中节点的右侧距离
                     let activeMin = 0;
-                    for(let i = 0; i < index; i++) {
+                    for (let i = 0; i < index; i++) {
                         const itemEl = children[i] || {};
                         activeMin += itemEl.offsetWidth || 0;
                     }
-                    const activeMax = activeMin + ((children[index] || {}).offsetWidth || 0) ;
+                    const activeMax = activeMin + ((children[index] || {}).offsetWidth || 0);
                     // 可视区宽度
                     const scrollWidth = scrollViewEl.clientWidth;
                     // 可视区域左侧
@@ -181,12 +181,12 @@ export default {
                     const scrollMax = scrollMin + scrollWidth;
                     let accWidth = scrollMin;
                     // 至少有一部分在可视区域右侧
-                    if(scrollMax < activeMax) {
+                    if (scrollMax < activeMax) {
                         accWidth = activeMax - scrollWidth;
                     } else if (activeMin < scrollMin) { // 至少有一部分在可视区域左侧
                         accWidth = activeMin;
                     }
-                    if(accWidth !== scrollMin) {
+                    if (accWidth !== scrollMin) {
                         scrollTo(scrollViewEl, { left: accWidth, duration: 1000 });
                     }
                 }

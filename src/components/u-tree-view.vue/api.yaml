@@ -294,6 +294,10 @@
   slots:
     - name: default
       description: 插入文本或 HTML。
+      support:
+        - name: u-tree-view-node
+          title: 子节点
+          snippet: <u-tree-view-node text="节点"></u-tree-view-node>
   blocks:
     - name: 基础示例
       code: <u-tree-view-node text="节点 1"></u-tree-view-node>

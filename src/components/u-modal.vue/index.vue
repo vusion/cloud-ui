@@ -6,13 +6,13 @@
         <transition
             enter-active-class="animate__animated animate__fadeInDownSmall"
             leave-active-class="animate__animated animate__fadeOutUpSmall animate__fast">
-            <div :class="[$style.dialog, this.$env.VUE_APP_DESIGNER ? $style.pos : null, customClass]" ref="dialog"
+            <div :class="[$style.dialog, $env.VUE_APP_DESIGNER ? $style.pos : null, customClass]" ref="dialog"
                 v-if="currentVisible && animationVisible"
                 :style="{ width: width + 'px' }" :size="size">
                 <slot name="inject"></slot>
                 <div :class="$style.head" vusion-slot-name="head" :child-cut-disabled="true">
                     <slot name="head">
-                        <div v-if="title" vusion-slot-name="title" :class="$style.title" :child-cut-disabled="true">
+                        <div v-if="title" vusion-slot-name="title" vusion-slot-name-edit="title" :class="$style.title" :child-cut-disabled="true">
                             <slot name="title">
                                 <s-empty v-if="(!$slots.title) && $env.VUE_APP_DESIGNER"></s-empty>
                                 <template v-else>
@@ -34,7 +34,7 @@
                         <slot name="extra"></slot>
                     </slot>
                 </div>
-                <div :class="$style.foot" vusion-slot-name="foot" :child-cut-disabled="true" v-if="okButton || cancelButton">
+                <div :class="$style.foot" vusion-slot-name="foot" :child-cut-disabled="true" v-if="showFoot && (okButton || cancelButton)">
                     <slot name="foot">
                         <s-empty v-if="(!$slots.foot) && $env.VUE_APP_DESIGNER"></s-empty>
                         <u-linear-layout gap="small" justify="end" v-else>
@@ -57,7 +57,7 @@ import SEmpty from '../../components/s-empty.vue';
 
 export const UModal = {
     name: 'u-modal',
-    components: {  SEmpty },
+    components: { SEmpty },
     directives: { clickOutside },
     mixins: [MEmitter],
     i18n,
@@ -93,8 +93,9 @@ export const UModal = {
         icon: { type: String, default: null },
         maskClose: { type: Boolean, default: false },
         disableEsc: { type: Boolean, default: false },
-        customClass: {type: String, default: undefined },
-        functionalModal: {type: Boolean, default: false }
+        customClass: { type: String, default: undefined },
+        functionalModal: { type: Boolean, default: false },
+        showFoot: { type: Boolean, default: true }
     },
     data() {
         return {

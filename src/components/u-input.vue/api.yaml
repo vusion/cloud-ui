@@ -126,7 +126,6 @@
         - value: search
           title: 搜索
       description: ""
-      clearable: true
   slots:
     - name: default
       advanced: true

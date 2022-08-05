@@ -1,6 +1,6 @@
 <template>
-<div :class="$style.root" :column="currentColumn" allowChild :label-size="currentLabelSize" :style="responsiveStyle">
-    <div :class="$style.label" vusion-slot-name="label">
+<div :class="$style.root" :column="currentColumn" :label-size="currentLabelSize" :style="responsiveStyle">
+    <div :class="$style.label" vusion-slot-name="label" vusion-slot-name-edit="label">
         <slot name="label">{{ label }}</slot>
     </div>
     <div v-if="$env.VUE_APP_DESIGNER" :class="$style.value" :ellipsis="ellipsis" vusion-slot-name="default">
@@ -22,10 +22,10 @@ export default {
     name: 'u-info-list-item',
     parentName: 'u-info-list',
     groupName: 'u-info-list-group',
-    mixins: [MEmitter],
     components: {
         SEmpty,
     },
+    mixins: [MEmitter],
     props: {
         label: String,
         labelSize: String,
@@ -85,9 +85,9 @@ export default {
                 = (this.groupVM && this.groupVM.repeat)
                     || (this.parentVM && this.parentVM.repeat)
                     || 3;
-           
+
             if (isIE()) {
-                //兼容ie宽度有小数点添1
+                // 兼容ie宽度有小数点添1
                 return ((span / repeat) * 100) - 0.2 + '%';
             } else {
                 return (span / repeat) * 100 + '%';

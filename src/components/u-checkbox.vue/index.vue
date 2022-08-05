@@ -1,9 +1,9 @@
 <template>
 <label :class="$style.root" :disabled="currentDisabled" @click="check()"
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="check()"
-    @focus="onFocus" @blur="onBlur" v-on="listeners" allowChild>
+    @focus="onFocus" @blur="onBlur" v-on="listeners">
     <span :class="$style.box" :status="String(currentValue)" :disabled="currentDisabled"></span>
-    <span vusion-slot-name="text"><slot>{{ text }}</slot></span>
+    <span vusion-slot-name-edit="text"><slot>{{ text }}</slot></span>
 </label>
 </template>
 

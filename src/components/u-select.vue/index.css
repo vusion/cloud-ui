@@ -191,7 +191,10 @@
     right: 8px;
 }
 
-.root[clearable] .text, .root[suffix] .text {
+.root[clearable],
+.root[suffix],
+.root .input:not([multiple-tags])[filterable],
+.root[clearable] .input:not([multiple-tags]) {
     padding-right: 30px;
 }
 

@@ -1,6 +1,6 @@
 <template>
-<div :class="$style.root" allowChild>
-    <div :class="$style.head" v-if="title" vusion-slot-name="title">
+<div :class="$style.root">
+    <div :class="$style.head" v-if="title" vusion-slot-name-edit="title">
         {{ title }}
     </div>
     <div :class="$style.body" vusion-slot-name="default">
@@ -13,12 +13,12 @@
 <script>
 import SEmpty from '../s-empty.vue';
 
-export default { 
-    name: 'u-panel-group',  
+export default {
+    name: 'u-panel-group',
     components: {
         SEmpty,
     },
-    props: { title: String } 
+    props: { title: String },
 };
 </script>
 
