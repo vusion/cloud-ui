@@ -266,7 +266,7 @@ export default {
         },
 
         handleNodeExpand(nodeData, node, instance) {
-            this.broadcast('ElTreeNode', 'tree-node-expand', node);
+            this.broadcast('u-tree-node-plus', 'tree-node-expand', node);
             this.$emit('node-expand', nodeData, node, instance);
         },
 
@@ -353,7 +353,7 @@ export default {
         });
 
         this.$on('tree-node-drag-over', (event, treeNode) => {
-            const dropNode = findNearestComponent(event.target, 'ElTreeNode');
+            const dropNode = findNearestComponent(event.target, 'u-tree-node-plus');
             const oldDropNode = dragState.dropNode;
             if (oldDropNode && oldDropNode !== dropNode) {
                 removeClass(oldDropNode.$el, 'is-drop-inner');
