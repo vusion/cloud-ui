@@ -107,7 +107,7 @@ export default {
             const img = new Image();
             const that = this;
             img.onload = function () {
-                this.$emit('load', that);
+                that.$emit('load', that);
                 that.ready = true;
                 img.onload = undefined;
                 img.onerror = undefined;
