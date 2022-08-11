@@ -121,6 +121,7 @@ export * from './u-if.vue';
 export * from './u-taskbox.vue';
 export * from './u-cascader.vue';
 export * from './u-count-down.vue';
+export * from './u-anchor.vue';
 
 export * from './u-multi-layout.vue';
 export * from './u-dropdown.vue';

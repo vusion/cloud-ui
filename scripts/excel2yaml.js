@@ -94,6 +94,8 @@ const files = [
     'u-taskbox.vue',
     'u-cascader',
     'u-count-down.vue',
+    'u-anchor.vue',
+    'u-toc.vue',
 ].map((component) => path.resolve(cwd, 'src/components', component, 'api.yaml'));
 
 const yamlMap = {};

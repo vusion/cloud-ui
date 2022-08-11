@@ -1,0 +1,28 @@
+- name: u-anchor
+  title: 锚点
+  icon: anchor
+  description: 锚点
+  labels:
+    - Selector
+  attrs:
+    - name: label
+      title: 标识
+      type: string
+      sync: true
+      model: true
+      description: 锚点的唯一标识，用于跳转链接，如“page#linkname”
+      group: 交互属性
+    - name: labelName
+      title: 标识文本
+      type: string
+      sync: true
+      model: true
+      description: ""
+    - name: showAnchor
+      title: 显示锚点
+      sync: true
+      model: true
+      type: boolean
+      default: true
+      description: 是否显示锚点
+

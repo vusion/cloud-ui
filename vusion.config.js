@@ -40,6 +40,7 @@ module.exports = {
             { group: '布局', name: 'u-footbar', alias: '底部栏', advanced: true },
             { group: '布局', name: 'u-menu', alias: '菜单', advanced: true },
             { group: '布局', name: 'u-toc', alias: '目录', advanced: true },
+            { group: '布局', name: 'u-anchor', alias: '锚点', advanced: true },
 
             { group: '展示', name: 'u-base', alias: '基础', advanced: true },
             { group: '展示', name: 'u-text', alias: '文本' },
