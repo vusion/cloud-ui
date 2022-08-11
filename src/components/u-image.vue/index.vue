@@ -1,7 +1,9 @@
 <template>
 <div :class="$style.root" :fit="fit" :style="wrapStyle"
     :vertical-center="verticalCenter"
-    :horizontal-center="horizontalCenter">
+    :horizontal-center="horizontalCenter"
+    v-on="$listeners"
+>
     <template v-if="ready">
         <img :src="convertedSrc" :style="imageStyle" v-bind="$attrs">
     </template>
@@ -102,6 +104,7 @@ export default {
             const img = new Image();
             const that = this;
             img.onload = function () {
+                this.$emit('load', that);
                 that.ready = true;
                 img.onload = undefined;
                 img.onerror = undefined;
