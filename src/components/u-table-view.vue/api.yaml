@@ -751,7 +751,7 @@
         - value: editable
           title: 编辑列
       default: normal
-      description: 列类型
+      description: 支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序
     - name: start-index
       title: 起始序号
       type: number

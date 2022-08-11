@@ -83,12 +83,30 @@ export default {
     border-color: var(--steps-seleatable-item-radio-border-color-hover);
 }
 
-.root[readonly] .radio,
-.root[disabled] .radio,
-.item[readonly] .radio,
-.item[disabled] .radio {
+.root[disabled] .item:not([passed]):not([selected]) .radio,
+.item[disabled]:not([passed]):not([selected]) .radio {
     border-color: var(--steps-seleatable-radio-border-color-disabled);
     background: var(--steps-item-radio-background-disabled);
+}
+.root[readonly] .radio,
+.item[readonly] .radio,
+.root[readonly] .title,
+.item[readonly] .title {
+    cursor: default;
+}
+.root[disabled] .radio,
+.item[disabled] .radio,
+.root[disabled] .title,
+.item[disabled] .title {
+    cursor: not-allowed;
+}
+.root[readonly] .item:not([passed]):not([selected]) .radio:hover,
+.item[readonly]:not([passed]):not([selected]) .radio:hover{
+    border-color: var(--steps-seleatable-radio-border-color);
+}
+.root[disabled] .item:not([passed]):not([selected]) .radio:hover,
+.item[disabled]:not([passed]):not([selected]) .radio:hover {
+    border-color: var(--steps-seleatable-radio-border-color-disabled);
 }
 
 .item[passed] .radio {
