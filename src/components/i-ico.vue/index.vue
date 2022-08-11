@@ -152,7 +152,7 @@ export default {
 }
 
 .iconcus {
-    color: #666;
+    /* color: #666; */
 }
 .iconwrapsvg {
     line-height: 1;
