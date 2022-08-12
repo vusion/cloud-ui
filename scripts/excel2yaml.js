@@ -81,6 +81,7 @@ const files = [
     'u-cascade-select.vue',
     'u-region-select.vue',
     'u-tree-view.vue',
+    'u-tree-select.vue',
     'u-transfer.vue',
     'u-date-picker.vue',
     'u-time-picker.vue',

@@ -1,11 +1,30 @@
 - name: u-tree-select
-  title: 树型选择框
-  description: 请在这里添加描述
+  title: 树形选择框
+  description: 树形选择框
+  icon: tree-view
+  labels:
+    - Form
   attrs:
-    - name: value
-      type: number
-      default: 0
-      description: 需要传入的值
+    - name: data
+      title: 数据源
+      type: Array<{ text, value }>
+      description: 集合类型变量或者输出参数为集合类型的逻辑
+    - name: text-field
+      title: 文本字段
+      type: string
+      default: text
+      description: 集合的元素类型中，用于显示文本的属性名称
+    - name: value-field
+      title: 值字段
+      type: string
+      default: value
+      description: 集合的元素类型中，用于标识选中值的属性
+    - name: children-field
+      title: 父级选项值
+      type: string
+      default: value
+      description: 集合的元素类型中，用于标识父节点的属性
+      group: 数据属性
   slots:
     - name: default
       description: 插入文本或 HTML。
