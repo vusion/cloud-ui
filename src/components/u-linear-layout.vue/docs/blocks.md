@@ -1,11 +1,11 @@
-### 水平排布
+### 单行排布
 
 ``` html
 <u-linear-layout direction="horizontal">
 </u-linear-layout>
 ```
 
-### 竖直排布
+### 双行排布
 
 ``` html
 <u-linear-layout direction="vertical">
@@ -16,7 +16,7 @@
 </u-linear-layout>
 ```
 
-### 两端对齐
+### 两端排布
 
 ``` html
 <u-linear-layout justify="space-between">
