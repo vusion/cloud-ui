@@ -1,11 +1,11 @@
 ### 基本用法
-
 按照以下层级添加即可。
 
 ``` html
 <u-toc>
+    <u-toc-item label="锚点跳转1" anchorLinked="/#/components/u-toc/examples#锚点1"></u-toc-item>
+    <u-toc-item label="锚点跳转2" anchorLinked="/#/components/u-anchor/examples#锚点2"></u-toc-item>
     <u-toc-item label="基础示例" to="examples">
-        <u-toc-item label="基本用法" :to="{ path: 'examples', hash: '#基本用法' }"></u-toc-item>
         <u-toc-item label="value" :to="{ path: 'examples', hash: '#value' }"></u-toc-item>
     </u-toc-item>
     <u-toc-item label="UToc API" :to="{ path: 'api', hash: '#api' }">
@@ -20,8 +20,12 @@
     </u-toc-item>
 </u-toc>
 ```
+#### 高级
+
 
 ### value
+
+[//]: # (### 锚点1)
 
 将`router`属性设置为`false`，也可以用`value`控制选择项。
 
@@ -53,4 +57,10 @@ export default {
     },
 };
 </script>
+```
+
+``` html
+<u-anchor label="锚点1">
+</u-anchor>
+
 ```

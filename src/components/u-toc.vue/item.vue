@@ -1,9 +1,15 @@
 <template>
 <div :class="$style.root">
-    <a :class="$style.link"
-        :selected="selected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
-        :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
-        v-ellipsis-title>
+    <a
+        :class="$style.link"
+        :selected="selected"
+        :readonly="parentVM.readonly"
+        :disabled="disabled || parentVM.disabled"
+        :href="anchorLinked || currentHref"
+        :target="target"
+        v-on="listeners"
+        v-ellipsis-title
+    >
         {{ label }}
     </a>
     <div :class="$style.sub" vusion-slot-name="default">
@@ -28,6 +34,7 @@ export const UTocItem = {
         label: String,
         exact: { type: Boolean, default: true },
         exactHash: { type: Boolean, default: true },
+        anchorLinked: { type: String, default: '' },
     },
     computed: {
         listeners() {

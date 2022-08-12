@@ -106,22 +106,28 @@
 - name: u-toc-item
   attrs:
     - name: label
-      title: 标签
+      title: 显示文本
       type: string
-      description: 此项显示的文本
+      description: 集合的元素类型中，用于显示文本的属性名称
+      sync: true
+      model: true
+      group: 数据属性
     - name: value
-      title: 值
-      type: any
-      description: 此项的值
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: 禁用此项
+      title: 选项值
+      type: string
+      description: 集合的元素类型中，用于标识选中值的属性
+      group: 数据属性
     - name: item
       title: 相关对象
       type: object
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
+      hidden: true
+    - name: anchorLinked
+      title: 关联锚点
+      type: string
+      description: 关联锚点名称，选择后自动加载锚点信息
+      compType: AnchorHrefInput
+      group: 数据属性
     - name: linkType
       title: 链接类型
       type: string
@@ -136,13 +142,15 @@
       description: 链接类型
       compType: linkTypeSelect
       bindHide: true
+      group: 交互属性
     - name: hrefAndTo
-      title: 链接
+      title: 链接地址
       type: string
       description: 链接地址
       compType: linkHrefInput
+      group: 交互属性
     - name: target
-      title: 打开方式
+      title: 链接打开方式
       type: enum
       options:
         - title: 新窗口
@@ -157,22 +165,13 @@
           advanced: true
       default: _self
       description: 链接打开方式
-    - name: replace
+      group: 交互属性
+    - name: disabled
+      title: 禁用
       type: boolean
       default: false
-      description: 需要
-        vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
-        `记录。
-    - name: exact
-      title: 精确匹配
-      type: boolean
-      default: true
-      description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
-    - name: exact
-      title: 精确匹配
-      type: boolean
-      default: true
-      description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
+      description: 禁用此项
+      group: 交互属性
   slots:
     - name: default
       description: 插入`<u-toc-item>`子组件。
