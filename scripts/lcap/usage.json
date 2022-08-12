@@ -5496,7 +5496,7 @@
                     "title": "初始加载",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否在初始时立即加载。",
+                    "description": "是否在初始时立即加载",
                     "group": "数据属性"
                 },
                 {
@@ -5537,7 +5537,7 @@
                         20,
                         50
                     ],
-                    "description": "分页大小的选项列表。",
+                    "description": "分页大小的选项列表",
                     "group": "数据属性"
                 },
                 {
@@ -5570,7 +5570,7 @@
                     "type": "{ field: string, order: string, compare: Function }",
                     "sync": true,
                     "default": "{ field: undefined, order: 'desc' }",
-                    "description": "当前排序的字段和顺序。",
+                    "description": "当前排序的字段和顺序",
                     "group": "数据属性"
                 },
                 {
@@ -5588,7 +5588,7 @@
                         }
                     ],
                     "default": "asc",
-                    "description": "所有列首次点击时的排序顺序。",
+                    "description": "所有列首次点击时的排序顺序",
                     "group": "数据属性"
                 },
                 {
@@ -5605,7 +5605,7 @@
                     "title": "后端分页",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否使用后端分页。",
+                    "description": "是否使用后端分页",
                     "group": "数据属性"
                 },
                 {
@@ -5613,7 +5613,7 @@
                     "title": "后端排序",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否使用后端排序。",
+                    "description": "是否使用后端排序",
                     "group": "数据属性"
                 },
                 {
@@ -5675,7 +5675,7 @@
                     "title": "分隔线条",
                     "type": "boolean",
                     "default": false,
-                    "description": "单元格之间是否显示分隔线条。",
+                    "description": "单元格之间是否显示分隔线条",
                     "group": "样式属性"
                 },
                 {
@@ -5683,7 +5683,7 @@
                     "title": "斑马条纹",
                     "type": "boolean",
                     "default": false,
-                    "description": "表格行是否按斑马线条纹显示。",
+                    "description": "表格行是否按斑马线条纹显示",
                     "group": "样式属性"
                 },
                 {
@@ -5691,7 +5691,7 @@
                     "title": "悬浮高亮行",
                     "type": "boolean",
                     "default": false,
-                    "description": "表格行在悬浮时是否高亮显示。",
+                    "description": "表格行在悬浮时是否高亮显示",
                     "group": "样式属性",
                     "hidden": true
                 },
@@ -5707,14 +5707,14 @@
                     "name": "default-column-width",
                     "title": "默认列宽度",
                     "type": "string | number",
-                    "description": "表格的默认列宽度，可以设置为百分比或数字。",
+                    "description": "表格的默认列宽度，可以设置为百分比或数字",
                     "group": "样式属性"
                 },
                 {
                     "name": "loading",
                     "title": "是否加载中",
                     "type": "boolean",
-                    "description": "手动设置是否正在加载中。",
+                    "description": "手动设置是否正在加载中",
                     "advanced": true,
                     "group": "状态属性"
                 },
@@ -5723,7 +5723,7 @@
                     "title": "加载中文字",
                     "type": "string",
                     "default": "正在加载中",
-                    "description": "正在加载中的文字。",
+                    "description": "正在加载中的文字",
                     "advanced": true,
                     "group": "状态属性"
                 },
@@ -5731,7 +5731,7 @@
                     "name": "error",
                     "title": "是否加载失败",
                     "type": "boolean",
-                    "description": "手动设置是否加载失败。",
+                    "description": "手动设置是否加载失败",
                     "group": "状态属性"
                 },
                 {
@@ -5754,7 +5754,7 @@
                     "name": "value-field",
                     "title": "值字段名",
                     "type": "string",
-                    "description": "在单选、多选操作、渲染树形数据中，指定数据唯一值的字段。",
+                    "description": "在单选、多选操作、渲染树形数据中，指定数据唯一值的字段",
                     "group": "选择属性"
                 },
                 {
@@ -5763,7 +5763,7 @@
                     "type": "any",
                     "sync": true,
                     "model": true,
-                    "description": "单项选择的值。",
+                    "description": "单项选择的值",
                     "group": "选择属性"
                 },
                 {
@@ -5771,7 +5771,7 @@
                     "title": "多选值",
                     "type": "Array",
                     "sync": true,
-                    "description": "多项选择的值。",
+                    "description": "多项选择的值",
                     "group": "选择属性"
                 },
                 {
@@ -5779,7 +5779,7 @@
                     "title": "可选行",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以单选行。",
+                    "description": "是否可以单选行",
                     "group": "选择属性"
                 },
                 {
@@ -5787,7 +5787,7 @@
                     "title": "可取消",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以取消选择。",
+                    "description": "是否可以取消选择",
                     "group": "选择属性"
                 },
                 {
@@ -5819,7 +5819,7 @@
                     "title": "可调整列宽",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以调整列宽。",
+                    "description": "是否可以调整列宽",
                     "group": "其它属性"
                 },
                 {
@@ -5849,7 +5849,7 @@
                     "title": "树形模式",
                     "type": "boolean",
                     "default": false,
-                    "description": "以树形数据展示表格。",
+                    "description": "以树形数据展示表格",
                     "group": "其它属性"
                 },
                 {
@@ -5857,7 +5857,7 @@
                     "title": "子节点字段名",
                     "type": "string",
                     "default": "children",
-                    "description": "树形数据子节点字段名。",
+                    "description": "树形数据子节点字段名",
                     "group": "其它属性"
                 },
                 {
@@ -5865,7 +5865,7 @@
                     "title": "是否包含子节点字段名",
                     "type": "string",
                     "default": "hasChildren",
-                    "description": "该字段指定行数据是否包含子节点数据。",
+                    "description": "该字段指定行数据是否包含子节点数据",
                     "group": "其它属性"
                 }
             ],
@@ -5873,7 +5873,7 @@
                 {
                     "name": "default",
                     "title": "默认",
-                    "description": "在表格中插入`<u-table-view-column>`子组件。",
+                    "description": "在表格中插入`<u-table-view-column>`子组件",
                     "empty-background": "drag-entity-here",
                     "support": [
                         {
@@ -5886,17 +5886,17 @@
                 {
                     "name": "loading",
                     "title": "加载中内容",
-                    "description": "自定义加载中内容。"
+                    "description": "自定义加载中内容"
                 },
                 {
                     "name": "error",
                     "title": "加载错误内容",
-                    "description": "自定义加载错误内容。"
+                    "description": "自定义加载错误内容"
                 },
                 {
                     "name": "empty",
                     "title": "暂无数据内容",
-                    "description": "自定义暂无数据内容。"
+                    "description": "自定义暂无数据内容"
                 }
             ],
             "methods": [
@@ -6314,7 +6314,7 @@
                         {
                             "name": "$event.selectedItem",
                             "type": "object",
-                            "description": "最终选择行的对象。在`cancelable`的情况下，与`$event.item`不同"
+                            "description": "最终选择行的对象。在`cancelable`的情况下，与`$event.item`不同。"
                         },
                         {
                             "name": "senderVM",
@@ -6371,7 +6371,7 @@
                 {
                     "name": "change",
                     "title": "改变后",
-                    "description": "单选或多选值改变后触发。",
+                    "description": "单选或多选值改变后触发",
                     "params": [
                         {
                             "name": "$event",
@@ -6492,26 +6492,26 @@
                             "name": "title",
                             "title": "列标题",
                             "type": "string",
-                            "description": "列标题。"
+                            "description": "列标题"
                         },
                         {
                             "name": "field",
                             "title": "列字段",
                             "type": "string",
-                            "description": "data 项中的字段名。"
+                            "description": "data 项中的字段名"
                         },
                         {
                             "name": "width",
                             "title": "列宽度",
                             "type": "string | number",
-                            "description": "给列指定宽度，可以为数字或百分比。"
+                            "description": "给列指定宽度，可以为数字或百分比"
                         },
                         {
                             "name": "formatter",
                             "title": "格式器",
                             "type": "string | object | Function | Formatter",
                             "default": "placeholder",
-                            "description": "格式器。",
+                            "description": "格式器",
                             "advanced": true
                         },
                         {
@@ -6519,14 +6519,14 @@
                             "title": "固定列",
                             "type": "boolean",
                             "default": false,
-                            "description": "该列是否固定。"
+                            "description": "该列是否固定"
                         },
                         {
                             "name": "sortable",
                             "title": "可排序",
                             "type": "boolean",
                             "default": false,
-                            "description": "该列是否可以排序。"
+                            "description": "该列是否可以排序"
                         },
                         {
                             "name": "default-order",
@@ -6564,7 +6564,7 @@
                             "title": "隐藏该列",
                             "type": "boolean",
                             "default": false,
-                            "description": "是否隐藏该列。"
+                            "description": "是否隐藏该列"
                         },
                         {
                             "name": "type",
@@ -6608,7 +6608,7 @@
                             "title": "起始序号",
                             "type": "number",
                             "default": 1,
-                            "description": "当`type=\"index\"`时的起始序号。"
+                            "description": "序号列的起始序号"
                         },
                         {
                             "name": "dblclickHandler",
@@ -6621,37 +6621,37 @@
                         {
                             "name": "cell",
                             "plus-empty": true,
-                            "description": "对单元格的数据展示进行自定义。",
+                            "description": "对单元格的数据展示进行自定义",
                             "props": [
                                 {
                                     "name": "item",
                                     "title": "当前项",
                                     "type": "object",
-                                    "description": "循环中的当前项。"
+                                    "description": "循环中的当前项"
                                 },
                                 {
                                     "name": "value",
                                     "title": "字段值",
                                     "type": "any",
-                                    "description": "item 中 field 字段对应的值。"
+                                    "description": "item 中 field 字段对应的值"
                                 },
                                 {
                                     "name": "columnVM",
                                     "title": "列实例",
                                     "type": "string",
-                                    "description": "该列组件实例。"
+                                    "description": "该列组件实例"
                                 },
                                 {
                                     "name": "rowIndex",
                                     "title": "行索引",
                                     "type": "number",
-                                    "description": "行的索引。"
+                                    "description": "行的索引"
                                 },
                                 {
                                     "name": "columnIndex",
                                     "title": "列索引",
                                     "type": "number",
-                                    "description": "列的索引。"
+                                    "description": "列的索引"
                                 }
                             ]
                         },
@@ -6659,37 +6659,37 @@
                             "name": "editcell",
                             "plus-empty": true,
                             "plus-empty-tag": "editcell-plus-empty",
-                            "description": "对单元格的编辑数据展示进行自定义。",
+                            "description": "对单元格的编辑数据展示进行自定义",
                             "props": [
                                 {
                                     "name": "item",
                                     "title": "当前项",
                                     "type": "object",
-                                    "description": "循环中的当前项。"
+                                    "description": "循环中的当前项"
                                 },
                                 {
                                     "name": "value",
                                     "title": "字段值",
                                     "type": "any",
-                                    "description": "item 中 field 字段对应的值。"
+                                    "description": "item 中 field 字段对应的值"
                                 },
                                 {
                                     "name": "columnVM",
                                     "title": "列实例",
                                     "type": "string",
-                                    "description": "该列组件实例。"
+                                    "description": "该列组件实例"
                                 },
                                 {
                                     "name": "rowIndex",
                                     "title": "行索引",
                                     "type": "number",
-                                    "description": "行的索引。"
+                                    "description": "行的索引"
                                 },
                                 {
                                     "name": "columnIndex",
                                     "title": "列索引",
                                     "type": "number",
-                                    "description": "列的索引。"
+                                    "description": "列的索引"
                                 }
                             ]
                         },
@@ -6700,19 +6700,19 @@
                                 "text",
                                 "inline"
                             ],
-                            "description": "对标题进行自定义。",
+                            "description": "对标题进行自定义",
                             "props": [
                                 {
                                     "name": "columnVM",
                                     "title": "列实例",
                                     "type": "string",
-                                    "description": "该列组件实例。"
+                                    "description": "该列组件实例"
                                 },
                                 {
                                     "name": "columnIndex",
                                     "title": "列索引",
                                     "type": "number",
-                                    "description": "列的索引。"
+                                    "description": "列的索引"
                                 }
                             ]
                         },
@@ -6722,37 +6722,37 @@
                             "plus-empty-tag": "expand-content-plus-empty",
                             "title": "展开列内容",
                             "accept-type": "all",
-                            "description": "展开列的内容。",
+                            "description": "展开列的内容",
                             "props": [
                                 {
                                     "name": "item",
                                     "title": "当前",
                                     "type": "object",
-                                    "description": "循环中的当前项。"
+                                    "description": "循环中的当前项"
                                 },
                                 {
                                     "name": "value",
                                     "title": "字段值",
                                     "type": "any",
-                                    "description": "item 中 field 字段对应的值。"
+                                    "description": "item 中 field 字段对应的值"
                                 },
                                 {
                                     "name": "columnVM",
                                     "title": "列实例",
                                     "type": "string",
-                                    "description": "展开列组件实例。"
+                                    "description": "展开列组件实例"
                                 },
                                 {
                                     "name": "rowIndex",
                                     "title": "行索引",
                                     "type": "number",
-                                    "description": "行的索引。"
+                                    "description": "行的索引"
                                 },
                                 {
                                     "name": "columnIndex",
                                     "title": "展开列索引",
                                     "type": "number",
-                                    "description": "展开列的索引。"
+                                    "description": "展开列的索引"
                                 }
                             ]
                         }
