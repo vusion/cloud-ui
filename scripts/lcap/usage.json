@@ -7917,7 +7917,7 @@
         "name": "表格表单",
         "icon": "table-view",
         "depDescription": {},
-        "description": "本组件用于在表单中使用表单验证、动态数据等复杂功能。",
+        "description": "本组件用于在表单中使用表单验证、动态数据等复杂功能",
         "labels": [
             "Table"
         ],
@@ -7926,7 +7926,7 @@
         "jsonSchema": {
             "name": "u-form-table-view",
             "title": "表格表单",
-            "description": "本组件用于在表单中使用表单验证、动态数据等复杂功能。",
+            "description": "本组件用于在表单中使用表单验证、动态数据等复杂功能",
             "category": "Table",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-form-table-view.vue/screenshots/0.png",
             "drawings": "",
@@ -7983,7 +7983,7 @@
                 {
                     "name": "default",
                     "common-empty-background": true,
-                    "description": "添加文本或 HTML。",
+                    "description": "添加文本或 HTML",
                     "support": [
                         {
                             "name": "u-form-table-view-column",
@@ -8213,7 +8213,7 @@
                             "title": "省略显示",
                             "type": "boolean",
                             "default": false,
-                            "description": "文字过长是否省略显示。默认文字超出时会换行。"
+                            "description": "文字过长是否省略显示，默认文字超出时会换行"
                         },
                         {
                             "name": "formatter",
@@ -8234,7 +8234,7 @@
                             "title": "起始序号",
                             "type": "number",
                             "default": 1,
-                            "description": "当`type=\"index\"`时的起始序号"
+                            "description": "序号列的起始序号"
                         },
                         {
                             "name": "label",
@@ -8292,13 +8292,13 @@
                     "slots": [
                         {
                             "name": "default",
-                            "description": "在表格列中插入`cell`插槽。",
+                            "description": "在表格列中插入`cell`插槽",
                             "plus-empty": true
                         },
                         {
                             "name": "cell",
                             "plus-empty": true,
-                            "description": "对单元格数据展示进行自定义。",
+                            "description": "对单元格数据展示进行自定义",
                             "props": [
                                 {
                                     "name": "item",
@@ -8329,7 +8329,7 @@
                         },
                         {
                             "name": "title",
-                            "description": "对标题进行自定义。",
+                            "description": "对标题进行自定义",
                             "props": [
                                 {
                                     "name": "columnVM",
