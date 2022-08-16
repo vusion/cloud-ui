@@ -10,6 +10,7 @@
         v-on="listeners"
         v-ellipsis-title
         :value="value"
+        @click="handleClick()"
     >
         {{ label }}
     </a>
@@ -77,6 +78,11 @@ export const UTocItem = {
                 this.parentVM.setActive(this);
                 this.parentVM.stopScrollSpy(this);
             }
+        },
+        handleClick() {
+            if (this.disabled)
+                return;
+            this.parentVM.select(this);
         },
     },
 };

@@ -20,7 +20,7 @@ export default {
     props: {
         name: {type: String, default: ''},
         label: { type: String, default: '' },
-        ref: { type: String, default: '' },
+        // ref: { type: String, default: '' },
         labelName: { type: String, default: '锚点' },
         showAnchor: { type: Boolean, default: true },
     },
