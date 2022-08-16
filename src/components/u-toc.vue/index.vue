@@ -18,7 +18,7 @@ export default {
     childName: 'u-toc-item',
     extends: MSinglex,
     props: {
-        router: { type: Boolean, default: true },
+        value: { type: String, default: '' },
         scrollSpy: { type: Boolean, default: true },
         scrollParent: HTMLElement,
         boundaryTop: { type: Number, default: 0 }, // 有头部导航栏等遮挡的高度

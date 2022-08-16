@@ -27,7 +27,11 @@
       group: 数据属性
   slots:
     - name: default
-      description: 插入文本或 HTML。
+      description: 插入`<u-tree-view-node>`子组件
+      support:
+        - name: u-tree-view-node
+          title: 子节点
+          snippet: <u-tree-view-node text="节点"></u-tree-view-node>
   events:
     - name: change
       description: 修改时触发
