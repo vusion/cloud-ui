@@ -9,6 +9,7 @@
             :expanded="$at(node, expandedField)"
             :checked.sync="node.checked"
             :disabled="node.disabled"
+            :childrenField="childrenField"
             :hidden="filterText ? $at(node, 'hiddenByFilter') : $at(node, hiddenField)"
             :node="node"
             :level="0"
@@ -192,6 +193,7 @@ export default {
             }
         },
         select(nodeVM) {
+            console.log('nodeVM', nodeVM);
             if (this.readonly || this.disabled)
                 return;
             const oldValue = this.value;
@@ -251,6 +253,7 @@ export default {
             this.walk((nodeVM) => nodeVM.toggle(expanded)); // @TODO: Only one event
         },
         onCheck(nodeVM, checked, oldChecked) {
+            // console.log('click', this.currentValues);
             this.$emit(
                 'check',
                 {

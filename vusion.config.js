@@ -40,6 +40,7 @@ module.exports = {
             { group: '布局', name: 'u-footbar', alias: '底部栏', advanced: true },
             { group: '布局', name: 'u-menu', alias: '菜单', advanced: true },
             { group: '布局', name: 'u-toc', alias: '目录', advanced: true },
+            { group: '布局', name: 'u-anchor', alias: '锚点', advanced: true },
 
             { group: '展示', name: 'u-base', alias: '基础', advanced: true },
             { group: '展示', name: 'u-text', alias: '文本' },
@@ -91,6 +92,7 @@ module.exports = {
             { group: '表单', name: 'u-tablets', alias: '药片', advanced: true, deprecated: true },
             { group: '表单', name: 'u-cascade-capsules', alias: '级联胶囊', advanced: true },
             { group: '表单', name: 'u-select', alias: '选择框' },
+            { group: '表单', name: 'u-tree-select', alias: '树形选择框', advanced: true },
             { group: '表单', name: 'u-slider', alias: '滑块' },
             { group: '表单', name: 'u-combo-slider', alias: '复合滑块', advanced: true },
             { group: '表单', name: 'u-uploader', alias: '文件上传' },
@@ -100,7 +102,6 @@ module.exports = {
             { group: '选择器', name: 'u-steps', alias: '步骤条' },
             { group: '选择器', name: 'u-selectable-steps', alias: '可选步骤条' },
             { group: '选择器', name: 'u-pagination', alias: '翻页器' },
-            { group: '选择器', name: 'u-tree-select', alias: '树型选择框', advanced: true },
             { group: '选择器', name: 'u-cascade-select', alias: '级联选择' },
             { group: '选择器', name: 'u-cascader', alias: '新级联选择' },
             { group: '选择器', name: 'u-region-select', alias: '地区选择' },

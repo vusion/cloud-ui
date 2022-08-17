@@ -12,6 +12,8 @@ module.exports = [
     { group: 'Navigation', show: true, name: 'u-sidebar', alias: '侧边栏' },
     { group: 'Navigation', show: true, name: 'u-navbar', alias: '导航栏' },
     { group: 'Navigation', show: true, name: 'u-navbar-multi', alias: '导航栏' },
+    { group: 'Navigation', show: true, name: 'u-toc', alias: '目录' },
+    { group: 'Navigation', show: true, name: 'u-anchor', alias: '锚点' },
 
     { group: 'Display', show: true, name: 'u-text', alias: '文本' },
     { group: 'Display', show: true, name: 'u-link', alias: '链接' },
@@ -47,6 +49,7 @@ module.exports = [
     { group: 'Form', show: true, name: 'u-checkboxes', alias: '多选组' },
     { group: 'Form', show: true, name: 'u-capsules', alias: '胶囊' },
     { group: 'Form', show: true, name: 'u-select', alias: '选择框' },
+    { group: 'Form', show: true, name: 'u-tree-select', alias: '树形选择框' },
     { group: 'Form', show: true, name: 'u-rate', alias: '评分' },
     { group: 'Form', show: true, name: 'u-combo-slider', alias: '滑块' },
     { group: 'Form', show: true, name: 'u-uploader', alias: '文件上传' },

@@ -1,14 +1,37 @@
 - name: u-tree-select
-  title: 树型选择框
-  description: 请在这里添加描述
+  title: 树形选择框
+  description: 树形选择框
+  icon: tree-view
+  labels:
+    - Form
   attrs:
-    - name: value
-      type: number
-      default: 0
-      description: 需要传入的值
+    - name: data
+      title: 数据源
+      type: Array<{ text, value }>
+      description: 集合类型变量或者输出参数为集合类型的逻辑
+    - name: text-field
+      title: 文本字段
+      type: string
+      default: text
+      description: 集合的元素类型中，用于显示文本的属性名称
+    - name: value-field
+      title: 值字段
+      type: string
+      default: value
+      description: 集合的元素类型中，用于标识选中值的属性
+    - name: children-field
+      title: 父级选项值
+      type: string
+      default: value
+      description: 集合的元素类型中，用于标识父节点的属性
+      group: 数据属性
   slots:
     - name: default
-      description: 插入文本或 HTML。
+      description: 插入`<u-tree-view-node>`子组件
+      support:
+        - name: u-tree-view-node
+          title: 子节点
+          snippet: <u-tree-view-node text="节点"></u-tree-view-node>
   events:
     - name: change
       description: 修改时触发
@@ -24,3 +47,33 @@
         - name: $event.param2
           type: number
           description: 参数2
+    - name: select
+      title: 选择后
+      description: 选择某一项时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/TreeChangeEvent"
+        - name: $event.value
+          type: any
+          description: 改变后的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.node
+          type: object
+          description: 选择项相关对象
+        - name: $event.oldNode
+          type: object
+          description: 旧的选择项相关对象
+        - name: $event.nodeVM
+          type: UTreeViewNode
+          description: 选择项子组件
+        - name: $event.oldVM
+          type: UTreeViewNode
+          description: 旧的选择项子组件
+        - name: senderVM
+          type: UTreeView
+          description: 发送事件实例

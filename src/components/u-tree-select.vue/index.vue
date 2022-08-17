@@ -48,11 +48,11 @@
                     {{ $at(selectedItem, this.textField) || selectedItem.text }}
                 </span>
             </template>
-            <u-input 
+            <u-input
               v-if="filterable"
-              v-show="filtering" 
-              ref="input" 
-              :class="$style.input" 
+              v-show="filtering"
+              ref="input"
+              :class="$style.input"
               :value="filterText"
               @click.stop
               @input="onInput">
@@ -87,6 +87,7 @@
                 :children-field="childrenField"
                 :more-children-fields="moreChildrenFields"
                 :exclude-fields="excludeFields"
+                :checkable="checkable"
                 :cancelable="cancelable"
                 :accordion="accordion"
                 :expand-trigger="expandTrigger"
@@ -131,6 +132,7 @@ export default {
         childrenField: { type: String, default: "children" },
         moreChildrenFields: Array,
         excludeFields: { type: Array, default: () => [] },
+        checkable: { type: Boolean, default: false },
         cancelable: { type: Boolean, default: false },
         accordion: { type: Boolean, default: false },
         expandTrigger: { type: String, default: "click" },
@@ -307,7 +309,7 @@ export default {
                     const currentMoreChildrenFields = moreChildrenFields || this.moreChildrenFields;
                     if(Array.isArray(currentMoreChildrenFields)) {
                       currentMoreChildrenFields.forEach((subField) => {
-                        this.trans2Obj(obj, this.$at(item, subField), item);     
+                        this.trans2Obj(obj, this.$at(item, subField), item);
                       });
                     }
                 });
@@ -318,7 +320,7 @@ export default {
             this.$emit('update:value', $event, this)
             if(this.filterable) {
               this.filterText = '';
-              this.filtering = false;              
+              this.filtering = false;
             }
         },
         handleData() {
@@ -410,7 +412,7 @@ export default {
               this.filtering = true;
               setTimeout(() => {
                 this.$refs.input.focus();
-              }); 
+              });
             }
         },
         onClose($event) {

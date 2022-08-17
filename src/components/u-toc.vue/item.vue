@@ -1,9 +1,17 @@
 <template>
 <div :class="$style.root">
-    <a :class="$style.link"
-        :selected="selected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
-        :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
-        v-ellipsis-title>
+    <a
+        :class="$style.link"
+        :selected="selected"
+        :readonly="parentVM.readonly"
+        :disabled="disabled || parentVM.disabled"
+        :href="anchorJumped"
+        :target="target"
+        v-on="listeners"
+        v-ellipsis-title
+        :value="value"
+        @click="handleClick()"
+    >
         {{ label }}
     </a>
     <div :class="$style.sub" vusion-slot-name="default">
@@ -25,9 +33,12 @@ export const UTocItem = {
         SEmpty,
     },
     props: {
-        label: String,
-        exact: { type: Boolean, default: true },
-        exactHash: { type: Boolean, default: true },
+        value: null,
+        label: { type: String, default: '' },
+        anchorLinked: { type: String, default: '' },
+        hrefAndTo: { type: String, default: '' },
+        target: { type: String, default: '' },
+        disabled: { type: Boolean, default: false },
     },
     computed: {
         listeners() {
@@ -42,6 +53,14 @@ export const UTocItem = {
                 return false;
             }
             return this.parentVM.router ? this.active : this.isSelected;
+        },
+        anchorJumped() {
+            if (this.anchorLinked) {
+                return `${this.hrefAndTo}#${this.anchorLinked}`;
+            } else if (this.hrefAndTo) {
+                return this.hrefAndTo;
+            }
+            return this.currentHref;
         },
     },
     watch: {
@@ -59,6 +78,24 @@ export const UTocItem = {
                 this.parentVM.setActive(this);
                 this.parentVM.stopScrollSpy(this);
             }
+        },
+        handleClick() {
+            console.log(this);
+            if (this.disabled)
+                return;
+            this.parentVM.select(this);
+            const actualValue = this.value || this && this[this.valueField] || this.selectedVM[this.valueField];
+            const oldValue = this.value;
+            const oldVM = this.selectedVM;
+            this.$emit('click', {
+                value: actualValue,
+                oldValue,
+                node: this.node,
+                oldNode: oldVM && oldVM.node,
+                nodeVM: this,
+                oldVM,
+            },
+            this);
         },
     },
 };
