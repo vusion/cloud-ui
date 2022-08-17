@@ -80,9 +80,22 @@ export const UTocItem = {
             }
         },
         handleClick() {
+            console.log(this);
             if (this.disabled)
                 return;
             this.parentVM.select(this);
+            const actualValue = this.value || this && this[this.valueField] || this.selectedVM[this.valueField];
+            const oldValue = this.value;
+            const oldVM = this.selectedVM;
+            this.$emit('click', {
+                value: actualValue,
+                oldValue,
+                node: this.node,
+                oldNode: oldVM && oldVM.node,
+                nodeVM: this,
+                oldVM,
+            },
+            this);
         },
     },
 };

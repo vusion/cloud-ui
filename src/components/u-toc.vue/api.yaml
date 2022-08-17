@@ -123,12 +123,6 @@
       description: 链接地址
       compType: linkHrefInput
       group: 交互属性
-    - name: anchorLinked
-      title: 关联锚点
-      type: string
-      description: 关联要跳转的锚点名称，仅在页面跳转生效
-      compType: AnchorHrefInput
-      group: 交互属性
     - name: target
       title: 链接打开方式
       type: string
@@ -169,30 +163,6 @@
           description: 鼠标事件对象
           schema:
             $ref: "#/systemTypes/MouseEvent"
-        - name: senderVM
-          type: UTocItem
-          description: 发送事件实例
-    - name: before-select
-      title: 选择前
-      description: 选择此项前触发
-      params:
-        - name: $event
-          type: object
-          description: 自定义事件对象
-          schema:
-            $ref: "#/systemTypes/ChangeItemEvent"
-        - name: $event.value
-          type: any
-          description: 此项的值
-        - name: $event.item
-          type: object
-          description: 此项的相关对象
-        - name: $event.itemVM
-          type: UTocItem
-          description: 此组件
-        - name: $event.preventDefault
-          type: Function
-          description: 阻止选择流程
         - name: senderVM
           type: UTocItem
           description: 发送事件实例

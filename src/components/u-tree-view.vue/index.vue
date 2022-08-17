@@ -253,6 +253,7 @@ export default {
             this.walk((nodeVM) => nodeVM.toggle(expanded)); // @TODO: Only one event
         },
         onCheck(nodeVM, checked, oldChecked) {
+            // console.log('click', this.currentValues);
             this.$emit(
                 'check',
                 {
