@@ -66,6 +66,7 @@ module.exports = {
             { group: '展示', name: 'u-dynamic-cards', alias: '动态卡片', advanced: true },
             { group: '展示', name: 'u-dropdown', alias: '下拉菜单' },
             { group: '展示', name: 'u-alert', alias: '公告' },
+            { group: '展示', name: 'u-divider', alias: '分割线' },
 
             { group: '数据', name: 'u-table-view', alias: '数据表格' },
             { group: '数据', name: 'u-list-view', alias: '数据列表' },

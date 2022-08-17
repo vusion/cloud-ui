@@ -38,10 +38,10 @@
       title: 链接区域
       support:
         - name: u-navbar-item
-          title: 添加导航项
+          title: 导航项
           snippet: <u-navbar-item>导航项</u-navbar-item>
         - name: u-navbar-divider
-          title: 添加分隔线
+          title: 分隔线
           snippet: <u-navbar-divider></u-navbar-divider>
     - name: left
       title: 左部区域

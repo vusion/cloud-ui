@@ -28,6 +28,7 @@ module.exports = [
     { group: 'Display', show: true, name: 'u-image', alias: '图片展示' },
     { group: 'Display', show: true, name: 'u-alert', alias: '公告' },
     { group: 'Display', show: true, name: 'u-count-down', alias: '计时器' },
+    { group: 'Display', show: true, name: 'u-divider', alias: '分割线' },
     { group: 'Navigation', show: true, name: 'u-dropdown', alias: '下拉菜单' },
 
     { group: 'Table', show: true, name: 'u-table-view', alias: '数据表格' },

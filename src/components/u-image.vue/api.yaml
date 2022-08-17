@@ -67,6 +67,10 @@
       advanced: true
   slots: false
   events:
+    - name: $listeners
+      kind: trigger
+      description: 监听所有事件。
+      params: []
     - name: load
       title: 加载完成
       description: 网页加载完成时触发
