@@ -12,11 +12,10 @@
         :value="value"
         @click="handleClick()"
     >
-        {{ label }}
     </a>
     <div :class="$style.sub" vusion-slot-name="default">
         <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
-        <slot></slot>
+        <slot>{{ label }}</slot>
     </div>
 </div>
 </template>

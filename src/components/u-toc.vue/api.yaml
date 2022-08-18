@@ -1,9 +1,9 @@
 - name: u-toc
   title: 目录
-  labels:
-    - 路由链接
-    - 块级展示
+  icon: toc
   description: 用于展示文档的目录
+  labels:
+    - Navigation
   attrs:
     - name: value
       title: 选中值（双向绑定）
@@ -26,7 +26,7 @@
       support:
         - name: u-toc-item
           title: 子节点
-          snippet: <u-toc-item label="节点"></u-toc-item>
+          snippet: <u-toc-item>目录节点</u-toc-item>
   events:
     - name: before-select
       title: 选择前
@@ -152,7 +152,7 @@
       support:
         - name: u-toc-item
           title: 子节点
-          snippet: <u-toc-item label="节点"></u-toc-item>
+          snippet: <u-toc-item>目录节点</u-toc-item>
   events:
     - name: click
       title: 点击

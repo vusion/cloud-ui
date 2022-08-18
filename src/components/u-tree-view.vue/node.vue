@@ -27,22 +27,25 @@
             :dragover="expanderDragover"></div>
         <div :class="$style.text" :style="{ marginLeft : expanderWidth? expanderWidth + 'px':'' }" :draggable="draggable || rootVM.draggable">
             <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
-            <f-slot name="text" :vm="currentTextSlotVM" :props="{
-                data: node && $at(node, currentChildrenField),
-                text,
-                value,
-                expanded: currentExpanded,
-                checked: currentChecked,
-                disabled: currentDisabled,
-                node,
-                nodeVM: this,
-                parent,
-                selected,
-                draggable,
-                dragging: currentDragging,
-            }">
-                <span>{{ text }}</span>
-            </f-slot>
+            <div :class="$style.sub" vusion-slot-name="text">
+                <f-slot name="text" :vm="currentTextSlotVM" :props="{
+                    data: node && $at(node, currentChildrenField),
+                    text,
+                    value,
+                    expanded: currentExpanded,
+                    checked: currentChecked,
+                    disabled: currentDisabled,
+                    node,
+                    nodeVM: this,
+                    parent,
+                    selected,
+                    draggable,
+                    dragging: currentDragging,
+                }">
+                    {{ text }}
+                </f-slot>
+                <s-empty v-if="(!$slots.text) && $env.VUE_APP_DESIGNER"></s-empty>
+            </div>
         </div>
     </div>
     <div :class="$style.sub" v-if="rootVM.ifExpanded && !childrenRendered && node && !node.childrenRendered ? currentExpanded : true" v-show="currentExpanded">
@@ -85,9 +88,11 @@
 
 <script>
 import { MNode } from '../m-root.vue';
+import UText from '@/components/u-text.vue';
 
 export default {
     name: 'u-tree-view-node',
+    components: { UText },
     rootName: 'u-tree-view',
     mixins: [MNode],
     props: {
