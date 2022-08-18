@@ -510,7 +510,7 @@ export default {
         },
         onDragStart(e) {
             this.currentDragging = true;
-            this.rootVM.$emit('dragstart', {
+            this.rootVM && this.rootVM.$emit('dragstart', {
                 node: this.node,
                 nodeVM: this,
                 value: this.value,
@@ -520,7 +520,7 @@ export default {
             });
         },
         onDragOver(e) {
-            this.rootVM.$emit('dragover', {
+            this.rootVM && this.rootVM.$emit('dragover', {
                 node: this.node,
                 nodeVM: this,
                 value: this.value,
@@ -535,7 +535,7 @@ export default {
         },
         onDragEnd(e) {
             this.currentDragging = false;
-            this.rootVM.$emit('dragend', {
+            this.rootVM && this.rootVM.$emit('dragend', {
                 node: this.node,
                 nodeVM: this,
                 value: this.value,
@@ -546,7 +546,7 @@ export default {
             this.clearExpanderTimer();
         },
         onDrop(e) {
-            this.rootVM.$emit('drop', {
+            this.rootVM && this.rootVM.$emit('drop', {
                 node: this.node,
                 nodeVM: this,
                 value: this.value,
