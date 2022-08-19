@@ -13,13 +13,14 @@
             <slot :item="item2.item" :index="index2"></slot>
             <s-empty v-if="$scopedSlots
                 &&!($scopedSlots.default && $scopedSlots.default(item2))
-                &&$env.VUE_APP_DESIGNER"></s-empty>
+                &&$env.VUE_APP_DESIGNER
+                && !!$attrs['vusion-node-path']"></s-empty>
           </template>
         </u-list-components-item>
       </div>
     </template>
     <template v-else>
-        <slot><s-empty v-if="!$slots.default && $env.VUE_APP_DESIGNER"></s-empty></slot>
+        <slot><s-empty v-if="!$slots.default && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty></slot>
     </template>
   </div>
 </template>

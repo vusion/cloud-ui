@@ -5,13 +5,13 @@
     <span v-if="$slots.default" :class="$style.sub">
         <slot></slot>
     </span>
-    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
 </div>
 </template>
 
 <script>
 import SEmpty from '../../components/s-empty.vue';
-export default { name: 's-logo', components: {  SEmpty } };
+export default { name: 's-logo', components: { SEmpty } };
 </script>
 
 <style module>

@@ -3,13 +3,13 @@
     <svg :class="$style.svg" :viewBox="`0 0 ${width} ${width}`">
         <g :transform="`translate(${width / 2}, ${width / 2}) rotate(-90)`">
             <circle :class="$style.track" cx="0" cy="0" :r="radius" />
-            <circle :class="$style.trail" cx="0" cy="0" :r="radius" :style="{ strokeDasharray }" stroke-linecap="round"/>
+            <circle :class="$style.trail" cx="0" cy="0" :r="radius" :style="{ strokeDasharray }" stroke-linecap="round" />
         </g>
     </svg>
     <div :class="$style.text" vusion-slot-name="default">
         <div :class="$style.percent" vusion-slot-name="percent">
             <slot name="percent">
-                <s-empty v-if="!$slots.percent && $env.VUE_APP_DESIGNER"></s-empty>
+                <s-empty v-if="!$slots.percent && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                 <template v-else-if="!showPercentSlot">{{ percent + '%' }}</template>
             </slot>
         </div>
@@ -38,18 +38,10 @@ export default {
         showPercentSlot: { type: Boolean, default: false },
     },
     data() {
-        return { 
+        return {
             width: 90,
             radius: 66,
         };
-    },
-    created() {
-        this.setSvgParams(this.size);
-    },
-    watch: {
-        size(value) {
-            this.setSvgParams(value);
-        }
     },
     computed: {
         strokeDasharray() {
@@ -57,6 +49,14 @@ export default {
                 2 * Math.PI * this.radius * this.percent * 0.01 + 'px 1000px'
             );
         },
+    },
+    watch: {
+        size(value) {
+            this.setSvgParams(value);
+        },
+    },
+    created() {
+        this.setSvgParams(this.size);
     },
     methods: {
         setSvgParams(value) {
@@ -66,12 +66,12 @@ export default {
                 small: { width: 74, border: 5 },
                 large: { width: 112, border: 8 },
                 huge: { width: 142, border: 10 },
-            }
+            };
             const size = SIZE_MAP[value] || SIZE_MAP.default;
             this.width = size.width;
-            this.radius = ( size.width - size.border ) / 2;
-        }
-    }
+            this.radius = (size.width - size.border) / 2;
+        },
+    },
 };
 </script>
 

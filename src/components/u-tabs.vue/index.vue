@@ -6,7 +6,8 @@
                 <s-empty v-if="!$slots.extra
                     && $scopedSlots
                     && !($scopedSlots.extra && $scopedSlots.extra())
-                    && $env.VUE_APP_DESIGNER"></s-empty>
+                    && $env.VUE_APP_DESIGNER
+                    && !!$attrs['vusion-node-path']"></s-empty>
             </span>
             <nav :class="$style.nav" :scrollable="showScrollButtons === 'always' || (showScrollButtons === 'auto' && scrollable)">
                 <span :class="$style.prev" @click="scrollPrev"></span>

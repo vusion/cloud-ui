@@ -14,7 +14,7 @@
                     <slot name="head">
                         <div v-if="title" vusion-slot-name="title" vusion-slot-name-edit="title" :class="$style.title" :child-cut-disabled="true">
                             <slot name="title">
-                                <s-empty v-if="(!$slots.title) && $env.VUE_APP_DESIGNER"></s-empty>
+                                <s-empty v-if="(!$slots.title) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                                 <template v-else>
                                     {{ title }}
                                 </template>
@@ -25,7 +25,7 @@
                 </div>
                 <div :class="$style.body" :icon="icon" vusion-slot-name="body" :child-cut-disabled="true">
                     <slot name="body">
-                        <s-empty v-if="(!$slots.body) && $env.VUE_APP_DESIGNER"></s-empty>
+                        <s-empty v-if="(!$slots.body) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                         <div :class="$style.text" v-else>
                             <div :class="$style.heading"><slot name="heading">{{ heading }}</slot></div>
                             <div :class="$style.content"><slot>{{ content }}</slot></div>
@@ -36,7 +36,7 @@
                 </div>
                 <div :class="$style.foot" vusion-slot-name="foot" :child-cut-disabled="true" v-if="showFoot && (okButton || cancelButton)">
                     <slot name="foot">
-                        <s-empty v-if="(!$slots.foot) && $env.VUE_APP_DESIGNER"></s-empty>
+                        <s-empty v-if="(!$slots.foot) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                         <u-linear-layout gap="small" justify="end" v-else>
                             <u-button :class="$style.button" v-if="cancelButton" :color="primaryButton === 'cancelButton' ? 'primary' : ''" :disabled="disableCancel" @click="cancel()">{{ cancelButton }}</u-button>
                             <u-button :class="$style.button" v-if="okButton" :color="primaryButton === 'okButton' ? 'primary' : ''" :disabled="disableOk" @click="ok()">{{ okButton }}</u-button>
@@ -95,7 +95,7 @@ export const UModal = {
         disableEsc: { type: Boolean, default: false },
         customClass: { type: String, default: undefined },
         functionalModal: { type: Boolean, default: false },
-        showFoot: { type: Boolean, default: true }
+        showFoot: { type: Boolean, default: true },
     },
     data() {
         return {
