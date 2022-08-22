@@ -67,23 +67,11 @@
       advanced: true
   slots: false
   events:
-    - name: $listeners
-      kind: trigger
-      description: 监听所有事件。
-      params: []
     - name: load
       title: 加载完成
       description: 网页加载完成时触发
       params: []
-    - name: click
-      title: 点击
-      description: 在元素上按下并释放任意鼠标按钮时触发
-    - name: dblclick
-      title: 双击
-      description: 在元素上双击鼠标按钮时触发
-    - name: mouseenter
-      title: 鼠标移入
-      description: 鼠标移入元素时触发
-    - name: mouseleave
-      title: 鼠标移出
-      description: 鼠标移出元素时触发
+    - name: $listeners
+      kind: trigger
+      description: 监听所有事件。
+      params: []
