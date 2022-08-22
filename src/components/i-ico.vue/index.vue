@@ -13,7 +13,7 @@
             <use :xlink:href="`#${iconconfig.css_prefix_text}${getName()}`" />
         </svg>
     </span>
-    <div :class="$style.icontext" vusion-slot-name="default">
+    <div :class="[$style.icontext, icotype==='left' ? $style.textleft : '']" vusion-slot-name="default" v-if="!endNotext">
         <slot></slot>
         <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !notext && !!$attrs['vusion-node-path']"></s-empty>
     </div>
@@ -42,12 +42,18 @@ export default {
         decoration: { type: Boolean, default: true },
         download: { type: Boolean, default: false },
         destination: String,
+        icotype: String,
     },
     data() {
         return {
             iconconfig,
             ie11,
         };
+    },
+    computed: {
+        endNotext() {
+            return this.icotype === 'only';
+        }
     },
     methods: {
         getName() {
@@ -171,5 +177,8 @@ export default {
     font-style: initial;
     font-size: 14px;
     color: #666;
+}
+.textleft {
+    display: inline-block;
 }
 </style>
