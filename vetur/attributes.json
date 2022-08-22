@@ -2479,6 +2479,55 @@
     ],
     "description": "该项的标签大小。"
   },
+  "u-divider/dashed": {
+    "type": "string",
+    "options": [
+      {
+        "value": "b",
+        "title": "虚线"
+      },
+      {
+        "value": "a",
+        "title": "实线"
+      }
+    ],
+    "description": "线条类型"
+  },
+  "u-divider/content-position": {
+    "type": "string",
+    "options": [
+      {
+        "value": "center",
+        "title": "居中"
+      },
+      {
+        "value": "left",
+        "title": "左"
+      },
+      {
+        "value": "right",
+        "title": "右"
+      }
+    ],
+    "description": "内容位置"
+  },
+  "u-divider/title": {
+    "type": "string",
+    "description": "文本"
+  },
+  "u-divider/direction": {
+    "type": "string",
+    "options": [
+      {
+        "value": "horizontal",
+        "title": "横向"
+      },
+      {
+        "value": "column",
+        "title": "竖向"
+      }
+    ]
+  },
   "u-drawer/visible": {
     "type": "boolean",
     "description": "是否显示"
@@ -2774,7 +2823,7 @@
   },
   "u-form-table-view-column/ellipsis": {
     "type": "boolean",
-    "description": "文字过长是否省略显示。默认文字超出时会换行。"
+    "description": "文字过长是否省略显示，默认文字超出时会换行"
   },
   "u-form-table-view-column/formatter": {
     "type": "string, object, Function, Formatter",
@@ -2786,7 +2835,7 @@
   },
   "u-form-table-view-column/start-index": {
     "type": "number",
-    "description": "当`type=\"index\"`时的起始序号"
+    "description": "序号列的起始序号"
   },
   "u-form-table-view-column/label": {
     "type": "string",
@@ -6413,7 +6462,7 @@
   },
   "u-table-view/initial-load": {
     "type": "boolean",
-    "description": "是否在初始时立即加载。"
+    "description": "是否在初始时立即加载"
   },
   "u-table-view/pageable": {
     "type": "boolean",
@@ -6429,7 +6478,7 @@
   },
   "u-table-view/page-size-options": {
     "type": "Array<number>",
-    "description": "分页大小的选项列表。"
+    "description": "分页大小的选项列表"
   },
   "u-table-view/show-total": {
     "type": "boolean",
@@ -6445,7 +6494,7 @@
   },
   "u-table-view/sorting": {
     "type": "{ field: string, order: string, compare: Function }",
-    "description": "当前排序的字段和顺序。"
+    "description": "当前排序的字段和顺序"
   },
   "u-table-view/default-order": {
     "type": "string",
@@ -6459,7 +6508,7 @@
         "title": "倒序"
       }
     ],
-    "description": "所有列首次点击时的排序顺序。"
+    "description": "所有列首次点击时的排序顺序"
   },
   "u-table-view/filtering": {
     "type": "object",
@@ -6467,11 +6516,11 @@
   },
   "u-table-view/remote-paging": {
     "type": "boolean",
-    "description": "是否使用后端分页。"
+    "description": "是否使用后端分页"
   },
   "u-table-view/remote-sorting": {
     "type": "boolean",
-    "description": "是否使用后端排序。"
+    "description": "是否使用后端排序"
   },
   "u-table-view/remote-filtering": {
     "type": "boolean",
@@ -6509,15 +6558,15 @@
   },
   "u-table-view/line": {
     "type": "boolean",
-    "description": "单元格之间是否显示分隔线条。"
+    "description": "单元格之间是否显示分隔线条"
   },
   "u-table-view/striped": {
     "type": "boolean",
-    "description": "表格行是否按斑马线条纹显示。"
+    "description": "表格行是否按斑马线条纹显示"
   },
   "u-table-view/hover": {
     "type": "boolean",
-    "description": "表格行在悬浮时是否高亮显示。"
+    "description": "表格行在悬浮时是否高亮显示"
   },
   "u-table-view/show-head": {
     "type": "boolean",
@@ -6525,19 +6574,19 @@
   },
   "u-table-view/default-column-width": {
     "type": "string | number",
-    "description": "表格的默认列宽度，可以设置为百分比或数字。"
+    "description": "表格的默认列宽度，可以设置为百分比或数字"
   },
   "u-table-view/loading": {
     "type": "boolean",
-    "description": "手动设置是否正在加载中。"
+    "description": "手动设置是否正在加载中"
   },
   "u-table-view/loading-text": {
     "type": "string",
-    "description": "正在加载中的文字。"
+    "description": "正在加载中的文字"
   },
   "u-table-view/error": {
     "type": "boolean",
-    "description": "手动设置是否加载失败。"
+    "description": "手动设置是否加载失败"
   },
   "u-table-view/error-text": {
     "type": "string",
@@ -6549,23 +6598,23 @@
   },
   "u-table-view/value-field": {
     "type": "string",
-    "description": "在单选、多选操作、渲染树形数据中，指定数据唯一值的字段。"
+    "description": "在单选、多选操作、渲染树形数据中，指定数据唯一值的字段"
   },
   "u-table-view/value": {
     "type": "any",
-    "description": "单项选择的值。"
+    "description": "单项选择的值"
   },
   "u-table-view/values": {
     "type": "Array",
-    "description": "多项选择的值。"
+    "description": "多项选择的值"
   },
   "u-table-view/selectable": {
     "type": "boolean",
-    "description": "是否可以单选行。"
+    "description": "是否可以单选行"
   },
   "u-table-view/cancelable": {
     "type": "boolean",
-    "description": "是否可以取消选择。"
+    "description": "是否可以取消选择"
   },
   "u-table-view/readonly": {
     "type": "boolean",
@@ -6581,7 +6630,7 @@
   },
   "u-table-view/resizable": {
     "type": "boolean",
-    "description": "是否可以调整列宽。"
+    "description": "是否可以调整列宽"
   },
   "u-table-view/resize-remaining": {
     "type": "string",
@@ -6603,39 +6652,39 @@
   },
   "u-table-view/tree-display": {
     "type": "boolean",
-    "description": "以树形数据展示表格。"
+    "description": "以树形数据展示表格"
   },
   "u-table-view/children-field": {
     "type": "string",
-    "description": "树形数据子节点字段名。"
+    "description": "树形数据子节点字段名"
   },
   "u-table-view/has-children-field": {
     "type": "string",
-    "description": "该字段指定行数据是否包含子节点数据。"
+    "description": "该字段指定行数据是否包含子节点数据"
   },
   "u-table-view-column/title": {
     "type": "string",
-    "description": "列标题。"
+    "description": "列标题"
   },
   "u-table-view-column/field": {
     "type": "string",
-    "description": "data 项中的字段名。"
+    "description": "data 项中的字段名"
   },
   "u-table-view-column/width": {
     "type": "string | number",
-    "description": "给列指定宽度，可以为数字或百分比。"
+    "description": "给列指定宽度，可以为数字或百分比"
   },
   "u-table-view-column/formatter": {
     "type": "string | object | Function | Formatter",
-    "description": "格式器。"
+    "description": "格式器"
   },
   "u-table-view-column/fixed": {
     "type": "boolean",
-    "description": "该列是否固定。"
+    "description": "该列是否固定"
   },
   "u-table-view-column/sortable": {
     "type": "boolean",
-    "description": "该列是否可以排序。"
+    "description": "该列是否可以排序"
   },
   "u-table-view-column/default-order": {
     "type": "string",
@@ -6661,7 +6710,7 @@
   },
   "u-table-view-column/hidden": {
     "type": "boolean",
-    "description": "是否隐藏该列。"
+    "description": "是否隐藏该列"
   },
   "u-table-view-column/type": {
     "type": "string",
@@ -6695,11 +6744,11 @@
         "title": "编辑列"
       }
     ],
-    "description": "列类型"
+    "description": "支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序"
   },
   "u-table-view-column/start-index": {
     "type": "number",
-    "description": "当`type=\"index\"`时的起始序号。"
+    "description": "序号列的起始序号"
   },
   "u-table-view-column/dblclickHandler": {
     "type": "Function",

@@ -712,6 +712,15 @@
       "label-size"
     ]
   },
+  "u-divider": {
+    "attributes": [
+      "dashed",
+      "content-position",
+      "title",
+      "direction"
+    ],
+    "description": "用于将内容分隔为多个区域"
+  },
   "u-drawer": {
     "attributes": [
       "visible",
@@ -783,7 +792,7 @@
       "min-count",
       "max-count"
     ],
-    "description": "本组件用于在表单中使用表单验证、动态数据等复杂功能。",
+    "description": "本组件用于在表单中使用表单验证、动态数据等复杂功能",
     "subtags": [
       "u-form-table-view-column"
     ]

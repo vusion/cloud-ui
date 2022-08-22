@@ -67,6 +67,13 @@
 
 ### Events
 
+#### @$listeners
+
+监听所有事件。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+
 #### @load
 
 网页加载完成时触发
