@@ -22,6 +22,7 @@ export default {
     mixins: [MChild],
     props: {
         size: [String, Number],
+        minSize: { type: Number },
     },
     data() {
         return {

@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" v-show="!hidden">
-    <div :class="$style.item" :selected="selected" :style="{ paddingLeft: level * expanderWidth + paddingLeft + 'px' }"
+    <div :class="$style.item" :selected="selected" :style="{ paddingLeft: rootVM.flat ? '0' : level * expanderWidth + paddingLeft + 'px' }"
         :readonly="rootVM.readonly" :readonly-mode="rootVM.readonlyMode"
         :subBackground="rootVM.subBackground"
         :disabled="currentDisabled"
@@ -20,7 +20,7 @@
         <u-loading v-if="loading" :class="$style.loading" size="small"></u-loading>
         <div :class="$style.expander"
             ref="clickExpander"
-            v-else-if="hasChildren || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
+            v-else-if="(hasChildren || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)) && !rootVM.flat"
             :expand-trigger="rootVM.expandTrigger" :expanded="currentExpanded"
             @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
             :style="{ width : expanderWidth? expanderWidth + 'px':'' }"
@@ -510,7 +510,7 @@ export default {
         },
         onDragStart(e) {
             this.currentDragging = true;
-            this.rootVM.$emit('dragstart', {
+            this.rootVM && this.rootVM.$emit('dragstart', {
                 node: this.node,
                 nodeVM: this,
                 value: this.value,
@@ -520,7 +520,7 @@ export default {
             });
         },
         onDragOver(e) {
-            this.rootVM.$emit('dragover', {
+            this.rootVM && this.rootVM.$emit('dragover', {
                 node: this.node,
                 nodeVM: this,
                 value: this.value,
@@ -535,7 +535,7 @@ export default {
         },
         onDragEnd(e) {
             this.currentDragging = false;
-            this.rootVM.$emit('dragend', {
+            this.rootVM && this.rootVM.$emit('dragend', {
                 node: this.node,
                 nodeVM: this,
                 value: this.value,
@@ -546,7 +546,7 @@ export default {
             this.clearExpanderTimer();
         },
         onDrop(e) {
-            this.rootVM.$emit('drop', {
+            this.rootVM && this.rootVM.$emit('drop', {
                 node: this.node,
                 nodeVM: this,
                 value: this.value,

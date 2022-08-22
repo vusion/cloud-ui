@@ -28,6 +28,7 @@ export default {
     nodeName: 'u-tree-view-node',
     mixins: [MRoot, MField],
     props: {
+        flat: { type: Boolean, default: false },
         value: null,
         values: Array,
         field: String,
