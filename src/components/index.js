@@ -112,6 +112,7 @@ export * from './u-router-view.vue';
 export * from './u-tooltip.vue';
 export * from './u-transfer.vue';
 export * from './u-tree-view.vue';
+export * from './u-tree-view-new.vue';
 export * from './u-tree-select.vue';
 export * from './u-uploader.vue';
 export * from './u-validator-tr.vue';

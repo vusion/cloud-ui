@@ -72,6 +72,7 @@ module.exports = {
             { group: '数据', name: 'u-list-view', alias: '数据列表' },
             { group: '数据', name: 'u-grid-view', alias: '数据网络' },
             { group: '数据', name: 'u-tree-view', alias: '树型列表' },
+            { group: '数据', name: 'u-tree-view-new', alias: '树型列表（组件）' },
             { group: '数据', name: 'u-transfer', alias: '穿梭框' },
             { group: '数据', name: 'u-form-table-view', alias: '表单表格', advanced: true },
             { group: '数据', name: 'u-calendar-view', alias: '日历' },
