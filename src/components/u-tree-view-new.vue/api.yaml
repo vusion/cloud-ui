@@ -88,7 +88,7 @@
       support:
         - name: u-tree-view-node-new
           title: 子节点
-          snippet: <u-tree-view-node-new text="节点"></u-tree-view-node-new>
+          snippet: <u-tree-view-node-new><template slot="text">节点</template></u-tree-view-node-new>
   events:
     - name: before-select
       title: 选择前
@@ -312,7 +312,7 @@
       support:
         - name: u-tree-view-node-new
           title: 子节点
-          snippet: <u-tree-view-node-new text="节点"></u-tree-view-node-new>
+          snippet: <u-tree-view-node-new><template slot="text">节点</template></u-tree-view-node-new>
   blocks:
     - name: 基础示例
       code: <u-tree-view-node-new text="节点 1"></u-tree-view-node-new>
