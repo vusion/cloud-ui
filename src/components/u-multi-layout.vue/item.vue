@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :direction="direction" :fixed="String(fixed)" :fixdirec="String(fixdirec)" v-on="$listeners" vusion-slot-name="default" ref="item">
     <slot></slot>
-    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
 </div>
 </template>
 
@@ -30,12 +30,14 @@ export default {
     data() {
         return {
             observerwh: null,
-        }
+        };
+    },
+    computed: {
     },
     mounted() {
         this.observerwh = new MutationObserver(this.pwh);
         this.observerwh.observe(this.$refs.item, {
-            attributes: true, childList: true, subtree: true
+            attributes: true, childList: true, subtree: true,
         });
         this.pwh();
     },
@@ -49,7 +51,7 @@ export default {
             const ifh = dom && (dom.style.height);
             const direction = this.$parent.direction;
 
-            if ((ifw && direction==='horizontal') || (ifh && direction==='vertical')) {
+            if ((ifw && direction === 'horizontal') || (ifh && direction === 'vertical')) {
                 dom.style.flexGrow = 0;
                 dom.style.flexBasis = 'auto';
             } else {
@@ -58,8 +60,6 @@ export default {
             }
         },
     },
-    computed: {
-    }
 };
 </script>
 

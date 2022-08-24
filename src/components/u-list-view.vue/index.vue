@@ -27,7 +27,7 @@
                 :disabled="item.disabled || disabled"
                 :ellipsis-title="ellipsisTitle"
                 :item="item">
-                <slot name="item" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled" vusion-slot-name="item" :ellipsis-title="ellipsisTitle">{{ $at(item, field || textField) }}<s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER"></s-empty></slot>
+                <slot name="item" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled" vusion-slot-name="item" :ellipsis-title="ellipsisTitle">{{ $at(item, field || textField) }}<s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty></slot>
             </component>
         </div>
         <div :class="$style.status" status="loading" v-if="currentLoading">
@@ -440,13 +440,13 @@ export default {
         reload() {
             this.currentDataSource.clearLocalData();
             const {
-                paging: oldPaging
+                paging: oldPaging,
             } = this.currentDataSource;
-            let paging = undefined;
-            if(oldPaging) {
-                const { size,number } = oldPaging
+            let paging;
+            if (oldPaging) {
+                const { size, number } = oldPaging;
                 paging = {
-                    size: size,
+                    size,
                     oldSize: size,
                     number: 1,
                     oldNumber: number,

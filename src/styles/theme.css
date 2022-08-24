@@ -1516,7 +1516,9 @@
 
     /* @component u-tooltip @hidden */
     --tooltip-padding: 8px 12px;
+    --tooltip-padding-small: 2px 6px;
     --tooltip-arrow-size: 6px;
+    --tooltip-arrow-size-small: 3px;
     --tooltip-arrow-offset: 16px;
     --tooltip-background: #242424;
     --tooltip-color: white;
