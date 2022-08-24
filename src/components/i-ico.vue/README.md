@@ -51,6 +51,8 @@
     <i-ico name=attachment><u-text>附件</u-text></i-ico>
     <i-ico name=notice><u-text>通知</u-text></i-ico>
     <i-ico name="https://static-vusion.nos-eastchina1.126.net/h5-template/svgviewer-output.svg"><u-text>自定义</u-text></i-ico>
+    <i-ico icotype="left" name="https://static-vusion.nos-eastchina1.126.net/h5-template/svgviewer-output.svg"><u-text>左右图标</u-text></i-ico>
+    <i-ico icotype="only" name="https://static-vusion.nos-eastchina1.126.net/h5-template/svgviewer-output.svg"><u-text>无文字</u-text></i-ico>
 </u-linear-layout>
 ```
 
@@ -60,6 +62,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | name | icon |  | `''` |  |
+| icotype | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'top'` | 图标类型 |
 | linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` |  |
 | hrefAndTo | string |  |  |  |
 | target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 链接打开方式 |

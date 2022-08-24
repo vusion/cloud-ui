@@ -165,6 +165,24 @@
     "type": "icon",
     "description": ""
   },
+  "i-ico/icotype": {
+    "type": "string",
+    "options": [
+      {
+        "value": "only",
+        "title": "仅图标"
+      },
+      {
+        "value": "top",
+        "title": "组合图标-上下"
+      },
+      {
+        "value": "left",
+        "title": "组合图标-左右"
+      }
+    ],
+    "description": "图标类型"
+  },
   "i-ico/linkType": {
     "type": "string",
     "options": [
