@@ -4,6 +4,7 @@
     <template v-else-if="currentDataSource">
         <component :is="ChildComponent"
             v-for="node in currentDataSource.data"
+            :text="$at(node, field || textField)"
             :value="$at(node, valueField)"
             :expanded="$at(node, expandedField)"
             :checked.sync="node.checked"

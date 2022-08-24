@@ -50,6 +50,7 @@
         <template v-if="node && $at(node, currentChildrenField) && !rootVM.excludeFields.includes(currentChildrenField)">
             <u-tree-view-node-new
                 v-for="subNode in $at(node, currentChildrenField)"
+                :text="$at(subNode, rootVM.field || rootVM.textField)"
                 :value="$at(subNode, rootVM.valueField)"
                 :expanded="rootVM.filterText ? $at(subNode, 'expandedByFilter') : $at(subNode, rootVM.expandedField)"
                 :checked.sync="subNode.checked"
@@ -65,6 +66,7 @@
             <template v-for="subField in currentMoreChildrenFields" v-if="node && $at(node, subField)">
                 <u-tree-view-node-new
                     v-for="subNode in $at(node, subField)"
+                    :text="$at(subNode, rootVM.field || rootVM.textField)"
                     :value="$at(subNode, rootVM.valueField)"
                     :expanded="rootVM.filterText ? $at(subNode, 'expandedByFilter') : $at(subNode, rootVM.expandedField)"
                     :checked.sync="subNode.checked"
