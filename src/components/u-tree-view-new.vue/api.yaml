@@ -7,9 +7,9 @@
   next: true
   nested: false
   attrs:
-    - name: data
+    - name: data-source
       title: 数据源
-      type: Array<{ text, value }>
+      type: Array<Item> | Function | object | DataSource
       description: 集合类型变量或者输出参数为集合类型的逻辑
       group: 数据属性
     - name: data-schema

@@ -1,51 +1,47 @@
 <template>
-<div :class="$style.root">
+    <div :class="$style.root">
         <div
             :class="$style.link"
-            :id="label"
+            :id="label || componentName"
             anchor
         >
-            <span v-show="showAnchor" :class="$style.anchor">#{{labelName}}</span>
-            <u-linear-layout direction="horizontal"></u-linear-layout>
+            <div :class="$style.sub" vusion-slot-name="default">
+                <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+                <slot></slot>
+            </div>
         </div>
-    <slot></slot>
-</div>
+    </div>
 </template>
 
 <script>
-import ULinearLayout from '@/components/u-linear-layout.vue';
+import SEmpty from '@/components/s-empty.vue';
 export default {
     name: 'u-anchor',
-    components: { ULinearLayout },
+    components: { SEmpty },
     props: {
         name: {type: String, default: ''},
         label: { type: String, default: '' },
-        // ref: { type: String, default: '' },
-        labelName: { type: String, default: '锚点' },
-        showAnchor: { type: Boolean, default: true },
     },
     mounted() {
-        console.log('attrs', this.$attrs);
     },
     computed: {
+        // 获取组件名称
+        componentName() {
+            if (this.$attrs['vusion-node-path']) {
+                return this.$attrs['vusion-node-path'].split('.').pop().split('=').pop().slice(0, -1);
+            }
+        },
     },
     data() {
         return {
-
         }
-    },
-    methods: {
-
     },
 };
 </script>
 
 <style module>
 .root {
-    display: inline-block;
+    display: block;
 }
 
-.anchor {
-
-}
 </style>

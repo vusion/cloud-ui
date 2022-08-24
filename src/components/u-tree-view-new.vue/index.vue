@@ -75,8 +75,8 @@ export default {
             this.handleData();
         },
         dataSource(dataSource, oldDataSource) {
-            if (typeof dataSource === 'function' && String(dataSource) === String(oldDataSource))
-                return;
+            // if (typeof dataSource === 'function' && String(dataSource) === String(oldDataSource))
+            //     return;
             this.handleData();
         },
         // It is dynamic to find selected item by value

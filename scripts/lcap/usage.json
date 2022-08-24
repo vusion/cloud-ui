@@ -3023,6 +3023,347 @@
         }
     },
     {
+        "symbol": "u-toc",
+        "name": "目录",
+        "depDescription": {},
+        "description": "用于展示文档的目录",
+        "labels": [
+            "路由链接",
+            "块级展示"
+        ],
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-toc.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-toc.vue/screenshots/1.png",
+        "blocks": "[]",
+        "jsonSchema": {
+            "name": "u-toc",
+            "title": "目录",
+            "description": "用于展示文档的目录",
+            "category": "路由链接",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-toc.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-toc.vue/screenshots/1.png",
+            "drawings": "",
+            "blocks": [],
+            "attrs": [
+                {
+                    "name": "value",
+                    "title": "选中值（双向绑定）",
+                    "type": "any",
+                    "sync": true,
+                    "model": true,
+                    "description": "当前选择的值"
+                },
+                {
+                    "name": "scroll-spy",
+                    "title": "滚动监听",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "是否监听滚动"
+                },
+                {
+                    "name": "scroll-parent",
+                    "title": "滚动父元素",
+                    "type": "HTMLElement",
+                    "description": "滚动的父级元素"
+                }
+            ],
+            "slots": [
+                {
+                    "name": "default",
+                    "description": "插入`<u-toc-item>`子组件。",
+                    "support": [
+                        {
+                            "name": "u-toc-item",
+                            "title": "子节点",
+                            "snippet": "<u-toc-item label=\"节点\"></u-toc-item>"
+                        }
+                    ]
+                }
+            ],
+            "events": [
+                {
+                    "name": "before-select",
+                    "title": "选择前",
+                    "description": "选择某一项前触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "选择项的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.itemVM",
+                            "type": "UTocItem",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.preventDefault",
+                            "type": "Function",
+                            "description": "阻止选择流程"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UToc",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "select",
+                    "title": "选择后",
+                    "description": "选择某一项时触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "改变后的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.oldItem",
+                            "type": "object",
+                            "description": "旧的选择项相关对象"
+                        },
+                        {
+                            "name": "$event.itemVM",
+                            "type": "UTocItem",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.oldVM",
+                            "type": "UTocItem",
+                            "description": "旧的选择项子组件"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UToc",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                }
+            ],
+            "children": [
+                {
+                    "name": "u-toc-item",
+                    "attrs": [
+                        {
+                            "name": "label",
+                            "title": "显示文本",
+                            "type": "string",
+                            "description": "集合的元素类型中，用于显示文本的属性名称",
+                            "group": "数据属性"
+                        },
+                        {
+                            "name": "value",
+                            "title": "选项值",
+                            "type": "any",
+                            "description": "集合的元素类型中，用于标识选中值的属性",
+                            "group": "数据属性"
+                        },
+                        {
+                            "name": "item",
+                            "title": "相关对象",
+                            "type": "object",
+                            "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发",
+                            "hidden": true
+                        },
+                        {
+                            "name": "linkType",
+                            "title": "链接类型",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "destination",
+                                    "title": "页面跳转"
+                                },
+                                {
+                                    "value": "href",
+                                    "title": "普通链接"
+                                },
+                                {
+                                    "value": "download",
+                                    "title": "下载链接"
+                                }
+                            ],
+                            "default": "href",
+                            "description": "链接类型",
+                            "compType": "linkTypeSelect",
+                            "bindHide": true,
+                            "group": "交互属性"
+                        },
+                        {
+                            "name": "hrefAndTo",
+                            "title": "链接地址",
+                            "type": "string",
+                            "description": "链接地址",
+                            "compType": "linkHrefInput",
+                            "group": "交互属性"
+                        },
+                        {
+                            "name": "target",
+                            "title": "链接打开方式",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "title": "新窗口",
+                                    "value": "_blank"
+                                },
+                                {
+                                    "title": "当前窗口",
+                                    "value": "_self"
+                                },
+                                {
+                                    "title": "父级窗口",
+                                    "value": "_parent",
+                                    "advanced": true
+                                },
+                                {
+                                    "title": "顶级窗口",
+                                    "value": "_top",
+                                    "advanced": true
+                                }
+                            ],
+                            "default": "_self",
+                            "description": "链接打开方式",
+                            "group": "交互属性"
+                        },
+                        {
+                            "name": "disabled",
+                            "title": "禁用",
+                            "type": "boolean",
+                            "default": false,
+                            "description": "禁用此项",
+                            "group": "交互属性"
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "name": "default",
+                            "description": "插入`<u-toc-item>`子组件。",
+                            "support": [
+                                {
+                                    "name": "u-toc-item",
+                                    "title": "子节点",
+                                    "snippet": "<u-toc-item label=\"节点\"></u-toc-item>"
+                                }
+                            ]
+                        }
+                    ],
+                    "events": [
+                        {
+                            "name": "click",
+                            "title": "点击",
+                            "description": "点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。",
+                            "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "MouseEvent",
+                                    "description": "鼠标事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/MouseEvent"
+                                    }
+                                },
+                                {
+                                    "name": "senderVM",
+                                    "type": "UTocItem",
+                                    "description": "发送事件实例"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "symbol": "u-anchor",
+        "name": "锚点",
+        "icon": "anchor",
+        "depDescription": {},
+        "description": "锚点",
+        "labels": [
+            "Selector"
+        ],
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-anchor.vue/screenshots/0.png",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-anchor>\\n</u-anchor>\\n</template>\\n\"}]",
+        "jsonSchema": {
+            "name": "u-anchor",
+            "title": "锚点",
+            "description": "锚点",
+            "category": "Selector",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-anchor.vue/screenshots/0.png",
+            "drawings": "",
+            "blocks": [
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<u-anchor>\n</u-anchor>\n</template>\n"
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "label",
+                    "title": "标识",
+                    "type": "string",
+                    "sync": true,
+                    "model": true,
+                    "description": "锚点的唯一标识，用于跳转链接，如“page#linkname”",
+                    "group": "交互属性"
+                },
+                {
+                    "name": "labelName",
+                    "title": "标识文本",
+                    "type": "string",
+                    "sync": true,
+                    "model": true,
+                    "description": ""
+                },
+                {
+                    "name": "showAnchor",
+                    "title": "显示锚点",
+                    "sync": true,
+                    "model": true,
+                    "type": "boolean",
+                    "default": true,
+                    "description": "是否显示锚点"
+                }
+            ],
+            "children": []
+        }
+    },
+    {
         "symbol": "u-text",
         "name": "文本",
         "icon": "text",
@@ -4909,6 +5250,12 @@
             "slots": false,
             "events": [
                 {
+                    "name": "$listeners",
+                    "kind": "trigger",
+                    "description": "监听所有事件。",
+                    "params": []
+                },
+                {
                     "name": "load",
                     "title": "加载完成",
                     "description": "网页加载完成时触发",
@@ -5154,6 +5501,112 @@
                     "description": "计时器结束时触发"
                 }
             ],
+            "next": true,
+            "nested": false,
+            "children": []
+        }
+    },
+    {
+        "symbol": "u-divider",
+        "name": "分隔线",
+        "icon": "divider",
+        "depDescription": {},
+        "description": "用于将内容分隔为多个区域",
+        "labels": [
+            "Display"
+        ],
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-divider.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-divider.vue/screenshots/1.png",
+        "blocks": "[{\"title\":\"实线\",\"description\":\"\",\"code\":\"<template>\\n<u-divider title=\\\"文本\\\" dashed=\\\"a\\\"></u-divider>\\n</template>\\n\"},{\"title\":\"虚线\",\"description\":\"\",\"code\":\"<template>\\n<u-divider dashed=\\\"b\\\" title=\\\"文本\\\"></u-divider>\\n</template>\\n\"}]",
+        "jsonSchema": {
+            "name": "u-divider",
+            "title": "分隔线",
+            "description": "用于将内容分隔为多个区域",
+            "category": "Display",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-divider.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-divider.vue/screenshots/1.png",
+            "drawings": "",
+            "blocks": [
+                {
+                    "title": "实线",
+                    "description": "",
+                    "code": "<template>\n<u-divider title=\"文本\" dashed=\"a\"></u-divider>\n</template>\n"
+                },
+                {
+                    "title": "虚线",
+                    "description": "",
+                    "code": "<template>\n<u-divider dashed=\"b\" title=\"文本\"></u-divider>\n</template>\n"
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "dashed",
+                    "title": "线条类型",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "b",
+                            "title": "虚线"
+                        },
+                        {
+                            "value": "a",
+                            "title": "实线"
+                        }
+                    ],
+                    "default": "a",
+                    "description": "线条类型"
+                },
+                {
+                    "name": "content-position",
+                    "title": "内容位置",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "center",
+                            "title": "居中"
+                        },
+                        {
+                            "value": "left",
+                            "title": "左"
+                        },
+                        {
+                            "value": "right",
+                            "title": "右"
+                        }
+                    ],
+                    "default": "center",
+                    "description": "内容位置"
+                },
+                {
+                    "name": "title",
+                    "title": "文本",
+                    "type": "string",
+                    "description": "文本"
+                },
+                {
+                    "name": "direction",
+                    "title": "方向",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "horizontal",
+                            "title": "横向"
+                        },
+                        {
+                            "value": "column",
+                            "title": "竖向"
+                        }
+                    ],
+                    "default": "horizontal"
+                }
+            ],
+            "slots": [
+                {
+                    "name": "default",
+                    "title": "默认",
+                    "description": "显示的文本",
+                    "advanced": true
+                }
+            ],
+            "events": [],
             "next": true,
             "nested": false,
             "children": []
@@ -10125,7 +10578,7 @@
             "attrs": [
                 {
                     "name": "value",
-                    "title": "值",
+                    "title": "内容",
                     "type": "string",
                     "sync": true,
                     "model": true,
@@ -12646,6 +13099,147 @@
                     "description": "分隔线"
                 }
             ]
+        }
+    },
+    {
+        "symbol": "u-tree-select",
+        "name": "树形选择框",
+        "icon": "tree-view",
+        "depDescription": {},
+        "description": "树形选择框",
+        "labels": [
+            "Form"
+        ],
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-tree-select.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-tree-select.vue/screenshots/1.png",
+        "blocks": "[]",
+        "jsonSchema": {
+            "name": "u-tree-select",
+            "title": "树形选择框",
+            "description": "树形选择框",
+            "category": "Form",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-tree-select.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-tree-select.vue/screenshots/1.png",
+            "drawings": "",
+            "blocks": [],
+            "attrs": [
+                {
+                    "name": "data",
+                    "title": "数据源",
+                    "type": "Array<{ text, value }>",
+                    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+                },
+                {
+                    "name": "text-field",
+                    "title": "文本字段",
+                    "type": "string",
+                    "default": "text",
+                    "description": "集合的元素类型中，用于显示文本的属性名称"
+                },
+                {
+                    "name": "value-field",
+                    "title": "值字段",
+                    "type": "string",
+                    "default": "value",
+                    "description": "集合的元素类型中，用于标识选中值的属性"
+                },
+                {
+                    "name": "children-field",
+                    "title": "父级选项值",
+                    "type": "string",
+                    "default": "value",
+                    "description": "集合的元素类型中，用于标识父节点的属性",
+                    "group": "数据属性"
+                }
+            ],
+            "slots": [
+                {
+                    "name": "default",
+                    "description": "插入`<u-tree-view-node>`子组件",
+                    "support": [
+                        {
+                            "name": "u-tree-view-node",
+                            "title": "子节点",
+                            "snippet": "<u-tree-view-node text=\"节点\"></u-tree-view-node>"
+                        }
+                    ]
+                }
+            ],
+            "events": [
+                {
+                    "name": "change",
+                    "description": "修改时触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/TreeChangeEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.param1",
+                            "type": "string",
+                            "description": "参数1"
+                        },
+                        {
+                            "name": "$event.param2",
+                            "type": "number",
+                            "description": "参数2"
+                        }
+                    ]
+                },
+                {
+                    "name": "select",
+                    "title": "选择后",
+                    "description": "选择某一项时触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/TreeChangeEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "改变后的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.node",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.oldNode",
+                            "type": "object",
+                            "description": "旧的选择项相关对象"
+                        },
+                        {
+                            "name": "$event.nodeVM",
+                            "type": "UTreeViewNode",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.oldVM",
+                            "type": "UTreeViewNode",
+                            "description": "旧的选择项子组件"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UTreeView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                }
+            ],
+            "children": []
         }
     },
     {
@@ -15671,10 +16265,10 @@
     },
     {
         "symbol": "u-tree-view",
-        "name": "树型视图",
+        "name": "树形视图",
         "icon": "tree-view",
         "depDescription": {},
-        "description": "树形选择器",
+        "description": "树形视图",
         "labels": [
             "Selector"
         ],
@@ -15682,8 +16276,8 @@
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tree-view value=\\\"1.2\\\">\\n    <u-tree-view-node text=\\\"节点 1\\\" value=\\\"1\\\">\\n        <u-tree-view-node text=\\\"节点 1.1\\\" value=\\\"1.1\\\"></u-tree-view-node>\\n        <u-tree-view-node text=\\\"节点 1.2\\\" value=\\\"1.2\\\">\\n            <u-tree-view-node text=\\\"节点 1.2.1\\\" value=\\\"1.2.1\\\"></u-tree-view-node>\\n            <u-tree-view-node text=\\\"节点 1.2.2\\\" value=\\\"1.2.2\\\"></u-tree-view-node>\\n        </u-tree-view-node>\\n        <u-tree-view-node text=\\\"节点 1.3\\\" value=\\\"1.3\\\"></u-tree-view-node>\\n        <u-tree-view-node text=\\\"节点 1.4\\\" value=\\\"1.4\\\"></u-tree-view-node>\\n    </u-tree-view-node>\\n    <u-tree-view-node text=\\\"节点 2\\\" value=\\\"2\\\"></u-tree-view-node>\\n    <u-tree-view-node text=\\\"节点 3\\\" value=\\\"3\\\">\\n        <u-tree-view-node text=\\\"节点 3.1\\\" value=\\\"3.1\\\"></u-tree-view-node>\\n        <u-tree-view-node text=\\\"节点 3.2\\\" value=\\\"3.2\\\"></u-tree-view-node>\\n    </u-tree-view-node>\\n</u-tree-view>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-tree-view",
-            "title": "树型视图",
-            "description": "树形选择器",
+            "title": "树形视图",
+            "description": "树形视图",
             "category": "Selector",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-tree-view.vue/screenshots/0.png",
             "drawings": "",
@@ -15697,45 +16291,56 @@
             "attrs": [
                 {
                     "name": "data",
-                    "title": "数据",
+                    "title": "数据源",
                     "type": "Array<{ text, value }>",
-                    "description": "Data书写方式中的数据列表"
-                },
-                {
-                    "name": "value",
-                    "title": "值",
-                    "type": "any",
-                    "sync": true,
-                    "model": true,
-                    "description": ""
+                    "description": "集合类型变量或者输出参数为集合类型的逻辑",
+                    "group": "数据属性"
                 },
                 {
                     "name": "text-field",
-                    "title": "文本字段",
+                    "title": "选项文本",
                     "type": "string",
                     "default": "text",
-                    "description": "选项文本的字段名"
+                    "description": "集合的元素类型中，用于显示文本的属性名称",
+                    "group": "数据属性"
                 },
                 {
                     "name": "value-field",
-                    "title": "值字段",
+                    "title": "选项值",
                     "type": "string",
                     "default": "value",
-                    "description": "选项值的字段名"
+                    "description": "集合的元素类型中，用于标识选中值的属性",
+                    "group": "数据属性"
                 },
                 {
-                    "name": "cancelable",
-                    "title": "取消",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否可以取消选择"
+                    "name": "children-field",
+                    "title": "父级选项值",
+                    "type": "string",
+                    "default": "value",
+                    "description": "集合的元素类型中，用于标识父节点的属性",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "value",
+                    "title": "选中值（双向绑定）",
+                    "type": "any",
+                    "sync": true,
+                    "model": true,
+                    "description": "单选后，选中的值"
                 },
                 {
                     "name": "checkable",
-                    "title": "选中取消",
+                    "title": "可多选",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以选中/取消"
+                    "description": "是否开启多选模式，显示多选框"
+                },
+                {
+                    "name": "cancelable",
+                    "title": "可取消",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否可以取消选择"
                 },
                 {
                     "name": "accordion",
@@ -15777,10 +16382,10 @@
                 },
                 {
                     "name": "check-controlled",
-                    "title": "完全受控",
+                    "title": "节点选中关联",
                     "type": "boolean",
                     "default": false,
-                    "description": "checkable 开启情况下，是否完全受控（父子节点状态不关联）"
+                    "description": "父节点选中，子节点是否被选中，懒加载开启状态下无法全选关联"
                 }
             ],
             "slots": [
@@ -16156,12 +16761,661 @@
                     "slots": [
                         {
                             "name": "default",
-                            "description": "插入文本或 HTML。",
+                            "description": "插入子节点",
                             "support": [
                                 {
                                     "name": "u-tree-view-node",
                                     "title": "子节点",
                                     "snippet": "<u-tree-view-node text=\"节点\"></u-tree-view-node>"
+                                }
+                            ]
+                        }
+                    ],
+                    "next": false,
+                    "nested": false,
+                    "events": [
+                        {
+                            "name": "before-select",
+                            "title": "选择前",
+                            "advanced": true,
+                            "description": "选择此项前触发",
+                            "params": [
+                                {
+                                    "name": "$event.value",
+                                    "type": "any",
+                                    "description": "此项的值"
+                                },
+                                {
+                                    "name": "$event.node",
+                                    "type": "object",
+                                    "description": "此项的相关对象"
+                                },
+                                {
+                                    "name": "$event.nodeVM",
+                                    "type": "UTreeViewNode",
+                                    "description": "此组件"
+                                },
+                                {
+                                    "name": "$event.preventDefault",
+                                    "type": "Function",
+                                    "description": "阻止选择流程"
+                                },
+                                {
+                                    "name": "senderVM",
+                                    "type": "UTreeViewNode",
+                                    "description": "发送事件实例"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "before-toggle",
+                            "title": "展开折叠前",
+                            "description": "展开/折叠此节点前触发",
+                            "advanced": true,
+                            "params": [
+                                {
+                                    "name": "$event.expanded",
+                                    "type": "boolean",
+                                    "description": "展开/折叠状态"
+                                },
+                                {
+                                    "name": "$event.node",
+                                    "type": "object",
+                                    "description": "节点相关对象"
+                                },
+                                {
+                                    "name": "$event.nodeVM",
+                                    "type": "UTreeViewNode",
+                                    "description": "节点组件"
+                                },
+                                {
+                                    "name": "$event.preventDefault",
+                                    "type": "Function",
+                                    "description": "阻止展开/折叠流程"
+                                },
+                                {
+                                    "name": "senderVM",
+                                    "type": "UTreeViewNode",
+                                    "description": "发送事件实例"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "toggle",
+                            "title": "展开折叠后",
+                            "description": "展开/折叠某节点时触发",
+                            "params": [
+                                {
+                                    "name": "$event.expanded",
+                                    "type": "boolean",
+                                    "description": "展开/折叠状态"
+                                },
+                                {
+                                    "name": "$event.node",
+                                    "type": "object",
+                                    "description": "节点相关对象"
+                                },
+                                {
+                                    "name": "$event.nodeVM",
+                                    "type": "UTreeViewNode",
+                                    "description": "节点组件"
+                                },
+                                {
+                                    "name": "senderVM",
+                                    "type": "UTreeViewNode",
+                                    "description": "发送事件实例"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "check",
+                            "title": "选中后",
+                            "description": "选中节点时触发",
+                            "params": [
+                                {
+                                    "name": "$event.checked",
+                                    "type": "boolean",
+                                    "description": "选中状态"
+                                },
+                                {
+                                    "name": "$event.oldChecked",
+                                    "type": "boolean",
+                                    "description": "旧的选中状态"
+                                },
+                                {
+                                    "name": "$event.node",
+                                    "type": "object",
+                                    "description": "节点相关对象"
+                                },
+                                {
+                                    "name": "$event.nodeVM",
+                                    "type": "UTreeViewNode",
+                                    "description": "节点组件"
+                                },
+                                {
+                                    "name": "senderVM",
+                                    "type": "UTreeViewNode",
+                                    "description": "发送事件实例"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "symbol": "u-tree-view-new",
+        "name": "树形视图",
+        "icon": "tree-view",
+        "depDescription": {},
+        "description": "树形视图",
+        "labels": [
+            "Selector"
+        ],
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-tree-view-new.vue/screenshots/0.png",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tree-view-new>\\n    <template slot=\\\"text\\\">节点 1</template>\\n    <u-tree-view-node-new value=\\\"1\\\">\\n        <template slot=\\\"text\\\">节点 1</template>\\n        <u-tree-view-node-new value=\\\"1.1\\\">\\n            <template slot=\\\"text\\\">节点 1.1</template>\\n        </u-tree-view-node-new>\\n        <u-tree-view-node-new value=\\\"1.2\\\">\\n            <template slot=\\\"text\\\">节点 1.2</template>\\n            <u-tree-view-node-new value=\\\"1.2.1\\\">\\n                <template slot=\\\"text\\\">节点 1.2.1</template>\\n            </u-tree-view-node-new>\\n        </u-tree-view-node-new>\\n    </u-tree-view-node-new>\\n</u-tree-view-new>\\n</template>\\n\"}]",
+        "jsonSchema": {
+            "name": "u-tree-view-new",
+            "title": "树形视图",
+            "description": "树形视图",
+            "category": "Selector",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.14/src/components/u-tree-view-new.vue/screenshots/0.png",
+            "drawings": "",
+            "blocks": [
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<u-tree-view-new>\n    <template slot=\"text\">节点 1</template>\n    <u-tree-view-node-new value=\"1\">\n        <template slot=\"text\">节点 1</template>\n        <u-tree-view-node-new value=\"1.1\">\n            <template slot=\"text\">节点 1.1</template>\n        </u-tree-view-node-new>\n        <u-tree-view-node-new value=\"1.2\">\n            <template slot=\"text\">节点 1.2</template>\n            <u-tree-view-node-new value=\"1.2.1\">\n                <template slot=\"text\">节点 1.2.1</template>\n            </u-tree-view-node-new>\n        </u-tree-view-node-new>\n    </u-tree-view-node-new>\n</u-tree-view-new>\n</template>\n"
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "data-source",
+                    "title": "数据源",
+                    "type": "Array<Item> | Function | object | DataSource",
+                    "description": "集合类型变量或者输出参数为集合类型的逻辑",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "data-schema",
+                    "title": "数据类型",
+                    "type": "schema",
+                    "description": "表格每一行的数据类型",
+                    "group": "数据属性",
+                    "compType": "dataTypeSelect"
+                },
+                {
+                    "name": "text-field",
+                    "title": "选项文本",
+                    "type": "string",
+                    "default": "text",
+                    "description": "集合的元素类型中，用于显示文本的属性名称",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "value-field",
+                    "title": "选项值",
+                    "type": "string",
+                    "default": "value",
+                    "description": "集合的元素类型中，用于标识选中值的属性",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "children-field",
+                    "title": "父级选项值",
+                    "type": "string",
+                    "default": "value",
+                    "description": "集合的元素类型中，用于标识父节点的属性",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "value",
+                    "title": "选中值（双向绑定）",
+                    "type": "any",
+                    "sync": true,
+                    "model": true,
+                    "description": "单选后，选中的值"
+                },
+                {
+                    "name": "checkable",
+                    "title": "可多选",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否开启多选模式，显示多选框"
+                },
+                {
+                    "name": "cancelable",
+                    "title": "可取消",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否可以取消选择"
+                },
+                {
+                    "name": "accordion",
+                    "title": "手风琴模式",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否每次只会展开一个分组"
+                },
+                {
+                    "name": "expand-trigger",
+                    "title": "触发方式",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "click",
+                            "title": "整行点击均可触发"
+                        },
+                        {
+                            "value": "click-expander",
+                            "title": "点击小箭头时触发"
+                        }
+                    ],
+                    "default": "click",
+                    "description": "展开/折叠的触发方式"
+                },
+                {
+                    "name": "readonly",
+                    "title": "只读",
+                    "type": "boolean",
+                    "default": false,
+                    "description": ""
+                },
+                {
+                    "name": "disabled",
+                    "title": "禁用",
+                    "type": "boolean",
+                    "default": false,
+                    "description": ""
+                },
+                {
+                    "name": "check-controlled",
+                    "title": "节点选中关联",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "父节点选中，子节点是否被选中，懒加载开启状态下无法全选关联"
+                }
+            ],
+            "slots": [
+                {
+                    "name": "default",
+                    "description": "插入`<u-tree-view-node-new>`子组件",
+                    "support": [
+                        {
+                            "name": "u-tree-view-node-new",
+                            "title": "子节点",
+                            "snippet": "<u-tree-view-node-new><template slot=\"text\">节点</template></u-tree-view-node-new>"
+                        }
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "walk",
+                    "advanced": true,
+                    "description": "广度优先遍历树。当`func`函数有返回值时，停止遍历。",
+                    "params": [
+                        {
+                            "name": "func",
+                            "type": "Function",
+                            "description": "遍历的处理函数"
+                        }
+                    ]
+                },
+                {
+                    "name": "find",
+                    "advanced": true,
+                    "description": "查找节点实例。",
+                    "params": [
+                        {
+                            "name": "func",
+                            "type": "Function",
+                            "description": "查找函数。找到第一个返回值为`true`的实例。"
+                        }
+                    ]
+                },
+                {
+                    "name": "toggleAll",
+                    "advanced": true,
+                    "description": "展开/折叠所有节点",
+                    "params": [
+                        {
+                            "name": "expanded",
+                            "type": "boolean",
+                            "description": "展开/折叠"
+                        }
+                    ]
+                },
+                {
+                    "name": "checkAll",
+                    "advanced": true,
+                    "description": "选中/取消所有节点",
+                    "params": [
+                        {
+                            "name": "expanded",
+                            "type": "boolean",
+                            "description": "选中/取消"
+                        }
+                    ]
+                }
+            ],
+            "events": [
+                {
+                    "name": "before-select",
+                    "title": "选择前",
+                    "description": "选择某一项前触发",
+                    "advanced": true,
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/TreeChangeEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "选择项的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.node",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.oldNode",
+                            "type": "object",
+                            "description": "旧的选择项相关对象"
+                        },
+                        {
+                            "name": "$event.nodeVM",
+                            "type": "UTreeViewNode",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.oldVM",
+                            "type": "UTreeViewNode",
+                            "description": "旧的选择项子组件"
+                        },
+                        {
+                            "name": "$event.preventDefault",
+                            "type": "Function",
+                            "description": "阻止选择流程"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UTreeView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "input",
+                    "title": "输入时",
+                    "description": "选择某一项时触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "any",
+                            "description": "选择项的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/String"
+                            }
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UTreeView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "select",
+                    "title": "选择后",
+                    "description": "选择某一项时触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/TreeChangeEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "改变后的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.node",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.oldNode",
+                            "type": "object",
+                            "description": "旧的选择项相关对象"
+                        },
+                        {
+                            "name": "$event.nodeVM",
+                            "type": "UTreeViewNode",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.oldVM",
+                            "type": "UTreeViewNode",
+                            "description": "旧的选择项子组件"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UTreeView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "change",
+                    "title": "改变后",
+                    "description": "选择值改变时触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/TreeChangeEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "选择项的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.node",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.oldNode",
+                            "type": "object",
+                            "description": "旧的选择项相关对象"
+                        },
+                        {
+                            "name": "$event.nodeVM",
+                            "type": "UTreeViewNode",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.oldVM",
+                            "type": "UTreeViewNode",
+                            "description": "旧的选择项子组件"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UTreeView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "toggle",
+                    "title": "展开折叠后",
+                    "description": "展开/折叠某节点时触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/CollapseEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.expanded",
+                            "type": "boolean",
+                            "description": "展开/折叠状态"
+                        },
+                        {
+                            "name": "$event.node",
+                            "type": "object",
+                            "description": "节点相关对象"
+                        },
+                        {
+                            "name": "$event.nodeVM",
+                            "type": "UTreeViewNode",
+                            "description": "节点组件"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UTreeView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "check",
+                    "title": "选中取消后",
+                    "description": "选中/取消节点时触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/CheckedEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.checked",
+                            "type": "boolean",
+                            "description": "选中/取消状态"
+                        },
+                        {
+                            "name": "$event.oldChecked",
+                            "type": "boolean",
+                            "description": "旧的选中/取消状态"
+                        },
+                        {
+                            "name": "$event.values",
+                            "type": "Array",
+                            "description": "所有选中节点的值"
+                        },
+                        {
+                            "name": "$event.node",
+                            "type": "object",
+                            "description": "节点相关对象"
+                        },
+                        {
+                            "name": "$event.nodeVM",
+                            "type": "UTreeViewNode",
+                            "description": "节点组件"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UTreeView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                }
+            ],
+            "next": true,
+            "nested": false,
+            "children": [
+                {
+                    "name": "u-tree-view-node-new",
+                    "title": "树型视图节点",
+                    "description": "树型视图节点",
+                    "attrs": [
+                        {
+                            "name": "value",
+                            "title": "值",
+                            "type": "any",
+                            "description": "节点的值"
+                        },
+                        {
+                            "name": "text",
+                            "title": "文本",
+                            "type": "string",
+                            "description": "节点的文本"
+                        },
+                        {
+                            "name": "expanded",
+                            "title": "展开折叠状态",
+                            "type": "boolean",
+                            "sync": true,
+                            "description": "节点默认展开"
+                        },
+                        {
+                            "name": "checked",
+                            "title": "选中取消状态",
+                            "type": "boolean",
+                            "sync": true,
+                            "description": "是否可以选中/取消"
+                        },
+                        {
+                            "name": "disabled",
+                            "title": "禁用",
+                            "type": "boolean",
+                            "default": false,
+                            "description": ""
+                        },
+                        {
+                            "name": "node",
+                            "title": "相关对象",
+                            "type": "object",
+                            "description": "当选择此节点时，抛出的事件会传递该对象，便于开发",
+                            "advanced": true
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "name": "default",
+                            "description": "插入子节点",
+                            "support": [
+                                {
+                                    "name": "u-tree-view-node-new",
+                                    "title": "子节点",
+                                    "snippet": "<u-tree-view-node-new><template slot=\"text\">节点</template></u-tree-view-node-new>"
                                 }
                             ]
                         }
