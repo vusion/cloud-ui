@@ -10,7 +10,7 @@
           :equal-wdth="equalWidth"
         >
           <template #default="item2">
-            <slot :item="item2.item" :index="index2"></slot>
+            <slot :item="item2.item" :index="index"></slot>
             <s-empty v-if="$scopedSlots
                 &&!($scopedSlots.default && $scopedSlots.default(item2))
                 &&$env.VUE_APP_DESIGNER
