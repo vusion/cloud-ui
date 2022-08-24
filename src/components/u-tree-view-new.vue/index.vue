@@ -14,7 +14,7 @@
             :node="node"
             :level="0"
             :draggable="node.draggable"
-        ></component>
+        ><template #text>{{$at(node, field || textField)}}</template></component>
     </template>
     <slot></slot>
 </div>
