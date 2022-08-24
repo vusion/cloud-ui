@@ -1,5 +1,5 @@
 <template>
-<span :class="[$style['lcp-iconv'], isSvgUrl(this.name) ? $style.iconcus : '']"
+<span :class="[$style['lcp-iconv'], isSvgUrl(name) ? $style.iconcus : '']"
     @click="onClick($event)"
     @dblclick="onDblclick($event)"
     @contextmenu="onContextMenu($event)"
@@ -7,15 +7,15 @@
     @mouseleave="onmouseout($event)"
     @mousedown="onmousedown($event)"
 >
-    <span :class="[$style.iconwrap, isSvgUrl(this.name) ? $style.iconwrapsvg : '']">
-        <online-svg-icon v-if="isSvgUrl(this.name)" :url="this.name" :purecss="!ie11()"></online-svg-icon>
+    <span :class="[$style.iconwrap, isSvgUrl(name) ? $style.iconwrapsvg : '']">
+        <online-svg-icon v-if="isSvgUrl(name)" :url="name" :purecss="!ie11()"></online-svg-icon>
         <svg :class="$style.iconsvg" aria-hidden="true" v-else>
             <use :xlink:href="`#${iconconfig.css_prefix_text}${getName()}`" />
         </svg>
     </span>
-    <div :class="$style.icontext" vusion-slot-name="default">
+    <div :class="[$style.icontext, icotype==='left' ? $style.textleft : '']" vusion-slot-name="default" v-if="!endNotext">
         <slot></slot>
-        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !notext"></s-empty>
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !notext && !!$attrs['vusion-node-path']"></s-empty>
     </div>
 </span>
 </template>
@@ -26,7 +26,7 @@ import iconconfig from './iconconfig.js';
 import SEmpty from '../../components/s-empty.vue';
 import encodeUrl from '../../utils/encodeUrl';
 
-import {onlineSvgIcon, ie11} from 'online-svg-icon-vue2';
+import { onlineSvgIcon, ie11 } from 'online-svg-icon-vue2';
 
 export default {
     name: 'i-ico',
@@ -42,6 +42,7 @@ export default {
         decoration: { type: Boolean, default: true },
         download: { type: Boolean, default: false },
         destination: String,
+        icotype: String,
     },
     data() {
         return {
@@ -49,19 +50,24 @@ export default {
             ie11,
         };
     },
+    computed: {
+        endNotext() {
+            return this.icotype === 'only';
+        }
+    },
     methods: {
         getName() {
             const item = this.iconconfig.glyphs.find((v) => v.font_class === this.name);
             return item ? item.font_class : 'default';
         },
         onClick(ev) {
-            console.log(ev, 999)
+            console.log(ev, 999);
             const props = this._props;
             const parent = this.$parent;
             function currentHref() {
                 if (props.href !== undefined)
                     return encodeUrl(props.href);
-                if (props.destination !== undefined && props.destination !== "")
+                if (props.destination !== undefined && props.destination !== '')
                     return encodeUrl(props.destination);
                 else if (parent && parent.$router && props.to !== undefined)
                     return encodeUrl(parent && parent.$router.resolve(props.to, parent && parent.$route, props.append).href);
@@ -134,7 +140,7 @@ export default {
         },
         isSvgUrl(name) {
             return name && name.indexOf('/') !== -1 && /\.svg/i.test(name);
-        }
+        },
     },
 };
 </script>
@@ -171,5 +177,8 @@ export default {
     font-style: initial;
     font-size: 14px;
     color: #666;
+}
+.textleft {
+    display: inline-block;
 }
 </style>

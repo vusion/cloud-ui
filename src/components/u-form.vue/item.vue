@@ -13,7 +13,7 @@
         </div>
         <div :class="[$style.wrap, $env.VUE_APP_DESIGNER ? $style.full : null]" vusion-slot-name="default">
             <slot></slot>
-            <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+            <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
             <span v-if="color === 'focus' && currentMessage" :class="$style.message" color="focus"><slot name="message">{{ currentMessage }}</slot></span>
             <span v-else-if="currentMessage" :class="$style.message" :color="color" placement="bottom"><slot name="message">{{ currentMessage }}</slot></span>
             <span v-else-if="bubble && !mutedMessage && touched && !valid && firstError" :class="$style.message" color="error" placement="bottom">{{ firstError }}</span>

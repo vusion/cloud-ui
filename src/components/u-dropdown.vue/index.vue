@@ -15,6 +15,7 @@
                     $scopedSlots &&
                     !($scopedSlots.title && $scopedSlots.title()) &&
                     $env.VUE_APP_DESIGNER
+                    && !!$attrs['vusion-node-path']
                 "
             ></s-empty>
             <i :class="$style.icon"></i>

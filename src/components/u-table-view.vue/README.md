@@ -1992,65 +1992,65 @@ export default {
 | data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 表格的数据源，数据集对象或者返回数据集的逻辑 |
 | data-schema | schema |  |  | 表格每一行的数据类型 |
 | extra-params | object |  |  | 数据源除了DataSourceParams外还需要的参数 |
-| initial-load | boolean |  | `true` | 是否在初始时立即加载。 |
+| initial-load | boolean |  | `true` | 是否在初始时立即加载 |
 | pageable | boolean |  | `false` |  |
 | page-size.sync | number |  | `20` |  |
 | page-number.sync | number |  | `1` |  |
-| page-size-options | Array\<number\> |  | `[10, 20, 50]` | 分页大小的选项列表。 |
+| page-size-options | Array\<number\> |  | `[10, 20, 50]` | 分页大小的选项列表 |
 | show-total | boolean |  | `false` |  |
 | show-sizer | boolean |  | `false` |  |
 | show-jumper | boolean |  | `false` |  |
-| sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 当前排序的字段和顺序。 |
-| default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 所有列首次点击时的排序顺序。 |
+| sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 当前排序的字段和顺序 |
+| default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 所有列首次点击时的排序顺序 |
 | filtering.sync | object |  |  |  |
-| remote-paging | boolean |  | `false` | 是否使用后端分页。 |
-| remote-sorting | boolean |  | `false` | 是否使用后端排序。 |
+| remote-paging | boolean |  | `false` | 是否使用后端分页 |
+| remote-sorting | boolean |  | `false` | 是否使用后端排序 |
 | remote-filtering | boolean |  | `false` | 是否使用后端筛选 |
 | title | string |  |  |  |
 | title-alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'center'` |  |
 | boldHeader | boolean |  | `true` |  |
 | border | boolean |  | `false` |  |
-| line | boolean |  | `false` | 单元格之间是否显示分隔线条。 |
-| striped | boolean |  | `false` | 表格行是否按斑马线条纹显示。 |
-| hover | boolean |  | `false` | 表格行在悬浮时是否高亮显示。 |
+| line | boolean |  | `false` | 单元格之间是否显示分隔线条 |
+| striped | boolean |  | `false` | 表格行是否按斑马线条纹显示 |
+| hover | boolean |  | `false` | 表格行在悬浮时是否高亮显示 |
 | show-head | boolean |  | `true` |  |
-| default-column-width | string \| number |  |  | 表格的默认列宽度，可以设置为百分比或数字。 |
-| loading | boolean |  |  | 手动设置是否正在加载中。 |
-| loading-text | string |  | `'正在加载中'` | 正在加载中的文字。 |
-| error | boolean |  |  | 手动设置是否加载失败。 |
+| default-column-width | string \| number |  |  | 表格的默认列宽度，可以设置为百分比或数字 |
+| loading | boolean |  |  | 手动设置是否正在加载中 |
+| loading-text | string |  | `'正在加载中'` | 正在加载中的文字 |
+| error | boolean |  |  | 手动设置是否加载失败 |
 | error-text | string |  | `'加载失败，请重试'` |  |
 | empty-text | string |  | `'暂无数据'` |  |
-| value-field | string |  |  | 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段。 |
-| value.sync, v-model | any |  |  | 单项选择的值。 |
-| values.sync | Array |  |  | 多项选择的值。 |
-| selectable | boolean |  | `false` | 是否可以单选行。 |
-| cancelable | boolean |  | `false` | 是否可以取消选择。 |
+| value-field | string |  |  | 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段 |
+| value.sync, v-model | any |  |  | 单项选择的值 |
+| values.sync | Array |  |  | 多项选择的值 |
+| selectable | boolean |  | `false` | 是否可以单选行 |
+| cancelable | boolean |  | `false` | 是否可以取消选择 |
 | readonly | boolean |  | `false` |  |
 | disabled | boolean |  | `false` |  |
 | accordion | boolean |  | `false` | 是否每次只会展开一行 |
-| resizable | boolean |  | `false` | 是否可以调整列宽。 |
+| resizable | boolean |  | `false` | 是否可以调整列宽 |
 | resize-remaining | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'average'` | 调整列宽时如何处理剩余大小 |
-| tree-display | boolean |  | `false` | 以树形数据展示表格。 |
-| children-field | string |  | `'children'` | 树形数据子节点字段名。 |
-| has-children-field | string |  | `'hasChildren'` | 该字段指定行数据是否包含子节点数据。 |
+| tree-display | boolean |  | `false` | 以树形数据展示表格 |
+| children-field | string |  | `'children'` | 树形数据子节点字段名 |
+| has-children-field | string |  | `'hasChildren'` | 该字段指定行数据是否包含子节点数据 |
 
 ### Slots
 
 #### (default)
 
-在表格中插入`<u-table-view-column>`子组件。
+在表格中插入`<u-table-view-column>`子组件
 
 #### loading
 
-自定义加载中内容。
+自定义加载中内容
 
 #### error
 
-自定义加载错误内容。
+自定义加载错误内容
 
 #### empty
 
-自定义暂无数据内容。
+自定义暂无数据内容
 
 ### Events
 
@@ -2178,7 +2178,7 @@ export default {
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择行相关对象 |
 | $event.oldItem | object | 旧的选择行相关对象 |
-| $event.selectedItem | object | 最终选择行的对象。在`cancelable`的情况下，与`$event.item`不同 |
+| $event.selectedItem | object | 最终选择行的对象。在`cancelable`的情况下，与`$event.item`不同。 |
 | senderVM | UTableView | 发送事件实例 |
 
 #### @check
@@ -2197,7 +2197,7 @@ export default {
 
 #### @change
 
-单选或多选值改变后触发。
+单选或多选值改变后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -2279,64 +2279,64 @@ Methods
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| title | string |  |  | 列标题。 |
-| field | string |  |  | data 项中的字段名。 |
-| width | string \| number |  |  | 给列指定宽度，可以为数字或百分比。 |
-| formatter | string \| object \| Function \| Formatter |  | `'placeholder'` | 格式器。 |
-| fixed | boolean |  | `false` | 该列是否固定。 |
-| sortable | boolean |  | `false` | 该列是否可以排序。 |
+| title | string |  |  | 列标题 |
+| field | string |  |  | data 项中的字段名 |
+| width | string \| number |  |  | 给列指定宽度，可以为数字或百分比 |
+| formatter | string \| object \| Function \| Formatter |  | `'placeholder'` | 格式器 |
+| fixed | boolean |  | `false` | 该列是否固定 |
+| sortable | boolean |  | `false` | 该列是否可以排序 |
 | default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 该列首次点击时的排序顺序 |
 | filters | Array\<{ text: string, value: any }\> |  |  | 筛选项的参数 |
 | ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
-| hidden | boolean |  | `false` | 是否隐藏该列。 |
-| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 列类型 |
-| start-index | number |  | `1` | 当`type="index"`时的起始序号。 |
+| hidden | boolean |  | `false` | 是否隐藏该列 |
+| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序 |
+| start-index | number |  | `1` | 序号列的起始序号 |
 | dblclickHandler | Function |  |  | 用于可编辑表格，双击表格列时的处理函数 |
 
 ### Slots
 
 #### cell
 
-对单元格的数据展示进行自定义。
+对单元格的数据展示进行自定义
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| item | object | 循环中的当前项。 |
-| value | any | item 中 field 字段对应的值。 |
-| columnVM | string | 该列组件实例。 |
-| rowIndex | number | 行的索引。 |
-| columnIndex | number | 列的索引。 |
+| item | object | 循环中的当前项 |
+| value | any | item 中 field 字段对应的值 |
+| columnVM | string | 该列组件实例 |
+| rowIndex | number | 行的索引 |
+| columnIndex | number | 列的索引 |
 
 #### editcell
 
-对单元格的编辑数据展示进行自定义。
+对单元格的编辑数据展示进行自定义
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| item | object | 循环中的当前项。 |
-| value | any | item 中 field 字段对应的值。 |
-| columnVM | string | 该列组件实例。 |
-| rowIndex | number | 行的索引。 |
-| columnIndex | number | 列的索引。 |
+| item | object | 循环中的当前项 |
+| value | any | item 中 field 字段对应的值 |
+| columnVM | string | 该列组件实例 |
+| rowIndex | number | 行的索引 |
+| columnIndex | number | 列的索引 |
 
 #### title
 
-对标题进行自定义。
+对标题进行自定义
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| columnVM | string | 该列组件实例。 |
-| columnIndex | number | 列的索引。 |
+| columnVM | string | 该列组件实例 |
+| columnIndex | number | 列的索引 |
 
 #### expand-content
 
-展开列的内容。
+展开列的内容
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| item | object | 循环中的当前项。 |
-| value | any | item 中 field 字段对应的值。 |
-| columnVM | string | 展开列组件实例。 |
-| rowIndex | number | 行的索引。 |
-| columnIndex | number | 展开列的索引。 |
+| item | object | 循环中的当前项 |
+| value | any | item 中 field 字段对应的值 |
+| columnVM | string | 展开列组件实例 |
+| rowIndex | number | 行的索引 |
+| columnIndex | number | 展开列的索引 |
 

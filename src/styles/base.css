@@ -20,6 +20,7 @@ ul[class], ol[class] {
     background-color: var(--scrollbar-background);
     transition: background-color var(--transition-duration-base);
     border: var(--scrollbar-border-width) solid var(--scrollbar-border-color);
+    background-clip: unset;
 }
 
 ::-webkit-scrollbar-thumb:hover {

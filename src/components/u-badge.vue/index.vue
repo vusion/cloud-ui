@@ -2,7 +2,7 @@
 <div :class="$style.root">
     <div v-if="$env.VUE_APP_DESIGNER" vusion-slot-name="default" :class="$style.content">
         <slot></slot>
-        <s-empty v-if="(!$slots.default)"></s-empty>
+        <s-empty v-if="(!$slots.default) && !!$attrs['vusion-node-path']"></s-empty>
     </div>
      <slot v-else></slot>
     <span :class="$style.value" v-if="currentValue">{{ currentValue }}</span>

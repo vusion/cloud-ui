@@ -38,6 +38,9 @@ export default {
                 return;
             this.success = copy(this.value);
             if (this.success) {
+                if (!this.value) {
+                    this.successText = '无复制对象';
+                }
                 if (this.feedback === 'toast')
                     this.$toast.show(this.successText, this.hideDelay);
                 this.$emit('copy', { value: this.value }, this);

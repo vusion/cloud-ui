@@ -18,7 +18,7 @@
 
 **Table**
 
-本组件用于在表单中使用表单验证、动态数据等复杂功能。
+本组件用于在表单中使用表单验证、动态数据等复杂功能
 
 ## 示例
 ### 基本用法
@@ -491,7 +491,7 @@ export default {
 
 #### (default)
 
-添加文本或 HTML。
+添加文本或 HTML
 
 ### Events
 
@@ -565,10 +565,10 @@ export default {
 | title | string |  |  | 列标题 |
 | field | string |  |  | data 中的字段名 |
 | width | string, number |  |  | 给列指定宽度，可以为数字或百分比 |
-| ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
+| ellipsis | boolean |  | `false` | 文字过长是否省略显示，默认文字超出时会换行 |
 | formatter | string, object, Function, Formatter |  | `'placeholder'` | 格式器 |
 | hidden | boolean |  | `false` | 是否隐藏 |
-| start-index | number |  | `1` | 当`type="index"`时的起始序号 |
+| start-index | number |  | `1` | 序号列的起始序号 |
 | label | string |  |  | 标签。用于提示消息的合成 |
 | muted | string |  |  | 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示 |
 | rules | string, Array |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
@@ -582,11 +582,11 @@ export default {
 
 #### (default)
 
-在表格列中插入`cell`插槽。
+在表格列中插入`cell`插槽
 
 #### cell
 
-对单元格数据展示进行自定义。
+对单元格数据展示进行自定义
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
@@ -598,7 +598,7 @@ export default {
 
 #### title
 
-对标题进行自定义。
+对标题进行自定义
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |

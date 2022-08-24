@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" vusion-slot-name="default" :style="[commonStyle, responsiveStyle]" :empty="!$slots.default">
     <slot></slot>
-    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
 </div>
 </template>
 
@@ -31,7 +31,7 @@ export default {
         mediaSmall: Number,
         mediaMedium: Number,
         mediaLarge: Number,
-        mediaHuge: Number
+        mediaHuge: Number,
     },
     data() {
         return { parentVM: this.$parent, currentSpan: this.span };
