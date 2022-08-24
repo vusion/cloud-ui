@@ -1,6 +1,6 @@
 - name: u-tree-view-new
   title: 树形视图
-  icon: tree-view
+  icon: tree-view-new
   description: 树形视图
   labels:
     - Selector

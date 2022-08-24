@@ -1,8 +1,8 @@
 - name: u-toc
   title: 目录
+  icon: toc
   labels:
-    - 路由链接
-    - 块级展示
+    - Navigation
   description: 用于展示文档的目录
   attrs:
     - name: value
