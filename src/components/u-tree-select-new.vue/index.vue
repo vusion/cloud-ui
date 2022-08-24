@@ -75,7 +75,7 @@
             @close="onClose"
             @click.stop>
             <!-- 目前只支持单选 -->
-            <u-tree-view v-if="popperOpened" ref="treeView"
+            <u-tree-view-new v-if="popperOpened" ref="treeView"
                 :ifExpanded="ifExpanded"
                 style="border: none; min-width: 100%; display: inline-block"
                 :value="value"
@@ -109,7 +109,7 @@
                     <slot name="text" v-bind="props">{{ props.text }}</slot>
                 </template>
                 <slot></slot>
-            </u-tree-view>
+            </u-tree-view-new>
         </m-popper>
     </div>
 </template>
@@ -118,8 +118,8 @@
 import MField from "../m-field.vue";
 
 export default {
-    name: "u-tree-select",
-    childName: 'u-tree-view-node',
+    name: "u-tree-select-new",
+    childName: 'u-tree-view-node-new',
     mixins: [MField],
     props: {
         value: null,

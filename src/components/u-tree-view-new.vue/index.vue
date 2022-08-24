@@ -14,7 +14,7 @@
             :node="node"
             :level="0"
             :draggable="node.draggable"
-        ></component>
+        ><template #text>{{$at(node, field || textField)}}</template></component>
     </template>
     <slot></slot>
 </div>
@@ -25,11 +25,10 @@ import { MRoot } from '../m-root.vue';
 import MField from '../m-field.vue';
 
 export default {
-    name: 'u-tree-view',
-    nodeName: 'u-tree-view-node',
+    name: 'u-tree-view-new',
+    nodeName: 'u-tree-view-node-new',
     mixins: [MRoot, MField],
     props: {
-        flat: { type: Boolean, default: false },
         value: null,
         values: Array,
         field: String,
@@ -76,8 +75,8 @@ export default {
             this.handleData();
         },
         dataSource(dataSource, oldDataSource) {
-            if (typeof dataSource === 'function' && String(dataSource) === String(oldDataSource))
-                return;
+            // if (typeof dataSource === 'function' && String(dataSource) === String(oldDataSource))
+            //     return;
             this.handleData();
         },
         // It is dynamic to find selected item by value
