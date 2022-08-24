@@ -3315,7 +3315,7 @@
             "Navigation"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16-beta.1/src/components/u-toc.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16-beta.1/src/components/u-toc.vue/screenshots/1.png",
-        "blocks": "[]",
+        "blocks": "[{\"title\":\"\",\"description\":\"\",\"code\":\"<template>\\n<u-toc>\\n    <u-toc-item>目录节点1\\n        <u-toc-item>目录节点1.1</u-toc-item>\\n    </u-toc-item>\\n    <u-toc-item>目录节点1</u-toc-item>\\n    <u-toc-item>目录节点3</u-toc-item>\\n</u-toc>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-toc",
             "title": "目录",
@@ -3323,7 +3323,13 @@
             "category": "Navigation",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16-beta.1/src/components/u-toc.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16-beta.1/src/components/u-toc.vue/screenshots/1.png",
             "drawings": "",
-            "blocks": [],
+            "blocks": [
+                {
+                    "title": "",
+                    "description": "",
+                    "code": "<template>\n<u-toc>\n    <u-toc-item>目录节点1\n        <u-toc-item>目录节点1.1</u-toc-item>\n    </u-toc-item>\n    <u-toc-item>目录节点1</u-toc-item>\n    <u-toc-item>目录节点3</u-toc-item>\n</u-toc>\n</template>\n"
+                }
+            ],
             "attrs": [
                 {
                     "name": "value",
