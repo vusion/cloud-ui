@@ -7,7 +7,7 @@
           :key="index2"
           :item="item2"
           :colnum="colnum"
-          :equal-wdth="equalWidth"
+          :equal-width="equalWidth"
         >
           <template #default="item2">
             <slot :item="item2.item" :index="index"></slot>

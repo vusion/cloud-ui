@@ -180,5 +180,6 @@ export default {
 }
 .textleft {
     display: inline-block;
+    margin-left: 6px;
 }
 </style>
