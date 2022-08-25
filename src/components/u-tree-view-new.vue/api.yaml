@@ -41,7 +41,7 @@
       type: any
       sync: true
       model: true
-      description: 单选后，选中的值
+      description: 选择后，所选中的值
     - name: checkable
       title: 可多选
       type: boolean
