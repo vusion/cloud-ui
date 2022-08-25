@@ -17,8 +17,7 @@
             <slot name="label">{{ label }}</slot>
         </span>
     </a>
-    <div :class="$style.sub" vusion-slot-name="default">
-        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path'] "></s-empty>
+    <div :class="$style.sub">
         <slot></slot>
     </div>
 </div>
