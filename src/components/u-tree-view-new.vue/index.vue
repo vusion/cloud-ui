@@ -255,6 +255,9 @@ export default {
         },
         onCheck(nodeVM, checked, oldChecked) {
             // console.log('click', this.currentValues);
+            const { value, node } = this.selectedVM || {};
+            const actualValue = value || node && node[this.valueField] || this.selectedVM[this.valueField];
+            this.$emit('input', this.checkable ? this.currentValues : actualValue, this);
             this.$emit(
                 'check',
                 {
