@@ -90,6 +90,7 @@
     - name: label
       title: 显示文本
       type: string
+      hidden: true
       description: 集合的元素类型中，用于显示文本的属性名称
       group: 数据属性
     - name: value

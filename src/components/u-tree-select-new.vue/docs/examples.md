@@ -78,7 +78,8 @@ export default {
     ] },
     { text1: '节点 2' },
     { text1: '节点 3', children: [
-        { text1: '节点 3.1' },
+        { text1: '节点 3.1' }
+        ,
         { text1: '节点 3.2' },
     ] },
 ]"></u-tree-select-new>

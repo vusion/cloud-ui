@@ -29,11 +29,11 @@
       group: 数据属性
   slots:
     - name: default
-      description: 插入`<u-tree-view-node>`子组件
+      description: 插入`<u-tree-view-node-new>`子组件
       support:
         - name: u-tree-view-node
           title: 子节点
-          snippet: <u-tree-view-node-new text="节点"></u-tree-view-node-new>
+          snippet: "<u-tree-view-node-new><template #text>选项</template></u-tree-view-node-new>"
   events:
     - name: change
       description: 修改时触发
