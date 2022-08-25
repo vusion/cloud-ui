@@ -10,6 +10,7 @@
       type: icon
       default: ""
       description: ""
+      clearable: true
     - name: icotype
       title: 图标类型
       type: string
