@@ -3315,7 +3315,7 @@
             "Navigation"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16-beta.1/src/components/u-toc.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16-beta.1/src/components/u-toc.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"\",\"description\":\"\",\"code\":\"<template>\\n<u-toc>\\n    <u-toc-item>目录节点1\\n        <u-toc-item>目录节点1.1</u-toc-item>\\n    </u-toc-item>\\n    <u-toc-item>目录节点1</u-toc-item>\\n    <u-toc-item>目录节点3</u-toc-item>\\n</u-toc>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"\",\"description\":\"\",\"code\":\"<template>\\n<u-toc>\\n    <u-toc-item>\\n        <template #label>目录节点1</template>\\n        <u-toc-item><template #label>目录节点1.1</template></u-toc-item>\\n    </u-toc-item>\\n    <u-toc-item><template #label>目录节点2</template></u-toc-item>\\n    <u-toc-item><template #label>目录节点3</template></u-toc-item>\\n</u-toc>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-toc",
             "title": "目录",
@@ -3327,7 +3327,7 @@
                 {
                     "title": "",
                     "description": "",
-                    "code": "<template>\n<u-toc>\n    <u-toc-item>目录节点1\n        <u-toc-item>目录节点1.1</u-toc-item>\n    </u-toc-item>\n    <u-toc-item>目录节点1</u-toc-item>\n    <u-toc-item>目录节点3</u-toc-item>\n</u-toc>\n</template>\n"
+                    "code": "<template>\n<u-toc>\n    <u-toc-item>\n        <template #label>目录节点1</template>\n        <u-toc-item><template #label>目录节点1.1</template></u-toc-item>\n    </u-toc-item>\n    <u-toc-item><template #label>目录节点2</template></u-toc-item>\n    <u-toc-item><template #label>目录节点3</template></u-toc-item>\n</u-toc>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -3361,7 +3361,7 @@
                         {
                             "name": "u-toc-item",
                             "title": "子节点",
-                            "snippet": "<u-toc-item label=\"节点\"></u-toc-item>"
+                            "snippet": "<u-toc-item><template #label>目录节点</template></u-toc-item>"
                         }
                     ]
                 }
@@ -3565,7 +3565,7 @@
                                 {
                                     "name": "u-toc-item",
                                     "title": "子节点",
-                                    "snippet": "<u-toc-item label=\"节点\"></u-toc-item>"
+                                    "snippet": "<u-toc-item><template #label>目录节点</template></u-toc-item>"
                                 }
                             ]
                         }
@@ -13171,10 +13171,10 @@
     },
     {
         "symbol": "u-tree-select-new",
-        "name": "树形选择框",
+        "name": "树选择器",
         "icon": "tree-view",
         "depDescription": {},
-        "description": "树形选择框",
+        "description": "树选择器",
         "labels": [
             "Form"
         ],
@@ -13182,8 +13182,8 @@
         "blocks": "[{\"title\":\"\",\"description\":\"\",\"code\":\"<template>\\n<u-tree-select-new value=\\\"节点 1\\\" valueField=\\\"text1\\\" textField=\\\"text1\\\" :data=\\\"[\\n    { text1: '节点 1', children: [\\n        { text1: '节点 1.1' },\\n        { text1: '节点 1.2', children: [\\n            { text1: '节点 1.2.1' },\\n            { text1: '节点 1.2.2' },\\n        ] },\\n        { text1: '节点 1.3' },\\n        { text1: '节点 1.4' },\\n    ] },\\n    { text1: '节点 2' },\\n    { text1: '节点 3', children: [\\n        { text1: '节点 3.1' },\\n        { text1: '节点 3.2' },\\n    ] },\\n]\\\"></u-tree-select-new>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-tree-select-new",
-            "title": "树形选择框",
-            "description": "树形选择框",
+            "title": "树选择器",
+            "description": "树选择器",
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16-beta.1/src/components/u-tree-select-new.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16-beta.1/src/components/u-tree-select-new.vue/screenshots/1.png",
             "drawings": "",
@@ -16798,8 +16798,8 @@
             "children": [
                 {
                     "name": "u-tree-view-node-new",
-                    "title": "树型视图节点",
-                    "description": "树型视图节点",
+                    "title": "树形视图节点",
+                    "description": "树形视图节点",
                     "attrs": [
                         {
                             "name": "value",

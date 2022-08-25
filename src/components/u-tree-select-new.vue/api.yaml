@@ -1,6 +1,6 @@
 - name: u-tree-select-new
-  title: 树形选择框
-  description: 树形选择框
+  title: 树选择器
+  description: 树选择器
   icon: tree-view
   labels:
     - Form

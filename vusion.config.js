@@ -94,7 +94,7 @@ module.exports = {
             { group: '表单', name: 'u-cascade-capsules', alias: '级联胶囊', advanced: true },
             { group: '表单', name: 'u-select', alias: '选择框' },
             { group: '表单', name: 'u-tree-select', alias: '树形选择框', advanced: true },
-            { group: '表单', name: 'u-tree-select-new', alias: '树形选择框', advanced: true },
+            { group: '表单', name: 'u-tree-select-new', alias: '树选择器', advanced: true },
             { group: '表单', name: 'u-slider', alias: '滑块' },
             { group: '表单', name: 'u-combo-slider', alias: '复合滑块', advanced: true },
             { group: '表单', name: 'u-uploader', alias: '文件上传' },
