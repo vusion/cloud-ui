@@ -12,7 +12,10 @@
         :value="value"
         @click="handleClick()"
     >
-        {{ label }}
+        <span vusion-slot-name="label">
+            <s-empty v-if="(!$slots.label) && $env.VUE_APP_DESIGNER "></s-empty>
+            <slot name="label">{{ label }}</slot>
+        </span>
     </a>
     <div :class="$style.sub" vusion-slot-name="default">
         <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path'] "></s-empty>
@@ -94,8 +97,7 @@ export const UTocItem = {
                 oldNode: oldVM && oldVM.node,
                 nodeVM: this,
                 oldVM,
-            },
-            this);
+            }, this);
         },
     },
 };
