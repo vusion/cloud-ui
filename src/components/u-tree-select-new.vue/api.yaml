@@ -1,4 +1,4 @@
-- name: u-tree-select
+- name: u-tree-select-new
   title: 树形选择框
   description: 树形选择框
   icon: tree-view
@@ -33,7 +33,7 @@
       support:
         - name: u-tree-view-node
           title: 子节点
-          snippet: <u-tree-view-node text="节点"></u-tree-view-node>
+          snippet: <u-tree-view-node-new text="节点"></u-tree-view-node-new>
   events:
     - name: change
       description: 修改时触发

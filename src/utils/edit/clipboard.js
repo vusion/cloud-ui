@@ -62,6 +62,8 @@ const clipboard = {
  * @param { Element | String } text - target or text
  */
 export function copy(text) {
+    if (!text)
+        return false;
     let target;
     if (text instanceof HTMLElement)
         target = text;

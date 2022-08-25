@@ -4,8 +4,8 @@
 
 ``` vue
 <template>
-    <u-tree-select v-model="value" :data-source="load" text-field="title" value-field="title">
-    </u-tree-select>
+    <u-tree-select-new v-model="value" :data-source="load" text-field="title" value-field="title">
+    </u-tree-select-new>
 </template>
 <script>
 // 模拟后端请求
@@ -45,28 +45,28 @@ export default {
 #### Tag 方式
 
 ``` html
-<u-tree-select value="节点 1" valueField="text" textField="text1">
-    <u-tree-view-node text="节点 1" :node="{text1: '节点 2'}">
-        <u-tree-view-node text="节点 1.1" :node="{text1: '节点 1.1'}"></u-tree-view-node>
-        <u-tree-view-node text="节点 1.2" :node="{text1: '节点 1.2'}">
-            <u-tree-view-node text="节点 1.2.1" :node="{text1: '节点 1.2.1'}"></u-tree-view-node>
-            <u-tree-view-node text="节点 1.2.2" :node="{text1: '节点 1.2.2'}"></u-tree-view-node>
-        </u-tree-view-node>
-        <u-tree-view-node text="节点 1.3" :node="{text1: '节点 1.3'}"></u-tree-view-node>
-        <u-tree-view-node text="节点 1.4" :node="{text1: '节点 1.4'}"></u-tree-view-node>
-    </u-tree-view-node>
-    <u-tree-view-node text="节点 2" :node="{text1: '节点 2'}"></u-tree-view-node>
-    <u-tree-view-node text="节点 3" :node="{text1: '节点 3'}">
-        <u-tree-view-node text="节点 3.1" :node="{text1: '节点 3.1'}"></u-tree-view-node>
-        <u-tree-view-node text="节点 3.2" :node="{text1: '节点 3.2'}"></u-tree-view-node>
-    </u-tree-view-node>
-</u-tree-select>
+<u-tree-select-new value="节点 1" valueField="text" textField="text1">
+    <u-tree-view-node-new text="节点 1" :node="{text1: '节点 2'}">
+        <u-tree-view-node-new text="节点 1.1" :node="{text1: '节点 1.1'}"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.2" :node="{text1: '节点 1.2'}">
+            <u-tree-view-node-new text="节点 1.2.1" :node="{text1: '节点 1.2.1'}"></u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 1.2.2" :node="{text1: '节点 1.2.2'}"></u-tree-view-node-new>
+        </u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.3" :node="{text1: '节点 1.3'}"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.4" :node="{text1: '节点 1.4'}"></u-tree-view-node-new>
+    </u-tree-view-node-new>
+    <u-tree-view-node-new text="节点 2" :node="{text1: '节点 2'}"></u-tree-view-node-new>
+    <u-tree-view-node-new text="节点 3" :node="{text1: '节点 3'}">
+        <u-tree-view-node-new text="节点 3.1" :node="{text1: '节点 3.1'}"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 3.2" :node="{text1: '节点 3.2'}"></u-tree-view-node-new>
+    </u-tree-view-node-new>
+</u-tree-select-new>
 ```
 
 #### Data 方式
 
 ``` html { width: 30% }
-<u-tree-select value="节点 1" valueField="text1" textField="text1" :data="[
+<u-tree-select-new value="节点 1" valueField="text1" textField="text1" :data="[
     { text1: '节点 1', children: [
         { text1: '节点 1.1' },
         { text1: '节点 1.2', children: [
@@ -81,13 +81,13 @@ export default {
         { text1: '节点 3.1' },
         { text1: '节点 3.2' },
     ] },
-]"></u-tree-select>
+]"></u-tree-select-new>
 ```
 
 #### 支持多选
 
 ``` html { width: 30% }
-<u-tree-select value="节点 1" checkable valueField="text1" textField="text1" :data="[
+<u-tree-select-new value="节点 1" checkable valueField="text1" textField="text1" :data="[
     { text1: '节点 1', children: [
         { text1: '节点 1.1' },
         { text1: '节点 1.2', children: [
@@ -102,5 +102,5 @@ export default {
         { text1: '节点 3.1' },
         { text1: '节点 3.2' },
     ] },
-]"></u-tree-select>
+]"></u-tree-select-new>
 ```

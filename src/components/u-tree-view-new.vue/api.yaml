@@ -1,17 +1,23 @@
-- name: u-tree-view
+- name: u-tree-view-new
   title: 树形视图
-  icon: tree-view
+  icon: tree-view-new
   description: 树形视图
   labels:
     - Selector
   next: true
   nested: false
   attrs:
-    - name: data
+    - name: data-source
       title: 数据源
-      type: Array<{ text, value }>
+      type: Array<Item> | Function | object | DataSource
       description: 集合类型变量或者输出参数为集合类型的逻辑
       group: 数据属性
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 表格每一行的数据类型
+      group: 数据属性
+      compType: dataTypeSelect
     - name: text-field
       title: 选项文本
       type: string
@@ -78,11 +84,11 @@
       description: 父节点选中，子节点是否被选中，懒加载开启状态下无法全选关联
   slots:
     - name: default
-      description: 插入`<u-tree-view-node>`子组件
+      description: 插入`<u-tree-view-node-new>`子组件
       support:
-        - name: u-tree-view-node
+        - name: u-tree-view-node-new
           title: 子节点
-          snippet: <u-tree-view-node text="节点"></u-tree-view-node>
+          snippet: <u-tree-view-node-new><template slot="text">节点</template></u-tree-view-node-new>
   events:
     - name: before-select
       title: 选择前
@@ -267,7 +273,7 @@
         - name: expanded
           type: boolean
           description: 选中/取消
-- name: u-tree-view-node
+- name: u-tree-view-node-new
   title: 树型视图节点
   next: false
   nested: false
@@ -304,12 +310,12 @@
     - name: default
       description: 插入子节点
       support:
-        - name: u-tree-view-node
+        - name: u-tree-view-node-new
           title: 子节点
-          snippet: <u-tree-view-node text="节点"></u-tree-view-node>
+          snippet: <u-tree-view-node-new><template slot="text">节点</template></u-tree-view-node-new>
   blocks:
     - name: 基础示例
-      code: <u-tree-view-node text="节点 1"></u-tree-view-node>
+      code: <u-tree-view-node-new text="节点 1"></u-tree-view-node-new>
   events:
     - name: before-select
       title: 选择前
