@@ -13208,6 +13208,7 @@
                     "title": "文本字段",
                     "type": "string",
                     "default": "text",
+                    "group": "数据属性",
                     "description": "集合的元素类型中，用于显示文本的属性名称"
                 },
                 {
@@ -13224,6 +13225,15 @@
                     "type": "string",
                     "default": "value",
                     "description": "集合的元素类型中，用于标识父节点的属性",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "value",
+                    "title": "选中值（双向绑定）",
+                    "type": "any",
+                    "sync": true,
+                    "model": true,
+                    "description": "选择后，所选中的值",
                     "group": "数据属性"
                 }
             ],

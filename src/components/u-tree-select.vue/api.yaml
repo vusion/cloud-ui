@@ -28,13 +28,6 @@
       default: value
       description: 集合的元素类型中，用于标识父节点的属性
       group: 数据属性
-    - name: value
-      title: 选中值（双向绑定）
-      type: any
-      sync: true
-      model: true
-      description: 选择后，所选中的值
-      group: 数据属性
   slots:
     - name: default
       description: 插入`<u-tree-view-node>`子组件
