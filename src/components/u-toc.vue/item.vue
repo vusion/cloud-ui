@@ -82,7 +82,6 @@ export const UTocItem = {
             }
         },
         handleClick() {
-            console.log(this);
             if (this.disabled)
                 return;
             this.parentVM.select(this);

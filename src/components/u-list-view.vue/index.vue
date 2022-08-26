@@ -453,8 +453,6 @@ export default {
                     oldNumber: number,
                 };
             }
-            // eslint-disable-next-line no-console
-            console.log(JSON.stringify(paging));
             try {
                 this.currentDataSource.page(paging);
                 this.load();

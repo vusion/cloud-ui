@@ -133,7 +133,6 @@ export default {
                     const msgEleLeft = this.$refs.message.parentNode.getBoundingClientRect().left;
                     const leftPos = msgEleLeft - refEleLeft;
                     const msgWidth = window.getComputedStyle(this.widthReferenceEle).getPropertyValue('width');
-                    console.log((+msgWidth.substring(-2) - 16) + 'px');
                     this.$refs.message.style.width = (+msgWidth.substring(0, msgWidth.length - 2) - 32) + 'px';
                     this.$refs.message.style.left = '-' + (leftPos - 16) + 'px';
                     this.$refs.message.style.right = '16px';

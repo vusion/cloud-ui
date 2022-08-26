@@ -191,10 +191,8 @@ export default {
                 });
                 this.currentValues = values;
             }
-            console.log('watchValues', this.currentValues);
         },
         select(nodeVM) {
-            console.log('nodeVM', nodeVM);
             if (this.readonly || this.disabled)
                 return;
             const oldValue = this.value;
@@ -254,7 +252,6 @@ export default {
             this.walk((nodeVM) => nodeVM.toggle(expanded)); // @TODO: Only one event
         },
         onCheck(nodeVM, checked, oldChecked) {
-            // console.log('click', this.currentValues);
             const { value, node } = this.selectedVM || {};
             const actualValue = value || node && node[this.valueField] || this.selectedVM[this.valueField];
             this.$emit('input', this.checkable ? this.currentValues : actualValue, this);

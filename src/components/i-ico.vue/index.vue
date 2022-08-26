@@ -61,7 +61,6 @@ export default {
             return item ? item.font_class : 'default';
         },
         onClick(ev) {
-            console.log(ev, 999);
             const props = this._props;
             const parent = this.$parent;
             function currentHref() {
