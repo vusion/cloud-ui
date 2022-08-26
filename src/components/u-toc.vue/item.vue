@@ -86,12 +86,11 @@ export const UTocItem = {
             if (this.disabled)
                 return;
             this.parentVM.select(this);
-            const actualValue = this.value || this && this[this.valueField] || this.selectedVM[this.valueField];
+            const actualValue = this.value || this.label;
             const oldValue = this.value;
             const oldVM = this.selectedVM;
             this.$emit('click', {
                 value: actualValue,
-                oldValue,
                 node: this.node,
                 oldNode: oldVM && oldVM.node,
                 nodeVM: this,

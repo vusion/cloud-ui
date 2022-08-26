@@ -128,7 +128,6 @@ export default {
             const actualValue = value || node && node[this.valueField] || this.selectedVM[this.valueField];
             this.$emit('input', actualValue, this);
             this.$emit('update:value', actualValue, this);
-            this.value = actualValue;
             this.$emit(
                 'select',
                 {

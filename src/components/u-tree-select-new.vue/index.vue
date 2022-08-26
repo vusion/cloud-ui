@@ -79,7 +79,7 @@
                 :ifExpanded="ifExpanded"
                 style="border: none; min-width: 100%; display: inline-block"
                 :value="value"
-                :data="data"
+                :data="dataSource"
                 :data-source="dataSource"
                 :text-field="textField"
                 :value-field="valueField"
@@ -105,6 +105,11 @@
                 @update:value="onUpdateValue"
                 @toggle="$emit('toggle', $event, this)"
                 @check="$emit('check', $event, this)">
+                <template>
+                    <u-tree-view-node-new :text="scopeItem" readonly></u-tree-view-node-new>
+                    <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
+                    <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
+                </template>
                 <template #text="props">
                     <slot name="text" v-bind="props">{{ props.text }}</slot>
                 </template>
@@ -116,16 +121,19 @@
 
 <script>
 import MField from "../m-field.vue";
+import UTreeViewNodeNew from "../u-tree-view-new.vue/node.vue";
 
 export default {
     name: "u-tree-select-new",
     childName: 'u-tree-view-node-new',
     mixins: [MField],
+    components: { UTreeViewNodeNew },
     props: {
         value: null,
         field: String,
         data: Array,
         dataSource: [Array, Object, Function],
+        dataSchema: { type: String, default: "entity" },
         textField: { type: String, default: "text" },
         valueField: { type: String, default: "value" },
         isLeafField: { type: String, default: "isLeaf" },
@@ -191,6 +199,9 @@ export default {
         },
         selectedItem() {
             return this.$at(this.dataSourceObj, this.actualValue);
+        },
+        scopeItem() {
+            return `scope.${this.dataSchema}.${this.valueField}`;
         },
     },
     watch: {
