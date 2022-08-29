@@ -17,6 +17,15 @@ const breakpoints = [
     { name: 'Mini', width: 480 },
 ];
 
+const GAP_CONFIGS = {
+    normal: 16,
+    none: 0,
+    mini: 4,
+    small: 8,
+    large: 24,
+    huge: 32,
+};
+
 export default {
     name: 'u-grid-layout-column',
     components: {
@@ -34,7 +43,10 @@ export default {
         mediaHuge: Number,
     },
     data() {
-        return { parentVM: this.$parent, currentSpan: this.span };
+        return {
+            parentVM: this.$parent,
+            currentSpan: this.span,
+        };
     },
     computed: {
         stack() {
@@ -76,7 +88,8 @@ export default {
         getPercent(span, repeat) {
             repeat
                 = repeat || this.$parent.repeat || this.$parent.$parent.repeat;
-            return (span / repeat) * 100 + '%';
+            const gap = this.$parent.gap ? GAP_CONFIGS[this.$parent.gap] : GAP_CONFIGS.normal;
+            return `calc((100% - ${gap}px * ${repeat}) / ${repeat} * ${span} + ${gap}px * ${span - 1})`;
         },
         onResize() {
             const stack = this.stack;
