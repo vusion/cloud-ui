@@ -99,7 +99,6 @@ export default {
             }
         },
         select(nodeVM) {
-            console.log('nodeVM', nodeVM);
             if (this.readonly || this.disabled)
                 return;
             const oldValue = this.value;

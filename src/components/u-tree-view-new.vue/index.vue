@@ -191,10 +191,8 @@ export default {
                 });
                 this.currentValues = values;
             }
-            console.log('watchValues', this.currentValues);
         },
         select(nodeVM) {
-            console.log('nodeVM', nodeVM);
             if (this.readonly || this.disabled)
                 return;
             const oldValue = this.value;

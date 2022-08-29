@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root">
-    <div v-if="draggable" :class="$style.draggable" :dragover="dragover" @click="select()"
+    <div v-if="draggable && !readonly" :class="$style.draggable" :dragover="dragover" @click="select()"
         :tabindex="readonly || disabled ? '' : 0"
         @drop.prevent="onDrop"
         @paste="onPaste"
@@ -8,11 +8,11 @@
         @dragleave.prevent="dragover = false">
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
         <div>
-            <div v-if="dragDescription" vusion-slot-name="dragDescription" :class="$style.dragDescription"><slot name="dragDescription">{{dragDescription}}</slot></div>
+            <div v-if="dragDescription" vusion-slot-name="dragDescription" :class="$style.dragDescription"><slot name="dragDescription">{{ dragDescription }}</slot></div>
             <slot></slot>
         </div>
     </div>
-    <div v-else-if="listType !== 'card'" :class="$style.select" @click="select()"
+    <div v-else-if="listType !== 'card' && !readonly" :class="$style.select" @click="select()"
         vusion-slot-name="default"
         :vusion-empty-background="$env.VUE_APP_DESIGNER && !$slots.default ? 'add-any' : false">
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
@@ -20,7 +20,7 @@
     </div>
     <template v-if="listType !== 'card'">
         <div v-if="description" :class="$style.description">{{ description }}</div>
-        <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length" >
+        <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length">
             <div :class="$style.errwrap">
                 <div v-for="errItem in errorMessage" :key="errItem" :class="$style.errmessage">{{ errItem }}</div>
             </div>
@@ -164,8 +164,9 @@ export default {
                 }
             else if (this.converter === 'simple')
                 try {
-                    if(!value) return [];
-                    return value.split(",");
+                    if (!value)
+                        return [];
+                    return value.split(',');
                 } catch (err) {
                     return [];
                 }
@@ -182,7 +183,7 @@ export default {
                 return value;
         },
         simpleConvert(value) {
-            return value.map((x) => (x.url)).join(",");
+            return value.map((x) => (x.url)).join(',');
         },
         getUrl(item) {
             return item.thumb || item.url || item;
@@ -335,7 +336,7 @@ export default {
             //     }
             // }
 
-            if(!files || !files.length)
+            if (!files || !files.length)
                 return;
 
             const file = files[0];
@@ -361,7 +362,7 @@ export default {
             return item;
         },
         post(file, item, index) {
-            let Authorization = null
+            let Authorization = null;
             if (this.authorization) {
                 Authorization = this.getCookie('authorization') || null;
             }
@@ -369,7 +370,7 @@ export default {
                 url: this.url,
                 headers: {
                     ...this.headers,
-                    Authorization
+                    Authorization,
                 },
                 withCredentials: this.withCredentials,
                 file,
@@ -494,13 +495,13 @@ export default {
                     return null;
                 }
                 if (this.accept) {
-                    const extension = (file.name.indexOf('.') > -1 ? `.${ file.name.split('.').pop() }`: '').toLowerCase();
+                    const extension = (file.name.indexOf('.') > -1 ? `.${file.name.split('.').pop()}` : '').toLowerCase();
                     const type = file.type.toLowerCase();
                     const baseType = type.replace(/\/.*$/, '').toLowerCase();
                     const accept = this.accept.split(',')
-                        .map(type => type.trim())
-                        .filter(type => type)
-                        .some(acceptedType => {
+                        .map((type) => type.trim())
+                        .filter((type) => type)
+                        .some((acceptedType) => {
                             acceptedType = acceptedType.toLowerCase();
                             if (/^\..+$/.test(acceptedType)) {
                                 return extension.toLowerCase() === acceptedType;
@@ -514,7 +515,7 @@ export default {
                             return false;
                         });
                     if (!accept) {
-                        this.errorMessage.push('文件类型不匹配，请上传'+this.accept+'的文件类型');
+                        this.errorMessage.push('文件类型不匹配，请上传' + this.accept + '的文件类型');
                         return null;
                     }
                 }
@@ -544,7 +545,7 @@ export default {
                     return c.substring(name.length, c.length);
             }
             return '';
-        }
+        },
     },
 };
 </script>
@@ -862,6 +863,5 @@ export default {
 .cardwrap .errwrap {
     max-width: var(--uploader-error-box-max-width);
 }
-
 
 </style>

@@ -194,7 +194,6 @@ export default {
             }
         },
         select(nodeVM) {
-            console.log('nodeVM', nodeVM);
             if (this.readonly || this.disabled)
                 return;
             const oldValue = this.value;
@@ -254,7 +253,6 @@ export default {
             this.walk((nodeVM) => nodeVM.toggle(expanded)); // @TODO: Only one event
         },
         onCheck(nodeVM, checked, oldChecked) {
-            // console.log('click', this.currentValues);
             this.$emit(
                 'check',
                 {

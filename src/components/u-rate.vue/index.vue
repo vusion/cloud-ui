@@ -118,7 +118,6 @@ export default {
         showMask(index){
             const allowDecimal = this.readonly && this.currentValue > index -1 && index > this.currentValue;
             const allowClickHalf = this.allowHalf && this.pointerAtLeftHalf && this.hoverIndex === index;
-            console.log('showMask', allowDecimal || allowClickHalf);
             return allowDecimal || allowClickHalf;
         },
         getFullStatus(index) {
