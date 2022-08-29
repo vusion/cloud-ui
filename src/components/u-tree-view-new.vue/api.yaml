@@ -33,7 +33,7 @@
     - name: children-field
       title: 父级选项值
       type: string
-      default: value
+      default: children
       description: 集合的元素类型中，用于标识父节点的属性
       group: 数据属性
     - name: value
@@ -41,7 +41,7 @@
       type: any
       sync: true
       model: true
-      description: 单选后，选中的值
+      description: 选择后，所选中的值
     - name: checkable
       title: 可多选
       type: boolean
@@ -274,7 +274,7 @@
           type: boolean
           description: 选中/取消
 - name: u-tree-view-node-new
-  title: 树型视图节点
+  title: 树形视图节点
   next: false
   nested: false
   attrs:
@@ -286,6 +286,7 @@
       title: 文本
       type: string
       description: 节点的文本
+      hidden: true
     - name: expanded
       title: 展开折叠状态
       type: boolean
@@ -392,4 +393,4 @@
         - name: senderVM
           type: UTreeViewNode
           description: 发送事件实例
-  description: 树型视图节点
+  description: 树形视图节点

@@ -26,7 +26,7 @@
       support:
         - name: u-toc-item
           title: 子节点
-          snippet: <u-toc-item label="节点"></u-toc-item>
+          snippet: "<u-toc-item><template #label>目录节点</template></u-toc-item>"
   events:
     - name: before-select
       title: 选择前
@@ -90,6 +90,7 @@
     - name: label
       title: 显示文本
       type: string
+      hidden: true
       description: 集合的元素类型中，用于显示文本的属性名称
       group: 数据属性
     - name: value
@@ -152,7 +153,7 @@
       support:
         - name: u-toc-item
           title: 子节点
-          snippet: <u-toc-item label="节点"></u-toc-item>
+          snippet: "<u-toc-item><template #label>目录节点</template></u-toc-item>"
   events:
     - name: click
       title: 点击

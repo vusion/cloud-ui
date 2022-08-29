@@ -1,19 +1,26 @@
 - name: u-tree-select-new
-  title: 树形选择框
-  description: 树形选择框
+  title: 树选择器
+  description: 树选择器
   icon: tree-view
   labels:
     - Form
   attrs:
-    - name: data
+    - name: data-source
       title: 数据源
-      type: Array<{ text, value }>
+      type: Array<Item> | Function | object | DataSource
       description: 集合类型变量或者输出参数为集合类型的逻辑
       group: 数据属性
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 表格每一行的数据类型
+      group: 数据属性
+      compType: dataTypeSelect
     - name: text-field
       title: 文本字段
       type: string
       default: text
+      group: 数据属性
       description: 集合的元素类型中，用于显示文本的属性名称
     - name: value-field
       title: 值字段
@@ -27,13 +34,20 @@
       default: value
       description: 集合的元素类型中，用于标识父节点的属性
       group: 数据属性
+    - name: value
+      title: 选中值（双向绑定）
+      type: any
+      sync: true
+      model: true
+      description: 选择后，所选中的值
+      group: 数据属性
   slots:
     - name: default
-      description: 插入`<u-tree-view-node>`子组件
+      description: 插入`<u-tree-view-node-new>`子组件
       support:
         - name: u-tree-view-node
           title: 子节点
-          snippet: <u-tree-view-node-new text="节点"></u-tree-view-node-new>
+          snippet: "<u-tree-view-node-new><template #text>选项</template></u-tree-view-node-new>"
   events:
     - name: change
       description: 修改时触发
