@@ -220,7 +220,7 @@ export default {
             const { value, node } = this.selectedVM || {};
             const actualValue = value || node && node[this.valueField] || this.selectedVM[this.valueField];
             this.$emit('input', this.checkable ? this.currentValues : actualValue, this);
-            this.$emit('update:value', actualValue, this);
+            this.$emit('update:value', this.checkable ? this.currentValues : actualValue, this);
             this.$emit(
                 'select',
                 {
@@ -252,9 +252,8 @@ export default {
             this.walk((nodeVM) => nodeVM.toggle(expanded)); // @TODO: Only one event
         },
         onCheck(nodeVM, checked, oldChecked) {
-            const { value, node } = this.selectedVM || {};
-            const actualValue = value || node && node[this.valueField] || this.selectedVM[this.valueField];
-            this.$emit('input', this.checkable ? this.currentValues : actualValue, this);
+            // console.log('click', this.currentValues);
+            this.$emit('update:value', this.currentValues, this);
             this.$emit(
                 'check',
                 {

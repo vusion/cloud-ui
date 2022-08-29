@@ -206,7 +206,7 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
 
 ``` vue { width: 30% }
 <template>
-<u-tree-view-new :data-source-source="load" text-field="title"></u-tree-view-new>
+<u-tree-view-new :data-source="load" text-field="title"></u-tree-view-new>
 </template>
 <script>
 // 模拟后端请求
@@ -242,7 +242,7 @@ export default {
 
 ``` vue { width: 30% }
 <template>
-<u-tree-view-new :data-source-source="load" text-field="title">
+<u-tree-view-new :data-source="load" text-field="title">
     <u-tree-view-node-new v-for="app in apps" v-if="app.subType !== 'other'" :text="app.title" :node="app" children-field="services"></u-tree-view-node-new>
 </u-tree-view-new>
 </template>
@@ -287,7 +287,7 @@ export default {
 
 ``` vue { width: 30% }
 <template>
-<u-tree-view-new :data-source-source="load" text-field="title"></u-tree-view-new>
+<u-tree-view-new :data-source="load" text-field="title"></u-tree-view-new>
 </template>
 <script>
 // 模拟后端请求

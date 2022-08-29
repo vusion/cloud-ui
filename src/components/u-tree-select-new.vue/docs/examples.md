@@ -66,7 +66,7 @@ export default {
 #### Data 方式
 
 ``` html { width: 30% }
-<u-tree-select-new value="节点 1" valueField="text1" textField="text1" :data="[
+<u-tree-select-new value="节点 1" valueField="text1" textField="text1" :data-source="[
     { text1: '节点 1', children: [
         { text1: '节点 1.1' },
         { text1: '节点 1.2', children: [
@@ -88,7 +88,7 @@ export default {
 #### 支持多选
 
 ``` html { width: 30% }
-<u-tree-select-new value="节点 1" checkable valueField="text1" textField="text1" :data="[
+<u-tree-select-new value="节点 1" checkable valueField="text1" textField="text1" :data-source="[
     { text1: '节点 1', children: [
         { text1: '节点 1.1' },
         { text1: '节点 1.2', children: [

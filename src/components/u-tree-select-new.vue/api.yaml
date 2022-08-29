@@ -5,15 +5,22 @@
   labels:
     - Form
   attrs:
-    - name: data
+    - name: data-source
       title: 数据源
-      type: Array<{ text, value }>
+      type: Array<Item> | Function | object | DataSource
       description: 集合类型变量或者输出参数为集合类型的逻辑
       group: 数据属性
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 表格每一行的数据类型
+      group: 数据属性
+      compType: dataTypeSelect
     - name: text-field
       title: 文本字段
       type: string
       default: text
+      group: 数据属性
       description: 集合的元素类型中，用于显示文本的属性名称
     - name: value-field
       title: 值字段
@@ -26,6 +33,13 @@
       type: string
       default: value
       description: 集合的元素类型中，用于标识父节点的属性
+      group: 数据属性
+    - name: value
+      title: 选中值（双向绑定）
+      type: any
+      sync: true
+      model: true
+      description: 选择后，所选中的值
       group: 数据属性
   slots:
     - name: default
