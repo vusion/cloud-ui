@@ -103,8 +103,6 @@ export default {
             }
         },
         comIndex(index1, index2) {
-            console.log(index1, index2, 777);
-            console.log(index1 * this.colnum + index2);
             return index1 * this.colnum + index2;
         },
     },
