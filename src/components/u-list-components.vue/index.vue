@@ -8,9 +8,10 @@
           :item="item2"
           :colnum="colnum"
           :equal-width="equalWidth"
+          :index="comIndex(index, index2)"
         >
           <template #default="item2">
-            <slot :item="item2.item" :index="index"></slot>
+            <slot :item="item2.item" :index="comIndex(index, index2)"></slot>
             <s-empty v-if="$scopedSlots
                 &&!($scopedSlots.default && $scopedSlots.default(item2))
                 &&$env.VUE_APP_DESIGNER
@@ -100,6 +101,11 @@ export default {
             } else {
                 this.options = this.divide(this.fromValue(this.dataSource));
             }
+        },
+        comIndex(index1, index2) {
+            console.log(index1, index2, 777);
+            console.log(index1 * this.colnum + index2);
+            return index1 * this.colnum + index2;
         },
     },
 };
