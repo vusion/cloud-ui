@@ -23,7 +23,7 @@
 </u-grid-layout>
 ```
 
-### 3列样式（8:16）
+### 2列样式（8:16）
 
 ``` html
 <u-grid-layout>
