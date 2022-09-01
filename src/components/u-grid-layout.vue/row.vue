@@ -31,24 +31,4 @@ export default {
 .root[alignment="end"] { align-items: flex-end; }
 .root[alignment="baseline"] { align-items: baseline; }
 .root[alignment="stretch"] { align-items: stretch; }
-
-/* .root,
-.root[gap="normal"] {
-    gap: var(--grid-layout-column-gap-normal);
-}
-.root[gap="none"] {
-    gap: var(--grid-layout-column-gap-none);
-}
-.root[gap="mini"] {
-    gap: var(--grid-layout-column-gap-mini);
-}
-.root[gap="small"] {
-    gap: var(--grid-layout-column-gap-small);
-}
-.root[gap="large"] {
-    gap: var(--grid-layout-column-gap-large);
-}
-.root[gap="huge"] {
-    gap: var(--grid-layout-column-gap-huge);
-} */
 </style>

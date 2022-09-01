@@ -59,13 +59,13 @@ export default {
                 .filter((point) => point.span !== undefined);
         },
         commonStyle() {
-            const left = this.push ? this.getPercent(this.push) : 'auto';
-            const right = this.pull ? this.getPercent(this.pull) : 'auto';
-            const marginLeft = this.getPercent(this.offset);
+            const left = this.push ? this.getPullPush(this.push) : 'auto';
+            const right = this.pull ? this.getPullPush(this.pull) : 'auto';
+            const marginLeft = this.getMarginLeft(this.offset);
             return { right, left, marginLeft };
         },
         responsiveStyle() {
-            const width = this.currentSpan ? this.getPercent(this.currentSpan) : 'auto';
+            const width = this.currentSpan ? this.getWidth(this.currentSpan) : 'auto';
             return { width };
         },
     },
@@ -85,11 +85,26 @@ export default {
         removeResizeListener(this.$el, this.onResize);
     },
     methods: {
-        getPercent(span, repeat) {
+        getPullPush(span, repeat) {
+            const column = this.getColumnWidth(span, repeat);
+            return `calc(${column.columnWidth} + ${column.gap}px * ${span})`;
+        },
+        getWidth(span, repeat) {
+            const column = this.getColumnWidth(span, repeat);
+            return `calc(${column.columnWidth} + ${column.gap}px * ${span - 1})`;
+        },
+        getMarginLeft(span, repeat) {
+            const column = this.getColumnWidth(span, repeat);
+            return `calc(${column.columnWidth} + ${column.gap}px * ${span} + ${column.gap / 2}px)`;
+        },
+        getColumnWidth(span, repeat) {
             repeat
                 = repeat || this.$parent.repeat || this.$parent.$parent.repeat;
             const gap = this.$parent.gap ? GAP_CONFIGS[this.$parent.gap] : GAP_CONFIGS.normal;
-            return `calc((100% - ${gap}px * ${repeat}) / ${repeat} * ${span} + ${gap}px * ${span - 1})`;
+            return {
+                columnWidth: `(100% - ${gap}px * ${repeat}) / ${repeat} * ${span}`,
+                gap,
+            };
         },
         onResize() {
             const stack = this.stack;

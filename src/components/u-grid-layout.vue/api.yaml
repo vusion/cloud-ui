@@ -9,6 +9,8 @@
       title: 间隔
       type: string
       options:
+        - value: compact
+          title: 紧凑
         - value: none
           title: 无
         - value: small
@@ -18,7 +20,7 @@
         - value: large
           title: 大
       default: normal
-      description: 栅格之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）
+      description: 栅格行之间的间隔
   slots:
     - name: default
       description: 插入`<u-grid-layout-row>`或`<u-grid-layout-column>`子组件。
@@ -43,6 +45,24 @@
       type: number
       default: 12
       description: 默认24，可设置栅格行大小
+    - name: gap
+      title: 栅格槽
+      type: string
+      options:
+        - value: none
+          title: 无
+        - value: mini
+          title: 迷你
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+        - value: huge
+          title: 巨大
+      default: normal
+      description: 栅格列之间的间隔
     - name: justify
       title: 对齐方式
       type: string
@@ -54,10 +74,10 @@
         - value: end
           title: 右对齐
         - value: space-between
-          title: 各行之间留有空
+          title: 水平分布-左右不留空
           advanced: true
         - value: space-around
-          title: 之前、之间、之后都留有空白
+          title: 水平分布-左右留空
           advanced: true
       default: start
       description: 内容对齐方式

@@ -1,8 +1,6 @@
 <template>
 <div :class="$style.root">
-    <div :class="$style.wrap">
-        <slot></slot>
-    </div>
+    <slot></slot>
 </div>
 </template>
 
@@ -21,15 +19,7 @@ export default {
     overflow-x: clip; /* 没有这个的话会有横向滚动条，但如果是hidden，在里面放置有dropdown等组件时，打开的时候会有竖向滚动条，所以使用clip */
 }
 
-.root .column {
-    /* padding: calc(var(--space-base) / 2); */
-}
-
-.root .wrap {
-    /* margin: 0 calc(var(--space-base) / (-2)); */
-}
-
-.root[gap^="none"] {
+/* .root[gap^="none"] {
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -54,7 +44,7 @@ export default {
 
 .root[gap$="none"] .wrap {
     margin: 0 0;
-}
+} */
 
 /* .root[gap^="small"] {
     margin-top: calc(var(--space-small) / (-2));
@@ -102,12 +92,6 @@ export default {
     margin: 0 calc(var(--space-base) / (-2));
 } */
 
-.root .column {
-    padding: 0;
-}
-.root .wrap {
-    margin: 0;
-}
 .root .row + .row {
     margin-top: var(--space-base);
 }
