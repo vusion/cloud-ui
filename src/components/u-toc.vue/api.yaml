@@ -11,15 +11,6 @@
       sync: true
       model: true
       description: 当前选择的值
-    - name: scroll-spy
-      title: 滚动监听
-      type: boolean
-      default: true
-      description: 是否监听滚动
-    - name: scroll-parent
-      title: 滚动父元素
-      type: HTMLElement
-      description: 滚动的父级元素
   slots:
     - name: default
       description: 插入`<u-toc-item>`子组件。
