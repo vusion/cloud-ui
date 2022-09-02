@@ -1,5 +1,5 @@
 <template>
-<span :class="[$style['lcp-iconv'], isSvgUrl(name) ? $style.iconcus : '']"
+<span :class="[$style['lcp-iconv'], isSvgUrl(name) ? $style.iconcus : '', icotype==='left' ? $style.wrapleft : '']"
     @click="onClick($event)"
     @dblclick="onDblclick($event)"
     @contextmenu="onContextMenu($event)"
@@ -150,6 +150,10 @@ export default {
     display: inline-block;
     text-align: center;
     font-size: 16px;
+}
+.wrapleft {
+    display: inline-flex;
+    align-items: center;
 }
 .iconwrap {
     /* font-size: 16px;  */
