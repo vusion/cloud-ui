@@ -288,12 +288,12 @@
       description: 节点的文本
       hidden: true
     - name: expanded
-      title: 展开折叠状态
+      title: 展开折叠
       type: boolean
       sync: true
       description: 节点默认展开
     - name: checked
-      title: 选中取消状态
+      title: 选中取消
       type: boolean
       sync: true
       description: 是否可以选中/取消
