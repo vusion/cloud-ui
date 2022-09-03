@@ -100,16 +100,11 @@
                 :filterFields="filterFields"
                 @change="$emit('change', $event, this)"
                 @before-select="$emit('before-select', $event, this)"
-                @select="$emit('select', $event, this)"
+                @select="$emit('select', $event, this) && close()"
                 @input="$emit('input', $event, this)"
                 @update:value="onUpdateValue"
                 @toggle="$emit('toggle', $event, this)"
                 @check="$emit('check', $event, this)">
-                <template v-if="dataSource && $env.VUE_APP_DESIGNER">
-                    <u-tree-view-node-new :text="scopeItem" readonly></u-tree-view-node-new>
-                    <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
-                    <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
-                </template>
                 <template #text="props">
                     <slot name="text" v-bind="props">{{ props.text }}</slot>
                 </template>
