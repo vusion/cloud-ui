@@ -3338,19 +3338,6 @@
                     "sync": true,
                     "model": true,
                     "description": "当前选择的值"
-                },
-                {
-                    "name": "scroll-spy",
-                    "title": "滚动监听",
-                    "type": "boolean",
-                    "default": true,
-                    "description": "是否监听滚动"
-                },
-                {
-                    "name": "scroll-parent",
-                    "title": "滚动父元素",
-                    "type": "HTMLElement",
-                    "description": "滚动的父级元素"
                 }
             ],
             "slots": [
@@ -4520,20 +4507,30 @@
         "labels": [
             "Display"
         ],
-        "screenShot": "",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-ico name=\\\"default\\\">\\n    <u-text>图标</u-text>\\n</i-ico>\\n</template>\\n\"}]",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/i-ico.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/i-ico.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/i-ico.vue/screenshots/2.png",
+        "blocks": "[{\"title\":\"组合图标-上下\",\"description\":\"\",\"code\":\"<template>\\n<i-ico name=\\\"default\\\">\\n    <u-text>图标</u-text>\\n</i-ico>\\n</template>\\n\"},{\"title\":\"组合图标-左右\",\"description\":\"\",\"code\":\"<template>\\n<i-ico name=\\\"default\\\" icotype=\\\"left\\\">\\n    <u-text>图标</u-text>\\n</i-ico>\\n</template>\\n\"},{\"title\":\"仅图标\",\"description\":\"\",\"code\":\"<template>\\n<i-ico name=\\\"default\\\" icotype=\\\"only\\\">\\n    <u-text>图标</u-text>\\n</i-ico></template>\\n\"}]",
         "jsonSchema": {
             "name": "i-ico",
             "title": "图标",
             "description": "图标",
             "category": "Display",
-            "screenShot": "",
-            "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/i-ico.vue/drawings/0.svg",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/i-ico.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/i-ico.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/i-ico.vue/screenshots/2.png",
+            "drawings": "",
             "blocks": [
                 {
-                    "title": "基本用法",
+                    "title": "组合图标-上下",
                     "description": "",
                     "code": "<template>\n<i-ico name=\"default\">\n    <u-text>图标</u-text>\n</i-ico>\n</template>\n"
+                },
+                {
+                    "title": "组合图标-左右",
+                    "description": "",
+                    "code": "<template>\n<i-ico name=\"default\" icotype=\"left\">\n    <u-text>图标</u-text>\n</i-ico>\n</template>\n"
+                },
+                {
+                    "title": "仅图标",
+                    "description": "",
+                    "code": "<template>\n<i-ico name=\"default\" icotype=\"only\">\n    <u-text>图标</u-text>\n</i-ico></template>\n"
                 }
             ],
             "attrs": [
@@ -4542,7 +4539,8 @@
                     "title": "图标",
                     "type": "icon",
                     "default": "",
-                    "description": ""
+                    "description": "",
+                    "clearable": true
                 },
                 {
                     "name": "icotype",
@@ -13180,7 +13178,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/u-tree-select-new.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/u-tree-select-new.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tree-select-new placeholder=\\\"请选择\\\">\\n    <u-tree-view-node-new value=\\\"1\\\">\\n        <template slot=\\\"text\\\">选项 1</template>\\n    <u-tree-view-node-new value=\\\"1.1\\\">\\n        <template slot=\\\"text\\\">选项 1.1</template>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"1.2\\\">\\n        <template slot=\\\"text\\\">选项 1.2</template>\\n    </u-tree-view-node-new>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"2\\\">\\n         <template slot=\\\"text\\\">节点 2</template>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"3\\\">\\n        <template slot=\\\"text\\\">节点 3</template>\\n    </u-tree-view-node-new>   \\n</u-tree-select-new>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tree-select-new placeholder=\\\"请选择\\\">\\n    <u-tree-view-node-new value=\\\"1\\\">\\n        <template slot=\\\"text\\\">选项 1</template>\\n    <u-tree-view-node-new value=\\\"1.1\\\">\\n        <template slot=\\\"text\\\">选项 1.1</template>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"1.2\\\">\\n        <template slot=\\\"text\\\">选项 1.2</template>\\n    </u-tree-view-node-new>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"2\\\">\\n         <template slot=\\\"text\\\">选项 2</template>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"3\\\">\\n        <template slot=\\\"text\\\">选项 3</template>\\n    </u-tree-view-node-new>   \\n</u-tree-select-new>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-tree-select-new",
             "title": "树选择器",
@@ -13192,16 +13190,24 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-tree-select-new placeholder=\"请选择\">\n    <u-tree-view-node-new value=\"1\">\n        <template slot=\"text\">选项 1</template>\n    <u-tree-view-node-new value=\"1.1\">\n        <template slot=\"text\">选项 1.1</template>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"1.2\">\n        <template slot=\"text\">选项 1.2</template>\n    </u-tree-view-node-new>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"2\">\n         <template slot=\"text\">节点 2</template>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"3\">\n        <template slot=\"text\">节点 3</template>\n    </u-tree-view-node-new>   \n</u-tree-select-new>\n</template>\n"
+                    "code": "<template>\n<u-tree-select-new placeholder=\"请选择\">\n    <u-tree-view-node-new value=\"1\">\n        <template slot=\"text\">选项 1</template>\n    <u-tree-view-node-new value=\"1.1\">\n        <template slot=\"text\">选项 1.1</template>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"1.2\">\n        <template slot=\"text\">选项 1.2</template>\n    </u-tree-view-node-new>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"2\">\n         <template slot=\"text\">选项 2</template>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"3\">\n        <template slot=\"text\">选项 3</template>\n    </u-tree-view-node-new>   \n</u-tree-select-new>\n</template>\n"
                 }
             ],
             "attrs": [
                 {
-                    "name": "data",
+                    "name": "data-source",
                     "title": "数据源",
-                    "type": "Array<{ text, value }>",
+                    "type": "Array<Item> | Function | object | DataSource",
                     "description": "集合类型变量或者输出参数为集合类型的逻辑",
                     "group": "数据属性"
+                },
+                {
+                    "name": "data-schema",
+                    "title": "数据类型",
+                    "type": "schema",
+                    "description": "表格每一行的数据类型",
+                    "group": "数据属性",
+                    "compType": "dataTypeSelect"
                 },
                 {
                     "name": "text-field",
@@ -13223,7 +13229,7 @@
                     "name": "children-field",
                     "title": "父级选项值",
                     "type": "string",
-                    "default": "value",
+                    "default": "children",
                     "description": "集合的元素类型中，用于标识父节点的属性",
                     "group": "数据属性"
                 },
@@ -16411,7 +16417,7 @@
                     "name": "children-field",
                     "title": "父级选项值",
                     "type": "string",
-                    "default": "value",
+                    "default": "children",
                     "description": "集合的元素类型中，用于标识父节点的属性",
                     "group": "数据属性"
                 },
@@ -16827,14 +16833,14 @@
                         },
                         {
                             "name": "expanded",
-                            "title": "展开折叠状态",
+                            "title": "展开折叠",
                             "type": "boolean",
                             "sync": true,
                             "description": "节点默认展开"
                         },
                         {
                             "name": "checked",
-                            "title": "选中取消状态",
+                            "title": "选中取消",
                             "type": "boolean",
                             "sync": true,
                             "description": "是否可以选中/取消"
@@ -18779,7 +18785,7 @@
             "Feedback"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/u-modal.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal>\\n    <template #title>\\n        <u-text text=\\\"标题\\\"></u-text>\\n    </template>\\n    <template #body>\\n        <u-text>内容</u-text>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout>\\n            <u-button color=\\\"primary\\\">确定</u-button>\\n            <u-button>取消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal>\\n    <template #title>\\n        <u-text text=\\\"标题\\\"></u-text>\\n    </template>\\n    <template #body>\\n        <u-text>内容</u-text>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout justify=\\\"center\\\">\\n            <u-button color=\\\"primary\\\">确定</u-button>\\n            <u-button>取消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-modal",
             "title": "弹窗",
@@ -18791,7 +18797,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-modal>\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #body>\n        <u-text>内容</u-text>\n    </template>\n    <template #foot>\n        <u-linear-layout>\n            <u-button color=\"primary\">确定</u-button>\n            <u-button>取消</u-button>\n        </u-linear-layout>\n    </template>\n</u-modal>\n</template>\n"
+                    "code": "<template>\n<u-modal>\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #body>\n        <u-text>内容</u-text>\n    </template>\n    <template #foot>\n        <u-linear-layout justify=\"center\">\n            <u-button color=\"primary\">确定</u-button>\n            <u-button>取消</u-button>\n        </u-linear-layout>\n    </template>\n</u-modal>\n</template>\n"
                 }
             ],
             "attrs": [

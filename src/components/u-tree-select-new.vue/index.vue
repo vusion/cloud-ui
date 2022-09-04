@@ -100,7 +100,7 @@
                 :filterFields="filterFields"
                 @change="$emit('change', $event, this)"
                 @before-select="$emit('before-select', $event, this)"
-                @select="$emit('select', $event, this) && close()"
+                @select="$emit('select', $event, this)"
                 @input="$emit('input', $event, this)"
                 @update:value="onUpdateValue"
                 @toggle="$emit('toggle', $event, this)"
@@ -303,7 +303,7 @@ export default {
             if(Array.isArray(list)) {
                 list.forEach((item) => {
                     const { childrenField, moreChildrenFields } = item;
-                    if(this.$at(item, this.valueField) != undefined) {
+                    if(this.$at(item, this.valueField) !== undefined) {
                         obj[this.$at(item, this.valueField)] = {
                           parent,
                           node: item,
