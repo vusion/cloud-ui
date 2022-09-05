@@ -47,11 +47,6 @@
       type: boolean
       default: false
       description: 是否开启多选模式，显示多选框
-    - name: cancelable
-      title: 可取消
-      type: boolean
-      default: false
-      description: 是否可以取消选择
     - name: accordion
       title: 手风琴模式
       type: boolean
@@ -78,10 +73,10 @@
       default: false
       description: ""
     - name: check-controlled
-      title: 节点选中关联
+      title: 父子节点独立选择
       type: boolean
       default: false
-      description: 父节点选中，子节点是否被选中，懒加载开启状态下无法全选关联
+      description: 开启后父节点选择不会全选子节点，子节点选择不会联动父节点
   slots:
     - name: default
       description: 插入`<u-tree-view-node-new>`子组件
