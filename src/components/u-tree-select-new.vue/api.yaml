@@ -29,9 +29,15 @@
       description: 集合的元素类型中，用于标识选中值的属性
       group: 数据属性
     - name: children-field
-      title: 父级选项值
+      title: 子级选项值
       type: string
       default: children
+      description: 集合的元素类型中，用于标识子节点的属性
+      group: 数据属性
+    - name: parent-field
+      title: 父级选项值
+      type: string
+      default: ""
       description: 集合的元素类型中，用于标识父节点的属性
       group: 数据属性
     - name: value
