@@ -112,7 +112,8 @@ export default {
     created() {
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.parentField) {
-            this.currentDataSource.data = this.list2tree(this.currentDataSource.data, this.valueField, this.parentField);
+            const temp = JSON.parse(JSON.stringify(this.currentDataSource));
+            this.currentDataSource.data = this.list2tree(temp.data, this.valueField, this.parentField);
         }
         if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
             this.load();
