@@ -31,9 +31,15 @@
       description: 集合的元素类型中，用于标识选中值的属性
       group: 数据属性
     - name: children-field
-      title: 父级选项值
+      title: 子级选项值
       type: string
       default: children
+      description: 集合的元素类型中，用于标识子节点的属性
+      group: 数据属性
+    - name: parent-field
+      title: 父级选项值
+      type: string
+      default: ""
       description: 集合的元素类型中，用于标识父节点的属性
       group: 数据属性
     - name: value
@@ -47,11 +53,6 @@
       type: boolean
       default: false
       description: 是否开启多选模式，显示多选框
-    - name: cancelable
-      title: 可取消
-      type: boolean
-      default: false
-      description: 是否可以取消选择
     - name: accordion
       title: 手风琴模式
       type: boolean
@@ -78,10 +79,10 @@
       default: false
       description: ""
     - name: check-controlled
-      title: 节点选中关联
+      title: 父子节点独立选择
       type: boolean
       default: false
-      description: 父节点选中，子节点是否被选中，懒加载开启状态下无法全选关联
+      description: 开启后父节点选择不会全选子节点，子节点选择不会联动父节点
   slots:
     - name: default
       description: 插入`<u-tree-view-node-new>`子组件
@@ -288,12 +289,12 @@
       description: 节点的文本
       hidden: true
     - name: expanded
-      title: 展开折叠状态
+      title: 展开折叠
       type: boolean
       sync: true
       description: 节点默认展开
     - name: checked
-      title: 选中取消状态
+      title: 选中取消
       type: boolean
       sync: true
       description: 是否可以选中/取消

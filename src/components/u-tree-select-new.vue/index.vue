@@ -83,6 +83,7 @@
                 :data-source="dataSource"
                 :text-field="textField"
                 :value-field="valueField"
+                :parent-field="parentField"
                 :is-leaf-field="isLeafField"
                 :children-field="childrenField"
                 :more-children-fields="moreChildrenFields"
@@ -105,11 +106,6 @@
                 @update:value="onUpdateValue"
                 @toggle="$emit('toggle', $event, this)"
                 @check="$emit('check', $event, this)">
-                <template>
-                    <u-tree-view-node-new :text="scopeItem" readonly></u-tree-view-node-new>
-                    <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
-                    <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
-                </template>
                 <template #text="props">
                     <slot name="text" v-bind="props">{{ props.text }}</slot>
                 </template>
@@ -136,6 +132,7 @@ export default {
         dataSchema: { type: String, default: "entity" },
         textField: { type: String, default: "text" },
         valueField: { type: String, default: "value" },
+        parentField: { type: String, default: "" },
         isLeafField: { type: String, default: "isLeaf" },
         childrenField: { type: String, default: "children" },
         moreChildrenFields: Array,
@@ -308,7 +305,7 @@ export default {
             if(Array.isArray(list)) {
                 list.forEach((item) => {
                     const { childrenField, moreChildrenFields } = item;
-                    if(this.$at(item, this.valueField) != undefined) {
+                    if(this.$at(item, this.valueField) !== undefined) {
                         obj[this.$at(item, this.valueField)] = {
                           parent,
                           node: item,

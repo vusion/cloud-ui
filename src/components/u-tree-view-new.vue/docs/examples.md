@@ -44,6 +44,17 @@
 ]"></u-tree-view-new>
 ```
 
+#### 一维Data
+
+``` html { width: 30% }
+<u-tree-view-new :data-source="[{id: 1, name: '节点1', pid: null}, {id: 2, name: '节点2', pid: 1}, {id: 3, name: '节点3', pid: null}, {id: 4, name: '节点4', pid: null}, {id: 5, name: '节点5', pid: 1}, {id: 6, name: '节点6', pid: 2}]"
+                 parent-field="pid"
+                 value-field="id"
+                 children-field="children"
+                 text-field="name"  
+></u-tree-view-new>
+```
+
 #### 自定义模板
 
 Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提供了一个名为`text`的作用域插槽，可以很轻松地处理这个问题。

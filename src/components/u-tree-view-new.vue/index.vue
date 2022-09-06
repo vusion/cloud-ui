@@ -40,6 +40,7 @@ export default {
         expandedField: { type: String, default: 'expanded' },
         isLeafField: { type: String, default: 'isLeaf' },
         childrenField: { type: String, default: 'children' },
+        parentField: { type: String, default: '' },
         moreChildrenFields: Array,
         excludeFields: { type: Array, default: () => [] },
         cancelable: { type: Boolean, default: false },
@@ -110,6 +111,9 @@ export default {
     },
     created() {
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+        if (this.parentField) {
+            this.currentDataSource.data = this.list2tree(this.currentDataSource.data, this.valueField, this.parentField);
+        }
         if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
             this.load();
     },
@@ -122,6 +126,20 @@ export default {
     methods: {
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+        },
+        list2tree(list, idField, pField) {
+            list.forEach(child => {
+                const pid = child[pField];
+                if(pid) {
+                    list.forEach(parent => {
+                        if(parent[idField] === pid) {
+                            parent[this.childrenField] = parent[this.childrenField] || []
+                            parent[this.childrenField].push(child)
+                        }
+                    })
+                }
+            })
+            return list.filter(n => !n[pField])
         },
         normalizeDataSource(dataSource) {
             const final = {

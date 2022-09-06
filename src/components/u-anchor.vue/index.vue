@@ -2,7 +2,7 @@
     <div :class="$style.root">
         <div
             :class="$style.link"
-            :id="label || componentName"
+            :id="label || refName"
             anchor
         >
             <div :class="$style.sub" vusion-slot-name="default">
@@ -21,16 +21,12 @@ export default {
     props: {
         name: {type: String, default: ''},
         label: { type: String, default: '' },
+        refName: { type: String, default: '' },
     },
     mounted() {
-    },
-    computed: {
-        // 获取组件名称
-        componentName() {
-            if (this.$attrs['vusion-node-path']) {
-                return this.$attrs['vusion-node-path'].split('.').pop().split('=').pop().slice(0, -1);
-            }
-        },
+        if (this.$vnode) {
+            this.refName = this.$vnode?.data?.ref;
+        }
     },
     data() {
         return {
