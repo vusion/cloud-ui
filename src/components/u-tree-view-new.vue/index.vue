@@ -134,17 +134,17 @@ export default {
         },
         list2tree(list, idField, pField) {
             list.forEach(child => {
-                const pid = child[pField];
+                const pid = this.$at(child, pField);
                 if(pid) {
                     list.forEach(parent => {
-                        if(parent[idField] === pid) {
-                            parent[this.childrenField] = parent[this.childrenField] || []
-                            parent[this.childrenField].push(child)
+                        if(this.$at(parent, idField) === pid) {
+                            this.$setAt(parent, this.childrenField, this.$at(parent, this.childrenField) || [])
+                            this.$at(parent, this.childrenField).push(child)
                         }
                     })
                 }
             })
-            return list.filter(n => !n[pField])
+            return list.filter(n => !this.$at(n, pField))
         },
         normalizeDataSource(dataSource) {
             const final = {
