@@ -41,7 +41,7 @@
       description: 集合的元素类型中，用于标识父节点的属性
       group: 数据属性
     - name: value
-      title: 选中值（双向绑定）
+      title: 选中值
       type: any
       sync: true
       model: true

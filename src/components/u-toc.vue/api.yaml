@@ -6,7 +6,7 @@
   description: 用于展示文档的目录
   attrs:
     - name: value
-      title: 选中值（双向绑定）
+      title: 选中值
       type: any
       sync: true
       model: true
