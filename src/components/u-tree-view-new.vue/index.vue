@@ -16,7 +16,7 @@
             :draggable="node.draggable"
         ><template #text>{{$at(node, field || textField)}}</template></component>
     </template>
-    <template v-if="$env.VUE_APP_DESIGNER && dataSource">
+    <template v-if="$env.VUE_APP_DESIGNER && dataSource ">
         <u-tree-view-node-new :text="scopeItem" readonly></u-tree-view-node-new>
         <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
         <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
@@ -81,7 +81,7 @@ export default {
     },
     computed: {
         scopeItem() {
-            return `{{ scope.item.${this.textField} }}`;
+            return `{ scope.item.${this.textField} }`;
         },
     },
     watch: {
@@ -132,6 +132,7 @@ export default {
         // If not, nodeVMs have not been pushed.
         this.watchValue(this.value);
         this.watchValues(this.values);
+        console.log('datasource', this.dataSource);
     },
     methods: {
         handleData() {
