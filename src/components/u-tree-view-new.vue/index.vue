@@ -2,7 +2,12 @@
 <div :class="$style.root" :readonly="readonly" :readonly-mode="readonlyMode" :disabled="disabled">
     <u-loading v-if="loading" size="small"></u-loading>
     <template v-else-if="currentDataSource">
-        <component :is="ChildComponent"
+        <template v-if="$env.VUE_APP_DESIGNER && dataSource">
+            <u-tree-view-node-new :text="scopeItem" readonly></u-tree-view-node-new>
+            <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
+            <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
+        </template>
+        <u-tree-view-node-new v-else
             v-for="node in currentDataSource.data"
             :text="$at(node, field || textField)"
             :value="$at(node, valueField)"
@@ -14,12 +19,10 @@
             :node="node"
             :level="0"
             :draggable="node.draggable"
-        ><template #text>{{$at(node, field || textField)}}</template></component>
+        ><template #text>{{$at(node, field || textField)}}</template></u-tree-view-node-new>
     </template>
-    <template v-if="$env.VUE_APP_DESIGNER && dataSource ">
-        <u-tree-view-node-new :text="scopeItem" readonly></u-tree-view-node-new>
-        <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
-        <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
+    <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
+        <span :class="$style.loadContent">请绑定数据源或插入树形视图节点</span>
     </template>
     <slot></slot>
 </div>
@@ -327,7 +330,6 @@ export default {
 
 <style module>
 .root {
-    min-height: 16px;
     user-select: none;
     overflow-x: hidden;
     overflow-y: auto;
@@ -344,6 +346,13 @@ export default {
     width: var(--tree-view-node-expander-size-mini);
     height: var(--tree-view-node-expander-size-mini);
     line-height: var(--tree-view-node-expander-size-mini);
+}
+
+.root .loadContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 }
 
 .root[size="mini"] .node_text {
