@@ -629,7 +629,7 @@ export default {
   margin-top: 1px;
   border-radius: var(--border-radius-base);
   box-shadow: var(--select-popper-box-shadow);
-  padding: var(--select-popper-padding);
+  padding: 0;
   min-width: var(--select-popper-min-width);
   width: var(--select-popper-width);
 }

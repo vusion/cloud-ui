@@ -13179,7 +13179,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/u-tree-select-new.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/u-tree-select-new.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tree-select-new placeholder=\\\"请选择\\\">\\n    <u-tree-view-node-new value=\\\"1\\\">\\n        <template slot=\\\"text\\\">选项 1</template>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"2\\\">\\n         <template slot=\\\"text\\\">选项 2</template>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"3\\\">\\n        <template slot=\\\"text\\\">选项 3</template>\\n    </u-tree-view-node-new>   \\n</u-tree-select-new>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tree-select-new placeholder=\\\"请选择\\\">\\n</u-tree-select-new>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-tree-select-new",
             "title": "树选择器",
@@ -13191,7 +13191,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-tree-select-new placeholder=\"请选择\">\n    <u-tree-view-node-new value=\"1\">\n        <template slot=\"text\">选项 1</template>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"2\">\n         <template slot=\"text\">选项 2</template>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"3\">\n        <template slot=\"text\">选项 3</template>\n    </u-tree-view-node-new>   \n</u-tree-select-new>\n</template>\n"
+                    "code": "<template>\n<u-tree-select-new placeholder=\"请选择\">\n</u-tree-select-new>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -16375,7 +16375,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/u-tree-view-new.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tree-view-new>\\n    <u-tree-view-node-new value=\\\"1\\\">\\n        <template slot=\\\"text\\\">节点 1</template>\\n        <u-tree-view-node-new value=\\\"1.1\\\">\\n            <template slot=\\\"text\\\">节点 1.1</template>\\n        </u-tree-view-node-new>\\n        <u-tree-view-node-new value=\\\"1.2\\\">\\n            <template slot=\\\"text\\\">节点 1.2</template>\\n        </u-tree-view-node-new>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"2\\\">\\n         <template slot=\\\"text\\\">节点 2</template>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"3\\\">\\n        <template slot=\\\"text\\\">节点 3</template>\\n    </u-tree-view-node-new>        \\n</u-tree-view-new>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tree-view-new>        \\n</u-tree-view-new>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-tree-view-new",
             "title": "树形视图",
@@ -16387,7 +16387,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-tree-view-new>\n    <u-tree-view-node-new value=\"1\">\n        <template slot=\"text\">节点 1</template>\n        <u-tree-view-node-new value=\"1.1\">\n            <template slot=\"text\">节点 1.1</template>\n        </u-tree-view-node-new>\n        <u-tree-view-node-new value=\"1.2\">\n            <template slot=\"text\">节点 1.2</template>\n        </u-tree-view-node-new>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"2\">\n         <template slot=\"text\">节点 2</template>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"3\">\n        <template slot=\"text\">节点 3</template>\n    </u-tree-view-node-new>        \n</u-tree-view-new>\n</template>\n"
+                    "code": "<template>\n<u-tree-view-new>        \n</u-tree-view-new>\n</template>\n"
                 }
             ],
             "attrs": [
