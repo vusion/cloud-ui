@@ -32,7 +32,7 @@ export default {
         value: null,
         values: Array,
         field: String,
-        data: Array,
+        data: [Array, Object, Function],
         dataSource: [Array, Object, Function],
         textField: { type: String, default: 'text' },
         valueField: { type: String, default: 'value' },
@@ -111,10 +111,6 @@ export default {
     },
     created() {
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
-        if (this.parentField) {
-            const temp = JSON.parse(JSON.stringify(this.currentDataSource));
-            this.currentDataSource.data = this.list2tree(temp.data, this.valueField, this.parentField);
-        }
         if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
             this.load();
     },
@@ -127,10 +123,6 @@ export default {
     methods: {
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
-            if (this.parentField) {
-                const temp = JSON.parse(JSON.stringify(this.currentDataSource));
-                this.currentDataSource.data = this.list2tree(temp.data, this.valueField, this.parentField);
-            }
         },
         list2tree(list, idField, pField) {
             list.forEach(child => {
@@ -157,22 +149,35 @@ export default {
                 return async function (params = {}) {
                     const result = await rawLoad(params);
                     if (result) {
-                        if (params.node) {
+                        if (self.parentField) {
+                            const temp = JSON.parse(JSON.stringify(result));
+                            final.data = self.list2tree(temp, self.valueField, self.parentField);
+                        } else if (params.node) {
                             self.$setAt(params.node, params.nodeVM.currentChildrenField, result);
                         } else
                             final.data = result;
                     }
-                    if (params.node && !this.$at(params.node, params.nodeVM.currentChildrenField))
+                    if (params.node && !self.$at(params.node, params.nodeVM.currentChildrenField))
                         self.$setAt(params.node, self.isLeafField, true);
                 };
             }
 
             if (Array.isArray(dataSource))
-                final.data = dataSource;
+                if (this.parentField) {
+                    const temp = JSON.parse(JSON.stringify(dataSource));
+                    final.data = this.list2tree(temp, this.valueField, this.parentField);
+                } else {
+                    final.data = dataSource;
+                }
             else if (typeof dataSource === 'function') {
                 final.load = createLoad(dataSource);
             } else if (typeof dataSource === 'object') {
-                final.data = dataSource.data;
+                if (this.parentField) {
+                    const temp = JSON.parse(JSON.stringify(dataSource.data));
+                    final.data = this.list2tree(temp, this.valueField, this.parentField);
+                } else {
+                    final.data = dataSource.data;
+                }
                 final.load = dataSource.load && createLoad(dataSource.load);
             }
 
