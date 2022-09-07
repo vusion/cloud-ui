@@ -25,6 +25,7 @@
     "lint": "eslint --fix --ext .js,.vue src && stylelint --fix ./src/**/*.css",
     "ghpages": "vusion ghpages",
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
+    "usage": "node ./scripts/lcap",
     "deploy:dev": "node ./scripts/lcap && lcap deploy dist-theme --platform http://defaulttenant.lcap.ha.dev.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.ha.dev.com",
     "deploy:test": "node ./scripts/lcap && lcap deploy dist-theme --platform http://defaulttenant.lcap.ha.test.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.ha.test.com",
     "deploy:pre": "node ./scripts/lcap && lcap deploy dist-theme --platform http://defaulttenant.lcap.ha.dri.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.ha.dri.com",
