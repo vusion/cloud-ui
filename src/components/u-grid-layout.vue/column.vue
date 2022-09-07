@@ -94,6 +94,8 @@ export default {
             return `calc(${column.columnWidth} + ${column.gap}px * ${span - 1})`;
         },
         getMarginLeft(span, repeat) {
+            if (!span)
+                return undefined;
             const column = this.getColumnWidth(span, repeat);
             return `calc(${column.columnWidth} + ${column.gap}px * ${span} + ${column.gap / 2}px)`;
         },
