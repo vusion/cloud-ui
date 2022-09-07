@@ -20,7 +20,7 @@
         <u-loading v-if="loading" :class="$style.loading" size="small"></u-loading>
         <div :class="$style.expander"
             ref="clickExpander"
-            v-else-if="hasChildren || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
+            v-else-if="hasChildren || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load && !rootVM.parentField)"
             :expand-trigger="rootVM.expandTrigger" :expanded="currentExpanded"
             @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
             :style="{ width : expanderWidth? expanderWidth + 'px':'' }"
