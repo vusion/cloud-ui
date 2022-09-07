@@ -16,6 +16,11 @@
             :draggable="node.draggable"
         ><template #text>{{$at(node, field || textField)}}</template></component>
     </template>
+    <template v-if="$env.VUE_APP_DESIGNER">
+        <u-tree-view-node-new :text="scopeItem" readonly></u-tree-view-node-new>
+        <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
+        <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
+    </template>
     <slot></slot>
 </div>
 </template>
@@ -23,17 +28,20 @@
 <script>
 import { MRoot } from '../m-root.vue';
 import MField from '../m-field.vue';
+import UTreeViewNodeNew from "../u-tree-view-new.vue/node.vue";
 
 export default {
     name: 'u-tree-view-new',
     nodeName: 'u-tree-view-node-new',
     mixins: [MRoot, MField],
+    components: { UTreeViewNodeNew },
     props: {
         value: null,
         values: Array,
         field: String,
         data: [Array, Object, Function],
         dataSource: [Array, Object, Function],
+        dataSchema: {type: String, default: 'entity'},
         textField: { type: String, default: 'text' },
         valueField: { type: String, default: 'value' },
         hiddenField: { type: String, default: 'hidden' },
@@ -70,6 +78,11 @@ export default {
             currentValues: this.values || [],
             loading: false,
         };
+    },
+    computed: {
+        scopeItem() {
+            return `scope.${this.dataSchema}.${this.valueField}`;
+        },
     },
     watch: {
         data(data) {
