@@ -3333,7 +3333,7 @@
             "attrs": [
                 {
                     "name": "value",
-                    "title": "选中值（双向绑定）",
+                    "title": "选中值",
                     "type": "any",
                     "sync": true,
                     "model": true,
@@ -3453,6 +3453,7 @@
             "children": [
                 {
                     "name": "u-toc-item",
+                    "title": "目录节点",
                     "attrs": [
                         {
                             "name": "label",
@@ -13178,7 +13179,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/u-tree-select-new.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.16/src/components/u-tree-select-new.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tree-select-new placeholder=\\\"请选择\\\">\\n    <u-tree-view-node-new value=\\\"1\\\">\\n        <template slot=\\\"text\\\">选项 1</template>\\n    <u-tree-view-node-new value=\\\"1.1\\\">\\n        <template slot=\\\"text\\\">选项 1.1</template>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"1.2\\\">\\n        <template slot=\\\"text\\\">选项 1.2</template>\\n    </u-tree-view-node-new>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"2\\\">\\n         <template slot=\\\"text\\\">选项 2</template>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"3\\\">\\n        <template slot=\\\"text\\\">选项 3</template>\\n    </u-tree-view-node-new>   \\n</u-tree-select-new>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tree-select-new placeholder=\\\"请选择\\\">\\n    <u-tree-view-node-new value=\\\"1\\\">\\n        <template slot=\\\"text\\\">选项 1</template>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"2\\\">\\n         <template slot=\\\"text\\\">选项 2</template>\\n    </u-tree-view-node-new>\\n    <u-tree-view-node-new value=\\\"3\\\">\\n        <template slot=\\\"text\\\">选项 3</template>\\n    </u-tree-view-node-new>   \\n</u-tree-select-new>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-tree-select-new",
             "title": "树选择器",
@@ -13190,7 +13191,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-tree-select-new placeholder=\"请选择\">\n    <u-tree-view-node-new value=\"1\">\n        <template slot=\"text\">选项 1</template>\n    <u-tree-view-node-new value=\"1.1\">\n        <template slot=\"text\">选项 1.1</template>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"1.2\">\n        <template slot=\"text\">选项 1.2</template>\n    </u-tree-view-node-new>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"2\">\n         <template slot=\"text\">选项 2</template>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"3\">\n        <template slot=\"text\">选项 3</template>\n    </u-tree-view-node-new>   \n</u-tree-select-new>\n</template>\n"
+                    "code": "<template>\n<u-tree-select-new placeholder=\"请选择\">\n    <u-tree-view-node-new value=\"1\">\n        <template slot=\"text\">选项 1</template>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"2\">\n         <template slot=\"text\">选项 2</template>\n    </u-tree-view-node-new>\n    <u-tree-view-node-new value=\"3\">\n        <template slot=\"text\">选项 3</template>\n    </u-tree-view-node-new>   \n</u-tree-select-new>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -13227,15 +13228,23 @@
                 },
                 {
                     "name": "children-field",
-                    "title": "父级选项值",
+                    "title": "子级选项值",
                     "type": "string",
                     "default": "children",
+                    "description": "集合的元素类型中，用于标识子节点的属性",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "parent-field",
+                    "title": "父级选项值",
+                    "type": "string",
+                    "default": "",
                     "description": "集合的元素类型中，用于标识父节点的属性",
                     "group": "数据属性"
                 },
                 {
                     "name": "value",
-                    "title": "选中值（双向绑定）",
+                    "title": "选中值",
                     "type": "any",
                     "sync": true,
                     "model": true,
@@ -16415,15 +16424,23 @@
                 },
                 {
                     "name": "children-field",
-                    "title": "父级选项值",
+                    "title": "子级选项值",
                     "type": "string",
                     "default": "children",
+                    "description": "集合的元素类型中，用于标识子节点的属性",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "parent-field",
+                    "title": "父级选项值",
+                    "type": "string",
+                    "default": "",
                     "description": "集合的元素类型中，用于标识父节点的属性",
                     "group": "数据属性"
                 },
                 {
                     "name": "value",
-                    "title": "选中值（双向绑定）",
+                    "title": "选中值",
                     "type": "any",
                     "sync": true,
                     "model": true,
@@ -16435,13 +16452,6 @@
                     "type": "boolean",
                     "default": false,
                     "description": "是否开启多选模式，显示多选框"
-                },
-                {
-                    "name": "cancelable",
-                    "title": "可取消",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否可以取消选择"
                 },
                 {
                     "name": "accordion",
@@ -16483,10 +16493,10 @@
                 },
                 {
                     "name": "check-controlled",
-                    "title": "节点选中关联",
+                    "title": "父子节点独立选择",
                     "type": "boolean",
                     "default": false,
-                    "description": "父节点选中，子节点是否被选中，懒加载开启状态下无法全选关联"
+                    "description": "开启后父节点选择不会全选子节点，子节点选择不会联动父节点"
                 }
             ],
             "slots": [

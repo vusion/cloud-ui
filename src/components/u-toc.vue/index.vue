@@ -40,6 +40,7 @@ export default {
             this.currentScrollParent = this.scrollParent || findScrollParent(this.$el);
             this.scrollListener();
         }
+        this.top = '8px';
     },
     destroyed() {
         this.eventOff && this.eventOff();
