@@ -799,6 +799,10 @@
     "type": "boolean",
     "description": "是否可手动关闭"
   },
+  "u-anchor/label": {
+    "type": "string",
+    "description": "锚点的唯一标识，用于跳转链接，如“/page#linkname”"
+  },
   "u-auto-complete/value": {
     "type": "string",
     "description": "输入框的值"
@@ -7417,37 +7421,17 @@
     "type": "boolean",
     "description": "是否可以关闭提示"
   },
-  "u-toc/router": {
-    "type": "boolean",
-    "description": "是否根据 vue-router 来控制选择哪一项"
-  },
   "u-toc/value": {
     "type": "any",
     "description": "当前选择的值"
   },
-  "u-toc/scroll-spy": {
-    "type": "boolean",
-    "description": "是否监听滚动"
-  },
-  "u-toc/scroll-parent": {
-    "type": "HTMLElement",
-    "description": "滚动的父级元素"
-  },
-  "u-toc/boundary-top": {
-    "type": "number",
-    "description": "如果有头部导航栏，可以设置边界高度"
-  },
   "u-toc-item/label": {
     "type": "string",
-    "description": "此项显示的文本"
+    "description": "集合的元素类型中，用于显示文本的属性名称"
   },
   "u-toc-item/value": {
     "type": "any",
-    "description": "此项的值"
-  },
-  "u-toc-item/disabled": {
-    "type": "boolean",
-    "description": "禁用此项"
+    "description": "集合的元素类型中，用于标识选中值的属性"
   },
   "u-toc-item/item": {
     "type": "object",
@@ -7476,7 +7460,7 @@
     "description": "链接地址"
   },
   "u-toc-item/target": {
-    "type": "enum",
+    "type": "string",
     "options": [
       {
         "title": "新窗口",
@@ -7499,13 +7483,9 @@
     ],
     "description": "链接打开方式"
   },
-  "u-toc-item/replace": {
+  "u-toc-item/disabled": {
     "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
-  },
-  "u-toc-item/exact": {
-    "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
+    "description": "禁用此项"
   },
   "u-tooltip/opened": {
     "type": "boolean",
@@ -7697,33 +7677,163 @@
     "type": "boolean",
     "description": ""
   },
-  "u-tree-select/value": {
-    "type": "number",
-    "description": "需要传入的值"
+  "u-tree-select-new/data-source": {
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+  },
+  "u-tree-select-new/data-schema": {
+    "type": "schema",
+    "description": "表格每一行的数据类型"
+  },
+  "u-tree-select-new/text-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-tree-select-new/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
+  "u-tree-select-new/children-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识子节点的属性"
+  },
+  "u-tree-select-new/parent-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识父节点的属性"
+  },
+  "u-tree-select-new/value": {
+    "type": "any",
+    "description": "选择后，所选中的值"
+  },
+  "u-tree-select/data": {
+    "type": "Array<{ text, value }>",
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+  },
+  "u-tree-select/text-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-tree-select/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
+  "u-tree-select/children-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识父节点的属性"
+  },
+  "u-tree-view-new/data-source": {
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+  },
+  "u-tree-view-new/data-schema": {
+    "type": "schema",
+    "description": "表格每一行的数据类型"
+  },
+  "u-tree-view-new/text-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-tree-view-new/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
+  "u-tree-view-new/children-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识子节点的属性"
+  },
+  "u-tree-view-new/parent-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识父节点的属性"
+  },
+  "u-tree-view-new/value": {
+    "type": "any",
+    "description": "选择后，所选中的值"
+  },
+  "u-tree-view-new/checkable": {
+    "type": "boolean",
+    "description": "是否开启多选模式，显示多选框"
+  },
+  "u-tree-view-new/accordion": {
+    "type": "boolean",
+    "description": "是否每次只会展开一个分组"
+  },
+  "u-tree-view-new/expand-trigger": {
+    "type": "string",
+    "options": [
+      {
+        "value": "click",
+        "title": "整行点击均可触发"
+      },
+      {
+        "value": "click-expander",
+        "title": "点击小箭头时触发"
+      }
+    ],
+    "description": "展开/折叠的触发方式"
+  },
+  "u-tree-view-new/readonly": {
+    "type": "boolean",
+    "description": ""
+  },
+  "u-tree-view-new/disabled": {
+    "type": "boolean",
+    "description": ""
+  },
+  "u-tree-view-new/check-controlled": {
+    "type": "boolean",
+    "description": "开启后父节点选择不会全选子节点，子节点选择不会联动父节点"
+  },
+  "u-tree-view-node-new/value": {
+    "type": "any",
+    "description": "节点的值"
+  },
+  "u-tree-view-node-new/text": {
+    "type": "string",
+    "description": "节点的文本"
+  },
+  "u-tree-view-node-new/expanded": {
+    "type": "boolean",
+    "description": "节点默认展开"
+  },
+  "u-tree-view-node-new/checked": {
+    "type": "boolean",
+    "description": "是否可以选中/取消"
+  },
+  "u-tree-view-node-new/disabled": {
+    "type": "boolean",
+    "description": ""
+  },
+  "u-tree-view-node-new/node": {
+    "type": "object",
+    "description": "当选择此节点时，抛出的事件会传递该对象，便于开发"
   },
   "u-tree-view/data": {
     "type": "Array<{ text, value }>",
-    "description": "Data书写方式中的数据列表"
-  },
-  "u-tree-view/value": {
-    "type": "any",
-    "description": ""
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
   },
   "u-tree-view/text-field": {
     "type": "string",
-    "description": "选项文本的字段名"
+    "description": "集合的元素类型中，用于显示文本的属性名称"
   },
   "u-tree-view/value-field": {
     "type": "string",
-    "description": "选项值的字段名"
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
+  "u-tree-view/children-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识父节点的属性"
+  },
+  "u-tree-view/value": {
+    "type": "any",
+    "description": "单选后，选中的值"
+  },
+  "u-tree-view/checkable": {
+    "type": "boolean",
+    "description": "是否开启多选模式，显示多选框"
   },
   "u-tree-view/cancelable": {
     "type": "boolean",
     "description": "是否可以取消选择"
-  },
-  "u-tree-view/checkable": {
-    "type": "boolean",
-    "description": "是否可以选中/取消"
   },
   "u-tree-view/accordion": {
     "type": "boolean",
@@ -7753,7 +7863,7 @@
   },
   "u-tree-view/check-controlled": {
     "type": "boolean",
-    "description": "checkable 开启情况下，是否完全受控（父子节点状态不关联）"
+    "description": "父节点选中，子节点是否被选中，懒加载开启状态下无法全选关联"
   },
   "u-tree-view-node/value": {
     "type": "any",

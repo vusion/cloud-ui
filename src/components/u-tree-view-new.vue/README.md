@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# UTreeView 树形视图
+# UTreeViewNew 树形视图
 
 - [示例](#示例)
     - [基本用法](#基本用法)
@@ -15,12 +15,12 @@
     - [节点显示/隐藏](#节点显示隐藏)
     - [多选](#多选)
     - [其他方法](#其他方法)
-- [UTreeView API](#utreeview-api)
+- [UTreeViewNew API](#utreeviewnew-api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
     - [Events](#events)
     - [Methods](#methods)
-- [UTreeViewNode API](#utreeviewnode-api)
+- [UTreeViewNodeNew API](#utreeviewnodenew-api)
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
     - [Events](#events-2)
@@ -37,28 +37,28 @@
 #### Tag 方式
 
 ``` html { width: 30% }
-<u-tree-view>
-    <u-tree-view-node text="节点 1">
-        <u-tree-view-node text="节点 1.1"></u-tree-view-node>
-        <u-tree-view-node text="节点 1.2">
-            <u-tree-view-node text="节点 1.2.1"></u-tree-view-node>
-            <u-tree-view-node text="节点 1.2.2"></u-tree-view-node>
-        </u-tree-view-node>
-        <u-tree-view-node text="节点 1.3"></u-tree-view-node>
-        <u-tree-view-node text="节点 1.4"></u-tree-view-node>
-    </u-tree-view-node>
-    <u-tree-view-node text="节点 2"></u-tree-view-node>
-    <u-tree-view-node text="节点 3">
-        <u-tree-view-node text="节点 3.1"></u-tree-view-node>
-        <u-tree-view-node text="节点 3.2"></u-tree-view-node>
-    </u-tree-view-node>
-</u-tree-view>
+<u-tree-view-new>
+    <u-tree-view-node-new text="节点 1">
+        <u-tree-view-node-new text="节点 1.1"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.2">
+            <u-tree-view-node-new text="节点 1.2.1"></u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 1.2.2"></u-tree-view-node-new>
+        </u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.3"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.4"></u-tree-view-node-new>
+    </u-tree-view-node-new>
+    <u-tree-view-node-new text="节点 2"></u-tree-view-node-new>
+    <u-tree-view-node-new text="节点 3">
+        <u-tree-view-node-new text="节点 3.1"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 3.2"></u-tree-view-node-new>
+    </u-tree-view-node-new>
+</u-tree-view-new>
 ```
 
 #### Data 方式
 
 ``` html { width: 30% }
-<u-tree-view :data="[
+<u-tree-view-new :data-source="[
     { text: '节点 1', children: [
         { text: '节点 1.1' },
         { text: '节点 1.2', children: [
@@ -73,7 +73,18 @@
         { text: '节点 3.1' },
         { text: '节点 3.2' },
     ] },
-]"></u-tree-view>
+]"></u-tree-view-new>
+```
+
+#### 一维Data
+
+``` html { width: 30% }
+<u-tree-view-new :data-source="[{id: 1, name: '节点1', pid: null}, {id: 2, name: '节点2', pid: 1}, {id: 3, name: '节点3', pid: null}, {id: 4, name: '节点4', pid: null}, {id: 5, name: '节点5', pid: 1}, {id: 6, name: '节点6', pid: 2}]"
+                 parent-field="pid"
+                 value-field="id"
+                 children-field="children"
+                 text-field="name"  
+></u-tree-view-new>
 ```
 
 #### 自定义模板
@@ -81,7 +92,7 @@
 Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提供了一个名为`text`的作用域插槽，可以很轻松地处理这个问题。
 
 ``` html { width: 30% }
-<u-tree-view :data="[
+<u-tree-view-new :data-source="[
     { text: '文件夹1', type: 'directory', children: [
         { text: '文件夹1.1', type: 'directory' },
         { text: '文件夹1.2', type: 'directory', children: [
@@ -101,7 +112,7 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
         {{ node.type === 'directory' ? (expanded ? '📂' : '📁') : '📄' }}
         {{ text }}
     </span>
-</u-tree-view>
+</u-tree-view-new>
 ```
 
 但`text`作用域插槽只支持扩展 text 文本内容，如果你的需求更加复杂，建议直接通过继承 UTreeView 相关组件来实现。
@@ -111,28 +122,28 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
 #### Tag 方式
 
 ``` html { width: 30% }
-<u-tree-view value="1.2">
-    <u-tree-view-node text="节点 1" value="1">
-        <u-tree-view-node text="节点 1.1" value="1.1"></u-tree-view-node>
-        <u-tree-view-node text="节点 1.2" value="1.2">
-            <u-tree-view-node text="节点 1.2.1" value="1.2.1"></u-tree-view-node>
-            <u-tree-view-node text="节点 1.2.2" value="1.2.2"></u-tree-view-node>
-        </u-tree-view-node>
-        <u-tree-view-node text="节点 1.3" value="1.3"></u-tree-view-node>
-        <u-tree-view-node text="节点 1.4" value="1.4"></u-tree-view-node>
-    </u-tree-view-node>
-    <u-tree-view-node text="节点 2" value="2"></u-tree-view-node>
-    <u-tree-view-node text="节点 3" value="3">
-        <u-tree-view-node text="节点 3.1" value="3.1"></u-tree-view-node>
-        <u-tree-view-node text="节点 3.2" value="3.2"></u-tree-view-node>
-    </u-tree-view-node>
-</u-tree-view>
+<u-tree-view-new value="1.2">
+    <u-tree-view-node-new text="节点 1" value="1">
+        <u-tree-view-node-new text="节点 1.1" value="1.1"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.2" value="1.2">
+            <u-tree-view-node-new text="节点 1.2.1" value="1.2.1"></u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 1.2.2" value="1.2.2"></u-tree-view-node-new>
+        </u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.3" value="1.3"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.4" value="1.4"></u-tree-view-node-new>
+    </u-tree-view-node-new>
+    <u-tree-view-node-new text="节点 2" value="2"></u-tree-view-node-new>
+    <u-tree-view-node-new text="节点 3" value="3">
+        <u-tree-view-node-new text="节点 3.1" value="3.1"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 3.2" value="3.2"></u-tree-view-node-new>
+    </u-tree-view-node-new>
+</u-tree-view-new>
 ```
 
 #### Data 方式
 
 ``` html { width: 30% }
-<u-tree-view value="1.2" :data="[
+<u-tree-view-new value="1.2" :data-source="[
     { text: '节点 1', value: '1', children: [
         { text: '节点 1.1', value: '1.1' },
         { text: '节点 1.2', value: '1.2', children: [
@@ -147,7 +158,7 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
         { text: '节点 3.1', value: '3.1' },
         { text: '节点 3.2', value: '3.2' },
     ] },
-]"></u-tree-view>
+]"></u-tree-view-new>
 ```
 
 ### 只读、禁用、禁用某一项
@@ -157,58 +168,58 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
 ``` html
 <u-grid-layout>
     <u-grid-layout-column :span="4">
-        <u-tree-view readonly>
-            <u-tree-view-node text="节点 1">
-                <u-tree-view-node text="节点 1.1"></u-tree-view-node>
-                <u-tree-view-node text="节点 1.2">
-                    <u-tree-view-node text="节点 1.2.1"></u-tree-view-node>
-                    <u-tree-view-node text="节点 1.2.2"></u-tree-view-node>
-                </u-tree-view-node>
-                <u-tree-view-node text="节点 1.3"></u-tree-view-node>
-                <u-tree-view-node text="节点 1.4"></u-tree-view-node>
-            </u-tree-view-node>
-            <u-tree-view-node text="节点 2"></u-tree-view-node>
-            <u-tree-view-node text="节点 3">
-                <u-tree-view-node text="节点 3.1"></u-tree-view-node>
-                <u-tree-view-node text="节点 3.2"></u-tree-view-node>
-            </u-tree-view-node>
-        </u-tree-view>
+        <u-tree-view-new readonly>
+            <u-tree-view-node-new text="节点 1">
+                <u-tree-view-node-new text="节点 1.1"></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.2">
+                    <u-tree-view-node-new text="节点 1.2.1"></u-tree-view-node-new>
+                    <u-tree-view-node-new text="节点 1.2.2"></u-tree-view-node-new>
+                </u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.3"></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.4"></u-tree-view-node-new>
+            </u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 2"></u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 3">
+                <u-tree-view-node-new text="节点 3.1"></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 3.2"></u-tree-view-node-new>
+            </u-tree-view-node-new>
+        </u-tree-view-new>
     </u-grid-layout-column>
     <u-grid-layout-column :span="4">
-        <u-tree-view disabled>
-            <u-tree-view-node text="节点 1">
-                <u-tree-view-node text="节点 1.1"></u-tree-view-node>
-                <u-tree-view-node text="节点 1.2">
-                    <u-tree-view-node text="节点 1.2.1"></u-tree-view-node>
-                    <u-tree-view-node text="节点 1.2.2"></u-tree-view-node>
-                </u-tree-view-node>
-                <u-tree-view-node text="节点 1.3"></u-tree-view-node>
-                <u-tree-view-node text="节点 1.4"></u-tree-view-node>
-            </u-tree-view-node>
-            <u-tree-view-node text="节点 2"></u-tree-view-node>
-            <u-tree-view-node text="节点 3">
-                <u-tree-view-node text="节点 3.1"></u-tree-view-node>
-                <u-tree-view-node text="节点 3.2"></u-tree-view-node>
-            </u-tree-view-node>
-        </u-tree-view>
+        <u-tree-view-new disabled>
+            <u-tree-view-node-new text="节点 1">
+                <u-tree-view-node-new text="节点 1.1"></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.2">
+                    <u-tree-view-node-new text="节点 1.2.1"></u-tree-view-node-new>
+                    <u-tree-view-node-new text="节点 1.2.2"></u-tree-view-node-new>
+                </u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.3"></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.4"></u-tree-view-node-new>
+            </u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 2"></u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 3">
+                <u-tree-view-node-new text="节点 3.1"></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 3.2"></u-tree-view-node-new>
+            </u-tree-view-node-new>
+        </u-tree-view-new>
     </u-grid-layout-column>
     <u-grid-layout-column :span="4">
-        <u-tree-view>
-            <u-tree-view-node text="节点 1">
-                <u-tree-view-node text="节点 1.1"></u-tree-view-node>
-                <u-tree-view-node text="节点 1.2" disabled>
-                    <u-tree-view-node text="节点 1.2.1"></u-tree-view-node>
-                    <u-tree-view-node text="节点 1.2.2"></u-tree-view-node>
-                </u-tree-view-node>
-                <u-tree-view-node text="节点 1.3" disabled></u-tree-view-node>
-                <u-tree-view-node text="节点 1.4"></u-tree-view-node>
-            </u-tree-view-node>
-            <u-tree-view-node text="节点 2" disabled></u-tree-view-node>
-            <u-tree-view-node text="节点 3">
-                <u-tree-view-node text="节点 3.1"></u-tree-view-node>
-                <u-tree-view-node text="节点 3.2"></u-tree-view-node>
-            </u-tree-view-node>
-        </u-tree-view>
+        <u-tree-view-new>
+            <u-tree-view-node-new text="节点 1">
+                <u-tree-view-node-new text="节点 1.1"></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.2" disabled>
+                    <u-tree-view-node-new text="节点 1.2.1"></u-tree-view-node-new>
+                    <u-tree-view-node-new text="节点 1.2.2"></u-tree-view-node-new>
+                </u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.3" disabled></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.4"></u-tree-view-node-new>
+            </u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 2" disabled></u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 3">
+                <u-tree-view-node-new text="节点 3.1"></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 3.2"></u-tree-view-node-new>
+            </u-tree-view-node-new>
+        </u-tree-view-new>
     </u-grid-layout-column>
 </u-grid-layout>
 ```
@@ -216,7 +227,7 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
 #### Data 方式
 
 ``` html { width: 30% }
-<u-tree-view :data="[
+<u-tree-view-new :data-source="[
     { text: '节点 1', children: [
         { text: '节点 1.1' },
         { text: '节点 1.2', disabled: true, children: [
@@ -231,14 +242,14 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
         { text: '节点 3.1' },
         { text: '节点 3.2'}
     ]}
-]"></u-tree-view>
+]"></u-tree-view-new>
 ```
 
 ### 异步加载
 
 ``` vue { width: 30% }
 <template>
-<u-tree-view :data-source="load" text-field="title"></u-tree-view>
+<u-tree-view-new :data-source="load" text-field="title"></u-tree-view-new>
 </template>
 <script>
 // 模拟后端请求
@@ -274,9 +285,9 @@ export default {
 
 ``` vue { width: 30% }
 <template>
-<u-tree-view :data-source="load" text-field="title">
-    <u-tree-view-node v-for="app in apps" v-if="app.subType !== 'other'" :text="app.title" :node="app" children-field="services"></u-tree-view-node>
-</u-tree-view>
+<u-tree-view-new :data-source="load" text-field="title">
+    <u-tree-view-node-new v-for="app in apps" v-if="app.subType !== 'other'" :text="app.title" :node="app" children-field="services"></u-tree-view-node-new>
+</u-tree-view-new>
 </template>
 <script>
 // 模拟后端请求
@@ -319,7 +330,7 @@ export default {
 
 ``` vue { width: 30% }
 <template>
-<u-tree-view :data-source="load" text-field="title"></u-tree-view>
+<u-tree-view-new :data-source="load" text-field="title"></u-tree-view-new>
 </template>
 <script>
 // 模拟后端请求
@@ -354,31 +365,31 @@ export default {
 ### 手风琴
 
 ``` html { width: 30% }
-<u-tree-view accordion>
-    <u-tree-view-node text="节点 1">
-        <u-tree-view-node text="节点 1.1">
-            <u-tree-view-node text="节点 1.1.1"></u-tree-view-node>
-            <u-tree-view-node text="节点 1.1.2"></u-tree-view-node>
-        </u-tree-view-node>
-        <u-tree-view-node text="节点 1.2">
-            <u-tree-view-node text="节点 1.2.1"></u-tree-view-node>
-            <u-tree-view-node text="节点 1.2.2"></u-tree-view-node>
-        </u-tree-view-node>
-        <u-tree-view-node text="节点 1.3">
-            <u-tree-view-node text="节点 1.3.1"></u-tree-view-node>
-            <u-tree-view-node text="节点 1.3.2"></u-tree-view-node>
-        </u-tree-view-node>
-        <u-tree-view-node text="节点 1.4"></u-tree-view-node>
-    </u-tree-view-node>
-    <u-tree-view-node text="节点 2" expanded>
-        <u-tree-view-node text="节点 2.1"></u-tree-view-node>
-        <u-tree-view-node text="节点 2.2"></u-tree-view-node>
-    </u-tree-view-node>
-    <u-tree-view-node text="节点 3">
-        <u-tree-view-node text="节点 3.1"></u-tree-view-node>
-        <u-tree-view-node text="节点 3.2"></u-tree-view-node>
-    </u-tree-view-node>
-</u-tree-view>
+<u-tree-view-new accordion>
+    <u-tree-view-node-new text="节点 1">
+        <u-tree-view-node-new text="节点 1.1">
+            <u-tree-view-node-new text="节点 1.1.1"></u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 1.1.2"></u-tree-view-node-new>
+        </u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.2">
+            <u-tree-view-node-new text="节点 1.2.1"></u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 1.2.2"></u-tree-view-node-new>
+        </u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.3">
+            <u-tree-view-node-new text="节点 1.3.1"></u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 1.3.2"></u-tree-view-node-new>
+        </u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.4"></u-tree-view-node-new>
+    </u-tree-view-node-new>
+    <u-tree-view-node-new text="节点 2" expanded>
+        <u-tree-view-node-new text="节点 2.1"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 2.2"></u-tree-view-node-new>
+    </u-tree-view-node-new>
+    <u-tree-view-node-new text="节点 3">
+        <u-tree-view-node-new text="节点 3.1"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 3.2"></u-tree-view-node-new>
+    </u-tree-view-node-new>
+</u-tree-view-new>
 ```
 
 ### 展开/折叠触发方式
@@ -387,41 +398,41 @@ export default {
 <u-grid-layout>
     <u-grid-layout-column :span="4" expand-trigger="click">
         <p>整行点击均可触发（默认）</p>
-        <u-tree-view>
-            <u-tree-view-node text="节点 1" expanded>
-                <u-tree-view-node text="节点 1.1" expanded></u-tree-view-node>
-                <u-tree-view-node text="节点 1.2" expanded>
-                    <u-tree-view-node text="节点 1.2.1"></u-tree-view-node>
-                    <u-tree-view-node text="节点 1.2.2"></u-tree-view-node>
-                </u-tree-view-node>
-                <u-tree-view-node text="节点 1.3"></u-tree-view-node>
-                <u-tree-view-node text="节点 1.4"></u-tree-view-node>
-            </u-tree-view-node>
-            <u-tree-view-node text="节点 2"></u-tree-view-node>
-            <u-tree-view-node text="节点 3">
-                <u-tree-view-node text="节点 3.1"></u-tree-view-node>
-                <u-tree-view-node text="节点 3.2"></u-tree-view-node>
-            </u-tree-view-node>
-        </u-tree-view>
+        <u-tree-view-new>
+            <u-tree-view-node-new text="节点 1" expanded>
+                <u-tree-view-node-new text="节点 1.1" expanded></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.2" expanded>
+                    <u-tree-view-node-new text="节点 1.2.1"></u-tree-view-node-new>
+                    <u-tree-view-node-new text="节点 1.2.2"></u-tree-view-node-new>
+                </u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.3"></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.4"></u-tree-view-node-new>
+            </u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 2"></u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 3">
+                <u-tree-view-node-new text="节点 3.1"></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 3.2"></u-tree-view-node-new>
+            </u-tree-view-node-new>
+        </u-tree-view-new>
     </u-grid-layout-column>
     <u-grid-layout-column :span="4">
         <p>仅点击小箭头时触发</p>
-        <u-tree-view expand-trigger="click-expander">
-            <u-tree-view-node text="节点 1" expanded>
-                <u-tree-view-node text="节点 1.1" expanded></u-tree-view-node>
-                <u-tree-view-node text="节点 1.2" expanded>
-                    <u-tree-view-node text="节点 1.2.1"></u-tree-view-node>
-                    <u-tree-view-node text="节点 1.2.2"></u-tree-view-node>
-                </u-tree-view-node>
-                <u-tree-view-node text="节点 1.3"></u-tree-view-node>
-                <u-tree-view-node text="节点 1.4"></u-tree-view-node>
-            </u-tree-view-node>
-            <u-tree-view-node text="节点 2"></u-tree-view-node>
-            <u-tree-view-node text="节点 3">
-                <u-tree-view-node text="节点 3.1"></u-tree-view-node>
-                <u-tree-view-node text="节点 3.2"></u-tree-view-node>
-            </u-tree-view-node>
-        </u-tree-view>
+        <u-tree-view-new expand-trigger="click-expander">
+            <u-tree-view-node-new text="节点 1" expanded>
+                <u-tree-view-node-new text="节点 1.1" expanded></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.2" expanded>
+                    <u-tree-view-node-new text="节点 1.2.1"></u-tree-view-node-new>
+                    <u-tree-view-node-new text="节点 1.2.2"></u-tree-view-node-new>
+                </u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.3"></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 1.4"></u-tree-view-node-new>
+            </u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 2"></u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 3">
+                <u-tree-view-node-new text="节点 3.1"></u-tree-view-node-new>
+                <u-tree-view-node-new text="节点 3.2"></u-tree-view-node-new>
+            </u-tree-view-node-new>
+        </u-tree-view-new>
     </u-grid-layout-column>
 </u-grid-layout>
 ```
@@ -429,22 +440,22 @@ export default {
 ### 可取消
 
 ``` html { width: 30% }
-<u-tree-view cancelable>
-    <u-tree-view-node text="节点 1">
-        <u-tree-view-node text="节点 1.1"></u-tree-view-node>
-        <u-tree-view-node text="节点 1.2">
-            <u-tree-view-node text="节点 1.2.1"></u-tree-view-node>
-            <u-tree-view-node text="节点 1.2.2"></u-tree-view-node>
-        </u-tree-view-node>
-        <u-tree-view-node text="节点 1.3"></u-tree-view-node>
-        <u-tree-view-node text="节点 1.4"></u-tree-view-node>
-    </u-tree-view-node>
-    <u-tree-view-node text="节点 2"></u-tree-view-node>
-    <u-tree-view-node text="节点 3">
-        <u-tree-view-node text="节点 3.1"></u-tree-view-node>
-        <u-tree-view-node text="节点 3.2"></u-tree-view-node>
-    </u-tree-view-node>
-</u-tree-view>
+<u-tree-view-new cancelable>
+    <u-tree-view-node-new text="节点 1">
+        <u-tree-view-node-new text="节点 1.1"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.2">
+            <u-tree-view-node-new text="节点 1.2.1"></u-tree-view-node-new>
+            <u-tree-view-node-new text="节点 1.2.2"></u-tree-view-node-new>
+        </u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.3"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 1.4"></u-tree-view-node-new>
+    </u-tree-view-node-new>
+    <u-tree-view-node-new text="节点 2"></u-tree-view-node-new>
+    <u-tree-view-node-new text="节点 3">
+        <u-tree-view-node-new text="节点 3.1"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点 3.2"></u-tree-view-node-new>
+    </u-tree-view-node-new>
+</u-tree-view-new>
 ```
 
 ### 节点显示/隐藏
@@ -452,22 +463,22 @@ export default {
 Tag 方式中可以使用`v-show`，Data 方式中可以使用`hidden`属性
 
 ``` html { width: 30% }
-<u-tree-view cancelable>
-    <u-tree-view-node v-show="false" text="节点1">
-        <u-tree-view-node text="节点1.1"></u-tree-view-node>
-        <u-tree-view-node text="节点1.2">
-            <u-tree-view-node text="节点1.2.1"></u-tree-view-node>
-            <u-tree-view-node text="节点1.2.2"></u-tree-view-node>
-        </u-tree-view-node>
-        <u-tree-view-node text="节点1.3"></u-tree-view-node>
-        <u-tree-view-node text="节点1.4"></u-tree-view-node>
-    </u-tree-view-node>
-    <u-tree-view-node text="节点2"></u-tree-view-node>
-    <u-tree-view-node text="节点3">
-        <u-tree-view-node text="节点3.1" hidden></u-tree-view-node>
-        <u-tree-view-node text="节点3.2"></u-tree-view-node>
-    </u-tree-view-node>
-</u-tree-view>
+<u-tree-view-new cancelable>
+    <u-tree-view-node-new v-show="false" text="节点1">
+        <u-tree-view-node-new text="节点1.1"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点1.2">
+            <u-tree-view-node-new text="节点1.2.1"></u-tree-view-node-new>
+            <u-tree-view-node-new text="节点1.2.2"></u-tree-view-node-new>
+        </u-tree-view-node-new>
+        <u-tree-view-node-new text="节点1.3"></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点1.4"></u-tree-view-node-new>
+    </u-tree-view-node-new>
+    <u-tree-view-node-new text="节点2"></u-tree-view-node-new>
+    <u-tree-view-node-new text="节点3">
+        <u-tree-view-node-new text="节点3.1" hidden></u-tree-view-node-new>
+        <u-tree-view-node-new text="节点3.2"></u-tree-view-node-new>
+    </u-tree-view-node-new>
+</u-tree-view-new>
 ```
 
 ### 多选
@@ -478,7 +489,7 @@ Tag 方式中可以使用`v-show`，Data 方式中可以使用`hidden`属性
 
 ``` vue { width: 30% }
 <template>
-<u-tree-view ref="treeView" checkable :data="data"></u-tree-view>
+<u-tree-view-new ref="treeView" checkable :data-source="data"></u-tree-view-new>
 </template>
 
 <script>
@@ -508,7 +519,7 @@ export default {
 
 ``` vue { width: 30% }
 <template>
-<u-tree-view ref="treeView" checkable :values.sync="values" :data="data"></u-tree-view>
+<u-tree-view-new ref="treeView" checkable :values.sync="values" :data-source="data"></u-tree-view-new>
 </template>
 
 <script>
@@ -539,7 +550,7 @@ export default {
 
 ``` vue { width: 30% }
 <template>
-<u-tree-view ref="treeView" check-controlled checkable :values.sync="values" :data="data"></u-tree-view>
+<u-tree-view-new ref="treeView" check-controlled checkable :values.sync="values" :data-source="data"></u-tree-view-new>
 </template>
 <script>
 export default {
@@ -574,7 +585,7 @@ UTreeView 有针对选中/取消和展开/收起两个操作的统一处理的�
 ``` vue { width: 30% }
 <template>
 <u-linear-layout direction="vertical">
-    <u-tree-view ref="treeView" checkable :data="data"></u-tree-view>
+    <u-tree-view-new ref="treeView" checkable :data-source="data"></u-tree-view-new>
     <u-linear-layout>
         <u-button @click="checkAll(true)">全部选中</u-button>
         <u-button @click="checkAll(false)">全部取消</u-button>
@@ -622,7 +633,7 @@ UTreeView 有关于遍历与查找节点的方法：`walk`和`find`，方便开�
 ``` vue { width: 30% }
 <template>
 <u-linear-layout direction="vertical">
-    <u-tree-view ref="treeView" :data="data"></u-tree-view>
+    <u-tree-view-new ref="treeView" :data-source="data"></u-tree-view-new>
     <u-linear-layout>
         <u-button @click="walk()">遍历所有节点</u-button>
         <u-button @click="find()">查找末尾为`4`的节点</u-button>
@@ -663,29 +674,30 @@ export default {
 </script>
 ```
 
-## UTreeView API
+## UTreeViewNew API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data | Array\<{ text, value }\> |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
+| data-schema | schema |  |  | 表格每一行的数据类型 |
 | text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
 | value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
-| children-field | string |  | `'value'` | 集合的元素类型中，用于标识父节点的属性 |
-| value.sync, v-model | any |  |  | 单选后，选中的值 |
+| children-field | string |  | `'children'` | 集合的元素类型中，用于标识子节点的属性 |
+| parent-field | string |  | `''` | 集合的元素类型中，用于标识父节点的属性 |
+| value.sync, v-model | any |  |  | 选择后，所选中的值 |
 | checkable | boolean |  | `false` | 是否开启多选模式，显示多选框 |
-| cancelable | boolean |  | `false` | 是否可以取消选择 |
 | accordion | boolean |  | `false` | 是否每次只会展开一个分组 |
 | expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
 | readonly | boolean |  | `false` |  |
 | disabled | boolean |  | `false` |  |
-| check-controlled | boolean |  | `false` | 父节点选中，子节点是否被选中，懒加载开启状态下无法全选关联 |
+| check-controlled | boolean |  | `false` | 开启后父节点选择不会全选子节点，子节点选择不会联动父节点 |
 
 ### Slots
 
 #### (default)
 
-插入`<u-tree-view-node>`子组件
+插入`<u-tree-view-node-new>`子组件
 
 ### Events
 
@@ -804,7 +816,7 @@ Methods
 | ----- | ---- | ------- | ----------- |
 | expanded | boolean |  | 选中/取消 |
 
-## UTreeViewNode API
+## UTreeViewNodeNew API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |

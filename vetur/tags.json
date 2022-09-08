@@ -292,6 +292,12 @@
     ],
     "description": "公告。"
   },
+  "u-anchor": {
+    "attributes": [
+      "label"
+    ],
+    "description": "锚点"
+  },
   "u-article": {
     "attributes": []
   },
@@ -1992,13 +1998,9 @@
   },
   "u-toc": {
     "attributes": [
-      "router",
-      "value",
-      "scroll-spy",
-      "scroll-parent",
-      "boundary-top"
+      "value"
     ],
-    "description": "用于展示文档的目录，支持路由和滚动监听、多级目录等功能。",
+    "description": "用于展示文档的目录",
     "subtags": [
       "u-toc-item"
     ]
@@ -2007,14 +2009,11 @@
     "attributes": [
       "label",
       "value",
-      "disabled",
       "item",
       "linkType",
       "hrefAndTo",
       "target",
-      "replace",
-      "exact",
-      "exact"
+      "disabled"
     ]
   },
   "u-tooltip": {
@@ -2052,19 +2051,36 @@
     ],
     "description": "双栏穿梭选择框，常用于将多个项目从一边移动到另一边。"
   },
-  "u-tree-select": {
+  "u-tree-select-new": {
     "attributes": [
-      "value"
-    ],
-    "description": "请在这里添加描述"
-  },
-  "u-tree-view": {
-    "attributes": [
-      "data",
-      "value",
+      "data-source",
+      "data-schema",
       "text-field",
       "value-field",
-      "cancelable",
+      "children-field",
+      "parent-field",
+      "value"
+    ],
+    "description": "树选择器"
+  },
+  "u-tree-select": {
+    "attributes": [
+      "data",
+      "text-field",
+      "value-field",
+      "children-field"
+    ],
+    "description": "树形选择框"
+  },
+  "u-tree-view-new": {
+    "attributes": [
+      "data-source",
+      "data-schema",
+      "text-field",
+      "value-field",
+      "children-field",
+      "parent-field",
+      "value",
       "checkable",
       "accordion",
       "expand-trigger",
@@ -2072,7 +2088,38 @@
       "disabled",
       "check-controlled"
     ],
-    "description": "树形选择器",
+    "description": "树形视图",
+    "subtags": [
+      "u-tree-view-node-new"
+    ]
+  },
+  "u-tree-view-node-new": {
+    "attributes": [
+      "value",
+      "text",
+      "expanded",
+      "checked",
+      "disabled",
+      "node"
+    ],
+    "description": "树形视图节点"
+  },
+  "u-tree-view": {
+    "attributes": [
+      "data",
+      "text-field",
+      "value-field",
+      "children-field",
+      "value",
+      "checkable",
+      "cancelable",
+      "accordion",
+      "expand-trigger",
+      "readonly",
+      "disabled",
+      "check-controlled"
+    ],
+    "description": "树形视图",
     "subtags": [
       "u-tree-view-node"
     ]
