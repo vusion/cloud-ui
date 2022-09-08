@@ -91,6 +91,7 @@
                 :checkable="checkable"
                 :cancelable="cancelable"
                 :accordion="accordion"
+                :treeSelectTip="treeSelectTip"
                 :expand-trigger="expandTrigger"
                 :initial-load="initialLoad"
                 :readonly="readonly"
