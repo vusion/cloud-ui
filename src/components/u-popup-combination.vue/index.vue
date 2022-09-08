@@ -2,7 +2,7 @@
     <span :class="$env.VUE_APP_DESIGNER? [$style.root, $style.rootDesigner]:$style.root" :display="display" :ellipsis="ellipsis">
         <span vusion-slot-name="reference" :class="$style.reference">
             <slot name="reference"></slot>
-            <s-empty v-if="$env.VUE_APP_DESIGNER && !$slots.reference"></s-empty>
+            <s-empty v-if="$env.VUE_APP_DESIGNER && !$slots.reference && !!$attrs['vusion-node-path']"></s-empty>
         </span>
         <u-popup reference="prev" v-bind="$attrs" v-on="$listeners" ref="popup" :vusion-scope-id="$vnode.context.$options._scopeId">
             <slot></slot>

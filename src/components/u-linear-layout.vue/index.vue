@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :direction="direction" v-on="$listeners" vusion-slot-name="default">
     <slot></slot>
-    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
 </div>
 </template>
 

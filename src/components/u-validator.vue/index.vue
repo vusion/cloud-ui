@@ -2,14 +2,14 @@
 <div :class="$style.root" vusion-slot-name="default" :display="display">
     <slot></slot>
     <template v-if="appendTo === 'body'">
-         <m-popper append-to="body" disabledClose trigger="manual" :opened="showMessage">
+         <m-popper append-to="body" disabled-close trigger="manual" :opened="showMessage">
             <span ref="message" v-show="showMessage" :class="[$style.message, $style.messagepop]" color="error" :display="display">{{ firstError }}</span>
         </m-popper>
     </template>
     <template v-else>
         <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !blurred" :class="$style.message" color="error">{{ firstError }}</span>
     </template>
-    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
 </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
         validatingValue: null,
         validatingProcess: { type: Function, default: (value) => value },
         manual: { type: Boolean, default: false },
-        widthReferenceEle: {type: HTMLElement, default: null},
+        widthReferenceEle: { type: HTMLElement, default: null },
         appendTo: {
             type: String,
             default: 'reference',
@@ -128,18 +128,17 @@ export default {
         },
         valid(newValue) {
             if (!newValue) {
-                if (this.widthReferenceEle){
-                    let refEleLeft = this.widthReferenceEle.getBoundingClientRect().left;
-                    let msgEleLeft = this.$refs.message.parentNode.getBoundingClientRect().left;
-                    let leftPos = msgEleLeft - refEleLeft;
-                    let msgWidth = window.getComputedStyle(this.widthReferenceEle).getPropertyValue('width');
-                    console.log((+msgWidth.substring(-2) - 16) + 'px');
-                    this.$refs.message.style.width = (+msgWidth.substring(0, msgWidth.length-2) - 32) + 'px';
-                    this.$refs.message.style.left = "-"+ (leftPos-16) + "px";
-                    this.$refs.message.style.right = "16px";
+                if (this.widthReferenceEle) {
+                    const refEleLeft = this.widthReferenceEle.getBoundingClientRect().left;
+                    const msgEleLeft = this.$refs.message.parentNode.getBoundingClientRect().left;
+                    const leftPos = msgEleLeft - refEleLeft;
+                    const msgWidth = window.getComputedStyle(this.widthReferenceEle).getPropertyValue('width');
+                    this.$refs.message.style.width = (+msgWidth.substring(0, msgWidth.length - 2) - 32) + 'px';
+                    this.$refs.message.style.left = '-' + (leftPos - 16) + 'px';
+                    this.$refs.message.style.right = '16px';
                 }
             }
-        }
+        },
     },
     created() {
         const context = this.$vnode.context;

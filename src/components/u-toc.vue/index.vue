@@ -18,7 +18,7 @@ export default {
     childName: 'u-toc-item',
     extends: MSinglex,
     props: {
-        router: { type: Boolean, default: true },
+        value: { type: String, default: '' },
         scrollSpy: { type: Boolean, default: true },
         scrollParent: HTMLElement,
         boundaryTop: { type: Number, default: 0 }, // 有头部导航栏等遮挡的高度
@@ -40,6 +40,7 @@ export default {
             this.currentScrollParent = this.scrollParent || findScrollParent(this.$el);
             this.scrollListener();
         }
+        this.top = '8px';
     },
     destroyed() {
         this.eventOff && this.eventOff();
@@ -97,6 +98,48 @@ export default {
             if (currentElem) {
                 this.selectedVM = itemVMsArr.find((item) => item.currentHref === currentElem.hash);
             }
+        },
+        select(nodeVM) {
+            if (this.readonly || this.disabled)
+                return;
+            const oldValue = this.value;
+            const oldVM = this.selectedVM;
+            let cancel = false;
+            this.$emit(
+                'before-select',
+                {
+                    value: nodeVM && nodeVM.value,
+                    oldValue,
+                    node: nodeVM && nodeVM.node,
+                    oldNode: oldVM && oldVM.node,
+                    nodeVM,
+                    oldVM,
+                    preventDefault: () => (cancel = true),
+                },
+                this,
+            );
+            if (cancel)
+                return;
+            if (this.cancelable && this.selectedVM === nodeVM)
+                this.selectedVM = undefined;
+            else
+                this.selectedVM = nodeVM;
+            const { value, node } = this.selectedVM || {};
+            const actualValue = value || node && node[this.valueField] || this.selectedVM[this.valueField];
+            this.$emit('input', actualValue, this);
+            this.$emit('update:value', actualValue, this);
+            this.$emit(
+                'select',
+                {
+                    value: actualValue,
+                    oldValue,
+                    node,
+                    oldNode: oldVM && oldVM.node,
+                    nodeVM,
+                    oldVM,
+                },
+                this,
+            );
         },
         isIntoView(element) {
             const viewHeight = window.innerHeight || document.documentElement.clientHeight;

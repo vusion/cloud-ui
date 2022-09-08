@@ -81,6 +81,9 @@ const files = [
     'u-cascade-select.vue',
     'u-region-select.vue',
     'u-tree-view.vue',
+    'u-tree-view-new.vue',
+    'u-tree-select.vue',
+    'u-tree-select-new.vue',
     'u-transfer.vue',
     'u-date-picker.vue',
     'u-time-picker.vue',
@@ -94,6 +97,8 @@ const files = [
     'u-taskbox.vue',
     'u-cascader',
     'u-count-down.vue',
+    'u-anchor.vue',
+    'u-toc.vue',
 ].map((component) => path.resolve(cwd, 'src/components', component, 'api.yaml'));
 
 const yamlMap = {};

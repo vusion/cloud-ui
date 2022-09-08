@@ -10,7 +10,7 @@
     <!-- @override: 添加了label功能 -->
     <span v-if="label" :class="$style.label">{{ label }}</span>
     <slot></slot>
-    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
 </div>
 </template>
 

@@ -8,6 +8,9 @@
     <u-tooltip v-if="feedback === 'tooltip'" :placement="placement" trigger="manual" :opened.sync="success">
         {{ successText }}
     </u-tooltip>
+    <u-tooltip :placement="placement" trigger="manual" :opened.sync="failed">
+        无复制对象
+    </u-tooltip>
 </div>
 </template>
 
@@ -27,7 +30,7 @@ export default {
         feedback: { type: String, default: 'tooltip' },
     },
     data() {
-        return { success: false, timeoutId: undefined };
+        return { success: false, timeoutId: undefined, failed: false };
     },
     destroyed() {
         clearTimeout(this.timeoutId);
@@ -46,6 +49,7 @@ export default {
                     this.success = false;
                 }, this.hideDelay);
             }
+            this.failed = !this.success;
         },
     },
 };

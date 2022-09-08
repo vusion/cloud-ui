@@ -1,38 +1,23 @@
 - name: u-toc
   title: 目录
+  icon: toc
   labels:
-    - 路由链接
-    - 块级展示
-  description: 用于展示文档的目录，支持路由和滚动监听、多级目录等功能。
+    - Navigation
+  description: 用于展示文档的目录
   attrs:
-    - name: router
-      title: 绑定路由
-      type: boolean
-      default: true
-      description: 是否根据 vue-router 来控制选择哪一项
     - name: value
-      title: 值
+      title: 选中值
       type: any
       sync: true
       model: true
       description: 当前选择的值
-    - name: scroll-spy
-      title: 滚动监听
-      type: boolean
-      default: true
-      description: 是否监听滚动
-    - name: scroll-parent
-      title: 滚动父元素
-      type: HTMLElement
-      description: 滚动的父级元素
-    - name: boundary-top
-      title: 边界高度
-      type: number
-      default: 0
-      description: 如果有头部导航栏，可以设置边界高度
   slots:
     - name: default
       description: 插入`<u-toc-item>`子组件。
+      support:
+        - name: u-toc-item
+          title: 子节点
+          snippet: "<u-toc-item><template #label>目录节点</template></u-toc-item>"
   events:
     - name: before-select
       title: 选择前
@@ -58,18 +43,6 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止选择流程
-        - name: senderVM
-          type: UToc
-          description: 发送事件实例
-    - name: input
-      title: 输入时
-      description: 选择某一项时触发
-      params:
-        - name: $event
-          type: any
-          description: 选择项的值
-          schema:
-            $ref: "#/basicTypes/String"
         - name: senderVM
           type: UToc
           description: 发送事件实例
@@ -104,24 +77,24 @@
           type: UToc
           description: 发送事件实例
 - name: u-toc-item
+  title: 目录节点
   attrs:
     - name: label
-      title: 标签
+      title: 显示文本
       type: string
-      description: 此项显示的文本
+      hidden: true
+      description: 集合的元素类型中，用于显示文本的属性名称
+      group: 数据属性
     - name: value
-      title: 值
+      title: 选项值
       type: any
-      description: 此项的值
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: 禁用此项
+      description: 集合的元素类型中，用于标识选中值的属性
+      group: 数据属性
     - name: item
       title: 相关对象
       type: object
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
+      hidden: true
     - name: linkType
       title: 链接类型
       type: string
@@ -136,14 +109,16 @@
       description: 链接类型
       compType: linkTypeSelect
       bindHide: true
+      group: 交互属性
     - name: hrefAndTo
-      title: 链接
+      title: 链接地址
       type: string
       description: 链接地址
       compType: linkHrefInput
+      group: 交互属性
     - name: target
-      title: 打开方式
-      type: enum
+      title: 链接打开方式
+      type: string
       options:
         - title: 新窗口
           value: _blank
@@ -157,25 +132,20 @@
           advanced: true
       default: _self
       description: 链接打开方式
-    - name: replace
+      group: 交互属性
+    - name: disabled
+      title: 禁用
       type: boolean
       default: false
-      description: 需要
-        vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
-        `记录。
-    - name: exact
-      title: 精确匹配
-      type: boolean
-      default: true
-      description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
-    - name: exact
-      title: 精确匹配
-      type: boolean
-      default: true
-      description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
+      description: 禁用此项
+      group: 交互属性
   slots:
     - name: default
       description: 插入`<u-toc-item>`子组件。
+      support:
+        - name: u-toc-item
+          title: 子节点
+          snippet: "<u-toc-item><template #label>目录节点</template></u-toc-item>"
   events:
     - name: click
       title: 点击
@@ -186,75 +156,6 @@
           description: 鼠标事件对象
           schema:
             $ref: "#/systemTypes/MouseEvent"
-        - name: senderVM
-          type: UTocItem
-          description: 发送事件实例
-    - name: before-select
-      title: 选择前
-      description: 选择此项前触发
-      params:
-        - name: $event
-          type: object
-          description: 自定义事件对象
-          schema:
-            $ref: "#/systemTypes/ChangeItemEvent"
-        - name: $event.value
-          type: any
-          description: 此项的值
-        - name: $event.item
-          type: object
-          description: 此项的相关对象
-        - name: $event.itemVM
-          type: UTocItem
-          description: 此组件
-        - name: $event.preventDefault
-          type: Function
-          description: 阻止选择流程
-        - name: senderVM
-          type: UTocItem
-          description: 发送事件实例
-    - name: before-navigate
-      title: 导航前
-      description: 使用 router 相关属性切换路由前触发
-      params:
-        - name: $event
-          type: object
-          description: 自定义事件对象
-          schema:
-            $ref: "#/systemTypes/NavigateEvent"
-        - name: $event.to
-          type: string, Location
-          description: "`to`属性的值"
-        - name: $event.replace
-          type: boolean
-          description: "`replace`属性的值"
-        - name: $event.exact
-          type: boolean
-          description: "`exact`属性的值"
-        - name: $event.preventDefault
-          type: Function
-          description: 阻止切换流程
-        - name: senderVM
-          type: UTocItem
-          description: 发送事件实例
-    - name: navigate
-      title: 导航后
-      description: 使用router相关属性切换路由时触发
-      params:
-        - name: $event
-          type: object
-          description: 自定义事件对象
-          schema:
-            $ref: "#/systemTypes/NavigateEvent"
-        - name: $event.to
-          type: string, Location
-          description: "`to`属性的值"
-        - name: $event.replace
-          type: boolean
-          description: "`replace`属性的值"
-        - name: $event.exact
-          type: boolean
-          description: "`exact`属性的值"
         - name: senderVM
           type: UTocItem
           description: 发送事件实例

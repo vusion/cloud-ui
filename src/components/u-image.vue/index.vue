@@ -2,8 +2,7 @@
 <div :class="$style.root" :fit="fit" :style="wrapStyle"
     :vertical-center="verticalCenter"
     :horizontal-center="horizontalCenter"
-    v-on="$listeners"
->
+    v-on="$listeners">
     <template v-if="ready">
         <img :src="convertedSrc" :style="imageStyle" v-bind="$attrs">
     </template>
@@ -55,6 +54,13 @@ export default {
             },
         },
     },
+    data() {
+        return {
+            ready: false,
+            imageWidth: 0,
+            imageHeight: 0,
+        };
+    },
     computed: {
         convertedSrc() {
             if (typeof this.convertSrcFn === 'function') {
@@ -72,21 +78,14 @@ export default {
         imageStyle() {
             return {
                 'object-fit': this.fit,
-                'object-position': `${this.verticalCenter} ${this.horizontalCenter}`
-            }
+                'object-position': `${this.verticalCenter} ${this.horizontalCenter}`,
+            };
         },
         wrapStyle() {
             return {
-                'border-radius': this.circle ? this.radius : ''
-            }
-        }
-    },
-    data() {
-        return {
-            ready: false,
-            imageWidth: 0,
-            imageHeight: 0,
-        };
+                'border-radius': this.circle ? this.radius : '',
+            };
+        },
     },
     watch: {
         // src变化重新加载图片

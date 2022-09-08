@@ -920,7 +920,6 @@ export default {
                 filename = document.title.split(' ').shift() || 'Export';
                 filename += format(new Date(), '_YYYYMMDD_HHmmss');
             }
-            console.log('filename', filename);
             try {
                 let content = [];
                 if (!this.currentDataSource._load) {
@@ -945,7 +944,6 @@ export default {
                 }
 
                 // console.time('生成文件');
-                // console.log('excel-content', content);
                 const sheetData = this.getSheetData(content);
                 const columns = this.visibleColumnVMs.length;
                 const sheetTitle = this.title || undefined;

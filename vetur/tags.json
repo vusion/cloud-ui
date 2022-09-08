@@ -86,6 +86,7 @@
   "i-ico": {
     "attributes": [
       "name",
+      "icotype",
       "linkType",
       "hrefAndTo",
       "target"

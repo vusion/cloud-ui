@@ -112,7 +112,9 @@ export * from './u-router-view.vue';
 export * from './u-tooltip.vue';
 export * from './u-transfer.vue';
 export * from './u-tree-view.vue';
+export * from './u-tree-view-new.vue';
 export * from './u-tree-select.vue';
+export * from './u-tree-select-new.vue';
 export * from './u-uploader.vue';
 export * from './u-validator-tr.vue';
 export * from './u-validator.vue';
@@ -121,6 +123,7 @@ export * from './u-if.vue';
 export * from './u-taskbox.vue';
 export * from './u-cascader.vue';
 export * from './u-count-down.vue';
+export * from './u-anchor.vue';
 
 export * from './u-multi-layout.vue';
 export * from './u-dropdown.vue';

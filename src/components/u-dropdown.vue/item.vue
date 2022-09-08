@@ -17,7 +17,7 @@
             notext
         ></i-ico>
         <slot>{{ text }}</slot>
-        <s-empty v-if="!text && (!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+        <s-empty v-if="!text && (!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
     </a>
 </template>
 

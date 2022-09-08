@@ -9,6 +9,7 @@
             :expanded="$at(node, expandedField)"
             :checked.sync="node.checked"
             :disabled="node.disabled"
+            :childrenField="childrenField"
             :hidden="filterText ? $at(node, 'hiddenByFilter') : $at(node, hiddenField)"
             :node="node"
             :level="0"

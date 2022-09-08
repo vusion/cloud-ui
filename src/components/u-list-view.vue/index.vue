@@ -20,14 +20,15 @@
         <div ref="virtual" v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length"
             :style="{ paddingTop: virtualTop + 'px', paddingBottom: virtualBottom + 'px' }">
             <component :is="ChildComponent"
-                v-for="item in virtualList"
+                v-for="(item, index) in virtualList"
                 v-if="item"
                 :key="$at(item, valueField)"
                 :value="$at(item, valueField)"
                 :disabled="item.disabled || disabled"
                 :ellipsis-title="ellipsisTitle"
-                :item="item">
-                <slot name="item" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled" vusion-slot-name="item" :ellipsis-title="ellipsisTitle">{{ $at(item, field || textField) }}<s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER"></s-empty></slot>
+                :item="item"
+                :index="index">
+                <slot name="item" :item="item" :index="index" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled" vusion-slot-name="item" :ellipsis-title="ellipsisTitle">{{ $at(item, field || textField) }}<s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty></slot>
             </component>
         </div>
         <div :class="$style.status" status="loading" v-if="currentLoading">
@@ -440,20 +441,18 @@ export default {
         reload() {
             this.currentDataSource.clearLocalData();
             const {
-                paging: oldPaging
+                paging: oldPaging,
             } = this.currentDataSource;
-            let paging = undefined;
-            if(oldPaging) {
-                const { size,number } = oldPaging
+            let paging;
+            if (oldPaging) {
+                const { size, number } = oldPaging;
                 paging = {
-                    size: size,
+                    size,
                     oldSize: size,
                     number: 1,
                     oldNumber: number,
                 };
             }
-            // eslint-disable-next-line no-console
-            console.log(JSON.stringify(paging));
             try {
                 this.currentDataSource.page(paging);
                 this.load();

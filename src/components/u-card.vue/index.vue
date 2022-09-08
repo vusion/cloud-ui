@@ -4,7 +4,7 @@
     <f-scroll-view :class="$style.scrollview">
         <div :class="$style.cover" vusion-slot-name="cover">
             <slot name="cover"></slot>
-            <s-empty v-if="coverSlot && (!$slots.cover)"></s-empty>
+            <s-empty v-if="coverSlot && (!$slots.cover) && !!$attrs['vusion-node-path']"></s-empty>
         </div>
         <div :class="$style.head">
             <slot name="head">
@@ -19,7 +19,7 @@
         </div>
         <div :class="$style.body" vusion-slot-name="default">
             <slot>{{ content }}</slot>
-            <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+            <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
         </div>
         <div :class="$style.foot">
             <slot name="foot">

@@ -1,13 +1,23 @@
 <template>
 <div :class="$style.root">
-    <a :class="$style.link"
-        :selected="selected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
-        :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
-        v-ellipsis-title>
-        {{ label }}
+    <a
+        :class="$style.link"
+        :selected="selected"
+        :readonly="parentVM.readonly"
+        :disabled="disabled || parentVM.disabled"
+        :href="!disabled && anchorJumped"
+        :target="target"
+        v-on="listeners"
+        v-ellipsis-title
+        :value="value"
+        @click.stop="handleClick()"
+    >
+        <span vusion-slot-name="label">
+            <s-empty v-if="(!$slots.label) && $env.VUE_APP_DESIGNER "></s-empty>
+            <slot name="label">{{ label }}</slot>
+        </span>
     </a>
-    <div :class="$style.sub" vusion-slot-name="default">
-        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+    <div :class="$style.sub">
         <slot></slot>
     </div>
 </div>
@@ -25,9 +35,12 @@ export const UTocItem = {
         SEmpty,
     },
     props: {
-        label: String,
-        exact: { type: Boolean, default: true },
-        exactHash: { type: Boolean, default: true },
+        value: null,
+        label: { type: String, default: '' },
+        anchorLinked: { type: String, default: '' },
+        hrefAndTo: { type: String, default: '' },
+        target: { type: String, default: '' },
+        disabled: { type: Boolean, default: false },
     },
     computed: {
         listeners() {
@@ -42,6 +55,14 @@ export const UTocItem = {
                 return false;
             }
             return this.parentVM.router ? this.active : this.isSelected;
+        },
+        anchorJumped() {
+            if (this.anchorLinked) {
+                return `${this.hrefAndTo}#${this.anchorLinked}`;
+            } else if (this.hrefAndTo) {
+                return this.hrefAndTo;
+            }
+            return this.currentHref;
         },
     },
     watch: {
@@ -59,6 +80,21 @@ export const UTocItem = {
                 this.parentVM.setActive(this);
                 this.parentVM.stopScrollSpy(this);
             }
+        },
+        handleClick() {
+            if (this.disabled || this.readonly || this.parentVM.disabled || this.parentVM.readonly)
+                return;
+            this.parentVM.select(this);
+            const actualValue = this.value || this.label;
+            const oldValue = this.value;
+            const oldVM = this.selectedVM;
+            this.$emit('click', {
+                value: actualValue,
+                node: this.node,
+                oldNode: oldVM && oldVM.node,
+                nodeVM: this,
+                oldVM,
+            }, this);
         },
     },
 };
