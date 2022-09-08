@@ -19,17 +19,13 @@ export default {
     name: 'u-anchor',
     components: { SEmpty },
     props: {
-        name: {type: String, default: ''},
+        name: { type: String, default: '' },
         label: { type: String, default: '' },
         refName: { type: String, default: '' },
     },
     mounted() {
         if (this.$vnode) {
-            this.refName = this.$vnode?.data?.ref;
-        }
-    },
-    data() {
-        return {
+            this.refName = this.$vnode && this.$vnode.data && this.$vnode.data.ref;
         }
     },
 };
