@@ -184,6 +184,7 @@ export default {
             dataSourceObj: {},
             actualValue: this.value,
             filtering: false,
+            treeSelectTip: '请绑定数据源或插入树选择器节点',
         };
     },
     computed: {
