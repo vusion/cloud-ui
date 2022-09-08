@@ -201,4 +201,9 @@ export default {
     border: none;
     box-shadow: none;
 }
+
+/** 当reference的元素因为滚动隐藏的时候，popper也隐藏 */
+.root[data-popper-reference-hidden] {
+    display: none;
+}
 </style>

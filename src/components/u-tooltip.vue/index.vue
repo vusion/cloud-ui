@@ -271,4 +271,9 @@ export default {
     width: var(--tooltip-arrow-size-small);
     right: calc(-1 * var(--tooltip-arrow-size-small));
 }
+
+/** 当reference的元素因为滚动隐藏的时候，popper也隐藏 */
+.root[data-popper-reference-hidden] {
+    display: none;
+}
 </style>
