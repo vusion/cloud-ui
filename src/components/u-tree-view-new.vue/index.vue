@@ -22,7 +22,7 @@
         ><template #text>{{$at(node, field || textField)}}</template></u-tree-view-node-new>
     </template>
     <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
-        <span :class="$style.loadContent">请绑定数据源或插入树形视图节点</span>
+        <span :class="$style.loadContent">{{ treeSelectTip }}</span>
     </template>
     <slot></slot>
 </div>
@@ -52,6 +52,7 @@ export default {
         isLeafField: { type: String, default: 'isLeaf' },
         childrenField: { type: String, default: 'children' },
         parentField: { type: String, default: '' },
+        treeSelectTip: { type: String, default: '请绑定数据源或插入树形视图节点' },
         moreChildrenFields: Array,
         excludeFields: { type: Array, default: () => [] },
         cancelable: { type: Boolean, default: false },
