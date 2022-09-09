@@ -46,12 +46,15 @@ export default {
         }
         this.$nextTick(this.handleResize);
         !this.noresize && addResizeListener(this.$refs.resize, this.handleResize);
+        // 某些情况root高度会变，但$refs.resize的高度不会变，这里再增加$el的监听
+        !this.noresize && addResizeListener(this.$el, this.handleResize);
     },
     beforeDestroy() {
         if (this.native) {
             return;
         }
         !this.noresize && removeResizeListener(this.$refs.resize, this.handleResize);
+        !this.noresize && removeResizeListener(this.$el, this.handleResize);
     },
     methods: {
         handleScroll() {
