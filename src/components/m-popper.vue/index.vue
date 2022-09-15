@@ -63,8 +63,8 @@ export default {
             },
         },
         disabled: { type: Boolean, default: false },
-        disabledScroll: {type: Boolean, default: false},
-        disabledClose: {type: Boolean, default: false},
+        disabledScroll: { type: Boolean, default: false },
+        disabledClose: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -138,7 +138,7 @@ export default {
             this.destroyPopper();
             this.referenceEl = this.getReferenceEl();
             this.createPopper();
-        }
+        },
     },
     mounted() {
         // 字符串类型的 reference 只有首次获取是有效的，因为之后节点会被插到别的地方
@@ -159,22 +159,22 @@ export default {
             const options = Object.assign({}, this.options, {
                 placement: this.placement,
             });
-            options.modifiers.push({ 
+            options.modifiers.push({
                 name: 'arrow',
                 options: {
-                    element: this.arrowElement
-            }
+                    element: this.arrowElement,
+                },
             });
             options.modifiers.push({
                 name: 'preventOverflow',
                 options: {
-                }
+                },
             });
             options.modifiers.push({
                 name: 'offset',
                 options: {
-                    offset: ({placement, reference, popper}) => {
-                        let hasArrow = this.$el.querySelector('[class*=arrow]');
+                    offset: ({ placement, reference, popper }) => {
+                        const hasArrow = this.$el.querySelector('[class*=arrow]');
                         if (hasArrow && window.getComputedStyle(hasArrow).borderWidth !== 0 && window.getComputedStyle(hasArrow).display !== 'none') {
                             return [0, 8];
                         } else if (typeof this.offset === 'number' && this.offset !== 0) {
@@ -184,8 +184,8 @@ export default {
                         } else {
                             return [0, 4];
                         }
-                    }
-            }
+                    },
+                },
             });
             return options;
         },
@@ -358,12 +358,12 @@ export default {
             const bottom = e.clientY - referenceTop + this.currentFollowCursor.offsetY;
 
             this.referenceEl.getBoundingClientRect = () => ({
-                    width: 0,
-                    height: 0,
-                    top,
-                    left,
-                    right,
-                    bottom,
+                width: 0,
+                height: 0,
+                top,
+                left,
+                right,
+                bottom,
             });
             await this.popper.update();
             delete this.referenceEl.getBoundingClientRect;
@@ -381,8 +381,8 @@ export default {
             // this.$emit('open', undefined, this);
             if (this.disabledScroll) {
                 // passive：false是为了解除chrome内核浏览器对滚动类事件调用preventDefault方法的限制
-                document.addEventListener('DOMMouseScroll', this.scrollFunc, {passive: false});  
-                document.addEventListener('mousewheel', this.scrollFunc, {passive: false});
+                document.addEventListener('DOMMouseScroll', this.scrollFunc, { passive: false });
+                document.addEventListener('mousewheel', this.scrollFunc, { passive: false });
             }
         },
         close() {
@@ -424,17 +424,17 @@ export default {
             });
         },
         scrollFunc(e) {
-            let events = e || window.event;  
-            events.preventDefault();  
+            const events = e || window.event;
+            events.preventDefault();
             events.stopPropagation();
             return false;
         },
         resetScrollFun() {
             if (this.disabledScroll) {
-                document.removeEventListener('DOMMouseScroll', this.scrollFunc, {passive: false});  
-                document.removeEventListener('mousewheel',this.scrollFunc, {passive: false});
+                document.removeEventListener('DOMMouseScroll', this.scrollFunc, { passive: false });
+                document.removeEventListener('mousewheel', this.scrollFunc, { passive: false });
             }
-        }
+        },
     },
 };
 </script>
@@ -447,4 +447,8 @@ export default {
 /* .root[data-popper-escaped]{
     opacity: 0;
 } */
+/** 当reference的元素因为滚动隐藏的时候，popper也隐藏 */
+.root[data-popper-reference-hidden] {
+    display: none;
+}
 </style>
