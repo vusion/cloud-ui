@@ -66,7 +66,12 @@ export default {
         !this.parentVM
             && this.$contact(this.$options.parentName, (parentVM) => {
                 this.parentVM = parentVM;
-                parentVM.columnVMs.push(this);
+                const index = parentVM.$slots.default ? parentVM.$slots.default.indexOf(this.$vnode) : -1;
+                if (~index)
+                    parentVM.columnVMs.splice(index, 0, this);
+                else {
+                    parentVM.columnVMs.push(this);
+                }
             });
     },
     destroyed() {
