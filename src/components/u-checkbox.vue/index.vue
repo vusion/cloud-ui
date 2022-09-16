@@ -153,7 +153,7 @@ export default {
     text-align: center;
     font-size: var(--checkbox-icon-size);
     transition: all var(--transition-duration-base);
-    vertical-align: -1px;
+    vertical-align: 1px;
 }
 
 .box:hover {
