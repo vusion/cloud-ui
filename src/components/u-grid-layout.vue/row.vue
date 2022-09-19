@@ -1,11 +1,17 @@
 <template>
-<div :class="$style.root">
+<div :class="$style.root" :gap="gap">
     <slot></slot>
 </div>
 </template>
 
 <script>
-export default { name: 'u-grid-layout-row', props: { repeat: Number } };
+export default {
+    name: 'u-grid-layout-row',
+    props: {
+        repeat: Number,
+        gap: String,
+    },
+};
 </script>
 
 <style module>

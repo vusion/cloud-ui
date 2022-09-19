@@ -1763,6 +1763,14 @@
 
     /* @component m-popper @hidden */
     --popper-box-shadow: var(--box-shadow-base);
+
+    /* @component u-grid-layout @hidden */
+    --grid-layout-column-gap-none: 0;
+    --grid-layout-column-gap-mini: 4px;
+    --grid-layout-column-gap-small: 8px;
+    --grid-layout-column-gap-normal: 16px;
+    --grid-layout-column-gap-large: 24px;
+    --grid-layout-column-gap-huge: 32px;
 }
 
 @custom-media --mini-window (max-width: 479px);

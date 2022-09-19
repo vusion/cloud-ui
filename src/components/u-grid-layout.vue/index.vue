@@ -1,8 +1,6 @@
 <template>
 <div :class="$style.root">
-    <div :class="$style.wrap">
-        <slot></slot>
-    </div>
+    <slot></slot>
 </div>
 </template>
 
@@ -21,15 +19,7 @@ export default {
     overflow-x: clip; /* 没有这个的话会有横向滚动条，但如果是hidden，在里面放置有dropdown等组件时，打开的时候会有竖向滚动条，所以使用clip */
 }
 
-.root .column {
-    padding: calc(var(--space-base) / 2);
-}
-
-.root .wrap {
-    margin: 0 calc(var(--space-base) / (-2));
-}
-
-.root[gap^="none"] {
+/* .root[gap^="none"] {
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -54,9 +44,9 @@ export default {
 
 .root[gap$="none"] .wrap {
     margin: 0 0;
-}
+} */
 
-.root[gap^="small"] {
+/* .root[gap^="small"] {
     margin-top: calc(var(--space-small) / (-2));
     margin-bottom: calc(var(--space-small) / (-2));
 }
@@ -100,6 +90,59 @@ export default {
 
 .root[gap$="normal"] .wrap {
     margin: 0 calc(var(--space-base) / (-2));
-}
+} */
 
+.root .row + .row {
+    margin-top: var(--space-base);
+}
+.root[gap="compact"] .row + .row {
+    margin-top: -1px;
+}
+.root[gap="none"] .row + .row {
+    margin-top: 0;
+}
+.root[gap="small"] .row + .row {
+    margin-top: var(--space-small);
+}
+.root[gap="large"] .row + .row {
+    margin-top: var(--space-large);
+}
+.root[gap="normal"] .row + .row {
+    margin-top: var(--space-base);
+}
+.root .row,
+.root .row[gap="normal"] {
+    margin: 0 calc(var(--grid-layout-column-gap-normal) / (-2));
+}
+.root .row[gap="mini"] {
+    margin: 0 calc(var(--grid-layout-column-gap-mini) / (-2));
+}
+.root .row[gap="small"] {
+    margin: 0 calc(var(--grid-layout-column-gap-small) / (-2));
+}
+.root .row[gap="large"] {
+    margin: 0 calc(var(--grid-layout-column-gap-large) / (-2));
+}
+.root .row[gap="huge"] {
+    margin: 0 calc(var(--grid-layout-column-gap-huge) / (-2));
+}
+.root .row .column,
+.root .row[gap="normal"] .column {
+    margin: 0 calc(var(--grid-layout-column-gap-normal) / 2);
+}
+.root .row[gap="none"] .column {
+    margin: 0 calc(var(--grid-layout-column-gap-none) / 2);
+}
+.root .row[gap="mini"] .column {
+    margin: 0 calc(var(--grid-layout-column-gap-mini) / 2);
+}
+.root .row[gap="small"] .column {
+    margin: 0 calc(var(--grid-layout-column-gap-small) / 2);
+}
+.root .row[gap="large"] .column {
+    margin: 0 calc(var(--grid-layout-column-gap-large) / 2);
+}
+.root .row[gap="huge"] .column {
+    margin: 0 calc(var(--grid-layout-column-gap-huge) / 2);
+}
 </style>
