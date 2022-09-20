@@ -2,6 +2,15 @@
 <div :class="$style.root">
     <div :class="$style.body" name="realpostion">
         <slot></slot>
+        <u-carousel-item
+            v-for="(item, index) in currentDataSource"
+            :key="index"
+        >
+            <u-image style="width: 100%; height: 100%" fit="cover"
+                     :src="$at(item, imgField)">
+            </u-image>
+        </u-carousel-item>
+
     </div>
     <nav :class="$style.nav" v-if="$env.VUE_APP_DESIGNER">
         <a :class="$style['nav-item']"
@@ -28,14 +37,19 @@
 
 <script>
 import { MSinglex } from '../m-singlex.vue';
+import UCarouselItem from '../u-carousel.vue/item.vue';
 
 export default {
     name: 'u-carousel',
     childName: 'u-carousel-item',
+    components: { UCarouselItem },
     extends: MSinglex,
     props: {
         autoSelect: { type: Boolean, default: true },
         value: null,
+        dataSource: [Array, Object, Function],
+        dataSchema: {type: String, default: 'entity'},
+        imgField: String,
         autoplay: { type: Boolean, default: true }, // Same with <video>
         loop: { type: Boolean, default: true },
         interval: {
@@ -49,7 +63,15 @@ export default {
         hideButtons: { type: Boolean, default: false },
     },
     data() {
-        return { animating: true };
+        return {
+            animating: true,
+            currentDataSource: undefined,
+        };
+    },
+    watch: {
+        async dataSource(dataSource, oldDataSource) {
+            await this.handleData();
+        },
     },
     computed: {
         selectedIndex: {
@@ -67,6 +89,7 @@ export default {
             this.router && $event.itemVM.navigate();
             this.play();
         });
+        this.handleData();
     },
     mounted() {
         this.play();
@@ -75,6 +98,19 @@ export default {
         clearTimeout(this.timer);
     },
     methods: {
+        async handleData() {
+            this.currentDataSource = await this.normalizeDataSource(this.dataSource);
+        },
+        async normalizeDataSource(dataSource) {
+            if (!dataSource) {
+                return [];
+            }
+            if (dataSource instanceof Promise || typeof dataSource === 'function') {
+                return await dataSource();
+            }
+            return dataSource;
+        },
+
         prev() {
             clearTimeout(this.timer);
             const length = this.itemVMs.length;
@@ -85,11 +121,11 @@ export default {
             clearTimeout(this.timer);
             const length = this.itemVMs.length;
             const index = this.selectedIndex + 1;
-            
+
             if (!this.loop && index >= length)
                 return;
             this.selectedIndex = index % length;
-            
+
             this.play();
         },
         play() {

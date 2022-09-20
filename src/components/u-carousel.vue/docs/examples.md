@@ -13,6 +13,18 @@
 </u-carousel>
 ```
 
+### 数据源绑定
+``` html
+<u-carousel :data-source="[
+    { src: 'https://static-vusion.163yun.com/assets/cloud-ui/1.jpg' },
+    { src: 'https://static-vusion.163yun.com/assets/cloud-ui/2.jpg' },
+    { src: 'https://static-vusion.163yun.com/assets/cloud-ui/3.jpg' },
+]" img-field="src">
+</u-carousel>
+```
+
+### 动画
+
 ``` html
 <u-carousel>
     <u-carousel-item><img src="../../../assets/images/1.jpg"></u-carousel-item>
@@ -23,7 +35,6 @@
 </u-carousel>
 ```
 
-### 动画
 #### fade
 ``` html
 <u-carousel animation="fade">

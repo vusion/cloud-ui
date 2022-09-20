@@ -30,6 +30,24 @@
       type: number
       default: 4000
       description: 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function | object | DataSource
+      description: 集合类型变量或者输出参数为集合类型的逻辑
+      designer-value: "[{}]"
+      group: 数据属性
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 幻灯片每一张的数据类型
+      group: 数据属性
+      compType: dataTypeSelect
+    - name: img-field
+      title: 选项图片
+      type: string
+      default: text
+      description: 集合的元素类型中，用于显示图片的属性名称
+      group: 数据属性
     - name: direction
       title: 播放方向
       type: string

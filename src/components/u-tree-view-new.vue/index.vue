@@ -19,7 +19,9 @@
             :node="node"
             :level="0"
             :draggable="node.draggable"
-        ><template #text>{{$at(node, field || textField)}}</template></u-tree-view-node-new>
+        >
+            <template #item>{{$at(node, field || textField)}}</template>
+        </u-tree-view-node-new>
     </template>
     <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
         <span :class="$style.loadContent">{{ treeSelectTip }}</span>
