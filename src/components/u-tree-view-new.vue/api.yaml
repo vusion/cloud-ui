@@ -288,7 +288,6 @@
       title: 文本
       type: string
       description: 节点的文本
-      hidden: true
     - name: expanded
       title: 展开折叠
       type: boolean

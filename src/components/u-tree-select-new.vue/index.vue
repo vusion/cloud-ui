@@ -185,6 +185,8 @@ export default {
             actualValue: this.value,
             filtering: false,
             treeSelectTip: '请绑定数据源或插入树选择器节点',
+            virtualNodeList: [],
+            dataSourceNodeList: [],
         };
     },
     computed: {
@@ -242,19 +244,20 @@ export default {
         setTimeout(() => this.$forceUpdate());
     },
     methods: {
-        handleDataSourceObj(list) {
+        handleDataSourceObj(list, type) {
             if(Array.isArray(list) && list.length) {
                 this.dataSourceObj = {};
-                this.trans2Obj(this.dataSourceObj, list);
+                this.trans2Obj(this.dataSourceObj, list, undefined, type);
             }
             this.loadUntilSelectedItem();
+            return this.dataSourceObj;
         },
         // 从虚拟节点中收集数据
         collectFromVNodes() {
             // dirty hack：每次插槽变化时，vue都会将实例上的$slots对象重新赋值
             this.slots = this.$slots;
             this.vnodes = this.collectTreeNode(this.$slots.default);
-            this.handleDataSourceObj(this.vnodes);
+            this.virtualNodeList = this.handleDataSourceObj(this.vnodes, 'virtual');
         },
         // 收集节点数据
         collectTreeNode(vnodes) {
@@ -303,23 +306,34 @@ export default {
                 });
             }
         },
-        trans2Obj(obj, list, parent) {
+        trans2Obj(obj, list, parent, type) {
             if(Array.isArray(list)) {
                 list.forEach((item) => {
                     const { childrenField, moreChildrenFields } = item;
-                    if(this.$at(item, this.valueField) !== undefined) {
-                        obj[this.$at(item, this.valueField)] = {
-                          parent,
-                          node: item,
-                          text: this.$at(item, this.textField)
-                      };
+                    // 静态节点数据写死字段，防止value和text取值相同时，导致value错误
+                    if (type === 'virtual') {
+                        if (item.value) {
+                            obj[item.value] = {
+                                parent,
+                                node: item,
+                                text: item.text,
+                            };
+                        }
+                    } else {
+                        if(this.$at(item, this.valueField) !== undefined) {
+                            obj[this.$at(item, this.valueField)] = {
+                                parent,
+                                node: item,
+                                text: this.$at(item, this.textField),
+                            };
+                        }
                     }
                     const currentChildrenField = childrenField || this.childrenField;
-                    this.trans2Obj(obj, this.$at(item, currentChildrenField), item);
+                    this.trans2Obj(obj, this.$at(item, currentChildrenField), item, type);
                     const currentMoreChildrenFields = moreChildrenFields || this.moreChildrenFields;
                     if(Array.isArray(currentMoreChildrenFields)) {
                       currentMoreChildrenFields.forEach((subField) => {
-                        this.trans2Obj(obj, this.$at(item, subField), item);
+                        this.trans2Obj(obj, this.$at(item, subField), item, type);
                       });
                     }
                 });
@@ -335,7 +349,8 @@ export default {
         },
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
-            this.handleDataSourceObj(this.currentDataSource.data);
+            this.dataSourceNodeList = this.handleDataSourceObj(this.currentDataSource.data, 'dataSource');
+            this.dataSourceObj = {...this.dataSourceNodeList, ...this.virtualNodeList};
         },
         // 如果有选中值，且没有被查到，且数据可以加载
         loadUntilSelectedItem() {
@@ -465,7 +480,7 @@ export default {
         },
         load(params) {
             this.currentDataSource.load(params).then(() => {
-              this.handleDataSourceObj(this.currentDataSource.data);
+              this.handleDataSourceObj(this.currentDataSource.data, 'dataSource');
             });
         },
     },
