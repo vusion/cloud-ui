@@ -126,6 +126,10 @@ export default {
 .root .row[gap="huge"] {
     margin: 0 calc(var(--grid-layout-column-gap-huge) / (-2));
 }
+.root .row[gap="none"] {
+    margin: 0 calc(var(--grid-layout-column-gap-none) / (-2));
+}
+
 .root .row .column,
 .root .row[gap="normal"] .column {
     margin: 0 calc(var(--grid-layout-column-gap-normal) / 2);

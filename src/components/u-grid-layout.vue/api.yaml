@@ -10,15 +10,15 @@
       type: string
       options:
         - value: compact
-          title: 紧凑
+          title: 紧凑（-1）
         - value: none
-          title: 无
+          title: 无（0）
         - value: small
-          title: 小
+          title: 小（8）
         - value: normal
-          title: 正常
+          title: 正常（16）
         - value: large
-          title: 大
+          title: 大（32）
       default: normal
       description: 栅格行之间的间隔
   slots:
@@ -32,9 +32,6 @@
             :span="4"></u-grid-layout-column><u-grid-layout-column
             :span="4"></u-grid-layout-column><u-grid-layout-column
             :span="4"></u-grid-layout-column></u-grid-layout-row>
-        - name: u-grid-layout-column
-          title: 插入一列
-          snippet: <u-grid-layout-column></u-grid-layout-column>
 - name: u-grid-layout-row
   title: 栅格行
   description: 内部元素行布局
@@ -52,17 +49,17 @@
       type: string
       options:
         - value: none
-          title: 无
+          title: 无（0）
         - value: mini
-          title: 迷你
+          title: 迷你（4）
         - value: small
-          title: 小
+          title: 小（8）
         - value: normal
-          title: 正常
+          title: 正常（16）
         - value: large
-          title: 大
+          title: 大（24）
         - value: huge
-          title: 巨大
+          title: 巨大（32）
       default: normal
       description: 栅格列之间的间隔
     - name: justify
@@ -106,7 +103,7 @@
       support:
         - name: u-grid-layout-column
           title: 插入一列
-          snippet: <u-grid-layout-column></u-grid-layout-column>
+          snippet: <u-grid-layout-column :span="1"></u-grid-layout-column>
 - name: u-grid-layout-column
   title: 栅格列
   description: 内部元素行内列布局
@@ -124,18 +121,21 @@
       type: number
       display: number
       description: 列偏移的栅格数
+      default: 0
       precision: 0.00000000000001
     - name: pull
       title: 左移动栅格数
       type: number
       display: number
       description: 列向左移动的栅格数
+      default: 0
       precision: 0.00000000000001
     - name: push
       title: 右移动栅格数
       type: number
       display: number
       description: 列向右移动的栅格数
+      default: 0
       precision: 0.00000000000001
     - name: media-huge
       title: 响应很大屏
