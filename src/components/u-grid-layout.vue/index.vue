@@ -112,22 +112,28 @@ export default {
 }
 .root .row,
 .root .row[gap="normal"] {
-    margin: 0 calc(var(--grid-layout-column-gap-normal) / (-2));
+    margin-left: calc(var(--grid-layout-column-gap-normal) / (-2));
+    margin-right: calc(var(--grid-layout-column-gap-normal) / (-2));
 }
 .root .row[gap="mini"] {
-    margin: 0 calc(var(--grid-layout-column-gap-mini) / (-2));
+    margin-left: calc(var(--grid-layout-column-gap-mini) / (-2));
+    margin-right: calc(var(--grid-layout-column-gap-mini) / (-2));
 }
 .root .row[gap="small"] {
-    margin: 0 calc(var(--grid-layout-column-gap-small) / (-2));
+    margin-left: calc(var(--grid-layout-column-gap-small) / (-2));
+    margin-right: calc(var(--grid-layout-column-gap-small) / (-2));
 }
 .root .row[gap="large"] {
-    margin: 0 calc(var(--grid-layout-column-gap-large) / (-2));
+    margin-left: calc(var(--grid-layout-column-gap-large) / (-2));
+    margin-right: calc(var(--grid-layout-column-gap-large) / (-2));
 }
 .root .row[gap="huge"] {
-    margin: 0 calc(var(--grid-layout-column-gap-huge) / (-2));
+    margin-left: calc(var(--grid-layout-column-gap-huge) / (-2));
+    margin-right: calc(var(--grid-layout-column-gap-huge) / (-2));
 }
 .root .row[gap="none"] {
-    margin: 0 calc(var(--grid-layout-column-gap-none) / (-2));
+    margin-left: calc(var(--grid-layout-column-gap-none) / (-2));
+    margin-right: calc(var(--grid-layout-column-gap-none) / (-2));
 }
 
 .root .row .column,
