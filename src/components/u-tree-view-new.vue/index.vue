@@ -21,8 +21,10 @@
             :draggable="node.draggable"
         >
             <template #item="item">
-                <s-empty v-if="(!$slots.name) && $env.VUE_APP_DESIGNER "></s-empty>
-                <slot name="item" v-bind="item"></slot>
+<!--                <s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER "></s-empty>-->
+                <slot name="item" v-bind="item">
+                    {{ $at(node, field || textField) }}
+                </slot>
             </template>
         </u-tree-view-node-new>
     </template>

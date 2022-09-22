@@ -54,7 +54,7 @@
       support:
         - name: u-tree-view-node
           title: 子节点
-          snippet: "<u-tree-view-node-new><template #text>选项</template></u-tree-view-node-new>"
+          snippet: "<u-tree-view-node-new><template #item>选项</template></u-tree-view-node-new>"
   events:
     - name: change
       description: 修改时触发

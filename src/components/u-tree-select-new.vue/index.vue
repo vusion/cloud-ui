@@ -107,8 +107,9 @@
                 @update:value="onUpdateValue"
                 @toggle="$emit('toggle', $event, this)"
                 @check="$emit('check', $event, this)">
-                <template #text="props">
-                    <slot name="text" v-bind="props">{{ props.text }}</slot>
+                <template #item="{item}">
+                    <slot name="item" v-bind="item">{{ item.text }}</slot>
+                    <s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER "></s-empty>
                 </template>
                 <slot></slot>
             </u-tree-view-new>
@@ -119,12 +120,13 @@
 <script>
 import MField from "../m-field.vue";
 import UTreeViewNodeNew from "../u-tree-view-new.vue/node.vue";
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: "u-tree-select-new",
     childName: 'u-tree-view-node-new',
     mixins: [MField],
-    components: { UTreeViewNodeNew },
+    components: { UTreeViewNodeNew, SEmpty },
     props: {
         value: null,
         field: String,

@@ -41,6 +41,7 @@
                     selected,
                     draggable,
                     dragging: currentDragging,
+                    ...node,
                 }">{{ text }}</slot>
                 <s-empty v-if="!$slots.item && $env.VUE_APP_DESIGNER"></s-empty>
             </span>
