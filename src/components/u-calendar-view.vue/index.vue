@@ -44,7 +44,8 @@
                 <slot :item="scope.item"></slot>
                 <s-empty v-if="$scopedSlots
                     &&!($scopedSlots.default && $scopedSlots.default(scope))
-                    &&$env.VUE_APP_DESIGNER"></s-empty>
+                    &&$env.VUE_APP_DESIGNER
+                    && !!$attrs['vusion-node-path']"></s-empty>
             </template>
         </date-table>
     </div>

@@ -238,7 +238,10 @@
 }
 
 .messagepop,
-.messagepop [color="error"] {
-    top: 6px !important;
-    margin-left: 0 !important;
+.messagepop[color="error"],
+.messagepop[color="error"][display="appear"] {
+    top: -4px;
+    margin-left: 0;
+    transform: initial;
+    margin-top: 0;
 }

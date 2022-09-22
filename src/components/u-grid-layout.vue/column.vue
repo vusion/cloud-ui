@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" vusion-slot-name="default" :style="[commonStyle, responsiveStyle]" :empty="!$slots.default">
     <slot></slot>
-    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
 </div>
 </template>
 
@@ -17,6 +17,15 @@ const breakpoints = [
     { name: 'Mini', width: 480 },
 ];
 
+const GAP_CONFIGS = {
+    normal: 16,
+    none: 0,
+    mini: 4,
+    small: 8,
+    large: 24,
+    huge: 32,
+};
+
 export default {
     name: 'u-grid-layout-column',
     components: {
@@ -31,10 +40,13 @@ export default {
         mediaSmall: Number,
         mediaMedium: Number,
         mediaLarge: Number,
-        mediaHuge: Number
+        mediaHuge: Number,
     },
     data() {
-        return { parentVM: this.$parent, currentSpan: this.span };
+        return {
+            parentVM: this.$parent,
+            currentSpan: this.span,
+        };
     },
     computed: {
         stack() {
@@ -47,13 +59,13 @@ export default {
                 .filter((point) => point.span !== undefined);
         },
         commonStyle() {
-            const left = this.push ? this.getPercent(this.push) : 'auto';
-            const right = this.pull ? this.getPercent(this.pull) : 'auto';
-            const marginLeft = this.getPercent(this.offset);
+            const left = this.push ? this.getPullPush(this.push) : 'auto';
+            const right = this.pull ? this.getPullPush(this.pull) : 'auto';
+            const marginLeft = this.getMarginLeft(this.offset);
             return { right, left, marginLeft };
         },
         responsiveStyle() {
-            const width = this.currentSpan ? this.getPercent(this.currentSpan) : 'auto';
+            const width = this.currentSpan ? this.getWidth(this.currentSpan) : 'auto';
             return { width };
         },
     },
@@ -73,10 +85,28 @@ export default {
         removeResizeListener(this.$el, this.onResize);
     },
     methods: {
-        getPercent(span, repeat) {
+        getPullPush(span, repeat) {
+            const column = this.getColumnWidth(span, repeat);
+            return `calc(${column.columnWidth} + ${column.gap}px * ${span})`;
+        },
+        getWidth(span, repeat) {
+            const column = this.getColumnWidth(span, repeat);
+            return `calc(${column.columnWidth} + ${column.gap}px * ${span - 1})`;
+        },
+        getMarginLeft(span, repeat) {
+            if (!span)
+                return undefined;
+            const column = this.getColumnWidth(span, repeat);
+            return `calc(${column.columnWidth} + ${column.gap}px * ${span} + ${column.gap / 2}px)`;
+        },
+        getColumnWidth(span, repeat) {
             repeat
                 = repeat || this.$parent.repeat || this.$parent.$parent.repeat;
-            return (span / repeat) * 100 + '%';
+            const gap = this.$parent.gap ? GAP_CONFIGS[this.$parent.gap] : GAP_CONFIGS.normal;
+            return {
+                columnWidth: `(100% - ${gap}px * ${repeat}) / ${repeat} * ${span}`,
+                gap,
+            };
         },
         onResize() {
             const stack = this.stack;

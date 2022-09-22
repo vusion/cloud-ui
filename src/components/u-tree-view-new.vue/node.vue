@@ -20,29 +20,30 @@
         <u-loading v-if="loading" :class="$style.loading" size="small"></u-loading>
         <div :class="$style.expander"
             ref="clickExpander"
-            v-else-if="hasChildren || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
+            v-else-if="hasChildren || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load && !rootVM.parentField)"
             :expand-trigger="rootVM.expandTrigger" :expanded="currentExpanded"
             @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
             :style="{ width : expanderWidth? expanderWidth + 'px':'' }"
             :dragover="expanderDragover"></div>
         <div :class="$style.text" :style="{ marginLeft : expanderWidth? expanderWidth + 'px':'' }" :draggable="draggable || rootVM.draggable">
             <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
-            <f-slot name="text" :vm="currentTextSlotVM" :props="{
-                data: node && $at(node, currentChildrenField),
-                text,
-                value,
-                expanded: currentExpanded,
-                checked: currentChecked,
-                disabled: currentDisabled,
-                node,
-                nodeVM: this,
-                parent,
-                selected,
-                draggable,
-                dragging: currentDragging,
-            }">
-                <span>{{ text }}</span>
-            </f-slot>
+            <span vusion-slot-name="text">
+                <slot name="text" :vm="currentTextSlotVM" :props="{
+                    data: node && $at(node, currentChildrenField),
+                    text,
+                    value,
+                    expanded: currentExpanded,
+                    checked: currentChecked,
+                    disabled: currentDisabled,
+                    node,
+                    nodeVM: this,
+                    parent,
+                    selected,
+                    draggable,
+                    dragging: currentDragging,
+                }">{{ text }}</slot>
+                <s-empty v-if="!$slots.text && $env.VUE_APP_DESIGNER"></s-empty>
+            </span>
         </div>
     </div>
     <div :class="$style.sub" v-if="rootVM.ifExpanded && !childrenRendered && node && !node.childrenRendered ? currentExpanded : true" v-show="currentExpanded">
@@ -59,7 +60,7 @@
                 :parent="node"
                 :level="level + 1"
                 :draggable="subNode.draggable"
-            ></u-tree-view-node-new>
+            ><template #text>{{$at(subNode, rootVM.field || rootVM.textField)}}</template></u-tree-view-node-new>
         </template>
         <template v-if="currentMoreChildrenFields">
             <template v-for="subField in currentMoreChildrenFields" v-if="node && $at(node, subField)">
@@ -75,7 +76,7 @@
                     :parent="node"
                     :level="level + 1"
                     :draggable="subNode.draggable"
-                ></u-tree-view-node-new>
+                ><template #text>{{$at(subNode, rootVM.field || rootVM.textField)}}</template></u-tree-view-node-new>
             </template>
         </template>
         <slot></slot>
@@ -85,11 +86,13 @@
 
 <script>
 import { MNode } from '../m-root.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-tree-view-node-new',
     rootName: 'u-tree-view-new',
     mixins: [MNode],
+    components: { SEmpty },
     props: {
         data: Array,
         text: String,

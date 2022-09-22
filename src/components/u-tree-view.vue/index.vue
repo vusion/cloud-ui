@@ -29,6 +29,7 @@ export default {
     nodeName: 'u-tree-view-node',
     mixins: [MRoot, MField],
     props: {
+        flat: { type: Boolean, default: false },
         value: null,
         values: Array,
         field: String,
@@ -193,7 +194,6 @@ export default {
             }
         },
         select(nodeVM) {
-            console.log('nodeVM', nodeVM);
             if (this.readonly || this.disabled)
                 return;
             const oldValue = this.value;
@@ -253,7 +253,6 @@ export default {
             this.walk((nodeVM) => nodeVM.toggle(expanded)); // @TODO: Only one event
         },
         onCheck(nodeVM, checked, oldChecked) {
-            // console.log('click', this.currentValues);
             this.$emit(
                 'check',
                 {

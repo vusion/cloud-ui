@@ -9,16 +9,18 @@
       title: 间隔
       type: string
       options:
+        - value: compact
+          title: 紧凑（-1）
         - value: none
-          title: 无
+          title: 无（0）
         - value: small
-          title: 小
+          title: 小（8）
         - value: normal
-          title: 正常
+          title: 正常（16）
         - value: large
-          title: 大
+          title: 大（32）
       default: normal
-      description: 栅格之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）
+      description: 栅格行之间的间隔
   slots:
     - name: default
       description: 插入`<u-grid-layout-row>`或`<u-grid-layout-column>`子组件。
@@ -27,13 +29,9 @@
         - name: u-grid-layout-row
           title: 插入一行
           snippet: <u-grid-layout-row><u-grid-layout-column
-            :span="6">第一行第一列</u-grid-layout-column><u-grid-layout-column
-            :span="6">第一行第二列</u-grid-layout-column></u-grid-layout-row><u-grid-layout-row><u-grid-layout-column
-            :span="6">第二行第一列</u-grid-layout-column><u-grid-layout-column
-            :span="6">第二行第二列</u-grid-layout-column></u-grid-layout-row>
-        - name: u-grid-layout-column
-          title: 插入一列
-          snippet: <u-grid-layout-column>列内容</u-grid-layout-column>
+            :span="4"></u-grid-layout-column><u-grid-layout-column
+            :span="4"></u-grid-layout-column><u-grid-layout-column
+            :span="4"></u-grid-layout-column></u-grid-layout-row>
 - name: u-grid-layout-row
   title: 栅格行
   description: 内部元素行布局
@@ -41,8 +39,29 @@
     - name: repeat
       title: 栅格数
       type: number
+      display: number
       default: 12
       description: 默认24，可设置栅格行大小
+      min: 1
+      max: 24
+    - name: gap
+      title: 栅格槽
+      type: string
+      options:
+        - value: none
+          title: 无（0）
+        - value: mini
+          title: 迷你（4）
+        - value: small
+          title: 小（8）
+        - value: normal
+          title: 正常（16）
+        - value: large
+          title: 大（24）
+        - value: huge
+          title: 巨大（32）
+      default: normal
+      description: 栅格列之间的间隔
     - name: justify
       title: 对齐方式
       type: string
@@ -54,10 +73,10 @@
         - value: end
           title: 右对齐
         - value: space-between
-          title: 各行之间留有空
+          title: 水平分布-左右不留空
           advanced: true
         - value: space-around
-          title: 之前、之间、之后都留有空白
+          title: 水平分布-左右留空
           advanced: true
       default: start
       description: 内容对齐方式
@@ -84,7 +103,7 @@
       support:
         - name: u-grid-layout-column
           title: 插入一列
-          snippet: <u-grid-layout-column>列内容</u-grid-layout-column>
+          snippet: <u-grid-layout-column :span="1"></u-grid-layout-column>
 - name: u-grid-layout-column
   title: 栅格列
   description: 内部元素行内列布局
@@ -93,20 +112,31 @@
     - name: span
       title: 占据栅格数
       type: number
+      display: number
       default: 1
       description: 列占据栅格行的栅格数
+      precision: 0.00000000000001
     - name: offset
       title: 偏移栅格数
       type: number
+      display: number
       description: 列偏移的栅格数
+      default: 0
+      precision: 0.00000000000001
     - name: pull
       title: 左移动栅格数
       type: number
+      display: number
       description: 列向左移动的栅格数
+      default: 0
+      precision: 0.00000000000001
     - name: push
       title: 右移动栅格数
       type: number
+      display: number
       description: 列向右移动的栅格数
+      default: 0
+      precision: 0.00000000000001
     - name: media-huge
       title: 响应很大屏
       type: number

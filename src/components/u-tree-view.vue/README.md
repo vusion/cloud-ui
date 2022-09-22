@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# UTreeView 树型视图
+# UTreeView 树形视图
 
 - [示例](#示例)
     - [基本用法](#基本用法)
@@ -27,7 +27,7 @@
 
 **Selector**
 
-树形选择器
+树形视图
 
 ## 示例
 ### 基本用法
@@ -668,17 +668,18 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data | Array\<{ text, value }\> |  |  | Data书写方式中的数据列表 |
-| value.sync, v-model | any |  |  |  |
-| text-field | string |  | `'text'` | 选项文本的字段名 |
-| value-field | string |  | `'value'` | 选项值的字段名 |
+| data | Array\<{ text, value }\> |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
+| text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
+| value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
+| children-field | string |  | `'value'` | 集合的元素类型中，用于标识父节点的属性 |
+| value.sync, v-model | any |  |  | 单选后，选中的值 |
+| checkable | boolean |  | `false` | 是否开启多选模式，显示多选框 |
 | cancelable | boolean |  | `false` | 是否可以取消选择 |
-| checkable | boolean |  | `false` | 是否可以选中/取消 |
 | accordion | boolean |  | `false` | 是否每次只会展开一个分组 |
 | expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
 | readonly | boolean |  | `false` |  |
 | disabled | boolean |  | `false` |  |
-| check-controlled | boolean |  | `false` | checkable 开启情况下，是否完全受控（父子节点状态不关联） |
+| check-controlled | boolean |  | `false` | 父节点选中，子节点是否被选中，懒加载开启状态下无法全选关联 |
 
 ### Slots
 
@@ -819,7 +820,7 @@ Methods
 
 #### (default)
 
-插入文本或 HTML。
+插入子节点
 
 ### Events
 

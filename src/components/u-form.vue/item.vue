@@ -13,7 +13,7 @@
         </div>
         <div :class="[$style.wrap, $env.VUE_APP_DESIGNER ? $style.full : null]" vusion-slot-name="default">
             <slot></slot>
-            <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+            <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
             <span v-if="color === 'focus' && currentMessage" :class="$style.message" color="focus"><slot name="message">{{ currentMessage }}</slot></span>
             <span v-else-if="currentMessage" :class="$style.message" :color="color" placement="bottom"><slot name="message">{{ currentMessage }}</slot></span>
             <span v-else-if="bubble && !mutedMessage && touched && !valid && firstError" :class="$style.message" color="error" placement="bottom">{{ firstError }}</span>
@@ -74,8 +74,8 @@ export default {
             );
         },
         responsiveStyle() {
-            const width = this.getPercent(this.currentSpan);
-            return { width };
+            const style = this.getPercent(this.currentSpan);
+            return style;
         },
         repeat() {
             return (
@@ -99,8 +99,17 @@ export default {
         //     this.$nextTick(() => this.validate('blur');
         // },
         getPercent(span) {
+            if (this.repeat > 1) {
+                return {
+                    width: (span / this.repeat) * 100 + '%',
+                    // 平台到制品应用nasl格式解析中，会有4px的空白字符存在于标签与标签之间.
+                    'margin-left': -(4 * (this.repeat - 1) / this.repeat) + 'px',
+                };
+            }
             if (this.repeat > 0) {
-                return (span / this.repeat) * 100 + '%';
+                return {
+                    width: (span / this.repeat) * 100 + '%',
+                };
             }
         },
     },

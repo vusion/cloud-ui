@@ -1,8 +1,9 @@
 <template>
-    <span :class="$env.VUE_APP_DESIGNER? [$style.root, $style.rootDesigner]:$style.root" :display="display" :ellipsis="ellipsis">
+    <span :class="$env.VUE_APP_DESIGNER? [$style.root, $style.rootDesigner]:$style.root" :display="display" :ellipsis="ellipsis"
+        :vusion-click-enabled="$env.VUE_APP_DESIGNER">
         <span vusion-slot-name="reference" :class="$style.reference">
             <slot name="reference"></slot>
-            <s-empty v-if="$env.VUE_APP_DESIGNER && !$slots.reference"></s-empty>
+            <s-empty v-if="$env.VUE_APP_DESIGNER && !$slots.reference && !!$attrs['vusion-node-path']"></s-empty>
         </span>
         <u-popup reference="prev" v-bind="$attrs" v-on="$listeners" ref="popup" :vusion-scope-id="$vnode.context.$options._scopeId">
             <slot></slot>
@@ -28,6 +29,21 @@ export default {
         // 单击打开弹出框
         designerControl() {
             this.$refs.popup.toggle();
+        },
+        open() {
+            this.$refs.popup.open();
+        },
+        close() {
+            this.$refs.popup.close();
+        },
+        toggle(opened) {
+            this.$refs.popup.toggle(opened);
+        },
+        update() {
+            this.$refs.popup.update();
+        },
+        scheduleUpdate() {
+            this.$refs.popup.scheduleUpdate();
         },
     },
 };

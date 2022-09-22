@@ -40,6 +40,7 @@ export default {
             this.currentScrollParent = this.scrollParent || findScrollParent(this.$el);
             this.scrollListener();
         }
+        this.top = '8px';
     },
     destroyed() {
         this.eventOff && this.eventOff();
@@ -99,7 +100,6 @@ export default {
             }
         },
         select(nodeVM) {
-            console.log('nodeVM', nodeVM);
             if (this.readonly || this.disabled)
                 return;
             const oldValue = this.value;
@@ -128,7 +128,6 @@ export default {
             const actualValue = value || node && node[this.valueField] || this.selectedVM[this.valueField];
             this.$emit('input', actualValue, this);
             this.$emit('update:value', actualValue, this);
-            this.value = actualValue;
             this.$emit(
                 'select',
                 {

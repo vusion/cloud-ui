@@ -15,7 +15,7 @@
                     <slot>{{ content }}</slot>
                 </slot>
             </div>
-            <div :class="$style.body" v-else-if="$env.VUE_APP_DESIGNER" vusion-slot-name="default">
+            <div :class="$style.body" v-else-if="$env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']" vusion-slot-name="default">
                 <s-empty></s-empty>
             </div>
             <div :class="$style.foot" v-if="$slots.foot">
@@ -200,5 +200,10 @@ export default {
 .root[merge-borders] .arrow ~ * {
     border: none;
     box-shadow: none;
+}
+
+/** 当reference的元素因为滚动隐藏的时候，popper也隐藏 */
+.root[data-popper-reference-hidden] {
+    display: none;
 }
 </style>

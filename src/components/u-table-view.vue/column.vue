@@ -66,7 +66,14 @@ export default {
         !this.parentVM
             && this.$contact(this.$options.parentName, (parentVM) => {
                 this.parentVM = parentVM;
-                parentVM.columnVMs.push(this);
+                let slotVms = parentVM.$slots.default || [];
+                slotVms = slotVms.filter((vm) => !!vm.tag);
+                const index = slotVms.indexOf(this.$vnode);
+                if (~index)
+                    parentVM.columnVMs.splice(index, 0, this);
+                else {
+                    parentVM.columnVMs.push(this);
+                }
             });
     },
     destroyed() {

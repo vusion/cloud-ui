@@ -9,7 +9,7 @@
         <u-text>内容</u-text>
     </template>
     <template #foot>
-        <u-linear-layout>
+        <u-linear-layout justify="center">
             <u-button color="primary">确定</u-button>
             <u-button>取消</u-button>
         </u-linear-layout>

@@ -5,17 +5,20 @@
         :selected="selected"
         :readonly="parentVM.readonly"
         :disabled="disabled || parentVM.disabled"
-        :href="anchorJumped"
+        :href="!disabled && anchorJumped"
         :target="target"
         v-on="listeners"
         v-ellipsis-title
         :value="value"
-        @click="handleClick()"
+        @click.stop="handleClick()"
     >
+        <span vusion-slot-name="label">
+            <s-empty v-if="(!$slots.label) && $env.VUE_APP_DESIGNER "></s-empty>
+            <slot name="label">{{ label }}</slot>
+        </span>
     </a>
-    <div :class="$style.sub" vusion-slot-name="default">
-        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
-        <slot>{{ label }}</slot>
+    <div :class="$style.sub">
+        <slot></slot>
     </div>
 </div>
 </template>
@@ -79,22 +82,19 @@ export const UTocItem = {
             }
         },
         handleClick() {
-            console.log(this);
-            if (this.disabled)
+            if (this.disabled || this.readonly || this.parentVM.disabled || this.parentVM.readonly)
                 return;
             this.parentVM.select(this);
-            const actualValue = this.value || this && this[this.valueField] || this.selectedVM[this.valueField];
+            const actualValue = this.value || this.label;
             const oldValue = this.value;
             const oldVM = this.selectedVM;
             this.$emit('click', {
                 value: actualValue,
-                oldValue,
                 node: this.node,
                 oldNode: oldVM && oldVM.node,
                 nodeVM: this,
                 oldVM,
-            },
-            this);
+            }, this);
         },
     },
 };

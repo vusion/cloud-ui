@@ -3,17 +3,17 @@
     <span v-if="readonly" :class="$style.readonly" vusion-slot-name="default">
         <i-ico v-if="!parentVM.auto && parentVM.icon" :name="icon" notext :class="$style.icon"></i-ico>
         <slot>{{ text }}</slot>
-        <s-empty v-if="(!$slots.default && !text) && $env.VUE_APP_DESIGNER" :class="$style.empty"></s-empty>
+        <s-empty v-if="(!$slots.default && !text) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']" :class="$style.empty"></s-empty>
     </span>
     <span v-else-if="disabled" :class="$style.disabled" vusion-slot-name="default">
         <i-ico v-if="!parentVM.auto && parentVM.icon" :name="icon" notext :class="$style.icon"></i-ico>
         <slot>{{ text }}</slot>
-        <s-empty v-if="(!$slots.default && !text) && $env.VUE_APP_DESIGNER" :class="$style.empty"></s-empty>
+        <s-empty v-if="(!$slots.default && !text) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']" :class="$style.empty"></s-empty>
     </span>
     <a v-else :class="$style.link" :href="currentHref" :target="target" :disabled="disabled" @click="onClick" v-on="listeners" vusion-slot-name="default">
         <i-ico v-if="!parentVM.auto && parentVM.icon" :name="icon" notext :class="$style.icon"></i-ico>
         <slot>{{ text }}</slot>
-        <s-empty v-if="(!$slots.default && !text) && $env.VUE_APP_DESIGNER" :class="$style.empty"></s-empty>
+        <s-empty v-if="(!$slots.default && !text) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']" :class="$style.empty"></s-empty>
     </a>
     <span :class="$style.separator" :icon="parentVM.separator"></span>
 </div>

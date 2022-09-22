@@ -115,7 +115,6 @@ export default {
             if (e.data < 0) {
                 worker.postMessage({ state: "stop" });
                 this.$emit("stop");
-                // console.log('end')
                 return;
             }
             this.second = e.data;

@@ -165,6 +165,24 @@
     "type": "icon",
     "description": ""
   },
+  "i-ico/icotype": {
+    "type": "string",
+    "options": [
+      {
+        "value": "only",
+        "title": "仅图标"
+      },
+      {
+        "value": "top",
+        "title": "组合图标-上下"
+      },
+      {
+        "value": "left",
+        "title": "组合图标-左右"
+      }
+    ],
+    "description": "图标类型"
+  },
   "i-ico/linkType": {
     "type": "string",
     "options": [
@@ -780,6 +798,10 @@
   "u-alert/closeable": {
     "type": "boolean",
     "description": "是否可手动关闭"
+  },
+  "u-anchor/label": {
+    "type": "string",
+    "description": "锚点的唯一标识，用于跳转链接，如“/page#linkname”"
   },
   "u-auto-complete/value": {
     "type": "string",
@@ -2479,6 +2501,55 @@
     ],
     "description": "该项的标签大小。"
   },
+  "u-divider/dashed": {
+    "type": "string",
+    "options": [
+      {
+        "value": "b",
+        "title": "虚线"
+      },
+      {
+        "value": "a",
+        "title": "实线"
+      }
+    ],
+    "description": "线条类型"
+  },
+  "u-divider/content-position": {
+    "type": "string",
+    "options": [
+      {
+        "value": "center",
+        "title": "居中"
+      },
+      {
+        "value": "left",
+        "title": "左"
+      },
+      {
+        "value": "right",
+        "title": "右"
+      }
+    ],
+    "description": "内容位置"
+  },
+  "u-divider/title": {
+    "type": "string",
+    "description": "文本"
+  },
+  "u-divider/direction": {
+    "type": "string",
+    "options": [
+      {
+        "value": "horizontal",
+        "title": "横向"
+      },
+      {
+        "value": "column",
+        "title": "竖向"
+      }
+    ]
+  },
   "u-drawer/visible": {
     "type": "boolean",
     "description": "是否显示"
@@ -2774,7 +2845,7 @@
   },
   "u-form-table-view-column/ellipsis": {
     "type": "boolean",
-    "description": "文字过长是否省略显示。默认文字超出时会换行。"
+    "description": "文字过长是否省略显示，默认文字超出时会换行"
   },
   "u-form-table-view-column/formatter": {
     "type": "string, object, Function, Formatter",
@@ -2786,7 +2857,7 @@
   },
   "u-form-table-view-column/start-index": {
     "type": "number",
-    "description": "当`type=\"index\"`时的起始序号"
+    "description": "序号列的起始序号"
   },
   "u-form-table-view-column/label": {
     "type": "string",
@@ -6413,7 +6484,7 @@
   },
   "u-table-view/initial-load": {
     "type": "boolean",
-    "description": "是否在初始时立即加载。"
+    "description": "是否在初始时立即加载"
   },
   "u-table-view/pageable": {
     "type": "boolean",
@@ -6429,7 +6500,7 @@
   },
   "u-table-view/page-size-options": {
     "type": "Array<number>",
-    "description": "分页大小的选项列表。"
+    "description": "分页大小的选项列表"
   },
   "u-table-view/show-total": {
     "type": "boolean",
@@ -6445,7 +6516,7 @@
   },
   "u-table-view/sorting": {
     "type": "{ field: string, order: string, compare: Function }",
-    "description": "当前排序的字段和顺序。"
+    "description": "当前排序的字段和顺序"
   },
   "u-table-view/default-order": {
     "type": "string",
@@ -6459,7 +6530,7 @@
         "title": "倒序"
       }
     ],
-    "description": "所有列首次点击时的排序顺序。"
+    "description": "所有列首次点击时的排序顺序"
   },
   "u-table-view/filtering": {
     "type": "object",
@@ -6467,11 +6538,11 @@
   },
   "u-table-view/remote-paging": {
     "type": "boolean",
-    "description": "是否使用后端分页。"
+    "description": "是否使用后端分页"
   },
   "u-table-view/remote-sorting": {
     "type": "boolean",
-    "description": "是否使用后端排序。"
+    "description": "是否使用后端排序"
   },
   "u-table-view/remote-filtering": {
     "type": "boolean",
@@ -6509,15 +6580,15 @@
   },
   "u-table-view/line": {
     "type": "boolean",
-    "description": "单元格之间是否显示分隔线条。"
+    "description": "单元格之间是否显示分隔线条"
   },
   "u-table-view/striped": {
     "type": "boolean",
-    "description": "表格行是否按斑马线条纹显示。"
+    "description": "表格行是否按斑马线条纹显示"
   },
   "u-table-view/hover": {
     "type": "boolean",
-    "description": "表格行在悬浮时是否高亮显示。"
+    "description": "表格行在悬浮时是否高亮显示"
   },
   "u-table-view/show-head": {
     "type": "boolean",
@@ -6525,19 +6596,19 @@
   },
   "u-table-view/default-column-width": {
     "type": "string | number",
-    "description": "表格的默认列宽度，可以设置为百分比或数字。"
+    "description": "表格的默认列宽度，可以设置为百分比或数字"
   },
   "u-table-view/loading": {
     "type": "boolean",
-    "description": "手动设置是否正在加载中。"
+    "description": "手动设置是否正在加载中"
   },
   "u-table-view/loading-text": {
     "type": "string",
-    "description": "正在加载中的文字。"
+    "description": "正在加载中的文字"
   },
   "u-table-view/error": {
     "type": "boolean",
-    "description": "手动设置是否加载失败。"
+    "description": "手动设置是否加载失败"
   },
   "u-table-view/error-text": {
     "type": "string",
@@ -6549,23 +6620,23 @@
   },
   "u-table-view/value-field": {
     "type": "string",
-    "description": "在单选、多选操作、渲染树形数据中，指定数据唯一值的字段。"
+    "description": "在单选、多选操作、渲染树形数据中，指定数据唯一值的字段"
   },
   "u-table-view/value": {
     "type": "any",
-    "description": "单项选择的值。"
+    "description": "单项选择的值"
   },
   "u-table-view/values": {
     "type": "Array",
-    "description": "多项选择的值。"
+    "description": "多项选择的值"
   },
   "u-table-view/selectable": {
     "type": "boolean",
-    "description": "是否可以单选行。"
+    "description": "是否可以单选行"
   },
   "u-table-view/cancelable": {
     "type": "boolean",
-    "description": "是否可以取消选择。"
+    "description": "是否可以取消选择"
   },
   "u-table-view/readonly": {
     "type": "boolean",
@@ -6581,7 +6652,7 @@
   },
   "u-table-view/resizable": {
     "type": "boolean",
-    "description": "是否可以调整列宽。"
+    "description": "是否可以调整列宽"
   },
   "u-table-view/resize-remaining": {
     "type": "string",
@@ -6603,39 +6674,39 @@
   },
   "u-table-view/tree-display": {
     "type": "boolean",
-    "description": "以树形数据展示表格。"
+    "description": "以树形数据展示表格"
   },
   "u-table-view/children-field": {
     "type": "string",
-    "description": "树形数据子节点字段名。"
+    "description": "树形数据子节点字段名"
   },
   "u-table-view/has-children-field": {
     "type": "string",
-    "description": "该字段指定行数据是否包含子节点数据。"
+    "description": "该字段指定行数据是否包含子节点数据"
   },
   "u-table-view-column/title": {
     "type": "string",
-    "description": "列标题。"
+    "description": "列标题"
   },
   "u-table-view-column/field": {
     "type": "string",
-    "description": "data 项中的字段名。"
+    "description": "data 项中的字段名"
   },
   "u-table-view-column/width": {
     "type": "string | number",
-    "description": "给列指定宽度，可以为数字或百分比。"
+    "description": "给列指定宽度，可以为数字或百分比"
   },
   "u-table-view-column/formatter": {
     "type": "string | object | Function | Formatter",
-    "description": "格式器。"
+    "description": "格式器"
   },
   "u-table-view-column/fixed": {
     "type": "boolean",
-    "description": "该列是否固定。"
+    "description": "该列是否固定"
   },
   "u-table-view-column/sortable": {
     "type": "boolean",
-    "description": "该列是否可以排序。"
+    "description": "该列是否可以排序"
   },
   "u-table-view-column/default-order": {
     "type": "string",
@@ -6661,7 +6732,7 @@
   },
   "u-table-view-column/hidden": {
     "type": "boolean",
-    "description": "是否隐藏该列。"
+    "description": "是否隐藏该列"
   },
   "u-table-view-column/type": {
     "type": "string",
@@ -6695,11 +6766,11 @@
         "title": "编辑列"
       }
     ],
-    "description": "列类型"
+    "description": "支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序"
   },
   "u-table-view-column/start-index": {
     "type": "number",
-    "description": "当`type=\"index\"`时的起始序号。"
+    "description": "序号列的起始序号"
   },
   "u-table-view-column/dblclickHandler": {
     "type": "Function",
@@ -7350,37 +7421,17 @@
     "type": "boolean",
     "description": "是否可以关闭提示"
   },
-  "u-toc/router": {
-    "type": "boolean",
-    "description": "是否根据 vue-router 来控制选择哪一项"
-  },
   "u-toc/value": {
     "type": "any",
     "description": "当前选择的值"
   },
-  "u-toc/scroll-spy": {
-    "type": "boolean",
-    "description": "是否监听滚动"
-  },
-  "u-toc/scroll-parent": {
-    "type": "HTMLElement",
-    "description": "滚动的父级元素"
-  },
-  "u-toc/boundary-top": {
-    "type": "number",
-    "description": "如果有头部导航栏，可以设置边界高度"
-  },
   "u-toc-item/label": {
     "type": "string",
-    "description": "此项显示的文本"
+    "description": "集合的元素类型中，用于显示文本的属性名称"
   },
   "u-toc-item/value": {
     "type": "any",
-    "description": "此项的值"
-  },
-  "u-toc-item/disabled": {
-    "type": "boolean",
-    "description": "禁用此项"
+    "description": "集合的元素类型中，用于标识选中值的属性"
   },
   "u-toc-item/item": {
     "type": "object",
@@ -7409,7 +7460,7 @@
     "description": "链接地址"
   },
   "u-toc-item/target": {
-    "type": "enum",
+    "type": "string",
     "options": [
       {
         "title": "新窗口",
@@ -7432,13 +7483,9 @@
     ],
     "description": "链接打开方式"
   },
-  "u-toc-item/replace": {
+  "u-toc-item/disabled": {
     "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
-  },
-  "u-toc-item/exact": {
-    "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
+    "description": "禁用此项"
   },
   "u-tooltip/opened": {
     "type": "boolean",
@@ -7630,33 +7677,163 @@
     "type": "boolean",
     "description": ""
   },
-  "u-tree-select/value": {
-    "type": "number",
-    "description": "需要传入的值"
+  "u-tree-select-new/data-source": {
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+  },
+  "u-tree-select-new/data-schema": {
+    "type": "schema",
+    "description": "表格每一行的数据类型"
+  },
+  "u-tree-select-new/text-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-tree-select-new/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
+  "u-tree-select-new/children-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识子节点的属性"
+  },
+  "u-tree-select-new/parent-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识父节点的属性"
+  },
+  "u-tree-select-new/value": {
+    "type": "any",
+    "description": "选择后，所选中的值"
+  },
+  "u-tree-select/data": {
+    "type": "Array<{ text, value }>",
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+  },
+  "u-tree-select/text-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-tree-select/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
+  "u-tree-select/children-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识父节点的属性"
+  },
+  "u-tree-view-new/data-source": {
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+  },
+  "u-tree-view-new/data-schema": {
+    "type": "schema",
+    "description": "表格每一行的数据类型"
+  },
+  "u-tree-view-new/text-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-tree-view-new/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
+  "u-tree-view-new/children-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识子节点的属性"
+  },
+  "u-tree-view-new/parent-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识父节点的属性"
+  },
+  "u-tree-view-new/value": {
+    "type": "any",
+    "description": "选择后，所选中的值"
+  },
+  "u-tree-view-new/checkable": {
+    "type": "boolean",
+    "description": "是否开启多选模式，显示多选框"
+  },
+  "u-tree-view-new/accordion": {
+    "type": "boolean",
+    "description": "是否每次只会展开一个分组"
+  },
+  "u-tree-view-new/expand-trigger": {
+    "type": "string",
+    "options": [
+      {
+        "value": "click",
+        "title": "整行点击均可触发"
+      },
+      {
+        "value": "click-expander",
+        "title": "点击小箭头时触发"
+      }
+    ],
+    "description": "展开/折叠的触发方式"
+  },
+  "u-tree-view-new/readonly": {
+    "type": "boolean",
+    "description": ""
+  },
+  "u-tree-view-new/disabled": {
+    "type": "boolean",
+    "description": ""
+  },
+  "u-tree-view-new/check-controlled": {
+    "type": "boolean",
+    "description": "开启后父节点选择不会全选子节点，子节点选择不会联动父节点"
+  },
+  "u-tree-view-node-new/value": {
+    "type": "any",
+    "description": "节点的值"
+  },
+  "u-tree-view-node-new/text": {
+    "type": "string",
+    "description": "节点的文本"
+  },
+  "u-tree-view-node-new/expanded": {
+    "type": "boolean",
+    "description": "节点默认展开"
+  },
+  "u-tree-view-node-new/checked": {
+    "type": "boolean",
+    "description": "是否可以选中/取消"
+  },
+  "u-tree-view-node-new/disabled": {
+    "type": "boolean",
+    "description": ""
+  },
+  "u-tree-view-node-new/node": {
+    "type": "object",
+    "description": "当选择此节点时，抛出的事件会传递该对象，便于开发"
   },
   "u-tree-view/data": {
     "type": "Array<{ text, value }>",
-    "description": "Data书写方式中的数据列表"
-  },
-  "u-tree-view/value": {
-    "type": "any",
-    "description": ""
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
   },
   "u-tree-view/text-field": {
     "type": "string",
-    "description": "选项文本的字段名"
+    "description": "集合的元素类型中，用于显示文本的属性名称"
   },
   "u-tree-view/value-field": {
     "type": "string",
-    "description": "选项值的字段名"
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
+  "u-tree-view/children-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识父节点的属性"
+  },
+  "u-tree-view/value": {
+    "type": "any",
+    "description": "单选后，选中的值"
+  },
+  "u-tree-view/checkable": {
+    "type": "boolean",
+    "description": "是否开启多选模式，显示多选框"
   },
   "u-tree-view/cancelable": {
     "type": "boolean",
     "description": "是否可以取消选择"
-  },
-  "u-tree-view/checkable": {
-    "type": "boolean",
-    "description": "是否可以选中/取消"
   },
   "u-tree-view/accordion": {
     "type": "boolean",
@@ -7686,7 +7863,7 @@
   },
   "u-tree-view/check-controlled": {
     "type": "boolean",
-    "description": "checkable 开启情况下，是否完全受控（父子节点状态不关联）"
+    "description": "父节点选中，子节点是否被选中，懒加载开启状态下无法全选关联"
   },
   "u-tree-view-node/value": {
     "type": "any",

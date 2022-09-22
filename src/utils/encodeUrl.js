@@ -92,7 +92,7 @@ const encodeUrl = function (url) {
     const path = parsedPath.path;
     const hash = parsedPath.hash;
     const query = parseQuery(parsedPath.query || '');
-    return (path || '/') + stringifyQuery(query) + hash;
+    return path + stringifyQuery(query) + hash;
 };
 
 export default encodeUrl;

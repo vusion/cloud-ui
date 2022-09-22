@@ -83,6 +83,7 @@ const files = [
     'u-tree-view.vue',
     'u-tree-view-new.vue',
     'u-tree-select.vue',
+    'u-tree-select-new.vue',
     'u-transfer.vue',
     'u-date-picker.vue',
     'u-time-picker.vue',

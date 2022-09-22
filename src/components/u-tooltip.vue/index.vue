@@ -1,6 +1,6 @@
 <template>
 <transition name="fade-fast">
-    <div :class="$style.root" v-show="currentOpened && ($slots.default || content)"><!-- @TODO: disabled by content -->
+    <div :class="$style.root" v-show="currentOpened && ($slots.default || content)" :arraw-size="arrawSize"><!-- @TODO: disabled by content -->
         <div data-popper-arrow :class="$style.arrow"></div><!-- popper在某些场景下可以移动该元素 -->
         <div :class="[$style.body, $style.wrap]" :size="size">
             <slot name="body">
@@ -27,6 +27,7 @@ export default {
         // @inherit: offset
         // @inherit: disabled
         size: { type: String, default: 'normal' },
+        arrawSize: { type: String, default: 'normal' },
     },
     watch: {
         content() {
@@ -222,5 +223,57 @@ export default {
 .root ::-webkit-scrollbar-thumb {
     border-radius: 3px;
     background: #9da8b3;
+}
+.root[arraw-size="small"] {
+    padding: var(--tooltip-padding-small);
+}
+.root[arraw-size="small"] .arrow {
+    width: calc(1.4*2*var(--tooltip-arrow-size-small));
+    height: calc(1.4*var(--tooltip-arrow-size-small));
+}
+.root[arraw-size="small"] .arrow::before {
+    width: calc(2*var(--tooltip-arrow-size-small));
+    height: calc(2*var(--tooltip-arrow-size-small));
+    border-radius: calc(0.5*var(--tooltip-arrow-size-small));
+}
+.root[arraw-size="small"][data-popper-placement^="top"] { margin-bottom: var(--tooltip-arrow-size-small); }
+.root[arraw-size="small"][data-popper-placement^="top"] .arrow {
+    bottom: calc(-1.4 * var(--tooltip-arrow-size-small) + 1px);
+    transform: translateX(-50%);
+}
+.root[arraw-size="small"][data-popper-placement^="bottom"] { margin-top: var(--tooltip-arrow-size-small); }
+.root[arraw-size="small"][data-popper-placement^="bottom"] .arrow {
+    top: calc(-1.4 * var(--tooltip-arrow-size-small) + 1px);
+    transform: translateX(-50%);
+}
+
+.root[arraw-size="small"][data-popper-placement^="left"] { margin-right: var(--tooltip-arrow-size-small); }
+.root[arraw-size="small"][data-popper-placement^="left"] .arrow {
+    height: calc(1.4*2*var(--tooltip-arrow-size-small));
+    width: calc(1.4*var(--tooltip-arrow-size-small));
+    right: calc(-1.4 * var(--tooltip-arrow-size-small) + 1px);
+    transform: translateY(-50%);
+}
+
+.root[arraw-size="small"][data-popper-placement^="left"]::before {
+    width: var(--tooltip-arrow-size-small);
+    right: calc(-1 * var(--tooltip-arrow-size-small));
+}
+
+.root[arraw-size="small"][data-popper-placement^="right"] { margin-left: var(--tooltip-arrow-size-small); }
+.root[arraw-size="small"][data-popper-placement^="right"] .arrow {
+    height: calc(1.4*2*var(--tooltip-arrow-size-small));
+    width: calc(1.4*var(--tooltip-arrow-size-small));
+    left: calc(-1.4 * var(--tooltip-arrow-size-small) + 1px);
+}
+
+.root[arraw-size="small"][data-popper-placement^="right"]::before {
+    width: var(--tooltip-arrow-size-small);
+    right: calc(-1 * var(--tooltip-arrow-size-small));
+}
+
+/** 当reference的元素因为滚动隐藏的时候，popper也隐藏 */
+.root[data-popper-reference-hidden] {
+    display: none;
 }
 </style>

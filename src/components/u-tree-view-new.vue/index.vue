@@ -2,7 +2,12 @@
 <div :class="$style.root" :readonly="readonly" :readonly-mode="readonlyMode" :disabled="disabled">
     <u-loading v-if="loading" size="small"></u-loading>
     <template v-else-if="currentDataSource">
-        <component :is="ChildComponent"
+        <template v-if="$env.VUE_APP_DESIGNER && dataSource">
+            <u-tree-view-node-new :text="scopeItem" readonly></u-tree-view-node-new>
+            <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
+            <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
+        </template>
+        <u-tree-view-node-new v-else
             v-for="node in currentDataSource.data"
             :text="$at(node, field || textField)"
             :value="$at(node, valueField)"
@@ -14,7 +19,10 @@
             :node="node"
             :level="0"
             :draggable="node.draggable"
-        ></component>
+        ><template #text>{{$at(node, field || textField)}}</template></u-tree-view-node-new>
+    </template>
+    <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
+        <span :class="$style.loadContent">{{ treeSelectTip }}</span>
     </template>
     <slot></slot>
 </div>
@@ -23,23 +31,28 @@
 <script>
 import { MRoot } from '../m-root.vue';
 import MField from '../m-field.vue';
+import UTreeViewNodeNew from "../u-tree-view-new.vue/node.vue";
 
 export default {
     name: 'u-tree-view-new',
     nodeName: 'u-tree-view-node-new',
     mixins: [MRoot, MField],
+    components: { UTreeViewNodeNew },
     props: {
         value: null,
         values: Array,
         field: String,
-        data: Array,
+        data: [Array, Object, Function],
         dataSource: [Array, Object, Function],
+        dataSchema: {type: String, default: 'entity'},
         textField: { type: String, default: 'text' },
         valueField: { type: String, default: 'value' },
         hiddenField: { type: String, default: 'hidden' },
         expandedField: { type: String, default: 'expanded' },
         isLeafField: { type: String, default: 'isLeaf' },
         childrenField: { type: String, default: 'children' },
+        parentField: { type: String, default: '' },
+        treeSelectTip: { type: String, default: '请绑定数据源或插入树形视图节点' },
         moreChildrenFields: Array,
         excludeFields: { type: Array, default: () => [] },
         cancelable: { type: Boolean, default: false },
@@ -70,13 +83,18 @@ export default {
             loading: false,
         };
     },
+    computed: {
+        scopeItem() {
+            return `{ scope.item.${this.textField} }`;
+        },
+    },
     watch: {
         data(data) {
             this.handleData();
         },
         dataSource(dataSource, oldDataSource) {
-            if (typeof dataSource === 'function' && String(dataSource) === String(oldDataSource))
-                return;
+            // if (typeof dataSource === 'function' && String(dataSource) === String(oldDataSource))
+            //     return;
             this.handleData();
         },
         // It is dynamic to find selected item by value
@@ -86,7 +104,7 @@ export default {
         },
         selectedVM(selectedVM, oldVM) {
             this.$emit('change', {
-                value: selectedVM ? selectedVM.value || selectedVM[this.valueField] : undefined,
+                value: selectedVM ? selectedVM.value || this.$at(selectedVM, this.valueField) : undefined,
                 oldValue: oldVM ? oldVM.value : undefined,
                 node: selectedVM ? selectedVM.node : undefined,
                 oldNode: oldVM ? oldVM.node : undefined,
@@ -118,10 +136,25 @@ export default {
         // If not, nodeVMs have not been pushed.
         this.watchValue(this.value);
         this.watchValues(this.values);
+        console.log('datasource', this.dataSource);
     },
     methods: {
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+        },
+        list2tree(list, idField, pField) {
+            list.forEach(child => {
+                const pid = this.$at(child, pField);
+                if(pid) {
+                    list.forEach(parent => {
+                        if(this.$at(parent, idField) === pid) {
+                            this.$setAt(parent, this.childrenField, this.$at(parent, this.childrenField) || [])
+                            this.$at(parent, this.childrenField).push(child)
+                        }
+                    })
+                }
+            })
+            return list.filter(n => !this.$at(n, pField))
         },
         normalizeDataSource(dataSource) {
             const final = {
@@ -134,22 +167,35 @@ export default {
                 return async function (params = {}) {
                     const result = await rawLoad(params);
                     if (result) {
-                        if (params.node) {
+                        if (self.parentField) {
+                            const temp = JSON.parse(JSON.stringify(result));
+                            final.data = self.list2tree(temp, self.valueField, self.parentField);
+                        } else if (params.node) {
                             self.$setAt(params.node, params.nodeVM.currentChildrenField, result);
                         } else
                             final.data = result;
                     }
-                    if (params.node && !this.$at(params.node, params.nodeVM.currentChildrenField))
+                    if (params.node && !self.$at(params.node, params.nodeVM.currentChildrenField))
                         self.$setAt(params.node, self.isLeafField, true);
                 };
             }
 
             if (Array.isArray(dataSource))
-                final.data = dataSource;
+                if (this.parentField) {
+                    const temp = JSON.parse(JSON.stringify(dataSource));
+                    final.data = this.list2tree(temp, this.valueField, this.parentField);
+                } else {
+                    final.data = dataSource;
+                }
             else if (typeof dataSource === 'function') {
                 final.load = createLoad(dataSource);
             } else if (typeof dataSource === 'object') {
-                final.data = dataSource.data;
+                if (this.parentField) {
+                    const temp = JSON.parse(JSON.stringify(dataSource.data));
+                    final.data = this.list2tree(temp, this.valueField, this.parentField);
+                } else {
+                    final.data = dataSource.data;
+                }
                 final.load = dataSource.load && createLoad(dataSource.load);
             }
 
@@ -193,7 +239,6 @@ export default {
             }
         },
         select(nodeVM) {
-            console.log('nodeVM', nodeVM);
             if (this.readonly || this.disabled)
                 return;
             const oldValue = this.value;
@@ -219,9 +264,9 @@ export default {
             else
                 this.selectedVM = nodeVM;
             const { value, node } = this.selectedVM || {};
-            const actualValue = value || node && node[this.valueField] || this.selectedVM[this.valueField];
-            this.$emit('input', actualValue, this);
-            this.$emit('update:value', actualValue, this);
+            const actualValue = value || this.$at(node, this.valueField) || this.$at(this.selectedVM, this.valueField);
+            this.$emit('input', this.checkable ? this.currentValues : actualValue, this);
+            this.$emit('update:value', this.checkable ? this.currentValues : actualValue, this);
             this.$emit(
                 'select',
                 {
@@ -254,6 +299,7 @@ export default {
         },
         onCheck(nodeVM, checked, oldChecked) {
             // console.log('click', this.currentValues);
+            this.$emit('update:value', this.currentValues, this);
             this.$emit(
                 'check',
                 {
@@ -301,6 +347,13 @@ export default {
     width: var(--tree-view-node-expander-size-mini);
     height: var(--tree-view-node-expander-size-mini);
     line-height: var(--tree-view-node-expander-size-mini);
+}
+
+.root .loadContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 }
 
 .root[size="mini"] .node_text {

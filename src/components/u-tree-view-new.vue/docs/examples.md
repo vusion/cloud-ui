@@ -26,22 +26,33 @@
 #### Data 方式
 
 ``` html { width: 30% }
-<u-tree-view-new :data="[
-    { text: '节点 1', children: [
-        { text: '节点 1.1' },
-        { text: '节点 1.2', children: [
-            { text: '节点 1.2.1' },
-            { text: '节点 1.2.2' },
+<u-tree-view-new :data-source="[
+    { text: '节点 1', value: '1', children: [
+        { text: '节点 1.1' , value: '1.1'},
+        { text: '节点 1.2',value: '1.2', children: [
+            { text: '节点 1.2.1', value: '1.2.1' },
+            { text: '节点 1.2.2', value: '1.2.2' },
         ] },
-        { text: '节点 1.3' },
-        { text: '节点 1.4' },
+        { text: '节点 1.3', value: '1.3', },
+        { text: '节点 1.4', value: '1.4',},
     ] },
-    { text: '节点 2' },
-    { text: '节点 3', children: [
-        { text: '节点 3.1' },
-        { text: '节点 3.2' },
+    { text: '节点 2', value: '2', },
+    { text: '节点 3', value: '3', children: [
+        { text: '节点 3.1', value: '3.1', },
+        { text: '节点 3.2', value: '3.2', },
     ] },
 ]"></u-tree-view-new>
+```
+
+#### 一维Data
+
+``` html { width: 30% }
+<u-tree-view-new :data-source="[{id: 1, name: '节点1', pid: null}, {id: 2, name: '节点2', pid: 1}, {id: 3, name: '节点3', pid: null}, {id: 4, name: '节点4', pid: null}, {id: 5, name: '节点5', pid: 1}, {id: 6, name: '节点6', pid: 2}]"
+                 parent-field="pid"
+                 value-field="id"
+                 children-field="children"
+                 text-field="name"  
+></u-tree-view-new>
 ```
 
 #### 自定义模板
@@ -49,7 +60,7 @@
 Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提供了一个名为`text`的作用域插槽，可以很轻松地处理这个问题。
 
 ``` html { width: 30% }
-<u-tree-view-new :data="[
+<u-tree-view-new :data-source="[
     { text: '文件夹1', type: 'directory', children: [
         { text: '文件夹1.1', type: 'directory' },
         { text: '文件夹1.2', type: 'directory', children: [
@@ -100,7 +111,7 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
 #### Data 方式
 
 ``` html { width: 30% }
-<u-tree-view-new value="1.2" :data="[
+<u-tree-view-new value="1.2" :data-source="[
     { text: '节点 1', value: '1', children: [
         { text: '节点 1.1', value: '1.1' },
         { text: '节点 1.2', value: '1.2', children: [
@@ -184,7 +195,7 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
 #### Data 方式
 
 ``` html { width: 30% }
-<u-tree-view-new :data="[
+<u-tree-view-new :data-source="[
     { text: '节点 1', children: [
         { text: '节点 1.1' },
         { text: '节点 1.2', disabled: true, children: [
@@ -446,7 +457,7 @@ Tag 方式中可以使用`v-show`，Data 方式中可以使用`hidden`属性
 
 ``` vue { width: 30% }
 <template>
-<u-tree-view-new ref="treeView" checkable :data="data"></u-tree-view-new>
+<u-tree-view-new ref="treeView" checkable :data-source="data"></u-tree-view-new>
 </template>
 
 <script>
@@ -476,7 +487,7 @@ export default {
 
 ``` vue { width: 30% }
 <template>
-<u-tree-view-new ref="treeView" checkable :values.sync="values" :data="data"></u-tree-view-new>
+<u-tree-view-new ref="treeView" checkable :values.sync="values" :data-source="data"></u-tree-view-new>
 </template>
 
 <script>
@@ -507,7 +518,7 @@ export default {
 
 ``` vue { width: 30% }
 <template>
-<u-tree-view-new ref="treeView" check-controlled checkable :values.sync="values" :data="data"></u-tree-view-new>
+<u-tree-view-new ref="treeView" check-controlled checkable :values.sync="values" :data-source="data"></u-tree-view-new>
 </template>
 <script>
 export default {
@@ -542,7 +553,7 @@ UTreeView 有针对选中/取消和展开/收起两个操作的统一处理的�
 ``` vue { width: 30% }
 <template>
 <u-linear-layout direction="vertical">
-    <u-tree-view-new ref="treeView" checkable :data="data"></u-tree-view-new>
+    <u-tree-view-new ref="treeView" checkable :data-source="data"></u-tree-view-new>
     <u-linear-layout>
         <u-button @click="checkAll(true)">全部选中</u-button>
         <u-button @click="checkAll(false)">全部取消</u-button>
@@ -590,7 +601,7 @@ UTreeView 有关于遍历与查找节点的方法：`walk`和`find`，方便开�
 ``` vue { width: 30% }
 <template>
 <u-linear-layout direction="vertical">
-    <u-tree-view-new ref="treeView" :data="data"></u-tree-view-new>
+    <u-tree-view-new ref="treeView" :data-source="data"></u-tree-view-new>
     <u-linear-layout>
         <u-button @click="walk()">遍历所有节点</u-button>
         <u-button @click="find()">查找末尾为`4`的节点</u-button>

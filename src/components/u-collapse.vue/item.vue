@@ -11,7 +11,7 @@
         <span :class="$style.extra" vusion-slot-name="extra">
             <slot name="extra"></slot>
             <!-- 使模板可控制empty-slot的显隐 -->
-            <s-empty v-if="parentVM.showExtraEmptySlot && (!$slots.extra) && $env.VUE_APP_DESIGNER" :class="$style.emptySlot"></s-empty>
+            <s-empty v-if="parentVM.showExtraEmptySlot && (!$slots.extra) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']" :class="$style.emptySlot"></s-empty>
         </span>
     </div>
     <f-collapse-transition>
@@ -19,7 +19,7 @@
             <slot name="body">
                 <div :class="$style.content" vusion-slot-name="default">
                     <slot></slot>
-                    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+                    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                 </div>
             </slot>
         </div>

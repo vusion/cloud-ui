@@ -7,19 +7,21 @@
           :key="index2"
           :item="item2"
           :colnum="colnum"
-          :equal-wdth="equalWidth"
+          :equal-width="equalWidth"
+          :index="comIndex(index, index2)"
         >
           <template #default="item2">
-            <slot :item="item2.item" :index="index2"></slot>
+            <slot :item="item2.item" :index="comIndex(index, index2)"></slot>
             <s-empty v-if="$scopedSlots
                 &&!($scopedSlots.default && $scopedSlots.default(item2))
-                &&$env.VUE_APP_DESIGNER"></s-empty>
+                &&$env.VUE_APP_DESIGNER
+                && !!$attrs['vusion-node-path']"></s-empty>
           </template>
         </u-list-components-item>
       </div>
     </template>
     <template v-else>
-        <slot><s-empty v-if="!$slots.default && $env.VUE_APP_DESIGNER"></s-empty></slot>
+        <slot><s-empty v-if="!$slots.default && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty></slot>
     </template>
   </div>
 </template>
@@ -92,7 +94,6 @@ export default {
                         page: 1,
                         size: 1000,
                     });
-                    console.log(res);
                     this.options = this.divide(Array.isArray(res) ? res : res.content);
                 } catch (error) {
                     console.error(error);
@@ -100,6 +101,9 @@ export default {
             } else {
                 this.options = this.divide(this.fromValue(this.dataSource));
             }
+        },
+        comIndex(index1, index2) {
+            return index1 * this.colnum + index2;
         },
     },
 };

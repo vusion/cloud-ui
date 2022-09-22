@@ -105,7 +105,7 @@ export default {
             let finalSize = '';
             if (this.itemVMs.every((itemVM) => itemVM.computedSize)) {
                 this.itemVMs.forEach((itemVM) => {
-                    itemVM.computedSize = Math.max(itemVM.computedSize, this.minSize);
+                    itemVM.computedSize = Math.max(itemVM.computedSize, itemVM.minSize || this.minSize);
                 });
 
                 finalSize = this.itemVMs.reduce((prev, itemVM) => {
@@ -122,10 +122,11 @@ export default {
                     let hasValueSize = 0;
                     const hasValueItems = [];
                     this.itemVMs.forEach((itemVM) => {
-                        if(diffSize > 0  &&  itemVM.computedSize === this.minSize) { // 如果已经是最小值，不能再缩小
-                            fixedSize += this.minSize;
+                        const minSize = itemVM.minSize || this.minSize
+                        if(diffSize > 0  &&  itemVM.computedSize === minSize) { // 如果已经是最小值，不能再缩小
+                            fixedSize += minSize;
                         } else if(itemVM.currentSize) { // 已经设过值的模块理论上不改变大小，如果没有地方能变，再来改这部分的大小
-                            hasValueSize += this.minSize;
+                            hasValueSize += minSize;
                             hasValueItems.push(itemVM);
                         } else {
                             adjustableItems.push(itemVM);
@@ -159,7 +160,6 @@ export default {
         },
         onResizerDrag($event, itemVM) {
             const index = this.itemVMs.indexOf(itemVM);
-            const minSize = this.minSize;
             const rootSize = this.direction === 'horizontal' ? this.$el.clientWidth : this.$el.clientHeight;
             // 当前元素之前的元素所占的空间大小
             let beforeSize = 0;
@@ -167,10 +167,13 @@ export default {
                 beforeSize += this.itemVMs[i].computedSize;
             
             // 可以调整的最大大小
-            const maxSize = rootSize - beforeSize - (this.itemVMs.length - 1 - index) * minSize;
+            let maxSize = rootSize - beforeSize;
+            for(let i=index+1;i<this.itemVMs.length;i++) {
+                maxSize -= this.itemVMs[i].minSize || this.minSize;
+            }
 
             const size = Math.max(
-                minSize,
+                itemVM.minSize || this.minSize,
                 Math.min(
                     itemVM.oldSize + (this.direction === 'horizontal' ? $event.dragX : $event.dragY), 
                     maxSize
@@ -185,6 +188,7 @@ export default {
                     if (remainingSize === 0)
                         break;
                     const itemVM = this.itemVMs[i];
+                    const minSize = itemVM.minSize || this.minSize;
                     if (itemVM.computedSize - remainingSize >= minSize) {
                         itemVM.computedSize -= remainingSize;
                         remainingSize = 0;
@@ -199,6 +203,7 @@ export default {
                     const averageSize = remainingSize / itemVMs.length;
                     const wideitemVMs = [];
                     itemVMs.forEach((itemVM) => {
+                        const minSize = itemVM.minSize || this.minSize;
                         if (itemVM.computedSize - averageSize >= minSize) {
                             itemVM.computedSize -= averageSize;
                             remainingSize -= averageSize;

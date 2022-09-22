@@ -1,8 +1,8 @@
 <template>
-<div :class="$style.root">
+    <div :class="$style.root">
         <div
             :class="$style.link"
-            :id="label || componentName"
+            :id="label || refName"
             anchor
         >
             <div :class="$style.sub" vusion-slot-name="default">
@@ -10,7 +10,7 @@
                 <slot></slot>
             </div>
         </div>
-</div>
+    </div>
 </template>
 
 <script>
@@ -19,26 +19,14 @@ export default {
     name: 'u-anchor',
     components: { SEmpty },
     props: {
-        name: {type: String, default: ''},
+        name: { type: String, default: '' },
         label: { type: String, default: '' },
+        refName: { type: String, default: '' },
     },
     mounted() {
-    },
-    computed: {
-        // 获取组件名称
-        componentName() {
-            if (this.$attrs['vusion-node-path']) {
-                return this.$attrs['vusion-node-path'].split('.').pop().split('=').pop().slice(0, -1);
-            }
-        },
-
-    },
-    data() {
-        return {
+        if (this.$vnode) {
+            this.refName = this.$vnode && this.$vnode.data && this.$vnode.data.ref;
         }
-    },
-    methods: {
-
     },
 };
 </script>

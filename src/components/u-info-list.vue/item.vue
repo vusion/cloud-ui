@@ -5,7 +5,7 @@
     </div>
     <div v-if="$env.VUE_APP_DESIGNER" :class="$style.value" :ellipsis="ellipsis" vusion-slot-name="default">
         <slot></slot>
-        <s-empty v-if="(!$slots.default)"></s-empty>
+        <s-empty v-if="(!$slots.default) && !!$attrs['vusion-node-path']"></s-empty>
     </div>
     <div v-else :class="$style.value" :ellipsis="ellipsis">
         <slot></slot>

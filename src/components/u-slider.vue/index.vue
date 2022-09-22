@@ -63,7 +63,7 @@ export default {
     computed: {
         percent: {
             get() {
-                let percent = ((this.currentValue - this.min) / (this.max - this.min)) * 100;
+                const percent = ((this.currentValue - this.min) / (this.max - this.min)) * 100;
                 return percent < 0 ? 0 : percent;
             },
             set(percent) {
