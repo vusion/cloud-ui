@@ -44,14 +44,64 @@
 ]"></u-tree-view-new>
 ```
 
+#### 动态数据支持插槽
+
+``` html { width: 70% }
+<u-tree-view-new :data-source="[
+    { text: '节点 1',value: '1', children: [
+        { text: '节点 1.1', value: '1.1' },
+        { text: '节点 1.2', value: '1.2', children: [
+            { text: '节点 1.2.1', value: '1.2.1' },
+            { text: '节点 1.2.2', value: '1.2.2' },
+        ] },
+        { text: '节点 1.3', value: '1.3' },
+        { text: '节点 1.4', value: '1.4', },
+    ] },
+    { text: '节点 2', value: '2' },
+    { text: '节点 3', value: '3',children: [
+        { text: '节点 3.1', value: '3.1'},
+        { text: '节点 3.2', value: '3.2'},
+    ] },
+]">
+    <template #item="scope">
+        <u-text>{{ scope.item.text }} - {{ scope.item.value}}</u-text> 
+    </template>
+</u-tree-view-new>
+```
+
+#### 动态数据支持下拉框选择属性
+
+``` html { width: 70% }
+<u-tree-view-new :data-source="[
+    { text1: '节点 1',value: '1', children1: [
+        { text1: '节点 1.1', value: '1.1' },
+        { text1: '节点 1.2', value: '1.2', children1: [
+            { text1: '节点 1.2.1', value: '1.2.1' },
+            { text1: '节点 1.2.2', value: '1.2.2' },
+        ] },
+        { text1: '节点 1.3', value: '1.3' },
+        { text1: '节点 1.4', value: '1.4', },
+    ] },
+    { text1: '节点 2', value: '2' },
+    { text1: '节点 3', value: '3',children1: [
+        { text1: '节点 3.1', value: '3.1'},
+        { text1: '节点 3.2', value: '3.2'},
+    ] },
+]" textField="text1" valueField="value" childrenField="children1">
+    <template #item="scope">
+        <u-text>{{ scope.item.text1 }} - {{ scope.item.value}}</u-text> 
+    </template>
+</u-tree-view-new>
+```
+
 #### 一维Data
 
 ``` html { width: 30% }
-<u-tree-view-new :data-source="[{id: 1, name: '节点1', pid: null}, {id: 2, name: '节点2', pid: 1}, {id: 3, name: '节点3', pid: null}, {id: 4, name: '节点4', pid: null}, {id: 5, name: '节点5', pid: 1}, {id: 6, name: '节点6', pid: 2}]"
-                 parent-field="pid"
-                 value-field="id"
-                 children-field="children"
-                 text-field="name"  
+<u-tree-view-new 
+    :data-source="[{id: 1, name: '节点1', pid: null}, {id: 2, name: '节点2', pid: 1}, {id: 3, name: '节点3', pid: null}, {id: 4, name: '节点4', pid: null}, {id: 5, name: '节点5', pid: 1}, {id: 6, name: '节点6', pid: 2}]"
+     parent-field="pid"
+     value-field="id"
+     text-field="name"
 ></u-tree-view-new>
 ```
 

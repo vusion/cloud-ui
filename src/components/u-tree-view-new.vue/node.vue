@@ -27,22 +27,23 @@
             :dragover="expanderDragover"></div>
         <div :class="$style.text" :style="{ marginLeft : expanderWidth? expanderWidth + 'px':'' }" :draggable="draggable || rootVM.draggable">
             <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
-            <span vusion-slot-name="text">
-                <slot name="text" :vm="currentTextSlotVM" :props="{
+            <span vusion-slot-name="item">
+                <slot name="item" :vm="currentTextSlotVM" :item="{
                     data: node && $at(node, currentChildrenField),
                     text,
                     value,
                     expanded: currentExpanded,
                     checked: currentChecked,
                     disabled: currentDisabled,
-                    node,
+                    item: node,
                     nodeVM: this,
                     parent,
                     selected,
                     draggable,
                     dragging: currentDragging,
+                    ...node,
                 }">{{ text }}</slot>
-                <s-empty v-if="!$slots.text && $env.VUE_APP_DESIGNER"></s-empty>
+                <s-empty v-if="!$slots.item && $env.VUE_APP_DESIGNER"></s-empty>
             </span>
         </div>
     </div>
@@ -60,7 +61,13 @@
                 :parent="node"
                 :level="level + 1"
                 :draggable="subNode.draggable"
-            ><template #text>{{$at(subNode, rootVM.field || rootVM.textField)}}</template></u-tree-view-node-new>
+            >
+               <template #item="item">
+                   <slot name="item" v-bind="item">
+                       {{$at(subNode, rootVM.field || rootVM.textField)}}
+                   </slot>
+               </template >
+            </u-tree-view-node-new>
         </template>
         <template v-if="currentMoreChildrenFields">
             <template v-for="subField in currentMoreChildrenFields" v-if="node && $at(node, subField)">
@@ -76,7 +83,13 @@
                     :parent="node"
                     :level="level + 1"
                     :draggable="subNode.draggable"
-                ><template #text>{{$at(subNode, rootVM.field || rootVM.textField)}}</template></u-tree-view-node-new>
+                >
+                    <template #item="item">
+                        <slot name="item" v-bind="item">
+                            {{$at(subNode, rootVM.field || rootVM.textField)}}
+                        </slot>
+                    </template>
+                </u-tree-view-node-new>
             </template>
         </template>
         <slot></slot>

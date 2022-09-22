@@ -13,20 +13,26 @@
       sync: true
       model: true
       description: ""
-    - name: text-field
-      title: 文本字段名
-      type: string
-      default: text
-      description: 选项文本的字段名
-    - name: value-field
-      title: 值字段名
-      type: string
-      default: value
-      description: 选项值的字段名
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object | DataSource
-      description: 选择框的数据源，数据集对象或者返回数据集的逻辑
+      designer-value: "[{}]"
+      description: 集合类型变量或者输出参数为集合类型的逻辑
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 选择器每一行的数据类型
+      compType: dataTypeSelect
+    - name: text-field
+      title: 文本字段
+      type: string
+      default: text
+      description: 集合的元素类型中，用于显示文本的属性名称
+    - name: value-field
+      title: 值字段
+      type: string
+      default: value
+      description: 集合的元素类型中，用于标识选中值的属性
     - name: cancelable
       title: 可取消
       type: boolean

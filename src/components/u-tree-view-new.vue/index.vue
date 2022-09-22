@@ -2,12 +2,12 @@
 <div :class="$style.root" :readonly="readonly" :readonly-mode="readonlyMode" :disabled="disabled">
     <u-loading v-if="loading" size="small"></u-loading>
     <template v-else-if="currentDataSource">
-        <template v-if="$env.VUE_APP_DESIGNER && dataSource">
-            <u-tree-view-node-new :text="scopeItem" readonly></u-tree-view-node-new>
-            <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
-            <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
-        </template>
-        <u-tree-view-node-new v-else
+<!--        <template v-if="$env.VUE_APP_DESIGNER && dataSource">-->
+<!--            <u-tree-view-node-new :text="scopeItem" readonly></u-tree-view-node-new>-->
+<!--            <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>-->
+<!--            <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>-->
+<!--        </template>-->
+        <u-tree-view-node-new v-if="dataSource"
             v-for="node in currentDataSource.data"
             :text="$at(node, field || textField)"
             :value="$at(node, valueField)"
@@ -19,7 +19,14 @@
             :node="node"
             :level="0"
             :draggable="node.draggable"
-        ><template #text>{{$at(node, field || textField)}}</template></u-tree-view-node-new>
+        >
+            <template #item="item">
+<!--                <s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER "></s-empty>-->
+                <slot name="item" v-bind="item">
+                    {{ $at(node, field || textField) }}
+                </slot>
+            </template>
+        </u-tree-view-node-new>
     </template>
     <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
         <span :class="$style.loadContent">{{ treeSelectTip }}</span>
