@@ -14,7 +14,7 @@
     - name: data-schema
       title: 数据类型
       type: schema
-      description: 表格每一行的数据类型
+      description: 选择器每一行的数据类型
       group: 数据属性
       compType: dataTypeSelect
     - name: text-field

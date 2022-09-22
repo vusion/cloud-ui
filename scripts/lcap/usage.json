@@ -12282,22 +12282,40 @@
                     "type": "any",
                     "sync": true,
                     "model": true,
-                    "description": ""
+                    "description": "",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "data-source",
+                    "title": "数据源",
+                    "type": "Array<Item> | Function | object | DataSource",
+                    "designer-value": "[{}]",
+                    "description": "集合类型变量或者输出参数为集合类型的逻辑",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "data-schema",
+                    "title": "数据类型",
+                    "type": "schema",
+                    "description": "选择器每一行的数据类型",
+                    "group": "数据属性",
+                    "compType": "dataTypeSelect"
                 },
                 {
                     "name": "text-field",
-                    "title": "文本字段名",
+                    "title": "文本字段",
                     "type": "string",
                     "default": "text",
-                    "description": "选项文本的字段名"
+                    "description": "集合的元素类型中，用于显示文本的属性名称",
+                    "group": "数据属性"
                 },
                 {
                     "name": "value-field",
-                    "title": "值字段名",
+                    "title": "值字段",
                     "type": "string",
                     "default": "value",
-                    "description": "选项值的字段名"
-                },
+                    "description": "集合的元素类型中，用于标识选中值的属性",
+                    "group": "数据属性"
                 {
                     "name": "data-source",
                     "title": "数据源",
@@ -13207,7 +13225,7 @@
                     "name": "data-schema",
                     "title": "数据类型",
                     "type": "schema",
-                    "description": "表格每一行的数据类型",
+                    "description": "选择器每一行的数据类型",
                     "group": "数据属性",
                     "compType": "dataTypeSelect"
                 },
@@ -16841,7 +16859,6 @@
                             "title": "文本",
                             "type": "string",
                             "description": "节点的文本"
-                            "hidden": true
                         },
                         {
                             "name": "expanded",
