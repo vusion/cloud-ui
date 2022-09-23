@@ -1,24 +1,76 @@
-#### 动态数据支持下拉框选择属性
+### 实例
 
 ``` html { width: 70% }
-<u-tree-view-new :data-source="[
-    { text1: '节点 1',value: '1', children1: [
-        { text1: '节点 1.1', value: '1.1' },
-        { text1: '节点 1.2', value: '1.2', children1: [
-            { text1: '节点 1.2.1', value: '1.2.1' },
-            { text1: '节点 1.2.2', value: '1.2.2' },
-        ] },
-        { text1: '节点 1.3', value: '1.3' },
-        { text1: '节点 1.4', value: '1.4', },
-    ] },
-    { text1: '节点 2', value: '2' },
-    { text1: '节点 3', value: '3',children1: [
-        { text1: '节点 3.1', value: '3.1'},
-        { text1: '节点 3.2', value: '3.2'},
-    ] },
-]" textField="text1" valueField="value" childrenField="children1">
-    <template #item="scope">
-        <u-text>{{ scope.item.text1 }} - {{ scope.item.value}}</u-text> 
+
+<u-tree-view-new ref="tree_view_new1" text-field="lCAPRole.name" value-field="lCAPRole.name" children-field="lCAPRole.children1"
+    :data-source="[{
+  'lCAPRole': {
+    'id': 1251898191512580,
+    'createdTime': '2022-09-22T10:44:44.000Z',
+    'updatedTime': null,
+    'createdBy': null,
+    'updatedBy': null,
+    'uuid': '778cd6dabc3440e4a81346d771293b5b',
+    'name': 'DEV-AdminRole',
+    'description': null,
+    'roleStatus': false,
+    'editable': false,
+    'children1': [{
+      'lCAPRole': {
+        'id': 1251898191512581,
+        'createdTime': '2022-09-22T10:44:44.000Z',
+        'updatedTime': null,
+        'createdBy': null,
+        'updatedBy': null,
+        'uuid': '778cd6dabc3440e4a81346d771293b5b',
+        'name': 'DEV-AdminRole',
+        'description': null,
+        'roleStatus': false,
+        'editable': false,
+        'children1': []
+      }
+    }, {
+      'lCAPRole': {
+        'id': 24451203343232328,
+        'createdTime': '2022-09-22T10:58:19.000Z',
+        'updatedTime': '2022-09-22T10:58:19.000Z',
+        'createdBy': null,
+        'updatedBy': null,
+        'uuid': null,
+        'name': 'test',
+        'description': null,
+        'roleStatus': true,
+        'editable': true,
+        'children1': [],
+      }
+    }]
+  }
+}, {
+  'lCAPRole': {
+    'id': 2445120334390528,
+    'createdTime': '2022-09-22T10:58:19.000Z',
+    'updatedTime': '2022-09-22T10:58:19.000Z',
+    'createdBy': null,
+    'updatedBy': null,
+    'uuid': null,
+    'name': 'test',
+    'description': null,
+    'roleStatus': true,
+    'editable': true,
+    'children1': [],
+  }
+}]
+    ">
+    <template #item="scope" ref="template9">
+        <u-text ref="text17" :text="scope && scope.item && scope.item.lCAPRole && scope.item.lCAPRole.name"></u-text>
+        <u-text ref="text18" text="普通文本"></u-text>
+        <u-button ref="button5" color="primary" text="确定"></u-button>
     </template>
+    <u-tree-view-node-new ref="tree_view_node_new1">
+        <template #item ref="template10">
+            <u-text ref="text19" text="节点"></u-text>
+        </template>
+    </u-tree-view-node-new>
 </u-tree-view-new>
+
 ```

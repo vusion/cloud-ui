@@ -739,4 +739,17 @@ export default {
     background: var(--tree-view-subnode-background-dragging);
     color: var(--tree-view-subnode-color-dragging);
 }
+.root[designer]{
+    position: relative;
+}
+.root[designer] + .root[designer]:after{
+    content: '';
+    position: absolute;
+    display: block;
+    background: rgba(255,255,255,0.8);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
 </style>

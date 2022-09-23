@@ -2,11 +2,6 @@
 <div :class="$style.root" :readonly="readonly" :readonly-mode="readonlyMode" :disabled="disabled">
     <u-loading v-if="loading" size="small"></u-loading>
     <template v-else-if="currentDataSource">
-<!--        <template v-if="$env.VUE_APP_DESIGNER && dataSource">-->
-<!--            <u-tree-view-node-new :text="scopeItem" readonly></u-tree-view-node-new>-->
-<!--            <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>-->
-<!--            <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>-->
-<!--        </template>-->
         <u-tree-view-node-new v-if="dataSource"
             v-for="node in currentDataSource.data"
             :text="$at(node, field || textField)"
@@ -18,6 +13,7 @@
             :hidden="filterText ? $at(node, 'hiddenByFilter') : $at(node, hiddenField)"
             :node="node"
             :level="0"
+            :designer="$env.VUE_APP_DESIGNER"
             :draggable="node.draggable"
         >
             <template #item="item">
