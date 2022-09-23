@@ -299,7 +299,8 @@
       description: 该字段指定行数据是否包含子节点数据
       group: 其它属性
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       title: 默认
       description: 在表格中插入`<u-table-view-column>`子组件
       empty-background: drag-entity-here
@@ -308,13 +309,16 @@
           title: 表格列
           snippet: '<u-table-view-column title="表格列"><template
             #cell="scope"></template></u-table-view-column>'
-    - name: loading
+    - concept: Slot
+      name: loading
       title: 加载中内容
       description: 自定义加载中内容
-    - name: error
+    - concept: Slot
+      name: error
       title: 加载错误内容
       description: 自定义加载错误内容
-    - name: empty
+    - concept: Slot
+      name: empty
       title: 暂无数据内容
       description: 自定义暂无数据内容
   events:
@@ -762,7 +766,8 @@
       type: Function
       description: 用于可编辑表格，双击表格列时的处理函数
   slots:
-    - name: cell
+    - concept: Slot
+      name: cell
       plus-empty: true
       description: 对单元格的数据展示进行自定义
       props:
@@ -786,7 +791,20 @@
           title: 列索引
           type: number
           description: 列的索引
-    - name: editcell
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T
+    - concept: Slot
+      name: editcell
       plus-empty: true
       plus-empty-tag: editcell-plus-empty
       description: 对单元格的编辑数据展示进行自定义
@@ -811,7 +829,20 @@
           title: 列索引
           type: number
           description: 列的索引
-    - name: title
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T
+    - concept: Slot
+      name: title
       title: 标题
       accept-type:
         - text
@@ -826,7 +857,8 @@
           title: 列索引
           type: number
           description: 列的索引
-    - name: expand-content
+    - concept: Slot
+      name: expand-content
       plus-empty: true
       plus-empty-tag: expand-content-plus-empty
       title: 展开列内容
@@ -853,4 +885,16 @@
           title: 展开列索引
           type: number
           description: 展开列的索引
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T
   description: 表格列

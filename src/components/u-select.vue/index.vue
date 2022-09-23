@@ -23,7 +23,7 @@
             {{ label }}
             <slot name="label"></slot>
         </span>
-        <f-render v-if="!multiple && !filterable" :vnode="selectedVM && (selectedVM.$slots.default ? selectedVM.$slots.default : [$at(selectedVM, field || textField)])"></f-render>
+        <f-render v-if="!multiple && !filterable" :vnode="selectedVM && (selectedVM.$slots&&selectedVM.$slots.default ? selectedVM.$slots.default : [$at(selectedVM, field || textField)])"></f-render>
         <span v-else-if="multipleAppearance === 'text'">{{ currentText }}</span>
         <template v-else-if="multipleAppearance === 'tags'">
             <template v-if="tagsOverflow === 'hidden' || tagsOverflow === 'visible'">

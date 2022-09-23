@@ -1,5 +1,6 @@
 - name: u-table
   title: 表格
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 在表格中插入`<thead>`、`<tbody>`、`<tr>`、`<th>`、`<td>`标签。

@@ -1,7 +1,8 @@
 - name: u-split-layout
   title: 分割布局
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 添加分割布局
   events:
     - name: resize
@@ -19,5 +20,6 @@
 - name: u-split-layout-item
   title: 分割布局项
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 主内容区

@@ -38,5 +38,6 @@
       description: "头像大小。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'`。如需自定义大小\
         ，可以直接设置`style=\"width: 40px; height: 40px;\"`"
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 添加自定义图片或内容。

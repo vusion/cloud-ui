@@ -2,11 +2,15 @@
   title: 文档布局
   description: 常见文档网站中顶部栏和左侧栏固定的布局，如本文档页。
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 主内容区。
-    - name: head
+    - concept: Slot
+      name: head
       description: 设置顶部内容。
-    - name: side
+    - concept: Slot
+      name: side
       description: 设置左侧栏内容。
-    - name: main
+    - concept: Slot
+      name: main
       description: 重置中间区域内容。包裹在主内容区外。

@@ -130,6 +130,10 @@
           title: 匹配结尾
       default: includes
       description: 过滤时的匹配方法
+    - name: selected-values-data
+      title: 选中值的完整数据
+      type: Array
+      description: 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}]
     - name: case-sensitive
       title: 大小写敏感
       type: string | Function
@@ -231,7 +235,8 @@
         - value: body
           title: 全局body
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-select-item>`、`<u-select-divider>`或`<u-select-group>`子组件。
       support:
         - name: u-select-item
@@ -506,9 +511,22 @@
       type: object
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发。
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       title: 默认
       description: 插入文本或 HTML。
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T
   events:
     - name: before-select
       title: 选择前
@@ -547,18 +565,21 @@
       default: null
       description: 显示的标题
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       title: 默认
       description: 插入`<u-select-item>`或`<u-select-divider>`子组件。
       support:
         - name: u-select-item
           title: 选项
           snippet: <u-select-item text="选项"></u-select-item>
-    - name: title
+    - concept: Slot
+      name: title
       title: 标题
       description: 自定义标题文本。
       advanced: true
-    - name: extra
+    - concept: Slot
+      name: extra
       title: 附加内容
       description: 在右侧可以附加内容。
       advanced: true

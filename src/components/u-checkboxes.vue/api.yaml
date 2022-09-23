@@ -92,7 +92,8 @@
           type: Array<string>
           description: 旧的选中状态
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<checkbox>`子组件。
       empty-background: add-sub
       support:

@@ -94,13 +94,17 @@
       multi: true
       maxSelect: 2
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入需要弹出的内容。
-    - name: popper
+    - concept: Slot
+      name: popper
       description: 自定义整个弹出层。
-    - name: body
+    - concept: Slot
+      name: body
       description: 自定义滚动区域。
-    - name: content
+    - concept: Slot
+      name: content
       description: 自定义内容文本。
   events:
     - name: before-open

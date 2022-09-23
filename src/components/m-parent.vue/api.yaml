@@ -11,7 +11,8 @@
       default: []
       description: 子组件集合
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<m-child>`子组件。
 - name: m-child
   options:
@@ -25,5 +26,6 @@
       default: null
       description: 父组件实例
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入文本或 HTML。

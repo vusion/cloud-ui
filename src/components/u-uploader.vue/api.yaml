@@ -153,7 +153,8 @@
       type: Function
       description: 文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入文本 或 HTML。
   events:
     - name: before-upload

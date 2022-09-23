@@ -26,5 +26,6 @@
       description: 是否显示为小圆点
       advanced: true
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入需要附加徽章的元素。

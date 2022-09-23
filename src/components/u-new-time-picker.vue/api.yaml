@@ -26,7 +26,8 @@
       default: false
       description: 是否禁用
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入文本或 HTML。
   events:
     - name: change

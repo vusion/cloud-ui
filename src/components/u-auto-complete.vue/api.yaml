@@ -65,7 +65,8 @@
       default: null
       description: "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       title: 默认
       description: 插入 HTML 或 `Component`, 可展示额外内容。
       quick-add: never

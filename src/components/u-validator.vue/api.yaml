@@ -84,7 +84,8 @@
       type: string
       description: 第一个错误提示消息
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入继承了 MField 的组件，或子 UValidator，或其他 HTML 和文本。
   events:
     - name: validate

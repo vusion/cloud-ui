@@ -37,7 +37,8 @@
       default: 999
       description: 最大项目数
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       common-empty-background: true
       description: 添加文本或 HTML
       support:
@@ -233,10 +234,12 @@
       type: Function
       description: 验证前对值进行预处理
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 在表格列中插入`cell`插槽
       plus-empty: true
-    - name: cell
+    - concept: Slot
+      name: cell
       plus-empty: true
       description: 对单元格数据展示进行自定义
       props:
@@ -255,7 +258,20 @@
         - name: columnIndex
           type: number
           description: 列的索引
-    - name: title
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T
+    - concept: Slot
+      name: title
       description: 对标题进行自定义
       props:
         - name: columnVM
@@ -264,7 +280,8 @@
         - name: columnIndex
           type: number
           description: 列的索引
-    - name: expand-content
+    - concept: Slot
+      name: expand-content
       description: 展开列的内容
       props:
         - name: item
@@ -282,4 +299,16 @@
         - name: columnIndex
           type: number
           description: 列的索引
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T
   description: 表单列元素

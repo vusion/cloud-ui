@@ -25,9 +25,11 @@
       default: ...
       description: 拖拽时移动路径的约束函数。需要传入一个对象，至少要包含：`startLeft`、`startTop`、`dragX`、`dragY`几个字段
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入需要拖拽的元素，仅一个。
-    - name: transfer
+    - concept: Slot
+      name: transfer
       description: 自定义的移动元素。
   events:
     - name: dragstart

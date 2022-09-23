@@ -70,8 +70,21 @@
       default: 1
       description: 填写数字1~7，分别表示周一~周日
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入文本或 HTML 至日期组件底部
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T
   events:
     - name: change
       title: 改变后
