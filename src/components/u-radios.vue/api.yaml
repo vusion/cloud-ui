@@ -22,7 +22,8 @@
       default: false
       description: ""
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-radio>`子组件。
       empty-background: add-sub
       support:

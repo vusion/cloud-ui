@@ -108,7 +108,8 @@
       default: normal
       description: 设置数字输入框高度大小
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       advanced: true
       title: 默认
       description: 插入 HTML 或 `Component`, 可展示额外内容。

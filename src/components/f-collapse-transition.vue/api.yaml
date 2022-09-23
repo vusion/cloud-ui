@@ -1,5 +1,6 @@
 - name: f-collapse-transition
   title: 折叠过渡
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 需要添加动画的元素或组件

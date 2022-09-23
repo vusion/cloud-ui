@@ -51,7 +51,8 @@
       default: 0.1
       description: 每次放大缩小的比例
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 灯箱内容。
   events:
     - name: open

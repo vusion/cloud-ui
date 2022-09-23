@@ -64,7 +64,9 @@
           type: UAlter
           description: 发送事件实例
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 辅助文本
-    - name: title
+    - concept: Slot
+      name: title
       description: 标题

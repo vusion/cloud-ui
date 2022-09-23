@@ -22,7 +22,8 @@
       default: normal
       description: 栅格行之间的间隔
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-grid-layout-row>`或`<u-grid-layout-column>`子组件。
       common-empty-background: true
       support:
@@ -98,7 +99,8 @@
       description: 栅格内容对齐方式
       advanced: true
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-grid-layout-column>`子组件。
       support:
         - name: u-grid-layout-column
@@ -163,7 +165,8 @@
       description: 响应式布局`<=480px`的列跨越栅格数
       advanced: true
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入需要布局的元素。
   events:
     - name: responsive

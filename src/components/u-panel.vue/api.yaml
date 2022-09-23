@@ -7,7 +7,8 @@
   next: true
   nested: false
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-panel-group>`子组件。
       support:
         - name: u-panel-group
@@ -53,5 +54,6 @@
       description: 面板项的标题
   description: 面板组
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入默认的元素

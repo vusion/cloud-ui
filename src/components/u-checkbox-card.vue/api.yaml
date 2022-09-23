@@ -44,9 +44,23 @@
         value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象
       bindHide: true
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入  HTML或 `Component`, 可展示额外内容。
-    - name: placeholder
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T
+    - concept: Slot
+      name: placeholder
       description: 空数据占位显示内容
   events:
     - name: input

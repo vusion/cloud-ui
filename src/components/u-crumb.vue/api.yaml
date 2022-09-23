@@ -28,7 +28,8 @@
       default: false
       description: 是否显示面包屑图标
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-crumb-item>`子组件。
       support:
         - name: u-crumb-item

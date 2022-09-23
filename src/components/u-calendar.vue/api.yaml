@@ -37,7 +37,8 @@
       default: false
       description: 是否禁用
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入文本或 HTML 至日期组件底部
   events:
     - name: change

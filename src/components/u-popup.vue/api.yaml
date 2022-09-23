@@ -92,17 +92,23 @@
       description: 是否自动合并内外边框
       advanced: true
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 自定义弹出的内容。
-    - name: root
+    - concept: Slot
+      name: root
       description: 自定义整个弹出层。
-    - name: head
+    - concept: Slot
+      name: head
       description: 自定义头部。
-    - name: body
+    - concept: Slot
+      name: body
       description: 自定义中部。
-    - name: foot
+    - concept: Slot
+      name: foot
       description: 自定义尾部。
-    - name: title
+    - concept: Slot
+      name: title
       description: 自定义标题文本。
   events:
     - name: before-open

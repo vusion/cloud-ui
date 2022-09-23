@@ -33,7 +33,8 @@
       default: false
       description: 是否禁用
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 链接区域
       title: 链接区域
       support:
@@ -43,10 +44,12 @@
         - name: u-navbar-divider
           title: 分隔线
           snippet: <u-navbar-divider></u-navbar-divider>
-    - name: left
+    - concept: Slot
+      name: left
       title: 左部区域
       description: 左部区域，一般放置 logo 等
-    - name: right
+    - concept: Slot
+      name: right
       title: 右部区域
       description: 右部区域，一般放置用户个人信息等
   events:

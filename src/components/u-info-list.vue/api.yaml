@@ -32,7 +32,8 @@
       description: 是否显示表格头部
       group: 样式属性
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       title: 默认
       description: 插入`<u-info-list-item>`或`<u-info-list-group>`子组件。
       common-empty-background: true
@@ -76,10 +77,12 @@
       default: false
       description: 文字过长是否省略显示。默认文字超出时会换行。
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       title: 默认
       description: 插入文本或HTML。
-    - name: label
+    - concept: Slot
+      name: label
       title: 自定义标签内容
       description: 用于自定义 label 内容。
   description: 详情列表项
@@ -109,17 +112,20 @@
       default: auto
       description: 当前组所有项的标签大小。
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       title: 默认
       description: 插入`<u-info-list-item>`子组件
       support:
         - name: u-info-list-item
           title: 详情列表项
           snippet: <u-info-list-item label="名称">张三</u-info-list-item>
-    - name: title
+    - concept: Slot
+      name: title
       title: 自定义标题
       description: 自定义标题。
-    - name: extra
+    - concept: Slot
+      name: extra
       title: 自定义额外操作项
       description: 自定义额外操作项。
   description: 详情列表组

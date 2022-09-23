@@ -42,7 +42,8 @@
       description: 幻灯片过渡动画
       advanced: true
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-carousel-item>`子组件。
       empty-background: add-sub-large
       support:
@@ -114,10 +115,12 @@
       description: 该项的值
       advanced: true
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入文本或 HTML。
       empty-background: image
-    - name: title
+    - concept: Slot
+      name: title
       description: 自定义标题文本。
       advanced: true
   description: 幻灯片选项

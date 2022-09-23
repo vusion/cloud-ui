@@ -75,7 +75,8 @@
       default: normal
       description: 标签尺寸
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       title: 默认
       description: 插入`<u-tab>`子组件。
       empty-background: add-sub
@@ -83,7 +84,8 @@
         - name: u-tab
           title: 子选项
           snippet: <u-tab title="标签页">内容</u-tab>
-    - name: extra
+    - concept: Slot
+      name: extra
       title: 右侧附加
       description: 在标签右侧可以附加的组件。
       advanced: true
@@ -295,12 +297,14 @@
       description: 需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
       advanced: true
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       title: 默认
       plus-empty: true
       description: 该 tab 下的内容
       empty-background: add-any
-    - name: title
+    - concept: Slot
+      name: title
       title: 标题
       description: 自定义标题
   description: 标签页

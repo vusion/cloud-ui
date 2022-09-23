@@ -33,7 +33,8 @@
       default: false
       description: 是否禁用
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-tablet>`子组件。
   events:
     - name: before-select
@@ -216,7 +217,8 @@
       type: object
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入文本或 HTML。
   events:
     - name: click

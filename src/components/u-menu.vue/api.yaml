@@ -42,7 +42,8 @@
       default: false
       description: 是否禁用
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-menu-item>`、`<u-menu-divider>`或`<u-menu-group>`子组件。
   events:
     - name: before-select
@@ -287,13 +288,17 @@
       type: string
       description: 显示的标题
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-menu-item>`或`<u-menu-divider>`子组件。
-    - name: sub
+    - concept: Slot
+      name: sub
       description: 插入子菜单`<u-menu>`。
-    - name: title
+    - concept: Slot
+      name: title
       description: 自定义标题文本。
-    - name: extra
+    - concept: Slot
+      name: extra
       description: 在右侧可以附加内容。
   events:
     - name: before-toggle

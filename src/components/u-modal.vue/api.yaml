@@ -89,17 +89,23 @@
       default: false
       description: 点击遮罩关闭弹窗
   slots:
-    - name: title
+    - concept: Slot
+      name: title
       description: 弹窗标题自定义
-    - name: head
+    - concept: Slot
+      name: head
       description: 弹窗头部自定义
-    - name: body
+    - concept: Slot
+      name: body
       description: 弹窗中部自定义
-    - name: foot
+    - concept: Slot
+      name: foot
       description: 弹窗尾部自定义
-    - name: heading
+    - concept: Slot
+      name: heading
       description: 弹框小标题自定义
-    - name: default
+    - concept: Slot
+      name: default
       description: 弹窗内容自定义
   events:
     - name: before-open

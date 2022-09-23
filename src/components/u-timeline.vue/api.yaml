@@ -14,7 +14,8 @@
       default: false
       description: 是否指定最后一个节点为幽灵节点
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入 `<u-timeline-item>` 子组件
 - name: u-timeline-item
   attrs:
@@ -33,9 +34,12 @@
       default: right
       description: 指定交替展示时的位置，只在 `alternate` 或 `label` 模式下生效
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入文本或 HTML
-    - name: dot
+    - concept: Slot
+      name: dot
       description: 自定义图标
-    - name: label
+    - concept: Slot
+      name: label
       description: 自定义 `label` ，只在 `label` 模式下生效

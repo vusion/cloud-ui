@@ -85,7 +85,8 @@
       default: false
       description: 开启后父节点选择不会全选子节点，子节点选择不会联动父节点
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-tree-view-node-new>`子组件
       support:
         - name: u-tree-view-node-new
@@ -309,7 +310,8 @@
       description: 当选择此节点时，抛出的事件会传递该对象，便于开发
       advanced: true
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入子节点
       support:
         - name: u-tree-view-node-new

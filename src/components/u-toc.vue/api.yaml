@@ -12,7 +12,8 @@
       model: true
       description: 当前选择的值
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-toc-item>`子组件。
       support:
         - name: u-toc-item
@@ -140,7 +141,8 @@
       description: 禁用此项
       group: 交互属性
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-toc-item>`子组件。
       support:
         - name: u-toc-item

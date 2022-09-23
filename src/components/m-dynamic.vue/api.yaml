@@ -27,7 +27,8 @@
       default: 999
       description: 最大项目数
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 添加文本或 HTML。
   events:
     - name: before-add

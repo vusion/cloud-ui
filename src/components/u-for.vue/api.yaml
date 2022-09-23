@@ -11,7 +11,8 @@
       description: 待渲染数据
       required: true
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 待循环渲染的项
       title: 渲染项
       props:
@@ -23,3 +24,15 @@
           title: 列实例
           type: string
           description: 该列组件实例。
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T

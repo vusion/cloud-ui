@@ -32,7 +32,8 @@
       default: none
       description: 布局中各分栏间的空隙大小
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-multi-layout-item>`子组件。
       support:
         - name: u-multi-layout-item
@@ -113,7 +114,8 @@
       description: flex布局模式下的交叉轴对齐方式
       advanced: true
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 内容
   events:
     - name: $listeners
