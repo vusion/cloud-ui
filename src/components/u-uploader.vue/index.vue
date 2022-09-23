@@ -417,6 +417,8 @@ export default {
                     const value = this.toValue(this.currentValue);
                     this.$emit('input', value);
                     this.$emit('update:value', value);
+                    const errorMessage = `文件${file.name}上传接口调用失败`;
+                    this.errorMessage.push(errorMessage);
                 },
             });
         },
