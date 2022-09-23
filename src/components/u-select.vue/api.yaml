@@ -130,6 +130,10 @@
           title: 匹配结尾
       default: includes
       description: 过滤时的匹配方法
+    - name: selected-values-data
+      title: 选中值的完整数据
+      type: Array
+      description: 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}]
     - name: case-sensitive
       title: 大小写敏感
       type: string | Function

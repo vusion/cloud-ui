@@ -146,6 +146,7 @@ export default {
         listKey: { type: String, default: 'currentData' },
         checkbox: { type: Boolean, default: false },
         ellipsisTitle: { type: [Boolean, String], default: false },
+        selectedValuesData: Array, // 如果是分页数据，选中的值在可能在下拉框里没有，导致选中值展示不出来。这里传入该字段，用于展示选中的值
     },
     data() {
         return {
@@ -227,6 +228,9 @@ export default {
                     return;
                 MComplex.watch.itemVMs.handler.call(this, itemVMs, oldVMs);
             },
+        },
+        currentData() { // 下拉加载更多的情况下，itemVMs的watch没有调用，这里增加调用，用于勾选选中的值
+            MComplex.watch.itemVMs.handler.call(this, this.itemVMs);
         },
     },
     created() {
