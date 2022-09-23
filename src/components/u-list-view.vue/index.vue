@@ -230,7 +230,10 @@ export default {
             },
         },
         currentData() { // 下拉加载更多的情况下，itemVMs的watch没有调用，这里增加调用，用于勾选选中的值
-            MComplex.watch.itemVMs.handler.call(this, this.itemVMs);
+            this.$nextTick(() => {
+                MComplex.watch.itemVMs.handler.call(this, this.itemVMs);
+                console.log('currentData', this.itemVMs);
+            });
         },
     },
     created() {
