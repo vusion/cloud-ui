@@ -133,31 +133,35 @@ export default {
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
             this.load();
+        console.log('Data', this.currentDataSource);
     },
     mounted() {
         // Must trigger `value` watcher at mounted hook.
         // If not, nodeVMs have not been pushed.
         this.watchValue(this.value);
         this.watchValues(this.values);
-        console.log('datasource', this.dataSource);
     },
     methods: {
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+
         },
         list2tree(list, idField, pField) {
-            list.forEach(child => {
-                const pid = this.$at(child, pField);
-                if(pid) {
-                    list.forEach(parent => {
-                        if(this.$at(parent, idField) === pid) {
-                            this.$setAt(parent, this.childrenField, this.$at(parent, this.childrenField) || [])
-                            this.$at(parent, this.childrenField).push(child)
-                        }
-                    })
+            const [map, treeData] = [{}, []];
+            for (let i = 0; i < list.length; i += 1) {
+                map[this.$at(list[i], idField)] = i;
+                this.$setAt(list[i], this.childrenField, []);
+            }
+
+            for (let i = 0; i < list.length; i += 1) {
+                const node = list[i];
+                if (this.$at(node, pField) && list[map[this.$at(node, pField)]]) {
+                    this.$at(list[map[this.$at(node, pField)]], this.childrenField).push(node);
+                } else {
+                    treeData.push(node);
                 }
-            })
-            return list.filter(n => !this.$at(n, pField))
+            }
+            return treeData;
         },
         normalizeDataSource(dataSource) {
             const final = {
