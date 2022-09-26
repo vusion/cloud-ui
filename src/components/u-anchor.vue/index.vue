@@ -18,10 +18,14 @@ import SEmpty from '@/components/s-empty.vue';
 export default {
     name: 'u-anchor',
     components: { SEmpty },
+    data() {
+        return {
+            refName: { type: String, default: '' },
+        };
+    },
     props: {
         name: { type: String, default: '' },
         label: { type: String, default: '' },
-        refName: { type: String, default: '' },
     },
     mounted() {
         if (this.$vnode) {
