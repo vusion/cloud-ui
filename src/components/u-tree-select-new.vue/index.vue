@@ -331,6 +331,9 @@ export default {
                         }
                     }
                     const currentChildrenField = childrenField || this.childrenField;
+                    if (this.parentField) {
+                        const currentChildrenField = 'children';
+                    }
                     this.trans2Obj(obj, this.$at(item, currentChildrenField), item, type);
                     const currentMoreChildrenFields = moreChildrenFields || this.moreChildrenFields;
                     if(Array.isArray(currentMoreChildrenFields)) {

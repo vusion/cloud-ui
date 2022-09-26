@@ -138,6 +138,16 @@ export default {
     <template #item="scope">
         <u-text>{{ scope.item.text }} - {{ scope.item.value}}</u-text> 
     </template>
+    <u-tree-view-node-new ref="tree_view_node_new11" text="选项一" value="jing1">
+        <template #item ref="template18">
+            <u-text ref="text18" text="选项1"></u-text>
+        </template>
+    </u-tree-view-node-new>
+    <u-tree-view-node-new ref="tree_view_node_new12" text="选项2" value="jing2">
+        <template #item ref="template19">
+            <u-text ref="text19" text="选项2"></u-text>
+        </template>
+    </u-tree-view-node-new>
 </u-tree-select-new>
 ```
 
