@@ -5,6 +5,7 @@
 - [示例](#示例)
     - [基本用法](#基本用法)
     - [间隙](#间隙)
+    - [列间隙](#列间隙)
     - [列偏移](#列偏移)
     - [列排序](#列排序)
     - [Flex模式](#flex模式)
@@ -131,6 +132,64 @@
 </u-grid-layout>
 ```
 
+### 列间隙
+
+```html
+<u-grid-layout>
+	<u-grid-layout-row :repeat="4" gap="none">
+		<u-grid-layout-column :span="1"><u-block>none</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>none</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>none</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>none</u-block></u-grid-layout-column>
+	</u-grid-layout-row>
+</u-grid-layout>
+<br>
+<u-grid-layout>
+	<u-grid-layout-row :repeat="4" gap="mini">
+		<u-grid-layout-column :span="1"><u-block>mini</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>mini</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>mini</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>mini</u-block></u-grid-layout-column>
+	</u-grid-layout-row>
+</u-grid-layout>
+<br>
+<u-grid-layout>
+	<u-grid-layout-row :repeat="4" gap="small">
+		<u-grid-layout-column :span="1"><u-block>small</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>small</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>small</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>small</u-block></u-grid-layout-column>
+	</u-grid-layout-row>
+</u-grid-layout>
+<br>
+<u-grid-layout>
+	<u-grid-layout-row :repeat="4" gap="normal">
+		<u-grid-layout-column :span="1"><u-block>normal</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>normal</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>normal</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>normal</u-block></u-grid-layout-column>
+	</u-grid-layout-row>
+</u-grid-layout>
+<br>
+<u-grid-layout>
+	<u-grid-layout-row :repeat="4" gap="large">
+		<u-grid-layout-column :span="1"><u-block>large</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>large</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>large</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>large</u-block></u-grid-layout-column>
+	</u-grid-layout-row>
+</u-grid-layout>
+<br>
+<u-grid-layout>
+	<u-grid-layout-row :repeat="4" gap="huge">
+		<u-grid-layout-column :span="1"><u-block>huge</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>huge</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>huge</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>huge</u-block></u-grid-layout-column>
+	</u-grid-layout-row>
+</u-grid-layout>
+```
+
 ### 列偏移
 
 ```html
@@ -249,7 +308,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 栅格之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔） |
+| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 栅格行之间的间隔 |
 
 ### Slots
 
@@ -263,6 +322,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | repeat | number |  | `12` | 默认24，可设置栅格行大小 |
+| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 栅格列之间的间隔 |
 | justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | 内容对齐方式 |
 | alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | 栅格内容对齐方式 |
 
@@ -278,9 +338,9 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | span | number |  | `1` | 列占据栅格行的栅格数 |
-| offset | number |  |  | 列偏移的栅格数 |
-| pull | number |  |  | 列向左移动的栅格数 |
-| push | number |  |  | 列向右移动的栅格数 |
+| offset | number |  | `0` | 列偏移的栅格数 |
+| pull | number |  | `0` | 列向左移动的栅格数 |
+| push | number |  | `0` | 列向右移动的栅格数 |
 | media-huge | number |  |  | 响应式布局`<=1440px`的列跨越栅格数 |
 | media-large | number |  |  | 响应式布局`<=1200px`的列跨越栅格数 |
 | media-medium | number |  |  | 响应式布局`<=960px`的列跨越栅格数 |

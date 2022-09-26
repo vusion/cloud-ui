@@ -1342,9 +1342,10 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | any |  |  |  |
-| text-field | string |  | `'text'` | 选项文本的字段名 |
-| value-field | string |  | `'value'` | 选项值的字段名 |
-| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 选择框的数据源，数据集对象或者返回数据集的逻辑 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
+| data-schema | schema |  |  | 选择器每一行的数据类型 |
+| text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
+| value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
 | cancelable | boolean |  | `false` |  |
 | multiple | boolean |  | `false` | 是否可以多选 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。 |
@@ -1360,6 +1361,7 @@ export default {
 | filterable | boolean |  | `false` | 是否使用输入框进行筛选 |
 | remote-filtering | boolean |  | `false` | 是否使用后端筛选 |
 | match-method | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'includes'` | 过滤时的匹配方法 |
+| selected-values-data | Array |  |  | 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}] |
 | case-sensitive | string \| Function |  | `'includes'` | 过滤时大小写是否敏感 |
 | auto-complete | boolean |  | `false` | 是否开启自动补充模式，用于增加列表中没有的项 |
 | readonly | boolean |  | `false` |  |
