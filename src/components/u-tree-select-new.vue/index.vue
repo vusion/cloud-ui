@@ -201,10 +201,13 @@ export default {
                 return false;
         },
         selectedItem() {
-            return this.$at(this.dataSourceObj, this.actualValue);
-        },
-        scopeItem() {
-            return `scope.${this.dataSchema}.${this.valueField}`;
+            if (!this.actualValue) return
+            if (this.$at(this.dataSourceObj, this.actualValue)) {
+                return this.$at(this.dataSourceObj, this.actualValue);
+            } else {
+                return this.$at(this.dataSourceNodeList, this.actualValue);
+            }
+
         },
     },
     watch: {
@@ -330,12 +333,15 @@ export default {
                             };
                         }
                     }
-                    const currentChildrenField = childrenField || this.childrenField;
+                    let currentChildrenField = childrenField || this.childrenField;
                     if (this.parentField) {
-                        const currentChildrenField = 'children';
+                        currentChildrenField = 'children';
                     }
                     this.trans2Obj(obj, this.$at(item, currentChildrenField), item, type);
-                    const currentMoreChildrenFields = moreChildrenFields || this.moreChildrenFields;
+                    let currentMoreChildrenFields = moreChildrenFields || this.moreChildrenFields;
+                    if (this.parentField) {
+                        currentMoreChildrenFields = 'children';
+                    }
                     if(Array.isArray(currentMoreChildrenFields)) {
                       currentMoreChildrenFields.forEach((subField) => {
                         this.trans2Obj(obj, this.$at(item, subField), item, type);
@@ -485,7 +491,9 @@ export default {
         },
         load(params) {
             this.currentDataSource.load(params).then(() => {
-              this.handleDataSourceObj(this.currentDataSource.data, 'dataSource');
+                this.dataSourceNodeList = this.handleDataSourceObj(this.currentDataSource.data, 'dataSource');
+                this.dataSourceObj = {...this.dataSourceNodeList, ...this.virtualNodeList};
+
             });
         },
     },
