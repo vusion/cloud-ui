@@ -16,7 +16,6 @@
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object | DataSource
-      designer-value: "[{}]"
       description: 集合类型变量或者输出参数为集合类型的逻辑
     - name: data-schema
       title: 数据类型
