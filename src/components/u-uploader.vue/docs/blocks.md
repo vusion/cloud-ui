@@ -4,7 +4,7 @@
 
 ``` html
 <u-uploader display="inline"
-    url="/gateway/lowcode/api/v1/app/upload" url-field="result"
+    url="/upload" url-field="result"
     :limit="999"
     max-size="50MB"
     converter="json">
@@ -19,7 +19,7 @@
 ``` html
 <u-uploader list-type="card"
     accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
-    url="/gateway/lowcode/api/v1/app/upload" url-field="result"
+    url="/upload" url-field="result"
     :limit="999"
     max-size="50MB"
     converter="json">
@@ -31,7 +31,7 @@
 ``` html
 <u-uploader multiple list-type="image"
     accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
-    url="/gateway/lowcode/api/v1/app/upload" url-field="result"
+    url="/upload" url-field="result"
     :limit="999"
     max-size="50MB"
     converter="json">
