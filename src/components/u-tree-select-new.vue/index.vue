@@ -107,8 +107,9 @@
                 @update:value="onUpdateValue"
                 @toggle="$emit('toggle', $event, this)"
                 @check="$emit('check', $event, this)">
-                <template #text="props">
-                    <slot name="text" v-bind="props">{{ props.text }}</slot>
+                <template #item="{item}">
+                    <slot name="item" v-bind="item">{{ item.text }}</slot>
+                    <s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER "></s-empty>
                 </template>
                 <slot></slot>
             </u-tree-view-new>
@@ -119,12 +120,13 @@
 <script>
 import MField from "../m-field.vue";
 import UTreeViewNodeNew from "../u-tree-view-new.vue/node.vue";
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: "u-tree-select-new",
     childName: 'u-tree-view-node-new',
     mixins: [MField],
-    components: { UTreeViewNodeNew },
+    components: { UTreeViewNodeNew, SEmpty },
     props: {
         value: null,
         field: String,
@@ -199,10 +201,13 @@ export default {
                 return false;
         },
         selectedItem() {
-            return this.$at(this.dataSourceObj, this.actualValue);
-        },
-        scopeItem() {
-            return `scope.${this.dataSchema}.${this.valueField}`;
+            if (!this.actualValue) return
+            if (this.$at(this.dataSourceObj, this.actualValue)) {
+                return this.$at(this.dataSourceObj, this.actualValue);
+            } else {
+                return this.$at(this.dataSourceNodeList, this.actualValue);
+            }
+
         },
     },
     watch: {
@@ -328,9 +333,15 @@ export default {
                             };
                         }
                     }
-                    const currentChildrenField = childrenField || this.childrenField;
+                    let currentChildrenField = childrenField || this.childrenField;
+                    if (this.parentField) {
+                        currentChildrenField = 'children';
+                    }
                     this.trans2Obj(obj, this.$at(item, currentChildrenField), item, type);
-                    const currentMoreChildrenFields = moreChildrenFields || this.moreChildrenFields;
+                    let currentMoreChildrenFields = moreChildrenFields || this.moreChildrenFields;
+                    if (this.parentField) {
+                        currentMoreChildrenFields = 'children';
+                    }
                     if(Array.isArray(currentMoreChildrenFields)) {
                       currentMoreChildrenFields.forEach((subField) => {
                         this.trans2Obj(obj, this.$at(item, subField), item, type);
@@ -480,7 +491,9 @@ export default {
         },
         load(params) {
             this.currentDataSource.load(params).then(() => {
-              this.handleDataSourceObj(this.currentDataSource.data, 'dataSource');
+                this.dataSourceNodeList = this.handleDataSourceObj(this.currentDataSource.data, 'dataSource');
+                this.dataSourceObj = {...this.dataSourceNodeList, ...this.virtualNodeList};
+
             });
         },
     },

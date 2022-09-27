@@ -19,5 +19,6 @@
       default: false
       description: 表格行在悬浮时是否高亮显示
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 在表格中插入`<thead>`、`<tbody>`、`<tr>`、`<th>`、`<td>`标签。

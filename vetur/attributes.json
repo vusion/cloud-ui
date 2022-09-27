@@ -3219,27 +3219,61 @@
     "type": "string",
     "options": [
       {
+        "value": "compact",
+        "title": "紧凑（-1）"
+      },
+      {
         "value": "none",
-        "title": "无"
+        "title": "无（0）"
       },
       {
         "value": "small",
-        "title": "小"
+        "title": "小（8）"
       },
       {
         "value": "normal",
-        "title": "正常"
+        "title": "正常（16）"
       },
       {
         "value": "large",
-        "title": "大"
+        "title": "大（32）"
       }
     ],
-    "description": "栅格之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）"
+    "description": "栅格行之间的间隔"
   },
   "u-grid-layout-row/repeat": {
     "type": "number",
     "description": "默认24，可设置栅格行大小"
+  },
+  "u-grid-layout-row/gap": {
+    "type": "string",
+    "options": [
+      {
+        "value": "none",
+        "title": "无（0）"
+      },
+      {
+        "value": "mini",
+        "title": "迷你（4）"
+      },
+      {
+        "value": "small",
+        "title": "小（8）"
+      },
+      {
+        "value": "normal",
+        "title": "正常（16）"
+      },
+      {
+        "value": "large",
+        "title": "大（24）"
+      },
+      {
+        "value": "huge",
+        "title": "巨大（32）"
+      }
+    ],
+    "description": "栅格列之间的间隔"
   },
   "u-grid-layout-row/justify": {
     "type": "string",
@@ -3258,12 +3292,12 @@
       },
       {
         "value": "space-between",
-        "title": "各行之间留有空",
+        "title": "水平分布-左右不留空",
         "advanced": true
       },
       {
         "value": "space-around",
-        "title": "之前、之间、之后都留有空白",
+        "title": "水平分布-左右留空",
         "advanced": true
       }
     ],
@@ -5948,17 +5982,21 @@
     "type": "any",
     "description": ""
   },
+  "u-select/data-source": {
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+  },
+  "u-select/data-schema": {
+    "type": "schema",
+    "description": "选择器每一行的数据类型"
+  },
   "u-select/text-field": {
     "type": "string",
-    "description": "选项文本的字段名"
+    "description": "集合的元素类型中，用于显示文本的属性名称"
   },
   "u-select/value-field": {
     "type": "string",
-    "description": "选项值的字段名"
-  },
-  "u-select/data-source": {
-    "type": "Array<Item> | Function | object | DataSource",
-    "description": "选择框的数据源，数据集对象或者返回数据集的逻辑"
+    "description": "集合的元素类型中，用于标识选中值的属性"
   },
   "u-select/cancelable": {
     "type": "boolean",
@@ -6051,6 +6089,10 @@
       }
     ],
     "description": "过滤时的匹配方法"
+  },
+  "u-select/selected-values-data": {
+    "type": "Array",
+    "description": "当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}]"
   },
   "u-select/case-sensitive": {
     "type": "string | Function",
@@ -7683,7 +7725,7 @@
   },
   "u-tree-select-new/data-schema": {
     "type": "schema",
-    "description": "表格每一行的数据类型"
+    "description": "选择器每一行的数据类型"
   },
   "u-tree-select-new/text-field": {
     "type": "string",

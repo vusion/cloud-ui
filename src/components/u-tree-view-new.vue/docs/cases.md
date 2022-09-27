@@ -1,45 +1,13 @@
-#### Data 方式
+### 实例
 
-``` vue { width: 30% }
-<template>
-<div>
-<u-tree-view-new :data="data" children-field="total.pages" :more-children-fields="['entities']"></u-tree-view-new>
-<u-button @click="onClick"></u-button>
-</div>
-</template>
-<script>
-export default {
-    data() {
-        return {
-            data: [
-                { text: '节点 1', total: {
-                    pages: [
-                        { text: '节点 1.1' },
-                        { text: '节点 1.2', disabled: true, pages: [
-                            { text: '节点 1.2.1' },
-                            { text: '节点 1.2.2'}
-                        ] },
-                        { text: '节点 1.3', disabled: true  },
-                        { text: '节点 1.4' },
-                    ],
-                }, 
-                    entities: {
-                        Employee: { text: 'employee' },
-                        Asset: { text: 'asset' },
-                    } },
-                { text: '节点 2', disabled: true  },
-                { text: '节点 3', pages: [
-                    { text: '节点 3.1' },
-                    { text: '节点 3.2'}
-                ]}
-            ]
-        }
-    },
-    methods: {
-        onClick() {
-            this.data[0].total.pages.push({ text: '节点 1.5' })
-        },
-    },
-};
-</script>
+``` html { width: 70% }
+
+<u-tree-view-new ref="tree_view_new1"
+    :data-source="[ { 'data': { 'id': 1, 'deptname': '一级部门a', 'parentid': 0, 'name': '小明' } }, { 'data': { 'id': 2, 'deptname': '一级部门b', 'parentid': 11, 'name': 'xiaoming' } }, { 'data': { 'id': 99, 'deptname': '一级部门c', 'parentid': 0, 'name': 'xiaoming' } },{ 'data': { 'id': 3, 'deptname': '二级部门a', 'parentid': 1, 'name': '小明2' } }, { 'data': { 'id': 4, 'deptname': '三级部门a', 'parentid': 3, 'name': '小明3' } } ]"
+    text-field="data.deptname" value-field="data.id" parent-field="data.parentid">
+    <template #item="scope" ref="template1">
+        <u-text ref="text1" :text="scope && scope.item && scope.item.data && scope.item.data.deptname"></u-text>
+    </template>
+</u-tree-view-new>
+
 ```

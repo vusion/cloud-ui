@@ -44,6 +44,7 @@
         - value: vertical
           title: 竖向
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入文本或HTML。
       advanced: true

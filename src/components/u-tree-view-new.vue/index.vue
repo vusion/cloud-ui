@@ -2,12 +2,7 @@
 <div :class="$style.root" :readonly="readonly" :readonly-mode="readonlyMode" :disabled="disabled">
     <u-loading v-if="loading" size="small"></u-loading>
     <template v-else-if="currentDataSource">
-        <template v-if="$env.VUE_APP_DESIGNER && dataSource">
-            <u-tree-view-node-new :text="scopeItem" readonly></u-tree-view-node-new>
-            <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
-            <u-tree-view-node-new :text="scopeItem" disabled></u-tree-view-node-new>
-        </template>
-        <u-tree-view-node-new v-else
+        <u-tree-view-node-new v-if="dataSource"
             v-for="node in currentDataSource.data"
             :text="$at(node, field || textField)"
             :value="$at(node, valueField)"
@@ -18,8 +13,16 @@
             :hidden="filterText ? $at(node, 'hiddenByFilter') : $at(node, hiddenField)"
             :node="node"
             :level="0"
+            :designer="$env.VUE_APP_DESIGNER"
             :draggable="node.draggable"
-        ><template #text>{{$at(node, field || textField)}}</template></u-tree-view-node-new>
+        >
+            <template #item="item">
+<!--                <s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER "></s-empty>-->
+                <slot name="item" v-bind="item">
+                    {{ $at(node, field || textField) }}
+                </slot>
+            </template>
+        </u-tree-view-node-new>
     </template>
     <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
         <span :class="$style.loadContent">{{ treeSelectTip }}</span>
@@ -130,31 +133,35 @@ export default {
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
             this.load();
+        console.log('Data', this.currentDataSource);
     },
     mounted() {
         // Must trigger `value` watcher at mounted hook.
         // If not, nodeVMs have not been pushed.
         this.watchValue(this.value);
         this.watchValues(this.values);
-        console.log('datasource', this.dataSource);
     },
     methods: {
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+
         },
         list2tree(list, idField, pField) {
-            list.forEach(child => {
-                const pid = this.$at(child, pField);
-                if(pid) {
-                    list.forEach(parent => {
-                        if(this.$at(parent, idField) === pid) {
-                            this.$setAt(parent, this.childrenField, this.$at(parent, this.childrenField) || [])
-                            this.$at(parent, this.childrenField).push(child)
-                        }
-                    })
+            const [map, treeData] = [{}, []];
+            for (let i = 0; i < list.length; i += 1) {
+                map[this.$at(list[i], idField)] = i;
+                this.$setAt(list[i], this.childrenField, []);
+            }
+
+            for (let i = 0; i < list.length; i += 1) {
+                const node = list[i];
+                if (this.$at(node, pField) && list[map[this.$at(node, pField)]]) {
+                    this.$at(list[map[this.$at(node, pField)]], this.childrenField).push(node);
+                } else {
+                    treeData.push(node);
                 }
-            })
-            return list.filter(n => !this.$at(n, pField))
+            }
+            return treeData;
         },
         normalizeDataSource(dataSource) {
             const final = {

@@ -54,7 +54,7 @@ export const UTocItem = {
             } else if (!this.isSelected && this.active) {
                 return false;
             }
-            return this.parentVM.router ? this.active : this.isSelected;
+            return this.parentVM && this.parentVM.router ? this.active : this.isSelected;
         },
         anchorJumped() {
             if (this.anchorLinked) {

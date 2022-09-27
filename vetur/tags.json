@@ -906,6 +906,7 @@
   "u-grid-layout-row": {
     "attributes": [
       "repeat",
+      "gap",
       "justify",
       "alignment"
     ],
@@ -1607,9 +1608,10 @@
   "u-select": {
     "attributes": [
       "value",
+      "data-source",
+      "data-schema",
       "text-field",
       "value-field",
-      "data-source",
       "cancelable",
       "multiple",
       "converter",
@@ -1625,6 +1627,7 @@
       "filterable",
       "remote-filtering",
       "match-method",
+      "selected-values-data",
       "case-sensitive",
       "auto-complete",
       "readonly",

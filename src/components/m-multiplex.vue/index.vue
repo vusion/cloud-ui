@@ -95,6 +95,13 @@ export default {
                         );
                         if (itemVM)
                             selectedMap[itemVM.value] = itemVM;
+                        else if (this.selectedValuesData && Array.isArray(this.selectedValuesData)) { // 分页获取数据，下拉里可能还没有这个值，根据用户传入的数据进行展示
+                            const itemData = this.selectedValuesData.find(
+                                (itemData) => itemData.value === val,
+                            );
+                            if (itemData)
+                                selectedMap[itemData.value] = Object.assign({ currentSelected: true, currentText: itemData.text }, itemData);
+                        }
                     });
                 } else {
                     this.itemVMs.forEach((itemVM) => {
@@ -162,8 +169,13 @@ export default {
             )
                 return; // Assign and sync `selected`
             itemVM.currentSelected = selected;
-            itemVM.$emit('update:selected', selected);
-            this.watchSelectedChange(itemVM); // Assign and sync `value`
+            if (!itemVM._isVue) { // 由于有selectedValuesData的存在，itemVM可能不是vue实例
+                const index = this.selectedVMs.indexOf(itemVM);
+                this.selectedVMs.splice(index, 1);
+            } else {
+                itemVM.$emit('update:selected', selected);
+                this.watchSelectedChange(itemVM); // Assign and sync `value`
+            }
             const selectedVMs = this.selectedVMs;
             let value = selectedVMs.map((itemVM) => itemVM.value);
             if (this.converter)

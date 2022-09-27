@@ -6,7 +6,8 @@
       default: false
       description: 是否禁用
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入可以放置的元素，仅一个。
   events:
     - name: transfer

@@ -127,9 +127,8 @@ export default {
         },
         setTime() {
             this.clearTime();
-            if (this.interval >= 5) {
-                this.timeout = setTimeout(this.getTasks, this.interval * 1000);
-            }
+            const time = this.interval >= 3 ? this.interval : 3;
+            this.timeout = setTimeout(this.getTasks, time * 1000);
         },
         clearTime() {
             if (this.timeout) {

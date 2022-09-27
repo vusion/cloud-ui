@@ -246,13 +246,27 @@
       description: ""
       group: 选择属性
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       title: 默认
       description: 插入文本或 HTML
       empty-background: drag-entity-here
       advanced: true
-    - name: item
+    - concept: Slot
+      name: item
       description: 自定义选项的结构和样式
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T
   events:
     - name: before-select
       title: 选择前

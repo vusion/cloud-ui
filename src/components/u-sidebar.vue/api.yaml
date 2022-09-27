@@ -47,7 +47,8 @@
       default: false
       description: 是否禁用
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-sidebar-item>`、`<u-sidebar-divider>`或`<u-sidebar-group>`子组件。
       support:
         - name: u-sidebar-group
@@ -174,7 +175,8 @@
       default: false
       description: 是否禁用。禁用时无法展开/折叠
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-sidebar-item>`或`<u-sidebar-divider>`子组件。
       support:
         - name: u-sidebar-item

@@ -27,6 +27,7 @@
       default: normal
       description: 进度条大小
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入文本或 HTML。
       advanced: true

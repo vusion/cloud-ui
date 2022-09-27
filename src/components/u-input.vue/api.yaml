@@ -127,7 +127,8 @@
           title: 搜索
       description: ""
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       advanced: true
       title: 默认
       description: 插入 HTML 或 `Component`, 可展示额外内容。

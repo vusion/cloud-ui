@@ -93,7 +93,8 @@
       default: false
       description: 是否禁用
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入需要弹出的内容。
   events:
     - name: before-open

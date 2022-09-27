@@ -84,6 +84,11 @@ export default {
                 this.selectedVM = this.itemVMs.find(
                     (itemVM) => itemVM.value === value,
                 );
+                if (!this.selectedVM && this.selectedValuesData && Array.isArray(this.selectedValuesData)) {
+                    this.selectedVM = this.selectedValuesData.find(
+                        (itemData) => itemData.value === value,
+                    );
+                }
                 this.selectedVM
                     && this.selectedVM.groupVM
                     && this.selectedVM.groupVM.toggle(true);

@@ -8,13 +8,13 @@
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object | DataSource
-      designer-value: "[{}]"
+      designer-value: "[{}, {}, {}]"
       description: 集合类型变量或者输出参数为集合类型的逻辑
       group: 数据属性
     - name: data-schema
       title: 数据类型
       type: schema
-      description: 表格每一行的数据类型
+      description: 选择器每一行的数据类型
       group: 数据属性
       compType: dataTypeSelect
     - name: text-field
@@ -49,12 +49,13 @@
       description: 选择后，所选中的值
       group: 数据属性
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-tree-view-node-new>`子组件
       support:
         - name: u-tree-view-node
           title: 子节点
-          snippet: "<u-tree-view-node-new><template #text>选项</template></u-tree-view-node-new>"
+          snippet: "<u-tree-view-node-new><template #item>选项</template></u-tree-view-node-new>"
   events:
     - name: change
       description: 修改时触发

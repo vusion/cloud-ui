@@ -125,7 +125,8 @@
       type: string
       description: 第一个错误提示消息
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-form-item>`子组件。
       empty-background: add-sub-large
       support:
@@ -318,20 +319,24 @@
       description: 验证前对值进行预处理
       advanced: true
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       title: 默认
       description: 插入文本或 HTML。
-    - name: label
+    - concept: Slot
+      name: label
       title: 标签自定义
       description: 插入自定义标签，代替`label`属性。
       advanced: true
       quick-add: never
-    - name: description
+    - concept: Slot
+      name: description
       title: 描述自定义
       description: 插入自定义描述内容，代替`description`属性。
       advanced: true
       quick-add: never
-    - name: extra
+    - concept: Slot
+      name: extra
       title: 附加内容
       description: 自定义标签右侧额外内容。
       advanced: true
@@ -400,15 +405,18 @@
       default: false
       description: 是否禁用。禁用时无法展开/折叠
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-form-item>`或`<u-form-divider>`子组件。
       support:
         - name: u-form-item
           title: 导航项
           snippet: <u-form-item>导航项</u-form-item>
-    - name: title
+    - concept: Slot
+      name: title
       description: 自定义标题文本。
-    - name: extra
+    - concept: Slot
+      name: extra
       description: 在右侧可以附加内容。
   events:
     - name: before-toggle

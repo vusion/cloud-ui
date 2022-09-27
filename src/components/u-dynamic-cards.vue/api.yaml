@@ -53,7 +53,8 @@
       type: string
       description: 第一个错误提示消息
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 展开区域的内容
       props:
         - name: item
@@ -62,6 +63,18 @@
         - name: index
           type: number
           description: 索引
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T
     - name: mini
       description: 收起时 mini 显示区的内容
       props:
@@ -71,6 +84,18 @@
         - name: index
           type: number
           description: 索引
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T
   events:
     - name: before-add
       description: 添加前触发

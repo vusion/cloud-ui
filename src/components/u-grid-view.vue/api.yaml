@@ -245,10 +245,12 @@
       description: ""
       group: 选择属性
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入文本或 HTML
       empty-background: drag-entity-here
-    - name: item
+    - concept: Slot
+      name: item
       description: 自定义选项的结构和样式
   events:
     - name: before-select

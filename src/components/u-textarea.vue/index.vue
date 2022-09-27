@@ -1,11 +1,11 @@
 <template>
-<div :class="$style.root" :readonly="readonly" :disabled="disabled" :style="{ width, height }" :color="currentColor || this.formItemVM && this.formItemVM.color"
+<div :class="$style.root" :readonly="readonly" :disabled="disabled" :style="{ width, height }" :color="currentColor || formItemVM && formItemVM.color"
     :focus="focused" @click.self="!focused && focus()">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span :class="$style.placeholder" v-if="placeholder">{{ valueEmpty ? placeholder : '' }}</span>
     <textarea ref="input" :class="$style.input" v-bind="$attrs" :value="currentValue"
         v-focus="autofocus" :readonly="readonly" :disabled="disabled"
-        @input="onInput" @focus="onFocus" @blur="onBlur" v-on="listeners"
+        @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" v-on="listeners"
         @compositionstart="compositionInputing = true"
         @compositionend="onCompositionEnd"></textarea>
     <slot></slot>

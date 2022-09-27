@@ -50,7 +50,8 @@
       default: head
       description: 填充位置
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入`<u-collapse-item>`子组件。
       support:
         - name: u-collapse-item
@@ -101,11 +102,14 @@
       default: false
       description: 是否禁用。禁用时无法展开/折叠
   slots:
-    - name: default
+    - concept: Slot
+      name: default
       description: 插入文本或 HTML。
-    - name: title
+    - concept: Slot
+      name: title
       description: 自定义标题文本。
-    - name: extra
+    - concept: Slot
+      name: extra
       description: 在右侧可以附加内容。
   events:
     - name: before-toggle
