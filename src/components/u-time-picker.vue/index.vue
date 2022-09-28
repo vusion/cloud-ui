@@ -201,13 +201,13 @@ export default {
     },
     computed: {
         hour() {
-            return this.showTime.split(':')[0] / 1;
+            return this.showTime && this.showTime.split(':')[0] / 1;
         },
         minute() {
-            return this.showTime.split(':')[1] / 1;
+            return this.showTime && this.showTime.split(':')[1] / 1;
         },
         second() {
-            return this.minUnit === 'second' ? this.showTime.split(':')[2] / 1 : 0;
+            return this.minUnit === 'second' ? (this.showTime && this.showTime.split(':')[2] / 1) : 0;
         },
         sphourmin() {
             return this.minTime.split(':')[0] / 1;
@@ -257,6 +257,10 @@ export default {
                     this.lastValidShowTime = this.showTime;
                 }
             }
+            this.$emit(
+                'update',
+                this.showTime,
+            );
         },
         showTime(newValue) {
             // if (!newValue)
@@ -279,6 +283,12 @@ export default {
         appendTo(appendTo) {
             this.setPopperWidth();
         },
+    },
+    created() {
+        this.$emit(
+            'update',
+            this.getUnitFormatTime(this.time),
+        );
     },
     mounted() {
         this.setPopperWidth();
