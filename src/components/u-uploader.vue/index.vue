@@ -118,6 +118,9 @@ export default {
         checkFile: [Function],
         downLoadFilename: String,
         authorization: { type: Boolean, default: true },
+        access: { type: String, default: 'public' },
+        ttl: { type: Boolean, default: false },
+        ttlValue: { type: Number, default: -1 },
     },
     data() {
         return {
@@ -371,6 +374,8 @@ export default {
                 headers: {
                     ...this.headers,
                     Authorization,
+                    'lcap-access': this.access,
+                    'lcap-ttl': this.ttl ? this.ttlValue : -1,
                 },
                 withCredentials: this.withCredentials,
                 file,
