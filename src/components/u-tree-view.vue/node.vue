@@ -235,6 +235,11 @@ export default {
     created() {
         this.renderSelectedVm();
     },
+    mounted() {
+        this.$nextTick(() => {
+            if(this.selected) this.$el.scrollIntoView({ block: 'center' });         
+        });
+    },
 
     methods: {
         select() {
