@@ -215,7 +215,7 @@ export default {
         },
         nodeVMs() {
             this.rootVM.selectedVM = undefined;
-            this.rootVM.watchValue(this.rootVM.value);
+            this.rootVM.watchValue(this.rootVM.value);                
         },
         currentExpanded(currentExpanded) {
             if (currentExpanded)
@@ -475,6 +475,8 @@ export default {
 
             let { filterText, filterFields } = this.rootVM;
             filterText = filterText.trim().toLowerCase();
+            if(!filterText) return;
+
             const { currentFields, node, $at } = this;
 
             const that = this;
