@@ -118,9 +118,9 @@ export default {
         checkFile: [Function],
         downLoadFilename: String,
         authorization: { type: Boolean, default: true },
-        access: { type: String, default: 'public' },
-        ttl: { type: Boolean, default: false },
-        ttlValue: { type: Number, default: -1 },
+        access: { type: String, default: null },
+        ttl: { type: Boolean, default: null },
+        ttlValue: { type: Number, default: null },
     },
     data() {
         return {
@@ -369,14 +369,24 @@ export default {
             if (this.authorization) {
                 Authorization = this.getCookie('authorization') || null;
             }
+            const headers = {
+                ...this.headers,
+                Authorization,
+            }
+            if (this.access !== null) {
+                headers['lcap-access'] = this.access
+            }
+            if (this.ttlValue !== null) {
+                if (this.ttl !== null) {
+                    headers['lcap-ttl'] = this.ttl ? this.ttlValue : -1
+                } else {
+                    headers['lcap-ttl'] = this.ttlValue
+                }
+            }
+
             const xhr = ajax({
                 url: this.url,
-                headers: {
-                    ...this.headers,
-                    Authorization,
-                    'lcap-access': this.access,
-                    'lcap-ttl': this.ttl ? this.ttlValue : -1,
-                },
+                headers,
                 withCredentials: this.withCredentials,
                 file,
                 data: this.data,
