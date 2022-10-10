@@ -8410,7 +8410,24 @@
                 {
                     "concept": "Slot",
                     "name": "item",
-                    "description": "自定义选项的结构和样式"
+                    "description": "自定义选项的结构和样式",
+                    "slotProps": {
+                        "concept": "Param",
+                        "name": "scope",
+                        "typeAnnotation": {
+                            "concept": "TypeAnnotation",
+                            "typeKind": "generic",
+                            "typeNamespace": "nasl.ui",
+                            "typeName": "ScopeOf",
+                            "typeArguments": [
+                                {
+                                    "concept": "TypeAnnotation",
+                                    "typeKind": "typeParam",
+                                    "typeName": "T"
+                                }
+                            ]
+                        }
+                    }
                 }
             ],
             "methods": [
@@ -13560,6 +13577,28 @@
                             "snippet": "<u-tree-view-node-new><template #item>选项</template></u-tree-view-node-new>"
                         }
                     ]
+                },
+                {
+                    "concept": "Slot",
+                    "name": "item",
+                    "description": "自定义选项的结构和样式",
+                    "slotProps": {
+                        "concept": "Param",
+                        "name": "scope",
+                        "typeAnnotation": {
+                            "concept": "TypeAnnotation",
+                            "typeKind": "generic",
+                            "typeNamespace": "nasl.ui",
+                            "typeName": "ScopeOf",
+                            "typeArguments": [
+                                {
+                                    "concept": "TypeAnnotation",
+                                    "typeKind": "typeParam",
+                                    "typeName": "T"
+                                }
+                            ]
+                        }
+                    }
                 }
             ],
             "events": [
@@ -14028,7 +14067,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.17/src/components/u-uploader.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.17/src/components/u-uploader.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.17/src/components/u-uploader.vue/screenshots/2.png",
-        "blocks": "[{\"title\":\"单个文件按钮\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader display=\\\"inline\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多图片按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n</u-uploader>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"单个文件按钮\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader display=\\\"inline\\\"\\n    url=\\\"/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多图片按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n</u-uploader>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-uploader",
             "title": "文件上传",
@@ -14040,17 +14079,17 @@
                 {
                     "title": "单个文件按钮",
                     "description": "下面的例子为单文件上传。\n",
-                    "code": "<template>\n<u-uploader display=\"inline\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\" icon=\"upload\">上传</u-button>\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader display=\"inline\"\n    url=\"/upload\" url-field=\"result\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\" icon=\"upload\">上传</u-button>\n</u-uploader>\n</template>\n"
                 },
                 {
                     "title": "单文件卡片",
                     "description": "不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\n",
-                    "code": "<template>\n<u-uploader list-type=\"card\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader list-type=\"card\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/upload\" url-field=\"result\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n</u-uploader>\n</template>\n"
                 },
                 {
                     "title": "多图片按钮",
                     "description": "",
-                    "code": "<template>\n<u-uploader multiple list-type=\"image\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\" icon=\"upload\">上传</u-button>\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader multiple list-type=\"image\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/upload\" url-field=\"result\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\" icon=\"upload\">上传</u-button>\n</u-uploader>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -14269,6 +14308,42 @@
                     "title": "文件校验",
                     "type": "Function",
                     "description": "文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息"
+                },
+                {
+                    "name": "access",
+                    "title": "文件访问策略",
+                    "type": "string",
+                    "default": "public",
+                    "options": [
+                        {
+                            "value": "public",
+                            "title": "任何人可访问"
+                        },
+                        {
+                            "value": "private",
+                            "title": "用户登录后可访问"
+                        }
+                    ]
+                },
+                {
+                    "name": "ttl",
+                    "title": "文件有效期",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否开启文件有效期控制"
+                },
+                {
+                    "name": "ttlValue",
+                    "title": "上传后有效天数",
+                    "type": "number",
+                    "default": "",
+                    "description": "文件有效期天数",
+                    "depProp": [
+                        {
+                            "name": "ttl",
+                            "value": true
+                        }
+                    ]
                 }
             ],
             "slots": [
@@ -16818,6 +16893,28 @@
                             "snippet": "<u-tree-view-node-new><template slot=\"item\">节点</template></u-tree-view-node-new>"
                         }
                     ]
+                },
+                {
+                    "concept": "Slot",
+                    "name": "item",
+                    "description": "自定义选项的结构和样式",
+                    "slotProps": {
+                        "concept": "Param",
+                        "name": "scope",
+                        "typeAnnotation": {
+                            "concept": "TypeAnnotation",
+                            "typeKind": "generic",
+                            "typeNamespace": "nasl.ui",
+                            "typeName": "ScopeOf",
+                            "typeArguments": [
+                                {
+                                    "concept": "TypeAnnotation",
+                                    "typeKind": "typeParam",
+                                    "typeName": "T"
+                                }
+                            ]
+                        }
+                    }
                 }
             ],
             "methods": [
