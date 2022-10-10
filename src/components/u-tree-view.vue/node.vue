@@ -236,9 +236,10 @@ export default {
         this.renderSelectedVm();
     },
     mounted() {
-        this.$nextTick(() => {
+        const waitUntilSelected = 1;
+        setTimeout(() => {
             if(this.selected) this.$el.scrollIntoView({ block: 'center' });         
-        });
+        }, waitUntilSelected);
     },
 
     methods: {
