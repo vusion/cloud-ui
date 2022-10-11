@@ -1,5 +1,11 @@
 - name: u-drawer
   title: 抽屉
+  icon: drawer
+  description: 抽屉
+  labels:
+    - Feedback
+  next: true
+  nested: false
   attrs:
     - name: visible
       type: boolean
