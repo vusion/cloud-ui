@@ -16,16 +16,19 @@
                     <div :class="$style.head">
                         <slot name="head">
                             <div v-if="title" :class="$style.title">
+                                <s-empty v-if="(!$slots.title) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                                 <slot name="title">{{ title }}</slot>
                             </div>
                             <a :class="$style.close" @click="cancel()"></a>
                         </slot>
                     </div>
                     <div :class="$style.body">
+                        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                         <slot>{{ content }}</slot>
                     </div>
                     <div :class="$style.foot" v-if="okButton || cancelButton">
                         <slot name="foot">
+                            <s-empty v-if="(!$slots.foot) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                             <u-linear-layout gap="small">
                                 <u-button :class="$style.button" v-if="cancelButton" @click="cancel()">{{ cancelButton }}</u-button>
                                 <u-button :class="$style.button" v-if="okButton" color="primary" @click="ok()">{{ okButton }}</u-button>
@@ -41,6 +44,7 @@
 
 <script>
 import UModal from '../u-modal.vue/index.vue';
+import SEmpty from '../../components/s-empty.vue';
 
 export default {
     name: 'u-drawer',
