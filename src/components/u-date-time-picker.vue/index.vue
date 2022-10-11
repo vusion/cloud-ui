@@ -78,11 +78,11 @@ export default {
     props: {
         preIcon: {
             type: String,
-            default: 'calendar'
+            default: 'calendar',
         },
         suffixIcon: {
             type: String,
-            default: ''
+            default: '',
         },
         disabled: { type: Boolean, default: false },
         placeholder: {
@@ -159,12 +159,17 @@ export default {
                 return 'bottom-start';
             else if (this.alignment === 'right')
                 return 'bottom-end';
+            return '';
         },
     },
     watch: {
         date(newValue) {
             this.dateTime = this.format(newValue, 'YYYY-MM-DD HH:mm:ss');
             this.finalDateTime = this.dateTime;
+            this.$emit(
+                'update',
+                this.dateTime,
+            );
         },
         dateTime(newValue) {
             // 字符类型自动转为日期类型
@@ -212,7 +217,7 @@ export default {
     mounted() {
         this.autofocus && this.$refs.input.focus();
         // 在编辑器里不要打开
-        if(!this.$env.VUE_APP_DESIGNER)
+        if (!this.$env.VUE_APP_DESIGNER)
             this.toggle(this.opened);
     },
     methods: {
@@ -315,12 +320,12 @@ export default {
          */
         onInput($event) {
             const value = $event;
-            if(value === '') { // 可以输空值
+            if (value === '') { // 可以输空值
                 this.finalDateTime = undefined;
                 this.emitValue();
                 return;
             }
-            if(this.checkValid(value)) {
+            if (this.checkValid(value)) {
                 let date = new Date((value));
                 const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
                 date = isOutOfRange ? this.finalDateTime : date;
@@ -330,7 +335,7 @@ export default {
             }
         },
         onBlurInputValue(value) {
-            if(!this.checkValid(value)) {
+            if (!this.checkValid(value)) {
                 this.$refs.input.updateCurrentValue(this.finalDateTime);
             }
         },
@@ -382,11 +387,11 @@ export default {
          */
         onToggle($event) {
             this.$emit('toggle', $event);
-            if($event && $event.opened){
+            if ($event && $event.opened) {
                 this.preventBlur = true;
             }
         },
-        onBlur(e) { //只有autofocus的input的blur
+        onBlur(e) { // 只有autofocus的input的blur
             if (this.preventBlur)
                 return (this.preventBlur = false);
             this.$emit('blur', e, this);
@@ -394,9 +399,9 @@ export default {
         onFocus(e) {
             this.$emit('focus', e, this);
         },
-        onPopperClose(e){
+        onPopperClose(e) {
             this.$emit('blur', e, this);
-            setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
+            setTimeout(() => { // 为了不触发input的blur，否则会有两次blur
                 this.preventBlur = false;
             }, 0);
             this.showDate = undefined;
@@ -425,7 +430,7 @@ export default {
             this.$emit('input', this.finalDateTime);
         },
         onPopperOpen() {
-            if(!this.finalDateTime)
+            if (!this.finalDateTime)
                 return;
             this.dateTime = this.format(new Date(this.finalDateTime.replace(/-/g, '/')), 'YYYY-MM-DD HH:mm:ss');
             this.showDate = this.format(this.dateTime, 'YYYY-MM-DD');
@@ -435,15 +440,15 @@ export default {
          * 时间输入框输入的时候
          */
         onDateChange(value) {
-            if(!value){
+            if (!value) {
                 this.showDate = undefined;
                 return;
             }
             let showDate = this.format(this.finalDateTime, 'YYYY-MM-DD');
-            if(this.checkDate(value)) {
+            if (this.checkDate(value)) {
                 const date = new Date(this.transformDate(value + ' ' + this.spMinTime));
                 const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
-                if(!isOutOfRange){
+                if (!isOutOfRange) {
                     showDate = this.format(date, 'YYYY-MM-DD');
                 }
             }
