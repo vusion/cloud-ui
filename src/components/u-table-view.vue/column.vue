@@ -1,9 +1,11 @@
 <template>
-<div v-if="false">
-    <slot name="title"></slot>
-    <slot name="cell"></slot>
-    <slot name="expand-content"></slot>
-    <slot></slot>
+<div v-show="false">
+    <div v-if="false">
+        <slot name="title"></slot>
+        <slot name="cell"></slot>
+        <slot name="expand-content"></slot>
+        <slot></slot>
+    </div>
 </div>
 </template>
 <script>
