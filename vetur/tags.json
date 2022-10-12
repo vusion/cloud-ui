@@ -2165,7 +2165,10 @@
       "description",
       "showErrorMessage",
       "dragDescription",
-      "check-file"
+      "check-file",
+      "access",
+      "ttl",
+      "ttlValue"
     ],
     "description": "通过点击或者拖拽上传文件。"
   },
