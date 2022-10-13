@@ -12,24 +12,31 @@
                 v-if="currentVisible && animationVisible"
                 v-bind="$attrs" v-on="$listeners"
                 @click.stop>
+                <slot name="inject"></slot>
                 <slot name="drawer">
                     <div :class="$style.head"  vusion-slot-name="head" :child-cut-disabled="true">
                         <slot name="head">
                             <div v-if="title" :class="$style.title"  vusion-slot-name="title" vusion-slot-name-edit="title" :child-cut-disabled="true">
-                                <s-empty v-if="(!$slots.title) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
-                                <slot name="title">{{ title }}</slot>
+                                <slot name="title">
+                                    <s-empty v-if="(!$slots.title) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+                                    <template v-else>
+                                        {{ title }}
+                                    </template>
+                                </slot>
                             </div>
                             <a :class="$style.close" @click="cancel()"></a>
                         </slot>
                     </div>
-                    <div :class="$style.body"  vusion-slot-name="default" >
+                    <div :class="$style.body"  vusion-slot-name="default" :child-cut-disabled="true">
                         <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
-                        <slot>{{ content }}</slot>
+                        <template v-else>
+                            <slot>{{ content }}</slot>
+                        </template>
                     </div>
                     <div :class="$style.foot" v-if="okButton || cancelButton" vusion-slot-name="foot" :child-cut-disabled="true">
                         <slot name="foot">
                             <s-empty v-if="(!$slots.foot) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
-                            <u-linear-layout gap="small">
+                            <u-linear-layout gap="small" v-else>
                                 <u-button :class="$style.button" v-if="cancelButton" @click="cancel()">{{ cancelButton }}</u-button>
                                 <u-button :class="$style.button" v-if="okButton" color="primary" @click="ok()">{{ okButton }}</u-button>
                             </u-linear-layout>

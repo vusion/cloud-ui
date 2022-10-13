@@ -79,7 +79,7 @@ export default {
                 scopedSlots: this.$scopedSlots,
                 ref: 'drawer',
             }, slots),
-            h('div', {}, ['双击编辑弹窗']),
+            h('div', {}, ['双击编辑抽屉']),
         ]);
     },
 };
