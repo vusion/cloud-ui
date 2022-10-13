@@ -8,34 +8,48 @@
   nested: false
   attrs:
     - name: visible
+      title: 是否显示
       type: boolean
       sync: true
       default: false
       description: 是否显示
-    - name: title
+    - name: placement
+      title: 抽屉位置
       type: string
-      default: 提示
-      description: 抽屉的标题
-    - name: okButton
-      type: string
-      default: 确定
-      description: 确定按钮文本，如果为空则不显示
-    - name: cancelButton
-      type: string
-      default: 取消
-      description: 取消按钮文本，如果为空则不显示
+      sync: true
+      default: right
+      options:
+        - value: left
+          title: 左
+        - value: right
+          title: 右
+      description: 抽屉弹出的位置
     - name: size
       type: string
+      options:
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
       default: normal
-      description: 抽屉的尺寸。可选值：`'small'`, `'normal'`, `'large'`
-    - name: static
-      type: boolean
-      default: false
-      description: 是否嵌入页面显示
+      description: 抽屉的尺寸
     - name: maskClosable
+      title: 点击遮罩关闭
       type: boolean
       default: true
-      description: 是否点击遮罩时关闭抽屉
+      description: 点击遮罩关闭抽屉
+    - name: show-head
+      title: 显示顶部栏
+      type: boolean
+      default: false
+      description: 控制顶部栏的显示
+    - name: show-foot
+      title: 显示底部栏
+      type: boolean
+      default: false
+      description: 控制底部栏的显示
   events:
     - name: open
       description: 打开抽屉时触发

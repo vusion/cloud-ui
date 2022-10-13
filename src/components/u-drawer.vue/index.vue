@@ -14,7 +14,7 @@
                 @click.stop>
                 <slot name="inject"></slot>
                 <slot name="drawer">
-                    <div :class="$style.head"  vusion-slot-name="head" :child-cut-disabled="true">
+                    <div :class="$style.head" v-if="showHead" vusion-slot-name="head" :child-cut-disabled="true">
                         <slot name="head">
                             <div v-if="title" :class="$style.title"  vusion-slot-name="title" vusion-slot-name-edit="title" :child-cut-disabled="true">
                                 <slot name="title">
@@ -33,7 +33,7 @@
                             <slot>{{ content }}</slot>
                         </template>
                     </div>
-                    <div :class="$style.foot" v-if="okButton || cancelButton" vusion-slot-name="foot" :child-cut-disabled="true">
+                    <div :class="$style.foot" v-if="showFoot && (okButton || cancelButton)" vusion-slot-name="foot" :child-cut-disabled="true">
                         <slot name="foot">
                             <s-empty v-if="(!$slots.foot) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                             <u-linear-layout gap="small" v-else>
@@ -60,8 +60,11 @@ export default {
         SEmpty,
     },
     props: {
-        placement: { type: String, default: 'left' },
+        placement: { type: String, default: 'right' },
         maskClosable: { type: Boolean, default: true },
+        showFoot: { type: Boolean, default: false },
+        showHead: { type: Boolean, default: false },
+
     },
     data() {
         return { animationVisible: this.visible };
