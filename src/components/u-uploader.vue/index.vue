@@ -1,6 +1,7 @@
 <template>
 <div :class="$style.root">
-    <div v-if="draggable" :class="$style.draggable" :dragover="dragover" @click="select()"
+    <div
+v-if="draggable" :class="$style.draggable" :dragover="dragover" @click="select()"
         :tabindex="readonly || disabled ? '' : 0"
         @drop.prevent="onDrop"
         @paste="onPaste"
@@ -8,11 +9,12 @@
         @dragleave.prevent="dragover = false">
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
         <div>
-            <div v-if="dragDescription" vusion-slot-name="dragDescription" :class="$style.dragDescription"><slot name="dragDescription">{{dragDescription}}</slot></div>
+            <div v-if="dragDescription" vusion-slot-name="dragDescription" :class="$style.dragDescription"><slot name="dragDescription">{{ dragDescription }}</slot></div>
             <slot></slot>
         </div>
     </div>
-    <div v-else-if="listType !== 'card'" :class="$style.select" @click="select()"
+    <div
+v-else-if="listType !== 'card'" :class="$style.select" @click="select()"
         vusion-slot-name="default"
         :vusion-empty-background="$env.VUE_APP_DESIGNER && !$slots.default ? 'add-any' : false">
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
@@ -20,7 +22,7 @@
     </div>
     <template v-if="listType !== 'card'">
         <div v-if="description" :class="$style.description">{{ description }}</div>
-        <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length" >
+        <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length">
             <div :class="$style.errwrap">
                 <div v-for="errItem in errorMessage" :key="errItem" :class="$style.errmessage">{{ errItem }}</div>
             </div>
@@ -53,7 +55,7 @@
                     <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
                 </div>
                 <div v-if="description" :class="$style.description">{{ description }}</div>
-                <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length" >
+                <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length">
                     <div :class="$style.errwrap">
                         <div v-for="errItem in errorMessage" :key="errItem" :class="$style.errmessage">{{ errItem }}</div>
                     </div>
@@ -115,6 +117,7 @@ export default {
         description: String, // 上传限制描述等
         showErrorMessage: { type: Boolean, default: true },
         checkFile: [Function],
+        authorization: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -325,7 +328,7 @@ export default {
             //     }
             // }
 
-            if(!files || !files.length)
+            if (!files || !files.length)
                 return;
 
             const file = files[0];
@@ -351,9 +354,17 @@ export default {
             return item;
         },
         post(file, item, index) {
+            let Authorization = null;
+            if (this.authorization) {
+                Authorization = this.getCookie('authorization') || null;
+            }
+            const headers = {
+                ...this.headers,
+                Authorization,
+            };
             const xhr = ajax({
                 url: this.url,
-                headers: this.headers,
+                headers,
                 withCredentials: this.withCredentials,
                 file,
                 data: this.data,
@@ -477,13 +488,13 @@ export default {
                     return null;
                 }
                 if (this.accept) {
-                    const extension = (file.name.indexOf('.') > -1 ? `.${ file.name.split('.').pop() }`: '').toLowerCase();
+                    const extension = (file.name.indexOf('.') > -1 ? `.${file.name.split('.').pop()}` : '').toLowerCase();
                     const type = file.type.toLowerCase();
                     const baseType = type.replace(/\/.*$/, '').toLowerCase();
                     const accept = this.accept.split(',')
-                        .map(type => type.trim())
-                        .filter(type => type)
-                        .some(acceptedType => {
+                        .map((type) => type.trim())
+                        .filter((type) => type)
+                        .some((acceptedType) => {
                             acceptedType = acceptedType.toLowerCase();
                             if (/^\..+$/.test(acceptedType)) {
                                 return extension.toLowerCase() === acceptedType;
@@ -497,7 +508,7 @@ export default {
                             return false;
                         });
                     if (!accept) {
-                        this.errorMessage.push('文件类型不匹配，请上传'+this.accept+'的文件类型');
+                        this.errorMessage.push('文件类型不匹配，请上传' + this.accept + '的文件类型');
                         return null;
                     }
                 }
@@ -517,6 +528,16 @@ export default {
             });
             await Promise.all(tasks);
             return validFiles;
+        },
+        getCookie(cname) {
+            const name = `${cname}=`;
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                const c = ca[i].trim();
+                if (c.indexOf(name) === 0)
+                    return c.substring(name.length, c.length);
+            }
+            return '';
         },
     },
 };
@@ -835,6 +856,5 @@ export default {
 .cardwrap .errwrap {
     max-width: var(--uploader-error-box-max-width);
 }
-
 
 </style>
