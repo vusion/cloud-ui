@@ -32,7 +32,7 @@ export default {
 ``` vue
 <template>
 <div>
-    <u-drawer :visible.sync="leftVisible" title="标题">
+    <u-drawer placement="left" :visible.sync="leftVisible" title="标题">
     
     </u-drawer>
     <u-drawer placement="right" :visible.sync="rightVisible" title="标题">
@@ -57,7 +57,7 @@ export default {
 </script>
 ```
 
-### 位置
+### 关闭展示首尾插槽
 
 ``` vue
 <template>
@@ -104,6 +104,32 @@ export default {
         return {
             leftVisible: false,
             rightVisible: false,
+        };
+    },
+};
+</script>
+```
+
+
+### 插槽空缺
+
+``` vue
+<template>
+<div>
+    <u-drawer :visible.sync="leftVisible" title="标题" :showHead=false :showFoot=false>
+    </u-drawer>
+    
+    <u-linear-layout gap="small">
+        <u-button @click="leftVisible = true">empty</u-button>
+    </u-linear-layout>
+</div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            leftVisible: false,
         };
     },
 };

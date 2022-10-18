@@ -26,6 +26,7 @@
       description: 抽屉弹出的位置
     - name: size
       type: string
+      title: 尺寸
       options:
         - value: small
           title: 小
@@ -43,12 +44,12 @@
     - name: show-head
       title: 显示顶部栏
       type: boolean
-      default: false
+      default: true
       description: 控制顶部栏的显示
     - name: show-foot
       title: 显示底部栏
       type: boolean
-      default: false
+      default: true
       description: 控制底部栏的显示
   events:
     - name: open
