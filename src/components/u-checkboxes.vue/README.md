@@ -202,6 +202,10 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| data-source | Array\<Item\> \| Function |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
+| data-schema | schema |  |  | 集合类型每一元素的数据类型 |
+| text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
+| value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
 | value.sync, v-model | Array |  | `[]` | 多选组的选中项 |
 | min | number |  | `0` | 可以勾选多选框的最小数量 |
 | max | number |  |  | 可以勾选多选框的最大数量 |
@@ -214,6 +218,10 @@ export default {
 #### (default)
 
 插入`<checkbox>`子组件。
+
+#### item
+
+自定义选项的结构和样式
 
 ### Events
 
