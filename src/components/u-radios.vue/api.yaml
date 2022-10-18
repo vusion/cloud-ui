@@ -35,6 +35,7 @@
       sync: true
       model: true
       description: 当前选择的值
+      group: 数据属性
     - name: readonly
       title: 只读
       type: boolean

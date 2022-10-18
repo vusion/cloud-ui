@@ -38,6 +38,7 @@
       model: true
       default: []
       description: 多选组的选中项
+      group: 数据属性
     - name: min
       title: 选中最小数
       type: number
