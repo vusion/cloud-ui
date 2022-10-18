@@ -34,6 +34,8 @@
           title: 正常
         - value: large
           title: 大
+        - value: auto
+          title: 自适应
       default: normal
       description: 抽屉的尺寸
     - name: maskClosable

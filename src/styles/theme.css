@@ -1587,6 +1587,7 @@
     --drawer-width: 240px;
     --drawer-width-small: 160px;
     --drawer-width-large: 400px;
+    --drawer-width-huge: 600px;
     --drawer-wrap-background: rgba(0, 0, 0, 0.6);
     --drawer-background: white;
     --drawer-close-size: 15px;
@@ -1671,7 +1672,7 @@
     --datepicker-input-background-disabled: var(--input-background-disabled); /* @type color */ /* @desc 日期选择器输入框背景颜色（禁用状态）,如：1px */
     --datepicker-input-border-color-error: var(--input-border-color-error); /* hidden */ /* @desc 日期选择器输入框边框颜色（错误状态）,如：1px */
     --datepicker-input-border-color-focus: var(--input-border-color-focus); /* hidden */ /* @desc 日期选择器输入框边框颜色（选中状态）,如：1px */
-    --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus); /* hidden */ 
+    --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus); /* hidden */
     --datepicker-input-placeholder-color: var(--input-placeholder-color); /* @type color */ /* @desc 日期选择器输入框提示字体颜色,如：#223325 */
     --datepicker-popper-box-shadow: var(--select-popper-box-shadow); /* hidden */
     --datepicker-popper-border-radius: var(--border-radius-base); /* hidden */

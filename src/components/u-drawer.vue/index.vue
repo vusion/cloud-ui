@@ -10,6 +10,7 @@
                 :leave-active-class="'placement animate__animated animate__fast animate__fadeOut' + animatePlacement">
                 <div :class="$style.drawer"
                      v-if="currentVisible && animationVisible"
+                     :size="size"
                      v-bind="$attrs" v-on="$listeners"
                      @click.stop>
                     <slot name="inject"></slot>
@@ -30,16 +31,14 @@
                                 <a :class="$style.close" @click="cancel()"></a>
                             </slot>
                         </div>
-                        <div :class="$style.body" vusion-slot-name="default" :child-cut-disabled="true">
-                            <slot>
+                        <div :class="$style.body" vusion-slot-name="body" :child-cut-disabled="true">
+                            <slot name="body">
                                 <s-empty
                                     v-if="(!$slots.body) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                                 <template v-else>
                                     {{ content }}
                                 </template>
                             </slot>
-                            <!--                        <slot>{{ content }}</slot>-->
-<!--                            <slot></slot>-->
                         </div>
                         <div :class="$style.foot" v-if="showFoot && (okButton || cancelButton)" vusion-slot-name="foot"
                              :child-cut-disabled="true">
@@ -100,6 +99,10 @@ export default {
             type: String,
             default: '',
         },
+        size: {
+            type: String,
+            default: '',
+        },
 
     },
     data() {
@@ -157,11 +160,15 @@ export default {
 }
 
 .drawer[size="small"] {
-    width: var(--drawer-width-small);
+    width: var(--drawer-width);
+}
+
+.drawer[size="normal"] {
+    width: var(--drawer-width-large);
 }
 
 .drawer[size="large"] {
-    width: var(--drawer-width-large);
+    width: var(--drawer-width-huge);
 }
 
 .drawer[size="auto"] {

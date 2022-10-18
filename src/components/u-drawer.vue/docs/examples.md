@@ -27,7 +27,7 @@ export default {
 </script>
 ```
 
-### 位置
+### 抽屉显示位置
 
 ``` vue
 <template>
@@ -103,6 +103,40 @@ export default {
     data() {
         return {
             leftVisible: false,
+            rightVisible: false,
+        };
+    },
+};
+</script>
+```
+
+### 抽屉尺寸
+
+``` vue
+<template>
+<div>
+    <u-drawer :visible.sync="leftVisible" size="small" title="标题">
+    </u-drawer>
+    <u-drawer :visible.sync="middleVisible" size="normal" title="标题">
+   </u-drawer>
+   <u-drawer :visible.sync="rightVisible" size="large" title="标题">
+   </u-drawer>
+   
+   <u-linear-layout gap="small">
+        <u-button @click="leftVisible = true">small</u-button>
+        <u-button @click="middleVisible = true">normal</u-button>
+        <u-button @click="rightVisible = true">large</u-button>
+    </u-linear-layout>
+
+</div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            leftVisible: false,
+            middleVisible: false,
             rightVisible: false,
         };
     },
