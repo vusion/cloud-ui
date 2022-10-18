@@ -11327,7 +11327,8 @@
                     "type": "any",
                     "sync": true,
                     "model": true,
-                    "description": "当前选择的值"
+                    "description": "当前选择的值",
+                    "group": "数据属性"
                 },
                 {
                     "name": "readonly",
@@ -11879,7 +11880,8 @@
                     "sync": true,
                     "model": true,
                     "default": [],
-                    "description": "多选组的选中项"
+                    "description": "多选组的选中项",
+                    "group": "数据属性"
                 },
                 {
                     "name": "min",
