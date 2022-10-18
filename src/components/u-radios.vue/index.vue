@@ -1,5 +1,25 @@
 <template>
 <div :class="$style.root">
+    <u-loading v-if="loading" size="small"></u-loading>
+    <u-radio
+        v-for="(node, index) in currentDataSource.data"
+        :key="index"
+        :text="$at(node, textField)"
+        :label="$at(node, valueField)"
+        :disabled="node.disabled"
+        :readonly="node.readonly"
+        :designer="$env.VUE_APP_DESIGNER"
+        :node="node"
+    >
+        <template #item="item">
+            <slot name="item" v-bind="item">
+                {{ $at(node, textField) }}
+            </slot>
+        </template>
+    </u-radio>
+    <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
+        <span :class="$style.loadContent">{{ treeSelectTip }}</span>
+    </template>
     <slot></slot>
 </div>
 </template>
@@ -7,11 +27,16 @@
 <script>
 import { MParent } from '../m-parent.vue';
 import MField from '../m-field.vue';
+import URadio from './radio.vue';
+import SupportDataSource  from '../../mixins/support.datasource.js';
 
 export default {
     name: 'u-radios',
     childName: 'u-radio',
-    mixins: [MParent, MField],
+    mixins: [MParent, MField, SupportDataSource],
+    components: {
+        URadio,
+    },
     props: {
         value: null,
         readonly: { type: Boolean, default: false },
@@ -98,4 +123,12 @@ export default {
 .root > *:not(:last-child) {
     margin-right: var(--radio-space-x);
 }
+
+.root .loadContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
 </style>

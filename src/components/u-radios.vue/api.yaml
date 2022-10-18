@@ -5,6 +5,30 @@
   icon: radios
   description: 多项中选择一个时使用
   attrs:
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function
+      description: 集合类型变量或者输出参数为集合类型的逻辑
+      designer-value: "[{}, {}, {}]"
+      group: 数据属性
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 集合类型每一元素的数据类型
+      group: 数据属性
+      compType: dataTypeSelect
+    - name: text-field
+      title: 选项文本
+      type: string
+      default: text
+      description: 集合的元素类型中，用于显示文本的属性名称
+      group: 数据属性
+    - name: value-field
+      title: 选项值
+      type: string
+      default: value
+      description: 集合的元素类型中，用于标识选中值的属性
+      group: 数据属性
     - name: value
       title: 值
       type: any
@@ -29,7 +53,22 @@
       support:
         - name: u-radio
           title: 单选项
-          snippet: <u-radio label="单选项" text="单选项"></u-radio>
+          snippet: <u-radio><template slot="item">节点</template></u-radio>
+    - concept: Slot
+      name: item
+      description: 自定义选项的结构和样式
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T 
   events:
     - name: before-select
       title: 选择前
