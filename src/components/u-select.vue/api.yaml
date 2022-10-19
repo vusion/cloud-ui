@@ -43,6 +43,18 @@
       type: boolean
       default: false
       description: 是否可以多选
+    - name: tags-overflow
+      title: 多选项展示形式
+      type: string
+      options:
+        - value: hidden
+          title: 过多时省略
+        - value: collapse
+          title: 过多时收缩
+        - value: visible
+          title: 过多时显示
+      description: 多选项过多时的展示形式
+      clearable: true
     - name: converter
       title: 转换器
       type: string
