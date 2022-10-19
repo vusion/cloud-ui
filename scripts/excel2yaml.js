@@ -99,6 +99,7 @@ const files = [
     'u-count-down.vue',
     'u-anchor.vue',
     'u-toc.vue',
+    'u-drawer',
 ].map((component) => path.resolve(cwd, 'src/components', component, 'api.yaml'));
 
 const yamlMap = {};
