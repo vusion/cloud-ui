@@ -8,12 +8,31 @@
 
 一般具有`inline`特性的组件，可以直接在外面套一个`<u-linear-layout>`，就会拉开间隔。
 
-``` html
-<u-linear-layout>
-    <u-button>Button</u-button>
-    <u-button>Button</u-button>
-    <u-button>Button</u-button>
-</u-linear-layout>
+``` vue
+<template>
+<div>
+    <u-linear-layout 
+        :loadingIconRotate="false"
+        style="height: 200px; border: 1px solid #aaa; padding: 20px; margin: 20px;" ref="linearLayout">
+        测试加载中
+    </u-linear-layout>
+    <u-button @click="onOpen">打开加载</u-button>
+    <u-button @click="onClose">关闭加载</u-button>
+</div>
+</template>
+
+<script>
+export default {
+    methods: {
+        onOpen() {
+            this.$refs.linearLayout.openLoading();
+        },
+        onClose() {
+            this.$refs.linearLayout.closeLoading();
+        }
+    }
+}
+</script>
 ```
 
 ### 方向

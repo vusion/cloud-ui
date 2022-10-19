@@ -724,6 +724,11 @@
     --list-item-background-striped: var(--background-color-lighter);
     --list-item-background-hover: var(--background-color-lighter);
 
+
+    /* @component u-loading */
+    --loading-icon-color: var(--gray-base);
+    --loading-text-color: var(--font-second-color);
+
     /* @component u-desc-list @hidden */
     --desc-list-item-label-padding-right: 20px;
     --desc-list-item-label-padding-right-mini: 10px;
@@ -1607,6 +1612,9 @@
     --lightbox-icon-background-hover: #121212;
     --lightbox-icon-background-disabled: #666;
     --lightbox-icon-color: white;
+
+    /* @component u-linear-layout */
+    --linear-layout-background: rgba(255,255,255,0.5);
 
     /* @component u-skeleton @hidden */
     --skeleton-background: var(--background-color-base);
