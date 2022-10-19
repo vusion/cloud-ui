@@ -118,9 +118,9 @@ export default {
         checkFile: [Function],
         downLoadFilename: String,
         authorization: { type: Boolean, default: true },
-        access: { type: String, default: 'public' },
-        ttl: { type: Boolean, default: false },
-        ttlValue: { type: Number, default: -1 },
+        access: { type: String, default: null },
+        ttl: { type: Boolean, default: null },
+        ttlValue: { type: Number, default: null },
     },
     data() {
         return {
@@ -369,14 +369,24 @@ export default {
             if (this.authorization) {
                 Authorization = this.getCookie('authorization') || null;
             }
+            const headers = {
+                ...this.headers,
+                Authorization,
+            }
+            if (this.access !== null) {
+                headers['lcap-access'] = this.access
+            }
+            if (this.ttlValue !== null) {
+                if (this.ttl !== null) {
+                    headers['lcap-ttl'] = this.ttl ? this.ttlValue : -1
+                } else {
+                    headers['lcap-ttl'] = this.ttlValue
+                }
+            }
+
             const xhr = ajax({
                 url: this.url,
-                headers: {
-                    ...this.headers,
-                    Authorization,
-                    'lcap-access': this.access,
-                    'lcap-ttl': this.ttl ? this.ttlValue : -1,
-                },
+                headers,
                 withCredentials: this.withCredentials,
                 file,
                 data: this.data,
@@ -397,20 +407,27 @@ export default {
                     item.response = res;
                     item.showProgress = false;
 
+                    const value = this.toValue(this.currentValue);
+                    this.$emit('input', value);
+                    this.$emit('update:value', value);
+
                     this.$emit('success', {
                         res,
                         file,
                         item,
                         xhr,
                     }, this);
-
-                    const value = this.toValue(this.currentValue);
-                    this.$emit('input', value);
-                    this.$emit('update:value', value);
                 },
                 onError: (e, res) => {
                     const item = this.currentValue[index];
                     item.status = 'error';
+
+                    const value = this.toValue(this.currentValue);
+                    this.$emit('input', value);
+                    this.$emit('update:value', value);
+                    const errorMessage = `文件${file.name}上传接口调用失败`;
+                    this.errorMessage.push(errorMessage);
+
                     this.$emit('error', {
                         e,
                         res,
@@ -418,12 +435,6 @@ export default {
                         item,
                         xhr,
                     }, this);
-
-                    const value = this.toValue(this.currentValue);
-                    this.$emit('input', value);
-                    this.$emit('update:value', value);
-                    const errorMessage = `文件${file.name}上传接口调用失败`;
-                    this.errorMessage.push(errorMessage);
                 },
             });
         },

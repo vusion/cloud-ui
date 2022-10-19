@@ -1609,6 +1609,22 @@
     "type": "boolean",
     "description": ""
   },
+  "u-checkboxes/data-source": {
+    "type": "Array<Item> | Function",
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+  },
+  "u-checkboxes/data-schema": {
+    "type": "schema",
+    "description": "集合类型每一元素的数据类型"
+  },
+  "u-checkboxes/text-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-checkboxes/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
   "u-checkboxes/value": {
     "type": "Array",
     "description": "多选组的选中项"
@@ -5838,6 +5854,22 @@
     "type": "boolean",
     "description": "是否自动合并内外边框"
   },
+  "u-radios/data-source": {
+    "type": "Array<Item> | Function",
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+  },
+  "u-radios/data-schema": {
+    "type": "schema",
+    "description": "集合类型每一元素的数据类型"
+  },
+  "u-radios/text-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-radios/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
   "u-radios/value": {
     "type": "any",
     "description": "当前选择的值"
@@ -8068,6 +8100,27 @@
   "u-uploader/check-file": {
     "type": "Function",
     "description": "文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息"
+  },
+  "u-uploader/access": {
+    "type": "string",
+    "options": [
+      {
+        "value": "public",
+        "title": "任何人可访问"
+      },
+      {
+        "value": "private",
+        "title": "用户登录后可访问"
+      }
+    ]
+  },
+  "u-uploader/ttl": {
+    "type": "boolean",
+    "description": "是否开启文件有效期控制"
+  },
+  "u-uploader/ttlValue": {
+    "type": "number",
+    "description": "文件有效期天数"
   },
   "u-validator/name": {
     "type": "string",
