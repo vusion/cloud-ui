@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :type="type" :direction="direction" v-on="$listeners" vusion-slot-name="default">
     <slot></slot>
-    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+    <s-empty v-if="type !== 'root' && (!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
     <div v-if="showLoading" :class="$style.mask">
         <u-loading
             :icon="loadingIcon"
