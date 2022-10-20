@@ -75,7 +75,6 @@
           value: format
       default: format
       description: 转换器
-      advanced: true
       clearable: true
     - name: preIcon
       title: 前缀图标
