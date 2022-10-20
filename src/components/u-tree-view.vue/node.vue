@@ -215,7 +215,7 @@ export default {
         },
         nodeVMs() {
             this.rootVM.selectedVM = undefined;
-            this.rootVM.watchValue(this.rootVM.value);
+            this.rootVM.watchValue(this.rootVM.value);                
         },
         currentExpanded(currentExpanded) {
             if (currentExpanded)
@@ -234,6 +234,12 @@ export default {
     },
     created() {
         this.renderSelectedVm();
+    },
+    mounted() {
+        const waitUntilSelected = 1;
+        setTimeout(() => {
+            if(this.selected) this.$el.scrollIntoView({ block: 'center' });         
+        }, waitUntilSelected);
     },
 
     methods: {
@@ -470,6 +476,8 @@ export default {
 
             let { filterText, filterFields } = this.rootVM;
             filterText = filterText.trim().toLowerCase();
+            if(!filterText) return;
+
             const { currentFields, node, $at } = this;
 
             const that = this;

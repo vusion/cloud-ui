@@ -358,6 +358,9 @@ export default {
 | showErrorMessage | boolean |  | `true` | 是否展示上传时的出错信息，如超出数量、大小 |
 | dragDescription | string |  | `'点击/拖动/粘贴文件到这里'` | 拖拽描述信息 |
 | check-file | Function |  |  | 文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息 |
+| access | string | `[object Object]`<br/>`[object Object]` |  | undefined |
+| ttl | boolean |  |  | 是否开启文件有效期控制 |
+| ttlValue | number |  |  | 文件有效期天数 |
 
 ### Slots
 
