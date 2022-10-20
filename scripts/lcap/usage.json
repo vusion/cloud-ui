@@ -19623,6 +19623,182 @@
         }
     },
     {
+        "symbol": "u-drawer",
+        "name": "抽屉",
+        "icon": "drawer",
+        "depDescription": {},
+        "description": "抽屉",
+        "labels": [
+            "Feedback"
+        ],
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.17/src/components/u-drawer.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.17/src/components/u-drawer.vue/screenshots/1.png",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-drawer>\\n    <template #title>\\n        <u-text text=\\\"标题\\\"></u-text>\\n    </template>\\n    <template #body>\\n        <u-text>内容</u-text>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout justify=\\\"center\\\">\\n            <u-button color=\\\"primary\\\">确定</u-button>\\n            <u-button>取消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-drawer>\\n</template>\\n\"}]",
+        "jsonSchema": {
+            "name": "u-drawer",
+            "title": "抽屉",
+            "description": "抽屉",
+            "category": "Feedback",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.17/src/components/u-drawer.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.17/src/components/u-drawer.vue/screenshots/1.png",
+            "drawings": "",
+            "blocks": [
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<u-drawer>\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #body>\n        <u-text>内容</u-text>\n    </template>\n    <template #foot>\n        <u-linear-layout justify=\"center\">\n            <u-button color=\"primary\">确定</u-button>\n            <u-button>取消</u-button>\n        </u-linear-layout>\n    </template>\n</u-drawer>\n</template>\n"
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "visible",
+                    "title": "是否显示",
+                    "type": "boolean",
+                    "sync": true,
+                    "default": false,
+                    "description": "是否显示"
+                },
+                {
+                    "name": "placement",
+                    "title": "抽屉位置",
+                    "type": "string",
+                    "sync": true,
+                    "default": "right",
+                    "options": [
+                        {
+                            "value": "left",
+                            "title": "左"
+                        },
+                        {
+                            "value": "right",
+                            "title": "右"
+                        }
+                    ],
+                    "description": "抽屉弹出的位置"
+                },
+                {
+                    "name": "size",
+                    "type": "string",
+                    "title": "尺寸",
+                    "options": [
+                        {
+                            "value": "small",
+                            "title": "小"
+                        },
+                        {
+                            "value": "normal",
+                            "title": "正常"
+                        },
+                        {
+                            "value": "large",
+                            "title": "大"
+                        },
+                        {
+                            "value": "auto",
+                            "title": "自适应"
+                        }
+                    ],
+                    "default": "normal",
+                    "description": "抽屉的尺寸"
+                },
+                {
+                    "name": "maskClosable",
+                    "title": "点击遮罩关闭",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "点击遮罩关闭抽屉"
+                },
+                {
+                    "name": "show-head",
+                    "title": "显示顶部栏",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "控制顶部栏的显示"
+                },
+                {
+                    "name": "show-foot",
+                    "title": "显示底部栏",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "控制底部栏的显示"
+                }
+            ],
+            "events": [
+                {
+                    "name": "open",
+                    "description": "打开抽屉时触发",
+                    "params": [
+                        {
+                            "name": "senderVM",
+                            "type": "UDrawer",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "ok",
+                    "description": "确定时触发",
+                    "params": [
+                        {
+                            "name": "senderVM",
+                            "type": "UDrawer",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "cancel",
+                    "description": "取消时触发",
+                    "params": [
+                        {
+                            "name": "senderVM",
+                            "type": "UDrawer",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "before-close",
+                    "description": "关闭抽屉前触发",
+                    "params": [
+                        {
+                            "name": "ok",
+                            "type": "boolean",
+                            "description": "是否确定"
+                        },
+                        {
+                            "name": "$event.preventDefault",
+                            "type": "Function",
+                            "description": "阻止关闭流程"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UDrawer",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "close",
+                    "description": "关闭抽屉时触发",
+                    "params": [
+                        {
+                            "name": "ok",
+                            "type": "boolean",
+                            "description": "是否确定"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UDrawer",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                }
+            ],
+            "next": true,
+            "nested": false,
+            "children": []
+        }
+    },
+    {
         "symbol": "e-watermark",
         "name": "水印",
         "icon": "watermark",
