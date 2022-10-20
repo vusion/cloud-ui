@@ -18,6 +18,7 @@
         v-bind="[$attrs, $props]"
         v-on="$listeners"
         ref="item"
+        openEvent="openEvent"
     >
         <slot v-for="(item, name) in this.$slots" :name="name" :slot="name"></slot>
         <template v-for="(_, name) in $scopedSlots" :slot="name" slot-scope="slotData">
@@ -74,11 +75,9 @@ export const UDrawer = {
             this.$refs.item.designerDbControl();
         },
         open() {
-            this.$emit('open');
             this.$refs.item.open();
         },
         close() {
-            this.$emit('close');
             this.$refs.item.close();
         },
         ok() {
@@ -86,6 +85,9 @@ export const UDrawer = {
         },
         cancel() {
             this.$refs.item.cancel();
+        },
+        openEvent() {
+            this.$emit('open');
         },
     },
 };
