@@ -54,31 +54,22 @@
       default: true
       description: 控制底部栏的显示
   events:
-    - name: ok
-      description: 确定时触发
-      params:
-        - name: senderVM
-          type: UDrawer
-          description: 发送事件实例
-    - name: cancel
-      description: 取消时触发
-      params:
-        - name: senderVM
-          type: UDrawer
-          description: 发送事件实例
     - name: before-open
+      title: 打开前
       description: 打开抽屉前触发
       params:
         - name: senderVM
           type: UDrawer
           description: 发送事件实例
     - name: open
+      title: 打开时
       description: 打开抽屉时触发
       params:
         - name: senderVM
           type: UDrawer
           description: 发送事件实例
     - name: before-close
+      title: 关闭前
       description: 关闭抽屉前触发
       params:
         - name: ok
@@ -91,6 +82,7 @@
           type: UDrawer
           description: 发送事件实例
     - name: close
+      title: 关闭时
       description: 关闭抽屉时触发
       params:
         - name: ok
