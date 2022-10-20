@@ -54,12 +54,6 @@
       default: true
       description: 控制底部栏的显示
   events:
-    - name: open
-      description: 打开抽屉时触发
-      params:
-        - name: senderVM
-          type: UDrawer
-          description: 发送事件实例
     - name: ok
       description: 确定时触发
       params:
@@ -68,6 +62,18 @@
           description: 发送事件实例
     - name: cancel
       description: 取消时触发
+      params:
+        - name: senderVM
+          type: UDrawer
+          description: 发送事件实例
+    - name: before-open
+      description: 打开抽屉前触发
+      params:
+        - name: senderVM
+          type: UDrawer
+          description: 发送事件实例
+    - name: open
+      description: 打开抽屉时触发
       params:
         - name: senderVM
           type: UDrawer
@@ -93,22 +99,16 @@
         - name: senderVM
           type: UDrawer
           description: 发送事件实例
-  static-methods:
-    - name: alert
-      description: 打开只有确定按钮的抽屉
-      params:
-        - name: content
-          type: string
-          description: 抽屉内容
-        - name: title
-          type: string
-          description: 抽屉标题
-    - name: confirm
-      description: 打开有确定和取消按钮的抽屉
-      params:
-        - name: content
-          type: string
-          description: 抽屉内容
-        - name: title
-          type: string
-          description: 抽屉标题
+  methods:
+    - name: open
+      description: 打开抽屉
+      params: []
+    - name: close
+      description: 关闭抽屉
+      params: []
+    - name: ok
+      description: 点击抽屉中“确定”按钮
+      params: []
+    - name: cancel
+      description: 点击抽屉中“取消”按钮
+      params: []

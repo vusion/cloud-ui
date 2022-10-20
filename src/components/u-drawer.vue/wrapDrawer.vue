@@ -74,9 +74,11 @@ export const UDrawer = {
             this.$refs.item.designerDbControl();
         },
         open() {
+            this.$emit('open');
             this.$refs.item.open();
         },
         close() {
+            this.$emit('close');
             this.$refs.item.close();
         },
         ok() {
