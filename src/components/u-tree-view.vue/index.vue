@@ -23,6 +23,7 @@
 <script>
 import { MRoot } from '../m-root.vue';
 import MField from '../m-field.vue';
+import { debounce } from 'lodash';
 
 export default {
     name: 'u-tree-view',
@@ -110,6 +111,8 @@ export default {
         },
     },
     created() {
+        this.watchValue = debounce(this.watchValue);
+
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
             this.load();

@@ -71,6 +71,10 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| data-source | Array\<Item\> \| Function |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
+| data-schema | schema |  |  | 集合类型每一元素的数据类型 |
+| text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
+| value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
 | value.sync, v-model | any |  |  | 当前选择的值 |
 | readonly | boolean |  | `false` |  |
 | disabled | boolean |  | `false` |  |
@@ -80,6 +84,10 @@
 #### (default)
 
 插入`<u-radio>`子组件。
+
+#### item
+
+自定义选项的结构和样式
 
 ### Events
 

@@ -1609,6 +1609,22 @@
     "type": "boolean",
     "description": ""
   },
+  "u-checkboxes/data-source": {
+    "type": "Array<Item> | Function",
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+  },
+  "u-checkboxes/data-schema": {
+    "type": "schema",
+    "description": "集合类型每一元素的数据类型"
+  },
+  "u-checkboxes/text-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-checkboxes/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
   "u-checkboxes/value": {
     "type": "Array",
     "description": "多选组的选中项"
@@ -5837,6 +5853,22 @@
   "u-popup/merge-borders": {
     "type": "boolean",
     "description": "是否自动合并内外边框"
+  },
+  "u-radios/data-source": {
+    "type": "Array<Item> | Function",
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+  },
+  "u-radios/data-schema": {
+    "type": "schema",
+    "description": "集合类型每一元素的数据类型"
+  },
+  "u-radios/text-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-radios/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
   },
   "u-radios/value": {
     "type": "any",

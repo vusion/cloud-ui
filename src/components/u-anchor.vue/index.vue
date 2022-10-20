@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import SEmpty from '@/components/s-empty.vue';
+import SEmpty from '../s-empty.vue';
 export default {
     name: 'u-anchor',
     components: { SEmpty },

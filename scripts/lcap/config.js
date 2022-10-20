@@ -75,6 +75,7 @@ module.exports = [
     // { group: 'Feedback', show: true, name: 'u-popup', alias: '弹出框' },
     { group: 'Feedback', show: true, name: 'u-popup-combination', alias: '弹出框' },
     { group: 'Feedback', show: true, name: 'u-modal', alias: '弹窗' },
+    { group: 'Feedback', show: true, name: 'u-drawer', alias: '抽屉' },
 
     { group: 'Effects', show: true, name: 'e-watermark', alias: '水印' },
     { group: 'Effects', show: true, name: 'u-copy', alias: '复制', newest: true, vscode: false },
