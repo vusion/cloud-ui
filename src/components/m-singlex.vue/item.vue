@@ -70,11 +70,6 @@ export default {
             return exact && exactHash;
         },
     },
-    mounted() {
-        this.$nextTick(() => {
-            if(this.isSelected) this.$el.scrollIntoView({ block: 'center' });         
-        });
-    },
     methods: {
         onClick(e) {
             if (this.disabled || this.parentVM.readonly || this.parentVM.disabled)
