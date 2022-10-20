@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :direction="direction" v-on="$listeners" vusion-slot-name="default">
+<div :class="$style.root" :type="type" :direction="direction" v-on="$listeners" vusion-slot-name="default">
     <slot></slot>
     <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
     <div v-if="showLoading" :class="$style.mask">
@@ -24,6 +24,10 @@ export default {
         ULoading,
     },
     props: {
+        type: {
+            type: String,
+            default: '',
+        },
         loadingIcon: {
             type: String,
             default: 'loading',
@@ -58,6 +62,13 @@ export default {
 </script>
 
 <style module>
+.root[type="root"] {
+    height: 100%;
+    width: 100%;
+    min-height: 200px;
+    padding-bottom: 100px;
+}
+
 .root {
     position: relative;
 }

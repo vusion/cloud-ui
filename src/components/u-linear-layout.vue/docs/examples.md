@@ -40,7 +40,7 @@ export default {
 默认方向为`horizontal`，它只处理具有`inline`特性的组件，拉开横向的间隔；方向也可以设置为`vertical`，它只处理具有`block`特性的组件。
 
 ``` html
-<u-linear-layout direction="horizontal">
+<u-linear-layout type="root" direction="horizontal">
     <u-button>Button</u-button>
     <u-button>Button</u-button>
     <u-button>Button</u-button>
