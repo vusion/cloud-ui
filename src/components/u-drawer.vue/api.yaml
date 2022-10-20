@@ -54,13 +54,6 @@
       default: true
       description: 控制底部栏的显示
   events:
-    - name: before-open
-      title: 打开前
-      description: 打开抽屉前触发
-      params:
-        - name: senderVM
-          type: UDrawer
-          description: 发送事件实例
     - name: open
       title: 打开时
       description: 打开抽屉时触发

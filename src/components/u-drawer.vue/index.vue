@@ -116,6 +116,9 @@ export default {
     watch: {
         // @TODO: 为了让两个动画错开的临时解决方案
         currentVisible(currentVisible) {
+            if (currentVisible) {
+                this.$parent.openEvent();
+            }
             this.$nextTick(() => (this.animationVisible = currentVisible));
         },
     },

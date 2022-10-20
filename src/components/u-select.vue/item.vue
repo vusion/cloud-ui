@@ -33,6 +33,11 @@ export default {
             return this.text || this.$slots.default[0] && this.$slots.default[0].text;
         },
     },
+    mounted() {
+        this.$nextTick(() => {
+            if(this.isSelected) this.$el.scrollIntoView({ block: 'center' });         
+        });
+    },
     methods: {
         hover() {
             this.parentVM && (this.parentVM.focusedVM = this);
