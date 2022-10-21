@@ -1099,7 +1099,10 @@
       "layout",
       "type",
       "justify",
-      "alignment"
+      "alignment",
+      "loadingIcon",
+      "loadingIconRotate",
+      "loadingText"
     ],
     "description": "内部元素按照一定的规则布局"
   },
