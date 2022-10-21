@@ -735,13 +735,13 @@
   "u-drawer": {
     "attributes": [
       "visible",
-      "title",
-      "okButton",
-      "cancelButton",
+      "placement",
       "size",
-      "static",
-      "maskClosable"
-    ]
+      "maskClosable",
+      "show-head",
+      "show-foot"
+    ],
+    "description": "抽屉"
   },
   "u-dropdown": {
     "attributes": [
@@ -1622,6 +1622,7 @@
       "value-field",
       "cancelable",
       "multiple",
+      "tags-overflow",
       "converter",
       "placeholder",
       "loading-text",

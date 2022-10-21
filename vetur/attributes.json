@@ -2570,29 +2570,53 @@
     "type": "boolean",
     "description": "是否显示"
   },
-  "u-drawer/title": {
+  "u-drawer/placement": {
     "type": "string",
-    "description": "抽屉的标题"
-  },
-  "u-drawer/okButton": {
-    "type": "string",
-    "description": "确定按钮文本，如果为空则不显示"
-  },
-  "u-drawer/cancelButton": {
-    "type": "string",
-    "description": "取消按钮文本，如果为空则不显示"
+    "options": [
+      {
+        "value": "left",
+        "title": "左"
+      },
+      {
+        "value": "right",
+        "title": "右"
+      }
+    ],
+    "description": "抽屉弹出的位置"
   },
   "u-drawer/size": {
     "type": "string",
-    "description": "抽屉的尺寸。可选值：`'small'`, `'normal'`, `'large'`"
-  },
-  "u-drawer/static": {
-    "type": "boolean",
-    "description": "是否嵌入页面显示"
+    "options": [
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "auto",
+        "title": "自适应"
+      }
+    ],
+    "description": "抽屉的尺寸"
   },
   "u-drawer/maskClosable": {
     "type": "boolean",
-    "description": "是否点击遮罩时关闭抽屉"
+    "description": "点击遮罩关闭抽屉"
+  },
+  "u-drawer/show-head": {
+    "type": "boolean",
+    "description": "控制顶部栏的显示"
+  },
+  "u-drawer/show-foot": {
+    "type": "boolean",
+    "description": "控制底部栏的显示"
   },
   "u-dropdown/trigger": {
     "type": "string",
@@ -6037,6 +6061,24 @@
   "u-select/multiple": {
     "type": "boolean",
     "description": "是否可以多选"
+  },
+  "u-select/tags-overflow": {
+    "type": "string",
+    "options": [
+      {
+        "value": "hidden",
+        "title": "过多时省略"
+      },
+      {
+        "value": "collapse",
+        "title": "过多时收缩"
+      },
+      {
+        "value": "visible",
+        "title": "过多时显示"
+      }
+    ],
+    "description": "多选项过多时的展示形式"
   },
   "u-select/converter": {
     "type": "string",
