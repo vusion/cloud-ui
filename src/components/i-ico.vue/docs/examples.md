@@ -2,6 +2,7 @@
 
 ``` html
 <u-linear-layout>
+    <i-ico name=loading><u-text>加载中</u-text></i-ico>
     <i-ico name=refresh><u-text>刷新</u-text></i-ico>
     <i-ico name=download><u-text>下载</u-text></i-ico>
     <i-ico name=upload><u-text>上传</u-text></i-ico>
