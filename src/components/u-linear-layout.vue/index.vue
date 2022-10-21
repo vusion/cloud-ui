@@ -1,28 +1,77 @@
 <template>
-<div :class="$style.root" :direction="direction" v-on="$listeners" vusion-slot-name="default">
+<div :class="$style.root" :type="type" :direction="direction" v-on="$listeners" vusion-slot-name="default">
     <slot></slot>
-    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+    <s-empty v-if="type !== 'root' && (!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+    <div v-if="showLoading" :class="$style.mask">
+        <u-loading
+            :icon="loadingIcon"
+            :text="loadingText"
+            :iconRotate="loadingIconRotate"
+            :class="$style.loading">
+        </u-loading>
+    </div>
 </div>
 </template>
 
 <script>
 import SEmpty from '../s-empty.vue';
+import ULoading from '../u-loading.vue';
 
 export default {
     name: 'u-linear-layout',
     components: {
         SEmpty,
+        ULoading,
     },
     props: {
+        type: {
+            type: String,
+            default: '',
+        },
+        loadingIcon: {
+            type: String,
+            default: 'loading',
+        },
+        loadingIconRotate: {
+            type: Boolean,
+            default: true,
+        },
+        loadingText: {
+            type: String,
+            default: '',
+        },
         direction: {
             default: 'horizontal',
             validator: (value) => ['horizontal', 'vertical'].includes(value),
+        },
+    },
+    data() {
+        return {
+            showLoading: false,
+        };
+    },
+    methods: {
+        openLoading() {
+            this.showLoading = true;
+        },
+        closeLoading() {
+            this.showLoading = false;
         },
     },
 };
 </script>
 
 <style module>
+.root[type="root"] {
+    height: 100%;
+    width: 100%;
+    min-height: 200px;
+    padding-bottom: 100px;
+}
+
+.root {
+    position: relative;
+}
 /* 默认为 block */
 .root[display="inline"], .root[inline] {
     display: inline-block;
@@ -113,4 +162,20 @@ export default {
 .root[type="flex"][alignment="end"] { align-items: flex-end; }
 .root[type="flex"][alignment="baseline"] { align-items: baseline; }
 .root[type="flex"][alignment="stretch"] { align-items: stretch; }
+
+.mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--linear-layout-background);
+}
+
+.loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
 </style>

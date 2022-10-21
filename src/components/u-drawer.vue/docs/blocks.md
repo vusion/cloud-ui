@@ -5,7 +5,7 @@
     <template #title>
         <u-text text="标题"></u-text>
     </template>
-    <template #default>
+    <template #body>
         <u-text>内容</u-text>
     </template>
     <template #foot>

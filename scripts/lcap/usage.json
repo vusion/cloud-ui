@@ -796,6 +796,27 @@
                     "default": "stretch",
                     "description": "flex布局模式下的交叉轴对齐方式",
                     "advanced": true
+                },
+                {
+                    "name": "loadingIcon",
+                    "title": "加载中图标",
+                    "type": "icon",
+                    "default": "loading",
+                    "description": "加载图标"
+                },
+                {
+                    "name": "loadingIconRotate",
+                    "title": "加载中图标旋转",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "加载中图标旋转"
+                },
+                {
+                    "name": "loadingText",
+                    "title": "加载中文案",
+                    "type": "string",
+                    "default": "",
+                    "description": "加载中文案"
                 }
             ],
             "slots": [
@@ -803,6 +824,18 @@
                     "concept": "Slot",
                     "name": "default",
                     "description": "内容"
+                }
+            ],
+            "methods": [
+                {
+                    "name": "openLoading",
+                    "title": "打开加载中",
+                    "description": "打开加载中"
+                },
+                {
+                    "name": "closeLoading",
+                    "title": "关闭加载中",
+                    "description": "关闭加载中"
                 }
             ],
             "events": [
@@ -12719,6 +12752,27 @@
                     "description": "是否可以多选"
                 },
                 {
+                    "name": "tags-overflow",
+                    "title": "多选项展示形式",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "hidden",
+                            "title": "过多时省略"
+                        },
+                        {
+                            "value": "collapse",
+                            "title": "过多时收缩"
+                        },
+                        {
+                            "value": "visible",
+                            "title": "过多时显示"
+                        }
+                    ],
+                    "description": "多选项过多时的展示形式",
+                    "clearable": true
+                },
+                {
                     "name": "converter",
                     "title": "转换器",
                     "type": "string",
@@ -19632,7 +19686,7 @@
             "Feedback"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.17/src/components/u-drawer.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.17/src/components/u-drawer.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-drawer>\\n    <template #title>\\n        <u-text text=\\\"标题\\\"></u-text>\\n    </template>\\n    <template #default>\\n        <u-text>内容</u-text>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout justify=\\\"center\\\">\\n            <u-button color=\\\"primary\\\">确定</u-button>\\n            <u-button>取消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-drawer>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-drawer>\\n    <template #title>\\n        <u-text text=\\\"标题\\\"></u-text>\\n    </template>\\n    <template #body>\\n        <u-text>内容</u-text>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout justify=\\\"center\\\">\\n            <u-button color=\\\"primary\\\">确定</u-button>\\n            <u-button>取消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-drawer>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-drawer",
             "title": "抽屉",
@@ -19644,52 +19698,81 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-drawer>\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #default>\n        <u-text>内容</u-text>\n    </template>\n    <template #foot>\n        <u-linear-layout justify=\"center\">\n            <u-button color=\"primary\">确定</u-button>\n            <u-button>取消</u-button>\n        </u-linear-layout>\n    </template>\n</u-drawer>\n</template>\n"
+                    "code": "<template>\n<u-drawer>\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #body>\n        <u-text>内容</u-text>\n    </template>\n    <template #foot>\n        <u-linear-layout justify=\"center\">\n            <u-button color=\"primary\">确定</u-button>\n            <u-button>取消</u-button>\n        </u-linear-layout>\n    </template>\n</u-drawer>\n</template>\n"
                 }
             ],
             "attrs": [
                 {
                     "name": "visible",
+                    "title": "是否显示",
                     "type": "boolean",
                     "sync": true,
                     "default": false,
                     "description": "是否显示"
                 },
                 {
-                    "name": "title",
+                    "name": "placement",
+                    "title": "抽屉位置",
                     "type": "string",
-                    "default": "提示",
-                    "description": "抽屉的标题"
-                },
-                {
-                    "name": "okButton",
-                    "type": "string",
-                    "default": "确定",
-                    "description": "确定按钮文本，如果为空则不显示"
-                },
-                {
-                    "name": "cancelButton",
-                    "type": "string",
-                    "default": "取消",
-                    "description": "取消按钮文本，如果为空则不显示"
+                    "sync": true,
+                    "default": "right",
+                    "options": [
+                        {
+                            "value": "left",
+                            "title": "左"
+                        },
+                        {
+                            "value": "right",
+                            "title": "右"
+                        }
+                    ],
+                    "description": "抽屉弹出的位置"
                 },
                 {
                     "name": "size",
                     "type": "string",
+                    "title": "尺寸",
+                    "options": [
+                        {
+                            "value": "small",
+                            "title": "小"
+                        },
+                        {
+                            "value": "normal",
+                            "title": "正常"
+                        },
+                        {
+                            "value": "large",
+                            "title": "大"
+                        },
+                        {
+                            "value": "auto",
+                            "title": "自适应"
+                        }
+                    ],
                     "default": "normal",
-                    "description": "抽屉的尺寸。可选值：`'small'`, `'normal'`, `'large'`"
-                },
-                {
-                    "name": "static",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否嵌入页面显示"
+                    "description": "抽屉的尺寸"
                 },
                 {
                     "name": "maskClosable",
+                    "title": "点击遮罩关闭",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否点击遮罩时关闭抽屉"
+                    "description": "点击遮罩关闭抽屉"
+                },
+                {
+                    "name": "show-head",
+                    "title": "显示顶部栏",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "控制顶部栏的显示"
+                },
+                {
+                    "name": "show-foot",
+                    "title": "显示底部栏",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "控制底部栏的显示"
                 }
             ],
             "events": [

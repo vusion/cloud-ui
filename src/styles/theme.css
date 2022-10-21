@@ -725,6 +725,11 @@
     --list-item-background-striped: var(--background-color-lighter);
     --list-item-background-hover: var(--background-color-lighter);
 
+
+    /* @component u-loading */
+    --loading-icon-color: var(--gray-base);
+    --loading-text-color: var(--font-second-color);
+
     /* @component u-desc-list @hidden */
     --desc-list-item-label-padding-right: 20px;
     --desc-list-item-label-padding-right-mini: 10px;
@@ -1588,6 +1593,7 @@
     --drawer-width: 240px;
     --drawer-width-small: 160px;
     --drawer-width-large: 400px;
+    --drawer-width-huge: 600px;
     --drawer-wrap-background: rgba(0, 0, 0, 0.6);
     --drawer-background: white;
     --drawer-close-size: 15px;
@@ -1608,6 +1614,9 @@
     --lightbox-icon-background-hover: #121212;
     --lightbox-icon-background-disabled: #666;
     --lightbox-icon-color: white;
+
+    /* @component u-linear-layout */
+    --linear-layout-background: rgba(255,255,255,0.5);
 
     /* @component u-skeleton @hidden */
     --skeleton-background: var(--background-color-base);
@@ -1672,7 +1681,7 @@
     --datepicker-input-background-disabled: var(--input-background-disabled); /* @type color */ /* @desc 日期选择器输入框背景颜色（禁用状态）,如：1px */
     --datepicker-input-border-color-error: var(--input-border-color-error); /* hidden */ /* @desc 日期选择器输入框边框颜色（错误状态）,如：1px */
     --datepicker-input-border-color-focus: var(--input-border-color-focus); /* hidden */ /* @desc 日期选择器输入框边框颜色（选中状态）,如：1px */
-    --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus); /* hidden */ 
+    --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus); /* hidden */
     --datepicker-input-placeholder-color: var(--input-placeholder-color); /* @type color */ /* @desc 日期选择器输入框提示字体颜色,如：#223325 */
     --datepicker-popper-box-shadow: var(--select-popper-box-shadow); /* hidden */
     --datepicker-popper-border-radius: var(--border-radius-base); /* hidden */

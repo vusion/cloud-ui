@@ -58,9 +58,8 @@
                     "space-between"
                 ],
                 "cssProperty": {
-                    "--space-base": {
-                        "type": "input",
-                        "desc": "布局内各元素之间的外间距, 如：1px"
+                    "--linear-layout-background": {
+                        "type": "input"
                     }
                 },
                 "preview": {
