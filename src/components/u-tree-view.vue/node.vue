@@ -26,7 +26,7 @@
             :style="{ width : expanderWidth? expanderWidth + 'px':'' }"
             :dragover="expanderDragover"></div>
         <div :class="$style.text" :style="{ marginLeft : expanderWidth? expanderWidth + 'px':'' }" :draggable="draggable || rootVM.draggable">
-            <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop>
+            <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="clickCheck($event.value)" @click.native.stop>
                 <u-tooltip v-if="node.checkboxTooltip"
                     :placement="node.checkboxTooltip.placement"
                     :trigger="node.checkboxTooltip.trigger"
@@ -411,6 +411,10 @@ export default {
                 else
                     parentVM.checkRecursively(null, 'up');
             }
+        },
+        clickCheck(checked) {
+            this.$emit('click:check', checked);
+            this.check(checked);
         },
         check(checked) {
             const oldChecked = this.currentChecked;
