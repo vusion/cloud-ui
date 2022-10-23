@@ -26,7 +26,15 @@
             :style="{ width : expanderWidth? expanderWidth + 'px':'' }"
             :dragover="expanderDragover"></div>
         <div :class="$style.text" :style="{ marginLeft : expanderWidth? expanderWidth + 'px':'' }" :draggable="draggable || rootVM.draggable">
-            <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
+            <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop>
+                <u-tooltip v-if="node.checkboxTooltip"
+                    :placement="node.checkboxTooltip.placement"
+                    :trigger="node.checkboxTooltip.trigger"
+                    :hover-deplay="node.checkboxTooltip.hoverDelay"
+                    arraw-size="small">
+                    {{ node.checkboxTooltip.message }}
+                </u-tooltip>
+            </u-checkbox>
             <f-slot name="text" :vm="currentTextSlotVM" :props="{
                 data: node && $at(node, currentChildrenField),
                 text,
@@ -215,7 +223,7 @@ export default {
         },
         nodeVMs() {
             this.rootVM.selectedVM = undefined;
-            this.rootVM.watchValue(this.rootVM.value);                
+            this.rootVM.watchValue(this.rootVM.value);
         },
         currentExpanded(currentExpanded) {
             if (currentExpanded)
@@ -238,7 +246,8 @@ export default {
     mounted() {
         const waitUntilSelected = 1;
         setTimeout(() => {
-            if(this.selected) this.$el.scrollIntoView({ block: 'center' });         
+            if (this.selected)
+                this.$el.scrollIntoView({ block: 'center' });
         }, waitUntilSelected);
     },
 
@@ -476,7 +485,8 @@ export default {
 
             let { filterText, filterFields } = this.rootVM;
             filterText = filterText.trim().toLowerCase();
-            if(!filterText) return;
+            if (!filterText)
+                return;
 
             const { currentFields, node, $at } = this;
 
