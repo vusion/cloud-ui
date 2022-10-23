@@ -40,7 +40,7 @@
         <div :class="$style.status" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
             <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
         </div>
-        <div :class="$style.status" v-else-if="(pageable === 'auto-more' || pageable === 'load-more') && !currentDataSource.hasMore() && hasScroll">
+        <div :class="$style.status" v-else-if="(pageable === 'auto-more' || pageable === 'load-more') && !currentDataSource.hasMore() && (currentData && currentData.length) && hasScroll">
             {{ $t('noMore') }}
         </div>
         <div :class="$style.status" v-else-if="currentData && !currentData.length">
