@@ -54,11 +54,11 @@ export default {
             const current = this.$route;
             let to = this.to;
             if (this.destination) {
-                const destination = this.destination.split('/');
-                const baseDestination = destination.splice(1, 1);
-                to = destination.join('/');
-                if (!to || '/' + baseDestination !== this.$router.options.base)
-                    return false;
+                if (this.destination.startsWith('http')) {
+                    location.href = encodeUrl(this.destination);
+                    return;
+                }
+                to = this.destination;
             }
             const target = this.$router.resolve(to).route;
             const currentPath = decodeURIComponent(current.path.replace(trailingSlashRE, '/'));
