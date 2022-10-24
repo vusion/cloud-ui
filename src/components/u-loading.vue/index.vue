@@ -47,6 +47,7 @@ export default {
     width: 24px;
     height: 24px;
     line-height: 24px;
+    font-size: 24px;
     color: var(--loading-icon-color);
 }
 
@@ -54,12 +55,14 @@ export default {
     width: 16px;
     height: 16px;
     line-height: 16px;
+    font-size: 16px;
 }
 
 .root[size="large"] .icon {
     width: 40px;
     height: 40px;
     line-height: 40px;
+    font-size: 40px;
 }
 
 .rotate {
