@@ -15,14 +15,12 @@ export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns)
     Object.keys(sheet).forEach((item) => {
         const cell = sheet[item];
         // console.log('cell', cell);
-        const dateRegx = /\d{2,4}-\d{2,4}-\d{2,4}/;
+        const dateRegx = /^\d{2,4}-\d{2,4}-\d{2,4}$/;
         const value = cell.v;
         if (cell.t === 's' && value.indexOf('%') > -1) {
             cell.z = '0.00%';
             cell.t = 'n';
             cell.v = Number(value.substring(0, value.length - 1)) / 100;
-        } else if (!isNaN(Number(value))) {
-            cell.t = 'n';
         } else if (dateRegx.test(value)) {
             cell.t = 'd';
         }
