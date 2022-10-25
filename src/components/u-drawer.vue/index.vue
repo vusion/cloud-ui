@@ -47,11 +47,11 @@
                                 <s-empty
                                     v-if="(!$slots.foot) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                                 <u-linear-layout gap="small" v-else>
-                                    <u-button :class="$style.button" v-if="cancelButton" @click="cancel()">
-                                        {{ cancelButton }}
-                                    </u-button>
                                     <u-button :class="$style.button" v-if="okButton" color="primary" @click="ok()">
                                         {{ okButton }}
+                                    </u-button>
+                                    <u-button :class="$style.button" v-if="cancelButton" @click="cancel()">
+                                        {{ cancelButton }}
                                     </u-button>
                                 </u-linear-layout>
                             </slot>
@@ -210,9 +210,12 @@ export default {
     padding: var(--drawer-body-padding);
 }
 
-.foot {
-    text-align: center;
+.root .foot {
+    position: fixed;
+    width: 100%;
     padding: var(--drawer-foot-padding);
+    border-top: 1px solid var(--gray-lightest);
+    bottom: 0;
 }
 
 .root[static] {
