@@ -938,7 +938,7 @@
      */
 
     /* @component u-form */
-    --form-item-label-color: var(--color-light); /* @type color */ /* @desc 表单项 label字体颜色,如 #223325 */
+    --form-item-label-color: var(--font-second-color); /* @type color */ /* @desc 表单项 label字体颜色,如 #223325 */
     --form-item-label-padding-right: 20px; /* @desc 表单项 label文本右边距,如 1px */
     --form-item-label-width: 76px; /* @desc 表单项 label宽度,如 1px */
 
