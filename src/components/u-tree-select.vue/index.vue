@@ -232,8 +232,8 @@ export default {
         setTimeout(() => this.$forceUpdate());
     },
     methods: {
-        handleDataSourceObj(list) {
-            if(Array.isArray(list) && list.length) {
+        handleDataSourceObj(list = []) {
+            if(Array.isArray(list)) {
                 this.dataSourceObj = {};
                 this.trans2Obj(this.dataSourceObj, list);
             }
