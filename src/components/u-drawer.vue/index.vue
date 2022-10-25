@@ -15,7 +15,7 @@
                      @click.stop>
                     <slot name="inject"></slot>
                     <slot name="drawer">
-                        <div :class="$style.head" v-if="showHead" vusion-slot-name="head" :child-cut-disabled="true">
+                        <div :class="$style.head" v-show="showHead" vusion-slot-name="head" :child-cut-disabled="true">
                             <slot name="head">
                                 <div v-if="title" :class="$style.title" vusion-slot-name="title"
                                      vusion-slot-name-edit="title" :child-cut-disabled="true">
@@ -40,7 +40,7 @@
                                 </template>
                             </slot>
                         </div>
-                        <div :class="$style.foot" v-if="showFoot && (okButton || cancelButton)" vusion-slot-name="foot"
+                        <div :class="$style.foot" v-show="showFoot && (okButton || cancelButton)" vusion-slot-name="foot"
                              :child-cut-disabled="true">
 
                             <slot name="foot">
@@ -101,7 +101,7 @@ export default {
         },
         size: {
             type: String,
-            default: '',
+            default: 'normal',
         },
 
     },
@@ -212,7 +212,7 @@ export default {
 
 .root .foot {
     position: fixed;
-    width: 100%;
+    width: inherit;
     padding: var(--drawer-foot-padding);
     border-top: 1px solid var(--gray-lightest);
     bottom: 0;
