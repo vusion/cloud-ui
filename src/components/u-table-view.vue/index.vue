@@ -1319,6 +1319,7 @@ export default {
                             }
                         });
                     }
+                    this.processData(result);
                     this.$setAt(item, this.childrenField, result);
                     // 促使currentData更新
                     const index = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(item, this.valueField));
