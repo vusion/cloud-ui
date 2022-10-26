@@ -494,7 +494,7 @@ export default {
             if (this.currentLoading)
                 return;
             const el = e.target;
-            if (el.scrollHeight === el.scrollTop + el.clientHeight && this.currentDataSource && this.currentDataSource.hasMore())
+            if (el.scrollHeight === Math.floor(el.scrollTop + el.clientHeight) && this.currentDataSource && this.currentDataSource.hasMore())
                 this.debouncedLoad(true);
         },
         onInput(value) {
