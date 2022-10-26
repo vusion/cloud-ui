@@ -65,6 +65,7 @@ export default {
         disabled: { type: Boolean, default: false },
         disabledScroll: { type: Boolean, default: false },
         disabledClose: { type: Boolean, default: false },
+        enableContentScroll: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -268,12 +269,16 @@ export default {
                     }, this.hoverDelay);
                 }));
                 this.offEvents.push(ev.on(document, 'mousewheel', () => {
-                    this.clearTimers();
-                    this.close();
+                    if (!this.enableContentScroll) {
+                        this.clearTimers();
+                        this.close();
+                    }
                 }));
                 this.offEvents.push(ev.on(document, 'DOMMouseScroll', () => {
-                    this.clearTimers();
-                    this.close();
+                    if (!this.enableContentScroll) {
+                        this.clearTimers();
+                        this.close();
+                    }
                 }));
                 this.offEvents.push(ev.on(el, 'mouseleave', () => {
                     this.clearTimers();
