@@ -372,7 +372,7 @@ export default {
             return data;
         },
         visibleColumnVMs() {
-            return this.columnVMs.filter((columnVM) => !columnVM.hidden);
+            return this.columnVMs.filter((columnVM) => !columnVM.currentHidden);
         },
         expanderColumnVM() {
             return this.columnVMs.find((columnVM) => columnVM.type === 'expander');
@@ -402,7 +402,7 @@ export default {
                 return null;
         },
         treeColumnIndex() {
-            const vms = this.columnVMs.filter((columnVM) => !columnVM.hidden);
+            const vms = this.columnVMs.filter((columnVM) => !columnVM.currentHidden);
             let treeColumnIndex = vms.findIndex((columnVM) => columnVM.type === 'tree');
             if (treeColumnIndex === -1) {
                 treeColumnIndex = vms.findIndex((columnVM) => ['index', 'radio', 'checkbox'].includes(columnVM.type));

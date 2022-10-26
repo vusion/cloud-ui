@@ -41,6 +41,7 @@ export default {
             currentWidth: this.width === undefined ? undefined : this.width + '',
             computedWidth: this.width === undefined ? undefined : this.width + '',
             currentFormatter: undefined,
+            currentHidden: this.hidden,
         };
         if (typeof this.formatter === 'object')
             data.currentFormatter = this.formatter;
@@ -62,6 +63,9 @@ export default {
             this.currentWidth = width === undefined ? undefined : width + '';
             this.computedWidth = width === undefined ? undefined : width + '';
             // this.parentVM.handleResize(); // 暂时不需要，dataSource 会触发此方法
+        },
+        hidden(value) {
+            this.currentHidden = value;
         },
     },
     created() {
