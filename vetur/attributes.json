@@ -4324,6 +4324,18 @@
     ],
     "description": "flex布局模式下的交叉轴对齐方式"
   },
+  "u-linear-layout/loadingIcon": {
+    "type": "icon",
+    "description": "加载图标"
+  },
+  "u-linear-layout/loadingIconRotate": {
+    "type": "boolean",
+    "description": "加载中图标旋转"
+  },
+  "u-linear-layout/loadingText": {
+    "type": "string",
+    "description": "加载中文案"
+  },
   "u-linear-progress/percent": {
     "type": "number",
     "description": "进度条显示的进度百分比，1-100之间的数字"

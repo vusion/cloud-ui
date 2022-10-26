@@ -15,7 +15,7 @@
                      @click.stop>
                     <slot name="inject"></slot>
                     <slot name="drawer">
-                        <div :class="$style.head" v-if="showHead" vusion-slot-name="head" :child-cut-disabled="true">
+                        <div :class="$style.head" v-show="showHead" vusion-slot-name="head" :child-cut-disabled="true">
                             <slot name="head">
                                 <div v-if="title" :class="$style.title" vusion-slot-name="title"
                                      vusion-slot-name-edit="title" :child-cut-disabled="true">
@@ -40,18 +40,18 @@
                                 </template>
                             </slot>
                         </div>
-                        <div :class="$style.foot" v-if="showFoot && (okButton || cancelButton)" vusion-slot-name="foot"
+                        <div :class="$style.foot" v-show="showFoot && (okButton || cancelButton)" vusion-slot-name="foot"
                              :child-cut-disabled="true">
 
                             <slot name="foot">
                                 <s-empty
                                     v-if="(!$slots.foot) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                                 <u-linear-layout gap="small" v-else>
-                                    <u-button :class="$style.button" v-if="cancelButton" @click="cancel()">
-                                        {{ cancelButton }}
-                                    </u-button>
                                     <u-button :class="$style.button" v-if="okButton" color="primary" @click="ok()">
                                         {{ okButton }}
+                                    </u-button>
+                                    <u-button :class="$style.button" v-if="cancelButton" @click="cancel()">
+                                        {{ cancelButton }}
                                     </u-button>
                                 </u-linear-layout>
                             </slot>
@@ -101,7 +101,7 @@ export default {
         },
         size: {
             type: String,
-            default: '',
+            default: 'normal',
         },
 
     },
@@ -116,7 +116,7 @@ export default {
     watch: {
         // @TODO: 为了让两个动画错开的临时解决方案
         currentVisible(currentVisible) {
-            if (currentVisible) {
+            if (currentVisible && !this.$env.VUE_APP_DESIGNER) {
                 this.$parent.openEvent();
             }
             this.$nextTick(() => (this.animationVisible = currentVisible));
@@ -210,9 +210,12 @@ export default {
     padding: var(--drawer-body-padding);
 }
 
-.foot {
-    text-align: center;
+.root .foot {
+    position: fixed;
+    width: inherit;
     padding: var(--drawer-foot-padding);
+    border-top: 1px solid var(--gray-lightest);
+    bottom: 0;
 }
 
 .root[static] {

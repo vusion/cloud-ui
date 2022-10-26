@@ -1601,7 +1601,7 @@
     --drawer-close-color-hover: var(--gray-darker);
     --drawer-head-padding: 15px;
     --drawer-body-padding: 15px;
-    --drawer-foot-padding: 20px 15px;
+    --drawer-foot-padding: 20px 24px;
     --drawer-static-padding: var(--space-base);
 
     /* @component u-image */

@@ -98,15 +98,11 @@ export default {
                 // @TODO: 考虑使用快捷键抛出事件，阻止流程的需求
                 let to;
                 if (this.destination) {
-                    // 只处理/a/b形式的链接
-                    const origin = location.origin;
-                    const path = location.href.replace(origin, '').split('/');
-                    const destination = this.destination.replace(origin, '').split('/');
-                    if (path[1] === destination[1]) {
-                        to = '/' + destination.slice(2).join('/');
-                    } else {
+                    if (this.destination.startsWith('http')) {
+                        location.href = encodeUrl(this.destination);
                         return;
                     }
+                    to = this.destination;
                 }
                 if (e.ctrlKey || e.shiftKey || e.metaKey || e.altKey)
                     return;

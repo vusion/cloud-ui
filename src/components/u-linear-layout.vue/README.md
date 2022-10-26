@@ -13,6 +13,7 @@
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
     - [Events](#events)
+    - [Methods](#methods)
 
 **Layout**
 
@@ -29,12 +30,29 @@
 
 一般具有`inline`特性的组件，可以直接在外面套一个`<u-linear-layout>`，就会拉开间隔。
 
-``` html
-<u-linear-layout>
-    <u-button>Button</u-button>
-    <u-button>Button</u-button>
-    <u-button>Button</u-button>
-</u-linear-layout>
+``` vue
+<template>
+<div>
+    <u-linear-layout 
+        :loadingIconRotate="false"
+        style="height: 200px; border: 1px solid #aaa; padding: 20px; margin: 20px;" ref="linearLayout"></u-linear-layout>
+    <u-button @click="onOpen">打开加载</u-button>
+    <u-button @click="onClose">关闭加载</u-button>
+</div>
+</template>
+
+<script>
+export default {
+    methods: {
+        onOpen() {
+            this.$refs.linearLayout.openLoading();
+        },
+        onClose() {
+            this.$refs.linearLayout.closeLoading();
+        }
+    }
+}
+</script>
 ```
 
 ### 方向
@@ -42,7 +60,7 @@
 默认方向为`horizontal`，它只处理具有`inline`特性的组件，拉开横向的间隔；方向也可以设置为`vertical`，它只处理具有`block`特性的组件。
 
 ``` html
-<u-linear-layout direction="horizontal">
+<u-linear-layout type="root" direction="horizontal">
     <u-button>Button</u-button>
     <u-button>Button</u-button>
     <u-button>Button</u-button>
@@ -245,6 +263,9 @@
 | type | string | `[object Object]` |  | 布局模式 |
 | justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | 内容对齐方式 |
 | alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | flex布局模式下的交叉轴对齐方式 |
+| loadingIcon | icon |  | `'loading'` | 加载图标 |
+| loadingIconRotate | boolean |  | `true` | 加载中图标旋转 |
+| loadingText | string |  | `''` | 加载中文案 |
 
 ### Slots
 
@@ -260,4 +281,14 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+
+Methods
+
+#### openLoading()
+
+打开加载中
+
+#### closeLoading()
+
+关闭加载中
 

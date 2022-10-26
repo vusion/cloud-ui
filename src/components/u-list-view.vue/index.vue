@@ -40,7 +40,7 @@
         <div :class="$style.status" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
             <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
         </div>
-        <div :class="$style.status" v-else-if="(pageable === 'auto-more' || pageable === 'load-more') && !currentDataSource.hasMore()">
+        <div :class="$style.status" v-else-if="(pageable === 'auto-more' || pageable === 'load-more') && !currentDataSource.hasMore() && (currentData && currentData.length) && hasScroll">
             {{ $t('noMore') }}
         </div>
         <div :class="$style.status" v-else-if="currentData && !currentData.length">
@@ -163,6 +163,7 @@ export default {
             // virtualTop: 0,
             // virtualBottom: 0,
             filterText: '', // 过滤文本，只有 input 时会改变它
+            hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
         };
     },
     computed: {
@@ -486,6 +487,7 @@ export default {
             this.$emit('update:page-number', number, this);
         },
         onScroll(e) {
+            this.hasScroll = true;
             this.throttledVirtualScroll(e);
             if (!(this.pageable === 'auto-more' || (this.pageable === true && this.$options.isSelect)))
                 return;

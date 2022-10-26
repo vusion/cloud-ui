@@ -99,6 +99,25 @@
 </u-form>
 ```
 
+### 垂直布局
+
+``` html
+<u-form layout="vertical">
+    <u-form-item label="计费方式" required>
+        <u-radios value="0">
+            <u-radio label="0">包年包月</u-radio>
+            <u-radio label="1">按量付费</u-radio>
+        </u-radios>
+    </u-form-item>
+    <u-form-item label="实例名称" required description="高性能 SSD 云盘不支持快照功能">
+        <u-input size="huge" maxlength="63" placeholder="由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾"></u-input>
+    </u-form-item>
+    <u-form-item>
+        <u-button color="primary">查询</u-button>
+    </u-form-item>
+</u-form>
+```
+
 ### 插槽
 
 - 通过`slot="label"`插槽自定义左侧内容

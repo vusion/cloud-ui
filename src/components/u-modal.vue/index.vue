@@ -141,7 +141,6 @@ export const UModal = {
             }
             this.currentVisible = true;
             this.$emit('open');
-            console.log('1111111111');
         },
         close(ok) {
             if (this.$emitPrevent('before-close', { ok }, this))

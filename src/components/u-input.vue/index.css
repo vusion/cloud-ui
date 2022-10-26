@@ -319,6 +319,7 @@
     width: 100%;
     padding-left: var(--input-padding-x-full);
     padding-right: var(--input-padding-x-full);
+    min-width: initial;
 }
 
 .root[height="full"] {

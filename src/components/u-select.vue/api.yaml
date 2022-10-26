@@ -476,7 +476,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: "#/systemTypes/DataSourceParam"
+            $ref: "#/systemTypes/DataSourceParams"
         - name: $event.filterText
           type: string
           description: 搜索值

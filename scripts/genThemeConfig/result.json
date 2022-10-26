@@ -2235,9 +2235,18 @@
                 "toPosition": "transfer",
                 "type": [],
                 "cssProperty": {
-                    "--transfer-height": "input",
-                    "--transfer-width": "input",
-                    "--transfer-button-space": "input"
+                    "--transfer-height": {
+                        "type": "input",
+                        "desc": "穿梭框高度,如 302px"
+                    },
+                    "--transfer-width": {
+                        "type": "input",
+                        "desc": "穿梭框宽度,如 280px"
+                    },
+                    "--transfer-button-space": {
+                        "type": "input",
+                        "desc": "穿梭按钮间隔,如 8px"
+                    }
                 },
                 "preview": {
                     "template": "<u-transfer show-head\n    source-title=\"左列表\"\n    target-title=\"右列表\"\n    :source=\"source\"\n    :target=\"target\">\n</u-transfer>",
