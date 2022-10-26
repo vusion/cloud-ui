@@ -908,7 +908,7 @@
     --tree-view-node-expander-size-mini: 26px; /* @hidden */
     --tree-view-node-background-active-inverse: var(--background-color-base-inverse); /* @hidden */
     --tree-view-node-background-selected-inverse: var(--brand-primary-light); /* @hidden */
-    --tree-view-node-background-border-radius: var(--border-radius-base); /* @hidden */
+    --tree-view-node-background-border-radius: none; /* @hidden */
     --tree-view-node-color-selected-inverse: white; /* @hidden */
     --tree-view-node-color-disabled: var(--brand-disabled); /* @hidden */
     --tree-view-node-color-disabled-inverse: var(--brand-disabled); /* @hidden */
