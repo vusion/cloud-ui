@@ -905,8 +905,8 @@ export default {
                 this.$toast.show('页数page必须大于0');
                 return;
             }
-            if (!(typeof size === 'number' && size > 0 && size <= 2000)) {
-                this.$toast.show('数据条数size必须在1-2000之间');
+            if (!(typeof size === 'number' && size > 0 && size <= 200000)) {
+                this.$toast.show('数据条数size必须在1-200000之间');
                 return;
             }
             const fn = (event) => {
