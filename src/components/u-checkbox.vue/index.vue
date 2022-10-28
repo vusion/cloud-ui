@@ -6,7 +6,7 @@
     <slot></slot>
     <span vusion-slot-name="item">
         <slot name="item" :item="node">{{ text }}</slot>
-        <s-empty v-if="!$slots.item && !text && $env.VUE_APP_DESIGNER" inline :class="$style.empty"></s-empty>
+        <s-empty v-if="!$slots.item && !text && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']" inline :class="$style.empty"></s-empty>
     </span>
 </label>
 </template>
