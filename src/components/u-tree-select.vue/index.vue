@@ -244,7 +244,7 @@ export default {
             // dirty hack：每次插槽变化时，vue都会将实例上的$slots对象重新赋值
             this.slots = this.$slots;
             this.vnodes = this.collectTreeNode(this.$slots.default);
-            this.handleDataSourceObj(this.vnodes);
+            this.handleDataSourceObj([...(this.vnodes || []), ...(this.currentDataSource?.data || [])]);
         },
         // 收集节点数据
         collectTreeNode(vnodes) {
@@ -325,7 +325,7 @@ export default {
         },
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
-            this.handleDataSourceObj(this.currentDataSource.data);
+            this.handleDataSourceObj([...(this.vnodes || []), ...(this.currentDataSource.data || [])]);
         },
         // 如果有选中值，且没有被查到，且数据可以加载
         loadUntilSelectedItem() {
@@ -455,7 +455,7 @@ export default {
         },
         load(params) {
             this.currentDataSource.load(params).then(() => {
-              this.handleDataSourceObj(this.currentDataSource.data);
+                this.handleDataSourceObj([...(this.vnodes || []), ...(this.currentDataSource.data || [])]);
             });
         },
     },
