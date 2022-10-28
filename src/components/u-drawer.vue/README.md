@@ -233,7 +233,7 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | visible.sync | boolean |  | `false` | 是否显示 |
 | placement.sync | string | `[object Object]`<br/>`[object Object]` | `'right'` | 抽屉弹出的位置 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 抽屉的尺寸 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 抽屉的尺寸 |
 | maskClosable | boolean |  | `true` | 点击遮罩关闭抽屉 |
 | show-head | boolean |  | `true` | 控制顶部栏的显示 |
 | show-foot | boolean |  | `true` | 控制底部栏的显示 |
