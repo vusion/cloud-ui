@@ -1348,6 +1348,7 @@ export default {
 | value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
 | cancelable | boolean |  | `false` |  |
 | multiple | boolean |  | `false` | 是否可以多选 |
+| tags-overflow | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 多选项过多时的展示形式 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。 |
 | placeholder | string |  | `'请选择'` | 选择框的占位符 |
 | loading-text | string |  | `'加载中...'` | 正在加载中的文字，使用分页加载时才会出现 |

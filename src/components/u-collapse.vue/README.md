@@ -15,7 +15,6 @@
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
     - [Events](#events)
-    - [Methods](#methods)
 - [UCollapseItem API](#ucollapseitem-api)
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
@@ -167,25 +166,26 @@
 
 ### Events
 
-#### @toggle
+#### @expand
 
-展开/折叠某面板时触发
+展开此面板时触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | object | 自定义事件对象 |
-| $event.expanded | boolean | 展开/折叠状态 |
 | $event.itemVM | UCollapseItem | 面板组件 |
+| $event.preventDefault | Function | 阻止展开/折叠流程 |
+| senderVM | Vue | 发送事件实例 |
 
-Methods
+#### @collapse
 
-#### toggleAll(expanded)
+折叠某面板时触发
 
-展开/折叠所有面板
-
-| Param | Type | Default | Description |
-| ----- | ---- | ------- | ----------- |
-| expanded | boolean |  | 展开/折叠 |
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.itemVM | UCollapseItem | 面板组件 |
+| senderVM | Vue | 发送事件实例 |
 
 ## UCollapseItem API
 ### Props/Attrs
@@ -212,26 +212,24 @@ Methods
 
 ### Events
 
-#### @before-toggle
+#### @expand
 
-展开/折叠此面板前触发
+展开此面板时触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | object | 自定义事件对象 |
-| $event.expanded | boolean | 展开/折叠状态 |
 | $event.itemVM | UCollapseItem | 面板组件 |
 | $event.preventDefault | Function | 阻止展开/折叠流程 |
 | senderVM | Vue | 发送事件实例 |
 
-#### @toggle
+#### @collapse
 
-展开/折叠某面板时触发
+折叠某面板时触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | object | 自定义事件对象 |
-| $event.expanded | boolean | 展开/折叠状态 |
 | $event.itemVM | UCollapseItem | 面板组件 |
 | senderVM | Vue | 发送事件实例 |
 

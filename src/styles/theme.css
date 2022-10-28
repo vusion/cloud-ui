@@ -379,6 +379,7 @@
     --sidebar-item-icon-font-size: 16px;
     --sidebar-item-icon-color: var(--gray-light);
     --sidebar-item-icon-color-hover: var(--sidebar-item-icon-color);
+    --sidebar-group-padding-left: 10px;
     --sidebar-group-head-height: 52px;
     --sidebar-group-head-padding-left: 20px;
     --sidebar-group-head-font-weight: var(--font-weight-bold);
@@ -724,6 +725,11 @@
     --list-item-background-striped: var(--background-color-lighter);
     --list-item-background-hover: var(--background-color-lighter);
 
+
+    /* @component u-loading */
+    --loading-icon-color: var(--gray-base);
+    --loading-text-color: var(--font-second-color);
+
     /* @component u-desc-list @hidden */
     --desc-list-item-label-padding-right: 20px;
     --desc-list-item-label-padding-right-mini: 10px;
@@ -902,7 +908,7 @@
     --tree-view-node-expander-size-mini: 26px; /* @hidden */
     --tree-view-node-background-active-inverse: var(--background-color-base-inverse); /* @hidden */
     --tree-view-node-background-selected-inverse: var(--brand-primary-light); /* @hidden */
-    --tree-view-node-background-border-radius: var(--border-radius-base); /* @hidden */
+    --tree-view-node-background-border-radius: none; /* @hidden */
     --tree-view-node-color-selected-inverse: white; /* @hidden */
     --tree-view-node-color-disabled: var(--brand-disabled); /* @hidden */
     --tree-view-node-color-disabled-inverse: var(--brand-disabled); /* @hidden */
@@ -932,7 +938,7 @@
      */
 
     /* @component u-form */
-    --form-item-label-color: var(--color-light); /* @type color */ /* @desc 表单项 label字体颜色,如 #223325 */
+    --form-item-label-color: var(--font-second-color); /* @type color */ /* @desc 表单项 label字体颜色,如 #223325 */
     --form-item-label-padding-right: 20px; /* @desc 表单项 label文本右边距,如 1px */
     --form-item-label-width: 76px; /* @desc 表单项 label宽度,如 1px */
 
@@ -1587,6 +1593,7 @@
     --drawer-width: 240px;
     --drawer-width-small: 160px;
     --drawer-width-large: 400px;
+    --drawer-width-huge: 600px;
     --drawer-wrap-background: rgba(0, 0, 0, 0.6);
     --drawer-background: white;
     --drawer-close-size: 15px;
@@ -1594,7 +1601,7 @@
     --drawer-close-color-hover: var(--gray-darker);
     --drawer-head-padding: 15px;
     --drawer-body-padding: 15px;
-    --drawer-foot-padding: 20px 15px;
+    --drawer-foot-padding: 20px 24px;
     --drawer-static-padding: var(--space-base);
 
     /* @component u-image */
@@ -1607,6 +1614,9 @@
     --lightbox-icon-background-hover: #121212;
     --lightbox-icon-background-disabled: #666;
     --lightbox-icon-color: white;
+
+    /* @component u-linear-layout */
+    --linear-layout-background: rgba(255,255,255,0.5);
 
     /* @component u-skeleton @hidden */
     --skeleton-background: var(--background-color-base);
@@ -1671,7 +1681,7 @@
     --datepicker-input-background-disabled: var(--input-background-disabled); /* @type color */ /* @desc 日期选择器输入框背景颜色（禁用状态）,如：1px */
     --datepicker-input-border-color-error: var(--input-border-color-error); /* hidden */ /* @desc 日期选择器输入框边框颜色（错误状态）,如：1px */
     --datepicker-input-border-color-focus: var(--input-border-color-focus); /* hidden */ /* @desc 日期选择器输入框边框颜色（选中状态）,如：1px */
-    --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus); /* hidden */ 
+    --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus); /* hidden */
     --datepicker-input-placeholder-color: var(--input-placeholder-color); /* @type color */ /* @desc 日期选择器输入框提示字体颜色,如：#223325 */
     --datepicker-popper-box-shadow: var(--select-popper-box-shadow); /* hidden */
     --datepicker-popper-border-radius: var(--border-radius-base); /* hidden */

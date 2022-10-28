@@ -82,6 +82,7 @@ export default {
 <style module>
 .root {
     position: relative;
+    padding-left: var(--sidebar-group-padding-left);
 }
 
 .head {

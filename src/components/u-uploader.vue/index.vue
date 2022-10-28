@@ -407,20 +407,27 @@ export default {
                     item.response = res;
                     item.showProgress = false;
 
+                    const value = this.toValue(this.currentValue);
+                    this.$emit('input', value);
+                    this.$emit('update:value', value);
+
                     this.$emit('success', {
                         res,
                         file,
                         item,
                         xhr,
                     }, this);
-
-                    const value = this.toValue(this.currentValue);
-                    this.$emit('input', value);
-                    this.$emit('update:value', value);
                 },
                 onError: (e, res) => {
                     const item = this.currentValue[index];
                     item.status = 'error';
+
+                    const value = this.toValue(this.currentValue);
+                    this.$emit('input', value);
+                    this.$emit('update:value', value);
+                    const errorMessage = `文件${file.name}上传接口调用失败`;
+                    this.errorMessage.push(errorMessage);
+
                     this.$emit('error', {
                         e,
                         res,
@@ -428,12 +435,6 @@ export default {
                         item,
                         xhr,
                     }, this);
-
-                    const value = this.toValue(this.currentValue);
-                    this.$emit('input', value);
-                    this.$emit('update:value', value);
-                    const errorMessage = `文件${file.name}上传接口调用失败`;
-                    this.errorMessage.push(errorMessage);
                 },
             });
         },

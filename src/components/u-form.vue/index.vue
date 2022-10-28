@@ -34,11 +34,11 @@ export default {
         },
         layoutValue() {
             if (this.repeat > 0) {
-                return 'inline'
+                return 'inline';
             } else {
-                return this.layout
+                return this.layout;
             }
-        }
+        },
     },
     watch: {
         model: {
@@ -128,7 +128,34 @@ export default {
     visibility: hidden;
 }
 
-.root[gap="large"][layout="block"] .item:not(:last-child) {
+.root[layout="vertical"] .item:not(:last-child) {
+    margin-bottom: var(--form-item-margin-bottom);
+}
+
+.root[layout="vertical"] .item > label{
+    display: inline-flex;
+    width: 100%;
+    padding-right: 0;
+    align-items: center;
+    margin-bottom: 4px;
+}
+.root[layout="vertical"] .item > label[required]::after {
+    position: initial;
+    display: inline-block;
+    margin-left: 4px;
+    line-height: 16px;
+}
+.root[layout="vertical"] .item > label:empty{
+    display: none;
+}
+.root[layout="vertical"] .item > [class^="u-form_item_field__"],
+.root[layout="vertical"] .item > [class^="u-form_item_field__"] > [class^="u-form_item_wrap__"] {
+    display: block;
+    max-width: 100%;
+}
+
+.root[gap="large"][layout="block"] .item:not(:last-child),
+.root[gap="large"][layout="vertical"] .item:not(:last-child) {
     margin-bottom: var(--form-item-margin-bottom-large);
 }
 
@@ -136,7 +163,8 @@ export default {
     padding-right: var(--space-large);
 }
 
-.root[gap="small"][layout="block"] .item:not(:last-child) {
+.root[gap="small"][layout="block"] .item:not(:last-child),
+.root[gap="small"][layout="vertical"] .item:not(:last-child)  {
     margin-bottom: var(--form-item-margin-bottom-small);
 }
 
@@ -147,11 +175,13 @@ export default {
 .root[gap="small"][layout="inline"] .item > .item_label { padding-right: var(--space-small); }
 
 /* gap转换成gap-height, gap-width, 保留gap为了历史遗留组件的样式兼容问题 */
-.root[gap-height="large"][layout="block"] .item:not(:last-child) {
+.root[gap-height="large"][layout="block"] .item:not(:last-child),
+.root[gap-height="large"][layout="vertical"] .item:not(:last-child) {
   margin-bottom: var(--form-item-margin-bottom-large);
 }
 
-.root[gap-height="normal"][layout="block"] .item:not(:last-child) {
+.root[gap-height="normal"][layout="block"] .item:not(:last-child),
+.root[gap-height="normal"][layout="vertical"] .item:not(:last-child) {
     margin-bottom: var(--form-item-margin-bottom);
 }
 
@@ -163,11 +193,13 @@ export default {
   margin-right: var(--form-item-margin-bottom-none);
 }
 
-.root[gap-height="small"][layout="block"] .item:not(:last-child) {
+.root[gap-height="small"][layout="block"] .item:not(:last-child),
+.root[gap-height="small"][layout="vertical"] .item:not(:last-child) {
   margin-bottom: var(--form-item-margin-bottom-small);
 }
 
-.root[gap-height="none"][layout="block"] .item:not(:last-child) {
+.root[gap-height="none"][layout="block"] .item:not(:last-child),
+.root[gap-height="none"][layout="vertical"] .item:not(:last-child) {
   margin-bottom: var(--form-item-margin-bottom-none);
 }
 

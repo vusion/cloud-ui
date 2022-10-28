@@ -1,53 +1,109 @@
 <template>
-<transition
-    enter-active-class="animate__animated animate__fadeIn"
-    leave-active-class="animate__animated animate__fadeOut animate__fast">
-    <div ref="root" :class="$style.root" v-if="currentVisible || animationVisible" :placement="placement"
-        @click="maskClosable && cancel()"
-        tabindex="1" @keydown.esc="cancel()">
-        <transition
-            :enter-active-class="'placement animate__animated animate__fadeIn' + animatePlacement"
-            :leave-active-class="'placement animate__animated animate__fast animate__fadeOut' + animatePlacement">
-            <div :class="$style.drawer"
-                v-if="currentVisible && animationVisible"
-                v-bind="$attrs" v-on="$listeners"
-                @click.stop>
-                <slot name="drawer">
-                    <div :class="$style.head">
-                        <slot name="head">
-                            <div v-if="title" :class="$style.title">
-                                <slot name="title">{{ title }}</slot>
-                            </div>
-                            <a :class="$style.close" @click="cancel()"></a>
-                        </slot>
-                    </div>
-                    <div :class="$style.body">
-                        <slot>{{ content }}</slot>
-                    </div>
-                    <div :class="$style.foot" v-if="okButton || cancelButton">
-                        <slot name="foot">
-                            <u-linear-layout gap="small">
-                                <u-button :class="$style.button" v-if="cancelButton" @click="cancel()">{{ cancelButton }}</u-button>
-                                <u-button :class="$style.button" v-if="okButton" color="primary" @click="ok()">{{ okButton }}</u-button>
-                            </u-linear-layout>
-                        </slot>
-                    </div>
-                </slot>
-            </div>
-        </transition>
-    </div>
-</transition>
+    <transition
+        enter-active-class="animate__animated animate__fadeIn"
+        leave-active-class="animate__animated animate__fadeOut animate__fast">
+        <div ref="root" :class="$style.root" v-if="currentVisible || animationVisible" :placement="placement"
+             @click="maskClosable && cancel()"
+             tabindex="1" @keydown.esc="cancel()">
+            <transition
+                :enter-active-class="'placement animate__animated animate__fadeIn' + animatePlacement"
+                :leave-active-class="'placement animate__animated animate__fast animate__fadeOut' + animatePlacement">
+                <div :class="$style.drawer"
+                     v-if="currentVisible && animationVisible"
+                     :size="size"
+                     v-bind="$attrs" v-on="$listeners"
+                     @click.stop>
+                    <slot name="inject"></slot>
+                    <slot name="drawer">
+                        <div :class="$style.head" v-show="showHead" vusion-slot-name="head" :child-cut-disabled="true">
+                            <slot name="head">
+                                <div v-if="title" :class="$style.title" vusion-slot-name="title"
+                                     vusion-slot-name-edit="title" :child-cut-disabled="true">
+
+                                    <slot name="title">
+                                        <s-empty
+                                            v-if="(!$slots.title) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+                                        <template v-else>
+                                            {{ title }}
+                                        </template>
+                                    </slot>
+                                </div>
+                                <a :class="$style.close" @click="cancel()"></a>
+                            </slot>
+                        </div>
+                        <div :class="$style.body" vusion-slot-name="body" :child-cut-disabled="true">
+                            <slot name="body">
+                                <s-empty
+                                    v-if="(!$slots.body) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+                                <template v-else>
+                                    {{ content }}
+                                </template>
+                            </slot>
+                        </div>
+                        <div :class="$style.foot" v-show="showFoot && (okButton || cancelButton)" vusion-slot-name="foot"
+                             :child-cut-disabled="true">
+
+                            <slot name="foot">
+                                <s-empty
+                                    v-if="(!$slots.foot) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+                                <u-linear-layout gap="small" v-else>
+                                    <u-button :class="$style.button" v-if="okButton" color="primary" @click="ok()">
+                                        {{ okButton }}
+                                    </u-button>
+                                    <u-button :class="$style.button" v-if="cancelButton" @click="cancel()">
+                                        {{ cancelButton }}
+                                    </u-button>
+                                </u-linear-layout>
+                            </slot>
+                        </div>
+                    </slot>
+                </div>
+            </transition>
+        </div>
+    </transition>
 </template>
 
 <script>
 import UModal from '../u-modal.vue/index.vue';
+import SEmpty from '../../components/s-empty.vue';
 
 export default {
     name: 'u-drawer',
     extends: UModal,
+    Component: {
+        SEmpty,
+        UModal,
+    },
     props: {
-        placement: { type: String, default: 'left' },
-        maskClosable: { type: Boolean, default: true },
+        placement: {
+            type: String,
+            default: 'right',
+        },
+        maskClosable: {
+            type: Boolean,
+            default: true,
+        },
+        showFoot: {
+            type: Boolean,
+            default: true,
+        },
+        showHead: {
+            type: Boolean,
+            default: true,
+        },
+        content: {
+            type: String,
+            default: '',
+        },
+        title: {
+            type: String,
+            default: '',
+        },
+        size: {
+            type: String,
+            default: 'normal',
+        },
+
     },
     data() {
         return { animationVisible: this.visible };
@@ -60,6 +116,9 @@ export default {
     watch: {
         // @TODO: 为了让两个动画错开的临时解决方案
         currentVisible(currentVisible) {
+            if (currentVisible && !this.$env.VUE_APP_DESIGNER) {
+                this.$parent.openEvent();
+            }
             this.$nextTick(() => (this.animationVisible = currentVisible));
         },
     },
@@ -104,11 +163,15 @@ export default {
 }
 
 .drawer[size="small"] {
-    width: var(--drawer-width-small);
+    width: var(--drawer-width);
+}
+
+.drawer[size="normal"] {
+    width: var(--drawer-width-large);
 }
 
 .drawer[size="large"] {
-    width: var(--drawer-width-large);
+    width: var(--drawer-width-huge);
 }
 
 .drawer[size="auto"] {
@@ -147,9 +210,12 @@ export default {
     padding: var(--drawer-body-padding);
 }
 
-.foot {
-    text-align: center;
+.root .foot {
+    position: fixed;
+    width: inherit;
     padding: var(--drawer-foot-padding);
+    border-top: 1px solid var(--gray-lightest);
+    bottom: 0;
 }
 
 .root[static] {

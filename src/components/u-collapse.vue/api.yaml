@@ -58,29 +58,39 @@
           title: 多选项
           snippet: '<u-collapse-item title="面板"><template #extra></template>内容</u-collapse-item>'
   events:
-    - name: toggle
-      description: 展开/折叠某面板时触发
-      title: 监听"展开/折叠"事件
+    - name: expand
+      description: 展开此面板时触发
+      title: 展开时
       params:
         - name: $event
           type: object
           description: 自定义事件对象
           schema:
             $ref: "#/systemTypes/CollapseEvent"
-        - name: $event.expanded
-          type: boolean
-          description: 展开/折叠状态
         - name: $event.itemVM
           type: UCollapseItem
           description: 面板组件
-  methods:
-    - name: toggleAll
-      description: 展开/折叠所有面板
-      common-empty-background: true
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止展开/折叠流程
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
+    - name: collapse
+      description: 折叠某面板时触发
+      title: 折叠时
       params:
-        - name: expanded
-          type: boolean
-          description: 展开/折叠
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CollapseEvent"
+        - name: $event.itemVM
+          type: UCollapseItem
+          description: 面板组件
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
 - name: u-collapse-item
   title: 折叠面板项
   next: false
@@ -112,18 +122,15 @@
       name: extra
       description: 在右侧可以附加内容。
   events:
-    - name: before-toggle
-      description: 展开/折叠此面板前触发
-      title: 展开/折叠此面板前触发
+    - name: expand
+      description: 展开此面板时触发
+      title: 展开时
       params:
         - name: $event
           type: object
           description: 自定义事件对象
           schema:
             $ref: "#/systemTypes/CollapseEvent"
-        - name: $event.expanded
-          type: boolean
-          description: 展开/折叠状态
         - name: $event.itemVM
           type: UCollapseItem
           description: 面板组件
@@ -133,18 +140,15 @@
         - name: senderVM
           type: Vue
           description: 发送事件实例
-    - name: toggle
-      description: 展开/折叠某面板时触发
-      title: 展开/折叠某面板时触发
+    - name: collapse
+      description: 折叠某面板时触发
+      title: 折叠时
       params:
         - name: $event
           type: object
           description: 自定义事件对象
           schema:
             $ref: "#/systemTypes/CollapseEvent"
-        - name: $event.expanded
-          type: boolean
-          description: 展开/折叠状态
         - name: $event.itemVM
           type: UCollapseItem
           description: 面板组件

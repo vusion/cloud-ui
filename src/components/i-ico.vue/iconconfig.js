@@ -7,6 +7,41 @@ export default {
     "description": "",
     "glyphs": [
         {
+            "icon_id": "29749064",
+            "name": "加载中",
+            "font_class": "loading",
+            "unicode": "e600",
+            "unicode_decimal": 58897
+        },
+        {
+            "icon_id": "29749064",
+            "name": "左转",
+            "font_class": "rotate-left",
+            "unicode": "e611",
+            "unicode_decimal": 58897
+        },
+        {
+            "icon_id": "29749068",
+            "name": "右转",
+            "font_class": "rotate-right",
+            "unicode": "e612",
+            "unicode_decimal": 58898
+        },
+        {
+            "icon_id": "29749063",
+            "name": "缩小",
+            "font_class": "zoomout",
+            "unicode": "e610",
+            "unicode_decimal": 58896
+        },
+        {
+            "icon_id": "29749059",
+            "name": "放大",
+            "font_class": "zoomin",
+            "unicode": "e60f",
+            "unicode_decimal": 58895
+        },
+        {
             "icon_id": "28533947",
             "name": "新增文件",
             "font_class": "folder-add",
@@ -439,34 +474,6 @@ export default {
             "font_class": "notice",
             "unicode": "e634",
             "unicode_decimal": 58932
-        },
-        {
-            "icon_id": "29749064",
-            "name": "左转",
-            "font_class": "rotate-left",
-            "unicode": "e611",
-            "unicode_decimal": 58897
-        },
-        {
-        "icon_id": "29749068",
-        "name": "右转",
-        "font_class": "rotate-right",
-        "unicode": "e612",
-        "unicode_decimal": 58898
-        },
-        {
-        "icon_id": "29749063",
-        "name": "缩小",
-        "font_class": "zoomout",
-        "unicode": "e610",
-        "unicode_decimal": 58896
-        },
-        {
-        "icon_id": "29749059",
-        "name": "放大",
-        "font_class": "zoomin",
-        "unicode": "e60f",
-        "unicode_decimal": 58895
-        },
+        }
     ]
 }
