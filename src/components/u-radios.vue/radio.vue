@@ -3,18 +3,26 @@
 tabindex="0" @keydown.space.prevent @keyup.space.prevent="select()"
 @focus="onFocus" @blur="onBlur" v-on="listeners" :readonly="currentReadonly">
     <span :class="$style.radio" :selected="selected" :disabled="currentDisabled" :readonly="currentReadonly"></span>
-    <span vusion-slot-name-edit="text"><slot>{{ text }}</slot></span>
+    <slot></slot>
+    <span vusion-slot-name="item">
+        <slot name="item" :item="node">{{ text }}</slot>
+        <s-empty v-if="!$slots.item && !text && $env.VUE_APP_DESIGNER" inline :class="$style.empty"></s-empty>
+    </span>
 </label>
 </template>
 
 <script>
 import { MChild } from '../m-parent.vue';
 import MField from '../m-field.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-radio',
     parentName: 'u-radios',
     mixins: [MChild, MField],
+    components: {
+        SEmpty,
+    },
     props: {
         text: String,
         value: { type: Boolean, default: false },
@@ -22,6 +30,7 @@ export default {
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
+        node: Object,
     },
     data() {
         return {
@@ -176,5 +185,24 @@ export default {
 .radio[disabled] {
     border-color: var(--radio-border-color-disabled);
     background: var(--radio-circle-background-disabled);
+}
+
+.root[designer]{
+    display: inline-block;
+    position: relative;
+}
+.root[designer] + .root[designer]:after{
+    content: '';
+    position: absolute;
+    display: block;
+    background: rgba(255,255,255,0.8);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.empty:not(:only-child){
+    display: none;
 }
 </style>

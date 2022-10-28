@@ -22,6 +22,10 @@ export default {
     justify-content: center;
 }
 
+.empty[inline] {
+    width: auto;
+}
+
 .empty::after {
     content: "+";
     font-size: 20px;
