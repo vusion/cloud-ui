@@ -244,7 +244,7 @@ export default {
             // dirty hack：每次插槽变化时，vue都会将实例上的$slots对象重新赋值
             this.slots = this.$slots;
             this.vnodes = this.collectTreeNode(this.$slots.default);
-            this.handleDataSourceObj([...(this.vnodes || []), ...(this.currentDataSource?.data || [])]);
+            this.handleDataSourceObj([...(this.vnodes || []), ...((this.currentDataSource && this.currentDataSource.data) || [])]);
         },
         // 收集节点数据
         collectTreeNode(vnodes) {
