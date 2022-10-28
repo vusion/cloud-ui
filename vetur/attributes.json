@@ -2598,10 +2598,6 @@
       {
         "value": "large",
         "title": "大"
-      },
-      {
-        "value": "auto",
-        "title": "自适应"
       }
     ],
     "description": "抽屉的尺寸"
