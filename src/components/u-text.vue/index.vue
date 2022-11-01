@@ -1,36 +1,14 @@
 <template>
 <span :class="$style.root" v-on="$listeners" vusion-slot-name-edit="text">
-    <slot>{{ textValue }}</slot>
+    <slot>{{ text }}</slot>
 </span>
 </template>
 
 <script>
-import { format } from '../../utils/date';
 export default {
     name: 'u-text',
     props: {
         text: String,
-        parseDateTime: Boolean,
-    },
-    computed: {
-        textValue() {
-            let text = this.text;
-            if (!this.parseDateTime) {
-                return text;
-            }
-
-            if (text === null || text === undefined) {
-                return text
-            } else if (typeof text !== 'string') {
-                text = JSON.stringify(text, null, 2);
-            }
-            try {
-                return String(text).replace(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z/g, ($) => format(new Date($), 'YYYY-MM-DD HH:mm:ss'));
-            } catch (err) {
-                console.error(err);
-            }
-            return text;
-        },
     },
 };
 </script>
