@@ -676,6 +676,11 @@
           description: 排序顺序，'asc' 或 'desc'
           required: false
           default: tableView.params.order
+        - name: excludeColumns
+          type: Array<string>
+          description: 排除字段
+          required: false
+          default: []
 - name: u-table-view-column
   accept-parent:
     - u-table-view
