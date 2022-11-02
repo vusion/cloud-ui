@@ -889,7 +889,7 @@ export default {
                 .filter((item) => !!item)
                 .join(',');
         },
-        async exportExcel(page = 1, size = 2000, filename, sort, order) {
+        async exportExcel(page = 1, size = 2000, filename, sort, order, excludeColumns = []) {
             if (this.currentDataSource.sorting && this.currentDataSource.sorting.field) {
                 const { sorting } = this.currentDataSource;
                 sort = sort || sorting.field;
@@ -923,7 +923,7 @@ export default {
             try {
                 let content = [];
                 if (!this.currentDataSource._load) {
-                    content = await this.getRenderResult(this.currentDataSource.data);
+                    content = await this.getRenderResult(this.currentDataSource.data, excludeColumns);
                 } else {
                     // console.time('加载数据');
                     let res = await this.currentDataSource._load({ page, size, filename, sort, order });
@@ -940,7 +940,7 @@ export default {
                         return;
                     }
 
-                    content = await this.getRenderResult(res);
+                    content = await this.getRenderResult(res, excludeColumns);
                 }
 
                 // console.time('生成文件');
@@ -960,10 +960,11 @@ export default {
             document.removeEventListener('click', fn, true);
             document.removeEventListener('keydown', fn, true);
         },
-        async getRenderResult(arr = []) {
+        async getRenderResult(arr = [], excludeColumns = []) {
             if (arr.length === 0) {
-                const res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
+                let res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
                 res[1] = res[0].map((item) => '');
+                res = this.removeExcludeColumns(res, excludeColumns);
                 return res;
             }
 
@@ -1009,6 +1010,9 @@ export default {
                         item[j] = startIndexes[j] + (rowIndex - 1);
                 }
             }
+
+            res = this.removeExcludeColumns(res, excludeColumns);
+
             // console.timeEnd('渲染数据');
 
             // console.time('复原表格');
@@ -1019,6 +1023,19 @@ export default {
             // console.timeEnd('复原表格');
 
             return res;
+        },
+        removeExcludeColumns(data, excludeColumns) {
+            const excludeIndex = [];
+            const titles = data[0];
+            for(const title of excludeColumns) {
+                const pos = titles.indexOf(title);
+                if(pos >= 0)
+                    excludeIndex.push(pos);
+            }
+
+            return data.map((arr) => {
+                return arr.filter((item, index) => !excludeIndex.includes(index));
+            });
         },
         getSheetData(arr) {
             const titles = arr[0];
