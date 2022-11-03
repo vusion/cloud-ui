@@ -6358,6 +6358,22 @@
                     "group": "样式属性"
                 },
                 {
+                    "name": "stick-head",
+                    "title": "表格头部吸顶",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "",
+                    "group": "样式属性"
+                },
+                {
+                    "name": "stick-head-offset",
+                    "title": "表格头部吸顶偏移量",
+                    "type": "number",
+                    "default": 0,
+                    "description": "",
+                    "group": "样式属性"
+                },
+                {
                     "name": "default-column-width",
                     "title": "默认列宽度",
                     "type": "string | number",
@@ -6623,6 +6639,13 @@
                             "description": "排序顺序，'asc' 或 'desc'",
                             "required": false,
                             "default": "tableView.params.order"
+                        },
+                        {
+                            "name": "excludeColumns",
+                            "type": "Array<string>",
+                            "description": "排除字段",
+                            "required": false,
+                            "default": []
                         }
                     ]
                 }
