@@ -6,7 +6,7 @@ tabindex="0" @keydown.space.prevent @keyup.space.prevent="select()"
     <slot></slot>
     <span vusion-slot-name="item">
         <slot name="item" :item="node">{{ text }}</slot>
-        <s-empty v-if="!$slots.item && !text && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']" inline :class="$style.empty"></s-empty>
+        <s-empty v-if="!$slots.item && !text && $env.VUE_APP_DESIGNER && ($attrs['vusion-node-path'] || $attrs.designer)" inline :class="$style.empty"></s-empty>
     </span>
 </label>
 </template>
@@ -19,10 +19,10 @@ import SEmpty from '../s-empty.vue';
 export default {
     name: 'u-radio',
     parentName: 'u-radios',
-    mixins: [MChild, MField],
     components: {
         SEmpty,
     },
+    mixins: [MChild, MField],
     props: {
         text: String,
         value: { type: Boolean, default: false },

@@ -323,9 +323,7 @@ export default {
 </u-table-view>
 ```
 
-### 处理垂直数据过多
-
-#### 表头固定
+### 表头固定
 
 通过给`<u-table-view>`的样式设置`height`或`max-height`属性，可以限制表格高度。在数据较多的情况下，会自动固定表头。
 
@@ -349,7 +347,29 @@ export default {
 </u-table-view>
 ```
 
-### 处理水平内容过长
+### 表头吸顶
+
+通过设置`stick-head`属性，可以开启表头吸顶功能。通过设置`stick-head-offset`可以调节距离父级滚动元素的偏移位置。
+
+``` html
+<u-table-view stick-head :stick-head-offset="60" :data-source="[
+    { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
+    { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
+    { name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+    { name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+    { name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+    { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
+    { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
+    { name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+    { name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+    { name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+]">
+    <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
+    <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+    <u-table-view-column title="地址" field="address"></u-table-view-column>
+    <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+</u-table-view>
+```
 
 #### 默认多行显示
 
@@ -370,7 +390,7 @@ export default {
 </u-table-view>
 ```
 
-#### 单行省略显示
+### 单行省略显示
 
 可以对列设置`ellipsis`属性，使文本单行省略，鼠标悬浮时会有工具提示。
 
@@ -389,7 +409,7 @@ export default {
 </u-table-view>
 ```
 
-#### 横向滚动
+### 横向滚动
 
 有时省略文字并不直观，可以考虑对所有列设置较长的宽度。产生横向滚动。
 
@@ -422,7 +442,7 @@ export default {
 </u-table-view>
 ```
 
-#### 固定列
+### 固定列
 
 也可以对左右边缘重要的列进行固定。
 
