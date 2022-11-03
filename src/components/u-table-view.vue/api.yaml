@@ -178,6 +178,18 @@
       default: true
       description: ""
       group: 样式属性
+    - name: stick-head
+      title: 表格头部吸顶
+      type: boolean
+      default: false
+      description: ""
+      group: 样式属性
+    - name: stick-head-offset
+      title: 表格头部吸顶偏移量
+      type: number
+      default: 0
+      description: ""
+      group: 样式属性
     - name: default-column-width
       title: 默认列宽度
       type: string | number
