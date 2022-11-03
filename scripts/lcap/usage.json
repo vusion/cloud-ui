@@ -6314,6 +6314,22 @@
                     "group": "样式属性"
                 },
                 {
+                    "name": "stick-head",
+                    "title": "表格头部吸顶",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "",
+                    "group": "样式属性"
+                },
+                {
+                    "name": "stick-head-offset",
+                    "title": "表格头部吸顶偏移量",
+                    "type": "number",
+                    "default": 0,
+                    "description": "",
+                    "group": "样式属性"
+                },
+                {
                     "name": "default-column-width",
                     "title": "默认列宽度",
                     "type": "string | number",
@@ -6579,6 +6595,13 @@
                             "description": "排序顺序，'asc' 或 'desc'",
                             "required": false,
                             "default": "tableView.params.order"
+                        },
+                        {
+                            "name": "excludeColumns",
+                            "type": "Array<string>",
+                            "description": "排除字段",
+                            "required": false,
+                            "default": []
                         }
                     ]
                 }
@@ -11268,7 +11291,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.18/src/components/u-radios.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-radios value=\\\"毛巾\\\">\\n    <u-radio label=\\\"水杯\\\" text=\\\"水杯\\\"></u-radio>\\n    <u-radio label=\\\"坚果\\\" text=\\\"坚果\\\"></u-radio>\\n    <u-radio label=\\\"毛巾\\\" text=\\\"毛巾\\\"></u-radio>\\n    <u-radio label=\\\"沙发\\\" text=\\\"沙发\\\"></u-radio>\\n</u-radios>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-radios>\\n    <template #item=\\\"scope\\\"></template>\\n</u-radios>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-radios",
             "title": "单选组",
@@ -11280,17 +11303,50 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-radios value=\"毛巾\">\n    <u-radio label=\"水杯\" text=\"水杯\"></u-radio>\n    <u-radio label=\"坚果\" text=\"坚果\"></u-radio>\n    <u-radio label=\"毛巾\" text=\"毛巾\"></u-radio>\n    <u-radio label=\"沙发\" text=\"沙发\"></u-radio>\n</u-radios>\n</template>\n"
+                    "code": "<template>\n<u-radios>\n    <template #item=\"scope\"></template>\n</u-radios>\n</template>\n"
                 }
             ],
             "attrs": [
+                {
+                    "name": "data-source",
+                    "title": "数据源",
+                    "type": "Array<Item> | Function",
+                    "description": "集合类型变量或者输出参数为集合类型的逻辑",
+                    "designer-value": "[{}, {}, {}]",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "data-schema",
+                    "title": "数据类型",
+                    "type": "schema",
+                    "description": "集合类型每一元素的数据类型",
+                    "group": "数据属性",
+                    "compType": "dataTypeSelect"
+                },
+                {
+                    "name": "text-field",
+                    "title": "选项文本",
+                    "type": "string",
+                    "default": "text",
+                    "description": "集合的元素类型中，用于显示文本的属性名称",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "value-field",
+                    "title": "选项值",
+                    "type": "string",
+                    "default": "value",
+                    "description": "集合的元素类型中，用于标识选中值的属性",
+                    "group": "数据属性"
+                },
                 {
                     "name": "value",
                     "title": "值",
                     "type": "any",
                     "sync": true,
                     "model": true,
-                    "description": "当前选择的值"
+                    "description": "当前选择的值",
+                    "group": "数据属性"
                 },
                 {
                     "name": "readonly",
@@ -11317,9 +11373,31 @@
                         {
                             "name": "u-radio",
                             "title": "单选项",
-                            "snippet": "<u-radio label=\"单选项\" text=\"单选项\"></u-radio>"
+                            "snippet": "<u-radio><template slot=\"item\">节点</template></u-radio>"
                         }
                     ]
+                },
+                {
+                    "concept": "Slot",
+                    "name": "item",
+                    "description": "自定义选项的结构和样式",
+                    "slotProps": {
+                        "concept": "Param",
+                        "name": "scope",
+                        "typeAnnotation": {
+                            "concept": "TypeAnnotation",
+                            "typeKind": "generic",
+                            "typeNamespace": "nasl.ui",
+                            "typeName": "ScopeOf",
+                            "typeArguments": [
+                                {
+                                    "concept": "TypeAnnotation",
+                                    "typeKind": "typeParam",
+                                    "typeName": "T"
+                                }
+                            ]
+                        }
+                    }
                 }
             ],
             "events": [
@@ -11765,7 +11843,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.18/src/components/u-checkboxes.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基础用法\",\"description\":\"\",\"code\":\"<template>\\n<u-checkboxes>\\n    <u-checkbox label=\\\"水杯\\\" text=\\\"水杯\\\"></u-checkbox>\\n    <u-checkbox label=\\\"坚果\\\" text=\\\"坚果\\\"></u-checkbox>\\n    <u-checkbox label=\\\"毛巾\\\" text=\\\"毛巾\\\"></u-checkbox>\\n    <u-checkbox label=\\\"沙发\\\" text=\\\"沙发\\\"></u-checkbox>\\n</u-checkboxes>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基础用法\",\"description\":\"\",\"code\":\"<template>\\n<u-checkboxes>\\n    <template #item=\\\"scope\\\"></template>\\n</u-checkboxes>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-checkboxes",
             "title": "多选组",
@@ -11777,10 +11855,42 @@
                 {
                     "title": "基础用法",
                     "description": "",
-                    "code": "<template>\n<u-checkboxes>\n    <u-checkbox label=\"水杯\" text=\"水杯\"></u-checkbox>\n    <u-checkbox label=\"坚果\" text=\"坚果\"></u-checkbox>\n    <u-checkbox label=\"毛巾\" text=\"毛巾\"></u-checkbox>\n    <u-checkbox label=\"沙发\" text=\"沙发\"></u-checkbox>\n</u-checkboxes>\n</template>\n"
+                    "code": "<template>\n<u-checkboxes>\n    <template #item=\"scope\"></template>\n</u-checkboxes>\n</template>\n"
                 }
             ],
             "attrs": [
+                {
+                    "name": "data-source",
+                    "title": "数据源",
+                    "type": "Array<Item> | Function",
+                    "description": "集合类型变量或者输出参数为集合类型的逻辑",
+                    "designer-value": "[{}, {}, {}]",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "data-schema",
+                    "title": "数据类型",
+                    "type": "schema",
+                    "description": "集合类型每一元素的数据类型",
+                    "group": "数据属性",
+                    "compType": "dataTypeSelect"
+                },
+                {
+                    "name": "text-field",
+                    "title": "选项文本",
+                    "type": "string",
+                    "default": "text",
+                    "description": "集合的元素类型中，用于显示文本的属性名称",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "value-field",
+                    "title": "选项值",
+                    "type": "string",
+                    "default": "value",
+                    "description": "集合的元素类型中，用于标识选中值的属性",
+                    "group": "数据属性"
+                },
                 {
                     "name": "value",
                     "title": "值",
@@ -11788,7 +11898,8 @@
                     "sync": true,
                     "model": true,
                     "default": [],
-                    "description": "多选组的选中项"
+                    "description": "多选组的选中项",
+                    "group": "数据属性"
                 },
                 {
                     "name": "min",
@@ -11858,9 +11969,31 @@
                         {
                             "name": "u-checkbox",
                             "title": "多选项",
-                            "snippet": "<u-checkbox>多选</u-checkbox>"
+                            "snippet": "<u-checkbox><template slot=\"item\">节点</template></u-checkbox>"
                         }
                     ]
+                },
+                {
+                    "concept": "Slot",
+                    "name": "item",
+                    "description": "自定义选项的结构和样式",
+                    "slotProps": {
+                        "concept": "Param",
+                        "name": "scope",
+                        "typeAnnotation": {
+                            "concept": "TypeAnnotation",
+                            "typeKind": "generic",
+                            "typeNamespace": "nasl.ui",
+                            "typeName": "ScopeOf",
+                            "typeArguments": [
+                                {
+                                    "concept": "TypeAnnotation",
+                                    "typeKind": "typeParam",
+                                    "typeName": "T"
+                                }
+                            ]
+                        }
+                    }
                 }
             ],
             "events": [
@@ -12602,6 +12735,27 @@
                     "type": "boolean",
                     "default": false,
                     "description": "是否可以多选"
+                },
+                {
+                    "name": "tags-overflow",
+                    "title": "多选项展示形式",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "hidden",
+                            "title": "过多时省略"
+                        },
+                        {
+                            "value": "collapse",
+                            "title": "过多时收缩"
+                        },
+                        {
+                            "value": "visible",
+                            "title": "过多时显示"
+                        }
+                    ],
+                    "description": "多选项过多时的展示形式",
+                    "clearable": true
                 },
                 {
                     "name": "converter",
