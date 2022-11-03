@@ -6,7 +6,7 @@
     <div :class="$style.table" v-for="tableMeta in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
-        <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: stickHeadOffset + 'px' }">
+        <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
             <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth) }">
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
@@ -62,7 +62,7 @@
                 </thead>
             </u-table>
         </div>
-        <div v-if="stickingHead" :class="$style.headPlaceholder" ref="headPlaceholder" :style="{ height: stickingHeadHeight }"></div>
+        <div v-if="stickingHead" :class="$style.headPlaceholder" ref="headPlaceholder" :style="{ height: number2Pixel(stickingHeadHeight) }"></div>
         <div :class="$style.body" ref="body" :style="{ width: number2Pixel(tableWidth), height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped">
                 <colgroup>
@@ -102,7 +102,7 @@
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
-                                                <span :class="$style.indent" :style="{ paddingLeft: 16*item.tableTreeItemLevel + 'px' }"></span>
+                                                <span :class="$style.indent" :style="{ paddingLeft: number2Pixel(16 * item.tableTreeItemLevel) }"></span>
                                                 <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
@@ -140,7 +140,7 @@
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" :disabled="item.disabled" @click="toggleExpanded(item)"></span>
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
-                                                <span :class="$style.indent" :style="{ paddingLeft: 16*item.tableTreeItemLevel + 'px' }"></span>
+                                                <span :class="$style.indent" :style="{ paddingLeft: number2Pixel(16 * item.tableTreeItemLevel) }"></span>
                                                 <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
@@ -357,6 +357,7 @@ export default {
             checkedItems: {}, // 暂存选中行
             stickingHead: false,
             stickingHeadHeight: 0,
+            stickingHeadTop: 0,
         };
     },
     computed: {
@@ -865,12 +866,16 @@ export default {
         },
         onScrollParentScroll(e) {
             const rect = getRect(this.$el);
+            const bodyRect = getRect(this.$refs.body[0]);
             const parentRect = this.scrollParentEl === window ? { top: 0, bottom: window.innerHeight } : getRect(this.scrollParentEl);
             const headHeight = this.$refs.head[0].offsetHeight;
+
             parentRect.top += this.stickHeadOffset;
-            rect.bottom -= headHeight;
-            this.stickingHead = rect.top < parentRect.top && rect.bottom > parentRect.top;
-            this.stickingHeadHeight = headHeight + 'px';
+            bodyRect.bottom -= headHeight;
+
+            this.stickingHead = rect.top < parentRect.top && bodyRect.bottom > parentRect.top;
+            this.stickingHeadTop = parentRect.top;
+            this.stickingHeadHeight = headHeight;
             this.syncHeadScroll();
         },
         load(more) {
