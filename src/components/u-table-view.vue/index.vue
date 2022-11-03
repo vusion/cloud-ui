@@ -1491,6 +1491,7 @@ export default {
     box-shadow: var(--table-view-table-right-shadow);
 }
 
+.table[position="right"] > *,
 .table[position="right"] .head-table {
     float: right;
 }
@@ -1505,6 +1506,10 @@ export default {
     top: 0;
     z-index: 200;
     box-shadow: var(--table-view-table-top-shadow);
+}
+
+.headPlaceholder {
+    width: 100%;
 }
 
 .head-title {
