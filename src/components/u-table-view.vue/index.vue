@@ -6,7 +6,7 @@
     <div :class="$style.table" v-for="tableMeta in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
-        <div v-if="showHead" :class="$style.head" ref="head" :style="{ width: number2Pixel(tableWidth) }">
+        <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: number2Pixel(tableWidth), top: stickHeadOffset + 'px' }">
             <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped">
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
@@ -62,6 +62,7 @@
                 </thead>
             </u-table>
         </div>
+        <div v-if="stickingHead" :class="$style.headPlaceholder" ref="headPlaceholder" :style="{ height: stickingHeadHeight }"></div>
         <div :class="$style.body" ref="body" :style="{ width: number2Pixel(tableWidth), height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped">
                 <colgroup>
@@ -244,7 +245,7 @@
 
 <script>
 import DataSource from '../../utils/DataSource';
-import { addResizeListener, removeResizeListener } from '../../utils/dom';
+import { addResizeListener, removeResizeListener, findScrollParent, getRect } from '../../utils/dom';
 import { format } from '../../utils/date';
 import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
@@ -322,6 +323,8 @@ export default {
         resizable: { type: Boolean, default: false },
         resizeRemaining: { type: String, default: 'average' },
         showHead: { type: Boolean, default: true },
+        stickHead: { type: Boolean, default: false },
+        stickHeadOffset: { type: Number, default: 0 },
         color: String,
         treeDisplay: { type: Boolean, default: false },
         childrenField: { type: String, default: 'children' },
@@ -352,6 +355,8 @@ export default {
             tableHeight: undefined,
             exportData: undefined,
             checkedItems: {}, // 暂存选中行
+            stickingHead: false,
+            stickingHeadHeight: 0,
         };
     },
     computed: {
@@ -517,9 +522,17 @@ export default {
         this.watchValues(this.values);
         this.handleResize();
         addResizeListener(this.$el, this.handleResize);
+
+        if (this.stickHead) {
+            this.scrollParentEl = findScrollParent(this.$el);
+            this.scrollParentEl && this.scrollParentEl.addEventListener('scroll', this.onScrollParentScroll);
+        }
     },
     destroyed() {
         removeResizeListener(this.$el, this.handleResize);
+        if (this.stickHead) {
+            this.scrollParentEl && this.scrollParentEl.removeEventListener('scroll', this.onScrollParentScroll);
+        }
         this.clearTimeout();
     },
     methods: {
@@ -844,6 +857,15 @@ export default {
             const el = e.target;
             if (el.scrollHeight === el.scrollTop + el.clientHeight && this.currentDataSource && this.currentDataSource.hasMore())
                 this.debouncedLoad(true);
+        },
+        onScrollParentScroll(e) {
+            const rect = getRect(this.$el);
+            const parentRect = this.scrollParentEl === window ? { top: 0, bottom: window.innerHeight } : getRect(this.scrollParentEl);
+            const headHeight = this.$refs.head[0].offsetHeight;
+            parentRect.top += this.stickHeadOffset;
+            rect.bottom -= headHeight;
+            this.stickingHead = rect.top < parentRect.top && rect.bottom > parentRect.top;
+            this.stickingHeadHeight = headHeight + 'px';
         },
         load(more) {
             const dataSource = this.currentDataSource;
@@ -1449,6 +1471,12 @@ export default {
 
 .head {
     width: 100%;
+}
+
+.head[stickingHead] {
+    position: fixed;
+    top: 0;
+    z-index: 200;
 }
 
 .head-title {
