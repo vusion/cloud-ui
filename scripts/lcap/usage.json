@@ -11334,11 +11334,7 @@
         "labels": [
             "Form"
         ],
-<<<<<<< HEAD
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-radios.vue/screenshots/0.png",
-=======
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.18/src/components/u-radios.vue/screenshots/0.png",
->>>>>>> 85e98549 (修复吸顶的问题)
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-radios>\\n    <template #item=\\\"scope\\\"></template>\\n</u-radios>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-radios",
@@ -11890,11 +11886,7 @@
         "labels": [
             "Form"
         ],
-<<<<<<< HEAD
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-checkboxes.vue/screenshots/0.png",
-=======
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.18/src/components/u-checkboxes.vue/screenshots/0.png",
->>>>>>> 85e98549 (修复吸顶的问题)
         "blocks": "[{\"title\":\"基础用法\",\"description\":\"\",\"code\":\"<template>\\n<u-checkboxes>\\n    <template #item=\\\"scope\\\"></template>\\n</u-checkboxes>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-checkboxes",
