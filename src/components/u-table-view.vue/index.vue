@@ -6,8 +6,8 @@
     <div :class="$style.table" v-for="tableMeta in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
-        <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: number2Pixel(tableWidth), top: stickHeadOffset + 'px' }">
-            <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped">
+        <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: stickHeadOffset + 'px' }">
+            <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth) }">
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
@@ -725,6 +725,7 @@ export default {
                     this.tableWidth = tableWidth = rootWidth; // @important: Work with overflow-x: hidden to prevent two horizontal scrollbar
 
                 const tableMetaList = [this.tableMetaList[0]];
+                tableMetaList[0].width = rootWidth;
                 if (fixedLeftCount) {
                     tableMetaList.push({
                         position: 'left',
@@ -838,6 +839,7 @@ export default {
         onTableScroll(e) {
             this.scrollXStart = e.target.scrollLeft === 0;
             this.scrollXEnd = e.target.scrollLeft >= e.target.scrollWidth - e.target.clientWidth;
+            this.stickingHead && this.syncHeadScroll();
         },
         syncBodyScroll(scrollTop, target) {
             this.$refs.body[0]
@@ -849,6 +851,9 @@ export default {
             this.$refs.body[2]
                 && this.$refs.body[2] !== target
                 && (this.$refs.body[2].scrollTop = scrollTop);
+        },
+        syncHeadScroll() {
+            this.$refs.head[0].scrollLeft = this.$refs.head[0].parentElement.scrollLeft;
         },
         onBodyScroll(e) {
             this.syncBodyScroll(e.target.scrollTop, e.target); // this.throttledVirtualScroll(e);
@@ -866,6 +871,7 @@ export default {
             rect.bottom -= headHeight;
             this.stickingHead = rect.top < parentRect.top && rect.bottom > parentRect.top;
             this.stickingHeadHeight = headHeight + 'px';
+            this.syncHeadScroll();
         },
         load(more) {
             const dataSource = this.currentDataSource;
@@ -1049,15 +1055,13 @@ export default {
         removeExcludeColumns(data, excludeColumns) {
             const excludeIndex = [];
             const titles = data[0];
-            for(const title of excludeColumns) {
+            for (const title of excludeColumns) {
                 const pos = titles.indexOf(title);
-                if(pos >= 0)
+                if (pos >= 0)
                     excludeIndex.push(pos);
             }
 
-            return data.map((arr) => {
-                return arr.filter((item, index) => !excludeIndex.includes(index));
-            });
+            return data.map((arr) => arr.filter((item, index) => !excludeIndex.includes(index)));
         },
         getSheetData(arr) {
             const titles = arr[0];
@@ -1482,7 +1486,7 @@ export default {
     box-shadow: var(--table-view-table-right-shadow);
 }
 
-.table[position="right"] > * {
+.table[position="right"] .head-table {
     float: right;
 }
 
@@ -1491,9 +1495,11 @@ export default {
 }
 
 .head[stickingHead] {
+    overflow: hidden;
     position: fixed;
     top: 0;
     z-index: 200;
+    box-shadow: var(--table-view-table-top-shadow);
 }
 
 .head-title {

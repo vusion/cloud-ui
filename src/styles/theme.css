@@ -807,6 +807,7 @@
     --table-view-sort-color-hover: #aaa; /* @hidden */
     --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
     --table-view-table-right-shadow: -2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
+    --table-view-table-top-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
     --table-view-filter-color-hover: #aaa; /* @hidden */
     --table-view-filter-color-active: var(--brand-primary); /* @hidden */
     --table-view-filter-item-hover: var(--table-view-row-hover-background); /* @hidden */
