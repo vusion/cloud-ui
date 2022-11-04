@@ -133,7 +133,7 @@ export default {
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
             this.load();
-        console.log('Data', this.currentDataSource);
+        // console.log('Data', this.currentDataSource);
     },
     mounted() {
         // Must trigger `value` watcher at mounted hook.
@@ -178,7 +178,12 @@ export default {
                             const temp = JSON.parse(JSON.stringify(result));
                             final.data = self.list2tree(temp, self.valueField, self.parentField);
                         } else if (params.node) {
-                            self.$setAt(params.node, params.nodeVM.currentChildrenField, result);
+                            // 判断 load 数据，当数据 value 包含父节点时，不重复填充
+                            const containParentNode = result.find((item) =>
+                                self.$at(item, self.valueField) === params.nodeVM.value);
+                            if (!containParentNode) {
+                                self.$setAt(params.node, params.nodeVM.currentChildrenField, result);
+                            }
                         } else
                             final.data = result;
                     }

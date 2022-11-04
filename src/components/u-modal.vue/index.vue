@@ -133,6 +133,7 @@ export const UModal = {
         open() {
             if (this.$emitPrevent('before-open', {}, this))
                 return;
+            // this.$emit('before-open', undefined, this);
             if (!this.$el) {
                 const el = document.createElement('div');
                 this.$mount(el);

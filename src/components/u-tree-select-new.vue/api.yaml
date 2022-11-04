@@ -56,6 +56,21 @@
         - name: u-tree-view-node
           title: 子节点
           snippet: "<u-tree-view-node-new><template #item>选项</template></u-tree-view-node-new>"
+    - concept: Slot
+      name: item
+      description: 自定义选项的结构和样式
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T
   events:
     - name: change
       description: 修改时触发

@@ -26,7 +26,15 @@
             :style="{ width : expanderWidth? expanderWidth + 'px':'' }"
             :dragover="expanderDragover"></div>
         <div :class="$style.text" :style="{ marginLeft : expanderWidth? expanderWidth + 'px':'' }" :draggable="draggable || rootVM.draggable">
-            <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
+            <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="clickCheck($event.value)" @click.native.stop>
+                <u-tooltip v-if="node.checkboxTooltip"
+                    :placement="node.checkboxTooltip.placement"
+                    :trigger="node.checkboxTooltip.trigger"
+                    :hover-deplay="node.checkboxTooltip.hoverDelay"
+                    arraw-size="small">
+                    {{ node.checkboxTooltip.message }}
+                </u-tooltip>
+            </u-checkbox>
             <f-slot name="text" :vm="currentTextSlotVM" :props="{
                 data: node && $at(node, currentChildrenField),
                 text,
@@ -235,6 +243,13 @@ export default {
     created() {
         this.renderSelectedVm();
     },
+    mounted() {
+        const waitUntilSelected = 1;
+        setTimeout(() => {
+            if (this.selected)
+                this.$el.scrollIntoView({ block: 'center' });
+        }, waitUntilSelected);
+    },
 
     methods: {
         select() {
@@ -397,6 +412,10 @@ export default {
                     parentVM.checkRecursively(null, 'up');
             }
         },
+        clickCheck(checked) {
+            this.$emit('click:check', checked);
+            this.check(checked);
+        },
         check(checked) {
             const oldChecked = this.currentChecked;
 
@@ -470,6 +489,9 @@ export default {
 
             let { filterText, filterFields } = this.rootVM;
             filterText = filterText.trim().toLowerCase();
+            if (!filterText)
+                return;
+
             const { currentFields, node, $at } = this;
 
             const that = this;

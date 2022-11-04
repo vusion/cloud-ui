@@ -372,7 +372,7 @@ export default {
             return data;
         },
         visibleColumnVMs() {
-            return this.columnVMs.filter((columnVM) => !columnVM.hidden);
+            return this.columnVMs.filter((columnVM) => !columnVM.currentHidden);
         },
         expanderColumnVM() {
             return this.columnVMs.find((columnVM) => columnVM.type === 'expander');
@@ -402,7 +402,7 @@ export default {
                 return null;
         },
         treeColumnIndex() {
-            const vms = this.columnVMs.filter((columnVM) => !columnVM.hidden);
+            const vms = this.columnVMs.filter((columnVM) => !columnVM.currentHidden);
             let treeColumnIndex = vms.findIndex((columnVM) => columnVM.type === 'tree');
             if (treeColumnIndex === -1) {
                 treeColumnIndex = vms.findIndex((columnVM) => ['index', 'radio', 'checkbox'].includes(columnVM.type));
@@ -905,8 +905,8 @@ export default {
                 this.$toast.show('页数page必须大于0');
                 return;
             }
-            if (!(typeof size === 'number' && size > 0 && size <= 2000)) {
-                this.$toast.show('数据条数size必须在1-2000之间');
+            if (!(typeof size === 'number' && size > 0 && size <= 200000)) {
+                this.$toast.show('数据条数size必须在1-200000之间');
                 return;
             }
             const fn = (event) => {
@@ -1319,6 +1319,7 @@ export default {
                             }
                         });
                     }
+                    this.processData(result);
                     this.$setAt(item, this.childrenField, result);
                     // 促使currentData更新
                     const index = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(item, this.valueField));

@@ -256,6 +256,7 @@
 
 .root[size$="mini"] { width: var(--select-width-mini); padding: 0 var(--select-padding-x-mini); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-mini)); }
 .root[size$="mini"] .item { padding: 0 var(--select-padding-x-mini); }
+.root[size$="mini"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x-mini) + 1px); }
 .root[size$="mini"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-mini)); }
 .root[size^="mini"] { height: var(--select-height-mini); line-height: calc(var(--select-height-mini) - var(--select-border-width) * 2); }
 .root[size^="mini"] .item { line-height: calc(var(--select-height-mini) - var(--select-border-width) * 2); }
@@ -263,6 +264,7 @@
 
 .root[size$="small"] { width: var(--select-width-small); padding: 0 var(--select-padding-x-small); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-small)); }
 .root[size$="small"] .item { padding: 0 var(--select-padding-x-small); }
+.root[size$="small"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x-small) + 1px); }
 .root[size$="small"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-small)); }
 .root[size^="small"] { height: var(--select-height-small); line-height: calc(var(--select-height-small) - var(--select-border-width) * 2); }
 .root[size^="small"] .item { line-height: calc(var(--select-height-small) - var(--select-border-width) * 2); }
@@ -270,6 +272,7 @@
 
 .root[size$="normal"] { width: var(--select-width); padding: 0 var(--select-padding-x); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x)); }
 .root[size$="normal"] .item { padding: 0 var(--select-padding-x); }
+.root[size$="normal"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x) + 1px); }
 .root[size$="normal"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x)); }
 .root[size^="normal"] { height: var(--select-height); line-height: calc(var(--select-height) - var(--select-border-width) * 2); }
 .root[size^="normal"] .item { line-height: calc(var(--select-height) - var(--select-border-width) * 2); }
@@ -277,6 +280,7 @@
 
 .root[size$="medium"] { width: var(--select-width-medium); padding: 0 var(--select-padding-x-medium); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-medium)); }
 .root[size$="medium"] .item { padding: 0 var(--select-padding-x-medium); }
+.root[size$="medium"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x-medium) + 1px); }
 .root[size$="medium"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-medium)); }
 .root[size^="medium"] { height: var(--select-height-medium); line-height: calc(var(--select-height-medium) - var(--select-border-width) * 2); }
 .root[size^="medium"] .item { line-height: calc(var(--select-height-medium) - var(--select-border-width) * 2); }
@@ -284,6 +288,7 @@
 
 .root[size$="large"] { width: var(--select-width-large); padding: 0 var(--select-padding-x-large); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-large)); }
 .root[size$="large"] .item { padding: 0 var(--select-padding-x-large); }
+.root[size$="large"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x-large) + 1px); }
 .root[size$="large"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-large)); }
 .root[size^="large"] { height: var(--select-height-large); line-height: calc(var(--select-height-large) - var(--select-border-width) * 2); }
 .root[size^="large"] .item { line-height: calc(var(--select-height-large) - var(--select-border-width) * 2); }
@@ -291,6 +296,7 @@
 
 .root[size$="huge"] { width: var(--select-width-huge); padding: 0 var(--select-padding-x-huge); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-huge)); }
 .root[size$="huge"] .item { padding: 0 var(--select-padding-x-huge); }
+.root[size$="huge"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x-huge) + 1px); }
 .root[size$="huge"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-huge)); }
 .root[size^="huge"] { height: var(--select-height-huge); line-height: calc(var(--select-height-huge) - var(--select-border-width) * 2); }
 .root[size^="huge"] .item { line-height: calc(var(--select-height-huge) - var(--select-border-width) * 2); }
@@ -298,10 +304,12 @@
 
 .root[size$="full"] { width: 100%; padding: 0 var(--select-padding-x-full); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-full)); }
 .root[size$="full"] .item { padding: 0 var(--select-padding-x-full); }
+.root[size$="full"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x-full) + 1px); }
 .root[size^="full"] { height: 100%; }
 
 .root[width="mini"] { width: var(--select-width-mini); padding: 0 var(--select-padding-x-mini); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-mini)); }
 .root[width="mini"] .item { padding: 0 var(--select-padding-x-mini); }
+.root[width="mini"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x-mini) + 1px); }
 .root[width="mini"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-mini)); }
 .root[height="mini"] { height: var(--select-height-mini); line-height: calc(var(--select-height-mini) - var(--select-border-width) * 2); }
 .root[height="mini"] .item { line-height: calc(var(--select-height-mini) - var(--select-border-width) * 2); }
@@ -309,6 +317,7 @@
 
 .root[width="small"] { width: var(--select-width-small); padding: 0 var(--select-padding-x-small); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-small)); }
 .root[width="small"] .item { padding: 0 var(--select-padding-x-small); }
+.root[width="small"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x-small) + 1px); }
 .root[width="small"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-small)); }
 .root[height="small"] { height: var(--select-height-small); line-height: calc(var(--select-height-small) - var(--select-border-width) * 2); }
 .root[height="small"] .item { line-height: calc(var(--select-height-small) - var(--select-border-width) * 2); }
@@ -316,6 +325,7 @@
 
 .root[width="normal"] { width: var(--select-width); padding: 0 var(--select-padding-x); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x)); }
 .root[width="normal"] .item { padding: 0 var(--select-padding-x); }
+.root[width="normal"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x) + 1px); }
 .root[width="normal"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x)); }
 .root[height="normal"] { height: var(--select-height); line-height: calc(var(--select-height) - var(--select-border-width) * 2); }
 .root[height="normal"] .item { line-height: calc(var(--select-height) - var(--select-border-width) * 2); }
@@ -323,6 +333,7 @@
 
 .root[width="medium"] { width: var(--select-width-medium); padding: 0 var(--select-padding-x-medium); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-medium)); }
 .root[width="medium"] .item { padding: 0 var(--select-padding-x-medium); }
+.root[width="medium"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x-medium) + 1px); }
 .root[width="medium"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-medium)); }
 .root[height="medium"] { height: var(--select-height-medium); line-height: calc(var(--select-height-medium) - var(--select-border-width) * 2); }
 .root[height="medium"] .item { line-height: calc(var(--select-height-medium) - var(--select-border-width) * 2); }
@@ -330,6 +341,7 @@
 
 .root[width="large"] { width: var(--select-width-large); padding: 0 var(--select-padding-x-large); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-large)); }
 .root[width="large"] .item { padding: 0 var(--select-padding-x-large); }
+.root[width="large"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x-large) + 1px); }
 .root[width="large"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-large)); }
 .root[height="large"] { height: var(--select-height-large); line-height: calc(var(--select-height-large) - var(--select-border-width) * 2); }
 .root[height="large"] .item { line-height: calc(var(--select-height-large) - var(--select-border-width) * 2); }
@@ -337,6 +349,7 @@
 
 .root[width="huge"] { width: var(--select-width-huge); padding: 0 var(--select-padding-x-huge); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-huge)); }
 .root[width="huge"] .item { padding: 0 var(--select-padding-x-huge); }
+.root[width="huge"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x-huge) + 1px); }
 .root[width="huge"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-huge)); }
 .root[height="huge"] { height: var(--select-height-huge); line-height: calc(var(--select-height-huge) - var(--select-border-width) * 2); }
 .root[height="huge"] .item { line-height: calc(var(--select-height-huge) - var(--select-border-width) * 2); }
@@ -344,6 +357,7 @@
 
 .root[width="full"] { width: 100%; padding: 0 var(--select-padding-x-full); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-full)); }
 .root[width="full"] .item { padding: 0 var(--select-padding-x-full); }
+.root[width="full"] .item[isShowMultipleIcon][selected]:after { left: calc(var(--select-padding-x-full) + 1px); }
 .root[height="full"] { height: 100%; }
 
 .root[color="inverse"] {

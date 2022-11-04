@@ -3,17 +3,25 @@
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="check()"
     @focus="onFocus" @blur="onBlur" v-on="listeners">
     <span :class="$style.box" :status="String(currentValue)" :disabled="currentDisabled"></span>
-    <span vusion-slot-name-edit="text"><slot>{{ text }}</slot></span>
+    <slot></slot>
+    <span vusion-slot-name="item">
+        <slot name="item" :item="node">{{ text }}</slot>
+        <s-empty v-if="!$slots.item && !text && $env.VUE_APP_DESIGNER && ($attrs['vusion-node-path'] || $attrs.designer)" inline :class="$style.empty"></s-empty>
+    </span>
 </label>
 </template>
 
 <script>
 import { MChild } from '../m-parent.vue';
 import MField from '../m-field.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-checkbox',
     parentName: 'u-checkboxes',
+    components: {
+        SEmpty,
+    },
     mixins: [MChild, MField],
     props: {
         value: { type: Boolean, default: false },
@@ -22,6 +30,7 @@ export default {
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
+        node: Object,
     },
     data() {
         return { parentVM: undefined, currentValue: this.value };
@@ -206,5 +215,24 @@ export default {
 .box[disabled] {
     border-color: var(--checkbox-border-color-disabled);
     background: var(--checkbox-background-disabled);
+}
+
+.root[designer]{
+    display: inline-block;
+    position: relative;
+}
+.root[designer] + .root[designer]:after{
+    content: '';
+    position: absolute;
+    display: block;
+    background: rgba(255,255,255,0.8);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.empty:not(:only-child){
+    display: none;
 }
 </style>

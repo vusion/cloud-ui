@@ -824,6 +824,10 @@ export default {
 
 插入`<u-tree-view-node-new>`子组件
 
+#### item
+
+自定义选项的结构和样式
+
 ### Events
 
 #### @before-select

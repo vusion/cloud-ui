@@ -528,6 +528,10 @@
   },
   "u-checkboxes": {
     "attributes": [
+      "data-source",
+      "data-schema",
+      "text-field",
+      "value-field",
       "value",
       "min",
       "max",
@@ -731,13 +735,13 @@
   "u-drawer": {
     "attributes": [
       "visible",
-      "title",
-      "okButton",
-      "cancelButton",
+      "placement",
       "size",
-      "static",
-      "maskClosable"
-    ]
+      "maskClosable",
+      "show-head",
+      "show-foot"
+    ],
+    "description": "抽屉"
   },
   "u-dropdown": {
     "attributes": [
@@ -1095,7 +1099,10 @@
       "layout",
       "type",
       "justify",
-      "alignment"
+      "alignment",
+      "loadingIcon",
+      "loadingIconRotate",
+      "loadingText"
     ],
     "description": "内部元素按照一定的规则布局"
   },
@@ -1551,6 +1558,10 @@
   },
   "u-radios": {
     "attributes": [
+      "data-source",
+      "data-schema",
+      "text-field",
+      "value-field",
       "value",
       "readonly",
       "disabled"
@@ -1614,6 +1625,7 @@
       "value-field",
       "cancelable",
       "multiple",
+      "tags-overflow",
       "converter",
       "placeholder",
       "loading-text",
@@ -2165,7 +2177,10 @@
       "description",
       "showErrorMessage",
       "dragDescription",
-      "check-file"
+      "check-file",
+      "access",
+      "ttl",
+      "ttlValue"
     ],
     "description": "通过点击或者拖拽上传文件。"
   },
