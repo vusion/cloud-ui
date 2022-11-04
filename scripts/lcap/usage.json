@@ -6552,6 +6552,9 @@
                             "title": "表格列",
                             "snippet": "<u-table-view-column title=\"表格列\"><template #cell=\"scope\"></template></u-table-view-column>"
                         }
+                    ],
+                    "supportGenericComponents": [
+                        "u-table-view-column"
                     ]
                 },
                 {
