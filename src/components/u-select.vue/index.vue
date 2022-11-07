@@ -340,12 +340,17 @@ export default {
             const dataSource = this.currentDataSource;
             if (!dataSource)
                 return;
-            if (this.currentLoading)
-                return Promise.resolve(); // @TODO: dataSource 的多次 promise 必须串行
+            // if (this.currentLoading)
+            //     return Promise.resolve(); // @TODO: dataSource 的多次 promise 必须串行
             // return this.promiseSequence = this.promiseSequence.then(() => {
             this.currentLoading = true;
+            const loadToken = this.loadToken = +new Date();
+            // console.log('filterText', this.filterText, loadToken);
             return dataSource[more ? 'loadMore' : 'load']()
                 .then((data) => {
+                    // console.log('loaded', this.loadToken, loadToken);
+                    if (this.loadToken !== loadToken)
+                        return Promise.resolve();
                     this.currentLoading = false;
                     this.ensureSelectedInItemVMs();
                     this.$refs.popper.currentOpened
