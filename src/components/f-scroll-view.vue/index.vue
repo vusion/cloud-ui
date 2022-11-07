@@ -63,7 +63,14 @@ export default {
             this.moveY = (wrapEl.scrollTop * 100) / wrapEl.clientHeight;
             this.moveX = (wrapEl.scrollLeft * 100) / wrapEl.clientWidth;
 
-            this.$emit('scroll', { scrollTop: wrapEl.scrollTop });
+            this.$emit('scroll', {
+                scrollTop: wrapEl.scrollTop,
+                scrollLeft: wrapEl.scrollLeft,
+                clientWidth: wrapEl.clientWidth,
+                clientHeight: wrapEl.clientHeight,
+                scrollWidth: wrapEl.scrollWidth,
+                scrollHeight: wrapEl.scrollHeight,
+            });
         },
         handleResize() {
             const wrapEl = this.$refs.wrap;

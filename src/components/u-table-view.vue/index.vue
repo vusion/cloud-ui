@@ -7,7 +7,7 @@
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
         <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
-            <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth) }">
+            <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
@@ -22,7 +22,11 @@
                             :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
                             :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
                             :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
-                            :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)">
+                            :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)"
+                            :style="getStyle(columnIndex)"
+                            :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
+                            :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
+                            :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
                                 <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
@@ -63,8 +67,10 @@
             </u-table>
         </div>
         <div v-if="stickingHead" :class="$style.headPlaceholder" ref="headPlaceholder" :style="{ height: number2Pixel(stickingHeadHeight) }"></div>
-        <div :class="$style.body" ref="body" :style="{ width: number2Pixel(tableWidth), height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll">
-            <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped">
+        <div :class="$style.body" ref="body" :style="{ height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll"
+            :sticky-fixed="useStickyFixed">
+            <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView">
+            <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
@@ -85,7 +91,11 @@
                                         :vusion-template-editcell-node-path="columnVM.$attrs['vusion-template-editcell-node-path']"
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
-                                        :vusion-disabled-selected="rowIndex !== 0">
+                                        :vusion-disabled-selected="rowIndex !== 0"
+                                        :style="getStyle(columnIndex)"
+                                        :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
+                                        :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
+                                        :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
                                         <div :class="$style.tdmask" v-if="rowIndex !== 0"></div>
                                         <!--可视化占据的虚拟填充区域-->
                                         <div vusion-slot-name="cell" :plus-empty="typeCheck(columnVM.type) ? false : columnVM.$attrs['plus-empty']">
@@ -126,7 +136,11 @@
                                         :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
                                         :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
                                         :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
-                                        :vusion-node-path="columnVM.$attrs['vusion-node-path']">
+                                        :vusion-node-path="columnVM.$attrs['vusion-node-path']"
+                                        :style="getStyle(columnIndex)"
+                                        :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
+                                        :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
+                                        :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
                                             <!-- type === 'radio' -->
@@ -231,6 +245,7 @@
                     </tr>
                 </tbody>
             </u-table>
+            </f-scroll-view>
         </div>
     </div>
     <u-pagination :class="$style.pagination" v-if="(pageable === true || pageable === 'pagination') && currentDataSource"
@@ -358,6 +373,9 @@ export default {
             stickingHead: false,
             stickingHeadHeight: 0,
             stickingHeadTop: 0,
+            useStickyFixed: false,
+            fixedLeftList: [],
+            fixedRightList: [],
         };
     },
     computed: {
@@ -550,6 +568,7 @@ export default {
             const checkable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'checkbox');
             const expandable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'expander');
             const editable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'editable');
+            this.useStickyFixed = true;
             if (selectable) {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('disabled'))
@@ -727,22 +746,42 @@ export default {
 
                 const tableMetaList = [this.tableMetaList[0]];
                 tableMetaList[0].width = rootWidth;
-                if (fixedLeftCount) {
-                    tableMetaList.push({
-                        position: 'left',
-                        width: this.visibleColumnVMs.slice(0, fixedLeftCount)
-                            .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
-                    });
+                if (!this.useStickyFixed) {
+                    if (fixedLeftCount) {
+                        tableMetaList.push({
+                            position: 'left',
+                            width: this.visibleColumnVMs.slice(0, fixedLeftCount)
+                                .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
+                        });
+                    }
+                    if (fixedRightCount && tableWidth > rootWidth) {
+                        // 表格太短时，不固定右侧列
+                        tableMetaList.push({
+                            position: 'right',
+                            width: this.visibleColumnVMs.slice(-fixedRightCount)
+                                .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
+                        });
+                    }
+                    this.tableMetaList = tableMetaList;
+                } else {
+                    this.fixedLeftList = [];
+                    this.fixedRightList = [];
+                    if (fixedLeftCount) {
+                        this.visibleColumnVMs.slice(0, fixedLeftCount)
+                            .reduce((prev, columnVM) => {
+                                this.fixedLeftList.push(prev);
+                                return prev + columnVM.computedWidth;
+                            }, 0);
+                    }
+                    if (fixedRightCount && tableWidth > rootWidth) {
+                        // 表格太短时，不固定右侧列
+                        this.visibleColumnVMs.slice(-fixedRightCount)
+                            .reduce((prev, columnVM) => {
+                                this.fixedRightList.push(prev);
+                                return prev + columnVM.computedWidth;
+                            }, 0);
+                    }
                 }
-                if (fixedRightCount && tableWidth > rootWidth) {
-                    // 表格太短时，不固定右侧列
-                    tableMetaList.push({
-                        position: 'right',
-                        width: this.visibleColumnVMs.slice(-fixedRightCount)
-                            .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
-                    });
-                }
-                this.tableMetaList = tableMetaList;
 
                 // 当设置line的时候，会有1px的偏差，导致出现滚动条，这里暂时将最后一列的width减1
                 // 需要在总width计算完后处理，要不然总width会少1，导致自后一列的右侧线条看不见
@@ -773,6 +812,7 @@ export default {
                 } else {
                     this.tableHeight = undefined;
                 }
+
                 this.$emit('resize', undefined, this);
             });
         },
@@ -843,21 +883,28 @@ export default {
             this.stickingHead && this.syncHeadScroll();
         },
         syncBodyScroll(scrollTop, target) {
-            this.$refs.body[0]
-                && this.$refs.body[0] !== target
-                && (this.$refs.body[0].scrollTop = scrollTop);
-            this.$refs.body[1]
-                && this.$refs.body[1] !== target
-                && (this.$refs.body[1].scrollTop = scrollTop);
-            this.$refs.body[2]
-                && this.$refs.body[2] !== target
-                && (this.$refs.body[2].scrollTop = scrollTop);
+            console.log('syncBodyScroll');
+            if (!this.useStickyFixed) {
+                this.$refs.body[0]
+                    && this.$refs.body[0] !== target
+                    && (this.$refs.body[0].scrollTop = scrollTop);
+                this.$refs.body[1]
+                    && this.$refs.body[1] !== target
+                    && (this.$refs.body[1].scrollTop = scrollTop);
+                this.$refs.body[2]
+                    && this.$refs.body[2] !== target
+                    && (this.$refs.body[2].scrollTop = scrollTop);
+            }
         },
         syncHeadScroll() {
-            this.$refs.head[0].scrollLeft = this.$refs.head[0].parentElement.scrollLeft;
+            // this.$refs.head[0].scrollLeft = this.$refs.head[0].parentElement.scrollLeft;
         },
         onBodyScroll(e) {
+            console.log('sss1', e);
             this.syncBodyScroll(e.target.scrollTop, e.target); // this.throttledVirtualScroll(e);
+            this.$refs.head[0].scrollLeft = e.target.scrollLeft;
+            this.scrollXStart = e.target.scrollLeft === 0;
+            this.scrollXEnd = e.target.scrollLeft >= e.target.scrollWidth - e.target.clientWidth;
             if (this.pageable !== 'auto-more' || this.currentLoading)
                 return;
             const el = e.target;
@@ -877,6 +924,15 @@ export default {
             this.stickingHeadTop = parentRect.top;
             this.stickingHeadHeight = headHeight;
             this.syncHeadScroll();
+        },
+        onScrollView(data) {
+            this.$refs.head[0].scrollLeft = data.scrollLeft;
+            this.scrollXStart = data.scrollLeft === 0;
+            this.scrollXEnd = data.scrollLeft >= data.scrollWidth - data.clientWidth;
+            if (this.pageable !== 'auto-more' || this.currentLoading)
+                return;
+            if (data.scrollHeight === data.scrollTop + data.clientHeight && this.currentDataSource && this.currentDataSource.hasMore())
+                this.debouncedLoad(true);
         },
         load(more) {
             const dataSource = this.currentDataSource;
@@ -1423,6 +1479,37 @@ export default {
                 columnVM.dblclickHandler({ item, columnVM });
             }
         },
+        getStyle(index) {
+            if (this.useStickyFixed) {
+                if (this.fixedLeftList && this.fixedLeftList.length) {
+                    const left = this.fixedLeftList[index];
+                    if (left !== undefined) {
+                        return {
+                            position: 'sticky',
+                            left: left + 'px',
+                            zIndex: 1,
+                        };
+                    }
+                }
+                if (this.fixedRightList && this.fixedRightList.length) {
+                    const tempIndex = this.visibleColumnVMs.length - index - 1;
+                    const right = this.fixedRightList[tempIndex];
+                    if (right !== undefined) {
+                        return {
+                            position: 'sticky',
+                            right: right + 'px',
+                            zIndex: 1,
+                        };
+                    }
+                }
+            }
+        },
+        isLastLeftFixed(columnVM, columnIndex) {
+            return columnVM.fixed && columnIndex === this.fixedLeftList.length - 1 ? true : undefined;
+        },
+        isFirstRightFixed(columnVM, columnIndex) {
+            return columnVM.fixed && this.fixedRightList.length && columnIndex === this.visibleColumnVMs.length - this.fixedRightList.length ? true : undefined;
+        },
     },
 };
 </script>
@@ -1498,6 +1585,11 @@ export default {
 
 .head {
     width: 100%;
+    overflow-x:hidden;
+    overflow-y: hidden;
+}
+.head::-webkit-scrollbar {
+    height: 0;
 }
 
 .head[stickingHead] {
@@ -1527,15 +1619,43 @@ export default {
 .head-title.boldHeader {
     font-weight: var(--table-head-font-weight);
 }
+.head-title[last-left-fixed]::after,
+.head-title[first-right-fixed]::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: -1px;
+    width: 6px;
+    pointer-events: none;
+    transform: translateX(-100%);
+    transition: box-shadow .1s linear;
+    box-shadow: none;
+    display:block;
+}
+.head-title[last-left-fixed]::after {
+    left: unset;
+    transform: translateX(100%);
+    right: 0;
+}
+.head-title[shadow][last-left-fixed]::after {
+    box-shadow: inset 3px 0 5px -3px rgb(0 0 0 / 15%);
+}
+.head-title[shadow][first-right-fixed]::after {
+    box-shadow: inset -3px 0 5px -3px rgb(0 0 0 / 15%);
+}
 
 .extra {
     float: right;
 }
 
 .body {
-    width: 100%;
+    /* width: 100%;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: auto; */
+    overflow: auto;
+    width: 100%;
+    height: 100%;
 }
 
 .center {
@@ -1622,6 +1742,31 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+.cell[last-left-fixed]::after,
+.cell[first-right-fixed]::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: -1px;
+    width: 6px;
+    pointer-events: none;
+    transform: translateX(-100%);
+    transition: box-shadow .1s linear;
+    box-shadow: none;
+    display:block;
+}
+.cell[last-left-fixed]::after {
+    left: unset;
+    transform: translateX(100%);
+    right: 0;
+}
+.cell[shadow][last-left-fixed]::after {
+    box-shadow: inset 3px 0 5px -3px rgb(0 0 0 / 15%);
+}
+.cell[shadow][first-right-fixed]::after {
+    box-shadow: inset -3px 0 5px -3px rgb(0 0 0 / 15%);
 }
 
 .pagination {
@@ -1779,6 +1924,11 @@ export default {
 }
 .spinner {
     margin-right: 4px;
+}
+
+.scrollcview {
+    width: 100%;
+    height: 100%;
 }
 
 @keyframes rotate {
