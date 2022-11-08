@@ -4,7 +4,7 @@
 
 ``` html
 <u-validator label="用户名" rules="required | ^azAZ | azAZ09$ | min(4)">
-    <u-input></u-input>
+    <u-input placeholder='请输入'></u-input>
 </u-validator>
 ```
 
@@ -12,7 +12,7 @@
 
 ``` html
 <u-validator label="用户名" rules="required@bi #请输入 | ^azAZ #以字母开头 | azAZ09$ | min(4) @b">
-    <u-input></u-input>
+    <u-input placeholder='请输入'></u-input>
 </u-validator>
 ```
 
@@ -20,7 +20,7 @@
 
 ``` html
 <u-validator label="用户名" rules="required@bi #请输入'wafew' | ^azAZ #以字母开头/%()J25 | azAZ09$ | min(4) @b #(23,40)">
-    <u-input></u-input>
+    <u-input placeholder='请输入'></u-input>
 </u-validator>
 ```
 
@@ -28,7 +28,7 @@
 
 ``` html
 <u-validator action="输入" label="用户名" rules=" minLength(4) @b">
-    <u-input></u-input>
+    <u-input placeholder='请输入'></u-input>
 </u-validator>
 ```
 
@@ -36,7 +36,7 @@
 
 ``` html
 <u-validator label="用户名" rules="required('@') | ^azAZ('#|')">
-    <u-input></u-input>
+    <u-input placeholder='请输入'></u-input>
 </u-validator>
 ```
 
@@ -44,7 +44,7 @@
 
 ``` html
 <u-validator label="用户名" rules="required@bi #请输入#wafew' | ^azAZ #以字母开头/%()J25 | azAZ09$ | min(4) @b #@(23,40)">
-    <u-input></u-input>
+    <u-input placeholder='请输入'></u-input>
 </u-validator>
 ```
 
@@ -53,7 +53,7 @@
 ``` vue
 <template>
 <u-validator label="端口" rules="required | port">
-    <u-input></u-input>
+    <u-input placeholder='请输入'></u-input>
 </u-validator>
 </template>
 <script>
@@ -92,7 +92,7 @@ export default {
 ``` vue
 <template>
 <u-validator label="端口" rules="required | min(something)">
-    <u-input></u-input>
+    <u-input placeholder='请输入'></u-input>
 </u-validator>
 </template>
 <script>
@@ -116,10 +116,10 @@ export default {
 <template>
 <div>
     <u-validator rules="required | numeric">
-        <u-input v-model="value1"></u-input>
+        <u-input v-model="value1" placeholder='请输入'></u-input>
     </u-validator>
     <u-validator rules="max(100)">
-        <u-number-input v-model="value2"></u-number-input>
+        <u-number-input v-model="value2" placeholder='请输入'></u-number-input>
     </u-validator>
     <u-validator rules="max(100)">
         <u-select v-model="value3">
