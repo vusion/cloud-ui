@@ -3,7 +3,7 @@
     <div v-if="title" :class="$style.title" ref="title" :style="{ textAlign: titleAlignment }" vusion-slot-name="title" vusion-slot-name-edit="title">
         <slot name="title">{{ title }}</slot>
     </div>
-    <div :class="$style.table" v-for="tableMeta in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
+    <div :class="$style.table" v-for="(tableMeta, tableMetaIndex) in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
         <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
@@ -69,7 +69,7 @@
         <div v-if="stickingHead" :class="$style.headPlaceholder" ref="headPlaceholder" :style="{ height: number2Pixel(stickingHeadHeight) }"></div>
         <div :class="$style.body" ref="body" :style="{ height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll"
             :sticky-fixed="useStickyFixed">
-            <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView">
+            <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
@@ -351,6 +351,7 @@ export default {
         filterMultiple: { type: Boolean, default: false },
         filterMax: Number,
         resizeBodyHeight: { type: Boolean, default: true },
+        stickFixed: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -373,7 +374,7 @@ export default {
             stickingHead: false,
             stickingHeadHeight: 0,
             stickingHeadTop: 0,
-            useStickyFixed: false,
+            useStickyFixed: this.stickFixed,
             fixedLeftList: [],
             fixedRightList: [],
         };
@@ -508,6 +509,9 @@ export default {
         visibleColumnVMs() {
             this.handleResize();
         },
+        stickFixed(value) {
+            this.useStickyFixed = value;
+        },
     },
     created() {
         // 自动补充 pageSizeOptions
@@ -568,7 +572,6 @@ export default {
             const checkable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'checkbox');
             const expandable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'expander');
             const editable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'editable');
-            this.useStickyFixed = true;
             if (selectable) {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('disabled'))
@@ -926,13 +929,29 @@ export default {
             this.syncHeadScroll();
         },
         onScrollView(data) {
-            this.$refs.head[0].scrollLeft = data.scrollLeft;
-            this.scrollXStart = data.scrollLeft === 0;
-            this.scrollXEnd = data.scrollLeft >= data.scrollWidth - data.clientWidth;
-            if (this.pageable !== 'auto-more' || this.currentLoading)
-                return;
-            if (data.scrollHeight === data.scrollTop + data.clientHeight && this.currentDataSource && this.currentDataSource.hasMore())
-                this.debouncedLoad(true);
+            if (!this.useStickyFixed) {
+                this.syncScrollViewScroll(data.scrollTop, data.target);
+            }
+            if (this.$refs.scrollView[0].$refs.wrap === data.target) {
+                this.$refs.head[0].scrollLeft = data.scrollLeft;
+                this.scrollXStart = data.scrollLeft === 0;
+                this.scrollXEnd = data.scrollLeft >= data.scrollWidth - data.clientWidth;
+                if (this.pageable !== 'auto-more' || this.currentLoading)
+                    return;
+                if (data.scrollHeight === data.scrollTop + data.clientHeight && this.currentDataSource && this.currentDataSource.hasMore())
+                    this.debouncedLoad(true);
+            }
+        },
+        syncScrollViewScroll(scrollTop, target) {
+            this.$refs.scrollView[0]
+                && this.$refs.scrollView[0].$refs.wrap !== target
+                && (this.$refs.scrollView[0].$refs.wrap.scrollTop = scrollTop);
+            this.$refs.scrollView[1]
+                && this.$refs.scrollView[1].$refs.wrap !== target
+                && (this.$refs.scrollView[1].$refs.wrap.scrollTop = scrollTop);
+            this.$refs.scrollView[2]
+                && this.$refs.scrollView[2].$refs.wrap !== target
+                && (this.$refs.scrollView[2].$refs.wrap.scrollTop = scrollTop);
         },
         load(more) {
             const dataSource = this.currentDataSource;
@@ -1929,6 +1948,12 @@ export default {
 .scrollcview {
     width: 100%;
     height: 100%;
+}
+.scrollcview[native="true"] [class^="f-scroll-view_wrap__"]{
+    overflow-x: hidden;
+}
+.scrollcview[native="true"] [class^="f-scroll-view_wrap__"]::-webkit-scrollbar {
+    width: 0;
 }
 
 @keyframes rotate {
