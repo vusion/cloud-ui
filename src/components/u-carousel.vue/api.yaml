@@ -7,18 +7,30 @@
   next: true
   nexted: false
   attrs:
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function
+      description: 集合类型变量或者输出参数为集合类型的逻辑
+      designer-value: "[{}, {}, {}]"
+      group: 数据属性
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 集合类型每一元素的数据类型
+      group: 数据属性
+      compType: dataTypeSelect
     - name: value
       title: 值
       type: any
       sync: true
       description: 播放位置
       advanced: true
+      group: 数据属性
     - name: autoplay
-      title: 自动播放
+      title: 是否轮播
       type: boolean
       default: true
-      description: 是否自动播放
-      advanced: true
+      description: 是否轮播
     - name: loop
       title: 循环播放
       type: boolean
@@ -51,6 +63,21 @@
           title: 幻灯片子项
           snippet: '<u-carousel-item><u-image style="width: 100%; height: 100%" fit="cover"
             src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg"></u-carousel-item>'
+    - concept: Slot
+      name: item
+      description: 自定义选项的结构和样式
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T 
   events:
     - name: before-select
       title: 选择前
