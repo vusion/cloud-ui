@@ -3,19 +3,32 @@
     <div :class="$style.root"
         v-show="!!selected"
         :animation="animation">
-        <div :class="$style.body"><slot></slot></div>
+        <div :class="$style.body">
+            <slot></slot>
+            <span vusion-slot-name="item">
+                <slot name="item" :item="node"></slot>
+                <s-empty v-if="!$slots.item && $env.VUE_APP_DESIGNER && ($attrs['vusion-node-path'] || $attrs.designer)" :class="$style.empty"></s-empty>
+            </span>
+        </div>
     </div>
 </transition>
 </template>
 
 <script>
 import { MSinglexItem } from '../m-singlex.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-carousel-item',
     parentName: 'u-carousel',
     extends: MSinglexItem,
-    props: { title: String },
+    props: { 
+        title: String,
+        node: Object, 
+    },
+    components: {
+        SEmpty,
+    },
     computed: {
         animation() {
             return this.parentVM && this.parentVM.animation;
@@ -74,4 +87,11 @@ export default {
 .root[selcted][animation="fade"] {
     opacity: 1;
 } */
+
+.empty:not(:only-child){
+    display: none;
+}
+.root .empty:after {
+    font-size: 60px
+}
 </style>
