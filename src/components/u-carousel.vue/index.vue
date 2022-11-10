@@ -5,6 +5,7 @@
         <u-carousel-item
             v-for="(node, index) in currentDataSource.data"
             dataSource="true"
+            :index="index"
             :key="index"
             :designer="$env.VUE_APP_DESIGNER"
             :node="node"

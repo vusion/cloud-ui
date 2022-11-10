@@ -27,9 +27,9 @@ export default {
                     parentVM.itemVMs.sort((a, b) => {
                         if(a.$attrs.dataSource) {
                             if(b.$attrs.dataSource)
-                                return a.$$attrs.index - b.$attrs.index;
+                                return a.$attrs.index - b.$attrs.index;
                             else
-                                -1;
+                                return -1;
                         } else {
                             if(b.$attrs.dataSource)
                                 return 1;
