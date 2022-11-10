@@ -845,6 +845,9 @@
     --table-view-expand-td-background: #F7F8FA; /* @hidden */
     --table-view-editable-td-min-height: 34px; /* @hidden */
     --table-view-overflow-x: auto; /* @hidden */
+    --table-view-drop-ghost-border-color: var(--brand-primary);
+    --table-view-drop-ghost-disabled-border-color: var(--brand-error);
+    --table-view-drop-ghost-mask-background: rgba(77, 136, 255, 0.1);
 
     /* @component u-list-view @hidden */
     --list-view-width: var(--width-medium);

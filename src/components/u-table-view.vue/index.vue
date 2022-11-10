@@ -5,7 +5,7 @@
     </div>
     <div :class="$style.table" v-for="(tableMeta, tableMetaIndex) in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
-        @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
+        @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)" ref="table">
         <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
             <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
@@ -77,7 +77,13 @@
                 <tbody>
                     <template v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
-                            <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }">
+                            <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }"
+                            :draggable="true"
+                            @dragstart="onDragStart($event, item, rowIndex)"
+                            @dragover="onDragOver($event, item, rowIndex)"
+                            @dragleave="onDragLeave($event, item, rowIndex)"
+                            @dragend="onDragEnd($event, item, rowIndex)"
+                            @drop="onDrop($event, item, rowIndex)">
                                 <template v-if="$env.VUE_APP_DESIGNER">
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
                                         vusion-slot-name="cell"
@@ -247,6 +253,10 @@
             </u-table>
             </f-scroll-view>
         </div>
+        <!-- <div :class="$style.dropghost" :style="dropghostStyle">
+            <div :class="$style.line"></div>
+        </div> -->
+        <u-table-view-drop-ghost :data="dropData"></u-table-view-drop-ghost>
     </div>
     <u-pagination :class="$style.pagination" v-if="(pageable === true || pageable === 'pagination') && currentDataSource"
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
@@ -266,9 +276,13 @@ import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
+import UTableViewDropGhost from './drop-ghost.vue';
 
 export default {
     name: 'u-table-view',
+    components: {
+        UTableViewDropGhost,
+    },
     mixins: [MEmitter],
     i18n,
     props: {
@@ -352,6 +366,7 @@ export default {
         filterMax: Number,
         resizeBodyHeight: { type: Boolean, default: true },
         stickFixed: { type: Boolean, default: true },
+        draggable: { type: String, default: 'none' },
     },
     data() {
         return {
@@ -377,6 +392,9 @@ export default {
             useStickyFixed: this.stickFixed,
             fixedLeftList: [],
             fixedRightList: [],
+            currentDragging: false,
+            dragState: undefined,
+            dropData: undefined,
         };
     },
     computed: {
@@ -886,7 +904,6 @@ export default {
             this.stickingHead && this.syncHeadScroll();
         },
         syncBodyScroll(scrollTop, target) {
-            console.log('syncBodyScroll');
             if (!this.useStickyFixed) {
                 this.$refs.body[0]
                     && this.$refs.body[0] !== target
@@ -903,7 +920,6 @@ export default {
             // this.$refs.head[0].scrollLeft = this.$refs.head[0].parentElement.scrollLeft;
         },
         onBodyScroll(e) {
-            console.log('sss1', e);
             this.syncBodyScroll(e.target.scrollTop, e.target); // this.throttledVirtualScroll(e);
             this.$refs.head[0].scrollLeft = e.target.scrollLeft;
             this.scrollXStart = e.target.scrollLeft === 0;
@@ -1405,8 +1421,8 @@ export default {
                     this.$setAt(item, this.hasChildrenField, true);
                     item.expanded = item.expanded || false;
                 }
-                if (parent && !item.hasOwnProperty('display')) {
-                    this.$set(item, 'display', 'none');
+                if (parent) {
+                    this.$set(item, 'display', parent.expanded ? '' : 'none');
                 }
                 if (!item.hasOwnProperty('loading')) {
                     this.$set(item, 'loading', false);
@@ -1528,6 +1544,139 @@ export default {
         },
         isFirstRightFixed(columnVM, columnIndex) {
             return columnVM.fixed && this.fixedRightList.length && columnIndex === this.visibleColumnVMs.length - this.fixedRightList.length ? true : undefined;
+        },
+        onDragStart(e, item, rowIndex) {
+            this.currentDragging = true;
+            this.dragStartData = {
+                item,
+                rowIndex,
+            };
+            this.dragState = {
+                dragging: true,
+                source: item,
+                sourcePath: rowIndex,
+            };
+
+            // 该节点下的所有子节点不要响应dragover
+            const value = this.$at(item, this.valueField);
+            this.currentData.forEach((item) => {
+                item.disabledDraggover = false;
+                item.disabledDrop = !this.$at(item, this.hasChildrenField);
+                if (item.parentPointer !== undefined && item.parentPointer === value) {
+                    item.disabledDraggover = true;
+                }
+            });
+            // 本身不要线
+            item.disabledDraggover = true;
+            console.log('this.currentData1', this.currentData);
+            this.$emit('dragstart', {
+                item,
+                rowIndex,
+            });
+        },
+        onDragOver(e, item, rowIndex) {
+            e.preventDefault();
+            if (item.disabledDraggover) {
+                return;
+            }
+            // to do
+            let target = e.target;
+            while (target) {
+                if (target.tagName !== 'TR') {
+                    target = target.parentElement;
+                } else {
+                    break;
+                }
+            }
+            const trRect = target.getBoundingClientRect();
+            const disabledDrop = item.disabledDrop || item.disabledDraggover;
+            const splitValue = disabledDrop ? 2 : 4;
+            const upArea = trRect.top + trRect.height / splitValue;
+            const downArea = trRect.top + trRect.height / splitValue * (splitValue - 1);
+            let position = '';
+            if (e.y <= upArea && !item.disabledDraggover) {
+                // 在上部
+                position = 'insertBefore';
+            } else if (e.y >= downArea) {
+                // 在下部
+                position = 'insertAfter';
+                // 有子元素的节点，展开时如果响应，线会在很下方，所以这里不要响应
+                if (item.expanded && item.children?.length) {
+                    this.position = undefined;
+                }
+            } else {
+                // 在中间
+                if (!disabledDrop) {
+                    position = 'append';
+                }
+            }
+            this.dropData = {
+                dragoverElRect: trRect,
+                parentElRect: this.$refs.table[0].getBoundingClientRect(),
+                position,
+            };
+            console.log('dropData', this.dropData);
+        },
+        onDragEnd(e) {
+            this.clearDragState();
+        },
+        onDragLeave(e) {},
+        onDrop(e, item, rowIndex) {
+            if (this.dragStartData && this.dragStartData.rowIndex !== rowIndex) {
+                if (this.treeDisplay) {
+                    const originalList = this.currentDataSource ? this.currentDataSource.arrangedData.filter((item) => !!item) : this.currentDataSource;
+                    this.findItem(originalList, (node, index, list) => {
+                        const value = this.$at(this.dragStartData.item, this.valueField);
+                        if (value === this.$at(node, this.valueField)) {
+                            this.removeData = {
+                                parent: list,
+                                index,
+                            };
+                        }
+                    });
+                    if (this.removeData) {
+                        this.removeData.parent.splice(this.removeData.index, 1);
+                    }
+                    this.findItem(originalList, (node, index, list) => {
+                        const value = this.$at(item, this.valueField);
+                        if (value === this.$at(node, this.valueField)) {
+                            this.insetData = {
+                                parent: list,
+                                index,
+                            };
+                        }
+                    });
+                    console.log('insetData', this.insetData);
+                    if (this.dropData.position === 'append') {
+                        const parentNode = this.insetData.parent[this.insetData.index];
+                        parentNode.expanded = true;
+                        (parentNode[this.childrenField] || []).push(this.dragStartData.item);
+                    } else {
+                        const insertIndex = this.dropData.position === 'insertBefore' ? this.insetData.index : this.insetData.index + 1;
+                        this.insetData && this.insetData.parent.splice(insertIndex, 0, this.dragStartData.item);
+                    }
+                    this.currentDataSource.arrangedData = originalList;
+                } else {
+                    this.currentData.splice(this.dragStartData.rowIndex, 1);
+                    this.currentData.splice(rowIndex, 0, this.dragStartData.item);
+                }
+                this.$forceUpdate();
+                this.clearDragState();
+            }
+        },
+        findItem(list, func) {
+            list.forEach((item, index) => {
+                func(item, index, list);
+                const childList = item && this.$at(item, this.childrenField);
+                if (!childList)
+                    return;
+                this.findItem(childList, func);
+            });
+        },
+        clearDragState() {
+            this.dropghostStyle = undefined;
+            this.dragStartData = {};
+            this.dropData = undefined;
         },
     },
 };
@@ -1810,6 +1959,9 @@ export default {
         inset 0px -1px 0px 0px var(--table-view-row-selected-border-color),
         inset -1px 0px 0px 0px var(--table-view-row-selected-border-color);
 }
+.row[draggable] {
+    cursor: move;
+}
 
 .expander {
     user-select: none;
@@ -1954,6 +2106,15 @@ export default {
 }
 .scrollcview[native="true"] [class^="f-scroll-view_wrap__"]::-webkit-scrollbar {
     width: 0;
+}
+
+.dropghost {
+    position: absolute;
+}
+.dropghost .line {
+    position: absolute;
+    border: 1px solid red;
+    width: 100%;
 }
 
 @keyframes rotate {
