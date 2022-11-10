@@ -14777,13 +14777,14 @@
     {
         "symbol": "u-validator",
         "name": "验证器",
+        "icon": "validator",
         "depDescription": {},
         "description": "实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。常用于嵌套验证时使用，或用于派生一些较复杂的组件。",
         "labels": [
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/9.png",
-        "blocks": "[]",
+        "blocks": "[{\"title\":\"字符串验证\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"用户名\\\" rules=\\\"required | ^azAZ | azAZ09$ | min(4)\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n\"},{\"title\":\"字符串验证\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"用户名\\\" rules=\\\"required@bi #请输入 | ^azAZ #以字母开头 | azAZ09$ | min(4) @b\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n\"},{\"title\":\"字符串验证\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"用户名\\\" rules=\\\"required@bi #请输入'wafew' | ^azAZ #以字母开头/%()J25 | azAZ09$ | min(4) @b #(23,40)\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n\"},{\"title\":\"字符串验证\",\"description\":\"\",\"code\":\"<template>\\n<u-validator action=\\\"输入\\\" label=\\\"用户名\\\" rules=\\\" minLength(4) @b\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n\"},{\"title\":\"字符串验证\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"用户名\\\" rules=\\\"required('@') | ^azAZ('#|')\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n\"},{\"title\":\"字符串验证\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"用户名\\\" rules=\\\"required@bi #请输入#wafew' | ^azAZ #以字母开头/%()J25 | azAZ09$ | min(4) @b #@(23,40)\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n\"},{\"title\":\"Temp rule\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"端口\\\" rules=\\\"required | port\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n<script>\\nexport default {\\n    rules: {\\n        port: { validate: 'range', args: [1000, 65535], trigger: 'blur', message: '端口' },\\n    },\\n};\\n</script>\\n\"},{\"title\":\"复合验证，循环报错\",\"description\":\"\",\"code\":\"<template>\\n<u-form-item label=\\\"用户名\\\" rules=\\\"usernameBase | unique(...existingList)\\\">\\n    <u-input maxlength=\\\"12\\\" placeholder=\\\"4-12个字符\\\"></u-input>\\n</u-form-item>\\n</template>\\n<script>\\nexport default {\\n    rules: {\\n        usernameBase: 'required | ^azAZ | ^azAZ09-$ | usernameBase | minLength(4)',\\n    },\\n    data() {\\n        return {\\n            existingList: ['abcd', 'aaaa', 'ABCD'],\\n        };\\n    },\\n};\\n</script>\\n\"},{\"title\":\"找不到变量应该报错出来\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"端口\\\" rules=\\\"required | min(something)\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n<script>\\nexport default {\\n    data() {\\n        return {\\n            some: {\\n                object: {\\n                    number: 20,\\n                },\\n            },\\n        };\\n    },\\n};\\n</script>\\n\"},{\"title\":\"根据 update 来初始化 input 状态\",\"description\":\"\",\"code\":\"<template>\\n<div>\\n    <u-validator rules=\\\"required | numeric\\\">\\n        <u-input v-model=\\\"value1\\\" placeholder='请输入'></u-input>\\n    </u-validator>\\n    <u-validator rules=\\\"max(100)\\\">\\n        <u-number-input v-model=\\\"value2\\\" placeholder='请输入'></u-number-input>\\n    </u-validator>\\n    <u-validator rules=\\\"max(100)\\\">\\n        <u-select v-model=\\\"value3\\\">\\n            <u-select-item value=\\\"Item 1\\\">Item 1</u-select-item>\\n            <u-select-item value=\\\"Item 2\\\">Item 2</u-select-item>\\n            <u-select-item value=\\\"Item 3\\\">Item 3</u-select-item>\\n            <u-select-item value=\\\"Item 4\\\">Item 4</u-select-item>\\n        </u-select>\\n    </u-validator>\\n</div>\\n</template>\\n\\n<script>\\nexport default {\\n    data() {\\n        return {\\n            value1: '123',\\n            value2: 123,\\n            value3: 'Item 3',\\n        };\\n    },\\n};\\n</script>\\n\"}]",
         "jsonSchema": {
             "name": "u-validator",
             "title": "验证器",
@@ -14791,7 +14792,58 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.19/src/components/u-validator.vue/screenshots/9.png",
             "drawings": "",
-            "blocks": [],
+            "blocks": [
+                {
+                    "title": "字符串验证",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"用户名\" rules=\"required | ^azAZ | azAZ09$ | min(4)\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n"
+                },
+                {
+                    "title": "字符串验证",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"用户名\" rules=\"required@bi #请输入 | ^azAZ #以字母开头 | azAZ09$ | min(4) @b\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n"
+                },
+                {
+                    "title": "字符串验证",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"用户名\" rules=\"required@bi #请输入'wafew' | ^azAZ #以字母开头/%()J25 | azAZ09$ | min(4) @b #(23,40)\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n"
+                },
+                {
+                    "title": "字符串验证",
+                    "description": "",
+                    "code": "<template>\n<u-validator action=\"输入\" label=\"用户名\" rules=\" minLength(4) @b\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n"
+                },
+                {
+                    "title": "字符串验证",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"用户名\" rules=\"required('@') | ^azAZ('#|')\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n"
+                },
+                {
+                    "title": "字符串验证",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"用户名\" rules=\"required@bi #请输入#wafew' | ^azAZ #以字母开头/%()J25 | azAZ09$ | min(4) @b #@(23,40)\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n"
+                },
+                {
+                    "title": "Temp rule",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"端口\" rules=\"required | port\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n<script>\nexport default {\n    rules: {\n        port: { validate: 'range', args: [1000, 65535], trigger: 'blur', message: '端口' },\n    },\n};\n</script>\n"
+                },
+                {
+                    "title": "复合验证，循环报错",
+                    "description": "",
+                    "code": "<template>\n<u-form-item label=\"用户名\" rules=\"usernameBase | unique(...existingList)\">\n    <u-input maxlength=\"12\" placeholder=\"4-12个字符\"></u-input>\n</u-form-item>\n</template>\n<script>\nexport default {\n    rules: {\n        usernameBase: 'required | ^azAZ | ^azAZ09-$ | usernameBase | minLength(4)',\n    },\n    data() {\n        return {\n            existingList: ['abcd', 'aaaa', 'ABCD'],\n        };\n    },\n};\n</script>\n"
+                },
+                {
+                    "title": "找不到变量应该报错出来",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"端口\" rules=\"required | min(something)\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n<script>\nexport default {\n    data() {\n        return {\n            some: {\n                object: {\n                    number: 20,\n                },\n            },\n        };\n    },\n};\n</script>\n"
+                },
+                {
+                    "title": "根据 update 来初始化 input 状态",
+                    "description": "",
+                    "code": "<template>\n<div>\n    <u-validator rules=\"required | numeric\">\n        <u-input v-model=\"value1\" placeholder='请输入'></u-input>\n    </u-validator>\n    <u-validator rules=\"max(100)\">\n        <u-number-input v-model=\"value2\" placeholder='请输入'></u-number-input>\n    </u-validator>\n    <u-validator rules=\"max(100)\">\n        <u-select v-model=\"value3\">\n            <u-select-item value=\"Item 1\">Item 1</u-select-item>\n            <u-select-item value=\"Item 2\">Item 2</u-select-item>\n            <u-select-item value=\"Item 3\">Item 3</u-select-item>\n            <u-select-item value=\"Item 4\">Item 4</u-select-item>\n        </u-select>\n    </u-validator>\n</div>\n</template>\n\n<script>\nexport default {\n    data() {\n        return {\n            value1: '123',\n            value2: 123,\n            value3: 'Item 3',\n        };\n    },\n};\n</script>\n"
+                }
+            ],
             "attrs": [
                 {
                     "name": "name",
