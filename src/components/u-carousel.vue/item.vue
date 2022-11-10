@@ -94,4 +94,7 @@ export default {
 .root .empty:after {
     font-size: 60px
 }
+.root[dataSource][designer] .body {
+    overflow: auto;
+}
 </style>

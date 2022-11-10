@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :designer="$env.VUE_APP_DESIGNER">
+<div :class="$style.root">
     <div :class="$style.body" name="realpostion">
         <u-loading v-if="loading" size="small"></u-loading>
         <u-carousel-item
@@ -144,11 +144,6 @@ export default {
     overflow: hidden;
     width: var(--carousel-width);
     height: var(--carousel-height);
-}
-
-.root[designer] {
-    height: unset;
-    min-height: var(--carousel-height);
 }
 
 .body {
