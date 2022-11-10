@@ -1,6 +1,24 @@
 <template>
 <div :class="$style.root">
     <div :class="$style.body" name="realpostion">
+        <u-loading v-if="loading" size="small"></u-loading>
+        <u-carousel-item
+            v-for="(node, index) in currentDataSource.data"
+            dataSource="true"
+            :index="index"
+            :key="index"
+            :designer="$env.VUE_APP_DESIGNER"
+            :node="node"
+        >
+            <template #item="item">
+                <slot name="item" v-bind="item">
+                    {{ $at(node, textField) }}
+                </slot>
+            </template>
+        </u-carousel-item>
+        <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
+            <span :class="$style.loadContent">{{ treeSelectTip }}</span>
+        </template>
         <slot></slot>
     </div>
     <nav :class="$style.nav" v-if="$env.VUE_APP_DESIGNER">
@@ -28,11 +46,17 @@
 
 <script>
 import { MSinglex } from '../m-singlex.vue';
+import SupportDataSource  from '../../mixins/support.datasource.js';
+import UCarouselItem from './item.vue';
 
 export default {
     name: 'u-carousel',
     childName: 'u-carousel-item',
     extends: MSinglex,
+    mixins: [SupportDataSource],
+    components: {
+        UCarouselItem,
+    },
     props: {
         autoSelect: { type: Boolean, default: true },
         value: null,
@@ -59,6 +83,12 @@ export default {
             set(index) {
                 this.selectedVM = this.itemVMs[index];
             },
+        },
+    },
+    watch: {
+        autoplay(value) {
+            if(value) this.next();
+            else clearTimeout(this.timer);
         },
     },
     created() {
@@ -202,6 +232,13 @@ export default {
     height: var(--carousel-button-font-size);
     top: 36%;
     left: 52%;
+    transform: translate(-50%, -50%);
+}
+
+.root .loadContent {
+    position: absolute;
+    left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
 }
 </style>
