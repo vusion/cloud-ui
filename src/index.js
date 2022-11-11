@@ -14,6 +14,10 @@ export { install } from '@vusion/utils';
 import Vue from 'vue';
 Vue.prototype.$env = Vue.prototype.$env || {};
 Vue.prototype.$env.VUE_APP_DESIGNER = String(process.env.VUE_APP_DESIGNER) === 'true';
+Vue.prototype.$at2 = function(obj, propertyPath) {
+    if(propertyPath === '') return obj;
+    return this.$at(obj, propertyPath);
+}
 
 function getAsyncPublicPath () {
     const script = document.querySelector('script[src*="cloud-ui.vusion"]');

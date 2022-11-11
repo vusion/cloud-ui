@@ -4,8 +4,8 @@
     <template v-else-if="currentDataSource">
         <u-tree-view-node-new v-if="dataSource"
             v-for="node in currentDataSource.data"
-            :text="$at(node, field || textField)"
-            :value="$at(node, valueField)"
+            :text="$at2(node, field || textField)"
+            :value="$at2(node, valueField)"
             :expanded="$at(node, expandedField)"
             :checked.sync="node.checked"
             :disabled="node.disabled"
@@ -19,7 +19,7 @@
             <template #item="item">
 <!--                <s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER "></s-empty>-->
                 <slot name="item" v-bind="item">
-                    {{ $at(node, field || textField) }}
+                    {{ $at2(node, field || textField) }}
                 </slot>
             </template>
         </u-tree-view-node-new>
