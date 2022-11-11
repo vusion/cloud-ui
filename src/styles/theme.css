@@ -807,6 +807,7 @@
     --table-view-sort-color-hover: #aaa; /* @hidden */
     --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
     --table-view-table-right-shadow: -2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
+    --table-view-table-top-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
     --table-view-filter-color-hover: #aaa; /* @hidden */
     --table-view-filter-color-active: var(--brand-primary); /* @hidden */
     --table-view-filter-item-hover: var(--table-view-row-hover-background); /* @hidden */
@@ -908,7 +909,7 @@
     --tree-view-node-expander-size-mini: 26px; /* @hidden */
     --tree-view-node-background-active-inverse: var(--background-color-base-inverse); /* @hidden */
     --tree-view-node-background-selected-inverse: var(--brand-primary-light); /* @hidden */
-    --tree-view-node-background-border-radius: var(--border-radius-base); /* @hidden */
+    --tree-view-node-background-border-radius: none; /* @hidden */
     --tree-view-node-color-selected-inverse: white; /* @hidden */
     --tree-view-node-color-disabled: var(--brand-disabled); /* @hidden */
     --tree-view-node-color-disabled-inverse: var(--brand-disabled); /* @hidden */
@@ -938,7 +939,7 @@
      */
 
     /* @component u-form */
-    --form-item-label-color: var(--color-light); /* @type color */ /* @desc 表单项 label字体颜色,如 #223325 */
+    --form-item-label-color: var(--font-second-color); /* @type color */ /* @desc 表单项 label字体颜色,如 #223325 */
     --form-item-label-padding-right: 20px; /* @desc 表单项 label文本右边距,如 1px */
     --form-item-label-width: 76px; /* @desc 表单项 label宽度,如 1px */
 

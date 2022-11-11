@@ -15,7 +15,8 @@ export function hasClass(el, className) {
 }
 
 export function getRect(el) {
-    return el.getBoundingClientRect();
+    const { top, bottom, left, right, width, height, x, y } = el.getBoundingClientRect();
+    return { top, bottom, left, right, width, height, x, y };
 }
 
 export function getPosition(el) {

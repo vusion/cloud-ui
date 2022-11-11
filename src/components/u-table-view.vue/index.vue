@@ -6,8 +6,8 @@
     <div :class="$style.table" v-for="tableMeta in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
-        <div v-if="showHead" :class="$style.head" ref="head" :style="{ width: number2Pixel(tableWidth) }">
-            <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped">
+        <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
+            <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth) }">
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
@@ -62,6 +62,7 @@
                 </thead>
             </u-table>
         </div>
+        <div v-if="stickingHead" :class="$style.headPlaceholder" ref="headPlaceholder" :style="{ height: number2Pixel(stickingHeadHeight) }"></div>
         <div :class="$style.body" ref="body" :style="{ width: number2Pixel(tableWidth), height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped">
                 <colgroup>
@@ -101,7 +102,7 @@
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
-                                                <span :class="$style.indent" :style="{ paddingLeft: 16*item.tableTreeItemLevel + 'px' }"></span>
+                                                <span :class="$style.indent" :style="{ paddingLeft: number2Pixel(16 * item.tableTreeItemLevel) }"></span>
                                                 <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
@@ -139,7 +140,7 @@
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" :disabled="item.disabled" @click="toggleExpanded(item)"></span>
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
-                                                <span :class="$style.indent" :style="{ paddingLeft: 16*item.tableTreeItemLevel + 'px' }"></span>
+                                                <span :class="$style.indent" :style="{ paddingLeft: number2Pixel(16 * item.tableTreeItemLevel) }"></span>
                                                 <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
@@ -244,7 +245,7 @@
 
 <script>
 import DataSource from '../../utils/DataSource';
-import { addResizeListener, removeResizeListener } from '../../utils/dom';
+import { addResizeListener, removeResizeListener, findScrollParent, getRect } from '../../utils/dom';
 import { format } from '../../utils/date';
 import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
@@ -322,6 +323,8 @@ export default {
         resizable: { type: Boolean, default: false },
         resizeRemaining: { type: String, default: 'average' },
         showHead: { type: Boolean, default: true },
+        stickHead: { type: Boolean, default: false },
+        stickHeadOffset: { type: Number, default: 0 },
         color: String,
         treeDisplay: { type: Boolean, default: false },
         childrenField: { type: String, default: 'children' },
@@ -352,6 +355,9 @@ export default {
             tableHeight: undefined,
             exportData: undefined,
             checkedItems: {}, // 暂存选中行
+            stickingHead: false,
+            stickingHeadHeight: 0,
+            stickingHeadTop: 0,
         };
     },
     computed: {
@@ -372,7 +378,7 @@ export default {
             return data;
         },
         visibleColumnVMs() {
-            return this.columnVMs.filter((columnVM) => !columnVM.hidden);
+            return this.columnVMs.filter((columnVM) => !columnVM.currentHidden);
         },
         expanderColumnVM() {
             return this.columnVMs.find((columnVM) => columnVM.type === 'expander');
@@ -402,7 +408,7 @@ export default {
                 return null;
         },
         treeColumnIndex() {
-            const vms = this.columnVMs.filter((columnVM) => !columnVM.hidden);
+            const vms = this.columnVMs.filter((columnVM) => !columnVM.currentHidden);
             let treeColumnIndex = vms.findIndex((columnVM) => columnVM.type === 'tree');
             if (treeColumnIndex === -1) {
                 treeColumnIndex = vms.findIndex((columnVM) => ['index', 'radio', 'checkbox'].includes(columnVM.type));
@@ -517,9 +523,17 @@ export default {
         this.watchValues(this.values);
         this.handleResize();
         addResizeListener(this.$el, this.handleResize);
+
+        if (this.stickHead) {
+            this.scrollParentEl = findScrollParent(this.$el);
+            this.scrollParentEl && this.scrollParentEl.addEventListener('scroll', this.onScrollParentScroll);
+        }
     },
     destroyed() {
         removeResizeListener(this.$el, this.handleResize);
+        if (this.stickHead) {
+            this.scrollParentEl && this.scrollParentEl.removeEventListener('scroll', this.onScrollParentScroll);
+        }
         this.clearTimeout();
     },
     methods: {
@@ -712,6 +726,7 @@ export default {
                     this.tableWidth = tableWidth = rootWidth; // @important: Work with overflow-x: hidden to prevent two horizontal scrollbar
 
                 const tableMetaList = [this.tableMetaList[0]];
+                tableMetaList[0].width = rootWidth;
                 if (fixedLeftCount) {
                     tableMetaList.push({
                         position: 'left',
@@ -825,6 +840,7 @@ export default {
         onTableScroll(e) {
             this.scrollXStart = e.target.scrollLeft === 0;
             this.scrollXEnd = e.target.scrollLeft >= e.target.scrollWidth - e.target.clientWidth;
+            this.stickingHead && this.syncHeadScroll();
         },
         syncBodyScroll(scrollTop, target) {
             this.$refs.body[0]
@@ -837,6 +853,9 @@ export default {
                 && this.$refs.body[2] !== target
                 && (this.$refs.body[2].scrollTop = scrollTop);
         },
+        syncHeadScroll() {
+            this.$refs.head[0].scrollLeft = this.$refs.head[0].parentElement.scrollLeft;
+        },
         onBodyScroll(e) {
             this.syncBodyScroll(e.target.scrollTop, e.target); // this.throttledVirtualScroll(e);
             if (this.pageable !== 'auto-more' || this.currentLoading)
@@ -844,6 +863,20 @@ export default {
             const el = e.target;
             if (el.scrollHeight === el.scrollTop + el.clientHeight && this.currentDataSource && this.currentDataSource.hasMore())
                 this.debouncedLoad(true);
+        },
+        onScrollParentScroll(e) {
+            const rect = getRect(this.$el);
+            const bodyRect = getRect(this.$refs.body[0]);
+            const parentRect = this.scrollParentEl === window ? { top: 0, bottom: window.innerHeight } : getRect(this.scrollParentEl);
+            const headHeight = this.$refs.head[0].offsetHeight;
+
+            parentRect.top += this.stickHeadOffset;
+            bodyRect.bottom -= headHeight;
+
+            this.stickingHead = rect.top < parentRect.top && bodyRect.bottom > parentRect.top;
+            this.stickingHeadTop = parentRect.top;
+            this.stickingHeadHeight = headHeight;
+            this.syncHeadScroll();
         },
         load(more) {
             const dataSource = this.currentDataSource;
@@ -889,7 +922,7 @@ export default {
                 .filter((item) => !!item)
                 .join(',');
         },
-        async exportExcel(page = 1, size = 2000, filename, sort, order) {
+        async exportExcel(page = 1, size = 2000, filename, sort, order, excludeColumns = []) {
             if (this.currentDataSource.sorting && this.currentDataSource.sorting.field) {
                 const { sorting } = this.currentDataSource;
                 sort = sort || sorting.field;
@@ -905,8 +938,8 @@ export default {
                 this.$toast.show('页数page必须大于0');
                 return;
             }
-            if (!(typeof size === 'number' && size > 0 && size <= 2000)) {
-                this.$toast.show('数据条数size必须在1-2000之间');
+            if (!(typeof size === 'number' && size > 0 && size <= 200000)) {
+                this.$toast.show('数据条数size必须在1-200000之间');
                 return;
             }
             const fn = (event) => {
@@ -923,7 +956,7 @@ export default {
             try {
                 let content = [];
                 if (!this.currentDataSource._load) {
-                    content = await this.getRenderResult(this.currentDataSource.data);
+                    content = await this.getRenderResult(this.currentDataSource.data, excludeColumns);
                 } else {
                     // console.time('加载数据');
                     let res = await this.currentDataSource._load({ page, size, filename, sort, order });
@@ -940,7 +973,7 @@ export default {
                         return;
                     }
 
-                    content = await this.getRenderResult(res);
+                    content = await this.getRenderResult(res, excludeColumns);
                 }
 
                 // console.time('生成文件');
@@ -960,10 +993,11 @@ export default {
             document.removeEventListener('click', fn, true);
             document.removeEventListener('keydown', fn, true);
         },
-        async getRenderResult(arr = []) {
+        async getRenderResult(arr = [], excludeColumns = []) {
             if (arr.length === 0) {
-                const res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
+                let res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
                 res[1] = res[0].map((item) => '');
+                res = this.removeExcludeColumns(res, excludeColumns);
                 return res;
             }
 
@@ -1009,6 +1043,9 @@ export default {
                         item[j] = startIndexes[j] + (rowIndex - 1);
                 }
             }
+
+            res = this.removeExcludeColumns(res, excludeColumns);
+
             // console.timeEnd('渲染数据');
 
             // console.time('复原表格');
@@ -1019,6 +1056,17 @@ export default {
             // console.timeEnd('复原表格');
 
             return res;
+        },
+        removeExcludeColumns(data, excludeColumns) {
+            const excludeIndex = [];
+            const titles = data[0];
+            for (const title of excludeColumns) {
+                const pos = titles.indexOf(title);
+                if (pos >= 0)
+                    excludeIndex.push(pos);
+            }
+
+            return data.map((arr) => arr.filter((item, index) => !excludeIndex.includes(index)));
         },
         getSheetData(arr) {
             const titles = arr[0];
@@ -1319,6 +1367,7 @@ export default {
                             }
                         });
                     }
+                    this.processData(result);
                     this.$setAt(item, this.childrenField, result);
                     // 促使currentData更新
                     const index = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(item, this.valueField));
@@ -1442,11 +1491,24 @@ export default {
     box-shadow: var(--table-view-table-right-shadow);
 }
 
-.table[position="right"] > * {
+.table[position="right"] > *,
+.table[position="right"] .head-table {
     float: right;
 }
 
 .head {
+    width: 100%;
+}
+
+.head[stickingHead] {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    box-shadow: var(--table-view-table-top-shadow);
+}
+
+.headPlaceholder {
     width: 100%;
 }
 

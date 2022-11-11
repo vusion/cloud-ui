@@ -8,6 +8,7 @@
     - [关闭展示首尾插槽](#关闭展示首尾插槽)
     - [抽屉尺寸](#抽屉尺寸)
     - [插槽空缺](#插槽空缺)
+    - [blocks效果测试](#blocks效果测试)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -20,7 +21,7 @@
 ## 示例
 ### 基本用法
 
-``` vue
+```vue
 <template>
 <div>
     <u-drawer :visible.sync="visible" title="标题">
@@ -49,7 +50,7 @@ export default {
 
 ### 抽屉显示位置
 
-``` vue
+```vue
 <template>
 <div>
     <u-drawer placement="left" :visible.sync="leftVisible" title="标题">
@@ -79,7 +80,7 @@ export default {
 
 ### 关闭展示首尾插槽
 
-``` vue
+```vue
 <template>
 <div>
     <u-drawer :visible.sync="leftVisible" title="标题" :showHead=false :showFoot=false>
@@ -132,7 +133,7 @@ export default {
 
 ### 抽屉尺寸
 
-``` vue
+```vue
 <template>
 <div>
     <u-drawer :visible.sync="leftVisible" size="small" title="标题">
@@ -167,7 +168,7 @@ export default {
 
 ### 插槽空缺
 
-``` vue
+```vue
 <template>
 <div>
     <u-drawer :visible.sync="leftVisible" title="标题" :showHead=false :showFoot=false>
@@ -190,6 +191,41 @@ export default {
 </script>
 ```
 
+### blocks效果测试
+
+```vue
+<template>
+    <div>
+        <u-drawer :visible.sync="leftVisible">
+            <template #title>
+                <u-text text="标题"></u-text>
+            </template>
+            <template #body>
+                <u-text>内容</u-text>
+            </template>
+            <template #foot>
+                <u-linear-layout justify="start">
+                    <u-button color="primary">确定</u-button>
+                    <u-button>取消</u-button>
+                </u-linear-layout>
+            </template>
+        </u-drawer>
+        <u-linear-layout gap="small">
+            <u-button @click="leftVisible = true">empty</u-button>
+        </u-linear-layout>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            leftVisible: false,
+        };
+    },
+};
+</script>
+```
+
 ## API
 ### Props/Attrs
 
@@ -197,7 +233,7 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | visible.sync | boolean |  | `false` | 是否显示 |
 | placement.sync | string | `[object Object]`<br/>`[object Object]` | `'right'` | 抽屉弹出的位置 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 抽屉的尺寸 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 抽屉的尺寸 |
 | maskClosable | boolean |  | `true` | 点击遮罩关闭抽屉 |
 | show-head | boolean |  | `true` | 控制顶部栏的显示 |
 | show-foot | boolean |  | `true` | 控制底部栏的显示 |

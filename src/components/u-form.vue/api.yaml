@@ -410,8 +410,8 @@
       description: 插入`<u-form-item>`或`<u-form-divider>`子组件。
       support:
         - name: u-form-item
-          title: 导航项
-          snippet: <u-form-item>导航项</u-form-item>
+          title: 表单项
+          snippet: <u-form-item label="表单项"></u-form-item>
     - concept: Slot
       name: title
       description: 自定义标题文本。
