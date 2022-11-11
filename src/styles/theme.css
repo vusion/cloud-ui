@@ -848,6 +848,8 @@
     --table-view-drop-ghost-border-color: var(--brand-primary);
     --table-view-drop-ghost-disabled-border-color: var(--brand-error);
     --table-view-drop-ghost-mask-background: rgba(77, 136, 255, 0.1);
+    --table-view-subrow-background-dragging:  rgba(237, 237, 237, 0.5);
+    --table-view-row-background-dragging: #e5e5e5;
 
     /* @component u-list-view @hidden */
     --list-view-width: var(--width-medium);

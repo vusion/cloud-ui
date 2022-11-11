@@ -79,9 +79,10 @@
                         <template v-for="(item, rowIndex) in currentData">
                             <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }"
                             :draggable="true"
+                            :dragging="isDragging(item)"
+                            :subrow="!!item.tableTreeItemLevel"
                             @dragstart="onDragStart($event, item, rowIndex)"
                             @dragover="onDragOver($event, item, rowIndex)"
-                            @dragleave="onDragLeave($event, item, rowIndex)"
                             @dragend="onDragEnd($event, item, rowIndex)"
                             @drop="onDrop($event, item, rowIndex)">
                                 <template v-if="$env.VUE_APP_DESIGNER">
@@ -253,9 +254,6 @@
             </u-table>
             </f-scroll-view>
         </div>
-        <!-- <div :class="$style.dropghost" :style="dropghostStyle">
-            <div :class="$style.line"></div>
-        </div> -->
         <u-table-view-drop-ghost :data="dropData"></u-table-view-drop-ghost>
     </div>
     <u-pagination :class="$style.pagination" v-if="(pageable === true || pageable === 'pagination') && currentDataSource"
@@ -393,7 +391,9 @@ export default {
             fixedLeftList: [],
             fixedRightList: [],
             currentDragging: false,
-            dragState: undefined,
+            dragState: {
+                dragging: false,
+            },
             dropData: undefined,
         };
     },
@@ -466,6 +466,12 @@ export default {
         dataSource(dataSource, oldDataSource) {
             if (typeof dataSource === 'function' && String(dataSource) === String(oldDataSource))
                 return;
+
+            if (this.preventDatasourceWatch) {
+                // this.preventDatasourceWatch = false;
+                return;
+            }
+
             this.handleData();
         },
         currentData(currentData) {
@@ -1547,28 +1553,22 @@ export default {
         },
         onDragStart(e, item, rowIndex) {
             this.currentDragging = true;
-            this.dragStartData = {
-                item,
-                rowIndex,
-            };
             this.dragState = {
                 dragging: true,
                 source: item,
                 sourcePath: rowIndex,
             };
-
             // 该节点下的所有子节点不要响应dragover
             const value = this.$at(item, this.valueField);
             this.currentData.forEach((item) => {
                 item.disabledDraggover = false;
-                item.disabledDrop = !this.$at(item, this.hasChildrenField);
+                item.disabledDrop = this.treeDisplay ? item.disabled : true;
                 if (item.parentPointer !== undefined && item.parentPointer === value) {
                     item.disabledDraggover = true;
                 }
             });
             // 本身不要线
             item.disabledDraggover = true;
-            console.log('this.currentData1', this.currentData);
             this.$emit('dragstart', {
                 item,
                 rowIndex,
@@ -1579,7 +1579,7 @@ export default {
             if (item.disabledDraggover) {
                 return;
             }
-            // to do
+            // 查找到tr行
             let target = e.target;
             while (target) {
                 if (target.tagName !== 'TR') {
@@ -1610,73 +1610,124 @@ export default {
                     position = 'append';
                 }
             }
-            this.dropData = {
-                dragoverElRect: trRect,
-                parentElRect: this.$refs.table[0].getBoundingClientRect(),
-                position,
-            };
-            console.log('dropData', this.dropData);
+
+            // 如果一直更新会卡顿，这里设置有不一样的时候才更新
+            if (!this.dropData
+                || JSON.stringify(this.dropData.dragoverElRect) !== JSON.stringify(trRect)
+                || this.dropData.position !== position) {
+                this.dropData = {
+                    dragoverElRect: trRect,
+                    parentElRect: this.$refs.table[0].getBoundingClientRect(),
+                    position,
+                };
+            }
         },
         onDragEnd(e) {
             this.clearDragState();
         },
-        onDragLeave(e) {},
         onDrop(e, item, rowIndex) {
-            if (this.dragStartData && this.dragStartData.rowIndex !== rowIndex) {
+            if (this.dragState && this.dragState.sourcePath !== rowIndex) {
                 if (this.treeDisplay) {
                     const originalList = this.currentDataSource ? this.currentDataSource.arrangedData.filter((item) => !!item) : this.currentDataSource;
-                    this.findItem(originalList, (node, index, list) => {
-                        const value = this.$at(this.dragStartData.item, this.valueField);
+                    this.findItem(originalList, null, (node, index, list, parentNode) => {
+                        const value = this.$at(this.dragState.source, this.valueField);
                         if (value === this.$at(node, this.valueField)) {
                             this.removeData = {
-                                parent: list,
+                                parentList: list,
                                 index,
+                                parentNode,
                             };
                         }
                     });
                     if (this.removeData) {
-                        this.removeData.parent.splice(this.removeData.index, 1);
+                        this.removeData.parentList.splice(this.removeData.index, 1);
+                        if (!this.removeData.parentList.length) {
+                            this.$set(this.removeData.parentNode, this.hasChildrenField, false);
+                        }
                     }
-                    this.findItem(originalList, (node, index, list) => {
+                    this.findItem(originalList, null, (node, index, list, parentNode) => {
                         const value = this.$at(item, this.valueField);
                         if (value === this.$at(node, this.valueField)) {
                             this.insetData = {
-                                parent: list,
+                                parentList: list,
                                 index,
+                                parentNode,
                             };
                         }
                     });
-                    console.log('insetData', this.insetData);
                     if (this.dropData.position === 'append') {
-                        const parentNode = this.insetData.parent[this.insetData.index];
+                        const parentNode = this.insetData.parentList[this.insetData.index];
+                        if (!this.$at(parentNode, this.hasChildrenField) && !this.$at(parentNode, this.childrenField)) {
+                            this.preventDatasourceWatch = true;
+                            this.setAtWithoutSync(parentNode, this.childrenField, []);
+                        }
                         parentNode.expanded = true;
-                        (parentNode[this.childrenField] || []).push(this.dragStartData.item);
+                        const children = this.$at(parentNode, this.childrenField) || [];
+                        children.push(this.dragState.source);
                     } else {
                         const insertIndex = this.dropData.position === 'insertBefore' ? this.insetData.index : this.insetData.index + 1;
-                        this.insetData && this.insetData.parent.splice(insertIndex, 0, this.dragStartData.item);
+                        this.insetData && this.insetData.parentList.splice(insertIndex, 0, this.dragState.source);
                     }
                     this.currentDataSource.arrangedData = originalList;
                 } else {
-                    this.currentData.splice(this.dragStartData.rowIndex, 1);
-                    this.currentData.splice(rowIndex, 0, this.dragStartData.item);
+                    this.currentData.splice(this.dragState.sourcePath, 1);
+                    this.currentData.splice(rowIndex, 0, this.dragState.source);
                 }
                 this.$forceUpdate();
+                this.$emit('drop', {
+                    source: this.dragState.source,
+                    target: item,
+                    position: this.dropData.position,
+                });
                 this.clearDragState();
             }
         },
-        findItem(list, func) {
+        /**
+         * 查找数据在数组的哪个位置
+         */
+        findItem(list, parentNode, func) {
             list.forEach((item, index) => {
-                func(item, index, list);
+                func(item, index, list, parentNode);
                 const childList = item && this.$at(item, this.childrenField);
                 if (!childList)
                     return;
-                this.findItem(childList, func);
+                this.findItem(childList, item, func);
             });
         },
+        /**
+         * 清除拖拽数据
+         */
         clearDragState() {
-            this.dropghostStyle = undefined;
-            this.dragStartData = {};
             this.dropData = undefined;
+            this.dragState = undefined;
+        },
+        /**
+         * 判断节点拖拽状态
+         */
+        isDragging(item) {
+            if (this.dragState && this.dragState.dragging) {
+                const sourceValue = this.$at(this.dragState.source, this.valueField);
+                if (!sourceValue)
+                    return false;
+                if (this.$at(item, this.valueField) === sourceValue)
+                    return true;
+                else if (item.parentPointer !== undefined && item.parentPointer === sourceValue) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+        setAtWithoutSync(obj, propertyPath, value) {
+            const lastIndex = propertyPath.lastIndexOf('.');
+            if (lastIndex === -1)
+                obj[propertyPath] = value;
+            else {
+                const prepath = propertyPath.slice(0, lastIndex);
+                const subpath = propertyPath.slice(lastIndex + 1);
+                const item = this.$at(obj, prepath);
+                item[subpath] = value;
+            }
         },
     },
 };
@@ -1720,6 +1771,7 @@ export default {
     overflow-x: var(--table-view-overflow-x);
     overflow-y: hidden;
     max-height: inherit;
+    position: relative;
 }
 
 .table[position="left"] {
@@ -1818,10 +1870,12 @@ export default {
 }
 
 .body {
-    /* width: 100%;
+    width: 100%;
     overflow-x: hidden;
-    overflow-y: auto; */
-    overflow: auto;
+    overflow-y: auto;
+}
+.body[sticky-fixed] {
+    overflow: hidden;
     width: 100%;
     height: 100%;
 }
@@ -1961,6 +2015,12 @@ export default {
 }
 .row[draggable] {
     cursor: move;
+}
+.row[dragging] td {
+    background: var(--table-view-row-background-dragging);
+}
+.row[dragging][subrow] td {
+    background: var(--table-view-subrow-background-dragging);
 }
 
 .expander {

@@ -32,8 +32,6 @@ export default {
                 if (!rect)
                     return;
                 const parentElRect = value.parentElRect;
-                // const scrollViewEl = this.getScrollView(el);
-                // const scrollRect = scrollViewEl.getBoundingClientRect();
                 this.currentStyle = {
                     left: '0px',
                     top: rect.top - parentElRect.top + 'px',
@@ -53,7 +51,6 @@ export default {
                     this.lineStyle = {
                         left: '0px',
                         top: rect.height + 'px',
-                        // right: rect.right - scrollRect.right + 'px',
                         width: '100%',
                     };
                 } else if (value.position === 'append') {
@@ -61,8 +58,6 @@ export default {
                         top: '0px',
                         height: rect.height + 'px',
                         left: '0px',
-                        // left: scrollRect.left - rect.left + 'px',
-                        // right: rect.right - scrollRect.right + 'px',
                         width: '100%',
                     };
                 }
