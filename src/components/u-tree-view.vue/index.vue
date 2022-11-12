@@ -1,7 +1,7 @@
 <template>
-<div :class="$style.root" :readonly="readonly" :readonly-mode="readonlyMode" :disabled="disabled">
+<div :class="$style.root" :readonly="readonly" :readonly-mode="readonlyMode" :disabled="disabled" @scroll="virtualList && updateVirtualList()">
     <u-loading v-if="loading" size="small"></u-loading>
-    <template v-else-if="currentDataSource">
+    <template v-else-if="currentDataSource && !virtualList">
         <component :is="ChildComponent"
             v-for="node in currentDataSource.data"
             :text="$at(node, field || textField)"
@@ -16,14 +16,20 @@
             :draggable="node.draggable"
         ></component>
     </template>
-    <slot></slot>
+    <slot v-if="!virtualList"></slot>
+    <div v-else :style="{ height: totalHeight + 'px' }">
+        <div :style="{ transform: `translate3d(0,${beforeHeight}px,0)` }">
+            <u-tree-view-node v-for="(props, index) in seenNodes" :key="props.value" v-bind="props"
+                @toggle="props.expanded = $event.expanded"></u-tree-view-node>
+        </div>
+    </div>
 </div>
 </template>
 
 <script>
 import { MRoot } from '../m-root.vue';
 import MField from '../m-field.vue';
-import { debounce } from 'lodash';
+import { debounce, throttle } from 'lodash';
 
 export default {
     name: 'u-tree-view',
@@ -61,6 +67,8 @@ export default {
         filterFields: { type: Array, default: () => ['text'] },
         draggable: { type: Boolean, default: false },
         subBackground: { type: Boolean, default: false },
+        virtualList: { type: Boolean, default: false },
+        scrollView: { type: Object, default: null },
     },
     data() {
         return {
@@ -70,6 +78,12 @@ export default {
             selectedVM: undefined,
             currentValues: this.values || [],
             loading: false,
+            propsDataOfDataSource: [],
+            propsDataOfSlot: [],
+            seenNodes: [],
+            totalHeight: 0,
+            beforeHeight: 0,
+            _defaultSlot: undefined,
         };
     },
     watch: {
@@ -106,8 +120,15 @@ export default {
         // },
         // This method just run once after pushing many nodeVMs
         nodeVMs() {
-            this.selectedVM = undefined;
+            // this.selectedVM = undefined;
             this.watchValue(this.value);
+        },
+        scrollView: {
+            handler(vm) {
+                if(vm)
+                    vm.$on('scroll', this.updateVirtualList);
+            },
+            immediate: true,
         },
     },
     created() {
@@ -116,14 +137,40 @@ export default {
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
             this.load();
+
+        this.initVirtualList();        
     },
     mounted() {
         // Must trigger `value` watcher at mounted hook.
         // If not, nodeVMs have not been pushed.
         this.watchValue(this.value);
         this.watchValues(this.values);
+        
+        this.scrollIntoView();
     },
     methods: {
+        initVirtualList() {
+            if(!this.initVirtualList) return;
+            
+            this.updateVirtualList = throttle(this._updateVirtualList, 50);
+
+            this.propsDataOfDataSource = this.flatPropsData(this.getPropsDataOfDataSource(this.currentDataSource.data));
+            this.propsDataOfSlot = this.flatPropsData(this.getPropsDataOfSlot(this.$slots.default));
+            this.updateVirtualList();
+
+            this.$watch(() => this.currentDataSource.data, () => {
+                this.propsDataOfDataSource = this.flatPropsData(this.getPropsDataOfDataSource(this.currentDataSource.data));
+                this.updateVirtualList();
+            });
+
+            this.$on('hook:updated', () => {
+                if(this._defaultSlot !== this.$slots.default && this.virtualList) {
+                    this._defaultSlot = this.$slots.default;
+                    this.propsDataOfSlot = this.flatPropsData(this.getPropsDataOfSlot(this.$slots.default));
+                    this.updateVirtualList();
+                }
+            });
+        },
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         },
@@ -250,6 +297,9 @@ export default {
             }
         },
         onToggle(nodeVM, expanded) {
+            setTimeout(() => {
+                this.updateVirtualList();
+            });
             this.$emit('toggle', { expanded, node: nodeVM.node, nodeVM }, this);
         },
         toggleAll(expanded) {
@@ -280,6 +330,158 @@ export default {
             this.currentDataSource.load(params).then(() => {
                 this.loading = false;
             }).catch(() => this.loading = false);
+        },
+        getPropsDataOfSlot(vNodes = [], level = 0, _collapsedParentCount = 0) {
+            const res = [];
+            for(const vNode of vNodes) {
+                const propsData = vNode.componentOptions?.propsData || {};
+                propsData._collapsedParentCount = _collapsedParentCount;
+                propsData.level = level;
+
+                propsData.node = propsData.node || {};
+                propsData.node._children = [
+                    ...this.getPropsDataOfDataSource(this.getChildren(propsData.node, propsData), level+1, propsData.expanded ? _collapsedParentCount: _collapsedParentCount+1),
+                    ...this.getPropsDataOfSlot(vNode.componentOptions?.children, level+1, propsData.expanded ? _collapsedParentCount: _collapsedParentCount+1)
+                ];
+
+                res.push(propsData);
+            }
+            return res;
+        },
+        currentChildrenField(node, propsData = {}) {
+            if (propsData.childrenField)
+                return propsData.childrenField;
+            else if (node.childrenField)
+                return node.childrenField;
+            else
+                return this.childrenField;
+        },
+        currentMoreChildrenFields(node, propsData = {}) {
+            let fields;
+            if (propsData.moreChildrenFields)
+                fields = propsData.moreChildrenFields;
+            else if (node.moreChildrenFields)
+                fields = node.moreChildrenFields;
+            else
+                fields = this.moreChildrenFields;
+
+            const { excludeFields } = this;
+            fields = fields || [];
+            return fields.filter((item) => !excludeFields.includes(item));
+        },
+        currentFields(node, propsData = {}) {
+            const currentChildrenField = this.currentChildrenField(node, propsData);
+            const currentMoreChildrenFields = this.currentMoreChildrenFields(node, propsData);
+            let fields = [];
+            if (!this.excludeFields.includes(currentChildrenField))
+                fields = [currentChildrenField];
+            if (currentMoreChildrenFields)
+                fields = fields.concat(currentMoreChildrenFields);
+            return fields;
+        },
+        getChildren(node, propsData = {}) {
+            const fields = this.currentFields(node, propsData);
+            let children = [];
+            for(const field of fields) {
+                if(node[field])
+                    children = children.concat(node[field]);
+            }
+            return children;
+        },
+        getPropsDataOfDataSource(arr = [], level = 0, _collapsedParentCount = 0) {
+            const res = [];
+            for(const node of arr) {
+                const propsData = {
+                    text: this.$at(node, this.field || this.textField),
+                    value: this.$at(node, this.valueField),
+                    expanded: this.$at(node, this.expandedField),
+                    checked: node.checked,
+                    disabled: node.disabled,
+                    childrenField: this.childrenField,
+                    hidden: this.filterText ? this.$at(node, 'hiddenByFilter'):  this.$at(node, this.hiddenField),
+                    node,
+                    draggable: node.draggable,
+                };
+                propsData._collapsedParentCount = _collapsedParentCount;
+                propsData.level = level;
+                propsData.node._children = this.getPropsDataOfDataSource(this.getChildren(node), level+1, propsData.expanded ? _collapsedParentCount: _collapsedParentCount+1);
+                res.push(propsData);
+            }
+            return res;
+        },
+        flatPropsData(propsData) {
+            let res = [];
+            for(const props of propsData) {
+                res = [...res, props, ...this.flatPropsData(props.node?._children || [])];
+            }
+            return res;
+        },
+        toggleData(nodes, expanded) {
+            nodes?.forEach((child) => {
+                if(expanded) child._collapsedParentCount--;
+                else child._collapsedParentCount++;
+                this.toggleData(child.node._children, expanded);
+            });
+        },
+        scrollIntoView() {
+            if(!this.virtualList) return;
+
+            const propsData = [...this.propsDataOfDataSource, ...this.propsDataOfSlot];
+            if(this.value) {
+                const pos = propsData.findIndex(item => item.value === this.value);
+                if(pos >= 0) {
+                    let level = propsData[pos].level;
+                    for(let i=pos;i>=0;i--) {
+                        const props = propsData[i];
+                        if(props.level < level) {
+                            level = props.level;
+                            if(props.node && !props.expanded) {
+                                this.$set(props.node, 'expanded', true);
+                                this.toggleData(props.node._children, true);                                
+                            }
+                        }
+                        if(level === 0) break;
+                    }
+
+                    const { hiddenField } = this;
+                    const seenNodes = propsData.filter(item => !item._collapsedParentCount && !item.node?.[hiddenField]);
+                    const index = seenNodes.findIndex(item => item.value === this.value);
+                    const unit = 32;
+                    
+                    if(this.scrollView)
+                        this.scrollView.$refs.wrap.scrollTop = unit * index;
+                    else
+                        this.$el.scrollTop = unit * index;
+                }
+            }            
+        },
+        _updateVirtualList() {
+            const unit = 32;
+            let scrollTop;
+            let clientHeight = 0;
+            if(this.scrollView) {
+                scrollTop = this.scrollView.$refs.wrap?.scrollTop || 0;
+                clientHeight = this.scrollView.$refs.wrap?.clientHeight;
+            } else {
+                scrollTop = this.$el?.scrollTop || 0;
+                clientHeight = this.$el?.clientHeight;
+            }
+                
+            const propsData = [...this.propsDataOfDataSource, ...this.propsDataOfSlot];
+            const count = Math.ceil(clientHeight / unit);
+            const beforeCount = count >> 1;
+            const total = count * 2;
+
+            const { hiddenField } = this;
+            // console.log(propsData);
+            const nodes = propsData.filter((node) => !node._collapsedParentCount && !node.node?.[hiddenField]);
+            let begIndex = Math.floor(scrollTop / unit);
+            const beforeBuffer = Math.min(beforeCount, begIndex);
+            begIndex = begIndex - beforeBuffer;
+            const endIndex = Math.min(begIndex + total, nodes.length);
+            this.seenNodes = nodes.slice(begIndex, endIndex);
+            this.beforeHeight = scrollTop - scrollTop % unit - beforeBuffer * unit;
+            this.totalHeight = unit * nodes.length;
         },
     },
 };
