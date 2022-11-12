@@ -365,6 +365,7 @@ export default {
         resizeBodyHeight: { type: Boolean, default: true },
         stickFixed: { type: Boolean, default: true },
         draggable: { type: String, default: 'none' },
+        treeCheckType: { type: String, default: 'up+down' },
     },
     data() {
         return {
@@ -1326,13 +1327,13 @@ export default {
                 oldItem,
             }, this);
         },
-        check(item, checked) {
+        check(item, checked, isContinue) {
             // Check if enabled
             if (this.readonly || this.disabled || item.disabled)
                 return; // Method overloading
             if (checked === undefined)
                 checked = !item.checked; // Prevent replication
-            if (item.checked === checked)
+            if (item.checked === checked && !isContinue)
                 return;
             const oldValues = this.values ? Array.from(this.values) : this.values; // Emit a `before-` event with preventDefault()
             // if (this.$emitPrevent('before-check', {
@@ -1343,6 +1344,69 @@ export default {
             //     return;
             // Assign and sync `checked`
             item.checked = checked;
+            if (this.treeDisplay) {
+                this.checkRecursively(item, checked);
+                this.getTreeCheckedValues(item, checked);
+            } else {
+                this.getCheckedValues(item, checked);
+            }
+            const checkedItems = this.getCheckedItems();
+            this.$emit('update:values', this.currentValues, this);
+            this.$emit('check', { values: this.currentValues, oldValues, item, checked, items: checkedItems }, this);
+            console.log('check', this.currentValues, checkedItems);
+        },
+        checkAll(checked) {
+            // Check if enabled
+            if (this.readonly || this.disabled)
+                return;
+            const oldValues = this.values ? Array.from(this.values) : this.values;
+            this.currentData.forEach((item) => {
+                if (item.disabled)
+                    return;
+                item.checked = checked;
+                if (this.treeDisplay) {
+                    this.checkRecursively(item, checked);
+                    this.getTreeCheckedValues(item, checked);
+                } else {
+                    this.getCheckedValues(item, checked);
+                }
+            });
+            const checkedItems = this.getCheckedItems();
+            this.$emit('update:values', this.currentValues, this);
+            this.$emit('check', { values: this.currentValues, oldValues, checked, items: checkedItems }, this);
+            console.log('check', this.currentValues, checkedItems);
+        },
+        checkRecursively(item, checked) {
+            if (this.treeCheckType.includes('down')) {
+                const children = this.$at(item, this.childrenField);
+                if (children && children.length) {
+                    children.forEach((citem) => {
+                        citem.checked = checked;
+                        this.checkRecursively(citem, checked);
+                    });
+                }
+            }
+            if (this.treeCheckType.includes('up')) {
+                if (item.parentPointer) {
+                    const parentItem = this.currentData.find((citem) => this.$at(citem, this.valueField) === item.parentPointer);
+                    if (parentItem) {
+                        const children = this.$at(parentItem, this.childrenField) || [];
+                        let checkedLength = 0;
+                        children.forEach((item) => {
+                            if (item.checked)
+                                checkedLength++;
+                        });
+                        if (checkedLength === 0)
+                            parentItem.checked = false;
+                        else if (checkedLength === children.length)
+                            parentItem.checked = true;
+                        else
+                            parentItem.checked = null;
+                    }
+                }
+            }
+        },
+        getCheckedValues(item, checked) {
             if (this.valueField) {
                 const label = this.$at(item, this.valueField);
                 if (checked && !this.currentValues.includes(label))
@@ -1355,35 +1419,24 @@ export default {
                     delete this.checkedItems[label];
                 }
             }
-            const checkedItems = this.getCheckedItems();
-            this.$emit('update:values', this.currentValues, this);
-            this.$emit('check', { values: this.currentValues, oldValues, item, checked, items: checkedItems }, this);
         },
-        checkAll(checked) {
-            // Check if enabled
-            if (this.readonly || this.disabled)
-                return;
-            const oldValues = this.values ? Array.from(this.values) : this.values;
-            this.currentData.forEach((item) => {
-                if (item.disabled)
-                    return;
-                item.checked = checked;
-                if (this.valueField) {
-                    const label = this.$at(item, this.valueField);
-                    if (checked && !this.currentValues.includes(label))
-                        this.currentValues.push(label);
-                    else if (!checked && this.currentValues.includes(label))
-                        this.currentValues.splice(this.currentValues.indexOf(label), 1);
-                    if (checked) {
-                        this.checkedItems[label] = item;
-                    } else {
-                        delete this.checkedItems[label];
-                    }
+        /**
+         * 获取树形选中值
+         */
+        getTreeCheckedValues(item, checked) {
+            this.getCheckedValues(item, checked);
+            const children = this.$at(item, this.childrenField);
+            if (children && children.length) {
+                children.forEach((citem) => {
+                    this.getTreeCheckedValues(citem, checked);
+                });
+            }
+            if (item.parentPointer) {
+                const parentItem = this.currentData.find((citem) => this.$at(citem, this.valueField) === item.parentPointer);
+                if (parentItem) {
+                    this.getCheckedValues(parentItem, checked);
                 }
-            });
-            const checkedItems = this.getCheckedItems();
-            this.$emit('update:values', this.currentValues, this);
-            this.$emit('check', { values: this.currentValues, oldValues, checked, items: checkedItems }, this);
+            }
         },
         /**
          * 获取所有选中行
@@ -1466,6 +1519,9 @@ export default {
                     }
                     this.processData(result);
                     this.$setAt(item, this.childrenField, result);
+                    if (item.checked) {
+                        this.check(item, item.checked, true);
+                    }
                     // 促使currentData更新
                     const index = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(item, this.valueField));
                     const newDataIndex = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(result[0], this.valueField));

@@ -310,6 +310,21 @@
       default: hasChildren
       description: 该字段指定行数据是否包含子节点数据
       group: 其它属性
+    - name: tree-check-type
+      title: 关联选中类型
+      description:  父子树节点是否关联选中
+      type: string
+      options:
+        - value: up+down
+          title: 父子双向关联选中
+        - value: down
+          title: 单项父关联子
+        - value: up
+          title: 单项子关联父
+        - value: none
+          title: 父子不关联
+      default: up+down
+      group: 其它属性
   slots:
     - concept: Slot
       name: default
