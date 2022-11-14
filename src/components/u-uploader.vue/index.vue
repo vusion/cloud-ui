@@ -141,7 +141,9 @@ export default {
         },
     },
     watch: {
-        value(value) {
+        value(value, oldValue) {
+            console.log('watch value', value);
+            console.log('watch oldValue', oldValue);
             this.currentValue = this.fromValue(value);
         },
         currentValue: {
@@ -167,9 +169,16 @@ export default {
                 }
             else if (this.converter === 'simple')
                 try {
-                    if (!value)
-                        return [];
-                    return value.split(',');
+                    if (!value) {
+                        const noFinished = (this.currentValue || []).some((item) => item.status === 'uploading');
+                        return noFinished && this.currentValue || [];
+                    }
+                    const values = value.split(',');
+                    const currentValue = this.currentValue || [];
+                    currentValue.forEach((item, index) => {
+                        item.url = values[index];
+                    });
+                    return currentValue;
                 } catch (err) {
                     return [];
                 }
@@ -186,7 +195,7 @@ export default {
                 return value;
         },
         simpleConvert(value) {
-            return value.map((x) => (x.url)).join(',');
+            return value.filter((x) => (!!x.url)).map((x) => (x.url)).join(',');
         },
         getUrl(item) {
             return item.thumb || item.url || item;
@@ -372,15 +381,15 @@ export default {
             const headers = {
                 ...this.headers,
                 Authorization,
-            }
+            };
             if (this.access !== null) {
-                headers['lcap-access'] = this.access
+                headers['lcap-access'] = this.access;
             }
             if (this.ttlValue !== null) {
                 if (this.ttl !== null) {
-                    headers['lcap-ttl'] = this.ttl ? this.ttlValue : -1
+                    headers['lcap-ttl'] = this.ttl ? this.ttlValue : -1;
                 } else {
-                    headers['lcap-ttl'] = this.ttlValue
+                    headers['lcap-ttl'] = this.ttlValue;
                 }
             }
 
