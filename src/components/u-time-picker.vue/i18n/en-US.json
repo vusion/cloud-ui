@@ -1,3 +1,7 @@
 {
-  "selectTimeText": "Please select time"
-}
+    "selectTimeText": "Please select time",
+    "now": "now",
+    "submit": "submit",
+    "selectPopperDateText": "Please select date",
+    "cancel": "cancel"
+  }

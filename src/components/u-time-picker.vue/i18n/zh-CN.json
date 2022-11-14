@@ -1,3 +1,7 @@
 {
-    "selectTimeText": "请选择时间"
+    "selectTimeText": "请选择时间",
+    "now": "此刻",
+    "submit": "确定",
+    "selectPopperDateText": "下方选择日期",
+    "cancel": "取消"
 }
