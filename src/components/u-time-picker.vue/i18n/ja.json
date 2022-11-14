@@ -1,3 +1,7 @@
 {
-  "selectTimeText": "時間を選択"
+  "selectTimeText": "時間を選択",
+  "now": "今",
+  "submit": "確認",
+  "selectPopperDateText": "日付を選択",
+  "cancel": "キャンセル"
 }

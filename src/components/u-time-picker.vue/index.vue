@@ -25,13 +25,13 @@
         :style="{ width: currentPopperWidth }">
         <div :class="$style.panel" :type="minUnit">
             <div :class="$style.spinner">
-                <f-scroll-view @click.stop trigger="hover" ref="hours" 
+                <f-scroll-view @click.stop trigger="hover" ref="hours"
                     @scroll="handleScroll($event, 'hours')"
                     @mousemove.native="adjustSpinner('hours', hour)">
                     <div :class="$style.wrap">
                         <div :class="$style.itemwrap" ref="itemwrap">
                             <div :class="$style.item"
-                                v-for="temphour in getRangeHours()" 
+                                v-for="temphour in getRangeHours()"
                                 :key="temphour.value"
                                 :value="temphour.value"
                                 :disabled="temphour.disabled"
@@ -53,8 +53,8 @@
                     <div :class="$style.wrap">
                         <div :class="$style.itemwrap">
                             <div :class="$style.item"
-                                v-for="tempminute in getRangeMinutes()" 
-                                :key="tempminute.value" 
+                                v-for="tempminute in getRangeMinutes()"
+                                :key="tempminute.value"
                                 :value="tempminute.value"
                                 :disabled="tempminute.disabled"
                                 @click="handleClick('minutes', tempminute)"
@@ -75,8 +75,8 @@
                     <div :class="$style.wrap">
                         <div :class="$style.itemwrap">
                             <div :class="$style.item"
-                                v-for="tempsecond in getRangeSeconds()" 
-                                :key="tempsecond.value" 
+                                v-for="tempsecond in getRangeSeconds()"
+                                :key="tempsecond.value"
                                 :value="tempsecond.value"
                                 :disabled="tempsecond.disabled"
                                 @click="handleClick('seconds', tempsecond)"
@@ -93,16 +93,16 @@
         </div>
         <div :class="$style.foot" :simple="simpleFoot">
             <u-linear-layout justify="end" v-if="simpleFoot">
-                <u-link @click="onCancel" :class="$style.textbtn">取消</u-link>
-                <u-link @click="onConfirm" :disabled="confirmDisabled" color="primary">确定</u-link>
+                <u-link :class="{[$style.miniButtonStyle]: $i18n && $i18n.locale === 'ja', [$style.textbtn]:true}" @click="onCancel">{{ $t('cancel') }}</u-link>
+                <u-link :class="{[$style.miniButtonStyle]: $i18n && $i18n.locale === 'ja'}" @click="onConfirm" :disabled="confirmDisabled" color="primary">{{ $t('submit') }}</u-link>
             </u-linear-layout>
             <u-linear-layout justify="space-between" v-else>
                 <u-linear-layout :class="$style.ctimewrap">
-                    <u-link @click="setCurrentTime">此刻</u-link>
+                    <u-link @click="setCurrentTime">{{ $t('now') }}</u-link>
                 </u-linear-layout>
                 <u-linear-layout gap="small">
-                    <u-button @click="onCancel" size="small">取消</u-button>
-                    <u-button color="primary" @click="onConfirm" :disabled="confirmDisabled" size="small">确定</u-button>
+                    <u-button :class="{[$style.miniButtonStyle]: $i18n && $i18n.locale === 'ja'}" @click="onCancel" size="small">{{ $t('cancel') }}</u-button>
+                    <u-button :class="{[$style.miniButtonStyle]: $i18n && $i18n.locale === 'ja'}" color="primary" @click="onConfirm" :disabled="confirmDisabled" size="small">{{ $t('submit') }}</u-button>
                 </u-linear-layout>
             </u-linear-layout>
         </div>
@@ -166,13 +166,13 @@ export default {
             validator: (value) => ['body', 'reference'].includes(value),
         },
         simpleFoot: { type: Boolean, default: false },
-        preIcon: { 
-            type: String, 
-            default: 'time'
+        preIcon: {
+            type: String,
+            default: 'time',
         },
-        suffixIcon: { 
-            type: String, 
-            default: ''
+        suffixIcon: {
+            type: String,
+            default: '',
         },
         clearable: { type: Boolean, default: true },
         width: String,
@@ -195,9 +195,6 @@ export default {
             currentOpened: false,
             currentPopperWidth: '100%',
         };
-    },
-    destroyed() {
-        clearTimeout(this.adjustSpinnersTimer);
     },
     computed: {
         hour() {
@@ -227,7 +224,7 @@ export default {
         spsecondmax() {
             return this.maxTime.split(':')[2] / 1;
         },
-        confirmDisabled () {
+        confirmDisabled() {
             return !!this.isOutOfRange(this.showTime);
         },
         currentDisabled() {
@@ -245,14 +242,14 @@ export default {
                 this.lastValidShowTime = newValue;
                 const currentTime = this.getCurrentTime();
                 const isOutOfRange = this.isOutOfRange(currentTime);
-                this.showTime = isOutOfRange? isOutOfRange : currentTime;
+                this.showTime = isOutOfRange || currentTime;
             } else {
-                if(!this.checkTime(newValue)){
+                if (!this.checkTime(newValue)) {
                     newValue = this.getCurrentTime();
                 }
                 this.showTime = this.getUnitFormatTime(newValue);
                 // this.showTime默认设置的是'00:00:00'，如果time初始是'00:00:00'，showTime的watch会没有进入，导致validShowTime没有设置
-                if(this.showTime === '00:00:00'){
+                if (this.showTime === '00:00:00') {
                     this.validShowTime = this.showTime;
                     this.lastValidShowTime = this.showTime;
                 }
@@ -267,22 +264,25 @@ export default {
             //     throw new TypeError('Invalid Time');
             const showTime = newValue; // 如果超出时间范围，则设置为范围边界的时间
             const isOutOfRange = this.isOutOfRange(newValue);
-            if(!isOutOfRange && this.initValidShowTime !== false) {
+            if (!isOutOfRange && this.initValidShowTime !== false) {
                 this.validShowTime = showTime;
                 this.lastValidShowTime = showTime;
             }
             this.initValidShowTime = true;
         },
         minUnit(newValue) {
-            if(this.time) {
+            if (this.time) {
                 const showTime = this.getUnitFormatTime(this.time);
                 const isOutOfRange = this.isOutOfRange(showTime);
-                this.showTime = isOutOfRange? isOutOfRange : showTime;
+                this.showTime = isOutOfRange || showTime;
             }
         },
         appendTo(appendTo) {
             this.setPopperWidth();
         },
+    },
+    destroyed() {
+        clearTimeout(this.adjustSpinnersTimer);
     },
     created() {
         this.$emit(
@@ -299,7 +299,7 @@ export default {
          * @public
          * @param {Time} time 待测的时间
          * @return {boolean|Time} time 如果没有超出时间范围，则返回false；如果超出时间范围，则返回范围边界的时间
-         */ 
+         */
         isOutOfRange(time) {
             const minTime = this.minTime;
             const maxTime = this.maxTime; // minTime && time < minTime && minTime，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的时间
@@ -320,19 +320,19 @@ export default {
             if (this.minUnit === 'second') {
                 formatTime.push(fix(second));
             }
-            return formatTime.join(':');;
+            return formatTime.join(':');
         },
         getUnitFormatTime(value) {
-            if(this.checkTime(value, false)) {
+            if (this.checkTime(value, false)) {
                 const values = value.split(':');
                 return this.getTime(values[0], values[1], values[2] ? values[2] : '00');
             }
         },
-        checkTime(time, strict = true){
+        checkTime(time, strict = true) {
             const secondReg = /^(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d$/;
             const minuteReg = /^(20|21|22|23|[0-1]\d):[0-5]\d$/;
-            if(strict) {
-                if(this.minUnit === 'second')
+            if (strict) {
+                if (this.minUnit === 'second')
                     return secondReg.test(time);
                 else
                     return minuteReg.test(time);
@@ -380,12 +380,12 @@ export default {
             const value = Math.min(Math.round(event.scrollTop / this.itemHeight), (type === 'hours' ? 23 : 59));
             this.setShowTime(type, value);
             clearTimeout(this.scrollTimer);
-            this.scrollTimer = setTimeout(()=>{
+            this.scrollTimer = setTimeout(() => {
                 this.isScrolling = false;
             }, 100);
         },
         adjustSpinners() {
-            this.adjustSpinnersTimer = setTimeout(()=>{
+            this.adjustSpinnersTimer = setTimeout(() => {
                 this.adjustSpinner('hours', this.hour);
                 this.adjustSpinner('minutes', this.minute);
                 this.adjustSpinner('seconds', this.second);
@@ -407,7 +407,7 @@ export default {
             this.setShowTime(type, value.value);
         },
         onConfirm() {
-            if(!this.validShowTime) {
+            if (!this.validShowTime) {
                 this.validShowTime = this.showTime;
             }
             this.close();
@@ -430,7 +430,7 @@ export default {
             this.showTime = this.getCurrentTime();
             this.adjustSpinners();
         },
-        timeFormat(value){
+        timeFormat(value) {
             value = '' + (String(value) || '');
             return value.padStart(2, '0');
         },
@@ -469,26 +469,26 @@ export default {
             const value = this.validShowTime ? this.validShowTime : undefined;
             this.$emit('input', value, this);
             this.$emit('update:time', value, this);
-            this.$emit('change', { sender: this, time: value, value: value }, this);
+            this.$emit('change', { sender: this, time: value, value }, this);
         },
         /**
          * 输入框输入后，输入值的合法性处理
          */
         onInputChange(value) {
-            if(this.checkTime(value)) {
+            if (this.checkTime(value)) {
                 this.showTime = value; // showTime更改，会进入watch，设置validShowTime
                 this.adjustSpinners();
             }
         },
         onBlur() {
             // 直接点击清除按钮，popper没有展开，blur的时候需要emit事件
-            if(!this.currentOpened){
+            if (!this.currentOpened) {
                 this.$emit('blur');
                 this.emitValue();
             }
         },
         onBlurInputValue(value) {
-            if(value === '') {
+            if (value === '') {
                 this.validShowTime = '';
                 this.emitValue();
             }
@@ -508,19 +508,19 @@ export default {
             }
             this.restoredValue = this.validShowTime; // 用于点取消时复原上一次的值
             this.initValidShowTime = true;
-            if(this.validShowTime) {
+            if (this.validShowTime) {
                 this.showTime = this.validShowTime;
             } else {
                 this.initValidShowTime = false;
                 const currentTime = this.getCurrentTime();
                 const isOutOfRange = this.isOutOfRange(currentTime);
-                this.showTime = isOutOfRange? isOutOfRange : currentTime;
+                this.showTime = isOutOfRange || currentTime;
             }
             this.adjustSpinners();
         },
         getItemHeight() {
-            if(this.$refs.itemwrap) {
-                return this.$refs.itemwrap.children[0].offsetHeight
+            if (this.$refs.itemwrap) {
+                return this.$refs.itemwrap.children[0].offsetHeight;
             }
         },
         clearValue() {
@@ -788,5 +788,8 @@ export default {
 
 .suffixIcon {
     color: var(--timepicker-input-after-icon-color);
+}
+.foot .miniButtonStyle {
+    padding: 0 12px;
 }
 </style>
