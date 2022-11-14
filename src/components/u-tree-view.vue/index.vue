@@ -150,7 +150,7 @@ export default {
     },
     methods: {
         initVirtualList() {
-            if(!this.initVirtualList) return;
+            if(!this.virtualList) return;
             
             this.updateVirtualList = throttle(this._updateVirtualList, 50);
 
@@ -166,8 +166,7 @@ export default {
             this.$on('hook:updated', () => {
                 if(this._defaultSlot !== this.$slots.default && this.virtualList) {
                     this._defaultSlot = this.$slots.default;
-                    this.propsDataOfSlot = this.flatPropsData(this.getPropsDataOfSlot(this.$slots.default));
-                    this.updateVirtualList();
+                    this.updateVirtualListOfSlot();
                 }
             });
         },
@@ -496,6 +495,13 @@ export default {
                         node.key = `${node.value}_${i}`;
                 }
             }
+        },
+        /**
+         * 提供给组件外部调用
+         */
+        updateVirtualListOfSlot() {
+            this.propsDataOfSlot = this.flatPropsData(this.getPropsDataOfSlot(this.$slots.default));
+            this.updateVirtualList();
         },
     },
 };
