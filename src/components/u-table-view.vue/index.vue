@@ -132,11 +132,11 @@
                                             <span v-if="columnVM.type === 'dragHandler'">
                                                 <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable?handlerDraggable:undefined"></i-ico>
                                             </span>
-                                       </div>
-                                       <div v-if="columnVM.type === 'editable'" vusion-slot-name="editcell" :plus-empty="columnVM.$attrs['editcell-plus-empty']" style="margin-top:10px">
+                                        </div>
+                                        <div v-if="columnVM.type === 'editable'" vusion-slot-name="editcell" :plus-empty="columnVM.$attrs['editcell-plus-empty']" style="margin-top:10px">
                                             <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                             </f-slot>
-                                       </div>
+                                        </div>
                                     </td>
                                 </template>
                                 <template v-else>
@@ -170,6 +170,10 @@
                                                 <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
+                                            <!-- type === 'dragHandler' -->
+                                            <span v-if="columnVM.type === 'dragHandler'">
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable?handlerDraggable:undefined"></i-ico>
+                                            </span>
                                             <!-- Normal text -->
                                             <template v-if="columnVM.type === 'editable'">
                                                 <div @dblclick="onSetEditing(item, columnVM)" :class="$style.editablewrap">
@@ -187,10 +191,6 @@
                                                     </div>
                                                 </div>
                                             </template>
-                                            <!-- type === 'dragHandler' -->
-                                            <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable?handlerDraggable:undefined"></i-ico>
-                                            </span>
                                             <template v-else>
                                                 <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                                     <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
@@ -476,11 +476,11 @@ export default {
             const vms = this.columnVMs.filter((columnVM) => !columnVM.currentHidden);
             let treeColumnIndex = vms.findIndex((columnVM) => columnVM.type === 'tree');
             if (treeColumnIndex === -1) {
-                treeColumnIndex = vms.findIndex((columnVM) => ['index', 'radio', 'checkbox'].includes(columnVM.type));
+                treeColumnIndex = vms.findIndex((columnVM) => !['index', 'radio', 'checkbox', 'expander', 'dragHandler'].includes(columnVM.type));
                 if (treeColumnIndex === -1) {
                     return 0;
                 } else {
-                    return treeColumnIndex + 1;
+                    return treeColumnIndex;
                 }
             } else {
                 return treeColumnIndex;
@@ -2330,7 +2330,9 @@ export default {
 .tree_expander + div,
 .tree_placeholder + div
 {
-    display: inline;
+    display: inline-flex;
+    align-items: center;
+    width: auto;
 }
 .indent {
     margin-right: var(--table-view-tree-expander-margin);
