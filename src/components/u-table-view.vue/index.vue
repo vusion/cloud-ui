@@ -1682,6 +1682,16 @@ export default {
             // 查找到tr行
             const target = this.getTrEl(e);
             const trRect = target.getBoundingClientRect();
+            // 让展示线缩进
+            let left = 0;
+            let indentElRect = {};
+            if (this.treeDisplay) {
+                const indentEl = target.querySelector('[class^="u-table-view_indent__"]');
+                if (indentEl) {
+                    indentElRect = indentEl.getBoundingClientRect();
+                }
+            }
+
             const disabledDrop = item.disabledDrop || item.draggoverDisabled;
             const splitValue = disabledDrop ? 2 : 4;
             const upArea = trRect.top + trRect.height / splitValue;
@@ -1690,13 +1700,17 @@ export default {
             if (e.y <= upArea && !item.draggoverDisabled) {
                 // 在上部
                 position = 'insertBefore';
+                left = item.tableTreeItemLevel ? indentElRect.left - trRect.left : 0;
+                left = left + (item.tableTreeItemLevel || 0) * 20;
             } else if (e.y >= downArea) {
                 // 在下部
                 position = 'insertAfter';
-                // 有子元素的节点，展开时如果响应，线会在很下方，所以这里不要响应
-                if (item.expanded && item.children?.length) {
-                    this.position = undefined;
+                let level = (item.tableTreeItemLevel || 0);
+                if (item.expanded && item.children.length) {
+                    level = level + 1;
                 }
+                left = level ? indentElRect.left - trRect.left : 0;
+                left = left + level * 20;
             } else {
                 // 在中间
                 if (!disabledDrop) {
@@ -1712,6 +1726,7 @@ export default {
                     dragoverElRect: trRect,
                     parentElRect: this.$refs.root.getBoundingClientRect(),
                     position,
+                    left,
                 };
                 this.$emit('dragover', {
                     item,

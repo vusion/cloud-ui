@@ -40,41 +40,29 @@ export default {
                 };
                 this.lineStyle = undefined;
                 this.maskStyle = undefined;
+                const left = value.left || 0;
                 if (value.position === 'insertBefore') {
                     this.lineStyle = {
-                        left: '0px',
+                        left: left + 'px',
                         top: '0px',
                         // right: rect.right - scrollRect.right + 'px',
-                        width: '100%',
+                        right: '0px',
                     };
                 } else if (value.position === 'insertAfter') {
                     this.lineStyle = {
-                        left: '0px',
+                        left: left + 'px',
                         top: rect.height + 'px',
-                        width: '100%',
+                        right: '0px',
                     };
                 } else if (value.position === 'append') {
                     this.maskStyle = {
                         top: '0px',
                         height: rect.height + 'px',
                         left: '0px',
-                        width: '100%',
+                        right: '0px',
                     };
                 }
             },
-        },
-    },
-    methods: {
-        getScrollView(el) {
-            let parentEl = el.parentElement;
-            while (parentEl) {
-                const className = parentEl.getAttribute('class') || '';
-                if (className.includes('f-scroll-view__')) {
-                    break;
-                }
-                parentEl = parentEl.parentElement;
-            }
-            return parentEl;
         },
     },
 };
@@ -89,7 +77,6 @@ export default {
 .line {
     position: absolute;
     border: 1px solid var(--table-view-drop-ghost-border-color);
-    width: 100%;
 }
 .line::before {
     content: '';
