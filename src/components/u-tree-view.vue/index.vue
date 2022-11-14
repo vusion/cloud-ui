@@ -19,7 +19,7 @@
     <slot v-if="!virtualList"></slot>
     <div v-else :style="{ height: totalHeight + 'px' }">
         <div :style="{ transform: `translate3d(0,${beforeHeight}px,0)` }">
-            <u-tree-view-node v-for="(props, index) in seenNodes" :key="props.value" v-bind="props"
+            <u-tree-view-node v-for="props in seenNodes" :key="props.key" v-bind="props"
                 @toggle="props.expanded = $event.expanded"></u-tree-view-node>
         </div>
     </div>
@@ -480,8 +480,22 @@ export default {
             begIndex = begIndex - beforeBuffer;
             const endIndex = Math.min(begIndex + total, nodes.length);
             this.seenNodes = nodes.slice(begIndex, endIndex);
+            this.prepareKeys(this.seenNodes);
             this.beforeHeight = scrollTop - scrollTop % unit - beforeBuffer * unit;
             this.totalHeight = unit * nodes.length;
+        },
+        prepareKeys(seenNodes) {
+            const set = new Set();
+            for(let i=0;i<seenNodes.length;i++) {
+                const node = seenNodes[i];
+                if(node.value) {
+                    if(!set.has(node.value)) {
+                        set.add(node.value);
+                        node.key = node.value;
+                    } else
+                        node.key = `${node.value}_${i}`;
+                }
+            }
         },
     },
 };
