@@ -79,12 +79,15 @@ export default {
             currentValues: this.values || [],
             loading: false,
             propsDataOfDataSource: [],
-            propsDataOfSlot: [],
             seenNodes: [],
             totalHeight: 0,
             beforeHeight: 0,
-            _defaultSlot: undefined,
         };
+    },
+    computed: {
+        propsDataOfSlot() {
+            return this.flatPropsData(this.getPropsDataOfSlot(this.$slots.default));
+        },
     },
     watch: {
         data(data) {
@@ -130,6 +133,10 @@ export default {
             },
             immediate: true,
         },
+        propsDataOfSlot() {
+            console.log('watch propsDataOfSlot');
+            this.updateVirtualList?.();
+        },
     },
     created() {
         this.watchValue = debounce(this.watchValue);
@@ -155,19 +162,11 @@ export default {
             this.updateVirtualList = throttle(this._updateVirtualList, 50);
 
             this.propsDataOfDataSource = this.flatPropsData(this.getPropsDataOfDataSource(this.currentDataSource.data));
-            this.propsDataOfSlot = this.flatPropsData(this.getPropsDataOfSlot(this.$slots.default));
             this.updateVirtualList();
 
             this.$watch(() => this.currentDataSource.data, () => {
                 this.propsDataOfDataSource = this.flatPropsData(this.getPropsDataOfDataSource(this.currentDataSource.data));
                 this.updateVirtualList();
-            });
-
-            this.$on('hook:updated', () => {
-                if(this._defaultSlot !== this.$slots.default && this.virtualList) {
-                    this._defaultSlot = this.$slots.default;
-                    this.updateVirtualListOfSlot();
-                }
             });
         },
         handleData() {
@@ -495,13 +494,6 @@ export default {
                         node.key = `${node.value}_${i}`;
                 }
             }
-        },
-        /**
-         * 提供给组件外部调用
-         */
-        updateVirtualListOfSlot() {
-            this.propsDataOfSlot = this.flatPropsData(this.getPropsDataOfSlot(this.$slots.default));
-            this.updateVirtualList();
         },
     },
 };
