@@ -21,6 +21,7 @@ export default {
     position: relative;
     line-height: var(--table-th-line-height);
     padding: var(--table-th-padding);
+    background: var(--table-th-background);
 }
 
 .root td {
@@ -28,6 +29,7 @@ export default {
     line-height: var(--table-td-line-height);
     color: var(--table-td-color);
     padding: var(--table-td-padding);
+    background: var(--table-td-background);
 }
 
 .root td[vusion-slot-name="empty"] {
@@ -61,7 +63,7 @@ export default {
     border-bottom: 1px solid var(--table-border-color);
 }
 
-.root tbody > tr:hover > td::before {
+/* .root tbody > tr:hover > td::before {
     content: '';
     width: 100%;
     height: 6px;
@@ -83,19 +85,22 @@ export default {
     background: url("../../assets/images/shadow-down.png") repeat-x;
     z-index: 100;
     display: var(--table-hover-border-shadow-display);
-}
+} */
 
 .root tbody > tr:hover{
     background-color: var(--table-view-row-hover-background);
 }
+.root tbody > tr:hover td {
+    background-color: var(--table-view-row-hover-background);
+}
 
-.root tbody > tr:first-child:hover > td::before {
+/* .root tbody > tr:first-child:hover > td::before {
     display: none;
 }
 
 .root tbody > tr:last-child:hover > td::after {
     display: none;
-}
+} */
 
 .root[line] th, .root[line] td {
     border: 1px solid var(--table-border-color);
