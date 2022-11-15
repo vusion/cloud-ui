@@ -141,9 +141,7 @@ export default {
         },
     },
     watch: {
-        value(value, oldValue) {
-            console.log('watch value', value);
-            console.log('watch oldValue', oldValue);
+        value(value) {
             this.currentValue = this.fromValue(value);
         },
         currentValue: {
@@ -195,7 +193,7 @@ export default {
                 return value;
         },
         simpleConvert(value) {
-            return value.filter((x) => (!!x.url)).map((x) => (x.url)).join(',');
+            return value.map((x) => (x.url || '')).join(',');
         },
         getUrl(item) {
             return item.thumb || item.url || item;
