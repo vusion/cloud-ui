@@ -19,7 +19,7 @@
     <slot v-if="!virtualList"></slot>
     <div v-else :style="{ height: totalHeight + 'px' }">
         <div :style="{ transform: `translate3d(0,${beforeHeight}px,0)` }">
-            <u-tree-view-node v-for="props in seenNodes" :key="props.key" v-bind="props"
+            <u-tree-view-node v-for="props in seenNodes" :key="props.key" v-bind="props" ref="nodes"
                 @toggle="props.expanded = $event.expanded"></u-tree-view-node>
         </div>
     </div>
@@ -81,6 +81,8 @@ export default {
             seenNodes: [],
             totalHeight: 0,
             beforeHeight: 0,
+            nodeHeight: 24,
+            nodeHeightUpdated: false,
         };
     },
     computed: {
@@ -136,7 +138,6 @@ export default {
             immediate: true,
         },
         propsDataOfSlot() {
-            console.log('watch propsDataOfSlot');
             this.updateVirtualList?.();
         },
     },
@@ -436,20 +437,24 @@ export default {
                         if(level === 0) break;
                     }
 
-                    const { hiddenField } = this;
+                    const { hiddenField, nodeHeight } = this;
                     const seenNodes = propsData.filter(item => !item._collapsedParentCount && !item.node?.[hiddenField]);
                     const index = seenNodes.findIndex(item => item.value === this.value);
-                    const unit = 32;
                     
                     if(this.scrollView)
-                        this.scrollView.$refs.wrap.scrollTop = unit * index;
+                        this.scrollView.$refs.wrap.scrollTop = nodeHeight * index;
                     else
-                        this.$el.scrollTop = unit * index;
+                        this.$el.scrollTop = nodeHeight * index;
                 }
             }            
         },
         _updateVirtualList() {
-            const unit = 32;
+            if(!this.nodeHeightUpdated && this.$refs.nodes?.[0]?.$el?.clientHeight) {
+                this.nodeHeight = this.$refs.nodes[0].$el.clientHeight;
+                this.nodeHeightUpdated = true;
+            }
+
+            const { nodeHeight } = this;
             let scrollTop;
             let clientHeight = 0;
             if(this.scrollView) {
@@ -461,20 +466,20 @@ export default {
             }
                 
             const propsData = [...this.propsDataOfDataSource, ...this.propsDataOfSlot];
-            const count = Math.ceil(clientHeight / unit);
+            const count = Math.ceil(clientHeight / nodeHeight);
             const beforeCount = count >> 1;
             const total = count * 2;
 
             const { hiddenField } = this;
             const nodes = propsData.filter((node) => !node._collapsedParentCount && !node.node?.[hiddenField]);
-            let begIndex = Math.floor(scrollTop / unit);
+            let begIndex = Math.floor(scrollTop / nodeHeight);
             const beforeBuffer = Math.min(beforeCount, begIndex);
             begIndex = begIndex - beforeBuffer;
             const endIndex = Math.min(begIndex + total, nodes.length);
             this.seenNodes = nodes.slice(begIndex, endIndex);
             this.prepareKeys(this.seenNodes);
-            this.beforeHeight = scrollTop - scrollTop % unit - beforeBuffer * unit;
-            this.totalHeight = unit * nodes.length;
+            this.beforeHeight = scrollTop - scrollTop % nodeHeight - beforeBuffer * nodeHeight;
+            this.totalHeight = nodeHeight * nodes.length;
         },
         prepareKeys(seenNodes) {
             const set = new Set();
