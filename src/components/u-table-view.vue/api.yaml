@@ -267,6 +267,12 @@
       default: false
       description: ""
       group: 选择属性
+    - name: draggable
+      title: 可拖拽
+      type: boolean
+      default: false
+      description: "是否可以拖拽行排序"
+      group: 选择属性
     - name: accordion
       title: 手风琴模式
       type: boolean
@@ -310,6 +316,21 @@
       default: hasChildren
       description: 该字段指定行数据是否包含子节点数据
       group: 其它属性
+    - name: tree-check-type
+      title: 关联选中类型
+      description:  父子树节点是否关联选中
+      type: string
+      options:
+        - value: up+down
+          title: 父子双向关联选中
+        - value: down
+          title: 单项父关联子
+        - value: up
+          title: 单项子关联父
+        - value: none
+          title: 父子不关联
+      default: up+down
+      group: 其它属性
   slots:
     - concept: Slot
       name: default
@@ -335,6 +356,22 @@
       name: empty
       title: 暂无数据内容
       description: 自定义暂无数据内容
+    - concept: Slot
+      name: dragGhost
+      title: 拖拽缩略图
+      description: 自定义拖拽缩略图
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T
   events:
     - name: before-load
       title: 加载前
@@ -642,6 +679,57 @@
         - name: $event.expanded
           type: boolean
           description: 展开状态值
+    - name: dragstart
+      title: 拖拽开始时
+      description: 拖拽行时触发
+      params:
+        - name: $event.item
+          type: object
+          description: 被拖拽行相关对象
+        - name: $event.rowIndex
+          type: number
+          description: 被拖拽行的索引
+    - name: dragover
+      title: 拖拽经过时
+      description: 拖拽经过每一行时触发
+      params:
+        - name: $event.item
+          type: object
+          description: 拖拽经过的行相关对象
+        - name: $event.rowIndex
+          type: number
+          description: 拖拽经过的行的索引
+    - name: dragend
+      title: 拖拽结束时
+      description: 拖拽结束时触发
+    - name: drop
+      title: 拖拽放置时
+      description: 拖拽结束时触发
+      params:
+        - name: $event.source
+          type: object
+          description: 被拖拽行相关对象
+        - name: $event.sourcePath
+          type: number
+          description: 被拖拽行的索引
+        - name: $event.sourceParentItem
+          type: object
+          description: 被拖拽行的父节点对象
+        - name: $event.target
+          type: object
+          description: 拖拽放置行相关对象
+        - name: $event.targetPath
+          type: number
+          description: 拖拽放置行的索引
+        - name: $event.targetParentItem
+          type: object
+          description: 拖拽放置行的父节点对象
+        - name: $event.position
+          type: string
+          description: 拖拽放置的位置
+        - name: $event.list
+          type: array
+          description: 整个列表数据
   methods:
     - name: load
       description: 带缓存地加载
@@ -773,6 +861,8 @@
           title: 树形列
         - value: editable
           title: 编辑列
+        - value: dragHandler
+          title: 拖拽标识列
       default: normal
       description: 支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序
     - name: start-index

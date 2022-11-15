@@ -9,7 +9,7 @@
         <f-scroll-view-bar :move="moveX" :size="sizeWidth"></f-scroll-view-bar>
         <f-scroll-view-bar direction="vertical" :move="moveY" :size="sizeHeight"></f-scroll-view-bar>
     </template>
-    <div v-else ref="wrap" :class="$style.wrap" :style="wrapStyle">
+    <div v-else ref="wrap" :class="$style.wrap" :style="wrapStyle" @scroll="handleNativeScroll">
         <div ref="resize" :class="$style.view">
             <slot></slot>
         </div>
@@ -57,13 +57,21 @@ export default {
         !this.noresize && removeResizeListener(this.$el, this.handleResize);
     },
     methods: {
-        handleScroll() {
+        handleScroll(e) {
             const wrapEl = this.$refs.wrap;
 
             this.moveY = (wrapEl.scrollTop * 100) / wrapEl.clientHeight;
             this.moveX = (wrapEl.scrollLeft * 100) / wrapEl.clientWidth;
 
-            this.$emit('scroll', { scrollTop: wrapEl.scrollTop });
+            this.$emit('scroll', {
+                scrollTop: wrapEl.scrollTop,
+                scrollLeft: wrapEl.scrollLeft,
+                clientWidth: wrapEl.clientWidth,
+                clientHeight: wrapEl.clientHeight,
+                scrollWidth: wrapEl.scrollWidth,
+                scrollHeight: wrapEl.scrollHeight,
+                target: wrapEl,
+            });
         },
         handleResize() {
             const wrapEl = this.$refs.wrap;
@@ -75,6 +83,18 @@ export default {
 
             this.sizeHeight = heightPercentage < 100 ? heightPercentage + '%' : '';
             this.sizeWidth = widthPercentage < 100 ? widthPercentage + '%' : '';
+        },
+        handleNativeScroll() {
+            const wrapEl = this.$refs.wrap;
+            this.$emit('scroll', {
+                scrollTop: wrapEl.scrollTop,
+                scrollLeft: wrapEl.scrollLeft,
+                clientWidth: wrapEl.clientWidth,
+                clientHeight: wrapEl.clientHeight,
+                scrollWidth: wrapEl.scrollWidth,
+                scrollHeight: wrapEl.scrollHeight,
+                target: wrapEl,
+            });
         },
     },
 };
