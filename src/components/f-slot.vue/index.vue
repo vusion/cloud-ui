@@ -15,7 +15,11 @@ export default {
         const slot = vm.$slots[name];
         if (scopedSlot) {
             try {
-                return scopedSlot(props);
+                const slotResult = scopedSlot(props);
+                if (slotResult)
+                    return slotResult;
+                else
+                    return context.children;
             } catch (e) {
                 if (catchError)
                     return h('div', e.message || e);

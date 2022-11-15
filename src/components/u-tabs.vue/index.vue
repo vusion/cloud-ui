@@ -24,6 +24,7 @@
                                 :vusion-disabled-move="itemVM.$attrs['vusion-disabled-move']"
                                 :vusion-disabled-duplicate="itemVM.$attrs['vusion-disabled-duplicate']"
                                 :vusion-disabled-cut="itemVM.$attrs['vusion-disabled-cut']"
+                                :vusion-template-title-node-path="itemVM.$attrs['vusion-template-title-node-path']"
                                 :href="itemVM.currentHref" :target="itemVM.target" :title="showTitle ? itemVM.title : null"
                                 :selected="router ? itemVM.active : itemVM === selectedVM"
                                 :disabled="itemVM.disabled || disabled"
@@ -31,7 +32,7 @@
                                 :width-fixed="!!currentItemWidth"
                                 :alignment="itemAlign"
                                 @click="onClick(itemVM, $event)">
-                                <span :class="$style.title" vusion-slot-name-edit="title">
+                                <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
                                     <f-slot
                                         :vm="itemVM"
                                         name="title"
