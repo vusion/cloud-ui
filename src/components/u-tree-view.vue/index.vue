@@ -78,13 +78,15 @@ export default {
             selectedVM: undefined,
             currentValues: this.values || [],
             loading: false,
-            propsDataOfDataSource: [],
             seenNodes: [],
             totalHeight: 0,
             beforeHeight: 0,
         };
     },
     computed: {
+        propsDataOfDataSource() {
+            return this.flatPropsData(this.getPropsDataOfDataSource(this.currentDataSource.data));
+        },
         propsDataOfSlot() {
             return this.flatPropsData(this.getPropsDataOfSlot(this.$slots.default));
         },
@@ -160,14 +162,7 @@ export default {
             if(!this.virtualList) return;
             
             this.updateVirtualList = throttle(this._updateVirtualList, 50);
-
-            this.propsDataOfDataSource = this.flatPropsData(this.getPropsDataOfDataSource(this.currentDataSource.data));
             this.updateVirtualList();
-
-            this.$watch(() => this.currentDataSource.data, () => {
-                this.propsDataOfDataSource = this.flatPropsData(this.getPropsDataOfDataSource(this.currentDataSource.data));
-                this.updateVirtualList();
-            });
         },
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
@@ -471,7 +466,6 @@ export default {
             const total = count * 2;
 
             const { hiddenField } = this;
-            // console.log(propsData);
             const nodes = propsData.filter((node) => !node._collapsedParentCount && !node.node?.[hiddenField]);
             let begIndex = Math.floor(scrollTop / unit);
             const beforeBuffer = Math.min(beforeCount, begIndex);
