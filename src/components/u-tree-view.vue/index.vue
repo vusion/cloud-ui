@@ -477,9 +477,20 @@ export default {
             begIndex = begIndex - beforeBuffer;
             const endIndex = Math.min(begIndex + total, nodes.length);
             this.seenNodes = nodes.slice(begIndex, endIndex);
+            this.cloneSameNodes(this.seenNodes);
             this.prepareKeys(this.seenNodes);
             this.beforeHeight = scrollTop - scrollTop % nodeHeight - beforeBuffer * nodeHeight;
             this.totalHeight = nodeHeight * nodes.length;
+        },
+        cloneSameNodes(seenNodes) {
+            const set = new Set();
+            for(let i=0;i<seenNodes.length;i++) {
+                const node = seenNodes[i];
+                if(set.has(node)) {
+                    seenNodes[i] = {...node};
+                } else
+                    set.add(node);
+            }
         },
         prepareKeys(seenNodes) {
             const set = new Set();
