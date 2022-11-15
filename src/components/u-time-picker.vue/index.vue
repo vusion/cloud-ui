@@ -790,6 +790,7 @@ export default {
     color: var(--timepicker-input-after-icon-color);
 }
 .foot .miniButtonStyle {
-    padding: 0 12px;
+    padding: 0 0px;
+    font-size: 12px;
 }
 </style>
