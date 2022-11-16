@@ -498,6 +498,13 @@ export default {
             this.prepareKeys(this.seenNodes);
             this.beforeHeight = scrollTop - scrollTop % nodeHeight - beforeBuffer * nodeHeight;
             this.totalHeight = nodeHeight * nodes.length;
+
+            if(this.value !== undefined) {
+                this.$nextTick(() => {
+                    this.selectedVM = this.nodeVMs.find((vm) => vm.value === this.value);
+                });                
+            }
+
         },
         cloneSameNodes(seenNodes) {
             const set = new Set();
