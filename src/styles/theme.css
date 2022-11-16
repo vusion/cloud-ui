@@ -974,6 +974,8 @@
     --form-item-margin-bottom-large: var(--space-large); /* @hidden */
     --form-item-margin-bottom-small: var(--space-small); /* @hidden */
     --form-item-margin-bottom-none: 0; /* @hidden */
+    --form-item-label-align-items: center; /* @hidden */
+    --form-item-label-justify-content: flex-end; /* @hidden */
     --form-required-color: var(--brand-error); /* @hidden */
     --form-required-right: 12px; /* @hidden */
     --form-required-right-small: 2px; /* @hidden */
@@ -1317,6 +1319,9 @@
     --combo-slider-input-border-color: var(--number-input-border-color);
     --combo-slider-input-border-radius: var(--number-input-border-radius);
     --combo-slider-input-color: var(--number-input-color);
+    --combo-slider-tip-color: var(--color-light); /* @type color */
+    --combo-slider-tip-align-items: center; /* @desc 提示的垂直对齐方式,如 centers */
+    --combo-slider-scales-color: var(--color-light); /* @type color */
 
     /* @component u-uploader */
     --uploader-list-margin-top: 6px; /* @desc 文件上传列表项顶部外间距,如 1px */
