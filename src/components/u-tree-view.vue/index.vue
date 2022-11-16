@@ -418,35 +418,52 @@ export default {
             });
         },
         scrollIntoView() {
-            if(!this.virtualList) return;
+            if(!this.virtualList || this.value === undefined) return;
 
             const propsData = [...this.propsDataOfDataSource, ...this.propsDataOfSlot];
-            if(this.value) {
-                const pos = propsData.findIndex(item => item.value === this.value);
-                if(pos >= 0) {
-                    let level = propsData[pos].level;
-                    for(let i=pos;i>=0;i--) {
-                        const props = propsData[i];
-                        if(props.level < level) {
-                            level = props.level;
-                            if(props.node && !props.expanded) {
-                                this.$set(props.node, 'expanded', true);
-                                this.toggleData(props.node._children, true);                                
-                            }
-                        }
-                        if(level === 0) break;
-                    }
+            const pos = propsData.findIndex(item => item.value === this.value);
+            if(pos === -1) return;
 
-                    const { hiddenField, nodeHeight } = this;
-                    const seenNodes = propsData.filter(item => !item._collapsedParentCount && !item.node?.[hiddenField]);
-                    const index = seenNodes.findIndex(item => item.value === this.value);
-                    
-                    if(this.scrollView)
-                        this.scrollView.$refs.wrap.scrollTop = nodeHeight * index;
-                    else
-                        this.$el.scrollTop = nodeHeight * index;
+            let level = propsData[pos].level;
+            for(let i=pos;i>=0;i--) {
+                const props = propsData[i];
+                if(props.level < level) {
+                    level = props.level;
+                    if(props.node && !props.expanded) {
+                        this.$set(props.node, 'expanded', true);
+                        this.toggleData(props.node._children, true);                                
+                    }
                 }
-            }            
+                if(level === 0) break;
+            }
+
+            const { hiddenField, nodeHeight } = this;
+            const seenNodes = propsData.filter(item => !item._collapsedParentCount && !item.node?.[hiddenField]);
+            const index = seenNodes.findIndex(item => item.value === this.value);
+
+            let scrollTop;
+            let clientHeight = 0;
+            if(this.scrollView) {
+                scrollTop = this.scrollView.$refs.wrap?.scrollTop || 0;
+                clientHeight = this.scrollView.$refs.wrap?.clientHeight;
+            } else {
+                scrollTop = this.$el?.scrollTop || 0;
+                clientHeight = this.$el?.clientHeight;
+            }
+
+            const viewBeg = Math.ceil(scrollTop / nodeHeight);
+            const viewEnd = Math.floor((scrollTop + clientHeight) / nodeHeight);
+            if(index >= viewBeg && index <= viewEnd)
+                return;
+            
+            if(this.scrollView) {
+                this.$nextTick(() => {
+                    this.scrollView.$refs.wrap.scrollTop = nodeHeight * index;
+                });
+            } else
+                this.$nextTick(() => {
+                    this.$el.scrollTop = nodeHeight * index;           
+                });
         },
         _updateVirtualList() {
             if(!this.nodeHeightUpdated && this.$refs.nodes?.[0]?.$el?.clientHeight) {
