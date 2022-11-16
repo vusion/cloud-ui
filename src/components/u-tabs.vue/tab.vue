@@ -25,6 +25,14 @@ export default {
             return this.parentVM && (this.parentVM.router ? this.active : this.parentVM.selectedVM === this);
         },
     },
+    updated() {
+        // IDE里组件放入title插槽后没有重新渲染，这里强制渲染
+        if (this.$env.VUE_APP_DESIGNER) {
+            if (this.parentVM) {
+                this.parentVM.$forceUpdate();
+            }
+        }
+    },
     methods: {
         designerControl() {
             this.parentVM.select(this);

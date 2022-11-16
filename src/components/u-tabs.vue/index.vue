@@ -38,6 +38,12 @@
                                         name="title"
                                         :props="{ selected: router ? itemVM.active : itemVM === selectedVM }">
                                         {{ itemVM.title }}
+                                        <s-empty
+                                            v-if="(!itemVM.$slots.title)
+                                                && !itemVM.title
+                                                && $env.VUE_APP_DESIGNER
+                                                && !!$attrs['vusion-node-path']">
+                                        </s-empty>
                                     </f-slot>
                                 </span>
                                 <span v-if="closable && itemVM.closable" :class="$style.close" @click.stop="close(itemVM)"></span>

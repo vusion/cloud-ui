@@ -1396,6 +1396,7 @@
     --tabs-body-space-small: var(--space-small); /* @hidden */
     --tabs-body-space-mini: var(--space-mini); /* @hidden */
     --tabs-item-title-font-weight: inherit; /* @hidden */
+    --tabs-item-title-margin-right: 5px; /* @hidden */
 
     /* @component u-selectable-steps */
     --steps-item-color-disabled: var(--brand-disabled-dark); /* @type color */ /* @desc 步骤条禁用项文字颜色,如 #223325 */
