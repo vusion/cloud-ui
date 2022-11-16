@@ -70,7 +70,7 @@
 </u-linear-layout>
 ```
 
-### size="small"
+### 小尺寸
 
 ``` html
 <u-linear-layout direction="vertical">
