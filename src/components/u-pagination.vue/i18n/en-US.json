@@ -1,6 +1,8 @@
 {
-    "pageSizeUnit": "items/page",
-    "pageUnit": "pages",
-    "total": "total {totalItems} items",
-    "goto": "goto"
+    "pageSizeUnit": "items",
+    "pageSize": "/page",
+    "pageUnit": "page",
+    "total": "Total {totalItems} items",
+    "goto": "Go to",
+    "gotoPageUnit": "page"
 }
