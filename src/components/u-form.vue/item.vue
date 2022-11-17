@@ -131,7 +131,6 @@ export default {
 .root {
     position: relative;
     display: block;
-    align-items: flex-start;
 }
 
 .full {
