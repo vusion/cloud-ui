@@ -40,6 +40,12 @@
                                 <span vusion-slot-name="title" vusion-slot-name-edit="title" :class="$style['column-title']" :plus-empty="columnVM.$attrs['title-plus-empty']">
                                     <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">
                                         {{ columnVM.title }}
+                                        <s-empty
+                                            v-if="!(columnVM.$slots && columnVM.$slots.title)
+                                                && !columnVM.title
+                                                && $env.VUE_APP_DESIGNER
+                                                && !!$attrs['vusion-node-path']">
+                                        </s-empty>
                                     </f-slot>
                                 </span>
                             </template>
