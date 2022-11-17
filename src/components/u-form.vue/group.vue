@@ -2,16 +2,32 @@
     <div :class="$style.root" :collapsible="currentCollapsible" :size="currentSize">
         <div :class="$style.head" @click="parentVM.expandTrigger === 'click' && toggle()" :title="title">
             <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
-                <slot name="title">{{ title }}</slot>
+                <slot name="title">
+                    {{ title }}
+                    <s-empty
+                        v-if="!$slots.title
+                            && !title
+                            && $env.VUE_APP_DESIGNER
+                            && !!$attrs['vusion-node-path']">
+                    </s-empty>
+                </slot>
             </div>
             <span v-if="currentCollapsible" :class="$style.expander"
                 :expanded="currentExpanded"
                 @click="parentVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
             ></span>
-            <div :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></div>
+            <div :class="$style.extra" vusion-slot-name="extra">
+                <slot name="extra">
+                    <s-empty
+                        v-if="!$slots.extra
+                            && $env.VUE_APP_DESIGNER
+                            && !!$attrs['vusion-node-path']">
+                    </s-empty>
+                </slot>
+            </div>
         </div>
         <f-collapse-transition>
-            <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true">
+            <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true" :layout="layoutValue">
                 <slot></slot>
             </div>
         </f-collapse-transition>
@@ -124,6 +140,11 @@ export default {
 .body {
     padding: var(--form-group-body-padding-y) 0;
     transition: var(--transition-collapse-base);
+}
+
+.body[layout="inline"] {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .root[appear="header"] .body {

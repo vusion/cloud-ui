@@ -105,6 +105,7 @@ export default {
 .root[layout="inline"] {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .root[layout="inline"] .item {
@@ -113,13 +114,10 @@ export default {
 
 .root[layout="inline"] .item:not(:last-child) {
     padding-right: var(--space-base);
+}
+.root[layout="inline"] .item {
     margin-bottom: var(--space-base);
 }
-
-.root[layout="block"] .item:not(:last-child) {
-    margin-bottom: var(--form-item-margin-bottom);
-}
-
 .root[layout="inline"]::after {
     display: block;
     content: '.';
@@ -127,7 +125,21 @@ export default {
     height: 0;
     visibility: hidden;
 }
+.root[layout="inline"] .item[layout="center"],
+.root[layout="inline"] .item[layout="end"] {
+    display: inline-flex;
+}
 
+.root[layout="block"] .item:not(:last-child) {
+    margin-bottom: var(--form-item-margin-bottom);
+}
+
+.root[layout="vertical"] .item {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 .root[layout="vertical"] .item:not(:last-child) {
     margin-bottom: var(--form-item-margin-bottom);
 }
@@ -138,6 +150,7 @@ export default {
     padding-right: 0;
     align-items: center;
     margin-bottom: 4px;
+    justify-content: start;
 }
 .root[layout="vertical"] .item > label[required]::after {
     position: initial;
@@ -152,6 +165,12 @@ export default {
 .root[layout="vertical"] .item > [class^="u-form_item_field__"] > [class^="u-form_item_wrap__"] {
     display: block;
     max-width: 100%;
+}
+.root[layout="vertical"] .item > label [s-empty="true"] {
+    max-width: 90px;
+}
+.root .item > label [s-empty="true"] {
+    min-width: 56px;
 }
 
 .root[gap="large"][layout="block"] .item:not(:last-child),

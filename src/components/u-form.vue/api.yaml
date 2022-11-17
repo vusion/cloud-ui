@@ -28,6 +28,8 @@
           title: 行内展示
         - value: block
           title: 块级展示，宽度会充满父元素
+        - value: vertical
+          title: 标签与元素垂直排列展示
       default: block
       description: ""
     - name: repeat
@@ -276,15 +278,17 @@
       default: right
       description: 改变提示信息显示位置
     - name: layout
-      title: 布局方式
+      title: 标签垂直对齐方式
       type: string
       options:
-        - value: inline
-          title: 行内
         - value: block
-          title: 块级
-      default: inline
-      description: 布局方式。
+          title: 上对齐
+        - value: center
+          title: 居中对齐
+        - value: end
+          title: 下对齐
+      default: center
+      description: 标签与表单元素的垂直对齐方式,一般为居中对齐
     - name: rules
       title: 验证规则
       type: string | Array

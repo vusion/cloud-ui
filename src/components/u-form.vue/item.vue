@@ -2,6 +2,12 @@
 <div :class="$style.root" :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''" :style="responsiveStyle">
     <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'" vusion-slot-name="label" vusion-slot-name-edit="label">
         <slot name="label">{{ label || title }}</slot>
+        <s-empty
+            v-if="!$slots.label
+                && !(label || title)
+                && $env.VUE_APP_DESIGNER
+                && !!$attrs['vusion-node-path']">
+        </s-empty>
     </label>
     <span :class="$style.extra" v-if="!hideSlots && rootVM && rootVM.extraSlots" vusion-slot-name="extra">
         <slot name="extra"></slot>
@@ -25,13 +31,16 @@
 <script>
 import UValidator from '../u-validator.vue';
 import SEmpty from '../s-empty.vue';
+import { MChild } from '../m-parent.vue';
 
 export default {
     name: 'u-form-item',
+    parentName: 'u-form',
+    groupName: 'u-form-group',
     components: {
         SEmpty,
     },
-    mixins: [UValidator],
+    mixins: [UValidator, MChild],
     props: {
         // name: String,
         // label: String,
@@ -122,19 +131,31 @@ export default {
 .root {
     position: relative;
     display: block;
+    align-items: flex-start;
 }
 
 .full {
     min-width: 100px;
 }
 
-.label {
+/* .label {
     display: inline-block;
     width: var(--form-item-label-width);
     padding-right: var(--form-item-label-padding-right);
     color: var(--form-item-label-color);
     text-align: right;
     position: relative;
+} */
+
+.label {
+    display: inline-flex;
+    width: var(--form-item-label-width);
+    padding-right: var(--form-item-label-padding-right);
+    color: var(--form-item-label-color);
+    text-align: right;
+    position: relative;
+    align-items: var(--form-item-label-align-items);
+    justify-content: var(--form-item-label-justify-content);
 }
 
 .label[required]::after {
@@ -202,6 +223,14 @@ export default {
 
 .root[layout="block"] > .field {
     vertical-align: top;
+}
+.root[layout="center"]{
+    display: flex;
+    align-items: center;
+}
+.root[layout="end"]{
+    display: flex;
+    align-items: flex-end;
 }
 
 .root[layout="none"] {
