@@ -629,11 +629,6 @@ export default {
             if (!this.$env.VUE_APP_DESIGNER) {
                 this.rowDraggable = this.draggable && !dragHandler;
                 this.handlerDraggable = this.draggable && dragHandler;
-                // 树型数据必须有valueField
-                if (this.treeDisplay) {
-                    this.rowDraggable = this.rowDraggable && !!this.valueField;
-                    this.handlerDraggable = this.handlerDraggable && !!this.valueField;
-                }
             }
             if (selectable) {
                 data.forEach((item) => {
@@ -1514,7 +1509,7 @@ export default {
             let newData = [];
             for (const item of data) {
                 item.tableTreeItemLevel = level;
-                item.parentPointer = parent && this.$at(parent, this.valueField);
+                item.parentPointer = parent;
                 if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
                     this.$setAt(item, this.hasChildrenField, true);
                     item.expanded = item.expanded || false;
@@ -1593,7 +1588,7 @@ export default {
         updateTreeExpanded(expandNode, expanded) {
             this.traverse(expandNode, (node, parent) => {
                 this.currentData.forEach((itemData) => {
-                    if (itemData.parentPointer !== undefined && itemData.parentPointer === this.$at(parent, this.valueField)) {
+                    if (itemData.parentPointer !== undefined && itemData.parentPointer === parent) {
                         if (expanded) {
                             if (parent.expanded) {
                                 this.$set(itemData, 'display', '');
@@ -1759,8 +1754,7 @@ export default {
                 let targetParentItem;
                 if (this.treeDisplay) {
                     this.findItem(originalList, null, (node, index, list, parentNode) => {
-                        const value = this.$at(this.dragState.source, this.valueField);
-                        if (value === this.$at(node, this.valueField)) {
+                        if (this.dragState.source === node) {
                             this.removeData = {
                                 parentList: list,
                                 index,
@@ -1777,8 +1771,7 @@ export default {
                         sourceParentItem = this.removeData.parentNode;
                     }
                     this.findItem(originalList, null, (node, index, list, parentNode) => {
-                        const value = this.$at(this.dragState.target, this.valueField);
-                        if (value === this.$at(node, this.valueField)) {
+                        if (this.dragState.target === node) {
                             this.insetData = {
                                 parentList: list,
                                 index,
@@ -2328,7 +2321,7 @@ export default {
     text-align: center;
 }
 .tree_expander[loading]{
-    margin-right: 4px;
+    margin-right: calc(4px + var(--table-view-tree-expander-margin));
 }
 .tree_expander[loading]::before {
     content: '';
