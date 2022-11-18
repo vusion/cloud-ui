@@ -1735,7 +1735,8 @@ export default {
          * 拖拽结束状态处理
          */
         onDragEnd(e) {
-            this.clearDragState();
+            if (!this.subTreeLoading)
+                this.clearDragState();
             this.$emit('dragend');
         },
         /**
@@ -1752,6 +1753,7 @@ export default {
                 let targetPath = this.dragState.targetPath;
                 let sourceParentItem;
                 let targetParentItem;
+                // 树型展示的处理
                 if (this.treeDisplay) {
                     this.findItem(originalList, null, (node, index, list, parentNode) => {
                         if (this.dragState.source === node) {
@@ -1781,13 +1783,60 @@ export default {
                     });
                     if (this.dropData.position === 'append') {
                         const parentNode = this.insetData.parentList[this.insetData.index];
-                        if (!this.$at(parentNode, this.hasChildrenField) && !this.$at(parentNode, this.childrenField)) {
-                            this.setAtWithoutSync(parentNode, this.childrenField, []);
+                        // 异步加载子树的情况
+                        if (!this.$at(parentNode, this.childrenField)
+                            && this.$at(parentNode, this.hasChildrenField)
+                            && (typeof this.dataSource === 'function')) {
+                            this.subTreeLoading = true; // 阻止dragEnd清除数据
+                            this.$set(parentNode, 'loading', true);
+                            return this.dataSource({ page: this.page, size: this.size }, { item: parentNode }).then((res) => {
+                                let result = [];
+                                if (Array.isArray(res)) {
+                                    result = res;
+                                } else if (typeof res === 'object') { // 特殊处理
+                                    Object.keys(res).forEach((key) => {
+                                        if (Array.isArray(res[key])) {
+                                            result = res[key];
+                                        }
+                                    });
+                                }
+                                // 加在数据的最后一个
+                                result.push(this.dragState.source);
+                                targetPath = result.length - 1;
+                                this.processData(result);
+                                this.$setAt(parentNode, this.childrenField, result);
+                                if (parentNode.checked) {
+                                    this.check(parentNode, parentNode.checked, true);
+                                }
+                                this.$set(parentNode, 'loading', false);
+                                this.$set(parentNode, 'expanded', true);
+                                this.subTreeLoading = false;
+                                this.currentDataSource.arrangedData = originalList;
+                                this.$emit('drop', {
+                                    source: this.dragState.source,
+                                    sourcePath,
+                                    sourceParentItem,
+                                    target: this.dragState.target,
+                                    targetPath,
+                                    targetParentItem,
+                                    position: this.dropData.position,
+                                    list: originalList,
+                                });
+                                this.clearDragState();
+                            }).catch((err) => {
+                                this.subTreeLoading = false;
+                                this.clearDragState();
+                            });
+                        } else {
+                            // 子树数据是同步的情况
+                            if (!this.$at(parentNode, this.hasChildrenField) && !this.$at(parentNode, this.childrenField)) {
+                                this.setAtWithoutSync(parentNode, this.childrenField, []);
+                            }
+                            parentNode.expanded = true;
+                            const children = this.$at(parentNode, this.childrenField) || [];
+                            children.push(this.dragState.source);
+                            targetPath = children.length - 1;
                         }
-                        parentNode.expanded = true;
-                        const children = this.$at(parentNode, this.childrenField) || [];
-                        children.push(this.dragState.source);
-                        targetPath = children.length - 1;
                     } else {
                         const insertIndex = this.dropData.position === 'insertBefore' ? this.insetData.index : this.insetData.index + 1;
                         this.insetData && this.insetData.parentList.splice(insertIndex, 0, this.dragState.source);
@@ -1796,6 +1845,7 @@ export default {
                     targetParentItem = this.insetData.parentNode;
                     this.currentDataSource.arrangedData = originalList;
                 } else {
+                    // 普通表格的处理
                     originalList.splice(this.dragState.sourcePath, 1);
                     originalList.splice(this.dragState.targetPath, 0, this.dragState.source);
                     this.currentDataSource.arrangedData = originalList;
