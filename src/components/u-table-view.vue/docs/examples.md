@@ -1901,7 +1901,7 @@ export default {
 </script>
 ```
 
-### 树形展示
+### 树型展示
 
 同步数据。
 
@@ -1917,7 +1917,7 @@ export default {
         <u-select-item value="none">父子不关联（父选中子不选中，子全选父不选中）</u-select-item>
     </u-select>
 </u-linear-layout>
-<u-table-view :data-source="list" tree-display value-field="name" :treeCheckType="checkType" ref="tableView">
+<u-table-view :data-source="list" tree-display :treeCheckType="checkType" ref="tableView">
     <u-table-view-column type="checkbox" width="30"></u-table-view-column>
     <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
@@ -1968,7 +1968,7 @@ export default {
 
 ``` vue
 <template>
-<u-table-view :data-source="load" tree-display value-field="name">
+<u-table-view :data-source="load" tree-display>
     <u-table-view-column type="checkbox" width="30"></u-table-view-column>
     <u-table-view-column title="用户名" field="name" width="20%" ellipsis></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
@@ -2032,7 +2032,7 @@ export default {
 ``` vue
 <template>
 <u-linear-layout direction="vertical">
-<u-table-view :data-source="list" tree-display value-field="name" :draggable="true">
+<u-table-view :data-source="list" tree-display :draggable="true" value-field="name">
     <u-table-view-column type="dragHandler" width="30"></u-table-view-column>
     <u-table-view-column type="checkbox" width="30"></u-table-view-column>
     <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>

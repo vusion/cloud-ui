@@ -629,11 +629,6 @@ export default {
             if (!this.$env.VUE_APP_DESIGNER) {
                 this.rowDraggable = this.draggable && !dragHandler;
                 this.handlerDraggable = this.draggable && dragHandler;
-                // 树型数据必须有valueField
-                if (this.treeDisplay) {
-                    this.rowDraggable = this.rowDraggable && !!this.valueField;
-                    this.handlerDraggable = this.handlerDraggable && !!this.valueField;
-                }
             }
             if (selectable) {
                 data.forEach((item) => {
@@ -1427,7 +1422,7 @@ export default {
             }
             if (this.treeCheckType.includes('up')) {
                 if (item.parentPointer) {
-                    const parentItem = this.currentData.find((citem) => this.$at(citem, this.valueField) === item.parentPointer);
+                    const parentItem = this.currentData.find((citem) => citem === item.parentPointer);
                     if (parentItem) {
                         const children = this.$at(parentItem, this.childrenField) || [];
                         let checkedLength = 0;
@@ -1467,13 +1462,17 @@ export default {
             const children = this.$at(item, this.childrenField);
             if (children && children.length) {
                 children.forEach((citem) => {
-                    this.getTreeCheckedValues(citem, checked);
+                    if (this.treeCheckType.includes('down')) {
+                        this.getTreeCheckedValues(citem, checked);
+                    }
                 });
             }
             if (item.parentPointer) {
-                const parentItem = this.currentData.find((citem) => this.$at(citem, this.valueField) === item.parentPointer);
+                const parentItem = this.currentData.find((citem) => citem === item.parentPointer);
                 if (parentItem) {
-                    this.getCheckedValues(parentItem, checked);
+                    if (this.treeCheckType.includes('up')) {
+                        this.getCheckedValues(parentItem, checked);
+                    }
                 }
             }
         },
@@ -1514,7 +1513,7 @@ export default {
             let newData = [];
             for (const item of data) {
                 item.tableTreeItemLevel = level;
-                item.parentPointer = parent && this.$at(parent, this.valueField);
+                item.parentPointer = parent;
                 if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
                     this.$setAt(item, this.hasChildrenField, true);
                     item.expanded = item.expanded || false;
@@ -1593,7 +1592,7 @@ export default {
         updateTreeExpanded(expandNode, expanded) {
             this.traverse(expandNode, (node, parent) => {
                 this.currentData.forEach((itemData) => {
-                    if (itemData.parentPointer !== undefined && itemData.parentPointer === this.$at(parent, this.valueField)) {
+                    if (itemData.parentPointer !== undefined && itemData.parentPointer === parent) {
                         if (expanded) {
                             if (parent.expanded) {
                                 this.$set(itemData, 'display', '');
@@ -1657,10 +1656,9 @@ export default {
                 sourcePath: rowIndex,
             };
             // 该节点下的所有子节点不要响应dragover
-            const value = this.$at(item, this.valueField);
-            this.currentData.forEach((item) => {
-                item.draggoverDisabled = this.isSubNode(item, value);
-                item.disabledDrop = this.treeDisplay ? item.disabled || item.dropDisabled : true;
+            this.currentData.forEach((citem) => {
+                citem.draggoverDisabled = this.isSubNode(citem, item);
+                citem.disabledDrop = this.treeDisplay ? citem.disabled || citem.dropDisabled : true;
             });
             // 本身不要线
             item.draggoverDisabled = true;
@@ -1740,7 +1738,8 @@ export default {
          * 拖拽结束状态处理
          */
         onDragEnd(e) {
-            this.clearDragState();
+            if (!this.subTreeLoading)
+                this.clearDragState();
             this.$emit('dragend');
         },
         /**
@@ -1757,10 +1756,10 @@ export default {
                 let targetPath = this.dragState.targetPath;
                 let sourceParentItem;
                 let targetParentItem;
+                // 树型展示的处理
                 if (this.treeDisplay) {
                     this.findItem(originalList, null, (node, index, list, parentNode) => {
-                        const value = this.$at(this.dragState.source, this.valueField);
-                        if (value === this.$at(node, this.valueField)) {
+                        if (this.dragState.source === node) {
                             this.removeData = {
                                 parentList: list,
                                 index,
@@ -1777,8 +1776,7 @@ export default {
                         sourceParentItem = this.removeData.parentNode;
                     }
                     this.findItem(originalList, null, (node, index, list, parentNode) => {
-                        const value = this.$at(this.dragState.target, this.valueField);
-                        if (value === this.$at(node, this.valueField)) {
+                        if (this.dragState.target === node) {
                             this.insetData = {
                                 parentList: list,
                                 index,
@@ -1788,13 +1786,60 @@ export default {
                     });
                     if (this.dropData.position === 'append') {
                         const parentNode = this.insetData.parentList[this.insetData.index];
-                        if (!this.$at(parentNode, this.hasChildrenField) && !this.$at(parentNode, this.childrenField)) {
-                            this.setAtWithoutSync(parentNode, this.childrenField, []);
+                        // 异步加载子树的情况
+                        if (!this.$at(parentNode, this.childrenField)
+                            && this.$at(parentNode, this.hasChildrenField)
+                            && (typeof this.dataSource === 'function')) {
+                            this.subTreeLoading = true; // 阻止dragEnd清除数据
+                            this.$set(parentNode, 'loading', true);
+                            return this.dataSource({ page: this.page, size: this.size }, { item: parentNode }).then((res) => {
+                                let result = [];
+                                if (Array.isArray(res)) {
+                                    result = res;
+                                } else if (typeof res === 'object') { // 特殊处理
+                                    Object.keys(res).forEach((key) => {
+                                        if (Array.isArray(res[key])) {
+                                            result = res[key];
+                                        }
+                                    });
+                                }
+                                // 加在数据的最后一个
+                                result.push(this.dragState.source);
+                                targetPath = result.length - 1;
+                                this.processData(result);
+                                this.$setAt(parentNode, this.childrenField, result);
+                                if (parentNode.checked) {
+                                    this.check(parentNode, parentNode.checked, true);
+                                }
+                                this.$set(parentNode, 'loading', false);
+                                this.$set(parentNode, 'expanded', true);
+                                this.subTreeLoading = false;
+                                this.currentDataSource.arrangedData = originalList;
+                                this.$emit('drop', {
+                                    source: this.dragState.source,
+                                    sourcePath,
+                                    sourceParentItem,
+                                    target: this.dragState.target,
+                                    targetPath,
+                                    targetParentItem,
+                                    position: this.dropData.position,
+                                    list: originalList,
+                                });
+                                this.clearDragState();
+                            }).catch((err) => {
+                                this.subTreeLoading = false;
+                                this.clearDragState();
+                            });
+                        } else {
+                            // 子树数据是同步的情况
+                            if (!this.$at(parentNode, this.hasChildrenField) && !this.$at(parentNode, this.childrenField)) {
+                                this.setAtWithoutSync(parentNode, this.childrenField, []);
+                            }
+                            parentNode.expanded = true;
+                            const children = this.$at(parentNode, this.childrenField) || [];
+                            children.push(this.dragState.source);
+                            targetPath = children.length - 1;
                         }
-                        parentNode.expanded = true;
-                        const children = this.$at(parentNode, this.childrenField) || [];
-                        children.push(this.dragState.source);
-                        targetPath = children.length - 1;
                     } else {
                         const insertIndex = this.dropData.position === 'insertBefore' ? this.insetData.index : this.insetData.index + 1;
                         this.insetData && this.insetData.parentList.splice(insertIndex, 0, this.dragState.source);
@@ -1803,6 +1848,7 @@ export default {
                     targetParentItem = this.insetData.parentNode;
                     this.currentDataSource.arrangedData = originalList;
                 } else {
+                    // 普通表格的处理
                     originalList.splice(this.dragState.sourcePath, 1);
                     originalList.splice(this.dragState.targetPath, 0, this.dragState.source);
                     this.currentDataSource.arrangedData = originalList;
@@ -1848,14 +1894,14 @@ export default {
                 this.preventDatasourceWatch = false;
             });
         },
-        isSubNode(item, value) {
+        isSubNode(item, sourceNode) {
             if (item.parentPointer !== undefined) {
-                if (item.parentPointer === value) {
+                if (item.parentPointer === sourceNode) {
                     return true;
                 }
-                const parentNode = this.currentData.find((citem) => this.$at(citem, this.valueField) === item.parentPointer);
+                const parentNode = this.currentData.find((citem) => citem === item.parentPointer);
                 if (parentNode) {
-                    return this.isSubNode(parentNode, value);
+                    return this.isSubNode(parentNode, sourceNode);
                 }
                 return false;
             }
@@ -1866,13 +1912,13 @@ export default {
          */
         isDragging(item) {
             if (this.dragState && this.dragState.dragging) {
-                const sourceValue = this.$at(this.dragState.source, this.valueField);
-                if (!sourceValue)
+                const sourceNode = this.dragState.source;
+                if (!sourceNode)
                     return false;
-                if (this.$at(item, this.valueField) === sourceValue)
+                if (item === sourceNode)
                     return true;
                 else if (item.parentPointer !== undefined) {
-                    return this.isSubNode(item, sourceValue);
+                    return this.isSubNode(item, sourceNode);
                 } else {
                     return false;
                 }
@@ -2328,7 +2374,7 @@ export default {
     text-align: center;
 }
 .tree_expander[loading]{
-    margin-right: 4px;
+    margin-right: calc(4px + var(--table-view-tree-expander-margin));
 }
 .tree_expander[loading]::before {
     content: '';
