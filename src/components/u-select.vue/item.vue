@@ -9,20 +9,33 @@
     @mouseenter="hover"
     :style="{ direction: parentVM.ellipsisDirection }"
     @click="select"
-    v-ellipsis-title>
+    v-ellipsis-title
+    vusion-slot-name="default">
     <!-- @override: 添加了flag功能 -->
     <span v-if="flag !== undefined" :class="$style.flag" :layer="layer" v-tooltip.top="flag"></span>
-    <slot>{{ text }}</slot>
+    <slot>
+        {{ text }}
+        <s-empty
+            v-if="(!$slots.default)
+            && !text
+            && $env.VUE_APP_DESIGNER
+            && !!$attrs['vusion-node-path']">
+        </s-empty>
+    </slot>
 </div>
 </template>
 
 <script>
 import { UListViewItem } from '../u-list-view.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-select-item',
     parentName: 'u-select',
     groupName: 'u-select-group',
+    components: {
+        SEmpty,
+    },
     extends: UListViewItem,
     props: { flag: { type: String }, layer: { type: String }, text: { type: String } },
     computed: {
@@ -35,7 +48,8 @@ export default {
     },
     mounted() {
         this.$nextTick(() => {
-            if(this.isSelected) this.$el.scrollIntoView({ block: 'center' });         
+            if (this.isSelected)
+                this.$el.scrollIntoView({ block: 'center' });
         });
     },
     methods: {
