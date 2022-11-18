@@ -87,7 +87,9 @@ export default {
 .root[selcted][animation="fade"] {
     opacity: 1;
 } */
-
+.root .empty {
+    height: 100%;
+}
 .empty:not(:only-child){
     display: none;
 }
