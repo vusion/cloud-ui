@@ -2032,7 +2032,7 @@ export default {
 ``` vue
 <template>
 <u-linear-layout direction="vertical">
-<u-table-view :data-source="list" tree-display :draggable="true">
+<u-table-view :data-source="list" tree-display :draggable="true" value-field="name">
     <u-table-view-column type="dragHandler" width="30"></u-table-view-column>
     <u-table-view-column type="checkbox" width="30"></u-table-view-column>
     <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>

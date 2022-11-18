@@ -1422,7 +1422,7 @@ export default {
             }
             if (this.treeCheckType.includes('up')) {
                 if (item.parentPointer) {
-                    const parentItem = this.currentData.find((citem) => this.$at(citem, this.valueField) === item.parentPointer);
+                    const parentItem = this.currentData.find((citem) => citem === item.parentPointer);
                     if (parentItem) {
                         const children = this.$at(parentItem, this.childrenField) || [];
                         let checkedLength = 0;
@@ -1462,13 +1462,17 @@ export default {
             const children = this.$at(item, this.childrenField);
             if (children && children.length) {
                 children.forEach((citem) => {
-                    this.getTreeCheckedValues(citem, checked);
+                    if (this.treeCheckType.includes('down')) {
+                        this.getTreeCheckedValues(citem, checked);
+                    }
                 });
             }
             if (item.parentPointer) {
-                const parentItem = this.currentData.find((citem) => this.$at(citem, this.valueField) === item.parentPointer);
+                const parentItem = this.currentData.find((citem) => citem === item.parentPointer);
                 if (parentItem) {
-                    this.getCheckedValues(parentItem, checked);
+                    if (this.treeCheckType.includes('up')) {
+                        this.getCheckedValues(parentItem, checked);
+                    }
                 }
             }
         },
@@ -1652,10 +1656,9 @@ export default {
                 sourcePath: rowIndex,
             };
             // 该节点下的所有子节点不要响应dragover
-            const value = this.$at(item, this.valueField);
-            this.currentData.forEach((item) => {
-                item.draggoverDisabled = this.isSubNode(item, value);
-                item.disabledDrop = this.treeDisplay ? item.disabled || item.dropDisabled : true;
+            this.currentData.forEach((citem) => {
+                citem.draggoverDisabled = this.isSubNode(citem, item);
+                citem.disabledDrop = this.treeDisplay ? citem.disabled || citem.dropDisabled : true;
             });
             // 本身不要线
             item.draggoverDisabled = true;
@@ -1891,14 +1894,14 @@ export default {
                 this.preventDatasourceWatch = false;
             });
         },
-        isSubNode(item, value) {
+        isSubNode(item, sourceNode) {
             if (item.parentPointer !== undefined) {
-                if (item.parentPointer === value) {
+                if (item.parentPointer === sourceNode) {
                     return true;
                 }
-                const parentNode = this.currentData.find((citem) => this.$at(citem, this.valueField) === item.parentPointer);
+                const parentNode = this.currentData.find((citem) => citem === item.parentPointer);
                 if (parentNode) {
-                    return this.isSubNode(parentNode, value);
+                    return this.isSubNode(parentNode, sourceNode);
                 }
                 return false;
             }
@@ -1909,13 +1912,13 @@ export default {
          */
         isDragging(item) {
             if (this.dragState && this.dragState.dragging) {
-                const sourceValue = this.$at(this.dragState.source, this.valueField);
-                if (!sourceValue)
+                const sourceNode = this.dragState.source;
+                if (!sourceNode)
                     return false;
-                if (this.$at(item, this.valueField) === sourceValue)
+                if (item === sourceNode)
                     return true;
                 else if (item.parentPointer !== undefined) {
-                    return this.isSubNode(item, sourceValue);
+                    return this.isSubNode(item, sourceNode);
                 } else {
                     return false;
                 }
