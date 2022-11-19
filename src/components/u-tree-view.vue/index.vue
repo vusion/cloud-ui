@@ -87,7 +87,7 @@ export default {
     },
     computed: {
         propsDataOfDataSource() {
-            return this.flatPropsData(this.getPropsDataOfDataSource(this.currentDataSource.data));
+            return this.flatPropsData(this.getPropsDataOfDataSource(this.currentDataSource?.data));
         },
         propsDataOfSlot() {
             return this.flatPropsData(this.getPropsDataOfSlot(this.$slots.default));
@@ -294,10 +294,12 @@ export default {
             }
         },
         onToggle(nodeVM, expanded) {
-            setTimeout(() => {
-                this.updateVirtualList();
-            });
             this.$emit('toggle', { expanded, node: nodeVM.node, nodeVM }, this);
+
+            if(this.virtualList)
+                setTimeout(() => {
+                    this.updateVirtualList();
+                });
         },
         toggleAll(expanded) {
             this.walk((nodeVM) => nodeVM.toggle(expanded)); // @TODO: Only one event
