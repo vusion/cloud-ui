@@ -486,6 +486,8 @@ export default {
                 scrollTop = this.$el && this.$el.scrollTop || 0;
                 clientHeight = this.$el && this.$el.clientHeight;
             }
+
+            if(clientHeight === 0) return;
                 
             const propsData = [...this.propsDataOfDataSource, ...this.propsDataOfSlot];
             const count = Math.ceil(clientHeight / nodeHeight);
