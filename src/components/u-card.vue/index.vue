@@ -8,8 +8,16 @@
         </div>
         <div :class="$style.head">
             <slot name="head">
-                <div v-if="title" :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
-                    <slot name="title">{{ title }}</slot>
+                <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    <slot name="title">
+                        {{ title }}
+                        <s-empty
+                            v-if="!$slots.title
+                                && !title
+                                && $env.VUE_APP_DESIGNER
+                                && !!$attrs['vusion-node-path']">
+                        </s-empty>
+                    </slot>
                 </div>
                 <a :class="$style.close" @click="cancel()"></a>
                 <div :class="$style.extra">
