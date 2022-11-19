@@ -87,7 +87,7 @@
                             @dragstart="onDragStart($event, item, rowIndex)"
                             @dragover="onDragOver($event, item, rowIndex)">
                                 <template v-if="$env.VUE_APP_DESIGNER">
-                                    <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
+                                    <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'" v-ellipsis-title
                                         vusion-slot-name="cell"
                                         :key="columnIndex"
                                         :vusion-next="true"
@@ -141,7 +141,7 @@
                                 </template>
                                 <template v-else>
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs"
-                                        :ellipsis="columnVM.ellipsis"
+                                        :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'"
                                         v-ellipsis-title
                                         :key="columnIndex"
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
@@ -176,7 +176,10 @@
                                             </span>
                                             <!-- Normal text -->
                                             <template v-if="columnVM.type === 'editable'">
-                                                <div @dblclick="onSetEditing(item, columnVM)" :class="$style.editablewrap">
+                                                <div @dblclick="onSetEditing(item, columnVM)" :class="$style.editablewrap"
+                                                    :ellipsis="columnVM.ellipsis"
+                                                    :style="{width:getEditablewrapWidth(item, columnIndex, treeColumnIndex)}"
+                                                    :editing="item.editing === columnVM.field">
                                                     <div>
                                                         <template v-if="item.editing === columnVM.field">
                                                             <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
@@ -1976,6 +1979,16 @@ export default {
             }
             return target;
         },
+        getEditablewrapWidth(item, columnIndex, treeColumnIndex) {
+            if (this.treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex) {
+                let width = 20 * item.tableTreeItemLevel + 10;
+                if (this.$at(item, this.hasChildrenField)) {
+                    width = width + 20;
+                }
+                return `calc(100% - ${width}px)`;
+            }
+            return '100%';
+        },
     },
 };
 </script>
@@ -2003,12 +2016,15 @@ export default {
     display: table-cell;
     vertical-align: middle;
 }
-.cell[ellipsis] .editablewrap > div {
+.editablewrap[ellipsis] > div {
+    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
+.editablewrap[ellipsis]:not([editing]) > div div {
+    display: inline;
+}
 .title {
     text-align: center;
     margin-bottom: var(--table-view-title-space);
@@ -2392,11 +2408,9 @@ export default {
 .tree_expander + div,
 .tree_placeholder + div
 {
-    display: inline;
-}
-.cell[ellipsis] .tree_expander + .editablewrap > *,
-.cell[ellipsis] .tree_placeholder + .editablewrap > * {
-    display: inline;
+    display: inline-flex;
+    align-items: center;
+    width: auto;
 }
 
 .indent {
