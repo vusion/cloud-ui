@@ -9,7 +9,7 @@
     - [显示总条数](#显示总条数)
     - [全部配置](#全部配置)
     - [只读和禁用](#只读和禁用)
-    - [size="small"](#sizesmall)
+    - [小尺寸](#小尺寸)
     - [简洁版](#简洁版)
 - [API]()
     - [Props/Attrs](#propsattrs)
@@ -92,7 +92,7 @@
 </u-linear-layout>
 ```
 
-### size="small"
+### 小尺寸
 
 ``` html
 <u-linear-layout direction="vertical">

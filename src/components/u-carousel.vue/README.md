@@ -99,8 +99,10 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| data-source | Array\<Item\> \| Function |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
+| data-schema | schema |  |  | 集合类型每一元素的数据类型 |
 | value.sync | any |  |  | 播放位置 |
-| autoplay | boolean |  | `true` | 是否自动播放 |
+| autoplay | boolean |  | `true` | 是否轮播 |
 | loop | boolean |  | `true` | 是否循环播放 |
 | interval | number |  | `4000` | 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换 |
 | direction | string |  | `'right'` | 幻灯片播放方向 |
@@ -111,6 +113,10 @@
 #### (default)
 
 插入`<u-carousel-item>`子组件。
+
+#### item
+
+自定义选项的结构和样式
 
 ### Events
 
