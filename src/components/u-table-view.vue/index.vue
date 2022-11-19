@@ -1846,7 +1846,7 @@ export default {
                     } else {
                         const insertIndex = this.dropData.position === 'insertBefore' ? this.insetData.index : this.insetData.index + 1;
                         this.insetData && this.insetData.parentList.splice(insertIndex, 0, this.dragState.source);
-                        targetPath = insertIndex + 1;
+                        targetPath = insertIndex;
                     }
                     targetParentItem = this.insetData.parentNode;
                     this.currentDataSource.arrangedData = originalList;
@@ -1855,7 +1855,7 @@ export default {
                     originalList.splice(this.dragState.sourcePath, 1);
                     originalList.splice(this.dragState.targetPath, 0, this.dragState.source);
                     this.currentDataSource.arrangedData = originalList;
-                    targetPath = this.dragState.targetPath + 1;
+                    targetPath = this.dragState.targetPath;
                 }
                 this.$emit('drop', {
                     source: this.dragState.source,
