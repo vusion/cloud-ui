@@ -132,12 +132,15 @@ export default {
         },
         scrollView: {
             handler(vm) {
-                if(vm)
+                if(vm && this.virtualList)
                     vm.$on('scroll', this.updateVirtualList);
             },
             immediate: true,
         },
         propsDataOfSlot() {
+            this.updateVirtualList?.();
+        },
+        propsDataOfDataSource() {
             this.updateVirtualList?.();
         },
     },

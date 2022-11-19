@@ -199,7 +199,13 @@ export default {
             return fields;
         },
         hasChildren() {
-            if(this.node?._children?.length > 0) return true;  // @tmp
+            if(this.rootVM.virtualList) {
+                const { hiddenField } = this.rootVM;
+                const children = (this.node?._children || [])
+                    .filter((node) => !node._collapsedParentCount && !node.node?.[hiddenField]);
+                return children?.length > 0
+            }
+            
 
             const { node } = this;
             if (!node)
