@@ -2,7 +2,15 @@
 <div :class="$style.root" :disabled="disabled">
     <div :class="$style.head" :selected="selected" @click="parentVM.expandTrigger === 'click' && toggle()" :title="title">
         <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
-            <slot name="title">{{ title }}</slot>
+            <slot name="title">
+                {{ title }}
+                <s-empty
+                    v-if="!$slots.title
+                        && !title
+                        && $env.VUE_APP_DESIGNER
+                        && !!$attrs['vusion-node-path']">
+                </s-empty>
+            </slot>
         </div>
         <span v-if="currentCollapsible && !parentVM.collapse" :class="$style.expander"
             :expanded="currentExpanded"
