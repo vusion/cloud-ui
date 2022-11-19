@@ -1249,7 +1249,6 @@
     --select-popper-line-height-small: 1.6; /* @hidden */
     /* duplicated hover */
     --select-tags-padding-y: 2px; /* @hidden */
-    --select-tags-padding: 3px 26px 3px 5px; /* @hidden */
     --select-tags-line-height: 26px; /* @hidden */
     --select-tags-filterable-width: 40px; /* @hidden */
     --select-tag-line-height: calc(var(--select-tags-line-height) - var(--select-tags-padding-y) * 2); /* @hidden */
