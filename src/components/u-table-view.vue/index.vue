@@ -1843,7 +1843,7 @@ export default {
                     } else {
                         const insertIndex = this.dropData.position === 'insertBefore' ? this.insetData.index : this.insetData.index + 1;
                         this.insetData && this.insetData.parentList.splice(insertIndex, 0, this.dragState.source);
-                        targetPath = this.insetData.index;
+                        targetPath = insertIndex + 1;
                     }
                     targetParentItem = this.insetData.parentNode;
                     this.currentDataSource.arrangedData = originalList;
@@ -1852,6 +1852,7 @@ export default {
                     originalList.splice(this.dragState.sourcePath, 1);
                     originalList.splice(this.dragState.targetPath, 0, this.dragState.source);
                     this.currentDataSource.arrangedData = originalList;
+                    targetPath = this.dragState.targetPath + 1;
                 }
                 this.$emit('drop', {
                     source: this.dragState.source,
@@ -2391,10 +2392,13 @@ export default {
 .tree_expander + div,
 .tree_placeholder + div
 {
-    display: inline-flex;
-    align-items: center;
-    width: auto;
+    display: inline;
 }
+.cell[ellipsis] .tree_expander + .editablewrap > *,
+.cell[ellipsis] .tree_placeholder + .editablewrap > * {
+    display: inline;
+}
+
 .indent {
     margin-right: var(--table-view-tree-expander-margin);
 }
