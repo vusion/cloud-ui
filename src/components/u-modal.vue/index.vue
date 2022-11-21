@@ -63,12 +63,7 @@ export const UModal = {
     i18n,
     props: {
         visible: { type: Boolean, default: false },
-        title: {
-            type: String,
-            default() {
-                return this.$t('dialog');
-            },
-        },
+        title: String,
         content: String,
         heading: String,
         description: String,

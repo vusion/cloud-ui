@@ -1,13 +1,13 @@
 <template>
     <component
-        v-if="this.mode && this.$env.VUE_APP_DESIGNER"
+        v-if="mode && $env.VUE_APP_DESIGNER"
         is="u-visible-drawer"
         v-bind="[$attrs, $props]"
         v-on="$listeners"
         ref="item"
         :vusion-scope-id="$vnode.context.$options._scopeId"
     >
-        <slot v-for="(item, name) in this.$slots" :name="name" :slot="name"></slot>
+        <slot v-for="(item, name) in $slots" :name="name" :slot="name"></slot>
         <template v-for="(_, name) in $scopedSlots" :slot="name" slot-scope="slotData">
             <slot :name="name" v-bind="slotData"></slot>
         </template>
@@ -18,9 +18,9 @@
         v-bind="[$attrs, $props]"
         v-on="$listeners"
         ref="item"
-        openEvent="openEvent"
+        open-event="openEvent"
     >
-        <slot v-for="(item, name) in this.$slots" :name="name" :slot="name"></slot>
+        <slot v-for="(item, name) in $slots" :name="name" :slot="name"></slot>
         <template v-for="(_, name) in $scopedSlots" :slot="name" slot-scope="slotData">
             <slot :name="name" v-bind="slotData"></slot>
         </template>
@@ -40,12 +40,7 @@ export const UDrawer = {
     props: {
         mode: { type: Boolean, default: true },
         visible: { type: Boolean, default: false },
-        title: {
-            type: String,
-            default() {
-                return this.$t('dialog');
-            },
-        },
+        title: String,
         content: String,
         heading: String,
         okButton: {
