@@ -1,15 +1,15 @@
 import XLSX from 'xlsx';
 
-export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns) {
+export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns, hasHeader) {
     // 若有标题，添加标题到第一行
     const sheet = XLSX.utils.json_to_sheet([]);
     if (sheetTitle) {
         const endCell = XLSX.utils.encode_col(columns - 1) + 1;
         XLSX.utils.sheet_add_aoa(sheet, [[sheetTitle]], {origin: {r:0, c:0}});
         sheet["!merges"] = [XLSX.utils.decode_range(`A1:${endCell}`)];
-        XLSX.utils.sheet_add_json(sheet, sheetData, {origin: -1});
+        XLSX.utils.sheet_add_json(sheet, sheetData, {origin: -1, skipHeader: !hasHeader});
     } else {
-        XLSX.utils.sheet_add_json(sheet, sheetData);
+        XLSX.utils.sheet_add_json(sheet, sheetData, { skipHeader: !hasHeader});
     }
     // 将文本格式的内容，转化为日期和数字格式
     Object.keys(sheet).forEach((item) => {
