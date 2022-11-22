@@ -87,7 +87,7 @@
                             @dragstart="onDragStart($event, item, rowIndex)"
                             @dragover="onDragOver($event, item, rowIndex)">
                                 <template v-if="$env.VUE_APP_DESIGNER">
-                                    <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
+                                    <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'" v-ellipsis-title
                                         vusion-slot-name="cell"
                                         :key="columnIndex"
                                         :vusion-next="true"
@@ -141,7 +141,7 @@
                                 </template>
                                 <template v-else>
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs"
-                                        :ellipsis="columnVM.ellipsis"
+                                        :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'"
                                         v-ellipsis-title
                                         :key="columnIndex"
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
@@ -176,7 +176,10 @@
                                             </span>
                                             <!-- Normal text -->
                                             <template v-if="columnVM.type === 'editable'">
-                                                <div @dblclick="onSetEditing(item, columnVM)" :class="$style.editablewrap">
+                                                <div @dblclick="onSetEditing(item, columnVM)" :class="$style.editablewrap"
+                                                    :ellipsis="columnVM.ellipsis"
+                                                    :style="{width:getEditablewrapWidth(item, columnIndex, treeColumnIndex)}"
+                                                    :editing="item.editing === columnVM.field">
                                                     <div>
                                                         <template v-if="item.editing === columnVM.field">
                                                             <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
@@ -1843,7 +1846,7 @@ export default {
                     } else {
                         const insertIndex = this.dropData.position === 'insertBefore' ? this.insetData.index : this.insetData.index + 1;
                         this.insetData && this.insetData.parentList.splice(insertIndex, 0, this.dragState.source);
-                        targetPath = this.insetData.index;
+                        targetPath = insertIndex;
                     }
                     targetParentItem = this.insetData.parentNode;
                     this.currentDataSource.arrangedData = originalList;
@@ -1852,6 +1855,7 @@ export default {
                     originalList.splice(this.dragState.sourcePath, 1);
                     originalList.splice(this.dragState.targetPath, 0, this.dragState.source);
                     this.currentDataSource.arrangedData = originalList;
+                    targetPath = this.dragState.targetPath;
                 }
                 this.$emit('drop', {
                     source: this.dragState.source,
@@ -1975,6 +1979,16 @@ export default {
             }
             return target;
         },
+        getEditablewrapWidth(item, columnIndex, treeColumnIndex) {
+            if (this.treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex) {
+                let width = 20 * item.tableTreeItemLevel + 10;
+                if (this.$at(item, this.hasChildrenField)) {
+                    width = width + 20;
+                }
+                return `calc(100% - ${width}px)`;
+            }
+            return '100%';
+        },
     },
 };
 </script>
@@ -2002,12 +2016,15 @@ export default {
     display: table-cell;
     vertical-align: middle;
 }
-.cell[ellipsis] .editablewrap > div {
+.editablewrap[ellipsis] > div {
+    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
+.editablewrap[ellipsis]:not([editing]) > div div {
+    display: inline;
+}
 .title {
     text-align: center;
     margin-bottom: var(--table-view-title-space);
@@ -2395,6 +2412,7 @@ export default {
     align-items: center;
     width: auto;
 }
+
 .indent {
     margin-right: var(--table-view-tree-expander-margin);
 }
