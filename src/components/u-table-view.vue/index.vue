@@ -1091,9 +1091,11 @@ export default {
                 filename += format(new Date(), '_YYYYMMDD_HHmmss');
             }
             try {
+                const hasHeader = !!this.$el.querySelector('[position=static] thead tr');
+
                 let content = [];
                 if (!this.currentDataSource._load) {
-                    content = await this.getRenderResult(this.currentDataSource.data, excludeColumns);
+                    content = await this.getRenderResult(this.currentDataSource.data, excludeColumns, hasHeader);
                 } else {
                     // console.time('加载数据');
                     let res = await this.currentDataSource._load({ page, size, filename, sort, order });
@@ -1110,15 +1112,15 @@ export default {
                         return;
                     }
 
-                    content = await this.getRenderResult(res, excludeColumns);
+                    content = await this.getRenderResult(res, excludeColumns, hasHeader);
                 }
 
                 // console.time('生成文件');
-                const sheetData = this.getSheetData(content);
                 const columns = this.visibleColumnVMs.length;
+                const sheetData = this.getSheetData(content, hasHeader, columns);
                 const sheetTitle = this.title || undefined;
                 const { exportExcel } = await import(/* webpackChunkName: 'xlsx' */ '../../utils/xlsx');
-                exportExcel(sheetData, 'Sheet1', filename, sheetTitle, columns);
+                exportExcel(sheetData, 'Sheet1', filename, sheetTitle, columns, hasHeader);
                 // console.timeEnd('生成文件');
             } catch (err) {
                 console.error(err);
@@ -1130,8 +1132,10 @@ export default {
             document.removeEventListener('click', fn, true);
             document.removeEventListener('keydown', fn, true);
         },
-        async getRenderResult(arr = [], excludeColumns = []) {
+        async getRenderResult(arr = [], excludeColumns = [], hasHeader = true) {
             if (arr.length === 0) {
+                if(!hasHeader) return [];
+                
                 let res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
                 res[1] = res[0].map((item) => '');
                 res = this.removeExcludeColumns(res, excludeColumns);
@@ -1172,12 +1176,12 @@ export default {
                 ));
                 res = res.concat(res1);
             }
-
-            for (let rowIndex = 1; rowIndex < res.length; rowIndex++) {
+            
+            for (let rowIndex = hasHeader ? 1 : 0; rowIndex < res.length; rowIndex++) {
                 const item = res[rowIndex];
                 for (let j = 0; j < item.length; j++) {
                     if (startIndexes[j] !== undefined)
-                        item[j] = startIndexes[j] + (rowIndex - 1);
+                        item[j] = startIndexes[j] + (hasHeader ? rowIndex - 1 : rowIndex);
                 }
             }
 
@@ -1205,10 +1209,10 @@ export default {
 
             return data.map((arr) => arr.filter((item, index) => !excludeIndex.includes(index)));
         },
-        getSheetData(arr) {
-            const titles = arr[0];
+        getSheetData(arr, hasHeader = true, columns) {
+            const titles = hasHeader ? arr[0] : Array.from({ length: columns }, (item, index) => index);
             const sheetData = [];
-            for (let i = 1; i < arr.length; i++) {
+            for (let i = hasHeader ? 1 : 0; i < arr.length; i++) {
                 const item = {};
                 for (let j = 0; j < titles.length; j++) {
                     item[titles[j]] = arr[i][j];
