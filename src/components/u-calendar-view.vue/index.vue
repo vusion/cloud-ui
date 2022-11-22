@@ -38,7 +38,7 @@
             :start-key="startKey"
             :end-key="endKey"
             @select="$emit('select', $event, this)"
-            @change="$emit('change', $event, this)"
+            @change="onChange"
         >
             <template #default="scope">
                 <slot :item="scope.item"></slot>
@@ -327,6 +327,12 @@ export default {
             }
             this.selectedDate = newSelectedDate;
             this.month = value;
+        },
+        onChange(cell) {
+            const { __key__ } = cell;
+            this.$emit('change', cell, this);
+            this.$emit('input:value', __key__);
+            this.$emit('update:value', __key__);
         },
         /**
          * DataSource

@@ -5124,7 +5124,7 @@
             "Display"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-carousel.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-carousel style=\\\"width:100%\\\">\\n    <u-carousel-item><u-image style=\\\"width: 100%; height:100%\\\" fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\\\"></u-image></u-carousel-item>\\n    <u-carousel-item><u-image style=\\\"width: 100%; height:100%\\\" fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/cloud-ui/2.jpg\\\"></u-image></u-carousel-item>\\n    <u-carousel-item><u-image style=\\\"width: 100%; height:100%\\\" fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/cloud-ui/3.jpg\\\"></u-image></u-carousel-item>\\n</u-carousel>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-carousel style=\\\"width:100%\\\">\\n    <template #item=\\\"scope\\\"></template>\\n</u-carousel>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-carousel",
             "title": "幻灯片",
@@ -5136,25 +5136,41 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-carousel style=\"width:100%\">\n    <u-carousel-item><u-image style=\"width: 100%; height:100%\" fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\"></u-image></u-carousel-item>\n    <u-carousel-item><u-image style=\"width: 100%; height:100%\" fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/2.jpg\"></u-image></u-carousel-item>\n    <u-carousel-item><u-image style=\"width: 100%; height:100%\" fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/3.jpg\"></u-image></u-carousel-item>\n</u-carousel>\n</template>\n"
+                    "code": "<template>\n<u-carousel style=\"width:100%\">\n    <template #item=\"scope\"></template>\n</u-carousel>\n</template>\n"
                 }
             ],
             "attrs": [
+                {
+                    "name": "data-source",
+                    "title": "数据源",
+                    "type": "Array<Item> | Function",
+                    "description": "集合类型变量或者输出参数为集合类型的逻辑",
+                    "designer-value": "[{}]",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "data-schema",
+                    "title": "数据类型",
+                    "type": "schema",
+                    "description": "集合类型每一元素的数据类型",
+                    "group": "数据属性",
+                    "compType": "dataTypeSelect"
+                },
                 {
                     "name": "value",
                     "title": "值",
                     "type": "any",
                     "sync": true,
                     "description": "播放位置",
-                    "advanced": true
+                    "advanced": true,
+                    "group": "数据属性"
                 },
                 {
                     "name": "autoplay",
-                    "title": "自动播放",
+                    "title": "是否轮播",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否自动播放",
-                    "advanced": true
+                    "description": "是否轮播"
                 },
                 {
                     "name": "loop",
@@ -5200,6 +5216,28 @@
                             "snippet": "<u-carousel-item><u-image style=\"width: 100%; height: 100%\" fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\"></u-carousel-item>"
                         }
                     ]
+                },
+                {
+                    "concept": "Slot",
+                    "name": "item",
+                    "description": "自定义选项的结构和样式",
+                    "slotProps": {
+                        "concept": "Param",
+                        "name": "scope",
+                        "typeAnnotation": {
+                            "concept": "TypeAnnotation",
+                            "typeKind": "generic",
+                            "typeNamespace": "nasl.ui",
+                            "typeName": "ScopeOf",
+                            "typeArguments": [
+                                {
+                                    "concept": "TypeAnnotation",
+                                    "typeKind": "typeParam",
+                                    "typeName": "T"
+                                }
+                            ]
+                        }
+                    }
                 }
             ],
             "events": [
@@ -6358,6 +6396,22 @@
                     "group": "样式属性"
                 },
                 {
+                    "name": "stick-head",
+                    "title": "表格头部吸顶",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "",
+                    "group": "样式属性"
+                },
+                {
+                    "name": "stick-head-offset",
+                    "title": "表格头部吸顶偏移量",
+                    "type": "number",
+                    "default": 0,
+                    "description": "",
+                    "group": "样式属性"
+                },
+                {
                     "name": "default-column-width",
                     "title": "默认列宽度",
                     "type": "string | number",
@@ -6461,6 +6515,14 @@
                     "group": "选择属性"
                 },
                 {
+                    "name": "draggable",
+                    "title": "可拖拽",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否可以拖拽行排序",
+                    "group": "选择属性"
+                },
+                {
                     "name": "accordion",
                     "title": "手风琴模式",
                     "type": "boolean",
@@ -6521,6 +6583,32 @@
                     "default": "hasChildren",
                     "description": "该字段指定行数据是否包含子节点数据",
                     "group": "其它属性"
+                },
+                {
+                    "name": "tree-check-type",
+                    "title": "关联选中类型",
+                    "description": "父子树节点是否关联选中",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "up+down",
+                            "title": "父子双向关联选中"
+                        },
+                        {
+                            "value": "down",
+                            "title": "单项父关联子"
+                        },
+                        {
+                            "value": "up",
+                            "title": "单项子关联父"
+                        },
+                        {
+                            "value": "none",
+                            "title": "父子不关联"
+                        }
+                    ],
+                    "default": "up+down",
+                    "group": "其它属性"
                 }
             ],
             "slots": [
@@ -6558,6 +6646,29 @@
                     "name": "empty",
                     "title": "暂无数据内容",
                     "description": "自定义暂无数据内容"
+                },
+                {
+                    "concept": "Slot",
+                    "name": "dragGhost",
+                    "title": "拖拽缩略图",
+                    "description": "自定义拖拽缩略图",
+                    "slotProps": {
+                        "concept": "Param",
+                        "name": "scope",
+                        "typeAnnotation": {
+                            "concept": "TypeAnnotation",
+                            "typeKind": "generic",
+                            "typeNamespace": "nasl.ui",
+                            "typeName": "ScopeOf",
+                            "typeArguments": [
+                                {
+                                    "concept": "TypeAnnotation",
+                                    "typeKind": "typeParam",
+                                    "typeName": "T"
+                                }
+                            ]
+                        }
+                    }
                 }
             ],
             "methods": [
@@ -6626,6 +6737,13 @@
                             "description": "排序顺序，'asc' 或 'desc'",
                             "required": false,
                             "default": "tableView.params.order"
+                        },
+                        {
+                            "name": "excludeColumns",
+                            "type": "Array<string>",
+                            "description": "排除字段",
+                            "required": false,
+                            "default": []
                         }
                     ]
                 }
@@ -7139,6 +7257,92 @@
                             "description": "展开状态值"
                         }
                     ]
+                },
+                {
+                    "name": "dragstart",
+                    "title": "拖拽开始时",
+                    "description": "拖拽行时触发",
+                    "params": [
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "被拖拽行相关对象"
+                        },
+                        {
+                            "name": "$event.rowIndex",
+                            "type": "number",
+                            "description": "被拖拽行的索引"
+                        }
+                    ]
+                },
+                {
+                    "name": "dragover",
+                    "title": "拖拽经过时",
+                    "description": "拖拽经过每一行时触发",
+                    "params": [
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "拖拽经过的行相关对象"
+                        },
+                        {
+                            "name": "$event.rowIndex",
+                            "type": "number",
+                            "description": "拖拽经过的行的索引"
+                        }
+                    ]
+                },
+                {
+                    "name": "dragend",
+                    "title": "拖拽结束时",
+                    "description": "拖拽结束时触发"
+                },
+                {
+                    "name": "drop",
+                    "title": "拖拽放置时",
+                    "description": "拖拽结束时触发",
+                    "params": [
+                        {
+                            "name": "$event.source",
+                            "type": "object",
+                            "description": "被拖拽行相关对象"
+                        },
+                        {
+                            "name": "$event.sourcePath",
+                            "type": "number",
+                            "description": "被拖拽行的索引"
+                        },
+                        {
+                            "name": "$event.sourceParentItem",
+                            "type": "object",
+                            "description": "被拖拽行的父节点对象"
+                        },
+                        {
+                            "name": "$event.target",
+                            "type": "object",
+                            "description": "拖拽放置行相关对象"
+                        },
+                        {
+                            "name": "$event.targetPath",
+                            "type": "number",
+                            "description": "拖拽放置行的索引"
+                        },
+                        {
+                            "name": "$event.targetParentItem",
+                            "type": "object",
+                            "description": "拖拽放置行的父节点对象"
+                        },
+                        {
+                            "name": "$event.position",
+                            "type": "string",
+                            "description": "拖拽放置的位置"
+                        },
+                        {
+                            "name": "$event.list",
+                            "type": "array",
+                            "description": "整个列表数据"
+                        }
+                    ]
                 }
             ],
             "next": true,
@@ -7259,6 +7463,10 @@
                                 {
                                     "value": "editable",
                                     "title": "编辑列"
+                                },
+                                {
+                                    "value": "dragHandler",
+                                    "title": "拖拽标识列"
                                 }
                             ],
                             "default": "normal",
@@ -14754,13 +14962,14 @@
     {
         "symbol": "u-validator",
         "name": "验证器",
+        "icon": "validator",
         "depDescription": {},
         "description": "实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。常用于嵌套验证时使用，或用于派生一些较复杂的组件。",
         "labels": [
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/9.png",
-        "blocks": "[]",
+        "blocks": "[{\"title\":\"字符串验证\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"用户名\\\" rules=\\\"required | ^azAZ | azAZ09$ | min(4)\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n\"},{\"title\":\"字符串验证\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"用户名\\\" rules=\\\"required@bi #请输入 | ^azAZ #以字母开头 | azAZ09$ | min(4) @b\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n\"},{\"title\":\"字符串验证\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"用户名\\\" rules=\\\"required@bi #请输入'wafew' | ^azAZ #以字母开头/%()J25 | azAZ09$ | min(4) @b #(23,40)\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n\"},{\"title\":\"字符串验证\",\"description\":\"\",\"code\":\"<template>\\n<u-validator action=\\\"输入\\\" label=\\\"用户名\\\" rules=\\\" minLength(4) @b\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n\"},{\"title\":\"字符串验证\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"用户名\\\" rules=\\\"required('@') | ^azAZ('#|')\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n\"},{\"title\":\"字符串验证\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"用户名\\\" rules=\\\"required@bi #请输入#wafew' | ^azAZ #以字母开头/%()J25 | azAZ09$ | min(4) @b #@(23,40)\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n\"},{\"title\":\"Temp rule\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"端口\\\" rules=\\\"required | port\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n<script>\\nexport default {\\n    rules: {\\n        port: { validate: 'range', args: [1000, 65535], trigger: 'blur', message: '端口' },\\n    },\\n};\\n</script>\\n\"},{\"title\":\"复合验证，循环报错\",\"description\":\"\",\"code\":\"<template>\\n<u-form-item label=\\\"用户名\\\" rules=\\\"usernameBase | unique(...existingList)\\\">\\n    <u-input maxlength=\\\"12\\\" placeholder=\\\"4-12个字符\\\"></u-input>\\n</u-form-item>\\n</template>\\n<script>\\nexport default {\\n    rules: {\\n        usernameBase: 'required | ^azAZ | ^azAZ09-$ | usernameBase | minLength(4)',\\n    },\\n    data() {\\n        return {\\n            existingList: ['abcd', 'aaaa', 'ABCD'],\\n        };\\n    },\\n};\\n</script>\\n\"},{\"title\":\"找不到变量应该报错出来\",\"description\":\"\",\"code\":\"<template>\\n<u-validator label=\\\"端口\\\" rules=\\\"required | min(something)\\\">\\n    <u-input placeholder='请输入'></u-input>\\n</u-validator>\\n</template>\\n<script>\\nexport default {\\n    data() {\\n        return {\\n            some: {\\n                object: {\\n                    number: 20,\\n                },\\n            },\\n        };\\n    },\\n};\\n</script>\\n\"},{\"title\":\"根据 update 来初始化 input 状态\",\"description\":\"\",\"code\":\"<template>\\n<div>\\n    <u-validator rules=\\\"required | numeric\\\">\\n        <u-input v-model=\\\"value1\\\" placeholder='请输入'></u-input>\\n    </u-validator>\\n    <u-validator rules=\\\"max(100)\\\">\\n        <u-number-input v-model=\\\"value2\\\" placeholder='请输入'></u-number-input>\\n    </u-validator>\\n    <u-validator rules=\\\"max(100)\\\">\\n        <u-select v-model=\\\"value3\\\">\\n            <u-select-item value=\\\"Item 1\\\">Item 1</u-select-item>\\n            <u-select-item value=\\\"Item 2\\\">Item 2</u-select-item>\\n            <u-select-item value=\\\"Item 3\\\">Item 3</u-select-item>\\n            <u-select-item value=\\\"Item 4\\\">Item 4</u-select-item>\\n        </u-select>\\n    </u-validator>\\n</div>\\n</template>\\n\\n<script>\\nexport default {\\n    data() {\\n        return {\\n            value1: '123',\\n            value2: 123,\\n            value3: 'Item 3',\\n        };\\n    },\\n};\\n</script>\\n\"}]",
         "jsonSchema": {
             "name": "u-validator",
             "title": "验证器",
@@ -14768,7 +14977,58 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.20/src/components/u-validator.vue/screenshots/9.png",
             "drawings": "",
-            "blocks": [],
+            "blocks": [
+                {
+                    "title": "字符串验证",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"用户名\" rules=\"required | ^azAZ | azAZ09$ | min(4)\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n"
+                },
+                {
+                    "title": "字符串验证",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"用户名\" rules=\"required@bi #请输入 | ^azAZ #以字母开头 | azAZ09$ | min(4) @b\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n"
+                },
+                {
+                    "title": "字符串验证",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"用户名\" rules=\"required@bi #请输入'wafew' | ^azAZ #以字母开头/%()J25 | azAZ09$ | min(4) @b #(23,40)\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n"
+                },
+                {
+                    "title": "字符串验证",
+                    "description": "",
+                    "code": "<template>\n<u-validator action=\"输入\" label=\"用户名\" rules=\" minLength(4) @b\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n"
+                },
+                {
+                    "title": "字符串验证",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"用户名\" rules=\"required('@') | ^azAZ('#|')\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n"
+                },
+                {
+                    "title": "字符串验证",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"用户名\" rules=\"required@bi #请输入#wafew' | ^azAZ #以字母开头/%()J25 | azAZ09$ | min(4) @b #@(23,40)\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n"
+                },
+                {
+                    "title": "Temp rule",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"端口\" rules=\"required | port\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n<script>\nexport default {\n    rules: {\n        port: { validate: 'range', args: [1000, 65535], trigger: 'blur', message: '端口' },\n    },\n};\n</script>\n"
+                },
+                {
+                    "title": "复合验证，循环报错",
+                    "description": "",
+                    "code": "<template>\n<u-form-item label=\"用户名\" rules=\"usernameBase | unique(...existingList)\">\n    <u-input maxlength=\"12\" placeholder=\"4-12个字符\"></u-input>\n</u-form-item>\n</template>\n<script>\nexport default {\n    rules: {\n        usernameBase: 'required | ^azAZ | ^azAZ09-$ | usernameBase | minLength(4)',\n    },\n    data() {\n        return {\n            existingList: ['abcd', 'aaaa', 'ABCD'],\n        };\n    },\n};\n</script>\n"
+                },
+                {
+                    "title": "找不到变量应该报错出来",
+                    "description": "",
+                    "code": "<template>\n<u-validator label=\"端口\" rules=\"required | min(something)\">\n    <u-input placeholder='请输入'></u-input>\n</u-validator>\n</template>\n<script>\nexport default {\n    data() {\n        return {\n            some: {\n                object: {\n                    number: 20,\n                },\n            },\n        };\n    },\n};\n</script>\n"
+                },
+                {
+                    "title": "根据 update 来初始化 input 状态",
+                    "description": "",
+                    "code": "<template>\n<div>\n    <u-validator rules=\"required | numeric\">\n        <u-input v-model=\"value1\" placeholder='请输入'></u-input>\n    </u-validator>\n    <u-validator rules=\"max(100)\">\n        <u-number-input v-model=\"value2\" placeholder='请输入'></u-number-input>\n    </u-validator>\n    <u-validator rules=\"max(100)\">\n        <u-select v-model=\"value3\">\n            <u-select-item value=\"Item 1\">Item 1</u-select-item>\n            <u-select-item value=\"Item 2\">Item 2</u-select-item>\n            <u-select-item value=\"Item 3\">Item 3</u-select-item>\n            <u-select-item value=\"Item 4\">Item 4</u-select-item>\n        </u-select>\n    </u-validator>\n</div>\n</template>\n\n<script>\nexport default {\n    data() {\n        return {\n            value1: '123',\n            value2: 123,\n            value3: 'Item 3',\n        };\n    },\n};\n</script>\n"
+                }
+            ],
             "attrs": [
                 {
                     "name": "name",
