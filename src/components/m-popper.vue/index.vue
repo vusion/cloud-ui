@@ -11,7 +11,6 @@ import { createPopper as initialPopper } from '@popperjs/core';
 import MEmitter from '../m-emitter.vue';
 import ev from '../../utils/event';
 import single from '../../utils/event/single';
-import { findScrollParent } from '../../utils/dom';
 
 export default {
     name: 'm-popper',
@@ -148,7 +147,6 @@ export default {
         const triggerEl = this.getTriggerEl(this.referenceEl);
         this.addTrigger(triggerEl, this.trigger);
         this.currentOpened && this.createPopper();
-        this.scrollParentEl = findScrollParent(triggerEl);
     },
     beforeDestroy() {
         this.destroyTimer = clearTimeout(this.destroyTimer);
@@ -175,12 +173,11 @@ export default {
                     tetherOffset: ({ popper, reference, placement }) => {
                         if (!_self.popper)
                             return;
+                        const visualViewport = _self.popper.state.scrollParents.popper[1] || {};
+                        const pageTop = visualViewport.pageTop || 0;
                         const y = _self.popper.state.modifiersData.popperOffsets.y;
-                        let scrollTop = 0;
-                        if (_self.scrollParentEl && _self.scrollParentEl === window) {
-                            scrollTop = _self.scrollParentEl.scrollY;
-                        }
-                        const height = y + popper.height - scrollTop;
+                        const top = y - pageTop;
+                        const height = top + popper.height;
                         if (height > window.innerHeight) {
                             _self.popper.state.modifiersData.popperOffsets.y = y - (height - window.innerHeight) - 10;
                         }
