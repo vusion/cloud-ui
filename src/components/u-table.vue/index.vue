@@ -118,24 +118,42 @@ export default {
 .root[striped] tbody tr:nth-of-type(even) {
     background: var(--table-row-background-striped);
 }
+.root[striped] tbody tr:nth-of-type(even) td{
+    background: var(--table-row-background-striped);
+}
 
 .root tbody > tr[color="light"] {
+    background: var(--table-row-background-light);
+}
+.root tbody > tr[color="light"] td{
     background: var(--table-row-background-light);
 }
 
 .root tbody > tr[color="normal"] {
     background: var(--table-row-background);
 }
+.root tbody > tr[color="normal"] td{
+    background: var(--table-row-background);
+}
 
 .root tbody > tr[color="dark"] {
+    background: var(--table-row-background-dark);
+}
+.root tbody > tr[color="dark"] td{
     background: var(--table-row-background-dark);
 }
 
 .root tbody > tr[color="primary"] {
     background: var(--table-row-background-primary);
 }
+.root tbody > tr[color="primary"] td{
+    background: var(--table-row-background-primary);
+}
 
 .root tbody > tr[color="error"] {
+    background: var(--table-row-background-error);
+}
+.root tbody > tr[color="error"] td{
     background: var(--table-row-background-error);
 }
 </style>
