@@ -27,6 +27,12 @@ export default {
             for (let i = 0; i < needCount; i++)
                 this.add();
         }
+        // 设置行的key。行的key设置为rowIndex，会导致里面的validator错误信息错位
+        // 这里设置每行的唯一key
+        this.keysArray = [];
+        this.currentData.forEach((item, index) => {
+            this.setKey(item, index);
+        });
     },
     methods: {
         add() {
@@ -36,6 +42,7 @@ export default {
             const index = this.currentData.length;
             if (this.$emitPrevent('before-add', { item, index, data: this.currentData }, this))
                 return;
+            this.setKey(item, this.currentData.length + 1);
             this.currentData.push(item);
             this.$emit('add', { item, index, data: this.currentData }, this);
             this.$emit('splice', { item, index, data: this.currentData }, this);
@@ -46,6 +53,7 @@ export default {
             const item = cloneDeep(this.currentData[index]);
             if (this.$emitPrevent('before-duplicate', { item, index, data: this.currentData }, this))
                 return;
+            this.setKey(item, this.currentData.length + 1);
             this.currentData.splice(index, 0, item);
             this.$emit('duplicate', { item, index, data: this.currentData }, this);
             this.$emit('splice', { item, index, data: this.currentData }, this);
@@ -59,6 +67,14 @@ export default {
             this.currentData.splice(index, 1);
             this.$emit('remove', { item, index, data: this.currentData }, this);
             this.$emit('splice', { item, index, data: this.currentData }, this);
+        },
+        setKey(item, index) {
+            const key = `${(new Date()).getTime()}_${index}`;
+            this.keysArray.push({ item, key });
+        },
+        getKey(item) {
+            const keyItem = this.keysArray.find((keyItem) => keyItem.item === item);
+            return keyItem && keyItem.key;
         },
     },
 };
