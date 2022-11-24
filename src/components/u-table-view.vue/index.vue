@@ -1670,8 +1670,10 @@ export default {
             // 本身不要线
             item.draggoverDisabled = true;
             this.$emit('dragstart', {
-                item,
-                rowIndex,
+                source: {
+                    item,
+                    path: rowIndex,
+                },
             });
         },
         /**
@@ -1734,8 +1736,10 @@ export default {
                     left,
                 };
                 this.$emit('dragover', {
-                    item,
-                    rowIndex,
+                    target: {
+                        item,
+                        path: rowIndex,
+                    },
                 });
                 this.dragState.target = item;
                 this.dragState.targetPath = rowIndex;
@@ -1862,12 +1866,16 @@ export default {
                     targetPath = this.dragState.targetPath;
                 }
                 this.$emit('drop', {
-                    source: this.dragState.source,
-                    sourcePath,
-                    sourceParentItem,
-                    target: this.dragState.target,
-                    targetPath,
-                    targetParentItem,
+                    source: {
+                        item: this.dragState.source,
+                        parent: sourceParentItem,
+                        path: sourcePath,
+                    },
+                    target: {
+                        item: this.dragState.target,
+                        parent: targetParentItem,
+                        path: targetPath,
+                    },
                     position: this.dropData.position,
                     list: originalList,
                 });
