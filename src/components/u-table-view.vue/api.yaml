@@ -683,6 +683,11 @@
       title: 拖拽开始时
       description: 拖拽行时触发
       params:
+        - name: $event
+          type: object
+          description: 被拖拽行相关对象
+          schema:
+            $ref: "#/systemTypes/DragAndDropEvent"
         - name: $event.item
           type: object
           description: 被拖拽行相关对象
@@ -693,6 +698,11 @@
       title: 拖拽经过时
       description: 拖拽经过每一行时触发
       params:
+        - name: $event
+          type: object
+          description: 拖拽经过的行相关对象
+          schema:
+            $ref: "#/systemTypes/DragAndDropEvent"
         - name: $event.item
           type: object
           description: 拖拽经过的行相关对象
@@ -706,24 +716,17 @@
       title: 拖拽放置时
       description: 拖拽结束时触发
       params:
+        - name: $event
+          type: object
+          description: 拖拽放置的相关对象
+          schema:
+            $ref: "#/systemTypes/DragAndDropEvent"
         - name: $event.source
           type: object
           description: 被拖拽行相关对象
-        - name: $event.sourcePath
-          type: number
-          description: 被拖拽行的索引
-        - name: $event.sourceParentItem
-          type: object
-          description: 被拖拽行的父节点对象
         - name: $event.target
           type: object
           description: 拖拽放置行相关对象
-        - name: $event.targetPath
-          type: number
-          description: 拖拽放置行的索引
-        - name: $event.targetParentItem
-          type: object
-          description: 拖拽放置行的父节点对象
         - name: $event.position
           type: string
           description: 拖拽放置的位置
