@@ -2463,6 +2463,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 被拖拽行相关对象 |
 | $event.item | object | 被拖拽行相关对象 |
 | $event.rowIndex | number | 被拖拽行的索引 |
 
@@ -2472,6 +2473,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 拖拽经过的行相关对象 |
 | $event.item | object | 拖拽经过的行相关对象 |
 | $event.rowIndex | number | 拖拽经过的行的索引 |
 
@@ -2485,12 +2487,9 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 拖拽放置的相关对象 |
 | $event.source | object | 被拖拽行相关对象 |
-| $event.sourcePath | number | 被拖拽行的索引 |
-| $event.sourceParentItem | object | 被拖拽行的父节点对象 |
 | $event.target | object | 拖拽放置行相关对象 |
-| $event.targetPath | number | 拖拽放置行的索引 |
-| $event.targetParentItem | object | 拖拽放置行的父节点对象 |
 | $event.position | string | 拖拽放置的位置 |
 | $event.list | array | 整个列表数据 |
 
