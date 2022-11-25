@@ -879,7 +879,7 @@ export default {
 
                 this.$emit('resize', undefined, this);
                 this.$nextTick(() => {
-                    this.$refs.scrollView[0].handleResize();
+                    this.$refs.scrollView[0] && this.$refs.scrollView[0].handleResize();
                 });
             });
         },
@@ -1134,8 +1134,9 @@ export default {
         },
         async getRenderResult(arr = [], excludeColumns = [], hasHeader = true) {
             if (arr.length === 0) {
-                if(!hasHeader) return [];
-                
+                if (!hasHeader)
+                    return [];
+
                 let res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
                 res[1] = res[0].map((item) => '');
                 res = this.removeExcludeColumns(res, excludeColumns);
@@ -1176,7 +1177,7 @@ export default {
                 ));
                 res = res.concat(res1);
             }
-            
+
             for (let rowIndex = hasHeader ? 1 : 0; rowIndex < res.length; rowIndex++) {
                 const item = res[rowIndex];
                 for (let j = 0; j < item.length; j++) {
