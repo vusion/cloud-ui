@@ -14,7 +14,7 @@ export default {
         maxCount: { type: Number, default: Infinity },
     },
     data() {
-        return { currentData: this.data };
+        return { currentData: this.data, keysArray: [] };
     },
     watch: {
         data(data) {
@@ -29,7 +29,6 @@ export default {
         }
         // 设置行的key。行的key设置为rowIndex，会导致里面的validator错误信息错位
         // 这里设置每行的唯一key
-        this.keysArray = [];
         this.currentData.forEach((item, index) => {
             this.setKey(item, index);
         });
