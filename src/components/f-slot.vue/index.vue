@@ -18,7 +18,7 @@ export default {
                 // u-table-view-coloumn的scope插槽里再放入u-table-view-coloumn
                 // u-tree-view-node的text scope 插槽里再放入u-tree-view-node
                 // 会导致死循环，增加过滤判断
-                const scopedSlotValues = scopedSlot(props);
+                const scopedSlotValues = scopedSlot(props) || [];
                 const newScopeValue = [];
                 scopedSlotValues.forEach((scopeValue) => {
                     if (scopeValue.tag !== vm.$vnode.tag) {
