@@ -167,9 +167,16 @@ export default {
                 }
             else if (this.converter === 'simple')
                 try {
-                    if (!value)
-                        return [];
-                    return value.split(',');
+                    if (!value) {
+                        const noFinished = (this.currentValue || []).some((item) => item.status === 'uploading');
+                        return noFinished && this.currentValue || [];
+                    }
+                    const values = value.split(',');
+                    const currentValue = this.currentValue || [];
+                    currentValue.forEach((item, index) => {
+                        item.url = values[index];
+                    });
+                    return currentValue;
                 } catch (err) {
                     return [];
                 }
@@ -186,7 +193,7 @@ export default {
                 return value;
         },
         simpleConvert(value) {
-            return value.map((x) => (x.url)).join(',');
+            return value.map((x) => (x.url || '')).join(',');
         },
         getUrl(item) {
             return item.thumb || item.url || item;
@@ -372,15 +379,15 @@ export default {
             const headers = {
                 ...this.headers,
                 Authorization,
-            }
+            };
             if (this.access !== null) {
-                headers['lcap-access'] = this.access
+                headers['lcap-access'] = this.access;
             }
             if (this.ttlValue !== null) {
                 if (this.ttl !== null) {
-                    headers['lcap-ttl'] = this.ttl ? this.ttlValue : -1
+                    headers['lcap-ttl'] = this.ttl ? this.ttlValue : -1;
                 } else {
-                    headers['lcap-ttl'] = this.ttlValue
+                    headers['lcap-ttl'] = this.ttlValue;
                 }
             }
 
@@ -402,10 +409,33 @@ export default {
                 onSuccess: (res) => {
                     const item = this.currentValue[index];
                     item.status = 'success';
-                    if (res[this.urlField])
-                        item.url = res[this.urlField];
+                    if (res[this.urlField]) {
+                        const url = res[this.urlField];
+                        item.url = url;
+                        if (Array.isArray(url)) {
+                            item.url = url.join(',');
+                        }
+                    }
                     item.response = res;
                     item.showProgress = false;
+
+                    // 一次上传多个文件，返回数据是数组，需要处理
+                    if (res[this.urlField]) {
+                        const url = res[this.urlField];
+                        if (Array.isArray(url)) {
+                            this.currentValue.splice(this.currentValue.length - 1, 1);
+                            url.forEach((urlTemp, urlIndex) => {
+                                const urlItem = {
+                                    status: 'success',
+                                    name: file[urlIndex].name,
+                                    size: file[urlIndex].size,
+                                    showProgress: false,
+                                    url: urlTemp,
+                                };
+                                this.currentValue.push(urlItem);
+                            });
+                        }
+                    }
 
                     const value = this.toValue(this.currentValue);
                     this.$emit('input', value);
@@ -425,7 +455,7 @@ export default {
                     const value = this.toValue(this.currentValue);
                     this.$emit('input', value);
                     this.$emit('update:value', value);
-                    const errorMessage = `文件${file.name}上传接口调用失败`;
+                    const errorMessage = `文件${item.name}上传接口调用失败`;
                     this.errorMessage.push(errorMessage);
 
                     this.$emit('error', {

@@ -166,9 +166,22 @@ export default {
                     element: this.arrowElement,
                 },
             });
+            const _self = this;
             options.modifiers.push({
                 name: 'preventOverflow',
                 options: {
+                    tetherOffset: ({ popper, reference, placement }) => {
+                        if (!_self.popper)
+                            return;
+                        const visualViewport = _self.popper.state.scrollParents.popper[1] || {};
+                        const pageTop = visualViewport.pageTop || 0;
+                        const y = _self.popper.state.modifiersData.popperOffsets.y;
+                        const top = y - pageTop;
+                        const height = top + popper.height;
+                        if (height > window.innerHeight) {
+                            _self.popper.state.modifiersData.popperOffsets.y = y - (height - window.innerHeight) - 10;
+                        }
+                    },
                 },
             });
             options.modifiers.push({

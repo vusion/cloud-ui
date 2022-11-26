@@ -474,6 +474,13 @@ export default {
             "font_class": "notice",
             "unicode": "e634",
             "unicode_decimal": 58932
+        },
+        {
+            "icon_id": "32817276",
+            "name": "拖拽",
+            "font_class": "dragHandler",
+            "unicode": "e624",
+            "unicode_decimal": 58916
         }
     ]
 }

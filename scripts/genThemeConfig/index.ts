@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as postcss from 'postcss';
 
 const themeComponentsMap: any = {};
+const themePropertiesMap: any = {};
 
 const cssContent = fs.readFileSync(path.join(__dirname, '../../src/styles/theme.css'), 'utf-8');
 const root = postcss.parse(cssContent);
@@ -46,9 +47,16 @@ _root.nodes.forEach((node) => {
             } else if (node.text.includes('@desc ')) {
                 const cap = /@desc\s+([\u4e00-\u9fa5|\w|,|\s|：|\#|（|）|(|)|\.|，]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].desc = cap[1].trim()
+            } else if (node.text.includes('@group ')) {
+                const cap = /@group\s+([\S]+)/.exec(node.text.trim());
+                lastComponent.cssProperty[lastProp].group = cap[1].trim();
+            } else if (node.text.includes('@title ')) {
+                const cap = /@title\s+([\S]+)/.exec(node.text.trim());
+                lastComponent.cssProperty[lastProp].title = cap[1].trim();
             }
         }
     } else if (node.type === 'decl') {
+        themePropertiesMap[node.prop] = node.value;
         if (!lastComponent)
             return;
         lastComponent.cssProperty[node.prop] = {
@@ -86,5 +94,10 @@ if(Array.isArray(resultList)) {
 }
 
 fs.writeJsonSync(resultPath, resultList, {
+    spaces: 4
+});
+
+const propertyPath = path.join(__dirname, './property.json');
+fs.writeJsonSync(propertyPath, themePropertiesMap, {
     spaces: 4
 });

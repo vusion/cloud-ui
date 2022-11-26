@@ -1688,7 +1688,7 @@ export default {
         <u-table-view-column title="用户名" width="20%">
             <div slot="cell" slot-scope="{ item, index }">
                 <u-validator v-if="item.adding" label="用户名"  rules="required" placement="bottom" :ref="`name_${index}`">
-                    <u-input v-model="item.name" :autofocus="true" maxlength="12"></u-input>
+                    <u-input v-model="item.name" :autofocus="true" maxlength="12" width="full"></u-input>
                 </u-validator>
                 <div v-else>{{ item.name }}</div>
             </div>
@@ -1696,7 +1696,7 @@ export default {
         <u-table-view-column title="手机号码" width="20%">
             <div slot="cell" slot-scope="{ item, index }">
                 <u-validator v-if="item.adding || item.editing" label="手机号码" rules="required | phone" placement="bottom" :ref="`phone_${index}`">
-                    <u-input v-model="item.phone" :autofocus="item.editing"></u-input>
+                    <u-input v-model="item.phone" :autofocus="item.editing" width="full"></u-input>
                 </u-validator>
                 <div v-else>{{ item.phone }}</div>
             </div>
@@ -1709,6 +1709,9 @@ export default {
                 <div v-else>{{ item.email }}</div>
             </div>
         </u-table-view-column>
+        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
         <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
         <u-table-view-column title="操作" width="120">
             <div slot="cell" slot-scope="{ item }">
@@ -1817,40 +1820,156 @@ export default {
 </script>
 ```
 
-### 树形展示
+### 编辑行-new
+
+下面是一个在表格中增删改查数据的综合示例。
+
+``` vue
+<template>
+<u-linear-layout direction="vertical" gap="small">
+    <u-table-view :data-source="data" :default-column-width="200">
+        <u-table-view-column title="用户名" field="name" type="editable" fixed>
+            <template #editcell="scope">
+                <u-validator style="width:100%" placement="bottom" display="appear" append-to="body" @blur-valid="validator1_blurvalid(event, scope)" rules="required">
+                    <u-input :value.sync="scope.item.name" placeholder="请输入用户名" :autofocus="true" width="full"></u-input>
+                </u-validator>
+            </template>
+            <template #cell="scope">
+                <u-text>{{scope.item.name}}</u-text>
+            </template>
+        </u-table-view-column>
+        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" fixed></u-table-view-column>
+        <u-table-view-column  title="手机号码" field="phone" type="editable">
+            <template #editcell="scope">
+                <u-validator style="width:100%" placement="bottom" display="appear" append-to="body" @blur-valid="validator2_blurvalid(event, scope)" rules="required | phone">
+                    <u-input :value.sync="scope.item.phone" placeholder="请输入手机号" :autofocus="true" width="full"></u-input>
+                </u-validator>
+            </template>
+            <template #cell="scope">
+                <u-text>{{scope.item.phone}}</u-text>
+            </template>
+        </u-table-view-column>
+        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date"></u-table-view-column>
+        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date"></u-table-view-column>
+        <u-table-view-column title="操作" fixed>
+            <template #cell="scope">
+                <u-link text="删除"></u-link>
+            </template>
+        </u-table-view-column>
+    </u-table-view>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    rules: {
+        phone: { validate: 'pattern', args: /^\d{11}$/, message: '手机号码格式不正确', trigger: 'blur' },
+    },
+    data(){
+        return {
+            data: undefined,
+            isValid: false,
+        }
+    },
+    created(){
+        this.load();
+    },
+    methods: {
+        getData(){
+            return Promise.resolve([
+                { id: '07cdcb8ed5e94cec', name: '张三', phone: '18612917895', email: 'zhangsan@163.com', createdTime: 1464421931000, loginTime: 1527515531000 },
+                { id: '5cd49be8f65c4738', name: '小明', phone: '13727160283', email: 'xiaoming@163.com', createdTime: 1520864676000, loginTime: 1552400676000 },
+                { id: 'f799a0467c494601', name: '李四', phone: '18897127809', email: 'lisi@163.com', createdTime: 1494488730000, loginTime: 1558165530000 },
+            ]);
+        },
+        load() {
+            return this.getData().then((res)=>{
+                res.forEach((item)=>{
+                    // 需要先赋值editing，后续更改editing才会响应
+                    item.editing = false;
+                });
+                this.data = res;
+            });
+        },
+        validator1_blurvalid(event, scope) {
+            scope.item.editing = '';
+        },
+        validator2_blurvalid(event, scope) {
+            scope.item.editing = '';
+        },
+    }
+};
+</script>
+```
+
+### 树型展示
 
 同步数据。
 
 ``` vue
 <template>
-<u-table-view :data-source="[
-    { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
-    { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, children:[
-        { name: '张三11', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
-        { name: '张三12', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000,children:[
-        { name: '张三121', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
-        { name: '张三122', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
-    ]},
-    ]},
-    { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
-    { name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
-    { name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
-    { name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
-]" tree-display value-field="name">
+<u-linear-layout direction="vertical">
+<u-linear-layout>
+    <u-text>数据选中类型：</u-text>
+    <u-select v-model="checkType" @change="refresh()">
+        <u-select-item value="up+down">父子双向关联选中（父选中子选中，子全选父也选中）</u-select-item>
+        <u-select-item value="down">单项父关联子（父选中子选中，子全选父不选中）</u-select-item>
+        <u-select-item value="up">单项子关联父（父选中子不选中，子全选中父选中）</u-select-item>
+        <u-select-item value="none">父子不关联（父选中子不选中，子全选父不选中）</u-select-item>
+    </u-select>
+</u-linear-layout>
+<u-table-view :data-source="list" tree-display :treeCheckType="checkType" ref="tableView">
     <u-table-view-column type="checkbox" width="30"></u-table-view-column>
     <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
     <u-table-view-column title="地址" field="address"></u-table-view-column>
     <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
 </u-table-view>
+<u-button @click="add" color="primary">添加子数据</u-button>
+</u-linear-layout>
 </template>
+<script>
+export default {
+    data(){
+        return {
+            list: this.getList(),
+            checkType: 'up+down',
+        }
+    },
+    methods: {
+        add() {
+            this.list[1].expanded = true;
+            this.list[1].children.push({ name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 });
+        },
+        refresh() {
+            this.list = this.getList();
+        },
+        getList() {
+            return [
+                { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, expanded:true, children:[
+                    { name: '张三11', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                    { name: '张三12', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000,children:[
+                    { name: '张三121', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                    { name: '张三122', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                ]},
+                ]},
+                { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 , dropDisabled:true},
+                { name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+                { name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+                { name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+            ]
+        }
+    },
+};
+</script>
 ```
 
 异步加载数据，指定`treeDataSource`。
 
 ``` vue
 <template>
-<u-table-view :data-source="load" tree-display value-field="name">
+<u-table-view :data-source="load" tree-display>
+    <u-table-view-column type="checkbox" width="30"></u-table-view-column>
     <u-table-view-column title="用户名" field="name" width="20%" ellipsis></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
     <u-table-view-column title="地址" field="address"></u-table-view-column>
@@ -1884,6 +2003,72 @@ export default {
             const name = itemData&&itemData.item?itemData.item.name : '';
             return mockService.loadList(name);
         },
+    },
+};
+</script>
+```
+
+### 表格行拖拽
+
+普通表格
+
+``` html
+<u-table-view :data-source="[
+    { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
+    { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
+    { name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+    { name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+    { name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+]" :draggable="true">
+    <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
+    <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+    <u-table-view-column title="地址" field="address"></u-table-view-column>
+    <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+</u-table-view>
+```
+
+树型表格
+
+``` vue
+<template>
+<u-linear-layout direction="vertical">
+<u-table-view :data-source="list" tree-display :draggable="true" value-field="name">
+    <u-table-view-column type="dragHandler" width="30"></u-table-view-column>
+    <u-table-view-column type="checkbox" width="30"></u-table-view-column>
+    <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
+    <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+    <u-table-view-column title="地址" field="address"></u-table-view-column>
+    <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+    <template #dragGhost="{item}">
+        <div style="padding:15px;background:white;border:1px solid #ddd; width:100px;">{{item && item.name}}</div>
+    </template>
+</u-table-view>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data(){
+        return {
+            list: this.getList(),
+        }
+    },
+    methods: {
+        getList() {
+            return [
+                { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, expanded:true, children:[
+                    { name: '张三11', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                    { name: '张三12', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000,children:[
+                    { name: '张三121', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                    { name: '张三122', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                ]},
+                ]},
+                { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 , dropDisabled:true},
+                { name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+                { name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+                { name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+            ]
+        }
     },
 };
 </script>

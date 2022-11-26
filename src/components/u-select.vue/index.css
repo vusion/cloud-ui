@@ -119,8 +119,6 @@
 
 .root[multiple-tags], .root[multiple-tags][size] {
     height: auto;
-    padding: var(--select-tags-padding);
-    line-height: var(--select-tags-line-height);
 }
 
 .root[multiple-tags] .text[tags-overflow="visible"] {

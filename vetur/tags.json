@@ -440,6 +440,8 @@
   },
   "u-carousel": {
     "attributes": [
+      "data-source",
+      "data-schema",
       "value",
       "autoplay",
       "loop",
@@ -1831,6 +1833,8 @@
       "striped",
       "hover",
       "show-head",
+      "stick-head",
+      "stick-head-offset",
       "default-column-width",
       "loading",
       "loading-text",
@@ -1844,12 +1848,14 @@
       "cancelable",
       "readonly",
       "disabled",
+      "draggable",
       "accordion",
       "resizable",
       "resize-remaining",
       "tree-display",
       "children-field",
-      "has-children-field"
+      "has-children-field",
+      "tree-check-type"
     ],
     "description": "用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。",
     "subtags": [

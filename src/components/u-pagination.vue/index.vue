@@ -16,7 +16,7 @@
         </span>
         <u-select v-if="showSizer" :class="$style.sizer" v-model="currentPageSize" :readonly="readonly" :disabled="disabled" @select="onSelectPageSize">
             <u-select-item v-for="pageSize in pageSizeOptions" :key="pageSize" :value="pageSize">
-                每页{{ pageSize }}{{ $t('pageSizeUnit') }}
+                {{ pageSize }}{{ $t('pageSize') }}
             </u-select-item>
         </u-select>
         <a :class="$style['item-wrap']" :disabled="currentPage <= 1" @click="select(currentPage - 1)">
@@ -36,9 +36,9 @@
         <span v-if="showJumper" :class="$style['jumper-wrap']">{{ $t('goto') }}
             <u-number-input :class="$style.jumper" :value="currentPage"
                 :min="1" :max="currentTotalPage" hide-buttons :readonly="readonly" :disabled="disabled"
-                @change="onChange($event.value, $event.oldValue)" :defaultValue="1">
+                @change="onChange($event.value, $event.oldValue)" :default-value="1">
             </u-number-input>
-            {{ $t('pageUnit') }}</span>
+            {{ $t('gotoPageUnit') }}</span>
         <slot></slot>
     </template>
 </nav>

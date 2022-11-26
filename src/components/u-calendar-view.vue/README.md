@@ -28,7 +28,7 @@
 
 ```vue
 <template>
-    <u-calendar-view :data="data" value="2021-10-01">
+    <u-calendar-view :data="data" :value.sync="value">
         <template #default="scope">
             <p v-if="scope.item.apple">苹果: {{scope.item.apple}}</p>
             <p v-if="scope.item.orange">橘子: {{scope.item.orange}}</p>
@@ -50,7 +50,14 @@ export default{
                 apple: 3,
                 orange: 2,
             }],
+            value: '2021-10-01',
         };
+    },
+    watch: {
+        value(val, oldVal) {
+            console.log('val', val);
+            console.log('oldVal', oldVal);
+        },
     },
     methods: {},
 };
