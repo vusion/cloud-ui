@@ -107,7 +107,7 @@
                 @update:value="onUpdateValue"
                 @toggle="$emit('toggle', $event, this)"
                 @check="$emit('check', $event, this)">
-                <template #item="{item}">
+                <template #item="item">
                     <slot name="item" v-bind="item">{{ item.text }}</slot>
                     <s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER "></s-empty>
                 </template>
