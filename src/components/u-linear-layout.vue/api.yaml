@@ -7,6 +7,20 @@
   next: true
   nested: true
   attrs:
+    - name: mode
+      title: 布局模式
+      type: string
+      options:
+        - value: inline
+          title: 行内
+        - value: block
+          title: 块级
+        - value: flex
+          title: 弹性
+      default: block
+      toggleclear:
+        - justify
+        - alignment
     - name: direction
       title: 排列方向
       type: string
@@ -44,6 +58,7 @@
           title: 块级
       default: block
       description: 行内展示，或块级换行展示
+      advanced: true
     - name: layout
       title: 子元素展示方式
       type: string
@@ -56,6 +71,7 @@
           title: 子元素块级布局
       default: none
       description: 子元素行内展示或块级换行展示
+      advanced: true
     - name: type
       title: 布局模式
       type: string
@@ -76,10 +92,21 @@
           title: 右对齐
         - value: space-between
           title: 各行之间留有空
-          advanced: true
+          dependency:
+            or:
+              - name: direction
+                value: 
+                  - horizontal
+              - name: mode
+                value:
+                  - flex
         - value: space-around
           title: 之前、之间、之后都留有空白
-          advanced: true
+          dependency:
+            or:
+              - name: mode
+                value:
+                  - flex
       default: start
       description: 内容对齐方式
     - name: alignment
@@ -98,7 +125,11 @@
           title: 拉伸子元素充满整个父元素空间
       default: stretch
       description: flex布局模式下的交叉轴对齐方式
-      advanced: true
+      dependency:
+        or:
+          - name: mode
+            value:
+              - flex
     - name: loadingIcon
       title: 加载中图标
       type: icon

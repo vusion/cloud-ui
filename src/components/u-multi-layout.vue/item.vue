@@ -162,20 +162,20 @@ export default {
 /* stylelint-disable-next-line declaration-block-single-line-max-declarations */
 .root[justify="space-between"]::after { display: block; content: ''; clear: both; }
 
-.root[type="flex"] { display: flex; text-align: inherit; }
+.root[mode="flex"] { display: flex; text-align: inherit; }
 
-.root[type="flex"][direction="vertical"] { flex-direction: column; }
+.root[mode="flex"][direction="vertical"] { flex-direction: column; }
 
-.root[type="flex"][justify="start"] { justify-content: flex-start; }
-.root[type="flex"][justify="center"] { justify-content: center; }
-.root[type="flex"][justify="end"] { justify-content: flex-end; }
-.root[type="flex"][justify="space-between"] { justify-content: space-between; }
-.root[type="flex"][justify="space-between"]::after { display: none; }
-.root[type="flex"][justify="space-around"] { justify-content: space-around; }
+.root[mode="flex"][justify="start"] { justify-content: flex-start; }
+.root[mode="flex"][justify="center"] { justify-content: center; }
+.root[mode="flex"][justify="end"] { justify-content: flex-end; }
+.root[mode="flex"][justify="space-between"] { justify-content: space-between; }
+.root[mode="flex"][justify="space-between"]::after { display: none; }
+.root[mode="flex"][justify="space-around"] { justify-content: space-around; }
 
-.root[type="flex"][alignment="start"] { align-items: flex-start; }
-.root[type="flex"][alignment="center"] { align-items: center; }
-.root[type="flex"][alignment="end"] { align-items: flex-end; }
-.root[type="flex"][alignment="baseline"] { align-items: baseline; }
-.root[type="flex"][alignment="stretch"] { align-items: stretch; }
+.root[mode="flex"][alignment="start"] { align-items: flex-start; }
+.root[mode="flex"][alignment="center"] { align-items: center; }
+.root[mode="flex"][alignment="end"] { align-items: flex-end; }
+.root[mode="flex"][alignment="baseline"] { align-items: baseline; }
+.root[mode="flex"][alignment="stretch"] { align-items: stretch; }
 </style>

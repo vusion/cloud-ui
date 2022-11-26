@@ -9,7 +9,7 @@
         <u-loading
             :icon="loadingIcon"
             :text="loadingText"
-            :iconRotate="loadingIconRotate"
+            :icon-rotate="loadingIconRotate"
             :class="$style.loading">
         </u-loading>
     </div>
@@ -165,6 +165,30 @@ export default {
 .root[type="flex"][alignment="end"] { align-items: flex-end; }
 .root[type="flex"][alignment="baseline"] { align-items: baseline; }
 .root[type="flex"][alignment="stretch"] { align-items: stretch; }
+
+.root[mode="inline"] {
+    display: inline-block;
+}
+.root[mode="block"] {
+    display: block;
+}
+
+.root[mode="flex"] { display: flex; text-align: inherit; }
+
+.root[mode="flex"][direction="vertical"] { flex-direction: column; }
+
+.root[mode="flex"][justify="start"] { justify-content: flex-start; }
+.root[mode="flex"][justify="center"] { justify-content: center; }
+.root[mode="flex"][justify="end"] { justify-content: flex-end; }
+.root[mode="flex"][justify="space-between"] { justify-content: space-between; }
+.root[mode="flex"][justify="space-between"]::after { display: none; }
+.root[mode="flex"][justify="space-around"] { justify-content: space-around; }
+
+.root[mode="flex"][alignment="start"] { align-items: flex-start; }
+.root[mode="flex"][alignment="center"] { align-items: center; }
+.root[mode="flex"][alignment="end"] { align-items: flex-end; }
+.root[mode="flex"][alignment="baseline"] { align-items: baseline; }
+.root[mode="flex"][alignment="stretch"] { align-items: stretch; }
 
 .emptyTip {
     position: absolute;
