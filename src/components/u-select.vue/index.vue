@@ -548,6 +548,10 @@ export default {
         removeTag(itemVm, flag) {
             this.select(itemVm, flag);
             this.resetFilterList();
+            this.$emit('removetag', itemVm);
+            this.preventRootBlur = false;
+            this.preventBlur = false;
+            this.rootFocus();
         },
     },
 };
