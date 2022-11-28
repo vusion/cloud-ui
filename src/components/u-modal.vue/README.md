@@ -229,22 +229,6 @@ export default {
 | ----- | ---- | ----------- |
 | senderVM | UModal | 发送事件实例 |
 
-#### @ok
-
-确定时触发
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| senderVM | UModal | 发送事件实例 |
-
-#### @cancel
-
-取消时触发
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| senderVM | UModal | 发送事件实例 |
-
 #### @before-close
 
 关闭弹窗前触发
@@ -273,12 +257,4 @@ Methods
 #### close()
 
 关闭弹窗
-
-#### ok()
-
-确定弹窗
-
-#### cancel()
-
-取消弹窗
 

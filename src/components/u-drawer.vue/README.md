@@ -231,7 +231,7 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| visible.sync | boolean |  | `false` | 是否显示 |
+| visible.sync | boolean |  | `false` | 抽屉默认打开 |
 | placement.sync | string | `[object Object]`<br/>`[object Object]` | `'right'` | 抽屉弹出的位置 |
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 抽屉的尺寸 |
 | maskClosable | boolean |  | `true` | 点击遮罩关闭抽屉 |
@@ -279,20 +279,6 @@ Methods
 #### close()
 
 关闭抽屉
-
-| Param | Type | Default | Description |
-| ----- | ---- | ------- | ----------- |
-
-#### ok()
-
-点击抽屉中“确定”按钮
-
-| Param | Type | Default | Description |
-| ----- | ---- | ------- | ----------- |
-
-#### cancel()
-
-点击抽屉中“取消”按钮
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |

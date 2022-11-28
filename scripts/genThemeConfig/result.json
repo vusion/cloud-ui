@@ -93,13 +93,11 @@
                 "cssProperty": {
                     "--crumb-color-link": {
                         "type": "color",
-                        "desc": "可跳转链接的默认文字颜色,如：#223325",
-                        "group": "字体颜色"
+                        "desc": "可跳转链接的默认文字颜色,如：#223325"
                     },
                     "--crumb-color-disabled": {
                         "type": "color",
-                        "desc": "禁用链接的默认文字颜色,如：#223325",
-                        "title": "禁用色"
+                        "desc": "禁用链接的默认文字颜色,如：#223325"
                     },
                     "--crumb-space-x": {
                         "type": "input",
