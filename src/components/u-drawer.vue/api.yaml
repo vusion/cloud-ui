@@ -89,9 +89,3 @@
     - name: close
       description: 关闭抽屉
       params: []
-    - name: ok
-      description: 点击抽屉中“确定”按钮
-      params: []
-    - name: cancel
-      description: 点击抽屉中“取消”按钮
-      params: []
