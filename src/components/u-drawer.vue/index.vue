@@ -1,10 +1,12 @@
 <template>
     <transition
         enter-active-class="animate__animated animate__fadeIn"
-        leave-active-class="animate__animated animate__fadeOut animate__fast">
+        leave-active-class="animate__animated animate__fadeOut animate__fast"
+        @after-enter="onTransitionAterEnter">
         <div ref="root" :class="$style.root" v-if="currentVisible || animationVisible" :placement="placement"
-             @click="maskClosable && cancel()"
-             tabindex="1" @keydown.esc="cancel()">
+             @click="(maskClosable && !hideMask) && cancel()"
+             tabindex="1" @keydown.esc="cancel()"
+             :hideMask="hideMask">
             <transition
                 :enter-active-class="'placement animate__animated animate__fadeIn' + animatePlacement"
                 :leave-active-class="'placement animate__animated animate__fast animate__fadeOut' + animatePlacement">
@@ -15,7 +17,7 @@
                      @click.stop>
                     <slot name="inject"></slot>
                     <slot name="drawer">
-                        <div :class="$style.head" v-show="showHead" vusion-slot-name="head" :child-cut-disabled="true">
+                        <div :class="$style.head" v-show="showHead" vusion-slot-name="head" :child-cut-disabled="true" ref="head">
                             <slot name="head">
                                 <div v-if="title" :class="$style.title" vusion-slot-name="title"
                                      vusion-slot-name-edit="title" :child-cut-disabled="true">
@@ -31,7 +33,7 @@
                                 <a :class="$style.close" @click="cancel()"></a>
                             </slot>
                         </div>
-                        <div :class="$style.body" vusion-slot-name="body" :child-cut-disabled="true">
+                        <div :class="$style.body" vusion-slot-name="body" :child-cut-disabled="true" :style="{height: bodyHeight}">
                             <slot name="body">
                                 <s-empty
                                     v-if="(!$slots.body) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
@@ -41,7 +43,7 @@
                             </slot>
                         </div>
                         <div :class="$style.foot" v-show="showFoot && (okButton || cancelButton)" vusion-slot-name="foot"
-                             :child-cut-disabled="true">
+                             :child-cut-disabled="true" ref="foot">
 
                             <slot name="foot">
                                 <s-empty
@@ -103,10 +105,16 @@ export default {
             type: String,
             default: 'normal',
         },
-
+        hideMask: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
-        return { animationVisible: this.visible };
+        return {
+            animationVisible: this.visible,
+            bodyHeight: undefined,
+        };
     },
     computed: {
         animatePlacement() {
@@ -120,6 +128,16 @@ export default {
                 this.$parent.openEvent();
             }
             this.$nextTick(() => (this.animationVisible = currentVisible));
+        },
+    },
+    methods: {
+        onTransitionAterEnter() {
+            const headEl = this.$refs.head;
+            const footEl = this.$refs.foot;
+            if (!headEl && !footEl)
+                return;
+            const height = headEl.offsetHeight + footEl.offsetHeight;
+            this.bodyHeight = `calc(100% - ${height}px)`;
         },
     },
 };
@@ -181,7 +199,7 @@ export default {
 .head {
     position: relative;
     padding: var(--drawer-head-padding);
-    border-bottom: 1px solid var(--gray-lightest);
+    border-bottom: 1px solid var(--drawer-border-color);
 }
 
 .title {
@@ -208,18 +226,28 @@ export default {
 
 .body {
     padding: var(--drawer-body-padding);
+    overflow-y: var(--drawer-body-overflow-y);
+    height: calc(100% - 140px);
 }
 
 .root .foot {
     position: fixed;
     width: inherit;
     padding: var(--drawer-foot-padding);
-    border-top: 1px solid var(--gray-lightest);
+    border-top: 1px solid var(--drawer-border-color);
     bottom: 0;
 }
 
 .root[static] {
     position: static;
     padding: var(--drawer-static-padding);
+}
+
+.root[hidemask] {
+    background: transparent;
+    left: initial;
+}
+.root[hidemask] .drawer{
+    border-left: 1px solid var(--drawer-border-color);
 }
 </style>
