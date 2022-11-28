@@ -12,7 +12,7 @@
       type: boolean
       sync: true
       default: false
-      description: 是否显示
+      description: 抽屉默认打开
     - name: placement
       title: 抽屉位置
       type: string
