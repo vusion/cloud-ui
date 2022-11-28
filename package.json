@@ -52,7 +52,7 @@
   "dependencies": {
     "@popperjs/core": "^2.10.2",
     "@vusion/utils": "0.4.11",
-    "@vusion/validator": "^0.4.4",
+    "@vusion/validator": "^0.4.6",
     "animate.css": "^4.1.1",
     "countup.js": "^1.9.3",
     "dayjs": "^1.10.7",
