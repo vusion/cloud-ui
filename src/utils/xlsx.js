@@ -14,10 +14,10 @@ export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns,
     // 将文本格式的内容，转化为日期和数字格式
     Object.keys(sheet).forEach((item) => {
         const cell = sheet[item];
-        // console.log('cell', cell);
         const dateRegx = /^\d{4}-\d{2}-\d{2}$/;
+        const percentRegx = /^\d+(\.\d+)?%$/ ;
         const value = cell.v;
-        if (cell.t === 's' && value.indexOf('%') > -1) {
+        if (cell.t === 's' && percentRegx.test(value)) {
             cell.z = '0.00%';
             cell.t = 'n';
             cell.v = Number(value.substring(0, value.length - 1)) / 100;
