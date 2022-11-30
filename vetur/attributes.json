@@ -1246,13 +1246,21 @@
     "type": "string",
     "description": "卡片组的标题"
   },
+  "u-carousel/data-source": {
+    "type": "Array<Item> | Function",
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+  },
+  "u-carousel/data-schema": {
+    "type": "schema",
+    "description": "集合类型每一元素的数据类型"
+  },
   "u-carousel/value": {
     "type": "any",
     "description": "播放位置"
   },
   "u-carousel/autoplay": {
     "type": "boolean",
-    "description": "是否自动播放"
+    "description": "是否轮播"
   },
   "u-carousel/loop": {
     "type": "boolean",
@@ -2568,7 +2576,7 @@
   },
   "u-drawer/visible": {
     "type": "boolean",
-    "description": "是否显示"
+    "description": "抽屉默认打开"
   },
   "u-drawer/placement": {
     "type": "string",
@@ -6718,6 +6726,14 @@
     "type": "boolean",
     "description": ""
   },
+  "u-table-view/stick-head": {
+    "type": "boolean",
+    "description": ""
+  },
+  "u-table-view/stick-head-offset": {
+    "type": "number",
+    "description": ""
+  },
   "u-table-view/default-column-width": {
     "type": "string | number",
     "description": "表格的默认列宽度，可以设置为百分比或数字"
@@ -6770,6 +6786,10 @@
     "type": "boolean",
     "description": ""
   },
+  "u-table-view/draggable": {
+    "type": "boolean",
+    "description": "是否可以拖拽行排序"
+  },
   "u-table-view/accordion": {
     "type": "boolean",
     "description": "是否每次只会展开一行"
@@ -6807,6 +6827,28 @@
   "u-table-view/has-children-field": {
     "type": "string",
     "description": "该字段指定行数据是否包含子节点数据"
+  },
+  "u-table-view/tree-check-type": {
+    "type": "string",
+    "options": [
+      {
+        "value": "up+down",
+        "title": "父子双向关联选中"
+      },
+      {
+        "value": "down",
+        "title": "单项父关联子"
+      },
+      {
+        "value": "up",
+        "title": "单项子关联父"
+      },
+      {
+        "value": "none",
+        "title": "父子不关联"
+      }
+    ],
+    "description": "父子树节点是否关联选中"
   },
   "u-table-view-column/title": {
     "type": "string",
@@ -6888,6 +6930,10 @@
       {
         "value": "editable",
         "title": "编辑列"
+      },
+      {
+        "value": "dragHandler",
+        "title": "拖拽标识列"
       }
     ],
     "description": "支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序"

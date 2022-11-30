@@ -23,7 +23,7 @@
             {{ label }}
             <slot name="label"></slot>
         </span>
-        <f-render v-if="!multiple && !filterable" :vnode="selectedVM && (selectedVM.$slots&&selectedVM.$slots.default ? selectedVM.$slots.default : [$at(selectedVM, field || textField)])"></f-render>
+        <f-render v-if="!multiple && !filterable" :vnode="selectedVM && (selectedVM.$slots&&selectedVM.$slots.default ? selectedVM.$slots.default : [$at2(selectedVM, field || textField)])"></f-render>
         <span v-else-if="multipleAppearance === 'text'">{{ currentText }}</span>
         <template v-else-if="multipleAppearance === 'tags'">
             <template v-if="tagsOverflow === 'hidden' || tagsOverflow === 'visible'">
@@ -69,12 +69,12 @@
             <component :is="ChildComponent"
                 v-for="(item, index) in currentData"
                 v-if="item"
-                :key="filterable ? $at(item, valueField) + '_' + index : $at(item, valueField)"
-                :text="$at(item, field || textField)"
-                :value="$at(item, valueField)"
+                :key="filterable ? $at2(item, valueField) + '_' + index : $at2(item, valueField)"
+                :text="$at2(item, field || textField)"
+                :value="$at2(item, valueField)"
                 :disabled="item.disabled || disabled"
                 :item="item">
-                <slot name="text" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled">{{ $at(item, field || textField) }}</slot>
+                <slot name="text" :item="item" :text="$at2(item, field || textField)" :value="$at2(item, valueField)" :disabled="item.disabled || disabled">{{ $at2(item, field || textField) }}</slot>
             </component>
         </template>
         <div :class="$style.status" status="loading" v-if="currentLoading">
@@ -548,6 +548,10 @@ export default {
         removeTag(itemVm, flag) {
             this.select(itemVm, flag);
             this.resetFilterList();
+            this.$emit('removetag', itemVm);
+            this.preventRootBlur = false;
+            this.preventBlur = false;
+            this.rootFocus();
         },
     },
 };

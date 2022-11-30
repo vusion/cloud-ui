@@ -13,24 +13,23 @@
             <th :class="$style['last-column']" :dynamic="dynamic" :custom="!!$scopedSlots['last-column']" :style="lastColumnStyle"></th>
         </tr></thead>
         <tbody>
-            <u-form-table-view-row :class="$style.row" v-for="(item, rowIndex) in currentData" :key="rowIndex" :muted="muted">
+            <u-form-table-view-row :class="$style.row" v-for="(item, rowIndex) in currentData" :key="getKey(item, rowIndex)" :muted="muted">
                 <template v-if="$env.VUE_APP_DESIGNER">
-                    <td :class="$style.cell" 
-                        v-for="(columnVM, columnIndex) in columnVMs" 
+                    <td :class="$style.cell"
+                        v-for="(columnVM, columnIndex) in columnVMs"
                         :is-sub="columnVM.$attrs['is-sub']"
                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
                         :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
-                        :ellipsis="columnVM.ellipsis" 
+                        :ellipsis="columnVM.ellipsis"
                         v-ellipsis-title>
-                        <div vusion-slot-name="cell" :plus-empty="columnVM.$attrs['plus-empty']" >
+                        <div vusion-slot-name="cell" :plus-empty="columnVM.$attrs['plus-empty']">
                             <u-validator display="block" :label="columnVM.title" :action="columnVM.action"
                                 :rules="columnVM.rules" :muted="columnVM.muted"
                                 :ignore-validation="columnVM.ignoreValidation"
                                 :validating-options="Object.assign({ data: currentData, item, rowIndex }, columnVM.validatingOptions)"
                                 :validating-value="columnVM.validatingValue"
                                 :validating-process="columnVM.validatingProcess">
-                                
                                 <span v-if="columnVM.type === 'index'">{{ columnVM.startIndex + rowIndex }}</span>
                                 <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex }">
                                     <span>{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
@@ -55,7 +54,7 @@
                     </td>
                 </template>
                 <template slot="last-column" v-if="dynamic">
-                    <slot name="last-column" :item="item" :rowIndex="rowIndex">
+                    <slot name="last-column" :item="item" :row-index="rowIndex">
                         <u-form-table-remove-button @click="remove(rowIndex)" :disabled="currentData.length <= minCount || item.disabled"></u-form-table-remove-button>
                     </slot>
                 </template>

@@ -1,23 +1,23 @@
 import XLSX from 'xlsx';
 
-export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns) {
+export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns, hasHeader) {
     // 若有标题，添加标题到第一行
     const sheet = XLSX.utils.json_to_sheet([]);
     if (sheetTitle) {
         const endCell = XLSX.utils.encode_col(columns - 1) + 1;
         XLSX.utils.sheet_add_aoa(sheet, [[sheetTitle]], {origin: {r:0, c:0}});
         sheet["!merges"] = [XLSX.utils.decode_range(`A1:${endCell}`)];
-        XLSX.utils.sheet_add_json(sheet, sheetData, {origin: -1});
+        XLSX.utils.sheet_add_json(sheet, sheetData, {origin: -1, skipHeader: !hasHeader});
     } else {
-        XLSX.utils.sheet_add_json(sheet, sheetData);
+        XLSX.utils.sheet_add_json(sheet, sheetData, { skipHeader: !hasHeader});
     }
     // 将文本格式的内容，转化为日期和数字格式
     Object.keys(sheet).forEach((item) => {
         const cell = sheet[item];
-        // console.log('cell', cell);
         const dateRegx = /^\d{4}-\d{2}-\d{2}$/;
+        const percentRegx = /^\d+(\.\d+)?%$/ ;
         const value = cell.v;
-        if (cell.t === 's' && value.indexOf('%') > -1) {
+        if (cell.t === 's' && percentRegx.test(value)) {
             cell.z = '0.00%';
             cell.t = 'n';
             cell.v = Number(value.substring(0, value.length - 1)) / 100;

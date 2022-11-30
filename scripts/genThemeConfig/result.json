@@ -1899,13 +1899,41 @@
                         "type": "input",
                         "desc": "表格表头内间距,如 1px"
                     },
+                    "--table-th-background": {
+                        "type": "input",
+                        "desc": "表格表头内间距,如 1px"
+                    },
                     "--table-td-line-height": {
                         "type": "input",
                         "desc": "表格内容区行高,如 1px"
                     },
                     "--table-td-padding": {
+                        "type": "color",
+                        "desc": "表格表头背景色,如 #223325"
+                    },
+                    "--table-td-background": {
+                        "type": "color",
+                        "desc": "表格列内容区背景色,如 #223325"
+                    },
+                    "--table-view-drop-ghost-border-color": {
+                        "type": "color",
+                        "desc": "表格拖拽放置示意线颜色,如 #223325"
+                    },
+                    "--table-view-drop-ghost-mask-background": {
+                        "type": "color",
+                        "desc": "表格拖拽放置示意框背景颜色,如 #223325"
+                    },
+                    "--table-view-subrow-background-dragging": {
+                        "type": "color",
+                        "desc": "表格被拖拽行子树背景颜色,如 #223325"
+                    },
+                    "--table-view-row-background-dragging": {
+                        "type": "color",
+                        "desc": "表格被拖拽行背景颜色,如 #223325"
+                    },
+                    "--table-view-drag-cursor": {
                         "type": "input",
-                        "desc": "表格内容区内间距,如 1px"
+                        "desc": "拖拽鼠标样式"
                     }
                 },
                 "preview": {

@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" v-show="!hidden">
+<div :class="$style.root" v-show="!currentHidden">
     <div :class="$style.item" :selected="selected" :style="{ paddingLeft: rootVM.flat ? '0' : level * expanderWidth + paddingLeft + 'px' }"
         :readonly="rootVM.readonly" :readonly-mode="rootVM.readonlyMode"
         :subBackground="rootVM.subBackground"
@@ -53,6 +53,7 @@
             </f-slot>
         </div>
     </div>
+    <template v-if="!rootVM.virtualList">
     <div :class="$style.sub" v-if="rootVM.ifExpanded && !childrenRendered && node && !node.childrenRendered ? currentExpanded : true" v-show="currentExpanded">
         <template v-if="node && $at(node, currentChildrenField) && !rootVM.excludeFields.includes(currentChildrenField)">
             <u-tree-view-node
@@ -88,6 +89,7 @@
         </template>
         <slot></slot>
     </div>
+    </template>
 </div>
 </template>
 
@@ -128,6 +130,7 @@ export default {
             childrenRendered: this.expanded,
             currentDragging: false,
             expanderDragover: false,
+            currentHidden: this.hidden,
         };
     },
     computed: {
@@ -196,6 +199,14 @@ export default {
             return fields;
         },
         hasChildren() {
+            if(this.rootVM.virtualList) {
+                const { hiddenField } = this.rootVM;
+                const children = (this.node && this.node._children || [])
+                    .filter((node) => !node._collapsedParentCount && !(node.node && node.node[hiddenField]));
+                return children.length > 0
+            }
+            
+
             const { node } = this;
             if (!node)
                 return false;
@@ -218,11 +229,14 @@ export default {
         expanded(expanded) {
             this.currentExpanded = expanded;
         },
+        'node.expanded'(expanded) {
+            this.currentExpanded = expanded;
+        },
         checked(checked) {
             this.currentChecked = checked;
         },
         nodeVMs() {
-            this.rootVM.selectedVM = undefined;
+            // this.rootVM.selectedVM = undefined;
             this.rootVM.watchValue(this.rootVM.value);
         },
         currentExpanded(currentExpanded) {
@@ -239,9 +253,16 @@ export default {
         'rootVM.filterText'(filterText) {
             this.filter();
         },
+        hidden(value) {
+            this.currentHidden = value;
+        },
     },
     created() {
         this.renderSelectedVm();
+
+        this.$watch(() => this.node && this.node[this.rootVM.hiddenField], (value) => {
+            this.currentHidden = value;
+        });
     },
     mounted() {
         const waitUntilSelected = 1;
@@ -302,6 +323,13 @@ export default {
         designerControl() {
             this.toggle();
         },
+        toggleData(nodes, expanded) {
+            nodes && nodes.forEach((child) => {
+                if(expanded) child._collapsedParentCount--;
+                else child._collapsedParentCount++;
+                this.toggleData(child.node && child.node._children, expanded);
+            });
+        },
         toggle(expanded) {
             if (this.currentDisabled)
                 return;
@@ -354,6 +382,9 @@ export default {
                 this.load().then(() => final());
             } else
                 final();
+
+            if(this.rootVM.virtualList)
+                this.toggleData(this.node && this.node._children, expanded)
         },
         checkControlled(checked) {
             this.currentChecked = checked;

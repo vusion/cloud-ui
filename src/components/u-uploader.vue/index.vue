@@ -409,10 +409,33 @@ export default {
                 onSuccess: (res) => {
                     const item = this.currentValue[index];
                     item.status = 'success';
-                    if (res[this.urlField])
-                        item.url = res[this.urlField];
+                    if (res[this.urlField]) {
+                        const url = res[this.urlField];
+                        item.url = url;
+                        if (Array.isArray(url)) {
+                            item.url = url.join(',');
+                        }
+                    }
                     item.response = res;
                     item.showProgress = false;
+
+                    // 一次上传多个文件，返回数据是数组，需要处理
+                    if (res[this.urlField]) {
+                        const url = res[this.urlField];
+                        if (Array.isArray(url)) {
+                            this.currentValue.splice(this.currentValue.length - 1, 1);
+                            url.forEach((urlTemp, urlIndex) => {
+                                const urlItem = {
+                                    status: 'success',
+                                    name: file[urlIndex].name,
+                                    size: file[urlIndex].size,
+                                    showProgress: false,
+                                    url: urlTemp,
+                                };
+                                this.currentValue.push(urlItem);
+                            });
+                        }
+                    }
 
                     const value = this.toValue(this.currentValue);
                     this.$emit('input', value);
@@ -432,7 +455,7 @@ export default {
                     const value = this.toValue(this.currentValue);
                     this.$emit('input', value);
                     this.$emit('update:value', value);
-                    const errorMessage = `文件${file.name}上传接口调用失败`;
+                    const errorMessage = `文件${item.name}上传接口调用失败`;
                     this.errorMessage.push(errorMessage);
 
                     this.$emit('error', {

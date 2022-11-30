@@ -107,7 +107,7 @@
                 @update:value="onUpdateValue"
                 @toggle="$emit('toggle', $event, this)"
                 @check="$emit('check', $event, this)">
-                <template #item="{item}">
+                <template #item="item">
                     <slot name="item" v-bind="item">{{ item.text }}</slot>
                     <s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER "></s-empty>
                 </template>
@@ -325,11 +325,11 @@ export default {
                             };
                         }
                     } else {
-                        if(this.$at(item, this.valueField) !== undefined) {
-                            obj[this.$at(item, this.valueField)] = {
+                        if(this.$at2(item, this.valueField) !== undefined) {
+                            obj[this.$at2(item, this.valueField)] = {
                                 parent,
                                 node: item,
-                                text: this.$at(item, this.textField),
+                                text: this.$at2(item, this.textField),
                             };
                         }
                     }

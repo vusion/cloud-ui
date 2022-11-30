@@ -1,6 +1,6 @@
 <template>
 <transition name="fade">
-    <div :class="$style.root" v-show="currentOpened" v-on="$listeners">
+    <div :class="$style.root" v-show="currentOpened" v-on="$listeners" :no-hidden-width-reference="!hiddenWidthReference">
         <slot></slot>
     </div>
 </transition>
@@ -66,6 +66,7 @@ export default {
         disabledScroll: { type: Boolean, default: false },
         disabledClose: { type: Boolean, default: false },
         enableContentScroll: { type: Boolean, default: false },
+        hiddenWidthReference: { type: Boolean, default: true }, // 当referenceHidden的时候，popper要不要hidden
     },
     data() {
         return {
@@ -166,9 +167,22 @@ export default {
                     element: this.arrowElement,
                 },
             });
+            const _self = this;
             options.modifiers.push({
                 name: 'preventOverflow',
                 options: {
+                    tetherOffset: ({ popper, reference, placement }) => {
+                        if (!_self.popper)
+                            return;
+                        const visualViewport = _self.popper.state.scrollParents.popper[1] || {};
+                        const pageTop = visualViewport.pageTop || 0;
+                        const y = _self.popper.state.modifiersData.popperOffsets.y;
+                        const top = y - pageTop;
+                        const height = top + popper.height;
+                        if (height > window.innerHeight) {
+                            _self.popper.state.modifiersData.popperOffsets.y = y - (height - window.innerHeight) - 10;
+                        }
+                    },
                 },
             });
             options.modifiers.push({
@@ -453,7 +467,7 @@ export default {
     opacity: 0;
 } */
 /** 当reference的元素因为滚动隐藏的时候，popper也隐藏 */
-.root[data-popper-reference-hidden] {
+.root[data-popper-reference-hidden]:not([no-hidden-width-reference]) {
     display: none;
 }
 </style>
