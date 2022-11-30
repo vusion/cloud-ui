@@ -17,13 +17,13 @@ export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns,
         const dateRegx = /^\d{4}-\d{2}-\d{2}$/;
         const percentRegx = /^\d+(\.\d+)?%$/ ;
         const value = cell.v;
-        if (cell.t === 's' && percentRegx.test(value)) {
+        if (cell.t === 's' && value !=='%' && percentRegx.test(value)) {
             cell.z = '0.00%';
             cell.t = 'n';
             cell.v = Number(value.substring(0, value.length - 1)) / 100;
         } else if (!isNaN(Number(value)) && value.length <= 15) {
             cell.t = 'n';
-            cell.z = '0';
+            // cell.z = '0.00';
         } else if (dateRegx.test(value)) {
             cell.t = 'd';
         }
