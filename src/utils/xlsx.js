@@ -18,7 +18,15 @@ export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns,
         const percentRegx = /^\d+(\.\d+)?%$/ ;
         const value = cell.v;
         if (cell.t === 's' && value !=='%' && percentRegx.test(value)) {
-            cell.z = '0.00%';
+            // 根据小数位数转化为'0.00%'格式，比如一位小数就是'0.0%'
+            let template;
+            if (value.indexOf('.') > -1) {
+                const percentLength = value.split('.')[1].length;
+                template = '0.'+new Array(percentLength-1).fill(0).join('')+'%';
+            } else {
+                template = '0%'
+            }
+            cell.z = template;
             cell.t = 'n';
             cell.v = Number(value.substring(0, value.length - 1)) / 100;
         } else if (!isNaN(Number(value)) && value.length <= 15) {
