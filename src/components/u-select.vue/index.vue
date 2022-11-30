@@ -66,16 +66,21 @@
         @click.stop @scroll.stop="onScroll" @mousedown.stop>
         <slot></slot>
         <template v-if="currentData">
-            <component :is="ChildComponent"
-                v-for="(item, index) in currentData"
-                v-if="item"
-                :key="filterable ? $at(item, valueField) + '_' + index : $at(item, valueField)"
-                :text="$at(item, field || textField)"
-                :value="$at(item, valueField)"
-                :disabled="item.disabled || disabled"
-                :item="item">
-                <slot name="text" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled">{{ $at(item, field || textField) }}</slot>
-            </component>
+            <div :class="$style.status" key="empty" v-if="!currentData.length">
+                <slot name="empty">{{ emptyText }}</slot>
+            </div>
+            <template v-else>
+                <component :is="ChildComponent"
+                    v-for="(item, index) in currentData"
+                    v-if="item"
+                    :key="filterable ? $at(item, valueField) + '_' + index : $at(item, valueField)"
+                    :text="$at(item, field || textField)"
+                    :value="$at(item, valueField)"
+                    :disabled="item.disabled || disabled"
+                    :item="item">
+                    <slot name="text" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled">{{ $at(item, field || textField) }}</slot>
+                </component>
+            </template>
         </template>
         <div :class="$style.status" status="loading" v-if="currentLoading">
             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
@@ -124,7 +129,7 @@ export default {
         emptyText: {
             type: String,
             default() {
-                return this.$t('emptyText');
+                return this.$t('empty');
             },
         },
         emptyDisabled: { type: Boolean, default: false }, // @inherit: initialLoad: { type: Boolean, default: true },
