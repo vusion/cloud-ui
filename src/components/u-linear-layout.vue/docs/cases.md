@@ -47,6 +47,10 @@
                     <u-select-item value="stretch">拉伸子元素充满整个父元素空间</u-select-item>
                 </u-select>
             </u-linear-layout>
+            <u-linear-layout>
+                <u-label>是否换行：</u-label>
+                <u-switch v-model="wrap"></u-switch>
+            </u-linear-layout>
         </u-linear-layout>
         <u-linear-layout
             :mode="mode"
@@ -54,9 +58,18 @@
             :justify="justify"
             :alignment="alignment"
             :layout="layout"
+            :wrap="wrap"
             style="height:300px;border: 1px solid #aaa; padding: 20px; margin: 20px;">
             <u-panel>1</u-panel>
             <u-panel>2</u-panel>
+            <u-button>3</u-button>
+            <u-button>3</u-button>
+            <u-button>3</u-button>
+            <u-button>3</u-button>
+            <u-button>3</u-button>
+            <u-button>3</u-button>
+            <u-button>3</u-button>
+            <u-button>3</u-button>
             <u-button>3</u-button>
             <u-button>3</u-button>
         </u-linear-layout>
@@ -73,6 +86,7 @@ export default {
             justify: undefined,
             alignment: undefined,
             layout:undefined,
+            wrap: true
         }
     },
 }

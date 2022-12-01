@@ -10,27 +10,181 @@
     - name: mode
       title: 布局模式
       type: string
+      display: capsules
+      bindHide: true
       options:
         - value: inline
           title: 行内
+          icon: dispaly-inline
         - value: block
           title: 块级
+          icon: dispaly-block
         - value: flex
           title: 弹性
+          icon: dispaly-flex
       default: block
       toggleclear:
         - justify
         - alignment
+        - wrap
     - name: direction
-      title: 排列方向
+      title: 主轴方向
       type: string
+      display: capsules
+      bindHide: true
       options:
         - value: horizontal
           title: 横向排列
+          icon: flex-horizontal
         - value: vertical
           title: 纵向排列
+          icon: flex-vertical
       default: horizontal
       description: 可更改布局的排列方向
+      toggleclear:
+        - justify
+        - alignment
+    - name: justify
+      title: 横轴对齐
+      type: string
+      display: capsules
+      bindHide: true
+      options:
+        - value: start
+          title: 左对齐
+          icon: start
+        - value: center
+          title: 居中对齐
+          icon: center
+        - value: end
+          title: 右对齐
+          icon: end
+        - value: space-between
+          title: 各行之间留有空
+          icon: space-between
+          dependency:
+            or:
+              - name: direction
+                value: 
+                  - horizontal
+              - name: mode
+                value:
+                  - flex
+        - value: space-around
+          title: 之前、之间、之后都留有空白
+          icon: space-around
+          dependency:
+            and:
+              - name: mode
+                value:
+                  - flex
+      default: start
+      description: 内容对齐方式
+      dependency:
+        and:
+          - name: direction
+            value: 
+              - horizontal
+    - name: alignment
+      title: 纵轴对齐
+      type: string
+      display: capsules
+      bindHide: true
+      options:
+        - value: start
+          title: 头对齐
+          icon: align-start
+        - value: center
+          title: 居中对齐
+          icon: align-center
+        - value: end
+          title: 尾对齐
+          icon: align-end
+        - value: baseline
+          title: 基线对齐
+          icon: align-baseline
+        - value: stretch
+          title: 拉伸子元素充满整个父元素空间
+          icon: align-stretch
+      default: stretch
+      description: flex布局模式下的交叉轴对齐方式
+      dependency:
+        and:
+          - name: mode
+            value:
+              - flex
+          - name: direction
+            value: 
+              - horizontal
+    - name: alignment
+      title: 横轴对齐
+      type: string
+      display: capsules
+      bindHide: true
+      options:
+        - value: start
+          title: 头对齐
+          icon: align-start
+        - value: center
+          title: 居中对齐
+          icon: align-center
+        - value: end
+          title: 尾对齐
+          icon: align-end
+        - value: stretch
+          title: 拉伸子元素充满整个父元素空间
+          icon: align-stretch
+      default: stretch
+      description: flex布局模式下的交叉轴对齐方式
+      dependency:
+        and:
+          - name: mode
+            value:
+              - flex
+          - name: direction
+            value: 
+              - vertical
+    - name: justify
+      title: 纵轴对齐
+      type: string
+      display: capsules
+      bindHide: true
+      options:
+        - value: start
+          title: 左对齐
+          icon: start
+        - value: center
+          title: 居中对齐
+          icon: center
+        - value: end
+          title: 右对齐
+          icon: end
+        - value: space-between
+          title: 各行之间留有空
+          icon: space-between
+        - value: space-around
+          title: 之前、之间、之后都留有空白
+          icon: space-around
+      default: start
+      description: 内容对齐方式
+      dependency:
+        and:
+          - name: mode
+            value:
+              - flex
+          - name: direction
+            value: 
+              - vertical
+    - name: wrap
+      title: 是否换行
+      type: boolean
+      default: true
+      description: 弹性布局下子元素总宽度超出父级时子元素是否换行展示
+      dependency:
+        or:
+          - name: mode
+            value:
+              - flex
     - name: gap
       title: 间隙
       type: string
@@ -80,56 +234,6 @@
           title: flex 布局模式
       description: 布局模式
       advanced: true
-    - name: justify
-      title: 主轴分布方式
-      type: string
-      options:
-        - value: start
-          title: 左对齐
-        - value: center
-          title: 居中对齐
-        - value: end
-          title: 右对齐
-        - value: space-between
-          title: 各行之间留有空
-          dependency:
-            or:
-              - name: direction
-                value: 
-                  - horizontal
-              - name: mode
-                value:
-                  - flex
-        - value: space-around
-          title: 之前、之间、之后都留有空白
-          dependency:
-            or:
-              - name: mode
-                value:
-                  - flex
-      default: start
-      description: 内容对齐方式
-    - name: alignment
-      title: 纵轴对齐方式
-      type: string
-      options:
-        - value: start
-          title: 头对齐
-        - value: center
-          title: 居中对齐
-        - value: end
-          title: 尾对齐
-        - value: baseline
-          title: 基线对齐
-        - value: stretch
-          title: 拉伸子元素充满整个父元素空间
-      default: stretch
-      description: flex布局模式下的交叉轴对齐方式
-      dependency:
-        or:
-          - name: mode
-            value:
-              - flex
     - name: loadingIcon
       title: 加载中图标
       type: icon

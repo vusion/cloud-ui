@@ -33,15 +33,15 @@ export default {
     position: relative;
     /* height: 32px;
     line-height: 30px; */
-    font-size: var(--font-size-base);
+    font-size: var(--capsules-capsule-font-size);
     text-align: center;
     /* margin-right: -1px; */
-    padding: 4px 20px;
-    border: 1px solid var(--border-color-base);
+    padding: var(--capsules-capsule-padding-x) var(--capsules-capsule-padding-y);
+    border: 1px solid var(--capsules-capsule-border-color);
     border-left-color: transparent;
-    background: var(--color-white);
-    color: var(--color-base);
-    cursor: var(--cursor-pointer);
+    background: var(--capsules-capsule-background);
+    color: var(--capsules-capsule-color);
+    cursor: var(--capsules-capsule-cursor);
     vertical-align: middle;
 }
 
@@ -58,20 +58,24 @@ export default {
 
 .root:not([selected], [readonly], [disabled]):hover {
     z-index: 1;
-    border-color: var(--brand-primary);
-    color: var(--brand-primary);
+    border-color: var(--capsules-capsule-border-color-hover);
+    color: var(--capsules-capsule-color-hover);
+}
+.root:not([selected], [readonly], [disabled]):hover + .root[selected],
+.root[selected] + .root:not([selected], [readonly], [disabled]):hover {
+    border-left-color:transparent;
 }
 
 .root[selected]:not([disabled]) {
     z-index: 1;
-    border-color: var(--brand-primary);
-    background: var(--brand-primary);
-    color: var(--color-white);
+    border-color: var(--capsules-capsule-border-color-selected);
+    background: var(--capsules-capsule-background-selected);
+    color: var(--capsules-capsule-color-selected);
 }
 
 .root[selected]:not([readonly], [disabled]):hover {
-    border-color: var(--brand-primary-light);
-    background: var(--brand-primary-light);
+    border-color: var(--capsules-capsule-border-color-selected-hover);
+    background: var(--capsules-capsule-background-selected-hover);
 }
 
 .root[readonly] {
@@ -80,15 +84,15 @@ export default {
 
 .root[disabled] {
     z-index: auto;
-    background: var(--background-color-disabled);
-    color: var(--gray-base);
-    cursor: var(--cursor-not-allowed);
+    background: var(--capsules-capsule-background-disabled);
+    color: var(--capsules-capsule-color-disabled);
+    cursor: var(--capsules-capsule-cursor-disabled);
 }
 
 .root[disabled][selected] {
-    border-color: var(--brand-primary-disabled);
-    background: var(--brand-primary-disabled);
-    color: var(--color-white);
+    border-color: var(--capsules-capsule-border-color-selected-disabled);
+    background: var(--capsules-capsule-background-selected-disabled);
+    color: var(--capsules-capsule-color-selected-disabled);
 }
 
 .root[flag]::after {
@@ -97,7 +101,7 @@ export default {
     top: 0;
     right: 0;
     border: 5px solid;
-    border-color: var(--brand-danger) var(--brand-danger) transparent transparent;
+    border-color: var(--capsules-capsule-flag-border-color) var(--capsules-capsule-flag-border-color) transparent transparent;
 }
 
 .root:last-child[flag]::after {
@@ -114,8 +118,8 @@ export default {
     padding: 0 4px;
     border-radius: 2px;
     white-space: nowrap;
-    background: var(--brand-error);
-    color: var(--color-white);
+    background: var(--capsules-capsule-label-background);
+    color: var(--capsules-capsule-label-color);
 }
 
 .label:empty {

@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :type="type" :direction="direction" v-on="$listeners" vusion-slot-name="default">
+<div :class="$style.root" :type="type" :direction="direction" v-on="$listeners" vusion-slot-name="default" :nowrap="!wrap">
     <slot></slot>
     <template v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']">
         <div :class="$style.emptyTip" v-if="type === 'root'">拖拽右侧组件放至此处</div>
@@ -46,6 +46,10 @@ export default {
         direction: {
             default: 'horizontal',
             validator: (value) => ['horizontal', 'vertical'].includes(value),
+        },
+        wrap: {
+            type: Boolean,
+            default: true,
         },
     },
     data() {
@@ -173,7 +177,8 @@ export default {
     display: block;
 }
 
-.root[mode="flex"] { display: flex; text-align: inherit; }
+.root[mode="flex"] { display: flex; text-align: inherit; flex-wrap: wrap }
+.root[mode="flex"][nowrap] {flex-wrap: nowrap}
 
 .root[mode="flex"][direction="vertical"] { flex-direction: column; }
 
