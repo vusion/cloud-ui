@@ -223,6 +223,9 @@
     border-radius: var(--border-radius-base);
     box-shadow: var(--select-popper-box-shadow);
 }
+.popper:empty {
+    display: none;
+}
 
 .status {
     color: var(--select-status-color);
