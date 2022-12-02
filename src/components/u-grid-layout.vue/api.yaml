@@ -64,40 +64,49 @@
       default: normal
       description: 栅格列之间的间隔
     - name: justify
-      title: 对齐方式
+      title: 横轴对齐
       type: string
+      display: capsules
+      bindHide: true
       options:
         - value: start
           title: 左对齐
+          icon: start
         - value: center
           title: 居中对齐
+          icon: center
         - value: end
           title: 右对齐
+          icon: end
         - value: space-between
           title: 水平分布-左右不留空
-          advanced: true
+          icon: space-between
         - value: space-around
           title: 水平分布-左右留空
-          advanced: true
+          icon: space-around
       default: start
-      description: 内容对齐方式
     - name: alignment
-      title: 对齐方式
+      title: 纵轴对齐
       type: string
+      display: capsules
+      bindHide: true
       options:
         - value: start
           title: 头对齐
+          icon: start
         - value: center
           title: 居中对齐
+          icon: center
         - value: end
           title: 尾对齐
+          icon: end
         - value: baseline
           title: 基线对齐
+          icon: baseline
         - value: stretch
           title: 拉伸子元素充满整个父元素空间
+          icon: stretch
       default: stretch
-      description: 栅格内容对齐方式
-      advanced: true
   slots:
     - concept: Slot
       name: default

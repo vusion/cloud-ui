@@ -38,7 +38,10 @@
                 </u-select>
             </u-linear-layout>
         </u-linear-layout>
-        <u-multi-layout direction="vertical">
+        <u-multi-layout
+            :justify="justify"
+            :alignment="alignment"
+            :direction="direction">
             <u-multi-layout-item style="height: 60px;">
                 <u-block>1</u-block>
             </u-multi-layout-item>
@@ -49,10 +52,7 @@
                         <u-panel>2</u-panel>
                         <u-panel>3</u-panel>
                     </u-multi-layout-item>
-                    <u-multi-layout-item :mode="mode"
-                    :justify="justify"
-                    :alignment="alignment"
-                    :direction="direction">
+                    <u-multi-layout-item :mode="mode">
                         <u-panel>1</u-panel>
                         <u-panel>2</u-panel>
                         <u-panel>3</u-panel>
