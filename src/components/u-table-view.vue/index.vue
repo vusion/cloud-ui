@@ -738,7 +738,7 @@ export default {
                         this.preRootWidth = rootWidth;
                     } else {
                         if (Math.abs(this.preRootWidth - rootWidth) <= 1) {
-                            return;
+                            rootWidth = this.preRootWidth;
                         }
                         this.preRootWidth = rootWidth;
                     }
