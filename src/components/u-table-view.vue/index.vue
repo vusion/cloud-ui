@@ -1656,7 +1656,13 @@ export default {
             this.dragState = {
                 dragging: true,
                 source: item,
-                sourcePath: rowIndex,
+                sourcePath: rowIndex, // 这里需要是表格中的具体行值，用于drop的时候判断
+                sourceData: {
+                    item,
+                    parent: item.parentPointer,
+                    level: item.tableTreeItemLevel,
+                    index: this.findItemIndex(item),
+                },
             };
             // 该节点下的所有子节点不要响应dragover
             this.currentData.forEach((citem) => {
@@ -1666,10 +1672,7 @@ export default {
             // 本身不要线
             item.draggoverDisabled = true;
             this.$emit('dragstart', {
-                source: {
-                    item,
-                    path: rowIndex,
-                },
+                source: this.dragState.sourceData,
             });
         },
         /**
@@ -1731,14 +1734,17 @@ export default {
                     position,
                     left,
                 };
-                this.$emit('dragover', {
-                    target: {
-                        item,
-                        path: rowIndex,
-                    },
-                });
                 this.dragState.target = item;
-                this.dragState.targetPath = rowIndex;
+                this.dragState.targetPath = rowIndex; // 这里需要是表格中的具体行值，用于drop的时候判断
+                this.dragState.targetData = {
+                    item,
+                    parent: item.parentPointer,
+                    level: item.tableTreeItemLevel,
+                    index: this.findItemIndex(item),
+                };
+                this.$emit('dragover', {
+                    target: this.dragState.targetData,
+                });
             }
         },
         /**
@@ -1759,13 +1765,12 @@ export default {
                 && this.dropData) {
                 this.preventDatasourceWatch = true;
                 const originalList = this.currentDataSource ? this.currentDataSource.arrangedData.filter((item) => !!item) : this.currentDataSource;
-                let sourcePath = this.dragState.sourcePath;
                 let targetPath = this.dragState.targetPath;
-                let sourceParentItem;
                 let targetParentItem;
+                let dropList = [];
                 // 树型展示的处理
                 if (this.treeDisplay) {
-                    this.findItem(originalList, null, (node, index, list, parentNode) => {
+                    this.findItem(originalList, this.dragState.source.parentPointer, (node, index, list, parentNode) => {
                         if (this.dragState.source === node) {
                             this.removeData = {
                                 parentList: list,
@@ -1775,14 +1780,12 @@ export default {
                         }
                     });
                     if (this.removeData) {
-                        sourcePath = this.removeData.index;
                         this.removeData.parentList.splice(this.removeData.index, 1);
                         if (!this.removeData.parentList.length) {
                             this.$set(this.removeData.parentNode, this.hasChildrenField, false);
                         }
-                        sourceParentItem = this.removeData.parentNode;
                     }
-                    this.findItem(originalList, null, (node, index, list, parentNode) => {
+                    this.findItem(originalList, this.dragState.target.parentPointer, (node, index, list, parentNode) => {
                         if (this.dragState.target === node) {
                             this.insetData = {
                                 parentList: list,
@@ -1822,15 +1825,22 @@ export default {
                                 this.$set(parentNode, 'expanded', true);
                                 this.subTreeLoading = false;
                                 this.currentDataSource.arrangedData = originalList;
+                                const level = (parentNode.tableTreeItemLevel || 0) + 1;
+                                const finalSource = {
+                                    item: this.dragState.source,
+                                    parent: parentNode,
+                                    index: targetPath,
+                                    level,
+                                };
                                 this.$emit('drop', {
-                                    source: this.dragState.source,
-                                    sourcePath,
-                                    sourceParentItem,
-                                    target: this.dragState.target,
-                                    targetPath,
-                                    targetParentItem,
+                                    source: this.dragState.sourceData,
+                                    target: this.dragState.targetData,
                                     position: this.dropData.position,
-                                    list: originalList,
+                                    finalSource,
+                                    updateData: {
+                                        sourceList: this.removeData.parentList,
+                                        targetList: result,
+                                    },
                                 });
                                 this.clearDragState();
                             }).catch((err) => {
@@ -1846,13 +1856,16 @@ export default {
                             const children = this.$at(parentNode, this.childrenField) || [];
                             children.push(this.dragState.source);
                             targetPath = children.length - 1;
+                            targetParentItem = parentNode;
+                            dropList = children;
                         }
                     } else {
                         const insertIndex = this.dropData.position === 'insertBefore' ? this.insetData.index : this.insetData.index + 1;
                         this.insetData && this.insetData.parentList.splice(insertIndex, 0, this.dragState.source);
                         targetPath = insertIndex;
+                        targetParentItem = this.insetData.parentNode;
+                        dropList = this.insetData.parentList;
                     }
-                    targetParentItem = this.insetData.parentNode;
                     this.currentDataSource.arrangedData = originalList;
                 } else {
                     // 普通表格的处理
@@ -1860,20 +1873,24 @@ export default {
                     originalList.splice(this.dragState.targetPath, 0, this.dragState.source);
                     this.currentDataSource.arrangedData = originalList;
                     targetPath = this.dragState.targetPath;
+                    dropList = originalList;
                 }
+                const level = targetParentItem ? (targetParentItem.tableTreeItemLevel || 0) + 1 : 0;
+                const finalSource = {
+                    item: this.dragState.source,
+                    parent: targetParentItem,
+                    index: targetPath,
+                    level,
+                };
                 this.$emit('drop', {
-                    source: {
-                        item: this.dragState.source,
-                        parent: sourceParentItem,
-                        path: sourcePath,
-                    },
-                    target: {
-                        item: this.dragState.target,
-                        parent: targetParentItem,
-                        path: targetPath,
-                    },
+                    source: this.dragState.sourceData,
+                    target: this.dragState.targetData,
                     position: this.dropData.position,
-                    list: originalList,
+                    finalSource,
+                    updateData: {
+                        sourceList: this.removeData.parentList,
+                        targetList: dropList,
+                    },
                 });
                 this.clearDragState();
             }
@@ -1884,14 +1901,30 @@ export default {
         /**
          * 查找数据在数组的哪个位置
          */
+        // findItem(list, parentNode, func) {
+        //     list.forEach((item, index) => {
+        //         func(item, index, list, parentNode);
+        //         const childList = item && this.$at(item, this.childrenField);
+        //         if (!childList)
+        //             return;
+        //         this.findItem(childList, item, func);
+        //     });
+        // },
         findItem(list, parentNode, func) {
-            list.forEach((item, index) => {
-                func(item, index, list, parentNode);
-                const childList = item && this.$at(item, this.childrenField);
-                if (!childList)
-                    return;
-                this.findItem(childList, item, func);
+            let tempList = list;
+            if (parentNode) {
+                tempList = this.$at(parentNode, this.childrenField);
+            }
+            tempList.forEach((item, index) => {
+                func(item, index, tempList, parentNode);
             });
+        },
+        findItemIndex(item) {
+            let list = this.currentDataSource ? this.currentDataSource.arrangedData.filter((item) => !!item) : this.currentDataSource;
+            if (item.parentPointer) {
+                list = this.$at(item.parentPointer, this.childrenField);
+            }
+            return list.findIndex((litem) => litem === item);
         },
         /**
          * 清除拖拽数据
