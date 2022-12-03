@@ -7,8 +7,10 @@
     :loading="loading || $attrs.loading"
     :hoverType="hoverType"
     @click="onClick" v-on="listeners">
-    <i-ico v-if="icon" :name="icon" :class="$style.btnicon" notext></i-ico>
-    <slot>{{ text }}</slot>
+    <span :class="$style.content" vusion-slot-name-edit="text">
+        <i-ico v-if="icon" :name="icon" :class="$style.btnicon" notext></i-ico>
+        <slot>{{ text }}</slot>
+    </span>
 </a>
 </template>
 
@@ -243,4 +245,5 @@ export default {
 .btnicon {
 
 }
+.content {}
 </style>

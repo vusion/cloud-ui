@@ -341,4 +341,10 @@ export default {
 .root[loading] [class^="i-ico_lcp-iconv"]{
     display: none;
 }
+.root .content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
 </style>
