@@ -1818,6 +1818,14 @@
     --grid-layout-column-gap-normal: 16px;
     --grid-layout-column-gap-large: 24px;
     --grid-layout-column-gap-huge: 32px;
+    --grid-layout-column-content-gap-shrink: var(--space-shrink);
+    --grid-layout-column-content-gap-none: 0;
+    --grid-layout-column-content-gap-mini: var(--space-mini);
+    --grid-layout-column-content-gap-small: var(--space-small);
+    --grid-layout-column-content-gap-normal: var(--space-base);
+    --grid-layout-column-content-gap-large: var(--space-large);
+
+
 }
 
 @custom-media --mini-window (max-width: 479px);

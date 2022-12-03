@@ -16,12 +16,15 @@
         - value: inline
           title: 行内
           icon: dispaly-inline
+          tooltip: 内联布局
         - value: block
           title: 块级
           icon: dispaly-block
+          tooltip: 块级布局
         - value: flex
           title: 弹性
           icon: dispaly-flex
+          tooltip: 弹性布局
       default: block
       toggleclear:
         - justify
@@ -36,11 +39,12 @@
         - value: horizontal
           title: 横向排列
           icon: flex-horizontal
+          tooltip: 横向
         - value: vertical
           title: 纵向排列
           icon: flex-vertical
+          tooltip: 纵向
       default: horizontal
-      description: 可更改布局的排列方向
       toggleclear:
         - justify
         - alignment
@@ -53,15 +57,19 @@
         - value: start
           title: 左对齐
           icon: start
+          tooltip: 左对齐
         - value: center
           title: 居中对齐
           icon: center
+          tooltip: 居中对齐
         - value: end
           title: 右对齐
           icon: end
+          tooltip: 右对齐
         - value: space-between
-          title: 各行之间留有空
+          title: 平均分布(两端不留空)
           icon: space-between
+          tooltip: 平均分布(两端不留空)
           dependency:
             or:
               - name: direction
@@ -71,20 +79,21 @@
                 value:
                   - flex
         - value: space-around
-          title: 之前、之间、之后都留有空白
+          title: 平均分布
           icon: space-around
+          tooltip: 平均分布
           dependency:
             and:
               - name: mode
                 value:
                   - flex
       default: start
-      description: 内容对齐方式
       dependency:
         and:
           - name: direction
             value: 
               - horizontal
+              - vertical
     - name: alignment
       title: 纵轴对齐
       type: string
@@ -92,22 +101,26 @@
       bindHide: true
       options:
         - value: start
-          title: 头对齐
+          title: 顶对齐
           icon: align-start
+          tooltip: 顶对齐
         - value: center
-          title: 居中对齐
+          title: 垂直居中
           icon: align-center
+          tooltip: 垂直居中
         - value: end
-          title: 尾对齐
+          title: 底对齐
           icon: align-end
+          tooltip: 底对齐
         - value: baseline
-          title: 基线对齐
+          title: 行内文字基线对齐
           icon: align-baseline
+          tooltip: 行内文字基线对齐
         - value: stretch
-          title: 拉伸子元素充满整个父元素空间
+          title: 占满容器高度
           icon: align-stretch
+          tooltip: 占满容器高度
       default: stretch
-      description: flex布局模式下的交叉轴对齐方式
       dependency:
         and:
           - name: mode
@@ -125,17 +138,20 @@
         - value: start
           title: 头对齐
           icon: align-start
+          tooltip: 左对齐
         - value: center
           title: 居中对齐
           icon: align-center
+          tooltip: 居中对齐
         - value: end
           title: 尾对齐
           icon: align-end
+          tooltip: 右对齐
         - value: stretch
           title: 拉伸子元素充满整个父元素空间
           icon: align-stretch
+          tooltip: 占满容器宽度
       default: stretch
-      description: flex布局模式下的交叉轴对齐方式
       dependency:
         and:
           - name: mode
@@ -153,20 +169,24 @@
         - value: start
           title: 左对齐
           icon: start
+          tooltip: 顶对齐
         - value: center
           title: 居中对齐
           icon: center
+          tooltip: 垂直居中
         - value: end
           title: 右对齐
           icon: end
+          tooltip: 底对齐
         - value: space-between
-          title: 各行之间留有空
+          title: 平均分布(两端不留空)
           icon: space-between
+          tooltip: 平均分布(两端不留空)
         - value: space-around
-          title: 之前、之间、之后都留有空白
+          title: 平均分布
           icon: space-around
+          tooltip: 平均分布
       default: start
-      description: 内容对齐方式
       dependency:
         and:
           - name: mode
@@ -186,7 +206,7 @@
             value:
               - flex
     - name: gap
-      title: 间隙
+      title: 内容间隙
       type: string
       options:
         - value: shrink

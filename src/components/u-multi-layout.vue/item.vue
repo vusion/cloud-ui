@@ -1,5 +1,6 @@
 <template>
-<div :class="$style.root" :direction="direction" :fixed="String(fixed)" :fixdirec="String(fixdirec)" v-on="$listeners" vusion-slot-name="default" ref="item">
+<div :class="$style.root" :direction="direction" :fixed="String(fixed)" :fixdirec="String(fixdirec)" v-on="$listeners" vusion-slot-name="default" ref="item"
+    :nowrap="!wrap">
     <slot></slot>
     <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
 </div>
@@ -25,6 +26,10 @@ export default {
         direction: {
             type: String,
             default: 'horizontal',
+        },
+        wrap: {
+            type: Boolean,
+            default: true,
         },
     },
     data() {
@@ -165,6 +170,7 @@ export default {
 .root[mode="flex"] { display: flex; text-align: inherit; }
 
 .root[mode="flex"][direction="vertical"] { flex-direction: column; }
+.root[mode="flex"][nowrap] {flex-wrap: nowrap}
 
 .root[mode="flex"][justify="start"] { justify-content: flex-start; }
 .root[mode="flex"][justify="center"] { justify-content: center; }

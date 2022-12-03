@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" vusion-slot-name="default" :style="[commonStyle, responsiveStyle]" :empty="!$slots.default">
+<div :class="$style.root" vusion-slot-name="default" :style="[commonStyle, responsiveStyle]" :empty="!$slots.default" :nowrap="!wrap">
     <slot></slot>
     <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
 </div>
@@ -41,6 +41,10 @@ export default {
         mediaMedium: Number,
         mediaLarge: Number,
         mediaHuge: Number,
+        wrap: {
+            type: Boolean,
+            default: true,
+        },
     },
     data() {
         return {
@@ -127,6 +131,69 @@ export default {
 <style module>
 .root {
     position: relative;
+}
+
+.root[mode="flex"] { display: flex; text-align: inherit; flex-wrap: wrap }
+.root[mode="flex"][nowrap] {flex-wrap: nowrap}
+
+.root[mode="flex"][direction="vertical"] { flex-direction: column; }
+
+.root[mode="flex"][justify="start"] { justify-content: flex-start; }
+.root[mode="flex"][justify="center"] { justify-content: center; }
+.root[mode="flex"][justify="end"] { justify-content: flex-end; }
+.root[mode="flex"][justify="space-between"] { justify-content: space-between; }
+.root[mode="flex"][justify="space-between"]::after { display: none; }
+.root[mode="flex"][justify="space-around"] { justify-content: space-around; }
+
+.root[mode="flex"][alignment="start"] { align-items: flex-start; }
+.root[mode="flex"][alignment="center"] { align-items: center; }
+.root[mode="flex"][alignment="end"] { align-items: flex-end; }
+.root[mode="flex"][alignment="baseline"] { align-items: baseline; }
+.root[mode="flex"][alignment="stretch"] { align-items: stretch; }
+
+.root[mode="flex"] > *:not(:last-child) {
+    margin-right: var(--grid-layout-column-content-gap-normal);
+}
+.root[mode="flex"][direction="vertical"] > *:not(:last-child) {
+    margin-bottom: var(--grid-layout-column-content-gap-normal);
+}
+
+.root[mode="flex"][gap="shrink"] > *:not(:last-child) {
+    margin-right: var(--grid-layout-column-content-gap-shrink);
+}
+.root[mode="flex"][direction="vertical"][gap="shrink"] > *:not(:last-child) {
+    margin-bottom: var(--grid-layout-column-content-gap-shrink);
+}
+.root[mode="flex"][gap="none"] > *:not(:last-child) {
+    margin-right: var(--grid-layout-column-content-gap-none);
+}
+.root[mode="flex"][direction="vertical"][gap="none"] > *:not(:last-child) {
+    margin-bottom: var(--grid-layout-column-content-gap-none);
+}
+
+.root[mode="flex"][gap="mini"] > *:not(:last-child) {
+    margin-right: var(--grid-layout-column-content-gap-mini);
+}
+.root[mode="flex"][direction="vertical"][gap="mini"] > *:not(:last-child) {
+    margin-bottom: var(--grid-layout-column-content-gap-mini);
+}
+
+.root[mode="flex"][gap="small"] > *:not(:last-child) {
+    margin-right: var(--grid-layout-column-content-gap-small);
+}
+.root[mode="flex"][direction="vertical"][gap="small"] > *:not(:last-child) {
+    margin-bottom: var(--grid-layout-column-content-gap-small);
+}
+
+.root[mode="flex"][gap="large"] > *:not(:last-child) {
+    margin-right: var(--grid-layout-column-content-gap-large);
+}
+.root[mode="flex"][direction="vertical"][gap="large"] > *:not(:last-child) {
+    margin-bottom: var(--grid-layout-column-content-gap-large);
+}
+.root[mode="flex"][direction="vertical"] > *:nth-child(odd),
+.root[mode="flex"][direction="vertical"] > *:nth-child(even) {
+    margin-right: 0;
 }
 
 </style>
