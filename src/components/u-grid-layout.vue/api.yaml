@@ -45,23 +45,23 @@
       options:
         - value: start
           title: 左对齐
-          icon: start
+          icon: horizontal-justify-start
           tooltip: 左对齐
         - value: center
           title: 居中对齐
-          icon: center
+          icon: horizontal-justify-center
           tooltip: 居中对齐
         - value: end
           title: 右对齐
-          icon: end
+          icon: horizontal-justify-end
           tooltip: 右对齐
         - value: space-between
           title: 平均分布(两端不留空)
-          icon: space-between
+          icon: horizontal-justify-space-between
           tooltip: 平均分布(两端不留空)
         - value: space-around
           title: 水平分布-左右留空
-          icon: space-around
+          icon: horizontal-justify-space-around
           tooltip: 平均分布
       default: start
     - name: alignment
@@ -72,23 +72,23 @@
       options:
         - value: start
           title: 顶对齐
-          icon: align-start
+          icon: horizontal-alignment-start
           tooltip: 顶对齐
         - value: center
           title: 垂直居中
-          icon: align-center
+          icon: horizontal-alignment-center
           tooltip: 垂直居中
         - value: end
           title: 底对齐
-          icon: align-end
+          icon: horizontal-alignment-end
           tooltip: 底对齐
         - value: baseline
           title: 行内文字基线对齐
-          icon: align-baseline
+          icon: horizontal-alignment-baseline
           tooltip: 行内文字基线对齐
         - value: stretch
           title: 占满容器高度
-          icon: align-stretch
+          icon: horizontal-alignment-stretch
           tooltip: 占满容器高度
       default: stretch
     - name: repeat
@@ -169,10 +169,7 @@
         - justify
         - alignment
       dependency:
-        and:
-          - name: mode
-            value:
-              - flex
+        - mode: flex
     - name: justify
       title: 横轴对齐
       type: string
@@ -181,33 +178,28 @@
       options:
         - value: start
           title: 左对齐
-          icon: start
+          icon: horizontal-justify-start
           tooltip: 左对齐
         - value: center
           title: 居中对齐
-          icon: center
+          icon: horizontal-justify-center
           tooltip: 居中对齐
         - value: end
           title: 右对齐
-          icon: end
+          icon: horizontal-justify-end
           tooltip: 右对齐
         - value: space-between
           title: 平均分布(两端不留空)
-          icon: space-between
+          icon: horizontal-justify-space-between
           tooltip: 平均分布(两端不留空)
         - value: space-around
           title: 平均分布
-          icon: space-around
+          icon: horizontal-justify-space-around
           tooltip: 平均分布
       default: start
       dependency:
-        and:
-          - name: mode
-            value:
-              - flex
-          - name: direction
-            value: 
-              - horizontal
+        - mode: flex
+          direction: horizontal
     - name: alignment
       title: 纵轴对齐
       type: string
@@ -216,33 +208,28 @@
       options:
         - value: start
           title: 顶对齐
-          icon: align-start
+          icon: horizontal-alignment--start
           tooltip: 顶对齐
         - value: center
           title: 垂直居中
-          icon: align-center
+          icon: horizontal-alignment--center
           tooltip: 垂直居中
         - value: end
           title: 底对齐
-          icon: align-end
+          icon: horizontal-alignment--end
           tooltip: 底对齐
         - value: baseline
           title: 行内文字基线对齐
-          icon: align-baseline
+          icon: horizontal-alignment--baseline
           tooltip: 行内文字基线对齐
         - value: stretch
           title: 占满容器高度
-          icon: align-stretch
+          icon: horizontal-alignment--stretch
           tooltip: 占满容器高度
       default: stretch
       dependency:
-        and:
-          - name: mode
-            value:
-              - flex
-          - name: direction
-            value: 
-              - horizontal
+        - mode: flex
+          direction: horizontal
     - name: alignment
       title: 横轴对齐
       type: string
@@ -267,13 +254,8 @@
           tooltip: 占满容器宽度
       default: stretch
       dependency:
-        and:
-          - name: mode
-            value:
-              - flex
-          - name: direction
-            value: 
-              - vertical
+        - mode: flex
+          direction: vertical
     - name: justify
       title: 纵轴对齐
       type: string
@@ -302,23 +284,15 @@
           tooltip: 平均分布
       default: start
       dependency:
-        and:
-          - name: mode
-            value:
-              - flex
-          - name: direction
-            value: 
-              - vertical
+        - mode: flex
+          direction: vertical
     - name: wrap
       title: 是否换行
       type: boolean
       default: true
       description: 弹性布局下子元素总宽度超出父级时子元素是否换行展示
       dependency:
-        and:
-          - name: mode
-            value:
-              - flex
+        - mode: flex
     - name: gap
       title: 内容间隙
       type: string
@@ -337,10 +311,7 @@
       default: normal
       description: 内容块间隙大小
       dependency:
-        and:
-          - name: mode
-            value:
-              - flex
+        - mode: flex
     - name: span
       title: 占据栅格数
       type: number
