@@ -17,7 +17,7 @@
                     <slot name="drawer">
                         <div :class="$style.head" v-show="showHead" vusion-slot-name="head" :child-cut-disabled="true">
                             <slot name="head">
-                                <div v-if="title" :class="$style.title" vusion-slot-name="title"
+                                <div v-if="(title || $slots.title) && !isTitleSlotEmpty || $env.VUE_APP_DESIGNER" :class="$style.title" vusion-slot-name="title"
                                      vusion-slot-name-edit="title" :child-cut-disabled="true">
 
                                     <slot name="title">
@@ -40,7 +40,7 @@
                                 </template>
                             </slot>
                         </div>
-                        <div :class="$style.foot" v-show="showFoot && (okButton || cancelButton)" vusion-slot-name="foot"
+                        <div :class="$style.foot" v-show="showFoot && (okButton || cancelButton) && (!isFootSlotEmpty || $env.VUE_APP_DESIGNER)" vusion-slot-name="foot"
                              :child-cut-disabled="true">
 
                             <slot name="foot">

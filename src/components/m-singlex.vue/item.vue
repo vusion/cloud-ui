@@ -3,9 +3,16 @@
     :selected="parentVM.router ? active : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
     :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
     v-ellipsis-title
-    vusion-slot-name-edit="text">
+    vusion-slot-name-edit="text"
+    vusion-slot-name="default">
     <i-ico v-if="icon" :name="icon" :class="$style.singleicon" notext></i-ico>
     <slot>{{ text }}</slot>
+    <s-empty
+        v-if="(!$slots.default)
+        && !text
+        && $env.VUE_APP_DESIGNER
+        && !!$attrs['vusion-node-path']">
+    </s-empty>
 </a>
 </template>
 
@@ -14,6 +21,7 @@ import { MChild } from '../m-parent.vue';
 import ULink from '../u-link.vue';
 import IIco from '../i-ico.vue';
 import { ellipsisTitle } from '../../directives';
+import SEmpty from '../s-empty.vue';
 
 const trailingSlashRE = /\/?$/;
 
@@ -24,6 +32,7 @@ export default {
     directives: { ellipsisTitle },
     components: {
         IIco,
+        SEmpty,
     },
     mixins: [MChild, ULink],
     props: {

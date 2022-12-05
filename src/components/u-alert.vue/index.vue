@@ -8,7 +8,7 @@
         <div :class="$style.content" :horizontal="horizontal">
             <i v-if="showIcon" :class="$style.icon"></i>
             <div>
-                <div :class="$style.title">
+                <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     <slot name="title">
                         {{ title }}
                         <s-empty
@@ -19,7 +19,7 @@
                         </s-empty>
                     </slot>
                 </div>
-                <div :class="$style.desc">
+                <div :class="$style.desc" vusion-slot-name="default">
                     <slot>{{ desc }}</slot>
                     <s-empty v-if="(!$slots.default) && !desc && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                 </div>

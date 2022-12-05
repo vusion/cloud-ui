@@ -14,9 +14,9 @@
                 </slot>
             </div>
             <a :class="$style.close" @click="cancel()"></a>
-            <div :class="$style.extra">
+            <div :class="$style.extra" vusion-slot-name="extra">
                 <slot name="extra"></slot>
-                <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+                <s-empty v-if="(!$slots.extra) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
             </div>
         </slot>
     </div>
@@ -95,5 +95,8 @@ export default {
 .body {
     clear: both;
     padding: var(--panel-body-padding-y) var(--panel-body-padding-x);
+}
+.title [s-empty] {
+    max-width: 150px;
 }
 </style>

@@ -26,7 +26,11 @@
     <f-collapse-transition v-else>
         <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true">
             <slot></slot>
-            <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+            <div
+                v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"
+                vusion-empty-background="add-sub"
+                style="padding: 20px 0;">
+            </div>
         </div>
     </f-collapse-transition>
 </div>

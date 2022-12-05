@@ -16,10 +16,13 @@
             :disabled="itemVM.disabled || disabled"
             :desc="!!(itemVM.desc || itemVM.$slots.desc)"
             v-show="!itemVM.hidden"
-            :style="{ width: currentItemWidth }">
+            :style="{ width: currentItemWidth }"
+            :vusion-template-title-node-path="itemVM.$attrs['vusion-template-title-node-path']"
+            :vusion-template-desc-node-path="itemVM.$attrs['vusion-template-desc-node-path']">
             <div :class="$style['item-body']" :title="itemVM.title">
                 <span :class="$style.radio" @click="select(itemVM)"></span>
-                <span :class="$style.title" @click="select(itemVM)" vusion-slot-name="title"><f-slot :vm="itemVM" name="title">
+                <span :class="$style.title" @click="select(itemVM)"
+                    vusion-slot-name="title"><f-slot :vm="itemVM" name="title">
                     {{ itemVM.title }}
                     <s-empty v-if="!itemVM.title && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                 </f-slot></span>
@@ -27,7 +30,8 @@
                     <f-slot name="tooltip" :vm="itemVM">{{ itemVM.tooltip }}</f-slot>
                 </u-tooltip>
             </div>
-            <span :class="$style.desc" vusion-slot-name="desc"><f-slot name="desc" :vm="itemVM">
+            <span :class="$style.desc"
+                vusion-slot-name="desc"><f-slot name="desc" :vm="itemVM">
                 {{ itemVM.desc }}
                 <s-empty v-if="!itemVM.desc && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
             </f-slot></span>
