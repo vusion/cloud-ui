@@ -1,0 +1,8 @@
+{
+    "pageSizeUnit": "行",
+    "pageSize": "/ページ",
+    "pageUnit": "ページ",
+    "total": "合計 {totalItems} 行",
+    "goto": "",
+    "gotoPageUnit": "ページへ"
+}
