@@ -1767,7 +1767,7 @@ export default {
                 const originalList = this.currentDataSource ? this.currentDataSource.arrangedData.filter((item) => !!item) : this.currentDataSource;
                 let targetPath = this.dragState.targetPath;
                 let targetParentItem;
-                let dropList = [];
+                let dropList = originalList;
                 // 树型展示的处理
                 if (this.treeDisplay) {
                     this.findItem(originalList, this.dragState.source.parentPointer, (node, index, list, parentNode) => {
@@ -1888,7 +1888,7 @@ export default {
                     position: this.dropData.position,
                     finalSource,
                     updateData: {
-                        sourceList: this.removeData.parentList,
+                        sourceList: this.removeData && this.removeData.parentList || originalList,
                         targetList: dropList,
                     },
                 });
