@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" @submit.prevent :layout="layoutValue" :repeat="repeat">
+<div :class="$style.root" @submit.prevent :layout="layoutValue" :repeat="repeat" :label-layout="labelLayout">
     <slot></slot>
 </div>
 </template>
@@ -21,6 +21,8 @@ export default {
         labelSize: { type: String, default: 'normal' },
         collapsible: { type: Boolean, default: false },
         repeat: { type: [String, Number], default: null },
+        labelLayout: String,
+        labelEllipsis: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -133,7 +135,7 @@ export default {
 .root[layout="block"] .item:not(:last-child) {
     margin-bottom: var(--form-item-margin-bottom);
 }
-
+/* @deprecated 换成了label-layout*/
 .root[layout="vertical"] .item {
     display: block;
     display: flex;
@@ -169,6 +171,7 @@ export default {
 .root[layout="vertical"] .item > label [s-empty="true"] {
     max-width: 90px;
 }
+/* @deprecated 换成了label-layout*/
 .root .item > label [s-empty="true"] {
     min-width: 56px;
 }
@@ -235,4 +238,8 @@ export default {
   margin-right: var(--space-medium);
 }
 
+.root[label-layout="block"][layout="inline"] .item,
+.root[label-layout="block"][layout="inline"] .item[label-layout="block"]{
+    display: inline-flex;
+}
 </style>

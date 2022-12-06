@@ -49,6 +49,8 @@ export default {
     props: {
         size: String,
         repeat: { type: [String, Number], default: null },
+        labelLayout: String,
+        labelEllipsis: { type: Boolean, default: false },
     },
     computed: {
         currentSize() {
