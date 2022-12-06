@@ -345,7 +345,11 @@ export default {
 .root[label-layout="block"]> label [s-empty="true"] {
     max-width: 90px;
 }
-.root[label-ellipsis] span {
+.label span {
+    white-space: inherit;
+    word-break: break-all;
+}
+.root[label-ellipsis] .label span {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
