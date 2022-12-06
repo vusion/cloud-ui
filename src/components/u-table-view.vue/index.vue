@@ -2300,7 +2300,8 @@ export default {
     margin-top: var(--table-view-pagination-space);
 }
 
-.row[selected] {
+.row[selected],
+.row[selected] td {
     background: var(--table-view-row-selected-background) !important;
 }
 .row[selected] td{
