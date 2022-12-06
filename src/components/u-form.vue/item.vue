@@ -156,16 +156,16 @@ export default {
     min-width: 100px;
 }
 
-/* .label {
+.label {
     display: inline-block;
     width: var(--form-item-label-width);
     padding-right: var(--form-item-label-padding-right);
     color: var(--form-item-label-color);
     text-align: right;
     position: relative;
-} */
+}
 
-.label {
+/* .label {
     display: inline-flex;
     width: var(--form-item-label-width);
     padding-right: var(--form-item-label-padding-right);
@@ -174,7 +174,7 @@ export default {
     position: relative;
     align-items: var(--form-item-label-align-items);
     justify-content: var(--form-item-label-justify-content);
-}
+} */
 
 .label[required]::after {
     content: "*";
@@ -345,10 +345,7 @@ export default {
 .root[label-layout="block"]> label [s-empty="true"] {
     max-width: 90px;
 }
-.label span {
-    white-space: inherit;
-    word-break: break-all;
-}
+.root[label-ellipsis] .label,
 .root[label-ellipsis] .label span {
     overflow: hidden;
     text-overflow: ellipsis;
