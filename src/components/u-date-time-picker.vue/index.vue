@@ -427,7 +427,7 @@ export default {
                 sender: this,
                 date: this.finalDateTime ? new Date(this.finalDateTime.replace(/-/g, '/')).getTime() : undefined,
             }); // 方便u-field组件捕获到其值
-            this.$emit('input', this.finalDateTime);
+            this.$emit('input', newDateTime);
         },
         onPopperOpen() {
             if (!this.finalDateTime)
