@@ -955,6 +955,8 @@
             typeName: T
     - concept: Slot
       name: title
+      plus-empty: true
+      plus-empty-tag: title-plus-empty
       title: 标题
       accept-type:
         - text

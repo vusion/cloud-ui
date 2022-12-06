@@ -25,6 +25,7 @@
                             :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
                             :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
                             :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
+                            :vusion-template-title-node-path="columnVM.$attrs['vusion-template-title-node-path']"
                             :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)"
                             :style="getStyle(columnIndex)"
                             :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
@@ -36,9 +37,17 @@
                             </span>
                             <!-- Normal title -->
                             <template>
-                                <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">
-                                    <span vusion-slot-name="title" vusion-slot-name-edit="title" :class="$style['column-title']">{{ columnVM.title }}</span>
-                                </f-slot>
+                                <span vusion-slot-name="title" vusion-slot-name-edit="title" :class="$style['column-title']" :plus-empty="columnVM.$attrs['title-plus-empty']">
+                                    <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">
+                                        {{ columnVM.title }}
+                                        <s-empty
+                                            v-if="!(columnVM.$slots && columnVM.$slots.title)
+                                                && !columnVM.title
+                                                && $env.VUE_APP_DESIGNER
+                                                && !!$attrs['vusion-node-path']">
+                                        </s-empty>
+                                    </f-slot>
+                                </span>
                             </template>
                             <!-- Sortable -->
                             <span v-if="columnVM.sortable" :class="$style.sort"

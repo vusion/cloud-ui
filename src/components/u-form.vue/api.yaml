@@ -63,6 +63,16 @@
           title: 大
       default: normal
       description: 设置表单行间隔大小
+    - name: label-layout
+      title: 标签布局
+      type: string
+      options:
+        - value: inline
+          title: 行内展示
+        - value: block
+          title: 块级展示，标签与表单项分行展示
+      default: inline
+      description: ""
     - name: label-size
       title: 标签宽度
       type: string
@@ -77,6 +87,11 @@
           title: 大
       default: normal
       description: ""
+    - name: label-ellipsis
+      title: 标签省略显示
+      type: boolean
+      default: false
+      description: 文字过长是否省略显示。默认文字超出时会换行。
     - name: size
       title: 表单尺寸
       type: string
@@ -211,6 +226,16 @@
       type: string
       default: 1
       description: 列跨越的格数
+    - name: label-layout
+      title: 标签布局
+      type: string
+      options:
+        - value: inline
+          title: 行内展示
+        - value: block
+          title: 块级展示，标签与表单项分行展示
+      default: inline
+      description: ""
     - name: label-size
       title: 标签大小
       type: string
@@ -225,6 +250,11 @@
           title: 大
       default: normal
       description: 单独设置表单项的标签大小。
+    - name: label-ellipsis
+      title: 标签省略显示
+      type: boolean
+      default: false
+      description: 文字过长是否省略显示。默认文字超出时会换行。
     - name: field-size
       title: 字段大小
       type: string
@@ -276,15 +306,17 @@
       default: right
       description: 改变提示信息显示位置
     - name: layout
-      title: 布局方式
+      title: 标签纵轴对齐
       type: string
       options:
-        - value: inline
-          title: 行内
         - value: block
-          title: 块级
-      default: inline
-      description: 布局方式。
+          title: 顶对齐
+        - value: center
+          title: 居中对齐
+        - value: end
+          title: 尾对齐
+      default: block
+      description: 标签与表单元素的纵轴对齐方式，默认为顶对齐
     - name: rules
       title: 验证规则
       type: string | Array
@@ -388,6 +420,21 @@
       type: number
       default: 1
       description: 整个表单的划分列数
+    - name: label-layout
+      title: 标签布局
+      type: string
+      options:
+        - value: inline
+          title: 行内展示
+        - value: block
+          title: 块级展示，标签与表单项分行展示
+      default: inline
+      description: ""
+    - name: label-ellipsis
+      title: 标签省略显示
+      type: boolean
+      default: false
+      description: 文字过长是否省略显示。默认文字超出时会换行。
     - name: collapsible
       title: 是否可折叠
       type: boolean

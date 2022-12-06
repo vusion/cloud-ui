@@ -8,11 +8,20 @@
         <div :class="$style.content" :horizontal="horizontal">
             <i v-if="showIcon" :class="$style.icon"></i>
             <div>
-                <div :class="$style.title" v-if="title || $slots.title">
-                    <slot name="title">{{ title }}</slot>
+                <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    <slot name="title">
+                        {{ title }}
+                        <s-empty
+                            v-if="!$slots.title
+                                && !title
+                                && $env.VUE_APP_DESIGNER
+                                && !!$attrs['vusion-node-path']">
+                        </s-empty>
+                    </slot>
                 </div>
-                <div v-if="desc || $slots.default" :class="$style.desc">
+                <div :class="$style.desc" vusion-slot-name="default">
                     <slot>{{ desc }}</slot>
+                    <s-empty v-if="(!$slots.default) && !desc && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                 </div>
             </div>
         </div>
@@ -21,8 +30,11 @@
 </template>
 
 <script>
+import SEmpty from '../s-empty.vue';
+
 export default {
     name: 'u-alert',
+    components: { SEmpty },
     props: {
         type: {
             type: String,

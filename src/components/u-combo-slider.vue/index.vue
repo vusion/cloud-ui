@@ -2,7 +2,17 @@
 <div :class="$style.root">
     <div :class="$style.main" :unit="!!unit">
          <!-- @override: 增加提示 tip -->
-        <div :class="$style.tip">{{ tip }}</div>
+        <div :class="$style.tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+            <slot name="tip">
+                {{ tip }}
+                <s-empty
+                    v-if="(!$slots.tip)
+                        && !tip
+                        && $env.VUE_APP_DESIGNER
+                        && !!$attrs['vusion-node-path']">
+                </s-empty>
+            </slot>
+        </div>
         <u-slider :class="$style.slider" @mousedown.native="onMousedown" :value="currentValue" @input="onInput" @slide="onSlide"
             :min="min" :max="max" :step="step" :precision="precision" :range="range" :readonly="readonly" :disabled="disabled"
             :show-tooltip="showTooltip" :tooltip="tooltip" :placement="placement"
@@ -28,9 +38,11 @@
 
 <script>
 import MField from '../m-field.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-combo-slider',
+    components: { SEmpty },
     mixins: [MField],
     props: {
         value: { type: Number, default: 0 },
@@ -58,6 +70,7 @@ export default {
         showTooltip: { type: Boolean, default: false },
         tooltip: String,
         placement: { type: String, default: 'top' },
+        layout: { type: String, default: 'flex' },
     },
     data() {
         return { currentValue: this.value, isMousedown: false };
@@ -129,6 +142,8 @@ export default {
 <style module>
 .root {
   text-align: center;
+  display: flex;
+  align-items: baseline;
 }
 
 .slider {
@@ -164,13 +179,16 @@ export default {
     margin-left: 7px;
     margin-bottom: 4px;
     font-size: 12px;
-    color: var(--color-light);
+    color: var(--combo-slider-tip-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: var(--combo-slider-tip-align-items);
 }
 
 .scales {
     margin: 0 7px;
     font-size: 12px;
-    color: var(--color-light);
+    color: var(--combo-slider-scales-color);
 }
 
 .scale {
