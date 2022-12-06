@@ -37,7 +37,7 @@
                             </span>
                             <!-- Normal title -->
                             <template>
-                                <span vusion-slot-name="title" vusion-slot-name-edit="title" :class="$style['column-title']" :plus-empty="columnVM.$attrs['title-plus-empty']">
+                                <span vusion-slot-name="title" vusion-slot-name-edit="title" :class="$style['column-title']">
                                     <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">
                                         {{ columnVM.title }}
                                         <s-empty
