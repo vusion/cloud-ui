@@ -81,7 +81,7 @@
       default: 加载中...
       description: 正在加载中的文字，使用分页加载时才会出现
       advanced: true
-    - name: show-emoty-text
+    - name: show-empty-text
       title: 展示暂无数据提示
       type: boolean
       default: true
