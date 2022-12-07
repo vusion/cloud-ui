@@ -1,8 +1,16 @@
 <template>
 <div :class="$style.root" :disabled="disabled">
     <div :class="$style.head" @click="parentVM.expandTrigger === 'click' && toggle()">
-         <div :class="$style.title">
-            <slot name="title">{{ title }}</slot>
+         <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            <slot name="title">
+                {{ title }}
+                <s-empty
+                    v-if="(!$slots.title)
+                    && !title
+                    && $env.VUE_APP_DESIGNER
+                    && !!$attrs['vusion-node-path']">
+                </s-empty>
+            </slot>
         </div>
         <span v-if="currentCollapsible" :class="$style.expander"
             :expanded="currentExpanded"
@@ -13,7 +21,10 @@
     <f-collapse-transition>
         <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true">
             <slot></slot>
-            <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+            <template v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']">
+                <span style="margin-left:5px" v-if="$options.name === 'u-select-group'">请插入子节点</span>
+                <s-empty v-else></s-empty>
+            </template>
         </div>
     </f-collapse-transition>
 </div>

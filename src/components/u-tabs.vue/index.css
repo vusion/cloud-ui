@@ -402,3 +402,6 @@
     justify-content: center;
     font-weight: var(--tabs-item-title-font-weight);
 }
+.title > *:not(:last-child) {
+    margin-right: var(--tabs-item-title-margin-right);
+}
