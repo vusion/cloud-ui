@@ -66,7 +66,7 @@
         @click.stop @scroll.stop="onScroll" @mousedown.stop>
         <slot></slot>
         <template v-if="currentData">
-            <div :class="$style.status" key="empty" v-if="!currentData.length && !currentLoading">
+            <div :class="$style.status" key="empty" v-if="!currentData.length && !currentLoading && showEmptyText">
                 <slot name="empty">{{ emptyText }}</slot>
             </div>
             <template v-else>
@@ -150,6 +150,7 @@ export default {
         },
         color: String,
         popperWidth: { type: String, default: '' },
+        showEmptyText: { type: Boolean, default: true }, // 控制是否展示emptyText
     },
     data() {
         return {

@@ -19,7 +19,8 @@
     border-color: var(--select-border-color-hover);
 }
 
-.root:focus {
+.root:focus,
+.root[opened] {
     outline: var(--focus-outline);
     border-color: var(--select-border-color-hover);
     box-shadow: var(--select-box-shadow-focus);
