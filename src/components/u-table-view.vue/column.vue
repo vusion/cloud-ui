@@ -33,6 +33,8 @@ export default {
         dblclickHandler: Function,
         filterMultiple: { type: Boolean, default: false },
         filterMax: Number,
+        thStyle: Object,
+        tdStyle: Object,
     },
     data() {
         const data = {
