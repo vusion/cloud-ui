@@ -599,7 +599,8 @@ export default {
         this.watchValue(this.value);
         this.watchValues(this.values);
         this.handleResize();
-        addResizeListener(this.$el, this.handleResize);
+        this.preRootWidth = undefined;
+        addResizeListener(this.$el, this.handleResizeListener);
 
         if (this.stickHead) {
             this.scrollParentEl = findScrollParent(this.$el);
@@ -607,11 +608,12 @@ export default {
         }
     },
     destroyed() {
-        removeResizeListener(this.$el, this.handleResize);
+        removeResizeListener(this.$el, this.handleResizeListener);
         if (this.stickHead) {
             this.scrollParentEl && this.scrollParentEl.removeEventListener('scroll', this.onScrollParentScroll);
         }
         this.clearTimeout();
+        this.preRootWidth = undefined;
     },
     methods: {
         typeCheck(type) {
@@ -714,7 +716,7 @@ export default {
         number2Pixel(value) {
             return isNumber(value) ? value + 'px' : '';
         },
-        handleResize() {
+        handleResize(isListener) {
             if (this.resizeBodyHeight) {
                 this.bodyHeight = undefined;
             }
@@ -729,6 +731,17 @@ export default {
                     while (parentEl && !parentEl.offsetWidth)
                         parentEl = parentEl.parentElement;
                     rootWidth = parentEl ? parentEl.offsetWidth : 0;
+                }
+                // 有些情况下rootWidth会缓慢增长，导致handleResize一直执行
+                if (isListener) {
+                    if (!this.preRootWidth) {
+                        this.preRootWidth = rootWidth;
+                    } else {
+                        if (Math.abs(this.preRootWidth - rootWidth) <= 1) {
+                            rootWidth = this.preRootWidth;
+                        }
+                        this.preRootWidth = rootWidth;
+                    }
                 }
 
                 // 分别获取有百分比、具体数值和无 width 的列
@@ -2034,6 +2047,9 @@ export default {
                 return `calc(100% - ${width}px)`;
             }
             return '100%';
+        },
+        handleResizeListener() {
+            this.handleResize(true);
         },
     },
 };
