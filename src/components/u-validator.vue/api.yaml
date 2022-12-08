@@ -60,7 +60,7 @@
     - name: append-to
       title: 弹出层展示位置
       type: string
-      default: reference
+      default: body
       description: 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中
       options:
         - value: reference
