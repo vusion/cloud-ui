@@ -13,7 +13,7 @@
       support:
         - name: u-panel-group
           advanced: true
-          title: 面板项
+          title: 面板组
           snippet: <u-panel-group title="概览">面板项</u-panel-group>
   attrs:
     - name: title

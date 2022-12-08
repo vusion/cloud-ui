@@ -12,7 +12,7 @@
       type: boolean
       sync: true
       default: false
-      description: 是否显示
+      description: 抽屉默认打开
     - name: placement
       title: 抽屉位置
       type: string
@@ -88,10 +88,4 @@
       params: []
     - name: close
       description: 关闭抽屉
-      params: []
-    - name: ok
-      description: 点击抽屉中“确定”按钮
-      params: []
-    - name: cancel
-      description: 点击抽屉中“取消”按钮
       params: []

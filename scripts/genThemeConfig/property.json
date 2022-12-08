@@ -1354,6 +1354,8 @@
     "--drawer-body-padding": "15px",
     "--drawer-foot-padding": "20px 24px",
     "--drawer-static-padding": "var(--space-base)",
+    "--drawer-body-overflow-y": "auto",
+    "--drawer-border-color": "var(--gray-lightest)",
     "--image-width": "128px",
     "--image-height": "128px",
     "--lightbox-head-height": "64px",

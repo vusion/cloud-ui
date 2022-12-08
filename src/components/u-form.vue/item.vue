@@ -1,7 +1,16 @@
 <template>
-<div :class="$style.root" :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''" :style="responsiveStyle">
+<div :class="$style.root" :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''" :style="responsiveStyle" :label-layout="currentLabelLayout"
+    :label-ellipsis="currentLabelEllipsis">
     <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'" vusion-slot-name="label" vusion-slot-name-edit="label">
-        <slot name="label">{{ label || title }}</slot>
+        <span vusion-slot-name-edit="label" v-ellipsis-title>
+            <slot name="label">{{ label || title }}</slot>
+            <s-empty
+                v-if="!$slots.label
+                    && !(label || title)
+                    && $env.VUE_APP_DESIGNER
+                    && !!$attrs['vusion-node-path']">
+            </s-empty>
+        </span>
     </label>
     <span :class="$style.extra" v-if="!hideSlots && rootVM && rootVM.extraSlots" vusion-slot-name="extra">
         <slot name="extra"></slot>
@@ -25,13 +34,16 @@
 <script>
 import UValidator from '../u-validator.vue';
 import SEmpty from '../s-empty.vue';
+import { MChild } from '../m-parent.vue';
 
 export default {
     name: 'u-form-item',
+    parentName: 'u-form',
+    groupName: 'u-form-group',
     components: {
         SEmpty,
     },
-    mixins: [UValidator],
+    mixins: [UValidator, MChild],
     props: {
         // name: String,
         // label: String,
@@ -45,6 +57,8 @@ export default {
         description: String,
         hideSlots: { type: Boolean, default: false },
         span: { type: [Number, String], default: 1 },
+        labelLayout: String,
+        labelEllipsis: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -81,6 +95,20 @@ export default {
             return (
                 (this.groupVM && this.groupVM.repeat)
                 || (this.parentVM && this.parentVM.repeat)
+            );
+        },
+        currentLabelLayout() {
+            return (
+                this.labelLayout
+                || (this.groupVM && this.groupVM.labelLayout)
+                || (this.rootVM && this.rootVM.labelLayout)
+            );
+        },
+        currentLabelEllipsis() {
+            return (
+                this.labelEllipsis
+                || (this.groupVM && this.groupVM.labelEllipsis)
+                || (this.rootVM && this.rootVM.labelEllipsis)
             );
         },
     },
@@ -136,6 +164,17 @@ export default {
     text-align: right;
     position: relative;
 }
+
+/* .label {
+    display: inline-flex;
+    width: var(--form-item-label-width);
+    padding-right: var(--form-item-label-padding-right);
+    color: var(--form-item-label-color);
+    text-align: right;
+    position: relative;
+    align-items: var(--form-item-label-align-items);
+    justify-content: var(--form-item-label-justify-content);
+} */
 
 .label[required]::after {
     content: "*";
@@ -203,6 +242,14 @@ export default {
 .root[layout="block"] > .field {
     vertical-align: top;
 }
+.root[layout="center"]{
+    display: flex;
+    align-items: center;
+}
+.root[layout="end"]{
+    display: flex;
+    align-items: flex-end;
+}
 
 .root[layout="none"] {
     display: inline-block;
@@ -257,5 +304,51 @@ export default {
 
 .root div[class^="u-form-table-view"] {
     margin-top: -13px;
+}
+
+/* .root[label-layout="block"][layout="inline"] .item{
+    display: inline-flex;
+} */
+.root[label-layout="block"] {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.root[label-layout="block"]:not(:last-child) {
+    margin-bottom: var(--form-item-margin-bottom);
+}
+
+.root[label-layout="block"]> label{
+    display: inline-flex;
+    width: 100% !important;
+    padding-right: 0;
+    align-items: center;
+    margin-bottom: 4px;
+    justify-content: start;
+    text-align: left;
+}
+.root[label-layout="block"]> label[required]::after {
+    position: initial;
+    display: inline-block;
+    margin-left: 4px;
+    line-height: 16px;
+}
+.root[label-layout="block"]> label:empty{
+    display: none;
+}
+.root[label-layout="block"]> [class^="u-form_item_field__"],
+.root[label-layout="block"]> [class^="u-form_item_field__"] > [class^="u-form_item_wrap__"] {
+    display: block;
+    max-width: 100%;
+}
+.root[label-layout="block"]> label [s-empty="true"] {
+    max-width: 90px;
+}
+.root[label-ellipsis] .label,
+.root[label-ellipsis] .label span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 </style>

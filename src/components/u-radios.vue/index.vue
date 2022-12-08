@@ -4,8 +4,8 @@
     <u-radio
         v-for="(node, index) in currentDataSource.data"
         :key="index"
-        :text="$at(node, textField)"
-        :label="$at(node, valueField)"
+        :text="$at2(node, textField)"
+        :label="$at2(node, valueField)"
         :disabled="node.disabled"
         :readonly="node.readonly"
         :designer="$env.VUE_APP_DESIGNER"
@@ -13,7 +13,7 @@
     >
         <template #item="item">
             <slot name="item" v-bind="item">
-                {{ $at(node, textField) }}
+                {{ $at2(node, textField) }}
             </slot>
         </template>
     </u-radio>

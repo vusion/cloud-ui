@@ -431,15 +431,15 @@
      */
 
     /* @component u-text */
-    --text-font-size: var(--font-size-base); /* @desc 文本字号大小,如：1px */
-    --text-font-size-small: var(--font-size-small); /* @desc 小号文本字号大小,如：1px */
-    --text-font-size-large: calc(var(--font-size-base) * (18 / 14)); /* @desc 大号文本字号大小,如：1px */
-    --text-color-primary: var(--brand-primary); /* @type color */ /* @desc 主要文本字体颜色,如：#223325 */
-    --text-color-secondary: var(--font-second-color); /* @type color */ /* @desc 次要文本字体颜色,如：#223325 */
-    --text-color-success: var(--brand-success); /* @type color */ /* @desc 成功文本字体颜色,如：#223325 */
-    --text-color-warning: var(--brand-warning); /* @type color */ /* @desc 警告文本字体颜色,如：#223325 */
-    --text-color-error: var(--brand-error); /* @type color */ /* @desc 错误文本字体颜色,如：#223325 */
-    --text-color-disabled: var(--brand-disabled-dark); /* @type color */ /* @desc 禁用文本字体颜色,如：#223325 */
+    --text-font-size: var(--font-size-base); /* @group 尺寸 */ /* @desc 文本字号大小,如：1px */
+    --text-font-size-small: var(--font-size-small); /* @group 尺寸 */ /* @desc 小号文本字号大小,如：1px */
+    --text-font-size-large: calc(var(--font-size-base) * (18 / 14)); /* @group 尺寸 */ /* @desc 大号文本字号大小,如：1px */
+    --text-color-primary: var(--brand-primary); /* @group 颜色 */ /* @type color */ /* @desc 主要文本字体颜色,如：#223325 */
+    --text-color-secondary: var(--font-second-color); /* @group 颜色 */ /* @type color */ /* @desc 次要文本字体颜色,如：#223325 */
+    --text-color-success: var(--brand-success); /* @group 颜色 */ /* @type color */ /* @desc 成功文本字体颜色,如：#223325 */
+    --text-color-warning: var(--brand-warning); /* @group 颜色 */ /* @type color */ /* @desc 警告文本字体颜色,如：#223325 */
+    --text-color-error: var(--brand-error); /* @group 颜色 */ /* @type color */ /* @desc 错误文本字体颜色,如：#223325 */
+    --text-color-disabled: var(--brand-disabled-dark); /* @group 颜色 */ /* @type color */ /* @desc 禁用文本字体颜色,如：#223325 */
 
     --text-font-size-huge: calc(var(--font-size-base) * (22 / 14)); /* @hidden */
     /* @component u-link */
@@ -792,6 +792,8 @@
     /* @component u-table-view */
     --table-view-row-hover-background: #f9f9f9; /* @type color */ /* @desc 表格行背景色（hover状态）,如 #223325 */
     --table-head-background: #f7f8fa; /* @type color */ /* @desc 表格表头背景色,如 #223325 */
+    --table-head-text-align: left; /* @desc 表格表头字体对齐方式,如 left */
+    --table-head-font-weight: normal; /* @desc 表格表头字体加粗,如 normal */
     --table-view-head-item-size: var(--font-size-base); /* @desc 表格表头字体大小,如 1px */
     --table-row-background-striped: var(--background-color-lighter); /* @type color */ /* @desc 表格条纹展示行背景色,如 #223325 */
     --table-view-head-item-color: var(--gray-dark); /* @type color */ /* @desc 表格表头文字颜色,如 #223325 */
@@ -974,6 +976,8 @@
     --form-item-margin-bottom-large: var(--space-large); /* @hidden */
     --form-item-margin-bottom-small: var(--space-small); /* @hidden */
     --form-item-margin-bottom-none: 0; /* @hidden */
+    --form-item-label-align-items: center; /* @hidden */
+    --form-item-label-justify-content: flex-end; /* @hidden */
     --form-required-color: var(--brand-error); /* @hidden */
     --form-required-right: 12px; /* @hidden */
     --form-required-right-small: 2px; /* @hidden */
@@ -1316,6 +1320,9 @@
     --combo-slider-input-border-color: var(--number-input-border-color);
     --combo-slider-input-border-radius: var(--number-input-border-radius);
     --combo-slider-input-color: var(--number-input-color);
+    --combo-slider-tip-color: var(--color-light); /* @type color */
+    --combo-slider-tip-align-items: center; /* @desc 提示的垂直对齐方式,如 centers */
+    --combo-slider-scales-color: var(--color-light); /* @type color */
 
     /* @component u-uploader */
     --uploader-list-margin-top: 6px; /* @desc 文件上传列表项顶部外间距,如 1px */
@@ -1395,6 +1402,7 @@
     --tabs-body-space-small: var(--space-small); /* @hidden */
     --tabs-body-space-mini: var(--space-mini); /* @hidden */
     --tabs-item-title-font-weight: inherit; /* @hidden */
+    --tabs-item-title-margin-right: 5px; /* @hidden */
 
     /* @component u-selectable-steps */
     --steps-item-color-disabled: var(--brand-disabled-dark); /* @type color */ /* @desc 步骤条禁用项文字颜色,如 #223325 */
@@ -1612,6 +1620,8 @@
     --drawer-body-padding: 15px;
     --drawer-foot-padding: 20px 24px;
     --drawer-static-padding: var(--space-base);
+    --drawer-body-overflow-y: auto;
+    --drawer-border-color: var(--gray-lightest);
 
     /* @component u-image */
     --image-width: 128px; /* @desc 图片宽度,如：1px */

@@ -52,12 +52,12 @@
       description: 插入`<u-sidebar-item>`、`<u-sidebar-divider>`或`<u-sidebar-group>`子组件。
       support:
         - name: u-sidebar-group
-          title: 导航分组
+          title: 侧边栏分组
           snippet: <u-sidebar-group
-            title="分组"><u-sidebar-item>导航项</u-sidebar-item></u-sidebar-group>
+            title="分组"><u-sidebar-item>侧边栏项</u-sidebar-item></u-sidebar-group>
         - name: u-sidebar-item
-          title: 导航项
-          snippet: <u-sidebar-item>导航项</u-sidebar-item>
+          title: 侧边栏项
+          snippet: <u-sidebar-item>侧边栏项</u-sidebar-item>
         - name: u-sidebar-divider
           title: 分隔线
           snippet: <u-sidebar-divider></u-sidebar-divider>
@@ -180,11 +180,11 @@
       description: 插入`<u-sidebar-item>`或`<u-sidebar-divider>`子组件。
       support:
         - name: u-sidebar-group
-          title: 导航分组
-          snippet: <u-sidebar-group title="分组"><u-sidebar-item>导航项</u-sidebar-item></u-sidebar-group>
+          title: 侧边栏分组
+          snippet: <u-sidebar-group title="分组"><u-sidebar-item>侧边栏项</u-sidebar-item></u-sidebar-group>
         - name: u-sidebar-item
-          title: 导航项
-          snippet: <u-sidebar-item>导航项</u-sidebar-item>
+          title: 侧边栏项
+          snippet: <u-sidebar-item>侧边栏项</u-sidebar-item>
         - name: u-sidebar-divider
           title: 分隔线
           snippet: <u-sidebar-divider></u-sidebar-divider>

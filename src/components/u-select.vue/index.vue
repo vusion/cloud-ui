@@ -23,7 +23,7 @@
             {{ label }}
             <slot name="label"></slot>
         </span>
-        <f-render v-if="!multiple && !filterable" :vnode="selectedVM && (selectedVM.$slots&&selectedVM.$slots.default ? selectedVM.$slots.default : [$at(selectedVM, field || textField)])"></f-render>
+        <f-render v-if="!multiple && !filterable" :vnode="selectedVM && (selectedVM.$slots&&selectedVM.$slots.default ? selectedVM.$slots.default : [$at2(selectedVM, field || textField)])"></f-render>
         <span v-else-if="multipleAppearance === 'text'">{{ currentText }}</span>
         <template v-else-if="multipleAppearance === 'tags'">
             <template v-if="tagsOverflow === 'hidden' || tagsOverflow === 'visible'">
@@ -53,7 +53,7 @@
     </div>
     <span v-if="suffix" :name="suffix" :class="$style.suffix"
             @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
-    <span v-if="clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click="clear"></span>
+    <span v-if="clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click.stop="clear"></span>
     <m-popper :class="$style.popper" ref="popper" :color="color" :placement="placement" :append-to="appendTo" :disabled="readonly || currentDisabled"
         :style="{ width: currentPopperWidth }"
         @update:opened="$emit('update:opened', $event, this)"
@@ -66,16 +66,21 @@
         @click.stop @scroll.stop="onScroll" @mousedown.stop>
         <slot></slot>
         <template v-if="currentData">
-            <component :is="ChildComponent"
-                v-for="(item, index) in currentData"
-                v-if="item"
-                :key="filterable ? $at(item, valueField) + '_' + index : $at(item, valueField)"
-                :text="$at(item, field || textField)"
-                :value="$at(item, valueField)"
-                :disabled="item.disabled || disabled"
-                :item="item">
-                <slot name="text" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled">{{ $at(item, field || textField) }}</slot>
-            </component>
+            <div :class="$style.status" key="empty" v-if="!currentData.length && !currentLoading && showEmptyText">
+                <slot name="empty">{{ emptyText }}</slot>
+            </div>
+            <template v-else>
+                <component :is="ChildComponent"
+                    v-for="(item, index) in currentData"
+                    v-if="item"
+                    :key="filterable ? $at2(item, valueField) + '_' + index : $at2(item, valueField)"
+                    :text="$at2(item, field || textField)"
+                    :value="$at2(item, valueField)"
+                    :disabled="item.disabled || disabled"
+                    :item="item">
+                    <slot name="text" :item="item" :text="$at2(item, field || textField)" :value="$at2(item, valueField)" :disabled="item.disabled || disabled">{{ $at2(item, field || textField) }}</slot>
+                </component>
+            </template>
         </template>
         <div :class="$style.status" status="loading" v-if="currentLoading">
             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
@@ -124,7 +129,7 @@ export default {
         emptyText: {
             type: String,
             default() {
-                return this.$t('emptyText');
+                return this.$t('empty');
             },
         },
         emptyDisabled: { type: Boolean, default: false }, // @inherit: initialLoad: { type: Boolean, default: true },
@@ -145,6 +150,7 @@ export default {
         },
         color: String,
         popperWidth: { type: String, default: '' },
+        showEmptyText: { type: Boolean, default: true }, // 控制是否展示emptyText
     },
     data() {
         return {
@@ -548,6 +554,10 @@ export default {
         removeTag(itemVm, flag) {
             this.select(itemVm, flag);
             this.resetFilterList();
+            this.$emit('removetag', itemVm);
+            this.preventRootBlur = false;
+            this.preventBlur = false;
+            this.rootFocus();
         },
     },
 };

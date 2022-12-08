@@ -66,11 +66,10 @@ export default {
         divide(arr) {
             if (!this.colnum)
                 return [...arr];
-            const num = this.colnum;
             const result = [];
             const arre = [...arr];
             while (arre.length > 0) {
-                const temp = arre.splice(0, num);
+                const temp = arre.splice(0, this.colnum);
                 result.push(temp);
             }
             return result;
@@ -81,8 +80,8 @@ export default {
                     return [];
                 if (typeof value === 'string')
                     return JSON.parse(value || '[]');
-                if (typeof value === 'object')
-                    return value;
+                if (typeof value === 'object' && value.content)
+                    return value.content;
             } catch (err) {
                 return [];
             }

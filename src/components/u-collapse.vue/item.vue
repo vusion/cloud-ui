@@ -2,7 +2,15 @@
 <div :class="$style.root" :disabled="disabled" :expanded="currentExpanded">
     <div :class="$style.head" :expand-trigger="parentVM.expandTrigger" @click="parentVM.expandTrigger === 'click' && toggle()">
         <span :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
-            <slot name="title">{{ title }}</slot>
+            <slot name="title">
+                {{ title }}
+                <s-empty
+                    v-if="!$slots.title
+                        && !title
+                        && $env.VUE_APP_DESIGNER
+                        && !!$attrs['vusion-node-path']">
+                </s-empty>
+            </slot>
         </span>
         <span :class="$style.expander"
             :expanded="currentExpanded"

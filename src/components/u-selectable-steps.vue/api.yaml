@@ -129,7 +129,6 @@
   slots:
     - concept: Slot
       name: default
-      plus-empty: true
       description: 插入文本或 HTML
     - concept: Slot
       name: title

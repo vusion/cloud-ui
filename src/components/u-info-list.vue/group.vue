@@ -1,8 +1,21 @@
 <template>
 <div :class="$style.root">
     <div v-if="!parentVM || parentVM.showHead" :class="$style.head">
-        <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title"><slot name="title">{{ title }}</slot></div>
-        <div :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></div>
+        <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            <slot name="title">
+                {{ title }}
+                <s-empty
+                    v-if="!$slots.title
+                        && !title
+                        && $env.VUE_APP_DESIGNER
+                        && !!$attrs['vusion-node-path']">
+                </s-empty>
+            </slot>
+        </div>
+        <div :class="$style.extra" vusion-slot-name="extra">
+            <slot name="extra"></slot>
+            <s-empty v-if="(!$slots.extra) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+        </div>
     </div>
     <div :class="$style.body" vusion-slot-name="default">
         <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>

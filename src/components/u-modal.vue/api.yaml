@@ -123,20 +123,6 @@
         - name: senderVM
           type: UModal
           description: 发送事件实例
-    - name: ok
-      title: 确定时
-      description: 确定时触发
-      params:
-        - name: senderVM
-          type: UModal
-          description: 发送事件实例
-    - name: cancel
-      title: 取消时
-      description: 取消时触发
-      params:
-        - name: senderVM
-          type: UModal
-          description: 发送事件实例
     - name: before-close
       title: 关闭前
       description: 关闭弹窗前触发
@@ -166,8 +152,4 @@
       description: 打开弹窗
     - name: close
       description: 关闭弹窗
-    - name: ok
-      description: 确定弹窗
-    - name: cancel
-      description: 取消弹窗
   description: 弹窗

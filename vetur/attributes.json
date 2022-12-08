@@ -2576,7 +2576,7 @@
   },
   "u-drawer/visible": {
     "type": "boolean",
-    "description": "是否显示"
+    "description": "抽屉默认打开"
   },
   "u-drawer/placement": {
     "type": "string",

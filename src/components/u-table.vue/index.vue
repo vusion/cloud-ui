@@ -46,9 +46,9 @@ export default {
 }
 
 .root thead th {
-    text-align: left;
+    text-align: var(--table-head-text-align);
     color: var(--table-head-color);
-    font-weight: normal;
+    font-weight: var(--table-head-font-weight);
 }
 
 .root tbody tr {
