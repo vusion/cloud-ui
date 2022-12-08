@@ -3,11 +3,11 @@
     <slot></slot>
     <template v-if="appendTo === 'body'">
          <m-popper append-to="body" disabled-close trigger="manual" :opened="showMessage">
-            <span ref="message" v-show="showMessage" :class="[$style.message, $style.messagepop]" color="error" :display="display">{{ firstError }}</span>
+            <span ref="message" v-show="showMessage" :class="[$style.message, $style.messagepop]" color="error" :display="display">{{ message || firstError }}</span>
         </m-popper>
     </template>
     <template v-else>
-        <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !blurred" :class="$style.message" color="error">{{ firstError }}</span>
+        <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !blurred" :class="$style.message" color="error">{{ message ||firstError }}</span>
     </template>
     <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
 </div>
