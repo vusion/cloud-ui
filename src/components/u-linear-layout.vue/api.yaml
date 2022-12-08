@@ -81,6 +81,16 @@
           dependency:
             - mode: flex
       default: start
+      dependency:
+        - direction: horizontal
+        - mode: inline-block
+          direction: horizontal
+        - mode: inline-block
+          direction: vertical
+        - mode: block
+          direction: horizontal
+        - mode: block
+          direction: vertical
     - name: alignment
       title: 纵轴对齐
       type: string
