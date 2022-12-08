@@ -431,15 +431,15 @@
      */
 
     /* @component u-text */
-    --text-font-size: var(--font-size-base); /* @desc 文本字号大小,如：1px */
-    --text-font-size-small: var(--font-size-small); /* @desc 小号文本字号大小,如：1px */
-    --text-font-size-large: calc(var(--font-size-base) * (18 / 14)); /* @desc 大号文本字号大小,如：1px */
-    --text-color-primary: var(--brand-primary); /* @type color */ /* @desc 主要文本字体颜色,如：#223325 */
-    --text-color-secondary: var(--font-second-color); /* @type color */ /* @desc 次要文本字体颜色,如：#223325 */
-    --text-color-success: var(--brand-success); /* @type color */ /* @desc 成功文本字体颜色,如：#223325 */
-    --text-color-warning: var(--brand-warning); /* @type color */ /* @desc 警告文本字体颜色,如：#223325 */
-    --text-color-error: var(--brand-error); /* @type color */ /* @desc 错误文本字体颜色,如：#223325 */
-    --text-color-disabled: var(--brand-disabled-dark); /* @type color */ /* @desc 禁用文本字体颜色,如：#223325 */
+    --text-font-size: var(--font-size-base); /* @group 尺寸 */ /* @desc 文本字号大小,如：1px */
+    --text-font-size-small: var(--font-size-small); /* @group 尺寸 */ /* @desc 小号文本字号大小,如：1px */
+    --text-font-size-large: calc(var(--font-size-base) * (18 / 14)); /* @group 尺寸 */ /* @desc 大号文本字号大小,如：1px */
+    --text-color-primary: var(--brand-primary); /* @group 颜色 */ /* @type color */ /* @desc 主要文本字体颜色,如：#223325 */
+    --text-color-secondary: var(--font-second-color); /* @group 颜色 */ /* @type color */ /* @desc 次要文本字体颜色,如：#223325 */
+    --text-color-success: var(--brand-success); /* @group 颜色 */ /* @type color */ /* @desc 成功文本字体颜色,如：#223325 */
+    --text-color-warning: var(--brand-warning); /* @group 颜色 */ /* @type color */ /* @desc 警告文本字体颜色,如：#223325 */
+    --text-color-error: var(--brand-error); /* @group 颜色 */ /* @type color */ /* @desc 错误文本字体颜色,如：#223325 */
+    --text-color-disabled: var(--brand-disabled-dark); /* @group 颜色 */ /* @type color */ /* @desc 禁用文本字体颜色,如：#223325 */
 
     --text-font-size-huge: calc(var(--font-size-base) * (22 / 14)); /* @hidden */
     /* @component u-link */
