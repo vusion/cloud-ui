@@ -15,21 +15,22 @@
       options:
         - value: inline
           title: 行内
-          icon: dispaly-inline
+          icon: layout-inline-block
           tooltip: 内联布局
         - value: block
           title: 块级
-          icon: dispaly-block
+          icon: layout-block
           tooltip: 块级布局
         - value: flex
           title: 弹性
-          icon: dispaly-flex
+          icon: layout-flex
           tooltip: 弹性布局
       default: block
       toggleclear:
         - justify
         - alignment
         - wrap
+        - layout
     - name: direction
       title: 主轴方向
       type: string
@@ -80,12 +81,6 @@
           dependency:
             - mode: flex
       default: start
-      dependency:
-        - direction: horizontal
-        - mode: inline-block
-          direction: vertical
-        - mode: block
-          direction: vertical
     - name: alignment
       title: 纵轴对齐
       type: string
@@ -123,7 +118,7 @@
       bindHide: true
       options:
         - value: start
-          title: 头对齐
+          title: 左对齐
           icon: vertical-alignment-start
           tooltip: 左对齐
         - value: center
@@ -131,7 +126,7 @@
           icon: vertical-alignment-center
           tooltip: 居中对齐
         - value: end
-          title: 尾对齐
+          title: 右对齐
           icon: vertical-alignment-end
           tooltip: 右对齐
         - value: stretch
@@ -219,7 +214,9 @@
           title: 子元素块级布局
       default: none
       description: 子元素行内展示或块级换行展示
-      advanced: true
+      dependency:
+        - mode: inline
+        - mode: block
     - name: type
       title: 布局模式
       type: string
