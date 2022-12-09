@@ -91,13 +91,13 @@ export default {
                 if (!this.keepOrder) {
                     value.forEach((val) => {
                         const itemVM = this.itemVMs.find(
-                            (itemVM) => itemVM.value === val,
+                            (itemVM) => '' + itemVM.value === '' + val,
                         );
                         if (itemVM)
                             selectedMap[itemVM.value] = itemVM;
                         else if (this.selectedValuesData && Array.isArray(this.selectedValuesData)) { // 分页获取数据，下拉里可能还没有这个值，根据用户传入的数据进行展示
                             const itemData = this.selectedValuesData.find(
-                                (itemData) => itemData.value === val,
+                                (itemData) => '' + itemData.value === '' + val,
                             );
                             if (itemData)
                                 selectedMap[itemData.value] = Object.assign({ currentSelected: true, currentText: itemData.text }, itemData);
@@ -105,7 +105,7 @@ export default {
                     });
                 } else {
                     this.itemVMs.forEach((itemVM) => {
-                        if (value.includes(itemVM.value))
+                        if (value.includes(itemVM.value) || value.includes('' + itemVM.value))
                             selectedMap[itemVM.value] = itemVM;
                     });
                 }
