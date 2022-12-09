@@ -2,9 +2,9 @@
 
 ``` html
 <u-sidebar value="3" :router="true">
-    <u-sidebar-item value="1" text="导航一"></u-sidebar-item>
-    <u-sidebar-item value="2" text="导航二"></u-sidebar-item>
-    <u-sidebar-item value="3" text="导航三"></u-sidebar-item>
+    <u-sidebar-item value="1"><u-text text="导航一"></u-text></u-sidebar-item>
+    <u-sidebar-item value="2"><u-text text="导航二"></u-text></u-sidebar-item>
+    <u-sidebar-item value="3"><u-text text="导航三"></u-text></u-sidebar-item>
 </u-sidebar>
 ```
 
@@ -12,11 +12,13 @@
 
 ``` html
 <u-sidebar collapsible :router="true">
-    <u-sidebar-group title="导航一" expanded>
-        <u-sidebar-item text="选项一"></u-sidebar-item>
+    <u-sidebar-group expanded>
+        <template #title><u-text text="导航一"></u-text></template>
+        <u-sidebar-item><u-text text="选项一"></u-text></u-sidebar-item>
     </u-sidebar-group>
-    <u-sidebar-group title="导航二" expanded disabled>
-        <u-sidebar-item text="选项一"></u-sidebar-item>
+    <u-sidebar-group expanded disabled>
+        <template #title><u-text text="导航二"></u-text></template>
+        <u-sidebar-item><u-text text="选项一"></u-text></u-sidebar-item>
     </u-sidebar-group>
 </u-sidebar>
 ```
@@ -26,11 +28,13 @@
 
 ``` html
 <u-sidebar :router="true">
-    <u-sidebar-group title="导航一" expanded>
-        <u-sidebar-item text="选项一"></u-sidebar-item>
+    <u-sidebar-group expanded>
+        <template #title><u-text text="导航一"></u-text></template>
+        <u-sidebar-item><u-text text="选项一"></u-text></u-sidebar-item>
     </u-sidebar-group>
-    <u-sidebar-group title="导航二" expanded>
-        <u-sidebar-item text="选项一"></u-sidebar-item>
+    <u-sidebar-group expanded>
+        <template #title><u-text text="导航二"></u-text></template>
+        <u-sidebar-item><u-text text="选项一"></u-text></u-sidebar-item>
     </u-sidebar-group>
 </u-sidebar>
 ```
@@ -39,14 +43,17 @@
 
 ```html
 <u-sidebar collapsible accordion :router="true">
-    <u-sidebar-group title="导航一">
-        <u-sidebar-item text="选项一"></u-sidebar-item>
+    <u-sidebar-group>
+        <template #title><u-text text="导航一"></u-text></template>
+        <u-sidebar-item><u-text text="选项一"></u-text></u-sidebar-item>
     </u-sidebar-group>
-    <u-sidebar-group title="导航二">
-        <u-sidebar-item text="选项一"></u-sidebar-item>
+    <u-sidebar-group>
+        <template #title><u-text text="导航二"></u-text></template>
+        <u-sidebar-item><u-text text="选项一"></u-text></u-sidebar-item>
     </u-sidebar-group>
-    <u-sidebar-group title="导航三">
-        <u-sidebar-item text="选项一"></u-sidebar-item>
+    <u-sidebar-group>
+        <template #title><u-text text="导航三"></u-text></template>
+        <u-sidebar-item><u-text text="选项一"></u-text></u-sidebar-item>
     </u-sidebar-group>
 </u-sidebar>
 ```

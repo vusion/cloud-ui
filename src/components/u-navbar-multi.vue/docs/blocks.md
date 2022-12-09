@@ -10,8 +10,8 @@
         </u-multi-layout-item>
     </template>
     <u-multi-layout-item align-items="center">
-        <u-navbar-item-multi text="Item 1"></u-navbar-item-multi>
-        <u-navbar-item-multi text="Item 2"></u-navbar-item-multi>
+        <u-navbar-item-multi><u-text>导航项1</u-text></u-navbar-item-multi>
+        <u-navbar-item-multi><u-text>导航项2</u-text></u-navbar-item-multi>
     </u-multi-layout-item>
     <template #right>
         <u-multi-layout-item align-items="center" justify="end">
@@ -25,7 +25,7 @@
                     </u-linear-layout>
                 </template>
                 <template #default>
-                        <u-dropdown-item text="安全退出"></u-dropdown-item>
+                        <u-dropdown-item><u-text>安全退出</u-text></u-dropdown-item>
                 </template>
             </u-dropdown>
         </u-multi-layout-item>

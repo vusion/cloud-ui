@@ -256,11 +256,10 @@
       support:
         - name: u-select-item
           title: 选项
-          snippet: <u-select-item text="选项"></u-select-item>
+          snippet: <u-select-item><u-text text="选项"></u-text></u-select-item>
         - name: u-select-group
           title: 分组
-          snippet: <u-select-group title="分组"><u-select-item
-            text="选项"></u-select-item></u-select-group>
+          snippet: '<u-select-group><template #title><u-text text="分组"></u-text></template><u-select-item><u-text text="选项"></u-text></u-select-item></u-select-group>'
         - name: u-select-divider
           title: 分隔线
           snippet: <u-select-divider></u-select-divider>
@@ -587,7 +586,7 @@
       support:
         - name: u-select-item
           title: 选项
-          snippet: <u-select-item text="选项"></u-select-item>
+          snippet: <u-select-item><u-text text="选项"></u-text></u-select-item>
     - concept: Slot
       name: title
       title: 标题
