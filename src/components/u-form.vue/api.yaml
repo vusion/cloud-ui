@@ -147,11 +147,10 @@
       support:
         - name: u-form-group
           title: 表单分组
-          snippet: <u-form-group title="分组"><u-form-item
-            label="表单项"></u-form-item></u-form-group>
+          snippet: '<u-form-group><template #title><u-text text="分组"></u-text></template><u-form-item><template #label><u-text text="表单项"></u-text></template></u-form-item></u-form-group>'
         - name: u-form-item
           title: 表单项
-          snippet: <u-form-item label="表单项"></u-form-item>
+          snippet: '<u-form-item><template #label><u-text text="表单项"></u-text></template></u-form-item>'
   events:
     - name: validate
       title: 验证后
@@ -458,7 +457,7 @@
       support:
         - name: u-form-item
           title: 表单项
-          snippet: <u-form-item label="表单项"></u-form-item>
+          snippet: '<u-form-item><template #label><u-text text="表单项"></u-text></template></u-form-item>'
     - concept: Slot
       name: title
       description: 自定义标题文本。

@@ -34,7 +34,7 @@
       support:
         - name: u-crumb-item
           title: 面包屑选项
-          snippet: <u-crumb-item>面包屑</u-crumb-item>
+          snippet: <u-crumb-item><u-text text="面包屑"></u-text></u-crumb-item>
 - name: u-crumb-item
   title: 面包屑选项
   next: false

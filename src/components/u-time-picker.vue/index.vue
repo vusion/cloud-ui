@@ -21,7 +21,6 @@
         @click.stop @scroll.stop="onScroll" @mousedown.stop
         @open="onPopperOpen"
         @toggle="$emit('toggle', $event, this)"
-        @close="onPopperClose"
         :style="{ width: currentPopperWidth }">
         <div :class="$style.panel" :type="minUnit">
             <div :class="$style.spinner">
@@ -405,16 +404,21 @@ export default {
                 return;
             this.adjustSpinner(type, value.value);
             this.setShowTime(type, value.value);
+            this.$refs.input.focus();
         },
         onConfirm() {
             if (!this.validShowTime) {
                 this.validShowTime = this.showTime;
             }
             this.close();
+            this.$emit('blur');
+            this.emitValue();
         },
         onCancel() {
             this.validShowTime = this.restoredValue;
             this.close();
+            this.$emit('blur');
+            this.emitValue();
         },
         open() {
             this.$refs.popper && this.$refs.popper.open();
@@ -496,10 +500,6 @@ export default {
         },
         onFocus(e) {
             this.$emit('focus', e, this);
-        },
-        onPopperClose() {
-            this.$emit('blur');
-            this.emitValue();
         },
         onPopperOpen() {
             // 有时候加载时机问题，popperWidth会没有获取到，重新获取
@@ -757,7 +757,6 @@ export default {
     color: var(--timepicker-item-color-disabled-selected);
 }
 .foot {
-    height: 48px;
     background: var(--timepicker-foot-background);
     border-top: 1px solid var(--timepicker-foot-border-color);
     padding: 10px 8px;

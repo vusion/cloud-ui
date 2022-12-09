@@ -1867,6 +1867,14 @@
                         "type": "color",
                         "desc": "表格表头背景色,如 #223325"
                     },
+                    "--table-head-text-align": {
+                        "type": "input",
+                        "desc": "表格表头字体对齐方式,如 left"
+                    },
+                    "--table-head-font-weight": {
+                        "type": "input",
+                        "desc": "表格表头字体加粗,如 normal"
+                    },
                     "--table-view-head-item-size": {
                         "type": "input",
                         "desc": "表格表头字体大小,如 1px"

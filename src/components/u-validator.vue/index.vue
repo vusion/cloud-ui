@@ -282,7 +282,7 @@ export default {
                 const value = this.validatingProcess(this.validatingValue === undefined ? this.value : this.validatingValue);
 
                 // @TODO: 临时解决一下，用 blur 当 change
-                const INPUT_NAMES = ['u-input', 'u-textarea', 'u-number-input'];
+                const INPUT_NAMES = ['u-input', 'u-textarea', 'u-number-input', 'u-time-picker'];
                 if (trigger === 'input' && !INPUT_NAMES.includes(this.fieldVM.$options.name)) {
                     trigger = 'blur';
                 }
