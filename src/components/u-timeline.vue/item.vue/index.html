@@ -8,7 +8,12 @@
     <div v-else :class="$style.dotCustom">
         <slot name="dot"></slot>
     </div>
-    <div :class="$style.content" uname="content">
+    <div :class="$style.content" uname="content" vusion-slot-name="default">
         <slot></slot>
+        <s-empty v-if="(!$slots.default && !($scopedSlots.item)) && $env.VUE_APP_DESIGNER" :class="$style.empty"></s-empty>
+        <span vusion-slot-name="item">
+            <slot name="item" :item="node"></slot>
+            <s-empty v-if="(($scopedSlots.item && !$scopedSlots.item())) && $env.VUE_APP_DESIGNER && ($attrs['vusion-node-path'] || $attrs.designer)" :class="$style.empty"></s-empty>
+        </span>
     </div>
 </li>

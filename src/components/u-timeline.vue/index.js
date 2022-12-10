@@ -1,6 +1,13 @@
 /* eslint-disable multiline-ternary */
+import SupportDataSource from '../../mixins/support.datasource.js';
+import UTimelineItem from './item.vue/index';
+
 export const UTimeline = {
     name: 'u-timeline',
+    mixins: [SupportDataSource],
+    components: {
+        UTimelineItem,
+    },
     props: {
         pending: {
             type: Boolean,
