@@ -12,7 +12,7 @@
                 <slot name="inject"></slot>
                 <div :class="$style.head" vusion-slot-name="head" :child-cut-disabled="true">
                     <slot name="head">
-                        <div v-if="title" vusion-slot-name="title" vusion-slot-name-edit="title" :class="$style.title" :child-cut-disabled="true">
+                        <div v-if="(title || $slots.title) && !isTitleSlotEmpty || $env.VUE_APP_DESIGNER" vusion-slot-name="title" vusion-slot-name-edit="title" :class="$style.title" :child-cut-disabled="true">
                             <slot name="title">
                                 <s-empty v-if="(!$slots.title) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                                 <template v-else>
@@ -34,7 +34,7 @@
                         <slot name="extra"></slot>
                     </slot>
                 </div>
-                <div :class="$style.foot" vusion-slot-name="foot" :child-cut-disabled="true" v-if="showFoot && (okButton || cancelButton)">
+                <div :class="$style.foot" vusion-slot-name="foot" :child-cut-disabled="true" v-if="showFoot && (okButton || cancelButton) && (!isFootSlotEmpty || $env.VUE_APP_DESIGNER)">
                     <slot name="foot">
                         <s-empty v-if="(!$slots.foot) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                         <u-linear-layout gap="small" justify="end" v-else>
@@ -96,6 +96,8 @@ export const UModal = {
         customClass: { type: String, default: undefined },
         functionalModal: { type: Boolean, default: false },
         showFoot: { type: Boolean, default: true },
+        isTitleSlotEmpty: { type: Boolean, default: false }, // 有插槽template但是不想展示的情况
+        isFootSlotEmpty: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -175,7 +177,7 @@ export const UModal = {
     install(Vue, id) {
         const Ctor = Vue.component(id);
         Vue.prototype.$alert = (content, title, okButton) => new Promise((resolve, reject) => {
-            const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
+            const propsData = typeof content === 'object' ? content : { content, title: titleTemp, okButton, cancelButton: '' };
             const instance = new Ctor({
                 propsData: {
                     functionalModal: true,

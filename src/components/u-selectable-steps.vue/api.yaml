@@ -51,7 +51,7 @@
       support:
         - name: u-selectable-step
           title: 步骤条子组件
-          snippet: <u-selectable-step title="步骤 N"></u-selectable-step>
+          snippet: '<u-selectable-step><template #title><u-text text="步骤 N"></u-text></template></u-selectable-step>'
   events:
     - name: before-select
       title: 选择前
@@ -129,7 +129,6 @@
   slots:
     - concept: Slot
       name: default
-      plus-empty: true
       description: 插入文本或 HTML
     - concept: Slot
       name: title

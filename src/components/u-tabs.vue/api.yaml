@@ -83,7 +83,7 @@
       support:
         - name: u-tab
           title: 子选项
-          snippet: <u-tab title="标签页">内容</u-tab>
+          snippet: '<u-tab><template #title><u-text text="标签页"></u-text></template>内容</u-tab>'
     - concept: Slot
       name: extra
       title: 右侧附加
@@ -300,9 +300,7 @@
     - concept: Slot
       name: default
       title: 默认
-      plus-empty: true
       description: 该 tab 下的内容
-      empty-background: add-any
     - concept: Slot
       name: title
       title: 标题

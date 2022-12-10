@@ -86,7 +86,7 @@
       support:
         - name: u-dropdown-item
           title: 菜单项
-          snippet: <u-dropdown-item text="选项一"></u-dropdown-item>
+          snippet: <u-dropdown-item><u-text text="选项一"></u-text></u-dropdown-item>
   description: 下拉菜单
 - name: u-dropdown-item
   title: 下拉菜单项
