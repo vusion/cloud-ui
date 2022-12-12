@@ -2,6 +2,8 @@
 
 ``` html
 <u-timeline>
-    <template #item="scope"></template>
+    <template #item="scope">
+        <u-timeline-item></u-timeline-item>
+    </template>
 </u-timeline>
 ```

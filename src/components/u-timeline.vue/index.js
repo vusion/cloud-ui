@@ -26,6 +26,11 @@ export const UTimeline = {
             timeline: this,
         };
     },
+    data() {
+        return {
+            multiple: true,
+        };
+    },
 };
 
 export { UTimelineItem } from './item.vue';

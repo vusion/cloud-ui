@@ -16,7 +16,12 @@ export const UTimelineItem = {
             },
             default: 'right',
         },
-        node: Object,
+        item: {
+            type: [Object, String, Number],
+        },
+        index: {
+            type: [Object, String, Number],
+        },
     },
     components: {
         SEmpty,

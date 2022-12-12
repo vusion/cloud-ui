@@ -12,7 +12,7 @@
         <slot></slot>
         <s-empty v-if="(!$slots.default && !($scopedSlots.item)) && $env.VUE_APP_DESIGNER" :class="$style.empty"></s-empty>
         <span vusion-slot-name="item">
-            <slot name="item" :item="node"></slot>
+            <slot name="item" :item="item" :index="index"></slot>
             <s-empty v-if="(($scopedSlots.item && !$scopedSlots.item())) && $env.VUE_APP_DESIGNER && ($attrs['vusion-node-path'] || $attrs.designer)" :class="$style.empty"></s-empty>
         </span>
     </div>

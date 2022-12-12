@@ -1,15 +1,10 @@
 <ul :class="$style.root" :pending="pending">
-    <u-timeline-item
-        v-for="(node, index) in currentDataSource.data"
+    <template
+        v-for="(item, index) in currentDataSource.data"
         :key="index"
-        :designer="$env.VUE_APP_DESIGNER"
-        :node="node"
     >
-        <template #item="item">
-            <slot name="item" v-bind="item">
-            </slot>
-        </template>
-    </u-timeline-item>
+        <slot name="item" :item="item" :designer="$env.VUE_APP_DESIGNER" :index="index"></slot>
+    </template>
     <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
         <span :class="$style.loadContent">{{ treeSelectTip }}</span>
     </template>

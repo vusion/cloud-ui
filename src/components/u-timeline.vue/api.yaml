@@ -42,6 +42,21 @@
         - name: u-timeline-item
           title: 时间线子选项
           snippet: <u-timeline-item>信息</u-timeline-item>
+    - concept: Slot
+      name: item
+      description: 自定义选项的结构和样式
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T 
 - name: u-timeline-item
   title: 时间线项
   attrs:
