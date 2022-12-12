@@ -65,6 +65,7 @@
     <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
         <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url || item"></u-lightbox-item>
     </u-lightbox>
+    <cropper :modal-visible="modalVisible" :cropImg="cropImg" v-if="openCropper"></cropper>
 </div>
 </template>
 
@@ -72,6 +73,7 @@
 import MField from '../m-field.vue';
 import i18n from './i18n';
 import ajax from './ajax';
+import cropper from './cropper';
 
 const SIZE_UNITS = {
     kB: 1024,
@@ -85,6 +87,7 @@ export default {
     name: 'u-uploader',
     mixins: [MField],
     i18n,
+    components: { cropper },
     props: {
         value: [Array, String],
         url: { type: String, required: true },
@@ -121,6 +124,7 @@ export default {
         access: { type: String, default: null },
         ttl: { type: Boolean, default: null },
         ttlValue: { type: Number, default: null },
+        openCropper: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -133,6 +137,8 @@ export default {
             lightboxVisible: false,
             currentIndex: 0,
             errorMessage: [],
+            cropImg: undefined,
+            modalVisible: false,
         };
     },
     computed: {
@@ -219,6 +225,24 @@ export default {
 
             if (!files)
                 return;
+            if (this.openCropper) {
+                this.modalVisible = true;
+                const cropFile = fileEl.files[0];
+                let reader = new FileReader();
+                // reader.readAsDataURL(cropFile);
+                reader.onload = e => {
+                    let data;
+                    if (typeof e.target.result === "object") {
+                        // 把Array Buffer转化为blob 如果是base64不需要
+                        data = window.URL.createObjectURL(new Blob([e.target.result]));
+                    } else {
+                        data = e.target.result;
+                    }
+                    this.cropImg = data;
+                    // this.$refs.file.value = ''
+                };
+                reader.readAsDataURL(cropFile);
+            }
 
             this.uploadFiles(files);
         },
