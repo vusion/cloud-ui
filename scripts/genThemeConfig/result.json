@@ -3059,16 +3059,20 @@
                 "type": [],
                 "cssProperty": {
                     "--timeline-item-padding-bottom": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "底部边距"
                     },
                     "--timeline-tail-color": {
-                        "type": "input"
+                        "type": "color",
+                        "desc": "轨道颜色"
                     },
                     "--timeline-tail-width": {
-                        "type": "input"
+                        "type": "input",
+                        "desc": "轨道宽度"
                     },
                     "--timeline-dot-background-color": {
-                        "type": "input"
+                        "type": "color",
+                        "desc": "dot背景颜色"
                     }
                 },
                 "preview": {
