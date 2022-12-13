@@ -26,30 +26,36 @@
             </div>
             <div :class="$style.previewWrapper">
                 <div>裁剪预览</div>
-                <div :style="previewStyle1" :class="$style.previewBox">
-                    <div :style="previews.div">
-                        <img :src="previews.url" :style="previews.img">
-                    </div>
-                </div>
                 <div :style="previewStyle1" :class="$style.previewBoxCircle">
                     <div :style="previews.div">
                         <img :src="previews.url" :style="previews.img">
                     </div>
                 </div>
-
+<!--                <div :style="previewStyle1" :class="$style.previewBox">-->
+<!--                    <div :style="previews.div">-->
+<!--                        <img :src="previews.url" :style="previews.img">-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
         <div class="action-box">
             <u-button type="primary"  @click="clearImgHandle">清除图片</u-button>
             <u-button type="primary"  @click="rotateLeftHandle">左旋转</u-button>
             <u-button type="primary"  @click="rotateRightHandle">右旋转</u-button>
-            <u-button type="primary"  @click="changeScaleHandle(1)">放大</u-button>
-            <u-button type="primary"  @click="changeScaleHandle(-1)">缩小</u-button>
-<!--            <u-button type="primary"  @click="downloadHandle('blob')">下载</u-button>-->
+            <u-button type="primary"  @click="changeScaleHandle(2)">放大</u-button>
+            <u-button type="primary"  @click="changeScaleHandle(-2)">缩小</u-button>
+            <u-button type="primary"  @click="downloadHandle('blob')">下载</u-button>
         </div>
-        <div slot="foot" class="dialog-footer">
-            <u-button @click="cancelCropper">取消</u-button>
-            <u-button type="primary" @click="finish" :loading="loading">确认</u-button>
+        <div slot="foot">
+            <u-linear-layout justify="space-between">
+                <u-linear-layout>
+                    <input type="file" @change="handleChangeUpload" accept="image/*"  @click.stop>
+                </u-linear-layout>
+                <u-linear-layout>
+                    <u-button @click="cancelCropper">取消</u-button>
+                    <u-button color="primary" @click="finish" :loading="loading">保存</u-button>
+                </u-linear-layout>
+            </u-linear-layout>
         </div>
     </u-modal>
 
@@ -58,16 +64,17 @@
 <script>
 import  { VueCropper } from 'vue-cropper';
 import Vue from 'vue';
+import ULinearLayout from '@/components/u-linear-layout.vue';
 Vue.use(VueCropper);
 export default {
     name: 'cropper',
     components: {
+        ULinearLayout,
         VueCropper
     },
     data() {
         return {
             isPreview: false,
-            dialogVisible: false,
             previewImg: '', // 预览图片地址
             visible: this.modalVisible,
             // 裁剪组件的基础配置option
@@ -85,7 +92,7 @@ export default {
                 fixedBox: false, // 固定截图框大小 不允许改变
                 fixed: true, // 是否开启截图框宽高固定比例
                 fixedNumber: [1, 1], // 截图框的宽高比例
-                full: false, // 是否输出原图比例的截图
+                full: true, // 是否输出原图比例的截图
                 original: false, // 上传图片按照原始比例渲染
                 centerBox: false, // 截图框是否被限制在图片里面
                 infoTrue: true // true 为展示真实输出图片宽高 false 展示看到的截图框宽高
@@ -125,21 +132,19 @@ export default {
     },
     methods: {
         // 上传按钮 限制图片大小和类型
-        handleChangeUpload(file, fileList) {
-            const isJPG = file.raw.type === 'image/jpeg' || file.raw.type === 'image/png';
-            const isLt2M = file.size / 1024 / 1024 < 2;
-            if (!isJPG) {
-                this.$toast.error('上传头像图片只能是 JPG/PNG 格式!');
-                return false
-            }
-            // 上传成功后将图片地址赋值给裁剪框显示图片
-            this.$nextTick(async () => {
-                // base64方式
-                // this.option.img = await fileByBase64(file.raw)
-                this.option.img = URL.createObjectURL(file.raw)
-                this.loading = false
-                this.dialogVisible = true
-            })
+        handleChangeUpload(e) {
+            const cropFile = e.target.files[0];
+            let reader = new FileReader();
+            reader.readAsArrayBuffer(cropFile);
+            reader.onload = e => {
+                let data;
+                if (typeof e.target.result === "object") {
+                    data = window.URL.createObjectURL(new Blob([e.target.result]));
+                } else {
+                    data = e.target.result;
+                }
+                this.option.img = data;
+            };
         },
         // 放大/缩小
         changeScaleHandle(num) {
@@ -202,9 +207,8 @@ export default {
             })
         },
         realTime(data) {
-            var previews = data;
-            var h = 0.5;
-            var w = 0.2;
+            const previews = data;
+            const h = 0.5;
 
             this.previewStyle1 = {
                 width: previews.w + "px",
@@ -215,7 +219,6 @@ export default {
             };
             this.previews = data;
         },
-
     },
 };
 </script>
@@ -234,12 +237,12 @@ export default {
     display: inline-block;
 }
 .previewBoxCircle {
-    margin: 20px;
+    margin: 20px 0 50px 20px;
     box-shadow: 0 0 15px gray;
     border-radius: 50%;
 }
 .previewBox {
-    margin: 20px;
+    margin: 10px 0 50px 20px;
     box-shadow: 0 0 15px gray;
 }
 

@@ -66,10 +66,10 @@
         <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url || item"></u-lightbox-item>
     </u-lightbox>
     <cropper
-        :modal-visible="modalVisible"
-        :cropImg="cropImg"
         v-if="openCropper"
         :cropFileName="cropFileName"
+        :cropImg="cropImg"
+        :modal-visible="modalVisible"
         @uploadFiles="uploadCropperImg"
     >
     </cropper>

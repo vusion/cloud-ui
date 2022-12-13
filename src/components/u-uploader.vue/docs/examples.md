@@ -41,7 +41,7 @@ export default {
 }
 </script>
 ```
-### 基本用法simple, 开启图片编辑
+### 基本用法simple，开启图片编辑
 
 下面的例子为单文件上传。
 
