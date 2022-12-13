@@ -1867,6 +1867,14 @@
                         "type": "color",
                         "desc": "表格表头背景色,如 #223325"
                     },
+                    "--table-head-text-align": {
+                        "type": "input",
+                        "desc": "表格表头字体对齐方式,如 left"
+                    },
+                    "--table-head-font-weight": {
+                        "type": "input",
+                        "desc": "表格表头字体加粗,如 normal"
+                    },
                     "--table-view-head-item-size": {
                         "type": "input",
                         "desc": "表格表头字体大小,如 1px"
@@ -3041,6 +3049,30 @@
                 },
                 "preview": {
                     "template": "<u-dropdown><template #title=\"scope\"><u-text text=\"下拉菜单\"></u-text></template><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item disabled text=\"item\"></u-dropdown-item></u-dropdown>"
+                }
+            },
+            {
+                "id": 53,
+                "name": "u-timeline",
+                "title": "时间线",
+                "toPosition": "timeline",
+                "type": [],
+                "cssProperty": {
+                    "--timeline-item-padding-bottom": {
+                        "type": "input"
+                    },
+                    "--timeline-tail-color": {
+                        "type": "input"
+                    },
+                    "--timeline-tail-width": {
+                        "type": "input"
+                    },
+                    "--timeline-dot-background-color": {
+                        "type": "input"
+                    }
+                },
+                "preview": {
+                    "template": "<u-timeline><u-timeline-item>提交 2020-01-20</u-timeline-item><u-timeline-item>预审核 2020-01-21</u-timeline-item><u-timeline-item><div>权限 2020-01-22</div><div>审批人：张三</div></u-timeline-item><u-timeline-item><div>财务 2020-01-22</div><div>审批人：李四</div></u-timeline-item><u-timeline-item>完成</u-timeline-item></u-timeline>"
                 }
             }
         ]

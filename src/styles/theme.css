@@ -771,7 +771,7 @@
     --article-h2-color: #999fac;
     --article-h2-border-color: #ebf0f4;
 
-    /* @component u-timeline @hidden */
+    /* @component u-timeline */
     --timeline-item-padding-bottom: 20px;
     --timeline-tail-color: var(--border-color-base);
     --timeline-tail-width: 2px;

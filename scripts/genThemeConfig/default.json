@@ -1034,5 +1034,10 @@
     "--dropdown-color-text": "var(--brand-primary)",
     "--dropdown-color-text-hover": "var(--brand-primary-light)",
     "--dropdown-color-text-active": "var(--dropdown-color-text)",
-    "--dropdown-color-text-disabled": "var(--font-disabled-color)"
+    "--dropdown-color-text-disabled": "var(--font-disabled-color)",
+
+    "--timeline-item-padding-bottom": "20px",
+    "--timeline-tail-color": "var(--border-color-base)",
+    "--timeline-tail-width": "2px",
+    "--timeline-dot-background-color": "white"
 }
