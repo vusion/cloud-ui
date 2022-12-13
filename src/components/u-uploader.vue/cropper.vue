@@ -102,6 +102,7 @@ export default {
             default: false
         },
         cropImg: undefined,
+        cropFileName: undefined,
     },
     mounted() {
         this.option.img = this.cropImg;
@@ -191,20 +192,13 @@ export default {
             this.loading = false;
             this.$refs.cropper.getCropBlob((blob) => {
                 this.loading = true
-                this.previewImg = URL.createObjectURL(blob)
+                this.previewImg = URL.createObjectURL(new Blob([blob]))
                 this.$emit('uploadFiles', {
                     data: this.previewImg,
-                    // base64: data
+                    name: this.cropFileName,
+                    blob: blob
                 });
                 this.isPreview = true
-            })
-            // 获取截图的 base64 数据
-            this.$refs.cropper.getCropData(data => {
-                // console.log(data)
-                // this.$emit('uploadFiles', {
-                //     data: this.previewImg,
-                //     base64: data
-                // });
             })
         },
         realTime(data) {

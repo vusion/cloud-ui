@@ -69,6 +69,7 @@
         :modal-visible="modalVisible"
         :cropImg="cropImg"
         v-if="openCropper"
+        :cropFileName="cropFileName"
         @uploadFiles="uploadCropperImg"
     >
     </cropper>
@@ -145,6 +146,7 @@ export default {
             errorMessage: [],
             cropImg: undefined,
             modalVisible: false,
+            cropFileName: undefined,
         };
     },
     computed: {
@@ -159,7 +161,6 @@ export default {
         currentValue: {
             handler(currentValue, oldValue) {
                 const value = this.toValue(currentValue);
-
                 this.$emit('input', value);
                 this.$emit('update:value', value);
                 this.$emit('change', {
@@ -221,6 +222,7 @@ export default {
             const fileEl = e.target;
 
             let files = fileEl.files;
+            // console.log(files);
             if (!files && fileEl.value) { // 老版浏览器不支持 files
                 const arr = fileEl.value.split(/[\\/]/g);
                 files = [{
@@ -231,11 +233,13 @@ export default {
 
             if (!files)
                 return;
+            // 处理开启图片编辑器
+            this.uploadFiles(files);
             if (this.openCropper) {
                 this.modalVisible = true;
                 const cropFile = fileEl.files[0];
+                this.cropFileName = cropFile.name;
                 let reader = new FileReader();
-                // reader.readAsDataURL(cropFile);
                 reader.readAsArrayBuffer(cropFile);
                 reader.onload = e => {
                     let data;
@@ -246,12 +250,9 @@ export default {
                         data = e.target.result;
                     }
                     this.cropImg = data;
-                    // this.$refs.file.value = ''
+                    // this.currentValue = []
                 };
-                return;
             }
-
-            this.uploadFiles(files);
         },
         checkSize(file) {
             if (this.maxSize === Infinity)
@@ -300,19 +301,14 @@ export default {
             }
         },
         uploadCropperImg(obj) {
-            // console.log('cropper', obj);
-
-            this.$nextTick(() => {
-                this.currentValue.push({
-                    url: obj.data,
-                    status: 'uploading',
-                    progress: 100,
-                });
-                // this.upload(file);
+            this.currentValue.push({
+                name: obj.name,
+                url: obj.data,
+                status: 'uploading',
+                progress: 100,
             });
-            console.log('cropper', obj);
-            // this.uploadFiles(file);
-
+            const file = new window.File([obj.blob], obj.name, {type: 'image/jpeg'} );
+            this.uploadFiles([file]);
         },
         /**
          * 单文件上传
