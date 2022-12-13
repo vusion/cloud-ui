@@ -65,7 +65,13 @@
     <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
         <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url || item"></u-lightbox-item>
     </u-lightbox>
-    <cropper :modal-visible="modalVisible" :cropImg="cropImg" v-if="openCropper"></cropper>
+    <cropper
+        :modal-visible="modalVisible"
+        :cropImg="cropImg"
+        v-if="openCropper"
+        @uploadFiles="uploadCropperImg"
+    >
+    </cropper>
 </div>
 </template>
 
@@ -230,6 +236,7 @@ export default {
                 const cropFile = fileEl.files[0];
                 let reader = new FileReader();
                 // reader.readAsDataURL(cropFile);
+                reader.readAsArrayBuffer(cropFile);
                 reader.onload = e => {
                     let data;
                     if (typeof e.target.result === "object") {
@@ -241,7 +248,7 @@ export default {
                     this.cropImg = data;
                     // this.$refs.file.value = ''
                 };
-                reader.readAsDataURL(cropFile);
+                return;
             }
 
             this.uploadFiles(files);
@@ -291,6 +298,21 @@ export default {
             } else {
                 this.uploadOnce(files);
             }
+        },
+        uploadCropperImg(obj) {
+            // console.log('cropper', obj);
+
+            this.$nextTick(() => {
+                this.currentValue.push({
+                    url: obj.data,
+                    status: 'uploading',
+                    progress: 100,
+                });
+                // this.upload(file);
+            });
+            console.log('cropper', obj);
+            // this.uploadFiles(file);
+
         },
         /**
          * 单文件上传
@@ -511,6 +533,7 @@ export default {
             const item = this.currentValue[index];
             if (!item)
                 return;
+            this.modalVisible = false;
 
             if (this.$emitPrevent('before-remove', {
                 oldValue: this.currentValue,

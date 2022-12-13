@@ -1,10 +1,10 @@
 <template>
-    <u-modal title="图片裁剪" :visible.sync="modalVisible" size="auto" :maskClose="false">
-        <div :class="$style.cropperContent">
+    <u-modal title="图片裁剪" :visible="visible" size="huge" :maskClose="false">
+        <div :class="$style.cropperWrapper">
             <div :class="$style.cropper" style="text-align:center">
                 <vueCropper
                     ref="cropper"
-                    :img="cropImg"
+                    :img="option.img"
                     :outputSize="option.size"
                     :outputType="option.outputType"
                     :info="true"
@@ -21,7 +21,22 @@
                     :autoCropWidth="option.autoCropWidth"
                     :autoCropHeight="option.autoCropHeight"
                     @cropMoving="cropMoving"
+                    @realTime="realTime"
                 />
+            </div>
+            <div :class="$style.previewWrapper">
+                <div>裁剪预览</div>
+                <div :style="previewStyle1" :class="$style.previewBox">
+                    <div :style="previews.div">
+                        <img :src="previews.url" :style="previews.img">
+                    </div>
+                </div>
+                <div :style="previewStyle1" :class="$style.previewBoxCircle">
+                    <div :style="previews.div">
+                        <img :src="previews.url" :style="previews.img">
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="action-box">
@@ -33,7 +48,7 @@
 <!--            <u-button type="primary"  @click="downloadHandle('blob')">下载</u-button>-->
         </div>
         <div slot="foot" class="dialog-footer">
-            <u-button @click="">取消</u-button>
+            <u-button @click="cancelCropper">取消</u-button>
             <u-button type="primary" @click="finish" :loading="loading">确认</u-button>
         </div>
     </u-modal>
@@ -54,9 +69,10 @@ export default {
             isPreview: false,
             dialogVisible: false,
             previewImg: '', // 预览图片地址
-            visible: false,
+            visible: this.modalVisible,
             // 裁剪组件的基础配置option
             option: {
+                img: this.cropImg,
                 info: true, // 裁剪框的大小信息
                 outputSize: 1, // 裁剪生成图片的质量
                 outputType: 'png', // 裁剪生成图片的格式
@@ -76,7 +92,8 @@ export default {
             },
             // 防止重复提交
             loading: false,
-
+            previewStyle1: {},
+            previews: {},
         }
     },
     props: {
@@ -90,10 +107,6 @@ export default {
         this.option.img = this.cropImg;
     },
     computed: {
-        // 裁剪图片的地址
-        visible() {
-            return this.modalVisible;
-        }
     },
     watch: {
         modalVisible: {
@@ -105,10 +118,6 @@ export default {
         cropImg: {
             handler(val) {
                 this.option.img = val;
-                this.$nextTick(() => {
-                    this.option.img = val;
-                })
-                console.log('cropImg', val)
             },
             immediate: true
         }
@@ -119,11 +128,7 @@ export default {
             const isJPG = file.raw.type === 'image/jpeg' || file.raw.type === 'image/png';
             const isLt2M = file.size / 1024 / 1024 < 2;
             if (!isJPG) {
-                this.$message.error('上传头像图片只能是 JPG/PNG 格式!');
-                return false
-            }
-            if (!isLt2M) {
-                this.$message.error('上传头像图片大小不能超过 2MB!');
+                this.$toast.error('上传头像图片只能是 JPG/PNG 格式!');
                 return false
             }
             // 上传成功后将图片地址赋值给裁剪框显示图片
@@ -176,26 +181,72 @@ export default {
             // let cropAxis = [data.axis.x1, data.axis.y1, data.axis.x2, data.axis.y2]
             // console.log(cropAxis)
         },
+        cancelCropper() {
+            this.visible = false;
+            this.option.img = '';
+        },
         finish() {
             // 获取截图的 blob 数据
+            this.visible = false;
+            this.loading = false;
             this.$refs.cropper.getCropBlob((blob) => {
                 this.loading = true
-                this.visible = false
                 this.previewImg = URL.createObjectURL(blob)
+                this.$emit('uploadFiles', {
+                    data: this.previewImg,
+                    // base64: data
+                });
                 this.isPreview = true
             })
             // 获取截图的 base64 数据
-            // this.$refs.cropper.getCropData(data => {
-            //     console.log(data)
-            // })
-        }
+            this.$refs.cropper.getCropData(data => {
+                // console.log(data)
+                // this.$emit('uploadFiles', {
+                //     data: this.previewImg,
+                //     base64: data
+                // });
+            })
+        },
+        realTime(data) {
+            var previews = data;
+            var h = 0.5;
+            var w = 0.2;
+
+            this.previewStyle1 = {
+                width: previews.w + "px",
+                height: previews.h + "px",
+                overflow: "hidden",
+                margin: "20",
+                zoom: h
+            };
+            this.previews = data;
+        },
+
     },
 };
 </script>
 
 <style module>
 .cropper {
-    width: auto;
+    display: inline-block;
+    width: 600px;
     height: 350px;
 }
+.cropperWrapper {
+    display: flex;
+}
+.previewWrapper {
+    margin: 10px;
+    display: inline-block;
+}
+.previewBoxCircle {
+    margin: 20px;
+    box-shadow: 0 0 15px gray;
+    border-radius: 50%;
+}
+.previewBox {
+    margin: 20px;
+    box-shadow: 0 0 15px gray;
+}
+
 </style>
