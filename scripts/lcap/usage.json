@@ -6143,7 +6143,7 @@
             "Display"
         ],
         "screenShot": "",
-        "blocks": "[{\"title\":\"普通用法\",\"description\":\"\",\"code\":\"<template>\\n<u-timeline>\\n    <template #item=\\\"scope\\\">\\n        <u-timeline-item></u-timeline-item>\\n    </template>\\n</u-timeline>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"普通用法\",\"description\":\"\",\"code\":\"<template>\\n<u-timeline>\\n    <template #item=\\\"scope\\\">\\n        <u-timeline-item>\\n            <template #label>\\n                标签\\n            </template>\\n        </u-timeline-item>\\n    </template>\\n</u-timeline>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-timeline",
             "title": "时间线",
@@ -6154,7 +6154,7 @@
                 {
                     "title": "普通用法",
                     "description": "",
-                    "code": "<template>\n<u-timeline>\n    <template #item=\"scope\">\n        <u-timeline-item></u-timeline-item>\n    </template>\n</u-timeline>\n</template>\n"
+                    "code": "<template>\n<u-timeline>\n    <template #item=\"scope\">\n        <u-timeline-item>\n            <template #label>\n                标签\n            </template>\n        </u-timeline-item>\n    </template>\n</u-timeline>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -6182,11 +6182,6 @@
                         {
                             "value": "default",
                             "title": "默认"
-                        },
-                        {
-                            "value": "alternate",
-                            "title": "交替展示",
-                            "advanced": true
                         },
                         {
                             "value": "label",
