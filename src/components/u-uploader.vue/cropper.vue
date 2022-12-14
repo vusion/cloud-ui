@@ -49,7 +49,8 @@
         <div slot="foot">
             <u-linear-layout justify="space-between">
                 <u-linear-layout>
-                    <input type="file" @change="handleChangeUpload" accept="image/*"  @click.stop>
+                    <input ref="fileUpload" type="file" @change="handleChangeUpload" accept="image/*"  @click.stop style="display: none">
+                    <u-button @click="uploadFile">重新上传</u-button>
                 </u-linear-layout>
                 <u-linear-layout>
                     <u-button @click="cancelCropper">取消</u-button>
@@ -64,12 +65,10 @@
 <script>
 import  { VueCropper } from 'vue-cropper';
 import Vue from 'vue';
-import ULinearLayout from '@/components/u-linear-layout.vue';
 Vue.use(VueCropper);
 export default {
     name: 'cropper',
     components: {
-        ULinearLayout,
         VueCropper
     },
     data() {
@@ -84,7 +83,7 @@ export default {
                 outputSize: 1, // 裁剪生成图片的质量
                 outputType: 'png', // 裁剪生成图片的格式
                 canScale: true, // 图片是否允许滚轮缩放
-                canMove: false, // 图片是否允许拖动
+                canMove: true, // 图片是否允许拖动
                 autoCrop: true, // 是否默认生成截图框
                 canMoveBox: true, // 截图框能否拖动
                 autoCropWidth: 200, // 默认生成截图框宽度
@@ -189,6 +188,7 @@ export default {
         },
         cancelCropper() {
             this.visible = false;
+            this.loading = false;
             this.option.img = '';
         },
         finish() {
@@ -205,6 +205,7 @@ export default {
                 });
                 this.isPreview = true
             })
+            this.option.img = '';
         },
         realTime(data) {
             const previews = data;
@@ -218,6 +219,9 @@ export default {
                 zoom: h
             };
             this.previews = data;
+        },
+        uploadFile() {
+            this.$refs.fileUpload.click();
         },
     },
 };
