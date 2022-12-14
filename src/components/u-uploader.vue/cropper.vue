@@ -1,5 +1,6 @@
 <template>
-    <u-modal title="图片裁剪" :visible="visible" size="huge" :maskClose="false">
+<div :class="$style.root">
+    <u-modal title="图片裁剪" :visible="visible" size="huge" :maskClose="false" :class="$style.cropperModal">
         <div :class="$style.cropperWrapper">
             <div :class="$style.cropper" style="text-align:center">
                 <vueCropper
@@ -39,12 +40,14 @@
             </div>
         </div>
         <div class="action-box">
-            <u-button type="primary"  @click="clearImgHandle">清除图片</u-button>
-            <u-button type="primary"  @click="rotateLeftHandle">左旋转</u-button>
-            <u-button type="primary"  @click="rotateRightHandle">右旋转</u-button>
-            <u-button type="primary"  @click="changeScaleHandle(2)">放大</u-button>
-            <u-button type="primary"  @click="changeScaleHandle(-2)">缩小</u-button>
-            <u-button type="primary"  @click="downloadHandle('blob')">下载</u-button>
+            <u-linear-layout justify="center" style="width: 600px; margin-top: 5px">
+                <i-ico name="remove" @click="clearImgHandle" :class="$style.cropperIcon"></i-ico>
+                <i-ico name="rotate-left" @click="rotateLeftHandle" :class="$style.cropperIcon"></i-ico>
+                <i-ico name="rotate-right" @click="rotateRightHandle" :class="$style.cropperIcon"></i-ico>
+                <i-ico name="zoomin" @click="changeScaleHandle(2)" :class="$style.cropperIcon"></i-ico>
+                <i-ico name="zoomout" @click="changeScaleHandle(-2)" :class="$style.cropperIcon"></i-ico>
+                <i-ico name="download" @click="downloadHandle('blob')" :class="$style.cropperIcon"></i-ico>
+            </u-linear-layout>
         </div>
         <div slot="foot">
             <u-linear-layout justify="space-between">
@@ -54,12 +57,12 @@
                 </u-linear-layout>
                 <u-linear-layout>
                     <u-button @click="cancelCropper">取消</u-button>
-                    <u-button color="primary" @click="finish" :loading="loading">保存</u-button>
+                    <u-button color="primary" @click="finish">保存</u-button>
                 </u-linear-layout>
             </u-linear-layout>
         </div>
     </u-modal>
-
+</div>
 </template>
 
 <script>
@@ -97,7 +100,6 @@ export default {
                 infoTrue: true // true 为展示真实输出图片宽高 false 展示看到的截图框宽高
             },
             // 防止重复提交
-            loading: false,
             previewStyle1: {},
             previews: {},
         }
@@ -188,15 +190,11 @@ export default {
         },
         cancelCropper() {
             this.visible = false;
-            this.loading = false;
             this.option.img = '';
         },
         finish() {
             // 获取截图的 blob 数据
-            this.visible = false;
-            this.loading = false;
             this.$refs.cropper.getCropBlob((blob) => {
-                this.loading = true
                 this.previewImg = URL.createObjectURL(new Blob([blob]))
                 this.$emit('uploadFiles', {
                     data: this.previewImg,
@@ -206,6 +204,7 @@ export default {
                 this.isPreview = true
             })
             this.option.img = '';
+            this.visible = false;
         },
         realTime(data) {
             const previews = data;
@@ -249,5 +248,13 @@ export default {
     margin: 10px 0 50px 20px;
     box-shadow: 0 0 15px gray;
 }
-
+.cropperIcon {
+    font-size: 18px;
+}
+.cropperIcon:hover {
+    cursor: pointer;
+}
+.cropperModal [class^="u-modal_body__"] {
+    margin-bottom: 2px;
+}
 </style>

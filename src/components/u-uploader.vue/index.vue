@@ -234,7 +234,6 @@ export default {
             if (!files)
                 return;
             // 处理开启图片编辑器
-            this.uploadFiles(files);
             if (this.openCropper) {
                 this.modalVisible = true;
                 const cropFile = fileEl.files[0];
@@ -252,7 +251,9 @@ export default {
                     this.cropImg = data;
                     // this.currentValue = []
                 };
+                return;
             }
+            this.uploadFiles(files);
         },
         checkSize(file) {
             if (this.maxSize === Infinity)
