@@ -219,6 +219,7 @@ export default {
             this.$refs.file.click();
         },
         onChange(e) {
+            this.modalVisible = false
             const fileEl = e.target;
 
             let files = fileEl.files;
@@ -235,7 +236,9 @@ export default {
                 return;
             // 处理开启图片编辑器
             if (this.openCropper) {
-                this.modalVisible = true;
+                this.$nextTick(()=>{
+                    this.modalVisible = true;
+                })
                 const cropFile = fileEl.files[0];
                 this.cropFileName = cropFile.name;
                 let reader = new FileReader();
