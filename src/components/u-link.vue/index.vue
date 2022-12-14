@@ -98,8 +98,17 @@ export default {
                 // @TODO: 考虑使用快捷键抛出事件，阻止流程的需求
                 let to;
                 if (this.destination) {
+                    const beforeHashUrl = this.destination?.slice(0, this.destination.indexOf('#'));
                     if (this.destination.startsWith('http')) {
                         location.href = encodeUrl(this.destination);
+                        return;
+                        // 处理同页面锚点跳转
+                    } else if (this.destination.indexOf('#') !== -1 && beforeHashUrl === location.pathname) {
+                        const hash = this.destination.slice(this.destination.indexOf('#'))?.replace('#', '');
+                        if (document.getElementById(hash)) {
+                            document.getElementById(hash).scrollIntoView();
+                            // this.$router.push(this.destination);
+                        }
                         return;
                     }
                     to = this.destination;
