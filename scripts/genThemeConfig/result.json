@@ -3050,34 +3050,6 @@
                 "preview": {
                     "template": "<u-dropdown><template #title=\"scope\"><u-text text=\"下拉菜单\"></u-text></template><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item disabled text=\"item\"></u-dropdown-item></u-dropdown>"
                 }
-            },
-            {
-                "id": 53,
-                "name": "u-timeline",
-                "title": "时间线",
-                "toPosition": "timeline",
-                "type": [],
-                "cssProperty": {
-                    "--timeline-item-padding-bottom": {
-                        "type": "input",
-                        "desc": "底部边距"
-                    },
-                    "--timeline-tail-color": {
-                        "type": "color",
-                        "desc": "轨道颜色"
-                    },
-                    "--timeline-tail-width": {
-                        "type": "input",
-                        "desc": "轨道宽度"
-                    },
-                    "--timeline-dot-background-color": {
-                        "type": "color",
-                        "desc": "dot背景颜色"
-                    }
-                },
-                "preview": {
-                    "template": "<u-timeline><u-timeline-item>提交 2020-01-20</u-timeline-item><u-timeline-item>预审核 2020-01-21</u-timeline-item><u-timeline-item><div>权限 2020-01-22</div><div>审批人：张三</div></u-timeline-item><u-timeline-item><div>财务 2020-01-22</div><div>审批人：李四</div></u-timeline-item><u-timeline-item>完成</u-timeline-item></u-timeline>"
-                }
             }
         ]
     },
