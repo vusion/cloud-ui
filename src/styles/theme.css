@@ -950,9 +950,9 @@
      */
 
     /* @component u-form */
-    --form-item-label-color: var(--font-second-color); /* @type color */ /* @desc 表单项 label字体颜色,如 #223325 */
-    --form-item-label-padding-right: 20px; /* @desc 表单项 label文本右边距,如 1px */
-    --form-item-label-width: 76px; /* @desc 表单项 label宽度,如 1px */
+    --form-item-label-color: var(--font-second-color); /* @type color */ /* @group label */ /* @prefix form-item */ /* @desc 表单项 label字体颜色,如 #223325 */
+    --form-item-label-padding-right: 20px; /* @group label */ /* @prefix form-item */ /* @desc 表单项 label文本右边距,如 1px */
+    --form-item-label-width: 76px; /* @group label */ /* @prefix form-item */ /* @desc 表单项 label宽度,如 1px */
 
     --form-group-head-padding: 6px 20px; /* @hidden */
     --form-group-head-padding-small: 5px 20px; /* @hidden */
@@ -984,6 +984,11 @@
     --form-required-right-large: 12px; /* @hidden */
     --form-required-top: 7px; /* @hidden */
     --form-item-text-color: var(--color-light); /* @hidden */
+
+    /* @component u-form-item */
+    --form-item-label-color: var(--font-second-color); /* @type color */ /* @group default */ /* @prefix form-item */ /* @desc 表单项 label字体颜色,如 #223325 */
+    --form-item-label-padding-right: 20px; /* @group default */ /* @prefix form-item */ /* @desc 表单项 label文本右边距,如 1px */
+    --form-item-label-width: 76px; /* @group default */ /* @prefix form-item */ /* @desc 表单项 label宽度,如 1px */
 
     /* @component u-field @hidden */
     --field-background: white;
