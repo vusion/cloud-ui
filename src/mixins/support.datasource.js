@@ -24,9 +24,9 @@ export default {
     },
     methods: {
         handleData() {
-            this.currentDataSource = this.normalizeDataSource(this.dataSource);
+            this.currentDataSource = this.normalizeDataSource(this.dataSource, this.multiple);
         },
-        normalizeDataSource(dataSource) {
+        normalizeDataSource(dataSource, multiple) {
             const final = {
                 data: [],
                 load: undefined,
@@ -34,7 +34,12 @@ export default {
 
             function createLoad(rawLoad) {
                 return async function (params = {}) {
-                    final.data = await rawLoad(params);
+                    const res = await rawLoad(params);
+                    if (multiple) {
+                        final.data = Array.isArray(res) ? res : res.content;
+                    } else {
+                        final.data = res;
+                    }
                 };
             }
 

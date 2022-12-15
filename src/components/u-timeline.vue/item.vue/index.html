@@ -1,14 +1,20 @@
 <li :class="{ [$style.root]: true, [$style.left]: itemPosition === 'left', [$style.right]: itemPosition === 'right' }" :color="color">
-    <div :class="$style.label" v-if="itemPosition !== undefined">
+    <div :class="$style.label" v-if="itemPosition !== undefined" vusion-slot-name="label">
         <slot name="label" v-if="$slots.label"></slot>
         {{ !$slots.label ? label : undefined }}
+        <s-empty v-if="(!$slots.label && !label) && $env.VUE_APP_DESIGNER && ($attrs['vusion-node-path'] || $attrs.designer)" :class="$style.empty"></s-empty>
     </div>
     <div :class="$style.tail" uname="tail"></div>
     <div v-if="!$slots.dot" :class="$style.dot" :style="{ borderColor: /primary|success|warning|error/.test(color) ? undefined : color }"></div>
     <div v-else :class="$style.dotCustom">
         <slot name="dot"></slot>
     </div>
-    <div :class="$style.content" uname="content">
+    <div :class="$style.content" uname="content" vusion-slot-name="default">
         <slot></slot>
+        <s-empty v-if="(!$slots.default && !($scopedSlots.item)) && $env.VUE_APP_DESIGNER" :class="$style.empty"></s-empty>
+        <span vusion-slot-name="item">
+            <slot name="item" :item="item" :index="index"></slot>
+            <s-empty v-if="(($scopedSlots.item && !$scopedSlots.item())) && $env.VUE_APP_DESIGNER && ($attrs['vusion-node-path'] || $attrs.designer)" :class="$style.empty"></s-empty>
+        </span>
     </div>
 </li>

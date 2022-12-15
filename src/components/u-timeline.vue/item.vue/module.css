@@ -105,3 +105,16 @@
     width: calc(50% - 12px);
     text-align: right;
 }
+/* .root[designer] {
+    position: relative;
+}
+.root[designer] + .root[designer]::after {
+    content: '';
+    position: absolute;
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+} */

@@ -1,3 +1,12 @@
 <ul :class="$style.root" :pending="pending">
+    <template
+        v-for="(item, index) in currentDataSource.data"
+        :key="index"
+    >
+        <slot name="item" :item="item" :designer="$env.VUE_APP_DESIGNER" :index="index"></slot>
+    </template>
+    <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
+        <span :class="$style.loadContent">{{ treeSelectTip }}</span>
+    </template>
     <slot></slot>
 </ul>

@@ -6135,6 +6135,164 @@
         }
     },
     {
+        "symbol": "u-timeline",
+        "name": "时间线",
+        "icon": "timeline",
+        "depDescription": {},
+        "labels": [
+            "Display"
+        ],
+        "screenShot": "",
+        "blocks": "[{\"title\":\"普通用法\",\"description\":\"\",\"code\":\"<template>\\n<u-timeline>\\n    <template #item=\\\"scope\\\">\\n        <u-timeline-item>\\n            <template #label>\\n                标签\\n            </template>\\n        </u-timeline-item>\\n    </template>\\n</u-timeline>\\n</template>\\n\"}]",
+        "jsonSchema": {
+            "name": "u-timeline",
+            "title": "时间线",
+            "category": "Display",
+            "screenShot": "",
+            "drawings": "",
+            "blocks": [
+                {
+                    "title": "普通用法",
+                    "description": "",
+                    "code": "<template>\n<u-timeline>\n    <template #item=\"scope\">\n        <u-timeline-item>\n            <template #label>\n                标签\n            </template>\n        </u-timeline-item>\n    </template>\n</u-timeline>\n</template>\n"
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "data-source",
+                    "title": "数据源",
+                    "type": "Array<Item> | Function | object | DataSource",
+                    "designer-value": "[{}, {}, {}]",
+                    "description": "数据源",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "data-schema",
+                    "title": "数据类型",
+                    "type": "schema",
+                    "description": "数据类型",
+                    "group": "数据属性",
+                    "compType": "dataTypeSelect"
+                },
+                {
+                    "name": "mode",
+                    "title": "模式",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "default",
+                            "title": "默认"
+                        },
+                        {
+                            "value": "label",
+                            "title": "开启 `label` 展示"
+                        }
+                    ],
+                    "default": "default",
+                    "description": "模式切换。`alternate` 交替展示，`label` 开启 `label` 展示"
+                },
+                {
+                    "name": "pending",
+                    "title": "是否指定最后一个节点为幽灵节点",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否指定最后一个节点为幽灵节点"
+                }
+            ],
+            "slots": [
+                {
+                    "concept": "Slot",
+                    "name": "default",
+                    "description": "插入 `<u-timeline-item>` 子组件",
+                    "support": [
+                        {
+                            "name": "u-timeline-item",
+                            "title": "时间线子选项",
+                            "snippet": "<u-timeline-item>信息</u-timeline-item>"
+                        }
+                    ]
+                },
+                {
+                    "concept": "Slot",
+                    "name": "item",
+                    "description": "自定义选项的结构和样式",
+                    "slotProps": {
+                        "concept": "Param",
+                        "name": "scope",
+                        "typeAnnotation": {
+                            "concept": "TypeAnnotation",
+                            "typeKind": "generic",
+                            "typeNamespace": "nasl.ui",
+                            "typeName": "ScopeOf",
+                            "typeArguments": [
+                                {
+                                    "concept": "TypeAnnotation",
+                                    "typeKind": "typeParam",
+                                    "typeName": "T"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "name": "u-timeline-item",
+                    "title": "时间线项",
+                    "attrs": [
+                        {
+                            "name": "color",
+                            "title": "颜色",
+                            "type": "string",
+                            "default": "primary",
+                            "description": "指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值"
+                        },
+                        {
+                            "name": "label",
+                            "title": "标签",
+                            "type": "string",
+                            "description": "指定展示在另一侧的 `label`，只在 `label` 模式下生效"
+                        },
+                        {
+                            "name": "position",
+                            "title": "位置",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "left",
+                                    "title": "左"
+                                },
+                                {
+                                    "value": "right",
+                                    "title": "右"
+                                }
+                            ],
+                            "default": "right",
+                            "description": "指定交替展示时的位置，只在 `alternate` 或 `label` 模式下生效"
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "concept": "Slot",
+                            "name": "default",
+                            "description": "插入文本或 HTML"
+                        },
+                        {
+                            "concept": "Slot",
+                            "name": "dot",
+                            "description": "自定义图标"
+                        },
+                        {
+                            "concept": "Slot",
+                            "name": "label",
+                            "description": "自定义 `label` ，只在 `label` 模式下生效"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
         "symbol": "u-table-view",
         "name": "数据表格",
         "icon": "table-view",

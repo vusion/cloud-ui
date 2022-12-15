@@ -1,3 +1,5 @@
+import SEmpty from '../../../components/s-empty.vue';
+
 export const UTimelineItem = {
     name: 'u-timeline-item',
     props: {
@@ -14,12 +16,26 @@ export const UTimelineItem = {
             },
             default: 'right',
         },
+        item: {
+            type: [Object, String, Number],
+        },
+        index: {
+            type: [Object, String, Number],
+        },
+    },
+    components: {
+        SEmpty,
     },
     inject: ['timeline'],
-    data() {
-        return {
-            itemPosition: ['alternate', 'label'].indexOf(this.timeline.mode) !== -1 ? this.position : undefined,
-        };
+    // data() {
+    //     return {
+    //         itemPosition: ['alternate', 'label'].indexOf(this.timeline.mode) !== -1 ? this.position : undefined,
+    //     };
+    // },
+    computed: {
+        itemPosition() {
+            return ['alternate', 'label'].indexOf(this.timeline.mode) !== -1 ? this.position : undefined;
+        },
     },
 };
 

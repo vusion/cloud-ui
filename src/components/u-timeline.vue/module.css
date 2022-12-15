@@ -16,3 +16,10 @@
 .root[pending="true"] li:nth-last-of-type(2) [uname="tail"] {
     border-left: var(--timeline-tail-width) dotted var(--timeline-tail-color);
 }
+
+.root .loadContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}

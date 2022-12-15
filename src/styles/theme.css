@@ -772,10 +772,10 @@
     --article-h2-border-color: #ebf0f4;
 
     /* @component u-timeline @hidden */
-    --timeline-item-padding-bottom: 20px;
-    --timeline-tail-color: var(--border-color-base);
-    --timeline-tail-width: 2px;
-    --timeline-dot-background-color: white;
+    --timeline-item-padding-bottom: 20px; /* @desc 底部边距 */
+    --timeline-tail-color: var(--border-color-base); /* @type color */ /* @desc 轨道颜色 */
+    --timeline-tail-width: 2px; /* @desc 轨道宽度 */
+    --timeline-dot-background-color: #fff; /* @type color */ /* @desc dot背景颜色 */
 
     /* @component u-dropdown */
     --dropdown-color-text: var(--brand-primary); /* @type color */ /* @desc 下拉菜单字体颜色,如 #223325 */
