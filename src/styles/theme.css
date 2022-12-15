@@ -1117,10 +1117,10 @@
     --number-input-border-radius: var(--input-border-radius); /* @hidden */
 
     /* @component u-radios */
-    --radio-space-x: 32px; /* @desc 单选项之间的间距,如 1px */
-    --radio-size: 16px; /* @desc 单选项按钮大小,如 1px */
-    --radio-background: var(--background-color-default); /* @type color */ /* @desc 单选项按钮背景色,如 #223325 */
-    --radio-box-shadow-focus: var(--box-shadow-form-item-base); /* @desc 单选项边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --radio-space-x: 32px; /* @group 间距 */ /* @desc 单选项之间的间距,如 1px */
+    --radio-size: 16px; /* @group 大小 */ /* @desc 单选项按钮大小,如 1px */
+    --radio-background: var(--background-color-default); /* @type color */ /* @group 背景色 */ /* @desc 单选项按钮背景色,如 #223325 */
+    --radio-box-shadow-focus: var(--box-shadow-form-item-base); /* @group 边框阴影 */ /* @desc 单选项边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
 
     --radio-inner-space-x: 8px; /* @hidden */
     --radio-solid-circle-size: 8px; /* @hidden */
