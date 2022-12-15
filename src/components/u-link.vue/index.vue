@@ -104,7 +104,7 @@ export default {
                         return;
                         // 处理同页面锚点跳转
                     } else if (this.destination.indexOf('#') !== -1 && beforeHashUrl === location.pathname) {
-                        const hash = this.destination.slice(this.destination.indexOf('#'))?.replace('#', '');
+                        const hash = this.destination.slice(this.destination.indexOf('#')) && this.destination.slice(this.destination.indexOf('#')).replace('#', '');
                         if (document.getElementById(hash)) {
                             document.getElementById(hash).scrollIntoView();
                             // this.$router.push(this.destination);
