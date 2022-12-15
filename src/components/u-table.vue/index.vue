@@ -14,21 +14,21 @@ export default {
 .root {
     width: 100%;
     table-layout: fixed;
-    background: var(--table-background);
+    background: var(--table-view-background);
 }
 
 .root th {
     position: relative;
-    line-height: var(--table-th-line-height);
-    padding: var(--table-th-padding);
+    line-height: var(--table-view-th-line-height);
+    padding: var(--table-view-th-padding);
     background: var(--table-th-background);
 }
 
 .root td {
     position: relative;
-    line-height: var(--table-td-line-height);
-    color: var(--table-td-color);
-    padding: var(--table-td-padding);
+    line-height: var(--table-view-td-line-height);
+    color: var(--table-view-td-color);
+    padding: var(--table-view-td-padding);
     background: var(--table-td-background);
 }
 
@@ -37,12 +37,12 @@ export default {
 }
 
 .root thead tr {
-    background-color: var(--table-head-background);
-    border-bottom: 1px solid var(--table-border-color);
+    background-color: var(--table-view-head-background);
+    border-bottom: 1px solid var(--table-view-border-color);
     background-clip: padding-box;
 }
 .root[color="light"] thead tr {
-    background-color: var(--table-head-background-light);
+    background-color: var(--table-view-head-background-light);
 }
 
 .root thead th {
@@ -52,7 +52,7 @@ export default {
 }
 
 .root tbody tr {
-    border-top: 1px solid var(--table-border-color);
+    border-top: 1px solid var(--table-view-border-color);
 }
 
 .root tbody > tr:first-child {
@@ -60,7 +60,7 @@ export default {
 }
 
 .root tbody > tr:last-child {
-    border-bottom: 1px solid var(--table-border-color);
+    border-bottom: 1px solid var(--table-view-border-color);
 }
 
 /* .root tbody > tr:hover > td::before {
@@ -103,7 +103,7 @@ export default {
 } */
 
 .root[line] th, .root[line] td {
-    border: 1px solid var(--table-border-color);
+    border: 1px solid var(--table-view-border-color);
 }
 
 .root[line] th, .root[line] thead tr {
@@ -112,7 +112,7 @@ export default {
 
 /* 下一个大版本放开 */
 .root[striped] thead tr {
-    border-top: 1px solid var(--table-border-color);
+    border-top: 1px solid var(--table-view-border-color);
 }
 
 .root[striped] tbody tr:nth-of-type(even) {
