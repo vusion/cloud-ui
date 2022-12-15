@@ -82,7 +82,7 @@ export default {
     right: 0;
     top:0;
 }
-.root [class^="s-empty_empty"] {
+.root > [class^="s-empty_empty"] {
     height: 100%;
 }
 /* 默认为 block */
