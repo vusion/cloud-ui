@@ -1056,28 +1056,28 @@
     --input-icon-color-disabled: var(--color-lighter); /* @hidden */
 
     /* @component u-textarea */
-    --textarea-width: var(--width-base); /* @desc 文本框宽度, 如 1px */
-    --textarea-width-medium: var(--width-medium); /* @desc Medium文本框宽度, 如 1px */
-    --textarea-width-large: var(--width-large); /* @desc Large文本框宽度, 如 1px */
-    --textarea-width-huge: var(--width-huge); /* @desc Huge文本框宽度, 如 1px */
-    --textarea-min-width: var(--width-base); /* @desc 文本框最小宽度, 如 1px */
-    --textarea-height: 100px; /* @desc 文本框高度, 如 1px */
-    --textarea-height-medium: 120px; /* @desc Medium文本框高度, 如 1px */
-    --textarea-height-large: 120px; /* @desc Large文本框高度, 如 1px */
-    --textarea-height-huge: 200px; /* @desc Huge文本框高度, 如 1px */
-    --textarea-min-height: var(--height-base); /* @desc 文本框最小高度, 如 1px */
-    --textarea-padding: 5px 10px; /* @desc 文本框内边距, 如 1px */
-    --textarea-border-radius: var(--border-radius-base); /* @desc 文本框圆角, 如 1px */
-    --textarea-border-color: var(--border-color-base); /* @type color */ /* @desc 文本框边框颜色, 如 #223325 */
-    --textarea-border-color-focus: var(--input-border-color-focus); /* @type color */ /* @desc 文本框边框颜色（选中状态）, 如 #223325 */
-    --textarea-border-color-disabled: var(--textarea-border-color); /* @type color */ /* @desc 文本框边框颜色（禁用状态）, 如 #223325 */
-    --textarea-background: var(--background-color-disabled-light); /* @type color */  /* @desc 文本框背景颜色, 如 #223325 */
-    --textarea-background-disabled: var(--input-background-disabled); /* @type color */ /* @desc 文本框背景颜色（禁用状态）, 如 #223325 */
-    --textarea-color: var(--color-base); /* @type color */ /* @desc 文本框内容区文字颜色, 如 #223325 */
-    --textarea-color-disabled: var(--input-color-disabled); /* @type color */ /* @desc 文本框内容区文字颜色（禁用状态）, 如 #223325 */
-    --textarea-placeholder-color: var(--color-lighter); /* @type color */ /* @desc 文本框提示内容文字颜色, 如 #223325 */
-    --textarea-box-shadow-focus-color: rgba(77, 136, 255, 0.2); /* @type color */ /* @desc 选中状态文本框边框阴影色,如 rgba(0, 0, 0, 0.2); */
-    --textarea-box-shadow-focus:  0 0 0 2px var(--textarea-box-shadow-focus-color); /* @desc 选中状态文本框边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --textarea-width: var(--width-base); /* @group 宽度 */ /* @desc 文本框宽度, 如 1px */
+    --textarea-width-medium: var(--width-medium); /* @group 宽度 */ /* @desc Medium文本框宽度, 如 1px */
+    --textarea-width-large: var(--width-large); /* @group 宽度 */ /* @desc Large文本框宽度, 如 1px */
+    --textarea-width-huge: var(--width-huge); /* @group 宽度 */ /* @desc Huge文本框宽度, 如 1px */
+    --textarea-min-width: var(--width-base); /* @group 宽度 */ /* @desc 文本框最小宽度, 如 1px */
+    --textarea-height: 100px; /* @group 高度 */ /* @desc 文本框高度, 如 1px */
+    --textarea-height-medium: 120px; /* @group 高度 */ /* @desc Medium文本框高度, 如 1px */
+    --textarea-height-large: 120px; /* @group 高度 */ /* @desc Large文本框高度, 如 1px */
+    --textarea-height-huge: 200px; /* @group 高度 */ /* @desc Huge文本框高度, 如 1px */
+    --textarea-min-height: var(--height-base); /* @group 高度 */ /* @desc 文本框最小高度, 如 1px */
+    --textarea-padding: 5px 10px; /* @group 内边距 */ /* @desc 文本框内边距, 如 1px */
+    --textarea-border-radius: var(--border-radius-base); /* @group 圆角 */ /* @desc 文本框圆角, 如 1px */
+    --textarea-border-color: var(--border-color-base); /* @type color */ /* @group 边框颜色 */ /* @desc 文本框边框颜色, 如 #223325 */
+    --textarea-border-color-focus: var(--input-border-color-focus); /* @type color */ /* @group 边框颜色 */ /* @desc 文本框边框颜色（选中状态）, 如 #223325 */
+    --textarea-border-color-disabled: var(--textarea-border-color); /* @type color */ /* @group 边框颜色 */ /* @desc 文本框边框颜色（禁用状态）, 如 #223325 */
+    --textarea-background: var(--background-color-disabled-light); /* @type color */ /* @group 背景颜色 */ /* @desc 文本框背景颜色, 如 #223325 */
+    --textarea-background-disabled: var(--input-background-disabled); /* @type color */ /* @group 背景颜色 */ /* @desc 文本框背景颜色（禁用状态）, 如 #223325 */
+    --textarea-color: var(--color-base); /* @type color */ /* @group 文字颜色 */ /* @desc 文本框内容区文字颜色, 如 #223325 */
+    --textarea-color-disabled: var(--input-color-disabled); /* @type color */ /* @group 文字颜色 */ /* @desc 文本框内容区文字颜色（禁用状态）, 如 #223325 */
+    --textarea-placeholder-color: var(--color-lighter); /* @type color */ /* @group 文字颜色 */ /* @desc 文本框提示内容文字颜色, 如 #223325 */
+    --textarea-box-shadow-focus-color: rgba(77, 136, 255, 0.2); /* @type color */ /* @group 边框阴影 */ /* @desc 选中状态文本框边框阴影色,如 rgba(0, 0, 0, 0.2); */
+    --textarea-box-shadow-focus:  0 0 0 2px var(--textarea-box-shadow-focus-color); /* @group 边框阴影 */ /* @desc 选中状态文本框边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
 
     /* @component u-number-input */
     --number-input-background: var(--input-background); /* @type color */ /* @desc 输入框背景色,如 #223325 */
