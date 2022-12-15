@@ -56,7 +56,7 @@
       support:
         - name: u-collapse-item
           title: 多选项
-          snippet: '<u-collapse-item title="面板"><template #extra></template>内容</u-collapse-item>'
+          snippet: '<u-collapse-item><template #title><u-text text="面板"></u-text></template><template #extra></template>内容</u-collapse-item>'
   events:
     - name: expand
       description: 展开此面板时触发

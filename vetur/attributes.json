@@ -3017,6 +3017,20 @@
     ],
     "description": "设置表单行间隔大小"
   },
+  "u-form/label-layout": {
+    "type": "string",
+    "options": [
+      {
+        "value": "inline",
+        "title": "行内展示"
+      },
+      {
+        "value": "block",
+        "title": "块级展示，标签与表单项分行展示"
+      }
+    ],
+    "description": ""
+  },
   "u-form/label-size": {
     "type": "string",
     "options": [
@@ -3038,6 +3052,10 @@
       }
     ],
     "description": ""
+  },
+  "u-form/label-ellipsis": {
+    "type": "boolean",
+    "description": "文字过长是否省略显示。默认文字超出时会换行。"
   },
   "u-form/size": {
     "type": "string",
@@ -3087,6 +3105,20 @@
     "type": "string",
     "description": "列跨越的格数"
   },
+  "u-form-item/label-layout": {
+    "type": "string",
+    "options": [
+      {
+        "value": "inline",
+        "title": "行内展示"
+      },
+      {
+        "value": "block",
+        "title": "块级展示，标签与表单项分行展示"
+      }
+    ],
+    "description": ""
+  },
   "u-form-item/label-size": {
     "type": "string",
     "options": [
@@ -3108,6 +3140,10 @@
       }
     ],
     "description": "单独设置表单项的标签大小。"
+  },
+  "u-form-item/label-ellipsis": {
+    "type": "boolean",
+    "description": "文字过长是否省略显示。默认文字超出时会换行。"
   },
   "u-form-item/field-size": {
     "type": "string",
@@ -3179,15 +3215,19 @@
     "type": "string",
     "options": [
       {
-        "value": "inline",
-        "title": "行内"
+        "value": "block",
+        "title": "顶对齐"
       },
       {
-        "value": "block",
-        "title": "块级"
+        "value": "center",
+        "title": "居中对齐"
+      },
+      {
+        "value": "end",
+        "title": "尾对齐"
       }
     ],
-    "description": "布局方式。"
+    "description": "标签与表单元素的纵轴对齐方式，默认为顶对齐"
   },
   "u-form-item/rules": {
     "type": "string | Array",
@@ -3220,6 +3260,24 @@
   "u-form-group/repeat": {
     "type": "number",
     "description": "整个表单的划分列数"
+  },
+  "u-form-group/label-layout": {
+    "type": "string",
+    "options": [
+      {
+        "value": "inline",
+        "title": "行内展示"
+      },
+      {
+        "value": "block",
+        "title": "块级展示，标签与表单项分行展示"
+      }
+    ],
+    "description": ""
+  },
+  "u-form-group/label-ellipsis": {
+    "type": "boolean",
+    "description": "文字过长是否省略显示。默认文字超出时会换行。"
   },
   "u-form-group/collapsible": {
     "type": "boolean",
@@ -6125,6 +6183,10 @@
   "u-select/loading-text": {
     "type": "string",
     "description": "正在加载中的文字，使用分页加载时才会出现"
+  },
+  "u-select/show-empty-text": {
+    "type": "boolean",
+    "description": "是否在数据为空时展示暂无数据的文字提示"
   },
   "u-select/empty-text": {
     "type": "string",

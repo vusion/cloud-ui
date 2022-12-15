@@ -17,9 +17,9 @@ export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns,
         const dateRegx = /^\d{4}-\d{2}-\d{2}$/;
         const percentRegx = /^\d+(\.\d+)?%$/ ;
         const value = cell.v;
+        let template;
         if (cell.t === 's' && value !=='%' && percentRegx.test(value)) {
             // 根据小数位数转化为'0.00%'格式，比如一位小数就是'0.0%'
-            let template;
             if (value.indexOf('.') > -1) {
                 const percentLength = value.split('.')[1].length;
                 template = '0.'+new Array(percentLength-1).fill(0).join('')+'%';
@@ -30,8 +30,14 @@ export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns,
             cell.t = 'n';
             cell.v = Number(value.substring(0, value.length - 1)) / 100;
         } else if (!isNaN(Number(value)) && value.length <= 15) {
+            if (value.indexOf('.') > -1) {
+                const percentLength = value.split('.')[1].length;
+                template = '0.0'+new Array(percentLength-1).fill(0).join('');
+            } else {
+                template = '0'
+            }
+            cell.z = template;
             cell.t = 'n';
-            // cell.z = '0.00';
         } else if (dateRegx.test(value)) {
             cell.t = 'd';
         }

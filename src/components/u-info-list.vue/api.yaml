@@ -40,11 +40,11 @@
       support:
         - name: u-info-list-group
           title: 详情列表组
-          snippet: <u-info-list-group title="基本信息"><u-info-list-item
-            label="名称">张三</u-info-list-item></u-info-list-group>
+          snippet: '<u-info-list-group><template #title><u-text text="基本信息"></u-text></template><u-info-list-item
+            label="名称"><u-text text="张三"></u-text></u-info-list-item></u-info-list-group>'
         - name: u-info-list-item
           title: 详情列表项
-          snippet: <u-info-list-item label="名称">张三</u-info-list-item>
+          snippet: '<u-info-list-item><template #label><u-text text="基本信息"></u-text></template><u-text text="张三"></u-text></u-info-list-item>'
   description: 详情列表
 - name: u-info-list-item
   title: 详情列表项
@@ -119,7 +119,7 @@
       support:
         - name: u-info-list-item
           title: 详情列表项
-          snippet: <u-info-list-item label="名称">张三</u-info-list-item>
+          snippet: '<u-info-list-item><template #label><u-text text="基本信息"></u-text></template><u-text text="张三"></u-text></u-info-list-item>'
     - concept: Slot
       name: title
       title: 自定义标题
