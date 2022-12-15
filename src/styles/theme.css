@@ -1185,44 +1185,44 @@
     --checkbox-inner-space-x: 5px; /* @hidden */
 
     /* @component u-select */
-    --select-popper-item-background: inherit; /* @type color */  /* @desc 选择框下拉项背景色,如 #223325 */
-    --select-popper-item-background-hover: var(--list-view-item-background-hover); /* @type color */ /* @desc 选择框下拉项背景色（hover状态）,如 #223325 */
-    --select-popper-item-background-selected: var(--list-view-item-background-selected); /* @type color */ /* @desc 选择框下拉项背景色（禁用状态）,如 #223325 */
+    --select-popper-item-background: inherit; /* @type color */ /* @group 下拉框背景色 */ /* @desc 选择框下拉项背景色,如 #223325 */
+    --select-popper-item-background-hover: var(--list-view-item-background-hover); /* @type color */ /* @group 下拉框背景色 */ /* @desc 选择框下拉项背景色（hover状态）,如 #223325 */
+    --select-popper-item-background-selected: var(--list-view-item-background-selected); /* @type color */ /* @group 下拉框背景色 */ /* @desc 选择框下拉项背景色（禁用状态）,如 #223325 */
     /* normal */
-    --select-popper-item-color: inherit; /* @type color */ /* @desc 选择框下拉项字体颜色,如 #223325 */
+    --select-popper-item-color: inherit; /* @type color */ /* @group 下拉框字体颜色 */ /* @desc 选择框下拉项字体颜色,如 #223325 */
     /* hover */
-    --select-popper-item-color-hover: inherit; /* @type color */ /* @desc 选择框下拉项字体颜色（hover状态）,如 #223325 */
+    --select-popper-item-color-hover: inherit; /* @type color */ /* @group 下拉框字体颜色 */ /* @desc 选择框下拉项字体颜色（hover状态）,如 #223325 */
     /* selected */
-    --select-popper-item-color-selected: var(--list-view-item-color-selected); /* @type color */ /* @desc 选择框下拉项字体颜色（选中状态）,如 #223325 */
-    --select-width: var(--width-base); /* @desc 选择框的宽度,如 1px */
-    --select-height: var(--height-base); /* @desc 选择框的高度,如 1px */
-    --select-padding-x: 10px; /* @desc 选择框水平方向内边距,如 1px */
-    --select-background: var(--background-color-default); /* @type color */ /* @desc 选择框的背景色,如 #223325 */
-    --select-border-width: var(--border-width-base); /* @desc 选择框的边框宽度,如 1px */
-    --select-border-color: var(--border-color-base); /* @type color */ /* @desc 选择框的边框颜色,如 #223325 */
-    --select-color: var(--color-base); /* @type color */ /* @desc 选择框的字体颜色,如 #223325 */
-    --select-popper-max-height: 194px; /* @desc 选择框的弹出层最大高度,如 1px */
-    --select-popper-box-shadow: var(--box-shadow-base); /* @desc 选择框的弹出层阴影效果,如 1px */
-    --select-placeholder-color: var(--color-lighter); /* @type color */ /* @desc 选择框的占位符文字颜色,如 #223325 */
-    --select-arrow-color: var(--color-light); /* @type color */ /* @desc  选择框的下拉箭头颜色,如 #223325 */
-    --select-arrow-size: 18px; /* @desc  选择框的下拉箭头大小,如 1px */
-    --select-arrow-right-ratio: 0.6; /* @desc 选择框的下拉箭头右边距计算倍数,如 1px */
-    --select-popper-background: var(--background-color-default); /* @type color */ /* @desc 选择框的弹出层背景色,如 #223325 */
-    --select-popper-border-color: var(--border-color-base); /* @type color */ /* @desc 选择框的弹出层边框颜色,如 #223325 */
-    --select-popper-border-color-inverse: var(--border-color-base-inverse); /* @type color */ /* @desc Inverse选择框的弹出层边框颜色,如 #223325 */
-    --select-status-color: var(--color-light); /* @type color */ /* @desc 选择框状态颜色,如 #223325 */
-    --select-box-shadow-focus: 0 0 0 2px rgba(77, 136, 255, 0.2); /* @desc 选择框的弹出层边框阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --select-popper-item-color-selected: var(--list-view-item-color-selected); /* @type color */ /* @group 下拉框字体颜色 */ /* @desc 选择框下拉项字体颜色（选中状态）,如 #223325 */
+    --select-width: var(--width-base); /* @group 宽度 */ /* @desc 选择框的宽度,如 1px */
+    --select-height: var(--height-base); /* @group 高度 */ /* @desc 选择框的高度,如 1px */
+    --select-padding-x: 10px;  /* @group 水平方向内边距 */ /* @desc 选择框水平方向内边距,如 1px */
+    --select-background: var(--background-color-default); /* @type color */ /* @group 背景色 */ /* @desc 选择框的背景色,如 #223325 */
+    --select-border-width: var(--border-width-base);  /* @group 边框 */ /* @desc 选择框的边框宽度,如 1px */
+    --select-border-color: var(--border-color-base); /* @type color */ /* @group 边框 */ /* @desc 选择框的边框颜色,如 #223325 */
+    --select-color: var(--color-base); /* @type color */ /* @group 字体 */ /* @desc 选择框的字体颜色,如 #223325 */
+    --select-popper-max-height: 194px; /* @group 弹出层 */ /* @desc 选择框的弹出层最大高度,如 1px */
+    --select-popper-box-shadow: var(--box-shadow-base); /* @group 弹出层 */ /* @desc 选择框的弹出层阴影效果,如 1px */
+    --select-placeholder-color: var(--color-lighter); /* @type color */ /* @group 占位符 */ /* @desc 选择框的占位符文字颜色,如 #223325 */
+    --select-arrow-color: var(--color-light); /* @type color */ /* @group 下拉箭头 */ /* @desc  选择框的下拉箭头颜色,如 #223325 */
+    --select-arrow-size: 18px; /* @group 下拉箭头 */ /* @desc  选择框的下拉箭头大小,如 1px */
+    --select-arrow-right-ratio: 0.6; /* @group 下拉箭头 */ /* @desc 选择框的下拉箭头右边距计算倍数,如 1px */
+    --select-popper-background: var(--background-color-default); /* @type color */ /* @group 弹出层 */ /* @desc 选择框的弹出层背景色,如 #223325 */
+    --select-popper-border-color: var(--border-color-base); /* @type color */ /* @group 弹出层 */ /* @desc 选择框的弹出层边框颜色,如 #223325 */
+    --select-popper-border-color-inverse: var(--border-color-base-inverse); /* @type color */ /* @group 弹出层 */ /* @desc Inverse选择框的弹出层边框颜色,如 #223325 */
+    --select-status-color: var(--color-light); /* @type color */ /* @group 状态颜色 */ /* @desc 选择框状态颜色,如 #223325 */
+    --select-box-shadow-focus: 0 0 0 2px rgba(77, 136, 255, 0.2); /* @group 弹出层 */ /* @desc 选择框的弹出层边框阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
     /* readonly */
-    --select-popper-item-color-readonly: inherit; /* @type color */ /* @desc 选择框下拉项的字体颜色（只读状态下）,如 #223325 */
-    --select-popper-item-background-readonly: var(--list-view-item-background-readonly-initial); /* @type color */ /* @desc 选择框下拉项的背景颜色（只读状态下）,如 #223325 */
+    --select-popper-item-color-readonly: inherit; /* @type color */ /* @group 只读状态 */ /* @desc 选择框下拉项的字体颜色（只读状态下）,如 #223325 */
+    --select-popper-item-background-readonly: var(--list-view-item-background-readonly-initial); /* @type color */ /* @group 只读状态 */ /* @desc 选择框下拉项的背景颜色（只读状态下）,如 #223325 */
     /* focused */
     /* selected disabled */
-    --select-popper-item-color-selected-disabled: inherit; /* @type color */ /* @desc 选择框下拉项的字体颜色（禁用状态下）,如 #223325 */
-    --select-popper-item-background-selected-disabled: var(--list-view-item-background-selected-disabled); /* @type color */ /* @desc 选择框下拉项的背景颜色（禁用状态下）,如 #223325 */
-    --select-popper-item-color-duplicated: inherit; /* @type color */ /* @desc 选择框下拉项的字体颜色（多选状态下）,如 #223325 */
-    --select-popper-item-background-duplicated: none; /* @type color */ /* @desc 选择框下拉项的背景颜色（多选状态下）,如 #223325 */
-    --select-popper-item-color-duplicated-hover: var(--select-popper-item-color-hover); /* @type color */ /* @desc 选择框下拉项的字体颜色（多选hover状态下）,如 #223325 */
-    --select-popper-item-background-duplicated-hover: var(--select-popper-item-background-hover); /* @type color */ /* @desc 选择框下拉项的背景颜色（多选hover状态下）,如 #223325 */
+    --select-popper-item-color-selected-disabled: inherit; /* @type color */ /* @group 禁用状态 */ /* @desc 选择框下拉项的字体颜色（禁用状态下）,如 #223325 */
+    --select-popper-item-background-selected-disabled: var(--list-view-item-background-selected-disabled); /* @type color */ /* @group 禁用状态 */ /* @desc 选择框下拉项的背景颜色（禁用状态下）,如 #223325 */
+    --select-popper-item-color-duplicated: inherit; /* @type color */ /* @group 多选状态 */ /* @desc 选择框下拉项的字体颜色（多选状态下）,如 #223325 */
+    --select-popper-item-background-duplicated: none; /* @type color */ /* @group 多选状态 */ /* @desc 选择框下拉项的背景颜色（多选状态下）,如 #223325 */
+    --select-popper-item-color-duplicated-hover: var(--select-popper-item-color-hover); /* @type color */ /* @group 多选状态 */ /* @desc 选择框下拉项的字体颜色（多选hover状态下）,如 #223325 */
+    --select-popper-item-background-duplicated-hover: var(--select-popper-item-background-hover); /* @type color */ /* @group 多选状态 */ /* @desc 选择框下拉项的背景颜色（多选hover状态下）,如 #223325 */
 
     --select-popper-item-background-focused: var(--select-popper-item-background-hover); /* @hidden */
     --select-popper-item-color-focused: var(--select-popper-item-color-hover); /* @hidden */
