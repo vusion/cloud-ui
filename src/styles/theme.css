@@ -1161,12 +1161,12 @@
     --switch-font-size: 12px; /* @hidden */
 
     /* @component u-checkbox */
-    --checkbox-space-x: 80px; /* @desc 多选项之间的间距,如 1px */
-    --checkbox-size: 16px; /* @desc 多选项按钮的大小,如 1px */
-    --checkbox-border-radius: var(--border-radius-base); /* @desc 多选项按钮圆角,如 1px */
-    --checkbox-background: var(--brand-primary); /* @type color */ /* @desc 多选项按钮的背景色,如 #223325 */
-    --checkbox-color: var(--background-color-default); /* @type color */ /* @desc 多选项按钮的内容颜色,如 #223325 */
-    --checkbox-box-shadow-focus: var(--box-shadow-form-item-base); /* @desc 多选项按钮的阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --checkbox-space-x: 80px; /* @group 间距 */ /* @desc 多选项之间的间距,如 1px */
+    --checkbox-size: 16px; /* @group 大小 */ /* @desc 多选项按钮的大小,如 1px */
+    --checkbox-border-radius: var(--border-radius-base); /* @group 圆角 */ /* @desc 多选项按钮圆角,如 1px */
+    --checkbox-background: var(--brand-primary); /* @type color */ /* @group 背景色 */ /* @desc 多选项按钮的背景色,如 #223325 */
+    --checkbox-color: var(--background-color-default); /* @type color */ /* @group 内容颜色 */ /* @desc 多选项按钮的内容颜色,如 #223325 */
+    --checkbox-box-shadow-focus: var(--box-shadow-form-item-base); /* @group 阴影效果 */ /* @desc 多选项按钮的阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
 
     --checkbox-border-color: var(--border-color-base); /* @hidden */
     --checkbox-border-color-disabled: var(--border-color-base); /* @hidden */
