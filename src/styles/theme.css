@@ -741,7 +741,7 @@
     --desc-list-item-label-width-large: 120px;
 
     /* @component u-table @hidden */
-    --table-head-background-light: var(--background-color-default); /* @hidden */
+    --table-view-head-background-light: var(--background-color-default); /* @hidden */
     --table-head-font-weight: bold;
     --table-head-color: var(--gray-dark);
     --table-row-background: var(--background-color-base);
@@ -790,22 +790,22 @@
      */
 
     /* @component u-table-view */
-    --table-view-row-hover-background: #f9f9f9; /* @type color */ /* @desc 表格行背景色（hover状态）,如 #223325 */
-    --table-head-background: #f7f8fa; /* @type color */ /* @desc 表格表头背景色,如 #223325 */
+    --table-view-row-hover-background: #f9f9f9; /* @type color */ /* @group 行 */ /* @desc 表格行背景色（hover状态）,如 #223325 */
+    --table-view-head-background: #f7f8fa; /* @type color */ /* @group 表头 */ /* @desc 表格表头背景色,如 #223325 */
     --table-head-text-align: left; /* @desc 表格表头字体对齐方式,如 left */
     --table-head-font-weight: normal; /* @desc 表格表头字体加粗,如 normal */
-    --table-view-head-item-size: var(--font-size-base); /* @desc 表格表头字体大小,如 1px */
-    --table-row-background-striped: var(--background-color-lighter); /* @type color */ /* @desc 表格条纹展示行背景色,如 #223325 */
-    --table-view-head-item-color: var(--gray-dark); /* @type color */ /* @desc 表格表头文字颜色,如 #223325 */
-    --table-background: var(--background-color-default); /* @type color */ /* @desc 表格内容区背景色,如 #223325 */
-    --table-border-color: var(--border-color-base); /* @type color */ /* @desc 表格内容区边框颜色,如 #223325 */
-    --table-td-color: var(--color-base); /* @type color */ /* @desc 表格内容区文字颜色,如 #223325 */
-    --table-th-line-height: 20px; /* @desc 表格表头行高,如 1px */
-    --table-th-padding: 10px 6px 10px 10px; /* @desc 表格表头内间距,如 1px */
-    --table-th-background: var(--table-head-background);/* @desc 表格表头内间距,如 1px */
-    --table-td-line-height: 20px; /* @desc 表格内容区行高,如 1px */
-    --table-td-padding: 10px 6px 10px 10px; /* @type color */ /* @desc 表格表头背景色,如 #223325 */
-    --table-td-background: var(--table-background);/* @type color */ /* @desc 表格列内容区背景色,如 #223325 */
+    --table-view-head-item-size: var(--font-size-base); /* @group 表头 */ /* @desc 表格表头字体大小,如 1px */
+    --table-row-background-striped: var(--background-color-lighter); /* @type color */ /* @group 行 */ /* @desc 表格条纹展示行背景色,如 #223325 */
+    --table-view-head-item-color: var(--gray-dark); /* @type color */ /* @group 表头 */ /* @desc 表格表头文字颜色,如 #223325 */
+    --table-view-background: var(--background-color-default); /* @type color */ /* @group 内容区 */ /* @desc 表格内容区背景色,如 #223325 */
+    --table-view-border-color: var(--border-color-base); /* @type color */ /* @group 内容区 */ /* @desc 表格内容区边框颜色,如 #223325 */
+    --table-view-td-color: var(--color-base); /* @type color */ /* @group 内容区 */ /* @desc 表格内容区文字颜色,如 #223325 */
+    --table-view-th-line-height: 20px; /* @group 表头 */ /* @desc 表格表头行高,如 1px */
+    --table-view-th-padding: 10px 6px 10px 10px; /* @group 表头 */ /* @desc 表格表头内间距,如 1px */
+    --table-th-background: var(--table-view-head-background); /* @desc 表格表头内背景色,如 #223325 */
+    --table-view-td-line-height: 20px; /* @group 内容区 */ /* @desc 表格内容区行高,如 1px */
+    --table-view-td-padding: 10px 6px 10px 10px; /* @type color */ /* @group 内容区 */ /* @desc 表格表头背景色,如 #223325 */
+    --table-td-background: var(--table-view-background);/* @type color */ /* @desc 表格列内容区背景色,如 #223325 */
 
     --table-view-head-title-sortable-hover: #eef2f8; /* @hidden */
     --table-view-sort-color-hover: #aaa; /* @hidden */
@@ -950,9 +950,9 @@
      */
 
     /* @component u-form */
-    --form-item-label-color: var(--font-second-color); /* @type color */ /* @desc 表单项 label字体颜色,如 #223325 */
-    --form-item-label-padding-right: 20px; /* @desc 表单项 label文本右边距,如 1px */
-    --form-item-label-width: 76px; /* @desc 表单项 label宽度,如 1px */
+    --form-item-label-color: var(--font-second-color); /* @type color */ /* @group label */ /* @prefix form-item */ /* @desc 表单项 label字体颜色,如 #223325 */
+    --form-item-label-padding-right: 20px; /* @group label */ /* @prefix form-item */ /* @desc 表单项 label文本右边距,如 1px */
+    --form-item-label-width: 76px; /* @group label */ /* @prefix form-item */ /* @desc 表单项 label宽度,如 1px */
 
     --form-group-head-padding: 6px 20px; /* @hidden */
     --form-group-head-padding-small: 5px 20px; /* @hidden */
@@ -985,6 +985,11 @@
     --form-required-top: 7px; /* @hidden */
     --form-item-text-color: var(--color-light); /* @hidden */
 
+    /* @component u-form-item */
+    --form-item-label-color: var(--font-second-color); /* @type color */ /* @group default */ /* @prefix form-item */ /* @desc 表单项 label字体颜色,如 #223325 */
+    --form-item-label-padding-right: 20px; /* @group default */ /* @prefix form-item */ /* @desc 表单项 label文本右边距,如 1px */
+    --form-item-label-width: 76px; /* @group default */ /* @prefix form-item */ /* @desc 表单项 label宽度,如 1px */
+
     /* @component u-field @hidden */
     --field-background: white;
     --field-color: var(--color-light);
@@ -1010,69 +1015,69 @@
     --validator-message-popper-margin-top: 13px;
 
     /* @component u-input */
-    --input-border-color: var(--border-color-base); /* @type color */ /* @desc 输入框边框颜色,如 #223325 */
-    --input-border-color-hover: #4c88FF; /* @type color */ /* @desc 输入框边框颜色（hover状态）,如 #223325 */
-    --input-border-color-focus: #4c88FF; /* @type color */ /* @desc 输入框边框颜色（选中状态）,如 #223325 */
-    --input-border-color-disabled: var(--input-border-color); /* @type color */ /* @desc 输入框边框颜色（禁用状态）,如 #223325 */
-    --input-border-width: var(--border-width-base); /* @desc 输入框边框宽度,如 1px */
-    --input-border-radius: var(--border-radius-base); /* @desc 输入框圆角,如 1px */
+    --input-border-color: var(--border-color-base); /* @type color */ /* @group 边框颜色 */ /* @desc 输入框边框颜色,如 #223325 */
+    --input-border-color-hover: #4c88FF; /* @type color */ /* @group 边框颜色 */ /* @desc 输入框边框颜色（hover状态）,如 #223325 */
+    --input-border-color-focus: #4c88FF; /* @type color */ /* @group 边框颜色 */ /* @desc 输入框边框颜色（选中状态）,如 #223325 */
+    --input-border-color-disabled: var(--input-border-color); /* @type color */ /* @group 边框颜色 */ /* @desc 输入框边框颜色（禁用状态）,如 #223325 */
+    --input-border-width: var(--border-width-base); /* @group 边框宽度 */ /* @desc 输入框边框宽度,如 1px */
+    --input-border-radius: var(--border-radius-base); /* @group 圆角 */ /* @desc 输入框圆角,如 1px */
     --input-border-color-error: var(--brand-error); /* @hidden */
-    --input-box-shadow-focus-color: rgba(77, 136, 255, 0.2); /* @type color */ /* @desc 输入框边框阴影颜色（选中状态）,如 #223325 */
-    --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color); /* @desc 输入框边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2) */
-    --input-placeholder-color: var(--color-lighter); /* @type color */ /* @desc 输入框占位符文本颜色,如 #223325 */
-    --input-width-mini: var(--width-mini); /* @desc Mini输入框高度,如 1px */
-    --input-width-small: var(--width-small); /* @desc Small输入框高度,如 1px */
-    --input-width: var(--width-base); /* @desc 输入框高度,如 1px */
-    --input-width-medium: var(--width-medium); /* @desc Medium输入框高度,如 1px */
-    --input-width-large: var(--width-large); /* @desc Large输入框高度,如 1px */
-    --input-width-huge: var(--width-huge); /* @desc Huge输入框高度,如 1px */
-    --input-height-mini: var(--height-mini); /* @desc Mini输入框高度,如 1px */
-    --input-height-small: var(--height-small); /* @desc Small输入框高度,如 1px */
-    --input-height: var(--height-base); /* @desc 输入框高度,如 1px */
-    --input-height-medium: var(--height-medium); /* @desc Medium输入框高度,如 1px */
-    --input-height-large: var(--height-large); /* @desc Large输入框高度,如 1px */
-    --input-height-huge: var(--height-huge); /* @desc Huge输入框高度,如 1px */
-    --input-padding-x-mini: 6px; /* @desc Mini输入框水平方向内边距,如 1px */
-    --input-padding-x-small: 8px; /* @desc Small输入框水平方向内边距,如 1px */
-    --input-padding-x: 10px; /* @desc 输入框水平方向内边距,如 1px */
-    --input-padding-x-medium: 10px; /* @desc Medium输入框水平方向内边距,如 1px */
-    --input-padding-x-large: 10px; /* @desc Large输入框水平方向内边距,如 1px */
-    --input-padding-x-huge: 10px; /* @desc Huge输入框水平方向内边距,如 1px */
-    --input-padding-x-full: 10px; /* @desc Full输入框水平方向内边距,如 1px */
-    --input-prefix-padding-left: 36px; /* @desc 输入框前缀左边距,如 1px */
-    --input-prefix-placeholder-left: 27px; /* @desc 输入框前缀提示信息左边距,如 1px */
-    --input-suffix-padding-right: 30px; /* @desc 输入框后缀右边距,如 1px */
-    --input-background: var(--background-color-default);  /* @type color */ /* @desc 输入框背景色,如 #223325 */
-    --input-background-disabled: var(--background-color-disabled-light); /* @type color */ /* @desc 禁用输入框背景色,如 #223325 */
-    --input-color: var(--color-base); /* @type color */ /* @desc 输入框文字颜色,如 #223325 */
-    --input-color-disabled: var(--color-light); /* @type color */ /* @desc 禁用输入框文字颜色,如 #223325 */
+    --input-box-shadow-focus-color: rgba(77, 136, 255, 0.2); /* @type color */ /* @group 边框阴影 */ /* @desc 输入框边框阴影颜色（选中状态）,如 #223325 */
+    --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color); /* @group 边框宽度 */ /* @desc 输入框边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2) */
+    --input-placeholder-color: var(--color-lighter); /* @type color */ /* @group 占位符文本 */ /* @desc 输入框占位符文本颜色,如 #223325 */
+    --input-width-mini: var(--width-mini); /* @group 宽度 */ /* @desc Mini输入框高度,如 1px */
+    --input-width-small: var(--width-small); /* @group 宽度 */ /* @desc Small输入框高度,如 1px */
+    --input-width: var(--width-base); /* @group 宽度 */ /* @desc 输入框高度,如 1px */
+    --input-width-medium: var(--width-medium); /* @group 宽度 */ /* @desc Medium输入框高度,如 1px */
+    --input-width-large: var(--width-large); /* @group 宽度 */ /* @desc Large输入框高度,如 1px */
+    --input-width-huge: var(--width-huge); /* @group 宽度 */ /* @desc Huge输入框高度,如 1px */
+    --input-height-mini: var(--height-mini); /* @group 高度 */ /* @desc Mini输入框高度,如 1px */
+    --input-height-small: var(--height-small); /* @group 高度 */ /* @desc Small输入框高度,如 1px */
+    --input-height: var(--height-base); /* @group 高度 */ /* @desc 输入框高度,如 1px */
+    --input-height-medium: var(--height-medium); /* @group 高度 */ /* @desc Medium输入框高度,如 1px */
+    --input-height-large: var(--height-large); /* @group 高度 */ /* @desc Large输入框高度,如 1px */
+    --input-height-huge: var(--height-huge); /* @group 高度 */ /* @desc Huge输入框高度,如 1px */
+    --input-padding-x-mini: 6px; /* @group 内边距 */ /* @desc Mini输入框水平方向内边距,如 1px */
+    --input-padding-x-small: 8px; /* @group 内边距 */ /* @desc Small输入框水平方向内边距,如 1px */
+    --input-padding-x: 10px; /* @group 内边距 */ /* @desc 输入框水平方向内边距,如 1px */
+    --input-padding-x-medium: 10px; /* @group 内边距 */ /* @desc Medium输入框水平方向内边距,如 1px */
+    --input-padding-x-large: 10px; /* @group 内边距 */ /* @desc Large输入框水平方向内边距,如 1px */
+    --input-padding-x-huge: 10px; /* @group 内边距 */ /* @desc Huge输入框水平方向内边距,如 1px */
+    --input-padding-x-full: 10px; /* @group 内边距 */ /* @desc Full输入框水平方向内边距,如 1px */
+    --input-prefix-padding-left: 36px; /* @group 前缀/后缀 */ /* @desc 输入框前缀左边距,如 1px */
+    --input-prefix-placeholder-left: 27px; /* @group 前缀/后缀 *//* @desc 输入框前缀提示信息左边距,如 1px */
+    --input-suffix-padding-right: 30px; /* @group 前缀/后缀 *//* @desc 输入框后缀右边距,如 1px */
+    --input-background: var(--background-color-default);  /* @type color */ /* @group 背景色 */ /* @desc 输入框背景色,如 #223325 */
+    --input-background-disabled: var(--background-color-disabled-light); /* @type color */ /* @group 背景色 */ /* @desc 禁用输入框背景色,如 #223325 */
+    --input-color: var(--color-base); /* @type color */ /* @group 文字颜色 */ /* @desc 输入框文字颜色,如 #223325 */
+    --input-color-disabled: var(--color-light); /* @type color */ /* @group 文字颜色 */ /* @desc 禁用输入框文字颜色,如 #223325 */
     --input-icon-color: var(--color-lighter); /* @hidden */
     --input-icon-color-hover: var(--font-third-color); /* @hidden */
     --input-icon-color-disabled: var(--color-lighter); /* @hidden */
 
     /* @component u-textarea */
-    --textarea-width: var(--width-base); /* @desc 文本框宽度, 如 1px */
-    --textarea-width-medium: var(--width-medium); /* @desc Medium文本框宽度, 如 1px */
-    --textarea-width-large: var(--width-large); /* @desc Large文本框宽度, 如 1px */
-    --textarea-width-huge: var(--width-huge); /* @desc Huge文本框宽度, 如 1px */
-    --textarea-min-width: var(--width-base); /* @desc 文本框最小宽度, 如 1px */
-    --textarea-height: 100px; /* @desc 文本框高度, 如 1px */
-    --textarea-height-medium: 120px; /* @desc Medium文本框高度, 如 1px */
-    --textarea-height-large: 120px; /* @desc Large文本框高度, 如 1px */
-    --textarea-height-huge: 200px; /* @desc Huge文本框高度, 如 1px */
-    --textarea-min-height: var(--height-base); /* @desc 文本框最小高度, 如 1px */
-    --textarea-padding: 5px 10px; /* @desc 文本框内边距, 如 1px */
-    --textarea-border-radius: var(--border-radius-base); /* @desc 文本框圆角, 如 1px */
-    --textarea-border-color: var(--border-color-base); /* @type color */ /* @desc 文本框边框颜色, 如 #223325 */
-    --textarea-border-color-focus: var(--input-border-color-focus); /* @type color */ /* @desc 文本框边框颜色（选中状态）, 如 #223325 */
-    --textarea-border-color-disabled: var(--textarea-border-color); /* @type color */ /* @desc 文本框边框颜色（禁用状态）, 如 #223325 */
-    --textarea-background: var(--background-color-disabled-light); /* @type color */  /* @desc 文本框背景颜色, 如 #223325 */
-    --textarea-background-disabled: var(--input-background-disabled); /* @type color */ /* @desc 文本框背景颜色（禁用状态）, 如 #223325 */
-    --textarea-color: var(--color-base); /* @type color */ /* @desc 文本框内容区文字颜色, 如 #223325 */
-    --textarea-color-disabled: var(--input-color-disabled); /* @type color */ /* @desc 文本框内容区文字颜色（禁用状态）, 如 #223325 */
-    --textarea-placeholder-color: var(--color-lighter); /* @type color */ /* @desc 文本框提示内容文字颜色, 如 #223325 */
-    --textarea-box-shadow-focus-color: rgba(77, 136, 255, 0.2); /* @type color */ /* @desc 选中状态文本框边框阴影色,如 rgba(0, 0, 0, 0.2); */
-    --textarea-box-shadow-focus:  0 0 0 2px var(--textarea-box-shadow-focus-color); /* @desc 选中状态文本框边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --textarea-width: var(--width-base); /* @group 宽度 */ /* @desc 文本框宽度, 如 1px */
+    --textarea-width-medium: var(--width-medium); /* @group 宽度 */ /* @desc Medium文本框宽度, 如 1px */
+    --textarea-width-large: var(--width-large); /* @group 宽度 */ /* @desc Large文本框宽度, 如 1px */
+    --textarea-width-huge: var(--width-huge); /* @group 宽度 */ /* @desc Huge文本框宽度, 如 1px */
+    --textarea-min-width: var(--width-base); /* @group 宽度 */ /* @desc 文本框最小宽度, 如 1px */
+    --textarea-height: 100px; /* @group 高度 */ /* @desc 文本框高度, 如 1px */
+    --textarea-height-medium: 120px; /* @group 高度 */ /* @desc Medium文本框高度, 如 1px */
+    --textarea-height-large: 120px; /* @group 高度 */ /* @desc Large文本框高度, 如 1px */
+    --textarea-height-huge: 200px; /* @group 高度 */ /* @desc Huge文本框高度, 如 1px */
+    --textarea-min-height: var(--height-base); /* @group 高度 */ /* @desc 文本框最小高度, 如 1px */
+    --textarea-padding: 5px 10px; /* @group 内边距 */ /* @desc 文本框内边距, 如 1px */
+    --textarea-border-radius: var(--border-radius-base); /* @group 圆角 */ /* @desc 文本框圆角, 如 1px */
+    --textarea-border-color: var(--border-color-base); /* @type color */ /* @group 边框颜色 */ /* @desc 文本框边框颜色, 如 #223325 */
+    --textarea-border-color-focus: var(--input-border-color-focus); /* @type color */ /* @group 边框颜色 */ /* @desc 文本框边框颜色（选中状态）, 如 #223325 */
+    --textarea-border-color-disabled: var(--textarea-border-color); /* @type color */ /* @group 边框颜色 */ /* @desc 文本框边框颜色（禁用状态）, 如 #223325 */
+    --textarea-background: var(--background-color-disabled-light); /* @type color */ /* @group 背景颜色 */ /* @desc 文本框背景颜色, 如 #223325 */
+    --textarea-background-disabled: var(--input-background-disabled); /* @type color */ /* @group 背景颜色 */ /* @desc 文本框背景颜色（禁用状态）, 如 #223325 */
+    --textarea-color: var(--color-base); /* @type color */ /* @group 文字颜色 */ /* @desc 文本框内容区文字颜色, 如 #223325 */
+    --textarea-color-disabled: var(--input-color-disabled); /* @type color */ /* @group 文字颜色 */ /* @desc 文本框内容区文字颜色（禁用状态）, 如 #223325 */
+    --textarea-placeholder-color: var(--color-lighter); /* @type color */ /* @group 文字颜色 */ /* @desc 文本框提示内容文字颜色, 如 #223325 */
+    --textarea-box-shadow-focus-color: rgba(77, 136, 255, 0.2); /* @type color */ /* @group 边框阴影 */ /* @desc 选中状态文本框边框阴影色,如 rgba(0, 0, 0, 0.2); */
+    --textarea-box-shadow-focus:  0 0 0 2px var(--textarea-box-shadow-focus-color); /* @group 边框阴影 */ /* @desc 选中状态文本框边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
 
     /* @component u-number-input */
     --number-input-background: var(--input-background); /* @type color */ /* @desc 输入框背景色,如 #223325 */
@@ -1112,10 +1117,10 @@
     --number-input-border-radius: var(--input-border-radius); /* @hidden */
 
     /* @component u-radios */
-    --radio-space-x: 32px; /* @desc 单选项之间的间距,如 1px */
-    --radio-size: 16px; /* @desc 单选项按钮大小,如 1px */
-    --radio-background: var(--background-color-default); /* @type color */ /* @desc 单选项按钮背景色,如 #223325 */
-    --radio-box-shadow-focus: var(--box-shadow-form-item-base); /* @desc 单选项边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --radio-space-x: 32px; /* @group 间距 */ /* @desc 单选项之间的间距,如 1px */
+    --radio-size: 16px; /* @group 大小 */ /* @desc 单选项按钮大小,如 1px */
+    --radio-background: var(--background-color-default); /* @type color */ /* @group 背景色 */ /* @desc 单选项按钮背景色,如 #223325 */
+    --radio-box-shadow-focus: var(--box-shadow-form-item-base); /* @group 边框阴影 */ /* @desc 单选项边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
 
     --radio-inner-space-x: 8px; /* @hidden */
     --radio-solid-circle-size: 8px; /* @hidden */
@@ -1156,12 +1161,12 @@
     --switch-font-size: 12px; /* @hidden */
 
     /* @component u-checkbox */
-    --checkbox-space-x: 80px; /* @desc 多选项之间的间距,如 1px */
-    --checkbox-size: 16px; /* @desc 多选项按钮的大小,如 1px */
-    --checkbox-border-radius: var(--border-radius-base); /* @desc 多选项按钮圆角,如 1px */
-    --checkbox-background: var(--brand-primary); /* @type color */ /* @desc 多选项按钮的背景色,如 #223325 */
-    --checkbox-color: var(--background-color-default); /* @type color */ /* @desc 多选项按钮的内容颜色,如 #223325 */
-    --checkbox-box-shadow-focus: var(--box-shadow-form-item-base); /* @desc 多选项按钮的阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --checkbox-space-x: 80px; /* @group 间距 */ /* @desc 多选项之间的间距,如 1px */
+    --checkbox-size: 16px; /* @group 大小 */ /* @desc 多选项按钮的大小,如 1px */
+    --checkbox-border-radius: var(--border-radius-base); /* @group 圆角 */ /* @desc 多选项按钮圆角,如 1px */
+    --checkbox-background: var(--brand-primary); /* @type color */ /* @group 背景色 */ /* @desc 多选项按钮的背景色,如 #223325 */
+    --checkbox-color: var(--background-color-default); /* @type color */ /* @group 内容颜色 */ /* @desc 多选项按钮的内容颜色,如 #223325 */
+    --checkbox-box-shadow-focus: var(--box-shadow-form-item-base); /* @group 阴影效果 */ /* @desc 多选项按钮的阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
 
     --checkbox-border-color: var(--border-color-base); /* @hidden */
     --checkbox-border-color-disabled: var(--border-color-base); /* @hidden */
@@ -1180,44 +1185,44 @@
     --checkbox-inner-space-x: 5px; /* @hidden */
 
     /* @component u-select */
-    --select-popper-item-background: inherit; /* @type color */  /* @desc 选择框下拉项背景色,如 #223325 */
-    --select-popper-item-background-hover: var(--list-view-item-background-hover); /* @type color */ /* @desc 选择框下拉项背景色（hover状态）,如 #223325 */
-    --select-popper-item-background-selected: var(--list-view-item-background-selected); /* @type color */ /* @desc 选择框下拉项背景色（禁用状态）,如 #223325 */
+    --select-popper-item-background: inherit; /* @type color */ /* @group 下拉框背景色 */ /* @desc 选择框下拉项背景色,如 #223325 */
+    --select-popper-item-background-hover: var(--list-view-item-background-hover); /* @type color */ /* @group 下拉框背景色 */ /* @desc 选择框下拉项背景色（hover状态）,如 #223325 */
+    --select-popper-item-background-selected: var(--list-view-item-background-selected); /* @type color */ /* @group 下拉框背景色 */ /* @desc 选择框下拉项背景色（禁用状态）,如 #223325 */
     /* normal */
-    --select-popper-item-color: inherit; /* @type color */ /* @desc 选择框下拉项字体颜色,如 #223325 */
+    --select-popper-item-color: inherit; /* @type color */ /* @group 下拉框字体颜色 */ /* @desc 选择框下拉项字体颜色,如 #223325 */
     /* hover */
-    --select-popper-item-color-hover: inherit; /* @type color */ /* @desc 选择框下拉项字体颜色（hover状态）,如 #223325 */
+    --select-popper-item-color-hover: inherit; /* @type color */ /* @group 下拉框字体颜色 */ /* @desc 选择框下拉项字体颜色（hover状态）,如 #223325 */
     /* selected */
-    --select-popper-item-color-selected: var(--list-view-item-color-selected); /* @type color */ /* @desc 选择框下拉项字体颜色（选中状态）,如 #223325 */
-    --select-width: var(--width-base); /* @desc 选择框的宽度,如 1px */
-    --select-height: var(--height-base); /* @desc 选择框的高度,如 1px */
-    --select-padding-x: 10px; /* @desc 选择框水平方向内边距,如 1px */
-    --select-background: var(--background-color-default); /* @type color */ /* @desc 选择框的背景色,如 #223325 */
-    --select-border-width: var(--border-width-base); /* @desc 选择框的边框宽度,如 1px */
-    --select-border-color: var(--border-color-base); /* @type color */ /* @desc 选择框的边框颜色,如 #223325 */
-    --select-color: var(--color-base); /* @type color */ /* @desc 选择框的字体颜色,如 #223325 */
-    --select-popper-max-height: 194px; /* @desc 选择框的弹出层最大高度,如 1px */
-    --select-popper-box-shadow: var(--box-shadow-base); /* @desc 选择框的弹出层阴影效果,如 1px */
-    --select-placeholder-color: var(--color-lighter); /* @type color */ /* @desc 选择框的占位符文字颜色,如 #223325 */
-    --select-arrow-color: var(--color-light); /* @type color */ /* @desc  选择框的下拉箭头颜色,如 #223325 */
-    --select-arrow-size: 18px; /* @desc  选择框的下拉箭头大小,如 1px */
-    --select-arrow-right-ratio: 0.6; /* @desc 选择框的下拉箭头右边距计算倍数,如 1px */
-    --select-popper-background: var(--background-color-default); /* @type color */ /* @desc 选择框的弹出层背景色,如 #223325 */
-    --select-popper-border-color: var(--border-color-base); /* @type color */ /* @desc 选择框的弹出层边框颜色,如 #223325 */
-    --select-popper-border-color-inverse: var(--border-color-base-inverse); /* @type color */ /* @desc Inverse选择框的弹出层边框颜色,如 #223325 */
-    --select-status-color: var(--color-light); /* @type color */ /* @desc 选择框状态颜色,如 #223325 */
-    --select-box-shadow-focus: 0 0 0 2px rgba(77, 136, 255, 0.2); /* @desc 选择框的弹出层边框阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --select-popper-item-color-selected: var(--list-view-item-color-selected); /* @type color */ /* @group 下拉框字体颜色 */ /* @desc 选择框下拉项字体颜色（选中状态）,如 #223325 */
+    --select-width: var(--width-base); /* @group 宽度 */ /* @desc 选择框的宽度,如 1px */
+    --select-height: var(--height-base); /* @group 高度 */ /* @desc 选择框的高度,如 1px */
+    --select-padding-x: 10px;  /* @group 水平方向内边距 */ /* @desc 选择框水平方向内边距,如 1px */
+    --select-background: var(--background-color-default); /* @type color */ /* @group 背景色 */ /* @desc 选择框的背景色,如 #223325 */
+    --select-border-width: var(--border-width-base);  /* @group 边框 */ /* @desc 选择框的边框宽度,如 1px */
+    --select-border-color: var(--border-color-base); /* @type color */ /* @group 边框 */ /* @desc 选择框的边框颜色,如 #223325 */
+    --select-color: var(--color-base); /* @type color */ /* @group 字体 */ /* @desc 选择框的字体颜色,如 #223325 */
+    --select-popper-max-height: 194px; /* @group 弹出层 */ /* @desc 选择框的弹出层最大高度,如 1px */
+    --select-popper-box-shadow: var(--box-shadow-base); /* @group 弹出层 */ /* @desc 选择框的弹出层阴影效果,如 1px */
+    --select-placeholder-color: var(--color-lighter); /* @type color */ /* @group 占位符 */ /* @desc 选择框的占位符文字颜色,如 #223325 */
+    --select-arrow-color: var(--color-light); /* @type color */ /* @group 下拉箭头 */ /* @desc  选择框的下拉箭头颜色,如 #223325 */
+    --select-arrow-size: 18px; /* @group 下拉箭头 */ /* @desc  选择框的下拉箭头大小,如 1px */
+    --select-arrow-right-ratio: 0.6; /* @group 下拉箭头 */ /* @desc 选择框的下拉箭头右边距计算倍数,如 1px */
+    --select-popper-background: var(--background-color-default); /* @type color */ /* @group 弹出层 */ /* @desc 选择框的弹出层背景色,如 #223325 */
+    --select-popper-border-color: var(--border-color-base); /* @type color */ /* @group 弹出层 */ /* @desc 选择框的弹出层边框颜色,如 #223325 */
+    --select-popper-border-color-inverse: var(--border-color-base-inverse); /* @type color */ /* @group 弹出层 */ /* @desc Inverse选择框的弹出层边框颜色,如 #223325 */
+    --select-status-color: var(--color-light); /* @type color */ /* @group 状态颜色 */ /* @desc 选择框状态颜色,如 #223325 */
+    --select-box-shadow-focus: 0 0 0 2px rgba(77, 136, 255, 0.2); /* @group 弹出层 */ /* @desc 选择框的弹出层边框阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
     /* readonly */
-    --select-popper-item-color-readonly: inherit; /* @type color */ /* @desc 选择框下拉项的字体颜色（只读状态下）,如 #223325 */
-    --select-popper-item-background-readonly: var(--list-view-item-background-readonly-initial); /* @type color */ /* @desc 选择框下拉项的背景颜色（只读状态下）,如 #223325 */
+    --select-popper-item-color-readonly: inherit; /* @type color */ /* @group 只读状态 */ /* @desc 选择框下拉项的字体颜色（只读状态下）,如 #223325 */
+    --select-popper-item-background-readonly: var(--list-view-item-background-readonly-initial); /* @type color */ /* @group 只读状态 */ /* @desc 选择框下拉项的背景颜色（只读状态下）,如 #223325 */
     /* focused */
     /* selected disabled */
-    --select-popper-item-color-selected-disabled: inherit; /* @type color */ /* @desc 选择框下拉项的字体颜色（禁用状态下）,如 #223325 */
-    --select-popper-item-background-selected-disabled: var(--list-view-item-background-selected-disabled); /* @type color */ /* @desc 选择框下拉项的背景颜色（禁用状态下）,如 #223325 */
-    --select-popper-item-color-duplicated: inherit; /* @type color */ /* @desc 选择框下拉项的字体颜色（多选状态下）,如 #223325 */
-    --select-popper-item-background-duplicated: none; /* @type color */ /* @desc 选择框下拉项的背景颜色（多选状态下）,如 #223325 */
-    --select-popper-item-color-duplicated-hover: var(--select-popper-item-color-hover); /* @type color */ /* @desc 选择框下拉项的字体颜色（多选hover状态下）,如 #223325 */
-    --select-popper-item-background-duplicated-hover: var(--select-popper-item-background-hover); /* @type color */ /* @desc 选择框下拉项的背景颜色（多选hover状态下）,如 #223325 */
+    --select-popper-item-color-selected-disabled: inherit; /* @type color */ /* @group 禁用状态 */ /* @desc 选择框下拉项的字体颜色（禁用状态下）,如 #223325 */
+    --select-popper-item-background-selected-disabled: var(--list-view-item-background-selected-disabled); /* @type color */ /* @group 禁用状态 */ /* @desc 选择框下拉项的背景颜色（禁用状态下）,如 #223325 */
+    --select-popper-item-color-duplicated: inherit; /* @type color */ /* @group 多选状态 */ /* @desc 选择框下拉项的字体颜色（多选状态下）,如 #223325 */
+    --select-popper-item-background-duplicated: none; /* @type color */ /* @group 多选状态 */ /* @desc 选择框下拉项的背景颜色（多选状态下）,如 #223325 */
+    --select-popper-item-color-duplicated-hover: var(--select-popper-item-color-hover); /* @type color */ /* @group 多选状态 */ /* @desc 选择框下拉项的字体颜色（多选hover状态下）,如 #223325 */
+    --select-popper-item-background-duplicated-hover: var(--select-popper-item-background-hover); /* @type color */ /* @group 多选状态 */ /* @desc 选择框下拉项的背景颜色（多选hover状态下）,如 #223325 */
 
     --select-popper-item-background-focused: var(--select-popper-item-background-hover); /* @hidden */
     --select-popper-item-color-focused: var(--select-popper-item-color-hover); /* @hidden */
