@@ -98,7 +98,7 @@ export default {
                 // @TODO: 考虑使用快捷键抛出事件，阻止流程的需求
                 let to;
                 if (this.destination) {
-                    const beforeHashUrl = this.destination?.slice(0, this.destination.indexOf('#'));
+                    const beforeHashUrl = this.destination && this.destination.slice(0, this.destination.indexOf('#'));
                     if (this.destination.startsWith('http')) {
                         location.href = encodeUrl(this.destination);
                         return;
