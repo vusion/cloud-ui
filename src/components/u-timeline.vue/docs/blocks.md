@@ -3,7 +3,7 @@
 ``` html
 <u-timeline>
     <template #item="scope">
-        <u-timeline-item>
+        <u-timeline-item insource>
             <template #label>
             </template>
         </u-timeline-item>

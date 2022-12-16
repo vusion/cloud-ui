@@ -110,10 +110,10 @@
 [designer] .label {
     top: 0;
 }
-.root[designer] + .root[designer] {
+.root[designer][insource] + .root[designer][insource] {
     pointer-events: none;
 }
-.root[designer] + .root[designer]::after {
+.root[designer][insource] + .root[designer][insource]::after {
     content: '';
     position: absolute;
     display: block;
