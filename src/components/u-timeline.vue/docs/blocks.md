@@ -5,7 +5,6 @@
     <template #item="scope">
         <u-timeline-item>
             <template #label>
-                标签
             </template>
         </u-timeline-item>
     </template>

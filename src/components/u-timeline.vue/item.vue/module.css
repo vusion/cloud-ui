@@ -63,7 +63,9 @@
     margin: 0 0 0 18px;
     word-break: break-word;
 }
-
+[designer] .content {
+    top: 0;
+}
 .left .tail, .left .dot,
 .left .dotCustom,
 .right .tail, .right .dot,
@@ -105,8 +107,11 @@
     width: calc(50% - 12px);
     text-align: right;
 }
-/* .root[designer] {
-    position: relative;
+[designer] .label {
+    top: 0;
+}
+.root[designer] + .root[designer] {
+    pointer-events: none;
 }
 .root[designer] + .root[designer]::after {
     content: '';
@@ -117,4 +122,4 @@
     left: 0;
     bottom: 0;
     right: 0;
-} */
+}

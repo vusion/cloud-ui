@@ -5,7 +5,7 @@ export const UTimelineItem = {
     props: {
         color: {
             type: String,
-            default: 'primary',
+            default: 'blue',
         },
         label: {
             type: String,
@@ -33,6 +33,9 @@ export const UTimelineItem = {
     //     };
     // },
     computed: {
+        hastop() {
+            return this.$env.VUE_APP_DESIGNER;
+        },
         itemPosition() {
             return ['alternate', 'label'].indexOf(this.timeline.mode) !== -1 ? this.position : undefined;
         },
