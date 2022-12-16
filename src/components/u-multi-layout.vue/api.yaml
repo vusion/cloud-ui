@@ -131,7 +131,7 @@
       dependency:
         - direction: vertical
     - name: gap
-      title: 内容间隙
+      title: 分栏间隙
       type: string
       options:
         - value: shrink
