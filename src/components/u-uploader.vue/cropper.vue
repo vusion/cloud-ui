@@ -32,21 +32,16 @@
                         <img :src="previews.url" :style="previews.img">
                     </div>
                 </div>
-<!--                <div :style="previewStyle1" :class="$style.previewBox">-->
-<!--                    <div :style="previews.div">-->
-<!--                        <img :src="previews.url" :style="previews.img">-->
-<!--                    </div>-->
-<!--                </div>-->
             </div>
         </div>
         <div class="action-box">
             <u-linear-layout justify="center" style="width: 600px; margin-top: 5px">
-                <i-ico name="remove" @click="clearImgHandle" :class="$style.cropperIcon"></i-ico>
+<!--                <i-ico name="remove" @click="clearImgHandle" :class="$style.cropperIcon"></i-ico>-->
                 <i-ico name="rotate-left" @click="rotateLeftHandle" :class="$style.cropperIcon"></i-ico>
                 <i-ico name="rotate-right" @click="rotateRightHandle" :class="$style.cropperIcon"></i-ico>
-                <i-ico name="zoomin" @click="changeScaleHandle(2)" :class="$style.cropperIcon"></i-ico>
-                <i-ico name="zoomout" @click="changeScaleHandle(-2)" :class="$style.cropperIcon"></i-ico>
-                <i-ico name="download" @click="downloadHandle('blob')" :class="$style.cropperIcon"></i-ico>
+<!--                <i-ico name="zoomin" @click="changeScaleHandle(2)" :class="$style.cropperIcon"></i-ico>-->
+<!--                <i-ico name="zoomout" @click="changeScaleHandle(-2)" :class="$style.cropperIcon"></i-ico>-->
+<!--                <i-ico name="download" @click="downloadHandle('blob')" :class="$style.cropperIcon"></i-ico>-->
             </u-linear-layout>
         </div>
         <div slot="foot">
@@ -86,7 +81,7 @@ export default {
                 outputSize: 1, // 裁剪生成图片的质量
                 outputType: 'png', // 裁剪生成图片的格式
                 canScale: true, // 图片是否允许滚轮缩放
-                canMove: true, // 图片是否允许拖动
+                canMove: false, // 图片是否允许拖动
                 autoCrop: true, // 是否默认生成截图框
                 canMoveBox: true, // 截图框能否拖动
                 autoCropWidth: 200, // 默认生成截图框宽度
