@@ -46,6 +46,11 @@
       type: boolean
       default: false
       description: 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件
+    - name: open-cropper
+      title: 是否开启裁剪
+      type: boolean
+      default: false
+      description: ""
     - name: data-type
       title: 接收数据类型
       type: string
