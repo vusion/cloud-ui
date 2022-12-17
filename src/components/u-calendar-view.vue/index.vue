@@ -347,13 +347,12 @@ export default {
             }
             return this.handleData(dataSource);
         },
-        isDataSource(data) {
-            return Object.prototype.toString.call(data) === '[object Object]' && data.content;
-        },
         handleData(data) {
             if (Array.isArray(data)) {
                 return data;
-            } else if (this.isDataSource(data)) {
+            } else if (Object.prototype.toString.call(data) === '[object Object]' && Array.isArray(data.list)) {
+                return data.list;
+            } else if (Object.prototype.toString.call(data) === '[object Object]' && data.content) {
                 return data.content;
             }
             return [];

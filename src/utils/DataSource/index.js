@@ -284,9 +284,13 @@ const VueDataSource = Vue.extend({
                 this.initialLoaded = true;
 
                 // 支持 JDL
-                if (result instanceof Object && result.hasOwnProperty('totalElements') && result.hasOwnProperty('content')) {
-                    result.total = result.totalElements;
-                    result.data = result.content;
+                if (result instanceof Object) {
+                    if (result.hasOwnProperty('list') && result.hasOwnProperty('total')) {
+                        result.data = result.list;
+                    } else if (result.hasOwnProperty('totalElements') && result.hasOwnProperty('content')) {
+                        result.total = result.totalElements;
+                        result.data = result.content;
+                    }
                 }
 
                 if (!this.remotePaging) { // 没有后端分页，认为是全部数据
