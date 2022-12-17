@@ -1635,7 +1635,6 @@ export default {
         },
         getStyle(index, columnVM) {
             const style = columnVM.$vnode.data && columnVM.$vnode.data.style || {};
-            console.log('ddd', style);
             if (this.useStickyFixed) {
                 if (this.fixedLeftList && this.fixedLeftList.length) {
                     const left = this.fixedLeftList[index];
