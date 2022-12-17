@@ -1221,6 +1221,10 @@
 
     --select-popper-item-background-focused: var(--select-popper-item-background-hover); /* @hidden */
     --select-popper-item-color-focused: var(--select-popper-item-color-hover); /* @hidden */
+    --select-popper-item-description-color: var(--gray-dark); /* @hidden */
+    --select-popper-item-description-font-size: 12px; /* @hidden */
+    --select-popper-item-description-line-height: 18px; /* @hidden */
+    --select-popper-item-description-selected-color: rgba(255, 255, 255, 0.5); /* @hidden */
     --select-box-shadow-active: 0 0 0 2px rgba(77, 136, 255, 0.2); /* @hidden */
     --select-background-inverse: var(--background-color-default-inverse); /* @hidden */
     --select-background-disabled: var(--background-color-disabled-light); /* @hidden */
