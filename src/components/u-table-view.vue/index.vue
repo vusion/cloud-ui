@@ -1635,11 +1635,12 @@ export default {
         },
         getStyle(index, columnVM) {
             const style = columnVM.$vnode.data && columnVM.$vnode.data.style || {};
+            const staticStyle = columnVM.$vnode.data && columnVM.$vnode.data.staticStyle || {};
             if (this.useStickyFixed) {
                 if (this.fixedLeftList && this.fixedLeftList.length) {
                     const left = this.fixedLeftList[index];
                     if (left !== undefined) {
-                        return Object.assign(style, {
+                        return Object.assign(staticStyle, style, {
                             position: 'sticky',
                             left: left + 'px',
                             zIndex: 1,
@@ -1650,7 +1651,7 @@ export default {
                     const tempIndex = this.visibleColumnVMs.length - index - 1;
                     const right = this.fixedRightList[tempIndex];
                     if (right !== undefined) {
-                        return Object.assign(style, {
+                        return Object.assign(staticStyle, style, {
                             position: 'sticky',
                             right: right + 'px',
                             zIndex: 1,
@@ -1658,7 +1659,7 @@ export default {
                     }
                 }
             }
-            return style;
+            return Object.assign(staticStyle, style);
         },
         isLastLeftFixed(columnVM, columnIndex) {
             return columnVM.fixed && columnIndex === this.fixedLeftList.length - 1 ? true : undefined;
