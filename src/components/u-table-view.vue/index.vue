@@ -277,7 +277,7 @@
         </div>
     </div>
     <u-table-view-drop-ghost :data="dropData"></u-table-view-drop-ghost>
-    <u-pagination :class="$style.pagination" v-if="(pageable === true || pageable === 'pagination') && currentDataSource"
+    <u-pagination :class="$style.pagination" ref="pagination" v-if="(pageable === true || pageable === 'pagination') && currentDataSource"
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
         :size="paginationSize"
@@ -873,7 +873,8 @@ export default {
                         // 如果使用 v-show 隐藏了，无法计算
                         const titleHeight = this.$refs.title ? this.$refs.title.offsetHeight : 0;
                         const headHeight = this.$refs.head[0] ? this.$refs.head[0].offsetHeight : 0;
-                        this.bodyHeight = rootHeight - titleHeight - headHeight;
+                        const paginationHeight = this.getPaginationHeight();
+                        this.bodyHeight = rootHeight - titleHeight - headHeight - paginationHeight;
                     }
                 } else {
                     this.bodyHeight = undefined;
@@ -881,7 +882,8 @@ export default {
 
                 // 当 root 设置了 height，设置 table 的 height，避免隐藏列时的闪烁
                 if (this.$el.style.height !== '' && this.$el.style.height !== 'auto') {
-                    this.tableHeight = this.$el.offsetHeight;
+                    const paginationHeight = this.getPaginationHeight();
+                    this.tableHeight = this.$el.offsetHeight - paginationHeight;
                 } else {
                     this.tableHeight = undefined;
                 }
@@ -2046,6 +2048,17 @@ export default {
                 return `calc(100% - ${width}px)`;
             }
             return '100%';
+        },
+        getPaginationHeight() {
+            let paginationHeight = 0;
+            if (this.$refs.pagination) {
+                paginationHeight = this.$refs.pagination.$el.offsetHeight;
+                const paginationStyle = getComputedStyle(this.$refs.pagination.$el);
+                const marginTop = +(paginationStyle.marginTop || '').replace(/px/, '') || 0;
+                const marginBottom = +(paginationStyle.marginBottom || '').replace(/px/, '') || 0;
+                paginationHeight = paginationHeight + marginTop + marginBottom;
+            }
+            return paginationHeight;
         },
     },
 };
