@@ -28,7 +28,7 @@
                                 :href="itemVM.currentHref" :target="itemVM.target" :title="showTitle ? itemVM.title : null"
                                 :selected="router ? itemVM.active : itemVM === selectedVM"
                                 :disabled="itemVM.disabled || disabled"
-                                :style="{ width: currentItemWidth }"
+                                :style="getTabStyle(itemVM)"
                                 :width-fixed="!!currentItemWidth"
                                 :alignment="itemAlign"
                                 @click="onClick(itemVM, $event)">
@@ -225,6 +225,11 @@ export default {
                 accWidth += itemEl.offsetWidth;
             }
             scrollTo(scrollViewEl, { left: accWidth, duration: 1000 });
+        },
+        getTabStyle(itemVm) {
+            const itemStyle = itemVm.$vnode.data && itemVm.$vnode.data.style || {};
+            const itemstaticStyle = itemVm.$vnode.data && itemVm.$vnode.data.staticStyle || {};
+            return Object.assign({ width: this.currentItemWidth }, itemstaticStyle, itemStyle);
         },
     },
 };
