@@ -27,7 +27,7 @@ export default {
         },
         onClose() {
             this.$refs.linearLayout.closeLoading();
-        }
+        },
     }
 }
 </script>

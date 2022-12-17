@@ -31,4 +31,5 @@ export default {
 .root[alignment="end"] { align-items: flex-end; }
 .root[alignment="baseline"] { align-items: baseline; }
 .root[alignment="stretch"] { align-items: stretch; }
+
 </style>

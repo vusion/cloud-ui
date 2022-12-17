@@ -1769,7 +1769,35 @@
     --datetime-popper-border-color: var(--border-color-base); /* @type color */ /* @desc 日期时间选择器选择框边框颜色,如：#223325 */
     --datetime-popper-border-radius: var(--border-radius-base); /* @desc 日期时间选择器选择框圆角,如：1px */
 
-     /* @component u-taskbox @hidden */
+    /* @component u-capsules */
+    --capsules-capsule-font-size: var(--font-size-base);
+    --capsules-capsule-padding-x: 4px;
+    --capsules-capsule-padding-y: 20px;
+    --capsules-capsule-background: var(--color-white);
+    --capsules-capsule-background-selected: var(--brand-primary);
+    --capsules-capsule-background-selected-hover: var(--brand-primary-light);
+    --capsules-capsule-background-selected-disabled: var(--brand-primary-disabled);
+    --capsules-capsule-background-disabled: var(--background-color-disabled);
+    --capsules-capsule-color: var(--color-base);
+    --capsules-capsule-color-hover: var(--brand-primary);
+    --capsules-capsule-color-selected: var(--color-white);
+    --capsules-capsule-color-disabled: var(--gray-base);
+    --capsules-capsule-color-selected-disabled: var(--color-white);
+    --capsules-capsule-cursor: var(--cursor-pointer);
+    --capsules-capsule-cursor-disabled: var(--cursor-not-allowed);
+    --capsules-capsule-border-color: var(--border-color-base);
+    --capsules-capsule-border-color-hover: var(--brand-primary);
+    --capsules-capsule-border-color-selected: var(--brand-primary);
+    --capsules-capsule-border-color-selected-hover: var(--brand-primary-light);
+    --capsules-capsule-border-color-selected-disabled: var(--brand-primary-disabled);
+    --capsules-capsule-flag-border-color: var(--brand-danger);
+    --capsules-capsule-label-background: var(--brand-error);
+    --capsules-capsule-label-color: var(--color-white);
+
+
+
+     
+    /* @component u-taskbox @hidden */
     --taskbox-badge-box-shadow: none;
 
     /**
@@ -1800,6 +1828,14 @@
     --grid-layout-column-gap-normal: 16px;
     --grid-layout-column-gap-large: 24px;
     --grid-layout-column-gap-huge: 32px;
+    --grid-layout-column-content-gap-shrink: var(--space-shrink);
+    --grid-layout-column-content-gap-none: 0;
+    --grid-layout-column-content-gap-mini: var(--space-mini);
+    --grid-layout-column-content-gap-small: var(--space-small);
+    --grid-layout-column-content-gap-normal: var(--space-base);
+    --grid-layout-column-content-gap-large: var(--space-large);
+
+
 }
 
 @custom-media --mini-window (max-width: 479px);
