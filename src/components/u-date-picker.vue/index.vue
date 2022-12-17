@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Calendar from '../u-calendar.vue';
+import { DateRangeError } from '../u-calendar.vue/error.js';
 import { clickOutside } from '../../directives';
 import { format, transformDate, ChangeDate } from '../../utils/date';
 import MField from '../m-field.vue';
@@ -49,11 +49,11 @@ export default {
     props: {
         preIcon: {
             type: String,
-            default: 'calendar'
+            default: 'calendar',
         },
         suffixIcon: {
             type: String,
-            default: ''
+            default: '',
         },
         date: [String, Number, Date],
         value: [String, Number, Date],
@@ -134,10 +134,12 @@ export default {
     },
     created() {
         if (this.minDate && this.maxDate) {
-            const minDate = new Date(this.minDate);
-            const maxDate = new Date(this.maxDate);
-            if ((minDate / MS_OF_DAY) >> 0 > (maxDate / MS_OF_DAY) >> 0)
-                throw new Calendar.DateRangeError(minDate, maxDate);
+            if (this.checkDate(this.minDate) && this.checkDate(this.maxDate)) {
+                const minDate = new Date(this.minDate);
+                const maxDate = new Date(this.maxDate);
+                if ((minDate / MS_OF_DAY) >> 0 > (maxDate / MS_OF_DAY) >> 0)
+                    throw new DateRangeError(minDate, maxDate);
+            }
         }
         // this.$emit(
         //     'input',
@@ -152,7 +154,7 @@ export default {
     mounted() {
         // this.autofocus && this.$refs.input.focus();
         // 在编辑器里不要打开
-        if(!this.$env.VUE_APP_DESIGNER)
+        if (!this.$env.VUE_APP_DESIGNER)
             this.toggle(this.opened);
     },
     methods: {
@@ -223,11 +225,11 @@ export default {
          */
         onInput($event) {
             const value = $event;
-            if(value === '') { // 可以输空值
+            if (value === '') { // 可以输空值
                 this.showDate = undefined;
                 return;
             }
-            if(this.checkValid(value)) {
+            if (this.checkValid(value)) {
                 let date = new Date(this.transformDate(value));
                 const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
                 date = isOutOfRange ? this.showDate : date;
@@ -260,7 +262,7 @@ export default {
          */
         onToggle($event) {
             this.$emit('toggle', $event);
-            if($event && $event.opened){
+            if ($event && $event.opened) {
                 this.preventBlur = true;
             }
         },
@@ -311,14 +313,14 @@ export default {
         },
         onBlurInputValue(value) {
             // 当输入框输入的值不合法，需还原成上一次合法的值
-            if(value && !this.checkValid(value)) {
-                this.showDate = this.format(this.calendarDate, this.getFormatString())
+            if (value && !this.checkValid(value)) {
+                this.showDate = this.format(this.calendarDate, this.getFormatString());
                 this.$refs.input.updateCurrentValue(this.showDate);
             }
         },
         onPopperClose(e) {
             this.$emit('blur', e, this);
-            setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
+            setTimeout(() => { // 为了不触发input的blur，否则会有两次blur
                 this.preventBlur = false;
             }, 0);
         },
