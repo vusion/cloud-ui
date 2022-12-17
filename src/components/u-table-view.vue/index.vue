@@ -27,7 +27,7 @@
                             :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
                             :vusion-template-title-node-path="columnVM.$attrs['vusion-template-title-node-path']"
                             :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)"
-                            :style="getStyle(columnIndex)"
+                            :style="getStyle(columnIndex, columnVM)"
                             :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                             :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                             :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
@@ -109,7 +109,7 @@
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
                                         :vusion-disabled-selected="rowIndex !== 0"
-                                        :style="getStyle(columnIndex)"
+                                        :style="getStyle(columnIndex, columnVM)"
                                         :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                                         :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                                         :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
@@ -158,7 +158,7 @@
                                         :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
                                         :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
-                                        :style="getStyle(columnIndex)"
+                                        :style="getStyle(columnIndex, columnVM)"
                                         :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                                         :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                                         :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
@@ -1631,30 +1631,33 @@ export default {
                 columnVM.dblclickHandler({ item, columnVM });
             }
         },
-        getStyle(index) {
+        getStyle(index, columnVM) {
+            const style = columnVM.$vnode.data && columnVM.$vnode.data.style || {};
+            console.log('ddd', style);
             if (this.useStickyFixed) {
                 if (this.fixedLeftList && this.fixedLeftList.length) {
                     const left = this.fixedLeftList[index];
                     if (left !== undefined) {
-                        return {
+                        return Object.assign(style, {
                             position: 'sticky',
                             left: left + 'px',
                             zIndex: 1,
-                        };
+                        });
                     }
                 }
                 if (this.fixedRightList && this.fixedRightList.length) {
                     const tempIndex = this.visibleColumnVMs.length - index - 1;
                     const right = this.fixedRightList[tempIndex];
                     if (right !== undefined) {
-                        return {
+                        return Object.assign(style, {
                             position: 'sticky',
                             right: right + 'px',
                             zIndex: 1,
-                        };
+                        });
                     }
                 }
             }
+            return style;
         },
         isLastLeftFixed(columnVM, columnIndex) {
             return columnVM.fixed && columnIndex === this.fixedLeftList.length - 1 ? true : undefined;
