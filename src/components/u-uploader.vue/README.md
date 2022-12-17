@@ -5,6 +5,7 @@
 - [示例](#示例)
     - [基本用法](#基本用法)
     - [基本用法simple](#基本用法simple)
+    - [基本用法simple，开启图片编辑](#基本用法simple开启图片编辑)
     - [多文件上传](#多文件上传)
     - [多文件上传simple](#多文件上传simple)
     - [列表类型](#列表类型)
@@ -51,6 +52,26 @@ export default {
 ``` vue
 <template>
 <u-uploader v-model="files" converter="simple" list-type="card" url="/gateway/lowcode/api/v1/app/upload">
+    <u-button color="primary">Upload</u-button>
+</u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: "",
+        };
+    },
+}
+</script>
+```
+### 基本用法simple，开启图片编辑
+
+下面的例子为单文件上传。
+
+```vue
+<template>
+<u-uploader v-model="files" converter="simple" list-type="card" url="/gateway/lowcode/api/v1/app/upload" :openCropper="true">
     <u-button color="primary">Upload</u-button>
 </u-uploader>
 </template>
@@ -340,6 +361,7 @@ export default {
 | with-credentials | boolean |  | `false` | 通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略 |
 | multiple | boolean |  | `false` |  |
 | multiple-once | boolean |  | `false` | 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件 |
+| open-cropper | boolean |  | `false` |  |
 | data-type | string |  | `'json'` | 接收数据类型。可选值：`text`、`xml`、`json` |
 | data | object |  |  |  |
 | limit | number |  |  |  |
