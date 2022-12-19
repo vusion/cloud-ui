@@ -1710,11 +1710,22 @@ export default {
             // 让展示线缩进
             let left = 0;
             let indentElRect = {};
+            let placeholderWith = 0;
             if (this.treeDisplay) {
                 const indentEl = target.querySelector('[class^="u-table-view_indent__"]');
                 if (indentEl) {
                     indentElRect = indentEl.getBoundingClientRect();
                 }
+                const treePlaceholderEl = target.querySelector('[class^="u-table-view_tree_placeholder"]');
+                const treeExpanderEl = target.querySelector('[class^="u-table-view_tree_expander"]');
+                placeholderWith = treePlaceholderEl && treePlaceholderEl.offsetWidth;
+                if (treePlaceholderEl) {
+                    placeholderWith = treePlaceholderEl.offsetWidth;
+                }
+                if (treeExpanderEl) {
+                    placeholderWith = treeExpanderEl.offsetWidth;
+                }
+                console.log('placeholderWith', placeholderWith, treePlaceholderEl, treeExpanderEl);
             }
 
             const disabledDrop = item.disabledDrop || item.draggoverDisabled;
@@ -1726,7 +1737,8 @@ export default {
                 // 在上部
                 position = 'insertBefore';
                 left = item.tableTreeItemLevel ? indentElRect.left - trRect.left : 0;
-                left = left + (item.tableTreeItemLevel || 0) * 20;
+                placeholderWith = item.tableTreeItemLevel ? placeholderWith : 0;
+                left = left + (item.tableTreeItemLevel || 0) * 20 + placeholderWith;
             } else if (e.y >= downArea) {
                 // 在下部
                 position = 'insertAfter';
@@ -1735,7 +1747,8 @@ export default {
                     level = level + 1;
                 }
                 left = level ? indentElRect.left - trRect.left : 0;
-                left = left + level * 20;
+                placeholderWith = level ? placeholderWith : 0;
+                left = left + level * 20 + placeholderWith;
             } else {
                 // 在中间
                 if (!disabledDrop) {
@@ -2461,6 +2474,7 @@ export default {
     height: var(--table-view-tree-expander-size);
     line-height: var(--table-view-tree-expander-size);
     text-align: center;
+    margin-right: var(--table-view-tree-expander-margin);
 }
 .tree_expander[loading]{
     margin-right: calc(4px + var(--table-view-tree-expander-margin));
@@ -2485,9 +2499,7 @@ export default {
     width: auto;
 }
 
-.indent {
-    margin-right: var(--table-view-tree-expander-margin);
-}
+.indent {}
 
 .tdmask {
     position: absolute;

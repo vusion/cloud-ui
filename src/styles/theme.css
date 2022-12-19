@@ -933,6 +933,7 @@
     --tree-view-node-background-disabled: none; /* @hidden */
     --tree-view-node-background-disabled-inverse: none; /* @hidden */
     --tree-view-node-background-selected-disabled-inverse: var(--brand-disabled-light-inverse); /* @hidden */
+    --table-view-tree-expander-size: 16px;
 
     /* @component u-transfer @hidden */
     --transfer-height: var(--list-view-height); /* @desc 穿梭框高度,如 1px */
