@@ -27,7 +27,7 @@
                             :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
                             :vusion-template-title-node-path="columnVM.$attrs['vusion-template-title-node-path']"
                             :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)"
-                            :style="getStyle(columnIndex)"
+                            :style="getStyle(columnIndex, columnVM)"
                             :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                             :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                             :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
@@ -109,7 +109,7 @@
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
                                         :vusion-disabled-selected="rowIndex !== 0"
-                                        :style="getStyle(columnIndex)"
+                                        :style="getStyle(columnIndex, columnVM)"
                                         :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                                         :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                                         :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
@@ -158,7 +158,7 @@
                                         :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
                                         :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
-                                        :style="getStyle(columnIndex)"
+                                        :style="getStyle(columnIndex, columnVM)"
                                         :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                                         :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                                         :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
@@ -277,7 +277,7 @@
         </div>
     </div>
     <u-table-view-drop-ghost :data="dropData"></u-table-view-drop-ghost>
-    <u-pagination :class="$style.pagination" v-if="(pageable === true || pageable === 'pagination') && currentDataSource"
+    <u-pagination :class="$style.pagination" ref="pagination" v-if="(pageable === true || pageable === 'pagination') && currentDataSource"
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
         :size="paginationSize"
@@ -873,7 +873,8 @@ export default {
                         // 如果使用 v-show 隐藏了，无法计算
                         const titleHeight = this.$refs.title ? this.$refs.title.offsetHeight : 0;
                         const headHeight = this.$refs.head[0] ? this.$refs.head[0].offsetHeight : 0;
-                        this.bodyHeight = rootHeight - titleHeight - headHeight;
+                        const paginationHeight = this.getPaginationHeight();
+                        this.bodyHeight = rootHeight - titleHeight - headHeight - paginationHeight;
                     }
                 } else {
                     this.bodyHeight = undefined;
@@ -881,7 +882,8 @@ export default {
 
                 // 当 root 设置了 height，设置 table 的 height，避免隐藏列时的闪烁
                 if (this.$el.style.height !== '' && this.$el.style.height !== 'auto') {
-                    this.tableHeight = this.$el.offsetHeight;
+                    const paginationHeight = this.getPaginationHeight();
+                    this.tableHeight = this.$el.offsetHeight - paginationHeight;
                 } else {
                     this.tableHeight = undefined;
                 }
@@ -1631,30 +1633,33 @@ export default {
                 columnVM.dblclickHandler({ item, columnVM });
             }
         },
-        getStyle(index) {
+        getStyle(index, columnVM) {
+            const style = columnVM.$vnode.data && columnVM.$vnode.data.style || {};
+            const staticStyle = columnVM.$vnode.data && columnVM.$vnode.data.staticStyle || {};
             if (this.useStickyFixed) {
                 if (this.fixedLeftList && this.fixedLeftList.length) {
                     const left = this.fixedLeftList[index];
                     if (left !== undefined) {
-                        return {
+                        return Object.assign(staticStyle, style, {
                             position: 'sticky',
                             left: left + 'px',
                             zIndex: 1,
-                        };
+                        });
                     }
                 }
                 if (this.fixedRightList && this.fixedRightList.length) {
                     const tempIndex = this.visibleColumnVMs.length - index - 1;
                     const right = this.fixedRightList[tempIndex];
                     if (right !== undefined) {
-                        return {
+                        return Object.assign(staticStyle, style, {
                             position: 'sticky',
                             right: right + 'px',
                             zIndex: 1,
-                        };
+                        });
                     }
                 }
             }
+            return Object.assign(staticStyle, style);
         },
         isLastLeftFixed(columnVM, columnIndex) {
             return columnVM.fixed && columnIndex === this.fixedLeftList.length - 1 ? true : undefined;
@@ -2043,6 +2048,17 @@ export default {
                 return `calc(100% - ${width}px)`;
             }
             return '100%';
+        },
+        getPaginationHeight() {
+            let paginationHeight = 0;
+            if (this.$refs.pagination) {
+                paginationHeight = this.$refs.pagination.$el.offsetHeight;
+                const paginationStyle = getComputedStyle(this.$refs.pagination.$el);
+                const marginTop = +(paginationStyle.marginTop || '').replace(/px/, '') || 0;
+                const marginBottom = +(paginationStyle.marginBottom || '').replace(/px/, '') || 0;
+                paginationHeight = paginationHeight + marginTop + marginBottom;
+            }
+            return paginationHeight;
         },
     },
 };
