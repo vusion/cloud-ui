@@ -1,7 +1,6 @@
 <ul :class="$style.root" :pending="pending">
     <template
         v-for="(item, index) in currentDataSource.data"
-        :key="index"
     >
         <slot name="item" :item="item" :designer="$env.VUE_APP_DESIGNER" :index="index"></slot>
     </template>

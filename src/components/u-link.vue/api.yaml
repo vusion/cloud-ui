@@ -86,6 +86,7 @@
       type: boolean
       default: true
       description: 是否显示下划线
+      advanced: true
     - name: disabled
       title: 禁用
       type: boolean
@@ -111,6 +112,8 @@
           title: 颜色变化
       default: underline
       description: 鼠标悬停时的样式变化方式
+      toggleclear:
+        - decoration
   events:
     - name: $listeners
       kind: trigger

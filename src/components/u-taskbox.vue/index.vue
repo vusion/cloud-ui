@@ -93,10 +93,16 @@ export default {
                         pageSize: this.size,
                     },
                 }) || {};
-                const { content, totalElements = 0, totalPages = 1 } = Data;
-                this.tasks = content;
-                this.total = totalElements;
-                this.totalPages = totalPages;
+                const { content, totalElements = 0, totalPages = 1, list, total = 0 } = Data;
+                if (Array.isArray(list) && total) {
+                    this.tasks = list;
+                    this.total = total;
+                    this.totalPages = Math.ceil(total / this.size);
+                } else if (Array.isArray(content) && totalElements) {
+                    this.tasks = content;
+                    this.total = totalElements;
+                    this.totalPages = totalPages;
+                }
                 // 刷新时可能数据变化造成分页过大，此时自动调整分页
                 if (this.totalPages > 0 && this.page > this.totalPages) {
                     this.page = this.totalPages;

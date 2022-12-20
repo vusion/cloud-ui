@@ -1,7 +1,7 @@
 export default {
     props: {
         dataSource: [Array, Function],
-        dataSchema: {type: String, default: 'entity'},
+        dataSchema: { type: String, default: 'entity' },
         textField: { type: String, default: 'text' },
         valueField: { type: String, default: 'value' },
         treeSelectTip: { type: String, default: '请绑定数据源或插入子节点' },
@@ -36,7 +36,13 @@ export default {
                 return async function (params = {}) {
                     const res = await rawLoad(params);
                     if (multiple) {
-                        final.data = Array.isArray(res) ? res : res.content;
+                        if (Array.isArray(res)) {
+                            final.data = res;
+                        } else if (Array.isArray(res.list)) {
+                            final.data = res.list;
+                        } else {
+                            final.data = res.content;
+                        }
                     } else {
                         final.data = res;
                     }

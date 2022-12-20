@@ -10,7 +10,7 @@
                 v-if="currentVisible && animationVisible"
                 :style="{ width: width + 'px' }" :size="size">
                 <slot name="inject"></slot>
-                <div :class="$style.head" vusion-slot-name="head" :child-cut-disabled="true">
+                <div :class="$style.head" vusion-slot-name="head" :child-cut-disabled="true" v-if="showHead">
                     <slot name="head">
                         <div v-if="(title || $slots.title) && !isTitleSlotEmpty || $env.VUE_APP_DESIGNER" vusion-slot-name="title" vusion-slot-name-edit="title" :class="$style.title" :child-cut-disabled="true">
                             <slot name="title">
@@ -98,6 +98,7 @@ export const UModal = {
         showFoot: { type: Boolean, default: true },
         isTitleSlotEmpty: { type: Boolean, default: false }, // 有插槽template但是不想展示的情况
         isFootSlotEmpty: { type: Boolean, default: false },
+        showHead: { type: Boolean, default: true },
     },
     data() {
         return {

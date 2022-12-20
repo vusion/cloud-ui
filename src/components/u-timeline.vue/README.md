@@ -16,6 +16,8 @@
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
 
+**Display**
+
 ## 示例
 ### 基本用法
 
@@ -176,7 +178,9 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| mode | enum | `'default'`<br/>`'alternate'`<br/>`'label'` | `'default'` | 模式切换。`alternate` 交替展示，`label` 开启 `label` 展示 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 数据源 |
+| data-schema | schema |  |  | 数据类型 |
+| mode | string | `[object Object]`<br/>`[object Object]` | `'default'` | 模式切换。`label` 开启 `label` 展示 |
 | pending | boolean |  | `false` | 是否指定最后一个节点为幽灵节点 |
 
 ### Slots
@@ -185,14 +189,18 @@
 
 插入 `<u-timeline-item>` 子组件
 
+#### item
+
+自定义选项的结构和样式
+
 ## UTimelineItem API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| color | string |  | `'primary'` | 指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值 |
+| color | string |  | `'blue'` | 指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值 |
 | label | string |  |  | 指定展示在另一侧的 `label`，只在 `label` 模式下生效 |
-| position | enum | `'left'`<br/>`'right'` | `'right'` | 指定交替展示时的位置，只在 `alternate` 或 `label` 模式下生效 |
+| position | string | `[object Object]`<br/>`[object Object]` | `'right'` | 指定交替展示时的位置，只在 `alternate` 或 `label` 模式下生效 |
 
 ### Slots
 
