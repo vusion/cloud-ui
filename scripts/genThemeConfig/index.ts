@@ -50,6 +50,9 @@ _root.nodes.forEach((node) => {
             } else if (node.text.includes('@group ')) {
                 const cap = /@group\s+([\S]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].group = cap[1].trim();
+            } else if (node.text.includes('@prefix ')) {
+                const cap = /@prefix\s+([\S]+)/.exec(node.text.trim());
+                lastComponent.cssProperty[lastProp].prefix = cap[1].trim();
             } else if (node.text.includes('@title ')) {
                 const cap = /@title\s+([\S]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].title = cap[1].trim();
