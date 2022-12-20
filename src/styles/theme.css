@@ -1597,6 +1597,8 @@
     --modal-dialog-width: 400px; /* @desc 弹窗的宽度,如 1px */
     --modal-dialog-border-radius: var(--border-radius-base); /* @desc 弹窗的圆角,如 1px */
     --modal-dialog-background: white;  /* @type color */ /* @desc  弹窗的背景色,如 #223325 */
+    --modal-dialog-background-image: none; /* @hidden */
+    --modal-dialog-background-color: var(--modal-dialog-background); /* @hidden */
     --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); /* @desc 弹窗的阴影效果,如 1px */
     --modal-title-font-size: var(--font-size-large); /* @desc 弹窗标题的字号,如 1px */
     --modal-close-right: 24px; /* @desc  弹窗关闭按钮的右边距,如 1px */

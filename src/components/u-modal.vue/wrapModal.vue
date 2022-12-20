@@ -3,6 +3,7 @@
         v-if="mode && $env.VUE_APP_DESIGNER"
         is="u-visible-modal"
         v-bind="[$attrs, $props]"
+        :style="getStyle()"
         v-on="$listeners"
         ref="item"
         :vusion-scope-id="$vnode.context.$options._scopeId"
@@ -79,6 +80,10 @@ export const UModal = {
         },
         cancel() {
             this.$refs.item.cancel();
+        },
+        getStyle() {
+            const { staticStyle = {}, style = {} } = this.$vnode.data;
+            return {...staticStyle, ...style };
         },
     },
 };

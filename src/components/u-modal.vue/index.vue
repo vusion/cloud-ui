@@ -252,7 +252,10 @@ export default UModal;
     display: inline-block;
     vertical-align: middle;
     text-align: left;
-    background: var(--modal-dialog-background);
+    /* background: var(--modal-dialog-background); */
+    background-color: var(--modal-dialog-background-color);
+    background-image: var(--modal-dialog-background-image);
+
     border: 1px solid var(--modal-border-color);
     border-radius: var(--modal-dialog-border-radius);
     box-shadow: var(--modal-dialog-box-shadow);

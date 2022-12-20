@@ -43,6 +43,10 @@ export default {
             console.info('[vusion:designer] Send: ' + dataString); // (dataString.length > 100 ? dataString.slice(0, 100) + '...' : dataString));
             window.parent.postMessage({ protocol: 'vusion', sender: 'designer', data }, '*');
         },
+        getStyle() {
+            const { staticStyle = {}, style = {} } = this.$vnode.data;
+            return {...staticStyle, ...style };
+        },
     },
     render(h) {
         const ctrlSlot = h('d-ctrl', {
@@ -72,7 +76,7 @@ export default {
         }, [
             h('u-modal-real', {
                 class: this.class,
-                style: this.style,
+                style: this.getStyle(),
                 attrs: this.$attrs,
                 props: this.$props,
                 on: this.$listeners,
