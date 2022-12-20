@@ -200,6 +200,13 @@
       dependency:
         - mode: flex
           direction: horizontal
+      toggleupdate:
+        - value: space-between
+          updateData:
+            gap: normal
+        - value: space-around
+          updateData:
+            gap: normal
     - name: alignment
       title: 纵轴对齐
       type: string
@@ -286,6 +293,13 @@
       dependency:
         - mode: flex
           direction: vertical
+      toggleupdate:
+        - value: space-between
+          updateData:
+            gap: normal
+        - value: space-around
+          updateData:
+            gap: normal
     - name: wrap
       title: 是否换行
       type: boolean
@@ -312,6 +326,9 @@
       description: 内容块间隙大小
       dependency:
         - mode: flex
+          '!justify':
+            - space-between
+            - space-around
     - name: span
       title: 占据栅格数
       type: number
