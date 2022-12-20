@@ -26,7 +26,7 @@
                 />
             </div>
             <div :class="$style.previewWrapper">
-                <div>裁剪预览</div>
+                <div :class="$style.previewTitle">裁剪预览</div>
                 <div :style="previewStyle1" :class="$style.previewBoxCircle">
                     <div :style="previews.div">
                         <img :src="previews.url" :style="previews.img">
@@ -41,7 +41,7 @@
                 <i-ico name="rotate-right" @click="rotateRightHandle" :class="$style.cropperIcon"></i-ico>
 <!--                <i-ico name="zoomin" @click="changeScaleHandle(2)" :class="$style.cropperIcon"></i-ico>-->
 <!--                <i-ico name="zoomout" @click="changeScaleHandle(-2)" :class="$style.cropperIcon"></i-ico>-->
-<!--                <i-ico name="download" @click="downloadHandle('blob')" :class="$style.cropperIcon"></i-ico>-->
+                <i-ico name="download" @click="downloadHandle('blob')" :class="$style.cropperIcon"></i-ico>
             </u-linear-layout>
         </div>
         <div slot="foot">
@@ -94,7 +94,6 @@ export default {
                 centerBox: false, // 截图框是否被限制在图片里面
                 infoTrue: true // true 为展示真实输出图片宽高 false 展示看到的截图框宽高
             },
-            // 防止重复提交
             previewStyle1: {},
             previews: {},
         }
@@ -251,5 +250,10 @@ export default {
 }
 .cropperModal [class^="u-modal_body__"] {
     margin-bottom: 2px;
+}
+.previewTitle {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
 }
 </style>
