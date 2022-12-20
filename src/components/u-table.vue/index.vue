@@ -25,6 +25,9 @@ export default {
 
     background-color: var(--table-th-background-color);
     background-image: var(--table-th-background-image);
+    background-size: var(--table-th-background-size);
+    background-repeat: var(--table-th-background-repeat);
+    background-position: var(--table-th-background-position);
 }
 
 .root td {
@@ -36,6 +39,9 @@ export default {
 
     background-color: var(--table-td-background-color);
     background-image: var(--table-td-background-image);
+    background-size: var(--table-td-background-size);
+    background-repeat: var(--table-td-background-repeat);
+    background-position: var(--table-td-background-position);
 }
 
 .root td[vusion-slot-name="empty"] {
