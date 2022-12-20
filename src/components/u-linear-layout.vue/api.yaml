@@ -217,8 +217,8 @@
       description: 内容块间隙大小
       dependency:
         - '!justify':
-            - space-between
-            - space-around
+          - space-between
+          - space-around
     - name: display
       title: 展示方式
       type: string
