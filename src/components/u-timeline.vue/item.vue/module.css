@@ -63,7 +63,9 @@
     margin: 0 0 0 18px;
     word-break: break-word;
 }
-
+[designer] .content {
+    top: 0;
+}
 .left .tail, .left .dot,
 .left .dotCustom,
 .right .tail, .right .dot,
@@ -104,4 +106,20 @@
     top: calc(var(--font-size-base) - var(--font-size-base) * var(--line-height-base) + 1px);
     width: calc(50% - 12px);
     text-align: right;
+}
+[designer] .label {
+    top: 0;
+}
+.root[designer][insource] + .root[designer][insource] {
+    pointer-events: none;
+}
+.root[designer][insource] + .root[designer][insource]::after {
+    content: '';
+    position: absolute;
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }

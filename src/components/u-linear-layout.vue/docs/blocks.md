@@ -5,7 +5,7 @@
 </u-linear-layout>
 ```
 
-### 双行排布
+### 多行排布
 
 ``` html
 <u-linear-layout direction="vertical">

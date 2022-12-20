@@ -22,6 +22,11 @@
             && !!$attrs['vusion-node-path']">
         </s-empty>
     </slot>
+    <div :class="$style.desc" v-if="description || $slots.description">
+        <slot name="description">
+            {{ description }}
+        </slot>
+    </div>
 </div>
 </template>
 
@@ -37,7 +42,12 @@ export default {
         SEmpty,
     },
     extends: UListViewItem,
-    props: { flag: { type: String }, layer: { type: String }, text: { type: String } },
+    props: {
+        flag: { type: String },
+        layer: { type: String },
+        text: { type: String },
+        description: { type: String },
+    },
     computed: {
         isFocused() {
             return this.parentVM && this.parentVM.focusedVM === this;

@@ -65,6 +65,14 @@
     <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
         <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url || item"></u-lightbox-item>
     </u-lightbox>
+    <cropper
+        v-if="openCropper"
+        :cropFileName="cropFileName"
+        :cropImg="cropImg"
+        :modal-visible="modalVisible"
+        @uploadFiles="uploadCropperImg"
+    >
+    </cropper>
 </div>
 </template>
 
@@ -72,6 +80,7 @@
 import MField from '../m-field.vue';
 import i18n from './i18n';
 import ajax from './ajax';
+import cropper from './cropper';
 
 const SIZE_UNITS = {
     kB: 1024,
@@ -85,6 +94,7 @@ export default {
     name: 'u-uploader',
     mixins: [MField],
     i18n,
+    components: { cropper },
     props: {
         value: [Array, String],
         url: { type: String, required: true },
@@ -121,6 +131,7 @@ export default {
         access: { type: String, default: null },
         ttl: { type: Boolean, default: null },
         ttlValue: { type: Number, default: null },
+        openCropper: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -133,6 +144,9 @@ export default {
             lightboxVisible: false,
             currentIndex: 0,
             errorMessage: [],
+            cropImg: undefined,
+            modalVisible: false,
+            cropFileName: undefined,
         };
     },
     computed: {
@@ -147,7 +161,6 @@ export default {
         currentValue: {
             handler(currentValue, oldValue) {
                 const value = this.toValue(currentValue);
-
                 this.$emit('input', value);
                 this.$emit('update:value', value);
                 this.$emit('change', {
@@ -206,9 +219,11 @@ export default {
             this.$refs.file.click();
         },
         onChange(e) {
+            this.modalVisible = false
             const fileEl = e.target;
 
             let files = fileEl.files;
+            // console.log(files);
             if (!files && fileEl.value) { // 老版浏览器不支持 files
                 const arr = fileEl.value.split(/[\\/]/g);
                 files = [{
@@ -219,7 +234,28 @@ export default {
 
             if (!files)
                 return;
-
+            // 处理开启图片编辑器
+            if (this.openCropper) {
+                this.$nextTick(()=>{
+                    this.modalVisible = true;
+                })
+                const cropFile = fileEl.files[0];
+                this.cropFileName = cropFile.name;
+                let reader = new FileReader();
+                reader.readAsArrayBuffer(cropFile);
+                reader.onload = e => {
+                    let data;
+                    if (typeof e.target.result === "object") {
+                        // 把Array Buffer转化为blob 如果是base64不需要
+                        data = window.URL.createObjectURL(new Blob([e.target.result]));
+                    } else {
+                        data = e.target.result;
+                    }
+                    this.cropImg = data;
+                    // this.currentValue = []
+                };
+                return;
+            }
             this.uploadFiles(files);
         },
         checkSize(file) {
@@ -267,6 +303,16 @@ export default {
             } else {
                 this.uploadOnce(files);
             }
+        },
+        uploadCropperImg(obj) {
+            this.currentValue.push({
+                name: obj.name,
+                url: obj.data,
+                status: 'uploading',
+                progress: 100,
+            });
+            const file = new window.File([obj.blob], obj.name, {type: 'image/jpeg'} );
+            this.uploadFiles([file]);
         },
         /**
          * 单文件上传
@@ -487,6 +533,7 @@ export default {
             const item = this.currentValue[index];
             if (!item)
                 return;
+            this.modalVisible = false;
 
             if (this.$emitPrevent('before-remove', {
                 oldValue: this.currentValue,
