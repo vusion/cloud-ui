@@ -1020,18 +1020,18 @@
     --input-box-shadow-focus-color: rgba(77, 136, 255, 0.2); /* @type color */ /* @group 边框阴影 */ /* @desc 输入框边框阴影颜色（选中状态）,如 #223325 */
     --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color); /* @group 边框宽度 */ /* @desc 输入框边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2) */
     --input-placeholder-color: var(--color-lighter); /* @type color */ /* @group 占位符文本 */ /* @desc 输入框占位符文本颜色,如 #223325 */
-    --input-width-mini: var(--width-mini); /* @group 宽度 */ /* @desc Mini输入框高度,如 1px */
-    --input-width-small: var(--width-small); /* @group 宽度 */ /* @desc Small输入框高度,如 1px */
-    --input-width: var(--width-base); /* @group 宽度 */ /* @desc 输入框高度,如 1px */
-    --input-width-medium: var(--width-medium); /* @group 宽度 */ /* @desc Medium输入框高度,如 1px */
-    --input-width-large: var(--width-large); /* @group 宽度 */ /* @desc Large输入框高度,如 1px */
-    --input-width-huge: var(--width-huge); /* @group 宽度 */ /* @desc Huge输入框高度,如 1px */
-    --input-height-mini: var(--height-mini); /* @group 高度 */ /* @desc Mini输入框高度,如 1px */
-    --input-height-small: var(--height-small); /* @group 高度 */ /* @desc Small输入框高度,如 1px */
-    --input-height: var(--height-base); /* @group 高度 */ /* @desc 输入框高度,如 1px */
-    --input-height-medium: var(--height-medium); /* @group 高度 */ /* @desc Medium输入框高度,如 1px */
-    --input-height-large: var(--height-large); /* @group 高度 */ /* @desc Large输入框高度,如 1px */
-    --input-height-huge: var(--height-huge); /* @group 高度 */ /* @desc Huge输入框高度,如 1px */
+    --input-width-mini: var(--width-mini); /* @group 宽度 */ /* @desc Mini输入框高度,如 1px */ /* @depAttrs {"width": ["mini"]} */
+    --input-width-small: var(--width-small); /* @group 宽度 */ /* @desc Small输入框高度,如 1px */ /* @depAttrs {"width": ["small"]} */
+    --input-width: var(--width-base); /* @group 宽度 */ /* @desc 输入框高度,如 1px */ /* @depAttrs {"width": ["normal", null]} */
+    --input-width-medium: var(--width-medium); /* @group 宽度 */ /* @desc Medium输入框高度,如 1px */ /* @depAttrs {"width": ["medium"]} */
+    --input-width-large: var(--width-large); /* @group 宽度 */ /* @desc Large输入框高度,如 1px */ /* @depAttrs {"width": ["large"]} */
+    --input-width-huge: var(--width-huge); /* @group 宽度 */ /* @desc Huge输入框高度,如 1px */ /* @depAttrs {"width": ["huge"]} */
+    --input-height-mini: var(--height-mini); /* @group 高度 */ /* @desc Mini输入框高度,如 1px */ /* @depAttrs {"height": ["mini"]} */
+    --input-height-small: var(--height-small); /* @group 高度 */ /* @desc Small输入框高度,如 1px */ /* @depAttrs {"height": ["small"]} */
+    --input-height: var(--height-base); /* @group 高度 */ /* @desc 输入框高度,如 1px */ /* @depAttrs {"height": ["normal", null]} */
+    --input-height-medium: var(--height-medium); /* @group 高度 */ /* @desc Medium输入框高度,如 1px */ /* @depAttrs {"height": ["medium"]} */
+    --input-height-large: var(--height-large); /* @group 高度 */ /* @desc Large输入框高度,如 1px */ /* @depAttrs {"height": ["large"]} */
+    --input-height-huge: var(--height-huge); /* @group 高度 */ /* @desc Huge输入框高度,如 1px */ /* @depAttrs {"height": ["huge"]} */
     --input-padding-x-mini: 6px; /* @group 内边距 */ /* @desc Mini输入框水平方向内边距,如 1px */
     --input-padding-x-small: 8px; /* @group 内边距 */ /* @desc Small输入框水平方向内边距,如 1px */
     --input-padding-x: 10px; /* @group 内边距 */ /* @desc 输入框水平方向内边距,如 1px */
@@ -1051,15 +1051,15 @@
     --input-icon-color-disabled: var(--color-lighter); /* @hidden */
 
     /* @component u-textarea */
-    --textarea-width: var(--width-base); /* @group 宽度 */ /* @desc 文本框宽度, 如 1px */
-    --textarea-width-medium: var(--width-medium); /* @group 宽度 */ /* @desc Medium文本框宽度, 如 1px */
-    --textarea-width-large: var(--width-large); /* @group 宽度 */ /* @desc Large文本框宽度, 如 1px */
-    --textarea-width-huge: var(--width-huge); /* @group 宽度 */ /* @desc Huge文本框宽度, 如 1px */
+    --textarea-width: var(--width-base); /* @group 宽度 */ /* @desc 文本框宽度, 如 1px */ /* @depAttrs {"size": ["normal", null]} */
+    --textarea-width-medium: var(--width-medium); /* @group 宽度 */ /* @desc Medium文本框宽度, 如 1px */ /* @depAttrs {"size": ["medium"]} */
+    --textarea-width-large: var(--width-large); /* @group 宽度 */ /* @desc Large文本框宽度, 如 1px */ /* @depAttrs {"size": ["large"]} */
+    --textarea-width-huge: var(--width-huge); /* @group 宽度 */ /* @desc Huge文本框宽度, 如 1px */ /* @depAttrs {"size": ["huge"]} */
     --textarea-min-width: var(--width-base); /* @group 宽度 */ /* @desc 文本框最小宽度, 如 1px */
-    --textarea-height: 100px; /* @group 高度 */ /* @desc 文本框高度, 如 1px */
-    --textarea-height-medium: 120px; /* @group 高度 */ /* @desc Medium文本框高度, 如 1px */
-    --textarea-height-large: 120px; /* @group 高度 */ /* @desc Large文本框高度, 如 1px */
-    --textarea-height-huge: 200px; /* @group 高度 */ /* @desc Huge文本框高度, 如 1px */
+    --textarea-height: 100px; /* @group 高度 */ /* @desc 文本框高度, 如 1px */ /* @depAttrs {"size": ["normal", null]} */
+    --textarea-height-medium: 120px; /* @group 高度 */ /* @desc Medium文本框高度, 如 1px */ /* @depAttrs {"size": ["medium"]} */
+    --textarea-height-large: 120px; /* @group 高度 */ /* @desc Large文本框高度, 如 1px */ /* @depAttrs {"size": ["large"]} */
+    --textarea-height-huge: 200px; /* @group 高度 */ /* @desc Huge文本框高度, 如 1px */ /* @depAttrs {"size": ["huge"]} */
     --textarea-min-height: var(--height-base); /* @group 高度 */ /* @desc 文本框最小高度, 如 1px */
     --textarea-padding: 5px 10px; /* @group 内边距 */ /* @desc 文本框内边距, 如 1px */
     --textarea-border-radius: var(--border-radius-base); /* @group 圆角 */ /* @desc 文本框圆角, 如 1px */
