@@ -780,6 +780,7 @@
     "--tree-view-node-background-disabled": "none",
     "--tree-view-node-background-disabled-inverse": "none",
     "--tree-view-node-background-selected-disabled-inverse": "var(--brand-disabled-light-inverse)",
+    "--table-view-tree-expander-size": "16px",
     "--transfer-height": "var(--list-view-height)",
     "--transfer-height-large": "var(--list-view-height-large)",
     "--transfer-height-huge": "var(--list-view-height-huge)",

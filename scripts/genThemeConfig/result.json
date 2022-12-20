@@ -1085,62 +1085,124 @@
                     "--input-width-mini": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Mini输入框高度,如 1px"
+                        "desc": "Mini输入框高度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "mini"
+                            ]
+                        }
                     },
                     "--input-width-small": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Small输入框高度,如 1px"
+                        "desc": "Small输入框高度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "small"
+                            ]
+                        }
                     },
                     "--input-width": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "输入框高度,如 1px"
+                        "desc": "输入框高度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "normal",
+                                null
+                            ]
+                        }
                     },
                     "--input-width-medium": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Medium输入框高度,如 1px"
+                        "desc": "Medium输入框高度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "medium"
+                            ]
+                        }
                     },
                     "--input-width-large": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Large输入框高度,如 1px"
+                        "desc": "Large输入框高度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "large"
+                            ]
+                        }
                     },
                     "--input-width-huge": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Huge输入框高度,如 1px"
+                        "desc": "Huge输入框高度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "huge"
+                            ]
+                        }
                     },
                     "--input-height-mini": {
                         "type": "input",
                         "group": "高度",
-                        "desc": "Mini输入框高度,如 1px"
+                        "desc": "Mini输入框高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "mini"
+                            ]
+                        }
                     },
                     "--input-height-small": {
                         "type": "input",
                         "group": "高度",
-                        "desc": "Small输入框高度,如 1px"
+                        "desc": "Small输入框高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "small"
+                            ]
+                        }
                     },
                     "--input-height": {
                         "type": "input",
                         "group": "高度",
-                        "desc": "输入框高度,如 1px"
+                        "desc": "输入框高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "normal",
+                                null
+                            ]
+                        }
                     },
                     "--input-height-medium": {
                         "type": "input",
                         "group": "高度",
-                        "desc": "Medium输入框高度,如 1px"
+                        "desc": "Medium输入框高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "medium"
+                            ]
+                        }
                     },
                     "--input-height-large": {
                         "type": "input",
                         "group": "高度",
-                        "desc": "Large输入框高度,如 1px"
+                        "desc": "Large输入框高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "large"
+                            ]
+                        }
                     },
                     "--input-height-huge": {
                         "type": "input",
                         "group": "高度",
-                        "desc": "Huge输入框高度,如 1px"
+                        "desc": "Huge输入框高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "huge"
+                            ]
+                        }
                     },
                     "--input-padding-x-mini": {
                         "type": "input",
@@ -1347,22 +1409,43 @@
                     "--textarea-width": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "文本框宽度, 如 1px"
+                        "desc": "文本框宽度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "normal",
+                                null
+                            ]
+                        }
                     },
                     "--textarea-width-medium": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Medium文本框宽度, 如 1px"
+                        "desc": "Medium文本框宽度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "medium"
+                            ]
+                        }
                     },
                     "--textarea-width-large": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Large文本框宽度, 如 1px"
+                        "desc": "Large文本框宽度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "large"
+                            ]
+                        }
                     },
                     "--textarea-width-huge": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Huge文本框宽度, 如 1px"
+                        "desc": "Huge文本框宽度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "huge"
+                            ]
+                        }
                     },
                     "--textarea-min-width": {
                         "type": "input",
@@ -1372,22 +1455,43 @@
                     "--textarea-height": {
                         "type": "input",
                         "group": "高度",
-                        "desc": "文本框高度, 如 1px"
+                        "desc": "文本框高度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "normal",
+                                null
+                            ]
+                        }
                     },
                     "--textarea-height-medium": {
                         "type": "input",
                         "group": "高度",
-                        "desc": "Medium文本框高度, 如 1px"
+                        "desc": "Medium文本框高度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "medium"
+                            ]
+                        }
                     },
                     "--textarea-height-large": {
                         "type": "input",
                         "group": "高度",
-                        "desc": "Large文本框高度, 如 1px"
+                        "desc": "Large文本框高度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "large"
+                            ]
+                        }
                     },
                     "--textarea-height-huge": {
                         "type": "input",
                         "group": "高度",
-                        "desc": "Huge文本框高度, 如 1px"
+                        "desc": "Huge文本框高度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "huge"
+                            ]
+                        }
                     },
                     "--textarea-min-height": {
                         "type": "input",
@@ -2029,14 +2133,6 @@
                             "th"
                         ]
                     },
-                    "--table-head-text-align": {
-                        "type": "input",
-                        "desc": "表格表头字体对齐方式,如 left"
-                    },
-                    "--table-head-font-weight": {
-                        "type": "input",
-                        "desc": "表格表头字体加粗,如 normal"
-                    },
                     "--table-view-head-item-size": {
                         "type": "input",
                         "group": "表头",
@@ -2499,6 +2595,9 @@
                     "--tree-view-node-background-selected-disabled": {
                         "type": "color",
                         "desc": "树形列表节点的背景色（选中且禁用）,如 #223325"
+                    },
+                    "--table-view-tree-expander-size": {
+                        "type": "input"
                     }
                 },
                 "preview": {
