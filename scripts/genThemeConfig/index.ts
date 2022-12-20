@@ -53,6 +53,9 @@ _root.nodes.forEach((node) => {
             } else if (node.text.includes('@prefix ')) {
                 const cap = /@prefix\s+([\S]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].prefix = cap[1].trim();
+            } else if (node.text.includes('@depAttrs ')) {
+                const cap = /@depAttrs\s+(.*)/.exec(node.text.trim());
+                lastComponent.cssProperty[lastProp].depAttrs = JSON.parse(cap[1] || '{}');
             } else if (node.text.includes('@excludeElTags ')) {
                 const cap = /@excludeElTags\s+([\S]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].excludeElTags = cap[1].trim().split(',');
