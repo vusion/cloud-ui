@@ -1352,6 +1352,7 @@ export default {
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。 |
 | placeholder | string |  | `'请选择'` | 选择框的占位符 |
 | loading-text | string |  | `'加载中...'` | 正在加载中的文字，使用分页加载时才会出现 |
+| show-empty-text | boolean |  | `true` | 是否在数据为空时展示暂无数据的文字提示 |
 | empty-text | string |  | `'暂无数据'` | 暂无数据时的文字 |
 | empty-disabled | boolean |  | `false` | 没有数据时，自动禁用 |
 | initial-load | boolean |  | `true` | 是否在初始时立即加载 |

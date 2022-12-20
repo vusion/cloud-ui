@@ -10,7 +10,7 @@
                     && !!$attrs['vusion-node-path']"></s-empty>
             </span>
             <nav :class="$style.nav" :scrollable="showScrollButtons === 'always' || (showScrollButtons === 'auto' && scrollable)">
-                <span :class="$style.prev" @click="scrollPrev"></span>
+                <span :class="$style.prev" @click="scrollPrev" :vusion-click-enabled="$env.VUE_APP_DESIGNER"></span>
                 <div ref="scrollView" :class="$style['scroll-view']">
                     <div :class="$style.scroll">
                         <template v-for="(itemVM, index) in itemVMs">
@@ -28,7 +28,7 @@
                                 :href="itemVM.currentHref" :target="itemVM.target" :title="showTitle ? itemVM.title : null"
                                 :selected="router ? itemVM.active : itemVM === selectedVM"
                                 :disabled="itemVM.disabled || disabled"
-                                :style="{ width: currentItemWidth }"
+                                :style="getTabStyle(itemVM)"
                                 :width-fixed="!!currentItemWidth"
                                 :alignment="itemAlign"
                                 @click="onClick(itemVM, $event)">
@@ -51,7 +51,7 @@
                         </template>
                     </div>
                 </div>
-                <span :class="$style.next" @click="scrollNext"></span>
+                <span :class="$style.next" @click="scrollNext" :vusion-click-enabled="$env.VUE_APP_DESIGNER"></span>
             </nav>
         </div>
         <div :class="$style.body">
@@ -225,6 +225,11 @@ export default {
                 accWidth += itemEl.offsetWidth;
             }
             scrollTo(scrollViewEl, { left: accWidth, duration: 1000 });
+        },
+        getTabStyle(itemVm) {
+            const itemStyle = itemVm.$vnode.data && itemVm.$vnode.data.style || {};
+            const itemstaticStyle = itemVm.$vnode.data && itemVm.$vnode.data.staticStyle || {};
+            return Object.assign({ width: this.currentItemWidth }, itemstaticStyle, itemStyle);
         },
     },
 };

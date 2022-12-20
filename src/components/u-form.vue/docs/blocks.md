@@ -2,13 +2,15 @@
 
 ``` html
 <u-form
-    ><u-form-item label="名称" required>
+    ><u-form-item required>
+        <template #label><u-text text="名称"></u-text></template>
         <u-input placeholder="由字母、数字和中划线组成"></u-input>
     </u-form-item
-    ><u-form-item label="类型" required>
+    ><u-form-item required>
+        <template #label><u-text text="类型"></u-text></template>
         <u-radios>
-            <u-radio label="A">类型 A</u-radio>
-            <u-radio label="B">类型 B</u-radio>
+            <u-radio label="A"><u-text text="类型 A"></u-text></u-radio>
+            <u-radio label="B"><u-text text="类型 B"></u-text></u-radio>
         </u-radios>
     </u-form-item
     ><u-form-item>
@@ -21,7 +23,8 @@
 
 ``` html
 <u-form layout="inline" label-size="auto"
-    ><u-form-item label="名称">
+    ><u-form-item>
+        <template #label><u-text text="名称"></u-text></template>
         <u-input placeholder="请输入名称"></u-input>
     </u-form-item
     ><u-form-item>
@@ -34,25 +37,29 @@
 
 ``` html
 <u-form layout="inline" collapsible
-    ><u-form-group title="常用条件" expanded
-        ><u-form-item label="名称">
+    ><u-form-group expanded
+        ><template #title><u-text text="常用条件"></u-text></template><u-form-item>
+            <template #label><u-text text="名称"></u-text></template>
             <u-input placeholder="请输入名称"></u-input>
         </u-form-item
-        ><u-form-item label="状态">
+        ><u-form-item>
+            <template #label><u-text text="状态"></u-text></template>
             <u-select>
-                <u-select-item>启用</u-select-item>
-                <u-select-item>禁用</u-select-item>
+                <u-select-item><u-text text="启用"></u-text></u-select-item>
+                <u-select-item><u-text text="禁用"></u-text></u-select-item>
             </u-select>
         </u-form-item
     ></u-form-group
-    ><u-form-group title="更多条件" expanded
-        ><u-form-item label="名称">
+    ><u-form-group expanded
+        ><template #title><u-text text="更多条件"></u-text></template><u-form-item>
+            <template #label><u-text text="名称"></u-text></template>
             <u-input placeholder="请输入名称"></u-input>
         </u-form-item
-        ><u-form-item label="状态">
+        ><u-form-item>
+            <template #label><u-text text="状态"></u-text></template>
             <u-select>
-                <u-select-item>启用</u-select-item>
-                <u-select-item>禁用</u-select-item>
+                <u-select-item><u-text text="启用"></u-text></u-select-item>
+                <u-select-item><u-text text="禁用"></u-text></u-select-item>
             </u-select>
         </u-form-item
     ></u-form-group

@@ -341,6 +341,7 @@ export default {
 .root[label-layout="block"]> [class^="u-form_item_field__"] > [class^="u-form_item_wrap__"] {
     display: block;
     max-width: 100%;
+    width: 100%;
 }
 .root[label-layout="block"]> label [s-empty="true"] {
     max-width: 90px;

@@ -3,11 +3,11 @@
     <slot></slot>
     <template v-if="appendTo === 'body'">
          <m-popper append-to="body" disabled-close trigger="manual" :opened="showMessage">
-            <span ref="message" v-show="showMessage" :class="[$style.message, $style.messagepop]" color="error" :display="display">{{ firstError }}</span>
+            <span ref="message" v-show="showMessage" :class="[$style.message, $style.messagepop]" color="error" :display="display">{{ message || firstError }}</span>
         </m-popper>
     </template>
     <template v-else>
-        <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !blurred" :class="$style.message" color="error">{{ firstError }}</span>
+        <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !blurred" :class="$style.message" color="error">{{ message ||firstError }}</span>
     </template>
     <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
 </div>
@@ -282,7 +282,7 @@ export default {
                 const value = this.validatingProcess(this.validatingValue === undefined ? this.value : this.validatingValue);
 
                 // @TODO: 临时解决一下，用 blur 当 change
-                const INPUT_NAMES = ['u-input', 'u-textarea', 'u-number-input'];
+                const INPUT_NAMES = ['u-input', 'u-textarea', 'u-number-input', 'u-time-picker'];
                 if (trigger === 'input' && !INPUT_NAMES.includes(this.fieldVM.$options.name)) {
                     trigger = 'blur';
                 }

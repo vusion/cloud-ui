@@ -1,15 +1,33 @@
 - name: u-timeline
   title: 时间线
+  icon: timeline
+  labels:
+    - Display
   attrs:
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function | object | DataSource
+      designer-value: "[{}, {}, {}]"
+      description: 数据源
+      group: 数据属性
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 数据类型
+      group: 数据属性
+      compType: dataTypeSelect
     - name: mode
-      type: enum
+      title: 模式
+      type: string
       options:
-        - default
-        - alternate
-        - label
+        - value: default
+          title: 默认
+        - value: label
+          title: 开启标签展示
       default: default
-      description: 模式切换。`alternate` 交替展示，`label` 开启 `label` 展示
+      description: 模式切换。`label` 开启 `label` 展示
     - name: pending
+      title: 最后一个节点为幽灵节点
       type: boolean
       default: false
       description: 是否指定最后一个节点为幽灵节点
@@ -17,20 +35,45 @@
     - concept: Slot
       name: default
       description: 插入 `<u-timeline-item>` 子组件
+      support:
+        - name: u-timeline-item
+          title: 时间线子选项
+          snippet: <u-timeline-item></u-timeline-item>
+    - concept: Slot
+      name: item
+      description: 自定义选项的结构和样式
+      slotProps:
+        concept: Param
+        name: scope
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: ScopeOf
+          typeArguments:
+          - concept: TypeAnnotation
+            typeKind: typeParam
+            typeName: T 
 - name: u-timeline-item
+  title: 时间线项
   attrs:
     - name: color
+      title: 颜色
       type: string
-      default: primary
+      default: blue
       description: 指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值
     - name: label
+      title: 标签
       type: string
       description: 指定展示在另一侧的 `label`，只在 `label` 模式下生效
     - name: position
-      type: enum
+      title: 位置
+      type: string
       options:
-        - left
-        - right
+        - value: left
+          title: 左
+        - value: right
+          title: 右
       default: right
       description: 指定交替展示时的位置，只在 `alternate` 或 `label` 模式下生效
   slots:

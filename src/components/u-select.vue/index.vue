@@ -23,7 +23,13 @@
             {{ label }}
             <slot name="label"></slot>
         </span>
-        <f-render v-if="!multiple && !filterable" :vnode="selectedVM && (selectedVM.$slots&&selectedVM.$slots.default ? selectedVM.$slots.default : [$at2(selectedVM, field || textField)])"></f-render>
+        <template v-if="!multiple && !filterable">
+            <template v-if="selectedVM">
+                <slot name="selected" :item="selectedVM.item" :value="selectedVM.value" :text="selectedVM.text">
+                    <f-render :vnode="selectedVM && (selectedVM.$slots&&selectedVM.$slots.default ? selectedVM.$slots.default : [$at2(selectedVM, field || textField)])"></f-render>
+                </slot>
+            </template>
+        </template>
         <span v-else-if="multipleAppearance === 'text'">{{ currentText }}</span>
         <template v-else-if="multipleAppearance === 'tags'">
             <template v-if="tagsOverflow === 'hidden' || tagsOverflow === 'visible'">

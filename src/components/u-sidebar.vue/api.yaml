@@ -53,11 +53,10 @@
       support:
         - name: u-sidebar-group
           title: 侧边栏分组
-          snippet: <u-sidebar-group
-            title="分组"><u-sidebar-item>侧边栏项</u-sidebar-item></u-sidebar-group>
+          snippet: '<u-sidebar-group><template #title><u-text text="分组"></u-text></template><u-sidebar-item><u-text text="侧边栏项"></u-text></u-sidebar-item></u-sidebar-group>'
         - name: u-sidebar-item
           title: 侧边栏项
-          snippet: <u-sidebar-item>侧边栏项</u-sidebar-item>
+          snippet: <u-sidebar-item><u-text text="侧边栏项"></u-text></u-sidebar-item>
         - name: u-sidebar-divider
           title: 分隔线
           snippet: <u-sidebar-divider></u-sidebar-divider>
@@ -181,10 +180,10 @@
       support:
         - name: u-sidebar-group
           title: 侧边栏分组
-          snippet: <u-sidebar-group title="分组"><u-sidebar-item>侧边栏项</u-sidebar-item></u-sidebar-group>
+          snippet: '<u-sidebar-group><template #title><u-text text="分组"></u-text></template><u-sidebar-item><u-text text="侧边栏项"></u-text></u-sidebar-item></u-sidebar-group>'
         - name: u-sidebar-item
           title: 侧边栏项
-          snippet: <u-sidebar-item>侧边栏项</u-sidebar-item>
+          snippet: <u-sidebar-item><u-text text="侧边栏项"></u-text></u-sidebar-item>
         - name: u-sidebar-divider
           title: 分隔线
           snippet: <u-sidebar-divider></u-sidebar-divider>

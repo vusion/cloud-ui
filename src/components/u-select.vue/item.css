@@ -93,3 +93,15 @@
     border: none;
     background-image: url("../../assets/images/high.png");
 }
+
+.desc {
+    color: var(--select-popper-item-description-color);
+    font-size: var(--select-popper-item-description-font-size);
+    line-height: var(--select-popper-item-description-line-height);
+    margin-top: -3px;
+    margin-bottom: 5px;
+    white-space: initial;
+}
+.root[selected] .desc {
+    color: var(--select-popper-item-description-selected-color);
+}

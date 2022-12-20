@@ -28,13 +28,26 @@
           title: 行内展示
         - value: block
           title: 块级展示，宽度会充满父元素
+        - value: inline-flex
+          title: 栅格展示，可设置列数
       default: block
       description: ""
+      toggleclear:
+        - repeat
+      toggleupdate:
+        - value: inline-flex
+          updateData:
+            repeat: 1
     - name: repeat
       title: 列数
       type: number
+      display: number
       default: 1
       description: 整个表单的划分列数
+      min: 1
+      dependency:
+        - layout: inline-flex
+        - '!repeat': 1
     - name: gap-width
       title: 列间隔
       type: string
@@ -49,6 +62,8 @@
           title: 大
       default: normal
       description: 设置表单列间隔大小
+      dependency:
+        - layout: inline
     - name: gap-height
       title: 行间隔
       type: string
@@ -87,6 +102,8 @@
           title: 大
       default: normal
       description: ""
+      dependency:
+        - label-layout: inline
     - name: label-ellipsis
       title: 标签省略显示
       type: boolean
@@ -102,6 +119,7 @@
           title: 正常
       default: normal
       description: ""
+      advanced: true
     - name: collapsible
       title: 是否可折叠
       type: boolean
@@ -147,11 +165,10 @@
       support:
         - name: u-form-group
           title: 表单分组
-          snippet: <u-form-group title="分组"><u-form-item
-            label="表单项"></u-form-item></u-form-group>
+          snippet: '<u-form-group><template #title><u-text text="分组"></u-text></template><u-form-item><template #label><u-text text="表单项"></u-text></template></u-form-item></u-form-group>'
         - name: u-form-item
           title: 表单项
-          snippet: <u-form-item label="表单项"></u-form-item>
+          snippet: '<u-form-item><template #label><u-text text="表单项"></u-text></template></u-form-item>'
   events:
     - name: validate
       title: 验证后
@@ -458,7 +475,7 @@
       support:
         - name: u-form-item
           title: 表单项
-          snippet: <u-form-item label="表单项"></u-form-item>
+          snippet: '<u-form-item><template #label><u-text text="表单项"></u-text></template></u-form-item>'
     - concept: Slot
       name: title
       description: 自定义标题文本。

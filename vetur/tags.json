@@ -846,7 +846,9 @@
       "repeat",
       "gap-width",
       "gap-height",
+      "label-layout",
       "label-size",
+      "label-ellipsis",
       "size",
       "collapsible",
       "accordion",
@@ -863,7 +865,9 @@
       "name",
       "label",
       "span",
+      "label-layout",
       "label-size",
+      "label-ellipsis",
       "field-size",
       "required",
       "message",
@@ -884,6 +888,8 @@
     "attributes": [
       "title",
       "repeat",
+      "label-layout",
+      "label-ellipsis",
       "collapsible",
       "expanded",
       "disabled"
@@ -911,15 +917,23 @@
   },
   "u-grid-layout-row": {
     "attributes": [
-      "repeat",
-      "gap",
       "justify",
-      "alignment"
+      "alignment",
+      "repeat",
+      "gap"
     ],
     "description": "内部元素行布局"
   },
   "u-grid-layout-column": {
     "attributes": [
+      "mode",
+      "direction",
+      "justify",
+      "alignment",
+      "alignment",
+      "justify",
+      "wrap",
+      "gap",
       "span",
       "offset",
       "pull",
@@ -1095,13 +1109,17 @@
   },
   "u-linear-layout": {
     "attributes": [
+      "mode",
       "direction",
+      "justify",
+      "alignment",
+      "alignment",
+      "justify",
+      "wrap",
       "gap",
       "display",
       "layout",
       "type",
-      "justify",
-      "alignment",
       "loadingIcon",
       "loadingIconRotate",
       "loadingText"
@@ -1260,6 +1278,10 @@
   "u-multi-layout": {
     "attributes": [
       "direction",
+      "justify",
+      "alignment",
+      "alignment",
+      "justify",
       "gap"
     ],
     "description": "一定的规则布局",
@@ -1272,8 +1294,14 @@
       "fixed",
       "fixdirec",
       "display",
+      "mode",
+      "direction",
       "justify",
-      "alignment"
+      "alignment",
+      "alignment",
+      "justify",
+      "wrap",
+      "gap"
     ],
     "description": "一定的规则布局"
   },
@@ -1631,6 +1659,7 @@
       "converter",
       "placeholder",
       "loading-text",
+      "show-empty-text",
       "empty-text",
       "empty-disabled",
       "initial-load",
@@ -1992,6 +2021,8 @@
   },
   "u-timeline": {
     "attributes": [
+      "data-source",
+      "data-schema",
       "mode",
       "pending"
     ],
@@ -2166,6 +2197,7 @@
       "with-credentials",
       "multiple",
       "multiple-once",
+      "open-cropper",
       "data-type",
       "data",
       "limit",

@@ -1,8 +1,9 @@
 <template>
 <div :class="$style.root">
-    <div @click="copy">
+    <div @click="copy" vusion-slot-name="default">
         <slot>
-            <u-link :disabled="disabled" vusion-slot-name-edit="text">{{ text }}</u-link>
+            <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+            <u-link v-else :disabled="disabled" vusion-slot-name-edit="text">{{ text }}</u-link>
         </slot>
     </div>
     <u-tooltip v-if="feedback === 'tooltip'" :placement="placement" trigger="manual" :opened.sync="success">
@@ -17,9 +18,11 @@
 <script>
 import { copy } from '../../utils/edit/clipboard';
 // import i18n from '@/utils/i18n';
+import SEmpty from '../../components/s-empty.vue';
 
 export default {
     name: 'u-copy',
+    components: { SEmpty },
     props: {
         value: String,
         text: { type: String, default: '复制' },

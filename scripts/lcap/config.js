@@ -32,6 +32,7 @@ module.exports = [
     { group: 'Display', show: true, name: 'u-alert', alias: '公告' },
     { group: 'Display', show: true, name: 'u-count-down', alias: '计时器' },
     { group: 'Display', show: true, name: 'u-divider', alias: '分割线' },
+    { group: 'Display', show: true, name: 'u-timeline', alias: '时间线' },
 
     { group: 'Table', show: true, name: 'u-table-view', alias: '数据表格' },
     { group: 'Table', show: true, name: 'u-list-view', alias: '数据列表' },

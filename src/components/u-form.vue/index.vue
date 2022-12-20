@@ -104,13 +104,15 @@ export default {
 <style module>
 .root {}
 
-.root[layout="inline"] {
+.root[layout="inline"],
+.root[layout="inline-flex"]{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
 }
 
-.root[layout="inline"] .item {
+.root[layout="inline"] .item,
+.root[layout="inline-flex"] .item {
     display: inline-block;
 }
 
@@ -167,6 +169,7 @@ export default {
 .root[layout="vertical"] .item > [class^="u-form_item_field__"] > [class^="u-form_item_wrap__"] {
     display: block;
     max-width: 100%;
+    width: 100%;
 }
 .root[layout="vertical"] .item > label [s-empty="true"] {
     max-width: 90px;
@@ -198,12 +201,14 @@ export default {
 
 /* gap转换成gap-height, gap-width, 保留gap为了历史遗留组件的样式兼容问题 */
 .root[gap-height="large"][layout="block"] .item:not(:last-child),
-.root[gap-height="large"][layout="vertical"] .item:not(:last-child) {
+.root[gap-height="large"][layout="vertical"] .item:not(:last-child),
+.root[gap-height="large"][layout="inline"] .item {
   margin-bottom: var(--form-item-margin-bottom-large);
 }
 
 .root[gap-height="normal"][layout="block"] .item:not(:last-child),
-.root[gap-height="normal"][layout="vertical"] .item:not(:last-child) {
+.root[gap-height="normal"][layout="vertical"] .item:not(:last-child),
+.root[gap-height="normal"][layout="inline"] .item {
     margin-bottom: var(--form-item-margin-bottom);
 }
 
@@ -216,12 +221,14 @@ export default {
 }
 
 .root[gap-height="small"][layout="block"] .item:not(:last-child),
-.root[gap-height="small"][layout="vertical"] .item:not(:last-child) {
+.root[gap-height="small"][layout="vertical"] .item:not(:last-child),
+.root[gap-height="small"][layout="inline"] .item {
   margin-bottom: var(--form-item-margin-bottom-small);
 }
 
 .root[gap-height="none"][layout="block"] .item:not(:last-child),
-.root[gap-height="none"][layout="vertical"] .item:not(:last-child) {
+.root[gap-height="none"][layout="vertical"] .item:not(:last-child),
+.root[gap-height="none"][layout="inline"] .item {
   margin-bottom: var(--form-item-margin-bottom-none);
 }
 

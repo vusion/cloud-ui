@@ -46,6 +46,11 @@
       type: boolean
       default: false
       description: 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件
+    - name: open-cropper
+      title: 是否开启图片裁剪
+      type: boolean
+      default: false
+      description: 设置是否开启图片裁剪，只对单文件的卡片列表有效
     - name: data-type
       title: 接收数据类型
       type: string
