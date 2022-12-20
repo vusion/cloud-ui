@@ -790,22 +790,27 @@
      */
 
     /* @component u-table-view */
-    --table-view-row-hover-background: #f9f9f9; /* @type color */ /* @group 行 */ /* @desc 表格行背景色（hover状态）,如 #223325 */
-    --table-view-head-background: #f7f8fa; /* @type color */ /* @group 表头 */ /* @desc 表格表头背景色,如 #223325 */
-    --table-head-text-align: left; /* @desc 表格表头字体对齐方式,如 left */
-    --table-head-font-weight: normal; /* @desc 表格表头字体加粗,如 normal */
-    --table-view-head-item-size: var(--font-size-base); /* @group 表头 */ /* @desc 表格表头字体大小,如 1px */
-    --table-row-background-striped: var(--background-color-lighter); /* @type color */ /* @group 行 */ /* @desc 表格条纹展示行背景色,如 #223325 */
-    --table-view-head-item-color: var(--gray-dark); /* @type color */ /* @group 表头 */ /* @desc 表格表头文字颜色,如 #223325 */
-    --table-view-background: var(--background-color-default); /* @type color */ /* @group 内容区 */ /* @desc 表格内容区背景色,如 #223325 */
-    --table-view-border-color: var(--border-color-base); /* @type color */ /* @group 内容区 */ /* @desc 表格内容区边框颜色,如 #223325 */
-    --table-view-td-color: var(--color-base); /* @type color */ /* @group 内容区 */ /* @desc 表格内容区文字颜色,如 #223325 */
-    --table-view-th-line-height: 20px; /* @group 表头 */ /* @desc 表格表头行高,如 1px */
-    --table-view-th-padding: 10px 6px 10px 10px; /* @group 表头 */ /* @desc 表格表头内间距,如 1px */
-    --table-th-background: var(--table-view-head-background); /* @desc 表格表头内背景色,如 #223325 */
-    --table-view-td-line-height: 20px; /* @group 内容区 */ /* @desc 表格内容区行高,如 1px */
-    --table-view-td-padding: 10px 6px 10px 10px; /* @type color */ /* @group 内容区 */ /* @desc 表格表头背景色,如 #223325 */
-    --table-td-background: var(--table-view-background);/* @type color */ /* @desc 表格列内容区背景色,如 #223325 */
+    --table-view-row-hover-background: #f9f9f9; /* @type color */ /* @group 行 */ /* @prefix table-view-row */ /* @desc 表格行背景色（hover状态）,如 #223325 */ /* @excludeElTags th */
+    --table-view-head-background: #f7f8fa; /* @type color */ /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头背景色,如 #223325 */ /* @excludeElTags td */
+    --table-head-text-align: left; /* @prefix table */ /* @desc 表格表头字体对齐方式,如 left */ /* @excludeElTags td,th */
+    --table-head-font-weight: normal; /* @prefix table */ /* @desc 表格表头字体加粗,如 normal */ /* @excludeElTags td,th */
+    --table-view-head-item-size: var(--font-size-base); /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头字体大小,如 1px */ /* @excludeElTags td */
+    --table-row-background-striped: var(--background-color-lighter); /* @type color */ /* @group 行 */ /* @prefix table */ /* @desc 表格条纹展示行背景色,如 #223325 */ /* @excludeElTags th */
+    --table-view-head-item-color: var(--gray-dark); /* @type color */ /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头文字颜色,如 #223325 */ /* @excludeElTags td */
+    --table-view-background: var(--background-color-default); /* @type color */ /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区背景色,如 #223325 */ /* @excludeElTags th */
+    --table-view-border-color: var(--border-color-base); /* @type color */ /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区边框颜色,如 #223325 */ /* @excludeElTags th */
+    --table-view-td-color: var(--color-base); /* @type color */ /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区文字颜色,如 #223325 */ /* @excludeElTags th */
+    --table-view-th-line-height: 20px; /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头行高,如 1px */ /* @excludeElTags td */
+    --table-view-th-padding: 10px 6px 10px 10px; /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头内间距,如 1px */ /* @excludeElTags td */
+    --table-th-background: var(--table-view-head-background); /* @prefix table */ /* @desc 表格表头内背景色,如 #223325 */ /* @excludeElTags td,th */
+    --table-view-td-line-height: 20px; /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区行高,如 1px */ /* @excludeElTags th */
+    --table-view-td-padding: 10px 6px 10px 10px; /* @type color */ /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格表头背景色,如 #223325 */ /* @excludeElTags th */
+    --table-td-background: var(--table-view-background);/* @type color */ /* @prefix table */ /* @desc 表格列内容区背景色,如 #223325 */ /* @excludeElTags td,th */
+    --table-view-drop-ghost-border-color: var(--brand-primary); /* @type color */ /* @desc 表格拖拽放置示意线颜色,如 #223325 */ /* @excludeElTags td,th */
+    --table-view-drop-ghost-mask-background: rgba(77, 136, 255, 0.1); /* @type color */ /* @desc 表格拖拽放置示意框背景颜色,如 #223325 */ /* @excludeElTags td,th */
+    --table-view-subrow-background-dragging:  rgba(237, 237, 237, 0.5);/* @type color */ /* @desc 表格被拖拽行子树背景颜色,如 #223325 */ /* @excludeElTags td,th */
+    --table-view-row-background-dragging: #e5e5e5;/* @type color */ /* @desc 表格被拖拽行背景颜色,如 #223325 */ /* @excludeElTags td,th */
+    --table-view-drag-cursor: move;/* @desc 拖拽鼠标样式 */ /* @excludeElTags td,th */
 
     --table-view-head-title-sortable-hover: #eef2f8; /* @hidden */
     --table-view-sort-color-hover: #aaa; /* @hidden */
@@ -848,12 +853,7 @@
     --table-view-expand-td-background: #F7F8FA; /* @hidden */
     --table-view-editable-td-min-height: 34px; /* @hidden */
     --table-view-overflow-x: auto; /* @hidden */
-    --table-view-drop-ghost-border-color: var(--brand-primary); /* @type color */ /* @desc 表格拖拽放置示意线颜色,如 #223325 */
     --table-view-drop-ghost-disabled-border-color: var(--brand-error);/* @hidden */
-    --table-view-drop-ghost-mask-background: rgba(77, 136, 255, 0.1); /* @type color */ /* @desc 表格拖拽放置示意框背景颜色,如 #223325 */
-    --table-view-subrow-background-dragging:  rgba(237, 237, 237, 0.5);/* @type color */ /* @desc 表格被拖拽行子树背景颜色,如 #223325 */
-    --table-view-row-background-dragging: #e5e5e5;/* @type color */ /* @desc 表格被拖拽行背景颜色,如 #223325 */
-    --table-view-drag-cursor: move;/* @desc 拖拽鼠标样式 */
 
     /* @component u-list-view @hidden */
     --list-view-width: var(--width-medium);
@@ -985,11 +985,6 @@
     --form-required-top: 7px; /* @hidden */
     --form-item-text-color: var(--color-light); /* @hidden */
 
-    /* @component u-form-item */
-    --form-item-label-color: var(--font-second-color); /* @type color */ /* @group default */ /* @prefix form-item */ /* @desc 表单项 label字体颜色,如 #223325 */
-    --form-item-label-padding-right: 20px; /* @group default */ /* @prefix form-item */ /* @desc 表单项 label文本右边距,如 1px */
-    --form-item-label-width: 76px; /* @group default */ /* @prefix form-item */ /* @desc 表单项 label宽度,如 1px */
-
     /* @component u-field @hidden */
     --field-background: white;
     --field-color: var(--color-light);
@@ -1117,10 +1112,10 @@
     --number-input-border-radius: var(--input-border-radius); /* @hidden */
 
     /* @component u-radios */
-    --radio-space-x: 32px; /* @group 间距 */ /* @desc 单选项之间的间距,如 1px */
-    --radio-size: 16px; /* @group 大小 */ /* @desc 单选项按钮大小,如 1px */
-    --radio-background: var(--background-color-default); /* @type color */ /* @group 背景色 */ /* @desc 单选项按钮背景色,如 #223325 */
-    --radio-box-shadow-focus: var(--box-shadow-form-item-base); /* @group 边框阴影 */ /* @desc 单选项边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --radio-space-x: 32px; /* @group 间距 */ /* @prefix radio */ /* @desc 单选项之间的间距,如 1px */ /* @excludeElTag label */
+    --radio-size: 16px; /* @group 大小 */ /* @prefix radio */ /* @desc 单选项按钮大小,如 1px */
+    --radio-background: var(--background-color-default); /* @type color */ /* @group 背景色 */ /* @prefix radio */ /* @desc 单选项按钮背景色,如 #223325 */
+    --radio-box-shadow-focus: var(--box-shadow-form-item-base); /* @group 边框阴影 */ /* @prefix radio */ /* @desc 单选项边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
 
     --radio-inner-space-x: 8px; /* @hidden */
     --radio-solid-circle-size: 8px; /* @hidden */
@@ -1161,12 +1156,12 @@
     --switch-font-size: 12px; /* @hidden */
 
     /* @component u-checkbox */
-    --checkbox-space-x: 80px; /* @group 间距 */ /* @desc 多选项之间的间距,如 1px */
-    --checkbox-size: 16px; /* @group 大小 */ /* @desc 多选项按钮的大小,如 1px */
-    --checkbox-border-radius: var(--border-radius-base); /* @group 圆角 */ /* @desc 多选项按钮圆角,如 1px */
-    --checkbox-background: var(--brand-primary); /* @type color */ /* @group 背景色 */ /* @desc 多选项按钮的背景色,如 #223325 */
-    --checkbox-color: var(--background-color-default); /* @type color */ /* @group 内容颜色 */ /* @desc 多选项按钮的内容颜色,如 #223325 */
-    --checkbox-box-shadow-focus: var(--box-shadow-form-item-base); /* @group 阴影效果 */ /* @desc 多选项按钮的阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --checkbox-space-x: 80px; /* @group 间距 */ /* @prefix checkbox */ /* @desc 多选项之间的间距,如 1px */
+    --checkbox-size: 16px; /* @group 大小 */ /* @prefix checkbox */ /* @desc 多选项按钮的大小,如 1px */
+    --checkbox-border-radius: var(--border-radius-base); /* @group 圆角 */ /* @prefix checkbox */ /* @desc 多选项按钮圆角,如 1px */
+    --checkbox-background: var(--brand-primary); /* @type color */ /* @group 背景色 */ /* @prefix checkbox */ /* @desc 多选项按钮的背景色,如 #223325 */
+    --checkbox-color: var(--background-color-default); /* @type color */ /* @group 内容颜色 */ /* @prefix checkbox */ /* @desc 多选项按钮的内容颜色,如 #223325 */
+    --checkbox-box-shadow-focus: var(--box-shadow-form-item-base); /* @group 阴影效果 */ /* @prefix checkbox */ /* @desc 多选项按钮的阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
 
     --checkbox-border-color: var(--border-color-base); /* @hidden */
     --checkbox-border-color-disabled: var(--border-color-base); /* @hidden */
