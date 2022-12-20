@@ -1112,7 +1112,7 @@
     --number-input-border-radius: var(--input-border-radius); /* @hidden */
 
     /* @component u-radios */
-    --radio-space-x: 32px; /* @group 间距 */ /* @prefix radio */ /* @desc 单选项之间的间距,如 1px */ /* @excludeElTag label */
+    --radio-space-x: 32px; /* @group 间距 */ /* @prefix radio */ /* @desc 单选项之间的间距,如 1px */ /* @excludeTags u-radio */
     --radio-size: 16px; /* @group 大小 */ /* @prefix radio */ /* @desc 单选项按钮大小,如 1px */
     --radio-background: var(--background-color-default); /* @type color */ /* @group 背景色 */ /* @prefix radio */ /* @desc 单选项按钮背景色,如 #223325 */
     --radio-box-shadow-focus: var(--box-shadow-form-item-base); /* @group 边框阴影 */ /* @prefix radio */ /* @desc 单选项边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
@@ -1156,7 +1156,7 @@
     --switch-font-size: 12px; /* @hidden */
 
     /* @component u-checkbox */
-    --checkbox-space-x: 80px; /* @group 间距 */ /* @prefix checkbox */ /* @desc 多选项之间的间距,如 1px */
+    --checkbox-space-x: 80px; /* @group 间距 */ /* @prefix checkbox */ /* @desc 多选项之间的间距,如 1px */ /* @excludeTags u-checkbox */
     --checkbox-size: 16px; /* @group 大小 */ /* @prefix checkbox */ /* @desc 多选项按钮的大小,如 1px */
     --checkbox-border-radius: var(--border-radius-base); /* @group 圆角 */ /* @prefix checkbox */ /* @desc 多选项按钮圆角,如 1px */
     --checkbox-background: var(--brand-primary); /* @type color */ /* @group 背景色 */ /* @prefix checkbox */ /* @desc 多选项按钮的背景色,如 #223325 */
