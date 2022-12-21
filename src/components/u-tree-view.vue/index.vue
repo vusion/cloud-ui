@@ -132,8 +132,14 @@ export default {
         },
         scrollView: {
             handler(vm) {
-                if(vm && this.virtualList)
+                if(!vm || !this.virtualList) return;
+
+                if(this.updateVirtualList)
                     vm.$on('scroll', this.updateVirtualList);
+                else
+                    this.$once('hook:mounted', () => {
+                        vm.$on('scroll', this.updateVirtualList);
+                    });
             },
             immediate: true,
         },

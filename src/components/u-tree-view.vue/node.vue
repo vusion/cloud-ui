@@ -202,7 +202,7 @@ export default {
             if(this.rootVM.virtualList) {
                 const { hiddenField } = this.rootVM;
                 const children = (this.node && this.node._children || [])
-                    .filter((node) => !node._collapsedParentCount && !(node.node && node.node[hiddenField]));
+                    .filter((node) => !(node.node && node.node[hiddenField]));
                 return children.length > 0
             }
             
