@@ -2206,6 +2206,7 @@
                     },
                     "--table-view-th-background": {
                         "type": "color",
+                        "group": "表头",
                         "prefix": "table-view",
                         "desc": "表格表头内背景色,如 #223325",
                         "excludeElTags": [
