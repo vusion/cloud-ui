@@ -83,6 +83,7 @@ export default {
             beforeHeight: 0,
             nodeHeight: 24,
             nodeHeightUpdated: false,
+            childrenWm: new WeakMap(),
         };
     },
     computed: {
@@ -344,10 +345,10 @@ export default {
                 propsData.level = level;
 
                 propsData.node = propsData.node || {};
-                propsData.node._children = [
+                this.childrenWm.set(propsData.node, [
                     ...this.getPropsDataOfDataSource(this.getChildren(propsData.node, propsData), level+1, propsData.expanded ? _collapsedParentCount: _collapsedParentCount+1),
                     ...this.getPropsDataOfSlot(vNode.componentOptions && vNode.componentOptions.children, level+1, propsData.expanded ? _collapsedParentCount: _collapsedParentCount+1)
-                ];
+                ]);
 
                 res.push(propsData);
             }
@@ -409,7 +410,8 @@ export default {
                 };
                 propsData._collapsedParentCount = _collapsedParentCount;
                 propsData.level = level;
-                propsData.node._children = this.getPropsDataOfDataSource(this.getChildren(node), level+1, propsData.expanded ? _collapsedParentCount: _collapsedParentCount+1);
+                this.childrenWm.set(propsData.node, 
+                    this.getPropsDataOfDataSource(this.getChildren(node), level+1, propsData.expanded ? _collapsedParentCount: _collapsedParentCount+1));
                 res.push(propsData);
             }
             return res;
@@ -417,7 +419,7 @@ export default {
         flatPropsData(propsData) {
             let res = [];
             for(const props of propsData) {
-                res = [...res, props, ...this.flatPropsData(props.node && props.node._children || [])];
+                res = [...res, props, ...this.flatPropsData(props.node && this.childrenWm.get(props.node) || [])];
             }
             return res;
         },
@@ -425,7 +427,7 @@ export default {
             nodes && nodes.forEach((child) => {
                 if(expanded) child._collapsedParentCount--;
                 else child._collapsedParentCount++;
-                this.toggleData(child.node._children, expanded);
+                this.toggleData(child.node && this.childrenWm.get(child.node), expanded);
             });
         },
         scrollIntoView() {
@@ -442,7 +444,7 @@ export default {
                     level = props.level;
                     if(props.node && !props.expanded) {
                         this.$set(props.node, 'expanded', true);
-                        this.toggleData(props.node._children, true);                                
+                        this.toggleData(this.childrenWm.get(props.node), true);                                
                     }
                 }
                 if(level === 0) break;
