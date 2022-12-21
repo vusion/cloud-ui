@@ -39,7 +39,7 @@ export default {
     },
     props: {
         dataSource: {
-            type: Array,
+            type: [Array, Object, Function, String],
             default: () => [],
         },
         colnum: {
