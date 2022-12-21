@@ -3400,15 +3400,30 @@
                 "cssProperty": {
                     "--drawer-width-small": {
                         "type": "input",
-                        "desc": "small抽屉宽度,如 1px"
+                        "desc": "small抽屉宽度,如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "small"
+                            ]
+                        }
                     },
                     "--drawer-width": {
                         "type": "input",
-                        "desc": "normal抽屉宽度,如 1px"
+                        "desc": "normal抽屉宽度,如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "normal"
+                            ]
+                        }
                     },
                     "--drawer-width-large": {
                         "type": "input",
-                        "desc": "large抽屉宽度,如 1px"
+                        "desc": "large抽屉宽度,如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "large"
+                            ]
+                        }
                     },
                     "--drawer-background": {
                         "type": "color",
