@@ -426,7 +426,7 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | model | object |  |  | 表单数据模型 |
 | rules | object |  |  | 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules |
-| layout | string | `[object Object]`<br/>`[object Object]` | `'block'` |  |
+| layout | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'block'` |  |
 | repeat | number |  | `1` | 整个表单的划分列数 |
 | gap-width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置表单列间隔大小 |
 | gap-height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置表单行间隔大小 |

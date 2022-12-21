@@ -5,7 +5,7 @@
 - [示例](#示例)
     - [基本用法](#基本用法)
     - [基本用法simple](#基本用法simple)
-    - [基本用法simple，开启图片编辑](#基本用法simple开启图片编辑)
+    - [开启图片编辑(只支持list-type为card类型的单文件上传)](#开启图片编辑只支持list-type为card类型的单文件上传)
     - [多文件上传](#多文件上传)
     - [多文件上传simple](#多文件上传simple)
     - [列表类型](#列表类型)
@@ -65,7 +65,7 @@ export default {
 }
 </script>
 ```
-### 基本用法simple，开启图片编辑
+### 开启图片编辑(只支持list-type为card类型的单文件上传)
 
 下面的例子为单文件上传。
 
@@ -361,7 +361,7 @@ export default {
 | with-credentials | boolean |  | `false` | 通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略 |
 | multiple | boolean |  | `false` |  |
 | multiple-once | boolean |  | `false` | 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件 |
-| open-cropper | boolean |  | `false` |  |
+| open-cropper | boolean |  | `false` | 设置是否开启图片裁剪，只对单文件的卡片列表有效 |
 | data-type | string |  | `'json'` | 接收数据类型。可选值：`text`、`xml`、`json` |
 | data | object |  |  |  |
 | limit | number |  |  |  |
