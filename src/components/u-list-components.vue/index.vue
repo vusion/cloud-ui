@@ -29,6 +29,8 @@
 <script>
 import UListComponentsItem from './item.vue';
 import SEmpty from '../../components/s-empty.vue';
+import { formatDSResult } from '../../utils/DataSource/format';
+
 export default {
     name: 'u-list-components',
     components: {
@@ -74,18 +76,6 @@ export default {
             }
             return result;
         },
-        fromValue(value) {
-            try {
-                if (value === null || value === undefined)
-                    return [];
-                if (typeof value === 'string')
-                    return JSON.parse(value || '[]');
-                if (typeof value === 'object' && value.content)
-                    return value.content;
-            } catch (err) {
-                return [];
-            }
-        },
         async update() {
             if (typeof (this.dataSource) === 'function') {
                 try {
@@ -93,12 +83,12 @@ export default {
                         page: 1,
                         size: 1000,
                     });
-                    this.options = this.divide(Array.isArray(res) ? res : res.content);
+                    this.options = this.divide(formatDSResult(res));
                 } catch (error) {
                     console.error(error);
                 }
             } else {
-                this.options = this.divide(this.fromValue(this.dataSource));
+                this.options = this.divide(formatDSResult(this.dataSource));
             }
         },
         comIndex(index1, index2) {
