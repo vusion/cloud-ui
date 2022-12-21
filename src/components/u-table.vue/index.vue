@@ -21,7 +21,7 @@ export default {
     position: relative;
     line-height: var(--table-view-th-line-height);
     padding: var(--table-view-th-padding);
-    background: var(--table-th-background);
+    background: var(--table-view-th-background);
 }
 
 .root td {
@@ -29,7 +29,7 @@ export default {
     line-height: var(--table-view-td-line-height);
     color: var(--table-view-td-color);
     padding: var(--table-view-td-padding);
-    background: var(--table-td-background);
+    background: var(--table-view-td-background);
 }
 
 .root td[vusion-slot-name="empty"] {

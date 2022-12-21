@@ -2108,11 +2108,10 @@
                     },
                     "--table-view-head-background": {
                         "type": "color",
-                        "group": "表头",
-                        "prefix": "table-view",
                         "desc": "表格表头背景色,如 #223325",
                         "excludeElTags": [
-                            "td"
+                            "td",
+                            "th"
                         ]
                     },
                     "--table-head-text-align": {
@@ -2162,10 +2161,9 @@
                     },
                     "--table-view-background": {
                         "type": "color",
-                        "group": "内容区",
-                        "prefix": "table-view",
                         "desc": "表格内容区背景色,如 #223325",
                         "excludeElTags": [
+                            "td",
                             "th"
                         ]
                     },
@@ -2175,6 +2173,7 @@
                         "prefix": "table-view",
                         "desc": "表格内容区边框颜色,如 #223325",
                         "excludeElTags": [
+                            "td",
                             "th"
                         ]
                     },
@@ -2205,13 +2204,12 @@
                             "td"
                         ]
                     },
-                    "--table-th-background": {
-                        "type": "input",
-                        "prefix": "table",
+                    "--table-view-th-background": {
+                        "type": "color",
+                        "prefix": "table-view",
                         "desc": "表格表头内背景色,如 #223325",
                         "excludeElTags": [
-                            "td",
-                            "th"
+                            "td"
                         ]
                     },
                     "--table-view-td-line-height": {
@@ -2224,7 +2222,7 @@
                         ]
                     },
                     "--table-view-td-padding": {
-                        "type": "color",
+                        "type": "input",
                         "group": "内容区",
                         "prefix": "table-view",
                         "desc": "表格表头背景色,如 #223325",
@@ -2232,12 +2230,12 @@
                             "th"
                         ]
                     },
-                    "--table-td-background": {
+                    "--table-view-td-background": {
                         "type": "color",
-                        "prefix": "table",
+                        "group": "内容区",
+                        "prefix": "table-view",
                         "desc": "表格列内容区背景色,如 #223325",
                         "excludeElTags": [
-                            "td",
                             "th"
                         ]
                     },
@@ -2819,15 +2817,15 @@
                     },
                     "--modal-dialog-border-radius": {
                         "type": "input",
-                        "desc": "弹窗的圆角,如 1px"
+                        "desc": "弹窗圆角,如 1px"
                     },
                     "--modal-dialog-background": {
                         "type": "color",
-                        "desc": "弹窗的背景色,如 #223325"
+                        "desc": "弹窗背景色,如 #223325"
                     },
                     "--modal-dialog-box-shadow": {
                         "type": "input",
-                        "desc": "弹窗的阴影效果,如 1px"
+                        "desc": "弹窗阴影效果,如 1px"
                     },
                     "--modal-title-font-size": {
                         "type": "input",
@@ -3390,6 +3388,66 @@
                 },
                 "preview": {
                     "template": "<u-dropdown><template #title=\"scope\"><u-text text=\"下拉菜单\"></u-text></template><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item disabled text=\"item\"></u-dropdown-item></u-dropdown>"
+                }
+            },
+            {
+                "id": 53,
+                "name": "u-drawer",
+                "title": "抽屉",
+                "toPosition": "drawer",
+                "type": [],
+                "cssProperty": {
+                    "--drawer-width-small": {
+                        "type": "input",
+                        "desc": "small抽屉宽度,如 1px"
+                    },
+                    "--drawer-width": {
+                        "type": "input",
+                        "desc": "normal抽屉宽度,如 1px"
+                    },
+                    "--drawer-width-large": {
+                        "type": "input",
+                        "desc": "large抽屉宽度,如 1px"
+                    },
+                    "--drawer-background": {
+                        "type": "color",
+                        "desc": "抽屉背景色"
+                    },
+                    "--drawer-wrap-background": {
+                        "type": "color",
+                        "desc": "遮罩背景色"
+                    },
+                    "--drawer-close-size": {
+                        "type": "input",
+                        "desc": "关闭图标大小"
+                    },
+                    "--drawer-close-color": {
+                        "type": "color",
+                        "desc": "关闭图标颜色"
+                    },
+                    "--drawer-close-color-hover": {
+                        "type": "color",
+                        "desc": "关闭图标hover颜色"
+                    },
+                    "--drawer-head-padding": {
+                        "type": "input",
+                        "desc": "抽屉头部内边距"
+                    },
+                    "--drawer-body-padding": {
+                        "type": "input",
+                        "desc": "抽屉内容区内边距"
+                    },
+                    "--drawer-foot-padding": {
+                        "type": "input",
+                        "desc": "抽屉底部内边距"
+                    },
+                    "--drawer-border-color": {
+                        "type": "color",
+                        "desc": "抽屉边框颜色"
+                    }
+                },
+                "preview": {
+                    "template": "<u-drawer> <template #title> <u-text text=\"标题\"></u-text> </template> <template #body> <u-text>内容</u-text> </template> <template #foot> <u-linear-layout vusion-disabled-cut justify=\"start\"> <u-button color=\"primary\">确定</u-button> <u-button>取消</u-button> </u-linear-layout> </template> </u-drawer>"
                 }
             }
         ]

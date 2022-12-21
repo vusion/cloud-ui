@@ -791,21 +791,21 @@
 
     /* @component u-table-view */
     --table-view-row-hover-background: #f9f9f9; /* @type color */ /* @group 行 */ /* @prefix table-view-row */ /* @desc 表格行背景色（hover状态）,如 #223325 */ /* @excludeElTags th */
-    --table-view-head-background: #f7f8fa; /* @type color */ /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头背景色,如 #223325 */ /* @excludeElTags td */
+    --table-view-head-background: #f7f8fa; /* @type color */ /* @desc 表格表头背景色,如 #223325 */ /* @excludeElTags td,th */
     --table-head-text-align: left; /* @prefix table */ /* @desc 表格表头字体对齐方式,如 left */ /* @excludeElTags td,th */
     --table-head-font-weight: normal; /* @prefix table */ /* @desc 表格表头字体加粗,如 normal */ /* @excludeElTags td,th */
     --table-view-head-item-size: var(--font-size-base); /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头字体大小,如 1px */ /* @excludeElTags td */
     --table-row-background-striped: var(--background-color-lighter); /* @type color */ /* @group 行 */ /* @prefix table */ /* @desc 表格条纹展示行背景色,如 #223325 */ /* @excludeElTags th */
     --table-view-head-item-color: var(--gray-dark); /* @type color */ /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头文字颜色,如 #223325 */ /* @excludeElTags td */
-    --table-view-background: var(--background-color-default); /* @type color */ /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区背景色,如 #223325 */ /* @excludeElTags th */
-    --table-view-border-color: var(--border-color-base); /* @type color */ /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区边框颜色,如 #223325 */ /* @excludeElTags th */
+    --table-view-background: var(--background-color-default); /* @type color */ /* @desc 表格内容区背景色,如 #223325 */ /* @excludeElTags td,th */
+    --table-view-border-color: var(--border-color-base); /* @type color */ /* @group 内容区 */ /* @prefix table-view */ /* @desc 表格内容区边框颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-td-color: var(--color-base); /* @type color */ /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区文字颜色,如 #223325 */ /* @excludeElTags th */
     --table-view-th-line-height: 20px; /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头行高,如 1px */ /* @excludeElTags td */
     --table-view-th-padding: 10px 6px 10px 10px; /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头内间距,如 1px */ /* @excludeElTags td */
-    --table-th-background: var(--table-view-head-background); /* @prefix table */ /* @desc 表格表头内背景色,如 #223325 */ /* @excludeElTags td,th */
+    --table-view-th-background: var(--table-view-head-background); /* @type color */ /* @prefix table-view */ /* @desc 表格表头内背景色,如 #223325 */ /* @excludeElTags td */
     --table-view-td-line-height: 20px; /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区行高,如 1px */ /* @excludeElTags th */
-    --table-view-td-padding: 10px 6px 10px 10px; /* @type color */ /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格表头背景色,如 #223325 */ /* @excludeElTags th */
-    --table-td-background: var(--table-view-background);/* @type color */ /* @prefix table */ /* @desc 表格列内容区背景色,如 #223325 */ /* @excludeElTags td,th */
+    --table-view-td-padding: 10px 6px 10px 10px; /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格表头背景色,如 #223325 */ /* @excludeElTags th */
+    --table-view-td-background: var(--table-view-background);/* @type color */ /* @group 内容区 */ /* @prefix table-view */ /* @desc 表格列内容区背景色,如 #223325 */ /* @excludeElTags th */
     --table-view-drop-ghost-border-color: var(--brand-primary); /* @type color */ /* @desc 表格拖拽放置示意线颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-drop-ghost-mask-background: rgba(77, 136, 255, 0.1); /* @type color */ /* @desc 表格拖拽放置示意框背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-subrow-background-dragging:  rgba(237, 237, 237, 0.5);/* @type color */ /* @desc 表格被拖拽行子树背景颜色,如 #223325 */ /* @excludeElTags td,th */
@@ -1592,9 +1592,9 @@
 
     /* @component u-modal */
     --modal-dialog-width: 400px; /* @desc 弹窗的宽度,如 1px */
-    --modal-dialog-border-radius: var(--border-radius-base); /* @desc 弹窗的圆角,如 1px */
-    --modal-dialog-background: white;  /* @type color */ /* @desc  弹窗的背景色,如 #223325 */
-    --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); /* @desc 弹窗的阴影效果,如 1px */
+    --modal-dialog-border-radius: var(--border-radius-base); /* @desc 弹窗圆角,如 1px */
+    --modal-dialog-background: white;  /* @type color */ /* @desc  弹窗背景色,如 #223325 */
+    --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); /* @desc 弹窗阴影效果,如 1px */
     --modal-title-font-size: var(--font-size-large); /* @desc 弹窗标题的字号,如 1px */
     --modal-close-right: 24px; /* @desc  弹窗关闭按钮的右边距,如 1px */
     --modal-close-color: var(--gray-dark);  /* @type color */ /* @desc 弹窗关闭按钮的颜色,如 #223325 */
@@ -1611,22 +1611,22 @@
     --modal-dialog-width-large: 600px; /* @hidden */
     --modal-dialog-width-huge: 800px; /* @hidden */
 
-    /* @component u-drawer @hidden */
-    --drawer-width: 240px;
-    --drawer-width-small: 160px;
-    --drawer-width-large: 400px;
-    --drawer-width-huge: 600px;
-    --drawer-wrap-background: rgba(0, 0, 0, 0.6);
-    --drawer-background: white;
-    --drawer-close-size: 15px;
-    --drawer-close-color: var(--gray-dark);
-    --drawer-close-color-hover: var(--gray-darker);
-    --drawer-head-padding: 15px;
-    --drawer-body-padding: 15px;
-    --drawer-foot-padding: 20px 24px;
-    --drawer-static-padding: var(--space-base);
-    --drawer-body-overflow-y: auto;
-    --drawer-border-color: var(--gray-lightest);
+    /* @component u-drawer */
+    --drawer-width-small: 240px; /* @desc small抽屉宽度,如 1px */
+    --drawer-width: 400px; /* @desc normal抽屉宽度,如 1px */
+    --drawer-width-large: 600px; /* @desc large抽屉宽度,如 1px */
+    --drawer-background: white; /* @type color */ /* @desc 抽屉背景色 */
+    --drawer-wrap-background: rgba(0, 0, 0, 0.6); /* @type color */ /* @desc 遮罩背景色 */
+    --drawer-close-size: 15px; /* @desc 关闭图标大小 */
+    --drawer-close-color: var(--gray-dark); /* @type color */ /* @desc 关闭图标颜色 */
+    --drawer-close-color-hover: var(--gray-darker); /* @type color */ /* @desc 关闭图标hover颜色 */
+    --drawer-head-padding: 15px; /* @desc 抽屉头部内边距 */
+    --drawer-body-padding: 15px; /* @desc 抽屉内容区内边距 */
+    --drawer-foot-padding: 20px 24px; /* @desc 抽屉底部内边距 */
+    --drawer-border-color: var(--gray-lightest); /* @type color */ /* @desc 抽屉边框颜色 */
+
+    --drawer-body-overflow-y: auto;  /* @hidden */
+    --drawer-static-padding: var(--space-base); /* @hidden */
 
     /* @component u-image */
     --image-width: 128px; /* @desc 图片宽度,如：1px */
