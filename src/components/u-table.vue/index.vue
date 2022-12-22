@@ -21,7 +21,13 @@ export default {
     position: relative;
     line-height: var(--table-view-th-line-height);
     padding: var(--table-view-th-padding);
-    background: var(--table-view-th-background);
+    /* background: var(--table-view-th-background); */
+
+    background-color: var(--table-view-th-background-color);
+    background-image: var(--table-view-th-background-image);
+    background-size: var(--table-view-th-background-size);
+    background-repeat: var(--table-view-th-background-repeat);
+    background-position: var(--table-view-th-background-position);
 }
 
 .root td {
@@ -29,7 +35,13 @@ export default {
     line-height: var(--table-view-td-line-height);
     color: var(--table-view-td-color);
     padding: var(--table-view-td-padding);
-    background: var(--table-view-td-background);
+    /* background: var(--table-view-td-background); */
+
+    background-color: var(--table-view-td-background-color);
+    background-image: var(--table-view-td-background-image);
+    background-size: var(--table-view-td-background-size);
+    background-repeat: var(--table-view-td-background-repeat);
+    background-position: var(--table-view-td-background-position);
 }
 
 .root td[vusion-slot-name="empty"] {

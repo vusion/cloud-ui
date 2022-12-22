@@ -803,9 +803,13 @@
     --table-view-th-line-height: 20px; /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头行高,如 1px */ /* @excludeElTags td */
     --table-view-th-padding: 10px 6px 10px 10px; /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头内间距,如 1px */ /* @excludeElTags td */
     --table-view-th-background: var(--table-view-head-background); /* @type color */ /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头内背景色,如 #223325 */ /* @excludeElTags td */
+    --table-view-th-background-image: none; /* @hidden */
+    --table-view-th-background-color:var(--table-view-th-background); /* @hidden */
     --table-view-td-line-height: 20px; /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区行高,如 1px */ /* @excludeElTags th */
     --table-view-td-padding: 10px 6px 10px 10px; /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格表头背景色,如 #223325 */ /* @excludeElTags th */
     --table-view-td-background: var(--table-view-background);/* @type color */ /* @group 内容区 */ /* @prefix table-view */ /* @desc 表格列内容区背景色,如 #223325 */ /* @excludeElTags th */
+    --table-view-td-background-image: none; /* @hidden */
+    --table-view-td-background-color:var(--table-view-td-background); /* @hidden */
     --table-view-drop-ghost-border-color: var(--brand-primary); /* @type color */ /* @desc 表格拖拽放置示意线颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-drop-ghost-mask-background: rgba(77, 136, 255, 0.1); /* @type color */ /* @desc 表格拖拽放置示意框背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-subrow-background-dragging:  rgba(237, 237, 237, 0.5);/* @type color */ /* @desc 表格被拖拽行子树背景颜色,如 #223325 */ /* @excludeElTags td,th */
@@ -1594,6 +1598,8 @@
     --modal-dialog-width: 400px; /* @desc 弹窗的宽度,如 1px */
     --modal-dialog-border-radius: var(--border-radius-base); /* @desc 弹窗圆角,如 1px */
     --modal-dialog-background: white;  /* @type color */ /* @desc  弹窗背景色,如 #223325 */
+    --modal-dialog-background-image: none; /* @hidden */
+    --modal-dialog-background-color: var(--modal-dialog-background); /* @hidden */
     --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); /* @desc 弹窗阴影效果,如 1px */
     --modal-title-font-size: var(--font-size-large); /* @desc 弹窗标题的字号,如 1px */
     --modal-close-right: 24px; /* @desc  弹窗关闭按钮的右边距,如 1px */
