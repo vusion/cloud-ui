@@ -2210,7 +2210,8 @@
                         "prefix": "table-view",
                         "desc": "表格表头内背景色,如 #223325",
                         "excludeElTags": [
-                            "td"
+                            "td",
+                            "th"
                         ]
                     },
                     "--table-view-td-line-height": {
@@ -2237,6 +2238,7 @@
                         "prefix": "table-view",
                         "desc": "表格列内容区背景色,如 #223325",
                         "excludeElTags": [
+                            "td",
                             "th"
                         ]
                     },
@@ -2819,10 +2821,6 @@
                     "--modal-dialog-border-radius": {
                         "type": "input",
                         "desc": "弹窗圆角,如 1px"
-                    },
-                    "--modal-dialog-background": {
-                        "type": "color",
-                        "desc": "弹窗背景色,如 #223325"
                     },
                     "--modal-dialog-box-shadow": {
                         "type": "input",
