@@ -3412,7 +3412,8 @@
                         "desc": "normal抽屉宽度,如 1px",
                         "depAttrs": {
                             "size": [
-                                "normal"
+                                "normal",
+                                null
                             ]
                         }
                     },

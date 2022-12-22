@@ -1613,7 +1613,7 @@
 
     /* @component u-drawer */
     --drawer-width-small: 240px; /* @desc small抽屉宽度,如 1px */ /* @depAttrs {"size": ["small"]} */
-    --drawer-width: 400px; /* @desc normal抽屉宽度,如 1px */ /* @depAttrs {"size": ["normal"]} */
+    --drawer-width: 400px; /* @desc normal抽屉宽度,如 1px */ /* @depAttrs {"size": ["normal", null]} */
     --drawer-width-large: 600px; /* @desc large抽屉宽度,如 1px */ /* @depAttrs {"size": ["large"]} */
     --drawer-background: white; /* @type color */ /* @desc 抽屉背景色 */
     --drawer-wrap-background: rgba(0, 0, 0, 0.6); /* @type color */ /* @desc 遮罩背景色 */
