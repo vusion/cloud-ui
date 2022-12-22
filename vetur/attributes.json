@@ -2965,6 +2965,10 @@
       {
         "value": "block",
         "title": "块级展示，宽度会充满父元素"
+      },
+      {
+        "value": "inline-flex",
+        "title": "栅格展示，可设置列数"
       }
     ],
     "description": ""
@@ -5096,6 +5100,10 @@
     "type": "string",
     "description": "取消按钮文本，如果为空则不显示"
   },
+  "u-modal/show-head": {
+    "type": "boolean",
+    "description": "控制头部栏的显示"
+  },
   "u-modal/show-foot": {
     "type": "boolean",
     "description": "控制底部栏的显示"
@@ -5162,12 +5170,14 @@
       {
         "value": "horizontal",
         "title": "横向排列",
-        "icon": "flex-horizontal"
+        "icon": "flex-horizontal",
+        "tooltip": "横向"
       },
       {
         "value": "vertical",
         "title": "纵向排列",
-        "icon": "flex-vertical"
+        "icon": "flex-vertical",
+        "tooltip": "纵向"
       }
     ]
   },
@@ -5316,12 +5326,14 @@
       {
         "value": "horizontal",
         "title": "横向排列",
-        "icon": "flex-horizontal"
+        "icon": "flex-horizontal",
+        "tooltip": "横向"
       },
       {
         "value": "vertical",
         "title": "纵向排列",
-        "icon": "flex-vertical"
+        "icon": "flex-vertical",
+        "tooltip": "纵向"
       }
     ],
     "description": "可更改布局的排列方向"
@@ -7589,6 +7601,10 @@
     "type": "string",
     "options": [
       {
+        "value": "default",
+        "title": "默认"
+      },
+      {
         "value": "small",
         "title": "小"
       },
@@ -8497,7 +8513,7 @@
   },
   "u-uploader/open-cropper": {
     "type": "boolean",
-    "description": ""
+    "description": "设置是否开启图片裁剪，只对单文件的卡片列表有效"
   },
   "u-uploader/data-type": {
     "type": "string",

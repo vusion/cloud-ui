@@ -181,15 +181,15 @@ export default {
 }
 
 .drawer[size="small"] {
-    width: var(--drawer-width);
+    width: var(--drawer-width-small);
 }
 
 .drawer[size="normal"] {
-    width: var(--drawer-width-large);
+    width: var(--drawer-width);
 }
 
 .drawer[size="large"] {
-    width: var(--drawer-width-huge);
+    width: var(--drawer-width-large);
 }
 
 .drawer[size="auto"] {

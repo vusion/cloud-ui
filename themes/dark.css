@@ -126,12 +126,12 @@
     --switch-background: #61656b;
     --switch-transition: all var(--transition-duration-base);
 
-    /* --table-head-background: var(--background-color-base); */
-    --table-head-background: var(--divider-list-color);
-    --table-border-color: #4E505C;
-    --table-th-line-height: inherit;
-    --table-td-line-height: inherit;
-    --table-td-color: #b5b8c3;
+    /* --table-view-head-background: var(--background-color-base); */
+    --table-view-head-background: var(--divider-list-color);
+    --table-view-border-color: #4E505C;
+    --table-view-th-line-height: inherit;
+    --table-view-td-line-height: inherit;
+    --table-view-td-color: #b5b8c3;
 
     --tabs-item-height: 32px;
     --tabs-item-height-small: 32px;
@@ -271,10 +271,10 @@
 
 
 
-    --table-background: var(--background-color-gray);
+    --table-view-background: var(--background-color-gray);
     --table-head-font-weight: bold;
-    --table-border-color: var(--divider-list-color);
-    --table-td-color: #fff;
+    --table-view-border-color: var(--divider-list-color);
+    --table-view-td-color: #fff;
     --table-hover-border-shadow-display: none;
 
     --table-view-row-selected-background: transparent;

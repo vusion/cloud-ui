@@ -59,7 +59,8 @@
                 ],
                 "cssProperty": {
                     "--linear-layout-background": {
-                        "type": "input"
+                        "type": "color",
+                        "desc": "背景颜色,如：#223325"
                     }
                 },
                 "preview": {
@@ -995,6 +996,9 @@
                 "id": 20,
                 "name": "u-form",
                 "title": "表单",
+                "children": [
+                    "u-form-item"
+                ],
                 "toPosition": "_form",
                 "type": [
                     "block",
@@ -1005,14 +1009,20 @@
                 "cssProperty": {
                     "--form-item-label-color": {
                         "type": "color",
+                        "group": "label",
+                        "prefix": "form-item",
                         "desc": "表单项 label字体颜色,如 #223325"
                     },
                     "--form-item-label-padding-right": {
                         "type": "input",
+                        "group": "label",
+                        "prefix": "form-item",
                         "desc": "表单项 label文本右边距,如 1px"
                     },
                     "--form-item-label-width": {
                         "type": "input",
+                        "group": "label",
+                        "prefix": "form-item",
                         "desc": "表单项 label宽度,如 1px"
                     }
                 },
@@ -1029,142 +1039,239 @@
                 "cssProperty": {
                     "--input-border-color": {
                         "type": "color",
+                        "group": "边框颜色",
                         "desc": "输入框边框颜色,如 #223325"
                     },
                     "--input-border-color-hover": {
                         "type": "color",
+                        "group": "边框颜色",
                         "desc": "输入框边框颜色（hover状态）,如 #223325"
                     },
                     "--input-border-color-focus": {
                         "type": "color",
+                        "group": "边框颜色",
                         "desc": "输入框边框颜色（选中状态）,如 #223325"
                     },
                     "--input-border-color-disabled": {
                         "type": "color",
+                        "group": "边框颜色",
                         "desc": "输入框边框颜色（禁用状态）,如 #223325"
                     },
                     "--input-border-width": {
                         "type": "input",
+                        "group": "边框宽度",
                         "desc": "输入框边框宽度,如 1px"
                     },
                     "--input-border-radius": {
                         "type": "input",
+                        "group": "圆角",
                         "desc": "输入框圆角,如 1px"
                     },
                     "--input-box-shadow-focus-color": {
                         "type": "color",
+                        "group": "边框阴影",
                         "desc": "输入框边框阴影颜色（选中状态）,如 #223325"
                     },
                     "--input-box-shadow-focus": {
                         "type": "input",
+                        "group": "边框宽度",
                         "desc": "输入框边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     },
                     "--input-placeholder-color": {
                         "type": "color",
+                        "group": "占位符文本",
                         "desc": "输入框占位符文本颜色,如 #223325"
                     },
                     "--input-width-mini": {
                         "type": "input",
-                        "desc": "Mini输入框高度,如 1px"
+                        "group": "宽度",
+                        "desc": "Mini输入框高度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "mini"
+                            ]
+                        }
                     },
                     "--input-width-small": {
                         "type": "input",
-                        "desc": "Small输入框高度,如 1px"
+                        "group": "宽度",
+                        "desc": "Small输入框高度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "small"
+                            ]
+                        }
                     },
                     "--input-width": {
                         "type": "input",
-                        "desc": "输入框高度,如 1px"
+                        "group": "宽度",
+                        "desc": "输入框高度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "normal",
+                                null
+                            ]
+                        }
                     },
                     "--input-width-medium": {
                         "type": "input",
-                        "desc": "Medium输入框高度,如 1px"
+                        "group": "宽度",
+                        "desc": "Medium输入框高度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "medium"
+                            ]
+                        }
                     },
                     "--input-width-large": {
                         "type": "input",
-                        "desc": "Large输入框高度,如 1px"
+                        "group": "宽度",
+                        "desc": "Large输入框高度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "large"
+                            ]
+                        }
                     },
                     "--input-width-huge": {
                         "type": "input",
-                        "desc": "Huge输入框高度,如 1px"
+                        "group": "宽度",
+                        "desc": "Huge输入框高度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "huge"
+                            ]
+                        }
                     },
                     "--input-height-mini": {
                         "type": "input",
-                        "desc": "Mini输入框高度,如 1px"
+                        "group": "高度",
+                        "desc": "Mini输入框高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "mini"
+                            ]
+                        }
                     },
                     "--input-height-small": {
                         "type": "input",
-                        "desc": "Small输入框高度,如 1px"
+                        "group": "高度",
+                        "desc": "Small输入框高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "small"
+                            ]
+                        }
                     },
                     "--input-height": {
                         "type": "input",
-                        "desc": "输入框高度,如 1px"
+                        "group": "高度",
+                        "desc": "输入框高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "normal",
+                                null
+                            ]
+                        }
                     },
                     "--input-height-medium": {
                         "type": "input",
-                        "desc": "Medium输入框高度,如 1px"
+                        "group": "高度",
+                        "desc": "Medium输入框高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "medium"
+                            ]
+                        }
                     },
                     "--input-height-large": {
                         "type": "input",
-                        "desc": "Large输入框高度,如 1px"
+                        "group": "高度",
+                        "desc": "Large输入框高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "large"
+                            ]
+                        }
                     },
                     "--input-height-huge": {
                         "type": "input",
-                        "desc": "Huge输入框高度,如 1px"
+                        "group": "高度",
+                        "desc": "Huge输入框高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "huge"
+                            ]
+                        }
                     },
                     "--input-padding-x-mini": {
                         "type": "input",
+                        "group": "内边距",
                         "desc": "Mini输入框水平方向内边距,如 1px"
                     },
                     "--input-padding-x-small": {
                         "type": "input",
+                        "group": "内边距",
                         "desc": "Small输入框水平方向内边距,如 1px"
                     },
                     "--input-padding-x": {
                         "type": "input",
+                        "group": "内边距",
                         "desc": "输入框水平方向内边距,如 1px"
                     },
                     "--input-padding-x-medium": {
                         "type": "input",
+                        "group": "内边距",
                         "desc": "Medium输入框水平方向内边距,如 1px"
                     },
                     "--input-padding-x-large": {
                         "type": "input",
+                        "group": "内边距",
                         "desc": "Large输入框水平方向内边距,如 1px"
                     },
                     "--input-padding-x-huge": {
                         "type": "input",
+                        "group": "内边距",
                         "desc": "Huge输入框水平方向内边距,如 1px"
                     },
                     "--input-padding-x-full": {
                         "type": "input",
+                        "group": "内边距",
                         "desc": "Full输入框水平方向内边距,如 1px"
                     },
                     "--input-prefix-padding-left": {
                         "type": "input",
+                        "group": "前缀/后缀",
                         "desc": "输入框前缀左边距,如 1px"
                     },
                     "--input-prefix-placeholder-left": {
                         "type": "input",
+                        "group": "前缀/后缀",
                         "desc": "输入框前缀提示信息左边距,如 1px"
                     },
                     "--input-suffix-padding-right": {
                         "type": "input",
+                        "group": "前缀/后缀",
                         "desc": "输入框后缀右边距,如 1px"
                     },
                     "--input-background": {
                         "type": "color",
+                        "group": "背景色",
                         "desc": "输入框背景色,如 #223325"
                     },
                     "--input-background-disabled": {
                         "type": "color",
+                        "group": "背景色",
                         "desc": "禁用输入框背景色,如 #223325"
                     },
                     "--input-color": {
                         "type": "color",
+                        "group": "文字颜色",
                         "desc": "输入框文字颜色,如 #223325"
                     },
                     "--input-color-disabled": {
                         "type": "color",
+                        "group": "文字颜色",
                         "desc": "禁用输入框文字颜色,如 #223325"
                     }
                 },
@@ -1301,90 +1408,154 @@
                 "cssProperty": {
                     "--textarea-width": {
                         "type": "input",
-                        "desc": "文本框宽度, 如 1px"
+                        "group": "宽度",
+                        "desc": "文本框宽度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "normal",
+                                null
+                            ]
+                        }
                     },
                     "--textarea-width-medium": {
                         "type": "input",
-                        "desc": "Medium文本框宽度, 如 1px"
+                        "group": "宽度",
+                        "desc": "Medium文本框宽度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "medium"
+                            ]
+                        }
                     },
                     "--textarea-width-large": {
                         "type": "input",
-                        "desc": "Large文本框宽度, 如 1px"
+                        "group": "宽度",
+                        "desc": "Large文本框宽度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "large"
+                            ]
+                        }
                     },
                     "--textarea-width-huge": {
                         "type": "input",
-                        "desc": "Huge文本框宽度, 如 1px"
+                        "group": "宽度",
+                        "desc": "Huge文本框宽度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "huge"
+                            ]
+                        }
                     },
                     "--textarea-min-width": {
                         "type": "input",
+                        "group": "宽度",
                         "desc": "文本框最小宽度, 如 1px"
                     },
                     "--textarea-height": {
                         "type": "input",
-                        "desc": "文本框高度, 如 1px"
+                        "group": "高度",
+                        "desc": "文本框高度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "normal",
+                                null
+                            ]
+                        }
                     },
                     "--textarea-height-medium": {
                         "type": "input",
-                        "desc": "Medium文本框高度, 如 1px"
+                        "group": "高度",
+                        "desc": "Medium文本框高度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "medium"
+                            ]
+                        }
                     },
                     "--textarea-height-large": {
                         "type": "input",
-                        "desc": "Large文本框高度, 如 1px"
+                        "group": "高度",
+                        "desc": "Large文本框高度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "large"
+                            ]
+                        }
                     },
                     "--textarea-height-huge": {
                         "type": "input",
-                        "desc": "Huge文本框高度, 如 1px"
+                        "group": "高度",
+                        "desc": "Huge文本框高度, 如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "huge"
+                            ]
+                        }
                     },
                     "--textarea-min-height": {
                         "type": "input",
+                        "group": "高度",
                         "desc": "文本框最小高度, 如 1px"
                     },
                     "--textarea-padding": {
                         "type": "input",
+                        "group": "内边距",
                         "desc": "文本框内边距, 如 1px"
                     },
                     "--textarea-border-radius": {
                         "type": "input",
+                        "group": "圆角",
                         "desc": "文本框圆角, 如 1px"
                     },
                     "--textarea-border-color": {
                         "type": "color",
+                        "group": "边框颜色",
                         "desc": "文本框边框颜色, 如 #223325"
                     },
                     "--textarea-border-color-focus": {
                         "type": "color",
+                        "group": "边框颜色",
                         "desc": "文本框边框颜色（选中状态）, 如 #223325"
                     },
                     "--textarea-border-color-disabled": {
                         "type": "color",
+                        "group": "边框颜色",
                         "desc": "文本框边框颜色（禁用状态）, 如 #223325"
                     },
                     "--textarea-background": {
                         "type": "color",
+                        "group": "背景颜色",
                         "desc": "文本框背景颜色, 如 #223325"
                     },
                     "--textarea-background-disabled": {
                         "type": "color",
+                        "group": "背景颜色",
                         "desc": "文本框背景颜色（禁用状态）, 如 #223325"
                     },
                     "--textarea-color": {
                         "type": "color",
+                        "group": "文字颜色",
                         "desc": "文本框内容区文字颜色, 如 #223325"
                     },
                     "--textarea-color-disabled": {
                         "type": "color",
+                        "group": "文字颜色",
                         "desc": "文本框内容区文字颜色（禁用状态）, 如 #223325"
                     },
                     "--textarea-placeholder-color": {
                         "type": "color",
+                        "group": "文字颜色",
                         "desc": "文本框提示内容文字颜色, 如 #223325"
                     },
                     "--textarea-box-shadow-focus-color": {
                         "type": "color",
+                        "group": "边框阴影",
                         "desc": "选中状态文本框边框阴影色,如 rgba(0, 0, 0, 0.2)"
                     },
                     "--textarea-box-shadow-focus": {
                         "type": "input",
+                        "group": "边框阴影",
                         "desc": "选中状态文本框边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     }
                 },
@@ -1396,23 +1567,37 @@
                 "id": 24,
                 "name": "u-radios",
                 "title": "单选组",
+                "children": [
+                    "u-radio"
+                ],
                 "toPosition": "radio",
                 "type": [],
                 "cssProperty": {
                     "--radio-space-x": {
                         "type": "input",
-                        "desc": "单选项之间的间距,如 1px"
+                        "group": "间距",
+                        "prefix": "radio",
+                        "desc": "单选项之间的间距,如 1px",
+                        "excludeTags": [
+                            "u-radio"
+                        ]
                     },
                     "--radio-size": {
                         "type": "input",
+                        "group": "大小",
+                        "prefix": "radio",
                         "desc": "单选项按钮大小,如 1px"
                     },
                     "--radio-background": {
                         "type": "color",
+                        "group": "背景色",
+                        "prefix": "radio",
                         "desc": "单选项按钮背景色,如 #223325"
                     },
                     "--radio-box-shadow-focus": {
                         "type": "input",
+                        "group": "边框阴影",
+                        "prefix": "radio",
                         "desc": "单选项边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     }
                 },
@@ -1488,31 +1673,49 @@
                 "id": 26,
                 "name": "u-checkbox",
                 "title": "多选组",
+                "parents": [
+                    "u-checkboxes"
+                ],
                 "toPosition": "checkbox",
                 "type": [],
                 "cssProperty": {
                     "--checkbox-space-x": {
                         "type": "input",
-                        "desc": "多选项之间的间距,如 1px"
+                        "group": "间距",
+                        "prefix": "checkbox",
+                        "desc": "多选项之间的间距,如 1px",
+                        "excludeTags": [
+                            "u-checkbox"
+                        ]
                     },
                     "--checkbox-size": {
                         "type": "input",
+                        "group": "大小",
+                        "prefix": "checkbox",
                         "desc": "多选项按钮的大小,如 1px"
                     },
                     "--checkbox-border-radius": {
                         "type": "input",
+                        "group": "圆角",
+                        "prefix": "checkbox",
                         "desc": "多选项按钮圆角,如 1px"
                     },
                     "--checkbox-background": {
                         "type": "color",
+                        "group": "背景色",
+                        "prefix": "checkbox",
                         "desc": "多选项按钮的背景色,如 #223325"
                     },
                     "--checkbox-color": {
                         "type": "color",
+                        "group": "内容颜色",
+                        "prefix": "checkbox",
                         "desc": "多选项按钮的内容颜色,如 #223325"
                     },
                     "--checkbox-box-shadow-focus": {
                         "type": "input",
+                        "group": "阴影效果",
+                        "prefix": "checkbox",
                         "desc": "多选项按钮的阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     }
                 },
@@ -1529,130 +1732,162 @@
                 "cssProperty": {
                     "--select-popper-item-background": {
                         "type": "color",
+                        "group": "下拉框背景色",
                         "desc": "选择框下拉项背景色,如 #223325"
                     },
                     "--select-popper-item-background-hover": {
                         "type": "color",
+                        "group": "下拉框背景色",
                         "desc": "选择框下拉项背景色（hover状态）,如 #223325"
                     },
                     "--select-popper-item-background-selected": {
                         "type": "color",
+                        "group": "下拉框背景色",
                         "desc": "选择框下拉项背景色（禁用状态）,如 #223325"
                     },
                     "--select-popper-item-color": {
                         "type": "color",
+                        "group": "下拉框字体颜色",
                         "desc": "选择框下拉项字体颜色,如 #223325"
                     },
                     "--select-popper-item-color-hover": {
                         "type": "color",
+                        "group": "下拉框字体颜色",
                         "desc": "选择框下拉项字体颜色（hover状态）,如 #223325"
                     },
                     "--select-popper-item-color-selected": {
                         "type": "color",
+                        "group": "下拉框字体颜色",
                         "desc": "选择框下拉项字体颜色（选中状态）,如 #223325"
                     },
                     "--select-width": {
                         "type": "input",
+                        "group": "宽度",
                         "desc": "选择框的宽度,如 1px"
                     },
                     "--select-height": {
                         "type": "input",
+                        "group": "高度",
                         "desc": "选择框的高度,如 1px"
                     },
                     "--select-padding-x": {
                         "type": "input",
+                        "group": "水平方向内边距",
                         "desc": "选择框水平方向内边距,如 1px"
                     },
                     "--select-background": {
                         "type": "color",
+                        "group": "背景色",
                         "desc": "选择框的背景色,如 #223325"
                     },
                     "--select-border-width": {
                         "type": "input",
+                        "group": "边框",
                         "desc": "选择框的边框宽度,如 1px"
                     },
                     "--select-border-color": {
                         "type": "color",
+                        "group": "边框",
                         "desc": "选择框的边框颜色,如 #223325"
                     },
                     "--select-color": {
                         "type": "color",
+                        "group": "字体",
                         "desc": "选择框的字体颜色,如 #223325"
                     },
                     "--select-popper-max-height": {
                         "type": "input",
+                        "group": "弹出层",
                         "desc": "选择框的弹出层最大高度,如 1px"
                     },
                     "--select-popper-box-shadow": {
                         "type": "input",
+                        "group": "弹出层",
                         "desc": "选择框的弹出层阴影效果,如 1px"
                     },
                     "--select-placeholder-color": {
                         "type": "color",
+                        "group": "占位符",
                         "desc": "选择框的占位符文字颜色,如 #223325"
                     },
                     "--select-arrow-color": {
                         "type": "color",
+                        "group": "下拉箭头",
                         "desc": "选择框的下拉箭头颜色,如 #223325"
                     },
                     "--select-arrow-size": {
                         "type": "input",
+                        "group": "下拉箭头",
                         "desc": "选择框的下拉箭头大小,如 1px"
                     },
                     "--select-arrow-right-ratio": {
                         "type": "input",
+                        "group": "下拉箭头",
                         "desc": "选择框的下拉箭头右边距计算倍数,如 1px"
                     },
                     "--select-popper-background": {
                         "type": "color",
+                        "group": "弹出层",
                         "desc": "选择框的弹出层背景色,如 #223325"
                     },
                     "--select-popper-border-color": {
                         "type": "color",
+                        "group": "弹出层",
                         "desc": "选择框的弹出层边框颜色,如 #223325"
                     },
                     "--select-popper-border-color-inverse": {
                         "type": "color",
+                        "group": "弹出层",
                         "desc": "Inverse选择框的弹出层边框颜色,如 #223325"
                     },
                     "--select-status-color": {
                         "type": "color",
+                        "group": "状态颜色",
                         "desc": "选择框状态颜色,如 #223325"
                     },
                     "--select-box-shadow-focus": {
                         "type": "input",
+                        "group": "弹出层",
                         "desc": "选择框的弹出层边框阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     },
                     "--select-popper-item-color-readonly": {
                         "type": "color",
+                        "group": "只读状态",
                         "desc": "选择框下拉项的字体颜色（只读状态下）,如 #223325"
                     },
                     "--select-popper-item-background-readonly": {
                         "type": "color",
+                        "group": "只读状态",
                         "desc": "选择框下拉项的背景颜色（只读状态下）,如 #223325"
                     },
                     "--select-popper-item-color-selected-disabled": {
                         "type": "color",
+                        "group": "禁用状态",
                         "desc": "选择框下拉项的字体颜色（禁用状态下）,如 #223325"
                     },
                     "--select-popper-item-background-selected-disabled": {
                         "type": "color",
+                        "group": "禁用状态",
                         "desc": "选择框下拉项的背景颜色（禁用状态下）,如 #223325"
                     },
                     "--select-popper-item-color-duplicated": {
                         "type": "color",
+                        "group": "多选状态",
                         "desc": "选择框下拉项的字体颜色（多选状态下）,如 #223325"
                     },
                     "--select-popper-item-background-duplicated": {
                         "type": "color",
+                        "group": "多选状态",
                         "desc": "选择框下拉项的背景颜色（多选状态下）,如 #223325"
                     },
                     "--select-popper-item-color-duplicated-hover": {
                         "type": "color",
+                        "group": "多选状态",
                         "desc": "选择框下拉项的字体颜色（多选hover状态下）,如 #223325"
                     },
                     "--select-popper-item-background-duplicated-hover": {
                         "type": "color",
+                        "group": "多选状态",
                         "desc": "选择框下拉项的背景颜色（多选hover状态下）,如 #223325"
                     }
                 },
@@ -1856,92 +2091,194 @@
                 "id": 32,
                 "name": "u-table-view",
                 "title": "数据表格",
+                "children": [
+                    "u-table-view-column"
+                ],
                 "toPosition": "tableView",
                 "type": [],
                 "cssProperty": {
                     "--table-view-row-hover-background": {
                         "type": "color",
-                        "desc": "表格行背景色（hover状态）,如 #223325"
+                        "group": "行",
+                        "prefix": "table-view-row",
+                        "desc": "表格行背景色（hover状态）,如 #223325",
+                        "excludeElTags": [
+                            "th"
+                        ]
                     },
-                    "--table-head-background": {
+                    "--table-view-head-background": {
                         "type": "color",
-                        "desc": "表格表头背景色,如 #223325"
+                        "desc": "表格表头背景色,如 #223325",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
                     },
                     "--table-head-text-align": {
                         "type": "input",
-                        "desc": "表格表头字体对齐方式,如 left"
+                        "prefix": "table",
+                        "desc": "表格表头字体对齐方式,如 left",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
                     },
                     "--table-head-font-weight": {
                         "type": "input",
-                        "desc": "表格表头字体加粗,如 normal"
+                        "prefix": "table",
+                        "desc": "表格表头字体加粗,如 normal",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
                     },
                     "--table-view-head-item-size": {
                         "type": "input",
-                        "desc": "表格表头字体大小,如 1px"
+                        "group": "表头",
+                        "prefix": "table-view",
+                        "desc": "表格表头字体大小,如 1px",
+                        "excludeElTags": [
+                            "td"
+                        ]
                     },
                     "--table-row-background-striped": {
                         "type": "color",
-                        "desc": "表格条纹展示行背景色,如 #223325"
+                        "group": "行",
+                        "prefix": "table",
+                        "desc": "表格条纹展示行背景色,如 #223325",
+                        "excludeElTags": [
+                            "th"
+                        ]
                     },
                     "--table-view-head-item-color": {
                         "type": "color",
-                        "desc": "表格表头文字颜色,如 #223325"
+                        "group": "表头",
+                        "prefix": "table-view",
+                        "desc": "表格表头文字颜色,如 #223325",
+                        "excludeElTags": [
+                            "td"
+                        ]
                     },
-                    "--table-background": {
+                    "--table-view-background": {
                         "type": "color",
-                        "desc": "表格内容区背景色,如 #223325"
+                        "desc": "表格内容区背景色,如 #223325",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
                     },
-                    "--table-border-color": {
+                    "--table-view-border-color": {
                         "type": "color",
-                        "desc": "表格内容区边框颜色,如 #223325"
+                        "group": "内容区",
+                        "prefix": "table-view",
+                        "desc": "表格内容区边框颜色,如 #223325",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
                     },
-                    "--table-td-color": {
+                    "--table-view-td-color": {
                         "type": "color",
-                        "desc": "表格内容区文字颜色,如 #223325"
+                        "group": "内容区",
+                        "prefix": "table-view",
+                        "desc": "表格内容区文字颜色,如 #223325",
+                        "excludeElTags": [
+                            "th"
+                        ]
                     },
-                    "--table-th-line-height": {
+                    "--table-view-th-line-height": {
                         "type": "input",
-                        "desc": "表格表头行高,如 1px"
+                        "group": "表头",
+                        "prefix": "table-view",
+                        "desc": "表格表头行高,如 1px",
+                        "excludeElTags": [
+                            "td"
+                        ]
                     },
-                    "--table-th-padding": {
+                    "--table-view-th-padding": {
                         "type": "input",
-                        "desc": "表格表头内间距,如 1px"
+                        "group": "表头",
+                        "prefix": "table-view",
+                        "desc": "表格表头内间距,如 1px",
+                        "excludeElTags": [
+                            "td"
+                        ]
                     },
-                    "--table-th-background": {
-                        "type": "input",
-                        "desc": "表格表头内间距,如 1px"
-                    },
-                    "--table-td-line-height": {
-                        "type": "input",
-                        "desc": "表格内容区行高,如 1px"
-                    },
-                    "--table-td-padding": {
+                    "--table-view-th-background": {
                         "type": "color",
-                        "desc": "表格表头背景色,如 #223325"
+                        "group": "表头",
+                        "prefix": "table-view",
+                        "desc": "表格表头内背景色,如 #223325",
+                        "excludeElTags": [
+                            "td"
+                        ]
                     },
-                    "--table-td-background": {
+                    "--table-view-td-line-height": {
+                        "type": "input",
+                        "group": "内容区",
+                        "prefix": "table-view",
+                        "desc": "表格内容区行高,如 1px",
+                        "excludeElTags": [
+                            "th"
+                        ]
+                    },
+                    "--table-view-td-padding": {
+                        "type": "input",
+                        "group": "内容区",
+                        "prefix": "table-view",
+                        "desc": "表格表头背景色,如 #223325",
+                        "excludeElTags": [
+                            "th"
+                        ]
+                    },
+                    "--table-view-td-background": {
                         "type": "color",
-                        "desc": "表格列内容区背景色,如 #223325"
+                        "group": "内容区",
+                        "prefix": "table-view",
+                        "desc": "表格列内容区背景色,如 #223325",
+                        "excludeElTags": [
+                            "th"
+                        ]
                     },
                     "--table-view-drop-ghost-border-color": {
                         "type": "color",
-                        "desc": "表格拖拽放置示意线颜色,如 #223325"
+                        "desc": "表格拖拽放置示意线颜色,如 #223325",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
                     },
                     "--table-view-drop-ghost-mask-background": {
                         "type": "color",
-                        "desc": "表格拖拽放置示意框背景颜色,如 #223325"
+                        "desc": "表格拖拽放置示意框背景颜色,如 #223325",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
                     },
                     "--table-view-subrow-background-dragging": {
                         "type": "color",
-                        "desc": "表格被拖拽行子树背景颜色,如 #223325"
+                        "desc": "表格被拖拽行子树背景颜色,如 #223325",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
                     },
                     "--table-view-row-background-dragging": {
                         "type": "color",
-                        "desc": "表格被拖拽行背景颜色,如 #223325"
+                        "desc": "表格被拖拽行背景颜色,如 #223325",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
                     },
                     "--table-view-drag-cursor": {
                         "type": "input",
-                        "desc": "拖拽鼠标样式"
+                        "desc": "拖拽鼠标样式",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
                     }
                 },
                 "preview": {
@@ -2257,6 +2594,9 @@
                     "--tree-view-node-background-selected-disabled": {
                         "type": "color",
                         "desc": "树形列表节点的背景色（选中且禁用）,如 #223325"
+                    },
+                    "--table-view-tree-expander-size": {
+                        "type": "input"
                     }
                 },
                 "preview": {
@@ -2478,15 +2818,15 @@
                     },
                     "--modal-dialog-border-radius": {
                         "type": "input",
-                        "desc": "弹窗的圆角,如 1px"
+                        "desc": "弹窗圆角,如 1px"
                     },
                     "--modal-dialog-background": {
                         "type": "color",
-                        "desc": "弹窗的背景色,如 #223325"
+                        "desc": "弹窗背景色,如 #223325"
                     },
                     "--modal-dialog-box-shadow": {
                         "type": "input",
-                        "desc": "弹窗的阴影效果,如 1px"
+                        "desc": "弹窗阴影效果,如 1px"
                     },
                     "--modal-title-font-size": {
                         "type": "input",
@@ -3049,6 +3389,81 @@
                 },
                 "preview": {
                     "template": "<u-dropdown><template #title=\"scope\"><u-text text=\"下拉菜单\"></u-text></template><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item disabled text=\"item\"></u-dropdown-item></u-dropdown>"
+                }
+            },
+            {
+                "id": 53,
+                "name": "u-drawer",
+                "title": "抽屉",
+                "toPosition": "drawer",
+                "type": [],
+                "cssProperty": {
+                    "--drawer-width-small": {
+                        "type": "input",
+                        "desc": "small抽屉宽度,如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "small"
+                            ]
+                        }
+                    },
+                    "--drawer-width": {
+                        "type": "input",
+                        "desc": "normal抽屉宽度,如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "normal"
+                            ]
+                        }
+                    },
+                    "--drawer-width-large": {
+                        "type": "input",
+                        "desc": "large抽屉宽度,如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "large"
+                            ]
+                        }
+                    },
+                    "--drawer-background": {
+                        "type": "color",
+                        "desc": "抽屉背景色"
+                    },
+                    "--drawer-wrap-background": {
+                        "type": "color",
+                        "desc": "遮罩背景色"
+                    },
+                    "--drawer-close-size": {
+                        "type": "input",
+                        "desc": "关闭图标大小"
+                    },
+                    "--drawer-close-color": {
+                        "type": "color",
+                        "desc": "关闭图标颜色"
+                    },
+                    "--drawer-close-color-hover": {
+                        "type": "color",
+                        "desc": "关闭图标hover颜色"
+                    },
+                    "--drawer-head-padding": {
+                        "type": "input",
+                        "desc": "抽屉头部内边距"
+                    },
+                    "--drawer-body-padding": {
+                        "type": "input",
+                        "desc": "抽屉内容区内边距"
+                    },
+                    "--drawer-foot-padding": {
+                        "type": "input",
+                        "desc": "抽屉底部内边距"
+                    },
+                    "--drawer-border-color": {
+                        "type": "color",
+                        "desc": "抽屉边框颜色"
+                    }
+                },
+                "preview": {
+                    "template": "<u-drawer> <template #title> <u-text text=\"标题\"></u-text> </template> <template #body> <u-text>内容</u-text> </template> <template #foot> <u-linear-layout vusion-disabled-cut justify=\"start\"> <u-button color=\"primary\">确定</u-button> <u-button>取消</u-button> </u-linear-layout> </template> </u-drawer>"
                 }
             }
         ]

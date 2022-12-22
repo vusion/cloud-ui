@@ -111,10 +111,18 @@ export default {
 .root[direction="horizontal"][fixed] > *:not(:last-child) {
     margin-right: 0;
 }
+.root[direction="horizontal"] > *:not(:last-child) {
+    margin-right: var(--space-base);
+}
 .root[direction="vertical"] > *:not(:last-child) {
     margin-bottom: var(--space-base);
 }
-
+.root[direction="horizontal"][gap="normal"] > *:not(:last-child) {
+    margin-right: var(--space-base);
+}
+.root[direction="vertical"][gap="normal"] > *:not(:last-child) {
+    margin-bottom: var(--space-base);
+}
 .root[direction="horizontal"][gap="shrink"] > *:not(:last-child) {
     margin-right: var(--space-shrink);
 }

@@ -35,6 +35,8 @@
       title: 尺寸
       type: string
       options:
+        - value: default
+          title: 默认
         - value: small
           title: 小
         - value: normal
@@ -43,7 +45,7 @@
           title: 大
         - value: huge
           title: 巨大
-      default: normal
+      default: default
       description: 设置文本大小
     - name: display
       title: 展示方式

@@ -81,7 +81,7 @@
         <div v-if="stickingHead" :class="$style.headPlaceholder" ref="headPlaceholder" :style="{ height: number2Pixel(stickingHeadHeight) }"></div>
         <div :class="$style.body" ref="body" :style="{ height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll"
             :sticky-fixed="useStickyFixed">
-            <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex">
+            <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex || $env.VUE_APP_DESIGNER" :hide-scroll="!!tableMetaIndex">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
@@ -261,7 +261,7 @@
                             <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
                         </td>
                     </tr>
-                    <tr key="noMore" v-else-if="(pageable === 'auto-more' || pageable === 'load-more') && !currentDataSource.hasMore()">
+                    <tr key="noMore" v-else-if="((pageable === 'auto-more' && hasScroll) || pageable === 'load-more') && !currentDataSource.hasMore() && (currentData && currentData.length)">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             {{ $t('noMore') }}
                         </td>
@@ -435,6 +435,7 @@ export default {
             dropData: undefined,
             rowDraggable: false,
             handlerDraggable: false,
+            hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
         };
     },
     computed: {
@@ -1002,6 +1003,7 @@ export default {
             this.syncHeadScroll();
         },
         onScrollView(data) {
+            this.hasScroll = true;
             if (!this.useStickyFixed) {
                 this.syncScrollViewScroll(data.scrollTop, data.target);
             }
@@ -1710,11 +1712,22 @@ export default {
             // 让展示线缩进
             let left = 0;
             let indentElRect = {};
+            let placeholderWith = 0;
             if (this.treeDisplay) {
                 const indentEl = target.querySelector('[class^="u-table-view_indent__"]');
                 if (indentEl) {
                     indentElRect = indentEl.getBoundingClientRect();
                 }
+                const treePlaceholderEl = target.querySelector('[class^="u-table-view_tree_placeholder"]');
+                const treeExpanderEl = target.querySelector('[class^="u-table-view_tree_expander"]');
+                placeholderWith = treePlaceholderEl && treePlaceholderEl.offsetWidth;
+                if (treePlaceholderEl) {
+                    placeholderWith = treePlaceholderEl.offsetWidth;
+                }
+                if (treeExpanderEl) {
+                    placeholderWith = treeExpanderEl.offsetWidth;
+                }
+                console.log('placeholderWith', placeholderWith, treePlaceholderEl, treeExpanderEl);
             }
 
             const disabledDrop = item.disabledDrop || item.draggoverDisabled;
@@ -1726,7 +1739,8 @@ export default {
                 // 在上部
                 position = 'insertBefore';
                 left = item.tableTreeItemLevel ? indentElRect.left - trRect.left : 0;
-                left = left + (item.tableTreeItemLevel || 0) * 20;
+                placeholderWith = item.tableTreeItemLevel ? placeholderWith : 0;
+                left = left + (item.tableTreeItemLevel || 0) * 20 + placeholderWith;
             } else if (e.y >= downArea) {
                 // 在下部
                 position = 'insertAfter';
@@ -1735,7 +1749,8 @@ export default {
                     level = level + 1;
                 }
                 left = level ? indentElRect.left - trRect.left : 0;
-                left = left + level * 20;
+                placeholderWith = level ? placeholderWith : 0;
+                left = left + level * 20 + placeholderWith;
             } else {
                 // 在中间
                 if (!disabledDrop) {
@@ -2461,6 +2476,7 @@ export default {
     height: var(--table-view-tree-expander-size);
     line-height: var(--table-view-tree-expander-size);
     text-align: center;
+    margin-right: var(--table-view-tree-expander-margin);
 }
 .tree_expander[loading]{
     margin-right: calc(4px + var(--table-view-tree-expander-margin));
@@ -2485,9 +2501,7 @@ export default {
     width: auto;
 }
 
-.indent {
-    margin-right: var(--table-view-tree-expander-margin);
-}
+.indent {}
 
 .tdmask {
     position: absolute;
@@ -2506,10 +2520,10 @@ export default {
     width: 100%;
     height: 100%;
 }
-.scrollcview[native="true"] [class^="f-scroll-view_wrap__"]{
+.scrollcview[native="true"][hide-scroll] [class^="f-scroll-view_wrap__"]{
     overflow-x: hidden;
 }
-.scrollcview[native="true"] [class^="f-scroll-view_wrap__"]::-webkit-scrollbar {
+.scrollcview[native="true"][hide-scroll] [class^="f-scroll-view_wrap__"]::-webkit-scrollbar {
     width: 0;
 }
 

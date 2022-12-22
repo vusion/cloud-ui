@@ -3,6 +3,8 @@
 # UImage 图片展示
 
 - [示例](#示例)
+    - [模拟异步展示图片](#模拟异步展示图片)
+    - [异步展示图片报错](#异步展示图片报错)
     - [适应](#适应)
     - [适应（图片小于父元素时以原尺寸展示）](#适应图片小于父元素时以原尺寸展示)
     - [拉伸](#拉伸)
@@ -18,6 +20,63 @@
 可以用来展示一张图片，支持设置图片地址。
 
 ## 示例
+### 模拟异步展示图片
+```vue
+<template>
+    <u-image :src="url" style="width: 300px; height: 150px;" fit="contain"></u-image>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            url: '',
+        };
+    },
+    mounted() {
+        setTimeout(()=>{
+            this.url = "https://static-vusion.163yun.com/assets/cloud-ui/1.jpg"
+        }, 2000)
+    },
+    methods: {
+        load() {
+            return new Promise((resolve)=>{
+                setTimeout(()=>resolve("https://static-vusion.163yun.com/assets/cloud-ui/1.jpg"), 2000)
+            })
+            // return "https://static-vusion.163yun.com/assets/cloud-ui/1.jpg"
+        }
+    },
+}
+</script>
+```
+### 异步展示图片报错
+
+```vue
+<template>
+    <u-image :src="url" style="width: 300px; height: 150px;" fit="contain"></u-image>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            url: '',
+        };
+    },
+    mounted() {
+        setTimeout(()=>{this.url = ""}, 2000)
+    },
+    methods: {
+        load() {
+            return new Promise((resolve)=>{
+                setTimeout(()=>resolve("https://static-vusion.163yun.com/assets/cloud-ui/1.jpg"), 2000)
+            })
+            // return "https://static-vusion.163yun.com/assets/cloud-ui/1.jpg"
+        }
+    },
+}
+</script>
+```
 ### 适应
 
 ``` html

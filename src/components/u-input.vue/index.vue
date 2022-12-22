@@ -61,6 +61,7 @@ export default {
         icon: {
             type: String,
         },
+        autoselect: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -122,6 +123,7 @@ export default {
     mounted() {
         this.$emit('update', this.value, this);
         this.autoSize && this.autoResize();
+        this.autoselect && this.select();
         // 在ie11，刷新页面会保留输入框输入的值，这里强制同步
         if (isIE()) {
             clearInterval(this.inputTimer);
@@ -248,6 +250,11 @@ export default {
                 this.compositionInputing = false;
                 this.onInput(e);
             }
+        },
+        select() {
+            this.$nextTick(() => {
+                this.$refs.input && this.$refs.input.select();
+            });
         },
     },
 };

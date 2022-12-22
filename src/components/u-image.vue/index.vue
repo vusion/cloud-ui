@@ -1,12 +1,17 @@
 <template>
-<div :class="$style.root" :fit="fit" :style="wrapStyle"
-    :vertical-center="verticalCenter"
-    :horizontal-center="horizontalCenter"
-    v-on="$listeners">
-    <template v-if="ready">
-        <img :src="convertedSrc" :style="imageStyle" v-bind="$attrs">
-    </template>
-</div>
+    <div :class="$style.root"
+         :fit="fit"
+         :style="wrapStyle"
+         :vertical-center="verticalCenter"
+         :horizontal-center="horizontalCenter"
+         v-on="$listeners">
+        <template v-if="ready && src || isEmpty">
+            <img :src="convertedSrc" :style="imageStyle" v-bind="$attrs">
+        </template>
+        <template v-else>
+            <u-loading size="small" :class="$style.loading"></u-loading>
+        </template>
+    </div>
 </template>
 
 <script>
@@ -59,6 +64,8 @@ export default {
             ready: false,
             imageWidth: 0,
             imageHeight: 0,
+            isEmpty: false,
+            loadImgTimer: undefined,
         };
     },
     computed: {
@@ -103,6 +110,10 @@ export default {
     methods: {
         loadImage() {
             this.ready = false;
+            this.isEmpty = false;
+            // 10s后图片仍未加载出来，变成裂开的状态
+            clearTimeout(this.loadImgTimer);
+            this.loadImgTimer = setTimeout(() => this.isEmpty = true, 10000);
             const img = new Image();
             const that = this;
             img.onload = function () {
@@ -137,5 +148,13 @@ export default {
     max-width: none;
     max-height: none;
     object-position: left top;
+}
+
+.root .loading {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>

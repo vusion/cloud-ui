@@ -41,7 +41,7 @@ export default {
 }
 </script>
 ```
-### 基本用法simple，开启图片编辑
+### 开启图片编辑(只支持list-type为card类型的单文件上传)
 
 下面的例子为单文件上传。
 
