@@ -201,8 +201,8 @@ export default {
         hasChildren() {
             if(this.rootVM.virtualList) {
                 const { hiddenField } = this.rootVM;
-                const children = (this.node && this.node._children || [])
-                    .filter((node) => !node._collapsedParentCount && !(node.node && node.node[hiddenField]));
+                const children = (this.node && this.rootVM.childrenWm.get(this.node) || [])
+                    .filter((node) => !(node.node && node.node[hiddenField]));
                 return children.length > 0
             }
             
@@ -327,7 +327,7 @@ export default {
             nodes && nodes.forEach((child) => {
                 if(expanded) child._collapsedParentCount--;
                 else child._collapsedParentCount++;
-                this.toggleData(child.node && child.node._children, expanded);
+                this.toggleData(child.node && this.rootVM.childrenWm.get(child.node), expanded);
             });
         },
         toggle(expanded) {
@@ -384,7 +384,7 @@ export default {
                 final();
 
             if(this.rootVM.virtualList)
-                this.toggleData(this.node && this.node._children, expanded)
+                this.toggleData(this.node && this.rootVM.childrenWm.get(this.node), expanded)
         },
         checkControlled(checked) {
             this.currentChecked = checked;
