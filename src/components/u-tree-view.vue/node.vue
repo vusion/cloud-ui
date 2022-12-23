@@ -526,6 +526,7 @@ export default {
             const { currentFields, node, $at } = this;
 
             const that = this;
+            let upperMatched;
             function dfs(node, parent = null, fields) {
                 if (!node)
                     return;
@@ -533,6 +534,9 @@ export default {
                 const hiddenByFilter = filterFields.every((field) => !$at(node, field) || !$at(node, field).toLowerCase().includes(filterText));
                 that.$set(node, 'hiddenByFilter', hiddenByFilter);
                 that.$set(node, 'expandedByFilter', false);
+
+                if(!hiddenByFilter)
+                    upperMatched = node;
 
                 if (!fields) {
                     const childrenField = node.childrenField || that.rootVM.childrenField;
@@ -555,6 +559,11 @@ export default {
                     that.$set(parent, 'expandedByFilter', true);
                     that.$set(parent, 'hiddenByFilter', false);
                 }
+
+                if(upperMatched === node)
+                    upperMatched = undefined;
+                else if(upperMatched)
+                    node.hiddenByFilter = false;
             }
             dfs(node, null, currentFields);
 
