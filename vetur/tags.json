@@ -1654,6 +1654,7 @@
       "data-schema",
       "text-field",
       "value-field",
+      "description-field",
       "cancelable",
       "multiple",
       "tags-overflow",
@@ -1695,6 +1696,7 @@
     "attributes": [
       "value",
       "text",
+      "description",
       "disabled",
       "item"
     ],

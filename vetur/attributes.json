@@ -6463,6 +6463,10 @@
     "type": "string",
     "description": "集合的元素类型中，用于标识选中值的属性"
   },
+  "u-select/description-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本下方辅助描述的属性名称"
+  },
   "u-select/cancelable": {
     "type": "boolean",
     "description": ""
@@ -6714,6 +6718,10 @@
   "u-select-item/text": {
     "type": "string",
     "description": "此项的显示值"
+  },
+  "u-select-item/description": {
+    "type": "string",
+    "description": "选项文本的辅助描述，展示在选项文本下方"
   },
   "u-select-item/disabled": {
     "type": "boolean",
