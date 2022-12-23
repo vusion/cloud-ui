@@ -463,26 +463,26 @@
     /* 宽度 */
     --button-min-width: 78px; /* @hidden */
     /* 高度 */
-    --button-height-mini: var(--height-mini); /* @desc Mini按钮高度,如：1px */
-    --button-height-small: var(--height-small); /* @desc Small按钮高度,如：1px */
-    --button-height: var(--height-base); /* @desc 按钮高度,如：1px */
-    --button-height-medium: var(--height-medium); /* @desc Medium按钮高度,如：1px */
-    --button-height-large: var(--height-large); /* @desc Large按钮高度,如：1px */
-    --button-height-huge: var(--height-huge); /* @desc Huge按钮高度,如：1px */
+    --button-height-mini: var(--height-mini); /* @desc Mini按钮高度,如：1px */ /* @depAttrs {"size": ["mini"]} */
+    --button-height-small: var(--height-small); /* @desc Small按钮高度,如：1px */ /* @depAttrs {"size": ["small"]} */
+    --button-height: var(--height-base); /* @desc 按钮高度,如：1px */ /* @depAttrs {"size": ["normal", null]} */
+    --button-height-medium: var(--height-medium); /* @desc Medium按钮高度,如：1px */  /* @depAttrs {"size": ["medium"]} */
+    --button-height-large: var(--height-large); /* @desc Large按钮高度,如：1px */ /* @depAttrs {"size": ["large"]} */
+    --button-height-huge: var(--height-huge); /* @desc Huge按钮高度,如：1px */ /* @depAttrs {"size": ["huge"]} */
     /* 上下边距 */
-    --button-padding-y-mini: var(--button-padding-y); /* @desc Mini按钮垂直方向内边距,如：1px */
-    --button-padding-y-small: var(--button-padding-y); /* @desc Small按钮垂直方向内边距,如：1px */
-    --button-padding-y: 0px; /* @desc 按钮垂直方向内边距,如：1px */
-    --button-padding-y-medium: var(--button-padding-y); /* @desc Medium按钮垂直方向内边距,如：1px */
-    --button-padding-y-large: var(--button-padding-y); /* @desc Large按钮垂直方向内边距,如：1px */
-    --button-padding-y-huge: var(--button-padding-y); /* @desc Huge按钮垂直方向内边距,如：1px */
+    --button-padding-y-mini: var(--button-padding-y); /* @desc Mini按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["mini"]} */
+    --button-padding-y-small: var(--button-padding-y); /* @desc Small按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["small"]} */
+    --button-padding-y: 0px; /* @desc 按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["normal", null]} */
+    --button-padding-y-medium: var(--button-padding-y); /* @desc Medium按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["medium"]} */
+    --button-padding-y-large: var(--button-padding-y); /* @desc Large按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["large"]} */
+    --button-padding-y-huge: var(--button-padding-y); /* @desc Huge按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["huge"]} */
     /* 左右边距 */
-    --button-padding-x-mini: 16px; /* @desc Mini按钮水平方向内边距,如：1px */
-    --button-padding-x-small: 20px; /* @desc Small按钮水平方向内边距,如：1px */
-    --button-padding-x: 24px; /* @desc 按钮水平方向内边距,如：1px */
-    --button-padding-x-medium: 28px; /* @desc Medium按钮水平方向内边距,如：1px */
-    --button-padding-x-large: 32px; /* @desc Large按钮水平方向内边距,如：1px */
-    --button-padding-x-huge: 36px; /* @desc Huge按钮水平方向内边距,如：1px */
+    --button-padding-x-mini: 16px; /* @desc Mini按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["mini"]} */
+    --button-padding-x-small: 20px; /* @desc Small按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["small"]} */
+    --button-padding-x: 24px; /* @desc 按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["normal", null]} */
+    --button-padding-x-medium: 28px; /* @desc Medium按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["medium"]} */
+    --button-padding-x-large: 32px; /* @desc Large按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["large"]} */
+    --button-padding-x-huge: 36px; /* @desc Huge按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["huge"]} */
     /* 按钮背景颜色-默认 */
     --button-background-primary: var(--brand-primary); /* @type color */ /* @desc 主要按钮背景色,如：#223325 */
     --button-background-primary-secondary: white; /* @type color */ /* @desc 次要按钮背景色,如：#223325 */
@@ -532,12 +532,12 @@
     --button-border-color-danger-disabled: var(--button-background-danger-disabled); /* @type color */ /* @desc 危险按钮边框颜色（禁用状态）,如：#223325 */
     --button-border-color-danger-secondary-disabled: var(--button-border-color-disabled); /* @type color */ /* @desc 次要危险按钮边框颜色（禁用状态）,如：#223325 */
     /* 文字大小 */
-    --button-font-size-mini: var(--font-size-small); /* @desc Mini按钮文本字体大小,如：1px */
-    --button-font-size-small: inherit; /* @desc Small按钮文本字体大小,如：1px */
-    --button-font-size: inherit; /* @desc 按钮文本字体大小,如：1px */
-    --button-font-size-medium: inherit; /* @desc Medium按钮文本字体大小,如：1px */
-    --button-font-size-large: var(--font-size-large); /* @desc Large按钮文本字体大小,如：1px */
-    --button-font-size-huge: var(--font-size-huge); /* @desc Huge按钮文本字体大小,如：1px */
+    --button-font-size-mini: var(--font-size-small); /* @desc Mini按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["mini"]} */
+    --button-font-size-small: inherit; /* @desc Small按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["small"]} */
+    --button-font-size: inherit; /* @desc 按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["normal", null]} */
+    --button-font-size-medium: inherit; /* @desc Medium按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["medium"]} */
+    --button-font-size-large: var(--font-size-large); /* @desc Large按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["large"]} */
+    --button-font-size-huge: var(--font-size-huge); /* @desc Huge按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["huge"]} */
     /* 文字颜色-默认 */
     --button-color-primary: white; /* @type color */ /* @desc 主要按钮字体颜色,如：#223325 */
     --button-color-primary-secondary: var(--brand-primary); /* @type color */ /* @desc 次要按钮字体颜色,如：#223325 */

@@ -613,75 +613,168 @@
                 "cssProperty": {
                     "--button-height-mini": {
                         "type": "input",
-                        "desc": "Mini按钮高度,如：1px"
+                        "desc": "Mini按钮高度,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "mini"
+                            ]
+                        }
                     },
                     "--button-height-small": {
                         "type": "input",
-                        "desc": "Small按钮高度,如：1px"
+                        "desc": "Small按钮高度,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "small"
+                            ]
+                        }
                     },
                     "--button-height": {
                         "type": "input",
-                        "desc": "按钮高度,如：1px"
+                        "desc": "按钮高度,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "normal",
+                                null
+                            ]
+                        }
                     },
                     "--button-height-medium": {
                         "type": "input",
-                        "desc": "Medium按钮高度,如：1px"
+                        "desc": "Medium按钮高度,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "medium"
+                            ]
+                        }
                     },
                     "--button-height-large": {
                         "type": "input",
-                        "desc": "Large按钮高度,如：1px"
+                        "desc": "Large按钮高度,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "large"
+                            ]
+                        }
                     },
                     "--button-height-huge": {
                         "type": "input",
-                        "desc": "Huge按钮高度,如：1px"
+                        "desc": "Huge按钮高度,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "huge"
+                            ]
+                        }
                     },
                     "--button-padding-y-mini": {
                         "type": "input",
-                        "desc": "Mini按钮垂直方向内边距,如：1px"
+                        "desc": "Mini按钮垂直方向内边距,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "mini"
+                            ]
+                        }
                     },
                     "--button-padding-y-small": {
                         "type": "input",
-                        "desc": "Small按钮垂直方向内边距,如：1px"
+                        "desc": "Small按钮垂直方向内边距,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "small"
+                            ]
+                        }
                     },
                     "--button-padding-y": {
                         "type": "input",
-                        "desc": "按钮垂直方向内边距,如：1px"
+                        "desc": "按钮垂直方向内边距,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "normal",
+                                null
+                            ]
+                        }
                     },
                     "--button-padding-y-medium": {
                         "type": "input",
-                        "desc": "Medium按钮垂直方向内边距,如：1px"
+                        "desc": "Medium按钮垂直方向内边距,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "medium"
+                            ]
+                        }
                     },
                     "--button-padding-y-large": {
                         "type": "input",
-                        "desc": "Large按钮垂直方向内边距,如：1px"
+                        "desc": "Large按钮垂直方向内边距,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "large"
+                            ]
+                        }
                     },
                     "--button-padding-y-huge": {
                         "type": "input",
-                        "desc": "Huge按钮垂直方向内边距,如：1px"
+                        "desc": "Huge按钮垂直方向内边距,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "huge"
+                            ]
+                        }
                     },
                     "--button-padding-x-mini": {
                         "type": "input",
-                        "desc": "Mini按钮水平方向内边距,如：1px"
+                        "desc": "Mini按钮水平方向内边距,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "mini"
+                            ]
+                        }
                     },
                     "--button-padding-x-small": {
                         "type": "input",
-                        "desc": "Small按钮水平方向内边距,如：1px"
+                        "desc": "Small按钮水平方向内边距,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "small"
+                            ]
+                        }
                     },
                     "--button-padding-x": {
                         "type": "input",
-                        "desc": "按钮水平方向内边距,如：1px"
+                        "desc": "按钮水平方向内边距,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "normal",
+                                null
+                            ]
+                        }
                     },
                     "--button-padding-x-medium": {
                         "type": "input",
-                        "desc": "Medium按钮水平方向内边距,如：1px"
+                        "desc": "Medium按钮水平方向内边距,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "medium"
+                            ]
+                        }
                     },
                     "--button-padding-x-large": {
                         "type": "input",
-                        "desc": "Large按钮水平方向内边距,如：1px"
+                        "desc": "Large按钮水平方向内边距,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "large"
+                            ]
+                        }
                     },
                     "--button-padding-x-huge": {
                         "type": "input",
-                        "desc": "Huge按钮水平方向内边距,如：1px"
+                        "desc": "Huge按钮水平方向内边距,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "huge"
+                            ]
+                        }
                     },
                     "--button-background-primary": {
                         "type": "color",
@@ -845,27 +938,58 @@
                     },
                     "--button-font-size-mini": {
                         "type": "input",
-                        "desc": "Mini按钮文本字体大小,如：1px"
+                        "desc": "Mini按钮文本字体大小,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "mini"
+                            ]
+                        }
                     },
                     "--button-font-size-small": {
                         "type": "input",
-                        "desc": "Small按钮文本字体大小,如：1px"
+                        "desc": "Small按钮文本字体大小,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "small"
+                            ]
+                        }
                     },
                     "--button-font-size": {
                         "type": "input",
-                        "desc": "按钮文本字体大小,如：1px"
+                        "desc": "按钮文本字体大小,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "normal",
+                                null
+                            ]
+                        }
                     },
                     "--button-font-size-medium": {
                         "type": "input",
-                        "desc": "Medium按钮文本字体大小,如：1px"
+                        "desc": "Medium按钮文本字体大小,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "medium"
+                            ]
+                        }
                     },
                     "--button-font-size-large": {
                         "type": "input",
-                        "desc": "Large按钮文本字体大小,如：1px"
+                        "desc": "Large按钮文本字体大小,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "large"
+                            ]
+                        }
                     },
                     "--button-font-size-huge": {
                         "type": "input",
-                        "desc": "Huge按钮文本字体大小,如：1px"
+                        "desc": "Huge按钮文本字体大小,如：1px",
+                        "depAttrs": {
+                            "size": [
+                                "huge"
+                            ]
+                        }
                     },
                     "--button-color-primary": {
                         "type": "color",
