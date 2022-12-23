@@ -1346,6 +1346,7 @@ export default {
 | data-schema | schema |  |  | 选择器每一行的数据类型 |
 | text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
 | value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
+| description-field | string |  |  | 集合的元素类型中，用于显示文本下方辅助描述的属性名称 |
 | cancelable | boolean |  | `false` |  |
 | multiple | boolean |  | `false` | 是否可以多选 |
 | tags-overflow | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 多选项过多时的展示形式 |
@@ -1573,6 +1574,7 @@ Methods
 | --------- | ---- | ------- | ------- | ----------- |
 | value | any |  |  | 此项的值。 |
 | text | string |  |  | 此项的显示值 |
+| description | string |  |  | 选项文本的辅助描述，展示在选项文本下方 |
 | disabled | boolean |  | `false` | 禁用此项。 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发。 |
 

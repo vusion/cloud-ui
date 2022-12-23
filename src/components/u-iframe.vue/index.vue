@@ -11,7 +11,7 @@
 
 <script>
 
-import ULoading from '@/components/u-loading.vue';
+import ULoading from '../u-loading.vue';
 export default {
     name: 'u-iframe',
     components: { ULoading },

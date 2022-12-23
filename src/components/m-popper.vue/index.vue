@@ -174,7 +174,7 @@ export default {
                     tetherOffset: ({ popper, reference, placement }) => {
                         if (!_self.popper)
                             return;
-                        const visualViewport = _self.popper.state.scrollParents.popper[1] || {};
+                        const visualViewport = (_self.popper.state.scrollParents.popper || []).find((item) => item instanceof VisualViewport) || {};
                         const pageTop = visualViewport.pageTop || 0;
                         const y = _self.popper.state.modifiersData.popperOffsets.y;
                         const top = y - pageTop;
