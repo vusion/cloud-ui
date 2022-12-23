@@ -223,7 +223,8 @@
     box-shadow: var(--select-popper-box-shadow);
 }
 .popper:empty {
-    display: none;
+    padding: 0;
+    border: none;
 }
 
 .status {
