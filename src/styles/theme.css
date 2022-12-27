@@ -1646,7 +1646,8 @@
     --lightbox-icon-color: white;
 
     /* @component u-linear-layout */
-    --linear-layout-background: rgba(255,255,255,0.5); /* @type color */ /* @desc 背景颜色,如：#223325 */
+    --linear-layout-background: none; /* @type color */ /* @desc 背景颜色,如：#223325 */
+    --linear-layout-mask-background: rgba(255,255,255,0.5); /* @type color */ /* @desc 加载时遮罩背景颜色,如：#223325 */
 
     /* @component u-skeleton @hidden */
     --skeleton-background: var(--background-color-base);
