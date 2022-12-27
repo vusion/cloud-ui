@@ -23,9 +23,8 @@
         - value: default
           title: 默认
         - value: label
-          title: 开启标签展示
+          title: 时间线居中
       default: default
-      description: 模式切换。`label` 开启 `label` 展示
     - name: pending
       title: 最后一个节点为幽灵节点
       type: boolean

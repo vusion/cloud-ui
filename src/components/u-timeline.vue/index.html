@@ -5,7 +5,7 @@
         <slot name="item" :item="item" :designer="$env.VUE_APP_DESIGNER" :index="index"></slot>
     </template>
     <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
-        <span :class="$style.loadContent">{{ treeSelectTip }}</span>
+        <slot name="item" :item="item" :designer="$env.VUE_APP_DESIGNER" :index="index" v-for="(item, index) in [{},{},{}]"></slot>
     </template>
     <slot></slot>
 </ul>
