@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root">
-    <u-modal title="图片裁剪" :visible="visible" size="huge" :maskClose="false" :class="$style.cropperModal">
+    <u-modal title="图片裁剪" :visible="visible" size="huge" :maskClose="false" :mode=false :class="$style.cropperModal">
         <div :class="$style.cropperWrapper">
             <div :class="$style.cropper" style="text-align:center">
                 <vueCropper
