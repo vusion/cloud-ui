@@ -180,7 +180,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 数据源 |
 | data-schema | schema |  |  | 数据类型 |
-| mode | string | `[object Object]`<br/>`[object Object]` | `'default'` | 模式切换。`label` 开启 `label` 展示 |
+| mode | string | `[object Object]`<br/>`[object Object]` | `'default'` | undefined |
 | pending | boolean |  | `false` | 是否指定最后一个节点为幽灵节点 |
 
 ### Slots

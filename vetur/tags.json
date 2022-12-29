@@ -917,23 +917,15 @@
   },
   "u-grid-layout-row": {
     "attributes": [
-      "justify",
-      "alignment",
       "repeat",
-      "gap"
+      "gap",
+      "justify",
+      "alignment"
     ],
     "description": "内部元素行布局"
   },
   "u-grid-layout-column": {
     "attributes": [
-      "mode",
-      "direction",
-      "justify",
-      "alignment",
-      "alignment",
-      "justify",
-      "wrap",
-      "gap",
       "span",
       "offset",
       "pull",
@@ -1109,17 +1101,13 @@
   },
   "u-linear-layout": {
     "attributes": [
-      "mode",
       "direction",
-      "justify",
-      "alignment",
-      "alignment",
-      "justify",
-      "wrap",
       "gap",
       "display",
       "layout",
       "type",
+      "justify",
+      "alignment",
       "loadingIcon",
       "loadingIconRotate",
       "loadingText"
@@ -1279,10 +1267,6 @@
   "u-multi-layout": {
     "attributes": [
       "direction",
-      "justify",
-      "alignment",
-      "alignment",
-      "justify",
       "gap"
     ],
     "description": "一定的规则布局",
@@ -1295,14 +1279,8 @@
       "fixed",
       "fixdirec",
       "display",
-      "mode",
-      "direction",
       "justify",
-      "alignment",
-      "alignment",
-      "justify",
-      "wrap",
-      "gap"
+      "alignment"
     ],
     "description": "一定的规则布局"
   },
