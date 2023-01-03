@@ -349,54 +349,55 @@
     --navbar-select-divider-background: var(--list-view-divider-background);
     --navbar-select-box-shadow: 0 0 6px rgba(47, 53, 58, 0.3);
 
-    /* @component u-sidebar @hidden */
-    --sidebar-width: 240px;
-    --sidebar-background: #ffffff;
-    --sidebar-background-inverse: #2b333f;
-    --sidebar-item-height: 54px;
-    --sidebar-item-height-small: 32px;
-    --sidebar-item-padding-left: 30px;
-    --sidebar-item-background: #ffffff;
-    --sidebar-item-background-selected: rgba(51,126,255,0.12);
-    --sidebar-item-background-selected-inverse: #252b33;
-    --sidebar-item-background-disabled: #ffffff;
-    --sidebar-item-background-disabled-inverse: #2b333f;
-    --sidebar-item-background-selected-disabled: #337EFF;
-    --sidebar-item-background-selected-disabled-inverse: #2b333f;
-    --sidebar-item-color: #333333;
-    --sidebar-item-color-inverse: #8594aa;
-    --sidebar-item-background-hover: var(--sidebar-item-background);
-    --sidebar-item-color-hover: #337eff;
-    --sidebar-item-color-hover-inverse: white;
-    --sidebar-item-color-selected: #337eff;
-    --sidebar-item-color-selected-inverse: white;
-    --sidebar-item-color-disabled: #586475;
-    --sidebar-item-border-right-width: 4px;
-    --sidebar-item-border-right-width-small: 3px;
-    --sidebar-item-border-right-color: var(--brand-primary);
-    --sidebar-item-border-bottom-width: 0px;
-    --sidebar-item-border-bottom-color: #e5e5e5;
-    --sidebar-item-icon-font-size: 16px;
-    --sidebar-item-icon-color: var(--gray-light);
-    --sidebar-item-icon-color-hover: var(--sidebar-item-icon-color);
-    --sidebar-group-padding-left: 10px;
-    --sidebar-group-head-height: 52px;
-    --sidebar-group-head-padding-left: 20px;
-    --sidebar-group-head-font-weight: var(--font-weight-bold);
-    --sidebar-group-head-color: #333333;
-    --sidebar-group-head-color-inverse: #9dabc2;
-    --sidebar-group-head-color-hover: #337eff;
-    --sidebar-group-head-color-hover-inverse: white;
-    --sidebar-group-head-background-hover: #f5f5f5;
-    --sidebar-group-head-color-selected: #337eff;
-    --sidebar-group-head-color-selected-inverse: #9dabc2;
-    --sidebar-group-head-border-bottom-width: 0px;
-    --sidebar-group-head-border-bottom-color: #e5e5e5;
-    --sidebar-group-popper-margin-left: 2px;
-    --sidebar-divider-margin-y: 8px;
-    --sidebar-divider-height: var(--border-width-base);
-    --sidebar-divider-background: #3d4654;
-    --sidebar-expander-color-disabled: var(--brand-disabled);
+    /* @component u-sidebar */
+    --sidebar-background: #ffffff; /* @desc 侧边栏背景色,如：#223325 */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-height: 54px; /* @desc 侧边栏项高度,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-padding-left: 30px; /* @desc 侧边栏项左边距,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-background: #ffffff; /* @desc 侧边栏项背景色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-background-selected: rgba(51,126,255,0.12); /* @desc 侧边栏项选中背景色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-background-disabled: #ffffff; /* @desc 侧边栏项禁用背景色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-background-selected-disabled: #337EFF; /* @desc 侧边栏项禁用选中背景色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-color: #333333; /* @desc 侧边栏项文字颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-background-hover: var(--sidebar-item-background); /* @desc 侧边栏项背景色（hover状态）,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-color-hover: #337eff; /* @desc 侧边栏项文字颜色（hover状态）,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-color-selected: #337eff; /* @desc 侧边栏项选中时文字颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-color-disabled: #586475; /* @desc 侧边栏项禁用文字颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-border-right-width: 4px; /* @desc 侧边栏项右边框宽度,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-border-right-color: var(--brand-primary); /* @desc 侧边栏项右边框颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-border-bottom-width: 0px; /* @desc 侧边栏项下边框宽度,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-border-bottom-color: #e5e5e5; /* @desc 侧边栏项下边框颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-icon-font-size: 16px; /* @desc 侧边栏项图标大小,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-icon-color: var(--gray-light); /* @desc 侧边栏项图标颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-item-icon-color-hover: var(--sidebar-item-icon-color); /* @desc 侧边栏项图标颜色（hover状态）,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
+    --sidebar-group-padding-left: 10px; /* @desc 侧边栏分组左边距,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-height: 52px; /* @desc 侧边栏分组头部高度,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-padding-left: 20px; /* @desc 侧边栏分组头部左边距,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-font-weight: var(--font-weight-bold); /* @desc 侧边栏分组头部字重,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-color: #333333; /* @desc 侧边栏分组头部字体颜色,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-color-hover: #337eff; /* @desc 侧边栏分组头部字体颜色（hover状态）,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-background-hover: #f5f5f5; /* @desc 侧边栏分组头部背景色（hover状态）,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-color-selected: #337eff; /* @desc 侧边栏分组头部选中背景色,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-border-bottom-width: 0px; /* @desc 侧边栏分组头部下边距宽度,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-border-bottom-color: #e5e5e5; /* @desc 侧边栏分组头部下边距颜色,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-divider-margin-y: 8px; /* @desc 侧边栏分隔符左外边距,如：1px */ /* @prefix sidebar-divider */ /* @excludeTags u-sidebar-item,u-sidebar-group */
+    --sidebar-divider-height: var(--border-width-base); /* @desc 侧边栏分隔符高度,如：1px */ /* @prefix sidebar-divider */ /* @excludeTags u-sidebar-item,u-sidebar-group */
+    --sidebar-divider-background: #3d4654; /* @desc 侧边栏分隔符背景色,如：#223325 */ /* @type color */ /* @prefix sidebar-divider */ /* @excludeTags u-sidebar-item,u-sidebar-group */
+
+    --sidebar-width: 240px; /* @hidden */
+    --sidebar-background-inverse: #2b333f; /* @hidden */
+    --sidebar-item-background-selected-inverse: #252b33; /* @hidden */
+    --sidebar-item-background-disabled-inverse: #2b333f; /* @hidden */
+    --sidebar-item-background-selected-disabled-inverse: #2b333f; /* @hidden */
+    --sidebar-item-height-small: 32px; /* @hidden */
+    --sidebar-item-border-right-width-small: 3px; /* @hidden */
+    --sidebar-item-color-inverse: #8594aa; /* @hidden */
+    --sidebar-item-color-hover-inverse: white; /* @hidden */
+    --sidebar-item-color-selected-inverse: white; /* @hidden */
+    --sidebar-group-head-color-inverse: #9dabc2; /* @hidden */
+    --sidebar-group-head-color-hover-inverse: white; /* @hidden */
+    --sidebar-group-head-color-selected-inverse: #9dabc2; /* @hidden */
+    --sidebar-group-popper-margin-left: 2px; /* @hidden */
+    --sidebar-expander-color-disabled: var(--brand-disabled); /* @hidden */
 
     /* @component u-menu @hidden */
     --menu-padding-y: 0;

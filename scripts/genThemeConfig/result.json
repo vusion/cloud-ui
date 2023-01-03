@@ -3592,6 +3592,311 @@
                 "preview": {
                     "template": "<u-drawer> <template #title> <u-text text=\"标题\"></u-text> </template> <template #body> <u-text>内容</u-text> </template> <template #foot> <u-linear-layout vusion-disabled-cut justify=\"start\"> <u-button color=\"primary\">确定</u-button> <u-button>取消</u-button> </u-linear-layout> </template> </u-drawer>"
                 }
+            },
+            {
+                "id": 54,
+                "name": "u-sidebar",
+                "title": "抽屉",
+                "toPosition": "sidebar",
+                "children": [
+                    "u-sidebar-item",
+                    "u-sidebar-group",
+                    "u-sidebar-divider"
+                ],
+                "type": [],
+                "cssProperty": {
+                    "--sidebar-background": {
+                        "type": "color",
+                        "desc": "侧边栏背景色,如：#223325",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-height": {
+                        "type": "input",
+                        "desc": "侧边栏项高度,如：1px",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-padding-left": {
+                        "type": "input",
+                        "desc": "侧边栏项左边距,如：1px",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-background": {
+                        "type": "color",
+                        "desc": "侧边栏项背景色,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-background-selected": {
+                        "type": "color",
+                        "desc": "侧边栏项选中背景色,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-background-disabled": {
+                        "type": "color",
+                        "desc": "侧边栏项禁用背景色,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-background-selected-disabled": {
+                        "type": "color",
+                        "desc": "侧边栏项禁用选中背景色,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-color": {
+                        "type": "color",
+                        "desc": "侧边栏项文字颜色,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-background-hover": {
+                        "type": "color",
+                        "desc": "侧边栏项背景色（hover状态）,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-color-hover": {
+                        "type": "color",
+                        "desc": "侧边栏项文字颜色（hover状态）,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-color-selected": {
+                        "type": "color",
+                        "desc": "侧边栏项选中时文字颜色,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-color-disabled": {
+                        "type": "color",
+                        "desc": "侧边栏项禁用文字颜色,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-border-right-width": {
+                        "type": "input",
+                        "desc": "侧边栏项右边框宽度,如：1px",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-border-right-color": {
+                        "type": "color",
+                        "desc": "侧边栏项右边框颜色,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-border-bottom-width": {
+                        "type": "input",
+                        "desc": "侧边栏项下边框宽度,如：1px",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-border-bottom-color": {
+                        "type": "color",
+                        "desc": "侧边栏项下边框颜色,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-icon-font-size": {
+                        "type": "input",
+                        "desc": "侧边栏项图标大小,如：1px",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-icon-color": {
+                        "type": "color",
+                        "desc": "侧边栏项图标颜色,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-item-icon-color-hover": {
+                        "type": "color",
+                        "desc": "侧边栏项图标颜色（hover状态）,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-group",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-group-padding-left": {
+                        "type": "input",
+                        "desc": "侧边栏分组左边距,如：1px",
+                        "prefix": "sidebar-group",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-group-head-height": {
+                        "type": "input",
+                        "desc": "侧边栏分组头部高度,如：1px",
+                        "prefix": "sidebar-group",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-group-head-padding-left": {
+                        "type": "input",
+                        "desc": "侧边栏分组头部左边距,如：1px",
+                        "prefix": "sidebar-group",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-group-head-font-weight": {
+                        "type": "input",
+                        "desc": "侧边栏分组头部字重,如：1px",
+                        "prefix": "sidebar-group",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-group-head-color": {
+                        "type": "color",
+                        "desc": "侧边栏分组头部字体颜色,如：#223325",
+                        "prefix": "sidebar-group",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-group-head-color-hover": {
+                        "type": "color",
+                        "desc": "侧边栏分组头部字体颜色（hover状态）,如：#223325",
+                        "prefix": "sidebar-group",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-group-head-background-hover": {
+                        "type": "color",
+                        "desc": "侧边栏分组头部背景色（hover状态）,如：#223325",
+                        "prefix": "sidebar-group",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-group-head-color-selected": {
+                        "type": "color",
+                        "desc": "侧边栏分组头部选中背景色,如：#223325",
+                        "prefix": "sidebar-group",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-group-head-border-bottom-width": {
+                        "type": "input",
+                        "desc": "侧边栏分组头部下边距宽度,如：1px",
+                        "prefix": "sidebar-group",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-group-head-border-bottom-color": {
+                        "type": "color",
+                        "desc": "侧边栏分组头部下边距颜色,如：#223325",
+                        "prefix": "sidebar-group",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-divider"
+                        ]
+                    },
+                    "--sidebar-divider-margin-y": {
+                        "type": "input",
+                        "desc": "侧边栏分隔符左外边距,如：1px",
+                        "prefix": "sidebar-divider",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-group"
+                        ]
+                    },
+                    "--sidebar-divider-height": {
+                        "type": "input",
+                        "desc": "侧边栏分隔符高度,如：1px",
+                        "prefix": "sidebar-divider",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-group"
+                        ]
+                    },
+                    "--sidebar-divider-background": {
+                        "type": "color",
+                        "desc": "侧边栏分隔符背景色,如：#223325",
+                        "prefix": "sidebar-divider",
+                        "excludeTags": [
+                            "u-sidebar-item",
+                            "u-sidebar-group"
+                        ]
+                    }
+                },
+                "preview": {
+                    "template": "<u-sidebar :router=\"true\"> <u-sidebar-group expanded> <template #title><u-text text=\"导航一\"></u-text></template> <u-sidebar-item><u-text text=\"选项一\"></u-text></u-sidebar-item> </u-sidebar-group> <u-sidebar-group expanded> <template #title><u-text text=\"导航二\"></u-text></template> <u-sidebar-item><u-text text=\"选项一\"></u-text></u-sidebar-item> </u-sidebar-group> </u-sidebar>"
+                }
             }
         ]
     },
