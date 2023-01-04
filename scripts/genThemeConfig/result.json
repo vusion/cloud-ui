@@ -1027,163 +1027,371 @@
                     },
                     "--button-background-primary": {
                         "type": "color",
-                        "desc": "主要按钮背景色,如：#223325"
+                        "desc": "主要按钮背景色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-background-primary-secondary": {
                         "type": "color",
-                        "desc": "次要按钮背景色,如：#223325"
+                        "desc": "次要按钮背景色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary_secondary"
+                            ]
+                        }
                     },
                     "--button-background": {
                         "type": "color",
-                        "desc": "按钮默认背景色,如：#223325"
+                        "desc": "按钮默认背景色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-background-danger": {
                         "type": "color",
-                        "desc": "危险按钮背景色,如：#223325"
+                        "desc": "危险按钮背景色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     },
                     "--button-background-danger-secondary": {
                         "type": "color",
-                        "desc": "次要危险按钮背景色,如：#223325"
+                        "desc": "次要危险按钮背景色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger_secondary"
+                            ]
+                        }
                     },
                     "--button-background-primary-hover": {
                         "type": "color",
-                        "desc": "主要按钮hover背景色,如：#223325"
+                        "desc": "主要按钮hover背景色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-background-primary-secondary-hover": {
                         "type": "color",
-                        "desc": "次要按钮hover背景色,如：#223325"
+                        "desc": "次要按钮hover背景色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary_secondary"
+                            ]
+                        }
                     },
                     "--button-background-hover": {
                         "type": "color",
-                        "desc": "按钮hover背景色,如：#223325"
+                        "desc": "按钮hover背景色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-background-danger-hover": {
                         "type": "color",
-                        "desc": "危险按钮hover背景色,如：#223325"
+                        "desc": "危险按钮hover背景色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     },
                     "--button-background-danger-secondary-hover": {
                         "type": "color",
-                        "desc": "次要危险按钮hover背景色,如：#223325"
+                        "desc": "次要危险按钮hover背景色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger_secondary"
+                            ]
+                        }
                     },
                     "--button-background-primary-active": {
                         "type": "color",
-                        "desc": "主要按钮背景色（激活状态）,如：#223325"
+                        "desc": "主要按钮背景色（激活状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-background-primary-secondary-active": {
                         "type": "color",
-                        "desc": "次要按钮背景色（激活状态）,如：#223325"
+                        "desc": "次要按钮背景色（激活状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary_secondary"
+                            ]
+                        }
                     },
                     "--button-background-active": {
                         "type": "color",
-                        "desc": "按钮背景色（激活状态）,如：#223325"
+                        "desc": "按钮背景色（激活状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-background-danger-active": {
                         "type": "color",
-                        "desc": "危险按钮背景色（激活状态）,如：#223325"
+                        "desc": "危险按钮背景色（激活状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     },
                     "--button-background-danger-secondary-active": {
                         "type": "color",
-                        "desc": "次要危险按钮背景色（激活状态）,如：#223325"
+                        "desc": "次要危险按钮背景色（激活状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger_secondary"
+                            ]
+                        }
                     },
                     "--button-background-primary-disabled": {
                         "type": "color",
-                        "desc": "主要按钮背景色（禁用状态）,如：#223325"
+                        "desc": "主要按钮背景色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-background-primary-secondary-disabled": {
                         "type": "color",
-                        "desc": "次要按钮背景色（禁用状态）,如：#223325"
+                        "desc": "次要按钮背景色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary_secondary"
+                            ]
+                        }
                     },
                     "--button-background-disabled": {
                         "type": "color",
-                        "desc": "按钮背景色（禁用状态）,如：#223325"
+                        "desc": "按钮背景色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-background-danger-disabled": {
                         "type": "color",
-                        "desc": "危险按钮背景色（禁用状态）,如：#223325"
+                        "desc": "危险按钮背景色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     },
                     "--button-background-danger-secondary-disabled": {
                         "type": "color",
-                        "desc": "次要危险按钮背景色（禁用状态）,如：#223325"
+                        "desc": "次要危险按钮背景色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger_secondary"
+                            ]
+                        }
                     },
                     "--button-border-color-primary": {
                         "type": "color",
-                        "desc": "主要按钮边框颜色,如：#223325"
+                        "desc": "主要按钮边框颜色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-border-color-primary-secondary": {
                         "type": "color",
-                        "desc": "次要按钮边框颜色,如：#223325"
+                        "desc": "次要按钮边框颜色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary_secondary"
+                            ]
+                        }
                     },
                     "--button-border-color": {
                         "type": "color",
-                        "desc": "按钮边框颜色,如：#223325"
+                        "desc": "按钮边框颜色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-border-color-danger": {
                         "type": "color",
-                        "desc": "危险按钮边框颜色,如：#223325"
+                        "desc": "危险按钮边框颜色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     },
                     "--button-border-color-danger-secondary": {
                         "type": "color",
-                        "desc": "次要危险按钮边框颜色,如：#223325"
+                        "desc": "次要危险按钮边框颜色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger_secondary"
+                            ]
+                        }
                     },
                     "--button-border-color-primary-hover": {
                         "type": "color",
-                        "desc": "主要按钮边框颜色(hover状态),如：#223325"
+                        "desc": "主要按钮边框颜色(hover状态),如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-border-color-primary-secondary-hover": {
                         "type": "color",
-                        "desc": "次要按钮边框颜色(hover状态),如：#223325"
+                        "desc": "次要按钮边框颜色(hover状态),如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary_secondary"
+                            ]
+                        }
                     },
                     "--button-border-color-hover": {
                         "type": "color",
-                        "desc": "按钮边框颜色(hover状态),如：#223325"
+                        "desc": "按钮边框颜色(hover状态),如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-border-color-danger-hover": {
                         "type": "color",
-                        "desc": "危险按钮边框颜色(hover状态),如：#223325"
+                        "desc": "危险按钮边框颜色(hover状态),如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     },
                     "--button-border-color-danger-secondary-hover": {
                         "type": "color",
-                        "desc": "次要危险按钮边框颜色(hover状态),如：#223325"
+                        "desc": "次要危险按钮边框颜色(hover状态),如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger_secondary"
+                            ]
+                        }
                     },
                     "--button-border-color-primary-active": {
                         "type": "color",
-                        "desc": "主要按钮边框颜色(active状态),如：#223325"
+                        "desc": "主要按钮边框颜色(active状态),如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-border-color-primary-secondary-active": {
                         "type": "color",
-                        "desc": "次要按钮边框颜色(active状态),如：#223325"
+                        "desc": "次要按钮边框颜色(active状态),如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary_secondary"
+                            ]
+                        }
                     },
                     "--button-border-color-active": {
                         "type": "color",
-                        "desc": "按钮边框颜色(active状态),如：#223325"
+                        "desc": "按钮边框颜色(active状态),如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-border-color-danger-active": {
                         "type": "color",
-                        "desc": "危险按钮边框颜色(active状态),如：#223325"
+                        "desc": "危险按钮边框颜色(active状态),如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     },
                     "--button-border-color-danger-secondary-active": {
                         "type": "color",
-                        "desc": "次要危险按钮边框颜色(active状态),如：#223325"
+                        "desc": "次要危险按钮边框颜色(active状态),如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger_secondary"
+                            ]
+                        }
                     },
                     "--button-border-color-primary-disabled": {
                         "type": "color",
-                        "desc": "主要按钮边框颜色（禁用状态）,如：#223325"
+                        "desc": "主要按钮边框颜色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-border-color-primary-secondary-disabled": {
                         "type": "color",
-                        "desc": "次要按钮边框颜色（禁用状态）,如：#223325"
+                        "desc": "次要按钮边框颜色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary_secondary"
+                            ]
+                        }
                     },
                     "--button-border-color-disabled": {
                         "type": "color",
-                        "desc": "按钮边框颜色（禁用状态）,如：#223325"
+                        "desc": "按钮边框颜色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-border-color-danger-disabled": {
                         "type": "color",
-                        "desc": "危险按钮边框颜色（禁用状态）,如：#223325"
+                        "desc": "危险按钮边框颜色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     },
                     "--button-border-color-danger-secondary-disabled": {
                         "type": "color",
-                        "desc": "次要危险按钮边框颜色（禁用状态）,如：#223325"
+                        "desc": "次要危险按钮边框颜色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger_secondary"
+                            ]
+                        }
                     },
                     "--button-font-size-mini": {
                         "type": "input",
@@ -1242,83 +1450,187 @@
                     },
                     "--button-color-primary": {
                         "type": "color",
-                        "desc": "主要按钮字体颜色,如：#223325"
+                        "desc": "主要按钮字体颜色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-color-primary-secondary": {
                         "type": "color",
-                        "desc": "次要按钮字体颜色,如：#223325"
+                        "desc": "次要按钮字体颜色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary_secondary"
+                            ]
+                        }
                     },
                     "--button-color": {
                         "type": "color",
-                        "desc": "默认按钮字体颜色,如：#223325"
+                        "desc": "默认按钮字体颜色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-color-danger": {
                         "type": "color",
-                        "desc": "危险按钮字体颜色,如：#223325"
+                        "desc": "危险按钮字体颜色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     },
                     "--button-color-danger-secondary": {
                         "type": "color",
-                        "desc": "次要危险按钮字体颜色,如：#223325"
+                        "desc": "次要危险按钮字体颜色,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger_secondary"
+                            ]
+                        }
                     },
                     "--button-color-primary-hover": {
                         "type": "color",
-                        "desc": "主要按钮字体颜色（hover状态）,如：#223325"
+                        "desc": "主要按钮字体颜色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-color-primary-secondary-hover": {
                         "type": "color",
-                        "desc": "次要按钮字体颜色（hover状态）,如：#223325"
+                        "desc": "次要按钮字体颜色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary_secondary"
+                            ]
+                        }
                     },
                     "--button-color-hover": {
                         "type": "color",
-                        "desc": "默认按钮字体颜色（hover状态）,如：#223325"
+                        "desc": "默认按钮字体颜色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-color-danger-hover": {
                         "type": "color",
-                        "desc": "危险按钮字体颜色（hover状态）,如：#223325"
+                        "desc": "危险按钮字体颜色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     },
                     "--button-color-danger-secondary-hover": {
                         "type": "color",
-                        "desc": "次要危险按钮字体颜色（hover状态）,如：#223325"
+                        "desc": "次要危险按钮字体颜色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger_secondary"
+                            ]
+                        }
                     },
                     "--button-color-primary-active": {
                         "type": "color",
-                        "desc": "主要按钮字体颜色（active状态）,如：#223325"
+                        "desc": "主要按钮字体颜色（active状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-color-primary-secondary-active": {
                         "type": "color",
-                        "desc": "次要按钮字体颜色（active状态）,如：#223325"
+                        "desc": "次要按钮字体颜色（active状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary_secondary"
+                            ]
+                        }
                     },
                     "--button-color-active": {
                         "type": "color",
-                        "desc": "默认按钮字体颜色（active状态）,如：#223325"
+                        "desc": "默认按钮字体颜色（active状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-color-danger-active": {
                         "type": "color",
-                        "desc": "危险按钮字体颜色（active状态）,如：#223325"
+                        "desc": "危险按钮字体颜色（active状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     },
                     "--button-color-danger-secondary-active": {
                         "type": "color",
-                        "desc": "次要危险按钮字体颜色（active状态）,如：#223325"
+                        "desc": "次要危险按钮字体颜色（active状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger_secondary"
+                            ]
+                        }
                     },
                     "--button-color-primary-disabled": {
                         "type": "color",
-                        "desc": "主要按钮字体颜色（禁用状态）,如：#223325"
+                        "desc": "主要按钮字体颜色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-color-primary-secondary-disabled": {
                         "type": "color",
-                        "desc": "次要按钮字体颜色（禁用状态）,如：#223325"
+                        "desc": "次要按钮字体颜色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary_secondary"
+                            ]
+                        }
                     },
                     "--button-color-disabled": {
                         "type": "color",
-                        "desc": "默认按钮字体颜色（禁用状态）,如：#223325"
+                        "desc": "默认按钮字体颜色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-color-danger-disabled": {
                         "type": "color",
-                        "desc": "危险按钮字体颜色（禁用状态）,如：#223325"
+                        "desc": "危险按钮字体颜色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     },
                     "--button-color-danger-secondary-disabled": {
                         "type": "color",
-                        "desc": "次要危险按钮字体颜色（禁用状态）,如：#223325"
+                        "desc": "次要危险按钮字体颜色（禁用状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger_secondary"
+                            ]
+                        }
                     },
                     "--button-border-width": {
                         "type": "input",
@@ -1330,35 +1642,59 @@
                     },
                     "--button-box-shadow-focus-color": {
                         "type": "color",
-                        "desc": "按钮边框阴影背景颜色（选中状态）,如：#223325"
+                        "desc": "按钮边框阴影背景颜色（选中状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-box-shadow-focus-primary-color": {
                         "type": "color",
-                        "desc": "主要按钮边框阴影背景颜色（选中状态）,如：#223325"
+                        "desc": "主要按钮边框阴影背景颜色（选中状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-box-shadow-focus-danger-color": {
                         "type": "color",
-                        "desc": "危险按钮边框阴影背景颜色（选中状态）,如：#223325"
-                    },
-                    "--button-box-shadow-active-color": {
-                        "type": "color",
-                        "desc": "按钮边框阴影背景颜色（激活状态）,如：#223325"
+                        "desc": "危险按钮边框阴影背景颜色（选中状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     },
                     "--button-box-shadow-focus": {
                         "type": "input",
-                        "desc": "按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
+                        "desc": "按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2)",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        }
                     },
                     "--button-box-shadow-focus-primary": {
                         "type": "input",
-                        "desc": "主要按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
+                        "desc": "主要按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2)",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        }
                     },
                     "--button-box-shadow-focus-danger": {
                         "type": "input",
-                        "desc": "危险按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
-                    },
-                    "--button-box-shadow-active": {
-                        "type": "input",
-                        "desc": "按钮边框阴影效果（激活状态）,如：inset 0 1px 3px rgba(0, 0, 0, 0.2)"
+                        "desc": "危险按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2)",
+                        "depAttrs": {
+                            "color": [
+                                "danger"
+                            ]
+                        }
                     }
                 },
                 "preview": {
