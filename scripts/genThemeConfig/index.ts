@@ -39,27 +39,27 @@ _root.nodes.forEach((node) => {
                 }
             }
         } else if (lastComponent) {
-            if (node.text.trim() === '@hidden') {
+            if (node.text.trim() === '@hidden') { // 不展示此变量
                 delete lastComponent.cssProperty[lastProp];
-            } else if (node.text.includes('@type ')) {
+            } else if (node.text.includes('@type ')) { // 变量展示、输入的类型
                 const cap = /@type\s+([\w-]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].type = cap[1].trim();
-            } else if (node.text.includes('@desc ')) {
+            } else if (node.text.includes('@desc ')) { // 描述
                 const cap = /@desc\s+([\u4e00-\u9fa5|\w|,|\s|：|\#|（|）|(|)|\.|，]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].desc = cap[1].trim()
-            } else if (node.text.includes('@group ')) {
+            } else if (node.text.includes('@group ')) { // 变量的分组
                 const cap = /@group\s+([\S]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].group = cap[1].trim();
-            } else if (node.text.includes('@prefix ')) {
+            } else if (node.text.includes('@prefix ')) { // 变量前缀，方便让子组件去除变量前缀
                 const cap = /@prefix\s+([\S]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].prefix = cap[1].trim();
-            } else if (node.text.includes('@depAttrs ')) {
+            } else if (node.text.includes('@depAttrs ')) { // 此变量依赖的属性
                 const cap = /@depAttrs\s+(.*)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].depAttrs = JSON.parse(cap[1] || '{}');
-            } else if (node.text.includes('@excludeElTags ')) {
+            } else if (node.text.includes('@excludeElTags ')) {  // 排除elTag
                 const cap = /@excludeElTags\s+([\S]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].excludeElTags = cap[1].trim().split(',');
-            } else if (node.text.includes('@excludeTags ')) {
+            } else if (node.text.includes('@excludeTags ')) { // 排除组件
                 const cap = /@excludeTags\s+([\S]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].excludeTags = cap[1].trim().split(',');
             } else if (node.text.includes('@title ')) {
