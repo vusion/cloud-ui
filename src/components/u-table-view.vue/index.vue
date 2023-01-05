@@ -2186,7 +2186,7 @@ export default {
 }
 
 .head-title.boldHeader {
-    font-weight: var(--table-head-font-weight);
+    font-weight: bold;
 }
 .head-title[last-left-fixed]::after,
 .head-title[first-right-fixed]::after{
