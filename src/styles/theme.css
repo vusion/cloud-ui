@@ -805,7 +805,7 @@
     --table-view-th-padding: 10px 6px 10px 10px; /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头内间距,如 1px */ /* @excludeElTags td */
     --table-view-th-background: var(--table-view-head-background); /* @type color */ /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头内背景色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-td-line-height: 20px; /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区行高,如 1px */ /* @excludeElTags th */
-    --table-view-td-padding: 10px 6px 10px 10px; /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格表头背景色,如 #223325 */ /* @excludeElTags th */
+    --table-view-td-padding: 10px 6px 10px 10px; /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区内边距,如 1px */ /* @excludeElTags th */
     --table-view-td-background: var(--table-view-background);/* @type color */ /* @group 内容区 */ /* @prefix table-view */ /* @desc 表格列内容区背景色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-drop-ghost-border-color: var(--brand-primary); /* @type color */ /* @desc 表格拖拽放置示意线颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-drop-ghost-mask-background: rgba(77, 136, 255, 0.1); /* @type color */ /* @desc 表格拖拽放置示意框背景颜色,如 #223325 */ /* @excludeElTags td,th */

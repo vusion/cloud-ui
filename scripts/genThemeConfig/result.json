@@ -2927,7 +2927,7 @@
                         "type": "input",
                         "group": "内容区",
                         "prefix": "table-view",
-                        "desc": "表格表头背景色,如 #223325",
+                        "desc": "表格内容区内边距,如 1px",
                         "excludeElTags": [
                             "th"
                         ]
