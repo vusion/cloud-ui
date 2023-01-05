@@ -2,7 +2,7 @@
 
 ``` html
 <u-timeline>
-    <template #item="scope">
+    <template #item="current">
         <u-timeline-item insource>
             <template #label>
             </template>

@@ -2,6 +2,6 @@
 
 ``` html
 <u-checkboxes>
-    <template #item="scope"></template>
+    <template #item="current"></template>
 </u-checkboxes>
 ```

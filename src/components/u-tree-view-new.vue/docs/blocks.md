@@ -2,7 +2,7 @@
 
 ``` html { width: 30% }
 <u-tree-view-new>
-    <template #item="scope">
+    <template #item="current">
     </template>
 </u-tree-view-new>
 ```

@@ -2,6 +2,6 @@
 
 ``` html
 <u-radios>
-    <template #item="scope"></template>
+    <template #item="current"></template>
 </u-radios>
 ```

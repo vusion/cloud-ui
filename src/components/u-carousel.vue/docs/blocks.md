@@ -2,6 +2,6 @@
 
 ``` html
 <u-carousel style="width:100%">
-    <template #item="scope"></template>
+    <template #item="current"></template>
 </u-carousel>
 ```

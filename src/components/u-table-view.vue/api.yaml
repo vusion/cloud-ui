@@ -341,7 +341,7 @@
         - name: u-table-view-column
           title: 表格列
           snippet: '<u-table-view-column title="表格列"><template
-            #cell="scope"></template></u-table-view-column>'
+            #cell="current"></template></u-table-view-column>'
       supportGenericComponents:
         - u-table-view-column
     - concept: Slot
@@ -362,12 +362,12 @@
       description: 自定义拖拽缩略图
       slotProps:
         concept: Param
-        name: scope
+        name: current
         typeAnnotation:
           concept: TypeAnnotation
           typeKind: generic
           typeNamespace: nasl.ui
-          typeName: ScopeOf
+          typeName: Current
           typeArguments:
           - concept: TypeAnnotation
             typeKind: typeParam
@@ -905,12 +905,12 @@
           description: 列的索引
       slotProps:
         concept: Param
-        name: scope
+        name: current
         typeAnnotation:
           concept: TypeAnnotation
           typeKind: generic
           typeNamespace: nasl.ui
-          typeName: ScopeOf
+          typeName: Current
           typeArguments:
           - concept: TypeAnnotation
             typeKind: typeParam
@@ -943,12 +943,12 @@
           description: 列的索引
       slotProps:
         concept: Param
-        name: scope
+        name: current
         typeAnnotation:
           concept: TypeAnnotation
           typeKind: generic
           typeNamespace: nasl.ui
-          typeName: ScopeOf
+          typeName: Current
           typeArguments:
           - concept: TypeAnnotation
             typeKind: typeParam
@@ -999,12 +999,12 @@
           description: 展开列的索引
       slotProps:
         concept: Param
-        name: scope
+        name: current
         typeAnnotation:
           concept: TypeAnnotation
           typeKind: generic
           typeNamespace: nasl.ui
-          typeName: ScopeOf
+          typeName: Current
           typeArguments:
           - concept: TypeAnnotation
             typeKind: typeParam
