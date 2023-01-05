@@ -366,13 +366,6 @@
         - value: space-around
           updateData:
             gap: normal
-    - name: wrap
-      title: 是否换行
-      type: boolean
-      default: true
-      description: 弹性布局下子元素总宽度超出父级时子元素是否换行展示
-      dependency:
-        - mode: flex
     - name: gap
       title: 内容间隙
       type: string
