@@ -1636,8 +1636,8 @@
     --drawer-static-padding: var(--space-base); /* @hidden */
 
     /* @component u-image */
-    --image-width: 128px; /* @desc 图片宽度,如：1px */
-    --image-height: 128px; /* @desc 图片高度,如：1px */
+    --image-width: 100%; /* @desc 图片宽度,如：1px */
+    --image-height: 100%; /* @desc 图片高度,如：1px */
 
     /* @component u-lightbox @hidden */
     --lightbox-head-height: 64px;

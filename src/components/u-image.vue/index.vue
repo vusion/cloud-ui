@@ -142,8 +142,8 @@ export default {
 }
 
 .root img {
-    width: 100%;
-    height: 100%;
+    width: var(--image-width);
+    height: var(--image-height);
     display: block;
     max-width: none;
     max-height: none;
@@ -151,8 +151,8 @@ export default {
 }
 
 .root .loading {
-    width: 100%;
-    height: 100%;
+    width: var(--image-width);
+    height: var(--image-height);
     display: flex;
     align-items: center;
     justify-content: center;
