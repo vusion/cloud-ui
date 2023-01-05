@@ -18,7 +18,8 @@
                     && !!$attrs['vusion-node-path']
                 "
             ></s-empty>
-            <i :class="$style.icon"></i>
+            <i :class="$style.icon" v-if="type !== 'more'"></i>
+            <i-ico name=more v-else :class="$style.iconMore"></i-ico>
         </div>
         <m-popper
             :class="$style.popper"
@@ -126,11 +127,17 @@ export default {
 
 .root[type="primary"],
 .root[type="primary_secondary"],
-.root[type="normal"] {
+.root[type="normal"]{
     line-height: 30px;
     padding: 0 39px 0 15px;
     border-radius: 4px;
 }
+.root[type="more"] {
+    line-height: 30px;
+    padding: 0 48px 0 15px;
+    border-radius: 4px;
+}
+
 .root[type="primary"] .icon,
 .root[type="primary_secondary"] .icon,
 .root[type="normal"] .icon {
@@ -177,18 +184,21 @@ export default {
     box-shadow: var(--button-box-shadow-active-primary-secondary);
 }
 
-/* normal */
-.root[type="normal"] {
+/* normal & more */
+.root[type="normal"],
+.root[type="more"]{
     border: var(--button-border-width) solid var(--button-border-color);
     background: var(--button-background);
     color: var(--button-color);
 }
-.root[type="normal"]:hover {
+.root[type="normal"]:hover,
+.root[type="more"]:hover{
     border: var(--button-border-width) solid var(--button-border-color-hover);
     background: var(--button-background-hover);
     color: var(--button-color-hover);
 }
-.root[type="normal"]:active {
+.root[type="normal"]:active,
+.root[type="more"]:active{
     border: var(--button-border-width) solid var(--button-border-color-active);
     background: var(--button-background-active);
     color: var(--button-color-active);
@@ -197,7 +207,8 @@ export default {
 
 .root[type="primary"][disabled],
 .root[type="primary_secondary"][disabled],
-.root[type="normal"][disabled] {
+.root[type="normal"][disabled],
+.root[type="more"][disabled]{
     border: var(--button-border-width) solid var(--button-border-color-disabled);
     background: var(--button-background-disabled);
     color: var(--button-color-disabled);
@@ -207,7 +218,7 @@ export default {
 .title {
 }
 
-.icon {
+.icon{
     position: absolute;
     top: 50%;
     right: 0;
@@ -219,6 +230,18 @@ export default {
     icon-font: url("../i-icon.vue/icons/keyboard-arrow-down.svg");
 }
 
+.iconMore {
+    position: absolute;
+    font-size: 18px;
+    padding-left: 6px;
+    margin-left: 16px;
+    border-left: var(--button-border-width) solid var(--button-border-color);
+}
+.root[type="more"]:hover .iconMore,
+.root[type="more"]:active .iconMore,
+.iconMore:hover {
+    border-left: var(--button-border-width) solid var(--button-border-color-primary-hover);
+}
 .popper {
     width: 120px;
     min-width: 100%;
