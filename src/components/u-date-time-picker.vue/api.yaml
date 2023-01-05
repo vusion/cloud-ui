@@ -51,6 +51,16 @@
       type: boolean
       default: false
       description: ""
+    - name: showFooter
+      title: 面板下方按钮
+      type: boolean
+      default: true
+      description: ""
+    - name: footerContent
+      title: 面板下方按钮文案
+      type: string
+      default: ""
+      description: ""
     - name: yearDiff
       title: 最小可选年份到当前年份的差值
       type: number

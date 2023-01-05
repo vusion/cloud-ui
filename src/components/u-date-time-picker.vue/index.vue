@@ -36,14 +36,14 @@
                 :border="false"
                 @select="outRangeDateTime($event.date, showTime)">
             </u-calendar>
-            <div :class="$style.footer">
+            <div :class="$style.footer" v-if="showFooter">
                 <u-linear-layout justify="space-between">
                     <u-linear-layout :class="$style.ctimewrap">
-                        <u-link @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ $t('now') }}</u-link>
+                        <u-link @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ this.footerContentList.length === 3 ? footerContentList[0] : $t('now') }}</u-link>
                     </u-linear-layout>
                     <u-linear-layout :class="$style.btnwrap">
-                        <u-button @click="onCancel">{{ $t('cancel') }}</u-button>
-                        <u-button @click="onConfirm" color="primary" :readonly="readonly" :disabled="disabled">{{ $t('submit') }}</u-button>
+                        <u-button @click="onCancel">{{ this.footerContentList.length === 3 ? footerContentList[1] :$t('cancel') }}</u-button>
+                        <u-button @click="onConfirm" color="primary" :readonly="readonly" :disabled="disabled">{{ this.footerContentList.length === 3 ? footerContentList[2] : $t('submit') }}</u-button>
                     </u-linear-layout>
                 </u-linear-layout>
             </div>
@@ -115,6 +115,8 @@ export default {
         },
         width: String,
         height: String,
+        showFooter: { type: Boolean, default: true },
+        footerContent: {type: String, default: ""}
     },
     data() {
         return {
@@ -160,6 +162,9 @@ export default {
             else if (this.alignment === 'right')
                 return 'bottom-end';
             return '';
+        },
+        footerContentList(){
+            return this.footerContent.split(' ');
         },
     },
     watch: {
@@ -291,7 +296,12 @@ export default {
                 sender: this,
                 date: new Date(date).getTime(),
             });
+            // 隐藏底部按钮时，更新日期相当于直接确认操作
             this.preventBlur = true;
+            if (!this.showFooter) {
+                this.finalDateTime = this.dateTime;
+                this.emitValue();
+            }
         },
         /**
          * @method onDateTimeChange(date, time) 日期或时间改变后更新日期时间
