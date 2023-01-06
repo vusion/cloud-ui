@@ -7,6 +7,13 @@ export default {
     "description": "",
     "glyphs": [
         {
+            "icon_id": "33686384",
+            "name": "add-new",
+            "font_class": "add-new",
+            "unicode": "e618",
+            "unicode_decimal": 58904
+        },
+        {
             "icon_id": "29749064",
             "name": "加载中",
             "font_class": "loading",
