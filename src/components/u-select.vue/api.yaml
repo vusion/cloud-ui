@@ -32,6 +32,10 @@
       type: string
       default: value
       description: 集合的元素类型中，用于标识选中值的属性
+    - name: description-field
+      title: 文本描述字段
+      type: string
+      description: 集合的元素类型中，用于显示文本下方辅助描述的属性名称
     - name: cancelable
       title: 可取消
       type: boolean
@@ -515,6 +519,10 @@
       title: 选项文本
       type: string
       description: 此项的显示值
+    - name: description
+      title: 选项文本描述
+      type: string
+      description: 选项文本的辅助描述，展示在选项文本下方
     - name: disabled
       title: 禁用此项
       type: boolean
@@ -531,12 +539,12 @@
       description: 插入文本或 HTML。
       slotProps:
         concept: Param
-        name: scope
+        name: current
         typeAnnotation:
           concept: TypeAnnotation
           typeKind: generic
           typeNamespace: nasl.ui
-          typeName: ScopeOf
+          typeName: Current
           typeArguments:
           - concept: TypeAnnotation
             typeKind: typeParam

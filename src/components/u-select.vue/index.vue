@@ -83,8 +83,9 @@
                     :text="$at2(item, field || textField)"
                     :value="$at2(item, valueField)"
                     :disabled="item.disabled || disabled"
-                    :item="item">
-                    <slot name="text" :item="item" :text="$at2(item, field || textField)" :value="$at2(item, valueField)" :disabled="item.disabled || disabled">{{ $at2(item, field || textField) }}</slot>
+                    :item="item"
+                    :description="$at2(item, descriptionField)">
+                    <slot name="text" :item="item" :text="$at2(item, field || textField)" :value="$at2(item, valueField)" :disabled="item.disabled || disabled" :description="$at2(item, descriptionField)">{{ $at2(item, field || textField) }}</slot>
                 </component>
             </template>
         </template>
@@ -157,6 +158,7 @@ export default {
         color: String,
         popperWidth: { type: String, default: '' },
         showEmptyText: { type: Boolean, default: true }, // 控制是否展示emptyText
+        descriptionField: String,
     },
     data() {
         return {

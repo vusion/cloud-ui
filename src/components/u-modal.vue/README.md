@@ -179,6 +179,7 @@ export default {
 | visible.sync | boolean |  | `false` | 弹窗默认打开 |
 | ok-button | string |  | `'确定'` | 确定按钮文本，如果为空则不显示 |
 | cancel-button | string |  | `'取消'` | 取消按钮文本，如果为空则不显示 |
+| show-head | boolean |  | `true` | 控制头部栏的显示 |
 | show-foot | boolean |  | `true` | 控制底部栏的显示 |
 | icon | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `''` |  |
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 弹窗的尺寸 |

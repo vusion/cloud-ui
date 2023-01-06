@@ -1267,6 +1267,7 @@
       "visible",
       "ok-button",
       "cancel-button",
+      "show-head",
       "show-foot",
       "icon",
       "size",
@@ -1653,6 +1654,7 @@
       "data-schema",
       "text-field",
       "value-field",
+      "description-field",
       "cancelable",
       "multiple",
       "tags-overflow",
@@ -1694,6 +1696,7 @@
     "attributes": [
       "value",
       "text",
+      "description",
       "disabled",
       "item"
     ],

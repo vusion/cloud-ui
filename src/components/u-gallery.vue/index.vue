@@ -33,13 +33,14 @@
 <script>
 import Swiper from 'swiper/swiper-bundle.esm.js';
 import 'swiper/swiper-bundle.min.css';
+import { formatDSResult } from '../../utils/DataSource/format';
 
 export default {
     name: 'u-gallery',
     components: { },
     props: {
         dataSource: {
-            type: [Array, Object, Function],
+            type: [Array, Object, Function, String],
             default: () => '[{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_1.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_2.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_3.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_4.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_5.png"}]',
         },
         num: {
@@ -117,18 +118,6 @@ export default {
         getUrl(item) {
             return item.thumb || item.url || item;
         },
-        fromValue(value) {
-            try {
-                if (value === null || value === undefined)
-                    return [];
-                if (typeof value === 'string')
-                    return JSON.parse(value || '[]');
-                if (typeof value === 'object')
-                    return value;
-            } catch (err) {
-                return [];
-            }
-        },
         async update() {
             if (typeof (this.dataSource) === 'function') {
                 try {
@@ -136,12 +125,12 @@ export default {
                         page: 1,
                         size: 1000,
                     });
-                    this.options = (res.content);
+                    this.options = formatDSResult(res);
                 } catch (error) {
                     console.error(error);
                 }
             } else {
-                this.options = (this.fromValue(this.dataSource));
+                this.options = (formatDSResult(this.dataSource));
             }
             this.renderSwiper();
         },

@@ -203,8 +203,8 @@ export default {
         hasChildren() {
             if(this.rootVM.virtualList) {
                 const { hiddenField } = this.rootVM;
-                const children = (this.node && this.node._children || [])
-                    .filter((node) => !node._collapsedParentCount && !(node.node && node.node[hiddenField]));
+                const children = (this.node && this.rootVM.childrenWm.get(this.node) || [])
+                    .filter((node) => !(node.node && node.node[hiddenField]));
                 return children.length > 0
             }
             
@@ -329,7 +329,7 @@ export default {
             nodes && nodes.forEach((child) => {
                 if(expanded) child._collapsedParentCount--;
                 else child._collapsedParentCount++;
-                this.toggleData(child.node && child.node._children, expanded);
+                this.toggleData(child.node && this.rootVM.childrenWm.get(child.node), expanded);
             });
         },
         toggle(expanded) {
@@ -386,7 +386,7 @@ export default {
                 final();
 
             if(this.rootVM.virtualList)
-                this.toggleData(this.node && this.node._children, expanded)
+                this.toggleData(this.node && this.rootVM.childrenWm.get(this.node), expanded)
         },
         checkControlled(checked) {
             this.currentChecked = checked;
@@ -528,6 +528,7 @@ export default {
             const { currentFields, node, $at } = this;
 
             const that = this;
+            let upperMatched;
             function dfs(node, parent = null, fields) {
                 if (!node)
                     return;
@@ -535,6 +536,9 @@ export default {
                 const hiddenByFilter = filterFields.every((field) => !$at(node, field) || !$at(node, field).toLowerCase().includes(filterText));
                 that.$set(node, 'hiddenByFilter', hiddenByFilter);
                 that.$set(node, 'expandedByFilter', false);
+
+                if(!hiddenByFilter)
+                    upperMatched = node;
 
                 if (!fields) {
                     const childrenField = node.childrenField || that.rootVM.childrenField;
@@ -557,6 +561,11 @@ export default {
                     that.$set(parent, 'expandedByFilter', true);
                     that.$set(parent, 'hiddenByFilter', false);
                 }
+
+                if(upperMatched === node)
+                    upperMatched = undefined;
+                else if(upperMatched)
+                    node.hiddenByFilter = false;
             }
             dfs(node, null, currentFields);
 

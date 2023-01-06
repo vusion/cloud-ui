@@ -75,12 +75,12 @@
       description: 插入文本或 HTML 至日期组件底部
       slotProps:
         concept: Param
-        name: scope
+        name: current
         typeAnnotation:
           concept: TypeAnnotation
           typeKind: generic
           typeNamespace: nasl.ui
-          typeName: ScopeOf
+          typeName: Current
           typeArguments:
           - concept: TypeAnnotation
             typeKind: typeParam

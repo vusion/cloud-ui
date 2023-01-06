@@ -4,6 +4,7 @@
         is="u-visible-drawer"
         v-bind="[$attrs, $props]"
         v-on="$listeners"
+        :style="getStyle()"
         ref="item"
         :vusion-scope-id="$vnode.context.$options._scopeId"
     >
@@ -83,6 +84,10 @@ export const UDrawer = {
         },
         openEvent() {
             this.$emit('open');
+        },
+        getStyle() {
+            const { staticStyle = {}, style = {} } = this.$vnode.data;
+            return { ...staticStyle, ...style };
         },
     },
 };

@@ -261,7 +261,7 @@
                             <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
                         </td>
                     </tr>
-                    <tr key="noMore" v-else-if="(pageable === 'auto-more' || pageable === 'load-more') && !currentDataSource.hasMore()">
+                    <tr key="noMore" v-else-if="((pageable === 'auto-more' && hasScroll) || pageable === 'load-more') && !currentDataSource.hasMore() && (currentData && currentData.length)">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             {{ $t('noMore') }}
                         </td>
@@ -435,6 +435,7 @@ export default {
             dropData: undefined,
             rowDraggable: false,
             handlerDraggable: false,
+            hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
         };
     },
     computed: {
@@ -1002,6 +1003,7 @@ export default {
             this.syncHeadScroll();
         },
         onScrollView(data) {
+            this.hasScroll = true;
             if (!this.useStickyFixed) {
                 this.syncScrollViewScroll(data.scrollTop, data.target);
             }
@@ -2184,7 +2186,7 @@ export default {
 }
 
 .head-title.boldHeader {
-    font-weight: var(--table-head-font-weight);
+    font-weight: bold;
 }
 .head-title[last-left-fixed]::after,
 .head-title[first-right-fixed]::after{
