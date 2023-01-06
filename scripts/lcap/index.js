@@ -4,6 +4,9 @@ const fs = require('fs-extra');
 const map = [];
 const getUsage = require('vusion/lib/lcap');
 const root = path.join(__dirname, '../../src/components');
+const defaultTheme = require('../genThemeConfig/property.json');
+const themeConfig = require('../genThemeConfig/result.json');
+
 components.forEach((component) => {
     if (component.show) {
         const targetFile = path.join(root, component.name + '.vue');
@@ -28,4 +31,12 @@ Object.values(map).forEach((item) => {
     item.jsonSchema.drawings = drawings.join(',');
 });
 
+// 晚点可以去掉，以文件形式获取，不走资产中心了
 fs.writeFileSync(path.join(__dirname, './usage.json'), JSON.stringify(map, null, 4));
+
+fs.writeFileSync(path.join(__dirname, '../../dist-theme/usage.json'), JSON.stringify(map, null, 4));
+const theme = {
+    defaultTheme: JSON.stringify(defaultTheme),
+    themeConfig: JSON.stringify(themeConfig),
+};
+fs.writeFileSync(path.join(__dirname, '../../dist-theme/theme.json'), JSON.stringify(theme, null, 4));
