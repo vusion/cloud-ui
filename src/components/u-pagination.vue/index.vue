@@ -209,6 +209,7 @@ export default {
     padding: 0;
     vertical-align: 1px;
     text-align: right;
+    font-size: var(--pagination-item-font-size);
 }
 
 .root a:not(:last-child) {
@@ -222,7 +223,6 @@ export default {
     min-width: var(--pagination-item-width);
     height: var(--pagination-item-height);
     line-height: calc(var(--pagination-item-height) - 1px * 2);
-    font-size: var(--pagination-item-font-size);
     text-align: center;
     background: var(--pagination-item-background);
     color: var(--pagination-item-color);
