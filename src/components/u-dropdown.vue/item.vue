@@ -68,4 +68,7 @@ export default {
 .root[selected][disabled] {
     background: var(--background-color-disabled);
 }
+.root .singleicon {
+    margin-right: 4px;
+}
 </style>

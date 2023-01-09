@@ -213,7 +213,7 @@
 .root[prefix] .placeholder {
     left: var(--input-prefix-placeholder-left);
 }
-.root[prefix] .placeholder, 
+.root[prefix] .placeholder,
 .root[suffix] .placeholder {
     width: calc(100% - var(--input-prefix-placeholder-left));
 }
@@ -223,9 +223,7 @@
     padding-right: 50px;
 }
 
-.prefix[name="search"]::before, .suffix > [name="search"]::before {
-    icon-font: url("./assets/search.svg");
-    font-size: 16px;
+.root .singleicon{
     color: var(--input-icon-color);
 }
 

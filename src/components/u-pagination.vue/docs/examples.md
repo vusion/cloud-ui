@@ -89,3 +89,11 @@
     <u-pagination :total="11" simple disabled></u-pagination>
 </u-linear-layout>
 ```
+
+### 修复样式字体无效的bug
+
+```html
+<u-linear-layout direction="vertical">
+    <u-pagination :total="11" style="font-size: 18px;"></u-pagination>
+</u-linear-layout>
+```

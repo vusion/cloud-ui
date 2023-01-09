@@ -13,6 +13,7 @@
     <i-ico name=bottom-arrow><u-text>下箭头</u-text></i-ico>
     <i-ico name=close><u-text>关闭</u-text></i-ico>
     <i-ico name=add><u-text>添加</u-text></i-ico>
+    <i-ico name=add-new><u-text>添加2</u-text></i-ico>
     <i-ico name=search><u-text>搜索</u-text></i-ico>
     <i-ico name=more><u-text>更多</u-text></i-ico>
     <i-ico name=home><u-text>首页</u-text></i-ico>
