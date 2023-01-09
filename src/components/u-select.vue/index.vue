@@ -232,8 +232,10 @@ export default {
                 this.collapseCounter = 0;
                 const collapseTagWidth = 30;
                 const marginWidth = 3
+                let lastAddElementWidth = 0;
                 // 预留出"+N"的标签宽度
                 let inputWidth = this.$refs.inputOuter.offsetWidth - collapseTagWidth;
+                // 先计算前N-1个元素长度是否超出输入框
                 for (let i=0; i < this.selectedVMs.length -1 ; i++) {
                     if (this.$refs[`item_${i}`]) {
                         this.$refs[`item_${i}`][0].style.display = 'inline-block';
@@ -245,13 +247,25 @@ export default {
                         this.collapseCounter += 1;
                     }
                 }
-                // 隐藏移除元素
-                if (this.collapseCounter === this.selectedVMs.length || this.selectedVMs.length === 1) return
-                for (let i = this.collapseCounter; i < this.selectedVMs.length; i++) {
-                    this.$nextTick(()=>{
-                        this.$refs[`item_${i}`][0].style.display = 'none';
-                    })
-                }
+                // 计算最后一个元素能否加入输入框
+                this.$nextTick(()=>{
+                    const lastItem = this.$refs[`item_${this.selectedVMs.length - 1}`]
+                    if (lastItem) {
+                        lastItem[0].style.display = 'inline-block';
+                        lastAddElementWidth = lastItem[0].offsetWidth;
+                    }
+                    if (inputWidth > 0 && inputWidth - lastAddElementWidth > 0) {
+                        this.collapseCounter += 1;
+                    }
+                    // 隐藏掉超出输入框长度的元素
+                    if (this.collapseCounter === this.selectedVMs.length || this.selectedVMs.length === 1) return
+                    for (let i = this.collapseCounter; i < this.selectedVMs.length; i++) {
+                        this.$nextTick(()=>{
+                            this.$refs[`item_${i}`][0].style.display = 'none';
+                        })
+                    }
+                })
+
             }
         });
         this.$on('select', ($event) => {
