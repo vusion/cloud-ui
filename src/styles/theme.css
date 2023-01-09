@@ -792,27 +792,26 @@
 
     /* @component u-table-view */
     --table-view-row-hover-background: #f9f9f9; /* @type color */ /* @group 行 */ /* @prefix table-view-row */ /* @desc 表格行背景色（hover状态）,如 #223325 */ /* @excludeElTags th */
-    --table-view-head-background: #f7f8fa; /* @type color */ /* @desc 表格表头背景色,如 #223325 */ /* @excludeElTags td,th */
     --table-head-font-weight: normal; /* @prefix table */ /* @desc 表格表头字体加粗,如 normal */ /* @excludeElTags td,th */
     --table-view-head-item-size: var(--font-size-base); /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头字体大小,如 1px */ /* @excludeElTags td */
     --table-row-background-striped: var(--background-color-lighter); /* @type color */ /* @group 行 */ /* @prefix table */ /* @desc 表格条纹展示行背景色,如 #223325 */ /* @excludeElTags th */
     --table-view-head-item-color: var(--gray-dark); /* @type color */ /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头文字颜色,如 #223325 */ /* @excludeElTags td */
-    --table-view-background: var(--background-color-default); /* @type color */ /* @desc 表格内容区背景色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-border-color: var(--border-color-base); /* @type color */ /* @group 内容区 */ /* @prefix table-view */ /* @desc 表格内容区边框颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-td-color: var(--color-base); /* @type color */ /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区文字颜色,如 #223325 */ /* @excludeElTags th */
     --table-view-th-text-align: left; /* @prefix table-view */ /* @desc 表格表头字体对齐方式,如 left */ /* @excludeElTags td */
     --table-view-th-line-height: 20px; /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头行高,如 1px */ /* @excludeElTags td */
     --table-view-th-padding: 10px 6px 10px 10px; /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头内间距,如 1px */ /* @excludeElTags td */
-    --table-view-th-background: var(--table-view-head-background); /* @type color */ /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头内背景色,如 #223325 */ /* @excludeElTags td,th */
+    --table-view-th-background-color: var(--table-view-head-background); /* @type color */ /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头内背景色,如 #223325 */ /* @excludeElTags td */
     --table-view-td-line-height: 20px; /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区行高,如 1px */ /* @excludeElTags th */
     --table-view-td-padding: 10px 6px 10px 10px; /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区内边距,如 1px */ /* @excludeElTags th */
-    --table-view-td-background: var(--table-view-background);/* @type color */ /* @group 内容区 */ /* @prefix table-view */ /* @desc 表格列内容区背景色,如 #223325 */ /* @excludeElTags td,th */
+    --table-view-td-background-color: var(--table-view-background);/* @type color */ /* @group 内容区 */ /* @prefix table-view */ /* @desc 表格列内容区背景色,如 #223325 */ /* @excludeElTags th */
     --table-view-drop-ghost-border-color: var(--brand-primary); /* @type color */ /* @desc 表格拖拽放置示意线颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-drop-ghost-mask-background: rgba(77, 136, 255, 0.1); /* @type color */ /* @desc 表格拖拽放置示意框背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-subrow-background-dragging:  rgba(237, 237, 237, 0.5);/* @type color */ /* @desc 表格被拖拽行子树背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-row-background-dragging: #e5e5e5;/* @type color */ /* @desc 表格被拖拽行背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-drag-cursor: move;/* @desc 拖拽鼠标样式 */ /* @excludeElTags td,th */
 
+    --table-view-head-background: #f7f8fa; /* @hidden */
     --table-view-head-title-sortable-hover: #eef2f8; /* @hidden */
     --table-view-sort-color-hover: #aaa; /* @hidden */
     --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
@@ -831,11 +830,10 @@
     --table-view-filter-line-height: 1.6; /* @hidden */
     --table-view-filter-border-color: var(--border-color-base); /* @hidden */
     --table-view-title-space: 10px; /* @hidden */
+    --table-view-background: var(--background-color-default); /* @hidden */
     --table-view-table-background: white; /* @hidden */
     --table-view-th-background-image: none; /* @hidden */
-    --table-view-th-background-color:var(--table-view-th-background); /* @hidden */
     --table-view-td-background-image: none; /* @hidden */
-    --table-view-td-background-color:var(--table-view-td-background); /* @hidden */
     --table-view-sort-color: #ccc; /* @hidden */
     --table-view-sort-color-active: var(--brand-primary); /* @hidden */
     --table-view-sort-size: 1em; /* @hidden */

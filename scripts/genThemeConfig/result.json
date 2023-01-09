@@ -2806,14 +2806,6 @@
                             "th"
                         ]
                     },
-                    "--table-view-head-background": {
-                        "type": "color",
-                        "desc": "表格表头背景色,如 #223325",
-                        "excludeElTags": [
-                            "td",
-                            "th"
-                        ]
-                    },
                     "--table-head-font-weight": {
                         "type": "input",
                         "prefix": "table",
@@ -2848,14 +2840,6 @@
                         "desc": "表格表头文字颜色,如 #223325",
                         "excludeElTags": [
                             "td"
-                        ]
-                    },
-                    "--table-view-background": {
-                        "type": "color",
-                        "desc": "表格内容区背景色,如 #223325",
-                        "excludeElTags": [
-                            "td",
-                            "th"
                         ]
                     },
                     "--table-view-border-color": {
@@ -2903,14 +2887,13 @@
                             "td"
                         ]
                     },
-                    "--table-view-th-background": {
+                    "--table-view-th-background-color": {
                         "type": "color",
                         "group": "表头",
                         "prefix": "table-view",
                         "desc": "表格表头内背景色,如 #223325",
                         "excludeElTags": [
-                            "td",
-                            "th"
+                            "td"
                         ]
                     },
                     "--table-view-td-line-height": {
@@ -2931,13 +2914,12 @@
                             "th"
                         ]
                     },
-                    "--table-view-td-background": {
+                    "--table-view-td-background-color": {
                         "type": "color",
                         "group": "内容区",
                         "prefix": "table-view",
                         "desc": "表格列内容区背景色,如 #223325",
                         "excludeElTags": [
-                            "td",
                             "th"
                         ]
                     },
