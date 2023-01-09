@@ -19,7 +19,7 @@ export default {
     min-height: 32px;
     text-align: center;
 }
-.fake[designer] {
+.fake[designer]:empty {
     background: linear-gradient(-45deg, white 25%,
     #f3f5fa 25%, #f3f5fa 50%,
     white 50%, white 75%,
