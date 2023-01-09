@@ -58,7 +58,7 @@ export default {
 }
 
 .root thead th {
-    text-align: var(--table-head-text-align);
+    text-align: var(--table-view-th-text-align);
     color: var(--table-head-color);
     font-weight: var(--table-head-font-weight);
 }

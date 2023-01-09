@@ -793,7 +793,6 @@
     /* @component u-table-view */
     --table-view-row-hover-background: #f9f9f9; /* @type color */ /* @group 行 */ /* @prefix table-view-row */ /* @desc 表格行背景色（hover状态）,如 #223325 */ /* @excludeElTags th */
     --table-view-head-background: #f7f8fa; /* @type color */ /* @desc 表格表头背景色,如 #223325 */ /* @excludeElTags td,th */
-    --table-head-text-align: left; /* @prefix table */ /* @desc 表格表头字体对齐方式,如 left */ /* @excludeElTags td,th */
     --table-head-font-weight: normal; /* @prefix table */ /* @desc 表格表头字体加粗,如 normal */ /* @excludeElTags td,th */
     --table-view-head-item-size: var(--font-size-base); /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头字体大小,如 1px */ /* @excludeElTags td */
     --table-row-background-striped: var(--background-color-lighter); /* @type color */ /* @group 行 */ /* @prefix table */ /* @desc 表格条纹展示行背景色,如 #223325 */ /* @excludeElTags th */
@@ -801,6 +800,7 @@
     --table-view-background: var(--background-color-default); /* @type color */ /* @desc 表格内容区背景色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-border-color: var(--border-color-base); /* @type color */ /* @group 内容区 */ /* @prefix table-view */ /* @desc 表格内容区边框颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-td-color: var(--color-base); /* @type color */ /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区文字颜色,如 #223325 */ /* @excludeElTags th */
+    --table-view-th-text-align: left; /* @prefix table-view */ /* @desc 表格表头字体对齐方式,如 left */ /* @excludeElTags td */
     --table-view-th-line-height: 20px; /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头行高,如 1px */ /* @excludeElTags td */
     --table-view-th-padding: 10px 6px 10px 10px; /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头内间距,如 1px */ /* @excludeElTags td */
     --table-view-th-background: var(--table-view-head-background); /* @type color */ /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头内背景色,如 #223325 */ /* @excludeElTags td,th */

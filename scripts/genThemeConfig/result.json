@@ -2814,15 +2814,6 @@
                             "th"
                         ]
                     },
-                    "--table-head-text-align": {
-                        "type": "input",
-                        "prefix": "table",
-                        "desc": "表格表头字体对齐方式,如 left",
-                        "excludeElTags": [
-                            "td",
-                            "th"
-                        ]
-                    },
                     "--table-head-font-weight": {
                         "type": "input",
                         "prefix": "table",
@@ -2884,6 +2875,14 @@
                         "desc": "表格内容区文字颜色,如 #223325",
                         "excludeElTags": [
                             "th"
+                        ]
+                    },
+                    "--table-view-th-text-align": {
+                        "type": "input",
+                        "prefix": "table-view",
+                        "desc": "表格表头字体对齐方式,如 left",
+                        "excludeElTags": [
+                            "td"
                         ]
                     },
                     "--table-view-th-line-height": {
