@@ -2420,7 +2420,7 @@
                     }
                 },
                 "preview": {
-                    "template": "<u-linear-layout>\n                                <u-checkbox :value=\"false\" style=\"margin-right:40px;\">关</u-checkbox>\n                                <u-checkbox :value=\"true\" readonly style=\"margin-right:40px;\">开</u-checkbox>\n                                <u-checkbox :value=\"false\" disabled style=\"margin-right:40px;\">关_禁用</u-checkbox>\n                                <u-checkbox :value=\"true\" disabled style=\"margin-right:40px;\">开_禁用</u-checkbox>\n                            </u-linear-layout>"
+                    "template": "<u-checkboxes><u-checkbox :value=\"false\">关</u-checkbox><u-checkbox :value=\"true\" readonly>开</u-checkbox><u-checkbox :value=\"false\" disabled>关_禁用</u-checkbox><u-checkbox :value=\"true\" disabled>开_禁用</u-checkbox></u-checkboxes>"
                 }
             },
             {
