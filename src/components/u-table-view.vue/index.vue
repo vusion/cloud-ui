@@ -253,7 +253,8 @@
                     </tr>
                     <tr key="error" v-else-if="currentData === null || currentError">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length" vusion-slot-name="error">
-                            <slot name="error">{{ errorText }}</slot>
+                            <s-empty v-if="(!$slots.error) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+                            <slot name="error"></slot>
                         </td>
                     </tr>
                     <tr key="loadMore" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
