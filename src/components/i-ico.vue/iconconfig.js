@@ -7,13 +7,6 @@ export default {
     "description": "",
     "glyphs": [
         {
-            "icon_id": "33686384",
-            "name": "add-new",
-            "font_class": "add-new",
-            "unicode": "e618",
-            "unicode_decimal": 58904
-        },
-        {
             "icon_id": "29749064",
             "name": "加载中",
             "font_class": "loading",
@@ -460,6 +453,20 @@ export default {
             "font_class": "error",
             "unicode": "e637",
             "unicode_decimal": 58935
+        },
+        {
+            "icon_id": "33723830",
+            "name": "decrease",
+            "font_class": "decrease",
+            "unicode": "e619",
+            "unicode_decimal": 58905
+        },
+        {
+            "icon_id": "33686384",
+            "name": "add-new",
+            "font_class": "add-new",
+            "unicode": "e618",
+            "unicode_decimal": 58904
         },
         {
             "icon_id": "26503253",
