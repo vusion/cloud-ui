@@ -65,6 +65,9 @@ _root.nodes.forEach((node) => {
             } else if (node.text.includes('@title ')) {
                 const cap = /@title\s+([\S]+)/.exec(node.text.trim());
                 lastComponent.cssProperty[lastProp].title = cap[1].trim();
+            } else if (node.text.includes('@depParentAttrs ')) { // 此变量依赖的属性
+                const cap = /@depParentAttrs\s+(.*)/.exec(node.text.trim());
+                lastComponent.cssProperty[lastProp].depParentAttrs = JSON.parse(cap[1] || '{}');
             }
         }
     } else if (node.type === 'decl') {

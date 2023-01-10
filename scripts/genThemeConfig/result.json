@@ -3078,32 +3078,92 @@
                     "--tabs-item-line-background": {
                         "type": "color",
                         "desc": "tab选中项线条背景色（线条导航方式）,如 #223325",
-                        "prefix": "tabs"
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                "line"
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                "line"
+                            ]
+                        }
                     },
                     "--tabs-item-background-text": {
                         "type": "color",
                         "desc": "tab项背景色（文本模式, 未选中部分）,如 #223325",
-                        "prefix": "tabs"
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                "text"
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                "text"
+                            ]
+                        }
                     },
                     "--tabs-item-background-capsule": {
                         "type": "color",
                         "desc": "tab项背景色（胶囊模式, 未选中部分）,如 #223325",
-                        "prefix": "tabs"
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                "capsule"
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                "capsule"
+                            ]
+                        }
                     },
                     "--tabs-item-background-hover": {
                         "type": "color",
                         "desc": "tab项背景色（hover状态, 胶囊模式和底线模式不生效）,如 #223325",
-                        "prefix": "tabs"
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                null
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                null
+                            ]
+                        }
                     },
                     "--tabs-item-background-selected": {
                         "type": "color",
                         "desc": "tab项背景色（选中部分, 胶囊模式和底线模式不生效）,如 #223325",
-                        "prefix": "tabs"
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                null
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                null
+                            ]
+                        }
                     },
                     "--tabs-item-background-selected-capsule": {
                         "type": "color",
                         "desc": "tab项背景色（选中部分, 胶囊模式生效）,如 #223325",
-                        "prefix": "tabs"
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                "capsule"
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                "capsule"
+                            ]
+                        }
                     },
                     "--tabs-item-color": {
                         "type": "color",
@@ -3118,12 +3178,32 @@
                     "--tabs-item-color-selected": {
                         "type": "color",
                         "desc": "tab项文字颜色（未选中部分, hover状态, 文本模式和文本模式生效）,如 #223325",
-                        "prefix": "tabs"
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                null
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                null
+                            ]
+                        }
                     },
                     "--tabs-item-color-selected-capsule": {
                         "type": "color",
                         "desc": "tab项文字颜色（胶囊模式, 选中部分）,如 #223325",
-                        "prefix": "tabs"
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                "capsule"
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                "capsule"
+                            ]
+                        }
                     },
                     "--tabs-item-color-disabled": {
                         "type": "color",
@@ -3133,12 +3213,32 @@
                     "--tabs-item-border-color-selected": {
                         "type": "color",
                         "desc": "tab项边框颜色（选中部分, 默认模式和圆角模式生效）,如 #223325",
-                        "prefix": "tabs"
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                null
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                null
+                            ]
+                        }
                     },
                     "--tabs-item-border-color-selected-capsule": {
                         "type": "color",
                         "desc": "tab项边框颜色（选中部分, 胶囊模式）,如 #223325",
-                        "prefix": "tabs"
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                "capsule"
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                "capsule"
+                            ]
+                        }
                     },
                     "--tabs-item-border-radius-round": {
                         "type": "input",
