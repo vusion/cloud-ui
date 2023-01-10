@@ -122,15 +122,24 @@
                 "cssProperty": {
                     "--panel-border-width": {
                         "type": "input",
-                        "desc": "面板外边框宽度,如：1px"
+                        "desc": "面板外边框宽度,如：1px",
+                        "depStaticStyles": [
+                            "border"
+                        ]
                     },
                     "--panel-border-radius": {
                         "type": "input",
-                        "desc": "面板外边框圆角,如：1px"
+                        "desc": "面板外边框圆角,如：1px",
+                        "depStaticStyles": [
+                            "radius"
+                        ]
                     },
                     "--panel-background": {
                         "type": "color",
-                        "desc": "面板背景色,如：#223325"
+                        "desc": "面板背景色,如：#223325",
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--panel-box-shadow": {
                         "type": "input",
@@ -169,6 +178,9 @@
                 "id": 10,
                 "name": "u-collapse",
                 "title": "折叠面板",
+                "children": [
+                    "u-collapse-item"
+                ],
                 "toPosition": "collapse",
                 "type": [
                     "base",
@@ -1740,7 +1752,10 @@
                     "--input-border-color": {
                         "type": "color",
                         "group": "边框颜色",
-                        "desc": "输入框边框颜色,如 #223325"
+                        "desc": "输入框边框颜色,如 #223325",
+                        "depStaticStyles": [
+                            "border-color"
+                        ]
                     },
                     "--input-border-color-hover": {
                         "type": "color",
@@ -1760,12 +1775,18 @@
                     "--input-border-width": {
                         "type": "input",
                         "group": "边框宽度",
-                        "desc": "输入框边框宽度,如 1px"
+                        "desc": "输入框边框宽度,如 1px",
+                        "depStaticStyles": [
+                            "border"
+                        ]
                     },
                     "--input-border-radius": {
                         "type": "input",
                         "group": "圆角",
-                        "desc": "输入框圆角,如 1px"
+                        "desc": "输入框圆角,如 1px",
+                        "depStaticStyles": [
+                            "radius"
+                        ]
                     },
                     "--input-box-shadow-focus-color": {
                         "type": "color",
@@ -1790,7 +1811,10 @@
                             "width": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--input-width-small": {
                         "type": "input",
@@ -1800,7 +1824,10 @@
                             "width": [
                                 "small"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--input-width": {
                         "type": "input",
@@ -1811,7 +1838,10 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--input-width-medium": {
                         "type": "input",
@@ -1821,7 +1851,10 @@
                             "width": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--input-width-large": {
                         "type": "input",
@@ -1831,7 +1864,10 @@
                             "width": [
                                 "large"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--input-width-huge": {
                         "type": "input",
@@ -1841,7 +1877,10 @@
                             "width": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--input-height-mini": {
                         "type": "input",
@@ -1851,7 +1890,10 @@
                             "height": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--input-height-small": {
                         "type": "input",
@@ -1861,7 +1903,10 @@
                             "height": [
                                 "small"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--input-height": {
                         "type": "input",
@@ -1872,7 +1917,10 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--input-height-medium": {
                         "type": "input",
@@ -1882,7 +1930,10 @@
                             "height": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--input-height-large": {
                         "type": "input",
@@ -1892,7 +1943,10 @@
                             "height": [
                                 "large"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--input-height-huge": {
                         "type": "input",
@@ -1902,42 +1956,109 @@
                             "height": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--input-padding-x-mini": {
                         "type": "input",
                         "group": "内边距",
-                        "desc": "Mini输入框水平方向内边距,如 1px"
+                        "desc": "Mini输入框水平方向内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "mini"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--input-padding-x-small": {
                         "type": "input",
                         "group": "内边距",
-                        "desc": "Small输入框水平方向内边距,如 1px"
+                        "desc": "Small输入框水平方向内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "small"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--input-padding-x": {
                         "type": "input",
                         "group": "内边距",
-                        "desc": "输入框水平方向内边距,如 1px"
+                        "desc": "输入框水平方向内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "normal",
+                                null
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--input-padding-x-medium": {
                         "type": "input",
                         "group": "内边距",
-                        "desc": "Medium输入框水平方向内边距,如 1px"
+                        "desc": "Medium输入框水平方向内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "medium"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--input-padding-x-large": {
                         "type": "input",
                         "group": "内边距",
-                        "desc": "Large输入框水平方向内边距,如 1px"
+                        "desc": "Large输入框水平方向内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "large"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--input-padding-x-huge": {
                         "type": "input",
                         "group": "内边距",
-                        "desc": "Huge输入框水平方向内边距,如 1px"
+                        "desc": "Huge输入框水平方向内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "huge"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--input-padding-x-full": {
                         "type": "input",
                         "group": "内边距",
-                        "desc": "Full输入框水平方向内边距,如 1px"
+                        "desc": "Full输入框水平方向内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "full"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--input-prefix-padding-left": {
                         "type": "input",
@@ -1957,7 +2078,10 @@
                     "--input-background": {
                         "type": "color",
                         "group": "背景色",
-                        "desc": "输入框背景色,如 #223325"
+                        "desc": "输入框背景色,如 #223325",
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--input-background-disabled": {
                         "type": "color",
@@ -1967,7 +2091,10 @@
                     "--input-color": {
                         "type": "color",
                         "group": "文字颜色",
-                        "desc": "输入框文字颜色,如 #223325"
+                        "desc": "输入框文字颜色,如 #223325",
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--input-color-disabled": {
                         "type": "color",
@@ -2165,7 +2292,10 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--textarea-width-medium": {
                         "type": "input",
@@ -2175,7 +2305,10 @@
                             "size": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--textarea-width-large": {
                         "type": "input",
@@ -2185,7 +2318,10 @@
                             "size": [
                                 "large"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--textarea-width-huge": {
                         "type": "input",
@@ -2195,12 +2331,18 @@
                             "size": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--textarea-min-width": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "文本框最小宽度, 如 1px"
+                        "desc": "文本框最小宽度, 如 1px",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--textarea-height": {
                         "type": "input",
@@ -2211,7 +2353,10 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--textarea-height-medium": {
                         "type": "input",
@@ -2221,7 +2366,10 @@
                             "size": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--textarea-height-large": {
                         "type": "input",
@@ -2231,7 +2379,10 @@
                             "size": [
                                 "large"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--textarea-height-huge": {
                         "type": "input",
@@ -2241,7 +2392,10 @@
                             "size": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--textarea-min-height": {
                         "type": "input",
@@ -2251,17 +2405,29 @@
                     "--textarea-padding": {
                         "type": "input",
                         "group": "内边距",
-                        "desc": "文本框内边距, 如 1px"
+                        "desc": "文本框内边距, 如 1px",
+                        "depStaticStyles": [
+                            "padding-top",
+                            "padding-right",
+                            "padding-bottom",
+                            "padding-left"
+                        ]
                     },
                     "--textarea-border-radius": {
                         "type": "input",
                         "group": "圆角",
-                        "desc": "文本框圆角, 如 1px"
+                        "desc": "文本框圆角, 如 1px",
+                        "depStaticStyles": [
+                            "radius"
+                        ]
                     },
                     "--textarea-border-color": {
                         "type": "color",
                         "group": "边框颜色",
-                        "desc": "文本框边框颜色, 如 #223325"
+                        "desc": "文本框边框颜色, 如 #223325",
+                        "depStaticStyles": [
+                            "border-color"
+                        ]
                     },
                     "--textarea-border-color-focus": {
                         "type": "color",
@@ -2276,7 +2442,10 @@
                     "--textarea-background": {
                         "type": "color",
                         "group": "背景颜色",
-                        "desc": "文本框背景颜色, 如 #223325"
+                        "desc": "文本框背景颜色, 如 #223325",
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--textarea-background-disabled": {
                         "type": "color",
@@ -2286,7 +2455,10 @@
                     "--textarea-color": {
                         "type": "color",
                         "group": "文字颜色",
-                        "desc": "文本框内容区文字颜色, 如 #223325"
+                        "desc": "文本框内容区文字颜色, 如 #223325",
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--textarea-color-disabled": {
                         "type": "color",
