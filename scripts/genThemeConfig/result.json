@@ -2004,43 +2004,93 @@
                     },
                     "--number-input-button-background": {
                         "type": "color",
-                        "desc": "输入框上下按钮背景色,如 #223325"
+                        "desc": "输入框上下按钮背景色,如 #223325",
+                        "depAttrs": {
+                            "button-display": [
+                                null
+                            ]
+                        }
                     },
                     "--number-input-button-both-ends-background": {
                         "type": "color",
-                        "desc": "输入框左右按钮背景色,如 #223325"
+                        "desc": "输入框左右按钮背景色,如 #223325",
+                        "depAttrs": {
+                            "button-display": [
+                                "bothEnds"
+                            ]
+                        }
                     },
                     "--number-input-button-background-hover": {
                         "type": "color",
-                        "desc": "输入框上下按钮背景色（hover状态）,如 #223325"
+                        "desc": "输入框上下按钮背景色（hover状态）,如 #223325",
+                        "depAttrs": {
+                            "button-display": [
+                                null
+                            ]
+                        }
                     },
                     "--number-input-button-both-ends-background-hover": {
                         "type": "color",
-                        "desc": "输入框左右按钮背景色（hover状态）,如 #223325"
+                        "desc": "输入框左右按钮背景色（hover状态）,如 #223325",
+                        "depAttrs": {
+                            "button-display": [
+                                "bothEnds"
+                            ]
+                        }
                     },
                     "--number-input-button-background-active": {
                         "type": "color",
-                        "desc": "输入框上下按钮背景色（激活状态）,如 #223325"
+                        "desc": "输入框上下按钮背景色（激活状态）,如 #223325",
+                        "depAttrs": {
+                            "button-display": [
+                                null
+                            ]
+                        }
                     },
                     "--number-input-button-both-ends-background-active": {
                         "type": "color",
-                        "desc": "输入框左右按钮背景色（激活状态）,如 #223325"
+                        "desc": "输入框左右按钮背景色（激活状态）,如 #223325",
+                        "depAttrs": {
+                            "button-display": [
+                                "bothEnds"
+                            ]
+                        }
                     },
                     "--number-input-button-background-focus": {
                         "type": "color",
-                        "desc": "输入框上下按钮背景色（选中状态）,如 #223325"
+                        "desc": "输入框上下按钮背景色（选中状态）,如 #223325",
+                        "depAttrs": {
+                            "button-display": [
+                                null
+                            ]
+                        }
                     },
                     "--number-input-button-both-ends-background-focus": {
                         "type": "color",
-                        "desc": "输入框左右按钮背景色（选中状态）,如 #223325"
+                        "desc": "输入框左右按钮背景色（选中状态）,如 #223325",
+                        "depAttrs": {
+                            "button-display": [
+                                "bothEnds"
+                            ]
+                        }
                     },
                     "--number-input-button-background-disabled": {
                         "type": "color",
-                        "desc": "输入框上下按钮背景色（禁用状态）,如 #223325"
+                        "desc": "输入框上下按钮背景色（禁用状态）,如 #223325",
+                        "depAttrs": {
+                            "button-display": [
+                                null
+                            ]
+                        }
                     },
                     "--number-input-button-both-ends-background-disabled": {
                         "type": "color",
-                        "desc": "输入框左右按钮背景色（禁用状态）,如 #223325"
+                        "desc": "输入框左右按钮背景色（禁用状态）,如 #223325",
+                        "depAttrs": {
+                            "button-display": [
+                                "bothEnds"
+                            ]
+                        }
                     },
                     "--number-input-border-color": {
                         "type": "color",
@@ -2863,6 +2913,7 @@
                     },
                     "--table-view-th-text-align": {
                         "type": "input",
+                        "group": "表头",
                         "prefix": "table-view",
                         "desc": "表格表头字体对齐方式,如 left",
                         "excludeElTags": [
