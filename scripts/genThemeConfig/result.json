@@ -3024,6 +3024,9 @@
                 "id": 34,
                 "name": "u-tabs",
                 "title": "选项卡",
+                "children": [
+                    "u-tab"
+                ],
                 "toPosition": "tabs",
                 "type": [
                     "",
@@ -3036,91 +3039,116 @@
                 "cssProperty": {
                     "--tabs-border-width": {
                         "type": "input",
-                        "desc": "tab项边框宽度,如 1px"
+                        "desc": "tab项边框宽度,如 1px",
+                        "prefix": "tabs"
                     },
                     "--tabs-border-color": {
                         "type": "color",
-                        "desc": "tab项边框颜色,如 #223325"
+                        "desc": "tab项边框颜色,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-head-background": {
                         "type": "color",
-                        "desc": "tab组件背景色（未选中部分）,如 #223325"
+                        "desc": "tab组件背景色（未选中部分）,如 #223325",
+                        "prefix": "tabs",
+                        "excludeTags": [
+                            "u-tab"
+                        ]
                     },
                     "--tabs-item-height": {
                         "type": "input",
-                        "desc": "tab项高度,如 1px"
+                        "desc": "tab项高度,如 1px",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-padding-x": {
                         "type": "input",
-                        "desc": "tab项水平方向内间距,如 1px"
+                        "desc": "tab项水平方向内间距,如 1px",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-line-width": {
                         "type": "input",
-                        "desc": "tab项高亮指示线高度,如 1px"
+                        "desc": "tab项高亮指示线高度,如 1px",
+                        "prefix": "tabs"
                     },
                     "--tabs-font-size": {
                         "type": "input",
-                        "desc": "tab项字体大小,如 1px"
+                        "desc": "tab项字体大小,如 1px",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-line-background": {
                         "type": "color",
-                        "desc": "tab选中项线条背景色（线条导航方式）,如 #223325"
+                        "desc": "tab选中项线条背景色（线条导航方式）,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-background-text": {
                         "type": "color",
-                        "desc": "tab项背景色（文本模式, 未选中部分）,如 #223325"
+                        "desc": "tab项背景色（文本模式, 未选中部分）,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-background-capsule": {
                         "type": "color",
-                        "desc": "tab项背景色（胶囊模式, 未选中部分）,如 #223325"
+                        "desc": "tab项背景色（胶囊模式, 未选中部分）,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-background-hover": {
                         "type": "color",
-                        "desc": "tab项背景色（hover状态, 胶囊模式和底线模式不生效）,如 #223325"
+                        "desc": "tab项背景色（hover状态, 胶囊模式和底线模式不生效）,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-background-selected": {
                         "type": "color",
-                        "desc": "tab项背景色（选中部分, 胶囊模式和底线模式不生效）,如 #223325"
+                        "desc": "tab项背景色（选中部分, 胶囊模式和底线模式不生效）,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-background-selected-capsule": {
                         "type": "color",
-                        "desc": "tab项背景色（选中部分, 胶囊模式生效）,如 #223325"
+                        "desc": "tab项背景色（选中部分, 胶囊模式生效）,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-color": {
                         "type": "color",
-                        "desc": "tab项文字颜色（未选中部分, 仅文本模式生效）,如 #223325"
+                        "desc": "tab项文字颜色（未选中部分, 仅文本模式生效）,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-color-hover": {
                         "type": "color",
-                        "desc": "tab项文字颜色（未选中部分, hover状态, 文本模式和胶囊模式生效）,如 #223325"
+                        "desc": "tab项文字颜色（未选中部分, hover状态, 文本模式和胶囊模式生效）,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-color-selected": {
                         "type": "color",
-                        "desc": "tab项文字颜色（未选中部分, hover状态, 文本模式和文本模式生效）,如 #223325"
+                        "desc": "tab项文字颜色（未选中部分, hover状态, 文本模式和文本模式生效）,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-color-selected-capsule": {
                         "type": "color",
-                        "desc": "tab项文字颜色（胶囊模式, 选中部分）,如 #223325"
+                        "desc": "tab项文字颜色（胶囊模式, 选中部分）,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-color-disabled": {
                         "type": "color",
-                        "desc": "tab禁用项文字颜色,如 #223325"
+                        "desc": "tab禁用项文字颜色,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-border-color-selected": {
                         "type": "color",
-                        "desc": "tab项边框颜色（选中部分, 默认模式和圆角模式生效）,如 #223325"
+                        "desc": "tab项边框颜色（选中部分, 默认模式和圆角模式生效）,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-border-color-selected-capsule": {
                         "type": "color",
-                        "desc": "tab项边框颜色（选中部分, 胶囊模式）,如 #223325"
+                        "desc": "tab项边框颜色（选中部分, 胶囊模式）,如 #223325",
+                        "prefix": "tabs"
                     },
                     "--tabs-item-border-radius-round": {
                         "type": "input",
-                        "desc": "tab项边框圆角（选中部分, 圆角模式）,如 1px"
+                        "desc": "tab项边框圆角（选中部分, 圆角模式）,如 1px",
+                        "prefix": "tabs"
                     },
                     "--tabs-body-space": {
                         "type": "input",
-                        "desc": "组件的tab项和内容区之间的间距,如 1px"
+                        "desc": "组件的tab项和内容区之间的间距,如 1px",
+                        "prefix": "tabs"
                     }
                 },
                 "preview": {

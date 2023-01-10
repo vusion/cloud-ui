@@ -1377,28 +1377,28 @@
      */
 
     /* @component u-tabs */
-    --tabs-border-width: 1px; /* @desc tab项边框宽度,如 1px */
-    --tabs-border-color: var(--border-color-light); /* @type color */ /* @desc tab项边框颜色,如 #223325 */
-    --tabs-head-background: none; /* @type color */ /* @desc tab组件背景色（未选中部分）,如 #223325 */
-    --tabs-item-height: 48px; /* @desc tab项高度,如 1px */
-    --tabs-item-padding-x: 30px; /* @desc tab项水平方向内间距,如 1px */
-    --tabs-item-line-width: 2px; /* @desc tab项高亮指示线高度,如 1px */
-    --tabs-font-size: var(--font-size-base); /* @desc tab项字体大小,如 1px */
-    --tabs-item-line-background: var(--brand-primary); /* @type color */ /* @desc tab选中项线条背景色（线条导航方式）,如 #223325 */
-    --tabs-item-background-text: none; /* @type color */ /* @desc tab项背景色（文本模式, 未选中部分）,如 #223325 */
-    --tabs-item-background-capsule: none; /* @type color */ /* @desc tab项背景色（胶囊模式, 未选中部分）,如 #223325 */
-    --tabs-item-background-hover: transparent; /* @type color */ /* @desc tab项背景色（hover状态, 胶囊模式和底线模式不生效）,如 #223325 */
-    --tabs-item-background-selected: var(--background-color-default); /* @type color */ /* @desc tab项背景色（选中部分, 胶囊模式和底线模式不生效）,如 #223325 */
-    --tabs-item-background-selected-capsule: none; /* @type color */ /* @desc tab项背景色（选中部分, 胶囊模式生效）,如 #223325 */
-    --tabs-item-color: inherit; /* @type color */ /* @desc  tab项文字颜色（未选中部分, 仅文本模式生效）,如 #223325 */
-    --tabs-item-color-hover: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（未选中部分, hover状态, 文本模式和胶囊模式生效）,如 #223325 */
-    --tabs-item-color-selected: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（未选中部分, hover状态, 文本模式和文本模式生效）,如 #223325 */
-    --tabs-item-color-selected-capsule: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（胶囊模式, 选中部分）,如 #223325 */
-    --tabs-item-color-disabled: #999; /* @type color */ /* @desc tab禁用项文字颜色,如 #223325 */
-    --tabs-item-border-color-selected: var(--border-color-light); /* @type color */ /* @desc tab项边框颜色（选中部分, 默认模式和圆角模式生效）,如 #223325 */
-    --tabs-item-border-color-selected-capsule: var(--brand-primary); /* @type color */ /* @desc tab项边框颜色（选中部分, 胶囊模式）,如 #223325 */
-    --tabs-item-border-radius-round: 5px; /* @desc tab项边框圆角（选中部分, 圆角模式）,如 1px */
-    --tabs-body-space: var(--space-base); /* @desc 组件的tab项和内容区之间的间距,如 1px */
+    --tabs-border-width: 1px; /* @desc tab项边框宽度,如 1px */ /* @prefix tabs */
+    --tabs-border-color: var(--border-color-light); /* @type color */ /* @desc tab项边框颜色,如 #223325 */ /* @prefix tabs */
+    --tabs-head-background: none; /* @type color */ /* @desc tab组件背景色（未选中部分）,如 #223325 */ /* @prefix tabs */ /* @excludeTags u-tab */
+    --tabs-item-height: 48px; /* @desc tab项高度,如 1px */ /* @prefix tabs */
+    --tabs-item-padding-x: 30px; /* @desc tab项水平方向内间距,如 1px */ /* @prefix tabs */
+    --tabs-item-line-width: 2px; /* @desc tab项高亮指示线高度,如 1px */ /* @prefix tabs */
+    --tabs-font-size: var(--font-size-base); /* @desc tab项字体大小,如 1px */ /* @prefix tabs */
+    --tabs-item-line-background: var(--brand-primary); /* @type color */ /* @desc tab选中项线条背景色（线条导航方式）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-background-text: none; /* @type color */ /* @desc tab项背景色（文本模式, 未选中部分）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-background-capsule: none; /* @type color */ /* @desc tab项背景色（胶囊模式, 未选中部分）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-background-hover: transparent; /* @type color */ /* @desc tab项背景色（hover状态, 胶囊模式和底线模式不生效）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-background-selected: var(--background-color-default); /* @type color */ /* @desc tab项背景色（选中部分, 胶囊模式和底线模式不生效）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-background-selected-capsule: none; /* @type color */ /* @desc tab项背景色（选中部分, 胶囊模式生效）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-color: inherit; /* @type color */ /* @desc  tab项文字颜色（未选中部分, 仅文本模式生效）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-color-hover: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（未选中部分, hover状态, 文本模式和胶囊模式生效）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-color-selected: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（未选中部分, hover状态, 文本模式和文本模式生效）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-color-selected-capsule: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（胶囊模式, 选中部分）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-color-disabled: #999; /* @type color */ /* @desc tab禁用项文字颜色,如 #223325 */ /* @prefix tabs */
+    --tabs-item-border-color-selected: var(--border-color-light); /* @type color */ /* @desc tab项边框颜色（选中部分, 默认模式和圆角模式生效）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-border-color-selected-capsule: var(--brand-primary); /* @type color */ /* @desc tab项边框颜色（选中部分, 胶囊模式）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-border-radius-round: 5px; /* @desc tab项边框圆角（选中部分, 圆角模式）,如 1px */ /* @prefix tabs */
+    --tabs-body-space: var(--space-base); /* @desc 组件的tab项和内容区之间的间距,如 1px */ /* @prefix tabs */
 
     --tabs-item-background-disabled: transparent; /* @hidden */
     --tabs-item-height-small: 30px; /* @hidden */
