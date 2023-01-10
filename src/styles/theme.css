@@ -903,22 +903,23 @@
     --grid-view-foot-padding: calc(var(--grid-view-item-space) / 2);
 
     /* @component u-tree-view */
-    --tree-view-node-background-dragging: #e5e5e5; /* @type color */ /* @desc 树形列表可拖拽节点的背景色,如 #223325 */
-    --tree-view-node-color-dragging: #999; /* @type color */ /* @desc 树形列表可拖拽节点的字体颜色,如 #223325 */
-    --tree-view-subnode-background-selected: rgba(237, 243, 255, 1); /* @type color */ /* @desc 树形列表子节点的背景色（选中状态）,如 #223325 */
-    --tree-view-subnode-background-dragging:  rgba(237, 237, 237, 0.5);  /* @type color */ /* @desc 树形列表可拖拽子节点的背景色,如 #223325 */
-    --tree-view-subnode-color-dragging: #999; /* @type color */ /* @desc 树形列表可拖拽子节点的字体颜色,如 #223325 */
-    --tree-view-subnode-background-selected-hover:  #DBE7FF; /* @desc 树形列表子节点的背景色（选中状态）,如 #223325 */
-    --tree-view-node-expander-color-dragging: #aaa; /* @type color */ /* @desc 树形列表可拖拽节点的前缀箭头颜色,如 #223325 */
-    --tree-view-background: white; /* @type color */ /* @desc 树形列表节点的背景色,如 #223325 */
-    --tree-view-node-margin-left: 30px; /* @desc 树形列表节点的左侧缩进距离,如 1px */
-    --tree-view-node-expander-size: 30px; /* @desc 树形列表节点的展开箭头的容器大小,如 1px */
-    --tree-view-node-text-padding: 4px 0; /* @desc 树形列表节点的文本内边距,如 1px */
-    --tree-view-node-background-active: var(--background-color-base); /* @type color */ /* @desc 树形列表节点的背景色（hover状态）,如 #223325 */
-    --tree-view-node-background-selected: var(--brand-primary-light); /* @type color */ /* @desc 树形列表节点的背景色（选中状态）,如 #223325 */
-    --tree-view-node-color-selected: white; /* @type color */ /* @desc 树形列表节点的文本颜色（选中状态）,如 #223325 */
-    --tree-view-node-expander-color-selected: white; /* @type color */ /* @desc 树形列表节点的展开箭头颜色（选中状态）,如 #223325 */
-    --tree-view-node-background-selected-disabled: var(--brand-disabled-light); /* @type color */ /* @desc 树形列表节点的背景色（选中且禁用）,如 #223325 */
+    --tree-view-background: white; /* @type color */ /* @desc 树形列表节点的背景色,如 #223325 */ /* @prefix tree-view */
+    --tree-view-node-background-dragging: #e5e5e5; /* @type color */ /* @desc 树形列表可拖拽节点的背景色,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-node-color-dragging: #999; /* @type color */ /* @desc 树形列表可拖拽节点的字体颜色,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-subnode-background-selected: rgba(237, 243, 255, 1); /* @type color */ /* @desc 树形列表子节点的背景色（选中状态）,如 #223325 */ /* @prefix tree-view-subnode */
+    --tree-view-subnode-background-dragging:  rgba(237, 237, 237, 0.5);  /* @type color */ /* @desc 树形列表可拖拽子节点的背景色,如 #223325 */ /* @prefix tree-view-subnode */
+    --tree-view-subnode-color-dragging: #999; /* @type color */ /* @desc 树形列表可拖拽子节点的字体颜色,如 #223325 */ /* @prefix tree-view-subnode */
+    --tree-view-subnode-background-selected-hover:  #DBE7FF; /* @desc 树形列表子节点的背景色（选中状态）,如 #223325 */ /* @prefix tree-view-subnode */
+    --tree-view-node-expander-color-dragging: #aaa; /* @type color */ /* @desc 树形列表可拖拽节点的前缀箭头颜色,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-node-margin-left: 30px; /* @desc 树形列表节点的左侧缩进距离,如 1px */ /* @prefix tree-view-node */ /* @hidden */
+    --tree-view-node-expander-size: 30px; /* @desc 树形列表节点的展开箭头的容器大小,如 1px */ /* @prefix tree-view-node */
+    --tree-view-node-text-padding: 4px 0; /* @desc 树形列表节点的文本内边距,如 1px */ /* @prefix tree-view-node */
+    --tree-view-node-background-active: var(--background-color-base); /* @type color */ /* @desc 树形列表节点的背景色（hover状态）,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-node-background-selected: var(--brand-primary-light); /* @type color */ /* @desc 树形列表节点的背景色（选中状态）,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-node-color-selected: white; /* @type color */ /* @desc 树形列表节点的文本颜色（选中状态）,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-node-expander-color-selected: white; /* @type color */ /* @desc 树形列表节点的展开箭头颜色（选中状态）,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-node-background-selected-disabled: var(--brand-disabled-light); /* @type color */ /* @desc 树形列表节点的背景色（选中且禁用）,如 #223325 */ /* @prefix tree-view-node */
+
     --tree-view-node-text-padding–mini: 4px 0;  /* @hidden */
     --tree-view-node-expander-size-mini: 26px; /* @hidden */
     --tree-view-node-background-active-inverse: var(--background-color-base-inverse); /* @hidden */
@@ -1653,14 +1654,14 @@
     --skeleton-title-width: 36%;
     --skeleton-paragraph-width: 72%;
 
-    /* @component u-calendar-view @hidden */
-    --calendar-date-height: 96px;
-    --calendar-date-padding: 4px 8px 0;
-    --calendar-date-text-align: right;
-    --calendar-date-background: var(--brand-primary-lightest);
-    --calendar-date-disabled: var(--brand-disabled-dark);
+    /* @component u-calendar-view */
+    --calendar-date-height: 96px; /* @desc 日历日期高度,如：1px */ /* @prefix calendar-date */
+    --calendar-date-padding: 4px 8px 0; /* @desc 日历日期内边距,如：1px */ /* @prefix calendar-date */
+    --calendar-date-text-align: right; /* @desc 日历日期文字水平对齐，如：right|center|left */ /* @prefix calendar-date */
+    --calendar-date-background: var(--brand-primary-lightest); /* @desc 日历日期选中项背景色,如：#223325 */ /* @type color */ /* @prefix calendar-date */
+    --calendar-date-disabled: var(--brand-disabled-dark); /* @desc 日历日期文字禁用颜色,如：#223325 */ /* @type color */ /* @prefix calendar-date */
 
-    /* @component u-calendar */
+    /* @component u-calendar @hidden */
     --calendar-border-color: var(--border-color-base); /* @type color */ /* @desc 日历面板边框颜色,如：#223325 */
     --calendar-background: var(--field-background); /* @type color */ /* @desc 日历面板背景颜色,如：#223325 */
     --calendar-border-radius: var(--border-radius-base); /* @desc 日历面板边框圆角,如：1px */

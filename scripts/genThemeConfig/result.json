@@ -3233,72 +3233,87 @@
                 "id": 39,
                 "name": "u-tree-view",
                 "title": "树形视图",
+                "children": [
+                    "u-tree-view-new",
+                    "u-tree-view-node-new"
+                ],
                 "toPosition": "treeView",
                 "type": [],
                 "cssProperty": {
+                    "--tree-view-background": {
+                        "type": "color",
+                        "desc": "树形列表节点的背景色,如 #223325",
+                        "prefix": "tree-view"
+                    },
                     "--tree-view-node-background-dragging": {
                         "type": "color",
-                        "desc": "树形列表可拖拽节点的背景色,如 #223325"
+                        "desc": "树形列表可拖拽节点的背景色,如 #223325",
+                        "prefix": "tree-view-node"
                     },
                     "--tree-view-node-color-dragging": {
                         "type": "color",
-                        "desc": "树形列表可拖拽节点的字体颜色,如 #223325"
+                        "desc": "树形列表可拖拽节点的字体颜色,如 #223325",
+                        "prefix": "tree-view-node"
                     },
                     "--tree-view-subnode-background-selected": {
                         "type": "color",
-                        "desc": "树形列表子节点的背景色（选中状态）,如 #223325"
+                        "desc": "树形列表子节点的背景色（选中状态）,如 #223325",
+                        "prefix": "tree-view-subnode"
                     },
                     "--tree-view-subnode-background-dragging": {
                         "type": "color",
-                        "desc": "树形列表可拖拽子节点的背景色,如 #223325"
+                        "desc": "树形列表可拖拽子节点的背景色,如 #223325",
+                        "prefix": "tree-view-subnode"
                     },
                     "--tree-view-subnode-color-dragging": {
                         "type": "color",
-                        "desc": "树形列表可拖拽子节点的字体颜色,如 #223325"
+                        "desc": "树形列表可拖拽子节点的字体颜色,如 #223325",
+                        "prefix": "tree-view-subnode"
                     },
                     "--tree-view-subnode-background-selected-hover": {
                         "type": "input",
-                        "desc": "树形列表子节点的背景色（选中状态）,如 #223325"
+                        "desc": "树形列表子节点的背景色（选中状态）,如 #223325",
+                        "prefix": "tree-view-subnode"
                     },
                     "--tree-view-node-expander-color-dragging": {
                         "type": "color",
-                        "desc": "树形列表可拖拽节点的前缀箭头颜色,如 #223325"
-                    },
-                    "--tree-view-background": {
-                        "type": "color",
-                        "desc": "树形列表节点的背景色,如 #223325"
-                    },
-                    "--tree-view-node-margin-left": {
-                        "type": "input",
-                        "desc": "树形列表节点的左侧缩进距离,如 1px"
+                        "desc": "树形列表可拖拽节点的前缀箭头颜色,如 #223325",
+                        "prefix": "tree-view-node"
                     },
                     "--tree-view-node-expander-size": {
                         "type": "input",
-                        "desc": "树形列表节点的展开箭头的容器大小,如 1px"
+                        "desc": "树形列表节点的展开箭头的容器大小,如 1px",
+                        "prefix": "tree-view-node"
                     },
                     "--tree-view-node-text-padding": {
                         "type": "input",
-                        "desc": "树形列表节点的文本内边距,如 1px"
+                        "desc": "树形列表节点的文本内边距,如 1px",
+                        "prefix": "tree-view-node"
                     },
                     "--tree-view-node-background-active": {
                         "type": "color",
-                        "desc": "树形列表节点的背景色（hover状态）,如 #223325"
+                        "desc": "树形列表节点的背景色（hover状态）,如 #223325",
+                        "prefix": "tree-view-node"
                     },
                     "--tree-view-node-background-selected": {
                         "type": "color",
-                        "desc": "树形列表节点的背景色（选中状态）,如 #223325"
+                        "desc": "树形列表节点的背景色（选中状态）,如 #223325",
+                        "prefix": "tree-view-node"
                     },
                     "--tree-view-node-color-selected": {
                         "type": "color",
-                        "desc": "树形列表节点的文本颜色（选中状态）,如 #223325"
+                        "desc": "树形列表节点的文本颜色（选中状态）,如 #223325",
+                        "prefix": "tree-view-node"
                     },
                     "--tree-view-node-expander-color-selected": {
                         "type": "color",
-                        "desc": "树形列表节点的展开箭头颜色（选中状态）,如 #223325"
+                        "desc": "树形列表节点的展开箭头颜色（选中状态）,如 #223325",
+                        "prefix": "tree-view-node"
                     },
                     "--tree-view-node-background-selected-disabled": {
                         "type": "color",
-                        "desc": "树形列表节点的背景色（选中且禁用）,如 #223325"
+                        "desc": "树形列表节点的背景色（选中且禁用）,如 #223325",
+                        "prefix": "tree-view-node"
                     },
                     "--table-view-tree-expander-size": {
                         "type": "input"
@@ -3658,114 +3673,39 @@
             },
             {
                 "id": 48,
-                "title": "日历面板",
-                "name": "u-calendar",
-                "toPosition": "calendar",
+                "title": "日历",
+                "name": "u-calendar-view",
+                "toPosition": "calendar-view",
                 "type": [],
                 "cssProperty": {
-                    "--calendar-border-color": {
-                        "type": "color",
-                        "desc": "日历面板边框颜色,如：#223325"
-                    },
-                    "--calendar-background": {
-                        "type": "color",
-                        "desc": "日历面板背景颜色,如：#223325"
-                    },
-                    "--calendar-border-radius": {
+                    "--calendar-date-height": {
                         "type": "input",
-                        "desc": "日历面板边框圆角,如：1px"
+                        "desc": "日历日期高度,如：1px",
+                        "prefix": "calendar-date"
                     },
-                    "--calendar-item-color": {
-                        "type": "color",
-                        "desc": "日历面板本月日期字体颜色,如：#223325"
-                    },
-                    "--calendar-item-border-radius": {
+                    "--calendar-date-padding": {
                         "type": "input",
-                        "desc": "日历面板日期圆角大小,如：1px"
+                        "desc": "日历日期内边距,如：1px",
+                        "prefix": "calendar-date"
                     },
-                    "--calendar-item-border-color": {
-                        "type": "color",
-                        "desc": "日历面板日期边框颜色,如：#223325"
+                    "--calendar-date-text-align": {
+                        "type": "input",
+                        "desc": "日历日期文字水平对齐，如：right|center|left",
+                        "prefix": "calendar-date"
                     },
-                    "--calendar-item-background": {
+                    "--calendar-date-background": {
                         "type": "color",
-                        "desc": "日历面板日期背景颜色,如：#223325"
+                        "desc": "日历日期选中项背景色,如：#223325",
+                        "prefix": "calendar-date"
                     },
-                    "--calendar-item-color-hover": {
+                    "--calendar-date-disabled": {
                         "type": "color",
-                        "desc": "日历面板日期字体颜色（hover状态）,如：#223325"
-                    },
-                    "--calendar-item-border-color-hover": {
-                        "type": "color",
-                        "desc": "日历面板日期边框颜色（选中状态）,如：#223325"
-                    },
-                    "--calendar-item-background-hover": {
-                        "type": "color",
-                        "desc": "日历面板日期背景颜色（选中状态）,如：#223325"
-                    },
-                    "--calendar-item-color-selected": {
-                        "type": "color",
-                        "desc": "日历面板日期字体颜色（选中状态）,如：#223325"
-                    },
-                    "--calendar-item-border-color-selected": {
-                        "type": "color",
-                        "desc": "日历面板日期边框颜色（选中状态）,如：#223325"
-                    },
-                    "--calendar-item-background-selected": {
-                        "type": "color",
-                        "desc": "日历面板日期背景颜色（选中状态）,如：#223325"
-                    },
-                    "--calendar-item-color-muted": {
-                        "type": "color",
-                        "desc": "日历面板其他月份日期字体颜色,如：#223325"
-                    },
-                    "--calendar-item-color-today": {
-                        "type": "color",
-                        "desc": "日历面板今日字体颜色,如：#223325"
-                    },
-                    "--calendar-item-color-disabled": {
-                        "type": "color",
-                        "desc": "日历面板禁用日期字体颜色,如：#223325"
-                    },
-                    "--calendar-item-background-disabled": {
-                        "type": "color",
-                        "desc": "日历面板禁用日期背景颜色,如：#223325"
-                    },
-                    "--calendar-item-color-selected-disabled": {
-                        "type": "color",
-                        "desc": "日历面板日期字体颜色（禁用选择状态）,如：#223325"
-                    },
-                    "--calendar-item-background-selected-disabled": {
-                        "type": "color",
-                        "desc": "日历面板日期背景颜色（禁用选择状态）,如：#223325"
-                    },
-                    "--calendar-item-week-color": {
-                        "type": "color",
-                        "desc": "日历面板week字体颜色,如：#223325"
-                    },
-                    "--calendar-icon-color": {
-                        "type": "color",
-                        "desc": "日历面板icon字体颜色,如：#223325"
-                    },
-                    "--calendar-icon-color-hover": {
-                        "type": "color",
-                        "desc": "日历面板icon字体颜色（hover状态）,如：#223325"
-                    },
-                    "--calendar-icon-color-disabled": {
-                        "type": "color",
-                        "desc": "日历面板icon字体颜色（禁用状态）,如：#223325"
-                    },
-                    "--calendar-date-background-disabled": {
-                        "type": "color",
-                        "desc": "时间表格背景颜色（禁用状态）,如：#223325"
-                    },
-                    "--calendar-showtext-color-hover": {
-                        "type": "color",
-                        "desc": "日历面板头部年月字体颜色,如：#223325"
+                        "desc": "日历日期文字禁用颜色,如：#223325",
+                        "prefix": "calendar-date"
                     }
                 },
                 "preview": {
-                    "template": "<u-calendar picker=\"date\"></u-calendar>"
+                    "template": "<u-calendar-view></u-calendar-view>"
                 }
             },
             {
