@@ -1084,16 +1084,16 @@
     --number-input-background-disabled: var(--input-background-disabled); /* @type color */ /* @desc 禁用状态输入框背景色,如 #223325 */
     --number-input-color: var(--input-color); /* @type color */ /* @desc 输入框字体颜色,如 #223325 */
     --number-input-color-disabled: #999999; /* @type color */ /* @desc 禁用输入框字体颜色,如 #223325 */
-    --number-input-button-background: none; /* @type color */ /* @desc 输入框上下按钮背景色,如 #223325 */
-    --number-input-button-both-ends-background:#F7F8FA; /* @type color */ /* @desc 输入框左右按钮背景色,如 #223325 */
-    --number-input-button-background-hover: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（hover状态）,如 #223325 */
-    --number-input-button-both-ends-background-hover: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（hover状态）,如 #223325 */
-    --number-input-button-background-active: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（激活状态）,如 #223325 */
-    --number-input-button-both-ends-background-active: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（激活状态）,如 #223325 */
-    --number-input-button-background-focus: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（选中状态）,如 #223325 */
-    --number-input-button-both-ends-background-focus: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（选中状态）,如 #223325 */
-    --number-input-button-background-disabled: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（禁用状态）,如 #223325 */
-    --number-input-button-both-ends-background-disabled: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（禁用状态）,如 #223325 */
+    --number-input-button-background: none; /* @type color */ /* @desc 输入框上下按钮背景色,如 #223325 */ /* @depAttrs { "button-display": [null] } */
+    --number-input-button-both-ends-background:#F7F8FA; /* @type color */ /* @desc 输入框左右按钮背景色,如 #223325 */ /* @depAttrs { "button-display": ["bothEnds"] } */
+    --number-input-button-background-hover: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（hover状态）,如 #223325 */ /* @depAttrs { "button-display": [null] } */
+    --number-input-button-both-ends-background-hover: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（hover状态）,如 #223325 */ /* @depAttrs { "button-display": ["bothEnds"] } */
+    --number-input-button-background-active: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（激活状态）,如 #223325 */ /* @depAttrs { "button-display": [null] } */
+    --number-input-button-both-ends-background-active: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（激活状态）,如 #223325 */ /* @depAttrs { "button-display": ["bothEnds"] } */
+    --number-input-button-background-focus: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（选中状态）,如 #223325 */ /* @depAttrs { "button-display": [null] } */
+    --number-input-button-both-ends-background-focus: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（选中状态）,如 #223325 */ /* @depAttrs { "button-display": ["bothEnds"] } */
+    --number-input-button-background-disabled: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（禁用状态）,如 #223325 */ /* @depAttrs { "button-display": [null] } */
+    --number-input-button-both-ends-background-disabled: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（禁用状态）,如 #223325 */ /* @depAttrs { "button-display": ["bothEnds"] } */
     --number-input-border-color: var(--input-border-color); /* @type color */ /* @desc 输入框边框背景色,如 #223325 */
     --number-input-border-color-hover: var(--input-border-color-hover); /* @type color */ /* @desc 输入框边框背景色（hover状态）,如 #223325 */
     --number-input-border-color-focus: var(--input-border-color-focus); /* @type color */ /* @desc 输入框边框背景色（选中状态）,如 #223325 */
