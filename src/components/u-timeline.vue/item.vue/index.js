@@ -45,17 +45,19 @@ export const UTimelineItem = {
         this.observerwh.observe(this.$refs.labelwrap, {
             attributes: true, childList: true, subtree: true,
         });
-        this.pwh();
+        setTimeout(() => {
+            this.pwh();
+        });
     },
     destroyed() {
         this.observerwh && this.observerwh.disconnect();
     },
     methods: {
         pwh(mutationsList, observer) {
-            if (this.itemPosition !== undefined) {
-                const originHeight = this.$refs.wrap.offsetHeight;
-                const realHeight = this.$refs.labelwrap.scrollHeight;
-                (realHeight > originHeight) && (this.$refs.wrap.style.height = realHeight + 'px');
+            const realHeight = this.$refs.labelwrap.scrollHeight;
+            if (this.timeline.mode === 'label' && realHeight > 0) {
+                // const originHeight = this.$refs.wrap.offsetHeight;
+                (this.$refs.wrap.style.height = realHeight + 'px');
             }
         },
     },
