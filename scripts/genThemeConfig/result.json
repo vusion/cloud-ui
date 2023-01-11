@@ -60,7 +60,10 @@
                 "cssProperty": {
                     "--linear-layout-background": {
                         "type": "color",
-                        "desc": "背景颜色,如：#223325"
+                        "desc": "背景颜色,如：#223325",
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--linear-layout-mask-background": {
                         "type": "color",
@@ -70,23 +73,6 @@
                 "preview": {
                     "template": "<div>\n        <u-linear-layout direction=\"vertical\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"width: 100%;\"></u-block>\n            <u-block style=\"width: 100%;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            justify=\"space-between\"\n            style=\"margin-bottom:8px;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n    </div>",
                     "style": ".linearLayout [class^=\"u-block\"] {\n    height: 48px;\n    background: #337EFF !important;\n    opacity: 0.5;\n}"
-                }
-            },
-            {
-                "id": 7,
-                "name": "u-grid-layout",
-                "title": "栅格布局",
-                "toPosition": "gridLayout",
-                "type": [],
-                "cssProperty": {
-                    "--space-base": {
-                        "type": "input",
-                        "desc": "布局内各元素之间的外间距, 如：1px"
-                    }
-                },
-                "preview": {
-                    "template": "<u-grid-layout gap=\"normal none\" :class=\"$style.gridLayout\">\n    <u-grid-layout-row :repeat=\"6\">\n        <u-grid-layout-column :span=\"3\">\n            <u-block style=\"opacity: 0.5;\">3/6</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"3\">\n            <u-block style=\"opacity: 0.8;\">3/6</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n    <u-grid-layout-row :repeat=\"24\">\n        <u-grid-layout-column :span=\"2\">\n            <u-block style=\"opacity: 0.5;\">2/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"4\">\n            <u-block style=\"opacity: 0.8;\">4/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"8\">\n            <u-block style=\"opacity: 0.5;\">8/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"10\">\n            <u-block style=\"opacity: 0.8;\">10/24</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n    <u-grid-layout-row :repeat=\"3\">\n        <u-grid-layout-column :span=\"1\">\n            <u-block style=\"opacity: 0.5;\">1/3</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"2\">\n            <u-block style=\"opacity: 0.8;\">2/3</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n</u-grid-layout>",
-                    "style": ".gridLayout [class^=\"u-block\"]{\n    height: 48px;\n    line-height: 48px;\n    padding: 0;\n    background: #4C88FF !important;\n    color: white !important;\n}"
                 }
             },
             {
@@ -124,14 +110,20 @@
                         "type": "input",
                         "desc": "面板外边框宽度,如：1px",
                         "depStaticStyles": [
-                            "border"
+                            "border-top-width",
+                            "border-right-width",
+                            "border-bottom-width",
+                            "border-left-width"
                         ]
                     },
                     "--panel-border-radius": {
                         "type": "input",
                         "desc": "面板外边框圆角,如：1px",
                         "depStaticStyles": [
-                            "radius"
+                            "border-top-left-radius",
+                            "border-top-right-radius",
+                            "border-bottom-left-radius",
+                            "border-bottom-right-radius"
                         ]
                     },
                     "--panel-background": {
@@ -265,7 +257,10 @@
                             "size": [
                                 "normal"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--text-font-size-small": {
                         "type": "input",
@@ -274,7 +269,10 @@
                             "size": [
                                 "small"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--text-font-size-large": {
                         "type": "input",
@@ -283,7 +281,10 @@
                             "size": [
                                 "large"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--text-font-size-huge": {
                         "type": "input",
@@ -292,7 +293,10 @@
                             "size": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--text-color-primary": {
                         "type": "color",
@@ -301,7 +305,10 @@
                             "color": [
                                 "primary"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--text-color-secondary": {
                         "type": "color",
@@ -310,7 +317,10 @@
                             "color": [
                                 "secondary"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--text-color-success": {
                         "type": "color",
@@ -319,7 +329,10 @@
                             "color": [
                                 "success"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--text-color-warning": {
                         "type": "color",
@@ -328,7 +341,10 @@
                             "color": [
                                 "warning"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--text-color-error": {
                         "type": "color",
@@ -337,7 +353,10 @@
                             "color": [
                                 "error"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--text-color-disabled": {
                         "type": "color",
@@ -373,7 +392,10 @@
                                 "default",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--link-color-light": {
                         "type": "color",
@@ -382,7 +404,10 @@
                             "color": [
                                 "light"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--link-color-success": {
                         "type": "color",
@@ -391,7 +416,10 @@
                             "color": [
                                 "success"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--link-color-warning": {
                         "type": "color",
@@ -400,7 +428,10 @@
                             "color": [
                                 "warning"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--link-color-danger": {
                         "type": "color",
@@ -409,7 +440,10 @@
                             "color": [
                                 "danger"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--link-color-disabled": {
                         "type": "color",
@@ -480,7 +514,11 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--label-padding-x-small": {
                         "type": "input",
@@ -489,7 +527,11 @@
                             "size": [
                                 "small"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--label-padding-x-large": {
                         "type": "input",
@@ -498,7 +540,11 @@
                             "size": [
                                 "large"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--label-padding-y": {
                         "type": "input",
@@ -508,7 +554,11 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--label-padding-y-small": {
                         "type": "input",
@@ -517,7 +567,11 @@
                             "size": [
                                 "small"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--label-padding-y-large": {
                         "type": "input",
@@ -526,7 +580,11 @@
                             "size": [
                                 "large"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--label-font-size": {
                         "type": "input",
@@ -536,7 +594,10 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--label-font-size-small": {
                         "type": "input",
@@ -545,7 +606,10 @@
                             "size": [
                                 "small"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--label-font-size-large": {
                         "type": "input",
@@ -554,7 +618,10 @@
                             "size": [
                                 "large"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--label-remove-padding-x": {
                         "type": "input",
@@ -592,7 +659,10 @@
                                 "default",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--label-background-primary": {
                         "type": "color",
@@ -601,7 +671,10 @@
                             "color": [
                                 "primary"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--label-background-success": {
                         "type": "color",
@@ -610,7 +683,10 @@
                             "color": [
                                 "success"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--label-background-warning": {
                         "type": "color",
@@ -619,7 +695,10 @@
                             "color": [
                                 "warning"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--label-background-error": {
                         "type": "color",
@@ -628,7 +707,10 @@
                             "color": [
                                 "error"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--label-color": {
                         "type": "color",
@@ -638,7 +720,10 @@
                                 "default",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--label-color-primary": {
                         "type": "color",
@@ -647,7 +732,10 @@
                             "color": [
                                 "primary"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--label-color-success": {
                         "type": "color",
@@ -656,7 +744,10 @@
                             "color": [
                                 "success"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--label-color-warning": {
                         "type": "color",
@@ -665,7 +756,10 @@
                             "color": [
                                 "warning"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--label-color-error": {
                         "type": "color",
@@ -674,7 +768,10 @@
                             "color": [
                                 "error"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--label-line-background": {
                         "type": "color",
@@ -749,15 +846,24 @@
                 "cssProperty": {
                     "--badge-background": {
                         "type": "color",
-                        "desc": "徽章背景色,如：#223325"
+                        "desc": "徽章背景色,如：#223325",
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--badge-color": {
                         "type": "color",
-                        "desc": "徽章字体颜色,如：#223325"
+                        "desc": "徽章字体颜色,如：#223325",
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--badge-value-size": {
                         "type": "input",
-                        "desc": "徽章圆点大小（数值模式）,如：1px"
+                        "desc": "徽章圆点大小（数值模式）,如：1px",
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--badge-dot-size": {
                         "type": "input",
@@ -870,7 +976,10 @@
                             "size": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--button-height-small": {
                         "type": "input",
@@ -879,7 +988,10 @@
                             "size": [
                                 "small"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--button-height": {
                         "type": "input",
@@ -889,7 +1001,10 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--button-height-medium": {
                         "type": "input",
@@ -898,7 +1013,10 @@
                             "size": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--button-height-large": {
                         "type": "input",
@@ -907,7 +1025,10 @@
                             "size": [
                                 "large"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--button-height-huge": {
                         "type": "input",
@@ -916,7 +1037,10 @@
                             "size": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--button-padding-y-mini": {
                         "type": "input",
@@ -925,7 +1049,11 @@
                             "size": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-top",
+                            "padding-bottom"
+                        ]
                     },
                     "--button-padding-y-small": {
                         "type": "input",
@@ -934,7 +1062,11 @@
                             "size": [
                                 "small"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-top",
+                            "padding-bottom"
+                        ]
                     },
                     "--button-padding-y": {
                         "type": "input",
@@ -944,7 +1076,11 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-top",
+                            "padding-bottom"
+                        ]
                     },
                     "--button-padding-y-medium": {
                         "type": "input",
@@ -953,7 +1089,11 @@
                             "size": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-top",
+                            "padding-bottom"
+                        ]
                     },
                     "--button-padding-y-large": {
                         "type": "input",
@@ -962,7 +1102,11 @@
                             "size": [
                                 "large"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-top",
+                            "padding-bottom"
+                        ]
                     },
                     "--button-padding-y-huge": {
                         "type": "input",
@@ -971,7 +1115,11 @@
                             "size": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-top",
+                            "padding-bottom"
+                        ]
                     },
                     "--button-padding-x-mini": {
                         "type": "input",
@@ -980,7 +1128,11 @@
                             "size": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--button-padding-x-small": {
                         "type": "input",
@@ -989,7 +1141,11 @@
                             "size": [
                                 "small"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--button-padding-x": {
                         "type": "input",
@@ -999,7 +1155,11 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--button-padding-x-medium": {
                         "type": "input",
@@ -1008,7 +1168,11 @@
                             "size": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--button-padding-x-large": {
                         "type": "input",
@@ -1017,7 +1181,11 @@
                             "size": [
                                 "large"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--button-padding-x-huge": {
                         "type": "input",
@@ -1026,7 +1194,11 @@
                             "size": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--button-background-primary": {
                         "type": "color",
@@ -1035,7 +1207,10 @@
                             "color": [
                                 "primary"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--button-background-primary-secondary": {
                         "type": "color",
@@ -1044,7 +1219,10 @@
                             "color": [
                                 "primary_secondary"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--button-background": {
                         "type": "color",
@@ -1054,7 +1232,10 @@
                                 "default",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--button-background-danger": {
                         "type": "color",
@@ -1063,7 +1244,10 @@
                             "color": [
                                 "danger"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--button-background-danger-secondary": {
                         "type": "color",
@@ -1072,7 +1256,10 @@
                             "color": [
                                 "danger_secondary"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--button-background-primary-hover": {
                         "type": "color",
@@ -1219,7 +1406,10 @@
                             "color": [
                                 "primary"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "border-color"
+                        ]
                     },
                     "--button-border-color-primary-secondary": {
                         "type": "color",
@@ -1228,7 +1418,10 @@
                             "color": [
                                 "primary_secondary"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "border-color"
+                        ]
                     },
                     "--button-border-color": {
                         "type": "color",
@@ -1238,7 +1431,10 @@
                                 "default",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "border-color"
+                        ]
                     },
                     "--button-border-color-danger": {
                         "type": "color",
@@ -1247,7 +1443,10 @@
                             "color": [
                                 "danger"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "border-color"
+                        ]
                     },
                     "--button-border-color-danger-secondary": {
                         "type": "color",
@@ -1256,7 +1455,10 @@
                             "color": [
                                 "danger_secondary"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "border-color"
+                        ]
                     },
                     "--button-border-color-primary-hover": {
                         "type": "color",
@@ -1403,7 +1605,10 @@
                             "size": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--button-font-size-small": {
                         "type": "input",
@@ -1412,7 +1617,10 @@
                             "size": [
                                 "small"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--button-font-size": {
                         "type": "input",
@@ -1422,7 +1630,10 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--button-font-size-medium": {
                         "type": "input",
@@ -1431,7 +1642,10 @@
                             "size": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--button-font-size-large": {
                         "type": "input",
@@ -1440,7 +1654,10 @@
                             "size": [
                                 "large"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--button-font-size-huge": {
                         "type": "input",
@@ -1449,7 +1666,10 @@
                             "size": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "font-size"
+                        ]
                     },
                     "--button-color-primary": {
                         "type": "color",
@@ -1458,7 +1678,10 @@
                             "color": [
                                 "primary"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--button-color-primary-secondary": {
                         "type": "color",
@@ -1467,7 +1690,10 @@
                             "color": [
                                 "primary_secondary"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--button-color": {
                         "type": "color",
@@ -1477,7 +1703,10 @@
                                 "default",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--button-color-danger": {
                         "type": "color",
@@ -1486,7 +1715,10 @@
                             "color": [
                                 "danger"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--button-color-danger-secondary": {
                         "type": "color",
@@ -1495,7 +1727,10 @@
                             "color": [
                                 "danger_secondary"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--button-color-primary-hover": {
                         "type": "color",
@@ -1637,11 +1872,23 @@
                     },
                     "--button-border-width": {
                         "type": "input",
-                        "desc": "按钮边框宽度,如：1px"
+                        "desc": "按钮边框宽度,如：1px",
+                        "depStaticStyles": [
+                            "border-top-width",
+                            "border-right-width",
+                            "border-bottom-width",
+                            "border-left-width"
+                        ]
                     },
                     "--button-border-radius": {
                         "type": "input",
-                        "desc": "按钮边框圆角,如：1px"
+                        "desc": "按钮边框圆角,如：1px",
+                        "depStaticStyles": [
+                            "border-top-left-radius",
+                            "border-top-right-radius",
+                            "border-bottom-left-radius",
+                            "border-bottom-right-radius"
+                        ]
                     },
                     "--button-box-shadow-focus-color": {
                         "type": "color",
@@ -1777,7 +2024,10 @@
                         "group": "边框宽度",
                         "desc": "输入框边框宽度,如 1px",
                         "depStaticStyles": [
-                            "border"
+                            "border-top-width",
+                            "border-right-width",
+                            "border-bottom-width",
+                            "border-left-width"
                         ]
                     },
                     "--input-border-radius": {
@@ -1785,7 +2035,10 @@
                         "group": "圆角",
                         "desc": "输入框圆角,如 1px",
                         "depStaticStyles": [
-                            "radius"
+                            "border-top-left-radius",
+                            "border-top-right-radius",
+                            "border-bottom-left-radius",
+                            "border-bottom-right-radius"
                         ]
                     },
                     "--input-box-shadow-focus-color": {
@@ -2115,7 +2368,10 @@
                 "cssProperty": {
                     "--number-input-background": {
                         "type": "color",
-                        "desc": "输入框背景色,如 #223325"
+                        "desc": "输入框背景色,如 #223325",
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--number-input-background-disabled": {
                         "type": "color",
@@ -2123,7 +2379,10 @@
                     },
                     "--number-input-color": {
                         "type": "color",
-                        "desc": "输入框字体颜色,如 #223325"
+                        "desc": "输入框字体颜色,如 #223325",
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--number-input-color-disabled": {
                         "type": "color",
@@ -2221,7 +2480,10 @@
                     },
                     "--number-input-border-color": {
                         "type": "color",
-                        "desc": "输入框边框背景色,如 #223325"
+                        "desc": "输入框边框背景色,如 #223325",
+                        "depStaticStyles": [
+                            "border-color"
+                        ]
                     },
                     "--number-input-border-color-hover": {
                         "type": "color",
@@ -2249,11 +2511,20 @@
                     },
                     "--number-input-height": {
                         "type": "input",
-                        "desc": "输入框按钮高度,如 1px"
+                        "desc": "输入框按钮高度,如 1px",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--number-input-border-width": {
                         "type": "input",
-                        "desc": "输入框边框宽度,如 1px"
+                        "desc": "输入框边框宽度,如 1px",
+                        "depStaticStyles": [
+                            "border-top-width",
+                            "border-right-width",
+                            "border-bottom-width",
+                            "border-left-width"
+                        ]
                     },
                     "--number-input-box-shadow-focus-color": {
                         "type": "color",
@@ -2418,7 +2689,10 @@
                         "group": "圆角",
                         "desc": "文本框圆角, 如 1px",
                         "depStaticStyles": [
-                            "radius"
+                            "border-top-left-radius",
+                            "border-top-right-radius",
+                            "border-bottom-left-radius",
+                            "border-bottom-right-radius"
                         ]
                     },
                     "--textarea-border-color": {
@@ -2536,11 +2810,17 @@
                 "cssProperty": {
                     "--switch-width": {
                         "type": "input",
-                        "desc": "开关宽度,如 1px"
+                        "desc": "开关宽度,如 1px",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--switch-height": {
                         "type": "input",
-                        "desc": "开关高度,如 1px"
+                        "desc": "开关高度,如 1px",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--switch-button-space": {
                         "type": "input",
@@ -2685,37 +2965,62 @@
                     "--select-width": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "选择框的宽度,如 1px"
+                        "desc": "选择框的宽度,如 1px",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--select-height": {
                         "type": "input",
                         "group": "高度",
-                        "desc": "选择框的高度,如 1px"
+                        "desc": "选择框的高度,如 1px",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--select-padding-x": {
                         "type": "input",
                         "group": "水平方向内边距",
-                        "desc": "选择框水平方向内边距,如 1px"
+                        "desc": "选择框水平方向内边距,如 1px",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--select-background": {
                         "type": "color",
                         "group": "背景色",
-                        "desc": "选择框的背景色,如 #223325"
+                        "desc": "选择框的背景色,如 #223325",
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--select-border-width": {
                         "type": "input",
                         "group": "边框",
-                        "desc": "选择框的边框宽度,如 1px"
+                        "desc": "选择框的边框宽度,如 1px",
+                        "depStaticStyles": [
+                            "border-top-width",
+                            "border-right-width",
+                            "border-bottom-width",
+                            "border-left-width"
+                        ]
                     },
                     "--select-border-color": {
                         "type": "color",
                         "group": "边框",
-                        "desc": "选择框的边框颜色,如 #223325"
+                        "desc": "选择框的边框颜色,如 #223325",
+                        "depStaticStyles": [
+                            "border-color"
+                        ]
                     },
                     "--select-color": {
                         "type": "color",
                         "group": "字体",
-                        "desc": "选择框的字体颜色,如 #223325"
+                        "desc": "选择框的字体颜色,如 #223325",
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--select-popper-max-height": {
                         "type": "input",
@@ -2819,9 +3124,9 @@
             },
             {
                 "id": 29,
-                "name": "u-rating",
+                "name": "u-rate",
                 "title": "评分",
-                "toPosition": "u-rating",
+                "toPosition": "u-rate",
                 "type": [],
                 "cssProperty": {
                     "--rate-space": {
@@ -2851,70 +3156,122 @@
             },
             {
                 "id": 30,
-                "name": "u-slider",
+                "name": "u-combo-slider",
                 "title": "滑块",
                 "toPosition": "slider",
                 "type": [],
                 "cssProperty": {
                     "--slider-body-margin": {
                         "type": "input",
-                        "desc": "滑道两侧的缩进距离,如 1px"
+                        "desc": "滑道两侧的缩进距离,如 1px",
+                        "prefix": "slider"
                     },
                     "--slider-body-padding": {
                         "type": "input",
-                        "desc": "组件垂直方向的内边距（滑道上下的外边距）,如 1px"
-                    },
-                    "--silder-background-disabled": {
-                        "type": "color",
-                        "desc": "滑道背景色（禁用状态下）,如 #223325"
+                        "desc": "组件垂直方向的内边距（滑道上下的外边距）,如 1px",
+                        "prefix": "slider"
                     },
                     "--slider-track-height": {
                         "type": "input",
-                        "desc": "滑道高度,如 1px"
+                        "desc": "滑道高度,如 1px",
+                        "prefix": "slider"
                     },
                     "--slider-track-background": {
                         "type": "color",
-                        "desc": "滑道背景色（已覆盖部分）,如 #223325"
+                        "desc": "滑道背景色（已覆盖部分）,如 #223325",
+                        "prefix": "slider"
                     },
                     "--slider-trail-background": {
                         "type": "color",
-                        "desc": "滑道背景色（未覆盖部分）,如 #223325"
+                        "desc": "滑道背景色（未覆盖部分）,如 #223325",
+                        "prefix": "slider"
                     },
                     "--slider-trail-background-disabled": {
                         "type": "color",
-                        "desc": "滑道背景色（未覆盖部分禁用状态下）,如 #223325"
+                        "desc": "滑道背景色（未覆盖部分禁用状态下）,如 #223325",
+                        "prefix": "slider"
                     },
                     "--slider-track-border-radius": {
                         "type": "input",
-                        "desc": "滑道圆角大小（未覆盖部分）,如 1px"
+                        "desc": "滑道圆角大小（未覆盖部分）,如 1px",
+                        "prefix": "slider"
                     },
                     "--slider-handle-width": {
                         "type": "input",
-                        "desc": "滑块按钮宽度,如 1px"
+                        "desc": "滑块按钮宽度,如 1px",
+                        "prefix": "slider"
                     },
                     "--slider-handle-height": {
                         "type": "input",
-                        "desc": "滑块按钮高度,如 1px"
+                        "desc": "滑块按钮高度,如 1px",
+                        "prefix": "slider"
                     },
                     "--slider-handle-background": {
                         "type": "color",
-                        "desc": "滑块按钮背景色（未覆盖部分）,如 #223325"
+                        "desc": "滑块按钮背景色（未覆盖部分）,如 #223325",
+                        "prefix": "slider"
                     },
                     "--slider-handle-border": {
                         "type": "input",
-                        "desc": "滑块按钮边框,如 1px solid white"
+                        "desc": "滑块按钮边框,如 1px solid white",
+                        "prefix": "slider"
                     },
-                    "--silder-box-shadow-hover": {
+                    "--slider-box-shadow-hover": {
                         "type": "color",
-                        "desc": "滑块阴影色（hover状态）,如 #223325"
+                        "desc": "滑块阴影色（hover状态）,如 #223325",
+                        "prefix": "slider"
                     },
-                    "--silder-handle-background-disabled": {
+                    "--slider-handle-background-disabled": {
                         "type": "color",
-                        "desc": "滑块按钮背景色（禁用状态）,如 #223325"
+                        "desc": "滑块按钮背景色（禁用状态）,如 #223325",
+                        "prefix": "slider"
+                    },
+                    "--combo-slider-slider-width": {
+                        "type": "input",
+                        "desc": "滑块宽度,如 1px",
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--combo-slider-input-width": {
+                        "type": "input",
+                        "desc": "输入框宽度,如 1px"
+                    },
+                    "--combo-slider-input-margin-left": {
+                        "type": "input",
+                        "desc": "输入框左侧距离,如 1px"
+                    },
+                    "--combo-slider-input-background": {
+                        "type": "color",
+                        "desc": "输入框背景色,如 #223325"
+                    },
+                    "--combo-slider-input-border-color": {
+                        "type": "color",
+                        "desc": "输入框边框颜色,如 #223325"
+                    },
+                    "--combo-slider-input-border-radius": {
+                        "type": "input",
+                        "desc": "输入框圆角大小,如 #223325"
+                    },
+                    "--combo-slider-input-color": {
+                        "type": "color",
+                        "desc": "输入框字体颜色,如 #223325"
+                    },
+                    "--combo-slider-tip-color": {
+                        "type": "color",
+                        "desc": "提示字体颜色,如 #223325"
+                    },
+                    "--combo-slider-tip-align-items": {
+                        "type": "input",
+                        "desc": "提示垂直对齐方式,如 center"
+                    },
+                    "--combo-slider-scales-color": {
+                        "type": "color",
+                        "desc": "百分比值字体颜色,如 #223325"
                     }
                 },
                 "preview": {
-                    "template": "<u-slider :value=\"36\"></u-slider>"
+                    "template": "<u-combo-slider :value=\"36\"></u-combo-slider>"
                 }
             },
             {
@@ -2982,27 +3339,57 @@
                     },
                     "--uploader-draggable-background": {
                         "type": "color",
-                        "desc": "拖拽上传文件窗口背景色,如 #223325"
+                        "desc": "拖拽上传文件窗口背景色,如 #223325",
+                        "depAttrs": {
+                            "draggable": [
+                                true
+                            ]
+                        }
                     },
                     "--uploader-draggable-border-width": {
                         "type": "input",
-                        "desc": "拖拽上传文件窗口边框宽度,如 1px"
+                        "desc": "拖拽上传文件窗口边框宽度,如 1px",
+                        "depAttrs": {
+                            "draggable": [
+                                true
+                            ]
+                        }
                     },
                     "--uploader-draggable-border-color": {
                         "type": "color",
-                        "desc": "拖拽上传文件窗口边框颜色,如 #223325"
+                        "desc": "拖拽上传文件窗口边框颜色,如 #223325",
+                        "depAttrs": {
+                            "draggable": [
+                                true
+                            ]
+                        }
                     },
                     "--uploader-draggable-border-color-hover": {
                         "type": "color",
-                        "desc": "拖拽上传文件窗口边框颜色（hover状态）,如 #223325"
+                        "desc": "拖拽上传文件窗口边框颜色（hover状态）,如 #223325",
+                        "depAttrs": {
+                            "draggable": [
+                                true
+                            ]
+                        }
                     },
                     "--uploader-draggable-border-radius": {
                         "type": "input",
-                        "desc": "拖拽上传文件窗口圆角大小,如 1px"
+                        "desc": "拖拽上传文件窗口圆角大小,如 1px",
+                        "depAttrs": {
+                            "draggable": [
+                                true
+                            ]
+                        }
                     },
                     "--uploader-draggable-padding": {
                         "type": "input",
-                        "desc": "拖拽上传文件窗口内边距大小,如 1px"
+                        "desc": "拖拽上传文件窗口内边距大小,如 1px",
+                        "depAttrs": {
+                            "draggable": [
+                                true
+                            ]
+                        }
                     }
                 },
                 "preview": {
@@ -3431,28 +3818,76 @@
                 "id": 35,
                 "name": "u-selectable-steps",
                 "title": "步骤条",
+                "children": [
+                    "u-selectable-step"
+                ],
                 "toPosition": "select-steps",
                 "type": [],
                 "cssProperty": {
                     "--steps-item-color-disabled": {
                         "type": "color",
-                        "desc": "步骤条禁用项文字颜色,如 #223325"
+                        "desc": "步骤条禁用项文字颜色,如 #223325",
+                        "prefix": "steps"
                     },
                     "--steps-item-radio-size": {
                         "type": "input",
-                        "desc": "步骤条按钮大小,如 1px"
+                        "desc": "步骤条按钮大小,如 1px",
+                        "prefix": "steps"
                     },
                     "--steps-item-radio-background": {
                         "type": "color",
-                        "desc": "步骤条按钮之间的进度条颜色（未完成部分）,如 #223325"
+                        "desc": "步骤条按钮之间的进度条颜色（未完成部分）,如 #223325",
+                        "prefix": "steps"
                     },
                     "--steps-item-radio-background-passed": {
                         "type": "color",
-                        "desc": "步骤条按钮和进度条颜色（已完成部分）,如 #223325"
+                        "desc": "步骤条按钮和进度条颜色（已完成部分）,如 #223325",
+                        "prefix": "steps"
                     },
                     "--steps-item-radio-color-passed": {
                         "type": "color",
-                        "desc": "步骤条按钮图标颜色（已完成部分）,如 #223325"
+                        "desc": "步骤条按钮图标颜色（已完成部分）,如 #223325",
+                        "prefix": "steps"
+                    },
+                    "--steps-item-radio-background-disabled": {
+                        "type": "color",
+                        "desc": "步骤条按钮背景色（禁用状态）,如 #223325",
+                        "prefix": "steps"
+                    },
+                    "--steps-seleatable-border-color-passed": {
+                        "type": "color",
+                        "desc": "步骤条按钮边框颜色（完成状态）,如 #223325",
+                        "prefix": "steps-seleatable"
+                    },
+                    "--steps-seleatable-background-selected": {
+                        "type": "color",
+                        "desc": "步骤条按钮圆心背景色（选中状态）,如 #223325",
+                        "prefix": "steps-seleatable"
+                    },
+                    "--steps-seleatable-radio-background": {
+                        "type": "color",
+                        "desc": "步骤条按钮背景色,如 #223325",
+                        "prefix": "steps-seleatable"
+                    },
+                    "--steps-seleatable-radio-border-color": {
+                        "type": "color",
+                        "desc": "步骤条按钮边框颜色,如 #223325",
+                        "prefix": "steps-seleatable"
+                    },
+                    "--steps-seleatable-radio-border-color-disabled": {
+                        "type": "input",
+                        "desc": "步骤条按钮边框颜色（禁用状态）,如 #223325",
+                        "prefix": "steps-seleatable"
+                    },
+                    "--steps-seleatable-radio-background-selected": {
+                        "type": "color",
+                        "desc": "步骤条按钮背景色（选中状态）,如 #223325",
+                        "prefix": "steps-seleatable"
+                    },
+                    "--steps-seleatable-item-radio-border-color-hover": {
+                        "type": "input",
+                        "desc": "步骤条按钮边框颜色（hover状态）,如 #223325",
+                        "prefix": "steps-seleatable"
                     }
                 },
                 "preview": {
@@ -3594,7 +4029,10 @@
                     "--tree-view-background": {
                         "type": "color",
                         "desc": "树形列表节点的背景色,如 #223325",
-                        "prefix": "tree-view"
+                        "prefix": "tree-view",
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--tree-view-node-background-dragging": {
                         "type": "color",
@@ -4068,50 +4506,82 @@
                 "cssProperty": {
                     "--datepicker-input-pre-icon-color": {
                         "type": "color",
-                        "desc": "日期选择器前缀图标颜色,如：#223325"
+                        "desc": "日期选择器前缀图标颜色,如：#223325",
+                        "prefix": "datepicker-input"
                     },
                     "--datepicker-input-after-icon-color": {
                         "type": "color",
-                        "desc": "日期选择器后缀图标颜色,如：#223325"
+                        "desc": "日期选择器后缀图标颜色,如：#223325",
+                        "prefix": "datepicker-input"
                     },
                     "--datepicker-input-border-color": {
                         "type": "color",
-                        "desc": "日期选择器输入框边框颜色,如：#223325"
+                        "desc": "日期选择器输入框边框颜色,如：#223325",
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "border-color"
+                        ]
                     },
                     "--datepicker-input-border-width": {
                         "type": "input",
-                        "desc": "日期选择器输入框边框宽度,如：1px"
+                        "desc": "日期选择器输入框边框宽度,如：1px",
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "border-top-width",
+                            "border-right-width",
+                            "border-bottom-width",
+                            "border-left-width"
+                        ]
                     },
                     "--datepicker-input-color": {
                         "type": "color",
-                        "desc": "日期选择器输入框字体颜色,如：#223325"
+                        "desc": "日期选择器输入框字体颜色,如：#223325",
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--datepicker-input-background": {
                         "type": "color",
-                        "desc": "日期选择器输入框背景颜色,如：#223325"
+                        "desc": "日期选择器输入框背景颜色,如：#223325",
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--datepicker-input-border-radius": {
                         "type": "input",
-                        "desc": "日期选择器输入框圆角,如：1px"
+                        "desc": "日期选择器输入框圆角,如：1px",
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "border-top-left-radius",
+                            "border-top-right-radius",
+                            "border-bottom-left-radius",
+                            "border-bottom-right-radius"
+                        ]
                     },
                     "--datepicker-input-background-disabled": {
                         "type": "color",
-                        "desc": "日期选择器输入框背景颜色（禁用状态）,如：1px"
+                        "desc": "日期选择器输入框背景颜色（禁用状态）,如：1px",
+                        "prefix": "datepicker-input"
                     },
                     "--datepicker-input-border-color-error": {
                         "type": "input",
-                        "desc": "日期选择器输入框边框颜色（错误状态）,如：1px"
+                        "desc": "日期选择器输入框边框颜色（错误状态）,如：1px",
+                        "prefix": "datepicker-input"
                     },
                     "--datepicker-input-border-color-focus": {
                         "type": "input",
-                        "desc": "日期选择器输入框边框颜色（选中状态）,如：1px"
+                        "desc": "日期选择器输入框边框颜色（选中状态）,如：1px",
+                        "prefix": "datepicker-input"
                     },
                     "--datepicker-input-box-shadow-focus": {
                         "type": "input"
                     },
                     "--datepicker-input-placeholder-color": {
                         "type": "color",
-                        "desc": "日期选择器输入框提示字体颜色,如：#223325"
+                        "desc": "日期选择器输入框提示字体颜色,如：#223325",
+                        "prefix": "datepicker-input"
                     },
                     "--datepicker-popper-box-shadow": {
                         "type": "input"
@@ -4127,7 +4597,11 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--datepicker-input-height": {
                         "type": "input",
@@ -4137,7 +4611,11 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--datepicker-input-padding-x": {
                         "type": "input",
@@ -4147,7 +4625,12 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--datepicker-input-width-mini": {
                         "type": "input",
@@ -4156,7 +4639,11 @@
                             "width": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--datepicker-input-padding-x-mini": {
                         "type": "input",
@@ -4165,7 +4652,12 @@
                             "width": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--datepicker-input-height-mini": {
                         "type": "input",
@@ -4174,7 +4666,11 @@
                             "height": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--datepicker-input-width-small": {
                         "type": "input",
@@ -4183,7 +4679,11 @@
                             "width": [
                                 "small"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--datepicker-input-padding-x-small": {
                         "type": "input",
@@ -4192,7 +4692,12 @@
                             "width": [
                                 "small"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--datepicker-input-height-small": {
                         "type": "input",
@@ -4201,7 +4706,11 @@
                             "height": [
                                 "small"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--datepicker-input-width-medium": {
                         "type": "input",
@@ -4210,7 +4719,11 @@
                             "width": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--datepicker-input-padding-x-medium": {
                         "type": "input",
@@ -4219,7 +4732,12 @@
                             "width": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--datepicker-input-height-medium": {
                         "type": "input",
@@ -4228,7 +4746,11 @@
                             "height": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--datepicker-input-width-large": {
                         "type": "input",
@@ -4237,7 +4759,11 @@
                             "width": [
                                 "large"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--datepicker-input-padding-x-large": {
                         "type": "input",
@@ -4246,7 +4772,12 @@
                             "width": [
                                 "large"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--datepicker-input-height-large": {
                         "type": "input",
@@ -4255,7 +4786,11 @@
                             "height": [
                                 "large"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--datepicker-input-width-huge": {
                         "type": "input",
@@ -4264,7 +4799,11 @@
                             "width": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--datepicker-input-padding-x-huge": {
                         "type": "input",
@@ -4273,7 +4812,12 @@
                             "width": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--datepicker-input-height-huge": {
                         "type": "input",
@@ -4282,7 +4826,11 @@
                             "height": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--datepicker-input-padding-x-full": {
                         "type": "input",
@@ -4291,7 +4839,12 @@
                             "width": [
                                 "full"
                             ]
-                        }
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     }
                 },
                 "preview": {
@@ -4307,35 +4860,43 @@
                 "cssProperty": {
                     "--datetime-input-pre-icon-color": {
                         "type": "color",
-                        "desc": "日期时间选择器输入框前缀图标颜色,如：#223325"
+                        "desc": "日期时间选择器输入框前缀图标颜色,如：#223325",
+                        "prefix": "datetime-input"
                     },
                     "--datetime-input-after-icon-color": {
                         "type": "color",
-                        "desc": "日期时间选择器输入框后缀图标颜色,如：#223325"
+                        "desc": "日期时间选择器输入框后缀图标颜色,如：#223325",
+                        "prefix": "datetime-input"
                     },
                     "--datetime-input-border-color": {
                         "type": "color",
-                        "desc": "日期时间选择器输入框边框颜色,如：#223325"
+                        "desc": "日期时间选择器输入框边框颜色,如：#223325",
+                        "prefix": "datetime-input"
                     },
                     "--datetime-input-border-width": {
                         "type": "input",
-                        "desc": "日期时间选择器输入框边框宽度,如：1px"
+                        "desc": "日期时间选择器输入框边框宽度,如：1px",
+                        "prefix": "datetime-input"
                     },
                     "--datetime-input-placeholder-color": {
                         "type": "color",
-                        "desc": "日期时间选择器输入框提示字体颜色,如：#223325"
+                        "desc": "日期时间选择器输入框提示字体颜色,如：#223325",
+                        "prefix": "datetime-input"
                     },
                     "--datetime-input-border-radius": {
                         "type": "input",
-                        "desc": "日期时间选择器输入框圆角大小,如：1px"
+                        "desc": "日期时间选择器输入框圆角大小,如：1px",
+                        "prefix": "datetime-input"
                     },
                     "--datetime-input-color": {
                         "type": "color",
-                        "desc": "日期时间选择器输入框字体颜色,如：#223325"
+                        "desc": "日期时间选择器输入框字体颜色,如：#223325",
+                        "prefix": "datetime-input"
                     },
                     "--datetime-input-background": {
                         "type": "color",
-                        "desc": "日期时间选择器输入框背景颜色,如：#223325"
+                        "desc": "日期时间选择器输入框背景颜色,如：#223325",
+                        "prefix": "datetime-input"
                     },
                     "--datetime-input-width": {
                         "type": "input",
@@ -4345,7 +4906,11 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--datetime-input-height": {
                         "type": "input",
@@ -4355,7 +4920,11 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--datetime-input-padding-x": {
                         "type": "input",
@@ -4365,7 +4934,12 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--datetime-input-width-mini": {
                         "type": "input",
@@ -4374,7 +4948,11 @@
                             "width": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--datetime-input-padding-x-mini": {
                         "type": "input",
@@ -4383,7 +4961,12 @@
                             "width": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--datetime-input-height-mini": {
                         "type": "input",
@@ -4392,7 +4975,11 @@
                             "height": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--datetime-input-width-small": {
                         "type": "input",
@@ -4401,7 +4988,11 @@
                             "width": [
                                 "small"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--datetime-input-padding-x-small": {
                         "type": "input",
@@ -4410,7 +5001,12 @@
                             "width": [
                                 "small"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--datetime-input-height-small": {
                         "type": "input",
@@ -4419,7 +5015,11 @@
                             "height": [
                                 "small"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--datetime-input-width-medium": {
                         "type": "input",
@@ -4428,7 +5028,11 @@
                             "width": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--datetime-input-padding-x-medium": {
                         "type": "input",
@@ -4437,7 +5041,12 @@
                             "width": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--datetime-input-height-medium": {
                         "type": "input",
@@ -4446,7 +5055,11 @@
                             "height": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--datetime-input-width-large": {
                         "type": "input",
@@ -4455,7 +5068,11 @@
                             "width": [
                                 "large"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--datetime-input-padding-x-large": {
                         "type": "input",
@@ -4464,7 +5081,12 @@
                             "width": [
                                 "large"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--datetime-input-height-large": {
                         "type": "input",
@@ -4473,7 +5095,11 @@
                             "height": [
                                 "large"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--datetime-input-width-huge": {
                         "type": "input",
@@ -4482,7 +5108,11 @@
                             "width": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--datetime-input-padding-x-huge": {
                         "type": "input",
@@ -4491,7 +5121,12 @@
                             "width": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--datetime-input-height-huge": {
                         "type": "input",
@@ -4500,7 +5135,11 @@
                             "height": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--datetime-input-padding-x-full": {
                         "type": "input",
@@ -4509,15 +5148,22 @@
                             "width": [
                                 "full"
                             ]
-                        }
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--datetime-popper-border-color": {
                         "type": "color",
-                        "desc": "日期时间选择器选择框边框颜色,如：#223325"
+                        "desc": "日期时间选择器选择框边框颜色,如：#223325",
+                        "prefix": "datetime"
                     },
                     "--datetime-popper-border-radius": {
                         "type": "input",
-                        "desc": "日期时间选择器选择框圆角,如：1px"
+                        "desc": "日期时间选择器选择框圆角,如：1px",
+                        "prefix": "datetime"
                     }
                 },
                 "preview": {
@@ -4533,31 +5179,38 @@
                 "cssProperty": {
                     "--timepicker-input-border-color": {
                         "type": "color",
-                        "desc": "时间选择框输入框边框颜色,如 #223325"
+                        "desc": "时间选择框输入框边框颜色,如 #223325",
+                        "prefix": "timepicker-input"
                     },
                     "--timepicker-input-border-width": {
                         "type": "input",
-                        "desc": "时间选择框输入框边框宽度,如 1px"
+                        "desc": "时间选择框输入框边框宽度,如 1px",
+                        "prefix": "timepicker-input"
                     },
                     "--timepicker-input-color": {
                         "type": "color",
-                        "desc": "时间选择框输入框字体颜色,如 #223325"
+                        "desc": "时间选择框输入框字体颜色,如 #223325",
+                        "prefix": "timepicker-input"
                     },
                     "--timepicker-input-background": {
                         "type": "color",
-                        "desc": "时间选择框输入框背景颜色,如 #223325"
+                        "desc": "时间选择框输入框背景颜色,如 #223325",
+                        "prefix": "timepicker-input"
                     },
                     "--timepicker-input-border-radius": {
                         "type": "input",
-                        "desc": "时间选择框输入框圆角,如 1px"
+                        "desc": "时间选择框输入框圆角,如 1px",
+                        "prefix": "timepicker-input"
                     },
                     "--timepicker-input-background-disabled": {
                         "type": "color",
-                        "desc": "时间选择框输入框背景颜色（禁用状态）,如 #223325"
+                        "desc": "时间选择框输入框背景颜色（禁用状态）,如 #223325",
+                        "prefix": "timepicker-input"
                     },
                     "--timepicker-input-placeholder-color": {
                         "type": "color",
-                        "desc": "时间选择框输入框提示字体颜色,如 #223325"
+                        "desc": "时间选择框输入框提示字体颜色,如 #223325",
+                        "prefix": "timepicker-input"
                     },
                     "--timepicker-input-width-mini": {
                         "type": "input",
@@ -4566,7 +5219,11 @@
                             "width": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--timepicker-input-padding-x-mini": {
                         "type": "input",
@@ -4575,7 +5232,12 @@
                             "width": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--timepicker-input-height-mini": {
                         "type": "input",
@@ -4584,7 +5246,11 @@
                             "height": [
                                 "mini"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--timepicker-input-width-small": {
                         "type": "input",
@@ -4593,7 +5259,11 @@
                             "width": [
                                 "small"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--timepicker-input-padding-x-small": {
                         "type": "input",
@@ -4602,7 +5272,12 @@
                             "width": [
                                 "small"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--timepicker-input-height-small": {
                         "type": "input",
@@ -4611,7 +5286,11 @@
                             "height": [
                                 "small"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--timepicker-input-width": {
                         "type": "input",
@@ -4621,7 +5300,11 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--timepicker-input-height": {
                         "type": "input",
@@ -4631,7 +5314,11 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--timepicker-input-padding-x": {
                         "type": "input",
@@ -4641,7 +5328,12 @@
                                 "normal",
                                 null
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--timepicker-input-width-medium": {
                         "type": "input",
@@ -4650,7 +5342,11 @@
                             "width": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--timepicker-input-padding-x-medium": {
                         "type": "input",
@@ -4659,7 +5355,12 @@
                             "width": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--timepicker-input-height-medium": {
                         "type": "input",
@@ -4668,7 +5369,11 @@
                             "height": [
                                 "medium"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--timepicker-input-width-large": {
                         "type": "input",
@@ -4677,7 +5382,11 @@
                             "width": [
                                 "large"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--timepicker-input-padding-x-large": {
                         "type": "input",
@@ -4686,7 +5395,12 @@
                             "width": [
                                 "large"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--timepicker-input-height-large": {
                         "type": "input",
@@ -4695,7 +5409,11 @@
                             "height": [
                                 "large"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--timepicker-input-width-huge": {
                         "type": "input",
@@ -4704,7 +5422,11 @@
                             "width": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
                     },
                     "--timepicker-input-padding-x-huge": {
                         "type": "input",
@@ -4713,7 +5435,12 @@
                             "width": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     },
                     "--timepicker-input-height-huge": {
                         "type": "input",
@@ -4722,7 +5449,11 @@
                             "height": [
                                 "huge"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "height"
+                        ]
                     },
                     "--timepicker-input-padding-x-full": {
                         "type": "input",
@@ -4731,7 +5462,12 @@
                             "width": [
                                 "full"
                             ]
-                        }
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
                     }
                 },
                 "preview": {
@@ -4747,7 +5483,10 @@
                 "cssProperty": {
                     "--dropdown-color-text": {
                         "type": "color",
-                        "desc": "下拉菜单字体颜色,如 #223325"
+                        "desc": "下拉菜单字体颜色,如 #223325",
+                        "depStaticStyles": [
+                            "color"
+                        ]
                     },
                     "--dropdown-color-text-hover": {
                         "type": "color",
@@ -4861,181 +5600,236 @@
                             "u-sidebar-item",
                             "u-sidebar-group",
                             "u-sidebar-divider"
-                        ]
+                        ],
+                        "depStaticStyles": {
+                            "u-sidebar": [
+                                "background-color"
+                            ]
+                        }
                     },
                     "--sidebar-item-height": {
                         "type": "input",
+                        "group": "项",
                         "desc": "侧边栏项高度,如：1px",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
-                        ]
+                        ],
+                        "depStaticStyles": {
+                            "u-sidebar-item": [
+                                "height"
+                            ]
+                        }
                     },
                     "--sidebar-item-padding-left": {
                         "type": "input",
+                        "group": "项",
                         "desc": "侧边栏项左边距,如：1px",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
-                        ]
+                        ],
+                        "depStaticStyles": {
+                            "u-sidebar-item": [
+                                "padding-left"
+                            ]
+                        }
                     },
                     "--sidebar-item-background": {
                         "type": "color",
+                        "group": "项",
                         "desc": "侧边栏项背景色,如：#223325",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
-                        ]
+                        ],
+                        "depStaticStyles": {
+                            "u-sidebar-item": [
+                                "background-color"
+                            ]
+                        }
                     },
                     "--sidebar-item-background-selected": {
                         "type": "color",
+                        "group": "项",
                         "desc": "侧边栏项选中背景色,如：#223325",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
                         ]
                     },
                     "--sidebar-item-background-disabled": {
                         "type": "color",
+                        "group": "项",
                         "desc": "侧边栏项禁用背景色,如：#223325",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
                         ]
                     },
                     "--sidebar-item-background-selected-disabled": {
                         "type": "color",
+                        "group": "项",
                         "desc": "侧边栏项禁用选中背景色,如：#223325",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
                         ]
                     },
                     "--sidebar-item-color": {
                         "type": "color",
+                        "group": "项",
                         "desc": "侧边栏项文字颜色,如：#223325",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
-                        ]
+                        ],
+                        "depStaticStyles": {
+                            "u-sidebar": [
+                                "color"
+                            ],
+                            "u-sidebar-item": [
+                                "color"
+                            ]
+                        }
                     },
                     "--sidebar-item-background-hover": {
                         "type": "color",
+                        "group": "项",
                         "desc": "侧边栏项背景色（hover状态）,如：#223325",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
                         ]
                     },
                     "--sidebar-item-color-hover": {
                         "type": "color",
+                        "group": "项",
                         "desc": "侧边栏项文字颜色（hover状态）,如：#223325",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
                         ]
                     },
                     "--sidebar-item-color-selected": {
                         "type": "color",
+                        "group": "项",
                         "desc": "侧边栏项选中时文字颜色,如：#223325",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
                         ]
                     },
                     "--sidebar-item-color-disabled": {
                         "type": "color",
+                        "group": "项",
                         "desc": "侧边栏项禁用文字颜色,如：#223325",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
                         ]
                     },
                     "--sidebar-item-border-right-width": {
                         "type": "input",
+                        "group": "项",
                         "desc": "侧边栏项右边框宽度,如：1px",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
-                        ]
+                        ],
+                        "depStaticStyles": {
+                            "u-sidebar-item": [
+                                "border-right-width"
+                            ]
+                        }
                     },
                     "--sidebar-item-border-right-color": {
                         "type": "color",
+                        "group": "项",
                         "desc": "侧边栏项右边框颜色,如：#223325",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
-                        ]
+                        ],
+                        "depStaticStyles": {
+                            "u-sidebar-item": [
+                                "border-color"
+                            ]
+                        }
                     },
                     "--sidebar-item-border-bottom-width": {
                         "type": "input",
+                        "group": "项",
                         "desc": "侧边栏项下边框宽度,如：1px",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
-                        ]
+                        ],
+                        "depStaticStyles": {
+                            "u-sidebar-item": [
+                                "border-bottom-width"
+                            ]
+                        }
                     },
                     "--sidebar-item-border-bottom-color": {
                         "type": "color",
+                        "group": "项",
                         "desc": "侧边栏项下边框颜色,如：#223325",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
-                        ]
+                        ],
+                        "depStaticStyles": {
+                            "u-sidebar-item": [
+                                "border-color"
+                            ]
+                        }
                     },
                     "--sidebar-item-icon-font-size": {
                         "type": "input",
+                        "group": "项",
                         "desc": "侧边栏项图标大小,如：1px",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
                         ]
                     },
                     "--sidebar-item-icon-color": {
                         "type": "color",
+                        "group": "项",
                         "desc": "侧边栏项图标颜色,如：#223325",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
                         ]
                     },
                     "--sidebar-item-icon-color-hover": {
                         "type": "color",
+                        "group": "项",
                         "desc": "侧边栏项图标颜色（hover状态）,如：#223325",
                         "prefix": "sidebar-item",
                         "excludeTags": [
-                            "u-sidebar-group",
                             "u-sidebar-divider"
                         ]
                     },
                     "--sidebar-group-padding-left": {
                         "type": "input",
+                        "group": "分组",
                         "desc": "侧边栏分组左边距,如：1px",
                         "prefix": "sidebar-group",
                         "excludeTags": [
                             "u-sidebar-item",
                             "u-sidebar-divider"
-                        ]
+                        ],
+                        "depStaticStyles": {
+                            "u-sidebar-group": [
+                                "padding-left"
+                            ]
+                        }
                     },
                     "--sidebar-group-head-height": {
                         "type": "input",
+                        "group": "分组",
                         "desc": "侧边栏分组头部高度,如：1px",
                         "prefix": "sidebar-group",
                         "excludeTags": [
@@ -5045,6 +5839,7 @@
                     },
                     "--sidebar-group-head-padding-left": {
                         "type": "input",
+                        "group": "分组",
                         "desc": "侧边栏分组头部左边距,如：1px",
                         "prefix": "sidebar-group",
                         "excludeTags": [
@@ -5054,6 +5849,7 @@
                     },
                     "--sidebar-group-head-font-weight": {
                         "type": "input",
+                        "group": "分组",
                         "desc": "侧边栏分组头部字重,如：1px",
                         "prefix": "sidebar-group",
                         "excludeTags": [
@@ -5063,6 +5859,7 @@
                     },
                     "--sidebar-group-head-color": {
                         "type": "color",
+                        "group": "分组",
                         "desc": "侧边栏分组头部字体颜色,如：#223325",
                         "prefix": "sidebar-group",
                         "excludeTags": [
@@ -5072,6 +5869,7 @@
                     },
                     "--sidebar-group-head-color-hover": {
                         "type": "color",
+                        "group": "分组",
                         "desc": "侧边栏分组头部字体颜色（hover状态）,如：#223325",
                         "prefix": "sidebar-group",
                         "excludeTags": [
@@ -5081,6 +5879,7 @@
                     },
                     "--sidebar-group-head-background-hover": {
                         "type": "color",
+                        "group": "分组",
                         "desc": "侧边栏分组头部背景色（hover状态）,如：#223325",
                         "prefix": "sidebar-group",
                         "excludeTags": [
@@ -5090,6 +5889,7 @@
                     },
                     "--sidebar-group-head-color-selected": {
                         "type": "color",
+                        "group": "分组",
                         "desc": "侧边栏分组头部选中背景色,如：#223325",
                         "prefix": "sidebar-group",
                         "excludeTags": [
@@ -5099,6 +5899,7 @@
                     },
                     "--sidebar-group-head-border-bottom-width": {
                         "type": "input",
+                        "group": "分组",
                         "desc": "侧边栏分组头部下边距宽度,如：1px",
                         "prefix": "sidebar-group",
                         "excludeTags": [
@@ -5108,6 +5909,7 @@
                     },
                     "--sidebar-group-head-border-bottom-color": {
                         "type": "color",
+                        "group": "分组",
                         "desc": "侧边栏分组头部下边距颜色,如：#223325",
                         "prefix": "sidebar-group",
                         "excludeTags": [
@@ -5117,30 +5919,49 @@
                     },
                     "--sidebar-divider-margin-y": {
                         "type": "input",
+                        "group": "分隔符",
                         "desc": "侧边栏分隔符左外边距,如：1px",
                         "prefix": "sidebar-divider",
                         "excludeTags": [
                             "u-sidebar-item",
                             "u-sidebar-group"
-                        ]
+                        ],
+                        "depStaticStyles": {
+                            "u-sidebar-divider": [
+                                "margin-top",
+                                "margin-bottom"
+                            ]
+                        }
                     },
                     "--sidebar-divider-height": {
                         "type": "input",
+                        "group": "分隔符",
                         "desc": "侧边栏分隔符高度,如：1px",
                         "prefix": "sidebar-divider",
                         "excludeTags": [
                             "u-sidebar-item",
                             "u-sidebar-group"
-                        ]
+                        ],
+                        "depStaticStyles": {
+                            "u-sidebar-divider": [
+                                "height"
+                            ]
+                        }
                     },
                     "--sidebar-divider-background": {
                         "type": "color",
+                        "group": "分隔符",
                         "desc": "侧边栏分隔符背景色,如：#223325",
                         "prefix": "sidebar-divider",
                         "excludeTags": [
                             "u-sidebar-item",
                             "u-sidebar-group"
-                        ]
+                        ],
+                        "depStaticStyles": {
+                            "u-sidebar-divider": [
+                                "background-color"
+                            ]
+                        }
                     }
                 },
                 "preview": {
@@ -5207,7 +6028,10 @@
                                 "info",
                                 null
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--alert-background-color-success": {
                         "type": "color",
@@ -5216,7 +6040,10 @@
                             "type": [
                                 "success"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--alert-background-color-warning": {
                         "type": "color",
@@ -5225,7 +6052,10 @@
                             "type": [
                                 "warning"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--alert-background-color-error": {
                         "type": "color",
@@ -5234,7 +6064,10 @@
                             "type": [
                                 "error"
                             ]
-                        }
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
                     },
                     "--alert-close-color": {
                         "type": "color",

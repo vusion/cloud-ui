@@ -16,7 +16,7 @@
             :disabled="itemVM.disabled || disabled"
             :desc="!!(itemVM.desc || itemVM.$slots.desc)"
             v-show="!itemVM.hidden"
-            :style="{ width: currentItemWidth }"
+            :style="getItemStyle(itemVM)"
             :vusion-template-title-node-path="itemVM.$attrs['vusion-template-title-node-path']"
             :vusion-template-desc-node-path="itemVM.$attrs['vusion-template-desc-node-path']">
             <div :class="$style['item-body']" :title="itemVM.title">
@@ -130,6 +130,11 @@ export default {
                 { value, oldValue, item, itemVM: this.selectedVM },
                 this,
             );
+        },
+        getItemStyle(itemVm) {
+            const itemStyle = itemVm.$vnode.data && itemVm.$vnode.data.style || {};
+            const itemstaticStyle = itemVm.$vnode.data && itemVm.$vnode.data.staticStyle || {};
+            return Object.assign({ width: this.currentItemWidth }, itemstaticStyle, itemStyle);
         },
     },
 };
