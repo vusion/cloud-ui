@@ -1657,7 +1657,7 @@
     --calendar-date-padding: 4px 8px 0; /* @desc 日历日期内边距,如：1px */ /* @prefix calendar-date */
     --calendar-date-text-align: right; /* @desc 日历日期文字水平对齐，如：right|center|left */ /* @prefix calendar-date */
     --calendar-date-background: var(--brand-primary-lightest); /* @desc 日历日期选中项背景色,如：#223325 */ /* @type color */ /* @prefix calendar-date */
-    --calendar-date-disabled: var(--brand-disabled-dark); /* @desc 日历日期文字禁用颜色,如：#223325 */ /* @type color */ /* @prefix calendar-date */
+    --calendar-date-disabled: var(--brand-disabled-dark); /* @hidden */
 
     /* @component u-calendar @hidden */
     --calendar-border-color: var(--border-color-base); /* @type color */ /* @desc 日历面板边框颜色,如：#223325 */
@@ -1712,7 +1712,7 @@
     --datepicker-input-border-color-focus: var(--input-border-color-focus); /* hidden */ /* @desc 日期选择器输入框边框颜色（选中状态）,如：1px */ /* @prefix datepicker-input */
     --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus); /* hidden */
     --datepicker-input-placeholder-color: var(--input-placeholder-color); /* @type color */ /* @desc 日期选择器输入框提示字体颜色,如：#223325 */ /* @prefix datepicker-input */
-    --datepicker-popper-box-shadow: var(--select-popper-box-shadow); /* hidden */ 
+    --datepicker-popper-box-shadow: var(--select-popper-box-shadow); /* hidden */
     --datepicker-popper-border-radius: var(--border-radius-base); /* hidden */
 
     --datepicker-input-width: var(--input-width); /* @desc 日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */

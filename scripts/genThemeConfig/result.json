@@ -4486,11 +4486,6 @@
                         "type": "color",
                         "desc": "日历日期选中项背景色,如：#223325",
                         "prefix": "calendar-date"
-                    },
-                    "--calendar-date-disabled": {
-                        "type": "color",
-                        "desc": "日历日期文字禁用颜色,如：#223325",
-                        "prefix": "calendar-date"
                     }
                 },
                 "preview": {
