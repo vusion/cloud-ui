@@ -369,6 +369,7 @@
     --sidebar-item-icon-font-size: 16px; /* @group 项 */ /* @desc 侧边栏项图标大小,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-divider */
     --sidebar-item-icon-color: var(--gray-light); /* @group 项 */ /* @desc 侧边栏项图标颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
     --sidebar-item-icon-color-hover: var(--sidebar-item-icon-color); /* @group 项 */ /* @desc 侧边栏项图标颜色（hover状态）,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
+    --sidebar-item-icon-color-selected: var(--sidebar-item-icon-color); /* @group 项 */ /* @desc 侧边栏项图标颜色（选中状态）,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
     --sidebar-group-padding-left: 10px; /* @group 分组 */ /* @desc 侧边栏分组左边距,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */ /* @depStaticStyles { "u-sidebar-group": ["padding-left"] } */
     --sidebar-group-head-height: 52px; /* @group 分组 */ /* @desc 侧边栏分组头部高度,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
     --sidebar-group-head-padding-left: 20px; /* @group 分组 */ /* @desc 侧边栏分组头部左边距,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
