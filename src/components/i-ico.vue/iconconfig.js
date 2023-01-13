@@ -7,13 +7,6 @@ export default {
     "description": "",
     "glyphs": [
         {
-            "icon_id": "33686384",
-            "name": "add-new",
-            "font_class": "add-new",
-            "unicode": "e618",
-            "unicode_decimal": 58904
-        },
-        {
             "icon_id": "29749064",
             "name": "加载中",
             "font_class": "loading",
@@ -343,6 +336,13 @@ export default {
             "unicode_decimal": 58954
         },
         {
+            "icon_id": "33769452",
+            "name": "菜单",
+            "font_class": "menu",
+            "unicode": "e61b",
+            "unicode_decimal": 58907
+        },
+        {
             "icon_id": "26504230",
             "name": "任务",
             "font_class": "task",
@@ -460,6 +460,20 @@ export default {
             "font_class": "error",
             "unicode": "e637",
             "unicode_decimal": 58935
+        },
+        {
+            "icon_id": "33770914",
+            "name": "减少",
+            "font_class": "decrease",
+            "unicode": "e61e",
+            "unicode_decimal": 58910
+        },
+        {
+            "icon_id": "33770909",
+            "name": "增加",
+            "font_class": "add-new",
+            "unicode": "e61d",
+            "unicode_decimal": 58909
         },
         {
             "icon_id": "26503253",
