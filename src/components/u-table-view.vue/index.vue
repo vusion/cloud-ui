@@ -1214,9 +1214,17 @@ export default {
         },
         removeExcludeColumns(data, excludeColumns) {
             const excludeIndex = [];
-            const titles = data[0];
+            // 如果表头加了其他组件，如筛选下拉框，可能后面会有空格，把空格去掉
+            const titles = (data[0] || []).map((title) => title.trim());
+            // 过滤掉title为空的，如多选列等
+            titles.forEach((title, index) => {
+                if (title === '') {
+                    excludeIndex.push(index);
+                }
+            });
             for (const title of excludeColumns) {
-                const pos = titles.indexOf(title);
+                const titleTemp = title.trim();
+                const pos = titles.indexOf(titleTemp);
                 if (pos >= 0)
                     excludeIndex.push(pos);
             }
