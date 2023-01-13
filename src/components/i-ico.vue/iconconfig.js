@@ -336,6 +336,13 @@ export default {
             "unicode_decimal": 58954
         },
         {
+            "icon_id": "33769452",
+            "name": "菜单",
+            "font_class": "menu",
+            "unicode": "e61b",
+            "unicode_decimal": 58907
+        },
+        {
             "icon_id": "26504230",
             "name": "任务",
             "font_class": "task",
@@ -455,18 +462,18 @@ export default {
             "unicode_decimal": 58935
         },
         {
-            "icon_id": "33723830",
-            "name": "decrease",
+            "icon_id": "33770914",
+            "name": "减少",
             "font_class": "decrease",
-            "unicode": "e619",
-            "unicode_decimal": 58905
+            "unicode": "e61e",
+            "unicode_decimal": 58910
         },
         {
-            "icon_id": "33686384",
-            "name": "add-new",
+            "icon_id": "33770909",
+            "name": "增加",
             "font_class": "add-new",
-            "unicode": "e618",
-            "unicode_decimal": 58904
+            "unicode": "e61d",
+            "unicode_decimal": 58909
         },
         {
             "icon_id": "26503253",
