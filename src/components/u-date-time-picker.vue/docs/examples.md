@@ -11,7 +11,9 @@
 
 ```html
 <u-linear-layout>
-    <u-date-time-picker preIcon suffixIcon="calendar" clearable :showFooter=false></u-date-time-picker>
+    <u-date-time-picker preIcon suffixIcon="calendar" clearable :showFooterButton=false></u-date-time-picker>
+    <u-date-time-picker preIcon suffixIcon="calendar" clearable :showRightNowButton=false></u-date-time-picker>
+    <u-date-time-picker preIcon suffixIcon="calendar" clearable :showRightNowButton=false :showFooterButton=false></u-date-time-picker>
 </u-linear-layout>
 ```
 
@@ -19,7 +21,7 @@
 
 ```html
 <u-linear-layout>
-    <u-date-time-picker footerContent="此时 取消 确定" preIcon suffixIcon="calendar" clearable></u-date-time-picker>
+    <u-date-time-picker cancelTitle="取" okTitle="确" rightNowTitle="此" preIcon suffixIcon="calendar" clearable></u-date-time-picker>
 </u-linear-layout>
 ```
 

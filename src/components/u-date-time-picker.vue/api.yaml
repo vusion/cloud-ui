@@ -51,13 +51,28 @@
       type: boolean
       default: false
       description: ""
-    - name: showFooter
-      title: 面板下方按钮
+    - name: showRightNowButton
+      title: 此刻按钮
       type: boolean
       default: true
       description: ""
-    - name: footerContent
-      title: 面板下方按钮文案
+    - name: rightNowTitle
+      title: 此刻按钮名称
+      type: string
+      default: ""
+      description: "快捷选择当前时间"
+    - name: showFooterButton
+      title: 取消/确认按钮
+      type: boolean
+      default: true
+      description: ""
+    - name: cancelTitle
+      title: 取消按钮名称
+      type: string
+      default: ""
+      description: ""
+    - name: okTitle
+      title: 确定按钮名称
       type: string
       default: ""
       description: ""

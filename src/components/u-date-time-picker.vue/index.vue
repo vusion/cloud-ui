@@ -36,14 +36,14 @@
                 :border="false"
                 @select="outRangeDateTime($event.date, showTime)">
             </u-calendar>
-            <div :class="$style.footer" v-if="showFooter">
+            <div :class="$style.footer" v-if="showFooterButton || showRightNowButton">
                 <u-linear-layout justify="space-between">
                     <u-linear-layout :class="$style.ctimewrap">
-                        <u-link @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ this.footerContentList.length === 3 ? footerContentList[0] : $t('now') }}</u-link>
+                        <u-link @click="setDateNow()" v-if="showRightNowButton" :readonly="readonly" :disabled="disabled || disabledNow">{{ rightNowTitle || $t('now') }}</u-link>
                     </u-linear-layout>
-                    <u-linear-layout :class="$style.btnwrap">
-                        <u-button @click="onCancel">{{ this.footerContentList.length === 3 ? footerContentList[1] :$t('cancel') }}</u-button>
-                        <u-button @click="onConfirm" color="primary" :readonly="readonly" :disabled="disabled">{{ this.footerContentList.length === 3 ? footerContentList[2] : $t('submit') }}</u-button>
+                    <u-linear-layout :class="$style.btnwrap" v-if="showFooterButton">
+                        <u-button @click="onCancel">{{ cancelTitle || $t('cancel') }}</u-button>
+                        <u-button @click="onConfirm" color="primary" :readonly="readonly" :disabled="disabled">{{ okTitle || $t('submit') }}</u-button>
                     </u-linear-layout>
                 </u-linear-layout>
             </div>
@@ -115,8 +115,12 @@ export default {
         },
         width: String,
         height: String,
-        showFooter: { type: Boolean, default: true },
-        footerContent: {type: String, default: ""}
+        showRightNowButton: { type: Boolean, default: true },
+        showFooterButton: { type: Boolean, default: true },
+        rightNowTitle: {type: String, default: ""},
+        cancelTitle: {type: String, default: ""},
+        okTitle: {type: String, default: ""},
+
     },
     data() {
         return {
@@ -162,9 +166,6 @@ export default {
             else if (this.alignment === 'right')
                 return 'bottom-end';
             return '';
-        },
-        footerContentList(){
-            return this.footerContent.split(' ');
         },
     },
     watch: {
@@ -296,9 +297,9 @@ export default {
                 sender: this,
                 date: new Date(date).getTime(),
             });
-            // 隐藏底部按钮时，更新日期相当于直接确认操作
             this.preventBlur = true;
-            if (!this.showFooter) {
+            // 隐藏底部确认取消按钮时，更新日期相当于直接确认操作
+            if (!this.showFooterButton) {
                 this.finalDateTime = this.dateTime;
                 this.emitValue();
             }
@@ -356,6 +357,10 @@ export default {
                 this.dateTime = this.format(date, 'YYYY-MM-DD HH:mm:ss');
             } else {
                 this.dateTime = '';
+            }
+            if (!this.showFooterButton) {
+                this.finalDateTime = this.dateTime;
+                this.emitValue();
             }
         },
         setDateNow() {
