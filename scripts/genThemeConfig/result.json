@@ -60,13 +60,6 @@
                 "cssProperty": {
                     "--linear-layout-background": {
                         "type": "color",
-                        "desc": "背景颜色,如：#223325",
-                        "depStaticStyles": [
-                            "background-color"
-                        ]
-                    },
-                    "--linear-layout-mask-background": {
-                        "type": "color",
                         "desc": "加载时遮罩背景颜色,如：#223325"
                     }
                 },

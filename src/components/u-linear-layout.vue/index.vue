@@ -78,7 +78,6 @@ export default {
 
 .root {
     position: relative;
-    background: var(--linear-layout-background);
 }
 /* 默认为 block */
 .root[display="inline"], .root[inline] {
@@ -210,7 +209,7 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
-    background: var(--linear-layout-mask-background);
+    background: var(--linear-layout-background);
 }
 
 .loading {
