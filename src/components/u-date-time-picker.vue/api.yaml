@@ -61,6 +61,7 @@
       type: string
       default: ""
       description: "快捷选择当前时间"
+      clearable: true
     - name: showFooterButton
       title: 取消/确认按钮
       type: boolean
@@ -71,11 +72,13 @@
       type: string
       default: ""
       description: ""
+      clearable: true
     - name: okTitle
       title: 确定按钮名称
       type: string
       default: ""
       description: ""
+      clearable: true
     - name: yearDiff
       title: 最小可选年份到当前年份的差值
       type: number
