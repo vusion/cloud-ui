@@ -304,6 +304,7 @@
     "--sidebar-item-icon-font-size": "16px",
     "--sidebar-item-icon-color": "var(--gray-light)",
     "--sidebar-item-icon-color-hover": "var(--sidebar-item-icon-color)",
+    "--sidebar-item-icon-color-selected": "var(--sidebar-item-icon-color)",
     "--sidebar-group-padding-left": "10px",
     "--sidebar-group-head-height": "52px",
     "--sidebar-group-head-padding-left": "20px",

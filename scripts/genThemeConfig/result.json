@@ -5807,6 +5807,15 @@
                             "u-sidebar-divider"
                         ]
                     },
+                    "--sidebar-item-icon-color-selected": {
+                        "type": "color",
+                        "group": "项",
+                        "desc": "侧边栏项图标颜色（选中状态）,如：#223325",
+                        "prefix": "sidebar-item",
+                        "excludeTags": [
+                            "u-sidebar-divider"
+                        ]
+                    },
                     "--sidebar-group-padding-left": {
                         "type": "input",
                         "group": "分组",
