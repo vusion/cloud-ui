@@ -464,7 +464,7 @@ export default {
         paging() {
             if (this.pageable) {
                 const paging = {};
-                paging.size = this.pageSize;
+                paging.size = this.pageSize === '' ? 20 : this.pageSize;
                 paging.number = paging.number || 1;
                 return paging;
             } else
