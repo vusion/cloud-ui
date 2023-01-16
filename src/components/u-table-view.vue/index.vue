@@ -733,6 +733,10 @@ export default {
                 this.timer = undefined;
 
                 let rootWidth = this.$el.offsetWidth;
+                // 放在线性布局flex下，或者某些设置了fit-content，table-width会缓慢增长，导致表格一直动
+                if (rootWidth > this.tableWidth && rootWidth - this.tableWidth <= 5) {
+                    rootWidth = this.tableWidth;
+                }
                 if (!rootWidth) {
                     // 初始表格隐藏时，上面的值为0，需要特殊处理
                     let parentEl = this.$el && this.$el.parentElement;
