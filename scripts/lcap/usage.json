@@ -4157,7 +4157,7 @@
             "Navigation"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.26/src/components/u-dropdown.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown>\\n    <template #title><u-text text=\\\"下拉菜单\\\"></u-text></template>\\n    <u-dropdown-item><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown type=\\\"primary\\\">\\n    <template #title><u-text text=\\\"下拉按钮\\\"></u-text></template>\\n    <u-dropdown-item><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本样式1\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown>\\n    <template #title><u-text text=\\\"下拉菜单\\\"></u-text></template>\\n    <u-dropdown-item><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"},{\"title\":\"基本样式2\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown type=\\\"primary\\\">\\n    <template #title><u-text text=\\\"下拉按钮\\\"></u-text></template>\\n    <u-dropdown-item><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"},{\"title\":\"基本样式3\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown type=\\\"more\\\">\\n    <template #title><u-text text=\\\"下拉按钮\\\"></u-text></template>\\n    <u-dropdown-item><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"},{\"title\":\"基本样式4\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown>\\n    <template #title><u-text text=\\\"下拉按钮\\\"></u-text></template>\\n    <u-dropdown-item icon=\\\"menu\\\"><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item icon=\\\"menu\\\"><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item icon=\\\"menu\\\"><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-dropdown",
             "title": "下拉菜单",
@@ -4167,14 +4167,24 @@
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.26/src/components/u-dropdown.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.26/src/components/u-dropdown.vue/drawings/1.svg",
             "blocks": [
                 {
-                    "title": "基本用法",
+                    "title": "基本样式1",
                     "description": "",
                     "code": "<template>\n<u-dropdown>\n    <template #title><u-text text=\"下拉菜单\"></u-text></template>\n    <u-dropdown-item><u-text text=\"选项一\"></u-text></u-dropdown-item>\n    <u-dropdown-item><u-text text=\"选项二\"></u-text></u-dropdown-item>\n    <u-dropdown-item><u-text text=\"选项三\"></u-text></u-dropdown-item>\n</u-dropdown>\n</template>\n"
                 },
                 {
-                    "title": "基本用法",
+                    "title": "基本样式2",
                     "description": "",
                     "code": "<template>\n<u-dropdown type=\"primary\">\n    <template #title><u-text text=\"下拉按钮\"></u-text></template>\n    <u-dropdown-item><u-text text=\"选项一\"></u-text></u-dropdown-item>\n    <u-dropdown-item><u-text text=\"选项二\"></u-text></u-dropdown-item>\n    <u-dropdown-item><u-text text=\"选项三\"></u-text></u-dropdown-item>\n</u-dropdown>\n</template>\n"
+                },
+                {
+                    "title": "基本样式3",
+                    "description": "",
+                    "code": "<template>\n<u-dropdown type=\"more\">\n    <template #title><u-text text=\"下拉按钮\"></u-text></template>\n    <u-dropdown-item><u-text text=\"选项一\"></u-text></u-dropdown-item>\n    <u-dropdown-item><u-text text=\"选项二\"></u-text></u-dropdown-item>\n    <u-dropdown-item><u-text text=\"选项三\"></u-text></u-dropdown-item>\n</u-dropdown>\n</template>\n"
+                },
+                {
+                    "title": "基本样式4",
+                    "description": "",
+                    "code": "<template>\n<u-dropdown>\n    <template #title><u-text text=\"下拉按钮\"></u-text></template>\n    <u-dropdown-item icon=\"menu\"><u-text text=\"选项一\"></u-text></u-dropdown-item>\n    <u-dropdown-item icon=\"menu\"><u-text text=\"选项二\"></u-text></u-dropdown-item>\n    <u-dropdown-item icon=\"menu\"><u-text text=\"选项三\"></u-text></u-dropdown-item>\n</u-dropdown>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -4228,6 +4238,10 @@
                         {
                             "value": "normal",
                             "title": "普通按钮样式"
+                        },
+                        {
+                            "value": "more",
+                            "title": "更多按钮样式"
                         }
                     ],
                     "default": "text"
@@ -7614,6 +7628,14 @@
                     "type": "boolean",
                     "description": "手动设置是否加载失败",
                     "group": "状态属性"
+                },
+                {
+                    "name": "error-image",
+                    "title": "加载失败时图片",
+                    "type": "image",
+                    "default": "",
+                    "description": "加载失败或数据为空时显示的图片",
+                    "compType": "linkInput"
                 },
                 {
                     "name": "error-text",
@@ -11359,6 +11381,13 @@
                             "bindHide": true
                         },
                         {
+                            "name": "validate-message",
+                            "title": "验证提示消息内容",
+                            "type": "string",
+                            "description": "",
+                            "default": ""
+                        },
+                        {
                             "name": "ignore-validation",
                             "title": "忽略验证",
                             "type": "boolean",
@@ -11815,27 +11844,18 @@
                 {
                     "name": "prefix",
                     "title": "前缀图标",
-                    "type": "string",
-                    "options": [
-                        {
-                            "value": "search",
-                            "title": "搜索"
-                        }
-                    ],
+                    "type": "icon",
                     "description": "",
+                    "default": "",
                     "clearable": true
                 },
                 {
                     "name": "suffix",
                     "title": "后缀图标",
-                    "type": "string",
-                    "options": [
-                        {
-                            "value": "search",
-                            "title": "搜索"
-                        }
-                    ],
-                    "description": ""
+                    "type": "icon",
+                    "description": "",
+                    "default": "",
+                    "clearable": true
                 }
             ],
             "slots": [
@@ -20183,6 +20203,44 @@
                     "type": "boolean",
                     "default": false,
                     "description": ""
+                },
+                {
+                    "name": "showRightNowButton",
+                    "title": "此刻按钮",
+                    "type": "boolean",
+                    "default": true,
+                    "description": ""
+                },
+                {
+                    "name": "rightNowTitle",
+                    "title": "此刻按钮名称",
+                    "type": "string",
+                    "default": "",
+                    "description": "快捷选择当前时间",
+                    "clearable": true
+                },
+                {
+                    "name": "showFooterButton",
+                    "title": "取消/确认按钮",
+                    "type": "boolean",
+                    "default": true,
+                    "description": ""
+                },
+                {
+                    "name": "cancelTitle",
+                    "title": "取消按钮名称",
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "clearable": true
+                },
+                {
+                    "name": "okTitle",
+                    "title": "确定按钮名称",
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "clearable": true
                 },
                 {
                     "name": "yearDiff",
