@@ -33,6 +33,8 @@
           title: 次要按钮样式
         - value: normal
           title: 普通按钮样式
+        - value: more
+          title: 更多按钮样式
       default: text
     - name: placement
       title: 弹出位置

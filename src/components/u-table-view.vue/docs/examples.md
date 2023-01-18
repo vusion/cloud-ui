@@ -302,7 +302,7 @@ export default {
 可以通过`error-text`或 error 插槽自定义加载错误信息。
 
 ``` html
-<u-table-view :error="true" error-text="加载出现异常">
+<u-table-view :error="true" error-text="加载出现异常" error-image="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg">
     <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
     <u-table-view-column title="地址" field="address"></u-table-view-column>

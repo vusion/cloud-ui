@@ -36,14 +36,14 @@
                 :border="false"
                 @select="outRangeDateTime($event.date, showTime)">
             </u-calendar>
-            <div :class="$style.footer">
+            <div :class="$style.footer" v-if="showFooterButton || showRightNowButton">
                 <u-linear-layout justify="space-between">
                     <u-linear-layout :class="$style.ctimewrap">
-                        <u-link @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ $t('now') }}</u-link>
+                        <u-link @click="setDateNow()" v-if="showRightNowButton" :readonly="readonly" :disabled="disabled || disabledNow">{{ rightNowTitle || $t('now') }}</u-link>
                     </u-linear-layout>
-                    <u-linear-layout :class="$style.btnwrap">
-                        <u-button @click="onCancel">{{ $t('cancel') }}</u-button>
-                        <u-button @click="onConfirm" color="primary" :readonly="readonly" :disabled="disabled">{{ $t('submit') }}</u-button>
+                    <u-linear-layout :class="$style.btnwrap" v-if="showFooterButton">
+                        <u-button @click="onCancel">{{ cancelTitle || $t('cancel') }}</u-button>
+                        <u-button @click="onConfirm" color="primary" :readonly="readonly" :disabled="disabled">{{ okTitle || $t('submit') }}</u-button>
                     </u-linear-layout>
                 </u-linear-layout>
             </div>
@@ -115,6 +115,12 @@ export default {
         },
         width: String,
         height: String,
+        showRightNowButton: { type: Boolean, default: true },
+        showFooterButton: { type: Boolean, default: true },
+        rightNowTitle: {type: String, default: ""},
+        cancelTitle: {type: String, default: ""},
+        okTitle: {type: String, default: ""},
+
     },
     data() {
         return {
@@ -292,6 +298,11 @@ export default {
                 date: new Date(date).getTime(),
             });
             this.preventBlur = true;
+            // 隐藏底部确认取消按钮时，更新日期相当于直接确认操作
+            if (!this.showFooterButton) {
+                this.finalDateTime = this.dateTime;
+                this.emitValue();
+            }
         },
         /**
          * @method onDateTimeChange(date, time) 日期或时间改变后更新日期时间
@@ -346,6 +357,10 @@ export default {
                 this.dateTime = this.format(date, 'YYYY-MM-DD HH:mm:ss');
             } else {
                 this.dateTime = '';
+            }
+            if (!this.showFooterButton) {
+                this.finalDateTime = this.dateTime;
+                this.emitValue();
             }
         },
         setDateNow() {

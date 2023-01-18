@@ -253,7 +253,12 @@
                     </tr>
                     <tr key="error" v-else-if="currentData === null || currentError">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length" vusion-slot-name="error">
-                            <slot name="error">{{ errorText }}</slot>
+                            <slot name="error">
+                                <u-image v-if="errorImage" :src="errorImage" fit="contain"></u-image>
+                                <u-linear-layout layout="block" justify="center">
+                                    {{ errorText }}
+                                </u-linear-layout>
+                            </slot>
                         </td>
                     </tr>
                     <tr key="loadMore" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
@@ -268,7 +273,12 @@
                     </tr>
                     <tr key="empty" v-else-if="!currentData.length">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length" vusion-slot-name="empty">
-                            <slot name="empty">{{ emptyText }}</slot>
+                            <slot name="empty">
+                                <u-image v-if="errorImage" :src="errorImage" fit="contain"></u-image>
+                                <u-linear-layout layout="block" justify="center">
+                                    {{ emptyText }}
+                                </u-linear-layout>
+                            </slot>
                         </td>
                     </tr>
                 </tbody>
@@ -372,6 +382,10 @@ export default {
             default() {
                 return this.$t('empty');
             },
+        },
+        errorImage: {
+            type: String,
+            default: '',
         },
         // formatter: { type: [String, Function], default: 'text' },
         /* Selection Props */

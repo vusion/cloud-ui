@@ -289,7 +289,7 @@ export default {
 
 关于验证规则的详细使用，参见 [UValidator](#components/u-validator)。
 
-``` vue
+```vue
 <template>
 <u-form ref="form" gap="large">
     <u-form-item label="计费方式" required>
@@ -298,7 +298,7 @@ export default {
             <u-radio label="1">按量付费</u-radio>
         </u-radios>
     </u-form-item>
-    <u-form-item label="实例名称" required rules="required | ^az | az09$ | ^az09-$ | rangeLength(1,63)">
+    <u-form-item label="实例名称" required rules="required | ^az | az09$ | ^az09-$ | rangeLength(1,63)" validateMessage="错误">
         <u-input v-model="model.name" size="huge" maxlength="63" placeholder="由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾"></u-input>
     </u-form-item>
     <u-form-item label="规格">

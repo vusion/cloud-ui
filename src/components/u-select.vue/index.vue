@@ -14,7 +14,7 @@
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing" :class="$style.placeholder">{{ placeholder }}</span>
     <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
-    <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}">
+    <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}" ref="inputOuter">
         <!-- @override: 添加了flag功能 -->
         <slot name="flag">
             <span v-if="selectedVM && selectedVM.flag !== undefined" :class="$style.flag" :layer="selectedVM && selectedVM.layer" v-tooltip.top="selectedVM && selectedVM.flag"></span>
@@ -39,12 +39,12 @@
                 </span>
             </template>
             <template v-else-if="tagsOverflow === 'collapse'">
-                <span :class="$style.tag" v-if="selectedVMs[0]" :key="selectedVMs[0].value">
-                    <span :class="$style['tag-text']">{{ selectedVMs[0].currentText }}</span>
-                    <span :class="$style['tag-remove']" @click.stop="removeTag(selectedVMs[0], false)"></span>
+                <span :class="$style.tag" v-for="(itemVM, index) in selectedVMs" :key="duplicated ? itemVM.value + '__' + index : itemVM.value" :ref="`item_${index}`">
+                    <span :class="$style['tag-text']">{{ itemVM.currentText }}</span>
+                    <span :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
                 </span>
-                <span :class="$style.tag" v-if="selectedVMs.length > 1">
-                    <span :class="$style['tag-text']">+{{ selectedVMs.length - 1 }}</span>
+                <span :class="$style.tag" v-if="selectedVMs.length - collapseCounter >= 1 && this.selectedVMs.length !== 1">
+                    <span :class="$style['tag-text']">+{{ selectedVMs.length - collapseCounter }}</span>
                 </span>
             </template>
         </template>
@@ -177,6 +177,7 @@ export default {
             popperOpened: false,
             currentPopperWidth: this.popperWidth || '100%',
             compositionInputing: false,
+            collapseCounter: 0,
         };
     },
     computed: {
@@ -226,6 +227,46 @@ export default {
                 .join(', ');
             const popperVM = this.$refs.popper;
             popperVM && popperVM.currentOpened && popperVM.scheduleUpdate();
+            // 计算折叠时，最多能展示几个标签
+            if (this.tagsOverflow === "collapse") {
+                this.collapseCounter = 0;
+                const collapseTagWidth = 30;
+                const marginWidth = 3
+                let lastAddElementWidth = 0;
+                // 预留出"+N"的标签宽度
+                let inputWidth = this.$refs.inputOuter.offsetWidth - collapseTagWidth;
+                // 先计算前N-1个元素长度是否超出输入框
+                for (let i=0; i < this.selectedVMs.length -1 ; i++) {
+                    if (this.$refs[`item_${i}`]) {
+                        this.$refs[`item_${i}`][0].style.display = 'inline-block';
+                        const itemWidth = this.$refs[`item_${i}`][0].offsetWidth + marginWidth;
+                        if (inputWidth - itemWidth < 0 ) {
+                            break;
+                        }
+                        inputWidth -= itemWidth;
+                        this.collapseCounter += 1;
+                    }
+                }
+                // 计算最后一个元素能否加入输入框
+                this.$nextTick(()=>{
+                    const lastItem = this.$refs[`item_${this.selectedVMs.length - 1}`]
+                    if (lastItem) {
+                        lastItem[0].style.display = 'inline-block';
+                        lastAddElementWidth = lastItem[0].offsetWidth;
+                    }
+                    if (inputWidth > 0 && inputWidth - lastAddElementWidth > 0) {
+                        this.collapseCounter += 1;
+                    }
+                    // 隐藏掉超出输入框长度的元素
+                    if (this.collapseCounter === this.selectedVMs.length || this.selectedVMs.length === 1) return
+                    for (let i = this.collapseCounter; i < this.selectedVMs.length; i++) {
+                        this.$nextTick(()=>{
+                            this.$refs[`item_${i}`][0].style.display = 'none';
+                        })
+                    }
+                })
+
+            }
         });
         this.$on('select', ($event) => {
             if (!this.multiple) {

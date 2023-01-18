@@ -7,6 +7,24 @@
 </u-linear-layout>
 ```
 
+### 隐藏底部按钮
+
+```html
+<u-linear-layout>
+    <u-date-time-picker preIcon suffixIcon="calendar" clearable :showFooterButton=false></u-date-time-picker>
+    <u-date-time-picker preIcon suffixIcon="calendar" clearable :showRightNowButton=false></u-date-time-picker>
+    <u-date-time-picker preIcon suffixIcon="calendar" clearable :showRightNowButton=false :showFooterButton=false></u-date-time-picker>
+</u-linear-layout>
+```
+
+### 自定义底部文案
+
+```html
+<u-linear-layout>
+    <u-date-time-picker cancelTitle="取" okTitle="确" rightNowTitle="此" preIcon suffixIcon="calendar" clearable></u-date-time-picker>
+</u-linear-layout>
+```
+
 ### 选择日期
 
 ``` vue
