@@ -63,6 +63,9 @@ export default {
         setSelectedVM() {
             let selectedVM = this.getSelectedVM();
 
+            if(!selectedVM)
+                selectedVM = this.getSelectedVmById();
+
             if(selectedVM)
                 this.selectedVM = selectedVM;
         },
@@ -103,6 +106,29 @@ export default {
             const currentElem = hrefsElems.find((item) => this.isIntoView(item.element));
             if (currentElem) {
                 return itemVMsArr.find((item) => item.currentHref === currentElem.hash);
+            }
+        },
+        getSelectedVmById() {
+            if (this.hashChange)
+                return;  
+                
+            function getChildren(vm) {
+                const res = [];
+                for(const childVm of vm.$children) {
+                    res.push(childVm);
+                    res.push(...getChildren(childVm));
+                }
+                return res;
+            }
+
+            const itemVms = getChildren(this)
+                .filter((item) =>  item.currentHref && item.currentHref.startsWith(location.pathname));
+
+            for(const itemVm of itemVms) {
+                const id = itemVm.currentHref.split('#')[1];
+                const ele = document.getElementById(id);
+                if(ele && this.isIntoView(ele))
+                    return itemVm;                
             }
         },
         select(nodeVM) {
