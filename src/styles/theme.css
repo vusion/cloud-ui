@@ -250,9 +250,9 @@
     --crumb-space-x: 6px; /* @desc 链接与箭头符号之间的间距,如：1px */
 
     /* @component u-panel */
-    --panel-border-width: 1px; /* @desc 面板外边框宽度,如：1px */
-    --panel-border-radius: var(--border-radius-medium); /* @desc 面板外边框圆角,如：1px */
-    --panel-background: var(--background-color-default); /* @type color */ /* @desc 面板背景色,如：#223325 */
+    --panel-border-width: 1px; /* @desc 面板外边框宽度,如：1px */ /* @depStaticStyles ["border-top-width", "border-right-width", "border-bottom-width", "border-left-width"] */
+    --panel-border-radius: var(--border-radius-medium); /* @desc 面板外边框圆角,如：1px */ /* @depStaticStyles ["border-top-left-radius", "border-top-right-radius", "border-bottom-left-radius", "border-bottom-right-radius"] */
+    --panel-background: var(--background-color-default); /* @type color */ /* @desc 面板背景色,如：#223325 */ /* @depStaticStyles ["background-color"] */
     --panel-box-shadow: var(--box-shadow-small); /* @desc 面板外边框阴影,如：1px */
     --panel-head-padding-x: 24px; /* @desc 面板标题左右内边距,如：1px */
     --panel-head-padding-y: 14px; /* @desc 面板标题左右内边距,如：1px */
@@ -350,38 +350,39 @@
     --navbar-select-box-shadow: 0 0 6px rgba(47, 53, 58, 0.3);
 
     /* @component u-sidebar */
-    --sidebar-background: #ffffff; /* @desc 侧边栏背景色,如：#223325 */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-height: 54px; /* @desc 侧边栏项高度,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-padding-left: 30px; /* @desc 侧边栏项左边距,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-background: #ffffff; /* @desc 侧边栏项背景色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-background-selected: rgba(51,126,255,0.12); /* @desc 侧边栏项选中背景色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-background-disabled: #ffffff; /* @desc 侧边栏项禁用背景色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-background-selected-disabled: #337EFF; /* @desc 侧边栏项禁用选中背景色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-color: #333333; /* @desc 侧边栏项文字颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-background-hover: var(--sidebar-item-background); /* @desc 侧边栏项背景色（hover状态）,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-color-hover: #337eff; /* @desc 侧边栏项文字颜色（hover状态）,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-color-selected: #337eff; /* @desc 侧边栏项选中时文字颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-color-disabled: #586475; /* @desc 侧边栏项禁用文字颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-border-right-width: 4px; /* @desc 侧边栏项右边框宽度,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-border-right-color: var(--brand-primary); /* @desc 侧边栏项右边框颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-border-bottom-width: 0px; /* @desc 侧边栏项下边框宽度,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-border-bottom-color: #e5e5e5; /* @desc 侧边栏项下边框颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-icon-font-size: 16px; /* @desc 侧边栏项图标大小,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-icon-color: var(--gray-light); /* @desc 侧边栏项图标颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-item-icon-color-hover: var(--sidebar-item-icon-color); /* @desc 侧边栏项图标颜色（hover状态）,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-group,u-sidebar-divider */
-    --sidebar-group-padding-left: 10px; /* @desc 侧边栏分组左边距,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
-    --sidebar-group-head-height: 52px; /* @desc 侧边栏分组头部高度,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
-    --sidebar-group-head-padding-left: 20px; /* @desc 侧边栏分组头部左边距,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
-    --sidebar-group-head-font-weight: var(--font-weight-bold); /* @desc 侧边栏分组头部字重,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
-    --sidebar-group-head-color: #333333; /* @desc 侧边栏分组头部字体颜色,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
-    --sidebar-group-head-color-hover: #337eff; /* @desc 侧边栏分组头部字体颜色（hover状态）,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
-    --sidebar-group-head-background-hover: #f5f5f5; /* @desc 侧边栏分组头部背景色（hover状态）,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
-    --sidebar-group-head-color-selected: #337eff; /* @desc 侧边栏分组头部选中背景色,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
-    --sidebar-group-head-border-bottom-width: 0px; /* @desc 侧边栏分组头部下边距宽度,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
-    --sidebar-group-head-border-bottom-color: #e5e5e5; /* @desc 侧边栏分组头部下边距颜色,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
-    --sidebar-divider-margin-y: 8px; /* @desc 侧边栏分隔符左外边距,如：1px */ /* @prefix sidebar-divider */ /* @excludeTags u-sidebar-item,u-sidebar-group */
-    --sidebar-divider-height: var(--border-width-base); /* @desc 侧边栏分隔符高度,如：1px */ /* @prefix sidebar-divider */ /* @excludeTags u-sidebar-item,u-sidebar-group */
-    --sidebar-divider-background: #3d4654; /* @desc 侧边栏分隔符背景色,如：#223325 */ /* @type color */ /* @prefix sidebar-divider */ /* @excludeTags u-sidebar-item,u-sidebar-group */
+    --sidebar-background: #ffffff; /* @desc 侧边栏背景色,如：#223325 */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-group,u-sidebar-divider */ /* @depStaticStyles { "u-sidebar": ["background-color"] } */
+    --sidebar-item-height: 54px; /* @group 项 */ /* @desc 侧边栏项高度,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-divider */ /* @depStaticStyles { "u-sidebar-item": ["height"] } */
+    --sidebar-item-padding-left: 30px; /* @group 项 */ /* @desc 侧边栏项左边距,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-divider */ /* @depStaticStyles { "u-sidebar-item": ["padding-left"] } */
+    --sidebar-item-background: #ffffff; /* @group 项 */ /* @desc 侧边栏项背景色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */ /* @depStaticStyles { "u-sidebar-item": ["background-color"] } */
+    --sidebar-item-background-selected: rgba(51,126,255,0.12); /* @group 项 */ /* @desc 侧边栏项选中背景色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
+    --sidebar-item-background-disabled: #ffffff; /* @group 项 */ /* @desc 侧边栏项禁用背景色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
+    --sidebar-item-background-selected-disabled: #337EFF; /* @group 项 */ /* @desc 侧边栏项禁用选中背景色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
+    --sidebar-item-color: #333333; /* @group 项 */ /* @desc 侧边栏项文字颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */ /* @depStaticStyles { "u-sidebar": ["color"], "u-sidebar-item": ["color"] } */
+    --sidebar-item-background-hover: var(--sidebar-item-background); /* @group 项 */ /* @desc 侧边栏项背景色（hover状态）,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
+    --sidebar-item-color-hover: #337eff; /* @group 项 */ /* @desc 侧边栏项文字颜色（hover状态）,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
+    --sidebar-item-color-selected: #337eff; /* @group 项 */ /* @desc 侧边栏项选中时文字颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
+    --sidebar-item-color-disabled: #586475; /* @group 项 */ /* @desc 侧边栏项禁用文字颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
+    --sidebar-item-border-right-width: 4px; /* @group 项 */ /* @desc 侧边栏项右边框宽度,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-divider */ /* @depStaticStyles { "u-sidebar-item": ["border-right-width"] } */
+    --sidebar-item-border-right-color: var(--brand-primary); /* @group 项 */ /* @desc 侧边栏项右边框颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */ /* @depStaticStyles { "u-sidebar-item": ["border-color"] } */
+    --sidebar-item-border-bottom-width: 0px; /* @group 项 */ /* @desc 侧边栏项下边框宽度,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-divider */ /* @depStaticStyles { "u-sidebar-item": ["border-bottom-width"] } */
+    --sidebar-item-border-bottom-color: #e5e5e5; /* @group 项 */ /* @desc 侧边栏项下边框颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */ /* @depStaticStyles { "u-sidebar-item": ["border-color"] } */
+    --sidebar-item-icon-font-size: 16px; /* @group 项 */ /* @desc 侧边栏项图标大小,如：1px */ /* @prefix sidebar-item */ /* @excludeTags u-sidebar-divider */
+    --sidebar-item-icon-color: var(--gray-light); /* @group 项 */ /* @desc 侧边栏项图标颜色,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
+    --sidebar-item-icon-color-hover: var(--sidebar-item-icon-color); /* @group 项 */ /* @desc 侧边栏项图标颜色（hover状态）,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
+    --sidebar-item-icon-color-selected: var(--sidebar-item-icon-color); /* @group 项 */ /* @desc 侧边栏项图标颜色（选中状态）,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
+    --sidebar-group-padding-left: 10px; /* @group 分组 */ /* @desc 侧边栏分组左边距,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */ /* @depStaticStyles { "u-sidebar-group": ["padding-left"] } */
+    --sidebar-group-head-height: 52px; /* @group 分组 */ /* @desc 侧边栏分组头部高度,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-padding-left: 20px; /* @group 分组 */ /* @desc 侧边栏分组头部左边距,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-font-weight: var(--font-weight-bold); /* @group 分组 */ /* @desc 侧边栏分组头部字重,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-color: #333333; /* @group 分组 */ /* @desc 侧边栏分组头部字体颜色,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-color-hover: #337eff; /* @group 分组 */ /* @desc 侧边栏分组头部字体颜色（hover状态）,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-background-hover: #f5f5f5; /* @group 分组 */ /* @desc 侧边栏分组头部背景色（hover状态）,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-color-selected: #337eff; /* @group 分组 */ /* @desc 侧边栏分组头部选中背景色,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-border-bottom-width: 0px; /* @group 分组 */ /* @desc 侧边栏分组头部下边距宽度,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-border-bottom-color: #e5e5e5;/* @group 分组 */ /* @desc 侧边栏分组头部下边距颜色,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-divider-margin-y: 8px; /* @group 分隔符 */ /* @desc 侧边栏分隔符左外边距,如：1px */ /* @prefix sidebar-divider */ /* @excludeTags u-sidebar-item,u-sidebar-group */ /* @depStaticStyles { "u-sidebar-divider": ["margin-top", "margin-bottom"] } */
+    --sidebar-divider-height: var(--border-width-base); /* @group 分隔符 */ /* @desc 侧边栏分隔符高度,如：1px */ /* @prefix sidebar-divider */ /* @excludeTags u-sidebar-item,u-sidebar-group */ /* @depStaticStyles { "u-sidebar-divider": ["height"] } */
+    --sidebar-divider-background: #3d4654; /* @group 分隔符 */ /* @desc 侧边栏分隔符背景色,如：#223325 */ /* @type color */ /* @prefix sidebar-divider */ /* @excludeTags u-sidebar-item,u-sidebar-group */ /* @depStaticStyles { "u-sidebar-divider": ["background-color"] } */
 
     --sidebar-width: 240px; /* @hidden */
     --sidebar-background-inverse: #2b333f; /* @hidden */
@@ -432,23 +433,23 @@
      */
 
     /* @component u-text */
-    --text-font-size: var(--font-size-base); /* @desc 文本字号大小,如：1px */ /* @depAttrs { "size": ["normal"] } */
-    --text-font-size-small: var(--font-size-small); /* @desc 小号文本字号大小,如：1px */ /* @depAttrs { "size": ["small"] } */
-    --text-font-size-large: calc(var(--font-size-base) * (18 / 14)); /* @desc 大号文本字号大小,如：1px */ /* @depAttrs { "size": ["large"] } */
-    --text-font-size-huge: calc(var(--font-size-base) * (22 / 14)); /* @desc 巨大号文本字号大小,如：1px */ /* @depAttrs { "size": ["huge"] } */
-    --text-color-primary: var(--brand-primary); /* @type color */ /* @desc 主要文本字体颜色,如：#223325 */ /* @depAttrs { "color": ["primary"] } */
-    --text-color-secondary: var(--font-second-color); /* @type color */ /* @desc 次要文本字体颜色,如：#223325 */ /* @depAttrs { "color": ["secondary"] } */
-    --text-color-success: var(--brand-success); /* @type color */ /* @desc 成功文本字体颜色,如：#223325 */ /* @depAttrs { "color": ["success"] } */
-    --text-color-warning: var(--brand-warning); /* @type color */ /* @desc 警告文本字体颜色,如：#223325 */ /* @depAttrs { "color": ["warning"] } */
-    --text-color-error: var(--brand-error); /* @type color */ /* @desc 错误文本字体颜色,如：#223325 */ /* @depAttrs { "color": ["error"] } */
+    --text-font-size: var(--font-size-base); /* @desc 文本字号大小,如：1px */ /* @depAttrs { "size": ["normal"] } */ /* @depStaticStyles ["font-size"] */
+    --text-font-size-small: var(--font-size-small); /* @desc 小号文本字号大小,如：1px */ /* @depAttrs { "size": ["small"] } */ /* @depStaticStyles ["font-size"] */
+    --text-font-size-large: calc(var(--font-size-base) * (18 / 14)); /* @desc 大号文本字号大小,如：1px */ /* @depAttrs { "size": ["large"] } */ /* @depStaticStyles ["font-size"] */
+    --text-font-size-huge: calc(var(--font-size-base) * (22 / 14)); /* @desc 巨大号文本字号大小,如：1px */ /* @depAttrs { "size": ["huge"] } */ /* @depStaticStyles ["font-size"] */
+    --text-color-primary: var(--brand-primary); /* @type color */ /* @desc 主要文本字体颜色,如：#223325 */ /* @depAttrs { "color": ["primary"] } */ /* @depStaticStyles ["color"] */
+    --text-color-secondary: var(--font-second-color); /* @type color */ /* @desc 次要文本字体颜色,如：#223325 */ /* @depAttrs { "color": ["secondary"] } */ /* @depStaticStyles ["color"] */
+    --text-color-success: var(--brand-success); /* @type color */ /* @desc 成功文本字体颜色,如：#223325 */ /* @depAttrs { "color": ["success"] } */ /* @depStaticStyles ["color"] */
+    --text-color-warning: var(--brand-warning); /* @type color */ /* @desc 警告文本字体颜色,如：#223325 */ /* @depAttrs { "color": ["warning"] } */ /* @depStaticStyles ["color"] */
+    --text-color-error: var(--brand-error); /* @type color */ /* @desc 错误文本字体颜色,如：#223325 */ /* @depAttrs { "color": ["error"] } */ /* @depStaticStyles ["color"] */
     --text-color-disabled: var(--brand-disabled-dark); /* @type color */ /* @desc 禁用文本字体颜色,如：#223325 */ /* @depAttrs { "color": ["disabled"] } */
 
     /* @component u-link */
-    --link-color: var(--brand-primary); /* @type color */ /* @desc 默认链接字体颜色,如：#223325 */ /* @depAttrs { "color": ["default", null] } */
-    --link-color-light: #6eadff; /* @type color */ /* @desc 浅色链接字体颜色,如：#223325 */ /* @depAttrs { "color": ["light"] } */
-    --link-color-success: var(--brand-success); /* @type color */ /* @desc 成功链接字体颜色,如：#223325 */ /* @depAttrs { "color": ["success"] } */
-    --link-color-warning: var(--brand-warning); /* @type color */ /* @desc 警告链接字体颜色,如：#223325 */ /* @depAttrs { "color": ["warning"] } */
-    --link-color-danger: var(--brand-danger); /* @type color */ /* @desc 危险链接字体颜色,如：#223325 */ /* @depAttrs { "color": ["danger"] } */
+    --link-color: var(--brand-primary); /* @type color */ /* @desc 默认链接字体颜色,如：#223325 */ /* @depAttrs { "color": ["default", null] } */ /* @depStaticStyles ["color"] */
+    --link-color-light: #6eadff; /* @type color */ /* @desc 浅色链接字体颜色,如：#223325 */ /* @depAttrs { "color": ["light"] } */ /* @depStaticStyles ["color"] */
+    --link-color-success: var(--brand-success); /* @type color */ /* @desc 成功链接字体颜色,如：#223325 */ /* @depAttrs { "color": ["success"] } */ /* @depStaticStyles ["color"] */
+    --link-color-warning: var(--brand-warning); /* @type color */ /* @desc 警告链接字体颜色,如：#223325 */ /* @depAttrs { "color": ["warning"] } */ /* @depStaticStyles ["color"] */
+    --link-color-danger: var(--brand-danger); /* @type color */ /* @desc 危险链接字体颜色,如：#223325 */ /* @depAttrs { "color": ["danger"] } */ /* @depStaticStyles ["color"] */
     --link-color-disabled: var(--font-disabled-color); /* @type color */ /* @desc 禁用链接字体颜色,如：#223325 */
     --link-color-hover: var(--brand-primary-light); /* @type color */ /* @desc 默认链接字体颜色,如：#223325 */ /* @depAttrs { "color": ["default", null] } */
     --link-color-success-hover: var(--brand-success-light); /* @type color */ /* @desc 成功链接字体颜色,如：#223325 */ /* @depAttrs { "color": ["success"] } */
@@ -464,119 +465,119 @@
     /* 宽度 */
     --button-min-width: 78px; /* @hidden */
     /* 高度 */
-    --button-height-mini: var(--height-mini); /* @desc Mini按钮高度,如：1px */ /* @depAttrs {"size": ["mini"]} */
-    --button-height-small: var(--height-small); /* @desc Small按钮高度,如：1px */ /* @depAttrs {"size": ["small"]} */
-    --button-height: var(--height-base); /* @desc 按钮高度,如：1px */ /* @depAttrs {"size": ["normal", null]} */
-    --button-height-medium: var(--height-medium); /* @desc Medium按钮高度,如：1px */  /* @depAttrs {"size": ["medium"]} */
-    --button-height-large: var(--height-large); /* @desc Large按钮高度,如：1px */ /* @depAttrs {"size": ["large"]} */
-    --button-height-huge: var(--height-huge); /* @desc Huge按钮高度,如：1px */ /* @depAttrs {"size": ["huge"]} */
+    --button-height-mini: var(--height-mini); /* @desc Mini按钮高度,如：1px */ /* @depAttrs {"size": ["mini"]} */ /* @depStaticStyles ["height"] */
+    --button-height-small: var(--height-small); /* @desc Small按钮高度,如：1px */ /* @depAttrs {"size": ["small"]} */ /* @depStaticStyles ["height"] */
+    --button-height: var(--height-base); /* @desc 按钮高度,如：1px */ /* @depAttrs {"size": ["normal", null]} */ /* @depStaticStyles ["height"] */
+    --button-height-medium: var(--height-medium); /* @desc Medium按钮高度,如：1px */  /* @depAttrs {"size": ["medium"]} */ /* @depStaticStyles ["height"] */
+    --button-height-large: var(--height-large); /* @desc Large按钮高度,如：1px */ /* @depAttrs {"size": ["large"]} */ /* @depStaticStyles ["height"] */
+    --button-height-huge: var(--height-huge); /* @desc Huge按钮高度,如：1px */ /* @depAttrs {"size": ["huge"]} */ /* @depStaticStyles ["height"] */
     /* 上下边距 */
-    --button-padding-y-mini: var(--button-padding-y); /* @desc Mini按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["mini"]} */
-    --button-padding-y-small: var(--button-padding-y); /* @desc Small按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["small"]} */
-    --button-padding-y: 0px; /* @desc 按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["normal", null]} */
-    --button-padding-y-medium: var(--button-padding-y); /* @desc Medium按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["medium"]} */
-    --button-padding-y-large: var(--button-padding-y); /* @desc Large按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["large"]} */
-    --button-padding-y-huge: var(--button-padding-y); /* @desc Huge按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["huge"]} */
+    --button-padding-y-mini: var(--button-padding-y); /* @desc Mini按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["mini"]} */ /* @depStaticStyles ["padding-top", "padding-bottom"] */
+    --button-padding-y-small: var(--button-padding-y); /* @desc Small按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["small"]} */ /* @depStaticStyles ["padding-top", "padding-bottom"] */
+    --button-padding-y: 0px; /* @desc 按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["normal", null]} */ /* @depStaticStyles ["padding-top", "padding-bottom"] */
+    --button-padding-y-medium: var(--button-padding-y); /* @desc Medium按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["medium"]} */ /* @depStaticStyles ["padding-top", "padding-bottom"] */
+    --button-padding-y-large: var(--button-padding-y); /* @desc Large按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["large"]} */ /* @depStaticStyles ["padding-top", "padding-bottom"] */
+    --button-padding-y-huge: var(--button-padding-y); /* @desc Huge按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["huge"]} */ /* @depStaticStyles ["padding-top", "padding-bottom"] */
     /* 左右边距 */
-    --button-padding-x-mini: 16px; /* @desc Mini按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["mini"]} */
-    --button-padding-x-small: 20px; /* @desc Small按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["small"]} */
-    --button-padding-x: 24px; /* @desc 按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["normal", null]} */
-    --button-padding-x-medium: 28px; /* @desc Medium按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["medium"]} */
-    --button-padding-x-large: 32px; /* @desc Large按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["large"]} */
-    --button-padding-x-huge: 36px; /* @desc Huge按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["huge"]} */
+    --button-padding-x-mini: 16px; /* @desc Mini按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["mini"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --button-padding-x-small: 20px; /* @desc Small按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["small"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --button-padding-x: 24px; /* @desc 按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["normal", null]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --button-padding-x-medium: 28px; /* @desc Medium按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["medium"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --button-padding-x-large: 32px; /* @desc Large按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["large"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --button-padding-x-huge: 36px; /* @desc Huge按钮水平方向内边距,如：1px */ /* @depAttrs {"size": ["huge"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
     /* 按钮背景颜色-默认 */
-    --button-background-primary: var(--brand-primary); /* @type color */ /* @desc 主要按钮背景色,如：#223325 */
-    --button-background-primary-secondary: white; /* @type color */ /* @desc 次要按钮背景色,如：#223325 */
-    --button-background: white; /* @type color */ /* @desc 按钮默认背景色,如：#223325 */
-    --button-background-danger: var(--brand-error); /* @type color */ /* @desc 危险按钮背景色,如：#223325 */
-    --button-background-danger-secondary: white; /* @type color */ /* @desc 次要危险按钮背景色,如：#223325 */
+    --button-background-primary: var(--brand-primary); /* @type color */ /* @desc 主要按钮背景色,如：#223325 */ /* @depAttrs {"color": ["primary"]} */ /* @depStaticStyles ["background-color"] */
+    --button-background-primary-secondary: white; /* @type color */ /* @desc 次要按钮背景色,如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */ /* @depStaticStyles ["background-color"] */
+    --button-background: white; /* @type color */ /* @desc 按钮默认背景色,如：#223325 */ /* @depAttrs {"color": ["default", null]} */ /* @depStaticStyles ["background-color"] */
+    --button-background-danger: var(--brand-error); /* @type color */ /* @desc 危险按钮背景色,如：#223325 */ /* @depAttrs {"color": ["danger"]} */ /* @depStaticStyles ["background-color"] */
+    --button-background-danger-secondary: white; /* @type color */ /* @desc 次要危险按钮背景色,如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */ /* @depStaticStyles ["background-color"] */
     /* 按钮背景颜色-hover */
-    --button-background-primary-hover: var(--brand-primary-light); /* @type color */ /* @desc 主要按钮hover背景色,如：#223325 */
-    --button-background-primary-secondary-hover: white; /* @type color */ /* @desc 次要按钮hover背景色,如：#223325 */
-    --button-background-hover: white; /* @type color */ /* @desc 按钮hover背景色,如：#223325 */
-    --button-background-danger-hover: var(--brand-error-light); /* @type color */ /* @desc 危险按钮hover背景色,如：#223325 */
-    --button-background-danger-secondary-hover: white; /* @type color */ /* @desc 次要危险按钮hover背景色,如：#223325 */
+    --button-background-primary-hover: var(--brand-primary-light); /* @type color */ /* @desc 主要按钮hover背景色,如：#223325 */ /* @depAttrs {"color": ["primary"]} */
+    --button-background-primary-secondary-hover: white; /* @type color */ /* @desc 次要按钮hover背景色,如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */
+    --button-background-hover: white; /* @type color */ /* @desc 按钮hover背景色,如：#223325 */ /* @depAttrs {"color": ["default", null]} */
+    --button-background-danger-hover: var(--brand-error-light); /* @type color */ /* @desc 危险按钮hover背景色,如：#223325 */ /* @depAttrs {"color": ["danger"]} */
+    --button-background-danger-secondary-hover: white; /* @type color */ /* @desc 次要危险按钮hover背景色,如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */
     /* 按钮背景颜色-active */
-    --button-background-primary-active: var(--brand-primary); /* @type color */ /* @desc 主要按钮背景色（激活状态）,如：#223325 */
-    --button-background-primary-secondary-active: white; /* @type color */ /* @desc 次要按钮背景色（激活状态）,如：#223325 */
-    --button-background-active: white; /* @type color */ /* @desc 按钮背景色（激活状态）,如：#223325 */
-    --button-background-danger-active: var(--brand-error); /* @type color */ /* @desc 危险按钮背景色（激活状态）,如：#223325 */
-    --button-background-danger-secondary-active: white; /* @type color */ /* @desc 次要危险按钮背景色（激活状态）,如：#223325 */
+    --button-background-primary-active: var(--brand-primary); /* @type color */ /* @desc 主要按钮背景色（激活状态）,如：#223325 */ /* @depAttrs {"color": ["primary"]} */
+    --button-background-primary-secondary-active: white; /* @type color */ /* @desc 次要按钮背景色（激活状态）,如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */
+    --button-background-active: white; /* @type color */ /* @desc 按钮背景色（激活状态）,如：#223325 */ /* @depAttrs {"color": ["default", null]} */
+    --button-background-danger-active: var(--brand-error); /* @type color */ /* @desc 危险按钮背景色（激活状态）,如：#223325 */ /* @depAttrs {"color": ["danger"]} */
+    --button-background-danger-secondary-active: white; /* @type color */ /* @desc 次要危险按钮背景色（激活状态）,如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */
     /* 按钮背景颜色-disabled */
-    --button-background-primary-disabled: var(--brand-primary-disabled); /* @type color */ /* @desc 主要按钮背景色（禁用状态）,如：#223325 */
-    --button-background-primary-secondary-disabled: var(--button-background-disabled); /* @type color */ /* @desc 次要按钮背景色（禁用状态）,如：#223325 */
-    --button-background-disabled: #f5f5f5; /* @type color */ /* @desc 按钮背景色（禁用状态）,如：#223325 */
-    --button-background-danger-disabled: var(--brand-error-lighter); /* @type color */ /* @desc 危险按钮背景色（禁用状态）,如：#223325 */
-    --button-background-danger-secondary-disabled: var(--button-background-disabled); /* @type color */ /* @desc 次要危险按钮背景色（禁用状态）,如：#223325 */
+    --button-background-primary-disabled: var(--brand-primary-disabled); /* @type color */ /* @desc 主要按钮背景色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["primary"]} */
+    --button-background-primary-secondary-disabled: var(--button-background-disabled); /* @type color */ /* @desc 次要按钮背景色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */
+    --button-background-disabled: #f5f5f5; /* @type color */ /* @desc 按钮背景色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["default", null]} */
+    --button-background-danger-disabled: var(--brand-error-lighter); /* @type color */ /* @desc 危险按钮背景色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["danger"]} */
+    --button-background-danger-secondary-disabled: var(--button-background-disabled); /* @type color */ /* @desc 次要危险按钮背景色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */
     /* 按钮边框颜色-默认 */
-    --button-border-color-primary: var(--button-background-primary); /* @type color */ /* @desc 主要按钮边框颜色,如：#223325 */
-    --button-border-color-primary-secondary: var(--button-background-primary); /* @type color */ /* @desc 次要按钮边框颜色,如：#223325 */
-    --button-border-color: var(--border-color-dark); /* @type color */ /* @desc 按钮边框颜色,如：#223325 */
-    --button-border-color-danger: var(--button-background-danger); /* @type color */ /* @desc 危险按钮边框颜色,如：#223325 */
-    --button-border-color-danger-secondary: var(--button-background-danger); /* @type color */ /* @desc 次要危险按钮边框颜色,如：#223325 */
+    --button-border-color-primary: var(--button-background-primary); /* @type color */ /* @desc 主要按钮边框颜色,如：#223325 */ /* @depAttrs {"color": ["primary"]} */ /* @depStaticStyles ["border-color"] */
+    --button-border-color-primary-secondary: var(--button-background-primary); /* @type color */ /* @desc 次要按钮边框颜色,如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */ /* @depStaticStyles ["border-color"] */
+    --button-border-color: var(--border-color-dark); /* @type color */ /* @desc 按钮边框颜色,如：#223325 */ /* @depAttrs {"color": ["default", null]} */ /* @depStaticStyles ["border-color"] */
+    --button-border-color-danger: var(--button-background-danger); /* @type color */ /* @desc 危险按钮边框颜色,如：#223325 */ /* @depAttrs {"color": ["danger"]} */ /* @depStaticStyles ["border-color"] */
+    --button-border-color-danger-secondary: var(--button-background-danger); /* @type color */ /* @desc 次要危险按钮边框颜色,如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */ /* @depStaticStyles ["border-color"] */
     /* 按钮边框颜色-hover */
-    --button-border-color-primary-hover: var(--button-background-primary-hover); /* @type color */ /* @desc 主要按钮边框颜色(hover状态),如：#223325 */
-    --button-border-color-primary-secondary-hover: var(--brand-primary-light); /* @type color */ /* @desc 次要按钮边框颜色(hover状态),如：#223325 */
-    --button-border-color-hover: var(--brand-primary); /* @type color */ /* @desc 按钮边框颜色(hover状态),如：#223325 */
-    --button-border-color-danger-hover: var(--button-background-danger-hover); /* @type color */ /* @desc 危险按钮边框颜色(hover状态),如：#223325 */
-    --button-border-color-danger-secondary-hover: var(--brand-error-light); /* @type color */ /* @desc 次要危险按钮边框颜色(hover状态),如：#223325 */
+    --button-border-color-primary-hover: var(--button-background-primary-hover); /* @type color */ /* @desc 主要按钮边框颜色(hover状态),如：#223325 */ /* @depAttrs {"color": ["primary"]} */
+    --button-border-color-primary-secondary-hover: var(--brand-primary-light); /* @type color */ /* @desc 次要按钮边框颜色(hover状态),如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */
+    --button-border-color-hover: var(--brand-primary); /* @type color */ /* @desc 按钮边框颜色(hover状态),如：#223325 */ /* @depAttrs {"color": ["default", null]} */
+    --button-border-color-danger-hover: var(--button-background-danger-hover); /* @type color */ /* @desc 危险按钮边框颜色(hover状态),如：#223325 */ /* @depAttrs {"color": ["danger"]} */
+    --button-border-color-danger-secondary-hover: var(--brand-error-light); /* @type color */ /* @desc 次要危险按钮边框颜色(hover状态),如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */
     /* 按钮边框颜色-active */
-    --button-border-color-primary-active: var(--button-background-primary-active); /* @type color */ /* @desc 主要按钮边框颜色(active状态),如：#223325 */
-    --button-border-color-primary-secondary-active: var(--button-background-primary-secondary-active); /* @type color */ /* @desc 次要按钮边框颜色(active状态),如：#223325 */
-    --button-border-color-active: var(--brand-primary); /* @type color */ /* @desc 按钮边框颜色(active状态),如：#223325 */
-    --button-border-color-danger-active: var(--button-background-danger-active); /* @type color */ /* @desc 危险按钮边框颜色(active状态),如：#223325 */
-    --button-border-color-danger-secondary-active: var(--button-background-danger-secondary-active); /* @type color */ /* @desc 次要危险按钮边框颜色(active状态),如：#223325 */
+    --button-border-color-primary-active: var(--button-background-primary-active); /* @type color */ /* @desc 主要按钮边框颜色(active状态),如：#223325 */ /* @depAttrs {"color": ["primary"]} */
+    --button-border-color-primary-secondary-active: var(--button-background-primary-secondary-active); /* @type color */ /* @desc 次要按钮边框颜色(active状态),如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */
+    --button-border-color-active: var(--brand-primary); /* @type color */ /* @desc 按钮边框颜色(active状态),如：#223325 */ /* @depAttrs {"color": ["default", null]} */
+    --button-border-color-danger-active: var(--button-background-danger-active); /* @type color */ /* @desc 危险按钮边框颜色(active状态),如：#223325 */ /* @depAttrs {"color": ["danger"]} */
+    --button-border-color-danger-secondary-active: var(--button-background-danger-secondary-active); /* @type color */ /* @desc 次要危险按钮边框颜色(active状态),如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */
     /* 按钮边框颜色-disabled */
-    --button-border-color-primary-disabled: var(--button-background-primary-disabled); /* @type color */ /* @desc 主要按钮边框颜色（禁用状态）,如：#223325 */
-    --button-border-color-primary-secondary-disabled: var(--button-border-color-disabled); /* @type color */ /* @desc 次要按钮边框颜色（禁用状态）,如：#223325 */
-    --button-border-color-disabled: #e5e5e5; /* @type color */ /* @desc 按钮边框颜色（禁用状态）,如：#223325 */
-    --button-border-color-danger-disabled: var(--button-background-danger-disabled); /* @type color */ /* @desc 危险按钮边框颜色（禁用状态）,如：#223325 */
-    --button-border-color-danger-secondary-disabled: var(--button-border-color-disabled); /* @type color */ /* @desc 次要危险按钮边框颜色（禁用状态）,如：#223325 */
+    --button-border-color-primary-disabled: var(--button-background-primary-disabled); /* @type color */ /* @desc 主要按钮边框颜色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["primary"]} */
+    --button-border-color-primary-secondary-disabled: var(--button-border-color-disabled); /* @type color */ /* @desc 次要按钮边框颜色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */
+    --button-border-color-disabled: #e5e5e5; /* @type color */ /* @desc 按钮边框颜色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["default", null]} */
+    --button-border-color-danger-disabled: var(--button-background-danger-disabled); /* @type color */ /* @desc 危险按钮边框颜色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["danger"]} */
+    --button-border-color-danger-secondary-disabled: var(--button-border-color-disabled); /* @type color */ /* @desc 次要危险按钮边框颜色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */
     /* 文字大小 */
-    --button-font-size-mini: var(--font-size-small); /* @desc Mini按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["mini"]} */
-    --button-font-size-small: inherit; /* @desc Small按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["small"]} */
-    --button-font-size: inherit; /* @desc 按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["normal", null]} */
-    --button-font-size-medium: inherit; /* @desc Medium按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["medium"]} */
-    --button-font-size-large: var(--font-size-large); /* @desc Large按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["large"]} */
-    --button-font-size-huge: var(--font-size-huge); /* @desc Huge按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["huge"]} */
+    --button-font-size-mini: var(--font-size-small); /* @desc Mini按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["mini"]} */ /* @depStaticStyles ["font-size"] */
+    --button-font-size-small: inherit; /* @desc Small按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["small"]} */ /* @depStaticStyles ["font-size"] */
+    --button-font-size: inherit; /* @desc 按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["normal", null]} */ /* @depStaticStyles ["font-size"] */
+    --button-font-size-medium: inherit; /* @desc Medium按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["medium"]} */ /* @depStaticStyles ["font-size"] */
+    --button-font-size-large: var(--font-size-large); /* @desc Large按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["large"]} */ /* @depStaticStyles ["font-size"] */
+    --button-font-size-huge: var(--font-size-huge); /* @desc Huge按钮文本字体大小,如：1px */ /* @depAttrs {"size": ["huge"]} */ /* @depStaticStyles ["font-size"] */
     /* 文字颜色-默认 */
-    --button-color-primary: white; /* @type color */ /* @desc 主要按钮字体颜色,如：#223325 */
-    --button-color-primary-secondary: var(--brand-primary); /* @type color */ /* @desc 次要按钮字体颜色,如：#223325 */
-    --button-color: var(--font-second-color); /* @type color */ /* @desc 默认按钮字体颜色,如：#223325 */
-    --button-color-danger: white; /* @type color */ /* @desc 危险按钮字体颜色,如：#223325 */
-    --button-color-danger-secondary: var(--brand-error); /* @type color */ /* @desc 次要危险按钮字体颜色,如：#223325 */
+    --button-color-primary: white; /* @type color */ /* @desc 主要按钮字体颜色,如：#223325 */ /* @depAttrs {"color": ["primary"]} */ /* @depStaticStyles ["color"] */
+    --button-color-primary-secondary: var(--brand-primary); /* @type color */ /* @desc 次要按钮字体颜色,如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */ /* @depStaticStyles ["color"] */
+    --button-color: var(--font-second-color); /* @type color */ /* @desc 默认按钮字体颜色,如：#223325 */ /* @depAttrs {"color": ["default", null]} */ /* @depStaticStyles ["color"] */
+    --button-color-danger: white; /* @type color */ /* @desc 危险按钮字体颜色,如：#223325 */ /* @depAttrs {"color": ["danger"]} */ /* @depStaticStyles ["color"] */
+    --button-color-danger-secondary: var(--brand-error); /* @type color */ /* @desc 次要危险按钮字体颜色,如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */ /* @depStaticStyles ["color"] */
     /* 文字颜色-hover */
-    --button-color-primary-hover: var(--button-color-primary); /* @type color */ /* @desc 主要按钮字体颜色（hover状态）,如：#223325 */
-    --button-color-primary-secondary-hover: var(--brand-primary-light); /* @type color */ /* @desc 次要按钮字体颜色（hover状态）,如：#223325 */
-    --button-color-hover: var(--brand-primary); /* @type color */ /* @desc 默认按钮字体颜色（hover状态）,如：#223325 */
-    --button-color-danger-hover: var(--button-color-danger); /* @type color */ /* @desc 危险按钮字体颜色（hover状态）,如：#223325 */
-    --button-color-danger-secondary-hover: var(--brand-error-light); /* @type color */ /* @desc 次要危险按钮字体颜色（hover状态）,如：#223325 */
+    --button-color-primary-hover: var(--button-color-primary); /* @type color */ /* @desc 主要按钮字体颜色（hover状态）,如：#223325 */ /* @depAttrs {"color": ["primary"]} */
+    --button-color-primary-secondary-hover: var(--brand-primary-light); /* @type color */ /* @desc 次要按钮字体颜色（hover状态）,如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */
+    --button-color-hover: var(--brand-primary); /* @type color */ /* @desc 默认按钮字体颜色（hover状态）,如：#223325 */ /* @depAttrs {"color": ["default", null]} */
+    --button-color-danger-hover: var(--button-color-danger); /* @type color */ /* @desc 危险按钮字体颜色（hover状态）,如：#223325 */ /* @depAttrs {"color": ["danger"]} */
+    --button-color-danger-secondary-hover: var(--brand-error-light); /* @type color */ /* @desc 次要危险按钮字体颜色（hover状态）,如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */
     /* 文字颜色-active */
-    --button-color-primary-active: var(--button-color-primary-hover); /* @type color */ /* @desc 主要按钮字体颜色（active状态）,如：#223325 */
-    --button-color-primary-secondary-active: var(--button-color-primary-secondary-hover); /* @type color */ /* @desc 次要按钮字体颜色（active状态）,如：#223325 */
-    --button-color-active: var(--button-color-hover); /* @type color */ /* @desc 默认按钮字体颜色（active状态）,如：#223325 */
-    --button-color-danger-active: var(--button-color-danger-hover); /* @type color */ /* @desc 危险按钮字体颜色（active状态）,如：#223325 */
-    --button-color-danger-secondary-active: var(--button-color-danger-secondary-hover); /* @type color */ /* @desc 次要危险按钮字体颜色（active状态）,如：#223325 */
+    --button-color-primary-active: var(--button-color-primary-hover); /* @type color */ /* @desc 主要按钮字体颜色（active状态）,如：#223325 */ /* @depAttrs {"color": ["primary"]} */
+    --button-color-primary-secondary-active: var(--button-color-primary-secondary-hover); /* @type color */ /* @desc 次要按钮字体颜色（active状态）,如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */
+    --button-color-active: var(--button-color-hover); /* @type color */ /* @desc 默认按钮字体颜色（active状态）,如：#223325 */ /* @depAttrs {"color": ["default", null]} */
+    --button-color-danger-active: var(--button-color-danger-hover); /* @type color */ /* @desc 危险按钮字体颜色（active状态）,如：#223325 */ /* @depAttrs {"color": ["danger"]} */
+    --button-color-danger-secondary-active: var(--button-color-danger-secondary-hover); /* @type color */ /* @desc 次要危险按钮字体颜色（active状态）,如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */
     /* 文字颜色-disabled */
-    --button-color-primary-disabled: white; /* @type color */ /* @desc 主要按钮字体颜色（禁用状态）,如：#223325 */
-    --button-color-primary-secondary-disabled: var(--button-color-disabled); /* @type color */ /* @desc 次要按钮字体颜色（禁用状态）,如：#223325 */
-    --button-color-disabled: #999; /* @type color */ /* @desc 默认按钮字体颜色（禁用状态）,如：#223325 */
-    --button-color-danger-disabled: white; /* @type color */ /* @desc 危险按钮字体颜色（禁用状态）,如：#223325 */
-    --button-color-danger-secondary-disabled: var(--button-color-disabled); /* @type color */ /* @desc 次要危险按钮字体颜色（禁用状态）,如：#223325 */
-    --button-border-width: var(--border-width-base); /* @desc 按钮边框宽度,如：1px */
-    --button-border-radius: var(--border-radius-medium); /* @desc 按钮边框圆角,如：1px */
-    --button-box-shadow-focus-color:rgba(80, 139, 233, 0.2); /* @type color */ /* @desc 按钮边框阴影背景颜色（选中状态）,如：#223325; */
-    --button-box-shadow-focus-primary-color:rgba(80, 139, 233, 0.2); /* @type color */ /* @desc 主要按钮边框阴影背景颜色（选中状态）,如：#223325; */
-    --button-box-shadow-focus-danger-color: rgba(254, 90, 90, 0.2); /* @type color */ /* @desc 危险按钮边框阴影背景颜色（选中状态）,如：#223325; */
-    --button-box-shadow-active-color: rgba(61, 111, 196, 0.2); /* @type color */ /* @desc 按钮边框阴影背景颜色（激活状态）,如：#223325; */
-    --button-box-shadow-focus: 0 0 0 2px var(--button-box-shadow-focus-color); /* @desc 按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
-    --button-box-shadow-focus-primary: 0 0 0 2px var(--button-box-shadow-focus-primary-color); /* @desc 主要按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
-    --button-box-shadow-focus-danger: 0 0 0 2px var(--button-box-shadow-focus-danger-color); /* @desc 危险按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
-    --button-box-shadow-active: 0 0 0 2px var(--button-box-shadow-active-color); /* @desc 按钮边框阴影效果（激活状态）,如：inset 0 1px 3px rgba(0, 0, 0, 0.2); */
+    --button-color-primary-disabled: white; /* @type color */ /* @desc 主要按钮字体颜色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["primary"]} */
+    --button-color-primary-secondary-disabled: var(--button-color-disabled); /* @type color */ /* @desc 次要按钮字体颜色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */
+    --button-color-disabled: #999; /* @type color */ /* @desc 默认按钮字体颜色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["default", null]} */
+    --button-color-danger-disabled: white; /* @type color */ /* @desc 危险按钮字体颜色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["danger"]} */
+    --button-color-danger-secondary-disabled: var(--button-color-disabled); /* @type color */ /* @desc 次要危险按钮字体颜色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */
+    --button-border-width: var(--border-width-base); /* @desc 按钮边框宽度,如：1px */ /* @depStaticStyles ["border-top-width", "border-right-width", "border-bottom-width", "border-left-width"] */
+    --button-border-radius: var(--border-radius-medium); /* @desc 按钮边框圆角,如：1px */ /* @depStaticStyles ["border-top-left-radius", "border-top-right-radius", "border-bottom-left-radius", "border-bottom-right-radius"] */
+    --button-box-shadow-focus-color:rgba(80, 139, 233, 0.2); /* @type color */ /* @desc 按钮边框阴影背景颜色（选中状态）,如：#223325; */ /* @depAttrs {"color": ["default", null]} */
+    --button-box-shadow-focus-primary-color:rgba(80, 139, 233, 0.2); /* @type color */ /* @desc 主要按钮边框阴影背景颜色（选中状态）,如：#223325; */ /* @depAttrs {"color": ["primary"]} */
+    --button-box-shadow-focus-danger-color: rgba(254, 90, 90, 0.2); /* @type color */ /* @desc 危险按钮边框阴影背景颜色（选中状态）,如：#223325; */ /* @depAttrs {"color": ["danger"]} */
+    --button-box-shadow-focus: 0 0 0 2px var(--button-box-shadow-focus-color); /* @desc 按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2); */ /* @depAttrs {"color": ["default", null]} */
+    --button-box-shadow-focus-primary: 0 0 0 2px var(--button-box-shadow-focus-primary-color); /* @desc 主要按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2); */ /* @depAttrs {"color": ["primary"]} */
+    --button-box-shadow-focus-danger: 0 0 0 2px var(--button-box-shadow-focus-danger-color); /* @desc 危险按钮边框阴影效果（选中状态）,如：2px 2px 2px 1px rgba(0, 0, 0, 0.2); */ /* @depAttrs {"color": ["danger"]} */
 
     --button-box-shadow-focus-primary-secondary: none; /* @hidden */
     --button-box-shadow-focus-danger-secondary: none; /* @hidden */
     --button-font-weight: normal; /* @hidden */
+    --button-box-shadow-active-color: rgba(61, 111, 196, 0.2); /* @hidden */
+    --button-box-shadow-active: 0 0 0 2px var(--button-box-shadow-active-color); /* @hidden */
     --button-box-shadow-active-primary: var(--button-box-shadow-active); /* @hidden */
     --button-box-shadow-active-primary-secondary: var(--button-box-shadow-active-primary); /* @hidden */
     --button-box-shadow-active-danger: 0 0 0 2px rgba(254, 90, 90, 0.2); /* @hidden */
@@ -587,28 +588,28 @@
     --button-loading-animation-duration: 1s; /* @hidden */
 
     /* @component u-label */
-    --label-padding-x: 8px; /* @desc 标签水平方向内边距,如：1px */ /* @depAttrs { "size": ["normal", null] } */
-    --label-padding-x-small: 8px; /* @desc 小号标签水平方向内边距,如：1px */ /* @depAttrs { "size": ["small"] } */
-    --label-padding-x-large: 8px; /* @desc 大号标签水平方向内边距,如：1px */ /* @depAttrs { "size": ["large"] } */
-    --label-padding-y: 4px; /* @desc 标签垂直方向内边距,如：1px */ /* @depAttrs { "size": ["normal", null] } */
-    --label-padding-y-small: 3px; /* @desc 小号标签垂直方向内边距,如：1px */ /* @depAttrs { "size": ["small"] } */
-    --label-padding-y-large: 6px; /* @desc 大号标签垂直方向内边距,如：1px */ /* @depAttrs { "size": ["large"] } */
-    --label-font-size: 12px; /* @desc 标签的字号大小,如：1px */ /* @depAttrs { "size": ["normal", null] } */
-    --label-font-size-small: var(--label-font-size); /* @desc 小号标签的字号大小,如：1px */ /* @depAttrs { "size": ["small"] } */
-    --label-font-size-large: var(--label-font-size); /* @desc 大号标签的字号大小,如：1px */ /* @depAttrs { "size": ["large"] } */
+    --label-padding-x: 8px; /* @desc 标签水平方向内边距,如：1px */ /* @depAttrs { "size": ["normal", null] } */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --label-padding-x-small: 8px; /* @desc 小号标签水平方向内边距,如：1px */ /* @depAttrs { "size": ["small"] } */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --label-padding-x-large: 8px; /* @desc 大号标签水平方向内边距,如：1px */ /* @depAttrs { "size": ["large"] } */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --label-padding-y: 4px; /* @desc 标签垂直方向内边距,如：1px */ /* @depAttrs { "size": ["normal", null] } */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --label-padding-y-small: 3px; /* @desc 小号标签垂直方向内边距,如：1px */ /* @depAttrs { "size": ["small"] } */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --label-padding-y-large: 6px; /* @desc 大号标签垂直方向内边距,如：1px */ /* @depAttrs { "size": ["large"] } */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --label-font-size: 12px; /* @desc 标签的字号大小,如：1px */ /* @depAttrs { "size": ["normal", null] } */ /* @depStaticStyles ["font-size"] */
+    --label-font-size-small: var(--label-font-size); /* @desc 小号标签的字号大小,如：1px */ /* @depAttrs { "size": ["small"] } */ /* @depStaticStyles ["font-size"] */
+    --label-font-size-large: var(--label-font-size); /* @desc 大号标签的字号大小,如：1px */ /* @depAttrs { "size": ["large"] } */ /* @depStaticStyles ["font-size"] */
     --label-remove-padding-x: 6px; /* @desc 可删除标签的删除图标与文本之间的内边距,如：1px */ /* @depAttrs { "size": ["normal", null] } */
     --label-remove-padding-x-small: 6px; /* @desc 可删除小号标签的删除图标与文本之间的内边距,如：1px */ /* @depAttrs { "size": ["small"] } */
     --label-remove-padding-x-large: 8px; /* @desc 可删除大号标签的删除图标与文本之间的内边距,如：1px */ /* @depAttrs { "size": ["large"] } */
-    --label-background: #f5f5f5; /* @type color */ /* @desc 默认标签的背景色,如：#223325 */ /* @depAttrs { "color": ["default", null] } */
-    --label-background-primary: var(--brand-primary); /* @type color */ /* @desc 主要标签的背景色,如：#223325 */ /* @depAttrs { "color": ["primary"] } */
-    --label-background-success: var(--brand-success); /* @type color */ /* @desc 成功标签的背景色,如：#223325 */ /* @depAttrs { "color": ["success"] } */
-    --label-background-warning: var(--brand-warning); /* @type color */ /* @desc 警告标签的背景色,如：#223325 */ /* @depAttrs { "color": ["warning"] } */
-    --label-background-error: var(--brand-error); /* @type color */ /* @desc 错误标签的背景色,如：#223325 */ /* @depAttrs { "color": ["error"] } */
-    --label-color: #666; /* @type color */ /* @desc 默认标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["default", null] } */
-    --label-color-primary: white; /* @type color */ /* @desc 主要标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["primary"] } */
-    --label-color-success: white; /* @type color */ /* @desc 成功标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["success"] } */
-    --label-color-warning: white; /* @type color */ /* @desc 警告标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["warning"] } */
-    --label-color-error: white; /* @type color */ /* @desc 错误标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["error"] } */
+    --label-background: #f5f5f5; /* @type color */ /* @desc 默认标签的背景色,如：#223325 */ /* @depAttrs { "color": ["default", null] } */ /* @depStaticStyles ["background-color"] */
+    --label-background-primary: var(--brand-primary); /* @type color */ /* @desc 主要标签的背景色,如：#223325 */ /* @depAttrs { "color": ["primary"] } */ /* @depStaticStyles ["background-color"] */
+    --label-background-success: var(--brand-success); /* @type color */ /* @desc 成功标签的背景色,如：#223325 */ /* @depAttrs { "color": ["success"] } */ /* @depStaticStyles ["background-color"] */
+    --label-background-warning: var(--brand-warning); /* @type color */ /* @desc 警告标签的背景色,如：#223325 */ /* @depAttrs { "color": ["warning"] } */ /* @depStaticStyles ["background-color"] */
+    --label-background-error: var(--brand-error); /* @type color */ /* @desc 错误标签的背景色,如：#223325 */ /* @depAttrs { "color": ["error"] } */ /* @depStaticStyles ["background-color"] */
+    --label-color: #666; /* @type color */ /* @desc 默认标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["default", null] } */ /* @depStaticStyles ["color"] */
+    --label-color-primary: white; /* @type color */ /* @desc 主要标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["primary"] } */ /* @depStaticStyles ["color"] */
+    --label-color-success: white; /* @type color */ /* @desc 成功标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["success"] } */ /* @depStaticStyles ["color"] */
+    --label-color-warning: white; /* @type color */ /* @desc 警告标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["warning"] } */ /* @depStaticStyles ["color"] */
+    --label-color-error: white; /* @type color */ /* @desc 错误标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["error"] } */ /* @depStaticStyles ["color"] */
 
     --label-line-background: transparent; /* @type color */ /* @desc 线性标签的背景颜色,如：#223325 */ /* @excludeTags u-label */
     --label-line-border-color: #e5e5e5; /* @type color */ /* @desc 线性标签的边框颜色,如：#223325 */ /* @excludeTags u-label */
@@ -629,9 +630,9 @@
     --label-padding-y-huge: 8px; /* @hidden */
 
     /* @component u-badge */
-    --badge-background: var(--brand-error); /* @type color */ /* @desc 徽章背景色,如：#223325 */
-    --badge-color: white; /* @type color */ /* @desc 徽章字体颜色,如：#223325 */
-    --badge-value-size: 20px; /* @desc 徽章圆点大小（数值模式）,如：1px */
+    --badge-background: var(--brand-error); /* @type color */ /* @desc 徽章背景色,如：#223325 */ /* @depStaticStyles ["background-color"] */
+    --badge-color: white; /* @type color */ /* @desc 徽章字体颜色,如：#223325 */ /* @depStaticStyles ["color"] */
+    --badge-value-size: 20px; /* @desc 徽章圆点大小（数值模式）,如：1px */ /* @depStaticStyles ["font-size"] */
     --badge-dot-size: 6px; /* @desc 徽章圆点大小（圆点模式）,如：1px */
 
     --badge-box-shadow: 0 0 0 1px #fff; /* @hidden */
@@ -655,36 +656,36 @@
     --carousel-button-background-hover: rgba(0, 0, 0, 0.2); /* @hidden */
 
     /* @component u-time-picker */
-    --timepicker-input-border-color: var(--input-border-color); /* @type color */ /* @desc 时间选择框输入框边框颜色,如 #223325 */
-    --timepicker-input-border-width: var(--input-border-width); /* @desc 时间选择框输入框边框宽度,如 1px */
-    --timepicker-input-color: var(--input-color); /* @type color */ /* @desc 时间选择框输入框字体颜色,如 #223325 */
-    --timepicker-input-background: var(--input-background); /* @type color */ /* @desc 时间选择框输入框背景颜色,如 #223325 */
-    --timepicker-input-border-radius: var(--input-border-radius); /* @desc 时间选择框输入框圆角,如 1px */
-    --timepicker-input-background-disabled: var(--input-background-disabled); /* @type color */ /* @desc 时间选择框输入框背景颜色（禁用状态）,如 #223325 */
+    --timepicker-input-border-color: var(--input-border-color); /* @type color */ /* @desc 时间选择框输入框边框颜色,如 #223325 */ /* @prefix timepicker-input */
+    --timepicker-input-border-width: var(--input-border-width); /* @desc 时间选择框输入框边框宽度,如 1px */ /* @prefix timepicker-input */
+    --timepicker-input-color: var(--input-color); /* @type color */ /* @desc 时间选择框输入框字体颜色,如 #223325 */ /* @prefix timepicker-input */
+    --timepicker-input-background: var(--input-background); /* @type color */ /* @desc 时间选择框输入框背景颜色,如 #223325 */ /* @prefix timepicker-input */
+    --timepicker-input-border-radius: var(--input-border-radius); /* @desc 时间选择框输入框圆角,如 1px */ /* @prefix timepicker-input */
+    --timepicker-input-background-disabled: var(--input-background-disabled); /* @type color */ /* @desc 时间选择框输入框背景颜色（禁用状态）,如 #223325 */ /* @prefix timepicker-input */
     --timepicker-input-border-color-error: var(--input-border-color-error); /* @hidden */
     --timepicker-input-border-color-focus: var(--input-border-color-focus); /* @hidden */
     --timepicker-input-box-shadow-focus: var(--input-box-shadow-focus); /* @hidden */
-    --timepicker-input-placeholder-color: var(--input-placeholder-color); /* @type color */ /* @desc 时间选择框输入框提示字体颜色,如 #223325 */
+    --timepicker-input-placeholder-color: var(--input-placeholder-color); /* @type color */ /* @desc 时间选择框输入框提示字体颜色,如 #223325 */ /* @prefix timepicker-input */
 
-    --timepicker-input-width-mini: var(--input-width-mini); /* @desc Mini时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["mini"] } */
-    --timepicker-input-padding-x-mini: var(--input-padding-x-mini); /* @desc Mini时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["mini"] } */
-    --timepicker-input-height-mini: var(-input-height-mini); /* @desc Mini时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["mini"] } */
-    --timepicker-input-width-small: var(--input-width-small); /* @desc Small时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["small"] } */
-    --timepicker-input-padding-x-small: var(--input-padding-x-small); /* @desc Small时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["small"] } */
-    --timepicker-input-height-small: var(--input-height-small); /* @desc Small时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["small"] } */
-    --timepicker-input-width: var(--input-width); /* @desc 时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["normal", null] } */
-    --timepicker-input-height: var(--input-height); /* @desc 时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["normal", null] } */
-    --timepicker-input-padding-x: var(--input-padding-x); /* @desc 时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["normal", null] } */
-    --timepicker-input-width-medium: var(--input-width-medium); /* @desc Medium时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["medium"] } */
-    --timepicker-input-padding-x-medium: var(--input-padding-x-medium); /* @desc Medium时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["medium"] } */
-    --timepicker-input-height-medium: var(--input-height-medium); /* @desc Medium时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["medium"] } */
-    --timepicker-input-width-large: var(--input-width-large); /* @desc Large时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["large"] } */
-    --timepicker-input-padding-x-large: var(--input-padding-x-large); /* @desc Large时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["large"] } */
-    --timepicker-input-height-large: var(--input-height-large); /* @desc Large时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["large"] } */
-    --timepicker-input-width-huge: var(--input-width-huge); /* @desc Huge时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["huge"] } */
-    --timepicker-input-padding-x-huge: var(--input-padding-x-huge); /* @desc Huge时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["huge"] } */
-    --timepicker-input-height-huge: var(--input-height-huge); /* @desc Huge时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["huge"] } */
-    --timepicker-input-padding-x-full: var(--input-padding-x-full); /* @desc Full时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["full"] } */
+    --timepicker-input-width-mini: var(--input-width-mini); /* @desc Mini时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["mini"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["width"] */
+    --timepicker-input-padding-x-mini: var(--input-padding-x-mini); /* @desc Mini时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["mini"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --timepicker-input-height-mini: var(-input-height-mini); /* @desc Mini时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["mini"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["height"] */
+    --timepicker-input-width-small: var(--input-width-small); /* @desc Small时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["small"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["width"] */
+    --timepicker-input-padding-x-small: var(--input-padding-x-small); /* @desc Small时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["small"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --timepicker-input-height-small: var(--input-height-small); /* @desc Small时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["small"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["height"] */
+    --timepicker-input-width: var(--input-width); /* @desc 时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["width"] */
+    --timepicker-input-height: var(--input-height); /* @desc 时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["normal", null] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["height"] */
+    --timepicker-input-padding-x: var(--input-padding-x); /* @desc 时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --timepicker-input-width-medium: var(--input-width-medium); /* @desc Medium时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["medium"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["width"] */
+    --timepicker-input-padding-x-medium: var(--input-padding-x-medium); /* @desc Medium时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["medium"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --timepicker-input-height-medium: var(--input-height-medium); /* @desc Medium时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["medium"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["height"] */
+    --timepicker-input-width-large: var(--input-width-large); /* @desc Large时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["large"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["width"] */
+    --timepicker-input-padding-x-large: var(--input-padding-x-large); /* @desc Large时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["large"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --timepicker-input-height-large: var(--input-height-large); /* @desc Large时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["large"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["height"] */
+    --timepicker-input-width-huge: var(--input-width-huge); /* @desc Huge时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["huge"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["width"] */
+    --timepicker-input-padding-x-huge: var(--input-padding-x-huge); /* @desc Huge时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["huge"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --timepicker-input-height-huge: var(--input-height-huge); /* @desc Huge时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["huge"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["height"] */
+    --timepicker-input-padding-x-full: var(--input-padding-x-full); /* @desc Full时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["full"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
 
     --timepicker-bacground-selected: var(--brand-primary-light); /* @hidden */
     --timepicker-color-selected: white; /* @hidden */
@@ -779,7 +780,7 @@
     --timeline-dot-background-color: #fff; /* @type color */ /* @desc dot背景颜色 */
 
     /* @component u-dropdown */
-    --dropdown-color-text: var(--brand-primary); /* @type color */ /* @desc 下拉菜单字体颜色,如 #223325 */
+    --dropdown-color-text: var(--brand-primary); /* @type color */ /* @desc 下拉菜单字体颜色,如 #223325 */ /* @depStaticStyles ["color"] */
     --dropdown-color-text-hover: var(--brand-primary-light); /* @type color */ /* @desc 下拉菜单字体颜色（hover状态）,如 #223325 */
     --dropdown-color-text-active: var(--dropdown-color-text); /* @type color */ /* @desc 下拉菜单字体颜色（激活状态）,如 #223325 */
     --dropdown-color-text-disabled: var(--font-disabled-color); /* @type color */ /* @desc 下拉菜单字体颜色（禁用状态）,如 #223325 */
@@ -792,27 +793,26 @@
 
     /* @component u-table-view */
     --table-view-row-hover-background: #f9f9f9; /* @type color */ /* @group 行 */ /* @prefix table-view-row */ /* @desc 表格行背景色（hover状态）,如 #223325 */ /* @excludeElTags th */
-    --table-view-head-background: #f7f8fa; /* @type color */ /* @desc 表格表头背景色,如 #223325 */ /* @excludeElTags td,th */
-    --table-head-text-align: left; /* @prefix table */ /* @desc 表格表头字体对齐方式,如 left */ /* @excludeElTags td,th */
     --table-head-font-weight: normal; /* @prefix table */ /* @desc 表格表头字体加粗,如 normal */ /* @excludeElTags td,th */
     --table-view-head-item-size: var(--font-size-base); /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头字体大小,如 1px */ /* @excludeElTags td */
     --table-row-background-striped: var(--background-color-lighter); /* @type color */ /* @group 行 */ /* @prefix table */ /* @desc 表格条纹展示行背景色,如 #223325 */ /* @excludeElTags th */
     --table-view-head-item-color: var(--gray-dark); /* @type color */ /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头文字颜色,如 #223325 */ /* @excludeElTags td */
-    --table-view-background: var(--background-color-default); /* @type color */ /* @desc 表格内容区背景色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-border-color: var(--border-color-base); /* @type color */ /* @group 内容区 */ /* @prefix table-view */ /* @desc 表格内容区边框颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-td-color: var(--color-base); /* @type color */ /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区文字颜色,如 #223325 */ /* @excludeElTags th */
+    --table-view-th-text-align: left; /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头字体对齐方式,如 left */ /* @excludeElTags td */
     --table-view-th-line-height: 20px; /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头行高,如 1px */ /* @excludeElTags td */
     --table-view-th-padding: 10px 6px 10px 10px; /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头内间距,如 1px */ /* @excludeElTags td */
-    --table-view-th-background: var(--table-view-head-background); /* @type color */ /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头内背景色,如 #223325 */ /* @excludeElTags td,th */
+    --table-view-th-background-color: var(--table-view-head-background); /* @type color */ /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头内背景色,如 #223325 */ /* @excludeElTags td */
     --table-view-td-line-height: 20px; /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区行高,如 1px */ /* @excludeElTags th */
-    --table-view-td-padding: 10px 6px 10px 10px; /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格表头背景色,如 #223325 */ /* @excludeElTags th */
-    --table-view-td-background: var(--table-view-background);/* @type color */ /* @group 内容区 */ /* @prefix table-view */ /* @desc 表格列内容区背景色,如 #223325 */ /* @excludeElTags td,th */
+    --table-view-td-padding: 10px 6px 10px 10px; /* @group 内容区 */  /* @prefix table-view */ /* @desc 表格内容区内边距,如 1px */ /* @excludeElTags th */
+    --table-view-td-background-color: var(--table-view-background);/* @type color */ /* @group 内容区 */ /* @prefix table-view */ /* @desc 表格列内容区背景色,如 #223325 */ /* @excludeElTags th */
     --table-view-drop-ghost-border-color: var(--brand-primary); /* @type color */ /* @desc 表格拖拽放置示意线颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-drop-ghost-mask-background: rgba(77, 136, 255, 0.1); /* @type color */ /* @desc 表格拖拽放置示意框背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-subrow-background-dragging:  rgba(237, 237, 237, 0.5);/* @type color */ /* @desc 表格被拖拽行子树背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-row-background-dragging: #e5e5e5;/* @type color */ /* @desc 表格被拖拽行背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-drag-cursor: move;/* @desc 拖拽鼠标样式 */ /* @excludeElTags td,th */
 
+    --table-view-head-background: #f7f8fa; /* @hidden */
     --table-view-head-title-sortable-hover: #eef2f8; /* @hidden */
     --table-view-sort-color-hover: #aaa; /* @hidden */
     --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
@@ -831,11 +831,10 @@
     --table-view-filter-line-height: 1.6; /* @hidden */
     --table-view-filter-border-color: var(--border-color-base); /* @hidden */
     --table-view-title-space: 10px; /* @hidden */
+    --table-view-background: var(--background-color-default); /* @hidden */
     --table-view-table-background: white; /* @hidden */
     --table-view-th-background-image: none; /* @hidden */
-    --table-view-th-background-color:var(--table-view-th-background); /* @hidden */
     --table-view-td-background-image: none; /* @hidden */
-    --table-view-td-background-color:var(--table-view-td-background); /* @hidden */
     --table-view-sort-color: #ccc; /* @hidden */
     --table-view-sort-color-active: var(--brand-primary); /* @hidden */
     --table-view-sort-size: 1em; /* @hidden */
@@ -905,22 +904,23 @@
     --grid-view-foot-padding: calc(var(--grid-view-item-space) / 2);
 
     /* @component u-tree-view */
-    --tree-view-node-background-dragging: #e5e5e5; /* @type color */ /* @desc 树形列表可拖拽节点的背景色,如 #223325 */
-    --tree-view-node-color-dragging: #999; /* @type color */ /* @desc 树形列表可拖拽节点的字体颜色,如 #223325 */
-    --tree-view-subnode-background-selected: rgba(237, 243, 255, 1); /* @type color */ /* @desc 树形列表子节点的背景色（选中状态）,如 #223325 */
-    --tree-view-subnode-background-dragging:  rgba(237, 237, 237, 0.5);  /* @type color */ /* @desc 树形列表可拖拽子节点的背景色,如 #223325 */
-    --tree-view-subnode-color-dragging: #999; /* @type color */ /* @desc 树形列表可拖拽子节点的字体颜色,如 #223325 */
-    --tree-view-subnode-background-selected-hover:  #DBE7FF; /* @desc 树形列表子节点的背景色（选中状态）,如 #223325 */
-    --tree-view-node-expander-color-dragging: #aaa; /* @type color */ /* @desc 树形列表可拖拽节点的前缀箭头颜色,如 #223325 */
-    --tree-view-background: white; /* @type color */ /* @desc 树形列表节点的背景色,如 #223325 */
-    --tree-view-node-margin-left: 30px; /* @desc 树形列表节点的左侧缩进距离,如 1px */
-    --tree-view-node-expander-size: 30px; /* @desc 树形列表节点的展开箭头的容器大小,如 1px */
-    --tree-view-node-text-padding: 4px 0; /* @desc 树形列表节点的文本内边距,如 1px */
-    --tree-view-node-background-active: var(--background-color-base); /* @type color */ /* @desc 树形列表节点的背景色（hover状态）,如 #223325 */
-    --tree-view-node-background-selected: var(--brand-primary-light); /* @type color */ /* @desc 树形列表节点的背景色（选中状态）,如 #223325 */
-    --tree-view-node-color-selected: white; /* @type color */ /* @desc 树形列表节点的文本颜色（选中状态）,如 #223325 */
-    --tree-view-node-expander-color-selected: white; /* @type color */ /* @desc 树形列表节点的展开箭头颜色（选中状态）,如 #223325 */
-    --tree-view-node-background-selected-disabled: var(--brand-disabled-light); /* @type color */ /* @desc 树形列表节点的背景色（选中且禁用）,如 #223325 */
+    --tree-view-background: white; /* @type color */ /* @desc 树形列表节点的背景色,如 #223325 */ /* @prefix tree-view */ /* @depStaticStyles ["background-color"] */
+    --tree-view-node-background-dragging: #e5e5e5; /* @type color */ /* @desc 树形列表可拖拽节点的背景色,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-node-color-dragging: #999; /* @type color */ /* @desc 树形列表可拖拽节点的字体颜色,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-subnode-background-selected: rgba(237, 243, 255, 1); /* @type color */ /* @desc 树形列表子节点的背景色（选中状态）,如 #223325 */ /* @prefix tree-view-subnode */
+    --tree-view-subnode-background-dragging:  rgba(237, 237, 237, 0.5);  /* @type color */ /* @desc 树形列表可拖拽子节点的背景色,如 #223325 */ /* @prefix tree-view-subnode */
+    --tree-view-subnode-color-dragging: #999; /* @type color */ /* @desc 树形列表可拖拽子节点的字体颜色,如 #223325 */ /* @prefix tree-view-subnode */
+    --tree-view-subnode-background-selected-hover:  #DBE7FF; /* @desc 树形列表子节点的背景色（选中状态）,如 #223325 */ /* @prefix tree-view-subnode */
+    --tree-view-node-expander-color-dragging: #aaa; /* @type color */ /* @desc 树形列表可拖拽节点的前缀箭头颜色,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-node-margin-left: 30px; /* @desc 树形列表节点的左侧缩进距离,如 1px */ /* @prefix tree-view-node */ /* @hidden */
+    --tree-view-node-expander-size: 30px; /* @desc 树形列表节点的展开箭头的容器大小,如 1px */ /* @prefix tree-view-node */
+    --tree-view-node-text-padding: 4px 0; /* @desc 树形列表节点的文本内边距,如 1px */ /* @prefix tree-view-node */
+    --tree-view-node-background-active: var(--background-color-base); /* @type color */ /* @desc 树形列表节点的背景色（hover状态）,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-node-background-selected: var(--brand-primary-light); /* @type color */ /* @desc 树形列表节点的背景色（选中状态）,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-node-color-selected: white; /* @type color */ /* @desc 树形列表节点的文本颜色（选中状态）,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-node-expander-color-selected: white; /* @type color */ /* @desc 树形列表节点的展开箭头颜色（选中状态）,如 #223325 */ /* @prefix tree-view-node */
+    --tree-view-node-background-selected-disabled: var(--brand-disabled-light); /* @type color */ /* @desc 树形列表节点的背景色（选中且禁用）,如 #223325 */ /* @prefix tree-view-node */
+
     --tree-view-node-text-padding–mini: 4px 0;  /* @hidden */
     --tree-view-node-expander-size-mini: 26px; /* @hidden */
     --tree-view-node-background-active-inverse: var(--background-color-base-inverse); /* @hidden */
@@ -1016,94 +1016,94 @@
     --validator-message-popper-margin-top: 13px;
 
     /* @component u-input */
-    --input-border-color: var(--border-color-base); /* @type color */ /* @group 边框颜色 */ /* @desc 输入框边框颜色,如 #223325 */
+    --input-border-color: var(--border-color-base); /* @type color */ /* @group 边框颜色 */ /* @desc 输入框边框颜色,如 #223325 */ /* @depStaticStyles ["border-color"] */
     --input-border-color-hover: #4c88FF; /* @type color */ /* @group 边框颜色 */ /* @desc 输入框边框颜色（hover状态）,如 #223325 */
     --input-border-color-focus: #4c88FF; /* @type color */ /* @group 边框颜色 */ /* @desc 输入框边框颜色（选中状态）,如 #223325 */
     --input-border-color-disabled: var(--input-border-color); /* @type color */ /* @group 边框颜色 */ /* @desc 输入框边框颜色（禁用状态）,如 #223325 */
-    --input-border-width: var(--border-width-base); /* @group 边框宽度 */ /* @desc 输入框边框宽度,如 1px */
-    --input-border-radius: var(--border-radius-base); /* @group 圆角 */ /* @desc 输入框圆角,如 1px */
+    --input-border-width: var(--border-width-base); /* @group 边框宽度 */ /* @desc 输入框边框宽度,如 1px */ /* @depStaticStyles ["border-top-width", "border-right-width", "border-bottom-width", "border-left-width"] */
+    --input-border-radius: var(--border-radius-base); /* @group 圆角 */ /* @desc 输入框圆角,如 1px */ /* @depStaticStyles ["border-top-left-radius", "border-top-right-radius", "border-bottom-left-radius", "border-bottom-right-radius"] */
     --input-border-color-error: var(--brand-error); /* @hidden */
     --input-box-shadow-focus-color: rgba(77, 136, 255, 0.2); /* @type color */ /* @group 边框阴影 */ /* @desc 输入框边框阴影颜色（选中状态）,如 #223325 */
     --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color); /* @group 边框宽度 */ /* @desc 输入框边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2) */
     --input-placeholder-color: var(--color-lighter); /* @type color */ /* @group 占位符文本 */ /* @desc 输入框占位符文本颜色,如 #223325 */
-    --input-width-mini: var(--width-mini); /* @group 宽度 */ /* @desc Mini输入框高度,如 1px */ /* @depAttrs {"width": ["mini"]} */
-    --input-width-small: var(--width-small); /* @group 宽度 */ /* @desc Small输入框高度,如 1px */ /* @depAttrs {"width": ["small"]} */
-    --input-width: var(--width-base); /* @group 宽度 */ /* @desc 输入框高度,如 1px */ /* @depAttrs {"width": ["normal", null]} */
-    --input-width-medium: var(--width-medium); /* @group 宽度 */ /* @desc Medium输入框高度,如 1px */ /* @depAttrs {"width": ["medium"]} */
-    --input-width-large: var(--width-large); /* @group 宽度 */ /* @desc Large输入框高度,如 1px */ /* @depAttrs {"width": ["large"]} */
-    --input-width-huge: var(--width-huge); /* @group 宽度 */ /* @desc Huge输入框高度,如 1px */ /* @depAttrs {"width": ["huge"]} */
-    --input-height-mini: var(--height-mini); /* @group 高度 */ /* @desc Mini输入框高度,如 1px */ /* @depAttrs {"height": ["mini"]} */
-    --input-height-small: var(--height-small); /* @group 高度 */ /* @desc Small输入框高度,如 1px */ /* @depAttrs {"height": ["small"]} */
-    --input-height: var(--height-base); /* @group 高度 */ /* @desc 输入框高度,如 1px */ /* @depAttrs {"height": ["normal", null]} */
-    --input-height-medium: var(--height-medium); /* @group 高度 */ /* @desc Medium输入框高度,如 1px */ /* @depAttrs {"height": ["medium"]} */
-    --input-height-large: var(--height-large); /* @group 高度 */ /* @desc Large输入框高度,如 1px */ /* @depAttrs {"height": ["large"]} */
-    --input-height-huge: var(--height-huge); /* @group 高度 */ /* @desc Huge输入框高度,如 1px */ /* @depAttrs {"height": ["huge"]} */
-    --input-padding-x-mini: 6px; /* @group 内边距 */ /* @desc Mini输入框水平方向内边距,如 1px */
-    --input-padding-x-small: 8px; /* @group 内边距 */ /* @desc Small输入框水平方向内边距,如 1px */
-    --input-padding-x: 10px; /* @group 内边距 */ /* @desc 输入框水平方向内边距,如 1px */
-    --input-padding-x-medium: 10px; /* @group 内边距 */ /* @desc Medium输入框水平方向内边距,如 1px */
-    --input-padding-x-large: 10px; /* @group 内边距 */ /* @desc Large输入框水平方向内边距,如 1px */
-    --input-padding-x-huge: 10px; /* @group 内边距 */ /* @desc Huge输入框水平方向内边距,如 1px */
-    --input-padding-x-full: 10px; /* @group 内边距 */ /* @desc Full输入框水平方向内边距,如 1px */
+    --input-width-mini: var(--width-mini); /* @group 宽度 */ /* @desc Mini输入框高度,如 1px */ /* @depAttrs {"width": ["mini"]} */ /* @depStaticStyles ["width"] */
+    --input-width-small: var(--width-small); /* @group 宽度 */ /* @desc Small输入框高度,如 1px */ /* @depAttrs {"width": ["small"]} */ /* @depStaticStyles ["width"] */
+    --input-width: var(--width-base); /* @group 宽度 */ /* @desc 输入框高度,如 1px */ /* @depAttrs {"width": ["normal", null]} */ /* @depStaticStyles ["width"] */
+    --input-width-medium: var(--width-medium); /* @group 宽度 */ /* @desc Medium输入框高度,如 1px */ /* @depAttrs {"width": ["medium"]} */ /* @depStaticStyles ["width"] */
+    --input-width-large: var(--width-large); /* @group 宽度 */ /* @desc Large输入框高度,如 1px */ /* @depAttrs {"width": ["large"]} */ /* @depStaticStyles ["width"] */
+    --input-width-huge: var(--width-huge); /* @group 宽度 */ /* @desc Huge输入框高度,如 1px */ /* @depAttrs {"width": ["huge"]} */ /* @depStaticStyles ["width"] */
+    --input-height-mini: var(--height-mini); /* @group 高度 */ /* @desc Mini输入框高度,如 1px */ /* @depAttrs {"height": ["mini"]} */ /* @depStaticStyles ["height"] */
+    --input-height-small: var(--height-small); /* @group 高度 */ /* @desc Small输入框高度,如 1px */ /* @depAttrs {"height": ["small"]} */ /* @depStaticStyles ["height"] */
+    --input-height: var(--height-base); /* @group 高度 */ /* @desc 输入框高度,如 1px */ /* @depAttrs {"height": ["normal", null]} */ /* @depStaticStyles ["height"] */
+    --input-height-medium: var(--height-medium); /* @group 高度 */ /* @desc Medium输入框高度,如 1px */ /* @depAttrs {"height": ["medium"]} */ /* @depStaticStyles ["height"] */
+    --input-height-large: var(--height-large); /* @group 高度 */ /* @desc Large输入框高度,如 1px */ /* @depAttrs {"height": ["large"]} */ /* @depStaticStyles ["height"] */
+    --input-height-huge: var(--height-huge); /* @group 高度 */ /* @desc Huge输入框高度,如 1px */ /* @depAttrs {"height": ["huge"]} */ /* @depStaticStyles ["height"] */
+    --input-padding-x-mini: 6px; /* @group 内边距 */ /* @desc Mini输入框水平方向内边距,如 1px */ /* @depAttrs {"width": ["mini"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --input-padding-x-small: 8px; /* @group 内边距 */ /* @desc Small输入框水平方向内边距,如 1px */ /* @depAttrs {"width": ["small"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --input-padding-x: 10px; /* @group 内边距 */ /* @desc 输入框水平方向内边距,如 1px */ /* @depAttrs {"width": ["normal", null]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --input-padding-x-medium: 10px; /* @group 内边距 */ /* @desc Medium输入框水平方向内边距,如 1px */ /* @depAttrs {"width": ["medium"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --input-padding-x-large: 10px; /* @group 内边距 */ /* @desc Large输入框水平方向内边距,如 1px */ /* @depAttrs {"width": ["large"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --input-padding-x-huge: 10px; /* @group 内边距 */ /* @desc Huge输入框水平方向内边距,如 1px */ /* @depAttrs {"width": ["huge"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --input-padding-x-full: 10px; /* @group 内边距 */ /* @desc Full输入框水平方向内边距,如 1px */ /* @depAttrs {"width": ["full"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
     --input-prefix-padding-left: 36px; /* @group 前缀/后缀 */ /* @desc 输入框前缀左边距,如 1px */
     --input-prefix-placeholder-left: 27px; /* @group 前缀/后缀 *//* @desc 输入框前缀提示信息左边距,如 1px */
     --input-suffix-padding-right: 30px; /* @group 前缀/后缀 *//* @desc 输入框后缀右边距,如 1px */
-    --input-background: var(--background-color-default);  /* @type color */ /* @group 背景色 */ /* @desc 输入框背景色,如 #223325 */
+    --input-background: var(--background-color-default);  /* @type color */ /* @group 背景色 */ /* @desc 输入框背景色,如 #223325 */ /* @depStaticStyles ["background-color"] */
     --input-background-disabled: var(--background-color-disabled-light); /* @type color */ /* @group 背景色 */ /* @desc 禁用输入框背景色,如 #223325 */
-    --input-color: var(--color-base); /* @type color */ /* @group 文字颜色 */ /* @desc 输入框文字颜色,如 #223325 */
+    --input-color: var(--color-base); /* @type color */ /* @group 文字颜色 */ /* @desc 输入框文字颜色,如 #223325 */ /* @depStaticStyles ["color"] */
     --input-color-disabled: var(--color-light); /* @type color */ /* @group 文字颜色 */ /* @desc 禁用输入框文字颜色,如 #223325 */
     --input-icon-color: var(--color-lighter); /* @hidden */
     --input-icon-color-hover: var(--font-third-color); /* @hidden */
     --input-icon-color-disabled: var(--color-lighter); /* @hidden */
 
     /* @component u-textarea */
-    --textarea-width: var(--width-base); /* @group 宽度 */ /* @desc 文本框宽度, 如 1px */ /* @depAttrs {"size": ["normal", null]} */
-    --textarea-width-medium: var(--width-medium); /* @group 宽度 */ /* @desc Medium文本框宽度, 如 1px */ /* @depAttrs {"size": ["medium"]} */
-    --textarea-width-large: var(--width-large); /* @group 宽度 */ /* @desc Large文本框宽度, 如 1px */ /* @depAttrs {"size": ["large"]} */
-    --textarea-width-huge: var(--width-huge); /* @group 宽度 */ /* @desc Huge文本框宽度, 如 1px */ /* @depAttrs {"size": ["huge"]} */
-    --textarea-min-width: var(--width-base); /* @group 宽度 */ /* @desc 文本框最小宽度, 如 1px */
-    --textarea-height: 100px; /* @group 高度 */ /* @desc 文本框高度, 如 1px */ /* @depAttrs {"size": ["normal", null]} */
-    --textarea-height-medium: 120px; /* @group 高度 */ /* @desc Medium文本框高度, 如 1px */ /* @depAttrs {"size": ["medium"]} */
-    --textarea-height-large: 120px; /* @group 高度 */ /* @desc Large文本框高度, 如 1px */ /* @depAttrs {"size": ["large"]} */
-    --textarea-height-huge: 200px; /* @group 高度 */ /* @desc Huge文本框高度, 如 1px */ /* @depAttrs {"size": ["huge"]} */
+    --textarea-width: var(--width-base); /* @group 宽度 */ /* @desc 文本框宽度, 如 1px */ /* @depAttrs {"size": ["normal", null]} */ /* @depStaticStyles ["width"] */
+    --textarea-width-medium: var(--width-medium); /* @group 宽度 */ /* @desc Medium文本框宽度, 如 1px */ /* @depAttrs {"size": ["medium"]} */ /* @depStaticStyles ["width"] */
+    --textarea-width-large: var(--width-large); /* @group 宽度 */ /* @desc Large文本框宽度, 如 1px */ /* @depAttrs {"size": ["large"]} */ /* @depStaticStyles ["width"] */
+    --textarea-width-huge: var(--width-huge); /* @group 宽度 */ /* @desc Huge文本框宽度, 如 1px */ /* @depAttrs {"size": ["huge"]} */ /* @depStaticStyles ["width"] */
+    --textarea-min-width: var(--width-base); /* @group 宽度 */ /* @desc 文本框最小宽度, 如 1px */ /* @depStaticStyles ["width"] */
+    --textarea-height: 100px; /* @group 高度 */ /* @desc 文本框高度, 如 1px */ /* @depAttrs {"size": ["normal", null]} */ /* @depStaticStyles ["height"] */
+    --textarea-height-medium: 120px; /* @group 高度 */ /* @desc Medium文本框高度, 如 1px */ /* @depAttrs {"size": ["medium"]} */ /* @depStaticStyles ["height"] */
+    --textarea-height-large: 120px; /* @group 高度 */ /* @desc Large文本框高度, 如 1px */ /* @depAttrs {"size": ["large"]} */ /* @depStaticStyles ["height"] */
+    --textarea-height-huge: 200px; /* @group 高度 */ /* @desc Huge文本框高度, 如 1px */ /* @depAttrs {"size": ["huge"]} */ /* @depStaticStyles ["height"] */
     --textarea-min-height: var(--height-base); /* @group 高度 */ /* @desc 文本框最小高度, 如 1px */
-    --textarea-padding: 5px 10px; /* @group 内边距 */ /* @desc 文本框内边距, 如 1px */
-    --textarea-border-radius: var(--border-radius-base); /* @group 圆角 */ /* @desc 文本框圆角, 如 1px */
-    --textarea-border-color: var(--border-color-base); /* @type color */ /* @group 边框颜色 */ /* @desc 文本框边框颜色, 如 #223325 */
+    --textarea-padding: 5px 10px; /* @group 内边距 */ /* @desc 文本框内边距, 如 1px */ /* @depStaticStyles ["padding-top", "padding-right", "padding-bottom", "padding-left"] */
+    --textarea-border-radius: var(--border-radius-base); /* @group 圆角 */ /* @desc 文本框圆角, 如 1px */ /* @depStaticStyles ["border-top-left-radius", "border-top-right-radius", "border-bottom-left-radius", "border-bottom-right-radius"] */
+    --textarea-border-color: var(--border-color-base); /* @type color */ /* @group 边框颜色 */ /* @desc 文本框边框颜色, 如 #223325 */ /* @depStaticStyles ["border-color"] */
     --textarea-border-color-focus: var(--input-border-color-focus); /* @type color */ /* @group 边框颜色 */ /* @desc 文本框边框颜色（选中状态）, 如 #223325 */
     --textarea-border-color-disabled: var(--textarea-border-color); /* @type color */ /* @group 边框颜色 */ /* @desc 文本框边框颜色（禁用状态）, 如 #223325 */
-    --textarea-background: var(--background-color-disabled-light); /* @type color */ /* @group 背景颜色 */ /* @desc 文本框背景颜色, 如 #223325 */
+    --textarea-background: var(--background-color-disabled-light); /* @type color */ /* @group 背景颜色 */ /* @desc 文本框背景颜色, 如 #223325 */ /* @depStaticStyles ["background-color"] */
     --textarea-background-disabled: var(--input-background-disabled); /* @type color */ /* @group 背景颜色 */ /* @desc 文本框背景颜色（禁用状态）, 如 #223325 */
-    --textarea-color: var(--color-base); /* @type color */ /* @group 文字颜色 */ /* @desc 文本框内容区文字颜色, 如 #223325 */
+    --textarea-color: var(--color-base); /* @type color */ /* @group 文字颜色 */ /* @desc 文本框内容区文字颜色, 如 #223325 */ /* @depStaticStyles ["color"] */
     --textarea-color-disabled: var(--input-color-disabled); /* @type color */ /* @group 文字颜色 */ /* @desc 文本框内容区文字颜色（禁用状态）, 如 #223325 */
     --textarea-placeholder-color: var(--color-lighter); /* @type color */ /* @group 文字颜色 */ /* @desc 文本框提示内容文字颜色, 如 #223325 */
     --textarea-box-shadow-focus-color: rgba(77, 136, 255, 0.2); /* @type color */ /* @group 边框阴影 */ /* @desc 选中状态文本框边框阴影色,如 rgba(0, 0, 0, 0.2); */
     --textarea-box-shadow-focus:  0 0 0 2px var(--textarea-box-shadow-focus-color); /* @group 边框阴影 */ /* @desc 选中状态文本框边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
 
     /* @component u-number-input */
-    --number-input-background: var(--input-background); /* @type color */ /* @desc 输入框背景色,如 #223325 */
+    --number-input-background: var(--input-background); /* @type color */ /* @desc 输入框背景色,如 #223325 */ /* @depStaticStyles ["background-color"] */
     --number-input-background-disabled: var(--input-background-disabled); /* @type color */ /* @desc 禁用状态输入框背景色,如 #223325 */
-    --number-input-color: var(--input-color); /* @type color */ /* @desc 输入框字体颜色,如 #223325 */
+    --number-input-color: var(--input-color); /* @type color */ /* @desc 输入框字体颜色,如 #223325 */ /* @depStaticStyles ["color"] */
     --number-input-color-disabled: #999999; /* @type color */ /* @desc 禁用输入框字体颜色,如 #223325 */
-    --number-input-button-background: none; /* @type color */ /* @desc 输入框上下按钮背景色,如 #223325 */
-    --number-input-button-both-ends-background:#F7F8FA; /* @type color */ /* @desc 输入框左右按钮背景色,如 #223325 */
-    --number-input-button-background-hover: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（hover状态）,如 #223325 */
-    --number-input-button-both-ends-background-hover: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（hover状态）,如 #223325 */
-    --number-input-button-background-active: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（激活状态）,如 #223325 */
-    --number-input-button-both-ends-background-active: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（激活状态）,如 #223325 */
-    --number-input-button-background-focus: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（选中状态）,如 #223325 */
-    --number-input-button-both-ends-background-focus: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（选中状态）,如 #223325 */
-    --number-input-button-background-disabled: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（禁用状态）,如 #223325 */
-    --number-input-button-both-ends-background-disabled: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（禁用状态）,如 #223325 */
-    --number-input-border-color: var(--input-border-color); /* @type color */ /* @desc 输入框边框背景色,如 #223325 */
+    --number-input-button-background: none; /* @type color */ /* @desc 输入框上下按钮背景色,如 #223325 */ /* @depAttrs { "button-display": [null] } */
+    --number-input-button-both-ends-background:#F7F8FA; /* @type color */ /* @desc 输入框左右按钮背景色,如 #223325 */ /* @depAttrs { "button-display": ["bothEnds"] } */
+    --number-input-button-background-hover: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（hover状态）,如 #223325 */ /* @depAttrs { "button-display": [null] } */
+    --number-input-button-both-ends-background-hover: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（hover状态）,如 #223325 */ /* @depAttrs { "button-display": ["bothEnds"] } */
+    --number-input-button-background-active: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（激活状态）,如 #223325 */ /* @depAttrs { "button-display": [null] } */
+    --number-input-button-both-ends-background-active: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（激活状态）,如 #223325 */ /* @depAttrs { "button-display": ["bothEnds"] } */
+    --number-input-button-background-focus: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（选中状态）,如 #223325 */ /* @depAttrs { "button-display": [null] } */
+    --number-input-button-both-ends-background-focus: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（选中状态）,如 #223325 */ /* @depAttrs { "button-display": ["bothEnds"] } */
+    --number-input-button-background-disabled: var(--number-input-button-background); /* @type color */ /* @desc 输入框上下按钮背景色（禁用状态）,如 #223325 */ /* @depAttrs { "button-display": [null] } */
+    --number-input-button-both-ends-background-disabled: var(--number-input-button-both-ends-background); /* @type color */ /* @desc 输入框左右按钮背景色（禁用状态）,如 #223325 */ /* @depAttrs { "button-display": ["bothEnds"] } */
+    --number-input-border-color: var(--input-border-color); /* @type color */ /* @desc 输入框边框背景色,如 #223325 */ /* @depStaticStyles ["border-color"] */
     --number-input-border-color-hover: var(--input-border-color-hover); /* @type color */ /* @desc 输入框边框背景色（hover状态）,如 #223325 */
     --number-input-border-color-focus: var(--input-border-color-focus); /* @type color */ /* @desc 输入框边框背景色（选中状态）,如 #223325 */
     --number-input-border-color-disabled: var(--input-border-color-disabled); /* @type color */ /* @desc 输入框边框背景色（禁用状态）,如 #223325 */
     --number-input-button-color: #989898; /* @type color */ /* @desc 输入框按钮字体色,如 #223325 */
     --number-input-button-color-hover: var(--brand-primary); /* @type color */ /* @desc 输入框按钮字体色（hover状态）,如 #223325 */
     --number-input-button-color-disabled: #CCCCCC; /* @type color */ /* @desc 输入框按钮字体色（禁用状态）,如 #223325 */
-    --number-input-height: var(--input-height); /* @desc 输入框按钮高度,如 1px */
-    --number-input-border-width: var(--input-border-width); /* @desc 输入框边框宽度,如 1px */
+    --number-input-height: var(--input-height); /* @desc 输入框按钮高度,如 1px */ /* @depStaticStyles ["height"] */
+    --number-input-border-width: var(--input-border-width); /* @desc 输入框边框宽度,如 1px */ /* @depStaticStyles ["border-top-width", "border-right-width", "border-bottom-width", "border-left-width"] */
     --number-input-box-shadow-focus-color: var(--input-box-shadow-focus-color); /* @type color */ /* @desc 输入框边框阴影色,如 #223325 */
     --number-input-box-shadow-focus: 0 0 0 2px var(--number-input-box-shadow-focus-color); /* @desc 输入框边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
     --number-input-button-padding: 0 4px; /* @desc 输入框按钮边距,如 1px 1px */
@@ -1139,8 +1139,8 @@
     --radio-box-shadow-active-disabled: none; /* @hidden */
 
     /* @component u-switch */
-    --switch-width: 40px; /* @desc 开关宽度,如 1px */
-    --switch-height: 20px; /* @desc 开关高度,如 1px */
+    --switch-width: 40px; /* @desc 开关宽度,如 1px */ /* @depStaticStyles ["width"] */
+    --switch-height: 20px; /* @desc 开关高度,如 1px */ /* @depStaticStyles ["height"] */
     --switch-button-space: 2px; /* @desc 开关按钮内边距,如 1px */
     --switch-button-size: 16px; /* @desc 开关按钮大小,如 1px */
     --switch-button-background: white; /* @type color */ /* @desc 开关按钮背景色,如 #223325 */
@@ -1195,13 +1195,13 @@
     --select-popper-item-color-hover: inherit; /* @type color */ /* @group 下拉框字体颜色 */ /* @desc 选择框下拉项字体颜色（hover状态）,如 #223325 */
     /* selected */
     --select-popper-item-color-selected: var(--list-view-item-color-selected); /* @type color */ /* @group 下拉框字体颜色 */ /* @desc 选择框下拉项字体颜色（选中状态）,如 #223325 */
-    --select-width: var(--width-base); /* @group 宽度 */ /* @desc 选择框的宽度,如 1px */
-    --select-height: var(--height-base); /* @group 高度 */ /* @desc 选择框的高度,如 1px */
-    --select-padding-x: 10px;  /* @group 水平方向内边距 */ /* @desc 选择框水平方向内边距,如 1px */
-    --select-background: var(--background-color-default); /* @type color */ /* @group 背景色 */ /* @desc 选择框的背景色,如 #223325 */
-    --select-border-width: var(--border-width-base);  /* @group 边框 */ /* @desc 选择框的边框宽度,如 1px */
-    --select-border-color: var(--border-color-base); /* @type color */ /* @group 边框 */ /* @desc 选择框的边框颜色,如 #223325 */
-    --select-color: var(--color-base); /* @type color */ /* @group 字体 */ /* @desc 选择框的字体颜色,如 #223325 */
+    --select-width: var(--width-base); /* @group 宽度 */ /* @desc 选择框的宽度,如 1px */ /* @depStaticStyles ["width"] */
+    --select-height: var(--height-base); /* @group 高度 */ /* @desc 选择框的高度,如 1px */ /* @depStaticStyles ["height"] */
+    --select-padding-x: 10px;  /* @group 水平方向内边距 */ /* @desc 选择框水平方向内边距,如 1px */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --select-background: var(--background-color-default); /* @type color */ /* @group 背景色 */ /* @desc 选择框的背景色,如 #223325 */ /* @depStaticStyles ["background-color"] */
+    --select-border-width: var(--border-width-base);  /* @group 边框 */ /* @desc 选择框的边框宽度,如 1px */ /* @depStaticStyles ["border-top-width", "border-right-width", "border-bottom-width", "border-left-width"] */
+    --select-border-color: var(--border-color-base); /* @type color */ /* @group 边框 */ /* @desc 选择框的边框颜色,如 #223325 */ /* @depStaticStyles ["border-color"] */
+    --select-color: var(--color-base); /* @type color */ /* @group 字体 */ /* @desc 选择框的字体颜色,如 #223325 */ /* @depStaticStyles ["color"] */
     --select-popper-max-height: 194px; /* @group 弹出层 */ /* @desc 选择框的弹出层最大高度,如 1px */
     --select-popper-box-shadow: var(--box-shadow-base); /* @group 弹出层 */ /* @desc 选择框的弹出层阴影效果,如 1px */
     --select-placeholder-color: var(--color-lighter); /* @type color */ /* @group 占位符 */ /* @desc 选择框的占位符文字颜色,如 #223325 */
@@ -1281,7 +1281,7 @@
     --select-arrow-color-hover: var(--font-second-color); /* @hidden */
     --select-search-icon-color: #ccc; /* @hidden */
 
-    /* @component u-rating */
+    /* @component u-rate */
     --rate-space: 6px; /* @desc 五角星之间的间距,如 1px */
     --rate-size: 20px; /* @desc 五角星的大小,如 1px */
     --rate-color: #e5e5e5; /* @type color */ /* @desc 五角星未选中的颜色,如 #223325 */
@@ -1289,23 +1289,33 @@
     --rate-text-color: #333; /* @type color */ /* @desc 字体颜色,如 #223325 */
     --rate-popup-background: var(--color-white); /* @hidden */
 
-    /* @component u-slider */
-    --slider-body-margin: 0 10px; /* @desc 滑道两侧的缩进距离,如 1px */
-    --slider-body-padding: 9px 0; /* @desc 组件垂直方向的内边距（滑道上下的外边距）,如 1px */
-    --silder-background-disabled: var(--brand-disabled); /* @type color */ /* @desc 滑道背景色（禁用状态下）,如 #223325 */
-    --slider-track-height: 6px; /* @desc 滑道高度,如 1px */
-    --slider-track-background: var(--background-color-base); /* @type color */ /* @desc 滑道背景色（已覆盖部分）,如 #223325 */
-    --slider-trail-background: var(--brand-primary);  /* @type color */ /* @desc 滑道背景色（未覆盖部分）,如 #223325 */
-    --slider-trail-background-disabled: #bfbfbf;  /* @type color */ /* @desc 滑道背景色（未覆盖部分禁用状态下）,如 #223325 */
-    --slider-track-border-radius: 3px; /* @desc 滑道圆角大小（未覆盖部分）,如 1px */
-    --slider-handle-width: 16px; /* @desc 滑块按钮宽度,如 1px */
-    --slider-handle-height: 16px; /* @desc 滑块按钮高度,如 1px */
-    --slider-handle-background: var(--brand-primary); /* @type color */ /* @desc 滑块按钮背景色（未覆盖部分）,如 #223325 */
-    --slider-handle-border: 2px solid white; /* @desc 滑块按钮边框,如 1px solid white */
+    /* @component u-combo-slider */
+    --slider-body-margin: 0 10px; /* @desc 滑道两侧的缩进距离,如 1px */ /* @prefix slider */
+    --slider-body-padding: 9px 0; /* @desc 组件垂直方向的内边距（滑道上下的外边距）,如 1px */ /* @prefix slider */
+    --slider-track-height: 6px; /* @desc 滑道高度,如 1px */ /* @prefix slider */
+    --slider-track-background: var(--background-color-base); /* @type color */ /* @desc 滑道背景色（已覆盖部分）,如 #223325 */ /* @prefix slider */
+    --slider-trail-background: var(--brand-primary);  /* @type color */ /* @desc 滑道背景色（未覆盖部分）,如 #223325 */ /* @prefix slider */
+    --slider-trail-background-disabled: #bfbfbf;  /* @type color */ /* @desc 滑道背景色（未覆盖部分禁用状态下）,如 #223325 */ /* @prefix slider */
+    --slider-track-border-radius: 3px; /* @desc 滑道圆角大小（未覆盖部分）,如 1px */ /* @prefix slider */
+    --slider-handle-width: 16px; /* @desc 滑块按钮宽度,如 1px */ /* @prefix slider */
+    --slider-handle-height: 16px; /* @desc 滑块按钮高度,如 1px */ /* @prefix slider */
+    --slider-handle-background: var(--brand-primary); /* @type color */ /* @desc 滑块按钮背景色（未覆盖部分）,如 #223325 */ /* @prefix slider */
+    --slider-handle-border: 2px solid white; /* @desc 滑块按钮边框,如 1px solid white */ /* @prefix slider */
     --slider-bound-background: url("../assets/images/stripe.png") repeat-x; /* @hidden */
-    --silder-box-shadow-hover: rgba(51, 126, 255, 0.2); /* @type color */ /* @desc 滑块阴影色（hover状态）,如 #223325 */
-    --silder-handle-background-disabled: var(--slider-trail-background-disabled); /* @type color */ /* @desc 滑块按钮背景色（禁用状态）,如 #223325 */
-    --silder-popup-background: var(--color-white); /* @hidden */
+    --slider-box-shadow-hover: rgba(51, 126, 255, 0.2); /* @type color */ /* @desc 滑块阴影色（hover状态）,如 #223325 */ /* @prefix slider */
+    --slider-handle-background-disabled: var(--slider-trail-background-disabled); /* @type color */ /* @desc 滑块按钮背景色（禁用状态）,如 #223325 */ /* @prefix slider */
+    --slider-popup-background: var(--color-white); /* @hidden */
+
+    --combo-slider-slider-width: 100%; /* @desc 滑块宽度,如 1px */ /* @depStaticStyles ["width"] */
+    --combo-slider-input-width: 56px; /* @desc 输入框宽度,如 1px */
+    --combo-slider-input-margin-left: 10px; /* @desc 输入框左侧距离,如 1px */
+    --combo-slider-input-background: var(--number-input-background); /* @type color */ /* @desc 输入框背景色,如 #223325 */
+    --combo-slider-input-border-color: var(--number-input-border-color); /* @type color */ /* @desc 输入框边框颜色,如 #223325 */
+    --combo-slider-input-border-radius: var(--number-input-border-radius); /* @desc 输入框圆角大小,如 #223325 */
+    --combo-slider-input-color: var(--number-input-color); /* @type color */ /* @desc 输入框字体颜色,如 #223325 */
+    --combo-slider-tip-color: var(--color-light); /* @type color */ /* @desc 提示字体颜色,如 #223325 */
+    --combo-slider-tip-align-items: center; /* @desc 提示的垂直对齐方式,如 centers */ /* @desc 提示垂直对齐方式,如 center */
+    --combo-slider-scales-color: var(--color-light); /* @type color */ /* @desc 百分比值字体颜色,如 #223325 */
 
     /* @component u-cascader @hidden */
     --cascader-width: 240px;
@@ -1322,18 +1332,6 @@
     --cascader-height-large: var(--height-large); /* @hidden */
     --cascader-height-huge: var(--height-huge); /* @hidden */
 
-    /* @component u-combo-slider @hidden */
-    --combo-slider-slider-width: 100%;
-    --combo-slider-input-width: 56px;
-    --combo-slider-input-margin-left: 10px;
-    --combo-slider-input-background: var(--number-input-background);
-    --combo-slider-input-border-color: var(--number-input-border-color);
-    --combo-slider-input-border-radius: var(--number-input-border-radius);
-    --combo-slider-input-color: var(--number-input-color);
-    --combo-slider-tip-color: var(--color-light); /* @type color */
-    --combo-slider-tip-align-items: center; /* @desc 提示的垂直对齐方式,如 centers */
-    --combo-slider-scales-color: var(--color-light); /* @type color */
-
     /* @component u-uploader */
     --uploader-list-margin-top: 6px; /* @desc 文件上传列表项顶部外间距,如 1px */
     --uploader-item-space: 2px; /* @desc 文件上传列表项之间的间距,如 1px */
@@ -1348,12 +1346,12 @@
     --uploader-card-border-radius: var(--border-radius-large); /* @desc 卡片式文件上传按钮的圆角,如 1px */
     --uploader-card-space: 8px; /* @desc 卡片式文件上传文件项之间的间距,如 1px */
     --uploader-mask-background: rgba(0, 0, 0, 0.6); /* @type color */ /* @desc 卡片式文件上传遮罩层颜色,如 #223325 */
-    --uploader-draggable-background: #fcfcfc; /* @type color */ /* @desc 拖拽上传文件窗口背景色,如 #223325 */
-    --uploader-draggable-border-width: 1px; /* @desc 拖拽上传文件窗口边框宽度,如 1px */
-    --uploader-draggable-border-color: var(--border-color-base); /* @type color */ /* @desc 拖拽上传文件窗口边框颜色,如 #223325 */
-    --uploader-draggable-border-color-hover: var(--brand-primary); /* @type color */ /* @desc 拖拽上传文件窗口边框颜色（hover状态）,如 #223325 */
-    --uploader-draggable-border-radius: var(--border-radius-large); /* @desc 拖拽上传文件窗口圆角大小,如 1px */
-    --uploader-draggable-padding: 12px 0 20px; /* @desc 拖拽上传文件窗口内边距大小,如 1px */
+    --uploader-draggable-background: #fcfcfc; /* @type color */ /* @desc 拖拽上传文件窗口背景色,如 #223325 */ /* @depAttrs { "draggable": [true] } */
+    --uploader-draggable-border-width: 1px; /* @desc 拖拽上传文件窗口边框宽度,如 1px */ /* @depAttrs { "draggable": [true] } */
+    --uploader-draggable-border-color: var(--border-color-base); /* @type color */ /* @desc 拖拽上传文件窗口边框颜色,如 #223325 */ /* @depAttrs { "draggable": [true] } */
+    --uploader-draggable-border-color-hover: var(--brand-primary); /* @type color */ /* @desc 拖拽上传文件窗口边框颜色（hover状态）,如 #223325 */ /* @depAttrs { "draggable": [true] } */
+    --uploader-draggable-border-radius: var(--border-radius-large); /* @desc 拖拽上传文件窗口圆角大小,如 1px */ /* @depAttrs { "draggable": [true] } */
+    --uploader-draggable-padding: 12px 0 20px; /* @desc 拖拽上传文件窗口内边距大小,如 1px */ /* @depAttrs { "draggable": [true] } */
 
     --uploader-list-image-margin-top: 6px; /* @hidden */
     --uploader-draggable-color: #666; /* @hidden */
@@ -1378,28 +1376,28 @@
      */
 
     /* @component u-tabs */
-    --tabs-border-width: 1px; /* @desc tab项边框宽度,如 1px */
-    --tabs-border-color: var(--border-color-light); /* @type color */ /* @desc tab项边框颜色,如 #223325 */
-    --tabs-head-background: none; /* @type color */ /* @desc tab组件背景色（未选中部分）,如 #223325 */
-    --tabs-item-height: 48px; /* @desc tab项高度,如 1px */
-    --tabs-item-padding-x: 30px; /* @desc tab项水平方向内间距,如 1px */
-    --tabs-item-line-width: 2px; /* @desc tab项高亮指示线高度,如 1px */
-    --tabs-font-size: var(--font-size-base); /* @desc tab项字体大小,如 1px */
-    --tabs-item-line-background: var(--brand-primary); /* @type color */ /* @desc tab选中项线条背景色（线条导航方式）,如 #223325 */
-    --tabs-item-background-text: none; /* @type color */ /* @desc tab项背景色（文本模式, 未选中部分）,如 #223325 */
-    --tabs-item-background-capsule: none; /* @type color */ /* @desc tab项背景色（胶囊模式, 未选中部分）,如 #223325 */
-    --tabs-item-background-hover: transparent; /* @type color */ /* @desc tab项背景色（hover状态, 胶囊模式和底线模式不生效）,如 #223325 */
-    --tabs-item-background-selected: var(--background-color-default); /* @type color */ /* @desc tab项背景色（选中部分, 胶囊模式和底线模式不生效）,如 #223325 */
-    --tabs-item-background-selected-capsule: none; /* @type color */ /* @desc tab项背景色（选中部分, 胶囊模式生效）,如 #223325 */
-    --tabs-item-color: inherit; /* @type color */ /* @desc  tab项文字颜色（未选中部分, 仅文本模式生效）,如 #223325 */
-    --tabs-item-color-hover: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（未选中部分, hover状态, 文本模式和胶囊模式生效）,如 #223325 */
-    --tabs-item-color-selected: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（未选中部分, hover状态, 文本模式和文本模式生效）,如 #223325 */
-    --tabs-item-color-selected-capsule: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（胶囊模式, 选中部分）,如 #223325 */
-    --tabs-item-color-disabled: #999; /* @type color */ /* @desc tab禁用项文字颜色,如 #223325 */
-    --tabs-item-border-color-selected: var(--border-color-light); /* @type color */ /* @desc tab项边框颜色（选中部分, 默认模式和圆角模式生效）,如 #223325 */
-    --tabs-item-border-color-selected-capsule: var(--brand-primary); /* @type color */ /* @desc tab项边框颜色（选中部分, 胶囊模式）,如 #223325 */
-    --tabs-item-border-radius-round: 5px; /* @desc tab项边框圆角（选中部分, 圆角模式）,如 1px */
-    --tabs-body-space: var(--space-base); /* @desc 组件的tab项和内容区之间的间距,如 1px */
+    --tabs-border-width: 1px; /* @desc tab项边框宽度,如 1px */ /* @prefix tabs */
+    --tabs-border-color: var(--border-color-light); /* @type color */ /* @desc tab项边框颜色,如 #223325 */ /* @prefix tabs */
+    --tabs-head-background: none; /* @type color */ /* @desc tab组件背景色（未选中部分）,如 #223325 */ /* @prefix tabs */ /* @excludeTags u-tab */
+    --tabs-item-height: 48px; /* @desc tab项高度,如 1px */ /* @prefix tabs */
+    --tabs-item-padding-x: 30px; /* @desc tab项水平方向内间距,如 1px */ /* @prefix tabs */
+    --tabs-item-line-width: 2px; /* @desc tab项高亮指示线高度,如 1px */ /* @prefix tabs */
+    --tabs-font-size: var(--font-size-base); /* @desc tab项字体大小,如 1px */ /* @prefix tabs */
+    --tabs-item-line-background: var(--brand-primary); /* @type color */ /* @desc tab选中项线条背景色（线条导航方式）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["line"] } */ /* @depParentAttrs { "appear": ["line"] } */
+    --tabs-item-background-text: none; /* @type color */ /* @desc tab项背景色（文本模式, 未选中部分）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["text"] } */ /* @depParentAttrs { "appear": ["text"] } */
+    --tabs-item-background-capsule: none; /* @type color */ /* @desc tab项背景色（胶囊模式, 未选中部分）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["capsule"] } */ /* @depParentAttrs { "appear": ["capsule"] } */
+    --tabs-item-background-hover: transparent; /* @type color */ /* @desc tab项背景色（hover状态, 胶囊模式和底线模式不生效）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": [null] } */ /* @depParentAttrs { "appear": [null] } */
+    --tabs-item-background-selected: var(--background-color-default); /* @type color */ /* @desc tab项背景色（选中部分, 胶囊模式和底线模式不生效）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": [null] } */ /* @depParentAttrs { "appear": [null] } */
+    --tabs-item-background-selected-capsule: none; /* @type color */ /* @desc tab项背景色（选中部分, 胶囊模式生效）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["capsule"] } */ /* @depParentAttrs { "appear": ["capsule"] } */
+    --tabs-item-color: inherit; /* @type color */ /* @desc  tab项文字颜色（未选中部分, 仅文本模式生效）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-color-hover: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（未选中部分, hover状态, 文本模式和胶囊模式生效）,如 #223325 */ /* @prefix tabs */
+    --tabs-item-color-selected: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（未选中部分, hover状态, 文本模式和文本模式生效）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": [null] } */ /* @depParentAttrs { "appear": [null] } */
+    --tabs-item-color-selected-capsule: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（胶囊模式, 选中部分）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["capsule"] } */ /* @depParentAttrs { "appear": ["capsule"] } */
+    --tabs-item-color-disabled: #999; /* @type color */ /* @desc tab禁用项文字颜色,如 #223325 */ /* @prefix tabs */
+    --tabs-item-border-color-selected: var(--border-color-light); /* @type color */ /* @desc tab项边框颜色（选中部分, 默认模式和圆角模式生效）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": [null] } */ /* @depParentAttrs { "appear": [null] } */
+    --tabs-item-border-color-selected-capsule: var(--brand-primary); /* @type color */ /* @desc tab项边框颜色（选中部分, 胶囊模式）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["capsule"] } */ /* @depParentAttrs { "appear": ["capsule"] } */
+    --tabs-item-border-radius-round: 5px; /* @desc tab项边框圆角（选中部分, 圆角模式）,如 1px */ /* @prefix tabs */
+    --tabs-body-space: var(--space-base); /* @desc 组件的tab项和内容区之间的间距,如 1px */ /* @prefix tabs */
 
     --tabs-item-background-disabled: transparent; /* @hidden */
     --tabs-item-height-small: 30px; /* @hidden */
@@ -1415,27 +1413,27 @@
     --tabs-item-title-margin-right: 5px; /* @hidden */
 
     /* @component u-selectable-steps */
-    --steps-item-color-disabled: var(--brand-disabled-dark); /* @type color */ /* @desc 步骤条禁用项文字颜色,如 #223325 */
-    --steps-item-radio-size: 24px; /* @desc 步骤条按钮大小,如 1px */
-    --steps-item-radio-background: var(--border-color-base); /* @type color */ /* @desc 步骤条按钮之间的进度条颜色（未完成部分）,如 #223325 */
-    --steps-item-radio-background-passed: var(--brand-primary); /* @type color */ /* @desc 步骤条按钮和进度条颜色（已完成部分）,如 #223325 */
-    --steps-item-radio-color-passed: white; /* @type color */ /* @desc 步骤条按钮图标颜色（已完成部分）,如 #223325 */
-    --steps-item-radio-background-disabled: var(--background-color-disabled); /* @hidden */
+    --steps-item-color-disabled: var(--brand-disabled-dark); /* @type color */ /* @desc 步骤条禁用项文字颜色,如 #223325 */ /* @prefix steps */
+    --steps-item-radio-size: 24px; /* @desc 步骤条按钮大小,如 1px */ /* @prefix steps */
+    --steps-item-radio-background: var(--border-color-base); /* @type color */ /* @desc 步骤条按钮之间的进度条颜色（未完成部分）,如 #223325 */ /* @prefix steps */
+    --steps-item-radio-background-passed: var(--brand-primary); /* @type color */ /* @desc 步骤条按钮和进度条颜色（已完成部分）,如 #223325 */ /* @prefix steps */
+    --steps-item-radio-color-passed: white; /* @type color */ /* @desc 步骤条按钮图标颜色（已完成部分）,如 #223325 */ /* @prefix steps */
+    --steps-item-radio-background-disabled: var(--background-color-disabled); /* @type color */ /* @desc 步骤条按钮背景色（禁用状态）,如 #223325 */ /* @prefix steps */
     --steps-item-radio-size-large: 24px; /* @hidden */
     --steps-item-width: 200px; /* @hidden */
     --steps-item-radio-border-color-hover: var(--brand-primary); /* @hidden */
     --steps-seleatable-item-width: 140px; /* @hidden */
     --steps-seleatable-item-width-auto: 60%; /* @hidden */
-    --steps-seleatable-border-color-passed: var(--brand-primary); /* @hidden */
-    --steps-seleatable-background-selected: var(--brand-primary); /* @hidden */
+    --steps-seleatable-border-color-passed: var(--brand-primary); /* @type color */ /* @desc 步骤条按钮边框颜色（完成状态）,如 #223325 */ /* @prefix steps-seleatable */
+    --steps-seleatable-background-selected: var(--brand-primary);/* @type color */ /* @desc 步骤条按钮圆心背景色（选中状态）,如 #223325 */ /* @prefix steps-seleatable */
     --steps-seleatable-item-body-background: white; /* @hidden */
-    --steps-seleatable-radio-background: white; /* @hidden */
-    --steps-seleatable-radio-border-color: var(--color-lighter); /* @hidden */
-    --steps-seleatable-radio-border-color-disabled: var(--steps-seleatable-radio-border-color); /* @hidden */
-    --steps-seleatable-radio-background-selected: white; /* @hidden */
+    --steps-seleatable-radio-background: white; /* @type color */ /* @desc 步骤条按钮背景色,如 #223325 */ /* @prefix steps-seleatable */
+    --steps-seleatable-radio-border-color: var(--color-lighter);/* @type color */ /* @desc 步骤条按钮边框颜色,如 #223325 */ /* @prefix steps-seleatable */
+    --steps-seleatable-radio-border-color-disabled: var(--steps-seleatable-radio-border-color); /* @desc 步骤条按钮边框颜色（禁用状态）,如 #223325 */ /* @prefix steps-seleatable */
+    --steps-seleatable-radio-background-selected: white; /* @type color */ /* @desc 步骤条按钮背景色（选中状态）,如 #223325 */ /* @prefix steps-seleatable */
     --steps-seleatable-radio-dot-width-selected: 10px; /* @hidden */
     --steps-seleatable-radio-dot-height-selected: 10px; /* @hidden */
-    --steps-seleatable-item-radio-border-color-hover: var(--brand-primary); /* @hidden */
+    --steps-seleatable-item-radio-border-color-hover: var(--brand-primary); /* @desc 步骤条按钮边框颜色（hover状态）,如 #223325 */ /* @prefix steps-seleatable */
 
     /* @component u-pagination */
     --pagination-item-border-radius: var(--border-radius-base); /* @desc 翻页器的按钮圆角大小,如 1px */
@@ -1529,10 +1527,10 @@
     --alert-color-success: var(--brand-success); /* @desc 公告成功类型颜色 */ /* @type color */ /* @depAttrs { "type": ["success"] } */
     --alert-color-warning: var(--brand-warning); /* @desc 公告警告类型颜色 */ /* @type color */ /* @depAttrs { "type": ["warning"] } */
     --alert-color-error: var(--brand-error); /* @desc 公告错误类型颜色 */ /* @type color */ /* @depAttrs { "type": ["error"] } */
-    --alert-background-color-info: var(--brand-primary-lightest); /* @desc 公告信息类型背景色 */ /* @type color */ /* @depAttrs { "type": ["info", null] } */
-    --alert-background-color-success: var(--brand-success-lightest); /* @desc 公告成功类型背景色 */ /* @type color */ /* @depAttrs { "type": ["success"] } */
-    --alert-background-color-warning: var(--brand-warning-lightest); /* @desc 公告警告类型背景色 */ /* @type color */ /* @depAttrs { "type": ["warning"] } */
-    --alert-background-color-error: var(--brand-error-lightest); /* @desc 公告错误类 型背景色 */ /* @type color */ /* @depAttrs { "type": ["error"] } */
+    --alert-background-color-info: var(--brand-primary-lightest); /* @desc 公告信息类型背景色 */ /* @type color */ /* @depAttrs { "type": ["info", null] } */ /* @depStaticStyles ["background-color"] */
+    --alert-background-color-success: var(--brand-success-lightest); /* @desc 公告成功类型背景色 */ /* @type color */ /* @depAttrs { "type": ["success"] } */ /* @depStaticStyles ["background-color"] */
+    --alert-background-color-warning: var(--brand-warning-lightest); /* @desc 公告警告类型背景色 */ /* @type color */ /* @depAttrs { "type": ["warning"] } */ /* @depStaticStyles ["background-color"] */
+    --alert-background-color-error: var(--brand-error-lightest); /* @desc 公告错误类 型背景色 */ /* @type color */ /* @depAttrs { "type": ["error"] } */ /* @depStaticStyles ["background-color"] */
     --alert-close-color: var(--font-third-color); /* @desc 公告关闭按钮颜色 */ /* @type color */
     --alert-close-hover-color: var(--font-second-color); /* @desc 公告关闭按钮颜色（hover状态） */ /* @type color */
 
@@ -1636,8 +1634,8 @@
     --drawer-static-padding: var(--space-base); /* @hidden */
 
     /* @component u-image */
-    --image-width: 128px; /* @desc 图片宽度,如：1px */
-    --image-height: 128px; /* @desc 图片高度,如：1px */
+    --image-width: 100%; /* @desc 图片宽度,如：1px */ /* @hidden */
+    --image-height: 100%; /* @desc 图片高度,如：1px */ /* @hidden */
 
     /* @component u-lightbox @hidden */
     --lightbox-head-height: 64px;
@@ -1647,22 +1645,21 @@
     --lightbox-icon-color: white;
 
     /* @component u-linear-layout */
-    --linear-layout-background: none; /* @type color */ /* @desc 背景颜色,如：#223325 */
-    --linear-layout-mask-background: rgba(255,255,255,0.5); /* @type color */ /* @desc 加载时遮罩背景颜色,如：#223325 */
+    --linear-layout-background: rgba(255,255,255,0.5); /* @type color */ /* @desc 加载时遮罩背景颜色,如：#223325 */
 
     /* @component u-skeleton @hidden */
     --skeleton-background: var(--background-color-base);
     --skeleton-title-width: 36%;
     --skeleton-paragraph-width: 72%;
 
-    /* @component u-calendar-view @hidden */
-    --calendar-date-height: 96px;
-    --calendar-date-padding: 4px 8px 0;
-    --calendar-date-text-align: right;
-    --calendar-date-background: var(--brand-primary-lightest);
-    --calendar-date-disabled: var(--brand-disabled-dark);
+    /* @component u-calendar-view */
+    --calendar-date-height: 96px; /* @desc 日历日期高度,如：1px */ /* @prefix calendar-date */
+    --calendar-date-padding: 4px 8px 0; /* @desc 日历日期内边距,如：1px */ /* @prefix calendar-date */
+    --calendar-date-text-align: right; /* @desc 日历日期文字水平对齐，如：right|center|left */ /* @prefix calendar-date */
+    --calendar-date-background: var(--brand-primary-lightest); /* @desc 日历日期选中项背景色,如：#223325 */ /* @type color */ /* @prefix calendar-date */
+    --calendar-date-disabled: var(--brand-disabled-dark); /* @hidden */
 
-    /* @component u-calendar */
+    /* @component u-calendar @hidden */
     --calendar-border-color: var(--border-color-base); /* @type color */ /* @desc 日历面板边框颜色,如：#223325 */
     --calendar-background: var(--field-background); /* @type color */ /* @desc 日历面板背景颜色,如：#223325 */
     --calendar-border-radius: var(--border-radius-base); /* @desc 日历面板边框圆角,如：1px */
@@ -1702,85 +1699,85 @@
     --calendar-showtext-color-hover: var(--brand-primary); /* @type color */ /* @desc 日历面板头部年月字体颜色,如：#223325 */
 
     /* @component u-date-picker */
-    --datepicker-input-pre-icon-color: var(--gray-light); /* @type color */ /* @desc 日期选择器前缀图标颜色,如：#223325 */
-    --datepicker-input-after-icon-color: var(--gray-light); /* @type color */ /* @desc 日期选择器后缀图标颜色,如：#223325 */
+    --datepicker-input-pre-icon-color: var(--gray-light); /* @type color */ /* @desc 日期选择器前缀图标颜色,如：#223325 */ /* @prefix datepicker-input */
+    --datepicker-input-after-icon-color: var(--gray-light); /* @type color */ /* @desc 日期选择器后缀图标颜色,如：#223325 */ /* @prefix datepicker-input */
 
-    --datepicker-input-border-color: var(--input-border-color); /* @type color */ /* @desc 日期选择器输入框边框颜色,如：#223325 */
-    --datepicker-input-border-width: var(--input-border-width); /* @desc 日期选择器输入框边框宽度,如：1px */
-    --datepicker-input-color: var(--input-color); /* @type color */ /* @desc 日期选择器输入框字体颜色,如：#223325 */
-    --datepicker-input-background: var(--input-background); /* @type color */ /* @desc 日期选择器输入框背景颜色,如：#223325 */
-    --datepicker-input-border-radius: var(--input-border-radius); /* @desc 日期选择器输入框圆角,如：1px */
-    --datepicker-input-background-disabled: var(--input-background-disabled); /* @type color */ /* @desc 日期选择器输入框背景颜色（禁用状态）,如：1px */
-    --datepicker-input-border-color-error: var(--input-border-color-error); /* hidden */ /* @desc 日期选择器输入框边框颜色（错误状态）,如：1px */
-    --datepicker-input-border-color-focus: var(--input-border-color-focus); /* hidden */ /* @desc 日期选择器输入框边框颜色（选中状态）,如：1px */
+    --datepicker-input-border-color: var(--input-border-color); /* @type color */ /* @desc 日期选择器输入框边框颜色,如：#223325 */ /* @prefix datepicker-input */ /* @depStaticStyles ["border-color"] */
+    --datepicker-input-border-width: var(--input-border-width); /* @desc 日期选择器输入框边框宽度,如：1px */ /* @prefix datepicker-input */ /* @depStaticStyles ["border-top-width", "border-right-width", "border-bottom-width", "border-left-width"] */
+    --datepicker-input-color: var(--input-color); /* @type color */ /* @desc 日期选择器输入框字体颜色,如：#223325 */ /* @prefix datepicker-input */ /* @depStaticStyles ["color"] */
+    --datepicker-input-background: var(--input-background); /* @type color */ /* @desc 日期选择器输入框背景颜色,如：#223325 */ /* @prefix datepicker-input */ /* @depStaticStyles ["background-color"] */
+    --datepicker-input-border-radius: var(--input-border-radius); /* @desc 日期选择器输入框圆角,如：1px */ /* @prefix datepicker-input */ /* @depStaticStyles ["border-top-left-radius", "border-top-right-radius", "border-bottom-left-radius", "border-bottom-right-radius"] */
+    --datepicker-input-background-disabled: var(--input-background-disabled); /* @type color */ /* @desc 日期选择器输入框背景颜色（禁用状态）,如：1px */ /* @prefix datepicker-input */
+    --datepicker-input-border-color-error: var(--input-border-color-error); /* hidden */ /* @desc 日期选择器输入框边框颜色（错误状态）,如：1px */ /* @prefix datepicker-input */
+    --datepicker-input-border-color-focus: var(--input-border-color-focus); /* hidden */ /* @desc 日期选择器输入框边框颜色（选中状态）,如：1px */ /* @prefix datepicker-input */
     --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus); /* hidden */
-    --datepicker-input-placeholder-color: var(--input-placeholder-color); /* @type color */ /* @desc 日期选择器输入框提示字体颜色,如：#223325 */
+    --datepicker-input-placeholder-color: var(--input-placeholder-color); /* @type color */ /* @desc 日期选择器输入框提示字体颜色,如：#223325 */ /* @prefix datepicker-input */
     --datepicker-popper-box-shadow: var(--select-popper-box-shadow); /* hidden */
     --datepicker-popper-border-radius: var(--border-radius-base); /* hidden */
 
-    --datepicker-input-width: var(--input-width); /* @desc 日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */
-    --datepicker-input-height: var(--input-height); /* @desc 日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["normal", null] } */
-    --datepicker-input-padding-x: var(--input-padding-x); /* @desc 日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["normal", null] } */
-    --datepicker-input-width-mini: var(--input-width-mini); /* @desc Mini日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["mini"] } */
-    --datepicker-input-padding-x-mini: var(--input-padding-x-mini); /* @desc Mini日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["mini"] } */
-    --datepicker-input-height-mini: var(-input-height-mini); /* @desc Mini日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["mini"] } */
-    --datepicker-input-width-small: var(--input-width-small); /* @desc Small日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["small"] } */
-    --datepicker-input-padding-x-small: var(--input-padding-x-small); /* @desc Small日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["small"] } */
-    --datepicker-input-height-small: var(--input-height-small); /* @desc Small日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["small"] } */
-    --datepicker-input-width-medium: var(--input-width-medium); /* @desc Medium日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["medium"] } */
-    --datepicker-input-padding-x-medium: var(--input-padding-x-medium); /* @desc Medium日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["medium"] } */
-    --datepicker-input-height-medium: var(--input-height-medium); /* @desc Medium日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["medium"] } */
-    --datepicker-input-width-large: var(--input-width-large); /* @desc Large日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["large"] } */
-    --datepicker-input-padding-x-large: var(--input-padding-x-large); /* @desc Large日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["large"] } */
-    --datepicker-input-height-large: var(--input-height-large); /* @desc Large日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["large"] } */
-    --datepicker-input-width-huge: var(--input-width-huge); /* @desc Huge日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["huge"] } */
-    --datepicker-input-padding-x-huge: var(--input-padding-x-huge); /* @desc Huge日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["huge"] } */
-    --datepicker-input-height-huge: var(--input-height-huge); /* @desc Huge日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["huge"] } */
-    --datepicker-input-padding-x-full: var(--input-padding-x-full); /* @desc Full日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["full"] } */
+    --datepicker-input-width: var(--input-width); /* @desc 日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
+    --datepicker-input-height: var(--input-height); /* @desc 日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["height"] */
+    --datepicker-input-padding-x: var(--input-padding-x); /* @desc 日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --datepicker-input-width-mini: var(--input-width-mini); /* @desc Mini日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["mini"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
+    --datepicker-input-padding-x-mini: var(--input-padding-x-mini); /* @desc Mini日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["mini"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --datepicker-input-height-mini: var(-input-height-mini); /* @desc Mini日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["mini"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["height"] */
+    --datepicker-input-width-small: var(--input-width-small); /* @desc Small日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["small"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
+    --datepicker-input-padding-x-small: var(--input-padding-x-small); /* @desc Small日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["small"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --datepicker-input-height-small: var(--input-height-small); /* @desc Small日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["small"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["height"] */
+    --datepicker-input-width-medium: var(--input-width-medium); /* @desc Medium日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["medium"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
+    --datepicker-input-padding-x-medium: var(--input-padding-x-medium); /* @desc Medium日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["medium"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --datepicker-input-height-medium: var(--input-height-medium); /* @desc Medium日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["medium"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["height"] */
+    --datepicker-input-width-large: var(--input-width-large); /* @desc Large日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["large"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
+    --datepicker-input-padding-x-large: var(--input-padding-x-large); /* @desc Large日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["large"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --datepicker-input-height-large: var(--input-height-large); /* @desc Large日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["large"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["height"] */
+    --datepicker-input-width-huge: var(--input-width-huge); /* @desc Huge日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["huge"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
+    --datepicker-input-padding-x-huge: var(--input-padding-x-huge); /* @desc Huge日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["huge"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --datepicker-input-height-huge: var(--input-height-huge); /* @desc Huge日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["huge"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["height"] */
+    --datepicker-input-padding-x-full: var(--input-padding-x-full); /* @desc Full日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["full"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
 
 
     /* @component u-date-time-picker */
 
-    --datetime-input-pre-icon-color: var(--gray-light); /* @type color */ /* @desc 日期时间选择器输入框前缀图标颜色,如：#223325 */
-    --datetime-input-after-icon-color: var(--gray-light); /* @type color */ /* @desc 日期时间选择器输入框后缀图标颜色,如：#223325 */
+    --datetime-input-pre-icon-color: var(--gray-light); /* @type color */ /* @desc 日期时间选择器输入框前缀图标颜色,如：#223325 */ /* @prefix datetime-input */
+    --datetime-input-after-icon-color: var(--gray-light); /* @type color */ /* @desc 日期时间选择器输入框后缀图标颜色,如：#223325 */ /* @prefix datetime-input */
     --datetime-input-border-color-focus: var(--input-border-color-focus);  /* @hidden */
     --datetime-input-box-shadow-focus: var(--input-box-shadow-focus); /* @hidden */
 
-    --datetime-input-border-color: var(--input-border-color); /* @type color */ /* @desc 日期时间选择器输入框边框颜色,如：#223325 */
-    --datetime-input-border-width: var(--input-border-width); /* @desc 日期时间选择器输入框边框宽度,如：1px */
+    --datetime-input-border-color: var(--input-border-color); /* @type color */ /* @desc 日期时间选择器输入框边框颜色,如：#223325 */ /* @prefix datetime-input */
+    --datetime-input-border-width: var(--input-border-width); /* @desc 日期时间选择器输入框边框宽度,如：1px */ /* @prefix datetime-input */
 
-    --datetime-input-placeholder-color: var(--input-placeholder-color); /* @type color */ /* @desc 日期时间选择器输入框提示字体颜色,如：#223325 */
-    --datetime-input-border-radius: var(--input-border-radius); /* @desc 日期时间选择器输入框圆角大小,如：1px */
+    --datetime-input-placeholder-color: var(--input-placeholder-color); /* @type color */ /* @desc 日期时间选择器输入框提示字体颜色,如：#223325 */ /* @prefix datetime-input */
+    --datetime-input-border-radius: var(--input-border-radius); /* @desc 日期时间选择器输入框圆角大小,如：1px */ /* @prefix datetime-input */
 
 
     --datetime-input-icon-color-hover: var(--input-icon-color-hover); /* @hidden */
     --datetime-input-clear-icon-color: var(--input-icon-color); /* @hidden */
 
-    --datetime-input-color: var(--input-color); /* @type color */ /* @desc 日期时间选择器输入框字体颜色,如：#223325 */
-    --datetime-input-background: var(--input-background); /* @type color */ /* @desc 日期时间选择器输入框背景颜色,如：#223325 */
+    --datetime-input-color: var(--input-color); /* @type color */ /* @desc 日期时间选择器输入框字体颜色,如：#223325 */ /* @prefix datetime-input */
+    --datetime-input-background: var(--input-background); /* @type color */ /* @desc 日期时间选择器输入框背景颜色,如：#223325 */ /* @prefix datetime-input */
 
-    --datetime-input-width: var(--input-width); /* @desc 日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */
-    --datetime-input-height: var(--input-height); /* @desc 日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["normal", null] } */
-    --datetime-input-padding-x: var(--input-padding-x); /* @desc 日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["normal", null] } */
-    --datetime-input-width-mini: var(--input-width-mini); /* @desc Mini日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["mini"] } */
-    --datetime-input-padding-x-mini: var(--input-padding-x-mini); /* @desc Mini日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["mini"] } */
-    --datetime-input-height-mini: var(-input-height-mini); /* @desc Mini日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["mini"] } */
-    --datetime-input-width-small: var(--input-width-small); /* @desc Small日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["small"] } */
-    --datetime-input-padding-x-small: var(--input-padding-x-small); /* @desc Small日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["small"] } */
-    --datetime-input-height-small: var(--input-height-small); /* @desc Small日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["small"] } */
-    --datetime-input-width-medium: var(--input-width-medium); /* @desc Medium日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["medium"] } */
-    --datetime-input-padding-x-medium: var(--input-padding-x-medium); /* @desc Medium日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["medium"] } */
-    --datetime-input-height-medium: var(--input-height-medium); /* @desc Medium日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["medium"] } */
-    --datetime-input-width-large: var(--input-width-large); /* @desc Large日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["large"] } */
-    --datetime-input-padding-x-large: var(--input-padding-x-large); /* @desc Large日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["large"] } */
-    --datetime-input-height-large: var(--input-height-large); /* @desc Large日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["large"] } */
-    --datetime-input-width-huge: var(--input-width-huge); /* @desc Huge日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["huge"] } */
-    --datetime-input-padding-x-huge: var(--input-padding-x-huge); /* @desc Huge日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["huge"] } */
-    --datetime-input-height-huge: var(--input-height-huge); /* @desc Huge日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["huge"] } */
-    --datetime-input-padding-x-full: var(--input-padding-x-full); /* @desc Full日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["full"] } */
+    --datetime-input-width: var(--input-width); /* @desc 日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */
+    --datetime-input-height: var(--input-height); /* @desc 日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["height"] */
+    --datetime-input-padding-x: var(--input-padding-x); /* @desc 日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --datetime-input-width-mini: var(--input-width-mini); /* @desc Mini日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["mini"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */
+    --datetime-input-padding-x-mini: var(--input-padding-x-mini); /* @desc Mini日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["mini"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --datetime-input-height-mini: var(-input-height-mini); /* @desc Mini日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["mini"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["height"] */
+    --datetime-input-width-small: var(--input-width-small); /* @desc Small日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["small"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */
+    --datetime-input-padding-x-small: var(--input-padding-x-small); /* @desc Small日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["small"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --datetime-input-height-small: var(--input-height-small); /* @desc Small日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["small"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["height"] */
+    --datetime-input-width-medium: var(--input-width-medium); /* @desc Medium日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["medium"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */
+    --datetime-input-padding-x-medium: var(--input-padding-x-medium); /* @desc Medium日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["medium"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --datetime-input-height-medium: var(--input-height-medium); /* @desc Medium日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["medium"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["height"] */
+    --datetime-input-width-large: var(--input-width-large); /* @desc Large日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["large"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */
+    --datetime-input-padding-x-large: var(--input-padding-x-large); /* @desc Large日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["large"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --datetime-input-height-large: var(--input-height-large); /* @desc Large日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["large"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["height"] */
+    --datetime-input-width-huge: var(--input-width-huge); /* @desc Huge日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["huge"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */
+    --datetime-input-padding-x-huge: var(--input-padding-x-huge); /* @desc Huge日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["huge"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --datetime-input-height-huge: var(--input-height-huge); /* @desc Huge日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["huge"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["height"] */
+    --datetime-input-padding-x-full: var(--input-padding-x-full); /* @desc Full日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["full"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
 
-    --datetime-popper-border-color: var(--border-color-base); /* @type color */ /* @desc 日期时间选择器选择框边框颜色,如：#223325 */
-    --datetime-popper-border-radius: var(--border-radius-base); /* @desc 日期时间选择器选择框圆角,如：1px */
+    --datetime-popper-border-color: var(--border-color-base); /* @type color */ /* @desc 日期时间选择器选择框边框颜色,如：#223325 */ /* @prefix datetime */
+    --datetime-popper-border-radius: var(--border-radius-base); /* @desc 日期时间选择器选择框圆角,如：1px */ /* @prefix datetime */
 
     /* @component u-capsules */
     --capsules-capsule-font-size: var(--font-size-base);
@@ -1834,7 +1831,7 @@
     /* @component m-popper @hidden */
     --popper-box-shadow: var(--box-shadow-base);
 
-    /* @component u-grid-layout @hidden */
+    /* @component u-grid-layout @hidden*/
     --grid-layout-column-gap-none: 0;
     --grid-layout-column-gap-mini: 4px;
     --grid-layout-column-gap-small: 8px;

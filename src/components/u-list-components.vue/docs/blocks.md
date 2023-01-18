@@ -2,7 +2,7 @@
 
 ``` html
 <u-list-components>
-  <template #default="scope">
+  <template #default="current">
   </template>
 </u-list-components>
 ```

@@ -49,12 +49,12 @@
       description: 插入  HTML或 `Component`, 可展示额外内容。
       slotProps:
         concept: Param
-        name: scope
+        name: current
         typeAnnotation:
           concept: TypeAnnotation
           typeKind: generic
           typeNamespace: nasl.ui
-          typeName: ScopeOf
+          typeName: Current
           typeArguments:
           - concept: TypeAnnotation
             typeKind: typeParam

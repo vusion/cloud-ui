@@ -9,8 +9,8 @@
     ><u-form-item required>
         <template #label><u-text text="类型"></u-text></template>
         <u-radios>
-            <u-radio label="A"><u-text text="类型 A"></u-text></u-radio>
-            <u-radio label="B"><u-text text="类型 B"></u-text></u-radio>
+            <u-radio label="A"><template #item><u-text text="类型 A"></u-text></template></u-radio>
+            <u-radio label="B"><template #item><u-text text="类型 B"></u-text></template></u-radio>
         </u-radios>
     </u-form-item
     ><u-form-item>

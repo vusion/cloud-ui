@@ -44,7 +44,7 @@
       support:
          - name: u-form-table-view-column
            title: 表单列元素
-           snippet:  '<u-form-table-view-column title="表单列"> <template #cell="scope">{{ scope.item.url }}</template></u-form-table-view-column>'
+           snippet:  '<u-form-table-view-column title="表单列"> <template #cell="current">{{ scope.item.url }}</template></u-form-table-view-column>'
   events:
     - name: before-add
       description: 添加前触发
@@ -260,12 +260,12 @@
           description: 列的索引
       slotProps:
         concept: Param
-        name: scope
+        name: current
         typeAnnotation:
           concept: TypeAnnotation
           typeKind: generic
           typeNamespace: nasl.ui
-          typeName: ScopeOf
+          typeName: Current
           typeArguments:
           - concept: TypeAnnotation
             typeKind: typeParam
@@ -301,12 +301,12 @@
           description: 列的索引
       slotProps:
         concept: Param
-        name: scope
+        name: current
         typeAnnotation:
           concept: TypeAnnotation
           typeKind: generic
           typeNamespace: nasl.ui
-          typeName: ScopeOf
+          typeName: Current
           typeArguments:
           - concept: TypeAnnotation
             typeKind: typeParam

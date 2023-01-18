@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.14.24-beta.4",
+  "version": "0.14.26",
   "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -11,12 +11,13 @@
   "main": "./index.js",
   "scripts": {
     "update:description": "node ./scripts/excel2yaml.js",
+    "check": "node bin/ggpull && node bin/check-deps",
     "dev": "vue-cli-service doc --port 9001",
     "validator": "node ./scripts/lcap/validator.js --HELP=true",
     "dev:designer": "cross-env VUE_APP_DESIGNER=true vue-cli-service doc --port 9001",
     "dev:dark": "vue-cli-service doc --port 9001 --theme dark",
     "build": "vue-cli-service library-build --apply-theme --theme default,dark,seagreen",
-    "build:theme": "npm run genThemeConfig && vue-cli-service library-build --dest dist-theme",
+    "build:theme": "npm run check && npm run genThemeConfig && vue-cli-service library-build --dest dist-theme",
     "build:raw": "vue-cli-service library-build --vusion-mode raw --dest dist-raw",
     "build:docs": "vue-cli-service doc-build",
     "build:doc-entry": "cross-env VUE_CLI_SERVICE_CONFIG_PATH=$PWD/vue.config.doc-entry.js vue-cli-service build --output-path dist-doc-entry",
@@ -29,7 +30,7 @@
     "deploy:dev": "node ./scripts/lcap && lcap deploy dist-theme --platform http://defaulttenant.lcap.dev.env.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.dev.env.com",
     "deploy:test": "node ./scripts/lcap && lcap deploy dist-theme --platform http://defaulttenant.lcap.ha.test.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.ha.test.com",
     "deploy:pre": "node ./scripts/lcap && lcap deploy dist-theme --platform http://defaulttenant.lcap.ha.dri.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.ha.dri.com",
-    "deploy:online": "node ./scripts/lcap && vusion deploy --framework cloud-ui.vusion@0.11 -v minor && vusion deploy --framework cloud-ui dist-theme && node bin/deploy-screenshots && node bin/deploy-drawings",
+    "deploy:online": "node ./scripts/lcap && lcap deploy dist-theme --platform http://netease-template.lcap.163yun.com && node bin/deploy-lcp-images --platform=http://netease-template.lcap.163yun.com",
     "prepublishOnly": "rm -rf node_modules/.cache && npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
     "postpublish": "npm run build:docs && npm run deploy:online && vusion ghpages"
   },

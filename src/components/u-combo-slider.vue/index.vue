@@ -159,6 +159,10 @@ export default {
     height: 32px;
     line-height: 32px;
     text-align: center;
+    background-color: var(--combo-slider-input-background) !important;;
+    border-color: var(--combo-slider-input-border-color) !important;;
+    border-radius: var(--combo-slider-input-border-radius) !important;;
+    color: var(--combo-slider-input-color) !important;;
 }
 
 .main {

@@ -235,7 +235,7 @@ export default {
 } */
 
 .handle:hover {
-    box-shadow: 0 0 0 2px var(--silder-box-shadow-hover);
+    box-shadow: 0 0 0 2px var(--slider-box-shadow-hover);
 }
 
 .root[disabled] {
@@ -284,10 +284,10 @@ export default {
     box-shadow: none;
 }
 .root[disabled] .handle {
-    background-color: var(--silder-handle-background-disabled);
+    background-color: var(--slider-handle-background-disabled);
 }
 .popup {
-    background: var(--silder-popup-background);
+    background: var(--slider-popup-background);
     min-width: initial;
 }
 </style>

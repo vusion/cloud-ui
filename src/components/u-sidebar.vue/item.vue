@@ -86,4 +86,7 @@ export default {
 .root:hover .singleicon {
     color: var(--sidebar-item-icon-color-hover);
 }
+.root[selected] .singleicon {
+    color: var(--sidebar-item-icon-color-selected);
+}
 </style>
