@@ -61,8 +61,15 @@ export const UModal = {
         width: { type: [String, Number], default: '' },
         size: { type: String, default: 'normal' },
         static: { type: Boolean, default: false },
-        icon: String,
+        icon: { type: String, default: null },
         maskClose: { type: Boolean, default: false },
+        disableEsc: { type: Boolean, default: false },
+        customClass: { type: String, default: undefined },
+        functionalModal: { type: Boolean, default: false },
+        showFoot: { type: Boolean, default: true },
+        isTitleSlotEmpty: { type: Boolean, default: false }, // 有插槽template但是不想展示的情况
+        isFootSlotEmpty: { type: Boolean, default: false },
+        showHead: { type: Boolean, default: true },
     },
     methods: {
         // 双击打开弹出框
@@ -83,7 +90,7 @@ export const UModal = {
         },
         getStyle() {
             const { staticStyle = {}, style = {} } = this.$vnode.data;
-            return {...staticStyle, ...style };
+            return { ...staticStyle, ...style };
         },
     },
 };

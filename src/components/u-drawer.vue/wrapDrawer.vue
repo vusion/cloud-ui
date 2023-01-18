@@ -41,8 +41,6 @@ export const UDrawer = {
     props: {
         mode: { type: Boolean, default: true },
         visible: { type: Boolean, default: false },
-        title: String,
-        content: String,
         heading: String,
         okButton: {
             type: String,
@@ -60,10 +58,17 @@ export const UDrawer = {
         disableOk: { type: Boolean, default: false },
         disableCancel: { type: Boolean, default: false }, // @deprecated
         width: { type: [String, Number], default: '' },
-        size: { type: String, default: 'normal' },
         static: { type: Boolean, default: false },
         icon: String,
         maskClose: { type: Boolean, default: false },
+        placement: { type: String, default: 'right' },
+        maskClosable: { type: Boolean, default: true },
+        showFoot: { type: Boolean, default: true },
+        showHead: { type: Boolean, default: true },
+        content: { type: String, default: '' },
+        title: { type: String, default: '' },
+        size: { type: String, default: 'normal' },
+        hideMask: { type: Boolean, default: false },
     },
     methods: {
         // 双击打开弹出框
