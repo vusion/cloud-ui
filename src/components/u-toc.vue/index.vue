@@ -61,6 +61,12 @@ export default {
             this.eventOff = event.on(this.currentScrollParent, 'scroll', (e) => this.setSelectedVMThrottle());
         },
         setSelectedVM() {
+            let selectedVM = this.getSelectedVM();
+
+            if(selectedVM)
+                this.selectedVM = selectedVM;
+        },
+        getSelectedVM() {
             // 点击跳转时暂停
             if (this.hashChange)
                 return;
@@ -96,7 +102,7 @@ export default {
             // 进入视窗的锚点
             const currentElem = hrefsElems.find((item) => this.isIntoView(item.element));
             if (currentElem) {
-                this.selectedVM = itemVMsArr.find((item) => item.currentHref === currentElem.hash);
+                return itemVMsArr.find((item) => item.currentHref === currentElem.hash);
             }
         },
         select(nodeVM) {
