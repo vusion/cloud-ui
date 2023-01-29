@@ -27,17 +27,38 @@ export const UTimelineItem = {
         SEmpty,
     },
     inject: ['timeline'],
-    // data() {
-    //     return {
-    //         itemPosition: ['alternate', 'label'].indexOf(this.timeline.mode) !== -1 ? this.position : undefined,
-    //     };
-    // },
+    data() {
+        return {
+            observerwh: null,
+        };
+    },
     computed: {
         hastop() {
             return this.$env.VUE_APP_DESIGNER;
         },
         itemPosition() {
             return ['alternate', 'label'].indexOf(this.timeline.mode) !== -1 ? this.position : undefined;
+        },
+    },
+    mounted() {
+        this.observerwh = new MutationObserver(this.pwh);
+        this.observerwh.observe(this.$refs.labelwrap, {
+            attributes: true, childList: true, subtree: true,
+        });
+        setTimeout(() => {
+            this.pwh();
+        });
+    },
+    destroyed() {
+        this.observerwh && this.observerwh.disconnect();
+    },
+    methods: {
+        pwh(mutationsList, observer) {
+            const realHeight = this.$refs.labelwrap.scrollHeight;
+            if (this.timeline.mode === 'label' && realHeight > 0) {
+                // const originHeight = this.$refs.wrap.offsetHeight;
+                (this.$refs.wrap.style.height = realHeight + 'px');
+            }
         },
     },
 };
