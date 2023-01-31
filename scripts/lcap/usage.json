@@ -7173,7 +7173,7 @@
             "Display"
         ],
         "screenShot": "",
-        "blocks": "[{\"title\":\"普通用法\",\"description\":\"\",\"code\":\"<template>\\n<u-timeline>\\n    <template #item=\\\"current\\\">\\n        <u-timeline-item insource>\\n            <template #label>\\n            </template>\\n        </u-timeline-item>\\n    </template>\\n</u-timeline>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"普通用法\",\"description\":\"\",\"code\":\"<template>\\n<u-timeline :data-source=\\\"[{}, {}, {}]\\\">\\n    <template #item=\\\"current\\\">\\n        <u-timeline-item insource>\\n            <template #label>\\n            </template>\\n        </u-timeline-item>\\n    </template>\\n</u-timeline>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-timeline",
             "title": "时间线",
@@ -7184,7 +7184,7 @@
                 {
                     "title": "普通用法",
                     "description": "",
-                    "code": "<template>\n<u-timeline>\n    <template #item=\"current\">\n        <u-timeline-item insource>\n            <template #label>\n            </template>\n        </u-timeline-item>\n    </template>\n</u-timeline>\n</template>\n"
+                    "code": "<template>\n<u-timeline :data-source=\"[{}, {}, {}]\">\n    <template #item=\"current\">\n        <u-timeline-item insource>\n            <template #label>\n            </template>\n        </u-timeline-item>\n    </template>\n</u-timeline>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -7192,7 +7192,6 @@
                     "name": "data-source",
                     "title": "数据源",
                     "type": "Array<Item> | Function | object | DataSource",
-                    "designer-value": "[{}, {}, {}]",
                     "description": "数据源",
                     "group": "数据属性"
                 },
