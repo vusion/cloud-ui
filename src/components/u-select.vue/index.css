@@ -253,7 +253,7 @@
     background-image: url("../../assets/images/high.png");
 }
 
-.root[start] {
+.root[start],.root[start][width] {
     padding-left: 24px;
 }
 
