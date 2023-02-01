@@ -4,6 +4,8 @@
 
 - [示例](#示例)
     - [基本用法](#基本用法)
+    - [隐藏底部按钮](#隐藏底部按钮)
+    - [自定义底部文案](#自定义底部文案)
     - [选择日期](#选择日期)
     - [自动获取焦点](#自动获取焦点)
     - [只读和禁用](#只读和禁用)
@@ -25,6 +27,24 @@
 <u-linear-layout>
     <u-date-time-picker preIcon suffixIcon="calendar" clearable></u-date-time-picker>
     <u-date-time-picker date="2018-08-08"></u-date-time-picker>
+</u-linear-layout>
+```
+
+### 隐藏底部按钮
+
+```html
+<u-linear-layout>
+    <u-date-time-picker preIcon suffixIcon="calendar" clearable :showFooterButton=false></u-date-time-picker>
+    <u-date-time-picker preIcon suffixIcon="calendar" clearable :showRightNowButton=false></u-date-time-picker>
+    <u-date-time-picker preIcon suffixIcon="calendar" clearable :showRightNowButton=false :showFooterButton=false></u-date-time-picker>
+</u-linear-layout>
+```
+
+### 自定义底部文案
+
+```html
+<u-linear-layout>
+    <u-date-time-picker cancelTitle="取" okTitle="确" rightNowTitle="此" preIcon suffixIcon="calendar" clearable></u-date-time-picker>
 </u-linear-layout>
 ```
 
@@ -111,6 +131,11 @@ export default {
 | clearable | boolean |  |  | 输入框输入内容支持一键清除 |
 | disabled | boolean |  | `false` |  |
 | readonly | boolean |  | `false` |  |
+| showRightNowButton | boolean |  | `true` |  |
+| rightNowTitle | string |  | `''` | 快捷选择当前时间 |
+| showFooterButton | boolean |  | `true` |  |
+| cancelTitle | string |  | `''` |  |
+| okTitle | string |  | `''` |  |
 | yearDiff | number |  | `20` | 最小可选年份值为当前年减去此值 |
 | yearAdd | number |  | `20` | 最大可选年份值为当前年加上此值 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'format'` | 转换器 |

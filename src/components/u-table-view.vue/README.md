@@ -344,7 +344,7 @@ export default {
 可以通过`error-text`或 error 插槽自定义加载错误信息。
 
 ``` html
-<u-table-view :error="true" error-text="加载出现异常">
+<u-table-view :error="true" error-text="加载出现异常" error-image="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg">
     <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
     <u-table-view-column title="地址" field="address"></u-table-view-column>
@@ -2230,6 +2230,7 @@ export default {
 | loading | boolean |  |  | 手动设置是否正在加载中 |
 | loading-text | string |  | `'正在加载中'` | 正在加载中的文字 |
 | error | boolean |  |  | 手动设置是否加载失败 |
+| error-image | image |  | `''` | 加载失败或数据为空时显示的图片 |
 | error-text | string |  | `'加载失败，请重试'` |  |
 | empty-text | string |  | `'暂无数据'` |  |
 | value-field | string |  |  | 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段 |

@@ -11,6 +11,7 @@
     - [只读和禁用](#只读和禁用)
     - [小尺寸](#小尺寸)
     - [简洁版](#简洁版)
+    - [修复样式字体无效的bug](#修复样式字体无效的bug)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -109,6 +110,14 @@
     <u-pagination :total="11" simple></u-pagination>
     <u-pagination :total="11" simple readonly></u-pagination>
     <u-pagination :total="11" simple disabled></u-pagination>
+</u-linear-layout>
+```
+
+### 修复样式字体无效的bug
+
+```html
+<u-linear-layout direction="vertical">
+    <u-pagination :total="11" style="font-size: 18px;"></u-pagination>
 </u-linear-layout>
 ```
 

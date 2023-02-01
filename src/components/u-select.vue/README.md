@@ -557,7 +557,7 @@ Tags 过多时如何显示。
 export default {
     data() {
         return {
-            values: ['c', 'csharp', 'cpp'],
+            values: ['c', 'csharp', 'cpp', 'java', 'go'],
             list: [
                 { text: 'Java', value: 'java' },
                 { text: 'Node.js', value: 'nodejs' },

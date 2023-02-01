@@ -321,10 +321,10 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | undefined |
+| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | undefined |
 | repeat | number |  | `12` | 默认24，可设置栅格行大小 |
 | gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 栅格列之间的间隔 |
-| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | 内容对齐方式 |
-| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | 栅格内容对齐方式 |
 
 ### Slots
 
@@ -337,6 +337,14 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| mode | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 设置布局模式 |
+| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` | undefined |
+| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | undefined |
+| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | undefined |
+| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | undefined |
+| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | undefined |
+| wrap | boolean |  | `true` | 弹性布局下子元素总宽度超出父级时子元素是否换行展示 |
+| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 内容块间隙大小 |
 | span | number |  | `1` | 列占据栅格行的栅格数 |
 | offset | number |  | `0` | 列偏移的栅格数 |
 | pull | number |  | `0` | 列向左移动的栅格数 |

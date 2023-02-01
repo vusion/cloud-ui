@@ -18,7 +18,7 @@
 ## 示例
 ### 基本用法
 
-``` html
+```html
 <u-dropdown>
     <template #title="scope">
         <u-text text="下拉菜单"></u-text>
@@ -55,11 +55,20 @@
     <u-dropdown-item text="item"></u-dropdown-item>
     <u-dropdown-item disabled text="item"></u-dropdown-item>
 </u-dropdown>
+<u-dropdown type="more">
+    <template #title="scope">
+        <u-text text="下拉按钮"></u-text>
+    </template>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item text="item"></u-dropdown-item>
+    <u-dropdown-item disabled text="item"></u-dropdown-item>
+</u-dropdown>
 ```
 
 ## 禁用状态
 
-``` html
+```html
 <u-dropdown disabled>
     <template #title="scope">
         <u-text text="下拉菜单"></u-text>
@@ -82,13 +91,26 @@
 </u-dropdown>
 ```
 
+## 选项带图标
+```html
+<u-dropdown>
+    <template #title="scope">
+        <u-text text="下拉菜单"></u-text>
+    </template>
+    <u-dropdown-item icon="task" text="item"></u-dropdown-item>
+    <u-dropdown-item icon="task" text="item"></u-dropdown-item>
+    <u-dropdown-item icon="task" text="item"></u-dropdown-item>
+    <u-dropdown-item icon="task" disabled text="item"></u-dropdown-item>
+</u-dropdown>
+```
+
 ## UDropdown API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | trigger | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'hover'` | 触发方式 |
-| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'text'` | undefined |
+| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'text'` | undefined |
 | placement | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'bottom'` | 弹出方位 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
