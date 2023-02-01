@@ -1,4 +1,4 @@
-### 基本样式1
+### 基础按钮样式
 
 ``` html
 <u-dropdown>
@@ -9,7 +9,7 @@
 </u-dropdown>
 ```
 
-### 基本样式2
+### 主要按钮样式
 
 ``` html
 <u-dropdown type="primary">
@@ -20,7 +20,7 @@
 </u-dropdown>
 ```
 
-### 基本样式3
+### 更多按钮样式
 
 ``` html
 <u-dropdown type="more">
@@ -31,7 +31,7 @@
 </u-dropdown>
 ```
 
-### 基本样式4
+### 下拉列表含前缀图标样式
 
 ``` html
 <u-dropdown>
