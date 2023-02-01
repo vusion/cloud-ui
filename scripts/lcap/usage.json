@@ -4157,32 +4157,32 @@
             "Navigation"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.26/src/components/u-dropdown.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本样式1\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown>\\n    <template #title><u-text text=\\\"下拉菜单\\\"></u-text></template>\\n    <u-dropdown-item><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"},{\"title\":\"基本样式2\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown type=\\\"primary\\\">\\n    <template #title><u-text text=\\\"下拉按钮\\\"></u-text></template>\\n    <u-dropdown-item><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"},{\"title\":\"基本样式3\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown type=\\\"more\\\">\\n    <template #title><u-text text=\\\"下拉按钮\\\"></u-text></template>\\n    <u-dropdown-item><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"},{\"title\":\"基本样式4\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown>\\n    <template #title><u-text text=\\\"下拉按钮\\\"></u-text></template>\\n    <u-dropdown-item icon=\\\"menu\\\"><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item icon=\\\"menu\\\"><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item icon=\\\"menu\\\"><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基础按钮样式\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown>\\n    <template #title><u-text text=\\\"下拉菜单\\\"></u-text></template>\\n    <u-dropdown-item><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"},{\"title\":\"主要按钮样式\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown type=\\\"primary\\\">\\n    <template #title><u-text text=\\\"下拉按钮\\\"></u-text></template>\\n    <u-dropdown-item><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"},{\"title\":\"更多按钮样式\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown type=\\\"more\\\">\\n    <template #title><u-text text=\\\"下拉按钮\\\"></u-text></template>\\n    <u-dropdown-item><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"},{\"title\":\"列表含图标样式\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown>\\n    <template #title><u-text text=\\\"下拉按钮\\\"></u-text></template>\\n    <u-dropdown-item icon=\\\"menu\\\"><u-text text=\\\"选项一\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item icon=\\\"menu\\\"><u-text text=\\\"选项二\\\"></u-text></u-dropdown-item>\\n    <u-dropdown-item icon=\\\"menu\\\"><u-text text=\\\"选项三\\\"></u-text></u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-dropdown",
             "title": "下拉菜单",
             "description": "下拉菜单",
             "category": "Navigation",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.26/src/components/u-dropdown.vue/screenshots/0.png",
-            "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.26/src/components/u-dropdown.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.26/src/components/u-dropdown.vue/drawings/1.svg",
+            "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.26/src/components/u-dropdown.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.26/src/components/u-dropdown.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.26/src/components/u-dropdown.vue/drawings/2.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.26/src/components/u-dropdown.vue/drawings/3.svg",
             "blocks": [
                 {
-                    "title": "基本样式1",
+                    "title": "基础按钮样式",
                     "description": "",
                     "code": "<template>\n<u-dropdown>\n    <template #title><u-text text=\"下拉菜单\"></u-text></template>\n    <u-dropdown-item><u-text text=\"选项一\"></u-text></u-dropdown-item>\n    <u-dropdown-item><u-text text=\"选项二\"></u-text></u-dropdown-item>\n    <u-dropdown-item><u-text text=\"选项三\"></u-text></u-dropdown-item>\n</u-dropdown>\n</template>\n"
                 },
                 {
-                    "title": "基本样式2",
+                    "title": "主要按钮样式",
                     "description": "",
                     "code": "<template>\n<u-dropdown type=\"primary\">\n    <template #title><u-text text=\"下拉按钮\"></u-text></template>\n    <u-dropdown-item><u-text text=\"选项一\"></u-text></u-dropdown-item>\n    <u-dropdown-item><u-text text=\"选项二\"></u-text></u-dropdown-item>\n    <u-dropdown-item><u-text text=\"选项三\"></u-text></u-dropdown-item>\n</u-dropdown>\n</template>\n"
                 },
                 {
-                    "title": "基本样式3",
+                    "title": "更多按钮样式",
                     "description": "",
                     "code": "<template>\n<u-dropdown type=\"more\">\n    <template #title><u-text text=\"下拉按钮\"></u-text></template>\n    <u-dropdown-item><u-text text=\"选项一\"></u-text></u-dropdown-item>\n    <u-dropdown-item><u-text text=\"选项二\"></u-text></u-dropdown-item>\n    <u-dropdown-item><u-text text=\"选项三\"></u-text></u-dropdown-item>\n</u-dropdown>\n</template>\n"
                 },
                 {
-                    "title": "基本样式4",
+                    "title": "列表含图标样式",
                     "description": "",
                     "code": "<template>\n<u-dropdown>\n    <template #title><u-text text=\"下拉按钮\"></u-text></template>\n    <u-dropdown-item icon=\"menu\"><u-text text=\"选项一\"></u-text></u-dropdown-item>\n    <u-dropdown-item icon=\"menu\"><u-text text=\"选项二\"></u-text></u-dropdown-item>\n    <u-dropdown-item icon=\"menu\"><u-text text=\"选项三\"></u-text></u-dropdown-item>\n</u-dropdown>\n</template>\n"
                 }
