@@ -213,12 +213,6 @@
       type: boolean
       description: 手动设置是否加载失败
       group: 状态属性
-    - name: error-image
-      title: 加载失败时图片
-      type: image
-      default: ""
-      description: "加载失败或数据为空时显示的图片"
-      compType: linkInput
     - name: error-text
       title: 加载失败文字
       type: string
@@ -231,6 +225,13 @@
       default: 暂无数据
       description: ""
       group: 状态属性
+    - name: error-image
+      title: 加载失败时图片
+      type: image
+      default: ""
+      description: "加载失败或数据为空时显示的图片"
+      group: 状态属性
+      compType: linkInput
     - name: value-field
       title: 值字段名
       type: string
