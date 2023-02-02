@@ -5,7 +5,7 @@
     @keydown.prevent.down="shift(+1)">
     <div v-show="showHead" :class="$style.head">
         <slot name="head">
-            <u-checkbox v-if="multiple" :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
+            <u-checkbox v-if="multiple" :value="allChecked" @check="checkAll($event.value)" :readonly="readonly" :disabled="disabled"></u-checkbox>
             <span :class="$style.title" vusion-slot-name="title">{{ title }}</span>
             <div :class="$style.extra">
                 <span v-if="multiple">{{ selectedVMs.length }}{{ currentDataSource && currentDataSource.originTotal !== Infinity ? ' / ' + currentDataSource.originTotal : '' }}</span>
