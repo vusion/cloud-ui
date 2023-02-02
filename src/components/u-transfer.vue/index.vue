@@ -22,7 +22,9 @@
             :pageable="pageable"
             ref="source"
             :page-size="pageSize"
-            emptyText="请从右侧添加"
+            empty-text="请从右侧添加"
+            :readonly="readonly"
+            :disabled="disabled"
         >
             <template #item="props">
                 <slot name="item" v-bind="props"></slot>
@@ -35,7 +37,7 @@
                 icon="left-arrow"
                 role="reverse"
                 :class="$style.button"
-                :disabled="!targetValues.length"
+                :disabled="!targetValues.length || disabled"
                 @click="reverse()"
             ></u-button>
             <u-button
@@ -44,7 +46,7 @@
                 icon="right-arrow"
                 role="forward"
                 :class="$style.button"
-                :disabled="!sourceValues.length"
+                :disabled="!sourceValues.length || disabled"
                 @click="forward()"
             ></u-button>
         </div>
@@ -70,7 +72,9 @@
             :pageable="pageable"
             ref="target"
             :page-size="pageSize"
-            emptyText="请从左侧添加"
+            empty-text="请从左侧添加"
+            :readonly="readonly"
+            :disabled="disabled"
         >
             <template #item="props">
                 <slot name="item" v-bind="props"></slot>
@@ -105,6 +109,8 @@ export default {
         caseSensitive: UListView.props.caseSensitive,
         pageable: UListView.props.pageable,
         pageSize: UListView.props.pageSize,
+        readonly: UListView.props.readonly,
+        disabled: UListView.props.disabled,
     },
     data() {
         return { sourceValues: [], targetValues: [] };
