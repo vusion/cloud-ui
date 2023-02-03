@@ -54,10 +54,14 @@ export const UTimelineItem = {
     },
     methods: {
         pwh(mutationsList, observer) {
+            let realH;
             const realHeight = this.$refs.labelwrap.scrollHeight;
-            if (this.timeline.mode === 'label' && realHeight > 0) {
+            const realHeightr = this.$refs.contentwrap.scrollHeight;
+            // eslint-disable-next-line prefer-const
+            realH = Math.max(realHeight, realHeightr);
+            if (this.timeline.mode === 'label' && realH && realH > 0) {
                 // const originHeight = this.$refs.wrap.offsetHeight;
-                (this.$refs.wrap.style.height = realHeight + 'px');
+                (this.$refs.wrap.style.height = realH + 20 + 'px');
             }
         },
     },
