@@ -123,5 +123,11 @@ export default {
     <u-input prefix="bug" clearable size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
     <u-input suffix="bug" clearable size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
     <u-input prefix="top" clearable size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
+    <u-input prefix clearable size="normal medium" placeholder="1~12位小写字母" autofocus>
+        <template #prefix>
+            <span>111</span>
+        </template>
+    </u-input>
+
 </u-linear-layout>
 ```
