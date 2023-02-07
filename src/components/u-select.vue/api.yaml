@@ -50,6 +50,7 @@
     - name: tags-overflow
       title: 多选项展示形式
       type: string
+      default: collapse
       options:
         - value: hidden
           title: 过多时省略
