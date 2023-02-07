@@ -94,6 +94,6 @@
 
 ```html
 <u-linear-layout direction="vertical">
-    <u-pagination :total="11" style="font-size: 18px;"></u-pagination>
+    <u-pagination :total="11" style="font-size: 18px;color:#ec2929;"></u-pagination>
 </u-linear-layout>
 ```
