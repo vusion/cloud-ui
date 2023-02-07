@@ -12114,7 +12114,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.26/src/components/u-number-input.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.26/src/components/u-number-input.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-number-input :value=\\\"6\\\"></u-number-input>\\n</template>\\n\"},{\"title\":\"按钮样式\",\"description\":\"\",\"code\":\"<template>\\n<u-number-input button-display=\\\"bothEnds\\\" :value=\\\"6\\\"></u-number-input>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-number-input></u-number-input>\\n</template>\\n\"},{\"title\":\"按钮样式\",\"description\":\"\",\"code\":\"<template>\\n<u-number-input button-display=\\\"bothEnds\\\"></u-number-input>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-number-input",
             "title": "数字输入",
@@ -12126,12 +12126,12 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-number-input :value=\"6\"></u-number-input>\n</template>\n"
+                    "code": "<template>\n<u-number-input></u-number-input>\n</template>\n"
                 },
                 {
                     "title": "按钮样式",
                     "description": "",
-                    "code": "<template>\n<u-number-input button-display=\"bothEnds\" :value=\"6\"></u-number-input>\n</template>\n"
+                    "code": "<template>\n<u-number-input button-display=\"bothEnds\"></u-number-input>\n</template>\n"
                 }
             ],
             "attrs": [

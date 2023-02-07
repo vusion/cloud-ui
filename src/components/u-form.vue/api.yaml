@@ -332,7 +332,7 @@
           title: 居中对齐
         - value: end
           title: 尾对齐
-      default: block
+      default: center
       description: 标签与表单元素的纵轴对齐方式，默认为顶对齐
     - name: rules
       title: 验证规则
