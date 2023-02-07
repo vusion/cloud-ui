@@ -1120,6 +1120,8 @@ export default {
                     if (res instanceof Object) {
                         if (res.hasOwnProperty('list'))
                             res = res.list;
+                        else if (res.hasOwnProperty('content'))
+                            res = res.content;
                         else if (res.hasOwnProperty('data'))
                             res = res.data;
                     }
