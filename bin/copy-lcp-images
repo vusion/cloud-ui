@@ -11,8 +11,8 @@ const copy = function (from, to) {
 };
 
 components.forEach((component) => {
-    const to = `assetsSrc/components/${component.name}.vue/screenshots`;
-    const to2 = `assetsSrc/components/${component.name}.vue/drawings`;
+    const to = `assets-package/src/components/${component.name}.vue/screenshots`;
+    const to2 = `assets-package/src/components/${component.name}.vue/drawings`;
     const from = `src/components/${component.name}.vue/screenshots`;
     const from2 = `src/components/${component.name}.vue/drawings`;
     copy(from, to);
