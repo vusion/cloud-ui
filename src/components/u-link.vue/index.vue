@@ -54,9 +54,9 @@ export default {
             else if (this.$router && this.to !== undefined)
                 res = encodeUrl(this.$router.resolve(this.to, this.$route, this.append).href);
             
-            // $formatMicroFrontUrl 定义在 lcap-pc-template
-            if(this.$formatMicroFrontUrl) 
-                res = this.$formatMicroFrontUrl(res);
+            // $formatMicroFrontRouterPath 定义在 lcap-pc-template
+            if(this.$formatMicroFrontRouterPath) 
+                res = this.$formatMicroFrontRouterPath(res);
 
             return res;
         },

@@ -437,8 +437,9 @@ export default {
                 }
             }
 
+            const url = this.$formatMicroFrontUrl ? this.$formatMicroFrontUrl(this.url) : this.url;
             const xhr = ajax({
-                url: this.url,
+                url,
                 headers,
                 withCredentials: this.withCredentials,
                 file,
