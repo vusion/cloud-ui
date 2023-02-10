@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root">
-    <u-modal title="图片裁剪" :visible="visible" size="huge" :maskClose="false" :mode=false :class="$style.cropperModal">
+    <u-modal :title="this.cropConfig.title || '图片裁剪'" :visible="visible" size="huge" :maskClose="false" :mode=false :class="$style.cropperModal">
         <div :class="$style.cropperWrapper">
             <div :class="$style.cropper" style="text-align:center">
                 <vueCropper
@@ -27,7 +27,12 @@
             </div>
             <div :class="$style.previewWrapper">
                 <div :class="$style.previewTitle">裁剪预览</div>
-                <div :style="previewStyle1" :class="$style.previewBoxCircle">
+                <div v-if="cropConfig.previewShape === 'circle'" :style="previewStyle1" :class="$style.previewBoxCircle">
+                    <div :style="previews.div">
+                        <img :src="previews.url" :style="previews.img">
+                    </div>
+                </div>
+                <div v-else :style="previewStyle1" :class="$style.previewBox">
                     <div :style="previews.div">
                         <img :src="previews.url" :style="previews.img">
                     </div>
@@ -39,8 +44,8 @@
 <!--                <i-ico name="remove" @click="clearImgHandle" :class="$style.cropperIcon"></i-ico>-->
                 <i-ico name="rotate-left" @click="rotateLeftHandle" :class="$style.cropperIcon"></i-ico>
                 <i-ico name="rotate-right" @click="rotateRightHandle" :class="$style.cropperIcon"></i-ico>
-<!--                <i-ico name="zoomin" @click="changeScaleHandle(2)" :class="$style.cropperIcon"></i-ico>-->
-<!--                <i-ico name="zoomout" @click="changeScaleHandle(-2)" :class="$style.cropperIcon"></i-ico>-->
+                <i-ico name="zoomin" @click="changeScaleHandle(2)" :class="$style.cropperIcon"></i-ico>
+                <i-ico name="zoomout" @click="changeScaleHandle(-2)" :class="$style.cropperIcon"></i-ico>
                 <i-ico name="download" @click="downloadHandle('blob')" :class="$style.cropperIcon"></i-ico>
             </u-linear-layout>
         </div>
@@ -84,15 +89,15 @@ export default {
                 canMove: false, // 图片是否允许拖动
                 autoCrop: true, // 是否默认生成截图框
                 canMoveBox: true, // 截图框能否拖动
-                autoCropWidth: 200, // 默认生成截图框宽度
-                autoCropHeight: 200, // 默认生成截图框高度
-                fixedBox: false, // 固定截图框大小 不允许改变
+                autoCropWidth: this.cropConfig.boxWidth || 200, // 默认生成截图框宽度
+                autoCropHeight: this.cropConfig.boxHeight || 200, // 默认生成截图框高度
+                fixedBox: this.cropConfig.fixed || false, // 固定截图框大小 不允许改变
                 fixed: true, // 是否开启截图框宽高固定比例
                 fixedNumber: [1, 1], // 截图框的宽高比例
                 full: true, // 是否输出原图比例的截图
                 original: false, // 上传图片按照原始比例渲染
                 centerBox: false, // 截图框是否被限制在图片里面
-                infoTrue: true // true 为展示真实输出图片宽高 false 展示看到的截图框宽高
+                infoTrue: false // true 为展示真实输出图片宽高 false 展示看到的截图框宽高
             },
             previewStyle1: {},
             previews: {},
@@ -105,9 +110,11 @@ export default {
         },
         cropImg: undefined,
         cropFileName: undefined,
+        cropConfig: undefined,
     },
     mounted() {
         this.option.img = this.cropImg;
+        console.log(this.cropConfig);
     },
     computed: {
     },

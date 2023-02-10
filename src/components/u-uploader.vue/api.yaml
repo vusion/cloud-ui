@@ -50,7 +50,37 @@
       title: 是否开启图片裁剪
       type: boolean
       default: false
-      description: 设置是否开启图片裁剪，只对单文件的卡片列表有效
+      description: 设置是否开启图片裁剪，只对单文件上传有效
+    - name: fixedCropper
+      title: 固定裁剪框比例
+      type: boolean
+      default: false
+      description: 设置是否固定裁剪框比例
+    - name: cropperBoxWidth
+      title: 裁剪框宽度
+      type: number
+      default: 200
+      description: 设置裁剪框宽度
+    - name: cropperBoxHeight
+      title: 裁剪框高度
+      type: number
+      default: 200
+      description: 设置裁剪框高度
+    - name: cropperTitle
+      title: 裁剪框标题
+      type: string
+      default: 图片裁剪
+      description: 设置裁剪框标题
+    - name: cropperPreviewShape
+      title: 裁剪框预览形状
+      type: string
+      options:
+        - title: 正方形
+          value: square
+        - title: 圆形
+          value: circle
+      default: circle
+      description: 设置裁剪框预览形状
     - name: data-type
       title: 接收数据类型
       type: string
