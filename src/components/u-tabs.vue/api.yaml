@@ -5,18 +5,54 @@
     - Selector
   description: 选项卡切换组件，常用于平级区域大块内容的收纳和展现。
   attrs:
-    - name: router
-      title: 绑定路由
-      type: boolean
-      default: false
-      description: 是否根据 vue-router 来控制选择哪个标签页
-      advanced: true
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function
+      description: 集合类型变量或者输出参数为集合类型的逻辑
+      designer-value: "[{}, {}, {}]"
+      group: 数据属性
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 集合类型每一元素的数据类型
+      group: 数据属性
+      compType: dataTypeSelect
+    - name: title-field
+      title: 标签项标题
+      type: string
+      default: text
+      description: 数据源集合的元素，用于显示标签标题的属性
+      group: 数据属性
+    - name: value-field
+      title: 标签项标题值
+      type: string
+      default: value
+      description: 数据源集合的元素，用于标识标签值的属性
+      group: 数据属性
+    - name: content-field
+      title: 标签项内容值
+      type: string
+      default: value
+      description: 数据源集合的元素，用于标识当前打开的标签项
+      group: 数据属性
+    - name: closeable-field
+      title: 标签项是否可关闭
+      type: string
+      default: value
+      description: 数据源集合的元素，用于标识标签是否可关闭的属性
+      group: 数据属性
     - name: value
       title: 值
       type: any
       sync: true
       model: true
-      description: ""
+      description: 指当前打开标签的标签项
+      group: 数据属性
+    - name: router
+      title: 绑定路由
+      type: boolean
+      default: false
+      description: 是否根据 vue-router 来控制选择哪个标签页
     - name: readonly
       title: 只读
       type: boolean
@@ -32,7 +68,6 @@
       type: boolean
       default: false
       description: 是否可以关闭
-      advanced: true
     - name: show-scroll-buttons
       title: 显示滚动按钮
       type: string
@@ -227,6 +262,11 @@
       type: boolean
       default: false
       description: 是否禁用此标签页。
+    - name: closable
+      title: 可关闭
+      type: boolean
+      default: false
+      description: 是否可关闭此标签页。
     - name: linkType
       title: 链接类型
       type: string
