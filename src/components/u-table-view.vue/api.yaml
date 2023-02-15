@@ -716,9 +716,6 @@
         - name: $event.rowIndex
           type: number
           description: 拖拽经过的行的索引
-    - name: dragend
-      title: 拖拽结束时
-      description: 拖拽结束时触发
     - name: drop
       title: 拖拽放置时
       description: 拖拽结束时触发
