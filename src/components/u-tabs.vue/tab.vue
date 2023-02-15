@@ -22,6 +22,7 @@ export default {
             default: false,
         },
         closable: { type: Boolean, default: false },
+        showTabItem: { type: Boolean, default: true },
     },
     computed: {
         selected() {

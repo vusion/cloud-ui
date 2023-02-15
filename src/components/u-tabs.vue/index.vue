@@ -36,7 +36,7 @@
                         </template>
                         <template v-else>
                             <template v-for="(itemVM, index) in itemVMs">
-                                <a v-show="!itemVM.hidden" :class="$style.item"
+                                <a v-show="!itemVM.hidden && itemVM.showTabItem" :class="$style.item"
                                    ref="item"
                                    :key="index"
                                    :is-sub="itemVM.$attrs['is-sub']"
