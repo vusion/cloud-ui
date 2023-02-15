@@ -1,5 +1,5 @@
 <template>
-<span :class="$style.root" v-on="$listeners" :type="type">
+<span :class="$style.root" v-on="$listeners" :type="type" :selected="selected" @click="handleClick()">
     <span vusion-slot-name-edit="text"><slot>{{ text }}</slot></span>
     <span v-if="removable" :class="$style.remove" @click="remove()"></span>
 </span>
@@ -11,6 +11,11 @@ import MEmitter from '../m-emitter.vue';
 export default {
     name: 'u-label',
     mixins: [MEmitter],
+    data() {
+        return {
+            selected: false,
+        };
+    },
     props: {
         text: String,
         removable: { type: Boolean, default: false },
@@ -21,6 +26,9 @@ export default {
             if (this.$emitPrevent('before-remove', null, this))
                 return;
             this.$emit('remove', null, this);
+        },
+        handleClick() {
+            this.selected = !this.selected;
         },
     },
 };
@@ -77,6 +85,56 @@ export default {
 .root[color="error"] {
     background: var(--label-background-error);
     color: var(--label-color-error);
+}
+
+.root:hover {
+    background: var(--label-background-hover);
+    color: var(--label-color-hover);
+}
+
+.root[color="primary"]:hover {
+    background: var(--label-background-primary-hover);
+    color: var(--label-color-primary-hover);
+}
+
+.root[color="success"]:hover {
+    background: var(--label-background-success-hover);
+    color: var(--label-color-success-hover);
+}
+
+.root[color="warning"]:hover {
+    background: var(--label-background-warning-hover);
+    color: var(--label-color-warning-hover);
+}
+
+.root[color="error"]:hover {
+    background: var(--label-background-error-hover);
+    color: var(--label-color-error-hover);
+}
+
+.root[selected] {
+    background: var(--label-background-selected);
+    color: var(--label-color-selected);
+}
+
+.root[color="primary"][selected] {
+    background: var(--label-background-primary-selected);
+    color: var(--label-color-primary-selected);
+}
+
+.root[color="success"][selected] {
+    background: var(--label-background-success-selected);
+    color: var(--label-color-success-selected);
+}
+
+.root[color="warning"][selected]  {
+    background: var(--label-background-warning-selected);
+    color: var(--label-color-warning-selected);
+}
+
+.root[color="error"][selected]  {
+    background: var(--label-background-error-selected);
+    color: var(--label-color-error-selected);
 }
 
 .root[size="small"] {
