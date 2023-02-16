@@ -78,6 +78,9 @@ export default {
             const currentValue = (this.currentValue = this.fix(value, currentPrecision));
             this.formattedValue = this.currentFormatter.format(currentValue);
             this.$emit('update', this.currentValue, this);
+            // 当点击了form的创建按钮等调用了validate方法，fieldTouched值会变为true，不会走update validate
+            // 所以这里需要再增加input emit
+            this.$emit('input', this.currentValue, this);
         },
     },
     created() {
@@ -97,7 +100,7 @@ export default {
                 return value = this.defaultValue !== undefined ? this.defaultValue : '';
             else if (isNaN(value))
                 value = this.currentValue || this.defaultValue || 0;
-
+            
             value = +value; // 精度约束
             value = Math.round(this.strip(value / precision)) * precision; // 最大最小约束
             value = Math.min(Math.max(this.min, value), this.max); // 保留小数位数
@@ -110,12 +113,21 @@ export default {
          * @param {*} value 输入值
          */
         computePrecision(value) {
+            // 优先使用精度设置的值
+            if(this.precision !== 0 && this.step === 0)
+                return this.precision;
+            // 没有精度的情况下，需要判断value和step的值
             if ((typeof value === 'string' && value.trim() === '') || value === null || value === undefined)
                 value = this.defaultValue !== undefined ? this.defaultValue : this.currentValue || 0;
             else if (isNaN(value))
                 value = this.currentValue || this.defaultValue || 0;
             const arr = String(value).split('.');
-            return arr[1] ? Math.pow(0.1, arr[1].length) : 1;
+            let precisionLength = arr[1] ? arr[1].length : 0;
+            if(this.precision === 0 && this.step !== 0) {
+                const arr = String(this.step).split('.');
+                precisionLength = arr[1] && arr[1].length > precisionLength ? arr[1].length : precisionLength;
+            }
+            return precisionLength ? Math.pow(0.1, precisionLength).toFixed(precisionLength) : 1;
         },
         /**
          * 计算 fix 精度
