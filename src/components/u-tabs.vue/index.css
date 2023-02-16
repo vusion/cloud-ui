@@ -405,3 +405,9 @@
 .title > *:not(:last-child) {
     margin-right: var(--tabs-item-title-margin-right);
 }
+.root .loadContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}

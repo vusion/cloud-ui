@@ -14,7 +14,7 @@
 
 ```vue
 <template>
-<u-tabs value="2"
+<u-tabs :value.sync="value"
         :dataSource="tabList" 
         titleField="title" 
         valueField="value" 
