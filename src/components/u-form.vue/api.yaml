@@ -332,7 +332,7 @@
           title: 居中对齐
         - value: end
           title: 尾对齐
-      default: block
+      default: center
       description: 标签与表单元素的纵轴对齐方式，默认为顶对齐
     - name: rules
       title: 验证规则
@@ -340,11 +340,6 @@
       description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
       compType: validationRulesSelect
       bindHide: true
-    - name: validate-message
-      title: 验证提示消息内容
-      type: string
-      description: ""
-      default: ""
     - name: ignore-validation
       title: 忽略验证
       type: boolean

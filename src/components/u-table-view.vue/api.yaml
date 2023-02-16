@@ -213,12 +213,6 @@
       type: boolean
       description: 手动设置是否加载失败
       group: 状态属性
-    - name: error-image
-      title: 加载失败时图片
-      type: image
-      default: ""
-      description: "加载失败或数据为空时显示的图片"
-      compType: linkInput
     - name: error-text
       title: 加载失败文字
       type: string
@@ -231,6 +225,13 @@
       default: 暂无数据
       description: ""
       group: 状态属性
+    - name: error-image
+      title: 加载失败时图片
+      type: image
+      default: ""
+      description: "加载失败或数据为空时显示的图片"
+      group: 状态属性
+      compType: linkInput
     - name: value-field
       title: 值字段名
       type: string
@@ -694,12 +695,9 @@
           description: 被拖拽行相关对象
           schema:
             $ref: "#/systemTypes/DragAndDropEvent"
-        - name: $event.item
+        - name: $event.source
           type: object
           description: 被拖拽行相关对象
-        - name: $event.rowIndex
-          type: number
-          description: 被拖拽行的索引
     - name: dragover
       title: 拖拽经过时
       description: 拖拽经过每一行时触发
@@ -709,15 +707,9 @@
           description: 拖拽经过的行相关对象
           schema:
             $ref: "#/systemTypes/DragAndDropEvent"
-        - name: $event.item
+        - name: $event.target
           type: object
           description: 拖拽经过的行相关对象
-        - name: $event.rowIndex
-          type: number
-          description: 拖拽经过的行的索引
-    - name: dragend
-      title: 拖拽结束时
-      description: 拖拽结束时触发
     - name: drop
       title: 拖拽放置时
       description: 拖拽结束时触发
@@ -734,11 +726,14 @@
           type: object
           description: 拖拽放置行相关对象
         - name: $event.position
-          type: string
+          type: number
           description: 拖拽放置的位置
-        - name: $event.list
-          type: array
-          description: 整个列表数据
+        - name: $event.finalSource
+          type: object
+          description: 被拖拽行相关对象
+        - name: $event.updateData
+          type: object
+          description: 需要更新的数据
   methods:
     - name: load
       description: 带缓存地加载

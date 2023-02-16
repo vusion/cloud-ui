@@ -13,41 +13,64 @@
                 <span :class="$style.prev" @click="scrollPrev" :vusion-click-enabled="$env.VUE_APP_DESIGNER"></span>
                 <div ref="scrollView" :class="$style['scroll-view']">
                     <div :class="$style.scroll">
-                        <template v-for="(itemVM, index) in itemVMs">
-                            <a v-show="!itemVM.hidden" :class="$style.item"
-                                ref="item"
-                                :key="index"
-                                :is-sub="itemVM.$attrs['is-sub']"
-                                :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
-                                :vusion-node-path="itemVM.$attrs['vusion-node-path']"
-                                :vusion-node-tag="itemVM.$attrs['vusion-node-tag']"
-                                :vusion-disabled-move="itemVM.$attrs['vusion-disabled-move']"
-                                :vusion-disabled-duplicate="itemVM.$attrs['vusion-disabled-duplicate']"
-                                :vusion-disabled-cut="itemVM.$attrs['vusion-disabled-cut']"
-                                :vusion-template-title-node-path="itemVM.$attrs['vusion-template-title-node-path']"
-                                :href="itemVM.currentHref" :target="itemVM.target" :title="showTitle ? itemVM.title : null"
-                                :selected="router ? itemVM.active : itemVM === selectedVM"
-                                :disabled="itemVM.disabled || disabled"
-                                :style="getTabStyle(itemVM)"
-                                :width-fixed="!!currentItemWidth"
-                                :alignment="itemAlign"
-                                @click="onClick(itemVM, $event)">
-                                <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
-                                    <f-slot
-                                        :vm="itemVM"
-                                        name="title"
-                                        :props="{ selected: router ? itemVM.active : itemVM === selectedVM }">
-                                        {{ itemVM.title }}
-                                        <s-empty
-                                            v-if="(!itemVM.$slots.title)
-                                                && !itemVM.title
-                                                && $env.VUE_APP_DESIGNER
-                                                && !!$attrs['vusion-node-path']">
-                                        </s-empty>
-                                    </f-slot>
-                                </span>
-                                <span v-if="closable && itemVM.closable" :class="$style.close" @click.stop="close(itemVM)"></span>
-                            </a>
+                        <template v-if="dataSource && dataSource.length">
+                            <template v-for="(itemVM, index) in currentDataSource.data">
+                                <a v-show="!itemVM.hidden" :class="$style.item"
+                                   ref="item"
+                                   :key="index"
+                                   :href="itemVM.currentHref"
+                                   :target="itemVM.target"
+                                   :title="showTitle ? $at(item, titleField) : null"
+                                   :selected="$at(itemVM, valueField) === value"
+                                   :disabled="itemVM.disabled || disabled"
+                                   :style="getTabStyle(itemVM)"
+                                   :width-fixed="!!currentItemWidth"
+                                   :alignment="itemAlign"
+                                   @click="onClick(itemVM, $event)">
+                                    <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
+                                        {{ $at(itemVM, titleField) }}
+                                        <span v-if="closable || $at(itemVM, closeableField)" :class="$style.close" @click.stop="close(itemVM)"></span>
+                                    </span>
+                                </a>
+                            </template>
+                        </template>
+                        <template v-else>
+                            <template v-for="(itemVM, index) in itemVMs">
+                                <a v-show="!itemVM.hidden && itemVM.showTabItem" :class="$style.item"
+                                   ref="item"
+                                   :key="index"
+                                   :is-sub="itemVM.$attrs['is-sub']"
+                                   :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
+                                   :vusion-node-path="itemVM.$attrs['vusion-node-path']"
+                                   :vusion-node-tag="itemVM.$attrs['vusion-node-tag']"
+                                   :vusion-disabled-move="itemVM.$attrs['vusion-disabled-move']"
+                                   :vusion-disabled-duplicate="itemVM.$attrs['vusion-disabled-duplicate']"
+                                   :vusion-disabled-cut="itemVM.$attrs['vusion-disabled-cut']"
+                                   :vusion-template-title-node-path="itemVM.$attrs['vusion-template-title-node-path']"
+                                   :href="itemVM.currentHref" :target="itemVM.target" :title="showTitle ? itemVM.title : null"
+                                   :selected="router ? itemVM.active : itemVM === selectedVM"
+                                   :disabled="itemVM.disabled || disabled"
+                                   :style="getTabStyle(itemVM)"
+                                   :width-fixed="!!currentItemWidth"
+                                   :alignment="itemAlign"
+                                   @click="onClick(itemVM, $event)">
+                                    <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
+                                        <f-slot
+                                            :vm="itemVM"
+                                            name="title"
+                                            :props="{ selected: router ? itemVM.active : itemVM === selectedVM }">
+                                            {{ itemVM.title || $at(itemVM, titleField) }}
+                                            <s-empty
+                                                v-if="(!itemVM.$slots.title)
+                                                    && !itemVM.title
+                                                    && $env.VUE_APP_DESIGNER
+                                                    && !!$attrs['vusion-node-path']">
+                                            </s-empty>
+                                        </f-slot>
+                                        <span v-if="closable || itemVM.closable" :class="$style.close" @click.stop="close(itemVM)"></span>
+                                    </span>
+                                </a>
+                            </template>
                         </template>
                     </div>
                 </div>
@@ -64,12 +87,17 @@
 import { MSinglex } from '../m-singlex.vue';
 import { scrollTo } from '../../utils/dom';
 import SEmpty from '../s-empty.vue';
+import SupportDataSource  from '../../mixins/support.datasource.js';
+import UTab from './tab.vue';
+import URouterView from '@/components/u-router-view.vue';
+import dataSource from '@/utils/DataSource';
 
 export default {
     name: 'u-tabs',
     childName: 'u-tab',
-    components: { SEmpty },
+    components: { URouterView, SEmpty, UTab },
     extends: MSinglex,
+    mixins: [SupportDataSource],
     props: {
         autoSelect: { type: Boolean, default: true },
         closable: { type: Boolean, default: false },
@@ -80,6 +108,10 @@ export default {
         itemWidth: { type: String, default: 'auto' },
         itemAlign: { type: String, default: 'center' },
         showTitle: { type: Boolean, default: false },
+        titleField: { type: String, default: 'title' },
+        valueField: { type: String, default: 'value' },
+        contentField: { type: String, default: 'content' },
+        closeableField: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -98,6 +130,7 @@ export default {
     },
     watch: {
         itemVMs(itemVMs) {
+            // console.log('itemVMs', itemVMs);
             this.$nextTick(() => {
                 const threshold = 1; // IE 浏览器缩放时，scrollWidth 可能会比 clientWidth 大 1 像素
                 this.scrollable = this.$refs.scrollView.scrollWidth - this.$refs.scrollView.clientWidth > threshold;
@@ -117,12 +150,18 @@ export default {
     },
     methods: {
         onClick(itemVM, e) {
+            // console.log('onClick', this.currentDataSource.data);
+            // console.log('onClick', itemVM);
             this.click(itemVM);
             this.select(itemVM); // 为了兼容
             if (this.router) {
                 if (itemVM.disabled)
                     return e.preventDefault();
-                itemVM.$emit('click', e, itemVM);
+                if (dataSource && dataSource.length) {
+                    this.$emit('click', e, itemVM);
+                } else {
+                    itemVM.$emit('click', e, itemVM);
+                }
                 if (itemVM.target !== '_self')
                     return; // 使用`to`的时候走`$router`，否则走原生
                 if (itemVM.href === undefined) {
@@ -227,8 +266,8 @@ export default {
             scrollTo(scrollViewEl, { left: accWidth, duration: 1000 });
         },
         getTabStyle(itemVm) {
-            const itemStyle = itemVm.$vnode.data && itemVm.$vnode.data.style || {};
-            const itemstaticStyle = itemVm.$vnode.data && itemVm.$vnode.data.staticStyle || {};
+            const itemStyle = itemVm.$vnode && itemVm.$vnode.data && itemVm.$vnode.data.style || {};
+            const itemstaticStyle = itemVm.$vnode && itemVm.$vnode.data && itemVm.$vnode.data.staticStyle || {};
             return Object.assign({ width: this.currentItemWidth }, itemstaticStyle, itemStyle);
         },
     },

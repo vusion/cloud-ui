@@ -125,7 +125,7 @@ export default {
         autofocus: { type: Boolean, default: false },
         duplicated: { type: Boolean, default: false },
         multipleAppearance: { type: String, default: 'tags' },
-        tagsOverflow: { type: String, default: 'visible' },
+        tagsOverflow: { type: String, default: 'collapse' },
         autoSelect: { type: Boolean, default: false },
         placeholder: { type: String, default: '请选择' },
         clearable: { type: Boolean, default: false },

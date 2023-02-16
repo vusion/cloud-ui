@@ -5,9 +5,9 @@
 ``` html
 <u-linear-layout gap="small">
     <u-label text="Label"></u-label>
+    <u-label color="default" text="default"></u-label>    
     <u-label color="primary" text="Primary"></u-label>
     <u-label color="success" text="Success"></u-label>
-    <u-label color="normal" text="Normal"></u-label>
     <u-label color="warning" text="Warning"></u-label>
     <u-label color="error" text="Error"></u-label>
     <u-label style="background: #c461fb; color: white;" text="Custom"></u-label>
@@ -25,7 +25,6 @@
     <u-label removable text="Label"></u-label>
     <u-label removable color="primary" text="Primary"></u-label>
     <u-label removable color="success" text="Success"></u-label>
-    <u-label removable color="normal" text="Normal"></u-label>
     <u-label removable color="warning" text="Warning"></u-label>
     <u-label removable color="error" text="Error"></u-label>
 </u-linear-layout>
@@ -39,7 +38,6 @@
 <u-linear-layout gap="small">
     <u-label size="small" text="Small"></u-label>
     <u-label size="small" color="primary" removable text="Small"></u-label>
-    <u-label text="Normal"></u-label>
     <u-label color="primary" removable text="Normal"></u-label>
     <u-label size="large" text="Large"></u-label>
     <u-label size="large" color="primary" removable text="Large"></u-label>
@@ -71,7 +69,6 @@
         <u-label text="Label" type="line"></u-label>
         <u-label color="primary" text="Primary" type="line"></u-label>
         <u-label color="success" text="Success" type="line"></u-label>
-        <u-label color="normal" text="Normal" type="line"></u-label>
         <u-label color="warning" text="Warning" type="line"></u-label>
         <u-label color="error" text="Error" type="line"></u-label>
     </u-linear-layout>
@@ -79,7 +76,6 @@
         <u-label removable text="Label" type="line"></u-label>
         <u-label removable color="primary" text="Primary" type="line"></u-label>
         <u-label removable color="success" text="Success" type="line"></u-label>
-        <u-label removable color="normal" text="Normal" type="line"></u-label>
         <u-label removable color="warning" text="Warning" type="line"></u-label>
         <u-label removable color="error" text="Error" type="line"></u-label>
     </u-linear-layout>

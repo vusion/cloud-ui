@@ -98,7 +98,7 @@ export default {
                     this.tasks = list;
                     this.total = total;
                     this.totalPages = Math.ceil(total / this.size);
-                } else if (Array.isArray(content) && totalElements) {
+                } else if (Array.isArray(content)) {
                     this.tasks = content;
                     this.total = totalElements;
                     this.totalPages = totalPages;

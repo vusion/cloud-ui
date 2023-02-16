@@ -10,6 +10,55 @@
 </u-tabs>
 ```
 
+### 动态数据渲染
+
+```vue
+<template>
+<u-tabs value="2"
+        :dataSource="tabList" 
+        titleField="title" 
+        valueField="value" 
+        contentField="contentUrl" 
+        closableField="closable" 
+        router>
+<!--    <u-tab v-for="tab in tabList" :key="tab.value" :title="tab.title" :value="tab.value">-->
+<!--        <iframe :src="tab.contentUrl" style="width: 100%; height: 100%; border: none;"></iframe>-->
+<!--    </u-tab>-->
+        
+</u-tabs>
+</template>
+<script>
+export default {
+    data() {
+        return { 
+            value: '标签页 7',
+            tabList: [{
+                title: '标签页 1',
+                value: '1',
+                contentUrl: '/#/components/u-button',
+                closable: true,
+            }, {
+                title: '标签页 2',
+                value: '2',
+                contentUrl: '/#/components/u-input',
+                closable: true,
+            }, {
+                title: '标签页 3',
+                value: '3',
+                contentUrl: '/#/components/u-tabs',
+                closable: true,
+            }] 
+        };
+    },
+    methods: {
+        addTab() {
+            this.list.push('新标签页 ' + (this.list.length + 1));
+        },
+    },
+};
+</script>
+```
+
 ### 路由
 
 ``` html
@@ -20,6 +69,15 @@
 </u-tabs>
 ```
 
+### 默认显示和可关闭 
+
+``` html
+<u-tabs appear="square">
+    <u-tab title="模板" closable>模板内容</u-tab>
+    <u-tab title="样式" :showTabItem=false>样式内容</u-tab>
+    <u-tab title="逻辑">逻辑内容</u-tab>
+</u-tabs>
+```
 ### 外观
 
 #### 方形卡片（默认）

@@ -46,14 +46,19 @@ export default {
          * 使用`to`时，也产生一个链接，尽可能向原生的`<a>`靠近
          */
         currentHref() {
+            let res;
             if (this.href !== undefined)
-                return encodeUrl(this.href);
+                res = encodeUrl(this.href);
             if (this.destination !== undefined)
-                return encodeUrl(this.destination);
+                res = encodeUrl(this.destination);
             else if (this.$router && this.to !== undefined)
-                return encodeUrl(this.$router.resolve(this.to, this.$route, this.append).href);
-            else
-                return undefined;
+                res = encodeUrl(this.$router.resolve(this.to, this.$route, this.append).href);
+            
+            // $formatMicroFrontRouterPath 定义在 lcap-pc-template
+            if(this.$formatMicroFrontRouterPath) 
+                res = this.$formatMicroFrontRouterPath(res);
+
+            return res;
         },
         listeners() {
             const listeners = Object.assign({}, this.$listeners);

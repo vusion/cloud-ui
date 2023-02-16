@@ -4,6 +4,24 @@
 <u-time-picker time="15:46:33"></u-time-picker>
 ```
 
+### 隐藏底部按钮
+
+```html
+<u-linear-layout>
+    <u-time-picker time="15:46:33" :showFooterButton=false></u-time-picker>
+    <u-time-picker time="15:46:33" :showRightNowButton=false></u-time-picker>
+    <u-time-picker time="15:46:33" :showRightNowButton=false :showFooterButton=false></u-time-picker>
+</u-linear-layout>
+```
+
+### 自定义底部文案
+
+```html
+<u-linear-layout>
+    <u-time-picker cancelTitle="取" okTitle="确" rightNowTitle="此" ></u-time-picker>
+</u-linear-layout>
+```
+
 ### 只读和禁用
 ``` html
 <u-linear-layout>

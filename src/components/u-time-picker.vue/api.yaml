@@ -59,6 +59,34 @@
       type: boolean
       default: true
       description: 开启并在输入框有内容时会显示清除按钮
+    - name: showRightNowButton
+      title: 此刻按钮
+      type: boolean
+      default: true
+      description: "快捷选择当前时间"
+    - name: rightNowTitle
+      title: 此刻按钮名称
+      type: string
+      default: ""
+      description: ""
+      clearable: true
+    - name: showFooterButton
+      title: 取消/确认按钮
+      type: boolean
+      default: true
+      description: "控制弹出层的开启与关闭"
+    - name: cancelTitle
+      title: 取消按钮名称
+      type: string
+      default: ""
+      description: ""
+      clearable: true
+    - name: okTitle
+      title: 确定按钮名称
+      type: string
+      default: ""
+      description: ""
+      clearable: true
     - name: preIcon
       title: 前缀图标
       type: string

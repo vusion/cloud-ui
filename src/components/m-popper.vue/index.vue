@@ -183,8 +183,6 @@ export default {
                         const height = top + popper.height;
                         if (height > window.innerHeight) {
                             _self.popper.state.modifiersData.popperOffsets.y = y - (height - window.innerHeight) - 10;
-                        } else if (y < 0) {
-                            _self.popper.state.modifiersData.popperOffsets.y = 0;
                         }
                     },
                 },

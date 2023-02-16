@@ -4,6 +4,8 @@
 
 - [示例](#示例)
     - [基本用法](#基本用法)
+    - [隐藏底部按钮](#隐藏底部按钮)
+    - [自定义底部文案](#自定义底部文案)
     - [只读和禁用](#只读和禁用)
     - [日期范围](#日期范围)
     - [日期最小单位](#日期最小单位)
@@ -21,6 +23,24 @@
 
 ``` html
 <u-time-picker time="15:46:33"></u-time-picker>
+```
+
+### 隐藏底部按钮
+
+```html
+<u-linear-layout>
+    <u-time-picker time="15:46:33" :showFooterButton=false></u-time-picker>
+    <u-time-picker time="15:46:33" :showRightNowButton=false></u-time-picker>
+    <u-time-picker time="15:46:33" :showRightNowButton=false :showFooterButton=false></u-time-picker>
+</u-linear-layout>
+```
+
+### 自定义底部文案
+
+```html
+<u-linear-layout>
+    <u-time-picker cancelTitle="取" okTitle="确" rightNowTitle="此" ></u-time-picker>
+</u-linear-layout>
 ```
 
 ### 只读和禁用
@@ -95,6 +115,11 @@ export default {
 | disabled | boolean |  | `false` |  |
 | visible | boolean |  | `true` | 是否显示 |
 | clearable | boolean |  | `true` | 开启并在输入框有内容时会显示清除按钮 |
+| showRightNowButton | boolean |  | `true` |  |
+| rightNowTitle | string |  | `''` | 快捷选择当前时间 |
+| showFooterButton | boolean |  | `true` |  |
+| cancelTitle | string |  | `''` |  |
+| okTitle | string |  | `''` |  |
 | preIcon | string | `[object Object]` | `'time'` |  |
 | suffixIcon | string | `[object Object]` |  |  |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置时间选择输入框宽度大小 |

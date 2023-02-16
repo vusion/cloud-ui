@@ -478,7 +478,7 @@ export default {
         paging() {
             if (this.pageable) {
                 const paging = {};
-                paging.size = this.pageSize;
+                paging.size = this.pageSize === '' ? 20 : this.pageSize;
                 paging.number = paging.number || 1;
                 return paging;
             } else
@@ -747,6 +747,10 @@ export default {
                 this.timer = undefined;
 
                 let rootWidth = this.$el.offsetWidth;
+                // 放在线性布局flex下，或者某些设置了fit-content，table-width会缓慢增长，导致表格一直动
+                if (rootWidth > this.tableWidth && rootWidth - this.tableWidth <= 5) {
+                    rootWidth = this.tableWidth;
+                }
                 if (!rootWidth) {
                     // 初始表格隐藏时，上面的值为0，需要特殊处理
                     let parentEl = this.$el && this.$el.parentElement;
@@ -1128,7 +1132,9 @@ export default {
                     let res = await this.currentDataSource._load({ page, size, filename, sort, order });
                     // console.timeEnd('加载数据');
                     if (res instanceof Object) {
-                        if (res.hasOwnProperty('content'))
+                        if (res.hasOwnProperty('list'))
+                            res = res.list;
+                        else if (res.hasOwnProperty('content'))
                             res = res.content;
                         else if (res.hasOwnProperty('data'))
                             res = res.data;
@@ -1228,9 +1234,17 @@ export default {
         },
         removeExcludeColumns(data, excludeColumns) {
             const excludeIndex = [];
-            const titles = data[0];
+            // 如果表头加了其他组件，如筛选下拉框，可能后面会有空格，把空格去掉
+            const titles = (data[0] || []).map((title) => title.trim());
+            // 过滤掉title为空的，如多选列等
+            titles.forEach((title, index) => {
+                if (title === '') {
+                    excludeIndex.push(index);
+                }
+            });
             for (const title of excludeColumns) {
-                const pos = titles.indexOf(title);
+                const titleTemp = title.trim();
+                const pos = titles.indexOf(titleTemp);
                 if (pos >= 0)
                     excludeIndex.push(pos);
             }
@@ -1741,7 +1755,6 @@ export default {
                 if (treeExpanderEl) {
                     placeholderWith = treeExpanderEl.offsetWidth;
                 }
-                console.log('placeholderWith', placeholderWith, treePlaceholderEl, treeExpanderEl);
             }
 
             const disabledDrop = item.disabledDrop || item.draggoverDisabled;

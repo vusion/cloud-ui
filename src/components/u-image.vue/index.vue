@@ -70,11 +70,17 @@ export default {
     },
     computed: {
         convertedSrc() {
+            let res;
             if (typeof this.convertSrcFn === 'function') {
-                return this.convertSrcFn(this.src);
+                res =  this.convertSrcFn(this.src);
             } else {
-                return this.src;
+                res =  this.src;
             }
+
+            if(this.$formatMicroFrontUrl)
+                res = this.$formatMicroFrontUrl(res);
+
+            return res;
         },
         minSide() {
             return Math.min(this.imageWidth, this.imageHeight);
