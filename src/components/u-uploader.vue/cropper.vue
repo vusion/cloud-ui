@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root">
-    <u-modal :title="this.cropConfig.title || '图片裁剪'" :visible="visible" size="huge" :maskClose="false" :mode=false :class="$style.cropperModal">
+    <u-modal :title="this.cropConfig.title || '图片裁剪'" :visible="visible" size="auto" :maskClose="false" :mode=false :class="$style.cropperModal">
         <div :class="$style.cropperWrapper">
             <div :class="$style.cropper" style="text-align:center">
                 <vueCropper
@@ -40,13 +40,13 @@
             </div>
         </div>
         <div class="action-box">
-            <u-linear-layout justify="center" style="width: 600px; margin-top: 5px">
+            <u-linear-layout justify="center" style="width: 350px; margin-top: 5px">
 <!--                <i-ico name="remove" @click="clearImgHandle" :class="$style.cropperIcon"></i-ico>-->
                 <i-ico name="rotate-left" @click="rotateLeftHandle" :class="$style.cropperIcon"></i-ico>
                 <i-ico name="rotate-right" @click="rotateRightHandle" :class="$style.cropperIcon"></i-ico>
                 <i-ico name="zoomin" @click="changeScaleHandle(2)" :class="$style.cropperIcon"></i-ico>
                 <i-ico name="zoomout" @click="changeScaleHandle(-2)" :class="$style.cropperIcon"></i-ico>
-                <i-ico name="download" @click="downloadHandle('blob')" :class="$style.cropperIcon"></i-ico>
+<!--                <i-ico name="download" @click="downloadHandle('blob')" :class="$style.cropperIcon"></i-ico>-->
             </u-linear-layout>
         </div>
         <div slot="foot">
@@ -230,7 +230,7 @@ export default {
 <style module>
 .cropper {
     display: inline-block;
-    width: 600px;
+    width: 350px;
     height: 350px;
 }
 .cropperWrapper {
@@ -242,12 +242,10 @@ export default {
 }
 .previewBoxCircle {
     margin: 20px 0 50px 20px;
-    box-shadow: 0 0 15px gray;
     border-radius: 50%;
 }
 .previewBox {
     margin: 10px 0 50px 20px;
-    box-shadow: 0 0 15px gray;
 }
 .cropperIcon {
     font-size: 18px;
@@ -255,6 +253,10 @@ export default {
 .cropperIcon:hover {
     cursor: pointer;
 }
+.root .cropperModal{
+    width: 550px;
+}
+
 .cropperModal [class^="u-modal_body__"] {
     margin-bottom: 2px;
 }
