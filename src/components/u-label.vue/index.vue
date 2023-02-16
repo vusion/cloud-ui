@@ -197,6 +197,58 @@ export default {
     color: var(--label-line-color-error);
     border-color: var(--label-line-color-error);
 }
+.root[type="line"]:hover {
+    background: var(--label-line-background-hover);
+    border: 1px solid var(--label-line-border-color);
+    padding: calc( var(--label-padding-y) - 1px ) calc( var(--label-padding-x) - 1px );
+}
+.root[type="line"][color="primary"]:hover{
+    color: var(--label-line-color-primary);
+    background-color: var(--label-line-background-primary-hover);
+    border-color: var(--label-line-color-primary);
+}
+.root[type="line"][color="success"]:hover{
+    color: var(--label-line-color-success);
+    background-color: var(--label-line-background-success-hover);
+    border-color: var(--label-line-color-success);
+}
+.root[type="line"][color="warning"]:hover{
+    color: var(--label-line-color-warning);
+    background-color: var(--label-line-background-warning-hover);
+    border-color: var(--label-line-color-warning);
+}
+.root[type="line"][color="error"]:hover{
+    color: var(--label-line-color-error);
+    background-color: var(--label-line-background-error-hover);
+    border-color: var(--label-line-color-error);
+}
+
+.root[type="line"][selected] {
+    background: var(--label-line-background-selected);
+    border: 1px solid var(--label-line-background-selected);
+    color: var(--label-line-color-selected);
+    padding: calc( var(--label-padding-y) - 1px ) calc( var(--label-padding-x) - 1px );
+}
+.root[type="line"][color="primary"][selected]{
+    color: var(--label-line-color-primary-selected);
+    background-color: var(--label-line-background-primary-selected);
+    border-color: var(--label-line-background-primary-selected);
+}
+.root[type="line"][color="success"][selected]{
+    color: var(--label-line-color-success-selected);
+    background-color: var(--label-line-background-success-selected);
+    border-color: var(--label-line-background-success-selected);
+}
+.root[type="line"][color="warning"][selected]{
+    color: var(--label-line-color-warning-selected);
+    background-color: var(--label-line-background-warning-selected);
+    border-color: var(--label-line-background-warning-selected);
+}
+.root[type="line"][color="error"][selected]{
+    color: var(--label-line-color-error-selected);
+    background-color: var(--label-line-background-error-selected);
+    border-color: var(--label-line-background-error-selected);
+}
 .root[type="line"][size="small"] {
     padding: calc( var(--label-padding-y-small) - 1px ) calc( var(--label-padding-x-small) - 1px );
 }

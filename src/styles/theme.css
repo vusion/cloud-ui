@@ -607,43 +607,67 @@
     --label-background-warning: var(--brand-warning); /* @type color */ /* @desc 警告标签的背景色,如：#223325 */ /* @depAttrs { "color": ["warning"] } */ /* @depStaticStyles ["background-color"] */
     --label-background-error: var(--brand-error); /* @type color */ /* @desc 错误标签的背景色,如：#223325 */ /* @depAttrs { "color": ["error"] } */ /* @depStaticStyles ["background-color"] */
     /* 背景颜色-hover */
-    --label-background-hover: #f5f5f5; /* @type color */ /* @desc 默认标签的背景色（hover状态）,如：#223325 */ /* @depAttrs { "color": ["default", null] } */ /* @depStaticStyles ["background-color"] */
+    --label-background-hover: #E5E5E5; /* @type color */ /* @desc 默认标签的背景色（hover状态）,如：#223325 */ /* @depAttrs { "color": ["default", null] } */ /* @depStaticStyles ["background-color"] */
     --label-background-primary-hover: var(--brand-primary-light); /* @type color */ /* @desc 主要标签的背景色（hover状态）,如：#223325 */ /* @depAttrs { "color": ["primary"] } */ /* @depStaticStyles ["background-color"] */
     --label-background-success-hover: var(--brand-success-light); /* @type color */ /* @desc 成功标签的背景色（hover状态）,如：#223325 */ /* @depAttrs { "color": ["success"] } */ /* @depStaticStyles ["background-color"] */
     --label-background-warning-hover: var(--brand-warning-light); /* @type color */ /* @desc 警告标签的背景色（hover状态）,如：#223325 */ /* @depAttrs { "color": ["warning"] } */ /* @depStaticStyles ["background-color"] */
     --label-background-error-hover: var(--brand-error-light); /* @type color */ /* @desc 错误标签的背景色（hover状态）,如：#223325 */ /* @depAttrs { "color": ["error"] } */ /* @depStaticStyles ["background-color"] */
     /* 背景颜色-selected */
-    --label-background-selected: #f5f5f5; /* @type color */ /* @desc 默认标签的背景色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["default", null] } */ /* @depStaticStyles ["background-color"] */
-    --label-background-primary-selected: var(--brand-primary-dark); /* @type color */ /* @desc 主要标签的背景色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["primary"] } */ /* @depStaticStyles ["background-color"] */
-    --label-background-success-selected: var(--brand-success-dark); /* @type color */ /* @desc 成功标签的背景色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["success"] } */ /* @depStaticStyles ["background-color"] */
-    --label-background-warning-selected: var(--brand-warning-dark); /* @type color */ /* @desc 警告标签的背景色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["warning"] } */ /* @depStaticStyles ["background-color"] */
-    --label-background-error-selected: var(--brand-error-dark); /* @type color */ /* @desc 错误标签的背景色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["error"] } */ /* @depStaticStyles ["background-color"] */
+    --label-background-selected: #7F7F7F; /* @type color */ /* @desc 默认标签的背景色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["default", null] } */ /* @depStaticStyles ["background-color"] */
+    --label-background-primary-selected: var(--brand-primary); /* @type color */ /* @desc 主要标签的背景色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["primary"] } */ /* @depStaticStyles ["background-color"] */
+    --label-background-success-selected: var(--brand-success); /* @type color */ /* @desc 成功标签的背景色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["success"] } */ /* @depStaticStyles ["background-color"] */
+    --label-background-warning-selected: var(--brand-warning); /* @type color */ /* @desc 警告标签的背景色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["warning"] } */ /* @depStaticStyles ["background-color"] */
+    --label-background-error-selected: var(--brand-error); /* @type color */ /* @desc 错误标签的背景色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["error"] } */ /* @depStaticStyles ["background-color"] */
     /* 文字颜色 */
-    --label-color: #666; /* @type color */ /* @desc 默认标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["default", null] } */ /* @depStaticStyles ["color"] */
+    --label-color: var(--font-second-color); /* @type color */ /* @desc 默认标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["default", null] } */ /* @depStaticStyles ["color"] */
     --label-color-primary: white; /* @type color */ /* @desc 主要标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["primary"] } */ /* @depStaticStyles ["color"] */
     --label-color-success: white; /* @type color */ /* @desc 成功标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["success"] } */ /* @depStaticStyles ["color"] */
     --label-color-warning: white; /* @type color */ /* @desc 警告标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["warning"] } */ /* @depStaticStyles ["color"] */
     --label-color-error: white; /* @type color */ /* @desc 错误标签的字体颜色,如：#223325 */ /* @depAttrs { "color": ["error"] } */ /* @depStaticStyles ["color"] */
     /* 文字颜色-hover */
-    --label-color-hover: #666; /* @type color */ /* @desc 默认标签的字体颜色（hover状态）,如：#223325 */ /* @depAttrs { "color": ["default", null] } */ /* @depStaticStyles ["color"] */
+    --label-color-hover: var(--font-second-color); /* @type color */ /* @desc 默认标签的字体颜色（hover状态）,如：#223325 */ /* @depAttrs { "color": ["default", null] } */ /* @depStaticStyles ["color"] */
     --label-color-primary-hover: white; /* @type color */ /* @desc 主要标签的字体颜色（hover状态）,如：#223325 */ /* @depAttrs { "color": ["primary"] } */ /* @depStaticStyles ["color"] */
     --label-color-success-hover: white; /* @type color */ /* @desc 成功标签的字体颜色（hover状态）,如：#223325 */ /* @depAttrs { "color": ["success"] } */ /* @depStaticStyles ["color"] */
     --label-color-warning-hover: white; /* @type color */ /* @desc 警告标签的字体颜色（hover状态）,如：#223325 */ /* @depAttrs { "color": ["warning"] } */ /* @depStaticStyles ["color"] */
     --label-color-error-hover: white; /* @type color */ /* @desc 错误标签的字体颜色（hover状态）,如：#223325 */ /* @depAttrs { "color": ["error"] } */ /* @depStaticStyles ["color"] */
     /* 文字颜色-selected */
-    --label-color-selected: #666; /* @type color */ /* @desc 默认标签的字体颜色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["default", null] } */ /* @depStaticStyles ["color"] */
+    --label-color-selected: white; /* @type color */ /* @desc 默认标签的字体颜色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["default", null] } */ /* @depStaticStyles ["color"] */
     --label-color-primary-selected: white; /* @type color */ /* @desc 主要标签的字体颜色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["primary"] } */ /* @depStaticStyles ["color"] */
     --label-color-success-selected: white; /* @type color */ /* @desc 成功标签的字体颜色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["success"] } */ /* @depStaticStyles ["color"] */
     --label-color-warning-selected: white; /* @type color */ /* @desc 警告标签的字体颜色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["warning"] } */ /* @depStaticStyles ["color"] */
     --label-color-error-selected: white; /* @type color */ /* @desc 错误标签的字体颜色（选中状态）,如：#223325 */ /* @depAttrs { "color": ["error"] } */ /* @depStaticStyles ["color"] */
-
+    /* line背景颜色 */
     --label-line-background: transparent; /* @type color */ /* @desc 线性标签的背景颜色,如：#223325 */ /* @excludeTags u-label */
+    /* line背景颜色-hover */
+    --label-line-background-hover: #F5F5F5; /* @type color */ /* @desc 线性标签的背景颜色（hover状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-background-primary-hover: var(--brand-primary-lightest); /* @type color */ /* @desc 主要线性标签的背景颜色（hover状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-background-success-hover: var(--brand-success-lightest); /* @type color */ /* @desc 成功线性标签的背景颜色（hover状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-background-warning-hover: var(--brand-warning-lightest); /* @type color */ /* @desc 警告线性标签的背景颜色（hover状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-background-error-hover: var(--brand-error-lightest); /* @type color */ /* @desc 错误线性标签的背景颜色（hover状态）,如：#223325 */ /* @excludeTags u-label */
+    /* line背景颜色-selected */
+    --label-line-background-selected: #7F7F7F; /* @type color */ /* @desc 线性标签的背景颜色（选中状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-background-primary-selected: var(--brand-primary); /* @type color */ /* @desc 主要线性标签的背景颜色（选中状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-background-success-selected: var(--brand-success); /* @type color */ /* @desc 成功线性标签的背景颜色（选中状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-background-warning-selected: var(--brand-warning); /* @type color */ /* @desc 警告线性标签的背景颜色（选中状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-background-error-selected: var(--brand-error); /* @type color */ /* @desc 错误线性标签的背景颜色（选中状态）,如：#223325 */ /* @excludeTags u-label */
+    /* line字体颜色 */
     --label-line-border-color: #e5e5e5; /* @type color */ /* @desc 线性标签的边框颜色,如：#223325 */ /* @excludeTags u-label */
     --label-line-color-primary: var(--brand-primary); /* @type color */ /* @desc 主要线性标签的字体颜色,如：#223325 */ /* @excludeTags u-label */
     --label-line-color-success: var(--brand-success); /* @type color */ /* @desc 成功线性标签的字体颜色,如：#223325 */ /* @excludeTags u-label */
     --label-line-color-warning: var(--brand-warning); /* @type color */ /* @desc 警告线性标签的字体颜色,如：#223325 */ /* @excludeTags u-label */
     --label-line-color-error: var(--brand-error); /* @type color */ /* @desc 错误线性标签的字体颜色,如：#223325 */ /* @excludeTags u-label */
     --label-line-color-normal: var(--brand-normal); /* @type color */ /* @desc 普通线性标签的字体颜色,如：#223325 */ /* @excludeTags u-label */
+    /* line字体颜色-hover */
+    --label-line-color-primary-hover: white; /* @type color */ /* @desc 主要线性标签的字体颜色（hover状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-color-success-hover: white; /* @type color */ /* @desc 成功线性标签的字体颜色（hover状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-color-warning-hover: white; /* @type color */ /* @desc 警告线性标签的字体颜色（hover状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-color-error-hover: white; /* @type color */ /* @desc 错误线性标签的字体颜色（hover状态）,如：#223325 */ /* @excludeTags u-label */
+    /* line字体颜色-selected */
+    --label-line-color-selected: white; /* @type color */ /* @desc 线性标签的字体颜色（选中状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-color-primary-selected: white; /* @type color */ /* @desc 主要线性标签的字体颜色（选中状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-color-success-selected: white; /* @type color */ /* @desc 成功线性标签的字体颜色（选中状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-color-warning-selected: white; /* @type color */ /* @desc 警告线性标签的字体颜色（选中状态）,如：#223325 */ /* @excludeTags u-label */
+    --label-line-color-error-selected: white; /* @type color */ /* @desc 错误线性标签的字体颜色（选中状态）,如：#223325 */ /* @excludeTags u-label */
     --label-line-height-small: var(--label-line-height); /* @desc 小号标签的行高,如：1px */ /* @excludeTags u-label */
 
     --label-line-height: 1; /* @hidden */
