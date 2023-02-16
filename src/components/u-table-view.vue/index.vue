@@ -1755,7 +1755,6 @@ export default {
                 if (treeExpanderEl) {
                     placeholderWith = treeExpanderEl.offsetWidth;
                 }
-                console.log('placeholderWith', placeholderWith, treePlaceholderEl, treeExpanderEl);
             }
 
             const disabledDrop = item.disabledDrop || item.draggoverDisabled;
