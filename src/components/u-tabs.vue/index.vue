@@ -27,10 +27,10 @@
                                    :width-fixed="!!currentItemWidth"
                                    :alignment="itemAlign"
                                    @click="onClick(itemVM, $event)">
-                                <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
-                                    {{ $at(itemVM, titleField) }}
-                                </span>
-                                    <span v-if="closable || $at(itemVM, closeableField)" :class="$style.close" @click.stop="close(itemVM)"></span>
+                                    <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
+                                        {{ $at(itemVM, titleField) }}
+                                        <span v-if="closable || $at(itemVM, closeableField)" :class="$style.close" @click.stop="close(itemVM)"></span>
+                                    </span>
                                 </a>
                             </template>
                         </template>
@@ -54,21 +54,21 @@
                                    :width-fixed="!!currentItemWidth"
                                    :alignment="itemAlign"
                                    @click="onClick(itemVM, $event)">
-                                <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
-                                    <f-slot
-                                        :vm="itemVM"
-                                        name="title"
-                                        :props="{ selected: router ? itemVM.active : itemVM === selectedVM }">
-                                        {{ itemVM.title || $at(itemVM, titleField) }}
-                                        <s-empty
-                                            v-if="(!itemVM.$slots.title)
-                                                && !itemVM.title
-                                                && $env.VUE_APP_DESIGNER
-                                                && !!$attrs['vusion-node-path']">
-                                        </s-empty>
-                                    </f-slot>
-                                </span>
-                                    <span v-if="closable || itemVM.closable" :class="$style.close" @click.stop="close(itemVM)"></span>
+                                    <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
+                                        <f-slot
+                                            :vm="itemVM"
+                                            name="title"
+                                            :props="{ selected: router ? itemVM.active : itemVM === selectedVM }">
+                                            {{ itemVM.title || $at(itemVM, titleField) }}
+                                            <s-empty
+                                                v-if="(!itemVM.$slots.title)
+                                                    && !itemVM.title
+                                                    && $env.VUE_APP_DESIGNER
+                                                    && !!$attrs['vusion-node-path']">
+                                            </s-empty>
+                                        </f-slot>
+                                        <span v-if="closable || itemVM.closable" :class="$style.close" @click.stop="close(itemVM)"></span>
+                                    </span>
                                 </a>
                             </template>
                         </template>
@@ -150,6 +150,8 @@ export default {
     },
     methods: {
         onClick(itemVM, e) {
+            // console.log('onClick', this.currentDataSource.data);
+            // console.log('onClick', itemVM);
             this.click(itemVM);
             this.select(itemVM); // 为了兼容
             if (this.router) {

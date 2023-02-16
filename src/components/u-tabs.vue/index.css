@@ -270,17 +270,17 @@
 }
 
 .close {
-    position: absolute;
-    right: 10px;
-    top: 0;
+    position: relative;
+    right: -5px;
+    color: var(--color-light);
+}
+
+.close:hover {
+    color: var(--color-base);
 }
 
 .close::before {
     icon-font: url('../i-icon.vue/assets/close.svg');
-}
-
-.close:hover {
-    color: var(--color-light);
 }
 
 .body {
