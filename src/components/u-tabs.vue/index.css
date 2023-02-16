@@ -22,7 +22,6 @@
 .nav {
     position: relative;
     overflow: hidden;
-    height: var(--tabs-item-height);
     margin-bottom: -1px;
 }
 
@@ -293,41 +292,6 @@
 
 .root[size="mini"] > .body {
     padding-top: var(--tabs-body-space-mini);
-}
-
-.root[size="small"] > .head .nav {
-    height: var(--tabs-item-height-small);
-}
-
-.root[size="mini"] > .head .nav {
-    height: var(--tabs-item-height-mini);
-}
-
-.root[appear="round"] > .head .nav,
-.root[appear="line"] > .head .nav {
-    height: calc(var(--tabs-item-height) + var(--tabs-item-line-width));
-}
-
-.root[size="small"][appear="round"] > .head .nav,
-.root[size="small"][appear="line"] > .head .nav {
-    height: calc(var(--tabs-item-height-small) + var(--tabs-item-line-width));
-}
-
-.root[size="mini"][appear="round"] > .head .nav,
-.root[size="mini"][appear="line"] > .head .nav {
-    height: calc(var(--tabs-item-height-mini) + var(--tabs-item-line-width));
-}
-
-.root[appear="square"] > .head .nav {
-    height: calc(var(--tabs-item-height) + var(--tabs-border-width) + var(--tabs-item-line-width));
-}
-
-.root[size="small"][appear="square"] > .head .nav {
-    height: calc(var(--tabs-item-height-small) + var(--tabs-border-width) + var(--tabs-item-line-width));
-}
-
-.root[size="mini"][appear="square"] > .head .nav {
-    height: calc(var(--tabs-item-height-mini) + var(--tabs-border-width) + var(--tabs-item-line-width));
 }
 
 .root[appear="square"] > .head .item,
