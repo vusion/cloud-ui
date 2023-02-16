@@ -14,24 +14,31 @@
                 <div ref="scrollView" :class="$style['scroll-view']">
                     <div :class="$style.scroll">
                         <template v-if="dataSource && dataSource.length">
-                            <template v-for="(itemVM, index) in currentDataSource.data">
-                                <a v-show="!itemVM.hidden" :class="$style.item"
-                                   ref="item"
-                                   :key="index"
-                                   :href="itemVM.currentHref"
-                                   :target="itemVM.target"
-                                   :title="showTitle ? $at(item, titleField) : null"
-                                   :selected="$at(itemVM, valueField) === value"
-                                   :disabled="itemVM.disabled || disabled"
-                                   :style="getTabStyle(itemVM)"
-                                   :width-fixed="!!currentItemWidth"
-                                   :alignment="itemAlign"
-                                   @click="onClick(itemVM, $event)">
+                            <template v-if="$env.VUE_APP_DESIGNER">
+                                <a :class="$style.item"  :selected="true" :alignment="itemAlign">动态选项卡1</a>
+                                <a :class="$style.item" :alignment="itemAlign">动态选项卡2</a>
+                                <a :class="$style.item" :alignment="itemAlign">动态选项卡3</a>
+                            </template>
+                            <template v-else>
+                                <template v-for="(itemVM, index) in currentDataSource.data">
+                                    <a v-show="!itemVM.hidden" :class="$style.item"
+                                       ref="item"
+                                       :key="index"
+                                       :href="itemVM.currentHref"
+                                       :target="itemVM.target"
+                                       :title="showTitle ? $at(item, titleField) : null"
+                                       :selected="$at(itemVM, valueField) === value"
+                                       :disabled="itemVM.disabled || disabled"
+                                       :style="getTabStyle(itemVM)"
+                                       :width-fixed="!!currentItemWidth"
+                                       :alignment="itemAlign"
+                                       @click="onClick(itemVM, $event)">
                                     <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
                                         {{ $at(itemVM, titleField) }}
                                         <span v-if="closable || $at(itemVM, closeableField)" :class="$style.close" @click.stop="close(itemVM)"></span>
                                     </span>
-                                </a>
+                                    </a>
+                                </template>
                             </template>
                         </template>
                         <template v-else>
@@ -78,6 +85,9 @@
             </nav>
         </div>
         <div :class="$style.body">
+            <template v-if="$env.VUE_APP_DESIGNER && !itemVMs && !itemVMs.length && !dataSource && !$slots.default">
+                <span :class="$style.loadContent">{{ treeSelectTip }}</span>
+            </template>
             <slot></slot>
         </div>
     </div>
