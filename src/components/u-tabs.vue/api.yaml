@@ -35,7 +35,7 @@
       default: content
       description: 数据源集合的元素，用于标识当前打开的标签项
       group: 数据属性
-    - name: closeable-field
+    - name: closable-field
       title: 标签项是否可关闭
       type: string
       default: closable

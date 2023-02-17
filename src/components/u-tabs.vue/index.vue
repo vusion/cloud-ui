@@ -34,7 +34,7 @@
                                        @click="onClick(itemVM, $event)">
                                     <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
                                         {{ $at(itemVM, titleField) }}
-                                        <span v-if="closable || $at(itemVM, closeableField)" :class="$style.close" @click.stop="close(itemVM)"></span>
+                                        <span v-if="closable || $at(itemVM, closableField)" :class="$style.close" @click.stop="close(itemVM)"></span>
                                     </span>
                                     </a>
                                 </template>
@@ -120,7 +120,7 @@ export default {
         titleField: { type: String, default: 'title' },
         valueField: { type: String, default: 'value' },
         contentField: { type: String, default: 'content' },
-        closeableField: { type: Boolean, default: false },
+        closableField: { type: String, default: 'closable' },
     },
     data() {
         return {
@@ -139,6 +139,11 @@ export default {
         tabDataSource() {
             return this.currentDataSource.data.list || this.currentDataSource.data || this.currentDataSource;
         },
+    },
+    created() {
+        if (this.tabDataSource && this.tabDataSource.length) {
+            this.tabDataSource[0].active = true;
+        }
     },
     watch: {
         itemVMs(itemVMs) {
@@ -205,8 +210,14 @@ export default {
             if (cancel)
                 return;
             itemVM.parentVM = undefined;
-            const index = this.itemVMs.indexOf(itemVM);
-            this.itemVMs.splice(index, 1);
+            let index = this.itemVMs.indexOf(itemVM);
+            if (dataSource && dataSource.length) {
+                index = this.tabDataSource.indexOf(itemVM);
+                this.tabDataSource.splice(index, 1);
+                this.$forceUpdate();
+            } else {
+                this.itemVMs.splice(index, 1);
+            }
             cancel = false;
             this.$emit('close', {
                 value: itemVM && itemVM.value,
