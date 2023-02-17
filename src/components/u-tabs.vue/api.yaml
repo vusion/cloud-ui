@@ -7,7 +7,7 @@
   attrs:
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function
+      type: Array<Item> | Function | Object
       description: 集合类型变量或者输出参数为集合类型的逻辑
       designer-value: "[{}, {}, {}]"
       group: 数据属性
@@ -20,7 +20,7 @@
     - name: title-field
       title: 标签项标题
       type: string
-      default: text
+      default: title
       description: 数据源集合的元素，用于显示标签标题的属性
       group: 数据属性
     - name: value-field
@@ -32,13 +32,13 @@
     - name: content-field
       title: 标签项内容值
       type: string
-      default: value
+      default: content
       description: 数据源集合的元素，用于标识当前打开的标签项
       group: 数据属性
     - name: closeable-field
       title: 标签项是否可关闭
       type: string
-      default: value
+      default: closable
       description: 数据源集合的元素，用于标识标签是否可关闭的属性
       group: 数据属性
     - name: value

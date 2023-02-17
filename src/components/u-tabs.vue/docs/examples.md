@@ -31,21 +31,21 @@
 export default {
     data() {
         return { 
-            value: '标签页 7',
+            value: undefined,
             tabList: [{
                 title: '标签页 1',
                 value: '1',
-                contentUrl: '/#/components/u-button',
+                contentUrl: '/components/u-tabs',
                 closable: true,
             }, {
                 title: '标签页 2',
                 value: '2',
-                contentUrl: '/#/components/u-input',
+                contentUrl: '/components/u-tabs',
                 closable: true,
             }, {
                 title: '标签页 3',
                 value: '3',
-                contentUrl: '/#/components/u-tabs',
+                contentUrl: '/components/u-tabs',
                 closable: true,
             }] 
         };

@@ -20,14 +20,13 @@
                                 <a :class="$style.item" :alignment="itemAlign">动态选项卡3</a>
                             </template>
                             <template v-else>
-                                <template v-for="(itemVM, index) in currentDataSource.data">
+                                <template v-for="(itemVM, index) in tabDataSource">
                                     <a v-show="!itemVM.hidden" :class="$style.item"
                                        ref="item"
                                        :key="index"
-                                       :href="itemVM.currentHref"
-                                       :target="itemVM.target"
+                                       :target="itemVM.target || '_self'"
                                        :title="showTitle ? $at(item, titleField) : null"
-                                       :selected="$at(itemVM, valueField) === value"
+                                       :selected="itemVM.active"
                                        :disabled="itemVM.disabled || disabled"
                                        :style="getTabStyle(itemVM)"
                                        :width-fixed="!!currentItemWidth"
@@ -137,6 +136,9 @@ export default {
             else
                 return this.itemWidth;
         },
+        tabDataSource() {
+            return this.currentDataSource.data.list || this.currentDataSource.data || this.currentDataSource;
+        },
     },
     watch: {
         itemVMs(itemVMs) {
@@ -160,8 +162,6 @@ export default {
     },
     methods: {
         onClick(itemVM, e) {
-            // console.log('onClick', this.currentDataSource.data);
-            // console.log('onClick', itemVM);
             this.click(itemVM);
             this.select(itemVM); // 为了兼容
             if (this.router) {
@@ -169,6 +169,13 @@ export default {
                     return e.preventDefault();
                 if (dataSource && dataSource.length) {
                     this.$emit('click', e, itemVM);
+                    this.$router.replace(this.$at(itemVM, this.contentField));
+                    this.tabDataSource.forEach((item) => {
+                        item.active = false;
+                    });
+                    itemVM.active = true;
+                    this.$forceUpdate();
+                    return
                 } else {
                     itemVM.$emit('click', e, itemVM);
                 }
