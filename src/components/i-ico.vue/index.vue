@@ -43,6 +43,7 @@ export default {
         download: { type: Boolean, default: false },
         destination: String,
         icotype: String,
+        link: [String, Function],
     },
     data() {
         return {
@@ -60,9 +61,12 @@ export default {
             const item = this.iconconfig.glyphs.find((v) => v.font_class === this.name);
             return item ? item.font_class : 'default';
         },
-        onClick(ev) {
+        async onClick(ev) {
             const props = this._props;
             const parent = this.$parent;
+            const res = await this.$linkpao(props.link, props.target);
+            if (res)
+                return;
             function currentHref() {
                 if (props.href !== undefined)
                     return encodeUrl(props.href);

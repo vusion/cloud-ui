@@ -34,6 +34,7 @@ export default {
         download: { type: Boolean, default: false },
         destination: String,
         hoverType: { type: String, default: 'underline' },
+        link: [String, Function],
     },
     data() {
         return {
@@ -89,13 +90,18 @@ export default {
                 this.loading = false;
             }
         },
-        onClick(e) {
+        async onClick(e) {
             if (this.currentDisabled)
                 return e.preventDefault();
             if (!this.href && this.$listeners.click) {
                 e.preventDefault();
             }
             this.wrapClick(e, this);
+            const res = await this.$linkpao(this.link, this.target);
+            if (res) {
+                e.preventDefault();
+                return;
+            }
             if (this.target !== '_self')
                 return; // 使用`to`的时候走`$router`，否则走原生
             if (this.href === undefined) {
