@@ -2,7 +2,7 @@
 <div :class="$style.root" vusion-slot-name="default" :display="display">
     <slot></slot>
     <template v-if="appendTo === 'body'">
-         <m-popper append-to="body" disabled-close trigger="manual" :opened="showMessage">
+         <m-popper ref="popper" append-to="body" disabled-close trigger="manual" :opened="showMessage">
             <span ref="message" v-show="showMessage" :class="[$style.message, $style.messagepop]" color="error" :display="display">{{ message || firstError }}</span>
         </m-popper>
     </template>
@@ -139,6 +139,9 @@ export default {
                 }
             }
         },
+        appendTo() {
+            this.setIntersectionObserver();
+        },
     },
     created() {
         const context = this.$vnode.context;
@@ -193,8 +196,12 @@ export default {
         this.$on('focus', this.onFocus);
         this.$on('blur', this.onBlur);
     },
+    mounted() {
+        this.setIntersectionObserver();
+    },
     destroyed() {
         this.$dispatch(($parent) => $parent.$options.isValidator, 'remove-validator-vm', this);
+        this.destroyIntersectionObserver();
     },
     methods: {
         onUpdate(value) {
@@ -373,6 +380,59 @@ export default {
             }
             this.parentVM && this.parentVM.debouncedOnValidate(trigger);
             return $event;
+        },
+        updatePopper() {
+            if (this.$refs.popper) {
+                this.$refs.popper.update();
+            }
+        },
+        /**
+         * 当父级dispaly:none时，popper没有重新计算会留在原来的位置
+         * 增加监听，变化后重新计算
+         * MutationObserver只能监听父级元素，避免父级元素设置过大，增加IntersectionObserver监听
+         * IntersectionObserver，本身或者父级有设置dispaly:none的时候可以触发
+         * MutationObserver父级子元素有变化的时候
+         */
+        createIntersectionObserver() {
+            // 本身或者父级有设置dispaly:none的情况
+            this.iObserver = new IntersectionObserver(() => {
+                this.updatePopper();
+            }, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 1.0,
+            });
+            if (this.iObserver) {
+                this.iObserver.observe(this.$el);
+            }
+            // 本身的前面组件有增删、dispaly:none的情况
+            this.mObserver = new MutationObserver(() => {
+                this.updatePopper();
+            });
+            if (this.mObserver) {
+                this.mObserver.observe(this.$el.parentElement, {
+                    childList: true,
+                    subtree: true,
+                    attributeFilter: ['style'],
+                });
+            }
+        },
+        destroyIntersectionObserver() {
+            if (this.iObserver) {
+                this.iObserver.disconnect();
+                this.iObserver = null;
+            }
+            if (this.mObserver) {
+                this.mObserver.disconnect();
+                this.mObserver = null;
+            }
+        },
+        setIntersectionObserver() {
+            if (this.appendTo === 'body') {
+                this.createIntersectionObserver();
+            } else {
+                this.destroyIntersectionObserver();
+            }
         },
     },
 };
