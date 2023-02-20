@@ -41,15 +41,20 @@ export default {
 }
 </script>
 ```
-### 开启图片编辑(只支持list-type为card类型的单文件上传)
+### 开启图片编辑(只支持单文件上传)
 
 下面的例子为单文件上传。
 
 ```vue
 <template>
-<u-uploader v-model="files" converter="simple" list-type="card" url="/gateway/lowcode/api/v1/app/upload" :openCropper="true">
-    <u-button color="primary">Upload</u-button>
-</u-uploader>
+    <div>
+    <u-uploader v-model="files" converter="simple" list-type="card" url="/gateway/lowcode/api/v1/app/upload" :openCropper="true">
+        <u-button color="primary">Upload</u-button>
+    </u-uploader>
+    <u-uploader converter="simple" url="/gateway/lowcode/api/v1/app/upload" :openCropper="true" :showErrorMessage="false" :showFileList="false">
+        <u-button color="primary">Upload</u-button>
+    </u-uploader>
+    </div>
 </template>
 <script>
 export default {
@@ -61,6 +66,36 @@ export default {
 }
 </script>
 ```
+### 图片编辑器自定义(只支持单文件上传)
+```vue
+<template>
+    <div>
+    <u-uploader v-model="files" 
+                converter="simple" 
+                list-type="card" 
+                url="/gateway/lowcode/api/v1/app/upload" 
+                :openCropper="true"
+                :fixedCropper="true"
+                :cropperBoxWidth="150"
+                :cropperBoxHeight="250"
+                cropperTitle="头像裁剪"
+                cropperPreviewShape="square"
+    >
+        <u-button color="primary">Upload</u-button>
+    </u-uploader>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: "",
+        };
+    },
+}
+</script>
+```
+
 ### 多文件上传
 
 设置`multiple`可以选择多个文件，通过`value`属性可以设置已上传的文件。
