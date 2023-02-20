@@ -147,7 +147,6 @@ export default {
     },
     watch: {
         itemVMs(itemVMs) {
-            // console.log('itemVMs', itemVMs);
             this.$nextTick(() => {
                 const threshold = 1; // IE 浏览器缩放时，scrollWidth 可能会比 clientWidth 大 1 像素
                 this.scrollable = this.$refs.scrollView.scrollWidth - this.$refs.scrollView.clientWidth > threshold;
@@ -172,7 +171,7 @@ export default {
             if (this.router) {
                 if (itemVM.disabled)
                     return e.preventDefault();
-                if (dataSource && dataSource.length) {
+                if (this.dataSource && this.dataSource.length) {
                     this.$emit('click', e, itemVM);
                     this.$router.replace(this.$at(itemVM, this.contentField));
                     this.tabDataSource.forEach((item) => {
@@ -211,9 +210,25 @@ export default {
                 return;
             itemVM.parentVM = undefined;
             let index = this.itemVMs.indexOf(itemVM);
-            if (dataSource && dataSource.length) {
+            // 动态数据关闭选项卡后，默认打开左侧第一个标签页
+            if (this.dataSource && this.dataSource.length) {
                 index = this.tabDataSource.indexOf(itemVM);
                 this.tabDataSource.splice(index, 1);
+                const allNotSelected = this.tabDataSource.every((item) => {
+                    return !item.active;
+                });
+                if (allNotSelected && this.tabDataSource && this.tabDataSource.length) {
+                    this.tabDataSource[0].active = true;
+                    this.$router.replace(this.$at(this.tabDataSource[0], this.contentField));
+                    this.$emit('input', this.$at(this.tabDataSource[0], this.valueField), this);
+                    this.$emit('update:value', this.$at(this.tabDataSource[0], this.valueField), this);
+                    this.$emit('close', {
+                        value: this.$at(this.tabDataSource[0], this.valueField),
+                        oldValue,
+                        itemVM
+                    }, this);
+                    return
+                }
                 this.$forceUpdate();
             } else {
                 this.itemVMs.splice(index, 1);
