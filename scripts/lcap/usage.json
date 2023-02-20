@@ -2607,15 +2607,11 @@
                                     "title": "页面跳转"
                                 },
                                 {
-                                    "value": "href",
-                                    "title": "普通链接"
-                                },
-                                {
                                     "value": "download",
                                     "title": "下载链接"
                                 }
                             ],
-                            "default": "href",
+                            "default": "destination",
                             "description": "链接类型",
                             "compType": "linkTypeSelect",
                             "bindHide": true
@@ -2986,15 +2982,11 @@
                                     "title": "页面跳转"
                                 },
                                 {
-                                    "value": "href",
-                                    "title": "普通链接"
-                                },
-                                {
                                     "value": "download",
                                     "title": "下载链接"
                                 }
                             ],
-                            "default": "href",
+                            "default": "destination",
                             "description": "链接类型",
                             "compType": "linkTypeSelect",
                             "bindHide": true
@@ -3474,15 +3466,11 @@
                                     "title": "页面跳转"
                                 },
                                 {
-                                    "value": "href",
-                                    "title": "普通链接"
-                                },
-                                {
                                     "value": "download",
                                     "title": "下载链接"
                                 }
                             ],
-                            "default": "href",
+                            "default": "destination",
                             "description": "链接类型",
                             "compType": "linkTypeSelect",
                             "bindHide": true
@@ -3927,15 +3915,11 @@
                                     "title": "页面跳转"
                                 },
                                 {
-                                    "value": "href",
-                                    "title": "普通链接"
-                                },
-                                {
                                     "value": "download",
                                     "title": "下载链接"
                                 }
                             ],
-                            "default": "href",
+                            "default": "destination",
                             "description": "链接类型",
                             "compType": "linkTypeSelect",
                             "bindHide": true
@@ -4378,15 +4362,11 @@
                                     "title": "页面跳转"
                                 },
                                 {
-                                    "value": "href",
-                                    "title": "普通链接"
-                                },
-                                {
                                     "value": "download",
                                     "title": "下载链接"
                                 }
                             ],
-                            "default": "href",
+                            "default": "destination",
                             "description": "链接类型",
                             "compType": "linkTypeSelect",
                             "bindHide": true
@@ -4628,15 +4608,11 @@
                                     "title": "页面跳转"
                                 },
                                 {
-                                    "value": "href",
-                                    "title": "普通链接"
-                                },
-                                {
                                     "value": "download",
                                     "title": "下载链接"
                                 }
                             ],
-                            "default": "href",
+                            "default": "destination",
                             "description": "链接类型",
                             "compType": "linkTypeSelect",
                             "bindHide": true,
@@ -5085,15 +5061,11 @@
                             "title": "页面跳转"
                         },
                         {
-                            "value": "href",
-                            "title": "普通链接"
-                        },
-                        {
                             "value": "download",
                             "title": "下载链接"
                         }
                     ],
-                    "default": "href",
+                    "default": "destination",
                     "description": "",
                     "compType": "linkTypeSelect",
                     "bindHide": true
@@ -5488,15 +5460,11 @@
                             "title": "页面跳转"
                         },
                         {
-                            "value": "href",
-                            "title": "普通链接"
-                        },
-                        {
                             "value": "download",
                             "title": "下载链接"
                         }
                     ],
-                    "default": "href",
+                    "default": "destination",
                     "description": "",
                     "compType": "linkTypeSelect",
                     "bindHide": true
@@ -5724,15 +5692,11 @@
                             "title": "页面跳转"
                         },
                         {
-                            "value": "href",
-                            "title": "普通链接"
-                        },
-                        {
                             "value": "download",
                             "title": "下载链接"
                         }
                     ],
-                    "default": "href",
+                    "default": "destination",
                     "description": "",
                     "compType": "linkTypeSelect",
                     "bindHide": true
@@ -8467,14 +8431,9 @@
                             }
                         },
                         {
-                            "name": "$event.item",
+                            "name": "$event.source",
                             "type": "object",
                             "description": "被拖拽行相关对象"
-                        },
-                        {
-                            "name": "$event.rowIndex",
-                            "type": "number",
-                            "description": "被拖拽行的索引"
                         }
                     ]
                 },
@@ -8492,14 +8451,9 @@
                             }
                         },
                         {
-                            "name": "$event.item",
+                            "name": "$event.target",
                             "type": "object",
                             "description": "拖拽经过的行相关对象"
-                        },
-                        {
-                            "name": "$event.rowIndex",
-                            "type": "number",
-                            "description": "拖拽经过的行的索引"
                         }
                     ]
                 },
@@ -8528,13 +8482,18 @@
                         },
                         {
                             "name": "$event.position",
-                            "type": "string",
+                            "type": "number",
                             "description": "拖拽放置的位置"
                         },
                         {
-                            "name": "$event.list",
-                            "type": "array",
-                            "description": "整个列表数据"
+                            "name": "$event.finalSource",
+                            "type": "object",
+                            "description": "被拖拽行相关对象"
+                        },
+                        {
+                            "name": "$event.updateData",
+                            "type": "object",
+                            "description": "需要更新的数据"
                         }
                     ]
                 }
@@ -15857,7 +15816,52 @@
                     "title": "是否开启图片裁剪",
                     "type": "boolean",
                     "default": false,
-                    "description": "设置是否开启图片裁剪，只对单文件的卡片列表有效"
+                    "description": "设置是否开启图片裁剪，只对单文件上传有效"
+                },
+                {
+                    "name": "fixedCropper",
+                    "title": "固定裁剪框比例",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "设置是否固定裁剪框比例"
+                },
+                {
+                    "name": "cropperBoxWidth",
+                    "title": "裁剪框宽度",
+                    "type": "number",
+                    "default": 200,
+                    "description": "设置裁剪框宽度"
+                },
+                {
+                    "name": "cropperBoxHeight",
+                    "title": "裁剪框高度",
+                    "type": "number",
+                    "default": 200,
+                    "description": "设置裁剪框高度"
+                },
+                {
+                    "name": "cropperTitle",
+                    "title": "裁剪框标题",
+                    "type": "string",
+                    "default": "图片裁剪",
+                    "description": "设置裁剪框标题"
+                },
+                {
+                    "name": "cropperPreviewShape",
+                    "title": "裁剪框预览形状",
+                    "type": "string",
+                    "options": [
+                        {
+                            "title": "正方形",
+                            "value": "square"
+                        },
+                        {
+                            "title": "圆形",
+                            "value": "circle"
+                        }
+                    ],
+                    "default": "circle",
+                    "description": "设置裁剪框预览形状"
                 },
                 {
                     "name": "data-type",
@@ -16573,14 +16577,14 @@
         "labels": [
             "Selector"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/5.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs value=\\\"B\\\">\\n    <u-tab value=\\\"A\\\"><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab value=\\\"B\\\"><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab value=\\\"C\\\"><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"square\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-圆形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"round\\\" size=\\\"small\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-线条导航\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"line\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-胶囊导航\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"capsule\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-文本形态\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"text\\\" size=\\\"mini\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"}]",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/6.png",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs value=\\\"B\\\">\\n    <u-tab value=\\\"A\\\"><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab value=\\\"B\\\"><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab value=\\\"C\\\"><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"square\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-圆形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"round\\\" size=\\\"small\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-线条导航\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"line\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-胶囊导航\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"capsule\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-文本形态\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"text\\\" size=\\\"mini\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"动态数据源\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs router :data-source=\\\"[{}]\\\"></u-tabs>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-tabs",
             "title": "选项卡",
             "description": "选项卡切换组件，常用于平级区域大块内容的收纳和展现。",
             "category": "Selector",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/5.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/6.png",
             "drawings": "",
             "blocks": [
                 {
@@ -16612,16 +16616,61 @@
                     "title": "外观-文本形态",
                     "description": "",
                     "code": "<template>\n<u-tabs appear=\"text\" size=\"mini\">\n    <u-tab><template #title><u-text text=\"选项卡A\"></u-text></template>选项卡 A 的内容</u-tab>\n    <u-tab><template #title><u-text text=\"选项卡B\"></u-text></template>选项卡 B 的内容</u-tab>\n    <u-tab><template #title><u-text text=\"选项卡C\"></u-text></template>选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
+                },
+                {
+                    "title": "动态数据源",
+                    "description": "",
+                    "code": "<template>\n<u-tabs router :data-source=\"[{}]\"></u-tabs>\n</template>\n"
                 }
             ],
             "attrs": [
                 {
-                    "name": "router",
-                    "title": "绑定路由",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否根据 vue-router 来控制选择哪个标签页",
-                    "advanced": true
+                    "name": "data-source",
+                    "title": "数据源",
+                    "type": "Array<Item> | Function | Object",
+                    "description": "集合类型变量或者输出参数为集合类型的逻辑",
+                    "designer-value": "[{}, {}, {}]",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "data-schema",
+                    "title": "数据类型",
+                    "type": "schema",
+                    "description": "集合类型每一元素的数据类型",
+                    "group": "数据属性",
+                    "compType": "dataTypeSelect"
+                },
+                {
+                    "name": "title-field",
+                    "title": "标签项标题",
+                    "type": "string",
+                    "default": "title",
+                    "description": "数据源集合的元素，用于显示标签标题的属性",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "value-field",
+                    "title": "标签项标题值",
+                    "type": "string",
+                    "default": "value",
+                    "description": "数据源集合的元素，用于标识标签值的属性",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "content-field",
+                    "title": "标签项内容值",
+                    "type": "string",
+                    "default": "content",
+                    "description": "数据源集合的元素，用于标识当前打开的标签项",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "closable-field",
+                    "title": "标签项是否可关闭",
+                    "type": "string",
+                    "default": "closable",
+                    "description": "数据源集合的元素，用于标识标签是否可关闭的属性",
+                    "group": "数据属性"
                 },
                 {
                     "name": "value",
@@ -16629,7 +16678,15 @@
                     "type": "any",
                     "sync": true,
                     "model": true,
-                    "description": ""
+                    "description": "指当前打开标签的标签项",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "router",
+                    "title": "绑定路由",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否根据 vue-router 来控制选择哪个标签页"
                 },
                 {
                     "name": "readonly",
@@ -16650,8 +16707,7 @@
                     "title": "可关闭",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以关闭",
-                    "advanced": true
+                    "description": "是否可以关闭"
                 },
                 {
                     "name": "show-scroll-buttons",
@@ -16975,6 +17031,20 @@
                             "description": "是否禁用此标签页。"
                         },
                         {
+                            "name": "closable",
+                            "title": "可关闭",
+                            "type": "boolean",
+                            "default": false,
+                            "description": "控制是否可手动关闭标签。"
+                        },
+                        {
+                            "name": "showTabItem",
+                            "title": "是否默认显示",
+                            "type": "boolean",
+                            "default": true,
+                            "description": "控制标签项是否默认显示。"
+                        },
+                        {
                             "name": "linkType",
                             "title": "链接类型",
                             "type": "string",
@@ -16984,15 +17054,11 @@
                                     "title": "页面跳转"
                                 },
                                 {
-                                    "value": "href",
-                                    "title": "普通链接"
-                                },
-                                {
                                     "value": "download",
                                     "title": "下载链接"
                                 }
                             ],
-                            "default": "href",
+                            "default": "destination",
                             "description": "链接类型",
                             "advanced": true,
                             "compType": "linkTypeSelect",
