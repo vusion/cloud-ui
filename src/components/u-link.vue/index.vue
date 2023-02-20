@@ -97,10 +97,12 @@ export default {
                 e.preventDefault();
             }
             this.wrapClick(e, this);
-            const res = await this.$linkpao(this.link, this.target);
-            if (res) {
-                e.preventDefault();
-                return;
+            if (this.link) {
+                const res = await this.$linkpao(this.link, this.target);
+                if (res) {
+                    e.preventDefault();
+                    return;
+                }
             }
             if (this.target !== '_self')
                 return; // 使用`to`的时候走`$router`，否则走原生
