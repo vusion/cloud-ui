@@ -69,6 +69,7 @@
         v-if="openCropper"
         :cropFileName="cropFileName"
         :cropImg="cropImg"
+        :cropConfig="cropConfig"
         :modal-visible="modalVisible"
         @uploadFiles="uploadCropperImg"
     >
@@ -132,6 +133,11 @@ export default {
         ttl: { type: Boolean, default: null },
         ttlValue: { type: Number, default: null },
         openCropper: { type: Boolean, default: false },
+        fixedCropper: { type: Boolean, default: false },
+        cropperBoxWidth: { type: Number, default: 200 },
+        cropperBoxHeight: { type: Number, default: 200 },
+        cropperTitle: { type: String, default: '图片裁剪' },
+        cropperPreviewShape: { type: String, default: 'circle' },
     },
     data() {
         return {
@@ -147,6 +153,13 @@ export default {
             cropImg: undefined,
             modalVisible: false,
             cropFileName: undefined,
+            cropConfig: {
+                fixed: this.fixedCropper,
+                boxWidth: this.cropperBoxWidth,
+                boxHeight: this.cropperBoxHeight,
+                title: this.cropperTitle,
+                previewShape: this.cropperPreviewShape,
+            },
         };
     },
     computed: {

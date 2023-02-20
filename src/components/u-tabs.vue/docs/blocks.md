@@ -57,3 +57,10 @@
     <u-tab><template #title><u-text text="选项卡C"></u-text></template>选项卡 C 的内容</u-tab>
 </u-tabs>
 ```
+
+### 动态数据源
+
+``` html
+<u-tabs router :data-source="[{}]"></u-tabs>
+```
+

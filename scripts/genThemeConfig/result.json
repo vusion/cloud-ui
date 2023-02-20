@@ -705,6 +705,128 @@
                             "background-color"
                         ]
                     },
+                    "--label-background-hover": {
+                        "type": "color",
+                        "desc": "默认标签的背景色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
+                    },
+                    "--label-background-primary-hover": {
+                        "type": "color",
+                        "desc": "主要标签的背景色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
+                    },
+                    "--label-background-success-hover": {
+                        "type": "color",
+                        "desc": "成功标签的背景色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "success"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
+                    },
+                    "--label-background-warning-hover": {
+                        "type": "color",
+                        "desc": "警告标签的背景色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "warning"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
+                    },
+                    "--label-background-error-hover": {
+                        "type": "color",
+                        "desc": "错误标签的背景色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "error"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
+                    },
+                    "--label-background-selected": {
+                        "type": "color",
+                        "desc": "默认标签的背景色（选中状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
+                    },
+                    "--label-background-primary-selected": {
+                        "type": "color",
+                        "desc": "主要标签的背景色（选中状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
+                    },
+                    "--label-background-success-selected": {
+                        "type": "color",
+                        "desc": "成功标签的背景色（选中状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "success"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
+                    },
+                    "--label-background-warning-selected": {
+                        "type": "color",
+                        "desc": "警告标签的背景色（选中状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "warning"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
+                    },
+                    "--label-background-error-selected": {
+                        "type": "color",
+                        "desc": "错误标签的背景色（选中状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "error"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
+                    },
                     "--label-color": {
                         "type": "color",
                         "desc": "默认标签的字体颜色,如：#223325",
@@ -766,9 +888,201 @@
                             "color"
                         ]
                     },
+                    "--label-color-hover": {
+                        "type": "color",
+                        "desc": "默认标签的字体颜色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
+                    },
+                    "--label-color-primary-hover": {
+                        "type": "color",
+                        "desc": "主要标签的字体颜色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
+                    },
+                    "--label-color-success-hover": {
+                        "type": "color",
+                        "desc": "成功标签的字体颜色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "success"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
+                    },
+                    "--label-color-warning-hover": {
+                        "type": "color",
+                        "desc": "警告标签的字体颜色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "warning"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
+                    },
+                    "--label-color-error-hover": {
+                        "type": "color",
+                        "desc": "错误标签的字体颜色（hover状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "error"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
+                    },
+                    "--label-color-selected": {
+                        "type": "color",
+                        "desc": "默认标签的字体颜色（选中状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "default",
+                                null
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
+                    },
+                    "--label-color-primary-selected": {
+                        "type": "color",
+                        "desc": "主要标签的字体颜色（选中状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "primary"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
+                    },
+                    "--label-color-success-selected": {
+                        "type": "color",
+                        "desc": "成功标签的字体颜色（选中状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "success"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
+                    },
+                    "--label-color-warning-selected": {
+                        "type": "color",
+                        "desc": "警告标签的字体颜色（选中状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "warning"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
+                    },
+                    "--label-color-error-selected": {
+                        "type": "color",
+                        "desc": "错误标签的字体颜色（选中状态）,如：#223325",
+                        "depAttrs": {
+                            "color": [
+                                "error"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "color"
+                        ]
+                    },
                     "--label-line-background": {
                         "type": "color",
                         "desc": "线性标签的背景颜色,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-background-hover": {
+                        "type": "color",
+                        "desc": "线性标签的背景颜色（hover状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-background-primary-hover": {
+                        "type": "color",
+                        "desc": "主要线性标签的背景颜色（hover状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-background-success-hover": {
+                        "type": "color",
+                        "desc": "成功线性标签的背景颜色（hover状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-background-warning-hover": {
+                        "type": "color",
+                        "desc": "警告线性标签的背景颜色（hover状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-background-error-hover": {
+                        "type": "color",
+                        "desc": "错误线性标签的背景颜色（hover状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-background-selected": {
+                        "type": "color",
+                        "desc": "线性标签的背景颜色（选中状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-background-primary-selected": {
+                        "type": "color",
+                        "desc": "主要线性标签的背景颜色（选中状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-background-success-selected": {
+                        "type": "color",
+                        "desc": "成功线性标签的背景颜色（选中状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-background-warning-selected": {
+                        "type": "color",
+                        "desc": "警告线性标签的背景颜色（选中状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-background-error-selected": {
+                        "type": "color",
+                        "desc": "错误线性标签的背景颜色（选中状态）,如：#223325",
                         "excludeTags": [
                             "u-label"
                         ]
@@ -811,6 +1125,69 @@
                     "--label-line-color-normal": {
                         "type": "color",
                         "desc": "普通线性标签的字体颜色,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-color-primary-hover": {
+                        "type": "color",
+                        "desc": "主要线性标签的字体颜色（hover状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-color-success-hover": {
+                        "type": "color",
+                        "desc": "成功线性标签的字体颜色（hover状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-color-warning-hover": {
+                        "type": "color",
+                        "desc": "警告线性标签的字体颜色（hover状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-color-error-hover": {
+                        "type": "color",
+                        "desc": "错误线性标签的字体颜色（hover状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-color-selected": {
+                        "type": "color",
+                        "desc": "线性标签的字体颜色（选中状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-color-primary-selected": {
+                        "type": "color",
+                        "desc": "主要线性标签的字体颜色（选中状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-color-success-selected": {
+                        "type": "color",
+                        "desc": "成功线性标签的字体颜色（选中状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-color-warning-selected": {
+                        "type": "color",
+                        "desc": "警告线性标签的字体颜色（选中状态）,如：#223325",
+                        "excludeTags": [
+                            "u-label"
+                        ]
+                    },
+                    "--label-line-color-error-selected": {
+                        "type": "color",
+                        "desc": "错误线性标签的字体颜色（选中状态）,如：#223325",
                         "excludeTags": [
                             "u-label"
                         ]
