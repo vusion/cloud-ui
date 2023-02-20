@@ -268,7 +268,7 @@
       default: false
       description: 控制是否可手动关闭标签。
     - name: showTabItem
-      title: 显示标签
+      title: 是否默认显示
       type: boolean
       default: true
       description: 控制标签项是否默认显示。
