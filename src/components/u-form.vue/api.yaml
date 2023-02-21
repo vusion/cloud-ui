@@ -322,6 +322,7 @@
           title: 提示信息在底部显示
       default: right
       description: 改变提示信息显示位置
+      advanced: true
     - name: layout
       title: 标签纵轴对齐
       type: string
