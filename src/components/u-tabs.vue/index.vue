@@ -163,6 +163,20 @@ export default {
                 this.scrollToSelectedVM();
             },
         },
+        value(value) {
+            if (!(this.tabDataSource && this.tabDataSource.length)) {
+                return;
+            }
+            const matchItem = this.tabDataSource.find((itemVM) => {
+                return this.$at(itemVM, this.valueField) == value;
+            });
+            if (!matchItem) return;
+            this.tabDataSource.forEach((item) => item.active = false);
+            matchItem.active = true;
+            this.$router.replace(this.$at(matchItem, this.contentField));
+            this.$forceUpdate();
+            this.scrollToSelectedVM();
+        },
     },
     methods: {
         onClick(itemVM, e) {

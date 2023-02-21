@@ -24,13 +24,14 @@
                 showScrollButtons='auto'
                 router>
         </u-tabs>
+        <u-button size="small" slot="extra" @click="addValue">value+1</u-button>
     </div>
 </template>
 <script>
 export default {
     data() {
         return { 
-            value: undefined,
+            value: 1,
             tabList: [{
                 title: '标签页 1',
                 value: '1',
@@ -39,27 +40,12 @@ export default {
             }, {
                 title: '标签页 2',
                 value: '2',
-                contentUrl: '/components/u-tabs',
+                contentUrl: '/components/u-tabs#路由',
                 closable: false,
             }, {
                 title: '标签页 3',
                 value: '3',
-                contentUrl: '/components/u-tabs',
-                closable: true,
-            },{
-                title: '标签页 1',
-                value: '1',
-                contentUrl: '/components/u-tabs',
-                closable: true,
-            }, {
-                title: '标签页 2',
-                value: '2',
-                contentUrl: '/components/u-tabs',
-                closable: false,
-            }, {
-                title: '标签页 3',
-                value: '3',
-                contentUrl: '/components/u-tabs',
+                contentUrl: '/components/u-tabs#默认显示和可关闭',
                 closable: true,
             }] 
         };
@@ -72,6 +58,9 @@ export default {
                 contentUrl: '/components/u-tabs',
                 closable: true,
             });
+        },
+        addValue() {
+            this.value = this.value + 1;
         },
     },
 };
