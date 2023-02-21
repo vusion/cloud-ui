@@ -195,7 +195,7 @@ export default {
 }
 
 .root[color="error"] {
-    border-color: #ff867f;
+    border-color: var(--textarea-border-color-error);
 }
 
 .root[size$="normal"] { width: var(--textarea-width); }

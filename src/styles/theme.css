@@ -1129,6 +1129,7 @@
     --textarea-placeholder-color: var(--color-lighter); /* @type color */ /* @group 文字颜色 */ /* @desc 文本框提示内容文字颜色, 如 #223325 */
     --textarea-box-shadow-focus-color: rgba(77, 136, 255, 0.2); /* @type color */ /* @group 边框阴影 */ /* @desc 选中状态文本框边框阴影色,如 rgba(0, 0, 0, 0.2); */
     --textarea-box-shadow-focus:  0 0 0 2px var(--textarea-box-shadow-focus-color); /* @group 边框阴影 */ /* @desc 选中状态文本框边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --textarea-border-color-error: var(--brand-error); /* @hidden */
 
     /* @component u-number-input */
     --number-input-background: var(--input-background); /* @type color */ /* @desc 输入框背景色,如 #223325 */ /* @depStaticStyles ["background-color"] */
