@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :readonly="readonly" :disabled="disabled" :style="{ width, height }" :color="currentColor || formItemVM && formItemVM.color"
-    :focus="focused" @click.self="!focused && focus()" ref="wrap">
+    :focus="focused" @click.self="!focused && focus()">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span :class="$style.placeholder" v-if="placeholder">{{ valueEmpty ? placeholder : '' }}</span>
     <textarea ref="input" :class="$style.input" v-bind="$attrs" :value="currentValue"
@@ -96,11 +96,10 @@ export default {
             return val !== null && typeof val === 'object';
         },
         adjustSize() {
-            const { input, wrap } = this.$refs;
-            console.log(wrap)
+            const { input } = this.$refs;
             input.style.height = 'auto';
-
             let height = input.scrollHeight;
+
             if (this.isObject(this.autosize || input.autosize)) {
                 const { maxHeight, minHeight } = this.autosize || input.autosize;
                 if (maxHeight) {
@@ -111,7 +110,6 @@ export default {
                 }
                 input.style.overflowY = 'auto';
             }
-
             if (height) {
                 const tempH = (height) + 'px';
                 input.style.height = tempH;
