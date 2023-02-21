@@ -173,6 +173,8 @@ export default {
                     return e.preventDefault();
                 if (this.dataSource && this.dataSource.length) {
                     this.$emit('click', e, itemVM);
+                    const value = itemVM.value || this.$at(itemVM, this.valueField);
+                    this.$emit('update:value', value, this);
                     this.$router.replace(this.$at(itemVM, this.contentField));
                     this.tabDataSource.forEach((item) => {
                         item.active = false;
