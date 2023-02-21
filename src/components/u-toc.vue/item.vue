@@ -10,7 +10,7 @@
         v-on="listeners"
         v-ellipsis-title
         :value="value"
-        @click.stop="handleClick()"
+        @click.stop="handleClick($event)"
     >
         <span vusion-slot-name="label">
             <s-empty v-if="(!$slots.label) && $env.VUE_APP_DESIGNER "></s-empty>
@@ -81,7 +81,7 @@ export const UTocItem = {
                 this.parentVM.stopScrollSpy(this);
             }
         },
-        handleClick() {
+        async handleClick(e) {
             if (this.disabled || this.readonly || this.parentVM.disabled || this.parentVM.readonly)
                 return;
             this.parentVM.select(this);
@@ -95,6 +95,12 @@ export const UTocItem = {
                 nodeVM: this,
                 oldVM,
             }, this);
+            if (this.link) {
+                const res = await this.$linkpao(this.link, this.target);
+                if (res) {
+                    e.preventDefault();
+                }
+            }
         },
     },
 };

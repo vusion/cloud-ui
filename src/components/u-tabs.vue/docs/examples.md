@@ -10,6 +10,74 @@
 </u-tabs>
 ```
 
+### 动态数据渲染
+
+```vue
+<template>
+    <div>
+        <u-tabs :value.sync="value"
+                :dataSource="tabList"
+                titleField="title"
+                valueField="value"
+                contentField="contentUrl"
+                closableField="closable"
+                showScrollButtons='auto'
+                router>
+        </u-tabs>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return { 
+            value: undefined,
+            tabList: [{
+                title: '标签页 1',
+                value: '1',
+                contentUrl: '/components/u-tabs',
+                closable: true,
+            }, {
+                title: '标签页 2',
+                value: '2',
+                contentUrl: '/components/u-tabs',
+                closable: false,
+            }, {
+                title: '标签页 3',
+                value: '3',
+                contentUrl: '/components/u-tabs',
+                closable: true,
+            },{
+                title: '标签页 1',
+                value: '1',
+                contentUrl: '/components/u-tabs',
+                closable: true,
+            }, {
+                title: '标签页 2',
+                value: '2',
+                contentUrl: '/components/u-tabs',
+                closable: false,
+            }, {
+                title: '标签页 3',
+                value: '3',
+                contentUrl: '/components/u-tabs',
+                closable: true,
+            }] 
+        };
+    },
+    methods: {
+        addTab() {
+            this.tabList.push({
+                title: '标签页',
+                value: this.tabList.length + 1,
+                contentUrl: '/components/u-tabs',
+                closable: true,
+            });
+        },
+    },
+};
+</script>
+```
+
 ### 路由
 
 ``` html
@@ -20,6 +88,15 @@
 </u-tabs>
 ```
 
+### 默认显示和可关闭 
+
+``` html
+<u-tabs appear="square">
+    <u-tab title="模板" closable>模板内容</u-tab>
+    <u-tab title="样式" :showTabItem=false>样式内容</u-tab>
+    <u-tab title="逻辑">逻辑内容</u-tab>
+</u-tabs>
+```
 ### 外观
 
 #### 方形卡片（默认）

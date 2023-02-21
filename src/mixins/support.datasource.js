@@ -1,6 +1,6 @@
 export default {
     props: {
-        dataSource: [Array, Function],
+        dataSource: [Array, Function, Object],
         dataSchema: { type: String, default: 'entity' },
         textField: { type: String, default: 'text' },
         valueField: { type: String, default: 'value' },
