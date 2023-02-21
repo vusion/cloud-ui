@@ -125,7 +125,7 @@
       description: 在标签右侧可以附加的组件。
       advanced: true
   methods:
-    - name: load
+    - name: reload
       description: 重新加载数据
       params: []
   events:

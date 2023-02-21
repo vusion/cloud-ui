@@ -313,6 +313,11 @@ export default {
             const itemstaticStyle = itemVm.$vnode && itemVm.$vnode.data && itemVm.$vnode.data.staticStyle || {};
             return Object.assign({ width: this.currentItemWidth }, itemstaticStyle, itemStyle);
         },
+        reload() {
+            this.handleData();
+            if (this.currentDataSource && this.currentDataSource.load)
+                this.load();
+        },
     },
 };
 </script>
