@@ -1,18 +1,21 @@
 <template>
 <div :class="$style.root" :readonly="readonly" :disabled="disabled" :style="{ width, height }" :color="currentColor || formItemVM && formItemVM.color"
-    :focus="focused" @click.self="!focused && focus()">
+    :focus="focused" @click.self="!focused && focus()" ref="wrap">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span :class="$style.placeholder" v-if="placeholder">{{ valueEmpty ? placeholder : '' }}</span>
     <textarea ref="input" :class="$style.input" v-bind="$attrs" :value="currentValue"
         v-focus="autofocus" :readonly="readonly" :disabled="disabled"
         @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" v-on="listeners"
         @compositionstart="compositionInputing = true"
-        @compositionend="onCompositionEnd"></textarea>
+        @compositionend="onCompositionEnd" :maxlength="maxlength"></textarea>
     <slot></slot>
     <span v-if="clearable && !valueEmpty" :class="$style.clearable" @click.stop="clear"></span>
     <f-dragger @dragstart="onDragStart" @drag="onDrag">
         <div ref="handle" :class="$style.handle" v-show="resize !== 'none'" :resize="resize"></div>
     </f-dragger>
+    <div v-if="showWordLimit && maxlength" :class="$style.limit">
+        <span>{{ limit }}</span>/<span>{{ maxlength }}</span>
+    </div>
 </div>
 </template>
 
@@ -24,6 +27,9 @@ export default {
     name: 'u-textarea',
     extends: UInput,
     props: {
+        showWordLimit: Boolean,
+        maxlength: [String, Number],
+        autosize: [Boolean, Object],
         resize: {
             type: String,
             default: 'vertical',
@@ -33,6 +39,19 @@ export default {
     },
     data() {
         return { startWidth: 0, startHeight: 0, width: '', height: '' };
+    },
+    computed: {
+        limit() {
+            return String(this.currentValue || '').length;
+        },
+    },
+    watch: {
+        currentValue() {
+            this.$nextTick(this.adjustSize);
+        },
+    },
+    mounted() {
+        this.$nextTick(this.adjustSize);
     },
     methods: {
         onDragStart() {
@@ -65,6 +84,38 @@ export default {
                         + (this.$el.offsetHeight - this.$el.clientHeight)
                         + 'px';
                 inputEl.style.height = '';
+            }
+        },
+        onBlur() {
+            this.$nextTick(this.adjustSize);
+        },
+        onFocus() {
+            this.$nextTick(this.adjustSize);
+        },
+        isObject(val) {
+            return val !== null && typeof val === 'object';
+        },
+        adjustSize() {
+            const { input, wrap } = this.$refs;
+            console.log(wrap)
+            input.style.height = 'auto';
+
+            let height = input.scrollHeight;
+            if (this.isObject(this.autosize || input.autosize)) {
+                const { maxHeight, minHeight } = this.autosize || input.autosize;
+                if (maxHeight) {
+                    height = Math.min(height, maxHeight);
+                }
+                if (minHeight) {
+                    height = Math.max(height, minHeight);
+                }
+                input.style.overflowY = 'auto';
+            }
+
+            if (height) {
+                const tempH = (height) + 'px';
+                input.style.height = tempH;
+                this.height = tempH;
             }
         },
     },
@@ -161,4 +212,14 @@ export default {
 
 .root[size$="full"] { width: 100%; min-width: 0;}
 .root[size^="full"] { height: 100%; }
+
+.limit {
+    text-align: right;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    padding-right: 10px;
+    line-height: 1;
+}
 </style>
