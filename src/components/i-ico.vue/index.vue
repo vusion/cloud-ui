@@ -64,9 +64,13 @@ export default {
         async onClick(ev) {
             const props = this._props;
             const parent = this.$parent;
-            const res = await this.$linkpao(props.link, props.target);
-            if (res)
-                return;
+            this.$emit('click', ev);
+
+            if (this.link) {
+                const res = await this.$linkpao(props.link, props.target);
+                if (res)
+                    return;
+            }
             function currentHref() {
                 if (props.href !== undefined)
                     return encodeUrl(props.href);
@@ -76,7 +80,6 @@ export default {
                     return undefined;
             }
             const hrefR = currentHref();
-            this.$emit('click', ev);
             // @ts-ignore：没办法
             // if (props.target !== '_self')
             //   return;
