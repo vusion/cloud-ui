@@ -147,6 +147,10 @@
       default: false
       description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
       advanced: true
+  events:
+    - name: click
+      title: 点击
+      description: 在元素上按下并释放任意鼠标按钮时触发。
   description: 侧边栏项
 - name: u-sidebar-group
   title: 侧边栏分组

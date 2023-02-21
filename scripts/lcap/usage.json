@@ -11303,7 +11303,8 @@
                                 }
                             ],
                             "default": "right",
-                            "description": "改变提示信息显示位置"
+                            "description": "改变提示信息显示位置",
+                            "advanced": true
                         },
                         {
                             "name": "layout",
@@ -16385,10 +16386,10 @@
                 },
                 {
                     "name": "append-to",
-                    "title": "弹出层展示位置",
+                    "title": "出错信息在页面的位置",
                     "type": "string",
-                    "default": "body",
-                    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中",
+                    "default": "reference",
+                    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。当父级有overflow:hidden而又想展示出错信息，可以设置为body",
                     "options": [
                         {
                             "value": "reference",
@@ -16397,6 +16398,28 @@
                         {
                             "value": "body",
                             "title": "全局body"
+                        }
+                    ]
+                },
+                {
+                    "name": "placement",
+                    "title": "出错信息展示位置",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "right",
+                            "title": "提示信息在右侧显示"
+                        },
+                        {
+                            "value": "bottom",
+                            "title": "提示信息在底部显示"
+                        }
+                    ],
+                    "default": "right",
+                    "description": "改变提示信息显示位置",
+                    "dependency": [
+                        {
+                            "!append-to": "body"
                         }
                     ]
                 }
@@ -16803,6 +16826,13 @@
                     "title": "右侧附加",
                     "description": "在标签右侧可以附加的组件。",
                     "advanced": true
+                }
+            ],
+            "methods": [
+                {
+                    "name": "reload",
+                    "description": "重新加载数据",
+                    "params": []
                 }
             ],
             "events": [
