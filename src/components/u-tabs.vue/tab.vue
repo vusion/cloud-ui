@@ -34,7 +34,7 @@ export default {
         // IDE里组件放入title插槽后没有重新渲染，这里强制渲染
         if (this.$env.VUE_APP_DESIGNER) {
             if (this.parentVM) {
-                // this.parentVM.$forceUpdate();
+                this.parentVM.$forceUpdate();
             }
         }
     },
