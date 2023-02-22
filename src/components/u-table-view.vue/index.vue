@@ -921,7 +921,7 @@ export default {
         },
         onResizerDrag($event, columnVM, index) {
             const minWidth = this.minColumnWidth;
-            const rootWidth = this.$el.offsetWidth;
+            const rootWidth = this.$refs.head[0].children[0].offsetWidth;
             let beforeWidth = 0;
             for (let i = 0; i < index; i++)
                 beforeWidth += this.visibleColumnVMs[i].computedWidth;
