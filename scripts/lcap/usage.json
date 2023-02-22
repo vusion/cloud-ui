@@ -3048,6 +3048,13 @@
                             "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。",
                             "advanced": true
                         }
+                    ],
+                    "events": [
+                        {
+                            "name": "click",
+                            "title": "点击",
+                            "description": "在元素上按下并释放任意鼠标按钮时触发。"
+                        }
                     ]
                 },
                 {
@@ -10754,7 +10761,7 @@
                     "title": "每行排列项数",
                     "type": "number",
                     "default": 5,
-                    "description": "为空时自适应宽度，自动换行"
+                    "description": "为空时默认为5"
                 },
                 {
                     "name": "equalWidth",
@@ -12429,7 +12436,7 @@
             "attrs": [
                 {
                     "name": "value",
-                    "title": "内容",
+                    "title": "值",
                     "type": "string",
                     "sync": true,
                     "model": true,
@@ -12437,7 +12444,7 @@
                 },
                 {
                     "name": "clearable",
-                    "title": "清空",
+                    "title": "清除按钮",
                     "type": "boolean",
                     "default": false,
                     "description": "是否可清空。开启并在输入框有内容时会显示清空按钮。"
@@ -12457,9 +12464,29 @@
                 },
                 {
                     "name": "maxlength",
-                    "title": "最大长度",
-                    "type": "number",
-                    "description": ""
+                    "title": "可输入最大字符数",
+                    "type": "string, number",
+                    "place": "不限制",
+                    "description": "输入框内可输入的最大字符数，超过时不支持输入",
+                    "toggleupdate": [
+                        {
+                            "value": "",
+                            "updateData": {
+                                "show-word-limit": false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "show-word-limit",
+                    "title": "显示字数统计",
+                    "type": "boolean",
+                    "description": "设置是否显示「可输入最大字符数」的字数统计",
+                    "dependency": [
+                        {
+                            "!maxlength": ""
+                        }
+                    ]
                 },
                 {
                     "name": "spellcheck",
@@ -12475,20 +12502,6 @@
                     "default": false,
                     "description": "",
                     "designer-value": false
-                },
-                {
-                    "name": "readonly",
-                    "title": "只读",
-                    "type": "boolean",
-                    "default": false,
-                    "description": ""
-                },
-                {
-                    "name": "disabled",
-                    "title": "禁用",
-                    "type": "boolean",
-                    "default": false,
-                    "description": ""
                 },
                 {
                     "name": "size",
@@ -12543,6 +12556,27 @@
                     ],
                     "default": "none",
                     "description": "是否可以调整大小"
+                },
+                {
+                    "name": "autosize",
+                    "title": "自适应内容高度",
+                    "type": "boolean, object",
+                    "place": "不设置则根据输入内容自适应",
+                    "description": "可输入如{maxHeight:100,minHeight:50}，单位默认为px"
+                },
+                {
+                    "name": "readonly",
+                    "title": "只读",
+                    "type": "boolean",
+                    "default": false,
+                    "description": ""
+                },
+                {
+                    "name": "disabled",
+                    "title": "禁用",
+                    "type": "boolean",
+                    "default": false,
+                    "description": ""
                 }
             ],
             "slots": [
@@ -15783,7 +15817,9 @@
                     "name": "accept",
                     "title": "接受的上传类型",
                     "type": "string",
-                    "description": ""
+                    "place": "所有类型",
+                    "description": "若要限制上传文件类型，请输入类型名称，格式为“.后缀名”，多个文件类型时使用英文逗号隔开。例如“.jpeg,.png,.gif”",
+                    "tooltipLink": "http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/150.%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0.html#%E7%BB%84%E4%BB%B6%E8%AF%B4%E6%98%8E"
                 },
                 {
                     "name": "headers",

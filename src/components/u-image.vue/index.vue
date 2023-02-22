@@ -47,7 +47,10 @@ export default {
                 }
                 const reg = /^([^\[\]]+)(\,([^\[\]]+)){0,}$/g;
                 if (typeof src === 'string' && reg.test(src)) {
-                    return src.split(',')[0];
+                    const [a1, a2] = src.split(',');
+                    if (/\/\//.test(a2)) {
+                        return a1;
+                    }
                 }
                 try {
                     const tempSrc = JSON.parse(src);
