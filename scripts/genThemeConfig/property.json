@@ -944,6 +944,7 @@
     "--textarea-placeholder-color": "var(--color-lighter)",
     "--textarea-box-shadow-focus-color": "rgba(77, 136, 255, 0.2)",
     "--textarea-box-shadow-focus": "0 0 0 2px var(--textarea-box-shadow-focus-color)",
+    "--textarea-border-color-error": "var(--brand-error)",
     "--number-input-background": "var(--input-background)",
     "--number-input-background-disabled": "var(--input-background-disabled)",
     "--number-input-color": "var(--input-color)",

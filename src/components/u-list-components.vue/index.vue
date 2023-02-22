@@ -6,7 +6,7 @@
           v-for="(item2, index2) in item"
           :key="index2"
           :item="item2"
-          :colnum="colnum"
+          :colnum="colnum || 5"
           :equal-width="equalWidth"
           :index="comIndex(index, index2)"
         >
@@ -66,12 +66,10 @@ export default {
     },
     methods: {
         divide(arr) {
-            if (!this.colnum)
-                return [...arr];
             const result = [];
             const arre = [...arr];
             while (arre.length > 0) {
-                const temp = arre.splice(0, this.colnum);
+                const temp = arre.splice(0, this.colnum || 5);
                 result.push(temp);
             }
             return result;
@@ -92,7 +90,7 @@ export default {
             }
         },
         comIndex(index1, index2) {
-            return index1 * this.colnum + index2;
+            return index1 * (this.colnum || 5) + index2;
         },
     },
 };
