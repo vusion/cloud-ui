@@ -210,6 +210,7 @@ export default {
     vertical-align: 1px;
     text-align: right;
     font-size: var(--pagination-item-font-size);
+    color: var(--pagination-item-color);
 }
 
 .root a:not(:last-child) {
@@ -225,7 +226,6 @@ export default {
     line-height: calc(var(--pagination-item-height) - 1px * 2);
     text-align: center;
     background: var(--pagination-item-background);
-    color: var(--pagination-item-color);
     cursor: var(--cursor-pointer);
     border: 1px solid var(--pagination-item-border-color);
     border-radius: var(--pagination-item-border-radius);

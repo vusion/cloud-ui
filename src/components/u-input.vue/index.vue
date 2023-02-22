@@ -5,7 +5,7 @@
     @click.self="!focused && focus()">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span :class="$style.placeholder" v-show="placeholder">{{ valueEmpty ? placeholder : '' }}</span><!-- 兼容 IE9 -->
-    <span v-if="prefix" :class="$style.prefix" @click="$emit('click-prefix', $event, this)" :name="prefix">
+    <span v-if="prefix || $slots.prefix" :class="$style.prefix" @click="$emit('click-prefix', $event, this)" :name="prefix">
         <slot name="prefix">
             <i-ico
                 v-if="prefix !== 'If'"

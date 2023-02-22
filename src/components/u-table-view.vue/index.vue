@@ -1132,7 +1132,9 @@ export default {
                     let res = await this.currentDataSource._load({ page, size, filename, sort, order });
                     // console.timeEnd('加载数据');
                     if (res instanceof Object) {
-                        if (res.hasOwnProperty('content'))
+                        if (res.hasOwnProperty('list'))
+                            res = res.list;
+                        else if (res.hasOwnProperty('content'))
                             res = res.content;
                         else if (res.hasOwnProperty('data'))
                             res = res.data;

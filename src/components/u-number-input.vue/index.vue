@@ -434,4 +434,15 @@ export default {
 .root[size="mini"] .button[role="down"] , .root[height="mini"] .button[role="down"] {
     bottom: 0;
 }
+
+.root:not([hideButtons="true"]),
+.root:not([hideButtons="true"])[clearable] input {
+    padding-right: calc(var(--input-suffix-padding-right) + 24px);
+}
+.root:not([hideButtons="true"])[clearable] [class^="u-input_suffix__"] {
+    right: 30px;
+}
+.root[buttonDisplay="bothEnds"][clearable] [class^="u-input_suffix__"] {
+    right: 36px;
+}
 </style>

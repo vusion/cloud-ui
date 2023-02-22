@@ -49,6 +49,15 @@ export const UTimelineItem = {
             this.pwh();
         });
     },
+    updated() {
+        this.observerwh = new MutationObserver(this.pwh);
+        this.observerwh.observe(this.$refs.labelwrap, {
+            attributes: true, childList: true, subtree: true,
+        });
+        setTimeout(() => {
+            this.pwh();
+        });
+    },
     destroyed() {
         this.observerwh && this.observerwh.disconnect();
     },
