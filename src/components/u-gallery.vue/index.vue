@@ -1,5 +1,5 @@
 <template>
-<div :class="[$style['wrap'],pattern==='big' ? $style['wrapbig'] :$style['wrapsmall']]" class="swiper-for-vusion">
+<div :class="[$style['wrap'],pattern==='big' ? $style['wrapbig'] :$style['wrapsmall']]" class="swiper-for-vusion" ref="rooot">
     <div class="swiper mySwiper swiperbig" v-show="pattern==='big'" ref="swiperbig">
         <div class="swiper-wrapper swiper-wrapper-big">
             <div class="swiper-slide swiper-slide-big" v-for="(item, index) in options" :key="index" @click="tagAct">
@@ -137,6 +137,11 @@ export default {
         maxNum() {
             return Math.min(this.num, this.options.length);
         },
+        resetH() {
+            if (this.$vnode.data.staticStyle.height === 'auto' && this.$refs?.rooot?.style?.height === 'auto') {
+                this.$refs.rooot.style.height = '600px';
+            }
+        },
         renderSwiper() {
             try {
                 this.swiperthumb && this.swiperthumb.destroy();
@@ -156,6 +161,7 @@ export default {
                     this.bigOption.slidesPerView = this.maxNum();
                 }
                 this[`swiper${this.pattern}`] = new Swiper(this.$refs[`swiper${this.pattern}`], this[`${this.pattern}Option`]);
+                this.resetH();
                 // if (this.pattern === 'small') {
                 //     const newHeight = document.querySelector('.swiper-slide-thumb').offsetWidth;
                 //     this.$refs.thumbwrap.style.height = `${newHeight}px`;
