@@ -18,7 +18,7 @@
 
 ``` html
 <u-uploader list-type="card"
-    accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
+    accept=".png,.jpg,.jpeg,.gif,.bmp"
     url="/upload" url-field="result"
     :limit="999"
     max-size="50MB"
@@ -30,7 +30,7 @@
 
 ``` html
 <u-uploader multiple list-type="image"
-    accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
+    accept=".png,.jpg,.jpeg,.gif,.bmp"
     url="/upload" url-field="result"
     :limit="999"
     max-size="50MB"

@@ -24,7 +24,7 @@
       default: file
       description: 上传的文件字段名，后端需要这个字段获取
     - name: accept
-      title: 接受的上传类型
+      title: 支持上传的文件类型
       type: string
       place: 所有类型
       description: 若要限制上传文件类型，请输入类型名称，格式为“.后缀名”，多个文件类型时使用英文逗号隔开。例如“.jpeg,.png,.gif”
