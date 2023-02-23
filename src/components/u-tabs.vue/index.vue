@@ -42,7 +42,7 @@
                         </template>
                         <template v-else>
                             <template v-for="(itemVM, index) in itemVMs">
-                                <a v-show="!itemVM.hidden && itemVM.showTabItem" :class="$style.item"
+                                <a v-show="!itemVM.hidden && (itemVM.showTabItem || $env.VUE_APP_DESIGNER)" :class="$style.item"
                                    ref="item"
                                    :key="index"
                                    :is-sub="itemVM.$attrs['is-sub']"
