@@ -8,6 +8,12 @@
 </u-tabs>
 ```
 
+### 动态数据源
+
+``` html
+<u-tabs router :data-source="[{}]"></u-tabs>
+```
+
 ### 外观-方形卡片（默认）
 
 ``` html
@@ -58,9 +64,4 @@
 </u-tabs>
 ```
 
-### 动态数据源
-
-``` html
-<u-tabs router :data-source="[{}]"></u-tabs>
-```
 
