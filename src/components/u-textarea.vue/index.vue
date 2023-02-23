@@ -96,6 +96,8 @@ export default {
             return val !== null && typeof val === 'object';
         },
         adjustSize() {
+            if (!this.autosize)
+                return;
             const { input } = this.$refs;
             input.style.height = 'auto';
             let height = input.scrollHeight;
