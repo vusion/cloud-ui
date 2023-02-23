@@ -36,9 +36,10 @@ export default {
             validator: (value) =>
                 ['none', 'horizontal', 'vertical', 'both'].includes(value),
         },
+        initHeight: { type: String, default: '' },
     },
     data() {
-        return { startWidth: 0, startHeight: 0, width: '', height: '' };
+        return { startWidth: 0, startHeight: 0, width: '', height: this.initHeight };
     },
     computed: {
         limit() {
