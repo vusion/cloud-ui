@@ -1,15 +1,12 @@
 <template>
-    <div :class="$style.root">
-        <div
-            :class="$style.link"
-            :id="label || refName"
-            anchor
-        >
-            <div :class="$style.sub" vusion-slot-name="default">
-                <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
-                <slot></slot>
-            </div>
-        </div>
+    <div
+        :id="label || refName"
+        :name="label || refName"
+        anchor
+        vusion-slot-name="default"
+    >
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+        <slot></slot>
     </div>
 </template>
 
@@ -34,10 +31,3 @@ export default {
     },
 };
 </script>
-
-<style module>
-.root {
-    display: block;
-}
-
-</style>
