@@ -39,7 +39,7 @@ export default {
         initHeight: { type: String, default: '' },
     },
     data() {
-        return { startWidth: 0, startHeight: 0, width: '', height: this.initHeight };
+        return { startWidth: 0, startHeight: 0, width: '', height: this.initHeight, canAuto: true };
     },
     computed: {
         limit() {
@@ -85,6 +85,7 @@ export default {
                         + (this.$el.offsetHeight - this.$el.clientHeight)
                         + 'px';
                 inputEl.style.height = '';
+                this.canAuto = false;
             }
         },
         onBlur() {
@@ -97,7 +98,7 @@ export default {
             return val !== null && typeof val === 'object';
         },
         adjustSize() {
-            if (!this.autosize)
+            if (!this.canAuto)
                 return;
             const { input } = this.$refs;
             input.style.height = 'auto';
