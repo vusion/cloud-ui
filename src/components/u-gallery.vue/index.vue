@@ -138,7 +138,7 @@ export default {
             return Math.min(this.num, this.options.length);
         },
         resetH() {
-            if (this.$vnode.data.staticStyle.height === 'auto' && this.$refs?.rooot?.style?.height === 'auto') {
+            if (this.$vnode.data.staticStyle.height === 'auto' && this.$refs.rooot.style && this.$refs.rooot.style.height === 'auto') {
                 this.$refs.rooot.style.height = '600px';
             }
         },
