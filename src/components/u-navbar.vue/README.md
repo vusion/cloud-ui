@@ -326,7 +326,7 @@
 | icon | icon |  | `''` | 图标 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
-| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
+| linkType | string | `[object Object]`<br/>`[object Object]` | `'destination'` | 链接类型 |
 | hrefAndTo | string |  |  | 链接地址 |
 | target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 链接跳转方式 |
 | to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |

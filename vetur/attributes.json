@@ -191,10 +191,6 @@
         "title": "页面跳转"
       },
       {
-        "value": "href",
-        "title": "普通链接"
-      },
-      {
         "value": "download",
         "title": "下载链接"
       }
@@ -210,7 +206,7 @@
     "options": [
       {
         "value": "_blank",
-        "title": "新标签页"
+        "title": "新窗口"
       },
       {
         "value": "_self",
@@ -227,7 +223,7 @@
         "advanced": true
       }
     ],
-    "description": "链接打开方式"
+    "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。"
   },
   "i-icon/name": {
     "type": "string",
@@ -719,7 +715,7 @@
         "advanced": true
       }
     ],
-    "description": "链接打开方式"
+    "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。"
   },
   "u-action/decoration": {
     "type": "boolean",
@@ -1024,10 +1020,6 @@
         "title": "页面跳转"
       },
       {
-        "value": "href",
-        "title": "普通链接"
-      },
-      {
         "value": "download",
         "title": "下载链接"
       }
@@ -1060,7 +1052,7 @@
         "advanced": true
       }
     ],
-    "description": "链接打开方式"
+    "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。"
   },
   "u-button/to": {
     "type": "string, Location",
@@ -2063,10 +2055,6 @@
         "title": "页面跳转"
       },
       {
-        "value": "href",
-        "title": "普通链接"
-      },
-      {
         "value": "download",
         "title": "下载链接"
       }
@@ -2099,7 +2087,7 @@
         "advanced": true
       }
     ],
-    "description": "链接打开方式"
+    "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。"
   },
   "u-crumb-item/replace": {
     "type": "boolean",
@@ -2359,15 +2347,15 @@
   },
   "u-date-time-picker/showRightNowButton": {
     "type": "boolean",
-    "description": ""
+    "description": "快捷选择当前时间"
   },
   "u-date-time-picker/rightNowTitle": {
     "type": "string",
-    "description": "快捷选择当前时间"
+    "description": ""
   },
   "u-date-time-picker/showFooterButton": {
     "type": "boolean",
-    "description": ""
+    "description": "控制弹出层的开启与关闭"
   },
   "u-date-time-picker/cancelTitle": {
     "type": "string",
@@ -2785,10 +2773,6 @@
         "title": "页面跳转"
       },
       {
-        "value": "href",
-        "title": "普通链接"
-      },
-      {
         "value": "download",
         "title": "下载链接"
       }
@@ -2821,7 +2805,7 @@
         "advanced": true
       }
     ],
-    "description": "链接打开方式"
+    "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。"
   },
   "u-dropdown-item/to": {
     "type": "string, Location",
@@ -4682,10 +4666,6 @@
         "title": "页面跳转"
       },
       {
-        "value": "href",
-        "title": "普通链接"
-      },
-      {
         "value": "download",
         "title": "下载链接"
       }
@@ -4718,7 +4698,7 @@
         "advanced": true
       }
     ],
-    "description": "链接打开方式"
+    "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。"
   },
   "u-link/to": {
     "type": "string, Location",
@@ -4778,7 +4758,7 @@
   },
   "u-list-components/colnum": {
     "type": "number",
-    "description": "为空时自适应宽度，自动换行"
+    "description": "为空时默认为5"
   },
   "u-list-components/equalWidth": {
     "type": "boolean",
@@ -5040,10 +5020,6 @@
         "title": "页面跳转"
       },
       {
-        "value": "href",
-        "title": "普通链接"
-      },
-      {
         "value": "download",
         "title": "下载链接"
       }
@@ -5076,7 +5052,7 @@
         "advanced": true
       }
     ],
-    "description": "链接打开方式"
+    "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。"
   },
   "u-menu-item/replace": {
     "type": "boolean",
@@ -5491,10 +5467,6 @@
         "title": "页面跳转"
       },
       {
-        "value": "href",
-        "title": "普通链接"
-      },
-      {
         "value": "download",
         "title": "下载链接"
       }
@@ -5671,10 +5643,6 @@
       {
         "value": "destination",
         "title": "页面跳转"
-      },
-      {
-        "value": "href",
-        "title": "普通链接"
       },
       {
         "value": "download",
@@ -6864,10 +6832,6 @@
         "title": "页面跳转"
       },
       {
-        "value": "href",
-        "title": "普通链接"
-      },
-      {
         "value": "download",
         "title": "下载链接"
       }
@@ -7166,10 +7130,6 @@
     "type": "boolean",
     "description": "手动设置是否加载失败"
   },
-  "u-table-view/error-image": {
-    "type": "image",
-    "description": "加载失败或数据为空时显示的图片"
-  },
   "u-table-view/error-text": {
     "type": "string",
     "description": ""
@@ -7177,6 +7137,10 @@
   "u-table-view/empty-text": {
     "type": "string",
     "description": ""
+  },
+  "u-table-view/error-image": {
+    "type": "image",
+    "description": "加载失败或数据为空时显示的图片"
   },
   "u-table-view/value-field": {
     "type": "string",
@@ -7406,13 +7370,37 @@
     "type": "object",
     "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
   },
-  "u-tabs/router": {
-    "type": "boolean",
-    "description": "是否根据 vue-router 来控制选择哪个标签页"
+  "u-tabs/data-source": {
+    "type": "Array<Item> | Function | Object",
+    "description": "集合类型变量或者输出参数为集合类型的逻辑"
+  },
+  "u-tabs/data-schema": {
+    "type": "schema",
+    "description": "集合类型每一元素的数据类型"
+  },
+  "u-tabs/title-field": {
+    "type": "string",
+    "description": "数据源集合的元素，用于显示标签标题的属性"
+  },
+  "u-tabs/value-field": {
+    "type": "string",
+    "description": "数据源集合的元素，用于标识标签值的属性"
+  },
+  "u-tabs/content-field": {
+    "type": "string",
+    "description": "数据源集合的元素，用于标识当前打开的标签项"
+  },
+  "u-tabs/closable-field": {
+    "type": "string",
+    "description": "数据源集合的元素，用于标识标签是否可关闭的属性"
   },
   "u-tabs/value": {
     "type": "any",
-    "description": ""
+    "description": "指当前打开标签的标签项"
+  },
+  "u-tabs/router": {
+    "type": "boolean",
+    "description": "是否根据 vue-router 来控制选择哪个标签页"
   },
   "u-tabs/readonly": {
     "type": "boolean",
@@ -7500,16 +7488,20 @@
     "type": "boolean",
     "description": "是否禁用此标签页。"
   },
+  "u-tab/closable": {
+    "type": "boolean",
+    "description": "控制是否可手动关闭标签。"
+  },
+  "u-tab/showTabItem": {
+    "type": "boolean",
+    "description": "控制标签项是否默认显示。"
+  },
   "u-tab/linkType": {
     "type": "string",
     "options": [
       {
         "value": "destination",
         "title": "页面跳转"
-      },
-      {
-        "value": "href",
-        "title": "普通链接"
       },
       {
         "value": "download",
@@ -7699,22 +7691,18 @@
     "description": ""
   },
   "u-textarea/maxlength": {
-    "type": "number",
-    "description": ""
+    "type": "string, number",
+    "description": "输入框内可输入的最大字符数，超过时不支持输入"
+  },
+  "u-textarea/show-word-limit": {
+    "type": "boolean",
+    "description": "设置是否显示「可输入最大字符数」的字数统计"
   },
   "u-textarea/spellcheck": {
     "type": "boolean",
     "description": ""
   },
   "u-textarea/autofocus": {
-    "type": "boolean",
-    "description": ""
-  },
-  "u-textarea/readonly": {
-    "type": "boolean",
-    "description": ""
-  },
-  "u-textarea/disabled": {
     "type": "boolean",
     "description": ""
   },
@@ -7766,6 +7754,18 @@
     ],
     "description": "是否可以调整大小"
   },
+  "u-textarea/autosize": {
+    "type": "boolean, object",
+    "description": "可输入如{maxHeight:100,minHeight:50}，单位默认为px"
+  },
+  "u-textarea/readonly": {
+    "type": "boolean",
+    "description": ""
+  },
+  "u-textarea/disabled": {
+    "type": "boolean",
+    "description": ""
+  },
   "u-time-picker/time": {
     "type": "string",
     "description": "默认显示的时间值，格式如08:08:08"
@@ -7814,15 +7814,15 @@
   },
   "u-time-picker/showRightNowButton": {
     "type": "boolean",
-    "description": ""
+    "description": "快捷选择当前时间"
   },
   "u-time-picker/rightNowTitle": {
     "type": "string",
-    "description": "快捷选择当前时间"
+    "description": ""
   },
   "u-time-picker/showFooterButton": {
     "type": "boolean",
-    "description": ""
+    "description": "控制弹出层的开启与关闭"
   },
   "u-time-picker/cancelTitle": {
     "type": "string",
@@ -7957,7 +7957,7 @@
   },
   "u-timeline/pending": {
     "type": "boolean",
-    "description": "是否指定最后一个节点为幽灵节点"
+    "description": "待定节点连接线为虚线展示，用于表示即将发生或者正在进行的节点"
   },
   "u-timeline-item/color": {
     "type": "string",
@@ -8077,10 +8077,6 @@
         "title": "页面跳转"
       },
       {
-        "value": "href",
-        "title": "普通链接"
-      },
-      {
         "value": "download",
         "title": "下载链接"
       }
@@ -8113,7 +8109,7 @@
         "advanced": true
       }
     ],
-    "description": "链接打开方式"
+    "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。"
   },
   "u-toc-item/disabled": {
     "type": "boolean",
@@ -8535,7 +8531,7 @@
   },
   "u-uploader/accept": {
     "type": "string",
-    "description": ""
+    "description": "若要限制上传文件类型，请输入类型名称，格式为“.后缀名”，多个文件类型时使用英文逗号隔开。例如“.jpeg,.png,.gif”"
   },
   "u-uploader/headers": {
     "type": "Object",
@@ -8555,7 +8551,37 @@
   },
   "u-uploader/open-cropper": {
     "type": "boolean",
-    "description": "设置是否开启图片裁剪，只对单文件的卡片列表有效"
+    "description": "设置是否开启图片裁剪，只对单文件上传有效"
+  },
+  "u-uploader/fixedCropper": {
+    "type": "boolean",
+    "description": "设置是否固定裁剪框比例"
+  },
+  "u-uploader/cropperBoxWidth": {
+    "type": "number",
+    "description": "设置裁剪框宽度"
+  },
+  "u-uploader/cropperBoxHeight": {
+    "type": "number",
+    "description": "设置裁剪框高度"
+  },
+  "u-uploader/cropperTitle": {
+    "type": "string",
+    "description": "设置裁剪框标题"
+  },
+  "u-uploader/cropperPreviewShape": {
+    "type": "string",
+    "options": [
+      {
+        "title": "正方形",
+        "value": "square"
+      },
+      {
+        "title": "圆形",
+        "value": "circle"
+      }
+    ],
+    "description": "设置裁剪框预览形状"
   },
   "u-uploader/data-type": {
     "type": "string",
@@ -8740,7 +8766,21 @@
         "title": "全局body"
       }
     ],
-    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中"
+    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。当父级有overflow:hidden而又想展示出错信息，可以设置为body"
+  },
+  "u-validator/placement": {
+    "type": "string",
+    "options": [
+      {
+        "value": "right",
+        "title": "提示信息在右侧显示"
+      },
+      {
+        "value": "bottom",
+        "title": "提示信息在底部显示"
+      }
+    ],
+    "description": "改变提示信息显示位置"
   },
   "l-page-center/size": {
     "type": "string",

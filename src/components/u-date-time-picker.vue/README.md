@@ -131,9 +131,9 @@ export default {
 | clearable | boolean |  |  | 输入框输入内容支持一键清除 |
 | disabled | boolean |  | `false` |  |
 | readonly | boolean |  | `false` |  |
-| showRightNowButton | boolean |  | `true` |  |
-| rightNowTitle | string |  | `''` | 快捷选择当前时间 |
-| showFooterButton | boolean |  | `true` |  |
+| showRightNowButton | boolean |  | `true` | 快捷选择当前时间 |
+| rightNowTitle | string |  | `''` |  |
+| showFooterButton | boolean |  | `true` | 控制弹出层的开启与关闭 |
 | cancelTitle | string |  | `''` |  |
 | okTitle | string |  | `''` |  |
 | yearDiff | number |  | `20` | 最小可选年份值为当前年减去此值 |

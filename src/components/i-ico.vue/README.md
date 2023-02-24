@@ -69,9 +69,9 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | name | icon |  | `''` |  |
 | icotype | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'top'` | 图标类型 |
-| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` |  |
+| linkType | string | `[object Object]`<br/>`[object Object]` | `'destination'` |  |
 | hrefAndTo | string |  |  |  |
-| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 链接打开方式 |
+| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。 |
 
 ### Events
 

@@ -4,7 +4,9 @@
 
 - [示例](#示例)
     - [基本用法](#基本用法)
+    - [动态数据渲染](#动态数据渲染)
     - [路由](#路由)
+    - [默认显示和可关闭](#默认显示和可关闭)
     - [外观](#外观)
     - [禁用状态](#禁用状态)
     - [可关闭](#可关闭)
@@ -14,6 +16,7 @@
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
     - [Events](#events)
+    - [Methods](#methods)
 - [UTab API](#utab-api)
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
@@ -35,6 +38,63 @@
 </u-tabs>
 ```
 
+### 动态数据渲染
+
+```vue
+<template>
+    <div>
+        <u-tabs :value.sync="value"
+                :dataSource="tabList"
+                titleField="title"
+                valueField="value"
+                contentField="contentUrl"
+                closableField="closable"
+                showScrollButtons='auto'
+                router>
+        </u-tabs>
+        <u-button size="small" slot="extra" @click="addValue">value+1</u-button>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return { 
+            value: 1,
+            tabList: [{
+                title: '标签页 1',
+                value: '1',
+                contentUrl: '/components/u-tabs',
+                closable: true,
+            }, {
+                title: '标签页 2',
+                value: '2',
+                contentUrl: '/components/u-tabs#路由',
+                closable: false,
+            }, {
+                title: '标签页 3',
+                value: '3',
+                contentUrl: '/components/u-tabs#默认显示和可关闭',
+                closable: true,
+            }] 
+        };
+    },
+    methods: {
+        addTab() {
+            this.tabList.push({
+                title: '标签页',
+                value: this.tabList.length + 1,
+                contentUrl: '/components/u-tabs',
+                closable: true,
+            });
+        },
+        addValue() {
+            this.value = this.value + 1;
+        },
+    },
+};
+</script>
+```
+
 ### 路由
 
 ``` html
@@ -45,6 +105,15 @@
 </u-tabs>
 ```
 
+### 默认显示和可关闭 
+
+``` html
+<u-tabs appear="square">
+    <u-tab title="模板" closable>模板内容</u-tab>
+    <u-tab title="样式" :showTabItem=false>样式内容</u-tab>
+    <u-tab title="逻辑">逻辑内容</u-tab>
+</u-tabs>
+```
 ### 外观
 
 #### 方形卡片（默认）
@@ -184,8 +253,14 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| data-source | Array\<Item\> \| Function \| Object |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
+| data-schema | schema |  |  | 集合类型每一元素的数据类型 |
+| title-field | string |  | `'title'` | 数据源集合的元素，用于显示标签标题的属性 |
+| value-field | string |  | `'value'` | 数据源集合的元素，用于标识标签值的属性 |
+| content-field | string |  | `'content'` | 数据源集合的元素，用于标识当前打开的标签项 |
+| closable-field | string |  | `'closable'` | 数据源集合的元素，用于标识标签是否可关闭的属性 |
+| value.sync, v-model | any |  |  | 指当前打开标签的标签项 |
 | router | boolean |  | `false` | 是否根据 vue-router 来控制选择哪个标签页 |
-| value.sync, v-model | any |  |  |  |
 | readonly | boolean |  | `false` |  |
 | disabled | boolean |  | `false` |  |
 | closable | boolean |  | `false` | 是否可以关闭 |
@@ -269,6 +344,15 @@ export default {
 | $event.preventDefault | Function | 阻止关闭后自动选择页的流程 |
 | senderVM | UTabs | 发送事件实例 |
 
+Methods
+
+#### reload()
+
+重新加载数据
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+
 ## UTab API
 ### Props/Attrs
 
@@ -277,7 +361,9 @@ export default {
 | title | string |  |  | 标签页标题。 |
 | value | any |  |  | 标签页的值。 |
 | disabled | boolean |  | `false` | 是否禁用此标签页。 |
-| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
+| closable | boolean |  | `false` | 控制是否可手动关闭标签。 |
+| showTabItem | boolean |  | `true` | 控制标签项是否默认显示。 |
+| linkType | string | `[object Object]`<br/>`[object Object]` | `'destination'` | 链接类型 |
 | href | string |  |  | 链接地址 |
 | hrefAndTo | string |  |  | 链接地址 |
 | target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 打开方式 |

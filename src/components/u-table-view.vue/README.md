@@ -2230,9 +2230,9 @@ export default {
 | loading | boolean |  |  | 手动设置是否正在加载中 |
 | loading-text | string |  | `'正在加载中'` | 正在加载中的文字 |
 | error | boolean |  |  | 手动设置是否加载失败 |
-| error-image | image |  | `''` | 加载失败或数据为空时显示的图片 |
 | error-text | string |  | `'加载失败，请重试'` |  |
 | empty-text | string |  | `'暂无数据'` |  |
+| error-image | image |  | `''` | 加载失败或数据为空时显示的图片 |
 | value-field | string |  |  | 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段 |
 | value.sync, v-model | any |  |  | 单项选择的值 |
 | values.sync | Array |  |  | 多项选择的值 |
@@ -2465,8 +2465,7 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | object | 被拖拽行相关对象 |
-| $event.item | object | 被拖拽行相关对象 |
-| $event.rowIndex | number | 被拖拽行的索引 |
+| $event.source | object | 被拖拽行相关对象 |
 
 #### @dragover
 
@@ -2475,12 +2474,7 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | object | 拖拽经过的行相关对象 |
-| $event.item | object | 拖拽经过的行相关对象 |
-| $event.rowIndex | number | 拖拽经过的行的索引 |
-
-#### @dragend
-
-拖拽结束时触发
+| $event.target | object | 拖拽经过的行相关对象 |
 
 #### @drop
 
@@ -2491,8 +2485,9 @@ export default {
 | $event | object | 拖拽放置的相关对象 |
 | $event.source | object | 被拖拽行相关对象 |
 | $event.target | object | 拖拽放置行相关对象 |
-| $event.position | string | 拖拽放置的位置 |
-| $event.list | array | 整个列表数据 |
+| $event.position | number | 拖拽放置的位置 |
+| $event.finalSource | object | 被拖拽行相关对象 |
+| $event.updateData | object | 需要更新的数据 |
 
 Methods
 

@@ -5,7 +5,8 @@
 - [示例](#示例)
     - [基本用法](#基本用法)
     - [基本用法simple](#基本用法simple)
-    - [开启图片编辑(只支持list-type为card类型的单文件上传)](#开启图片编辑只支持list-type为card类型的单文件上传)
+    - [开启图片编辑(只支持单文件上传)](#开启图片编辑只支持单文件上传)
+    - [图片编辑器自定义(只支持单文件上传)](#图片编辑器自定义只支持单文件上传)
     - [多文件上传](#多文件上传)
     - [多文件上传simple](#多文件上传simple)
     - [列表类型](#列表类型)
@@ -65,15 +66,20 @@ export default {
 }
 </script>
 ```
-### 开启图片编辑(只支持list-type为card类型的单文件上传)
+### 开启图片编辑(只支持单文件上传)
 
 下面的例子为单文件上传。
 
 ```vue
 <template>
-<u-uploader v-model="files" converter="simple" list-type="card" url="/gateway/lowcode/api/v1/app/upload" :openCropper="true">
-    <u-button color="primary">Upload</u-button>
-</u-uploader>
+    <div>
+    <u-uploader v-model="files" converter="simple" list-type="card" url="/gateway/lowcode/api/v1/app/upload" :openCropper="true">
+        <u-button color="primary">Upload</u-button>
+    </u-uploader>
+    <u-uploader converter="simple" url="/gateway/lowcode/api/v1/app/upload" :openCropper="true" :showErrorMessage="false" :showFileList="false">
+        <u-button color="primary">Upload</u-button>
+    </u-uploader>
+    </div>
 </template>
 <script>
 export default {
@@ -85,6 +91,36 @@ export default {
 }
 </script>
 ```
+### 图片编辑器自定义(只支持单文件上传)
+```vue
+<template>
+    <div>
+    <u-uploader v-model="files" 
+                converter="simple" 
+                list-type="card" 
+                url="/gateway/lowcode/api/v1/app/upload" 
+                :openCropper="true"
+                :fixedCropper="true"
+                :cropperBoxWidth="150"
+                :cropperBoxHeight="250"
+                cropperTitle="头像裁剪"
+                cropperPreviewShape="square"
+    >
+        <u-button color="primary">Upload</u-button>
+    </u-uploader>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: "",
+        };
+    },
+}
+</script>
+```
+
 ### 多文件上传
 
 设置`multiple`可以选择多个文件，通过`value`属性可以设置已上传的文件。
@@ -356,12 +392,17 @@ export default {
 | value.sync, v-model | Array |  | `'\[\]'` | 当前文件列表 |
 | url | string |  |  | 上传的 URL 地址 |
 | name | string |  | `'file'` | 上传的文件字段名，后端需要这个字段获取 |
-| accept | string |  |  |  |
+| accept | string |  |  | 若要限制上传文件类型，请输入类型名称，格式为“.后缀名”，多个文件类型时使用英文逗号隔开。例如“.jpeg,.png,.gif” |
 | headers | Object |  |  |  |
 | with-credentials | boolean |  | `false` | 通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略 |
 | multiple | boolean |  | `false` |  |
 | multiple-once | boolean |  | `false` | 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件 |
-| open-cropper | boolean |  | `false` | 设置是否开启图片裁剪，只对单文件的卡片列表有效 |
+| open-cropper | boolean |  | `false` | 设置是否开启图片裁剪，只对单文件上传有效 |
+| fixedCropper | boolean |  | `false` | 设置是否固定裁剪框比例 |
+| cropperBoxWidth | number |  | `200` | 设置裁剪框宽度 |
+| cropperBoxHeight | number |  | `200` | 设置裁剪框高度 |
+| cropperTitle | string |  | `'图片裁剪'` | 设置裁剪框标题 |
+| cropperPreviewShape | string | `[object Object]`<br/>`[object Object]` | `'circle'` | 设置裁剪框预览形状 |
 | data-type | string |  | `'json'` | 接收数据类型。可选值：`text`、`xml`、`json` |
 | data | object |  |  |  |
 | limit | number |  |  |  |

@@ -181,7 +181,7 @@
 | data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 数据源 |
 | data-schema | schema |  |  | 数据类型 |
 | mode | string | `[object Object]`<br/>`[object Object]` | `'default'` | undefined |
-| pending | boolean |  | `false` | 是否指定最后一个节点为幽灵节点 |
+| pending | boolean |  | `false` | 待定节点连接线为虚线展示，用于表示即将发生或者正在进行的节点 |
 
 ### Slots
 

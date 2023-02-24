@@ -507,7 +507,7 @@ Methods
 | muted | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 验证是否静默 |
 | description | string |  |  | 添加描述内容 |
 | placement | string | `[object Object]`<br/>`[object Object]` | `'right'` | 改变提示信息显示位置 |
-| layout | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'block'` | 标签与表单元素的纵轴对齐方式，默认为顶对齐 |
+| layout | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'center'` | 标签与表单元素的纵轴对齐方式，默认为顶对齐 |
 | rules | string \| Array |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
 | ignore-validation | boolean |  | `false` | 忽略验证 |
 | ignore-rules | boolean |  | `false` | 忽略验证规则。已废弃，同`ignore-validation` |

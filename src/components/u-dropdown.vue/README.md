@@ -129,9 +129,9 @@
 | text | string |  |  | 显示文本内容 |
 | disabled | boolean |  | `false` |  |
 | icon | icon |  | `''` |  |
-| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
+| linkType | string | `[object Object]`<br/>`[object Object]` | `'destination'` | 链接类型 |
 | hrefAndTo | string |  |  | 链接地址 |
-| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 链接打开方式 |
+| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。 |
 | to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 
 ### Events

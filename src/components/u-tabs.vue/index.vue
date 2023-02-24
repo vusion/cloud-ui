@@ -98,8 +98,8 @@ import { scrollTo } from '../../utils/dom';
 import SEmpty from '../s-empty.vue';
 import SupportDataSource  from '../../mixins/support.datasource.js';
 import UTab from './tab.vue';
-import URouterView from '@/components/u-router-view.vue';
-import dataSource from '@/utils/DataSource';
+import URouterView from '../../components/u-router-view.vue';
+import dataSource from '../../utils/DataSource';
 
 export default {
     name: 'u-tabs',

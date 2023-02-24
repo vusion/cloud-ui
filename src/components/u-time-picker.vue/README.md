@@ -115,9 +115,9 @@ export default {
 | disabled | boolean |  | `false` |  |
 | visible | boolean |  | `true` | 是否显示 |
 | clearable | boolean |  | `true` | 开启并在输入框有内容时会显示清除按钮 |
-| showRightNowButton | boolean |  | `true` |  |
-| rightNowTitle | string |  | `''` | 快捷选择当前时间 |
-| showFooterButton | boolean |  | `true` |  |
+| showRightNowButton | boolean |  | `true` | 快捷选择当前时间 |
+| rightNowTitle | string |  | `''` |  |
+| showFooterButton | boolean |  | `true` | 控制弹出层的开启与关闭 |
 | cancelTitle | string |  | `''` |  |
 | okTitle | string |  | `''` |  |
 | preIcon | string | `[object Object]` | `'time'` |  |
