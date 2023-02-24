@@ -57,6 +57,8 @@ export default {
             this.startWidth = size.width;
             this.startHeight = size.height;
             this.canAuto = false;
+            const { input } = this.$refs;
+            input.style.height = null;
         },
         onDrag($event) {
             if (this.resize === 'horizontal' || this.resize === 'both')
@@ -94,7 +96,6 @@ export default {
             const { input } = this.$refs;
             input.style.height = 'auto';
             let height = input.scrollHeight;
-
             if (this.isObject(this.autosize || input.autosize)) {
                 const { maxHeight, minHeight } = this.autosize || input.autosize;
                 if (maxHeight) {
