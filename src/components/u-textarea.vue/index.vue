@@ -85,12 +85,6 @@ export default {
                 inputEl.style.height = '';
             }
         },
-        onBlur() {
-            this.$nextTick(this.adjustSize);
-        },
-        onFocus() {
-            this.$nextTick(this.adjustSize);
-        },
         isObject(val) {
             return val !== null && typeof val === 'object';
         },
