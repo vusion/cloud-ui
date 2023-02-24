@@ -51,14 +51,12 @@ export default {
             this.$nextTick(this.adjustSize);
         },
     },
-    mounted() {
-        this.$nextTick(this.adjustSize);
-    },
     methods: {
         onDragStart() {
             const size = getSize(this.$el);
             this.startWidth = size.width;
             this.startHeight = size.height;
+            this.canAuto = false;
         },
         onDrag($event) {
             if (this.resize === 'horizontal' || this.resize === 'both')
@@ -85,7 +83,6 @@ export default {
                         + (this.$el.offsetHeight - this.$el.clientHeight)
                         + 'px';
                 inputEl.style.height = '';
-                this.canAuto = false;
             }
         },
         onBlur() {
