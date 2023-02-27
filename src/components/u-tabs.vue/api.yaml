@@ -49,10 +49,10 @@
       description: 指当前打开标签的标签项
       group: 数据属性
     - name: router
-      title: 绑定路由
+      title: 路由模式
       type: boolean
       default: false
-      description: 是否根据 vue-router 来控制选择哪个标签页
+      description: 开启后，选项卡可设置跳转页面
     - name: readonly
       title: 只读
       type: boolean
