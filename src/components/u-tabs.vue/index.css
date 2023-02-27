@@ -269,8 +269,8 @@
 }
 
 .close {
-    position: relative;
-    right: -5px;
+    position: absolute;
+    right: 10px;
     color: var(--color-light);
 }
 
