@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root">
-    <div v-if="draggable && !readonly" :class="$style.draggable" :dragover="dragover" @click="select()"
+    <div v-if="draggable && (!readonly || $env.VUE_APP_DESIGNER)" :class="$style.draggable" :dragover="dragover" @click="select()"
         :tabindex="readonly || disabled ? '' : 0"
         @drop.prevent="onDrop"
         @paste="onPaste"
@@ -12,7 +12,7 @@
             <slot></slot>
         </div>
     </div>
-    <div v-else-if="listType !== 'card' && !readonly" :class="$style.select" @click="select()"
+    <div v-else-if="listType !== 'card' && (!readonly || $env.VUE_APP_DESIGNER)" :class="$style.select" @click="select()"
         vusion-slot-name="default"
         :vusion-empty-background="$env.VUE_APP_DESIGNER && !$slots.default ? 'add-any' : false">
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
