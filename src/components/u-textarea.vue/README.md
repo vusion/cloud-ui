@@ -126,7 +126,7 @@ export default {
 | clearable | boolean |  | `false` | 是否可清空。开启并在输入框有内容时会显示清空按钮。 |
 | placeholder | string |  |  | 为空时的提示文本 |
 | minlength | number |  |  |  |
-| maxlength | string, number |  |  | 输入框内可输入的最大字符数，超过时不支持输入 |
+| maxlength | number |  |  | 输入框内可输入的最大字符数，超过时不支持输入 |
 | show-word-limit | boolean |  |  | 设置是否显示「可输入最大字符数」的字数统计 |
 | spellcheck | boolean |  |  |  |
 | autofocus | boolean |  | `false` |  |
