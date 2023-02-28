@@ -651,7 +651,7 @@
                     "display": "capsules",
                     "bindHide": true,
                     "description": "设置布局模式",
-                    "tooltipLink": "http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/01.%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html",
+                    "tooltipLink": "http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html",
                     "options": [
                         {
                             "value": "inline",
@@ -1342,7 +1342,7 @@
                             "display": "capsules",
                             "bindHide": true,
                             "description": "设置布局模式",
-                            "tooltipLink": "http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/01.%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html",
+                            "tooltipLink": "http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html",
                             "options": [
                                 {
                                     "value": "inline",
@@ -2122,7 +2122,7 @@
                             "display": "capsules",
                             "bindHide": true,
                             "description": "设置布局模式",
-                            "tooltipLink": "http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/01.%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/040.%E5%88%86%E6%A0%8F%E5%B8%83%E5%B1%80.html",
+                            "tooltipLink": "http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/040.%E5%88%86%E6%A0%8F%E5%B8%83%E5%B1%80.html",
                             "options": [
                                 {
                                     "value": "inline",
@@ -2648,7 +2648,7 @@
                                 }
                             ],
                             "default": "_self",
-                            "description": "链接打开方式"
+                            "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。"
                         },
                         {
                             "name": "replace",
@@ -4410,7 +4410,7 @@
                                 }
                             ],
                             "default": "_self",
-                            "description": "链接打开方式"
+                            "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。"
                         },
                         {
                             "name": "to",
@@ -4658,7 +4658,7 @@
                                 }
                             ],
                             "default": "_self",
-                            "description": "链接打开方式",
+                            "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。",
                             "group": "交互属性"
                         },
                         {
@@ -5109,7 +5109,7 @@
                         }
                     ],
                     "default": "_self",
-                    "description": "链接打开方式"
+                    "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。"
                 },
                 {
                     "name": "to",
@@ -5508,7 +5508,7 @@
                         }
                     ],
                     "default": "_self",
-                    "description": "链接打开方式"
+                    "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。"
                 },
                 {
                     "name": "to",
@@ -5722,7 +5722,7 @@
                     "options": [
                         {
                             "value": "_blank",
-                            "title": "新标签页"
+                            "title": "新窗口"
                         },
                         {
                             "value": "_self",
@@ -5740,7 +5740,7 @@
                         }
                     ],
                     "default": "_self",
-                    "description": "链接打开方式"
+                    "description": "父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。"
                 }
             ],
             "slots": false,
@@ -12465,7 +12465,8 @@
                 {
                     "name": "maxlength",
                     "title": "可输入最大字符数",
-                    "type": "string, number",
+                    "type": "number",
+                    "display": "number",
                     "place": "不限制",
                     "description": "输入框内可输入的最大字符数，超过时不支持输入",
                     "toggleupdate": [
@@ -15763,7 +15764,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-uploader.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-uploader.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-uploader.vue/screenshots/2.png",
-        "blocks": "[{\"title\":\"单个文件按钮\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader display=\\\"inline\\\"\\n    url=\\\"/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多图片按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n</u-uploader>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"单个文件按钮\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader display=\\\"inline\\\"\\n    url=\\\"/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\".png,.jpg,.jpeg,.gif,.bmp\\\"\\n    url=\\\"/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多图片按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\".png,.jpg,.jpeg,.gif,.bmp\\\"\\n    url=\\\"/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n</u-uploader>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-uploader",
             "title": "文件上传",
@@ -15780,12 +15781,12 @@
                 {
                     "title": "单文件卡片",
                     "description": "不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\n",
-                    "code": "<template>\n<u-uploader list-type=\"card\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/upload\" url-field=\"result\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader list-type=\"card\"\n    accept=\".png,.jpg,.jpeg,.gif,.bmp\"\n    url=\"/upload\" url-field=\"result\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n</u-uploader>\n</template>\n"
                 },
                 {
                     "title": "多图片按钮",
                     "description": "",
-                    "code": "<template>\n<u-uploader multiple list-type=\"image\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/upload\" url-field=\"result\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\" icon=\"upload\">上传</u-button>\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader multiple list-type=\"image\"\n    accept=\".png,.jpg,.jpeg,.gif,.bmp\"\n    url=\"/upload\" url-field=\"result\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\" icon=\"upload\">上传</u-button>\n</u-uploader>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -15815,7 +15816,7 @@
                 },
                 {
                     "name": "accept",
-                    "title": "接受的上传类型",
+                    "title": "支持上传的文件类型",
                     "type": "string",
                     "place": "所有类型",
                     "description": "若要限制上传文件类型，请输入类型名称，格式为“.后缀名”，多个文件类型时使用英文逗号隔开。例如“.jpeg,.png,.gif”",
@@ -15857,35 +15858,28 @@
                 },
                 {
                     "name": "fixedCropper",
-                    "title": "固定裁剪框比例",
+                    "title": "固定图片裁剪框大小",
                     "type": "boolean",
                     "default": false,
-                    "description": "设置是否固定裁剪框比例"
+                    "description": "设置是否固定裁剪框大小"
                 },
                 {
                     "name": "cropperBoxWidth",
-                    "title": "裁剪框宽度",
+                    "title": "图片裁剪框宽度",
                     "type": "number",
                     "default": 200,
                     "description": "设置裁剪框宽度"
                 },
                 {
                     "name": "cropperBoxHeight",
-                    "title": "裁剪框高度",
+                    "title": "图片裁剪框高度",
                     "type": "number",
                     "default": 200,
                     "description": "设置裁剪框高度"
                 },
                 {
-                    "name": "cropperTitle",
-                    "title": "裁剪框标题",
-                    "type": "string",
-                    "default": "图片裁剪",
-                    "description": "设置裁剪框标题"
-                },
-                {
                     "name": "cropperPreviewShape",
-                    "title": "裁剪框预览形状",
+                    "title": "图片裁剪框预览形状",
                     "type": "string",
                     "options": [
                         {
@@ -15899,6 +15893,13 @@
                     ],
                     "default": "circle",
                     "description": "设置裁剪框预览形状"
+                },
+                {
+                    "name": "cropperTitle",
+                    "title": "图片裁剪框标题",
+                    "type": "string",
+                    "default": "图片裁剪",
+                    "description": "设置裁剪框标题"
                 },
                 {
                     "name": "data-type",
@@ -16637,7 +16638,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.27/src/components/u-tabs.vue/screenshots/6.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs value=\\\"B\\\">\\n    <u-tab value=\\\"A\\\"><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab value=\\\"B\\\"><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab value=\\\"C\\\"><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"square\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-圆形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"round\\\" size=\\\"small\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-线条导航\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"line\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-胶囊导航\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"capsule\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-文本形态\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"text\\\" size=\\\"mini\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"动态数据源\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs router :data-source=\\\"[{}]\\\"></u-tabs>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs value=\\\"B\\\">\\n    <u-tab value=\\\"A\\\"><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab value=\\\"B\\\"><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab value=\\\"C\\\"><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"动态数据源\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs router :data-source=\\\"[{}]\\\"></u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"square\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-圆形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"round\\\" size=\\\"small\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-线条导航\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"line\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-胶囊导航\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"capsule\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-文本形态\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"text\\\" size=\\\"mini\\\">\\n    <u-tab><template #title><u-text text=\\\"选项卡A\\\"></u-text></template>选项卡 A 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡B\\\"></u-text></template>选项卡 B 的内容</u-tab>\\n    <u-tab><template #title><u-text text=\\\"选项卡C\\\"></u-text></template>选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-tabs",
             "title": "选项卡",
@@ -16650,6 +16651,11 @@
                     "title": "基本用法",
                     "description": "",
                     "code": "<template>\n<u-tabs value=\"B\">\n    <u-tab value=\"A\"><template #title><u-text text=\"选项卡A\"></u-text></template>选项卡 A 的内容</u-tab>\n    <u-tab value=\"B\"><template #title><u-text text=\"选项卡B\"></u-text></template>选项卡 B 的内容</u-tab>\n    <u-tab value=\"C\"><template #title><u-text text=\"选项卡C\"></u-text></template>选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
+                },
+                {
+                    "title": "动态数据源",
+                    "description": "",
+                    "code": "<template>\n<u-tabs router :data-source=\"[{}]\"></u-tabs>\n</template>\n"
                 },
                 {
                     "title": "外观-方形卡片（默认）",
@@ -16675,11 +16681,6 @@
                     "title": "外观-文本形态",
                     "description": "",
                     "code": "<template>\n<u-tabs appear=\"text\" size=\"mini\">\n    <u-tab><template #title><u-text text=\"选项卡A\"></u-text></template>选项卡 A 的内容</u-tab>\n    <u-tab><template #title><u-text text=\"选项卡B\"></u-text></template>选项卡 B 的内容</u-tab>\n    <u-tab><template #title><u-text text=\"选项卡C\"></u-text></template>选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
-                },
-                {
-                    "title": "动态数据源",
-                    "description": "",
-                    "code": "<template>\n<u-tabs router :data-source=\"[{}]\"></u-tabs>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -16742,10 +16743,10 @@
                 },
                 {
                     "name": "router",
-                    "title": "绑定路由",
+                    "title": "路由模式",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否根据 vue-router 来控制选择哪个标签页"
+                    "description": "开启后，选项卡可设置跳转页面"
                 },
                 {
                     "name": "readonly",
@@ -17097,18 +17098,18 @@
                             "description": "是否禁用此标签页。"
                         },
                         {
+                            "name": "showTabItem",
+                            "title": "默认显示",
+                            "type": "boolean",
+                            "default": true,
+                            "description": "控制标签项是否默认显示。"
+                        },
+                        {
                             "name": "closable",
                             "title": "可关闭",
                             "type": "boolean",
                             "default": false,
                             "description": "控制是否可手动关闭标签。"
-                        },
-                        {
-                            "name": "showTabItem",
-                            "title": "是否默认显示",
-                            "type": "boolean",
-                            "default": true,
-                            "description": "控制标签项是否默认显示。"
                         },
                         {
                             "name": "linkType",

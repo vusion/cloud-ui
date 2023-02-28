@@ -7400,7 +7400,7 @@
   },
   "u-tabs/router": {
     "type": "boolean",
-    "description": "是否根据 vue-router 来控制选择哪个标签页"
+    "description": "开启后，选项卡可设置跳转页面"
   },
   "u-tabs/readonly": {
     "type": "boolean",
@@ -7691,7 +7691,7 @@
     "description": ""
   },
   "u-textarea/maxlength": {
-    "type": "string, number",
+    "type": "number",
     "description": "输入框内可输入的最大字符数，超过时不支持输入"
   },
   "u-textarea/show-word-limit": {
