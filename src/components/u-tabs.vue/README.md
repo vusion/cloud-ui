@@ -260,7 +260,7 @@ export default {
 | content-field | string |  | `'content'` | 数据源集合的元素，用于标识当前打开的标签项 |
 | closable-field | string |  | `'closable'` | 数据源集合的元素，用于标识标签是否可关闭的属性 |
 | value.sync, v-model | any |  |  | 指当前打开标签的标签项 |
-| router | boolean |  | `false` | 是否根据 vue-router 来控制选择哪个标签页 |
+| router | boolean |  | `false` | 开启后，选项卡可设置跳转页面 |
 | readonly | boolean |  | `false` |  |
 | disabled | boolean |  | `false` |  |
 | closable | boolean |  | `false` | 是否可以关闭 |

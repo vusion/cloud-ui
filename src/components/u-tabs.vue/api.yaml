@@ -266,16 +266,16 @@
       type: boolean
       default: false
       description: 是否禁用此标签页。
+    - name: showTabItem
+      title: 默认显示
+      type: boolean
+      default: true
+      description: 控制标签项是否默认显示。
     - name: closable
       title: 可关闭
       type: boolean
       default: false
       description: 控制是否可手动关闭标签。
-    - name: showTabItem
-      title: 是否默认显示
-      type: boolean
-      default: true
-      description: 控制标签项是否默认显示。
     - name: linkType
       title: 链接类型
       type: string
