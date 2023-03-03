@@ -111,7 +111,7 @@
       description: ""
       group: 样式属性
     - name: title
-      title: 列表标题
+      title: 头部标题
       type: string
       default: 列表
       description: ""

@@ -36,39 +36,46 @@
       compType: dataTypeSelect
     - name: start-key
       type: string
-      title: 数据内表示开始时间的字段
+      title: 开始时间字段
       default: startTime
       description: 数据内表示开始时间的字段
+      group: 数据属性
     - name: end-key
       type: string
-      title: 数据内表示结束时间的字段
+      title: 结束时间字段
       default: endTime
       description: 数据内表示结束时间的字段
+      group: 数据属性
     - name: show-week-days
       title: 展示周天
       type: boolean
       default: true
       description: ""
+      group: 样式属性
     - name: show-weeks
       title: 展示周数
       type: boolean
       default: false
       description: ""
+      group: 样式属性
     - name: show-basic
       title: 展示基础配置
       type: boolean
       default: true
       description: 是否展示顶部左侧的 "<" "今天" ">" 等基础配置功能
+      group: 样式属性
     - name: show-advance
       title: 展示高级配置
       type: boolean
       default: true
       description: 是否展示顶部右侧的年份、月份选项高级配置
+      group: 样式属性
     - name: first-day-of-week
       title: 首列星期
       type: number
       default: 1
       description: 填写数字1~7，分别表示周一~周日
+      group: 样式属性
   slots:
     - concept: Slot
       name: default
@@ -86,20 +93,50 @@
             typeKind: typeParam
             typeName: T
   events:
-    - name: change
-      title: 改变后
-      description: 日期改变时触发
-      params:
-        - name: cell
-          type: object
-          description: 改变后的日期以及相关数据
     - name: select
       title: 选择后
       description: 选择某一个日期时触发
       params:
-        - name: cell
+        - name: $event.value
+          type: string
+          description: YYYY-MM-DD 格式的日期信息
+        - name: $event.date
+          type: number
+          description: 当月的日期信息
+        - name: $event.timestamp
+          type: number
+          description: 时间戳格式日期信息
+        - name: $event.disabled
+          type: boolean
+          description: 是否禁用
+        - name: $event.week
+          type: number
+          description: 周数信息
+        - name: $event.Date
           type: object
-          description: 当前选择的日期以及相关数据
+          description: dayjs 封装过后的日期信息
+    - name: change
+      title: 改变后
+      description: 日期改变时触发
+      params:
+        - name: $event.value
+          type: string
+          description: YYYY-MM-DD 格式的日期信息
+        - name: $event.date
+          type: number
+          description: 当月的日期信息
+        - name: $event.timestamp
+          type: number
+          description: 时间戳格式日期信息
+        - name: $event.disabled
+          type: boolean
+          description: 是否禁用
+        - name: $event.week
+          type: number
+          description: 周数信息
+        - name: $event.Date
+          type: object
+          description: dayjs 封装过后的日期信息
   methods:
     - name: reload
       description: 重新加载
