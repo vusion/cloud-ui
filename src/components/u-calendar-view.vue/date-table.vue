@@ -134,9 +134,9 @@ export default {
             if (disabled)
                 return;
 
-            this.$emit('select', cell);
+            this.$emit('select', { ...cell, value: __key__ });
             if (__key__ !== this.selectedDateKey) {
-                this.$emit('change', cell);
+                this.$emit('change', { ...cell, value: __key__ });
             }
             const selectedDate = dayjs(__key__, DefaultFormatType);
             if (__type__ !== 'current') {
