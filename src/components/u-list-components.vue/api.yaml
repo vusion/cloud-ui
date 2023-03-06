@@ -9,21 +9,25 @@
       title: 数据源
       type: array
       description: 一个包含字符串或对象的数组
+      group: 数据属性
     - name: data-schema
       title: 数据类型
       type: schema
       description: 组件列表每一项的结构
       compType: dataTypeComsItem
+      group: 数据属性
     - name: colnum
       title: 每行排列项数
       type: number
       default: 5
       description: 为空时默认为5
+      group: 样式属性
     - name: equalWidth
       title: 是否均分宽度
       type: boolean
       default: true
       description: 是否均分宽度
+      group: 样式属性
   slots:
     - concept: Slot
       name: default
