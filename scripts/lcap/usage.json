@@ -10688,6 +10688,11 @@
             ],
             "methods": [
                 {
+                    "name": "load",
+                    "description": "加载",
+                    "params": []
+                },
+                {
                     "name": "reload",
                     "description": "重新加载",
                     "params": []
