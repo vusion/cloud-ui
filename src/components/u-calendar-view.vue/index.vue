@@ -94,7 +94,11 @@ export default {
     },
     data() {
         const date = dayjs();
-        const selectedDate = dayjs(this.value);
+        const selectedDate = getDay(this.value)
+            .hour(0)
+            .minute(0)
+            .second(0)
+            .millisecond(0);
         const fullMonths = [];
         const monthTexts = [
             this.$t('January'),
@@ -357,9 +361,11 @@ export default {
             }
             return [];
         },
+        async load() {
+            this.dataFromDataSource = await this.handleDataSource(this.dataSource);
+        },
         async reload() {
-            const dataFromDataSource = await this.handleDataSource(this.dataSource);
-            this.dataFromDataSource = dataFromDataSource;
+            this.dataFromDataSource = await this.handleDataSource(this.dataSource);
         },
     },
 };

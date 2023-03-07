@@ -144,6 +144,9 @@
           type: object
           description: dayjs 封装过后的日期信息
   methods:
+    - name: load
+      description: 加载
+      params: []
     - name: reload
       description: 重新加载
       params: []
