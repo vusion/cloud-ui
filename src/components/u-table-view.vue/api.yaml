@@ -869,11 +869,21 @@
           title: 拖拽标识列
       default: normal
       description: 支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序
+    - name: auto-index
+      title: 自动序号
+      type: boolean
+      default: false
+      description: 根据数据位置自动计算序号
+      dependency:
+        - type: index
     - name: start-index
       title: 起始序号
       type: number
       default: 1
       description: 序号列的起始序号
+      dependency:
+        - type: index
+          auto-index: false
     - name: dblclickHandler
       title: 双击处理函数
       type: Function

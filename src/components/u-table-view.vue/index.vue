@@ -163,7 +163,10 @@
                                         :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                                         :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
                                             <!-- type === 'index' -->
-                                            <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
+                                            <span v-if="columnVM.type === 'index'">
+                                                <template v-if="columnVM.autoIndex && (pageable === true || pageable === 'pagination') && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
+                                                <template v-else>{{ (columnVM.startIndex - 0) + rowIndex }}</template>
+                                            </span>
                                             <!-- type === 'radio' -->
                                             <span v-if="columnVM.type === 'radio'">
                                                 <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item)"></u-radio>
