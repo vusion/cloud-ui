@@ -7488,13 +7488,13 @@
     "type": "boolean",
     "description": "是否禁用此标签页。"
   },
-  "u-tab/closable": {
-    "type": "boolean",
-    "description": "控制是否可手动关闭标签。"
-  },
   "u-tab/showTabItem": {
     "type": "boolean",
     "description": "控制标签项是否默认显示。"
+  },
+  "u-tab/closable": {
+    "type": "boolean",
+    "description": "控制是否可手动关闭标签。"
   },
   "u-tab/linkType": {
     "type": "string",
@@ -8555,7 +8555,7 @@
   },
   "u-uploader/fixedCropper": {
     "type": "boolean",
-    "description": "设置是否固定裁剪框比例"
+    "description": "设置是否固定裁剪框大小"
   },
   "u-uploader/cropperBoxWidth": {
     "type": "number",
@@ -8564,10 +8564,6 @@
   "u-uploader/cropperBoxHeight": {
     "type": "number",
     "description": "设置裁剪框高度"
-  },
-  "u-uploader/cropperTitle": {
-    "type": "string",
-    "description": "设置裁剪框标题"
   },
   "u-uploader/cropperPreviewShape": {
     "type": "string",
@@ -8582,6 +8578,10 @@
       }
     ],
     "description": "设置裁剪框预览形状"
+  },
+  "u-uploader/cropperTitle": {
+    "type": "string",
+    "description": "设置裁剪框标题"
   },
   "u-uploader/data-type": {
     "type": "string",
