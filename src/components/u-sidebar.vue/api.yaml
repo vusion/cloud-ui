@@ -60,6 +60,37 @@
         - name: u-sidebar-divider
           title: 分隔线
           snippet: <u-sidebar-divider></u-sidebar-divider>
+  events:
+    - name: select
+      title: 选择后
+      description: 选择某一项后触发。
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
+        - name: $event.value
+          type: any
+          description: 改变后的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.item
+          type: object
+          description: 选择项相关对象
+        - name: $event.oldItem
+          type: object
+          description: 旧的选择项相关对象
+        - name: $event.itemVM
+          type: USidebarItem
+          description: 选择项子组件
+        - name: $event.oldVM
+          type: USidebarItem
+          description: 旧的选择项子组件
+        - name: senderVM
+          type: USidebar
+          description: 发送事件实例
   methods:
     - name: toggleAll
       description: 展开/折叠所有分组
@@ -148,9 +179,32 @@
       description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
       advanced: true
   events:
-    - name: click
-      title: 点击
-      description: 在元素上按下并释放任意鼠标按钮时触发。
+    - name: $listeners
+      kind: trigger
+      description: 监听所有`<a>`元素的事件。
+      params: []
+    - name: navigate
+      title: 切换路由后
+      advanced: true
+      description: 使用 router 相关属性切换路由后触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/NavigateEvent"
+        - name: $event.to
+          type: string, Location
+          description: "`to`属性的值"
+        - name: $event.replace
+          type: boolean
+          description: "`replace`属性的值"
+        - name: $event.append
+          type: boolean
+          description: "`append`属性的值"
+        - name: senderVM
+          type: UNavbarItemMulti
+          description: 发送事件实例
   description: 侧边栏项
 - name: u-sidebar-group
   title: 侧边栏分组

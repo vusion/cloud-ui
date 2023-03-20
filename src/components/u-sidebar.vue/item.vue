@@ -1,5 +1,6 @@
 <script>
 import { MSinglexItem } from '../m-singlex.vue';
+import ULink from '../u-link.vue';
 import { isElementInView } from '../../utils/dom';
 
 export default {
@@ -27,6 +28,23 @@ export default {
             }
             if (!isElementInView(this.$el, this.parentVM.$el, 'vertical'))
                 this.$nextTick(() => this.$el.scrollIntoView(false));
+        },
+        onClick(e) {
+            if (this.disabled || this.parentVM.readonly || this.parentVM.disabled)
+                return e.preventDefault();
+            ULink.methods.onClick.call(this, e);
+            if (this.parentVM.router) {
+                let cancel = false;
+                this.$emit('before-select', {
+                    value: this.value,
+                    item: this.item,
+                    itemVM: this,
+                    preventDefault: () => (cancel = true),
+                }, this);
+                if (cancel)
+                    return;
+                this.parentVM.select(this);
+            }
         },
     },
 };
