@@ -1,5 +1,5 @@
 <template>
-<a vusion-slot-name-edit="text" :class="[$style.root]"
+<a vusion-slot-name-edit="text" :class="$style.root"
     :href="currentHref" :target="target"
     :noDecoration="!decoration"
     :disabled="currentDisabled" :tabindex="currentDisabled ? -1 : 0"
@@ -7,7 +7,7 @@
     :loading="loading || $attrs.loading"
     :hoverType="hoverType"
     @click="onClick" v-on="listeners">
-    <i-ico v-if="icon" :name="icon" :class="$style.btnicon" notext></i-ico>
+    <i-ico v-if="icon" :name="icon" notext></i-ico>
     <slot>{{ text }}</slot>
 </a>
 </template>
@@ -54,9 +54,9 @@ export default {
                 res = encodeUrl(this.destination);
             else if (this.$router && this.to !== undefined)
                 res = encodeUrl(this.$router.resolve(this.to, this.$route, this.append).href);
-            
+
             // $formatMicroFrontRouterPath 定义在 lcap-pc-template
-            if(this.$formatMicroFrontRouterPath) 
+            if (this.$formatMicroFrontRouterPath)
                 res = this.$formatMicroFrontRouterPath(res);
 
             return res;
@@ -261,8 +261,5 @@ export default {
 .root:lang(en) {
     display: inline-block;
     max-width: 100%;
-}
-.btnicon {
-
 }
 </style>

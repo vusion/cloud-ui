@@ -17,10 +17,10 @@
         <u-multi-layout-item align-items="center" justify="end">
             <u-dropdown style="margin-right: 10px; color: inherit">
                 <template #title>
-                    <u-linear-layout gap="small" v-if="$global.userInfo">
+                    <u-linear-layout gap="small">
                         <u-image fit="cover" src="https://static-vusion.163yun.com/assets/avatar-default.svg" style="width: 36px; height: 36px; vertical-align: middle;"></u-image>
                         <span style="display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;">
-                            <u-text :text="$global.userInfo.UserName"></u-text>
+                            <u-text text="张三"></u-text>
                         </span>
                     </u-linear-layout>
                 </template>
