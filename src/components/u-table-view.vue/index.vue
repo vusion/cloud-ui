@@ -252,6 +252,12 @@
                     <tr key="loading" v-else-if="(currentData === undefined && !currentError) || currentLoading"><!-- 初次加载与加载更多 loading 合并在一起 -->
                         <td :class="$style.center" :colspan="visibleColumnVMs.length" vusion-slot-name="loading">
                             <slot name="loading"><u-spinner :class="$style.spinner"></u-spinner> {{ loadingText }}</slot>
+                            <s-empty v-if="$env.VUE_APP_DESIGNER
+                                && !$slots.loading
+                                && $scopedSlots
+                                && !($scopedSlots.loading && $scopedSlots.loading())
+                                && !!$attrs['vusion-node-path']">
+                            </s-empty>
                         </td>
                     </tr>
                     <tr key="error" v-else-if="currentData === null || currentError">
@@ -262,6 +268,12 @@
                                     {{ errorText }}
                                 </u-linear-layout>
                             </slot>
+                            <s-empty v-if="$env.VUE_APP_DESIGNER
+                                && !$slots.error
+                                && $scopedSlots
+                                && !($scopedSlots.error && $scopedSlots.error())
+                                && !!$attrs['vusion-node-path']">
+                            </s-empty>
                         </td>
                     </tr>
                     <tr key="loadMore" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
