@@ -65,6 +65,11 @@
         tempSrc[0]; return tempItem.url; } catch (e) { return src;}}
       description: 将传入的src转换为符合要求的字符串
       advanced: true
+    - name: preview
+      title: 点击放大
+      type: boolean
+      default: false
+      description: 是否支持点击放大全屏展示
   slots: false
   events:
     - name: load
