@@ -1667,8 +1667,8 @@ export default {
             }
         },
         getStyle(index, columnVM) {
-            const style = columnVM.$vnode.data && columnVM.$vnode.data.style || {};
-            const staticStyle = columnVM.$vnode.data && columnVM.$vnode.data.staticStyle || {};
+            const style = Object.assign({}, columnVM.$vnode.data && columnVM.$vnode.data.style);
+            const staticStyle = Object.assign({}, columnVM.$vnode.data && columnVM.$vnode.data.staticStyle);
             if (this.useStickyFixed) {
                 if (this.fixedLeftList && this.fixedLeftList.length) {
                     const left = this.fixedLeftList[index];
