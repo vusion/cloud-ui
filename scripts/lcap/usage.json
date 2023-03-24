@@ -1180,7 +1180,7 @@
                         {
                             "name": "u-grid-layout-row",
                             "title": "插入一行",
-                            "snippet": "<u-grid-layout-row><u-grid-layout-column :span=\"4\"></u-grid-layout-column><u-grid-layout-column :span=\"4\"></u-grid-layout-column><u-grid-layout-column :span=\"4\"></u-grid-layout-column></u-grid-layout-row>"
+                            "snippet": "<u-grid-layout-row :repeat=\"24\"><u-grid-layout-column :span=\"8\"></u-grid-layout-column><u-grid-layout-column :span=\"8\"></u-grid-layout-column><u-grid-layout-column :span=\"8\"></u-grid-layout-column></u-grid-layout-row>"
                         }
                     ]
                 }
@@ -6921,6 +6921,13 @@
                     "default": "(src) => {  try { const tempSrc = JSON.parse(src); const tempItem = tempSrc[0]; return tempItem.url; } catch (e) { return src;}}",
                     "description": "将传入的src转换为符合要求的字符串",
                     "advanced": true
+                },
+                {
+                    "name": "preview",
+                    "title": "点击放大",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否支持点击放大全屏展示"
                 }
             ],
             "slots": false,
@@ -7599,42 +7606,6 @@
                     "group": "数据属性"
                 },
                 {
-                    "name": "sorting",
-                    "title": "排序参数",
-                    "type": "{ field: string, order: string, compare: Function }",
-                    "sync": true,
-                    "default": "{ field: undefined, order: 'desc' }",
-                    "description": "当前排序的字段和顺序",
-                    "group": "数据属性"
-                },
-                {
-                    "name": "default-order",
-                    "title": "默认排序顺序",
-                    "type": "string",
-                    "options": [
-                        {
-                            "value": "asc",
-                            "title": "升序"
-                        },
-                        {
-                            "value": "desc",
-                            "title": "倒序"
-                        }
-                    ],
-                    "default": "asc",
-                    "description": "所有列首次点击时的排序顺序",
-                    "group": "数据属性"
-                },
-                {
-                    "name": "filtering",
-                    "title": "筛选参数",
-                    "type": "object",
-                    "sync": true,
-                    "description": "",
-                    "advanced": true,
-                    "group": "数据属性"
-                },
-                {
                     "name": "remote-paging",
                     "title": "后端分页",
                     "type": "boolean",
@@ -7648,6 +7619,61 @@
                     "type": "boolean",
                     "default": false,
                     "description": "是否使用后端排序",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "sorting",
+                    "title": "初始化排序规则",
+                    "type": "{ field: string, order: string, compare: Function }",
+                    "sync": true,
+                    "default": "{ field: undefined, order: 'desc' }",
+                    "description": "指数据初始化时的排序规则",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "fe-sorting",
+                    "title": "前端排序",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否使用前端排序",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "remote-sorting": false
+                        }
+                    ]
+                },
+                {
+                    "name": "default-order",
+                    "title": "开启排序交互的默认规则",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "asc",
+                            "title": "升序"
+                        },
+                        {
+                            "value": "desc",
+                            "title": "倒序"
+                        }
+                    ],
+                    "default": "asc",
+                    "description": "开启排序功能时，默认的排序规则",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "remote-sorting": false,
+                            "fe-sorting": true
+                        }
+                    ]
+                },
+                {
+                    "name": "filtering",
+                    "title": "筛选参数",
+                    "type": "object",
+                    "sync": true,
+                    "description": "",
+                    "advanced": true,
                     "group": "数据属性"
                 },
                 {
@@ -7765,16 +7791,14 @@
                     "title": "是否加载中",
                     "type": "boolean",
                     "description": "手动设置是否正在加载中",
-                    "advanced": true,
                     "group": "状态属性"
                 },
                 {
                     "name": "loading-text",
                     "title": "加载中文字",
                     "type": "string",
-                    "default": "正在加载中",
+                    "default": "正在加载中...",
                     "description": "正在加载中的文字",
-                    "advanced": true,
                     "group": "状态属性"
                 },
                 {
@@ -8085,6 +8109,16 @@
                         {
                             "name": "order",
                             "type": "string",
+                            "options": [
+                                {
+                                    "value": "asc",
+                                    "title": "升序"
+                                },
+                                {
+                                    "value": "desc",
+                                    "title": "降序"
+                                }
+                            ],
                             "description": "排序顺序，'asc' 或 'desc'",
                             "required": false,
                             "default": "tableView.params.order"

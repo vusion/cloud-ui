@@ -79,6 +79,12 @@
       default: false
       description: ""
       group: 数据属性
+    - name: remote-paging
+      title: 后端分页
+      type: boolean
+      default: false
+      description: 是否使用后端分页
+      group: 数据属性
     - name: remote-sorting
       title: 后端排序
       type: boolean
@@ -92,6 +98,14 @@
       default: "{ field: undefined, order: 'desc' }"
       description: 指数据初始化时的排序规则
       group: 数据属性
+    - name: fe-sorting
+      title: 前端排序
+      type: boolean
+      default: false
+      description: 是否使用前端排序
+      group: 数据属性
+      dependency:
+        - remote-sorting: false
     - name: default-order
       title: 开启排序交互的默认规则
       type: string
@@ -103,18 +117,15 @@
       default: asc
       description: 开启排序功能时，默认的排序规则
       group: 数据属性
+      dependency:
+        - remote-sorting: false
+          fe-sorting: true
     - name: filtering
       title: 筛选参数
       type: object
       sync: true
       description: ""
       advanced: true
-      group: 数据属性
-    - name: remote-paging
-      title: 后端分页
-      type: boolean
-      default: false
-      description: 是否使用后端分页
       group: 数据属性
     - name: remote-filtering
       title: 后端筛选
