@@ -36,6 +36,14 @@
       default: false
       description: ""
       group: 数据属性
+    - name: remote-paging
+      title: 后端分页
+      type: boolean
+      default: false
+      description: 是否使用后端分页
+      group: 数据属性
+      dependency:
+        - pageable: true
     - name: page-size
       title: 分页大小
       type: number
@@ -43,6 +51,8 @@
       default: 20
       description: ""
       group: 数据属性
+      dependency:
+        - pageable: true
     - name: page-number
       title: 当前页数
       type: number
@@ -52,6 +62,8 @@
       group: 数据属性
       schema:
         $ref: "#/basicTypes/Integer"
+      dependency:
+        - pageable: true
     - name: page-size-options
       title: 分页大小选项
       type: Array<number>
@@ -61,30 +73,32 @@
         - 50
       description: 分页大小的选项列表
       group: 数据属性
+      dependency:
+        - pageable: true
     - name: show-total
       title: 显示总条目数
       type: boolean
       default: false
       description: ""
       group: 数据属性
+      dependency:
+        - pageable: true
     - name: show-sizer
       title: 显示分页大小
       type: boolean
       default: false
       description: ""
       group: 数据属性
+      dependency:
+        - pageable: true
     - name: show-jumper
       title: 显示跳转输入
       type: boolean
       default: false
       description: ""
       group: 数据属性
-    - name: remote-paging
-      title: 后端分页
-      type: boolean
-      default: false
-      description: 是否使用后端分页
-      group: 数据属性
+      dependency:
+        - pageable: true
     - name: remote-sorting
       title: 后端排序
       type: boolean
@@ -326,12 +340,16 @@
       default: children
       description: 树形数据子节点字段名
       group: 其它属性
+      dependency:
+        - tree-display: true
     - name: has-children-field
       title: 是否包含子节点字段名
       type: string
       default: hasChildren
       description: 该字段指定行数据是否包含子节点数据
       group: 其它属性
+      dependency:
+        - tree-display: true
     - name: tree-check-type
       title: 关联选中类型
       description:  父子树节点是否关联选中
@@ -347,6 +365,8 @@
           title: 父子不关联
       default: up+down
       group: 其它属性
+      dependency:
+        - tree-display: true
   slots:
     - concept: Slot
       name: default

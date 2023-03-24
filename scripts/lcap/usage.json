@@ -7549,13 +7549,31 @@
                     "group": "数据属性"
                 },
                 {
+                    "name": "remote-paging",
+                    "title": "后端分页",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否使用后端分页",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
+                },
+                {
                     "name": "page-size",
                     "title": "分页大小",
                     "type": "number",
                     "sync": true,
                     "default": 20,
                     "description": "",
-                    "group": "数据属性"
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
                 },
                 {
                     "name": "page-number",
@@ -7567,7 +7585,12 @@
                     "group": "数据属性",
                     "schema": {
                         "$ref": "#/basicTypes/Integer"
-                    }
+                    },
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
                 },
                 {
                     "name": "page-size-options",
@@ -7579,7 +7602,12 @@
                         50
                     ],
                     "description": "分页大小的选项列表",
-                    "group": "数据属性"
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
                 },
                 {
                     "name": "show-total",
@@ -7587,7 +7615,12 @@
                     "type": "boolean",
                     "default": false,
                     "description": "",
-                    "group": "数据属性"
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
                 },
                 {
                     "name": "show-sizer",
@@ -7595,7 +7628,12 @@
                     "type": "boolean",
                     "default": false,
                     "description": "",
-                    "group": "数据属性"
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
                 },
                 {
                     "name": "show-jumper",
@@ -7603,15 +7641,12 @@
                     "type": "boolean",
                     "default": false,
                     "description": "",
-                    "group": "数据属性"
-                },
-                {
-                    "name": "remote-paging",
-                    "title": "后端分页",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否使用后端分页",
-                    "group": "数据属性"
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
                 },
                 {
                     "name": "remote-sorting",
@@ -7949,7 +7984,12 @@
                     "type": "string",
                     "default": "children",
                     "description": "树形数据子节点字段名",
-                    "group": "其它属性"
+                    "group": "其它属性",
+                    "dependency": [
+                        {
+                            "tree-display": true
+                        }
+                    ]
                 },
                 {
                     "name": "has-children-field",
@@ -7957,7 +7997,12 @@
                     "type": "string",
                     "default": "hasChildren",
                     "description": "该字段指定行数据是否包含子节点数据",
-                    "group": "其它属性"
+                    "group": "其它属性",
+                    "dependency": [
+                        {
+                            "tree-display": true
+                        }
+                    ]
                 },
                 {
                     "name": "tree-check-type",
@@ -7983,7 +8028,12 @@
                         }
                     ],
                     "default": "up+down",
-                    "group": "其它属性"
+                    "group": "其它属性",
+                    "dependency": [
+                        {
+                            "tree-display": true
+                        }
+                    ]
                 }
             ],
             "slots": [
