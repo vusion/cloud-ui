@@ -10,12 +10,16 @@
       type: boolean
       default: true
       description: 是否根据 vue-router 来控制选择哪一项
+      toggleclear:
+        - value
     - name: value
       title: 值
       type: any
       sync: true
       model: true
       description: 当前选择的值
+      dependency:
+        - router: false
     - name: collapsible
       title: 是否可折叠
       type: boolean
