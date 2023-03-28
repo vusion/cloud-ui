@@ -2837,7 +2837,10 @@
                     "title": "使用路由",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否根据 vue-router 来控制选择哪一项"
+                    "description": "是否根据 vue-router 来控制选择哪一项",
+                    "toggleclear": [
+                        "value"
+                    ]
                 },
                 {
                     "name": "value",
@@ -2845,7 +2848,12 @@
                     "type": "any",
                     "sync": true,
                     "model": true,
-                    "description": "当前选择的值"
+                    "description": "当前选择的值",
+                    "dependency": [
+                        {
+                            "router": false
+                        }
+                    ]
                 },
                 {
                     "name": "collapsible",
@@ -8903,10 +8911,10 @@
                         },
                         {
                             "name": "auto-index",
-                            "title": "自动序号",
+                            "title": "换页继续编号",
                             "type": "boolean",
                             "default": false,
-                            "description": "根据数据位置自动计算序号",
+                            "description": "换页后，继续上一页的列序号进行编号",
                             "dependency": [
                                 {
                                     "type": "index"

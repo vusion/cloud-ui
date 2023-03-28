@@ -904,10 +904,10 @@
       default: normal
       description: 支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序
     - name: auto-index
-      title: 自动序号
+      title: 换页继续编号
       type: boolean
       default: false
-      description: 根据数据位置自动计算序号
+      description: 换页后，继续上一页的列序号进行编号
       dependency:
         - type: index
     - name: start-index
