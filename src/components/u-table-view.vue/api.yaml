@@ -220,34 +220,60 @@
       type: string | number
       description: 表格的默认列宽度，可以设置为百分比或数字
       group: 样式属性
+    - name: designer-mode
+      title: 状态设置
+      type: string
+      options:
+        - value: success
+          title: 加载完成-有数据
+        - value: loading
+          title: 加载中
+        - value: error
+          title: 加载失败
+        - value: empty
+          title: 加载完成-暂无数据
+      default: success
+      description: 设置不同表单状态的展示内容（只在编辑时生效）
+      bindHide: true
+      group: 状态属性
     - name: loading
       title: 是否加载中
       type: boolean
       description: 手动设置是否正在加载中
       group: 状态属性
+      dependency:
+        - designer-mode: 'loading'
     - name: loading-text
       title: 加载中文字
       type: string
       default: 正在加载中...
       description: 正在加载中的文字
       group: 状态属性
+      dependency:
+        - designer-mode: 'loading'
     - name: error
       title: 是否加载失败
       type: boolean
       description: 手动设置是否加载失败
       group: 状态属性
+      dependency:
+        - designer-mode: 'error'
     - name: error-text
       title: 加载失败文字
       type: string
       default: 加载失败，请重试
       description: ""
       group: 状态属性
+      dependency:
+        - designer-mode: 'error'
     - name: empty-text
       title: 暂无数据文字
       type: string
       default: 暂无数据
       description: ""
       group: 状态属性
+      dependency:
+        - designer-mode: 'empty'
     - name: error-image
       title: 加载失败时图片
       type: image
@@ -255,6 +281,9 @@
       description: "加载失败或数据为空时显示的图片"
       group: 状态属性
       compType: linkInput
+      dependency:
+        - designer-mode: 'error'
+        - designer-mode: 'empty'
     - name: value-field
       title: 值字段名
       type: string
