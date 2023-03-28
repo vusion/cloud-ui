@@ -7852,7 +7852,7 @@
                         }
                     ],
                     "default": "success",
-                    "description": "设置不同表单状态的展示内容（只在编辑时生效）",
+                    "description": "设置不同状态的展示内容（只在编辑时生效）",
                     "bindHide": true,
                     "group": "状态属性"
                 },
