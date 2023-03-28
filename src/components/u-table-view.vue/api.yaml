@@ -274,16 +274,6 @@
       group: 状态属性
       dependency:
         - designer-mode: 'empty'
-    - name: error-image
-      title: 加载失败时图片
-      type: image
-      default: ""
-      description: "加载失败或数据为空时显示的图片"
-      group: 状态属性
-      compType: linkInput
-      dependency:
-        - designer-mode: 'error'
-        - designer-mode: 'empty'
     - name: value-field
       title: 值字段名
       type: string
