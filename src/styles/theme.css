@@ -1035,8 +1035,9 @@
     --form-item-label-align-items: center; /* @hidden */
     --form-item-label-justify-content: flex-end; /* @hidden */
     --form-required-color: var(--brand-error); /* @hidden */
-    --form-required-right: 12px; /* @hidden */
-    --form-required-right-small: 2px; /* @hidden */
+    --form-required-right: 8px; /* @hidden */
+    --form-required-right-mini: 2px; /* @hidden */
+    --form-required-right-small: 4px; /* @hidden */
     --form-required-right-large: 12px; /* @hidden */
     --form-required-top: 7px; /* @hidden */
     --form-item-text-color: var(--color-light); /* @hidden */
