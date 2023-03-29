@@ -43,6 +43,17 @@
       description: 设置是否显示「可输入最大字符数」的字数统计
       dependency:
         - '!maxlength': ''
+    - name: limit-position
+      title: 字数统计位置
+      type: string
+      options:
+        - value: inside
+          title: 输入框内
+        - value: outside
+          title: 输入框外
+      description: 设置字数统计位置
+      dependency:
+        - show-word-limit: true
     - name: spellcheck
       title: 拼写检查
       type: boolean
