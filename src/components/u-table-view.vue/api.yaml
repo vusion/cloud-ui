@@ -226,6 +226,7 @@
       title: 自定义加载中触发条件
       type: boolean
       description: 支持自定义状态的触发条件，未设置则默认为系统定义条件
+      bindOpen: true
       group: 状态属性
       dependency:
         - designer-mode: 'loading'
@@ -241,6 +242,7 @@
       title: 自定义加载失败触发条件
       type: boolean
       description: 支持自定义状态的触发条件，未设置则默认为系统定义条件
+      bindOpen: true
       group: 状态属性
       dependency:
         - designer-mode: 'error'
