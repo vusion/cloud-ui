@@ -99,12 +99,6 @@
       group: 数据属性
       dependency:
         - pageable: true
-    - name: remote-sorting
-      title: 后端排序
-      type: boolean
-      default: false
-      description: 是否使用后端排序
-      group: 数据属性
     - name: sorting
       title: 初始化排序规则
       type: "{ field: string, order: string, compare: Function }"
@@ -112,6 +106,25 @@
       default: "{ field: undefined, order: 'desc' }"
       description: 指数据初始化时的排序规则
       group: 数据属性
+    - name: remote-sorting
+      title: 排序操作
+      type: boolean
+      default: false
+      description: 是否使用排序操作
+      group: 数据属性
+    - name: default-order
+      title: 排序操作的初始顺序
+      type: string
+      options:
+        - value: asc
+          title: 升序
+        - value: desc
+          title: 倒序
+      default: asc
+      description: 开启排序功能时，默认的排序规则
+      group: 数据属性
+      dependency:
+        - remote-sorting: true
     - name: filtering
       title: 筛选参数
       type: object
