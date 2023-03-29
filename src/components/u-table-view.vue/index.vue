@@ -1109,7 +1109,7 @@ export default {
             if (this.$emitPrevent('before-load', undefined, this))
                 return;
 
-            const autoStatus = this.loading === undefined;
+            const autoStatus = this.loading === undefined && !(this.$env.VUE_APP_DESIGNER && this.designerMode !== 'success');
             if (autoStatus) {
                 this.currentLoading = true;
                 this.currentError = false;
