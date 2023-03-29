@@ -13,9 +13,9 @@
     <f-dragger @dragstart="onDragStart" @drag="onDrag">
         <div ref="handle" :class="$style.handle" v-show="resize !== 'none'" :resize="resize"></div>
     </f-dragger>
-    <div v-if="showWordLimit && maxlength" :class="$style.limit">
-        <span>{{ limit }}</span>/<span>{{ maxlength }}</span>
-    </div>
+    <span v-if="showWordLimit && maxlength" :class="limitPosition === 'inside' ? $style.limit: $style.limitOut">
+        {{ limit }}/{{ maxlength }}
+    </span>
 </div>
 </template>
 
@@ -28,6 +28,12 @@ export default {
     extends: UInput,
     props: {
         showWordLimit: Boolean,
+        limitPosition: {
+            type: String,
+            default: 'inside',
+            validator: (value) =>
+                ['inside', 'outside'].includes(value),
+        },
         maxlength: [String, Number],
         autosize: [Boolean, Object],
         resize: {
@@ -208,12 +214,16 @@ export default {
 .root[size^="full"] { height: 100%; }
 
 .limit {
-    text-align: right;
     bottom: 0;
-    left: 0;
+    right: 10px;
     position: absolute;
-    width: 100%;
-    padding-right: 10px;
+    line-height: 1;
+}
+
+.limitOut {
+    bottom: -16px;
+    right: 0px;
+    position: absolute;
     line-height: 1;
 }
 </style>
