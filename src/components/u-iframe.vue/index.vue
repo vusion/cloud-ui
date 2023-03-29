@@ -5,6 +5,7 @@
         v-else
         @load="onLoad($event)"
         v-bind="$attrs"
+        allowfullscreen
         :src="src" frameborder="0"></iframe>
 </div>
 </template>

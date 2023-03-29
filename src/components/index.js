@@ -1,6 +1,7 @@
 export * from './e-ripple.vue';
 export * from './e-watermark.vue';
 export * from './f-collapse-transition.vue';
+export * from './s-empty.vue';
 export * from './f-draggable.vue';
 export * from './f-dragger.vue';
 export * from './f-droppable.vue';

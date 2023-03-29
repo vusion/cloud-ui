@@ -19,6 +19,7 @@ export default {
     props: {
         type: String,
         startIndex: { type: Number, default: 1 },
+        autoIndex: { type: Boolean, default: false },
         title: String,
         field: String,
         width: [String, Number],

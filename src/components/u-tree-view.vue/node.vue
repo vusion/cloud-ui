@@ -110,6 +110,7 @@ export default {
         hidden: { type: Boolean, default: false },
         childrenField: String,
         moreChildrenFields: Array,
+        excludeFields: { type: Array, default: () => [] },
         node: Object,
         parent: Object,
         level: { type: Number, default() {
@@ -167,7 +168,14 @@ export default {
             else
                 fields = this.rootVM.moreChildrenFields;
 
-            const { excludeFields } = this.rootVM;
+            let excludeFields;
+            if (this.excludeFields)
+                excludeFields = this.excludeFields;
+            else if (this.node && this.node.excludeFields)
+                excludeFields = this.node.excludeFields;
+            else
+                excludeFields = this.rootVM.excludeFields;
+
             fields = fields || [];
             return fields.filter((item) => !excludeFields.includes(item));
             // let vm = this;
@@ -199,13 +207,12 @@ export default {
             return fields;
         },
         hasChildren() {
-            if(this.rootVM.virtualList) {
+            if (this.rootVM.virtualList) {
                 const { hiddenField } = this.rootVM;
                 const children = (this.node && this.rootVM.childrenWm.get(this.node) || [])
                     .filter((node) => !(node.node && node.node[hiddenField]));
-                return children.length > 0
+                return children.length > 0;
             }
-            
 
             const { node } = this;
             if (!node)
@@ -325,8 +332,10 @@ export default {
         },
         toggleData(nodes, expanded) {
             nodes && nodes.forEach((child) => {
-                if(expanded) child._collapsedParentCount--;
-                else child._collapsedParentCount++;
+                if (expanded)
+                    child._collapsedParentCount--;
+                else
+                    child._collapsedParentCount++;
                 this.toggleData(child.node && this.rootVM.childrenWm.get(child.node), expanded);
             });
         },
@@ -383,8 +392,8 @@ export default {
             } else
                 final();
 
-            if(this.rootVM.virtualList)
-                this.toggleData(this.node && this.rootVM.childrenWm.get(this.node), expanded)
+            if (this.rootVM.virtualList)
+                this.toggleData(this.node && this.rootVM.childrenWm.get(this.node), expanded);
         },
         checkControlled(checked) {
             this.currentChecked = checked;
@@ -535,7 +544,7 @@ export default {
                 that.$set(node, 'hiddenByFilter', hiddenByFilter);
                 that.$set(node, 'expandedByFilter', false);
 
-                if(!hiddenByFilter)
+                if (!hiddenByFilter)
                     upperMatched = node;
 
                 if (!fields) {
@@ -560,9 +569,9 @@ export default {
                     that.$set(parent, 'hiddenByFilter', false);
                 }
 
-                if(upperMatched === node)
+                if (upperMatched === node)
                     upperMatched = undefined;
-                else if(upperMatched)
+                else if (upperMatched)
                     node.hiddenByFilter = false;
             }
             dfs(node, null, currentFields);

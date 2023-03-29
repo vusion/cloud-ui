@@ -9,7 +9,7 @@
             :expanded="$at(node, expandedField)"
             :checked.sync="node.checked"
             :disabled="node.disabled"
-            :childrenField="childrenField"
+            :children-field="childrenField"
             :hidden="filterText ? $at(node, 'hiddenByFilter') : $at(node, hiddenField)"
             :node="node"
             :level="0"
@@ -133,9 +133,10 @@ export default {
         },
         scrollView: {
             handler(vm) {
-                if(!vm || !this.virtualList) return;
+                if (!vm || !this.virtualList)
+                    return;
 
-                if(this.updateVirtualList)
+                if (this.updateVirtualList)
                     vm.$on('scroll', this.updateVirtualList);
                 else
                     this.$once('hook:mounted', () => {
@@ -158,20 +159,21 @@ export default {
         if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
             this.load();
 
-        this.initVirtualList();        
+        this.initVirtualList();
     },
     mounted() {
         // Must trigger `value` watcher at mounted hook.
         // If not, nodeVMs have not been pushed.
         this.watchValue(this.value);
         this.watchValues(this.values);
-        
+
         this.scrollIntoView();
     },
     methods: {
         initVirtualList() {
-            if(!this.virtualList) return;
-            
+            if (!this.virtualList)
+                return;
+
             this.updateVirtualList = throttle(this._updateVirtualList, 50);
             this.updateVirtualList();
         },
@@ -303,7 +305,7 @@ export default {
         onToggle(nodeVM, expanded) {
             this.$emit('toggle', { expanded, node: nodeVM.node, nodeVM }, this);
 
-            if(this.virtualList)
+            if (this.virtualList)
                 setTimeout(() => {
                     this.updateVirtualList();
                 });
@@ -339,15 +341,15 @@ export default {
         },
         getPropsDataOfSlot(vNodes = [], level = 0, _collapsedParentCount = 0) {
             const res = [];
-            for(const vNode of vNodes) {
+            for (const vNode of vNodes) {
                 const propsData = vNode.componentOptions && vNode.componentOptions.propsData || {};
                 propsData._collapsedParentCount = _collapsedParentCount;
                 propsData.level = level;
 
                 propsData.node = propsData.node || {};
                 this.childrenWm.set(propsData.node, [
-                    ...this.getPropsDataOfDataSource(this.getChildren(propsData.node, propsData), level+1, propsData.expanded ? _collapsedParentCount: _collapsedParentCount+1),
-                    ...this.getPropsDataOfSlot(vNode.componentOptions && vNode.componentOptions.children, level+1, propsData.expanded ? _collapsedParentCount: _collapsedParentCount+1)
+                    ...this.getPropsDataOfDataSource(this.getChildren(propsData.node, propsData), level + 1, propsData.expanded ? _collapsedParentCount : _collapsedParentCount + 1),
+                    ...this.getPropsDataOfSlot(vNode.componentOptions && vNode.componentOptions.children, level + 1, propsData.expanded ? _collapsedParentCount : _collapsedParentCount + 1),
                 ]);
 
                 res.push(propsData);
@@ -371,7 +373,14 @@ export default {
             else
                 fields = this.moreChildrenFields;
 
-            const { excludeFields } = this;
+            let excludeFields;
+            if (propsData.excludeFields)
+                excludeFields = propsData.excludeFields;
+            else if (node && node.excludeFields)
+                excludeFields = node.excludeFields;
+            else
+                excludeFields = this.excludeFields;
+
             fields = fields || [];
             return fields.filter((item) => !excludeFields.includes(item));
         },
@@ -379,7 +388,14 @@ export default {
             const currentChildrenField = this.currentChildrenField(node, propsData);
             const currentMoreChildrenFields = this.currentMoreChildrenFields(node, propsData);
             let fields = [];
-            if (!this.excludeFields.includes(currentChildrenField))
+            let excludeFields;
+            if (propsData.excludeFields)
+                excludeFields = propsData.excludeFields;
+            else if (node && node.excludeFields)
+                excludeFields = node.excludeFields;
+            else
+                excludeFields = this.excludeFields;
+            if (!excludeFields.includes(currentChildrenField))
                 fields = [currentChildrenField];
             if (currentMoreChildrenFields)
                 fields = fields.concat(currentMoreChildrenFields);
@@ -388,15 +404,15 @@ export default {
         getChildren(node, propsData = {}) {
             const fields = this.currentFields(node, propsData);
             let children = [];
-            for(const field of fields) {
-                if(node[field])
+            for (const field of fields) {
+                if (node[field])
                     children = children.concat(node[field]);
             }
             return children;
         },
         getPropsDataOfDataSource(arr = [], level = 0, _collapsedParentCount = 0) {
             const res = [];
-            for(const node of arr) {
+            for (const node of arr) {
                 const propsData = {
                     text: this.$at(node, this.field || this.textField),
                     value: this.$at(node, this.valueField),
@@ -404,59 +420,64 @@ export default {
                     checked: node.checked,
                     disabled: node.disabled,
                     childrenField: this.childrenField,
-                    hidden: this.filterText ? this.$at(node, 'hiddenByFilter'):  this.$at(node, this.hiddenField),
+                    hidden: this.filterText ? this.$at(node, 'hiddenByFilter') : this.$at(node, this.hiddenField),
                     node,
                     draggable: node.draggable,
                 };
                 propsData._collapsedParentCount = _collapsedParentCount;
                 propsData.level = level;
-                this.childrenWm.set(propsData.node, 
-                    this.getPropsDataOfDataSource(this.getChildren(node), level+1, propsData.expanded ? _collapsedParentCount: _collapsedParentCount+1));
+                this.childrenWm.set(propsData.node,
+                                    this.getPropsDataOfDataSource(this.getChildren(node), level + 1, propsData.expanded ? _collapsedParentCount : _collapsedParentCount + 1));
                 res.push(propsData);
             }
             return res;
         },
         flatPropsData(propsData) {
             let res = [];
-            for(const props of propsData) {
+            for (const props of propsData) {
                 res = [...res, props, ...this.flatPropsData(props.node && this.childrenWm.get(props.node) || [])];
             }
             return res;
         },
         toggleData(nodes, expanded) {
             nodes && nodes.forEach((child) => {
-                if(expanded) child._collapsedParentCount--;
-                else child._collapsedParentCount++;
+                if (expanded)
+                    child._collapsedParentCount--;
+                else
+                    child._collapsedParentCount++;
                 this.toggleData(child.node && this.childrenWm.get(child.node), expanded);
             });
         },
         scrollIntoView() {
-            if(!this.virtualList || this.value === undefined) return;
+            if (!this.virtualList || this.value === undefined)
+                return;
 
             const propsData = [...this.propsDataOfDataSource, ...this.propsDataOfSlot];
-            const pos = propsData.findIndex(item => item.value === this.value);
-            if(pos === -1) return;
+            const pos = propsData.findIndex((item) => item.value === this.value);
+            if (pos === -1)
+                return;
 
             let level = propsData[pos].level;
-            for(let i=pos;i>=0;i--) {
+            for (let i = pos; i >= 0; i--) {
                 const props = propsData[i];
-                if(props.level < level) {
+                if (props.level < level) {
                     level = props.level;
-                    if(props.node && !props.expanded) {
+                    if (props.node && !props.expanded) {
                         this.$set(props.node, 'expanded', true);
-                        this.toggleData(this.childrenWm.get(props.node), true);                                
+                        this.toggleData(this.childrenWm.get(props.node), true);
                     }
                 }
-                if(level === 0) break;
+                if (level === 0)
+                    break;
             }
 
             const { hiddenField, nodeHeight } = this;
-            const seenNodes = propsData.filter(item => !item._collapsedParentCount && !(item.node && item.node[hiddenField]));
-            const index = seenNodes.findIndex(item => item.value === this.value);
+            const seenNodes = propsData.filter((item) => !item._collapsedParentCount && !(item.node && item.node[hiddenField]));
+            const index = seenNodes.findIndex((item) => item.value === this.value);
 
             let scrollTop;
             let clientHeight = 0;
-            if(this.scrollView) {
+            if (this.scrollView) {
                 scrollTop = this.scrollView.$refs.wrap && this.scrollView.$refs.wrap.scrollTop || 0;
                 clientHeight = this.scrollView.$refs.wrap && this.scrollView.$refs.wrap.clientHeight;
             } else {
@@ -466,20 +487,20 @@ export default {
 
             const viewBeg = Math.ceil(scrollTop / nodeHeight);
             const viewEnd = Math.floor((scrollTop + clientHeight) / nodeHeight);
-            if(index >= viewBeg && index <= viewEnd)
+            if (index >= viewBeg && index <= viewEnd)
                 return;
-            
-            if(this.scrollView) {
+
+            if (this.scrollView) {
                 this.$nextTick(() => {
                     this.scrollView.$refs.wrap.scrollTop = nodeHeight * index;
                 });
             } else
                 this.$nextTick(() => {
-                    this.$el.scrollTop = nodeHeight * index;           
+                    this.$el.scrollTop = nodeHeight * index;
                 });
         },
         _updateVirtualList() {
-            if(!this.nodeHeightUpdated && this.$refs.nodes && this.$refs.nodes[0].$el.clientHeight) {
+            if (!this.nodeHeightUpdated && this.$refs.nodes && this.$refs.nodes[0].$el.clientHeight) {
                 this.nodeHeight = this.$refs.nodes[0].$el.clientHeight;
                 this.nodeHeightUpdated = true;
             }
@@ -487,7 +508,7 @@ export default {
             const { nodeHeight } = this;
             let scrollTop;
             let clientHeight = 0;
-            if(this.scrollView) {
+            if (this.scrollView) {
                 scrollTop = this.scrollView.$refs.wrap && this.scrollView.$refs.wrap.scrollTop || 0;
                 clientHeight = this.scrollView.$refs.wrap && this.scrollView.$refs.wrap.clientHeight;
             } else {
@@ -495,8 +516,9 @@ export default {
                 clientHeight = this.$el && this.$el.clientHeight;
             }
 
-            if(clientHeight === 0) return;
-                
+            if (clientHeight === 0)
+                return;
+
             const propsData = [...this.propsDataOfDataSource, ...this.propsDataOfSlot];
             const count = Math.ceil(clientHeight / nodeHeight);
             const beforeCount = count >> 1;
@@ -514,29 +536,28 @@ export default {
             this.beforeHeight = scrollTop - scrollTop % nodeHeight - beforeBuffer * nodeHeight;
             this.totalHeight = nodeHeight * nodes.length;
 
-            if(this.value !== undefined) {
+            if (this.value !== undefined) {
                 this.$nextTick(() => {
                     this.selectedVM = this.nodeVMs.find((vm) => vm.value === this.value);
-                });                
+                });
             }
-
         },
         cloneSameNodes(seenNodes) {
             const set = new Set();
-            for(let i=0;i<seenNodes.length;i++) {
+            for (let i = 0; i < seenNodes.length; i++) {
                 const node = seenNodes[i];
-                if(set.has(node)) {
-                    seenNodes[i] = {...node};
+                if (set.has(node)) {
+                    seenNodes[i] = { ...node };
                 } else
                     set.add(node);
             }
         },
         prepareKeys(seenNodes) {
             const set = new Set();
-            for(let i=0;i<seenNodes.length;i++) {
+            for (let i = 0; i < seenNodes.length; i++) {
                 const node = seenNodes[i];
-                if(node.value) {
-                    if(!set.has(node.value)) {
+                if (node.value) {
+                    if (!set.has(node.value)) {
                         set.add(node.value);
                         node.key = node.value;
                     } else

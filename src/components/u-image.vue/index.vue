@@ -6,7 +6,10 @@
          :horizontal-center="horizontalCenter"
          v-on="$listeners">
         <template v-if="ready && src || isEmpty">
-            <img :src="convertedSrc" :style="imageStyle" v-bind="$attrs">
+            <img :src="convertedSrc" :style="imageStyle" v-bind="$attrs" @click="onClick">
+            <u-lightbox v-if="preview" :visible.sync="visible" closeButton>
+                <u-lightbox-item title="图片预览"><img :src="convertedSrc" /></u-lightbox-item>
+            </u-lightbox>
         </template>
         <template v-else>
             <u-loading size="small" :class="$style.loading"></u-loading>
@@ -61,6 +64,10 @@ export default {
                 }
             },
         },
+        preview: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
@@ -69,6 +76,7 @@ export default {
             imageHeight: 0,
             isEmpty: false,
             loadImgTimer: undefined,
+            visible: false,
         };
     },
     computed: {
@@ -139,6 +147,11 @@ export default {
                 img.onerror = undefined;
             };
             img.src = this.convertedSrc;
+        },
+        onClick() {
+            if (!(this.$env && this.$env.VUE_APP_DESIGNER) && this.preview) {
+                this.visible = true;
+            }
         },
     },
 };

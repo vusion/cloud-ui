@@ -132,8 +132,8 @@ export default {
             );
         },
         getItemStyle(itemVm) {
-            const itemStyle = itemVm.$vnode.data && itemVm.$vnode.data.style || {};
-            const itemstaticStyle = itemVm.$vnode.data && itemVm.$vnode.data.staticStyle || {};
+            const itemStyle = Object.assign({}, itemVm.$vnode.data && itemVm.$vnode.data.style);
+            const itemstaticStyle = Object.assign({}, itemVm.$vnode.data && itemVm.$vnode.data.staticStyle);
             return Object.assign({ width: this.currentItemWidth }, itemstaticStyle, itemStyle);
         },
     },

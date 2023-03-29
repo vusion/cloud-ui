@@ -15,7 +15,7 @@
                     <div :class="$style.scroll">
                         <template v-if="dataSource && dataSource.length">
                             <template v-if="$env.VUE_APP_DESIGNER">
-                                <a :class="$style.item"  :selected="true" :alignment="itemAlign">动态选项卡1</a>
+                                <a :class="$style.item" :selected="true" :alignment="itemAlign">动态选项卡1</a>
                                 <a :class="$style.item" :alignment="itemAlign">动态选项卡2</a>
                                 <a :class="$style.item" :alignment="itemAlign">动态选项卡3</a>
                             </template>
@@ -96,7 +96,7 @@
 import { MSinglex } from '../m-singlex.vue';
 import { scrollTo } from '../../utils/dom';
 import SEmpty from '../s-empty.vue';
-import SupportDataSource  from '../../mixins/support.datasource.js';
+import SupportDataSource from '../../mixins/support.datasource.js';
 import UTab from './tab.vue';
 import URouterView from '../../components/u-router-view.vue';
 import dataSource from '../../utils/DataSource';
@@ -140,11 +140,6 @@ export default {
             return this.currentDataSource.data.list || this.currentDataSource.data || this.currentDataSource;
         },
     },
-    created() {
-        if (this.tabDataSource && this.tabDataSource.length) {
-            this.tabDataSource[0].active = true;
-        }
-    },
     watch: {
         itemVMs(itemVMs) {
             this.$nextTick(() => {
@@ -167,16 +162,20 @@ export default {
             if (!(this.tabDataSource && this.tabDataSource.length)) {
                 return;
             }
-            const matchItem = this.tabDataSource.find((itemVM) => {
-                return this.$at(itemVM, this.valueField) == value;
-            });
-            if (!matchItem) return;
+            const matchItem = this.tabDataSource.find((itemVM) => this.$at(itemVM, this.valueField) == value);
+            if (!matchItem)
+                return;
             this.tabDataSource.forEach((item) => item.active = false);
             matchItem.active = true;
             this.$router.replace(this.$at(matchItem, this.contentField));
             this.$forceUpdate();
             this.scrollToSelectedVM();
         },
+    },
+    created() {
+        if (this.tabDataSource && this.tabDataSource.length) {
+            this.tabDataSource[0].active = true;
+        }
     },
     methods: {
         onClick(itemVM, e) {
@@ -195,7 +194,7 @@ export default {
                     });
                     itemVM.active = true;
                     this.$forceUpdate();
-                    return
+                    return;
                 } else {
                     itemVM.$emit('click', e, itemVM);
                 }
@@ -230,9 +229,7 @@ export default {
             if (this.dataSource && this.dataSource.length) {
                 index = this.tabDataSource.indexOf(itemVM);
                 this.tabDataSource.splice(index, 1);
-                const allNotSelected = this.tabDataSource.every((item) => {
-                    return !item.active;
-                });
+                const allNotSelected = this.tabDataSource.every((item) => !item.active);
                 if (allNotSelected && this.tabDataSource && this.tabDataSource.length) {
                     this.tabDataSource[0].active = true;
                     this.$router.replace(this.$at(this.tabDataSource[0], this.contentField));
@@ -241,9 +238,9 @@ export default {
                     this.$emit('close', {
                         value: this.$at(this.tabDataSource[0], this.valueField),
                         oldValue,
-                        itemVM
+                        itemVM,
                     }, this);
-                    return
+                    return;
                 }
                 this.$forceUpdate();
             } else {
@@ -325,8 +322,8 @@ export default {
             scrollTo(scrollViewEl, { left: accWidth, duration: 1000 });
         },
         getTabStyle(itemVm) {
-            const itemStyle = itemVm.$vnode && itemVm.$vnode.data && itemVm.$vnode.data.style || {};
-            const itemstaticStyle = itemVm.$vnode && itemVm.$vnode.data && itemVm.$vnode.data.staticStyle || {};
+            const itemStyle = Object.assign({}, itemVm.$vnode && itemVm.$vnode.data && itemVm.$vnode.data.style);
+            const itemstaticStyle = Object.assign({}, itemVm.$vnode && itemVm.$vnode.data && itemVm.$vnode.data.staticStyle);
             return Object.assign({ width: this.currentItemWidth }, itemstaticStyle, itemStyle);
         },
         reload() {

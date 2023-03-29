@@ -29,10 +29,10 @@
       support:
         - name: u-grid-layout-row
           title: 插入一行
-          snippet: <u-grid-layout-row><u-grid-layout-column
-            :span="4"></u-grid-layout-column><u-grid-layout-column
-            :span="4"></u-grid-layout-column><u-grid-layout-column
-            :span="4"></u-grid-layout-column></u-grid-layout-row>
+          snippet: <u-grid-layout-row :repeat="24"><u-grid-layout-column
+            :span="8"></u-grid-layout-column><u-grid-layout-column
+            :span="8"></u-grid-layout-column><u-grid-layout-column
+            :span="8"></u-grid-layout-column></u-grid-layout-row>
 - name: u-grid-layout-row
   title: 栅格行
   description: 内部元素行布局

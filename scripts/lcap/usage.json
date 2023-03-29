@@ -1180,7 +1180,7 @@
                         {
                             "name": "u-grid-layout-row",
                             "title": "插入一行",
-                            "snippet": "<u-grid-layout-row><u-grid-layout-column :span=\"4\"></u-grid-layout-column><u-grid-layout-column :span=\"4\"></u-grid-layout-column><u-grid-layout-column :span=\"4\"></u-grid-layout-column></u-grid-layout-row>"
+                            "snippet": "<u-grid-layout-row :repeat=\"24\"><u-grid-layout-column :span=\"8\"></u-grid-layout-column><u-grid-layout-column :span=\"8\"></u-grid-layout-column><u-grid-layout-column :span=\"8\"></u-grid-layout-column></u-grid-layout-row>"
                         }
                     ]
                 }
@@ -2837,7 +2837,10 @@
                     "title": "使用路由",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否根据 vue-router 来控制选择哪一项"
+                    "description": "是否根据 vue-router 来控制选择哪一项",
+                    "toggleclear": [
+                        "value"
+                    ]
                 },
                 {
                     "name": "value",
@@ -2845,7 +2848,12 @@
                     "type": "any",
                     "sync": true,
                     "model": true,
-                    "description": "当前选择的值"
+                    "description": "当前选择的值",
+                    "dependency": [
+                        {
+                            "router": false
+                        }
+                    ]
                 },
                 {
                     "name": "collapsible",
@@ -2929,6 +2937,58 @@
                             "schema": {
                                 "$ref": "#/systemTypes/CollapseEvent"
                             }
+                        }
+                    ]
+                }
+            ],
+            "events": [
+                {
+                    "name": "select",
+                    "title": "选择后",
+                    "description": "选择某一项后触发。",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "改变后的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.oldItem",
+                            "type": "object",
+                            "description": "旧的选择项相关对象"
+                        },
+                        {
+                            "name": "$event.itemVM",
+                            "type": "USidebarItem",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.oldVM",
+                            "type": "USidebarItem",
+                            "description": "旧的选择项子组件"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "USidebar",
+                            "description": "发送事件实例"
                         }
                     ]
                 }
@@ -3051,9 +3111,46 @@
                     ],
                     "events": [
                         {
-                            "name": "click",
-                            "title": "点击",
-                            "description": "在元素上按下并释放任意鼠标按钮时触发。"
+                            "name": "$listeners",
+                            "kind": "trigger",
+                            "description": "监听所有`<a>`元素的事件。",
+                            "params": []
+                        },
+                        {
+                            "name": "navigate",
+                            "title": "切换路由后",
+                            "advanced": true,
+                            "description": "使用 router 相关属性切换路由后触发",
+                            "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/NavigateEvent"
+                                    }
+                                },
+                                {
+                                    "name": "$event.to",
+                                    "type": "string, Location",
+                                    "description": "`to`属性的值"
+                                },
+                                {
+                                    "name": "$event.replace",
+                                    "type": "boolean",
+                                    "description": "`replace`属性的值"
+                                },
+                                {
+                                    "name": "$event.append",
+                                    "type": "boolean",
+                                    "description": "`append`属性的值"
+                                },
+                                {
+                                    "name": "senderVM",
+                                    "type": "UNavbarItemMulti",
+                                    "description": "发送事件实例"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -3873,6 +3970,58 @@
                     "description": "是否禁用"
                 }
             ],
+            "events": [
+                {
+                    "name": "select",
+                    "title": "选择后",
+                    "description": "选择某一项后触发。",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "改变后的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.oldItem",
+                            "type": "object",
+                            "description": "旧的选择项相关对象"
+                        },
+                        {
+                            "name": "$event.itemVM",
+                            "type": "uNavbarItemMulti",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.oldVM",
+                            "type": "uNavbarItemMulti",
+                            "description": "旧的选择项子组件"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UNavbarMulti",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                }
+            ],
             "children": [
                 {
                     "name": "u-navbar-item-multi",
@@ -3987,6 +4136,50 @@
                             "default": false,
                             "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。",
                             "advanced": true
+                        }
+                    ],
+                    "events": [
+                        {
+                            "name": "$listeners",
+                            "kind": "trigger",
+                            "description": "监听所有`<a>`元素的事件。",
+                            "params": []
+                        },
+                        {
+                            "name": "navigate",
+                            "title": "切换路由后",
+                            "advanced": true,
+                            "description": "使用 router 相关属性切换路由后触发",
+                            "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/NavigateEvent"
+                                    }
+                                },
+                                {
+                                    "name": "$event.to",
+                                    "type": "string, Location",
+                                    "description": "`to`属性的值"
+                                },
+                                {
+                                    "name": "$event.replace",
+                                    "type": "boolean",
+                                    "description": "`replace`属性的值"
+                                },
+                                {
+                                    "name": "$event.append",
+                                    "type": "boolean",
+                                    "description": "`append`属性的值"
+                                },
+                                {
+                                    "name": "senderVM",
+                                    "type": "UNavbarItemMulti",
+                                    "description": "发送事件实例"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -6736,6 +6929,13 @@
                     "default": "(src) => {  try { const tempSrc = JSON.parse(src); const tempItem = tempSrc[0]; return tempItem.url; } catch (e) { return src;}}",
                     "description": "将传入的src转换为符合要求的字符串",
                     "advanced": true
+                },
+                {
+                    "name": "preview",
+                    "title": "点击放大",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否支持点击放大全屏展示"
                 }
             ],
             "slots": false,
@@ -7357,13 +7557,31 @@
                     "group": "数据属性"
                 },
                 {
+                    "name": "remote-paging",
+                    "title": "后端分页",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否使用后端分页",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
+                },
+                {
                     "name": "page-size",
                     "title": "分页大小",
                     "type": "number",
                     "sync": true,
                     "default": 20,
                     "description": "",
-                    "group": "数据属性"
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
                 },
                 {
                     "name": "page-number",
@@ -7375,7 +7593,12 @@
                     "group": "数据属性",
                     "schema": {
                         "$ref": "#/basicTypes/Integer"
-                    }
+                    },
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
                 },
                 {
                     "name": "page-size-options",
@@ -7387,7 +7610,12 @@
                         50
                     ],
                     "description": "分页大小的选项列表",
-                    "group": "数据属性"
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
                 },
                 {
                     "name": "show-total",
@@ -7395,7 +7623,12 @@
                     "type": "boolean",
                     "default": false,
                     "description": "",
-                    "group": "数据属性"
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
                 },
                 {
                     "name": "show-sizer",
@@ -7403,7 +7636,12 @@
                     "type": "boolean",
                     "default": false,
                     "description": "",
-                    "group": "数据属性"
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
                 },
                 {
                     "name": "show-jumper",
@@ -7411,20 +7649,46 @@
                     "type": "boolean",
                     "default": false,
                     "description": "",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "pageable": true
+                        }
+                    ]
+                },
+                {
+                    "name": "remote-sorting",
+                    "title": "后端排序",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否使用后端排序",
                     "group": "数据属性"
                 },
                 {
                     "name": "sorting",
-                    "title": "排序参数",
+                    "title": "初始化排序规则",
                     "type": "{ field: string, order: string, compare: Function }",
                     "sync": true,
                     "default": "{ field: undefined, order: 'desc' }",
-                    "description": "当前排序的字段和顺序",
+                    "description": "指数据初始化时的排序规则",
                     "group": "数据属性"
                 },
                 {
+                    "name": "fe-sorting",
+                    "title": "前端排序",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否使用前端排序",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "remote-sorting": false
+                        }
+                    ]
+                },
+                {
                     "name": "default-order",
-                    "title": "默认排序顺序",
+                    "title": "开启排序交互的默认规则",
                     "type": "string",
                     "options": [
                         {
@@ -7437,8 +7701,14 @@
                         }
                     ],
                     "default": "asc",
-                    "description": "所有列首次点击时的排序顺序",
-                    "group": "数据属性"
+                    "description": "开启排序功能时，默认的排序规则",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "remote-sorting": false,
+                            "fe-sorting": true
+                        }
+                    ]
                 },
                 {
                     "name": "filtering",
@@ -7447,22 +7717,6 @@
                     "sync": true,
                     "description": "",
                     "advanced": true,
-                    "group": "数据属性"
-                },
-                {
-                    "name": "remote-paging",
-                    "title": "后端分页",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否使用后端分页",
-                    "group": "数据属性"
-                },
-                {
-                    "name": "remote-sorting",
-                    "title": "后端排序",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否使用后端排序",
                     "group": "数据属性"
                 },
                 {
@@ -7576,28 +7830,68 @@
                     "group": "样式属性"
                 },
                 {
+                    "name": "designer-mode",
+                    "title": "状态设置",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "success",
+                            "title": "加载完成-有数据"
+                        },
+                        {
+                            "value": "loading",
+                            "title": "加载中"
+                        },
+                        {
+                            "value": "error",
+                            "title": "加载失败"
+                        },
+                        {
+                            "value": "empty",
+                            "title": "加载完成-暂无数据"
+                        }
+                    ],
+                    "default": "success",
+                    "description": "设置不同状态的展示内容（只在编辑时生效）",
+                    "bindHide": true,
+                    "group": "状态属性"
+                },
+                {
                     "name": "loading",
                     "title": "是否加载中",
                     "type": "boolean",
                     "description": "手动设置是否正在加载中",
-                    "advanced": true,
-                    "group": "状态属性"
+                    "group": "状态属性",
+                    "dependency": [
+                        {
+                            "designer-mode": "loading"
+                        }
+                    ]
                 },
                 {
                     "name": "loading-text",
                     "title": "加载中文字",
                     "type": "string",
-                    "default": "正在加载中",
+                    "default": "正在加载中...",
                     "description": "正在加载中的文字",
-                    "advanced": true,
-                    "group": "状态属性"
+                    "group": "状态属性",
+                    "dependency": [
+                        {
+                            "designer-mode": "loading"
+                        }
+                    ]
                 },
                 {
                     "name": "error",
                     "title": "是否加载失败",
                     "type": "boolean",
                     "description": "手动设置是否加载失败",
-                    "group": "状态属性"
+                    "group": "状态属性",
+                    "dependency": [
+                        {
+                            "designer-mode": "error"
+                        }
+                    ]
                 },
                 {
                     "name": "error-text",
@@ -7605,7 +7899,12 @@
                     "type": "string",
                     "default": "加载失败，请重试",
                     "description": "",
-                    "group": "状态属性"
+                    "group": "状态属性",
+                    "dependency": [
+                        {
+                            "designer-mode": "error"
+                        }
+                    ]
                 },
                 {
                     "name": "empty-text",
@@ -7613,16 +7912,12 @@
                     "type": "string",
                     "default": "暂无数据",
                     "description": "",
-                    "group": "状态属性"
-                },
-                {
-                    "name": "error-image",
-                    "title": "加载失败时图片",
-                    "type": "image",
-                    "default": "",
-                    "description": "加载失败或数据为空时显示的图片",
                     "group": "状态属性",
-                    "compType": "linkInput"
+                    "dependency": [
+                        {
+                            "designer-mode": "empty"
+                        }
+                    ]
                 },
                 {
                     "name": "value-field",
@@ -7740,7 +8035,12 @@
                     "type": "string",
                     "default": "children",
                     "description": "树形数据子节点字段名",
-                    "group": "其它属性"
+                    "group": "其它属性",
+                    "dependency": [
+                        {
+                            "tree-display": true
+                        }
+                    ]
                 },
                 {
                     "name": "has-children-field",
@@ -7748,7 +8048,12 @@
                     "type": "string",
                     "default": "hasChildren",
                     "description": "该字段指定行数据是否包含子节点数据",
-                    "group": "其它属性"
+                    "group": "其它属性",
+                    "dependency": [
+                        {
+                            "tree-display": true
+                        }
+                    ]
                 },
                 {
                     "name": "tree-check-type",
@@ -7774,7 +8079,12 @@
                         }
                     ],
                     "default": "up+down",
-                    "group": "其它属性"
+                    "group": "其它属性",
+                    "dependency": [
+                        {
+                            "tree-display": true
+                        }
+                    ]
                 }
             ],
             "slots": [
@@ -7900,6 +8210,16 @@
                         {
                             "name": "order",
                             "type": "string",
+                            "options": [
+                                {
+                                    "value": "asc",
+                                    "title": "升序"
+                                },
+                                {
+                                    "value": "desc",
+                                    "title": "降序"
+                                }
+                            ],
                             "description": "排序顺序，'asc' 或 'desc'",
                             "required": false,
                             "default": "tableView.params.order"
@@ -8633,11 +8953,29 @@
                             "description": "支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序"
                         },
                         {
+                            "name": "auto-index",
+                            "title": "换页继续编号",
+                            "type": "boolean",
+                            "default": false,
+                            "description": "换页后，继续上一页的列序号进行编号",
+                            "dependency": [
+                                {
+                                    "type": "index"
+                                }
+                            ]
+                        },
+                        {
                             "name": "start-index",
                             "title": "起始序号",
                             "type": "number",
                             "default": 1,
-                            "description": "序号列的起始序号"
+                            "description": "序号列的起始序号",
+                            "dependency": [
+                                {
+                                    "type": "index",
+                                    "auto-index": false
+                                }
+                            ]
                         },
                         {
                             "name": "dblclickHandler",

@@ -87,7 +87,7 @@
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
                 <tbody>
-                    <template v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
+                    <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
                             <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }"
                             :draggable="rowDraggable?rowDraggable:undefined"
@@ -163,7 +163,10 @@
                                         :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                                         :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
                                             <!-- type === 'index' -->
-                                            <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
+                                            <span v-if="columnVM.type === 'index'">
+                                                <template v-if="columnVM.autoIndex && (pageable === true || pageable === 'pagination') && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
+                                                <template v-else>{{ (columnVM.startIndex - 0) + rowIndex }}</template>
+                                            </span>
                                             <!-- type === 'radio' -->
                                             <span v-if="columnVM.type === 'radio'">
                                                 <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item)"></u-radio>
@@ -249,6 +252,12 @@
                     <tr key="loading" v-else-if="(currentData === undefined && !currentError) || currentLoading"><!-- 初次加载与加载更多 loading 合并在一起 -->
                         <td :class="$style.center" :colspan="visibleColumnVMs.length" vusion-slot-name="loading">
                             <slot name="loading"><u-spinner :class="$style.spinner"></u-spinner> {{ loadingText }}</slot>
+                            <s-empty v-if="$env.VUE_APP_DESIGNER
+                                && !$slots.loading
+                                && $scopedSlots
+                                && !($scopedSlots.loading && $scopedSlots.loading())
+                                && !!$attrs['vusion-node-path']">
+                            </s-empty>
                         </td>
                     </tr>
                     <tr key="error" v-else-if="currentData === null || currentError">
@@ -259,6 +268,12 @@
                                     {{ errorText }}
                                 </u-linear-layout>
                             </slot>
+                            <s-empty v-if="$env.VUE_APP_DESIGNER
+                                && !$slots.error
+                                && $scopedSlots
+                                && !($scopedSlots.error && $scopedSlots.error())
+                                && !!$attrs['vusion-node-path']">
+                            </s-empty>
                         </td>
                     </tr>
                     <tr key="loadMore" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
@@ -271,7 +286,7 @@
                             {{ $t('noMore') }}
                         </td>
                     </tr>
-                    <tr key="empty" v-else-if="!currentData.length">
+                    <tr key="empty" v-else-if="!currentData.length || currentEmpty">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length" vusion-slot-name="empty">
                             <slot name="empty">
                                 <u-image v-if="errorImage" :src="errorImage" fit="contain"></u-image>
@@ -279,6 +294,12 @@
                                     {{ emptyText }}
                                 </u-linear-layout>
                             </slot>
+                            <s-empty v-if="$env.VUE_APP_DESIGNER
+                                && !$slots.empty
+                                && $scopedSlots
+                                && !($scopedSlots.empty && $scopedSlots.empty())
+                                && !!$attrs['vusion-node-path']">
+                            </s-empty>
                         </td>
                     </tr>
                 </tbody>
@@ -417,6 +438,7 @@ export default {
         stickFixed: { type: Boolean, default: true },
         draggable: { type: Boolean, default: false }, // 是否可拖拽
         treeCheckType: { type: String, default: 'up+down' }, // 树型数据关联选中类型
+        designerMode: { type: String, default: 'success' }, // 编辑器展示不同表单状态
     },
     data() {
         return {
@@ -426,6 +448,7 @@ export default {
             currentDataSource: undefined,
             currentLoading: this.loading || false,
             currentError: this.error,
+            currentEmpty: false,
             currentSorting: this.sorting,
             tableMetaList: [{ position: 'static' }],
             scrollXStart: true,
@@ -534,10 +557,14 @@ export default {
             this.watchValues(this.values);
         },
         loading(loading) {
+            if (this.$env.VUE_APP_DESIGNER && this.designerMode !== 'success')
+                return;
             this.currentLoading = loading;
             this.handleResize();
         },
         error(error) {
+            if (this.$env.VUE_APP_DESIGNER && this.designerMode !== 'success')
+                return;
             this.currentError = error;
             this.handleResize();
         },
@@ -590,6 +617,35 @@ export default {
         },
         stickFixed(value) {
             this.useStickyFixed = value;
+        },
+        designerMode: {
+            handler(designerMode) {
+                if (!this.$env.VUE_APP_DESIGNER)
+                    return;
+                switch (designerMode) {
+                    case 'loading':
+                        this.currentLoading = true;
+                        this.currentError = false;
+                        this.currentEmpty = false;
+                        break;
+                    case 'error':
+                        this.currentLoading = false;
+                        this.currentError = true;
+                        this.currentEmpty = false;
+                        break;
+                    case 'empty':
+                        this.currentLoading = false;
+                        this.currentError = false;
+                        this.currentEmpty = true;
+                        break;
+                    default:
+                        this.currentLoading = this.loading;
+                        this.currentError = this.error;
+                        this.currentEmpty = false;
+                }
+                this.handleResize();
+            },
+            immediate: true,
         },
     },
     created() {
@@ -1664,8 +1720,8 @@ export default {
             }
         },
         getStyle(index, columnVM) {
-            const style = columnVM.$vnode.data && columnVM.$vnode.data.style || {};
-            const staticStyle = columnVM.$vnode.data && columnVM.$vnode.data.staticStyle || {};
+            const style = Object.assign({}, columnVM.$vnode.data && columnVM.$vnode.data.style);
+            const staticStyle = Object.assign({}, columnVM.$vnode.data && columnVM.$vnode.data.staticStyle);
             if (this.useStickyFixed) {
                 if (this.fixedLeftList && this.fixedLeftList.length) {
                     const left = this.fixedLeftList[index];

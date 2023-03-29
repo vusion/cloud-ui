@@ -1,10 +1,30 @@
 <script>
 import { MSinglexItem } from '../m-singlex.vue';
+import ULink from '../u-link.vue';
 
 export default {
     name: 'u-navbar-item-multi',
     parentName: 'u-navbar-multi',
     extends: MSinglexItem,
+    methods: {
+        onClick(e) {
+            if (this.disabled || this.parentVM.readonly || this.parentVM.disabled)
+                return e.preventDefault();
+            ULink.methods.onClick.call(this, e);
+            if (this.parentVM.router) {
+                let cancel = false;
+                this.$emit('before-select', {
+                    value: this.value,
+                    item: this.item,
+                    itemVM: this,
+                    preventDefault: () => (cancel = true),
+                }, this);
+                if (cancel)
+                    return;
+                this.parentVM.select(this);
+            }
+        },
+    },
 };
 </script>
 
