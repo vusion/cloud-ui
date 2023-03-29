@@ -936,7 +936,7 @@
       description: 序号列的起始序号
       dependency:
         - type: index
-          auto-index: false
+          '!auto-index': true
     - name: dblclickHandler
       title: 双击处理函数
       type: Function
