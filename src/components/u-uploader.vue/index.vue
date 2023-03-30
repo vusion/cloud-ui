@@ -449,6 +449,8 @@ export default {
                     headers['lcap-ttl'] = this.ttlValue;
                 }
             }
+            if(window.appInfo && window.appInfo.domainName)
+                headers.DomainName = window.appInfo.domainName;
 
             const url = this.$formatMicroFrontUrl ? this.$formatMicroFrontUrl(this.url) : this.url;
             const xhr = ajax({
