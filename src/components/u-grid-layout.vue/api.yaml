@@ -6,7 +6,7 @@
     - Layout
   attrs:
     - name: gap
-      title: 间隔
+      title: 行间隔
       type: string
       options:
         - value: compact
