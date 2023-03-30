@@ -1142,7 +1142,7 @@
             "attrs": [
                 {
                     "name": "gap",
-                    "title": "间隔",
+                    "title": "行间隔",
                     "type": "string",
                     "options": [
                         {
@@ -12819,7 +12819,7 @@
         "labels": [
             "Form"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.29/src/components/u-textarea.vue/screenshots/0.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.30/src/components/u-textarea.vue/screenshots/0.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"大部分属性与`<textarea>`元素一致。\\n\",\"code\":\"<template>\\n<u-textarea placeholder=\\\"请输入\\\" limit-position=\\\"outside\\\"></u-textarea>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-textarea",

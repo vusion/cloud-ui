@@ -10,10 +10,11 @@
 - [USidebar API](#usidebar-api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
+    - [Events](#events)
     - [Methods](#methods)
 - [USidebarItem API](#usidebaritem-api)
     - [Props/Attrs](#propsattrs-2)
-    - [Events](#events)
+    - [Events](#events-2)
 - [USidebarGroup API](#usidebargroup-api)
     - [Props/Attrs](#propsattrs-3)
     - [Slots](#slots-2)
@@ -97,6 +98,23 @@
 
 插入`<u-sidebar-item>`、`<u-sidebar-divider>`或`<u-sidebar-group>`子组件。
 
+### Events
+
+#### @select
+
+选择某一项后触发。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.value | any | 改变后的值 |
+| $event.oldValue | any | 旧的值 |
+| $event.item | object | 选择项相关对象 |
+| $event.oldItem | object | 旧的选择项相关对象 |
+| $event.itemVM | USidebarItem | 选择项子组件 |
+| $event.oldVM | USidebarItem | 旧的选择项子组件 |
+| senderVM | USidebar | 发送事件实例 |
+
 Methods
 
 #### toggleAll(expanded)
@@ -126,9 +144,24 @@ Methods
 
 ### Events
 
-#### @click
+#### @$listeners
 
-在元素上按下并释放任意鼠标按钮时触发。
+监听所有`<a>`元素的事件。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+
+#### @navigate
+
+使用 router 相关属性切换路由后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.to | string, Location | `to`属性的值 |
+| $event.replace | boolean | `replace`属性的值 |
+| $event.append | boolean | `append`属性的值 |
+| senderVM | UNavbarItemMulti | 发送事件实例 |
 
 ## USidebarGroup API
 ### Props/Attrs

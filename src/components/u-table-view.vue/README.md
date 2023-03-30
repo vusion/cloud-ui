@@ -205,10 +205,10 @@ export default {
 
 #### 表格线条
 
-设置`line="both"`，可以给单元格上下左右都加上边框。
+设置`line`，可以给单元格上下左右都加上边框。
 
 ``` html
-<u-table-view line="both" :data-source="[
+<u-table-view line :data-source="[
     { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
     { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
     { name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
@@ -418,7 +418,7 @@ export default {
 某些情况下，我们会遇到文字过长的问题，默认会进行多行显示。
 
 ``` html
-<u-table-view line="horizontal" striped :data-source="[
+<u-table-view line striped :data-source="[
     { name: '这是一个很长很长很长很长很长很长很长很长的名字', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
     { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
     { name: '名字就是起得这么这么这么这么这么这么长', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
@@ -437,7 +437,7 @@ export default {
 可以对列设置`ellipsis`属性，使文本单行省略，鼠标悬浮时会有工具提示。
 
 ``` html
-<u-table-view line="horizontal" striped :data-source="[
+<u-table-view line striped :data-source="[
     { name: '这是一个很长很长很长很长很长很长很长很长的名字', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
     { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
     { name: '名字就是起得这么这么这么这么这么这么长', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
@@ -580,7 +580,7 @@ export default {
 #### average
 
 ``` html
-<u-table-view resizable line="horizontal" striped :data-source="[
+<u-table-view resizable line striped :data-source="[
     { name: '这是一个很长很长很长很长很长很长很长很长的名字', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
     { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
     { name: '名字就是起得这么这么这么这么这么这么长', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
@@ -597,7 +597,7 @@ export default {
 #### sequence
 
 ``` html
-<u-table-view resizable resize-remaining="sequence" line="horizontal" striped :data-source="[
+<u-table-view resizable resize-remaining="sequence" line striped :data-source="[
     { name: '这是一个很长很长很长很长很长很长很长很长的名字', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
     { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
     { name: '名字就是起得这么这么这么这么这么这么长', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
@@ -614,7 +614,7 @@ export default {
 #### none
 
 ``` html
-<u-table-view resizable resize-remaining="none" line="horizontal" striped :data-source="[
+<u-table-view resizable resize-remaining="none" line striped :data-source="[
     { name: '这是一个很长很长很长很长很长很长很长很长的名字', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
     { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
     { name: '名字就是起得这么这么这么这么这么这么长', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
@@ -2204,17 +2204,17 @@ export default {
 | extra-params | object |  |  | 数据源除了DataSourceParams外还需要的参数 |
 | initial-load | boolean |  | `true` | 是否在初始时立即加载 |
 | pageable | boolean |  | `false` |  |
+| remote-paging | boolean |  | `false` | 是否使用后端分页 |
 | page-size.sync | number |  | `20` |  |
 | page-number.sync | number |  | `1` |  |
 | page-size-options | Array\<number\> |  | `[10, 20, 50]` | 分页大小的选项列表 |
 | show-total | boolean |  | `false` |  |
 | show-sizer | boolean |  | `false` |  |
 | show-jumper | boolean |  | `false` |  |
-| sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 当前排序的字段和顺序 |
-| default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 所有列首次点击时的排序顺序 |
+| sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 指数据初始化时的排序规则 |
+| remote-sorting | boolean |  | `false` | 是否使用排序操作 |
+| default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 开启排序功能时，默认的排序规则 |
 | filtering.sync | object |  |  |  |
-| remote-paging | boolean |  | `false` | 是否使用后端分页 |
-| remote-sorting | boolean |  | `false` | 是否使用后端排序 |
 | remote-filtering | boolean |  | `false` | 是否使用后端筛选 |
 | title | string |  |  |  |
 | title-alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'center'` |  |
@@ -2227,12 +2227,12 @@ export default {
 | stick-head | boolean |  | `false` |  |
 | stick-head-offset | number |  | `0` |  |
 | default-column-width | string \| number |  |  | 表格的默认列宽度，可以设置为百分比或数字 |
-| loading | boolean |  |  | 手动设置是否正在加载中 |
-| loading-text | string |  | `'正在加载中'` | 正在加载中的文字 |
-| error | boolean |  |  | 手动设置是否加载失败 |
-| error-text | string |  | `'加载失败，请重试'` |  |
-| empty-text | string |  | `'暂无数据'` |  |
-| error-image | image |  | `''` | 加载失败或数据为空时显示的图片 |
+| designer-mode | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'success'` | 设置不同状态的展示内容 |
+| loading-text | string |  | `'正在加载中...'` | 设置加载中的提示文案 |
+| loading | boolean |  |  | 支持自定义状态的触发条件，未设置则默认为系统定义条件 |
+| error-text | string |  | `'加载失败，请重试'` | 设置加载失败的提示文案 |
+| error | boolean |  |  | 支持自定义状态的触发条件，未设置则默认为系统定义条件 |
+| empty-text | string |  | `'暂无数据'` | 设置暂无数据的提示文案 |
 | value-field | string |  |  | 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段 |
 | value.sync, v-model | any |  |  | 单项选择的值 |
 | values.sync | Array |  |  | 多项选择的值 |
@@ -2541,6 +2541,7 @@ Methods
 | ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | hidden | boolean |  | `false` | 是否隐藏该列 |
 | type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序 |
+| auto-index | boolean |  | `false` | 换页后，继续上一页的列序号进行编号 |
 | start-index | number |  | `1` | 序号列的起始序号 |
 | dblclickHandler | Function |  |  | 用于可编辑表格，双击表格列时的处理函数 |
 

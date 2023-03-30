@@ -4035,6 +4035,10 @@
     "type": "Function",
     "description": "将传入的src转换为符合要求的字符串"
   },
+  "u-image/preview": {
+    "type": "boolean",
+    "description": "是否支持点击放大全屏展示"
+  },
   "u-info-list/repeat": {
     "type": "number",
     "description": "整个详情列表的划分列数"
@@ -7002,6 +7006,10 @@
     "type": "boolean",
     "description": ""
   },
+  "u-table-view/remote-paging": {
+    "type": "boolean",
+    "description": "是否使用后端分页"
+  },
   "u-table-view/page-size": {
     "type": "number",
     "description": ""
@@ -7028,7 +7036,11 @@
   },
   "u-table-view/sorting": {
     "type": "{ field: string, order: string, compare: Function }",
-    "description": "当前排序的字段和顺序"
+    "description": "指数据初始化时的排序规则"
+  },
+  "u-table-view/remote-sorting": {
+    "type": "boolean",
+    "description": "是否使用排序操作"
   },
   "u-table-view/default-order": {
     "type": "string",
@@ -7042,19 +7054,11 @@
         "title": "倒序"
       }
     ],
-    "description": "所有列首次点击时的排序顺序"
+    "description": "开启排序功能时，默认的排序规则"
   },
   "u-table-view/filtering": {
     "type": "object",
     "description": ""
-  },
-  "u-table-view/remote-paging": {
-    "type": "boolean",
-    "description": "是否使用后端分页"
-  },
-  "u-table-view/remote-sorting": {
-    "type": "boolean",
-    "description": "是否使用后端排序"
   },
   "u-table-view/remote-filtering": {
     "type": "boolean",
@@ -7118,29 +7122,47 @@
     "type": "string | number",
     "description": "表格的默认列宽度，可以设置为百分比或数字"
   },
-  "u-table-view/loading": {
-    "type": "boolean",
-    "description": "手动设置是否正在加载中"
+  "u-table-view/designer-mode": {
+    "type": "string",
+    "options": [
+      {
+        "value": "success",
+        "title": "加载完成-有数据"
+      },
+      {
+        "value": "empty",
+        "title": "加载完成-暂无数据"
+      },
+      {
+        "value": "loading",
+        "title": "加载中"
+      },
+      {
+        "value": "error",
+        "title": "加载失败"
+      }
+    ],
+    "description": "设置不同状态的展示内容"
   },
   "u-table-view/loading-text": {
     "type": "string",
-    "description": "正在加载中的文字"
+    "description": "设置加载中的提示文案"
   },
-  "u-table-view/error": {
+  "u-table-view/loading": {
     "type": "boolean",
-    "description": "手动设置是否加载失败"
+    "description": "支持自定义状态的触发条件，未设置则默认为系统定义条件"
   },
   "u-table-view/error-text": {
     "type": "string",
-    "description": ""
+    "description": "设置加载失败的提示文案"
+  },
+  "u-table-view/error": {
+    "type": "boolean",
+    "description": "支持自定义状态的触发条件，未设置则默认为系统定义条件"
   },
   "u-table-view/empty-text": {
     "type": "string",
-    "description": ""
-  },
-  "u-table-view/error-image": {
-    "type": "image",
-    "description": "加载失败或数据为空时显示的图片"
+    "description": "设置暂无数据的提示文案"
   },
   "u-table-view/value-field": {
     "type": "string",
@@ -7321,6 +7343,10 @@
       }
     ],
     "description": "支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序"
+  },
+  "u-table-view-column/auto-index": {
+    "type": "boolean",
+    "description": "换页后，继续上一页的列序号进行编号"
   },
   "u-table-view-column/start-index": {
     "type": "number",
@@ -7697,6 +7723,20 @@
   "u-textarea/show-word-limit": {
     "type": "boolean",
     "description": "设置是否显示「可输入最大字符数」的字数统计"
+  },
+  "u-textarea/limit-position": {
+    "type": "string",
+    "options": [
+      {
+        "value": "inside",
+        "title": "输入框内"
+      },
+      {
+        "value": "outside",
+        "title": "输入框外"
+      }
+    ],
+    "description": "设置字数统计位置"
   },
   "u-textarea/spellcheck": {
     "type": "boolean",
