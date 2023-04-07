@@ -239,7 +239,7 @@ export default {
         },
         {
             "icon_id": "27336423",
-            "name": "create",
+            "name": "创建",
             "font_class": "create",
             "unicode": "e617",
             "unicode_decimal": 58903

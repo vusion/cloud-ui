@@ -275,7 +275,7 @@ export default {
             else
                 this.selectedVM = nodeVM;
             const { value, node } = this.selectedVM || {};
-            const actualValue = value || node && node[this.valueField] || this.selectedVM[this.valueField];
+            const actualValue = value || (node && node[this.valueField]) || (this.selectedVM && this.selectedVM[this.valueField]);
             this.$emit('input', actualValue, this);
             this.$emit('update:value', actualValue, this);
             this.$emit(
