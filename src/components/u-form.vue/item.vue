@@ -59,7 +59,7 @@ export default {
         span: { type: [Number, String], default: 1 },
         labelLayout: String,
         labelEllipsis: { type: Boolean, default: false },
-        validateMessage: {type: String, default: ""},
+        validateMessage: { type: String, default: '' },
     },
     data() {
         return {
