@@ -115,7 +115,7 @@ export default {
             if (height) {
                 const tempH = (height) + 'px';
                 input.style.height = tempH;
-                this.height = tempH;
+                this.height = height + 2 * 1 + 'px';
             }
         },
     },
