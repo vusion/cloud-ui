@@ -94,10 +94,10 @@ export default {
             if (!this.canAuto)
                 return;
             const { input } = this.$refs;
-            input.style.height = 'auto';
             let height = input.scrollHeight;
             if (this.isObject(this.autosize || input.autosize)) {
                 const { maxHeight, minHeight } = this.autosize || input.autosize;
+                input.style.height = 'auto';
                 if (maxHeight) {
                     height = Math.min(height, maxHeight);
                 }
