@@ -862,7 +862,7 @@
       title: 固定列
       type: boolean
       default: false
-      description: 该列是否固定
+      description: 该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。
     - name: sortable
       title: 可排序
       type: boolean

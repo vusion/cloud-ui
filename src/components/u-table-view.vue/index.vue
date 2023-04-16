@@ -834,18 +834,24 @@ export default {
                         percentColumnVMs.push(columnVM);
                     else
                         valueColumnVMs.push(columnVM);
+                    // 当右侧有fixed，到当前列的时候却是非fixed，fixedRightCount置为0
+                    if (fixedRightCount && !columnVM.fixed) {
+                        fixedRightCount = 0;
+                    }
                     if (columnVM.fixed) {
                         if (index === 0)
                             fixedLeftCount = 1;
-                        else if (!fixedRightCount && lastIsFixed)
+                        else if (fixedLeftCount === index && lastIsFixed)
                             fixedLeftCount++;
-                        else if (!lastIsFixed)
+                        else if (!lastIsFixed) {
                             fixedRightCount = 1;
-                        else
+                        } else
                             fixedRightCount++;
                     }
                     lastIsFixed = columnVM.fixed;
                 });
+                console.log('fixedLeftCount', fixedLeftCount);
+                console.log('fixedRightCount', fixedRightCount);
 
                 // 全部都是百分数的情况，按比例缩小
                 if (percentColumnVMs.length === this.visibleColumnVMs.length) {
@@ -917,25 +923,25 @@ export default {
                     if (fixedLeftCount) {
                         this.visibleColumnVMs.slice(0, fixedLeftCount)
                             .reduce((prev, columnVM) => {
-                                this.fixedLeftList.push(prev);
+                                this.fixedLeftList.push({
+                                    columnVM,
+                                    left: prev,
+                                });
                                 return prev + columnVM.computedWidth;
                             }, 0);
                     }
                     if (fixedRightCount && tableWidth > rootWidth) {
                         // 表格太短时，不固定右侧列
-                        this.visibleColumnVMs.slice(-fixedRightCount)
+                        const visibleColumnVMs = this.visibleColumnVMs.slice(-fixedRightCount);
+                        visibleColumnVMs.reverse()
                             .reduce((prev, columnVM) => {
-                                this.fixedRightList.push(prev);
+                                this.fixedRightList.push({
+                                    columnVM,
+                                    right: prev,
+                                });
                                 return prev + columnVM.computedWidth;
                             }, 0);
                     }
-                }
-
-                // 当设置line的时候，会有1px的偏差，导致出现滚动条，这里暂时将最后一列的width减1
-                // 需要在总width计算完后处理，要不然总width会少1，导致自后一列的右侧线条看不见
-                if (this.line) {
-                    const lastColumnVM = this.visibleColumnVMs[this.visibleColumnVMs.length - 1];
-                    lastColumnVM.computedWidth = lastColumnVM.computedWidth - 1;
                 }
 
                 /**
@@ -1724,22 +1730,22 @@ export default {
             const staticStyle = Object.assign({}, columnVM.$vnode.data && columnVM.$vnode.data.staticStyle);
             if (this.useStickyFixed) {
                 if (this.fixedLeftList && this.fixedLeftList.length) {
-                    const left = this.fixedLeftList[index];
-                    if (left !== undefined) {
+                    const leftData = this.fixedLeftList[index];
+                    if (leftData !== undefined && columnVM === leftData.columnVM) {
                         return Object.assign(staticStyle, style, {
                             position: 'sticky',
-                            left: left + 'px',
+                            left: leftData.left + 'px',
                             zIndex: 1,
                         });
                     }
                 }
                 if (this.fixedRightList && this.fixedRightList.length) {
                     const tempIndex = this.visibleColumnVMs.length - index - 1;
-                    const right = this.fixedRightList[tempIndex];
-                    if (right !== undefined) {
+                    const rightData = this.fixedRightList[tempIndex];
+                    if (rightData !== undefined && columnVM === rightData.columnVM) {
                         return Object.assign(staticStyle, style, {
                             position: 'sticky',
-                            right: right + 'px',
+                            right: rightData.right + 'px',
                             zIndex: 1,
                         });
                     }

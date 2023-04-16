@@ -63,11 +63,11 @@ export default {
     font-weight: var(--table-head-font-weight);
 }
 
-.root tbody tr {
+.root tbody td {
     border-top: 1px solid var(--table-view-border-color);
 }
 
-.root tbody > tr:first-child {
+.root tbody > tr:first-child td {
     border-top: none;
 }
 
@@ -113,11 +113,20 @@ export default {
 .root tbody > tr:last-child:hover > td::after {
     display: none;
 } */
-
-.root[line] th, .root[line] td {
-    border: 1px solid var(--table-view-border-color);
+/** 固定列position: sticky，th，td的border没有效果，所以改成box-shadow */
+.root[line] th {
+    box-shadow: inset 0 1px 0 var(--table-view-border-color), inset 0 -1px 0 var(--table-view-border-color), inset 1px 0 0 var(--table-view-border-color);
 }
-
+.root[line] th:last-child {
+    /**上、右、下、左 */
+    box-shadow: inset 0 1px 0 var(--table-view-border-color), inset -1px 0 0 var(--table-view-border-color), inset 0 -1px 0 var(--table-view-border-color), inset 1px 0 0 var(--table-view-border-color);
+}
+.root[line] td {
+    box-shadow: inset 1px 0 0 var(--table-view-border-color);
+}
+.root[line] td:last-child {
+    box-shadow: inset 1px 0 0 var(--table-view-border-color), inset -1px 0 0 var(--table-view-border-color);
+}
 .root[line] th, .root[line] thead tr {
     border-bottom: none;
 }
