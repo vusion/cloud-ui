@@ -2282,7 +2282,7 @@ export default {
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
+    left: 6px;
     bottom: -1px;
     width: 6px;
     pointer-events: none;
@@ -2294,13 +2294,13 @@ export default {
 .head-title[last-left-fixed]::after {
     left: unset;
     transform: translateX(100%);
-    right: 0;
+    right: 6px;
 }
 .head-title[shadow][last-left-fixed]::after {
-    box-shadow: inset 3px 0 5px -3px rgb(0 0 0 / 15%);
+    box-shadow: inset -4px 0 5px -3px rgb(0 0 0 / 15%);
 }
 .head-title[shadow][first-right-fixed]::after {
-    box-shadow: inset -3px 0 5px -3px rgb(0 0 0 / 15%);
+    box-shadow: inset 3px 0 5px -3px rgb(0 0 0 / 15%);
 }
 
 .extra {
@@ -2414,7 +2414,7 @@ export default {
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
+    left: 6px;
     bottom: -1px;
     width: 6px;
     pointer-events: none;
@@ -2426,13 +2426,13 @@ export default {
 .cell[last-left-fixed]::after {
     left: unset;
     transform: translateX(100%);
-    right: 0;
+    right: 6px;
 }
 .cell[shadow][last-left-fixed]::after {
-    box-shadow: inset 3px 0 5px -3px rgb(0 0 0 / 15%);
+    box-shadow: inset -4px 0 5px -3px rgb(0 0 0 / 15%);
 }
 .cell[shadow][first-right-fixed]::after {
-    box-shadow: inset -3px 0 5px -3px rgb(0 0 0 / 15%);
+    box-shadow: inset 3px 0 5px -3px rgb(0 0 0 / 15%);
 }
 
 .pagination {
