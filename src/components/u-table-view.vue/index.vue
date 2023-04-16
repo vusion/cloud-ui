@@ -2397,6 +2397,12 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.cell[ellipsis] > div {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 .cell[last-left-fixed]::after,
 .cell[first-right-fixed]::after{
     content: "";
