@@ -43,7 +43,6 @@ export default {
     components: { UTreeViewNodeNew },
     props: {
         value: null,
-        values: Array,
         field: String,
         data: [Array, Object, Function],
         dataSource: [Array, Object, Function],
@@ -82,7 +81,7 @@ export default {
             // @inherit: nodeVMs: [],
             currentDataSource: undefined,
             selectedVM: undefined,
-            currentValues: this.values || [],
+            currentValues: (this.checkable && this.value) || [],
             loading: false,
         };
     },
@@ -115,15 +114,6 @@ export default {
                 oldVM,
             }, this);
         },
-        values(values) {
-            this.watchValues(values);
-        }, // currentValues(values, oldValues) {
-        //     this.$emit('change', {
-        //         values,
-        //         oldValues,
-        //     });
-        // },
-        // This method just run once after pushing many nodeVMs
         nodeVMs() {
             this.selectedVM = undefined;
             this.watchValue(this.value);
@@ -139,7 +129,6 @@ export default {
         // Must trigger `value` watcher at mounted hook.
         // If not, nodeVMs have not been pushed.
         this.watchValue(this.value);
-        this.watchValues(this.values);
     },
     methods: {
         handleData() {
@@ -214,6 +203,10 @@ export default {
             return final;
         },
         watchValue(value) {
+            if(this.checkable) {
+                return this.watchValues(value);
+            }
+
             if (this.selectedVM && this.selectedVM.value === value)
                 return;
             if (value === undefined)
