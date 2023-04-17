@@ -850,8 +850,6 @@ export default {
                     }
                     lastIsFixed = columnVM.fixed;
                 });
-                console.log('fixedLeftCount', fixedLeftCount);
-                console.log('fixedRightCount', fixedRightCount);
 
                 // 全部都是百分数的情况，按比例缩小
                 if (percentColumnVMs.length === this.visibleColumnVMs.length) {
