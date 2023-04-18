@@ -102,23 +102,42 @@ export default{
 
 ### Events
 
-#### @change
-
-日期改变时触发
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| cell | object | 改变后的日期以及相关数据 |
-
 #### @select
 
 选择某一个日期时触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| cell | object | 当前选择的日期以及相关数据 |
+| $event.value | string | YYYY-MM-DD 格式的日期信息 |
+| $event.oldValue | string | YYYY-MM-DD 格式的日期信息 |
+| $event.date | number | 当月的日期信息 |
+| $event.timestamp | number | 时间戳格式日期信息 |
+| $event.disabled | boolean | 是否禁用 |
+| $event.week | number | 周数信息 |
+| $event.Date | object | dayjs 封装过后的日期信息 |
+
+#### @change
+
+日期改变时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.value | string | YYYY-MM-DD 格式的日期信息 |
+| $event.oldValue | string | YYYY-MM-DD 格式的日期信息 |
+| $event.date | number | 当月的日期信息 |
+| $event.timestamp | number | 时间戳格式日期信息 |
+| $event.disabled | boolean | 是否禁用 |
+| $event.week | number | 周数信息 |
+| $event.Date | object | dayjs 封装过后的日期信息 |
 
 Methods
+
+#### load()
+
+加载
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
 
 #### reload()
 

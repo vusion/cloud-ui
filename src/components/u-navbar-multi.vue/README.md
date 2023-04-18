@@ -6,8 +6,10 @@
     - [导航栏](#导航栏)
 - [UNavbarMulti API](#unavbarmulti-api)
     - [Props/Attrs](#propsattrs)
+    - [Events](#events)
 - [UNavbarItemMulti API](#unavbaritemmulti-api)
     - [Props/Attrs](#propsattrs-2)
+    - [Events](#events-2)
 - [UNavbarDividerMulti API](#unavbardividermulti-api)
 
 - [UNavbarDropdownMulti API](#unavbardropdownmulti-api)
@@ -53,10 +55,10 @@
         <u-multi-layout-item align-items="center" justify="end">
             <u-dropdown style="margin-right: 10px; color: inherit">
                 <template #title>
-                    <u-linear-layout gap="small" v-if="$global.userInfo">
+                    <u-linear-layout gap="small">
                         <u-image fit="cover" src="https://static-vusion.163yun.com/assets/avatar-default.svg" style="width: 36px; height: 36px; vertical-align: middle;"></u-image>
                         <span style="display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;">
-                            <u-text :text="$global.userInfo.UserName"></u-text>
+                            <u-text text="张三"></u-text>
                         </span>
                     </u-linear-layout>
                 </template>
@@ -80,6 +82,23 @@
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 
+### Events
+
+#### @select
+
+选择某一项后触发。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.value | any | 改变后的值 |
+| $event.oldValue | any | 旧的值 |
+| $event.item | object | 选择项相关对象 |
+| $event.oldItem | object | 旧的选择项相关对象 |
+| $event.itemVM | uNavbarItemMulti | 选择项子组件 |
+| $event.oldVM | uNavbarItemMulti | 旧的选择项子组件 |
+| senderVM | UNavbarMulti | 发送事件实例 |
+
 ## UNavbarItemMulti API
 ### Props/Attrs
 
@@ -96,6 +115,27 @@
 | to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | exact | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。 |
+
+### Events
+
+#### @$listeners
+
+监听所有`<a>`元素的事件。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+
+#### @navigate
+
+使用 router 相关属性切换路由后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.to | string, Location | `to`属性的值 |
+| $event.replace | boolean | `replace`属性的值 |
+| $event.append | boolean | `append`属性的值 |
+| senderVM | UNavbarItemMulti | 发送事件实例 |
 
 ## UNavbarDividerMulti API
 

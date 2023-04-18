@@ -123,6 +123,7 @@ export default {
 | horizontalCenter | string | `'左对齐'` ()<br/>`'居中对齐'` ()<br/>`'右对齐'` () | `'center'` | 图片水平对齐方式 |
 | verticalCenter | string | `'顶部对齐'` ()<br/>`'居中对齐'` ()<br/>`'底部对齐'` () | `'center'` | 图片垂直对齐方式 |
 | convertSrcFn | Function |  | `'(src) =\> {  try { const tempSrc = JSON.parse(src); const tempItem = tempSrc\[0\]; return tempItem.url; } catch (e) { return src;}}'` | 将传入的src转换为符合要求的字符串 |
+| preview | boolean |  | `false` | 是否支持点击放大全屏展示 |
 
 ### Events
 

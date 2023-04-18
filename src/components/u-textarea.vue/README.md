@@ -128,6 +128,7 @@ export default {
 | minlength | number |  |  |  |
 | maxlength | number |  |  | 输入框内可输入的最大字符数，超过时不支持输入 |
 | show-word-limit | boolean |  |  | 设置是否显示「可输入最大字符数」的字数统计 |
+| limit-position | string | `[object Object]`<br/>`[object Object]` |  | 设置字数统计位置 |
 | spellcheck | boolean |  |  |  |
 | autofocus | boolean |  | `false` |  |
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置多行输入框大小 |
