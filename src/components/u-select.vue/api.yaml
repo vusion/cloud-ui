@@ -136,6 +136,8 @@
       sync: true
       default: 50
       description: ""
+      dependency:
+        - pagination: true
     - name: sorting
       title: 初始化排序规则
       type: "{ field: string, order: string, compare: Function }"
