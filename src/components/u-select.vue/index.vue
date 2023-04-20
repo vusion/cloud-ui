@@ -97,7 +97,8 @@
 </template>
 
 <script>
-import { UListView } from '../u-list-view.vue';
+// import { UListView } from '../u-list-view.vue';
+import UListView from '../u-list-view.vue/index_for_select.vue';
 import { ellipsisTitle } from '../../directives';
 import i18n from './i18n';
 
@@ -129,7 +130,6 @@ export default {
         autoSelect: { type: Boolean, default: false },
         placeholder: { type: String, default: '请选择' },
         clearable: { type: Boolean, default: false },
-        filterable: { type: Boolean, default: false },
         matchMethod: { type: [String, Function], default: 'includes' },
         caseSensitive: { type: Boolean, default: false }, // @inherit: loadingText: { type: String, default: '加载中...' },
         placement: { type: String, validator: (value) => /^(top|bottom|left|right)(-start|-end)?$/.test(value) },
@@ -140,10 +140,12 @@ export default {
             },
         },
         emptyDisabled: { type: Boolean, default: false }, // @inherit: initialLoad: { type: Boolean, default: true },
-        // @inherit: pageable: { type: Boolean, default: false },
-        // @inherit: pageSize: { type: Number, default: 50 },
-        // @inherit: remotePaging: { type: Boolean, default: false },
-        remoteFiltering: { type: Boolean, default: false },
+        // 分页
+        pageable: { type: Boolean, default: true },
+        pageSize: { type: Number, default: 50 },
+        // 筛选
+        filterable: { type: Boolean, default: false },
+
         autoComplete: { type: Boolean, default: false },
         opened: { type: Boolean, default: false },
         prefix: String,
@@ -311,9 +313,7 @@ export default {
             return {
                 viewMode: 'more',
                 paging: this.paging,
-                remotePaging: this.remotePaging,
                 filtering: this.filtering,
-                remoteFiltering: this.remoteFiltering,
                 getExtraParams: this.getExtraParams,
             };
         },
@@ -365,7 +365,7 @@ export default {
         },
         onOpen($event) {
             this.popperOpened = true; // 刚打开时，除非是没有加载，否则保留上次的 filter 过的数据
-            if (this.filterable && !this.currentDataSource.initialLoaded) {
+            if (this.filterable && this.currentDataSource.loading) {
                 this.load().then(() => {
                     this.ensureFocusedInView(true);
                     this.$refs.input.focus();
@@ -389,9 +389,9 @@ export default {
             if (!this.currentDataSource)
                 return;
             this.currentDataSource.filter(this.filtering);
-            return this.currentDataSource.mustRemote() ? this.debouncedLoad(more, keep) : this.load(more, keep);
+            return this.currentDataSource.remote ? this.debouncedLoad(more, keep) : this.load(more, keep);
         },
-        load(more, keep) {
+        load(more) {
             const dataSource = this.currentDataSource;
             if (!dataSource)
                 return;
@@ -403,7 +403,6 @@ export default {
             // console.log('filterText', this.filterText, loadToken);
             return dataSource[more ? 'loadMore' : 'load']()
                 .then((data) => {
-                    // console.log('loaded', this.loadToken, loadToken);
                     if (this.loadToken !== loadToken)
                         return Promise.resolve();
                     this.currentLoading = false;
