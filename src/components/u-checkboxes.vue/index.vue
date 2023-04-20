@@ -34,10 +34,10 @@ import UCheckbox from '../u-checkbox.vue';
 export default {
     name: 'u-checkboxes',
     childName: 'u-checkbox',
-    mixins: [MParent, MField, MConverter, SupportDataSource],
     components: {
         UCheckbox,
     },
+    mixins: [MParent, MField, MConverter, SupportDataSource],
     props: {
         value: [Array, String],
         min: { type: Number, default: 0 },
@@ -68,7 +68,7 @@ export default {
     },
     methods: {
         watchValue(value) {
-            if (value) {
+            if ((!Array.isArray(value) && value) || (Array.isArray(value) && value.length)) {
                 if (this.converter)
                     value = this.currentConverter.set(value);
                 this.currentValue = value;
@@ -82,6 +82,14 @@ export default {
                     (itemVM) => itemVM.currentValue && value.push(itemVM.label),
                 );
                 this.currentValue = value;
+                let currentValue = value;
+                if (this.converter)
+                    currentValue = this.currentConverter.get(currentValue);
+                // 不相等才触发更新，要不然可能会一直是空数组等，导致无限循环
+                if (JSON.stringify(currentValue) !== JSON.stringify(this.value)) {
+                    this.$emit('input', currentValue);
+                    this.$emit('update:value', currentValue);
+                }
             }
         },
         canCheck($event) {
@@ -114,7 +122,7 @@ export default {
                 itemVM: $event.itemVM,
             });
         },
-        exceedMax(){
+        exceedMax() {
             return Array.isArray(this.currentValue) && this.currentValue.length >= this.max;
         },
     },

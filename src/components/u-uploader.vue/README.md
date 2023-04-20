@@ -398,11 +398,11 @@ export default {
 | multiple | boolean |  | `false` |  |
 | multiple-once | boolean |  | `false` | 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件 |
 | open-cropper | boolean |  | `false` | 设置是否开启图片裁剪，只对单文件上传有效 |
-| fixedCropper | boolean |  | `false` | 设置是否固定裁剪框比例 |
+| fixedCropper | boolean |  | `false` | 设置是否固定裁剪框大小 |
 | cropperBoxWidth | number |  | `200` | 设置裁剪框宽度 |
 | cropperBoxHeight | number |  | `200` | 设置裁剪框高度 |
-| cropperTitle | string |  | `'图片裁剪'` | 设置裁剪框标题 |
 | cropperPreviewShape | string | `[object Object]`<br/>`[object Object]` | `'circle'` | 设置裁剪框预览形状 |
+| cropperTitle | string |  | `'图片裁剪'` | 设置裁剪框标题 |
 | data-type | string |  | `'json'` | 接收数据类型。可选值：`text`、`xml`、`json` |
 | data | object |  |  |  |
 | limit | number |  |  |  |

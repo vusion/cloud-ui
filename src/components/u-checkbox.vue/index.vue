@@ -24,7 +24,7 @@ export default {
     },
     mixins: [MChild, MField],
     props: {
-        value: { type: Boolean, default: false },
+        value: { type: [String, Boolean], default: false },
         label: null,
         text: String,
         readonly: { type: Boolean, default: false },
@@ -33,6 +33,7 @@ export default {
         node: Object,
     },
     data() {
+        console.log('cccc', this.value);
         return { parentVM: undefined, currentValue: this.value };
     },
     computed: {
@@ -49,6 +50,7 @@ export default {
     },
     watch: {
         value(value) {
+            console.log('ddd', value);
             this.currentValue = value;
         },
         currentValue(value, oldValue) {

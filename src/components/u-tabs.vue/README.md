@@ -361,8 +361,8 @@ Methods
 | title | string |  |  | 标签页标题。 |
 | value | any |  |  | 标签页的值。 |
 | disabled | boolean |  | `false` | 是否禁用此标签页。 |
-| closable | boolean |  | `false` | 控制是否可手动关闭标签。 |
 | showTabItem | boolean |  | `true` | 控制标签项是否默认显示。 |
+| closable | boolean |  | `false` | 控制是否可手动关闭标签。 |
 | linkType | string | `[object Object]`<br/>`[object Object]` | `'destination'` | 链接类型 |
 | href | string |  |  | 链接地址 |
 | hrefAndTo | string |  |  | 链接地址 |
