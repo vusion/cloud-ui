@@ -107,6 +107,18 @@
       default: true
       description: 是否在初始时立即加载
     - name: pageable
+      title: 分页加载更多
+      type: boolean
+      default: false
+      description: 是否使用分页功能加载更多
+      hidden: true
+    - name: remote-paging
+      title: 后端分页
+      type: boolean
+      default: false
+      description: 是否使用后端分页
+      hidden: true
+    - name: pagination
       title: 分页
       type: boolean
       default: true
@@ -140,6 +152,12 @@
       type: boolean
       default: false
       description: 是否使用输入框进行筛选
+    - name: remote-filtering
+      title: 后端筛选
+      type: boolean
+      default: false
+      description: 是否使用后端筛选
+      hidden: true
     - name: match-method
       title: 匹配方法
       type: string

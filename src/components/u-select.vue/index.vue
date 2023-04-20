@@ -97,10 +97,11 @@
 </template>
 
 <script>
-// import { UListView } from '../u-list-view.vue';
-import UListView from '../u-list-view.vue/index_for_select.vue';
+import { UListView } from '../u-list-view.vue';
 import { ellipsisTitle } from '../../directives';
 import i18n from './i18n';
+import DataSource from '../../utils/DataSource';
+import DataSourceNew from '../../utils/DataSource/new';
 
 export default {
     name: 'u-select',
@@ -130,6 +131,7 @@ export default {
         autoSelect: { type: Boolean, default: false },
         placeholder: { type: String, default: '请选择' },
         clearable: { type: Boolean, default: false },
+        filterable: { type: Boolean, default: false },
         matchMethod: { type: [String, Function], default: 'includes' },
         caseSensitive: { type: Boolean, default: false }, // @inherit: loadingText: { type: String, default: '加载中...' },
         placement: { type: String, validator: (value) => /^(top|bottom|left|right)(-start|-end)?$/.test(value) },
@@ -140,12 +142,10 @@ export default {
             },
         },
         emptyDisabled: { type: Boolean, default: false }, // @inherit: initialLoad: { type: Boolean, default: true },
-        // 分页
-        pageable: { type: Boolean, default: true },
-        pageSize: { type: Number, default: 50 },
-        // 筛选
-        filterable: { type: Boolean, default: false },
-
+        // @inherit: pageable: { type: Boolean, default: false },
+        // @inherit: pageSize: { type: Number, default: 50 },
+        // @inherit: remotePaging: { type: Boolean, default: false },
+        remoteFiltering: { type: Boolean, default: false },
         autoComplete: { type: Boolean, default: false },
         opened: { type: Boolean, default: false },
         prefix: String,
@@ -161,6 +161,11 @@ export default {
         popperWidth: { type: String, default: '' },
         showEmptyText: { type: Boolean, default: true }, // 控制是否展示emptyText
         descriptionField: String,
+
+        // 新增用来分页
+        pagination: { type: Boolean, default: undefined },
+        sorting: { type: Object },
+        dataSource: [DataSource, DataSourceNew, Function, Object, Array],
     },
     data() {
         return {
@@ -199,6 +204,15 @@ export default {
                     caseInsensitive: !this.caseSensitive,
                 },
             };
+        },
+        paging() {
+            if (this.pageable || typeof this.pagination !== 'undefined') {
+                const paging = {};
+                paging.size = this.pageSize === '' ? 50 : this.pageSize;
+                paging.number = paging.number || 1;
+                return paging;
+            } else
+                return undefined;
         },
     },
     watch: {
@@ -313,9 +327,57 @@ export default {
             return {
                 viewMode: 'more',
                 paging: this.paging,
+                remotePaging: this.remotePaging,
                 filtering: this.filtering,
+                remoteFiltering: this.remoteFiltering,
                 getExtraParams: this.getExtraParams,
+                // 新增
+                sorting: this.sorting,
+                remoteSorting: this.sorting,
             };
+        },
+        normalizeDataSource(dataSource) {
+            const options = this.getDataSourceOptions();
+            const isNew = typeof this.pagination !== 'undefined';
+            const Constructor = isNew ? DataSourceNew : DataSource;
+
+            if (dataSource instanceof DataSource || dataSource instanceof DataSourceNew)
+                return dataSource;
+            else if (dataSource instanceof Array) {
+                options.data = Array.from(dataSource);
+                // 使用了新的分页, 数组类型肯定不后端分页
+                if (isNew) {
+                    options.remotePaging = false;
+                    options.remoteFiltering = false;
+                    options.remoteSorting = false;
+                }
+
+                return new Constructor(options);
+            } else if (dataSource instanceof Function) {
+                options.load = function load(params) {
+                    const result = dataSource(params);
+                    if (result instanceof Promise)
+                        return result.catch(
+                            () => (this.currentLoading = false),
+                        );
+                    else if (result instanceof Array)
+                        return Promise.resolve(result);
+                    else
+                        return Promise.resolve(result);
+                };
+
+                // 使用了新的分页, 函数类型先单做后端分页
+                if (isNew) {
+                    options.remotePaging = !!this.pagination;
+                    options.remoteFiltering = !!this.filterable;
+                    options.remoteSorting = !!this.sorting?.field;
+                }
+
+                return new Constructor(options);
+            } else if (dataSource instanceof Object) {
+                return new Constructor(Object.assign(options, dataSource));
+            } else
+                return undefined;
         },
         shift(count) {
             let focusedIndex = this.itemVMs.indexOf(this.focusedVM || this.selectedVM);
@@ -365,7 +427,7 @@ export default {
         },
         onOpen($event) {
             this.popperOpened = true; // 刚打开时，除非是没有加载，否则保留上次的 filter 过的数据
-            if (this.filterable && this.currentDataSource.loading) {
+            if (this.filterable && !this.currentDataSource.initialLoaded) {
                 this.load().then(() => {
                     this.ensureFocusedInView(true);
                     this.$refs.input.focus();
@@ -389,9 +451,9 @@ export default {
             if (!this.currentDataSource)
                 return;
             this.currentDataSource.filter(this.filtering);
-            return this.currentDataSource.remote ? this.debouncedLoad(more, keep) : this.load(more, keep);
+            return this.currentDataSource.mustRemote() ? this.debouncedLoad(more, keep) : this.load(more, keep);
         },
-        load(more) {
+        load(more, keep) {
             const dataSource = this.currentDataSource;
             if (!dataSource)
                 return;
@@ -403,6 +465,7 @@ export default {
             // console.log('filterText', this.filterText, loadToken);
             return dataSource[more ? 'loadMore' : 'load']()
                 .then((data) => {
+                    // console.log('loaded', this.loadToken, loadToken);
                     if (this.loadToken !== loadToken)
                         return Promise.resolve();
                     this.currentLoading = false;
@@ -606,6 +669,24 @@ export default {
             this.preventRootBlur = false;
             this.preventBlur = false;
             this.rootFocus();
+        },
+        onScroll(e) {
+            this.hasScroll = true;
+            this.throttledVirtualScroll(e);
+
+            if (typeof this.pagination !== 'undefined') {
+                if (!this.pagination || !this.$options.isSelect)
+                    return;
+            } else {
+                if (!(this.pageable === 'auto-more' || (this.pageable === true && this.$options.isSelect)))
+                    return;
+            }
+
+            if (this.currentLoading)
+                return;
+            const el = e.target;
+            if (Math.abs(el.scrollHeight - (el.scrollTop + el.clientHeight)) <= 1 && this.currentDataSource && this.currentDataSource.hasMore())
+                this.debouncedLoad(true);
         },
     },
 };
