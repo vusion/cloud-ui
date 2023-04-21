@@ -206,7 +206,7 @@ export default {
             };
         },
         paging() {
-            if (this.pageable || typeof this.pagination !== 'undefined') {
+            if (this.pageable || this.pagination) {
                 const paging = {};
                 paging.size = this.pageSize === '' ? 50 : this.pageSize;
                 paging.number = paging.number || 1;
