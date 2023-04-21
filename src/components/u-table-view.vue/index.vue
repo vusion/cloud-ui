@@ -169,7 +169,7 @@
                                         :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">
-                                                <template v-if="columnVM.autoIndex && (pageable === true || pageable === 'pagination') && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
+                                                <template v-if="columnVM.autoIndex && (pageable === true || pageable === 'pagination' || pagination === true) && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
                                                 <template v-else>{{ (columnVM.startIndex - 0) + rowIndex }}</template>
                                             </span>
                                             <!-- type === 'radio' -->
@@ -313,7 +313,7 @@
         </div>
     </div>
     <u-table-view-drop-ghost :data="dropData"></u-table-view-drop-ghost>
-    <u-pagination :class="$style.pagination" ref="pagination" v-if="(pageable === true || pageable === 'pagination') && currentDataSource"
+    <u-pagination :class="$style.pagination" ref="pagination" v-if="(pageable === true || pageable === 'pagination' || pagination === true) && currentDataSource"
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
         :size="paginationSize"
@@ -339,6 +339,7 @@
 
 <script>
 import DataSource from '../../utils/DataSource';
+import DataSourceNew from '../../utils/DataSource/new';
 import { addResizeListener, removeResizeListener, findScrollParent, getRect } from '../../utils/dom';
 import { format } from '../../utils/date';
 import MEmitter from '../m-emitter.vue';
@@ -362,7 +363,7 @@ export default {
             default: true,
         },
         data: Array,
-        dataSource: [DataSource, Function, Object, Array],
+        dataSource: [DataSource, DataSourceNew, Function, Object, Array],
         initialLoad: { type: Boolean, default: true },
         pageable: { type: [Boolean, String], default: false },
         pageSize: { type: Number, default: 20 },
@@ -444,6 +445,9 @@ export default {
         draggable: { type: Boolean, default: false }, // 是否可拖拽
         treeCheckType: { type: String, default: 'up+down' }, // 树型数据关联选中类型
         designerMode: { type: String, default: 'success' }, // 编辑器展示不同表单状态
+
+        // 新增用来分页
+        pagination: { type: Boolean, default: undefined },
     },
     data() {
         return {
@@ -507,7 +511,7 @@ export default {
             return this.columnVMs.find((columnVM) => columnVM.type === 'expander');
         },
         paging() {
-            if (this.pageable) {
+            if (this.pageable || this.pagination) {
                 const paging = {};
                 paging.size = this.pageSize === '' ? 20 : this.pageSize;
                 paging.number = paging.number || 1;
@@ -673,7 +677,7 @@ export default {
         });
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
-        if (this.pageNumber && this.pageable) {
+        if (this.pageNumber && (this.pageable || this.pagination)) {
             this.initialLoad && this.page(this.pageNumber);
         } else {
             this.initialLoad && this.load();
@@ -778,11 +782,19 @@ export default {
         },
         normalizeDataSource(dataSource) {
             const options = this.getDataSourceOptions();
-            if (dataSource instanceof DataSource)
+            const isNew = typeof this.pagination !== 'undefined';
+            const Constructor = isNew ? DataSourceNew : DataSource;
+
+            if (dataSource instanceof DataSource || dataSource instanceof DataSourceNew)
                 return dataSource;
             else if (dataSource instanceof Array) {
                 options.data = Array.from(dataSource);
-                return new DataSource(options);
+                // 使用了新的分页, 数组类型肯定不后端分页
+                if (isNew) {
+                    options.remotePaging = false;
+                    options.remoteSorting = false;
+                }
+                return new Constructor(options);
             } else if (dataSource instanceof Function) {
                 options.load = function load(params, extraParams) {
                     const result = dataSource(params, extraParams);
@@ -793,9 +805,14 @@ export default {
                     else
                         return Promise.resolve(result);
                 };
-                return new DataSource(options);
+                // 使用了新的分页, 函数类型先当做后端分页
+                if (isNew) {
+                    options.remotePaging = !!this.pagination;
+                    options.remoteSorting = !!options.sorting?.field;
+                }
+                return new Constructor(options);
             } else if (dataSource instanceof Object) {
-                return new DataSource(Object.assign(options, dataSource));
+                return new Constructor(Object.assign(options, dataSource));
             } else
                 return dataSource;
         },
@@ -1133,7 +1150,7 @@ export default {
                     if (autoStatus) {
                         this.currentLoading = false;
                     }
-                    if (this.pageable === true || this.pageable === 'pagination') {
+                    if (this.pageable === true || this.pageable === 'pagination' || this.pagination) {
                         if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
                             this.page(1); // 数据发生变更时，回归到第 1 页
                     } // auto-more 状态的 resize 会频闪。

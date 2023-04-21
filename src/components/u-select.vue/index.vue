@@ -366,7 +366,7 @@ export default {
                         return Promise.resolve(result);
                 };
 
-                // 使用了新的分页, 函数类型先单做后端分页
+                // 使用了新的分页, 函数类型先当做后端分页
                 if (isNew) {
                     options.remotePaging = !!this.pagination;
                     options.remoteFiltering = !!this.filterable;

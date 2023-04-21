@@ -330,8 +330,11 @@ const VueDataSource = Vue.extend({
                         result.data = result.content;
                     }
 
+                    // 非后端数据
                     if (!result.hasOwnProperty('data') || !result.hasOwnProperty('total')) {
                         this.remotePaging = false;
+                        this.remoteSorting = false;
+                        this.remoteFiltering = false;
                     }
                 }
 
