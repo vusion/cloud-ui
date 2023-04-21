@@ -121,7 +121,6 @@
     - name: pagination
       title: 分页
       type: boolean
-      default: true
       description: 是否使用分页功能加载更多
     - name: page-size
       title: 分页大小

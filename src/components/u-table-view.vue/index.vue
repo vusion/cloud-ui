@@ -16,7 +16,10 @@
                 </colgroup>
                 <thead>
                     <tr>
-                        <th ref="th" :class="[$style['head-title'], boldHeader ? $style.boldHeader : null]" v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                        <th
+                            v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                            ref="th"
+                            :class="[$style['head-title'], boldHeader ? $style.boldHeader : null]"
                             :key="columnIndex"
                             :is-sub="columnVM.$attrs['is-sub']"
                             :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
@@ -30,7 +33,8 @@
                             :style="getStyle(columnIndex, columnVM)"
                             :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                             :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
-                            :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
+                            :shadow="(isLastLeftFixed(columnVM, columnIndex) && (!scrollXStart || $env.VUE_APP_DESIGNER)) || (isFirstRightFixed(columnVM, columnIndex) && (!scrollXEnd || $env.VUE_APP_DESIGNER))"
+                            :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden">
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
                                 <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
@@ -89,7 +93,7 @@
                 <tbody>
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
-                            <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }"
+                            <tr :key="rowIndex" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }"
                             :draggable="rowDraggable?rowDraggable:undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
@@ -112,8 +116,9 @@
                                         :style="getStyle(columnIndex, columnVM)"
                                         :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                                         :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
-                                        :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
-                                        <div :class="$style.tdmask" v-if="rowIndex !== 0"></div>
+                                        :shadow="(isLastLeftFixed(columnVM, columnIndex)) || (isFirstRightFixed(columnVM, columnIndex))"
+                                        :disabled="columnVM.currentHidden">
+                                        <!-- <div :class="$style.tdmask" v-if="rowIndex !== 0"></div> -->
                                         <!--可视化占据的虚拟填充区域-->
                                         <div vusion-slot-name="cell" :plus-empty="typeCheck(columnVM.type) ? false : columnVM.$attrs['plus-empty']">
                                             <!-- type === 'index' -->
@@ -493,6 +498,9 @@ export default {
             return data;
         },
         visibleColumnVMs() {
+            if (this.$env.VUE_APP_DESIGNER) {
+                return this.columnVMs;
+            }
             return this.columnVMs.filter((columnVM) => !columnVM.currentHidden);
         },
         expanderColumnVM() {
@@ -2301,6 +2309,11 @@ export default {
     box-shadow: inset 3px 0 5px -3px rgb(0 0 0 / 15%);
 }
 
+.head-title[disabled] {
+    color: var(--text-color-disabled);
+    background-color: var(--table-view-expander-background-disabled);
+}
+
 .extra {
     float: right;
 }
@@ -2431,6 +2444,11 @@ export default {
 }
 .cell[shadow][first-right-fixed]::after {
     box-shadow: inset 3px 0 5px -3px rgb(0 0 0 / 15%);
+}
+
+.cell[disabled] {
+    color: var(--text-color-disabled);
+    background-color: var(--table-view-expander-background-disabled);
 }
 
 .pagination {
@@ -2595,6 +2613,21 @@ export default {
 }
 
 .indent {}
+
+.trmask {
+    position: relative;
+}
+.trmask::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.8);
+    z-index: 999;
+}
 
 .tdmask {
     position: absolute;
