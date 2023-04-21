@@ -92,67 +92,67 @@ export default {
     margin: 0 calc(var(--space-base) / (-2));
 } */
 
-.root .row + .row {
+.root > .row + .row {
     margin-top: var(--space-base);
 }
-.root[gap="compact"] .row + .row {
+.root[gap="compact"] > .row + .row {
     margin-top: -1px;
 }
-.root[gap="none"] .row + .row {
+.root[gap="none"] > .row + .row {
     margin-top: 0;
 }
-.root[gap="small"] .row + .row {
+.root[gap="small"] > .row + .row {
     margin-top: var(--space-small);
 }
-.root[gap="large"] .row + .row {
+.root[gap="large"] > .row + .row {
     margin-top: var(--space-large);
 }
-.root[gap="normal"] .row + .row {
+.root[gap="normal"] > .row + .row {
     margin-top: var(--space-base);
 }
-.root .row,
-.root .row[gap="normal"] {
+.root > .row,
+.root > .row[gap="normal"] {
     margin-left: calc(var(--grid-layout-column-gap-normal) / (-2));
     margin-right: calc(var(--grid-layout-column-gap-normal) / (-2));
 }
-.root .row[gap="mini"] {
+.root > .row[gap="mini"] {
     margin-left: calc(var(--grid-layout-column-gap-mini) / (-2));
     margin-right: calc(var(--grid-layout-column-gap-mini) / (-2));
 }
-.root .row[gap="small"] {
+.root > .row[gap="small"] {
     margin-left: calc(var(--grid-layout-column-gap-small) / (-2));
     margin-right: calc(var(--grid-layout-column-gap-small) / (-2));
 }
-.root .row[gap="large"] {
+.root > .row[gap="large"] {
     margin-left: calc(var(--grid-layout-column-gap-large) / (-2));
     margin-right: calc(var(--grid-layout-column-gap-large) / (-2));
 }
-.root .row[gap="huge"] {
+.root > .row[gap="huge"] {
     margin-left: calc(var(--grid-layout-column-gap-huge) / (-2));
     margin-right: calc(var(--grid-layout-column-gap-huge) / (-2));
 }
-.root .row[gap="none"] {
+.root > .row[gap="none"] {
     margin-left: calc(var(--grid-layout-column-gap-none) / (-2));
     margin-right: calc(var(--grid-layout-column-gap-none) / (-2));
 }
 
-.root .row .column,
-.root .row[gap="normal"] .column {
+.root > .row > .column,
+.root > .row[gap="normal"] > .column {
     margin: 0 calc(var(--grid-layout-column-gap-normal) / 2);
 }
-.root .row[gap="none"] .column {
+.root > .row[gap="none"] > .column {
     margin: 0 calc(var(--grid-layout-column-gap-none) / 2);
 }
-.root .row[gap="mini"] .column {
+.root > .row[gap="mini"] > .column {
     margin: 0 calc(var(--grid-layout-column-gap-mini) / 2);
 }
-.root .row[gap="small"] .column {
+.root > .row[gap="small"] > .column {
     margin: 0 calc(var(--grid-layout-column-gap-small) / 2);
 }
-.root .row[gap="large"] .column {
+.root > .row[gap="large"] > .column {
     margin: 0 calc(var(--grid-layout-column-gap-large) / 2);
 }
-.root .row[gap="huge"] .column {
+.root > .row[gap="huge"] > .column {
     margin: 0 calc(var(--grid-layout-column-gap-huge) / 2);
 }
 </style>
