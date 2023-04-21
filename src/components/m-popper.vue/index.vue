@@ -358,7 +358,11 @@ export default {
          * 添加延时 DOM 销毁操作，保障动画效果
          */
         delayDestroyPopper() {
-            this.destroyTimer = setTimeout(() => this.destroyPopper(), this.hideDelay);
+            this.destroyTimer = clearTimeout(this.destroyTimer);
+            this.destroyTimer = setTimeout(() => {
+                this.destroyPopper();
+                this.destroyTimer = clearTimeout(this.destroyTimer);
+            }, this.hideDelay);
         },
         async updatePositionByCursor(e, el) {
             // @TODO: 两种 offset 属性有些冗余
