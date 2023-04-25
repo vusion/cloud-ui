@@ -136,7 +136,7 @@
                     },
                     "--panel-head-padding-y": {
                         "type": "input",
-                        "desc": "面板标题左右内边距,如：1px"
+                        "desc": "面板标题上下内边距,如：1px"
                     },
                     "--panel-body-padding-x": {
                         "type": "input",
