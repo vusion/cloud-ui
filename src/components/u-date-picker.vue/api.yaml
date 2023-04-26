@@ -64,7 +64,7 @@
     - name: time
       title: 时间格式
       type: string, number
-      default: '00:00:00'
+      default: 00:00:00
       description: 输入对应格式的字符串（8:00:00）即可
     - name: yearDiff
       title: 最小可选年份与当前年份的差值
@@ -111,7 +111,7 @@
       options:
         - value: calendar
           title: 日历
-      default: "calendar"
+      default: calendar
       description: ""
       clearable: true
     - name: suffixIcon

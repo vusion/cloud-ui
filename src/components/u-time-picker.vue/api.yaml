@@ -10,7 +10,7 @@
       type: string
       sync: true
       model: true
-      default: ''
+      default: ""
       description: 默认显示的时间值，格式如08:08:08
     - name: minUnit
       title: 最小单位
@@ -25,12 +25,12 @@
     - name: min-time
       title: 最小时间
       type: string
-      default: '00:00:00'
+      default: 00:00:00
       description: 支持输入的最小时间
     - name: max-time
       title: 最大时间
       type: string
-      default: '23:59:59'
+      default: 23:59:59
       description: 支持输入的最大时间
     - name: autofocus
       title: 自动聚焦
@@ -63,7 +63,7 @@
       title: 此刻按钮
       type: boolean
       default: true
-      description: "快捷选择当前时间"
+      description: 快捷选择当前时间
     - name: rightNowTitle
       title: 此刻按钮名称
       type: string
@@ -74,7 +74,7 @@
       title: 取消/确认按钮
       type: boolean
       default: true
-      description: "控制弹出层的开启与关闭"
+      description: 控制弹出层的开启与关闭
     - name: cancelTitle
       title: 取消按钮名称
       type: string
@@ -93,7 +93,7 @@
       options:
         - value: time
           title: 时间
-      default: "time"
+      default: time
       description: ""
       clearable: true
     - name: suffixIcon

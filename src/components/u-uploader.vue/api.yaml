@@ -190,7 +190,7 @@
       type: Function
       description: 文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息
     - name: access
-      title: '文件访问策略'
+      title: 文件访问策略
       type: string
       options:
         - value: public
@@ -205,7 +205,6 @@
       title: 上传后有效天数
       type: number
       description: 文件有效期天数
-      # 此属性依赖的属性
       depProp:
         - name: ttl
           value: true
