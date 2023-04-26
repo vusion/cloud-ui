@@ -51,7 +51,7 @@
         <u-input v-if="filterable" :class="$style.input" ref="input" :readonly="readonly" :disabled="currentDisabled"
             :filterable="filterable" :multiple-tags="multiple && multipleAppearance === 'tags'"
             :value="filterText" @input="onInput" @focus="onFocus" @blur="onBlur"
-            @keydown.enter.stop.prevent="onInputEnter" @keydown.delete.stop="onInputDelete"
+            @keydown.delete.stop="onInputDelete"
             :style="{ width: multiple && (inputWidth + 'px') }"
             @compositionstart="compositionInputing = true"
             @compositionend="compositionInputing = false">
@@ -507,13 +507,6 @@ export default {
         onEnter() {
             if (this.focusedVM)
                 this.select(this.focusedVM);
-            this.popperOpened ? this.close() : this.open();
-        },
-        onInputEnter() {
-            if (this.focusedVM)
-                this.select(this.focusedVM);
-            else
-                this.selectByText(this.filterText);
             this.popperOpened ? this.close() : this.open();
         },
         onInputDelete() {
