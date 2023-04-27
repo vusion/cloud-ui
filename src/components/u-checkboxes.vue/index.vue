@@ -64,11 +64,13 @@ export default {
         },
     },
     mounted() {
-        this.watchValue(this.value);
+        // 修复bug：多选组，多选项值设为true，如果不操作拿不到值 http://projectmanage.netease-official.lcap.163yun.com/dashboard/DebtDetail?id=2577483154345216
+        this.initSyncValue(this.value);
+        this.watchValue(this.currentValue);
     },
     methods: {
         watchValue(value) {
-            if ((!Array.isArray(value) && value) || (Array.isArray(value) && value.length)) {
+            if (value) {
                 if (this.converter)
                     value = this.currentConverter.set(value);
                 this.currentValue = value;
@@ -82,14 +84,6 @@ export default {
                     (itemVM) => itemVM.currentValue && value.push(itemVM.label),
                 );
                 this.currentValue = value;
-                let currentValue = value;
-                if (this.converter)
-                    currentValue = this.currentConverter.get(currentValue);
-                // 不相等才触发更新，要不然可能会一直是空数组等，导致无限循环
-                if (JSON.stringify(currentValue) !== JSON.stringify(this.value)) {
-                    this.$emit('input', currentValue);
-                    this.$emit('update:value', currentValue);
-                }
             }
         },
         canCheck($event) {
@@ -124,6 +118,20 @@ export default {
         },
         exceedMax() {
             return Array.isArray(this.currentValue) && this.currentValue.length >= this.max;
+        },
+        initSyncValue(value) {
+            if (value === '' || (Array.isArray(value) && !value.length)) {
+                const value = [];
+                this.itemVMs.forEach(
+                    (itemVM) => itemVM.currentValue && value.push(itemVM.label),
+                );
+                this.currentValue = value;
+                let currentValue = value;
+                if (this.converter)
+                    currentValue = this.currentConverter.get(currentValue);
+                this.$emit('input', currentValue);
+                this.$emit('update:value', currentValue);
+            }
         },
     },
 };

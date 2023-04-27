@@ -36,13 +36,13 @@
       title: 连接符
       type: string
       options:
-        - value: ','
+        - value: ","
           title: 以','连接
-        - value: '|'
+        - value: "|"
           title: 以'|'连接
-        - value: ' / '
+        - value: " / "
           title: 以' / '连接
-      default: ' / '
+      default: " / "
       description: 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值
       advanced: true
     - name: field
@@ -207,4 +207,3 @@
     - name: clear
       description: 清空输入框。
       params: []
-

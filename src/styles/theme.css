@@ -255,7 +255,7 @@
     --panel-background: var(--background-color-default); /* @type color */ /* @desc 面板背景色,如：#223325 */ /* @depStaticStyles ["background-color"] */
     --panel-box-shadow: var(--box-shadow-small); /* @desc 面板外边框阴影,如：1px */
     --panel-head-padding-x: 24px; /* @desc 面板标题左右内边距,如：1px */
-    --panel-head-padding-y: 14px; /* @desc 面板标题左右内边距,如：1px */
+    --panel-head-padding-y: 14px; /* @desc 面板标题上下内边距,如：1px */
     --panel-body-padding-x: 24px; /* @desc 面板内容区内边距,如：1px */
     --panel-body-padding-y: 18px; /* @desc 面板内容区内边距,如：1px */
     --panel-title-font-size: 18px; /* @desc 面板标题字号大小,如：1px */

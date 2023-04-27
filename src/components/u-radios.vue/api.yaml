@@ -67,9 +67,9 @@
           typeNamespace: nasl.ui
           typeName: Current
           typeArguments:
-          - concept: TypeAnnotation
-            typeKind: typeParam
-            typeName: T
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
   events:
     - name: before-select
       title: 选择前

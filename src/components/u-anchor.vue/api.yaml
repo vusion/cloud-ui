@@ -12,5 +12,3 @@
       model: true
       description: 锚点的唯一标识，用于跳转链接，如“/page#linkname”
       group: 交互属性
-
-

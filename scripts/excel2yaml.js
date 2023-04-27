@@ -7,7 +7,10 @@ const xlsx = require('node-xlsx');
 // 当前命令所在目录
 const cwd = process.cwd();
 
-const { data } = xlsx.parse(fs.readFileSync(path.resolve(cwd, 'src/assets/【操作引导】.xlsx')))[5];
+
+//console.log( xlsx.parse(fs.readFileSync(path.resolve(cwd, 'src/assets/组件属性释义.xlsx'))))
+
+const { data } = xlsx.parse(fs.readFileSync(path.resolve(cwd, 'src/assets/组件属性释义.xlsx')))[0];
 
 // 组件名
 let arr = data[2].filter((title, index) => index > 4).map((title) => ({
@@ -15,7 +18,9 @@ let arr = data[2].filter((title, index) => index > 4).map((title) => ({
 }));
 
 // 去掉前面7行，剩下都是属性
-const list = data.filter((item, index) => index > 6);
+//const list = data.filter((item, index) => index > 6);
+
+const list = data;
 
 arr = arr.map((item, index) => ({
     ...item,
@@ -95,11 +100,11 @@ const files = [
     'e-watermark.vue',
     'u-copy.vue',
     'u-taskbox.vue',
-    'u-cascader',
+    'u-cascader.vue',
     'u-count-down.vue',
     'u-anchor.vue',
     'u-toc.vue',
-    'u-drawer',
+    'u-drawer.vue',
 ].map((component) => path.resolve(cwd, 'src/components', component, 'api.yaml'));
 
 const yamlMap = {};

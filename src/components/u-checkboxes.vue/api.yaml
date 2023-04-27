@@ -137,9 +137,9 @@
           typeNamespace: nasl.ui
           typeName: Current
           typeArguments:
-          - concept: TypeAnnotation
-            typeKind: typeParam
-            typeName: T
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
 - name: u-checkbox
   title: 多选项
   next: false
