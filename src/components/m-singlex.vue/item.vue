@@ -86,6 +86,9 @@ export default {
             ULink.methods.onClick.call(this, e);
         },
         select(e) {
+            if (this.disabled){
+                e.stopPropagation()
+            }
             if (this.disabled || this.parentVM.readonly || this.parentVM.disabled)
                 return;
             this.$emit('click', e, this);
