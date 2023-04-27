@@ -951,7 +951,7 @@ export default {
                     if (rootHeight) {
                         // 如果使用 v-show 隐藏了，无法计算
                         const titleHeight = this.$refs.title ? this.$refs.title.offsetHeight : 0;
-                        const headHeight = this.$refs.head[0] ? this.$refs.head[0].offsetHeight : 0;
+                        const headHeight = (this.$refs.head && this.$refs.head[0]) ? this.$refs.head[0].offsetHeight : 0;
                         const paginationHeight = this.getPaginationHeight();
                         this.bodyHeight = rootHeight - titleHeight - headHeight - paginationHeight;
                     }
