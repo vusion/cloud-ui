@@ -67,9 +67,9 @@
     </u-lightbox>
     <cropper
         v-if="openCropper"
-        :cropFileName="cropFileName"
-        :cropImg="cropImg"
-        :cropConfig="cropConfig"
+        :crop-file-name="cropFileName"
+        :crop-img="cropImg"
+        :crop-config="cropConfig"
         :modal-visible="modalVisible"
         @uploadFiles="uploadCropperImg"
     >
@@ -93,9 +93,9 @@ const SIZE_UNITS = {
 
 export default {
     name: 'u-uploader',
+    components: { cropper },
     mixins: [MField],
     i18n,
-    components: { cropper },
     props: {
         value: [Array, String],
         url: { type: String, required: true },
@@ -187,7 +187,8 @@ export default {
         fromValue(value) {
             if (this.converter === 'json')
                 try {
-                    return JSON.parse(value || '[]');
+                    const parsedValue = JSON.parse(value || '[]');
+                    return Array.isArray(parsedValue) ? parsedValue : [];
                 } catch (err) {
                     return [];
                 }
@@ -214,7 +215,7 @@ export default {
                 // fix for u-validator rules="required"
                 return Array.isArray(value) && value.length === 0 ? null : JSON.stringify(value);
             if (this.converter === 'simple')
-                return Array.isArray(value) && value.length === 0 ? null : (this.simpleConvert(value));
+                return Array.isArray(value) && value.length === 0 ? null : this.simpleConvert(value);
             else
                 return value;
         },
@@ -232,7 +233,7 @@ export default {
             this.$refs.file.click();
         },
         onChange(e) {
-            this.modalVisible = false
+            this.modalVisible = false;
             const fileEl = e.target;
 
             let files = fileEl.files;
@@ -249,16 +250,16 @@ export default {
                 return;
             // 处理开启图片编辑器
             if (this.openCropper) {
-                this.$nextTick(()=>{
+                this.$nextTick(() => {
                     this.modalVisible = true;
-                })
+                });
                 const cropFile = fileEl.files[0];
                 this.cropFileName = cropFile.name;
-                let reader = new FileReader();
+                const reader = new FileReader();
                 reader.readAsArrayBuffer(cropFile);
-                reader.onload = e => {
+                reader.onload = (e) => {
                     let data;
-                    if (typeof e.target.result === "object") {
+                    if (typeof e.target.result === 'object') {
                         // 把Array Buffer转化为blob 如果是base64不需要
                         data = window.URL.createObjectURL(new Blob([e.target.result]));
                     } else {
@@ -324,7 +325,7 @@ export default {
                 status: 'uploading',
                 progress: 100,
             });
-            const file = new window.File([obj.blob], obj.name, {type: 'image/jpeg'} );
+            const file = new window.File([obj.blob], obj.name, { type: 'image/jpeg' });
             this.uploadFiles([file]);
         },
         /**
@@ -449,7 +450,7 @@ export default {
                     headers['lcap-ttl'] = this.ttlValue;
                 }
             }
-            if(window.appInfo && window.appInfo.domainName)
+            if (window.appInfo && window.appInfo.domainName)
                 headers.DomainName = window.appInfo.domainName;
 
             const url = this.$formatMicroFrontUrl ? this.$formatMicroFrontUrl(this.url) : this.url;
