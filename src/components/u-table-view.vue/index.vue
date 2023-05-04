@@ -789,10 +789,11 @@ export default {
                 return dataSource;
             else if (dataSource instanceof Array) {
                 options.data = Array.from(dataSource);
-                // 使用了新的分页, 数组类型肯定不后端分页
+                // 使用了新的分页, 数组肯定不是后端数据
                 if (isNew) {
                     options.remotePaging = false;
                     options.remoteSorting = false;
+                    options.remoteFiltering = false;
                 }
                 return new Constructor(options);
             } else if (dataSource instanceof Function) {
@@ -805,10 +806,11 @@ export default {
                     else
                         return Promise.resolve(result);
                 };
-                // 使用了新的分页, 函数类型先当做后端分页
+                // 使用了新的分页, 函数类型先当做后端数据
                 if (isNew) {
-                    options.remotePaging = !!this.pagination;
-                    options.remoteSorting = !!options.sorting?.field;
+                    options.remotePaging = true;
+                    options.remoteSorting = true;
+                    options.remoteFiltering = true;
                 }
                 return new Constructor(options);
             } else if (dataSource instanceof Object) {

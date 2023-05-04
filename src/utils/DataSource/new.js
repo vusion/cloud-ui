@@ -118,7 +118,7 @@ const VueDataSource = Vue.extend({
             // remoteGrouping: false,
             // ------
             arrangedData: [], // 整理过的数据，用于缓存过滤和排序行为。比如多次获取分页的话，没有必要重新整理
-            arranged: false,
+            arranged: false, // 无效
             prependedData: [],
             dirty: false,
             originTotal: Infinity, // @readonly - originTotal 作为很重要的判断有没有加载完所有数据的依据
@@ -172,8 +172,9 @@ const VueDataSource = Vue.extend({
         arrange() {
             let arrangedData = Array.from(this.data);
 
-            if (this.remotePaging)
-                return (this.arrangedData = arrangedData);
+            // 没理解
+            // if (this.remotePaging)
+            //     return (this.arrangedData = arrangedData);
 
             const filtering = this.filtering;
             if (!this.remoteFiltering && filtering && Object.keys(filtering).length)
