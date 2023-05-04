@@ -33,7 +33,6 @@ export default {
         node: Object,
     },
     data() {
-        console.log('cccc', this.value);
         return { parentVM: undefined, currentValue: this.value };
     },
     computed: {
@@ -50,7 +49,6 @@ export default {
     },
     watch: {
         value(value) {
-            console.log('ddd', value);
             this.currentValue = value;
         },
         currentValue(value, oldValue) {

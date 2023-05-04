@@ -330,6 +330,13 @@ export default {
         createPopper() {
             const referenceEl = this.referenceEl;
             const popperEl = this.$el;
+            // fix: 【必现】应用版本2.18，弹出框内拖入下拉框，下拉框弹出层展现位置设置成全局body，宽度为0
+            if (popperEl.style.width === '0px') {
+                const rect = referenceEl.getBoundingClientRect();
+                if (rect.width) {
+                    popperEl.style.width = rect.width + 'px';
+                }
+            }
             if (this.appendTo === 'body')
                 document.body.appendChild(popperEl);
             else if (this.appendTo === 'reference')

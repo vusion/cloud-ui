@@ -36,6 +36,7 @@
                     checked: currentChecked,
                     disabled: currentDisabled,
                     item: node,
+                    __nodeKey: nodeKey,
                     nodeVM: this,
                     parent,
                     selected,
@@ -50,7 +51,7 @@
     <div :class="$style.sub" v-if="rootVM.ifExpanded && !childrenRendered && node && !node.childrenRendered ? currentExpanded : true" v-show="currentExpanded">
         <template v-if="node && $at(node, currentChildrenField) && !rootVM.excludeFields.includes(currentChildrenField)">
             <u-tree-view-node-new
-                v-for="subNode in $at(node, currentChildrenField)"
+                v-for="(subNode, subNodeIndex) in $at(node, currentChildrenField)"
                 :text="$at2(subNode, rootVM.field || rootVM.textField)"
                 :value="$at2(subNode, rootVM.valueField)"
                 :expanded="rootVM.filterText ? $at(subNode, 'expandedByFilter') : $at(subNode, rootVM.expandedField)"
@@ -58,6 +59,7 @@
                 :disabled="subNode.disabled"
                 :hidden="rootVM.filterText ? $at(subNode, 'hiddenByFilter') : $at(subNode, rootVM.hiddenField)"
                 :node="subNode"
+                :nodeKey="`${nodeKey}-${subNodeIndex}`"
                 :parent="node"
                 :level="level + 1"
                 :draggable="subNode.draggable"
@@ -72,7 +74,7 @@
         <template v-if="currentMoreChildrenFields">
             <template v-for="subField in currentMoreChildrenFields" v-if="node && $at(node, subField)">
                 <u-tree-view-node-new
-                    v-for="subNode in $at(node, subField)"
+                    v-for="(subNode, subNodeIndex) in $at(node, subField)"
                     :text="$at2(subNode, rootVM.field || rootVM.textField)"
                     :value="$at2(subNode, rootVM.valueField)"
                     :expanded="rootVM.filterText ? $at(subNode, 'expandedByFilter') : $at(subNode, rootVM.expandedField)"
@@ -80,6 +82,7 @@
                     :disabled="subNode.disabled"
                     :hidden="rootVM.filterText ? $at(subNode, 'hiddenByFilter') : $at(subNode, rootVM.hiddenField)"
                     :node="subNode"
+                    :nodeKey="`${nodeKey}-${subNodeIndex}`"
                     :parent="node"
                     :level="level + 1"
                     :draggable="subNode.draggable"
@@ -117,6 +120,7 @@ export default {
         childrenField: String,
         moreChildrenFields: Array,
         node: Object,
+        nodeKey: String,
         parent: Object,
         level: { type: Number, default() {
             // eslint-disable-next-line no-nested-ternary

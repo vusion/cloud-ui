@@ -218,9 +218,9 @@
       default: normal
       description: 内容块间隙大小
       dependency:
-        - '!justify':
-          - space-between
-          - space-around
+        - "!justify":
+            - space-between
+            - space-around
     - name: display
       title: 展示方式
       type: string
@@ -258,7 +258,7 @@
     - name: loadingIcon
       title: 加载中图标
       type: icon
-      default: "loading"
+      default: loading
       description: 加载图标
     - name: loadingIconRotate
       title: 加载中图标旋转

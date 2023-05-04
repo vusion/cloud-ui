@@ -54,7 +54,7 @@ export default {
     computed: {
         endNotext() {
             return this.icotype === 'only';
-        }
+        },
     },
     methods: {
         getName() {
@@ -88,7 +88,7 @@ export default {
                 let to;
                 if (props.destination) {
                     if (props.destination.startsWith('http')) {
-                        location.href = encodeUrl(props.destination);
+                        this.$linkpao(encodeUrl(props.destination));
                         return;
                     }
                     to = props.destination;

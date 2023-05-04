@@ -248,7 +248,7 @@
       description: 设置加载中的提示文案
       group: 状态属性
       dependency:
-        - designer-mode: 'loading'
+        - designer-mode: loading
     - name: loading
       title: 自定义加载中触发条件
       type: boolean
@@ -256,7 +256,7 @@
       bindOpen: true
       group: 状态属性
       dependency:
-        - designer-mode: 'loading'
+        - designer-mode: loading
     - name: error-text
       title: 加载失败提示文案
       type: string
@@ -264,7 +264,7 @@
       description: 设置加载失败的提示文案
       group: 状态属性
       dependency:
-        - designer-mode: 'error'
+        - designer-mode: error
     - name: error
       title: 自定义加载失败触发条件
       type: boolean
@@ -272,15 +272,15 @@
       bindOpen: true
       group: 状态属性
       dependency:
-        - designer-mode: 'error'
+        - designer-mode: error
     - name: empty-text
       title: 暂无数据提示文案
       type: string
       default: 暂无数据
-      description: "设置暂无数据的提示文案"
+      description: 设置暂无数据的提示文案
       group: 状态属性
       dependency:
-        - designer-mode: 'empty'
+        - designer-mode: empty
     - name: value-field
       title: 值字段名
       type: string
@@ -327,7 +327,7 @@
       title: 可拖拽
       type: boolean
       default: false
-      description: "是否可以拖拽行排序"
+      description: 是否可以拖拽行排序
       group: 选择属性
     - name: accordion
       title: 手风琴模式
@@ -378,7 +378,7 @@
         - tree-display: true
     - name: tree-check-type
       title: 关联选中类型
-      description:  父子树节点是否关联选中
+      description: 父子树节点是否关联选中
       type: string
       options:
         - value: up+down
@@ -431,9 +431,9 @@
           typeNamespace: nasl.ui
           typeName: Current
           typeArguments:
-          - concept: TypeAnnotation
-            typeKind: typeParam
-            typeName: T
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
   events:
     - name: before-load
       title: 加载前
@@ -943,7 +943,7 @@
       description: 序号列的起始序号
       dependency:
         - type: index
-          '!auto-index': true
+          "!auto-index": true
     - name: dblclickHandler
       title: 双击处理函数
       type: Function
@@ -983,9 +983,9 @@
           typeNamespace: nasl.ui
           typeName: Current
           typeArguments:
-          - concept: TypeAnnotation
-            typeKind: typeParam
-            typeName: T
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
     - concept: Slot
       name: editcell
       plus-empty: true
@@ -1021,9 +1021,9 @@
           typeNamespace: nasl.ui
           typeName: Current
           typeArguments:
-          - concept: TypeAnnotation
-            typeKind: typeParam
-            typeName: T
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
     - concept: Slot
       name: title
       title: 标题
@@ -1077,7 +1077,7 @@
           typeNamespace: nasl.ui
           typeName: Current
           typeArguments:
-          - concept: TypeAnnotation
-            typeKind: typeParam
-            typeName: T
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
   description: 表格列

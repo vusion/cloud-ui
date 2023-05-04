@@ -3,7 +3,7 @@
     <u-loading v-if="loading" size="small"></u-loading>
     <template v-else-if="currentDataSource">
         <u-tree-view-node-new v-if="dataSource"
-            v-for="node in currentDataSource.data"
+            v-for="(node, index) in currentDataSource.data"
             :text="$at2(node, field || textField)"
             :value="$at2(node, valueField)"
             :expanded="$at(node, expandedField)"
@@ -12,6 +12,7 @@
             :childrenField="childrenField"
             :hidden="filterText ? $at(node, 'hiddenByFilter') : $at(node, hiddenField)"
             :node="node"
+            :nodeKey="`${index}`"
             :level="0"
             :designer="$env.VUE_APP_DESIGNER"
             :draggable="node.draggable"

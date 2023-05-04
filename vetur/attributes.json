@@ -3319,7 +3319,7 @@
         "title": "大图模式"
       }
     ],
-    "description": "链接类型"
+    "description": "图片的显示模式，支持大图模式和缩略图模式。"
   },
   "u-gallery/num": {
     "type": "number",

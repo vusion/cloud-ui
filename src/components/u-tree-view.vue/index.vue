@@ -3,7 +3,7 @@
     <u-loading v-if="loading" size="small"></u-loading>
     <template v-else-if="currentDataSource && !virtualList">
         <component :is="ChildComponent"
-            v-for="node in currentDataSource.data"
+            v-for="(node, index) in currentDataSource.data"
             :text="$at(node, field || textField)"
             :value="$at(node, valueField)"
             :expanded="$at(node, expandedField)"
@@ -11,6 +11,7 @@
             :disabled="node.disabled"
             :children-field="childrenField"
             :hidden="filterText ? $at(node, 'hiddenByFilter') : $at(node, hiddenField)"
+            :nodeKey="`${index}`"
             :node="node"
             :level="0"
             :draggable="node.draggable"

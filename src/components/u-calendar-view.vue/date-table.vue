@@ -25,7 +25,7 @@
                     <slot name="week">{{ row[0].week }}</slot>
                 </td>
                 <td
-                    v-for="cell in row"
+                    v-for="(cell, j) in row"
                     :key="cell.__key__"
                     :type="cell.__type__"
                     :disabled="cell.disabled"
@@ -37,7 +37,11 @@
                     <div :class="$style.date">
                         {{ cell.date }}
                         <div :class="$style.column" vusion-slot-name="default">
-                            <slot :item="cell"></slot>
+                            <slot :item="{
+                                rowIndex: i,
+                                cellIndex: j,
+                                ...cell,
+                            }"></slot>
                         </div>
                     </div>
                 </td>
