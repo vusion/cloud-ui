@@ -84,8 +84,16 @@
                     :value="$at2(item, valueField)"
                     :disabled="item.disabled || disabled"
                     :item="item"
-                    :description="$at2(item, descriptionField)">
-                    <slot name="text" :item="item" :text="$at2(item, field || textField)" :value="$at2(item, valueField)" :disabled="item.disabled || disabled" :description="$at2(item, descriptionField)">{{ $at2(item, field || textField) }}</slot>
+                    :description="description ? $at2(item, descriptionField) : null">
+                    <slot
+                        name="text"
+                        :item="item"
+                        :text="$at2(item, field || textField)"
+                        :value="$at2(item, valueField)"
+                        :disabled="item.disabled || disabled"
+                        :description="description ? $at2(item, descriptionField) : null">
+                        {{ $at2(item, field || textField) }}
+                    </slot>
                 </component>
             </template>
         </template>
@@ -166,6 +174,7 @@ export default {
         pagination: { type: Boolean, default: undefined },
         sorting: { type: Object },
         dataSource: [DataSource, DataSourceNew, Function, Object, Array],
+        description: { type: Boolean, default: false },
     },
     data() {
         return {

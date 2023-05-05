@@ -14697,10 +14697,22 @@
                     "description": "集合的元素类型中，用于标识选中值的属性"
                 },
                 {
+                    "name": "description",
+                    "title": "文本描述",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否展示文本描述"
+                },
+                {
                     "name": "description-field",
                     "title": "文本描述字段",
                     "type": "string",
-                    "description": "集合的元素类型中，用于显示文本下方辅助描述的属性名称"
+                    "description": "集合的元素类型中，用于显示文本下方辅助描述的属性名称",
+                    "dependency": [
+                        {
+                            "description": true
+                        }
+                    ]
                 },
                 {
                     "name": "cancelable",
