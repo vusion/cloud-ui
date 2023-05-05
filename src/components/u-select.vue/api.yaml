@@ -133,7 +133,6 @@
       title: 分页大小
       type: number
       default: 50
-      sync: true
       description: ""
       dependency:
         - pagination: true
@@ -141,7 +140,6 @@
       title: 初始化排序规则
       type: "{ field: string, order: string, compare: Function }"
       default: "{ field: undefined, order: 'desc' }"
-      sync: true
       description: 指数据初始化时的排序规则
     - name: clearable
       title: 清除按钮
