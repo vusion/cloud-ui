@@ -793,7 +793,7 @@ export default {
                 if (isNew) {
                     options.remotePaging = false;
                     options.remoteSorting = false;
-                    options.remoteFiltering = false;
+                    // options.remoteFiltering = false;
                 }
                 return new Constructor(options);
             } else if (dataSource instanceof Function) {
@@ -808,9 +808,9 @@ export default {
                 };
                 // 使用了新的分页, 函数类型先当做后端数据
                 if (isNew) {
-                    options.remotePaging = true;
-                    options.remoteSorting = true;
-                    options.remoteFiltering = true;
+                    options.remotePaging = !!this.pagination;
+                    options.remoteSorting = !!this.sorting?.field;
+                    //  options.remoteFiltering = !!this.filterable;
                 }
                 return new Constructor(options);
             } else if (dataSource instanceof Object) {

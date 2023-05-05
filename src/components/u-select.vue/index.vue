@@ -84,8 +84,8 @@
                     :value="$at2(item, valueField)"
                     :disabled="item.disabled || disabled"
                     :item="item"
-                    :description="$at3(item, descriptionField)">
-                    <slot name="text" :item="item" :text="$at2(item, field || textField)" :value="$at2(item, valueField)" :disabled="item.disabled || disabled" :description="$at3(item, descriptionField)">{{ $at2(item, field || textField) }}</slot>
+                    :description="$at2(item, descriptionField)">
+                    <slot name="text" :item="item" :text="$at2(item, field || textField)" :value="$at2(item, valueField)" :disabled="item.disabled || disabled" :description="$at2(item, descriptionField)">{{ $at2(item, field || textField) }}</slot>
                 </component>
             </template>
         </template>
@@ -333,7 +333,7 @@ export default {
                 getExtraParams: this.getExtraParams,
                 // 新增
                 sorting: this.sorting,
-                remoteSorting: this.sorting,
+                remoteSorting: this.remoteSorting,
             };
         },
         normalizeDataSource(dataSource) {
@@ -345,7 +345,7 @@ export default {
                 return dataSource;
             else if (dataSource instanceof Array) {
                 options.data = Array.from(dataSource);
-                // 使用了新的分页, 数组类型肯定不后端分页
+                // 使用了新的分页, 数组类型肯定不是后端数据
                 if (isNew) {
                     options.remotePaging = false;
                     options.remoteFiltering = false;
@@ -366,7 +366,7 @@ export default {
                         return Promise.resolve(result);
                 };
 
-                // 使用了新的分页, 函数类型先当做后端分页
+                // 使用了新的分页, 函数类型先当做是后端数据
                 if (isNew) {
                     options.remotePaging = !!this.pagination;
                     options.remoteFiltering = !!this.filterable;
@@ -668,15 +668,19 @@ export default {
             this.throttledVirtualScroll(e);
 
             if (typeof this.pagination !== 'undefined') {
-                if (!this.pagination || !this.$options.isSelect)
+                if (!this.pagination || !this.$options.isSelect) {
                     return;
+                }
             } else {
-                if (!(this.pageable === 'auto-more' || (this.pageable === true && this.$options.isSelect)))
+                if (!(this.pageable === 'auto-more' || (this.pageable === true && this.$options.isSelect))) {
                     return;
+                }
             }
 
-            if (this.currentLoading)
+            if (this.currentLoading) {
                 return;
+            }
+
             const el = e.target;
             if (Math.abs(el.scrollHeight - (el.scrollTop + el.clientHeight)) <= 1 && this.currentDataSource && this.currentDataSource.hasMore())
                 this.debouncedLoad(true);

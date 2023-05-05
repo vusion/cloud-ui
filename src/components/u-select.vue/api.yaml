@@ -125,23 +125,16 @@
     - name: page-size
       title: 分页大小
       type: number
-      options:
-        - value: 10
-          title: 10
-        - value: 20
-          title: 20
-        - value: 50
-          title: 50
-      sync: true
       default: 50
+      sync: true
       description: ""
       dependency:
         - pagination: true
     - name: sorting
       title: 初始化排序规则
       type: "{ field: string, order: string, compare: Function }"
-      sync: true
       default: "{ field: undefined, order: 'desc' }"
+      sync: true
       description: 指数据初始化时的排序规则
     - name: clearable
       title: 清除按钮

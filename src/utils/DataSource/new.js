@@ -36,7 +36,7 @@ export const solveCondition = (condition, obj) => {
             if (Array.isArray(expression)) {
                 if (!isOperator(expression[0])) {
                     // 多选项过滤，暂时简单处理
-                    const sourceValue = get(obj, key);
+                    const sourceValue = getType(obj) === 'String' ? obj : get(obj, key);
                     const targetValue = expression;
                     return targetValue.includes(sourceValue);
                 }
@@ -46,7 +46,7 @@ export const solveCondition = (condition, obj) => {
                 };
             }
 
-            let sourceValue = get(obj, key);
+            let sourceValue = getType(obj) === 'String' ? obj : get(obj, key);
             let targetValue = expression.value;
             if (expression.caseInsensitive) {
                 sourceValue
@@ -86,6 +86,10 @@ export const solveCondition = (condition, obj) => {
         throw new TypeError('Condition must be a Object or Array!');
 };
 
+function getType(o) {
+    return Object.prototype.toString.call(o).slice(8, -1);
+}
+
 /**
  * @example 作为简单的 query
  * const dataSource = new DataSource();
@@ -120,10 +124,11 @@ const VueDataSource = Vue.extend({
             arrangedData: [], // 整理过的数据，用于缓存过滤和排序行为。比如多次获取分页的话，没有必要重新整理
             arranged: false, // 无效
             prependedData: [],
-            dirty: false,
+            dirty: false, // 无效
             originTotal: Infinity, // @readonly - originTotal 作为很重要的判断有没有加载完所有数据的依据
             initialLoaded: false,
-            params: {},
+
+            queryChanged: false,
         };
     },
     computed: {
@@ -134,8 +139,8 @@ const VueDataSource = Vue.extend({
             return this.paging ? this.paging.size : Infinity;
         },
         /**
-     * 当前的总数，过滤后的分页数目
-     */
+         * 当前的总数，过滤后的分页数目
+         */
         total() {
             return this.originTotal === Infinity ? this.data.length : this.originTotal;
         },
@@ -165,39 +170,41 @@ const VueDataSource = Vue.extend({
         if (!this.remote) {
             this.initialLoaded = true;
             this.originTotal = this.data.length;
-            this.arrange();
+            this.arrange(this.data.slice(this.offset, this.offset + this.limit));
         }
     },
     methods: {
-        arrange() {
-            let arrangedData = Array.from(this.data);
-
-            // 没理解
-            // if (this.remotePaging)
-            //     return (this.arrangedData = arrangedData);
+        arrange(data = this.data) {
+            let arrangedData = Array.from(data);
 
             const filtering = this.filtering;
-            if (!this.remoteFiltering && filtering && Object.keys(filtering).length)
-                arrangedData = arrangedData.filter((item) =>
-                    solveCondition(filtering, item),
-                );
+            if (!this.remoteFiltering && filtering && Object.keys(filtering).length) {
+                arrangedData = arrangedData.filter((item) => solveCondition(filtering, item));
+            }
 
             const sorting = this.sorting;
             if (!this.remoteSorting && sorting && sorting.field) {
                 const field = sorting.field;
                 const orderSign = sorting.order === 'asc' ? 1 : -1;
-                if (sorting.compare)
+                if (sorting.compare) {
                     arrangedData.sort((item1, item2) =>
                         sorting.compare(item1[field], item2[field], orderSign),
                     );
-                else
+                } else {
                     arrangedData.sort((item1, item2) =>
                         this.defaultCompare(item1[field], item2[field], orderSign),
                     );
+                }
             }
 
+            // 前端分页
+            // const paging = this.paging;
+            // if (!this.remotePaging && paging) {
+            //     arrangedData = arrangedData.slice(this.offset, this.offset + this.limit);
+            // }
+
             this.arrangedData = arrangedData;
-            this.originTotal = !this.remoteSorting && arrangedData.length; // 有filtering的时候，total需要重新设值
+            return arrangedData;
         },
         _process(data) {
             return data;
@@ -209,38 +216,38 @@ const VueDataSource = Vue.extend({
             this.arranged = false;
             this.initialLoaded = false;
         },
-        mustRemote(offset, newOffset) {
+        mustRemote() {
             return (
-                !this.hasAllRemoteData(offset, newOffset) // 没有全部的后端数据
-        || (this.params.hasOwnProperty('filtering') && this.remoteFiltering)
-        || (this.params.hasOwnProperty('sorting') && this.remoteSorting)
+                !this.hasAllRemoteData() // 没有全部的后端数据
+                || this.queryChanged // query有变化
             );
         },
         /**
-     * 根据 viewData，是否还有数据
-     * @param {Number} offset - 位置
-     */
+         * 根据 viewData，是否还有数据
+         * @param {Number} offset - 位置
+         */
         hasMore(offset) {
             if (offset === undefined || offset === Infinity)
                 offset = this.offset + this.limit;
+
             return offset < this.prependedData.length + this.originTotal;
         },
         /**
-     * 是否还有后端数据
-     * @param {Number} offset - 位置
-     */
-        hasAllRemoteData(offset, newOffset) {
+         * 是否还有后端数据
+         * @param {Number} offset - 位置
+         */
+        hasAllRemoteData() {
+            // 非后端数据
             if (!this.remote)
                 return true;
-            if (!this.remotePaging)
-                return this.data.length >= this.originTotal;
 
-            offset += this.prependedData.length;
-            newOffset += this.prependedData.length;
-            for (let i = offset; i < newOffset; i++)
-                if (!this.data[i])
-                    return false;
-            return true;
+            // 不分页
+            if (this.limit === Infinity) {
+                return true;
+            }
+
+            // 分页
+            return this.offset + this.limit >= this.originTotal;
         },
         hasChanges() {
             return false;
@@ -265,34 +272,40 @@ const VueDataSource = Vue.extend({
                 limit = this.limit;
             let newOffset = offset + limit;
 
-            const queryChanged = Object.keys(this.params).length;
             // 调用前端缓存数据
-            if (!this.remote || (this.cache && !this.mustRemote(offset, newOffset))) {
+            if (!this.remote) {
                 // 没有缓存数据或者有新的请求参数时，再尝试重新过滤和排序
-                if (queryChanged) {
-                    this.arrange();
-                    this.params = {};
-                    if (this.paging)
+                if (this.queryChanged) {
+                    if (this.paging) {
                         this.paging.number = 1;
+                    }
+
                     offset = 0;
                     newOffset = limit;
+
+                    this.queryChanged = false;
                 }
-                return Promise.resolve(this.arrangedData.slice(offset, newOffset));
+
+                return Promise.resolve(this.arrange(this.data));
             }
 
             // 调用后端数据
             // 如果有新的 query 参数的变更，则清除缓存
-            if (queryChanged) {
+            if (this.queryChanged) {
                 this.clearLocalData();
-                this.params = {};
-                if (this.paging)
+
+                if (this.paging) {
                     this.paging.number = 1;
+                }
+
                 offset = 0;
+
+                this.queryChanged = false;
             }
-            const paging = Object.assign(
-                { offset: offset - this.prependedData.length, limit: this.limit },
-                this.paging,
-            );
+            const paging = Object.assign(this.paging, {
+                offset: offset - this.prependedData.length,
+                limit: this.limit,
+            });
             if (newPageNumber !== undefined) {
                 paging.number = newPageNumber;
             }
@@ -321,71 +334,57 @@ const VueDataSource = Vue.extend({
 
             return this._load(params, extraParams).then((result) => {
                 this.initialLoaded = true;
+                const finalResult = {};
 
-                // 支持 JDL
-                if (result instanceof Object) {
+                // 判断是否后端数据
+                if (getType(result) === 'Object') {
                     if (result.hasOwnProperty('list') && result.hasOwnProperty('total')) {
-                        result.data = result.list;
+                        finalResult.data = result.list;
+                        finalResult.total = result.total;
                     } else if (result.hasOwnProperty('totalElements') && result.hasOwnProperty('content')) {
-                        result.total = result.totalElements;
-                        result.data = result.content;
+                        finalResult.data = result.content;
+                        finalResult.total = result.totalElements;
+                    } else {
+                        finalResult.data = result.data;
+                        finalResult.total = result.total;
                     }
 
                     // 非后端数据
-                    if (!result.hasOwnProperty('data') || !result.hasOwnProperty('total')) {
-                        this.remotePaging = false;
-                        this.remoteSorting = false;
-                        this.remoteFiltering = false;
+                    if (!finalResult.hasOwnProperty('data') || !finalResult.hasOwnProperty('total')) {
+                        this.remote = false;
                     }
+                } else if (getType(result) === 'Array') {
+                    finalResult.data = result;
+                    finalResult.total = result.length;
+                    this.remote = false;
+                } else {
+                    this.remote = false;
                 }
 
-                if (!this.remotePaging) {
-                    // 没有后端分页，认为是全部数据
-                    if (result instanceof Array) {
-                        // 只返回数组，没有 total 字段
-                        if (!result.length)
-                            this.originTotal = result.length;
-                        else
-                            this.data = this._process(result);
-                    } else if (result instanceof Object) {
-                        // 返回 { total, data }
-                        this.originTotal = result.total;
-                        this.data = this._process(result.data);
-                    } // 否则什么都不做
+                if (!this.remote) {
+                    this.remotePaging = false;
+                    this.remoteSorting = false;
+                    this.remoteFiltering = false;
 
-                    this.arrange();
-                    return this.arrangedData.slice(offset, newOffset);
+                    this.data = finalResult.data;
+                    this.originTotal = finalResult.total;
+
+                    return this.arrange(this.data);
                 } else {
-                    let partialData;
-
-                    if (result instanceof Array) {
-                        // 只返回数组，没有 total 字段
-                        partialData = this._process(result);
-                        if (!result.length)
-                        // 没有数据了，则表示最后一次加载，记录下总数
-                            this.originTotal = this.data.length;
-                    } else if (result instanceof Object) {
-                        // 返回 { total: boolean, data: Array<item> } 或 { last: boolean, data: Array<item> }
-                        if (result.total !== undefined)
-                            this.originTotal = result.total;
-                        else if (result.last)
-                            this.originTotal = this.data.length;
-                        partialData = this._process(result.data);
-                    } // 否则什么都不做
-
+                    this.originTotal = finalResult.total;
+                    // 不分页
                     if (limit === Infinity) {
-                        this.data = partialData;
-                        this.arrange();
-                        return partialData;
-                    }
-                    for (let i = 0; i < limit; i++) {
-                        const item = partialData[i];
-                        if (item)
-                            this.data[offset + i] = item;
+                        this.data = finalResult.data;
+                    } else {
+                        for (let i = 0; i < limit; i++) {
+                            const item = finalResult.data[i];
+                            if (item) {
+                                this.data[offset + i] = item;
+                            }
+                        }
                     }
 
-                    this.arrange();
-                    return partialData;
+                    return this.arrange(this.data);
                 }
             });
         },
@@ -410,16 +409,12 @@ const VueDataSource = Vue.extend({
         },
         sort(sorting) {
             this.sorting = sorting;
-            this.params.sorting = sorting;
+            this.queryChanged = true;
         },
         filter(filtering) {
             this.filtering = filtering;
-            this.params.filtering = filtering;
+            this.queryChanged = true;
         },
-        // query(params) {
-        //     this.params = params;
-        //     return this;
-        // },
         prepend(item) {
             this.data.unshift(item);
             this.prependedData.unshift(item);

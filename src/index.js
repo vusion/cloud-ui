@@ -20,26 +20,6 @@ Vue.prototype.$at2 = function (obj, propertyPath) {
     return this.$at(obj, propertyPath);
 };
 
-/**
- * 为了不破坏 $at2
- * 属性取值，目前仅用于select的descriptionField
- * @param {*} obj
- * @param {*} propertyPath
- * @param {*} allowEmpty
- * @returns
- */
-Vue.prototype.$at3 = function (obj, propertyPath, allowEmpty = true) {
-    if (propertyPath === '' && !this.$env.VUE_APP_DESIGNER) {
-        if (allowEmpty) {
-            return '';
-        }
-
-        return obj;
-    }
-
-    return this.$at(obj, propertyPath);
-};
-
 function getAsyncPublicPath() {
     const script = document.querySelector('script[src*="cloud-ui.vusion"]');
     if (!script)
