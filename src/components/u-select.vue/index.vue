@@ -174,7 +174,7 @@ export default {
         pagination: { type: Boolean, default: undefined },
         sorting: { type: Object },
         dataSource: [DataSource, DataSourceNew, Function, Object, Array],
-        description: { type: Boolean, default: false },
+        description: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -215,13 +215,20 @@ export default {
             };
         },
         paging() {
-            if (this.pageable || this.pagination) {
+            if (this.usePagination) {
                 const paging = {};
                 paging.size = this.pageSize === '' ? 50 : this.pageSize;
                 paging.number = paging.number || 1;
                 return paging;
             } else
                 return undefined;
+        },
+        usePagination() {
+            if (typeof this.pagination === 'undefined') {
+                return this.pageable === true;
+            }
+
+            return !!this.pagination;
         },
     },
     watch: {
@@ -363,8 +370,8 @@ export default {
 
                 return new Constructor(options);
             } else if (dataSource instanceof Function) {
-                options.load = function load(params) {
-                    const result = dataSource(params);
+                options.load = function load(params, extraParams) {
+                    const result = dataSource(params, extraParams);
                     if (result instanceof Promise)
                         return result.catch(
                             () => (this.currentLoading = false),

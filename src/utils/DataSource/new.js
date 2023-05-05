@@ -302,10 +302,13 @@ const VueDataSource = Vue.extend({
 
                 this.queryChanged = false;
             }
-            const paging = Object.assign(this.paging, {
-                offset: offset - this.prependedData.length,
-                limit: this.limit,
-            });
+            const paging = Object.assign(
+                {
+                    offset: offset - this.prependedData.length,
+                    limit: this.limit,
+                },
+                this.paging,
+            );
             if (newPageNumber !== undefined) {
                 paging.number = newPageNumber;
             }

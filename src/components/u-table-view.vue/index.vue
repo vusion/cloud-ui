@@ -313,7 +313,7 @@
         </div>
     </div>
     <u-table-view-drop-ghost :data="dropData"></u-table-view-drop-ghost>
-    <u-pagination :class="$style.pagination" ref="pagination" v-if="(pageable === true || pageable === 'pagination' || pagination === true) && currentDataSource"
+    <u-pagination :class="$style.pagination" ref="pagination" v-if="usePagination && currentDataSource"
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
         :size="paginationSize"
@@ -511,7 +511,7 @@ export default {
             return this.columnVMs.find((columnVM) => columnVM.type === 'expander');
         },
         paging() {
-            if (this.pageable || this.pagination) {
+            if (this.usePagination) {
                 const paging = {};
                 paging.size = this.pageSize === '' ? 20 : this.pageSize;
                 paging.number = paging.number || 1;
@@ -547,6 +547,13 @@ export default {
             } else {
                 return treeColumnIndex;
             }
+        },
+        usePagination() {
+            if (typeof this.pagination === 'undefined') {
+                return this.pageable === true || this.pageable === 'pagination';
+            }
+
+            return !!this.pagination;
         },
     },
     watch: {
@@ -677,7 +684,7 @@ export default {
         });
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
-        if (this.pageNumber && (this.pageable || this.pagination)) {
+        if (this.pageNumber && this.usePagination) {
             this.initialLoad && this.page(this.pageNumber);
         } else {
             this.initialLoad && this.load();
@@ -1152,7 +1159,8 @@ export default {
                     if (autoStatus) {
                         this.currentLoading = false;
                     }
-                    if (this.pageable === true || this.pageable === 'pagination' || this.pagination) {
+
+                    if (this.usePagination) {
                         if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
                             this.page(1); // 数据发生变更时，回归到第 1 页
                     } // auto-more 状态的 resize 会频闪。

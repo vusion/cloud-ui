@@ -7575,7 +7575,8 @@
                     "name": "pagination",
                     "title": "分页",
                     "type": "boolean",
-                    "description": "是否使用分页功能加载更多"
+                    "description": "是否使用分页功能加载更多",
+                    "group": "数据属性"
                 },
                 {
                     "name": "page-size",
@@ -7586,9 +7587,6 @@
                     "description": "",
                     "group": "数据属性",
                     "dependency": [
-                        {
-                            "pageable": true
-                        },
                         {
                             "pagination": true
                         }
@@ -7607,9 +7605,6 @@
                     },
                     "dependency": [
                         {
-                            "pageable": true
-                        },
-                        {
                             "pagination": true
                         }
                     ]
@@ -7627,9 +7622,6 @@
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "pageable": true
-                        },
-                        {
                             "pagination": true
                         }
                     ]
@@ -7642,9 +7634,6 @@
                     "description": "",
                     "group": "数据属性",
                     "dependency": [
-                        {
-                            "pageable": true
-                        },
                         {
                             "pagination": true
                         }
@@ -7659,9 +7648,6 @@
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "pageable": true
-                        },
-                        {
                             "pagination": true
                         }
                     ]
@@ -7674,9 +7660,6 @@
                     "description": "",
                     "group": "数据属性",
                     "dependency": [
-                        {
-                            "pageable": true
-                        },
                         {
                             "pagination": true
                         }
@@ -14700,7 +14683,7 @@
                     "name": "description",
                     "title": "文本描述",
                     "type": "boolean",
-                    "default": false,
+                    "default": true,
                     "description": "是否展示文本描述"
                 },
                 {
