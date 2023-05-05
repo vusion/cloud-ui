@@ -55,7 +55,7 @@
       title: 此刻按钮
       type: boolean
       default: true
-      description: "快捷选择当前时间"
+      description: 快捷选择当前时间
     - name: rightNowTitle
       title: 此刻按钮名称
       type: string
@@ -66,7 +66,7 @@
       title: 取消/确认按钮
       type: boolean
       default: true
-      description: "控制弹出层的开启与关闭"
+      description: 控制弹出层的开启与关闭
     - name: cancelTitle
       title: 取消按钮名称
       type: string
@@ -110,7 +110,7 @@
       options:
         - value: calendar
           title: 日历
-      default: "calendar"
+      default: calendar
       description: ""
       clearable: true
     - name: suffixIcon

@@ -91,7 +91,8 @@
       support:
         - name: u-tree-view-node-new
           title: 子节点
-          snippet: <u-tree-view-node-new><template slot="item">节点</template></u-tree-view-node-new>
+          snippet: <u-tree-view-node-new><template
+            slot="item">节点</template></u-tree-view-node-new>
     - concept: Slot
       name: item
       description: 自定义选项的结构和样式
@@ -104,9 +105,9 @@
           typeNamespace: nasl.ui
           typeName: Current
           typeArguments:
-          - concept: TypeAnnotation
-            typeKind: typeParam
-            typeName: T
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
   events:
     - name: before-select
       title: 选择前
@@ -331,7 +332,8 @@
       support:
         - name: u-tree-view-node-new
           title: 子节点
-          snippet: <u-tree-view-node-new><template slot="item">节点</template></u-tree-view-node-new>
+          snippet: <u-tree-view-node-new><template
+            slot="item">节点</template></u-tree-view-node-new>
   blocks:
     - name: 基础示例
       code: <u-tree-view-node-new text="节点 1"></u-tree-view-node-new>

@@ -34,7 +34,7 @@
       place: 不限制
       description: 输入框内可输入的最大字符数，超过时不支持输入
       toggleupdate:
-        - value: ''
+        - value: ""
           updateData:
             show-word-limit: false
     - name: show-word-limit
@@ -42,7 +42,7 @@
       type: boolean
       description: 设置是否显示「可输入最大字符数」的字数统计
       dependency:
-        - '!maxlength': ''
+        - "!maxlength": ""
     - name: limit-position
       title: 字数统计位置
       type: string

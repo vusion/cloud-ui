@@ -41,10 +41,13 @@
             @change="onChange"
         >
             <template #default="scope">
-                <slot :item="scope.item"></slot>
-                <s-empty v-if="$scopedSlots
-                    &&!($scopedSlots.default && $scopedSlots.default(scope))
-                    &&$env.VUE_APP_DESIGNER
+                <slot :item="scope.item" :__nodeKey="`${scope.item.rowIndex}-${scope.item.cellIndex}`"></slot>
+                <s-empty v-if="$env.VUE_APP_DESIGNER
+                    && $scopedSlots
+                    &&!($scopedSlots.default && $scopedSlots.default({
+                        ...scope,
+                        __nodeKey: `${scope.item.rowIndex}-${scope.item.cellIndex}`
+                    }))
                     && !!$attrs['vusion-node-path']"></s-empty>
             </template>
         </date-table>

@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :shadow="shadow" :bordered="bordered">
-    <div :class="$style.head">
+    <div :class="$style.head" :flex="!title && !$slots.title">
         <slot name="head">
             <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
                 <slot name="title">
@@ -98,5 +98,13 @@ export default {
 }
 .title [s-empty] {
     max-width: 150px;
+}
+
+.head[flex] {
+    display: flex;
+    justify-content: space-between;
+}
+.head[flex] .extra {
+    position: initial;
 }
 </style>

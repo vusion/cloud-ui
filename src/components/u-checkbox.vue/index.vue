@@ -24,7 +24,7 @@ export default {
     },
     mixins: [MChild, MField],
     props: {
-        value: { type: Boolean, default: false },
+        value: { type: [String, Boolean], default: false },
         label: null,
         text: String,
         readonly: { type: Boolean, default: false },

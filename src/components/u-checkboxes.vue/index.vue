@@ -34,10 +34,10 @@ import UCheckbox from '../u-checkbox.vue';
 export default {
     name: 'u-checkboxes',
     childName: 'u-checkbox',
-    mixins: [MParent, MField, MConverter, SupportDataSource],
     components: {
         UCheckbox,
     },
+    mixins: [MParent, MField, MConverter, SupportDataSource],
     props: {
         value: [Array, String],
         min: { type: Number, default: 0 },
@@ -64,7 +64,9 @@ export default {
         },
     },
     mounted() {
-        this.watchValue(this.value);
+        // 修复bug：多选组，多选项值设为true，如果不操作拿不到值 http://projectmanage.netease-official.lcap.163yun.com/dashboard/DebtDetail?id=2577483154345216
+        this.initSyncValue(this.value);
+        this.watchValue(this.currentValue);
     },
     methods: {
         watchValue(value) {
@@ -114,8 +116,22 @@ export default {
                 itemVM: $event.itemVM,
             });
         },
-        exceedMax(){
+        exceedMax() {
             return Array.isArray(this.currentValue) && this.currentValue.length >= this.max;
+        },
+        initSyncValue(value) {
+            if (value === '' || (Array.isArray(value) && !value.length)) {
+                const value = [];
+                this.itemVMs.forEach(
+                    (itemVM) => itemVM.currentValue && value.push(itemVM.label),
+                );
+                this.currentValue = value;
+                let currentValue = value;
+                if (this.converter)
+                    currentValue = this.currentConverter.get(currentValue);
+                this.$emit('input', currentValue);
+                this.$emit('update:value', currentValue);
+            }
         },
     },
 };

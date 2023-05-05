@@ -1,7 +1,7 @@
 - name: u-count-down
   title: 计时器
   labels:
-     - Display
+    - Display
   icon: countdown
   description: 用于计时
   next: true
