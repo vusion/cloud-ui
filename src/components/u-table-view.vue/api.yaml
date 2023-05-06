@@ -355,6 +355,13 @@
       default: false
       description: 以树形数据展示表格
       group: 其它属性
+    - name: parent-field
+      title: 父节点字段名
+      type: string
+      description: 当数据源为平铺数据时自动生成树形数据的节点字段名，重要：值字段名需要一起配置
+      group: 其它属性
+      dependency:
+        - tree-display: true
     - name: children-field
       title: 子节点字段名
       type: string

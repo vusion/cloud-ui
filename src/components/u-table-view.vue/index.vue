@@ -448,6 +448,7 @@ export default {
 
         // 新增用来分页
         pagination: { type: Boolean, default: undefined },
+        parentField: { type: String },
     },
     data() {
         return {
@@ -496,6 +497,7 @@ export default {
                 });
             });
             let data = this.currentDataSource ? this.currentDataSource.viewData.filter((item) => !!item) : this.currentDataSource;
+
             if (this.treeDisplay && data) {
                 data = this.processTreeData(data);
             }
@@ -774,7 +776,7 @@ export default {
             return this.extraParams;
         },
         getDataSourceOptions() {
-            return {
+            const options = {
                 viewMode: this.pageable === 'load-more' || this.pageable === 'auto-more' ? 'more' : 'page',
                 paging: this.paging,
                 sorting: this.currentSorting,
@@ -786,6 +788,16 @@ export default {
                 process: this.processData,
                 filterMultiple: this.filterMultiple,
             };
+
+            if (this.treeDisplay && this.valueField && this.parentField && this.childrenField) {
+                options.treeDisplay = {
+                    valueField: this.valueField,
+                    parentField: this.parentField,
+                    childrenField: this.childrenField,
+                };
+            }
+
+            return options;
         },
         normalizeDataSource(dataSource) {
             const options = this.getDataSourceOptions();
@@ -815,7 +827,9 @@ export default {
                 };
                 // 使用了新的分页, 函数类型先当做后端数据
                 if (isNew) {
-                    options.remotePaging = !!this.pagination;
+                    // 树形展示时只能前端分页
+                    options.remotePaging = this.treeDisplay ? false : !!this.pagination;
+                    // options.remotePaging = !!this.pagination;
                     options.remoteSorting = !!this.sorting?.field;
                     //  options.remoteFiltering = !!this.filterable;
                 }
