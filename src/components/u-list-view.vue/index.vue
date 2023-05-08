@@ -255,7 +255,7 @@ export default {
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.currentDataSource && this.initialLoad) {
-            if (this.pageNumber && (this.pageable || this.pagination)) {
+            if (this.pageNumber && (typeof this.pagination === 'undefined' ? this.pageable : this.pagination)) {
                 this.page(this.pageNumber);
             } else {
                 this.load().then(() => {

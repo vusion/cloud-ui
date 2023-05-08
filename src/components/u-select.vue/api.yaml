@@ -35,8 +35,8 @@
     - name: description
       title: 文本描述
       type: boolean
-      default: true
-      description: "是否展示文本描述"
+      default: false
+      description: 是否展示文本描述
     - name: description-field
       title: 文本描述字段
       type: string

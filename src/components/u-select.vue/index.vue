@@ -174,7 +174,7 @@ export default {
         pagination: { type: Boolean, default: undefined },
         sorting: { type: Object },
         dataSource: [DataSource, DataSourceNew, Function, Object, Array],
-        description: { type: Boolean, default: true },
+        description: { type: Boolean, default: false },
     },
     data() {
         return {
