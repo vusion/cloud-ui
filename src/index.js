@@ -14,17 +14,19 @@ export { install } from '@vusion/utils';
 import Vue from 'vue';
 Vue.prototype.$env = Vue.prototype.$env || {};
 Vue.prototype.$env.VUE_APP_DESIGNER = String(process.env.VUE_APP_DESIGNER) === 'true';
-Vue.prototype.$at2 = function(obj, propertyPath) {
-    if(propertyPath === '' && !this.$env.VUE_APP_DESIGNER) return obj;
+Vue.prototype.$at2 = function (obj, propertyPath) {
+    if (propertyPath === '' && !this.$env.VUE_APP_DESIGNER)
+        return obj;
     return this.$at(obj, propertyPath);
-}
+};
 
-function getAsyncPublicPath () {
+function getAsyncPublicPath() {
     const script = document.querySelector('script[src*="cloud-ui.vusion"]');
-    if(!script) return;
-    
+    if (!script)
+        return;
+
     const src = script.src;
     const publicPath = src.replace(/\/[^/]+$/, '/');
     __webpack_public_path__ = publicPath;
-};
+}
 getAsyncPublicPath();

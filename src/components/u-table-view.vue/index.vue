@@ -16,7 +16,10 @@
                 </colgroup>
                 <thead>
                     <tr>
-                        <th ref="th" :class="[$style['head-title'], boldHeader ? $style.boldHeader : null]" v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                        <th
+                            v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                            ref="th"
+                            :class="[$style['head-title'], boldHeader ? $style.boldHeader : null]"
                             :key="columnIndex"
                             :is-sub="columnVM.$attrs['is-sub']"
                             :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
@@ -30,7 +33,8 @@
                             :style="getStyle(columnIndex, columnVM)"
                             :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                             :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
-                            :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
+                            :shadow="(isLastLeftFixed(columnVM, columnIndex) && (!scrollXStart || $env.VUE_APP_DESIGNER)) || (isFirstRightFixed(columnVM, columnIndex) && (!scrollXEnd || $env.VUE_APP_DESIGNER))"
+                            :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden">
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
                                 <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
@@ -89,7 +93,7 @@
                 <tbody>
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
-                            <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }"
+                            <tr :key="rowIndex" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }"
                             :draggable="rowDraggable?rowDraggable:undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
@@ -112,8 +116,9 @@
                                         :style="getStyle(columnIndex, columnVM)"
                                         :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                                         :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
-                                        :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
-                                        <div :class="$style.tdmask" v-if="rowIndex !== 0"></div>
+                                        :shadow="(isLastLeftFixed(columnVM, columnIndex)) || (isFirstRightFixed(columnVM, columnIndex))"
+                                        :disabled="columnVM.currentHidden">
+                                        <!-- <div :class="$style.tdmask" v-if="rowIndex !== 0"></div> -->
                                         <!--可视化占据的虚拟填充区域-->
                                         <div vusion-slot-name="cell" :plus-empty="typeCheck(columnVM.type) ? false : columnVM.$attrs['plus-empty']">
                                             <!-- type === 'index' -->
@@ -164,7 +169,7 @@
                                         :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">
-                                                <template v-if="columnVM.autoIndex && (pageable === true || pageable === 'pagination') && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
+                                                <template v-if="columnVM.autoIndex && usePagination && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
                                                 <template v-else>{{ (columnVM.startIndex - 0) + rowIndex }}</template>
                                             </span>
                                             <!-- type === 'radio' -->
@@ -308,7 +313,7 @@
         </div>
     </div>
     <u-table-view-drop-ghost :data="dropData"></u-table-view-drop-ghost>
-    <u-pagination :class="$style.pagination" ref="pagination" v-if="(pageable === true || pageable === 'pagination') && currentDataSource"
+    <u-pagination :class="$style.pagination" ref="pagination" v-if="usePagination && currentDataSource"
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
         :size="paginationSize"
@@ -334,6 +339,7 @@
 
 <script>
 import DataSource from '../../utils/DataSource';
+import DataSourceNew from '../../utils/DataSource/new';
 import { addResizeListener, removeResizeListener, findScrollParent, getRect } from '../../utils/dom';
 import { format } from '../../utils/date';
 import MEmitter from '../m-emitter.vue';
@@ -357,7 +363,7 @@ export default {
             default: true,
         },
         data: Array,
-        dataSource: [DataSource, Function, Object, Array],
+        dataSource: [DataSource, DataSourceNew, Function, Object, Array],
         initialLoad: { type: Boolean, default: true },
         pageable: { type: [Boolean, String], default: false },
         pageSize: { type: Number, default: 20 },
@@ -439,6 +445,10 @@ export default {
         draggable: { type: Boolean, default: false }, // 是否可拖拽
         treeCheckType: { type: String, default: 'up+down' }, // 树型数据关联选中类型
         designerMode: { type: String, default: 'success' }, // 编辑器展示不同表单状态
+
+        // 新增用来分页
+        pagination: { type: Boolean, default: undefined },
+        parentField: { type: String },
     },
     data() {
         return {
@@ -487,19 +497,23 @@ export default {
                 });
             });
             let data = this.currentDataSource ? this.currentDataSource.viewData.filter((item) => !!item) : this.currentDataSource;
+
             if (this.treeDisplay && data) {
                 data = this.processTreeData(data);
             }
             return data;
         },
         visibleColumnVMs() {
+            if (this.$env.VUE_APP_DESIGNER) {
+                return this.columnVMs;
+            }
             return this.columnVMs.filter((columnVM) => !columnVM.currentHidden);
         },
         expanderColumnVM() {
             return this.columnVMs.find((columnVM) => columnVM.type === 'expander');
         },
         paging() {
-            if (this.pageable) {
+            if (this.usePagination) {
                 const paging = {};
                 paging.size = this.pageSize === '' ? 20 : this.pageSize;
                 paging.number = paging.number || 1;
@@ -535,6 +549,13 @@ export default {
             } else {
                 return treeColumnIndex;
             }
+        },
+        usePagination() {
+            if (typeof this.pagination === 'undefined') {
+                return this.pageable === true || this.pageable === 'pagination';
+            }
+
+            return !!this.pagination;
         },
     },
     watch: {
@@ -665,7 +686,7 @@ export default {
         });
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
-        if (this.pageNumber && this.pageable) {
+        if (this.pageNumber && this.usePagination) {
             this.initialLoad && this.page(this.pageNumber);
         } else {
             this.initialLoad && this.load();
@@ -755,7 +776,7 @@ export default {
             return this.extraParams;
         },
         getDataSourceOptions() {
-            return {
+            const options = {
                 viewMode: this.pageable === 'load-more' || this.pageable === 'auto-more' ? 'more' : 'page',
                 paging: this.paging,
                 sorting: this.currentSorting,
@@ -767,14 +788,32 @@ export default {
                 process: this.processData,
                 filterMultiple: this.filterMultiple,
             };
+
+            if (this.treeDisplay && this.valueField && this.parentField && this.childrenField) {
+                options.treeDisplay = {
+                    valueField: this.valueField,
+                    parentField: this.parentField,
+                    childrenField: this.childrenField,
+                };
+            }
+
+            return options;
         },
         normalizeDataSource(dataSource) {
             const options = this.getDataSourceOptions();
-            if (dataSource instanceof DataSource)
+            const isNew = typeof this.pagination !== 'undefined';
+            const Constructor = isNew ? DataSourceNew : DataSource;
+
+            if (dataSource instanceof DataSource || dataSource instanceof DataSourceNew)
                 return dataSource;
             else if (dataSource instanceof Array) {
                 options.data = Array.from(dataSource);
-                return new DataSource(options);
+                // 使用了新的分页, 数组肯定不是后端数据
+                if (isNew) {
+                    options.remotePaging = false;
+                    options.remoteSorting = false;
+                }
+                return new Constructor(options);
             } else if (dataSource instanceof Function) {
                 options.load = function load(params, extraParams) {
                     const result = dataSource(params, extraParams);
@@ -785,9 +824,16 @@ export default {
                     else
                         return Promise.resolve(result);
                 };
-                return new DataSource(options);
+                // 使用了新的分页, 函数类型先当做后端数据
+                if (isNew) {
+                    // 树形展示且配置了父节点时只能前端分页
+                    options.remotePaging = (this.treeDisplay && this.parentField) ? false : !!this.pagination;
+                    // options.remotePaging = !!this.pagination;
+                    options.remoteSorting = !!this.sorting?.field;
+                }
+                return new Constructor(options);
             } else if (dataSource instanceof Object) {
-                return new DataSource(Object.assign(options, dataSource));
+                return new Constructor(Object.assign(options, dataSource));
             } else
                 return dataSource;
         },
@@ -1125,7 +1171,8 @@ export default {
                     if (autoStatus) {
                         this.currentLoading = false;
                     }
-                    if (this.pageable === true || this.pageable === 'pagination') {
+
+                    if (this.usePagination) {
                         if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
                             this.page(1); // 数据发生变更时，回归到第 1 页
                     } // auto-more 状态的 resize 会频闪。
@@ -2301,6 +2348,11 @@ export default {
     box-shadow: inset 3px 0 5px -3px rgb(0 0 0 / 15%);
 }
 
+.head-title[disabled] {
+    color: var(--text-color-disabled);
+    background-color: var(--table-view-expander-background-disabled);
+}
+
 .extra {
     float: right;
 }
@@ -2431,6 +2483,11 @@ export default {
 }
 .cell[shadow][first-right-fixed]::after {
     box-shadow: inset 3px 0 5px -3px rgb(0 0 0 / 15%);
+}
+
+.cell[disabled] {
+    color: var(--text-color-disabled);
+    background-color: var(--table-view-expander-background-disabled);
 }
 
 .pagination {
@@ -2595,6 +2652,21 @@ export default {
 }
 
 .indent {}
+
+.trmask {
+    position: relative;
+}
+.trmask::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.8);
+    z-index: 999;
+}
 
 .tdmask {
     position: absolute;

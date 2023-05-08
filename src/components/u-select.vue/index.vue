@@ -43,7 +43,7 @@
                     <span :class="$style['tag-text']">{{ itemVM.currentText }}</span>
                     <span :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
                 </span>
-                <span :class="$style.tag" v-if="selectedVMs.length - collapseCounter >= 1 && this.selectedVMs.length !== 1">
+                <span :class="$style.tag" v-if="selectedVMs.length - collapseCounter >= 1 && selectedVMs.length !== 1">
                     <span :class="$style['tag-text']">+{{ selectedVMs.length - collapseCounter }}</span>
                 </span>
             </template>
@@ -84,8 +84,16 @@
                     :value="$at2(item, valueField)"
                     :disabled="item.disabled || disabled"
                     :item="item"
-                    :description="$at2(item, descriptionField)">
-                    <slot name="text" :item="item" :text="$at2(item, field || textField)" :value="$at2(item, valueField)" :disabled="item.disabled || disabled" :description="$at2(item, descriptionField)">{{ $at2(item, field || textField) }}</slot>
+                    :description="description ? $at2(item, descriptionField) : null">
+                    <slot
+                        name="text"
+                        :item="item"
+                        :text="$at2(item, field || textField)"
+                        :value="$at2(item, valueField)"
+                        :disabled="item.disabled || disabled"
+                        :description="description ? $at2(item, descriptionField) : null">
+                        {{ $at2(item, field || textField) }}
+                    </slot>
                 </component>
             </template>
         </template>
@@ -100,6 +108,8 @@
 import { UListView } from '../u-list-view.vue';
 import { ellipsisTitle } from '../../directives';
 import i18n from './i18n';
+import DataSource from '../../utils/DataSource';
+import DataSourceNew from '../../utils/DataSource/new';
 
 export default {
     name: 'u-select',
@@ -159,6 +169,12 @@ export default {
         popperWidth: { type: String, default: '' },
         showEmptyText: { type: Boolean, default: true }, // 控制是否展示emptyText
         descriptionField: String,
+
+        // 新增用来分页
+        pagination: { type: Boolean, default: undefined },
+        sorting: { type: Object },
+        dataSource: [DataSource, DataSourceNew, Function, Object, Array],
+        description: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -198,6 +214,22 @@ export default {
                 },
             };
         },
+        paging() {
+            if (this.usePagination) {
+                const paging = {};
+                paging.size = this.pageSize === '' ? 50 : this.pageSize;
+                paging.number = paging.number || 1;
+                return paging;
+            } else
+                return undefined;
+        },
+        usePagination() {
+            if (typeof this.pagination === 'undefined') {
+                return this.pageable === true;
+            }
+
+            return !!this.pagination;
+        },
     },
     watch: {
         filterText(filterText) {
@@ -228,19 +260,19 @@ export default {
             const popperVM = this.$refs.popper;
             popperVM && popperVM.currentOpened && popperVM.scheduleUpdate();
             // 计算折叠时，最多能展示几个标签
-            if (this.tagsOverflow === "collapse") {
+            if (this.tagsOverflow === 'collapse') {
                 this.collapseCounter = 0;
                 const collapseTagWidth = 30;
-                const marginWidth = 3
+                const marginWidth = 3;
                 let lastAddElementWidth = 0;
                 // 预留出"+N"的标签宽度
                 let inputWidth = this.$refs.inputOuter.offsetWidth - collapseTagWidth;
                 // 先计算前N-1个元素长度是否超出输入框
-                for (let i=0; i < this.selectedVMs.length -1 ; i++) {
+                for (let i = 0; i < this.selectedVMs.length - 1; i++) {
                     if (this.$refs[`item_${i}`]) {
                         this.$refs[`item_${i}`][0].style.display = 'inline-block';
                         const itemWidth = this.$refs[`item_${i}`][0].offsetWidth + marginWidth;
-                        if (inputWidth - itemWidth < 0 ) {
+                        if (inputWidth - itemWidth < 0) {
                             break;
                         }
                         inputWidth -= itemWidth;
@@ -248,8 +280,8 @@ export default {
                     }
                 }
                 // 计算最后一个元素能否加入输入框
-                this.$nextTick(()=>{
-                    const lastItem = this.$refs[`item_${this.selectedVMs.length - 1}`]
+                this.$nextTick(() => {
+                    const lastItem = this.$refs[`item_${this.selectedVMs.length - 1}`];
                     if (lastItem) {
                         lastItem[0].style.display = 'inline-block';
                         lastAddElementWidth = lastItem[0].offsetWidth;
@@ -258,14 +290,14 @@ export default {
                         this.collapseCounter += 1;
                     }
                     // 隐藏掉超出输入框长度的元素
-                    if (this.collapseCounter === this.selectedVMs.length || this.selectedVMs.length === 1) return
+                    if (this.collapseCounter === this.selectedVMs.length || this.selectedVMs.length === 1)
+                        return;
                     for (let i = this.collapseCounter; i < this.selectedVMs.length; i++) {
-                        this.$nextTick(()=>{
+                        this.$nextTick(() => {
                             this.$refs[`item_${i}`][0].style.display = 'none';
-                        })
+                        });
                     }
-                })
-
+                });
             }
         });
         this.$on('select', ($event) => {
@@ -315,7 +347,53 @@ export default {
                 filtering: this.filtering,
                 remoteFiltering: this.remoteFiltering,
                 getExtraParams: this.getExtraParams,
+                // 新增
+                sorting: this.sorting,
+                remoteSorting: this.remoteSorting,
             };
+        },
+        normalizeDataSource(dataSource) {
+            const options = this.getDataSourceOptions();
+            const isNew = typeof this.pagination !== 'undefined';
+            const Constructor = isNew ? DataSourceNew : DataSource;
+
+            if (dataSource instanceof DataSource || dataSource instanceof DataSourceNew)
+                return dataSource;
+            else if (dataSource instanceof Array) {
+                options.data = Array.from(dataSource);
+                // 使用了新的分页, 数组类型肯定不是后端数据
+                if (isNew) {
+                    options.remotePaging = false;
+                    options.remoteFiltering = false;
+                    options.remoteSorting = false;
+                }
+
+                return new Constructor(options);
+            } else if (dataSource instanceof Function) {
+                options.load = function load(params, extraParams) {
+                    const result = dataSource(params, extraParams);
+                    if (result instanceof Promise)
+                        return result.catch(
+                            () => (this.currentLoading = false),
+                        );
+                    else if (result instanceof Array)
+                        return Promise.resolve(result);
+                    else
+                        return Promise.resolve(result);
+                };
+
+                // 使用了新的分页, 函数类型先当做是后端数据
+                if (isNew) {
+                    options.remotePaging = !!this.pagination;
+                    options.remoteFiltering = !!this.filterable;
+                    options.remoteSorting = !!this.sorting?.field;
+                }
+
+                return new Constructor(options);
+            } else if (dataSource instanceof Object) {
+                return new Constructor(Object.assign(options, dataSource));
+            } else
+                return undefined;
         },
         shift(count) {
             let focusedIndex = this.itemVMs.indexOf(this.focusedVM || this.selectedVM);
@@ -600,6 +678,28 @@ export default {
             this.preventRootBlur = false;
             this.preventBlur = false;
             this.rootFocus();
+        },
+        onScroll(e) {
+            this.hasScroll = true;
+            this.throttledVirtualScroll(e);
+
+            if (typeof this.pagination !== 'undefined') {
+                if (!this.pagination || !this.$options.isSelect) {
+                    return;
+                }
+            } else {
+                if (!(this.pageable === 'auto-more' || (this.pageable === true && this.$options.isSelect))) {
+                    return;
+                }
+            }
+
+            if (this.currentLoading) {
+                return;
+            }
+
+            const el = e.target;
+            if (Math.abs(el.scrollHeight - (el.scrollTop + el.clientHeight)) <= 1 && this.currentDataSource && this.currentDataSource.hasMore())
+                this.debouncedLoad(true);
         },
     },
 };
