@@ -148,13 +148,13 @@ export default {
                     this.getMergeText(item.children).forEach((childItem) => {
                         markData = {};
                         // 设置为.text是配合props传入的data数据格式
-                        markData.text = this.$at(item, this.field) + this.join + this.$at(childItem, this.field);
+                        markData[this.field] = this.$at(item, this.field) + this.join + this.$at(childItem, this.field);
                         markData.index = [index, ...childItem.index];
                         combinedText.push(markData);
                     });
                 } else {
                     if (!item.disabled) {
-                        markData.text = item.text;
+                        markData[this.field] = item[this.field];
                         markData.index = [index];
                         combinedText.push(markData);
                     }
@@ -250,9 +250,7 @@ export default {
             this.open();
         },
         filter(filterParam) {
-            return this.allMergeText.filter(({ text }) => {
-                return text.search(filterParam) > -1;
-            });
+            return this.allMergeText.filter((item) => item[this.field].search(filterParam) > -1);
         },
         onEnter() {
             let refVM = this.$refs[this.selectSubIdnex][0];

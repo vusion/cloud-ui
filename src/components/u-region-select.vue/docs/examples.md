@@ -40,3 +40,11 @@ export default {
 ``` html
 <u-region-select showFinalValue trigger="hover"></u-region-select>
 ```
+
+### 过滤（可搜索）
+
+设置filterable属性即可开启过滤功能,解锁手动输入,用于快速查找选项。
+
+``` html
+<u-region-select filterable trigger="hover"></u-region-select>
+```

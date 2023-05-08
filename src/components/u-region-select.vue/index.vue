@@ -20,11 +20,12 @@ export default {
         // },
     },
     async created() {
-        if(!this.data.length){
-            const currentData=  await import(/* webpackChunkName: 'region' */ './region.json');
+        if (!this.data.length) {
+            const currentData = await import(/* webpackChunkName: 'region' */ './region.json');
             this.currentData = currentData.default;
+            await UCascader.created.call(this);
             // 这里created是异步的，会先执行mounted。如果opened是true，下拉框会是空的。这里需要再执行下
-            if(!this.$env.VUE_APP_DESIGNER && this.opened){
+            if (!this.$env.VUE_APP_DESIGNER && this.opened) {
                 this.currentOpened = this.opened;
                 this.toggle(this.opened);
             }
