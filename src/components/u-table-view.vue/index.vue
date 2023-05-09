@@ -731,6 +731,10 @@ export default {
                 };
                 return new DataSource(options);
             } else if (dataSource instanceof Object) {
+                if (dataSource.hasOwnProperty('list') && Array.isArray(dataSource.list))
+                    return new DataSource(Object.assign(options, dataSource, {
+                        data: dataSource.list,
+                    }));
                 return new DataSource(Object.assign(options, dataSource));
             } else
                 return dataSource;
