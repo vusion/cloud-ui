@@ -7,16 +7,31 @@
             [$style.root]: true,
             [$style.dashed]: dashed !== 'a',
             [$style.hairline]: hairline,
-            [$style[`content-${contentPosition}`]]: title || $slots.default,
+            [$style[`content-${contentPosition}`]]: title || $slots.default || $env.VUE_APP_DESIGNER,
         }"
         >
-        <span v-if="title" vusion-slot-name-edit="title">{{title}}</span>
+        <span vusion-slot-name-edit="title" vusion-slot-name="default">
+            <slot>
+                {{ title }}
+                <s-empty
+                    v-if="!$slots.default
+                        && !title
+                        && $env.VUE_APP_DESIGNER
+                        && !!$attrs['vusion-node-path']">
+                </s-empty>
+            </slot>
+        </span>
     </div>
 </template>
 
 <script>
+import SEmpty from '../s-empty.vue';
+
 export default {
     name: 'u-divider',
+    components: {
+        SEmpty,
+    },
     props: {
         direction: {
             type: String,
