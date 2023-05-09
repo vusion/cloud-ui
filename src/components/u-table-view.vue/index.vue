@@ -833,6 +833,10 @@ export default {
                 }
                 return new Constructor(options);
             } else if (dataSource instanceof Object) {
+                if (dataSource.hasOwnProperty('list') && Array.isArray(dataSource.list))
+                    return new Constructor(Object.assign(options, dataSource, {
+                        data: dataSource.list,
+                    }));
                 return new Constructor(Object.assign(options, dataSource));
             } else
                 return dataSource;
