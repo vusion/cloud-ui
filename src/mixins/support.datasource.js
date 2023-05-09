@@ -51,7 +51,9 @@ export default {
 
             if (Array.isArray(dataSource))
                 final.data = dataSource;
-            else if (typeof dataSource === 'function')
+            else if (dataSource instanceof Object && dataSource.hasOwnProperty('list') && Array.isArray(dataSource.list)) {
+                final.data = dataSource.list;
+            } else if (typeof dataSource === 'function')
                 final.load = createLoad(dataSource);
 
             return final;
