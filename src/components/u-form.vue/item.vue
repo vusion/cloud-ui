@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''" :style="responsiveStyle" :label-layout="currentLabelLayout"
     :label-ellipsis="currentLabelEllipsis">
-    <label :class="$style.label" :required="required" v-show="label || title || currentLabelSize !== 'auto'" vusion-slot-name="label" vusion-slot-name-edit="label">
+    <label :class="$style.label" :required="required" v-show="label || title || $slots.label || currentLabelSize !== 'auto'" vusion-slot-name="label" vusion-slot-name-edit="label">
         <span vusion-slot-name-edit="label" v-ellipsis-title>
             <slot name="label">{{ label || title }}</slot>
             <s-empty
