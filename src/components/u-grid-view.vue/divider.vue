@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: 'u-grid-view-divider'
+    name: 'u-grid-view-divider',
 };
 </script>
 
