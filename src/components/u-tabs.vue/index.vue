@@ -13,7 +13,7 @@
                 <span :class="$style.prev" @click="scrollPrev" :vusion-click-enabled="$env.VUE_APP_DESIGNER"></span>
                 <div ref="scrollView" :class="$style['scroll-view']">
                     <div :class="$style.scroll">
-                        <template v-if="dataSource && dataSource.length">
+                        <template v-if="dataSource !== undefined">
                             <template v-if="$env.VUE_APP_DESIGNER">
                                 <a :class="$style.item" :selected="true" :alignment="itemAlign">动态选项卡1</a>
                                 <a :class="$style.item" :alignment="itemAlign">动态选项卡2</a>
@@ -99,7 +99,6 @@ import SEmpty from '../s-empty.vue';
 import SupportDataSource from '../../mixins/support.datasource.js';
 import UTab from './tab.vue';
 import URouterView from '../../components/u-router-view.vue';
-import dataSource from '../../utils/DataSource';
 
 export default {
     name: 'u-tabs',
