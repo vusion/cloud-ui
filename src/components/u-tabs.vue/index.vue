@@ -158,23 +158,8 @@ export default {
             },
         },
         value(value) {
-            if (!(this.tabDataSource && this.tabDataSource.length)) {
-                return;
-            }
-            const matchItem = this.tabDataSource.find((itemVM) => this.$at(itemVM, this.valueField) == value);
-            if (!matchItem)
-                return;
-            this.tabDataSource.forEach((item) => item.active = false);
-            matchItem.active = true;
-            this.$router.replace(this.$at(matchItem, this.contentField));
-            this.$forceUpdate();
-            this.scrollToSelectedVM();
+            this.watchValue(value);
         },
-    },
-    created() {
-        if (this.tabDataSource && this.tabDataSource.length) {
-            this.tabDataSource[0].active = true;
-        }
     },
     methods: {
         onClick(itemVM, e) {
@@ -183,7 +168,7 @@ export default {
             if (this.router) {
                 if (itemVM.disabled)
                     return e.preventDefault();
-                if (this.dataSource && this.dataSource.length) {
+                if (this.tabDataSource && this.tabDataSource.length) {
                     this.$emit('click', e, itemVM);
                     const value = itemVM.value || this.$at(itemVM, this.valueField);
                     this.$emit('update:value', value, this);
@@ -225,7 +210,7 @@ export default {
             itemVM.parentVM = undefined;
             let index = this.itemVMs.indexOf(itemVM);
             // 动态数据关闭选项卡后，默认打开左侧第一个标签页
-            if (this.dataSource && this.dataSource.length) {
+            if (this.tabDataSource && this.tabDataSource.length) {
                 index = this.tabDataSource.indexOf(itemVM);
                 this.tabDataSource.splice(index, 1);
                 const allNotSelected = this.tabDataSource.every((item) => !item.active);
@@ -329,6 +314,27 @@ export default {
             this.handleData();
             if (this.currentDataSource && this.currentDataSource.load)
                 this.load();
+        },
+        handleData() {
+            this.currentDataSource = this.normalizeDataSource(this.dataSource, this.multiple);
+            this.watchValue(this.value);
+        },
+        watchValue(value) {
+            if (!(this.tabDataSource && this.tabDataSource.length)) {
+                return;
+            }
+            this.tabDataSource.forEach((item) => {
+                item.active = false;
+                item.value = this.$at(item, this.valueField);
+            });
+            let matchItem = this.tabDataSource.find((itemVM) => String(this.$at(itemVM, this.valueField)) === String(value));
+            matchItem = matchItem || this.tabDataSource[0];
+            matchItem.active = true;
+            const url = this.$at(matchItem, this.contentField);
+            if (url)
+                this.$router.replace(this.$at(matchItem, this.contentField));
+            this.$forceUpdate();
+            this.scrollToSelectedVM();
         },
     },
 };
