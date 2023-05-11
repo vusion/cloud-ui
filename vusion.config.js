@@ -112,7 +112,7 @@ module.exports = {
             { group: '选择器', name: 'u-time-picker', alias: '时间选择' },
             { group: '选择器', name: 'u-date-time-picker', alias: '日期时间选择' },
 
-            { group: '图表', name: 'u-linear-progress', alias: '线型进度条' },
+            { group: '图表', name: 'u-linear-progress', alias: '线形进度条' },
             { group: '图表', name: 'u-circular-progress', alias: '圆型进度条' },
 
             { group: '反馈', name: 'u-popup', alias: '弹出框' },

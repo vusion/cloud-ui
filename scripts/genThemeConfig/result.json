@@ -4511,7 +4511,7 @@
             {
                 "id": 44,
                 "name": "u-linear-progress",
-                "title": "线型进度条",
+                "title": "线形进度条",
                 "toPosition": "linearProgress",
                 "type": [],
                 "cssProperty": {

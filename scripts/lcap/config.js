@@ -70,7 +70,7 @@ module.exports = [
     { group: 'Selector', show: true, name: 'u-time-picker', alias: '时间选择' },
     { group: 'Selector', show: true, name: 'u-date-time-picker', alias: '日期时间' },
 
-    { group: 'Chart', show: true, name: 'u-linear-progress', alias: '线型进度条' },
+    { group: 'Chart', show: true, name: 'u-linear-progress', alias: '线形进度条' },
     { group: 'Chart', show: true, name: 'u-circular-progress', alias: '圆型进度条' },
 
     // { group: 'Feedback', show: true, name: 'u-popup', alias: '弹出框' },

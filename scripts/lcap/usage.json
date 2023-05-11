@@ -21107,7 +21107,7 @@
     },
     {
         "symbol": "u-linear-progress",
-        "name": "线型进度条",
+        "name": "线形进度条",
         "icon": "linear-progress",
         "depDescription": {},
         "description": "以线条的形式描述当前进度",
@@ -21118,7 +21118,7 @@
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-linear-progress :percent=\\\"36\\\"></u-linear-progress>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-linear-progress",
-            "title": "线型进度条",
+            "title": "线形进度条",
             "description": "以线条的形式描述当前进度",
             "category": "chart",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.33/src/components/u-linear-progress.vue/screenshots/0.png",
