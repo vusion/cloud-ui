@@ -849,6 +849,9 @@
           description: 排除字段
           required: false
           default: []
+    - name: resetEdit
+      description: 重制编辑列的编辑状态为非编辑态
+      params: []
 - name: u-table-view-column
   accept-parent:
     - u-table-view
@@ -927,6 +930,8 @@
           title: 树形列
         - value: editable
           title: 编辑列
+          dependency:
+            - '!field': null
         - value: dragHandler
           title: 拖拽标识列
       default: normal
