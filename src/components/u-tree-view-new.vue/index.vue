@@ -19,7 +19,6 @@
             <template #item="{item}">
 <!--                <s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER "></s-empty>-->
                 <slot name="item" v-bind="item">
-                    {{ $at2(node, field || textField) }}
                 </slot>
             </template>
         </u-tree-view-node-new>

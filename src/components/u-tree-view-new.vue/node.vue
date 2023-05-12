@@ -64,7 +64,6 @@
             >
                <template #item="item">
                    <slot name="item" v-bind="item">
-                       {{$at(subNode, rootVM.field || rootVM.textField)}}
                    </slot>
                </template >
             </u-tree-view-node-new>
