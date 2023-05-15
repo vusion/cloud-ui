@@ -9,10 +9,10 @@
             :expanded="$at(node, expandedField)"
             :checked.sync="node.checked"
             :disabled="node.disabled"
-            :childrenField="childrenField"
+            :children-field="childrenField"
             :hidden="filterText ? $at(node, 'hiddenByFilter') : $at(node, hiddenField)"
             :node="node"
-            :nodeKey="`${index}`"
+            :node-key="`${index}`"
             :level="0"
             :designer="$env.VUE_APP_DESIGNER"
             :draggable="node.draggable"
@@ -35,19 +35,19 @@
 <script>
 import { MRoot } from '../m-root.vue';
 import MField from '../m-field.vue';
-import UTreeViewNodeNew from "../u-tree-view-new.vue/node.vue";
+import UTreeViewNodeNew from '../u-tree-view-new.vue/node.vue';
 
 export default {
     name: 'u-tree-view-new',
     nodeName: 'u-tree-view-node-new',
-    mixins: [MRoot, MField],
     components: { UTreeViewNodeNew },
+    mixins: [MRoot, MField],
     props: {
         value: null,
         field: String,
         data: [Array, Object, Function],
         dataSource: [Array, Object, Function],
-        dataSchema: {type: String, default: 'entity'},
+        dataSchema: { type: String, default: 'entity' },
         textField: { type: String, default: 'text' },
         valueField: { type: String, default: 'value' },
         hiddenField: { type: String, default: 'hidden' },
@@ -134,7 +134,6 @@ export default {
     methods: {
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
-
         },
         list2tree(list, idField, pField) {
             const [map, treeData] = [{}, []];
@@ -165,7 +164,15 @@ export default {
                     const result = await rawLoad(params);
                     if (result) {
                         if (self.parentField) {
-                            const temp = JSON.parse(JSON.stringify(result));
+                            // 兼容 { list, total }类型
+                            let list = [];
+                            if (Array.isArray(result)) {
+                                list = result;
+                            } else {
+                                list = result.list;
+                            }
+
+                            const temp = JSON.parse(JSON.stringify(list));
                             final.data = self.list2tree(temp, self.valueField, self.parentField);
                         } else if (params.node) {
                             // 判断 load 数据，当数据 value 包含父节点时，不重复填充
@@ -204,7 +211,7 @@ export default {
             return final;
         },
         watchValue(value) {
-            if(this.checkable) {
+            if (this.checkable) {
                 return this.watchValues(value);
             }
 
