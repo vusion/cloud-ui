@@ -80,7 +80,7 @@
       dependency:
         - pagination: true
     - name: page-number
-      title: 当前页数
+      title: 默认当前页数
       type: number
       sync: true
       default: 1
@@ -366,7 +366,7 @@
       title: 子节点字段名
       type: string
       default: children
-      description: 树形数据子节点字段名
+      description: 树形数据子节点字段名，默认为children
       group: 其它属性
       dependency:
         - tree-display: true
@@ -374,7 +374,7 @@
       title: 是否包含子节点字段名
       type: string
       default: hasChildren
-      description: 该字段指定行数据是否包含子节点数据
+      description: 该字段指定行数据是否包含子节点数据，默认为hasChildren
       group: 其它属性
       dependency:
         - tree-display: true

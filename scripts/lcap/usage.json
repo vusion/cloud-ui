@@ -7593,16 +7593,12 @@
                     ]
                 },
                 {
-                    "name": "page-number",
-                    "title": "当前页数",
-                    "type": "number",
-                    "sync": true,
-                    "default": 1,
-                    "description": "默认展示在第几页",
+                    "name": "show-sizer",
+                    "title": "显示分页大小",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "开启后显示分页大小切换器",
                     "group": "数据属性",
-                    "schema": {
-                        "$ref": "#/basicTypes/Integer"
-                    },
                     "dependency": [
                         {
                             "pagination": true
@@ -7627,12 +7623,16 @@
                     ]
                 },
                 {
-                    "name": "show-total",
-                    "title": "显示总条目数",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "",
+                    "name": "page-number",
+                    "title": "默认当前页数",
+                    "type": "number",
+                    "sync": true,
+                    "default": 1,
+                    "description": "默认展示在第几页",
                     "group": "数据属性",
+                    "schema": {
+                        "$ref": "#/basicTypes/Integer"
+                    },
                     "dependency": [
                         {
                             "pagination": true
@@ -7640,11 +7640,11 @@
                     ]
                 },
                 {
-                    "name": "show-sizer",
-                    "title": "显示分页大小",
+                    "name": "show-total",
+                    "title": "显示总条目数",
                     "type": "boolean",
                     "default": false,
-                    "description": "开启后显示分页大小切换器",
+                    "description": "",
                     "group": "数据属性",
                     "dependency": [
                         {
@@ -8045,7 +8045,7 @@
                     "title": "子节点字段名",
                     "type": "string",
                     "default": "children",
-                    "description": "树形数据子节点字段名",
+                    "description": "树形数据子节点字段名，默认为children",
                     "group": "其它属性",
                     "dependency": [
                         {
@@ -8058,7 +8058,7 @@
                     "title": "是否包含子节点字段名",
                     "type": "string",
                     "default": "hasChildren",
-                    "description": "该字段指定行数据是否包含子节点数据",
+                    "description": "该字段指定行数据是否包含子节点数据，默认为hasChildren",
                     "group": "其它属性",
                     "dependency": [
                         {
@@ -8899,7 +8899,12 @@
                                 }
                             ],
                             "default": "asc",
-                            "description": "该列首次点击时的排序顺序"
+                            "description": "该列首次点击时的排序顺序",
+                            "dependency": [
+                                {
+                                    "sortable": true
+                                }
+                            ]
                         },
                         {
                             "name": "filters",
@@ -15728,19 +15733,19 @@
                     "group": "数据属性"
                 },
                 {
-                    "name": "children-field",
-                    "title": "子级选项值",
-                    "type": "string",
-                    "default": "children",
-                    "description": "集合的元素类型中，用于标识子节点的属性，默认为children",
-                    "group": "数据属性"
-                },
-                {
                     "name": "parent-field",
-                    "title": "父级选项值",
+                    "title": "父节点字段名",
                     "type": "string",
                     "default": "",
                     "description": "集合的元素类型中，用于标识父节点的属性",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "children-field",
+                    "title": "子节点字段名",
+                    "type": "string",
+                    "default": "children",
+                    "description": "集合的元素类型中，用于标识子节点的属性，默认为children",
                     "group": "数据属性"
                 },
                 {

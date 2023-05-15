@@ -24,28 +24,28 @@
                     name="selected"
                     :vm="this"
                     :props="{
-                        text: $at(selectedItem, this.textField) || selectedItem.text,
+                        text: $at(selectedItem, textField) || selectedItem.text,
                         node: selectedItem.node,
                         parent: selectedItem.parent,
                     }">
                     <span>
-                        {{ $at(selectedItem, this.textField) || selectedItem.text }}
+                        {{ $at(selectedItem, textField) || selectedItem.text }}
                     </span>
                 </f-slot>
                 <f-slot v-else-if="$scopedSlots.text"
                     name="text"
                     :vm="this"
                     :props="{
-                        text: $at(selectedItem, this.textField) || selectedItem.text,
+                        text: $at(selectedItem, textField) || selectedItem.text,
                         node: selectedItem.node,
                         parent: selectedItem.parent,
                     }">
                     <span>
-                        {{ $at(selectedItem, this.textField) || selectedItem.text }}
+                        {{ $at(selectedItem, textField) || selectedItem.text }}
                     </span>
                 </f-slot>
                 <span v-else>
-                    {{ $at(selectedItem, this.textField) || selectedItem.text }}
+                    {{ $at(selectedItem, textField) || selectedItem.text }}
                 </span>
             </template>
             <u-input
@@ -76,7 +76,7 @@
             @click.stop>
             <!-- 目前只支持单选 -->
             <u-tree-view-new v-if="popperOpened" ref="treeView"
-                :ifExpanded="ifExpanded"
+                :if-expanded="ifExpanded"
                 style="border: none; min-width: 100%; display: inline-block"
                 :value="value"
                 :data="dataSource"
@@ -91,15 +91,15 @@
                 :checkable="checkable"
                 :cancelable="cancelable"
                 :accordion="accordion"
-                :treeSelectTip="treeSelectTip"
+                :tree-select-tip="treeSelectTip"
                 :expand-trigger="expandTrigger"
                 :initial-load="initialLoad"
                 :readonly="readonly"
                 :disabled="disabled"
-                :expanderWidth="expanderWidth"
+                :expander-width="expanderWidth"
                 :filterable="filterable"
-                :filterText="filterText"
-                :filterFields="filterFields"
+                :filter-text="filterText"
+                :filter-fields="filterFields"
                 @change="$emit('change', $event, this)"
                 @before-select="$emit('before-select', $event, this)"
                 @select="$emit('select', $event, this)"
@@ -118,39 +118,39 @@
 </template>
 
 <script>
-import MField from "../m-field.vue";
-import UTreeViewNodeNew from "../u-tree-view-new.vue/node.vue";
+import MField from '../m-field.vue';
+import UTreeViewNodeNew from '../u-tree-view-new.vue/node.vue';
 import SEmpty from '../s-empty.vue';
 
 export default {
-    name: "u-tree-select-new",
+    name: 'u-tree-select-new',
     childName: 'u-tree-view-node-new',
-    mixins: [MField],
     components: { UTreeViewNodeNew, SEmpty },
+    mixins: [MField],
     props: {
         value: null,
         field: String,
         data: Array,
         dataSource: [Array, Object, Function],
-        dataSchema: { type: String, default: "entity" },
-        textField: { type: String, default: "text" },
-        valueField: { type: String, default: "value" },
-        parentField: { type: String, default: "" },
-        isLeafField: { type: String, default: "isLeaf" },
-        childrenField: { type: String, default: "children" },
+        dataSchema: { type: String, default: 'entity' },
+        textField: { type: String, default: 'text' },
+        valueField: { type: String, default: 'value' },
+        parentField: { type: String, default: '' },
+        isLeafField: { type: String, default: 'isLeaf' },
+        childrenField: { type: String, default: 'children' },
         moreChildrenFields: Array,
         excludeFields: { type: Array, default: () => [] },
         checkable: { type: Boolean, default: false },
         cancelable: { type: Boolean, default: false },
         accordion: { type: Boolean, default: false },
-        expandTrigger: { type: String, default: "click" },
+        expandTrigger: { type: String, default: 'click' },
         initialLoad: { type: Boolean, default: true },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
         duplicated: { type: Boolean, default: false },
         autoSelect: { type: Boolean, default: false },
-        placeholder: { type: String, default: "请选择" },
+        placeholder: { type: String, default: '请选择' },
         clearable: { type: Boolean, default: false },
         filterable: { type: Boolean, default: false },
         opened: { type: Boolean, default: false },
@@ -161,13 +161,13 @@ export default {
         },
         appendTo: {
             type: String,
-            default: "reference",
-            validator: (value) => ["body", "reference"].includes(value),
+            default: 'reference',
+            validator: (value) => ['body', 'reference'].includes(value),
         },
         color: String,
         expanderWidth: {
             type: Number,
-            default: 30
+            default: 30,
         },
         filterFields: { type: Array, default: () => ['text'] },
         ifExpanded: { type: Boolean, default: true },
@@ -177,8 +177,8 @@ export default {
             focusedVM: undefined,
             // @inherit: currentDataSource: undefined,
             // @inherit: currentLoading: false,
-            currentText: "", // 显示文本
-            filterText: "", // 过滤文本，只有 input 时会改变它
+            currentText: '', // 显示文本
+            filterText: '', // 过滤文本，只有 input 时会改变它
             preventBlur: false,
             inputWidth: 20,
             popperOpened: false,
@@ -196,23 +196,23 @@ export default {
             if (this.disabled)
                 return true;
             else if (this.emptyDisabled)
-                return this.currentData? !this.currentData.length : !this.itemVMs.length;
+                return this.currentData ? !this.currentData.length : !this.itemVMs.length;
             else
                 return false;
         },
         selectedItem() {
-            if (!this.actualValue) return
+            if (!this.actualValue)
+                return;
             if (this.$at(this.dataSourceObj, this.actualValue)) {
                 return this.$at(this.dataSourceObj, this.actualValue);
             } else {
                 return this.$at(this.dataSourceNodeList, this.actualValue);
             }
-
         },
     },
     watch: {
         value() {
-            this.actualValue = this.value
+            this.actualValue = this.value;
         },
         actualValue() {
             this.loadUntilSelectedItem();
@@ -237,7 +237,7 @@ export default {
     // dirty hack：每次插槽变化时，vue都会将实例上的$slots对象重新赋值，因此只要比较上一次和现在的slots引用是否改变，就能判断出
     // 当前插槽内容是否发生变化
     updated() {
-        if(this.slots !== this.$slots) {
+        if (this.slots !== this.$slots) {
             this.collectFromVNodes();
         }
     },
@@ -250,7 +250,7 @@ export default {
     },
     methods: {
         handleDataSourceObj(list, type) {
-            if(Array.isArray(list) && list.length) {
+            if (Array.isArray(list) && list.length) {
                 this.dataSourceObj = {};
                 this.trans2Obj(this.dataSourceObj, list, undefined, type);
             }
@@ -266,8 +266,8 @@ export default {
         },
         // 收集节点数据
         collectTreeNode(vnodes) {
-            if(Array.isArray(vnodes) && vnodes.length) {
-               return vnodes.map((vnode) => {
+            if (Array.isArray(vnodes) && vnodes.length) {
+                return vnodes.map((vnode) => {
                     // 从虚拟节点上获取组件信息
                     const { componentOptions } = vnode || {};
                     const { Ctor, tag } = componentOptions || {};
@@ -275,18 +275,18 @@ export default {
                     const { name } = CtorOptions || {};
                     // 获取组件名
                     const componentName = name || tag;
-                    if(componentName === this.$options.childName) {
+                    if (componentName === this.$options.childName) {
                         const { propsData, children: childrenVNodes } = componentOptions || {};
                         const {
                             text,
                             value,
                             node,
                             childrenField: propsChildrenField,
-                            moreChildrenFields: propsMoreChildrenFields
+                            moreChildrenFields: propsMoreChildrenFields,
                         } = propsData || {};
                         const {
-                          childrenField: nodeChildrenField,
-                          moreChildrenFields: nodeMoreChildrenFields
+                            childrenField: nodeChildrenField,
+                            moreChildrenFields: nodeMoreChildrenFields,
                         } = node || {};
                         const currentChildrenField = propsChildrenField || nodeChildrenField || this.childrenField;
                         const currentMoreChildrenFields = propsMoreChildrenFields || nodeMoreChildrenFields || this.moreChildrenFields;
@@ -294,25 +294,23 @@ export default {
                             text,
                             value,
                             childrenField: currentChildrenField,
-                            moreChildrenFields: currentMoreChildrenFields
+                            moreChildrenFields: currentMoreChildrenFields,
                         };
-                        if(node) {
+                        if (node) {
                             Object.assign(item, node);
                         } else {
                             const children = this.collectTreeNode(childrenVNodes);
-                            if(Array.isArray(children) && children.length) {
+                            if (Array.isArray(children) && children.length) {
                                 this.$setAt(item, currentChildrenField, children);
                             }
                         }
                         return item;
                     }
-                }).filter((item) => {
-                    return !!item;
-                });
+                }).filter((item) => !!item);
             }
         },
         trans2Obj(obj, list, parent, type) {
-            if(Array.isArray(list)) {
+            if (Array.isArray(list)) {
                 list.forEach((item) => {
                     const { childrenField, moreChildrenFields } = item;
                     // 静态节点数据写死字段，防止value和text取值相同时，导致value错误
@@ -325,7 +323,7 @@ export default {
                             };
                         }
                     } else {
-                        if(this.$at2(item, this.valueField) !== undefined) {
+                        if (this.$at2(item, this.valueField) !== undefined) {
                             obj[this.$at2(item, this.valueField)] = {
                                 parent,
                                 node: item,
@@ -342,37 +340,37 @@ export default {
                     if (this.parentField) {
                         currentMoreChildrenFields = 'children';
                     }
-                    if(Array.isArray(currentMoreChildrenFields)) {
-                      currentMoreChildrenFields.forEach((subField) => {
-                        this.trans2Obj(obj, this.$at(item, subField), item, type);
-                      });
+                    if (Array.isArray(currentMoreChildrenFields)) {
+                        currentMoreChildrenFields.forEach((subField) => {
+                            this.trans2Obj(obj, this.$at(item, subField), item, type);
+                        });
                     }
                 });
             }
         },
         onUpdateValue($event) {
             this.actualValue = $event;
-            this.$emit('update:value', $event, this)
-            if(this.filterable) {
-              this.filterText = '';
-              this.filtering = false;
+            this.$emit('update:value', $event, this);
+            if (this.filterable) {
+                this.filterText = '';
+                this.filtering = false;
             }
         },
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
             this.dataSourceNodeList = this.handleDataSourceObj(this.currentDataSource.data, 'dataSource');
-            this.dataSourceObj = {...this.dataSourceNodeList, ...this.virtualNodeList};
+            this.dataSourceObj = { ...this.dataSourceNodeList, ...this.virtualNodeList };
         },
         // 如果有选中值，且没有被查到，且数据可以加载
         loadUntilSelectedItem() {
             const { load, data } = this.currentDataSource || {};
             // 如果有选中值，且没有被查到，且数据可以加载
-            if(this.actualValue && !this.selectedItem && load) {
-                if(Array.isArray(data) && data.length) {
+            if (this.actualValue && !this.selectedItem && load) {
+                if (Array.isArray(data) && data.length) {
                     const item = this.loadChildren(data);
-                    if(item) {
+                    if (item) {
                         this.load({
-                            node: item
+                            node: item,
                         });
                     }
                 } else {
@@ -382,16 +380,16 @@ export default {
         },
         loadChildren(list) {
             let item;
-            if(Array.isArray(list) && list.length) {
-                for(let i = 0; i < list.length; i++) {
+            if (Array.isArray(list) && list.length) {
+                for (let i = 0; i < list.length; i++) {
                     const { childrenField, isLoaded } = list[i];
                     const children = this.$at(list[i], childrenField);
-                    if(Array.isArray(children) && children.length) {
+                    if (Array.isArray(children) && children.length) {
                         item = this.loadChildren(children);
-                    } else if(childrenField && !isLoaded) {
+                    } else if (childrenField && !isLoaded) {
                         item = list[i];
                     }
-                    if(item) {
+                    if (item) {
                         break;
                     }
                 }
@@ -403,24 +401,27 @@ export default {
                 data: [],
                 load: undefined,
             };
-            const createLoad = (rawLoad) => {
-                return async (params = {}) => {
-                    const result = await rawLoad(params);
-                    if (result) {
-                        const { node } = params || {};
-                        if (node) {
-                            const { childrenField } = node;
-                            this.$setAt(node, childrenField, result);
-                            node.isLoaded = true;
-                        } else {
+            const createLoad = (rawLoad) => async (params = {}) => {
+                const result = await rawLoad(params);
+                if (result) {
+                    const { node } = params || {};
+                    if (node) {
+                        const { childrenField } = node;
+                        this.$setAt(node, childrenField, result);
+                        node.isLoaded = true;
+                    } else {
+                        if (Array.isArray(result)) {
                             final.data = result;
+                        } else {
+                            final.data = (result && result.list) || [];
                         }
                     }
-                };
+                }
             };
-            if (Array.isArray(dataSource))
+
+            if (Array.isArray(dataSource)) {
                 final.data = dataSource;
-            else if (typeof dataSource === 'function') {
+            } else if (typeof dataSource === 'function') {
                 final.load = createLoad(dataSource);
             } else if (typeof dataSource === 'object') {
                 final.data = dataSource.data;
@@ -442,24 +443,24 @@ export default {
         },
         onOpen($event) {
             this.popperOpened = true; // 刚打开时，除非是没有加载，否则保留上次的 filter 过的数据
-            this.$emit("open", $event, this);
-            this.$emit("update:opened", true);
-            if(this.filterable) {
-              this.filtering = true;
-              setTimeout(() => {
-                this.$refs.input.focus();
-              });
+            this.$emit('open', $event, this);
+            this.$emit('update:opened', true);
+            if (this.filterable) {
+                this.filtering = true;
+                setTimeout(() => {
+                    this.$refs.input.focus();
+                });
             }
         },
         onClose($event) {
             this.popperOpened = false;
             this.focusedVM = undefined;
-            this.$emit("close", $event, this);
-            this.$emit("update:opened", false);
-            if(this.filterable) {
-              this.filtering = false;
-              this.$refs.input.blur();
-              this.filterText = '';
+            this.$emit('close', $event, this);
+            this.$emit('update:opened', false);
+            if (this.filterable) {
+                this.filtering = false;
+                this.$refs.input.blur();
+                this.filterText = '';
             }
         },
         onFocus() {
@@ -470,8 +471,8 @@ export default {
                 return;
             }
             this.currentText = value;
-            if (this.$emitPrevent("before-filter", {
-                filterText: value
+            if (this.$emitPrevent('before-filter', {
+                filterText: value,
             }, this)) {
                 return;
             }
@@ -492,8 +493,7 @@ export default {
         load(params) {
             this.currentDataSource.load(params).then(() => {
                 this.dataSourceNodeList = this.handleDataSourceObj(this.currentDataSource.data, 'dataSource');
-                this.dataSourceObj = {...this.dataSourceNodeList, ...this.virtualNodeList};
-
+                this.dataSourceObj = { ...this.dataSourceNodeList, ...this.virtualNodeList };
             });
         },
     },
