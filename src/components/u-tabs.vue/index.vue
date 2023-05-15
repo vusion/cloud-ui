@@ -158,7 +158,7 @@ export default {
             },
         },
         value(value) {
-            this.watchValue(value);
+            this.watchValueForDatasource(value);
         },
     },
     methods: {
@@ -317,9 +317,9 @@ export default {
         },
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource, this.multiple);
-            this.watchValue(this.value);
+            this.watchValueForDatasource(this.value);
         },
-        watchValue(value) {
+        watchValueForDatasource(value) {
             if (!(this.tabDataSource && this.tabDataSource.length)) {
                 return;
             }
