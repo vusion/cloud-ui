@@ -198,11 +198,13 @@ export default {
             else if (typeof dataSource === 'function') {
                 final.load = createLoad(dataSource);
             } else if (typeof dataSource === 'object') {
+                const data = dataSource.data || dataSource.list;
+
                 if (this.parentField) {
-                    const temp = JSON.parse(JSON.stringify(dataSource.data));
+                    const temp = JSON.parse(JSON.stringify(data));
                     final.data = this.list2tree(temp, this.valueField, this.parentField);
                 } else {
-                    final.data = dataSource.data;
+                    final.data = data;
                 }
                 final.load = dataSource.load && createLoad(dataSource.load);
             }

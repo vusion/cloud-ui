@@ -424,7 +424,9 @@ export default {
             } else if (typeof dataSource === 'function') {
                 final.load = createLoad(dataSource);
             } else if (typeof dataSource === 'object') {
-                final.data = dataSource.data;
+                const data = dataSource.data || dataSource.list;
+
+                final.data = data;
                 final.load = dataSource.load && createLoad(dataSource.load);
             }
             return final;
