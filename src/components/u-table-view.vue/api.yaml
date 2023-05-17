@@ -851,7 +851,11 @@
           default: []
     - name: resetEdit
       description: 重制编辑列的编辑状态为非编辑态
-      params: []
+      params:
+        - name: item
+          type: object
+          description: 行数据
+          required: false
 - name: u-table-view-column
   accept-parent:
     - u-table-view
@@ -932,10 +936,12 @@
           title: 编辑列
           dependency:
             - '!field': null
+          dependencyDisplay: disabled
+          tooltip: 与列字段关联，列字段不能为空
         - value: dragHandler
           title: 拖拽标识列
       default: normal
-      description: 支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序
+      description: 支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序。选择编辑列需要先设置列字段。
     - name: auto-index
       title: 换页继续编号
       type: boolean
