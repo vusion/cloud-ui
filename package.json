@@ -76,6 +76,7 @@
     "yargs": "^16.2.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
     "@vue/cli-plugin-babel": "^4.3.0",
     "@vue/cli-service": "^4.3.0",
     "@vusion/mock": "^0.1.1",
@@ -87,6 +88,7 @@
     "eslint-config-vusion": "^4.0.0",
     "husky": "^3.0.4",
     "minimist": "^1.2.5",
+    "node-xlsx": "^0.21.2",
     "postcss": "^8.3.11",
     "shelljs": "^0.7.8",
     "sinon": "^4.2.2",
@@ -100,8 +102,7 @@
     "vue-router": "3.3.4",
     "vue-template-compiler": "2.6.12",
     "vusion": "^0.12.21",
-    "vusion-hooks": "^0.3.0",
-    "node-xlsx": "^0.21.2"
+    "vusion-hooks": "^0.3.0"
   },
   "peerDependencies": {
     "@vusion/utils": "^0.4.9",
