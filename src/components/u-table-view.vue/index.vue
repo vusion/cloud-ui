@@ -829,7 +829,7 @@ export default {
                     // 树形展示且配置了父节点时只能前端分页
                     options.remotePaging = (this.treeDisplay && this.parentField) ? false : !!this.pagination;
                     // options.remotePaging = !!this.pagination;
-                    options.remoteSorting = !!this.sorting?.field;
+                    options.remoteSorting = !!(this.sorting && this.sorting.field);
                 }
                 return new Constructor(options);
             } else if (dataSource instanceof Object) {

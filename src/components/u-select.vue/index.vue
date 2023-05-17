@@ -386,7 +386,7 @@ export default {
                 if (isNew) {
                     options.remotePaging = !!this.pagination;
                     options.remoteFiltering = !!this.filterable;
-                    options.remoteSorting = !!this.sorting?.field;
+                    options.remoteSorting = !!(this.sorting && this.sorting.field);
                 }
 
                 return new Constructor(options);
