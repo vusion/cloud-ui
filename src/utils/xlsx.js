@@ -16,6 +16,7 @@ export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns,
         const cell = sheet[item];
         const dateRegx = /^\d{4}-\d{2}-\d{2}$/;
         const percentRegx = /^\d+(\.\d+)?%$/ ;
+        const excludeNumberRegx = /^0\d+$/;
         const value = cell.v;
         let template;
         if (cell.t === 's' && value !=='%' && percentRegx.test(value)) {
@@ -30,6 +31,8 @@ export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns,
             cell.t = 'n';
             cell.v = Number(value.substring(0, value.length - 1)) / 100;
         } else if (!isNaN(Number(value)) && value.length <= 15) {
+            // 0开头的数字字符串，比如'001234'，不会被转化为数字
+            if (excludeNumberRegx.test(value)) return;
             if (value.indexOf('.') > -1) {
                 const percentLength = value.split('.')[1].length;
                 template = '0.0'+new Array(percentLength-1).fill(0).join('');
