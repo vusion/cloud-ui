@@ -442,17 +442,16 @@ const VueDataSource = Vue.extend({
             const tree = [];
             data.forEach((item) => {
                 const parentId = this.$at(item, parentField);
-                if (!parentId) {
+                const parent = nodes[parentId];
+                // 没有parentId 或者 parent不存在的不处理
+                if (!parentId || !parent) {
                     tree.push(item);
                 } else {
-                    const parent = nodes[parentId];
-                    if (parent) {
-                        if (!this.$at(parent, childrenField)) {
-                            this.$setAt(parent, childrenField, []);
-                        }
-
-                        this.$at(parent, childrenField).push(item);
+                    if (!this.$at(parent, childrenField)) {
+                        this.$setAt(parent, childrenField, []);
                     }
+
+                    this.$at(parent, childrenField).push(item);
                 }
             });
 
