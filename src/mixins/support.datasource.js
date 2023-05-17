@@ -35,14 +35,12 @@ export default {
             function createLoad(rawLoad) {
                 return async function (params = {}) {
                     const res = await rawLoad(params);
-                    if (multiple) {
-                        if (Array.isArray(res)) {
-                            final.data = res;
-                        } else if (Array.isArray(res.list)) {
-                            final.data = res.list;
-                        } else {
-                            final.data = res.content;
-                        }
+                    if (Array.isArray(res)) {
+                        final.data = res;
+                    } else if (Array.isArray(res.list)) {
+                        final.data = res.list;
+                    } else if (res.content) {
+                        final.data = res.content;
                     } else {
                         final.data = res;
                     }
