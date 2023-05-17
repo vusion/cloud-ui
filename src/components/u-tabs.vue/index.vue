@@ -136,7 +136,7 @@ export default {
                 return this.itemWidth;
         },
         tabDataSource() {
-            return this.currentDataSource.data.list || this.currentDataSource.data || this.currentDataSource;
+            return this.currentDataSource && this.currentDataSource.data || [];
         },
     },
     watch: {
@@ -159,6 +159,9 @@ export default {
         },
         value(value) {
             this.watchValueForDatasource(value);
+        },
+        tabDataSource() {
+            this.watchValueForDatasource(this.value);
         },
     },
     methods: {
@@ -191,6 +194,17 @@ export default {
                         return;
                     e.preventDefault();
                     itemVM.navigate();
+                }
+            } else {
+                if (this.tabDataSource && this.tabDataSource.length) {
+                    this.$emit('click', e, itemVM);
+                    const value = itemVM.value || this.$at(itemVM, this.valueField);
+                    this.$emit('update:value', value, this);
+                    this.tabDataSource.forEach((item) => {
+                        item.active = false;
+                    });
+                    itemVM.active = true;
+                    this.$forceUpdate();
                 }
             }
         },
@@ -314,10 +328,6 @@ export default {
             this.handleData();
             if (this.currentDataSource && this.currentDataSource.load)
                 this.load();
-        },
-        handleData() {
-            this.currentDataSource = this.normalizeDataSource(this.dataSource, this.multiple);
-            this.watchValueForDatasource(this.value);
         },
         watchValueForDatasource(value) {
             if (!(this.tabDataSource && this.tabDataSource.length)) {
