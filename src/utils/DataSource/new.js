@@ -446,11 +446,13 @@ const VueDataSource = Vue.extend({
                     tree.push(item);
                 } else {
                     const parent = nodes[parentId];
-                    if (!this.$at(parent, childrenField)) {
-                        this.$setAt(parent, childrenField, []);
-                    }
+                    if (parent) {
+                        if (!this.$at(parent, childrenField)) {
+                            this.$setAt(parent, childrenField, []);
+                        }
 
-                    this.$at(parent, childrenField).push(item);
+                        this.$at(parent, childrenField).push(item);
+                    }
                 }
             });
 
