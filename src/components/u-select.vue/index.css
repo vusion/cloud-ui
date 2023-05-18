@@ -233,6 +233,9 @@
     padding: var(--list-view-item-padding);
 }
 
+.footer {
+    padding: var(--list-view-item-padding);
+}
 .label {
     padding-right: 10px;
     color: var(--select-color-disabled);
