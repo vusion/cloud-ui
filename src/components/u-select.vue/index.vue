@@ -100,6 +100,9 @@
         <div :class="$style.status" status="loading" v-if="currentLoading">
             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
         </div>
+        <div :class="$style.footer" v-if="showRenderFooter">
+            <slot name="renderFooter"></slot>
+        </div>
     </m-popper>
 </div>
 </template>
@@ -175,6 +178,7 @@ export default {
         sorting: { type: Object },
         dataSource: [DataSource, DataSourceNew, Function, Object, Array],
         description: { type: Boolean, default: false },
+        showRenderFooter: { type: Boolean, default: false }, // 可扩展下拉项
     },
     data() {
         return {
