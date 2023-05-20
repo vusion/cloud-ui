@@ -1774,6 +1774,9 @@ export default {
                 columnVM.dblclickHandler({ item, columnVM });
             }
         },
+        resetEdit(item) {
+            item.editing = '';
+        },
         getStyle(index, columnVM) {
             const style = Object.assign({}, columnVM.$vnode.data && columnVM.$vnode.data.style);
             const staticStyle = Object.assign({}, columnVM.$vnode.data && columnVM.$vnode.data.staticStyle);
