@@ -7,10 +7,50 @@
   next: true
   nested: false
   attrs:
-    - name: data
-      title: 数据
+    - name: data-source
+      title: 数据源
       type: Array<{ text, value }>
       description: 数据列表
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 集合类型每一元素的数据类型
+      compType: dataTypeSelect
+    - name: field
+      title: 文本字段名
+      type: string
+      default: text
+      description: 集合的元素类型中，用于显示文本的属性名称
+      display: property-select
+    - name: value-field
+      title: 值字段名
+      type: string
+      default: value
+      description: 集合的元素类型中，用于标识选中值的属性
+      display: property-select
+    - name: children-field
+      title: 子节点字段名
+      type: string
+      default: children
+      description: 树形数据子节点字段名，默认为children
+      display: property-select
+      dependency:
+        - +parent-field: null
+      dependencyDisplay: disabled
+    - name: parent-field
+      title: 父节点字段名
+      type: string
+      description: 当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置
+      display: property-select
+      dependency:
+        - +children-field: null
+      dependencyDisplay: disabled
+    - name: value
+      title: 值
+      type: any
+      sync: true
+      model: true
+      description: ""
     - name: placeholder
       title: 选择框占位符
       type: string
@@ -26,12 +66,6 @@
           title: 悬浮
       default: click
       description: 触发方式
-    - name: value
-      title: 值
-      type: any
-      sync: true
-      model: true
-      description: ""
     - name: join
       title: 连接符
       type: string
@@ -45,11 +79,6 @@
       default: " / "
       description: 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值
       advanced: true
-    - name: field
-      title: 文本字段
-      type: string
-      default: text
-      description: 显示文本字段
     - name: filterable
       title: 可筛选
       type: boolean

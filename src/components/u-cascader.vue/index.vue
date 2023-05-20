@@ -19,17 +19,22 @@
             ref="input">
             <m-popper v-if="!disabled && !readonly" :class="$style.popperShape" ref="popper"
                 @mousedown.stop.prevent
-                @open="getSubComponents" @close="resetInput">
-                <u-cascader-item v-for="(item, index) in typeMpopper" :key="$at(item[0], field) + index" :ref="index"
-                    @select-umenuitem="selectCascaderItem"
-                    @select-lastvalue="selectEnd"
-                    :componentIndex="index"
-                    :selectSubIdnex="selectSubIdnex"
-                    :trigger="trigger"
-                    :isInput="isInput"
-                    :lazy="lazy"
-                    :field="field" :data="item">
-                </u-cascader-item>
+                @open="getSubComponents(true)" @close="resetInput">
+                <div v-if="loading" :class="$style.loading"><u-loading></u-loading></div>
+                <template v-else>
+                    <u-cascader-item v-for="(item, index) in typeMpopper" :key="$at(item[0], field) + index" :ref="index"
+                        @select-umenuitem="selectCascaderItem"
+                        @select-lastvalue="selectEnd"
+                        :component-index="index"
+                        :select-sub-idnex="selectSubIdnex"
+                        :menu-index="selectMenuIndexs[index]"
+                        :trigger="trigger"
+                        :is-input="isInput"
+                        :lazy="lazy"
+                        :field="field"
+                        :data="item">
+                    </u-cascader-item>
+                </template>
             </m-popper>
         </u-input>
         <span v-show="clearable && currentValue" :class="$style.clearable" @click="clear" @mousedown.prevent></span>
@@ -39,11 +44,13 @@
 <script>
 import UCascaderItem from './item.vue';
 import MField from '../m-field.vue';
+import SupportDataSource from '../../mixins/support.datasource';
+import treeDataSource from '../../mixins/tree.datasource';
 
 export default {
     name: 'u-cascader',
     components: { UCascaderItem },
-    mixins: [MField],
+    mixins: [MField, SupportDataSource, treeDataSource],
     props: {
         data: { type: Array, default: () => [] },
         value: { type: String, default: '' },
@@ -90,13 +97,27 @@ export default {
             this.currentOpened = value;
             this.toggle(value);
         },
+        'currentDataSource.data'(value, oldValue) {
+            let data = value;
+            // 设置了parentField以parentField优化
+            if (this.parentField
+                && this.valueField
+                && JSON.stringify(value) !== JSON.stringify(oldValue)) {
+                // listToTree里用的是$setAt，会使currentDataSource.data的watch再进入，所以加json判断
+                data = this.listToTree(value.slice(0));
+            }
+            if (!this.currentData.length)
+                this.currentData = data;
+            this.allMergeText = this.getMergeText(this.currentData);
+            this.getSubComponents();
+        },
     },
     created() {
-        if (!this.currentData.length)
-            this.currentData = this.data;
+        if (this.data.length && !this.dataSource) {
+            this.currentDataSource = this.normalizeDataSource(this.data);
+        }
         // this.currentValue = this.value; // 这里会引起currentValue change，emit事件导致validator执行
         this.lastValueString = this.value;
-        this.allMergeText = this.getMergeText(this.currentData);
         if (this.lazy)
             this.triggerLazyLoad();
         // validator
@@ -139,7 +160,7 @@ export default {
         },
         // 返回每个属性合并后的value和它们所在嵌套数组的位置
         getMergeText(data) {
-            let combinedText = [];
+            const combinedText = [];
             if (!Array.isArray(data))
                 return [];
             data.forEach((item, index) => {
@@ -163,39 +184,35 @@ export default {
             return combinedText;
         },
         // mpopper打开时，根据value值展开mpopper框内部组件
-        getSubComponents() {
-            this.currentOpened = true;
+        getSubComponents(opened) {
+            this.currentOpened = opened;
             if (this.isInput)
                 return;
             this.subComponents = [this.currentData];
             // 当使用完搜索功能时，lastvalue的格式是不对的，每次open时需要重置成正确格式
             this.lastValueArray = [];
+            this.selectMenuIndexs = [];
             if (this.currentValue) {
-                let inputValues = this.lastValueString.split(this.join);
+                const inputValues = this.lastValueString.split(this.join);
 
                 inputValues.forEach((inputvalue, currentref) => {
                     this.lastValueArray.push(inputvalue);
-                    let sub = (this.subComponents[currentref] || []).find((item, index) => {
+                    const sub = (this.subComponents[currentref] || []).find((item, index) => {
                         if (this.$at(item, this.field) === inputvalue) {
-                            this.$nextTick(() => {
-                                this.$refs[currentref][0].selectMenuitem(index);
-                            });
+                            this.selectMenuIndexs.push(index);
                             return true;
                         }
                         return false;
                     });
-                    if (sub && sub.children) {
-                        this.subComponents.push(sub.children);
+                    if (sub) {
+                        const children = this.$at(sub, this.childrenField);
+                        if (children)
+                            this.subComponents.push(children);
                     }
-                });
-            } else {
-                this.$nextTick(() => {
-                    // clearable时，重置ucascaderitem选中样式
-                    this.$refs[0][0].selectMenuitem(-1);
                 });
             }
             // open时，光标设置已选中的last ucascaderitem
-            this.selectSubIdnex = this.lastValueArray.length? this.lastValueArray.length - 1 : 0;
+            this.selectSubIdnex = this.lastValueArray.length ? this.lastValueArray.length - 1 : 0;
 
             this.typeMpopper = this.subComponents;
         },
@@ -223,11 +240,11 @@ export default {
             this.lazyLoad(node, resolve);
         },
         shift(count) {
-            let refVM = this.$refs[this.selectSubIdnex][0];
+            const refVM = this.$refs[this.selectSubIdnex][0];
             refVM.keyboardShift(count);
         },
         horizontalShift(count) {
-            let newSubIndex = this.selectSubIdnex + count;
+            const newSubIndex = this.selectSubIdnex + count;
             if (newSubIndex < 0 || newSubIndex === this.typeMpopper.length)
                 return;
 
@@ -253,7 +270,7 @@ export default {
             return this.allMergeText.filter((item) => item[this.field].search(filterParam) > -1);
         },
         onEnter() {
-            let refVM = this.$refs[this.selectSubIdnex][0];
+            const refVM = this.$refs[this.selectSubIdnex][0];
             if (!refVM)
                 return;
             if (!this.currentValue)

@@ -28,10 +28,11 @@ export default {
         componentIndex: Number, // 第几个cascaderitem组件
         selectSubIdnex: Number, // parent选择了第几个cascaderitem组件
         isInput: Boolean,
+        menuIndex: Number,
     },
     data() {
         return {
-            umenuIndex: -1,
+            umenuIndex: this.menuIndex !== undefined ? this.menuIndex : -1,
         };
     },
     watch: {
@@ -44,6 +45,9 @@ export default {
                 this.$nextTick(() => {
                     this.addMouseenter(newdata.slice(predata.length), predata.length);
                 });
+        },
+        menuIndex(value) {
+            this.selectMenuitem(value);
         },
     },
     mounted() {

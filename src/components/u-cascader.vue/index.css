@@ -114,3 +114,10 @@
 
 .root[width="full"]  { width: 100%; }
 .root[height="full"] { height: 100%; }
+
+.loading {
+    width: var(--cascader-scroll-width);
+    background: var(--menu-background);
+    min-height: 200px;
+    padding: 5px;
+}
