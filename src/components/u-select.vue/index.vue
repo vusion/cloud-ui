@@ -100,8 +100,13 @@
         <div :class="$style.status" status="loading" v-if="currentLoading">
             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
         </div>
-        <div :class="$style.footer" v-if="showRenderFooter">
-            <slot name="renderFooter"></slot>
+        <div :class="$style.footer" v-if="showRenderFooter" vusion-slot-name="renderFooter">
+            <slot name="renderFooter">
+                <s-empty v-if="(!$slots.renderFooter)
+                    && $env.VUE_APP_DESIGNER
+                    && !!$attrs['vusion-node-path']">
+                </s-empty>
+            </slot>
         </div>
     </m-popper>
 </div>

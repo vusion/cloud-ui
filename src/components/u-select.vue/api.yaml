@@ -54,6 +54,11 @@
       type: boolean
       default: false
       description: 是否可以多选
+    - name: show-render-footer
+      title: 开启可扩展下拉项
+      type: boolean
+      default: false
+      description: 可扩展下拉项,开启后可自定义下拉框选项
     - name: tags-overflow
       title: 多选项展示形式
       type: string
@@ -561,11 +566,6 @@
       title: 相关对象
       type: object
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发。
-    - name: showRenderFooter
-      title: 开启可扩展下拉项
-      type: Boolean
-      default: false
-      description: 可扩展下拉项,开启后可自定义下拉框选项
   slots:
     - concept: Slot
       name: default

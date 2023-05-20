@@ -235,6 +235,7 @@
 
 .footer {
     padding: var(--list-view-item-padding);
+    box-sizing: border-box;
 }
 .label {
     padding-right: 10px;
