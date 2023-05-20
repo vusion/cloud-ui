@@ -48,7 +48,7 @@ export default {
                 if (src.indexOf && src.indexOf('base64') !== -1) {
                     return src;
                 }
-                const reg = /^([^\[\]]+)(\,([^\[\]]+)){0,}$/g;
+                const reg = /^([^[\]]+)(,([^[\]]+)){0,}$/g;
                 if (typeof src === 'string' && reg.test(src)) {
                     const [a1, a2] = src.split(',');
                     if (/\/\//.test(a2)) {
@@ -83,12 +83,12 @@ export default {
         convertedSrc() {
             let res;
             if (typeof this.convertSrcFn === 'function') {
-                res =  this.convertSrcFn(this.src);
+                res = this.convertSrcFn(this.src);
             } else {
-                res =  this.src;
+                res = this.src;
             }
 
-            if(this.$formatMicroFrontUrl)
+            if (this.$formatMicroFrontUrl)
                 res = this.$formatMicroFrontUrl(res);
 
             return res;
