@@ -45,13 +45,13 @@
         <year-page
             :date="showDate"
             :minDate="minDate"
-            :maxDate="maxDate" 
+            :maxDate="maxDate"
             :yearDiff="yearDiff"
             :yearAdd="yearAdd"
-            @ok="handlerOk" 
-            :showYear="showYear" 
+            @ok="handlerOk"
+            :showYear="showYear"
             :picker="picker"
-            :pageSize="yearPageSize" 
+            :pageSize="yearPageSize"
             @select="yearSelect($event)"
         >
         </year-page>
@@ -59,11 +59,11 @@
      <div v-if="currentMode === ''">
         <div v-if="picker === 'quarter'" :class="$style.content" type="quarter">
                 <ul :class="$style.quarterBox">
-                    <li v-for="(quarter, mindex) in quarterCol" 
+                    <li v-for="(quarter, mindex) in quarterCol"
                         :key="mindex"
                         :class="[$style.boxItem, $style.quarterItem]"
-                        :role="quarter.value === showMonth" 
-                        :disabled="quarter.disabled" 
+                        :role="quarter.value === showMonth"
+                        :disabled="quarter.disabled"
                         @click.stop="monthSelect(quarter, mindex)">
                         <div :class="$style.sitem">{{ $t('quarter') }}{{ quarterTextList[quarter.flag - 1] }}</div>
                     </li>
@@ -71,10 +71,10 @@
             </div>
         <div v-if="picker === 'month'" :class="$style.content" type="month">
                 <ul :class="$style.monthBox">
-                    <li v-for="(month, mindex) in monthCol" 
+                    <li v-for="(month, mindex) in monthCol"
                         :key="mindex"
                         :class="$style.boxItem"
-                        :role="month.value === showMonth" 
+                        :role="month.value === showMonth"
                         :disabled="month.disabled"
                         @click.stop="monthSelect(month, mindex)"
                         :sindex="mindex%3">
@@ -86,13 +86,13 @@
     <div :class="$style.content" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
         <div :class="$style.week"><span :class="$style.dayitem" role="week">{{ $t('Sunday') }}</span><span :class="$style.dayitem">{{ $t('Monday') }}</span><span :class="$style.dayitem">{{ $t('Tuesday') }}</span><span :class="$style.dayitem">{{ $t('Wednesday') }}</span><span :class="$style.dayitem">{{ $t('Thursday') }}</span><span :class="$style.dayitem">{{ $t('Friday') }}</span><span :class="$style.dayitem" role="week">{{ $t('Saturday') }}</span></div>
         <div :class="$style.day">
-            <span v-for="(day, index) in days_" 
+            <span v-for="(day, index) in days_"
                 :key="index"
-                :class="$style.daywrap" 
-                :sel="getSel(day) ? 'sel' : ''" 
+                :class="$style.daywrap"
+                :sel="getSel(day) ? 'sel' : ''"
                 :today="isCurrentDay(day)"
-                :disabled="!!isOutOfRange(day)" 
-                :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" 
+                :disabled="!!isOutOfRange(day)"
+                :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''"
                 @click.stop="select(day)"
                 :sindex="index%7">
                 <span :class="$style.item">{{ day | format('dd') }}</span>
@@ -257,7 +257,7 @@ export default {
         showYear(newValue) {
             this.monthCol = this.getMonthCol(newValue + '');
             this.quarterCol = this.getQuarterCol(newValue + '');
-        }, 
+        },
     },
     created() {
         this.update();
@@ -273,7 +273,7 @@ export default {
         },
         handleYearPrev() {
             // let minDate = null;
-           
+
             // if (this.minDate) {
             //     minDate = this.transformDate(this.minDate).getFullYear();
             //     if (minDate >= this.showYear) {
@@ -304,7 +304,7 @@ export default {
             //         return;
             //     }
             // }
-            
+
             // this.showYear = this.showYear + 1;
             // 设置为最早的时间
             // const date = this.showDate;
@@ -348,7 +348,7 @@ export default {
         },
         handlerOk({ start, limit }) {
             this.currentYearList = this.getYearCol().splice(start, limit);
-        }, 
+        },
         getSel(day) {
             // 日选择
             if (this.picker === 'date') {
@@ -361,7 +361,7 @@ export default {
                 const tmpTime = this.selectedDate - weekDiff * MS_OF_DAY;
                 const tmp = new Date(tmpTime);
                 const thisWeek = [
-                    tmp.toDateString(), 
+                    tmp.toDateString(),
                     new Date(tmpTime + 1 * MS_OF_DAY).toDateString(),
                     new Date(tmpTime + 2 * MS_OF_DAY).toDateString(),
                     new Date(tmpTime + 3 * MS_OF_DAY).toDateString(),
@@ -424,7 +424,7 @@ export default {
             }
             // 根据选择面板的当前年份，确认季度列表的样式
             const currentYear = date.getFullYear();
-            const quartercol = []; 
+            const quartercol = [];
             for (let i = 1; i <= 4; i++) {
                 // 季度是间隔三个月
                 const currentMonth = (i - 1) * 3 + 1;
@@ -436,7 +436,7 @@ export default {
                 } else {
                     obj.disabled = false;
                 }
-                    
+
                 quartercol.push(obj);
             }
             return quartercol;
@@ -494,7 +494,7 @@ export default {
                     const maxFormat = maxYear + '/' + (maxMonth + 1);
                     maxDate = new Date(maxFormat).getTime();
                 }
-            } 
+            }
 
             const currentYear = date.getFullYear();
             const monthcol = [];
@@ -516,7 +516,7 @@ export default {
          * @method update() 日期改变后更新日历
          * @private
          * @return {void}
-         */ 
+         */
         update() {
             this.days_ = [];
             this.showDate = this.transformDate(this.showDate);
@@ -597,7 +597,7 @@ date.setDate(0);
          * @public
          * @param  {Date=null} date 选择的日期
          * @return {void}
-         */ 
+         */
         select(date) {
             if (this.readonly || this.disabled || this.isOutOfRange(date))
                 return;
@@ -617,7 +617,7 @@ date.setDate(0);
          * @public
          * @param {Date} date 待测的日期
          * @return {boolean|Date} date 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
-         */ 
+         */
         isOutOfRange(date) {
             let minDate = ChangeDate(this.transformDate(this.minDate), this.picker);
             let maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker); // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
@@ -693,9 +693,9 @@ date.setDate(0);
     border-radius: var(--calendar-border-radius);
     position: relative;
 }
-.daywrap[role][disabled] .item, 
-.daywrap[role][disabled]:hover .item, 
-.daywrap[disabled] .item, 
+.daywrap[role][disabled] .item,
+.daywrap[role][disabled]:hover .item,
+.daywrap[disabled] .item,
 .daywrap[disabled]:hover .item {
     cursor: var(--cursor-not-allowed);
     background-color: var(--calendar-item-background-disabled);
@@ -905,9 +905,9 @@ date.setDate(0);
     background-color: var(--brand-primary);
 } */
 
-.boxItem[role][disabled] .sitem , 
-.boxItem[role][disabled]:hover .sitem , 
-.boxItem[disabled] .sitem , 
+.boxItem[role][disabled] .sitem ,
+.boxItem[role][disabled]:hover .sitem ,
+.boxItem[disabled] .sitem ,
 .boxItem[disabled]:hover .sitem {
     cursor: var(--cursor-not-allowed);
     background-color: var(--calendar-item-background-disabled);

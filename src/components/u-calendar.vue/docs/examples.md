@@ -29,6 +29,12 @@
 <u-calendar picker="year" date="2022-08-08"></u-calendar>
 ```
 
+### 范围选择
+
+``` html
+<u-calendar-range picker="date"></u-calendar-range>
+<!-- <u-calendar-range picker="week"></u-calendar-range> -->
+```
 
 ### 只读和禁用
 ``` html
