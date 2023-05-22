@@ -1332,6 +1332,8 @@
     --select-popper-padding: 8px 0; /* @hidden */
     --select-arrow-color-hover: var(--font-second-color); /* @hidden */
     --select-search-icon-color: #ccc; /* @hidden */
+    --select-popper-footer-padding: 10px 12px; /* @hidden */
+    --select-popper-footer-border-color: var(--select-border-color); /* @hidden */
 
     /* @component u-rate */
     --rate-space: 6px; /* @desc 五角星之间的间距,如 1px */

@@ -540,6 +540,23 @@
     - name: reload
       description: 清除缓存，重新加载
       params: []
+    - name: addItem
+      description: 添加项
+      params:
+        - name: item
+          type: object
+          description: 当前添加的项
+        - name: inFirst
+          type: boolean
+          description: 是否添加到列表的第一项
+          required: false
+          default: false
+          designerDefault:
+            label: 原子项
+            level: expressionNode
+            type: BooleanLiteral
+            value: false
+            valueType: boolean
 - name: u-select-item
   title: 选择项
   next: false
