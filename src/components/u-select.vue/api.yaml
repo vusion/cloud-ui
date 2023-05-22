@@ -43,6 +43,9 @@
       description: 集合的元素类型中，用于显示文本下方辅助描述的属性名称
       dependency:
         - description: true
+    - name: icon-field
+      title: 图标展示字段
+      type: string
     - name: cancelable
       title: 可取消
       type: boolean
