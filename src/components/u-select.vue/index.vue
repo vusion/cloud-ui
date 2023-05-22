@@ -9,7 +9,7 @@
     @keydown.down.prevent="$refs.popper.currentOpened ? shift(+1) : open()"
     @keydown.enter.stop.prevent="onEnter"
     @keydown.esc.stop="close(), filterText = ''"
-    @keydown.delete.stop="clearable && clear()"
+    @keydown.delete.stop="onDelete"
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing" :class="$style.placeholder">{{ placeholder }}</span>
@@ -103,7 +103,7 @@
                 <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
             </div>
         </div>
-        <div :class="$style.footer" v-if="showRenderFooter" vusion-slot-name="renderFooter">
+        <div :class="$style.footer" v-if="showRenderFooter" vusion-slot-name="renderFooter" ref="footer">
             <slot name="renderFooter">
                 <s-empty v-if="(!$slots.renderFooter)
                     && $env.VUE_APP_DESIGNER
@@ -598,7 +598,10 @@ export default {
         prependItem(text) {
             this.currentDataSource.prepend({ text, value: text });
         },
-        onEnter() {
+        onEnter(event) {
+            // 当footer里的输入框按enter的时候，阻止行为
+            if (this.$refs.footer.contains(event.target))
+                return;
             if (this.focusedVM)
                 this.select(this.focusedVM);
             this.popperOpened ? this.close() : this.open();
@@ -726,6 +729,7 @@ export default {
             } else {
                 this.currentData.push(item);
             }
+            this.$forceUpdate();
             this.$nextTick(() => {
                 const index = inFirst ? 0 : this.currentData.length - 1;
                 this.itemScrollIntoView(index);
@@ -739,6 +743,14 @@ export default {
                     block: 'nearest',
                     inline: 'nearest',
                 });
+            }
+        },
+        onDelete(event) {
+            // 当footer里的输入框按delete的时候，阻止行为，不然弹层会关闭
+            if (this.$refs.footer.contains(event.target))
+                return;
+            if (this.clearable) {
+                this.clear();
             }
         },
     },

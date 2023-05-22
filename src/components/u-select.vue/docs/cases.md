@@ -995,7 +995,7 @@ export default {
             </u-grid-layout>
         </template>
     </u-select>
-    <u-select v-model="value" :data-source="load" showRenderFooter ref="select1" text-field="name" value-field="id">
+    <u-select v-model="value" :data-source="load" showRenderFooter ref="select1" text-field="name" value-field="id" clearable>
         <template #renderFooter>
             <u-grid-layout>
                 <u-grid-layout-row :repeat="24" alignment="center" gap="small">
