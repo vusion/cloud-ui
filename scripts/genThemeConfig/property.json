@@ -1125,6 +1125,8 @@
     "--select-popper-padding": "8px 0",
     "--select-arrow-color-hover": "var(--font-second-color)",
     "--select-search-icon-color": "#ccc",
+    "--select-popper-footer-padding": "10px 12px",
+    "--select-popper-footer-border-color": "var(--select-border-color)",
     "--rate-space": "6px",
     "--rate-size": "20px",
     "--rate-color": "#e5e5e5",
