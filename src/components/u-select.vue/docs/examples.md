@@ -1295,3 +1295,21 @@ export default {
     </u-select>
 </u-linear-layout>
 ```
+
+#### 自定义可扩展下拉项
+
+开启可扩展下拉项后 即`showRenderFooter`为 `true`，可使用 `renderFooter`插槽 对下拉菜单进行自由扩展
+
+``` vue
+<template>
+  <u-select showRenderFooter>
+    <u-select-item value="php">PHP</u-select-item>
+    <template #renderFooter>
+     <div style="padding: 6px 0; text-align: center;">
+       <u-button>Click Me</u-button>
+      </div>
+    </template>
+   </u-select>
+</template>
+<script>
+```

@@ -233,6 +233,11 @@
     padding: var(--list-view-item-padding);
 }
 
+.footer {
+    padding: var(--select-popper-footer-padding);
+    box-sizing: border-box;
+    border-top: 1px solid var(--select-popper-footer-border-color);
+}
 .label {
     padding-right: 10px;
     color: var(--select-color-disabled);
@@ -264,6 +269,7 @@
 .root[size^="mini"] { height: var(--select-height-mini); line-height: calc(var(--select-height-mini) - var(--select-border-width) * 2); }
 .root[size^="mini"] .item { line-height: calc(var(--select-height-mini) - var(--select-border-width) * 2); }
 .root[size^="mini"] .popper { max-height: calc(6 * calc(var(--select-height-mini) - var(--select-border-width) * 2)); }
+.root[size^="mini"] .popper[footer] .wrap { max-height: calc(6 * calc(var(--select-height-mini) - var(--select-border-width) * 2)); }
 
 .root[size$="small"] { width: var(--select-width-small); padding: 0 var(--select-padding-x-small); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-small)); }
 .root[size$="small"] .item { padding: 0 var(--select-padding-x-small); }
@@ -272,6 +278,7 @@
 .root[size^="small"] { height: var(--select-height-small); line-height: calc(var(--select-height-small) - var(--select-border-width) * 2); }
 .root[size^="small"] .item { line-height: calc(var(--select-height-small) - var(--select-border-width) * 2); }
 .root[size^="small"] .popper { max-height: calc(6 * calc(var(--select-height-small) - var(--select-border-width) * 2)); }
+.root[size^="small"] .popper[footer] .wrap { max-height: calc(6 * calc(var(--select-height-small) - var(--select-border-width) * 2)); }
 
 .root[size$="normal"] { width: var(--select-width); padding: 0 var(--select-padding-x); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x)); }
 .root[size$="normal"] .item { padding: 0 var(--select-padding-x); }
@@ -280,6 +287,7 @@
 .root[size^="normal"] { height: var(--select-height); line-height: calc(var(--select-height) - var(--select-border-width) * 2); }
 .root[size^="normal"] .item { line-height: calc(var(--select-height) - var(--select-border-width) * 2); }
 .root[size^="normal"] .popper { max-height: calc(6 * calc(var(--select-height) - var(--select-border-width) * 2)); }
+.root[size^="normal"] .popper[footer] .wrap { max-height: calc(6 * calc(var(--select-height) - var(--select-border-width) * 2)); }
 
 .root[size$="medium"] { width: var(--select-width-medium); padding: 0 var(--select-padding-x-medium); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-medium)); }
 .root[size$="medium"] .item { padding: 0 var(--select-padding-x-medium); }
@@ -288,6 +296,7 @@
 .root[size^="medium"] { height: var(--select-height-medium); line-height: calc(var(--select-height-medium) - var(--select-border-width) * 2); }
 .root[size^="medium"] .item { line-height: calc(var(--select-height-medium) - var(--select-border-width) * 2); }
 .root[size^="medium"] .popper { max-height: calc(6 * calc(var(--select-height-medium) - var(--select-border-width) * 2)); }
+.root[size^="medium"] .popper[footer] .wrap { max-height: calc(6 * calc(var(--select-height-medium) - var(--select-border-width) * 2)); }
 
 .root[size$="large"] { width: var(--select-width-large); padding: 0 var(--select-padding-x-large); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-large)); }
 .root[size$="large"] .item { padding: 0 var(--select-padding-x-large); }
@@ -296,6 +305,7 @@
 .root[size^="large"] { height: var(--select-height-large); line-height: calc(var(--select-height-large) - var(--select-border-width) * 2); }
 .root[size^="large"] .item { line-height: calc(var(--select-height-large) - var(--select-border-width) * 2); }
 .root[size^="large"] .popper { max-height: calc(6 * calc(var(--select-height-large) - var(--select-border-width) * 2)); }
+.root[size^="large"] .popper[footer] .wrap { max-height: calc(6 * calc(var(--select-height-large) - var(--select-border-width) * 2)); }
 
 .root[size$="huge"] { width: var(--select-width-huge); padding: 0 var(--select-padding-x-huge); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-huge)); }
 .root[size$="huge"] .item { padding: 0 var(--select-padding-x-huge); }
@@ -304,6 +314,7 @@
 .root[size^="huge"] { height: var(--select-height-huge); line-height: calc(var(--select-height-huge) - var(--select-border-width) * 2); }
 .root[size^="huge"] .item { line-height: calc(var(--select-height-huge) - var(--select-border-width) * 2); }
 .root[size^="huge"] .popper { max-height: calc(6 * calc(var(--select-height-huge) - var(--select-border-width) * 2)); }
+.root[size^="huge"] .popper[footer] .wrap { max-height: calc(6 * calc(var(--select-height-huge) - var(--select-border-width) * 2)); }
 
 .root[size$="full"] { width: 100%; padding: 0 var(--select-padding-x-full); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-full)); }
 .root[size$="full"] .item { padding: 0 var(--select-padding-x-full); }
@@ -317,6 +328,7 @@
 .root[height="mini"] { height: var(--select-height-mini); line-height: calc(var(--select-height-mini) - var(--select-border-width) * 2); }
 .root[height="mini"] .item { line-height: calc(var(--select-height-mini) - var(--select-border-width) * 2); }
 .root[height="mini"] .popper { max-height: calc(6 * calc(var(--select-height-mini) - var(--select-border-width) * 2)); }
+.root[height="mini"] .popper[footer] .wrap { max-height: calc(6 * calc(var(--select-height-mini) - var(--select-border-width) * 2)); }
 
 .root[width="small"] { width: var(--select-width-small); padding: 0 var(--select-padding-x-small); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-small)); }
 .root[width="small"] .item { padding: 0 var(--select-padding-x-small); }
@@ -325,6 +337,7 @@
 .root[height="small"] { height: var(--select-height-small); line-height: calc(var(--select-height-small) - var(--select-border-width) * 2); }
 .root[height="small"] .item { line-height: calc(var(--select-height-small) - var(--select-border-width) * 2); }
 .root[height="small"] .popper { max-height: calc(6 * calc(var(--select-height-small) - var(--select-border-width) * 2)); }
+.root[height="small"] .popper[footer] .wrap { max-height: calc(6 * calc(var(--select-height-small) - var(--select-border-width) * 2)); }
 
 .root[width="normal"] { width: var(--select-width); padding: 0 var(--select-padding-x); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x)); }
 .root[width="normal"] .item { padding: 0 var(--select-padding-x); }
@@ -333,6 +346,7 @@
 .root[height="normal"] { height: var(--select-height); line-height: calc(var(--select-height) - var(--select-border-width) * 2); }
 .root[height="normal"] .item { line-height: calc(var(--select-height) - var(--select-border-width) * 2); }
 .root[height="normal"] .popper { max-height: calc(6 * calc(var(--select-height) - var(--select-border-width) * 2)); }
+.root[height="normal"] .popper[footer] .wrap { max-height: calc(6 * calc(var(--select-height) - var(--select-border-width) * 2)); }
 
 .root[width="medium"] { width: var(--select-width-medium); padding: 0 var(--select-padding-x-medium); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-medium)); }
 .root[width="medium"] .item { padding: 0 var(--select-padding-x-medium); }
@@ -341,6 +355,7 @@
 .root[height="medium"] { height: var(--select-height-medium); line-height: calc(var(--select-height-medium) - var(--select-border-width) * 2); }
 .root[height="medium"] .item { line-height: calc(var(--select-height-medium) - var(--select-border-width) * 2); }
 .root[height="medium"] .popper { max-height: calc(6 * calc(var(--select-height-medium) - var(--select-border-width) * 2)); }
+.root[height="medium"] .popper[footer] .wrap { max-height: calc(6 * calc(var(--select-height-medium) - var(--select-border-width) * 2)); }
 
 .root[width="large"] { width: var(--select-width-large); padding: 0 var(--select-padding-x-large); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-large)); }
 .root[width="large"] .item { padding: 0 var(--select-padding-x-large); }
@@ -349,6 +364,7 @@
 .root[height="large"] { height: var(--select-height-large); line-height: calc(var(--select-height-large) - var(--select-border-width) * 2); }
 .root[height="large"] .item { line-height: calc(var(--select-height-large) - var(--select-border-width) * 2); }
 .root[height="large"] .popper { max-height: calc(6 * calc(var(--select-height-large) - var(--select-border-width) * 2)); }
+.root[height="large"] .popper[footer] .wrap { max-height: calc(6 * calc(var(--select-height-large) - var(--select-border-width) * 2)); }
 
 .root[width="huge"] { width: var(--select-width-huge); padding: 0 var(--select-padding-x-huge); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-huge)); }
 .root[width="huge"] .item { padding: 0 var(--select-padding-x-huge); }
@@ -357,6 +373,7 @@
 .root[height="huge"] { height: var(--select-height-huge); line-height: calc(var(--select-height-huge) - var(--select-border-width) * 2); }
 .root[height="huge"] .item { line-height: calc(var(--select-height-huge) - var(--select-border-width) * 2); }
 .root[height="huge"] .popper { max-height: calc(6 * calc(var(--select-height-huge) - var(--select-border-width) * 2)); }
+.root[height="huge"] .popper[footer] .wrap { max-height: calc(6 * calc(var(--select-height-huge) - var(--select-border-width) * 2)); }
 
 .root[width="full"] { width: 100%; padding: 0 var(--select-padding-x-full); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-full)); }
 .root[width="full"] .item { padding: 0 var(--select-padding-x-full); }
@@ -399,4 +416,14 @@
 
 .popper[color="inverse"] .item[selected][disabled] {
     background: var(--list-view-item-background-selected-disabled-inverse);
+}
+.popper[footer] {
+    max-height: initial;
+    padding: 0;
+}
+
+.popper[footer] .wrap {
+    overflow: auto;
+    padding: var(--select-popper-padding);
+    max-height: var(--select-popper-max-height);
 }

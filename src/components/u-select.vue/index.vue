@@ -9,7 +9,7 @@
     @keydown.down.prevent="$refs.popper.currentOpened ? shift(+1) : open()"
     @keydown.enter.stop.prevent="onEnter"
     @keydown.esc.stop="close(), filterText = ''"
-    @keydown.delete.stop="clearable && clear()"
+    @keydown.delete.stop="onDelete"
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing" :class="$style.placeholder">{{ placeholder }}</span>
@@ -62,6 +62,7 @@
     <span v-if="clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click.stop="clear"></span>
     <m-popper :class="$style.popper" ref="popper" :color="color" :placement="placement" :append-to="appendTo" :disabled="readonly || currentDisabled"
         :style="{ width: currentPopperWidth }"
+        :footer="showRenderFooter"
         @update:opened="$emit('update:opened', $event, this)"
         @before-open="$emit('before-open', $event, this)"
         @before-close="$emit('before-close', $event, this)"
@@ -70,35 +71,45 @@
         @before-toggle="$emit('before-toggle', $event, this)"
         @toggle="$emit('toggle', $event, this)"
         @click.stop @scroll.stop="onScroll" @mousedown.stop>
-        <slot></slot>
-        <template v-if="currentData">
-            <div :class="$style.status" key="empty" v-if="!currentData.length && !currentLoading && showEmptyText">
-                <slot name="empty">{{ emptyText }}</slot>
-            </div>
-            <template v-else>
-                <component :is="ChildComponent"
-                    v-for="(item, index) in currentData"
-                    v-if="item"
-                    :key="filterable ? $at2(item, valueField) + '_' + index : $at2(item, valueField)"
-                    :text="$at2(item, field || textField)"
-                    :value="$at2(item, valueField)"
-                    :disabled="item.disabled || disabled"
-                    :item="item"
-                    :description="description ? $at2(item, descriptionField) : null">
-                    <slot
-                        name="text"
-                        :item="item"
+        <div :class="$style.wrap" ref="popperwrap">
+            <slot></slot>
+            <template v-if="currentData">
+                <div :class="$style.status" key="empty" v-if="!currentData.length && !currentLoading && showEmptyText">
+                    <slot name="empty">{{ emptyText }}</slot>
+                </div>
+                <template v-else>
+                    <component :is="ChildComponent"
+                        v-for="(item, index) in currentData"
+                        v-if="item"
+                        :key="filterable ? $at2(item, valueField) + '_' + index : $at2(item, valueField)"
                         :text="$at2(item, field || textField)"
                         :value="$at2(item, valueField)"
                         :disabled="item.disabled || disabled"
+                        :item="item"
                         :description="description ? $at2(item, descriptionField) : null">
-                        {{ $at2(item, field || textField) }}
-                    </slot>
-                </component>
+                        <slot
+                            name="text"
+                            :item="item"
+                            :text="$at2(item, field || textField)"
+                            :value="$at2(item, valueField)"
+                            :disabled="item.disabled || disabled"
+                            :description="description ? $at2(item, descriptionField) : null">
+                            {{ $at2(item, field || textField) }}
+                        </slot>
+                    </component>
+                </template>
             </template>
-        </template>
-        <div :class="$style.status" status="loading" v-if="currentLoading">
-            <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
+            <div :class="$style.status" status="loading" v-if="currentLoading">
+                <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
+            </div>
+        </div>
+        <div :class="$style.footer" v-if="showRenderFooter" vusion-slot-name="renderFooter" ref="footer">
+            <slot name="renderFooter">
+                <s-empty v-if="(!$slots.renderFooter)
+                    && $env.VUE_APP_DESIGNER
+                    && !!$attrs['vusion-node-path']">
+                </s-empty>
+            </slot>
         </div>
     </m-popper>
 </div>
@@ -175,6 +186,7 @@ export default {
         sorting: { type: Object },
         dataSource: [DataSource, DataSourceNew, Function, Object, Array],
         description: { type: Boolean, default: false },
+        showRenderFooter: { type: Boolean, default: false }, // 可扩展下拉项
     },
     data() {
         return {
@@ -586,7 +598,10 @@ export default {
         prependItem(text) {
             this.currentDataSource.prepend({ text, value: text });
         },
-        onEnter() {
+        onEnter(event) {
+            // 当footer里的输入框按enter的时候，阻止行为
+            if (this.$refs.footer.contains(event.target))
+                return;
             if (this.focusedVM)
                 this.select(this.focusedVM);
             this.popperOpened ? this.close() : this.open();
@@ -704,6 +719,39 @@ export default {
             const el = e.target;
             if (Math.abs(el.scrollHeight - (el.scrollTop + el.clientHeight)) <= 1 && this.currentDataSource && this.currentDataSource.hasMore())
                 this.debouncedLoad(true);
+        },
+        /**
+         * 配合showRenderFooter，添加项时调用
+         */
+        addItem(item, inFirst) {
+            if (inFirst) {
+                this.currentData.unshift(item);
+            } else {
+                this.currentData.push(item);
+            }
+            this.$forceUpdate();
+            this.$nextTick(() => {
+                const index = inFirst ? 0 : this.currentData.length - 1;
+                this.itemScrollIntoView(index);
+            });
+        },
+        itemScrollIntoView(index) {
+            const children = this.$refs.popperwrap.children;
+            if (children[index]) {
+                children[index].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'nearest',
+                });
+            }
+        },
+        onDelete(event) {
+            // 当footer里的输入框按delete的时候，阻止行为，不然弹层会关闭
+            if (this.$refs.footer.contains(event.target))
+                return;
+            if (this.clearable) {
+                this.clear();
+            }
         },
     },
 };
