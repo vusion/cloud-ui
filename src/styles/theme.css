@@ -1472,7 +1472,9 @@
     --steps-item-radio-size: 24px; /* @desc 步骤条按钮大小,如 1px */ /* @prefix steps */
     --steps-item-radio-background: var(--border-color-base); /* @type color */ /* @desc 步骤条按钮之间的进度条颜色（未完成部分）,如 #223325 */ /* @prefix steps */
     --steps-item-radio-background-passed: var(--brand-primary); /* @type color */ /* @desc 步骤条按钮和进度条颜色（已完成部分）,如 #223325 */ /* @prefix steps */
+    --steps-item-radio-color: var(--color-light); /* @type color */ /* @desc 步骤条按钮图标颜色,如 #223325 */ /* @prefix steps */
     --steps-item-radio-color-passed: white; /* @type color */ /* @desc 步骤条按钮图标颜色（已完成部分）,如 #223325 */ /* @prefix steps */
+    --steps-item-radio-color-selectd: var(--brand-primary); /* @type color */ /* @desc 步骤条按钮图标颜色（已选中部分）,如 #223325 */ /* @prefix steps */
     --steps-item-radio-background-disabled: var(--background-color-disabled); /* @type color */ /* @desc 步骤条按钮背景色（禁用状态）,如 #223325 */ /* @prefix steps */
     --steps-item-radio-size-large: 24px; /* @hidden */
     --steps-item-width: 200px; /* @hidden */
@@ -1488,7 +1490,10 @@
     --steps-seleatable-radio-background-selected: white; /* @type color */ /* @desc 步骤条按钮背景色（选中状态）,如 #223325 */ /* @prefix steps-seleatable */
     --steps-seleatable-radio-dot-width-selected: 10px; /* @hidden */
     --steps-seleatable-radio-dot-height-selected: 10px; /* @hidden */
-    --steps-seleatable-item-radio-border-color-hover: var(--brand-primary); /* @desc 步骤条按钮边框颜色（hover状态）,如 #223325 */ /* @prefix steps-seleatable */
+    --steps-seleatable-item-radio-border-color-hover: var(--brand-primary); /* @type color */ /* @desc 步骤条按钮边框颜色（hover状态）,如 #223325 */ /* @prefix steps-seleatable */
+    --steps-seleatable-item-title-padding-left: 8px; /* @desc 步骤项标题左边距 */ /* @prefix steps-seleatable */
+    --steps-seleatable-item-line-margin-left: 24px; /* @desc 步骤项连接线左边距 */ /* @prefix steps-seleatable */
+    --steps-seleatable-item-line-margin-right: 24px; /* @desc 步骤项连接线右边距 */ /* @prefix steps-seleatable */
 
     /* @component u-pagination */
     --pagination-item-border-radius: var(--border-radius-base); /* @desc 翻页器的按钮圆角大小,如 1px */

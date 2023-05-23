@@ -20,7 +20,9 @@
             :vusion-template-title-node-path="itemVM.$attrs['vusion-template-title-node-path']"
             :vusion-template-desc-node-path="itemVM.$attrs['vusion-template-desc-node-path']">
             <div :class="$style['item-body']" :title="itemVM.title">
-                <span :class="$style.radio" @click="select(itemVM)"></span>
+                <span :class="$style.radio" :custom-icon="!!itemVM.icon" @click="select(itemVM)">
+                    <i-ico v-if="itemVM.icon" :name="itemVM.icon" notext></i-ico>
+                </span>
                 <span :class="$style.title" @click="select(itemVM)"
                     vusion-slot-name="title"><f-slot :vm="itemVM" name="title">
                     {{ itemVM.title }}
@@ -45,11 +47,13 @@
 
 <script>
 import { UTabs } from '../u-tabs.vue';
+import IIco from '../i-ico.vue';
 
 export default {
     name: 'u-steps',
     childName: 'u-step',
     extends: UTabs,
+    components: { IIco },
     props: {
         value: { type: Number, default: 0 },
         readonly: { type: Boolean, default: true },
@@ -182,7 +186,7 @@ export default {
     border-radius: 100%;
     margin-left: -5px;
     background: var(--steps-item-radio-background);
-    color: var(--color-light);
+    color: var(--steps-item-radio-color);
 }
 
 .root[shape-size="large"] .radio {
@@ -235,7 +239,7 @@ export default {
     counter-increment: step;
 }
 
-.root[counter] .radio::before {
+.root[counter] .radio:not([custom-icon])::before {
     content: counter(step);
 }
 

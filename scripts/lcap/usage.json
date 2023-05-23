@@ -14715,6 +14715,12 @@
                     ]
                 },
                 {
+                    "name": "icon-field",
+                    "title": "图标展示字段",
+                    "type": "string",
+                    "description": "集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法"
+                },
+                {
                     "name": "cancelable",
                     "title": "可取消",
                     "type": "boolean",
@@ -17943,6 +17949,13 @@
                             "type": "boolean",
                             "default": false,
                             "description": ""
+                        },
+                        {
+                            "name": "icon",
+                            "title": "图标",
+                            "type": "icon",
+                            "default": "",
+                            "description": "在该步骤展示的图标"
                         }
                     ],
                     "slots": [

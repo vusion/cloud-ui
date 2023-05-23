@@ -41,6 +41,11 @@
     background: var(--steps-item-radio-background);
     color: var(--color-light);
 }
+.radio[custom-icon] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .radio:hover {
     border-color: var(--steps-item-radio-border-color-hover);
 }
