@@ -384,7 +384,7 @@ export default {
             values: ['c', 'csharp', 'cpp', 'java', 'go'],
             list: [
                 { text: 'Java', value: 'java', picture: 'http://ceph.lcap.hatest.163yun.com/lcap-test-static/icon/p1.jpg' },
-                { text: 'Node.js', value: 'nodejs'},
+                { text: 'Node.js', value: 'nodejs', picture: ''},
                 { text: 'Go', value: 'go' },
                 { text: 'Python', value: 'python' },
                 { text: 'Ruby', value: 'ruby', disabled: true },
