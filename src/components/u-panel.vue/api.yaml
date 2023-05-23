@@ -21,11 +21,13 @@
       title: 标题
       type: string
       description: 面板项的标题
+      advanced: true
     - name: content
       title: 内容
       type: string
       default: ""
       description: 面板内容
+      advanced: true
     - name: bordered
       title: 边框
       type: boolean

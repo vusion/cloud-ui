@@ -33,6 +33,7 @@
       title: 文本
       type: string
       description: 文本
+      advanced: true
     - name: direction
       title: 方向
       type: string

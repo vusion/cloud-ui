@@ -111,6 +111,7 @@
       title: 文本
       type: string
       description: 文本内容
+      advanced: true
     - name: value
       title: 值
       type: any
@@ -217,6 +218,7 @@
       title: 标题
       type: string
       description: 显示的标题
+      advanced: true
     - name: collapsible
       title: 是否可折叠
       type: boolean

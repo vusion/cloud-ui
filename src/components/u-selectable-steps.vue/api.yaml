@@ -117,11 +117,13 @@
       title: 标题
       type: string
       description: 步骤标题文本
+      advanced: true
     - name: desc
       title: 描述信息
       type: string
       default: ""
       description: 步骤描述信息
+      advanced: true
     - name: disabled
       title: 禁用
       type: boolean

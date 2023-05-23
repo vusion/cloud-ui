@@ -241,6 +241,7 @@
       title: 标签名
       type: string
       description: 用于左侧显示，同时用于提示消息的合成
+      advanced: true
     - name: span
       title: 占据数
       type: string

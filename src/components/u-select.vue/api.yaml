@@ -570,6 +570,7 @@
       title: 选项文本
       type: string
       description: 此项的显示值
+      advanced: true
     - name: description
       title: 选项文本描述
       type: string

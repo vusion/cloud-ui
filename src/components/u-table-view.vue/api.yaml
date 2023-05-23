@@ -867,6 +867,7 @@
       title: 列标题
       type: string
       description: 列标题
+      advanced: true
     - name: field
       title: 列字段
       type: string

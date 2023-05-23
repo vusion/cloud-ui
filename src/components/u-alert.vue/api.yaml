@@ -24,11 +24,13 @@
       type: string
       default: ""
       description: 公告标题
+      advanced: true
     - name: desc
       title: 辅助文本
       type: string
       default: ""
       description: 公告辅助文本
+      advanced: true
     - name: horizontal
       title: 对其方式
       type: string

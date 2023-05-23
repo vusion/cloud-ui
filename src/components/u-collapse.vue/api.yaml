@@ -102,6 +102,7 @@
       title: 标题
       type: string
       description: 显示的标题
+      advanced: true
     - name: expanded
       title: 当前"展开/折叠"状态
       type: boolean

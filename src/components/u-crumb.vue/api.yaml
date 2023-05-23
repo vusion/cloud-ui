@@ -48,6 +48,7 @@
       title: 文本
       type: string
       description: 文本内容
+      advanced: true
     - name: type
       title: 类型
       type: string

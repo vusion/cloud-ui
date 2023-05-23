@@ -100,6 +100,7 @@
       title: 文本
       type: string
       description: 显示文本内容
+      advanced: true
     - name: disabled
       title: 禁用
       type: boolean
