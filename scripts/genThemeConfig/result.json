@@ -4214,9 +4214,19 @@
                         "desc": "步骤条按钮和进度条颜色（已完成部分）,如 #223325",
                         "prefix": "steps"
                     },
+                    "--steps-item-radio-color": {
+                        "type": "color",
+                        "desc": "步骤条按钮图标颜色,如 #223325",
+                        "prefix": "steps"
+                    },
                     "--steps-item-radio-color-passed": {
                         "type": "color",
                         "desc": "步骤条按钮图标颜色（已完成部分）,如 #223325",
+                        "prefix": "steps"
+                    },
+                    "--steps-item-radio-color-selectd": {
+                        "type": "color",
+                        "desc": "步骤条按钮图标颜色（已选中部分）,如 #223325",
                         "prefix": "steps"
                     },
                     "--steps-item-radio-background-disabled": {
@@ -4255,8 +4265,23 @@
                         "prefix": "steps-seleatable"
                     },
                     "--steps-seleatable-item-radio-border-color-hover": {
-                        "type": "input",
+                        "type": "color",
                         "desc": "步骤条按钮边框颜色（hover状态）,如 #223325",
+                        "prefix": "steps-seleatable"
+                    },
+                    "--steps-seleatable-item-title-padding-left": {
+                        "type": "input",
+                        "desc": "步骤项标题左边距",
+                        "prefix": "steps-seleatable"
+                    },
+                    "--steps-seleatable-item-line-margin-left": {
+                        "type": "input",
+                        "desc": "步骤项连接线左边距",
+                        "prefix": "steps-seleatable"
+                    },
+                    "--steps-seleatable-item-line-margin-right": {
+                        "type": "input",
+                        "desc": "步骤项连接线右边距",
                         "prefix": "steps-seleatable"
                     }
                 },

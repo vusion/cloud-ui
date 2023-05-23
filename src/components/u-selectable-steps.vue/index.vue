@@ -33,7 +33,8 @@ export default {
 }
 
 .root[layout="inline"] .title {
-    padding: 0 0 0 8px;
+    padding: 0;
+    padding-left: var(--steps-seleatable-item-title-padding-left);
 }
 
 .item {
@@ -41,7 +42,7 @@ export default {
     flex-direction: column;
     width: auto;
     white-space: nowrap;
-    margin-right: 24px;
+    margin-right: var(--steps-seleatable-item-line-margin-right);
     cursor: default;
 }
 
@@ -54,7 +55,7 @@ export default {
     position: static;
     align-self: center;
     min-width: var(--steps-seleatable-item-width);
-    margin-left: 24px;
+    margin-left: var(--steps-seleatable-item-line-margin-left);
     cursor: default;
 }
 
@@ -113,7 +114,7 @@ export default {
     border-color: var(--steps-seleatable-border-color-passed);
 }
 
-.item[passed] .radio::before {
+.item[passed] .radio:not([custom-icon])::before {
     position: relative;
     top: -1px;
     icon-font: url("./assets/pass.svg");
@@ -122,9 +123,10 @@ export default {
 .item[selected]:not([passed]) .radio {
     background: var(--steps-seleatable-radio-background-selected);
     border: 1px solid var(--steps-seleatable-border-color-passed);
+    color: var(--steps-item-radio-color-selectd)
 }
 
-.item[selected]:not([passed]) .radio::before {
+.item[selected]:not([passed]) .radio:not([custom-icon])::before {
     display: inline-block;
     content: "";
     width: var(--steps-seleatable-radio-dot-width-selected);

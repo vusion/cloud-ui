@@ -272,9 +272,13 @@ const VueDataSource = Vue.extend({
             if (limit === undefined)
                 limit = this.limit;
 
-            // 后端数据已经全部获取，调用前端缓存数据
-            if (!this.remote || !this.mustRemote()) {
-                return Promise.resolve(this.arrange(this.data));
+            if (this.initialLoaded) {
+                // 后端数据已经全部获取，调用前端缓存数据
+                if (!this.remote || !this.mustRemote()) {
+                    return Promise.resolve(
+                        this.arrange(this.data),
+                    );
+                }
             }
 
             // 调用后端数据
