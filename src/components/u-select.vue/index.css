@@ -400,3 +400,14 @@
 .popper[color="inverse"] .item[selected][disabled] {
     background: var(--list-view-item-background-selected-disabled-inverse);
 }
+
+.icon {
+    width: 14px;
+    margin-right: 3px;
+}
+
+.iconwrap {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}
