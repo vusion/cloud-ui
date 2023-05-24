@@ -113,6 +113,11 @@
   title: 步骤条项
   is-sub: true
   attrs:
+    - name: icon
+      title: 图标
+      type: icon
+      default: ""
+      description: "在该步骤展示的图标"
     - name: title
       title: 标题
       type: string
@@ -127,11 +132,6 @@
       type: boolean
       default: false
       description: ""
-    - name: icon
-      title: 图标
-      type: icon
-      default: ""
-      description: "在该步骤展示的图标"
   slots:
     - concept: Slot
       name: default
