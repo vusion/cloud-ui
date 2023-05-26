@@ -27,11 +27,13 @@
       type: string
       default: text
       description: 集合的元素类型中，用于显示文本的属性名称
+      display: property-select
     - name: value-field
       title: 值字段
       type: string
       default: value
       description: 集合的元素类型中，用于标识选中值的属性
+      display: property-select
     - name: description
       title: 文本描述
       type: boolean
@@ -43,10 +45,12 @@
       description: 集合的元素类型中，用于显示文本下方辅助描述的属性名称
       dependency:
         - description: true
+      display: property-select
     - name: icon-field
       title: 图标展示字段
       type: string
       description: 集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法
+      display: property-select
     - name: cancelable
       title: 可取消
       type: boolean
