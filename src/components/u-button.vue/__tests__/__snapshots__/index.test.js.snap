@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render properly 1`] = `
+<a
+  class="root"
+  hovertype="underline"
+  tabindex="0"
+  target="_self"
+  vusion-slot-name-edit="text"
+>
+  <!---->
+   primary
+</a>
+`;
