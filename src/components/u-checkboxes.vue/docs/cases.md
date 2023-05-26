@@ -7,7 +7,7 @@
 <div>
     <u-linear-layout direction="vertical">
         <div>
-            <u-checkboxes v-model="checkedList">
+            <u-checkboxes v-model="checkedList" @input="onInput($event, 1)">
                 <u-checkbox label="水杯" :value="true">水杯</u-checkbox>
                 <u-checkbox label="坚果" :value="true">坚果</u-checkbox>
                 <u-checkbox label="毛巾">毛巾</u-checkbox>
@@ -15,7 +15,7 @@
             </u-checkboxes>
             {{ checkedList }}
         </div>
-        <u-checkboxes :value.sync="hobby" converter="join" min="">
+        <u-checkboxes :value.sync="hobby" converter="join"  @input="onInput($event, 2)">
             <template #item="current"></template>
             <u-checkbox :value="true" label="书法" :autofocus="false">
                 <template #item>
@@ -38,7 +38,7 @@
                 </template>
             </u-checkbox>
         </u-checkboxes>
-        <u-checkboxes :value.sync="hobby1" converter="join" min="">
+        <u-checkboxes :value.sync="hobby1" converter="join" @input="onInput($event, 3)">
             <template #item="current"></template>
             <u-checkbox :value="false" label="书法" :autofocus="false">
                 <template #item>
@@ -61,6 +61,13 @@
                 </template>
             </u-checkbox>
         </u-checkboxes>
+        <u-checkboxes v-model="checkedList1" @input="onInput($event, 4)">
+            <u-checkbox label="水杯">水杯</u-checkbox>
+            <u-checkbox label="坚果">坚果</u-checkbox>
+            <u-checkbox label="毛巾">毛巾</u-checkbox>
+            <u-checkbox label="沙发">沙发</u-checkbox>
+        </u-checkboxes>
+        {{ checkedList1 }}
     </u-linear-layout>
 </div>
 </template>
@@ -71,8 +78,14 @@ export default {
             checkedList: [],
             hobby:'',
             hobby1:[],
+            checkedList1:[],
         };
     },
+    methods: {
+        onInput(e, key) {
+            console.log(key, e);
+        }
+    }
 };
 </script>
 ```

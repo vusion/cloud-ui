@@ -121,16 +121,22 @@ export default {
         },
         initSyncValue(value) {
             if (value === '' || (Array.isArray(value) && !value.length)) {
-                const value = [];
+                const values = [];
                 this.itemVMs.forEach(
-                    (itemVM) => itemVM.currentValue && value.push(itemVM.label),
+                    (itemVM) => itemVM.currentValue && values.push(itemVM.label),
                 );
-                this.currentValue = value;
-                let currentValue = value;
+                this.currentValue = values;
+                let currentValue = values;
                 if (this.converter)
                     currentValue = this.currentConverter.get(currentValue);
-                this.$emit('input', currentValue);
-                this.$emit('update:value', currentValue);
+
+                // 有可能使用方在使用组件的时候，初始双向绑定的value值是空的，等接口返回后去设置value值。有些在使用该组件的时候会监听input方法，这里抛出事件后会导致使用方的值变空
+                // 所有如果得到的值和value值一样（可能都是空），就不抛出事件
+                if (JSON.stringify(currentValue) !== JSON.stringify(value)) {
+                    console.log('input emit');
+                    this.$emit('input', currentValue);
+                    this.$emit('update:value', currentValue);
+                }
             }
         },
     },
