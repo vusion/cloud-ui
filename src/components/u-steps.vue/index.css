@@ -39,7 +39,12 @@
     border-radius: 100%;
     margin-left: -5px;
     background: var(--steps-item-radio-background);
-    color: var(--color-light);
+    color: var(--steps-item-radio-color);
+}
+.radio[custom-icon] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .radio:hover {
     border-color: var(--steps-item-radio-border-color-hover);

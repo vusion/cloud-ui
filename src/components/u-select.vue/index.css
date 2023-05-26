@@ -427,3 +427,16 @@
     padding: var(--select-popper-padding);
     max-height: var(--select-popper-max-height);
 }
+
+.icon {
+    width: var(--select-icon-width);
+    height: var(--select-icon-height);
+    margin-right: 3px;
+    border-radius: var(--select-icon-border-radius);
+}
+
+.iconwrap {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}

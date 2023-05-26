@@ -79,6 +79,11 @@
 - name: u-step
   is-sub: true
   attrs:
+    - name: icon
+      title: 图标
+      type: icon
+      default: ""
+      description: "在该步骤展示的图标"
     - name: title
       title: 标题
       type: string

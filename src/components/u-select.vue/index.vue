@@ -34,13 +34,16 @@
         <template v-else-if="multipleAppearance === 'tags'">
             <template v-if="tagsOverflow === 'hidden' || tagsOverflow === 'visible'">
                 <span :class="$style.tag" v-for="(itemVM, index) in selectedVMs" :key="duplicated ? itemVM.value + '_' + index : itemVM.value">
-                    <span :class="$style['tag-text']">{{ itemVM.currentText }}</span>
+                    <span :class="[$style['tag-text'], iconField?$style.iconwrap:'']">
+                        <img :class="$style.icon" v-if="itemVM.icon" :src="itemVM.icon">
+                        {{ itemVM.currentText }}
+                    </span>
                     <span :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
                 </span>
             </template>
             <template v-else-if="tagsOverflow === 'collapse'">
                 <span :class="$style.tag" v-for="(itemVM, index) in selectedVMs" :key="duplicated ? itemVM.value + '__' + index : itemVM.value" :ref="`item_${index}`">
-                    <span :class="$style['tag-text']">{{ itemVM.currentText }}</span>
+                    <span :class="[$style['tag-text'], iconField?$style.iconwrap:'']"><img :class="$style.icon" v-if="itemVM.icon" :src="itemVM.icon">{{ itemVM.currentText }}</span>
                     <span :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
                 </span>
                 <span :class="$style.tag" v-if="selectedVMs.length - collapseCounter >= 1 && selectedVMs.length !== 1">
@@ -86,15 +89,23 @@
                         :value="$at2(item, valueField)"
                         :disabled="item.disabled || disabled"
                         :item="item"
-                        :description="description ? $at2(item, descriptionField) : null">
+                        :description="description ? $at2(item, descriptionField) : null"
+                        :icon="$at2(item, iconField)">
                         <slot
                             name="text"
                             :item="item"
                             :text="$at2(item, field || textField)"
                             :value="$at2(item, valueField)"
                             :disabled="item.disabled || disabled"
-                            :description="description ? $at2(item, descriptionField) : null">
-                            {{ $at2(item, field || textField) }}
+                            :description="description ? $at2(item, descriptionField) : null"
+                            :icon="$at2(item, iconField)">
+                            <span :class="$style.iconwrap" v-if="iconField">
+                                <img :class="$style.icon" v-if="$at2(item, iconField)" :src="$at2(item, iconField)">
+                                {{ $at2(item, field || textField) }}
+                            </span>
+                            <template v-else>
+                                {{ $at2(item, field || textField) }}
+                            </template>
                         </slot>
                     </component>
                 </template>
@@ -187,6 +198,7 @@ export default {
         dataSource: [DataSource, DataSourceNew, Function, Object, Array],
         description: { type: Boolean, default: false },
         showRenderFooter: { type: Boolean, default: false }, // 可扩展下拉项
+        iconField: String,
     },
     data() {
         return {
