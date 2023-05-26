@@ -213,6 +213,8 @@ export default {
     watch: {
         value() {
             this.actualValue = this.value;
+            // 在验证器里，当初始value是异步接口获取的时候，没有触发验证机制，增加update事件触发。
+            this.$emit('update', this.value, this);
         },
         actualValue() {
             this.loadUntilSelectedItem();
