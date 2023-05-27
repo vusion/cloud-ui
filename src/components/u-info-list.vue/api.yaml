@@ -56,6 +56,7 @@
       title: 标签名
       type: string
       description: ""
+      advanced: true
     - name: span
       title: 占据数
       type: string
@@ -96,6 +97,7 @@
       title: 标签
       type: string
       description: ""
+      advanced: true
     - name: repeat
       title: 列数
       type: number
