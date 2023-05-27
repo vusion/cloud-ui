@@ -28,7 +28,7 @@
         <u-input placeholder="请输入名称"></u-input>
     </u-form-item>
     <u-form-item layout="center">
-        <u-button color="primary">查询</u-button>
+        <u-button color="primary">查 询</u-button>
     </u-form-item
 ></u-form>
 ```
