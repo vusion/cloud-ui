@@ -10,8 +10,8 @@
     </template>
     <template #foot>
         <u-linear-layout vusion-disabled-cut justify="center">
-            <u-button color="primary">确定</u-button>
-            <u-button>取消</u-button>
+            <u-button color="primary">确 定</u-button>
+            <u-button>取 消</u-button>
         </u-linear-layout>
     </template>
 </u-modal>
