@@ -35,7 +35,9 @@
       description: 树形数据子节点字段名，默认为children
       display: property-select
       dependency:
-        - +parent-field: null
+        - +parent-field:
+          - null
+          - ''
       dependencyDisplay: disabled
     - name: parent-field
       title: 父节点字段名
@@ -43,7 +45,9 @@
       description: 当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置
       display: property-select
       dependency:
-        - +children-field: null
+        - +children-field:
+          - null
+          - ''
       dependencyDisplay: disabled
     - name: value
       title: 值
