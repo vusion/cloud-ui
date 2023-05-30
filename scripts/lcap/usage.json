@@ -5489,7 +5489,7 @@
             "Display"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-button.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-button.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-button.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-button.vue/screenshots/3.png",
-        "blocks": "[{\"title\":\"主要按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-button color=\\\"primary\\\" text=\\\"确定\\\"></u-button>\\n</template>\\n\"},{\"title\":\"次要按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-button text=\\\"确定\\\" color=\\\"primary_secondary\\\"></u-button>\\n</template>\\n\"},{\"title\":\"普通按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-button text=\\\"确定\\\"></u-button>\\n</template>\\n\"},{\"title\":\"图标按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-button color=\\\"primary\\\" icon=\\\"add\\\" text=\\\"创建\\\"></u-button>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"主要按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-button color=\\\"primary\\\" text=\\\"确 定\\\"></u-button>\\n</template>\\n\"},{\"title\":\"次要按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-button text=\\\"确 定\\\" color=\\\"primary_secondary\\\"></u-button>\\n</template>\\n\"},{\"title\":\"普通按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-button text=\\\"确 定\\\"></u-button>\\n</template>\\n\"},{\"title\":\"图标按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-button color=\\\"primary\\\" icon=\\\"add\\\" text=\\\"创 建\\\"></u-button>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-button",
             "title": "按钮",
@@ -5501,22 +5501,22 @@
                 {
                     "title": "主要按钮",
                     "description": "",
-                    "code": "<template>\n<u-button color=\"primary\" text=\"确定\"></u-button>\n</template>\n"
+                    "code": "<template>\n<u-button color=\"primary\" text=\"确 定\"></u-button>\n</template>\n"
                 },
                 {
                     "title": "次要按钮",
                     "description": "",
-                    "code": "<template>\n<u-button text=\"确定\" color=\"primary_secondary\"></u-button>\n</template>\n"
+                    "code": "<template>\n<u-button text=\"确 定\" color=\"primary_secondary\"></u-button>\n</template>\n"
                 },
                 {
                     "title": "普通按钮",
                     "description": "",
-                    "code": "<template>\n<u-button text=\"确定\"></u-button>\n</template>\n"
+                    "code": "<template>\n<u-button text=\"确 定\"></u-button>\n</template>\n"
                 },
                 {
                     "title": "图标按钮",
                     "description": "",
-                    "code": "<template>\n<u-button color=\"primary\" icon=\"add\" text=\"创建\"></u-button>\n</template>\n"
+                    "code": "<template>\n<u-button color=\"primary\" icon=\"add\" text=\"创 建\"></u-button>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -6669,7 +6669,8 @@
                             "name": "label",
                             "title": "标签名",
                             "type": "string",
-                            "description": ""
+                            "description": "",
+                            "advanced": true
                         },
                         {
                             "name": "span",
@@ -6734,7 +6735,8 @@
                             "name": "title",
                             "title": "标签",
                             "type": "string",
-                            "description": ""
+                            "description": "",
+                            "advanced": true
                         },
                         {
                             "name": "repeat",
@@ -11270,7 +11272,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-form.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-form.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-form.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-form.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-form.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-form.vue/screenshots/5.png",
-        "blocks": "[{\"title\":\"基础表单\",\"description\":\"\",\"code\":\"<template>\\n<u-form\\n    ><u-form-item required layout=\\\"center\\\">\\n        <template #label><u-text text=\\\"名称\\\"></u-text></template>\\n        <u-input placeholder=\\\"由字母、数字和中划线组成\\\"></u-input>\\n    </u-form-item\\n    ><u-form-item required layout=\\\"center\\\">\\n        <template #label><u-text text=\\\"类型\\\"></u-text></template>\\n        <u-radios>\\n            <u-radio label=\\\"A\\\"><template #item><u-text text=\\\"类型 A\\\"></u-text></template></u-radio>\\n            <u-radio label=\\\"B\\\"><template #item><u-text text=\\\"类型 B\\\"></u-text></template></u-radio>\\n        </u-radios>\\n    </u-form-item\\n    ><u-form-item layout=\\\"center\\\">\\n        <u-button color=\\\"primary\\\">立即创建</u-button>\\n    </u-form-item\\n></u-form>\\n</template>\\n\"},{\"title\":\"行内表单\",\"description\":\"\",\"code\":\"<template>\\n<u-form layout=\\\"inline\\\">\\n    <u-form-item layout=\\\"center\\\">\\n        <template #label><u-text text=\\\"名称\\\"></u-text></template>\\n        <u-input placeholder=\\\"请输入名称\\\"></u-input>\\n    </u-form-item>\\n    <u-form-item layout=\\\"center\\\">\\n        <u-button color=\\\"primary\\\">查询</u-button>\\n    </u-form-item\\n></u-form>\\n</template>\\n\"},{\"title\":\"折叠分组\",\"description\":\"\",\"code\":\"<template>\\n<u-form layout=\\\"inline\\\" collapsible\\n    ><u-form-group expanded\\n        ><template #title><u-text text=\\\"常用条件\\\"></u-text></template><u-form-item layout=\\\"center\\\">\\n            <template #label><u-text text=\\\"名称\\\"></u-text></template>\\n            <u-input placeholder=\\\"请输入名称\\\"></u-input>\\n        </u-form-item\\n        ><u-form-item layout=\\\"center\\\">\\n            <template #label><u-text text=\\\"状态\\\"></u-text></template>\\n            <u-select>\\n                <u-select-item><u-text text=\\\"启用\\\"></u-text></u-select-item>\\n                <u-select-item><u-text text=\\\"禁用\\\"></u-text></u-select-item>\\n            </u-select>\\n        </u-form-item\\n    ></u-form-group\\n    ><u-form-group expanded\\n        ><template #title><u-text text=\\\"更多条件\\\"></u-text></template><u-form-item layout=\\\"center\\\">\\n            <template #label><u-text text=\\\"名称\\\"></u-text></template>\\n            <u-input placeholder=\\\"请输入名称\\\"></u-input>\\n        </u-form-item\\n        ><u-form-item layout=\\\"center\\\">\\n            <template #label><u-text text=\\\"状态\\\"></u-text></template>\\n            <u-select>\\n                <u-select-item><u-text text=\\\"启用\\\"></u-text></u-select-item>\\n                <u-select-item><u-text text=\\\"禁用\\\"></u-text></u-select-item>\\n            </u-select>\\n        </u-form-item\\n    ></u-form-group\\n></u-form>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基础表单\",\"description\":\"\",\"code\":\"<template>\\n<u-form\\n    ><u-form-item required layout=\\\"center\\\">\\n        <template #label><u-text text=\\\"名称\\\"></u-text></template>\\n        <u-input placeholder=\\\"由字母、数字和中划线组成\\\"></u-input>\\n    </u-form-item\\n    ><u-form-item required layout=\\\"center\\\">\\n        <template #label><u-text text=\\\"类型\\\"></u-text></template>\\n        <u-radios>\\n            <u-radio label=\\\"A\\\"><template #item><u-text text=\\\"类型 A\\\"></u-text></template></u-radio>\\n            <u-radio label=\\\"B\\\"><template #item><u-text text=\\\"类型 B\\\"></u-text></template></u-radio>\\n        </u-radios>\\n    </u-form-item\\n    ><u-form-item layout=\\\"center\\\">\\n        <u-button color=\\\"primary\\\">立即创建</u-button>\\n    </u-form-item\\n></u-form>\\n</template>\\n\"},{\"title\":\"行内表单\",\"description\":\"\",\"code\":\"<template>\\n<u-form layout=\\\"inline\\\">\\n    <u-form-item layout=\\\"center\\\">\\n        <template #label><u-text text=\\\"名称\\\"></u-text></template>\\n        <u-input placeholder=\\\"请输入名称\\\"></u-input>\\n    </u-form-item>\\n    <u-form-item layout=\\\"center\\\">\\n        <u-button color=\\\"primary\\\">查 询</u-button>\\n    </u-form-item\\n></u-form>\\n</template>\\n\"},{\"title\":\"折叠分组\",\"description\":\"\",\"code\":\"<template>\\n<u-form layout=\\\"inline\\\" collapsible\\n    ><u-form-group expanded\\n        ><template #title><u-text text=\\\"常用条件\\\"></u-text></template><u-form-item layout=\\\"center\\\">\\n            <template #label><u-text text=\\\"名称\\\"></u-text></template>\\n            <u-input placeholder=\\\"请输入名称\\\"></u-input>\\n        </u-form-item\\n        ><u-form-item layout=\\\"center\\\">\\n            <template #label><u-text text=\\\"状态\\\"></u-text></template>\\n            <u-select>\\n                <u-select-item><u-text text=\\\"启用\\\"></u-text></u-select-item>\\n                <u-select-item><u-text text=\\\"禁用\\\"></u-text></u-select-item>\\n            </u-select>\\n        </u-form-item\\n    ></u-form-group\\n    ><u-form-group expanded\\n        ><template #title><u-text text=\\\"更多条件\\\"></u-text></template><u-form-item layout=\\\"center\\\">\\n            <template #label><u-text text=\\\"名称\\\"></u-text></template>\\n            <u-input placeholder=\\\"请输入名称\\\"></u-input>\\n        </u-form-item\\n        ><u-form-item layout=\\\"center\\\">\\n            <template #label><u-text text=\\\"状态\\\"></u-text></template>\\n            <u-select>\\n                <u-select-item><u-text text=\\\"启用\\\"></u-text></u-select-item>\\n                <u-select-item><u-text text=\\\"禁用\\\"></u-text></u-select-item>\\n            </u-select>\\n        </u-form-item\\n    ></u-form-group\\n></u-form>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-form",
             "title": "表单",
@@ -11287,7 +11289,7 @@
                 {
                     "title": "行内表单",
                     "description": "",
-                    "code": "<template>\n<u-form layout=\"inline\">\n    <u-form-item layout=\"center\">\n        <template #label><u-text text=\"名称\"></u-text></template>\n        <u-input placeholder=\"请输入名称\"></u-input>\n    </u-form-item>\n    <u-form-item layout=\"center\">\n        <u-button color=\"primary\">查询</u-button>\n    </u-form-item\n></u-form>\n</template>\n"
+                    "code": "<template>\n<u-form layout=\"inline\">\n    <u-form-item layout=\"center\">\n        <template #label><u-text text=\"名称\"></u-text></template>\n        <u-input placeholder=\"请输入名称\"></u-input>\n    </u-form-item>\n    <u-form-item layout=\"center\">\n        <u-button color=\"primary\">查 询</u-button>\n    </u-form-item\n></u-form>\n</template>\n"
                 },
                 {
                     "title": "折叠分组",
@@ -14724,14 +14726,16 @@
                     "title": "文本字段",
                     "type": "string",
                     "default": "text",
-                    "description": "集合的元素类型中，用于显示文本的属性名称"
+                    "description": "集合的元素类型中，用于显示文本的属性名称",
+                    "display": "property-select"
                 },
                 {
                     "name": "value-field",
                     "title": "值字段",
                     "type": "string",
                     "default": "value",
-                    "description": "集合的元素类型中，用于标识选中值的属性"
+                    "description": "集合的元素类型中，用于标识选中值的属性",
+                    "display": "property-select"
                 },
                 {
                     "name": "description",
@@ -14749,13 +14753,15 @@
                         {
                             "description": true
                         }
-                    ]
+                    ],
+                    "display": "property-select"
                 },
                 {
                     "name": "icon-field",
                     "title": "图标展示字段",
                     "type": "string",
-                    "description": "集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法"
+                    "description": "集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法",
+                    "display": "property-select"
                 },
                 {
                     "name": "cancelable",
@@ -15798,7 +15804,8 @@
                     "type": "string",
                     "default": "text",
                     "group": "数据属性",
-                    "description": "集合的元素类型中，用于显示文本的属性名称"
+                    "description": "集合的元素类型中，用于显示文本的属性名称",
+                    "advanced": true
                 },
                 {
                     "name": "value-field",
@@ -18585,7 +18592,10 @@
                     "display": "property-select",
                     "dependency": [
                         {
-                            "+parent-field": null
+                            "+parent-field": [
+                                null,
+                                ""
+                            ]
                         }
                     ],
                     "dependencyDisplay": "disabled"
@@ -18598,7 +18608,10 @@
                     "display": "property-select",
                     "dependency": [
                         {
-                            "+children-field": null
+                            "+children-field": [
+                                null,
+                                ""
+                            ]
                         }
                     ],
                     "dependencyDisplay": "disabled"
@@ -19258,7 +19271,8 @@
                     "type": "string",
                     "default": "text",
                     "description": "集合的元素类型中，用于显示文本的属性名称",
-                    "group": "数据属性"
+                    "group": "数据属性",
+                    "advanced": true
                 },
                 {
                     "name": "value-field",
@@ -21763,7 +21777,7 @@
             "Feedback"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-modal.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal>\\n    <template #title>\\n        <u-text text=\\\"标题\\\"></u-text>\\n    </template>\\n    <template #body>\\n        <u-text>内容</u-text>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout vusion-disabled-cut justify=\\\"center\\\">\\n            <u-button color=\\\"primary\\\">确定</u-button>\\n            <u-button>取消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal>\\n    <template #title>\\n        <u-text text=\\\"标题\\\"></u-text>\\n    </template>\\n    <template #body>\\n        <u-text>内容</u-text>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout vusion-disabled-cut justify=\\\"center\\\">\\n            <u-button color=\\\"primary\\\">确 定</u-button>\\n            <u-button>取 消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-modal",
             "title": "弹窗",
@@ -21775,7 +21789,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-modal>\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #body>\n        <u-text>内容</u-text>\n    </template>\n    <template #foot>\n        <u-linear-layout vusion-disabled-cut justify=\"center\">\n            <u-button color=\"primary\">确定</u-button>\n            <u-button>取消</u-button>\n        </u-linear-layout>\n    </template>\n</u-modal>\n</template>\n"
+                    "code": "<template>\n<u-modal>\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #body>\n        <u-text>内容</u-text>\n    </template>\n    <template #foot>\n        <u-linear-layout vusion-disabled-cut justify=\"center\">\n            <u-button color=\"primary\">确 定</u-button>\n            <u-button>取 消</u-button>\n        </u-linear-layout>\n    </template>\n</u-modal>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -22035,7 +22049,7 @@
             "Feedback"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-drawer.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-drawer.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-drawer>\\n    <template #title>\\n        <u-text text=\\\"标题\\\"></u-text>\\n    </template>\\n    <template #body>\\n        <u-text>内容</u-text>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout vusion-disabled-cut justify=\\\"start\\\">\\n            <u-button color=\\\"primary\\\">确定</u-button>\\n            <u-button>取消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-drawer>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-drawer>\\n    <template #title>\\n        <u-text text=\\\"标题\\\"></u-text>\\n    </template>\\n    <template #body>\\n        <u-text>内容</u-text>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout vusion-disabled-cut justify=\\\"start\\\">\\n            <u-button color=\\\"primary\\\">确 定</u-button>\\n            <u-button>取 消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-drawer>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-drawer",
             "title": "抽屉",
@@ -22047,7 +22061,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-drawer>\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #body>\n        <u-text>内容</u-text>\n    </template>\n    <template #foot>\n        <u-linear-layout vusion-disabled-cut justify=\"start\">\n            <u-button color=\"primary\">确定</u-button>\n            <u-button>取消</u-button>\n        </u-linear-layout>\n    </template>\n</u-drawer>\n</template>\n"
+                    "code": "<template>\n<u-drawer>\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #body>\n        <u-text>内容</u-text>\n    </template>\n    <template #foot>\n        <u-linear-layout vusion-disabled-cut justify=\"start\">\n            <u-button color=\"primary\">确 定</u-button>\n            <u-button>取 消</u-button>\n        </u-linear-layout>\n    </template>\n</u-drawer>\n</template>\n"
                 }
             ],
             "attrs": [
