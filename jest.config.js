@@ -1,3 +1,5 @@
+process.env.TZ = 'Asia/Shanghai';
+
 module.exports = {
   testEnvironment: 'jsdom',
   testEnvironmentOptions: {
