@@ -182,6 +182,8 @@ const VueDataSource = Vue.extend({
             const filtering = this.filtering;
             if (!this.remoteFiltering && filtering && Object.keys(filtering).length) {
                 arrangedData = arrangedData.filter((item) => solveCondition(filtering, item));
+                // 前端筛选， 且无后端分页 时重置originTotal
+                !this.remotePaging && (this.originTotal = arrangedData.length);
             }
 
             const sorting = this.sorting;
@@ -197,17 +199,6 @@ const VueDataSource = Vue.extend({
                         this.defaultCompare(item1[field], item2[field], orderSign),
                     );
                 }
-            }
-
-            // 树形展示处理一下
-            if (this.treeDisplay) {
-                arrangedData = this.listToTree(arrangedData, {
-                    valueField: this.treeDisplay.valueField,
-                    parentField: this.treeDisplay.parentField,
-                    childrenField: this.treeDisplay.childrenField,
-                });
-
-                this.originTotal = arrangedData.length;
             }
 
             this.arrangedData = arrangedData;
@@ -226,7 +217,7 @@ const VueDataSource = Vue.extend({
         mustRemote() {
             return (
                 !this.hasAllRemoteData() // 没有全部的后端数据
-                || this.queryChanged // query有变化
+                || (this.queryChanged && (this.remoteFiltering || this.remoteSorting))// query有变化
             );
         },
         /**
@@ -248,7 +239,17 @@ const VueDataSource = Vue.extend({
             if (!this.remote)
                 return true;
 
-            return this.data.length >= this.originTotal;
+            if (this.data.length >= this.originTotal) {
+                for (let i = 0; i < this.data.length; i++) {
+                    const item = this.data[i];
+                    if (!item) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            return false;
         },
         hasChanges() {
             return false;
@@ -272,9 +273,19 @@ const VueDataSource = Vue.extend({
             if (limit === undefined)
                 limit = this.limit;
 
+            // reload 或 query变化
+            if (!this.initialLoaded || this.queryChanged) {
+                if (this.paging) {
+                    this.paging.number = 1;
+                }
+                offset = 0;
+            }
+
+            // 首次加载完
             if (this.initialLoaded) {
                 // 后端数据已经全部获取，调用前端缓存数据
                 if (!this.remote || !this.mustRemote()) {
+                    this.queryChanged && (this.queryChanged = false);
                     return Promise.resolve(
                         this.arrange(this.data),
                     );
@@ -282,17 +293,9 @@ const VueDataSource = Vue.extend({
             }
 
             // 调用后端数据
-            // 如果有新的 query 参数的变更，则清除缓存
-            if (this.queryChanged) {
+            if (!this.initialLoaded || this.queryChanged) {
                 this.clearLocalData();
-
-                if (this.paging) {
-                    this.paging.number = 1;
-                }
-
-                offset = 0;
-
-                this.queryChanged = false;
+                this.queryChanged && (this.queryChanged = false);
             }
             const paging = Object.assign(
                 {
@@ -363,12 +366,9 @@ const VueDataSource = Vue.extend({
 
                     this.data = finalResult.data;
                     this.originTotal = finalResult.total;
-
-                    return this.arrange(this.data);
                 } else {
-                    this.originTotal = finalResult.total;
-                    // 不分页
-                    if (limit === Infinity) {
+                    // 后端不分页
+                    if (!this.remotePaging || limit === Infinity) {
                         this.data = finalResult.data;
                     } else {
                         for (let i = 0; i < limit; i++) {
@@ -379,8 +379,21 @@ const VueDataSource = Vue.extend({
                         }
                     }
 
-                    return this.arrange(this.data);
+                    this.originTotal = finalResult.total;
                 }
+
+                // 树形展示处理一下
+                if (this.treeDisplay) {
+                    this.data = this.listToTree(this.data, {
+                        valueField: this.treeDisplay.valueField,
+                        parentField: this.treeDisplay.parentField,
+                        childrenField: this.treeDisplay.childrenField,
+                    });
+
+                    this.originTotal = this.data.length;
+                }
+
+                return this.arrange(this.data);
             });
         },
         loadMore() {
