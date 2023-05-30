@@ -1,0 +1,1793 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-multi-layout.vue Demo-三栏-全部 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        direction="horizontal"
+        gap="none"
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 200px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="flex-grow: 1; flex-basis: 0px;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 200px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-三栏-全部 2`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        direction="horizontal"
+        gap="none"
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 200px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="flex-grow: 1; flex-basis: 0px;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 200px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-三栏-双左栏 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        direction="horizontal"
+        gap="none"
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 400px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+          <div
+            class="root"
+            direction="horizontal"
+            gap="none"
+            vusion-slot-name="default"
+          >
+            <div
+              class="root"
+              direction="horizontal"
+              fixdirec="left"
+              fixed="false"
+              style="flex-grow: 1; flex-basis: 0px;"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+              fixdirec="left"
+              fixed="false"
+              style="flex-grow: 1; flex-basis: 0px;"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="flex-grow: 1; flex-basis: 0px;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-三栏-双左栏 2`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        direction="horizontal"
+        gap="none"
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 400px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+          <div
+            class="root"
+            direction="horizontal"
+            gap="none"
+            vusion-slot-name="default"
+          >
+            <div
+              class="root"
+              direction="horizontal"
+              fixdirec="left"
+              fixed="false"
+              style="flex-grow: 1; flex-basis: 0px;"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+              fixdirec="left"
+              fixed="false"
+              style="flex-grow: 1; flex-basis: 0px;"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="flex-grow: 1; flex-basis: 0px;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-三栏-常规 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        direction="horizontal"
+        gap="none"
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 200px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="flex-grow: 1; flex-basis: 0px;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 200px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-三栏-常规 2`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        direction="horizontal"
+        gap="none"
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 200px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="flex-grow: 1; flex-basis: 0px;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 200px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-两栏-右侧固定 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        direction="horizontal"
+        gap="none"
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 200px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="flex-grow: 1; flex-basis: 0px;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-两栏-右侧固定 2`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        direction="horizontal"
+        gap="none"
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 200px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="flex-grow: 1; flex-basis: 0px;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-两栏-左侧固定 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        direction="horizontal"
+        gap="none"
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 200px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="flex-grow: 1; flex-basis: 0px;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-两栏-左侧固定 2`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        direction="horizontal"
+        gap="none"
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 200px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="flex-grow: 1; flex-basis: 0px;"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-测试多种布局属性影响 1`] = `
+<div
+  class="root"
+  direction="vertical"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+    direction="vertical"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      type=""
+      vusion-slot-name="default"
+    >
+      <span
+        class="root"
+        type="filled"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          布局模式：
+        </span>
+         
+        <!---->
+      </span>
+       
+      <div
+        class="root"
+        tabindex="0"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <div
+          style="direction: ltr;"
+          tags-overflow="collapse"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+         
+        <transition-stub
+          name="fade"
+          style="width: 100%;"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div>
+              <div
+                class="root"
+                style="direction: ltr;"
+                vusion-slot-name="default"
+              >
+                <!---->
+                 弹性 
+                <!---->
+              </div>
+               
+              <!---->
+               
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+        </transition-stub>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      type=""
+      vusion-slot-name="default"
+    >
+      <span
+        class="root"
+        type="filled"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          方向：
+        </span>
+         
+        <!---->
+      </span>
+       
+      <div
+        class="root"
+        tabindex="0"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <div
+          style="direction: ltr;"
+          tags-overflow="collapse"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+         
+        <transition-stub
+          name="fade"
+          style="width: 100%;"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div>
+              <div
+                class="root"
+                style="direction: ltr;"
+                vusion-slot-name="default"
+              >
+                <!---->
+                 横向排列 
+                <!---->
+              </div>
+               
+              <div
+                class="root"
+                style="direction: ltr;"
+                vusion-slot-name="default"
+              >
+                <!---->
+                 纵向排列 
+                <!---->
+              </div>
+               
+              <!---->
+               
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+        </transition-stub>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      type=""
+      vusion-slot-name="default"
+    >
+      <span
+        class="root"
+        type="filled"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          主轴对齐方式：
+        </span>
+         
+        <!---->
+      </span>
+       
+      <div
+        class="root"
+        tabindex="0"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <div
+          style="direction: ltr;"
+          tags-overflow="collapse"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+         
+        <transition-stub
+          name="fade"
+          style="width: 100%;"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div>
+              <div
+                class="root"
+                style="direction: ltr;"
+                vusion-slot-name="default"
+              >
+                <!---->
+                 左对齐 
+                <!---->
+              </div>
+               
+              <div
+                class="root"
+                style="direction: ltr;"
+                vusion-slot-name="default"
+              >
+                <!---->
+                 居中对齐 
+                <!---->
+              </div>
+               
+              <div
+                class="root"
+                style="direction: ltr;"
+                vusion-slot-name="default"
+              >
+                <!---->
+                 右对齐 
+                <!---->
+              </div>
+               
+              <div
+                class="root"
+                style="direction: ltr;"
+                vusion-slot-name="default"
+              >
+                <!---->
+                 各行之间留有空 
+                <!---->
+              </div>
+               
+              <div
+                class="root"
+                style="direction: ltr;"
+                vusion-slot-name="default"
+              >
+                <!---->
+                 之前、之间、之后都留有空白 
+                <!---->
+              </div>
+               
+              <!---->
+               
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+        </transition-stub>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      type=""
+      vusion-slot-name="default"
+    >
+      <span
+        class="root"
+        type="filled"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          纵轴对齐方式：
+        </span>
+         
+        <!---->
+      </span>
+       
+      <div
+        class="root"
+        tabindex="0"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <div
+          style="direction: ltr;"
+          tags-overflow="collapse"
+        >
+          <!---->
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+         
+        <transition-stub
+          name="fade"
+          style="width: 100%;"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div>
+              <div
+                class="root"
+                style="direction: ltr;"
+                vusion-slot-name="default"
+              >
+                <!---->
+                 头对齐 
+                <!---->
+              </div>
+               
+              <div
+                class="root"
+                style="direction: ltr;"
+                vusion-slot-name="default"
+              >
+                <!---->
+                 居中对齐 
+                <!---->
+              </div>
+               
+              <div
+                class="root"
+                style="direction: ltr;"
+                vusion-slot-name="default"
+              >
+                <!---->
+                 尾对齐 
+                <!---->
+              </div>
+               
+              <div
+                class="root"
+                style="direction: ltr;"
+                vusion-slot-name="default"
+              >
+                <!---->
+                 基线对齐 
+                <!---->
+              </div>
+               
+              <div
+                class="root"
+                style="direction: ltr;"
+                vusion-slot-name="default"
+              >
+                <!---->
+                 拉伸子元素充满整个父元素空间 
+                <!---->
+              </div>
+               
+              <!---->
+               
+              <!---->
+            </div>
+             
+            <!---->
+          </div>
+        </transition-stub>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+      >
+        1
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        direction="horizontal"
+        gap="none"
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="width: 200px; flex-grow: 0; flex-basis: auto;"
+          vusion-slot-name="default"
+        >
+          <div
+            bordered="true"
+            class="root"
+            shadow="always"
+          >
+            <div
+              class="head"
+              flex="true"
+            >
+              <div
+                class="title"
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                
+                    
+                    
+                <!---->
+              </div>
+               
+              <a />
+               
+              <div
+                class="extra"
+                vusion-slot-name="extra"
+              >
+                 
+                <!---->
+              </div>
+            </div>
+             
+            <div
+              class="body"
+              vusion-slot-name="default"
+            >
+              1 
+              <!---->
+            </div>
+             
+            <div />
+          </div>
+           
+          <div
+            bordered="true"
+            class="root"
+            shadow="always"
+          >
+            <div
+              class="head"
+              flex="true"
+            >
+              <div
+                class="title"
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                
+                    
+                    
+                <!---->
+              </div>
+               
+              <a />
+               
+              <div
+                class="extra"
+                vusion-slot-name="extra"
+              >
+                 
+                <!---->
+              </div>
+            </div>
+             
+            <div
+              class="body"
+              vusion-slot-name="default"
+            >
+              2 
+              <!---->
+            </div>
+             
+            <div />
+          </div>
+           
+          <div
+            bordered="true"
+            class="root"
+            shadow="always"
+          >
+            <div
+              class="head"
+              flex="true"
+            >
+              <div
+                class="title"
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                
+                    
+                    
+                <!---->
+              </div>
+               
+              <a />
+               
+              <div
+                class="extra"
+                vusion-slot-name="extra"
+              >
+                 
+                <!---->
+              </div>
+            </div>
+             
+            <div
+              class="body"
+              vusion-slot-name="default"
+            >
+              3 
+              <!---->
+            </div>
+             
+            <div />
+          </div>
+           
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          direction="horizontal"
+          fixdirec="left"
+          fixed="false"
+          style="flex-grow: 1; flex-basis: 0px;"
+          vusion-slot-name="default"
+        >
+          <div
+            bordered="true"
+            class="root"
+            shadow="always"
+          >
+            <div
+              class="head"
+              flex="true"
+            >
+              <div
+                class="title"
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                
+                    
+                    
+                <!---->
+              </div>
+               
+              <a />
+               
+              <div
+                class="extra"
+                vusion-slot-name="extra"
+              >
+                 
+                <!---->
+              </div>
+            </div>
+             
+            <div
+              class="body"
+              vusion-slot-name="default"
+            >
+              1 
+              <!---->
+            </div>
+             
+            <div />
+          </div>
+           
+          <div
+            bordered="true"
+            class="root"
+            shadow="always"
+          >
+            <div
+              class="head"
+              flex="true"
+            >
+              <div
+                class="title"
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                
+                    
+                    
+                <!---->
+              </div>
+               
+              <a />
+               
+              <div
+                class="extra"
+                vusion-slot-name="extra"
+              >
+                 
+                <!---->
+              </div>
+            </div>
+             
+            <div
+              class="body"
+              vusion-slot-name="default"
+            >
+              2 
+              <!---->
+            </div>
+             
+            <div />
+          </div>
+           
+          <div
+            bordered="true"
+            class="root"
+            shadow="always"
+          >
+            <div
+              class="head"
+              flex="true"
+            >
+              <div
+                class="title"
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                
+                    
+                    
+                <!---->
+              </div>
+               
+              <a />
+               
+              <div
+                class="extra"
+                vusion-slot-name="extra"
+              >
+                 
+                <!---->
+              </div>
+            </div>
+             
+            <div
+              class="body"
+              vusion-slot-name="default"
+            >
+              3 
+              <!---->
+            </div>
+             
+            <div />
+          </div>
+           
+          <!---->
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-通栏-横向 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="width: 200px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="width: 200px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-通栏-横向 2`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="width: 200px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="width: 200px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-通栏-纵向 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-multi-layout.vue Demo-通栏-纵向 2`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="none"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="flex-grow: 1; flex-basis: 0px;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      fixdirec="left"
+      fixed="false"
+      style="height: 60px; flex-grow: 0; flex-basis: auto;"
+      vusion-slot-name="default"
+    >
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;

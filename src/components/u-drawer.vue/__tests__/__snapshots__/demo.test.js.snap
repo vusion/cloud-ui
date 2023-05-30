@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-drawer.vue Demo-blocks效果测试 1`] = `
+<div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    gap="small"
+    type=""
+    vusion-slot-name="default"
+  >
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       empty
+    </a>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-drawer.vue Demo-关闭展示首尾插槽 1`] = `
+<div>
+   
+   
+  <div
+    class="root"
+    direction="horizontal"
+    gap="small"
+    type=""
+    vusion-slot-name="default"
+  >
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       hidden
+    </a>
+     
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       show
+    </a>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-drawer.vue Demo-基本用法 1`] = `<div />`;
+
+exports[`u-drawer.vue Demo-基本用法 2`] = `
+<div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       Drawer
+    </a>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-drawer.vue Demo-抽屉尺寸 1`] = `
+<div>
+   
+   
+   
+  <div
+    class="root"
+    direction="horizontal"
+    gap="small"
+    type=""
+    vusion-slot-name="default"
+  >
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       small
+    </a>
+     
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       normal
+    </a>
+     
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       large
+    </a>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-drawer.vue Demo-抽屉显示位置 1`] = `
+<div>
+   
+   
+  <div
+    class="root"
+    direction="horizontal"
+    gap="small"
+    type=""
+    vusion-slot-name="default"
+  >
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       Left
+    </a>
+     
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       Right
+    </a>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-drawer.vue Demo-插槽空缺 1`] = `
+<div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    gap="small"
+    type=""
+    vusion-slot-name="default"
+  >
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       empty
+    </a>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;

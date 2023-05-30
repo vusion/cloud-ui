@@ -1,0 +1,1144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-textarea.vue Demo-双向绑定 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+  >
+    <span>
+      b
+    </span>
+     
+    <span>
+      
+    </span>
+     
+    <textarea
+      class="input"
+    />
+      
+    <!---->
+     
+    <div
+      class="handle"
+      draggable="draggable"
+      resize="vertical"
+    />
+     
+    <!---->
+  </div>
+   
+  <div
+    class="root"
+  >
+    <span>
+      b
+    </span>
+     
+    <span>
+      
+    </span>
+     
+    <textarea
+      class="input"
+    />
+      
+    <!---->
+     
+    <div
+      class="handle"
+      draggable="draggable"
+      resize="vertical"
+    />
+     
+    <!---->
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-textarea.vue Demo-双向绑定 2`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+  >
+    <span>
+      b
+    </span>
+     
+    <span>
+      
+    </span>
+     
+    <textarea
+      class="input"
+    />
+      
+    <!---->
+     
+    <div
+      class="handle"
+      draggable="draggable"
+      resize="vertical"
+    />
+     
+    <!---->
+  </div>
+   
+  <div
+    class="root"
+  >
+    <span>
+      b
+    </span>
+     
+    <span>
+      
+    </span>
+     
+    <textarea
+      class="input"
+    />
+      
+    <!---->
+     
+    <div
+      class="handle"
+      draggable="draggable"
+      resize="vertical"
+    />
+     
+    <!---->
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-textarea.vue Demo-只读与禁用 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <!---->
+       
+      <textarea
+        class="input"
+        readonly="readonly"
+      />
+        
+      <!---->
+       
+      <div
+        class="handle"
+        draggable="draggable"
+        resize="vertical"
+      />
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      disabled="disabled"
+    >
+      <span>
+        b
+      </span>
+       
+      <!---->
+       
+      <textarea
+        class="input"
+        disabled="disabled"
+      />
+        
+      <!---->
+       
+      <div
+        class="handle"
+        draggable="draggable"
+        resize="vertical"
+      />
+       
+      <!---->
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-textarea.vue Demo-只读与禁用 2`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <!---->
+       
+      <textarea
+        class="input"
+        readonly="readonly"
+      />
+        
+      <!---->
+       
+      <div
+        class="handle"
+        draggable="draggable"
+        resize="vertical"
+      />
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      disabled="disabled"
+    >
+      <span>
+        b
+      </span>
+       
+      <!---->
+       
+      <textarea
+        class="input"
+        disabled="disabled"
+      />
+        
+      <!---->
+       
+      <div
+        class="handle"
+        draggable="draggable"
+        resize="vertical"
+      />
+       
+      <!---->
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-textarea.vue Demo-可清空 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <span>
+      b
+    </span>
+     
+    <!---->
+     
+    <textarea
+      class="input"
+    />
+      
+    <span
+      class="clearable"
+    />
+     
+    <div
+      class="handle"
+      draggable="draggable"
+      resize="vertical"
+    />
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-textarea.vue Demo-可清空 2`] = `
+<div>
+  <div
+    class="root"
+  >
+    <span>
+      b
+    </span>
+     
+    <!---->
+     
+    <textarea
+      class="input"
+    />
+      
+    <span
+      class="clearable"
+    />
+     
+    <div
+      class="handle"
+      draggable="draggable"
+      resize="vertical"
+    />
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-textarea.vue Demo-基本用法 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <span>
+      b
+    </span>
+     
+    <span>
+      请输入
+    </span>
+     
+    <textarea
+      class="input"
+    />
+      
+    <!---->
+     
+    <div
+      class="handle"
+      draggable="draggable"
+      resize="vertical"
+    />
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-textarea.vue Demo-基本用法 2`] = `
+<div>
+  <div
+    class="root"
+  >
+    <span>
+      b
+    </span>
+     
+    <span>
+      Details
+    </span>
+     
+    <textarea
+      class="input"
+    />
+      
+    <!---->
+     
+    <div
+      class="handle"
+      draggable="draggable"
+      resize="vertical"
+    />
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-textarea.vue Demo-基本用法 3`] = `
+<div>
+  <div
+    class="root"
+  >
+    <span>
+      b
+    </span>
+     
+    <span>
+      Details
+    </span>
+     
+    <textarea
+      class="input"
+    />
+      
+    <!---->
+     
+    <div
+      class="handle"
+      draggable="draggable"
+      resize="vertical"
+    />
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-textarea.vue Demo-展示方式 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="small"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        行内展示（默认）
+      </span>
+       
+      <textarea
+        class="input"
+      />
+        
+      <!---->
+       
+      <div
+        class="handle"
+        draggable="draggable"
+        resize="vertical"
+      />
+       
+      <!---->
+    </div>
+     与文字对齐
+    
+    <div
+      class="root"
+      display="block"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        块级展示
+      </span>
+       
+      <textarea
+        class="input"
+        display="block"
+      />
+        
+      <!---->
+       
+      <div
+        class="handle"
+        draggable="draggable"
+        resize="vertical"
+      />
+       
+      <!---->
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-textarea.vue Demo-展示方式 2`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="small"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        行内展示（默认）
+      </span>
+       
+      <textarea
+        class="input"
+      />
+        
+      <!---->
+       
+      <div
+        class="handle"
+        draggable="draggable"
+        resize="vertical"
+      />
+       
+      <!---->
+    </div>
+     与文字对齐
+    
+    <div
+      class="root"
+      display="block"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        块级展示
+      </span>
+       
+      <textarea
+        class="input"
+        display="block"
+      />
+        
+      <!---->
+       
+      <div
+        class="handle"
+        draggable="draggable"
+        resize="vertical"
+      />
+       
+      <!---->
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-textarea.vue Demo-自动调整 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+    style="width: 0px; height: 0px;"
+  >
+    <span>
+      b
+    </span>
+     
+    <!---->
+     
+    <textarea
+      class="input"
+      style=""
+    />
+      
+    <!---->
+     
+    <div
+      class="handle"
+      draggable="draggable"
+      resize="vertical"
+    />
+     
+    <!---->
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-textarea.vue Demo-自定义样式 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root custom"
+  >
+    <span>
+      b
+    </span>
+     
+    <span>
+      class
+    </span>
+     
+    <textarea
+      class="input"
+    />
+      
+    <!---->
+     
+    <div
+      class="handle"
+      draggable="draggable"
+      resize="vertical"
+    />
+     
+    <!---->
+  </div>
+   
+  <div
+    class="root"
+    style="width: 200px; background: rgb(247, 248, 252);"
+  >
+    <span>
+      b
+    </span>
+     
+    <span>
+      style
+    </span>
+     
+    <textarea
+      class="input"
+    />
+      
+    <!---->
+     
+    <div
+      class="handle"
+      draggable="draggable"
+      resize="vertical"
+    />
+     
+    <!---->
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-textarea.vue Demo-设置大小 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      type=""
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        size="normal"
+      >
+        <span>
+          b
+        </span>
+         
+        <!---->
+         
+        <textarea
+          class="input"
+          size="normal"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="vertical"
+        />
+         
+        <!---->
+      </div>
+       
+      <div
+        class="root"
+        size="normal large"
+      >
+        <span>
+          b
+        </span>
+         
+        <!---->
+         
+        <textarea
+          class="input"
+          size="normal large"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="vertical"
+        />
+         
+        <!---->
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      type=""
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        size="medium"
+      >
+        <span>
+          b
+        </span>
+         
+        <!---->
+         
+        <textarea
+          class="input"
+          size="medium"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="vertical"
+        />
+         
+        <!---->
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      type=""
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        size="large"
+      >
+        <span>
+          b
+        </span>
+         
+        <!---->
+         
+        <textarea
+          class="input"
+          size="large"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="vertical"
+        />
+         
+        <!---->
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      type=""
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        size="huge"
+      >
+        <span>
+          b
+        </span>
+         
+        <!---->
+         
+        <textarea
+          class="input"
+          size="huge"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="vertical"
+        />
+         
+        <!---->
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      type=""
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        size="huge full"
+      >
+        <span>
+          b
+        </span>
+         
+        <!---->
+         
+        <textarea
+          class="input"
+          size="huge full"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="vertical"
+        />
+         
+        <!---->
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-textarea.vue Demo-调整大小 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div>
+      <div
+        class="root"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          none
+        </span>
+         
+        <textarea
+          class="input"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="none"
+          style="display: none;"
+        />
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div>
+      <div
+        class="root"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          vertical（默认）
+        </span>
+         
+        <textarea
+          class="input"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="vertical"
+        />
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div>
+      <div
+        class="root"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          horizontal
+        </span>
+         
+        <textarea
+          class="input"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="horizontal"
+        />
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div>
+      <div
+        class="root"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          both
+        </span>
+         
+        <textarea
+          class="input"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="both"
+        />
+         
+        <!---->
+      </div>
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-textarea.vue Demo-调整大小 2`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div>
+      <div
+        class="root"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          none
+        </span>
+         
+        <textarea
+          class="input"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="none"
+          style="display: none;"
+        />
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div>
+      <div
+        class="root"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          vertical（默认）
+        </span>
+         
+        <textarea
+          class="input"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="vertical"
+        />
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div>
+      <div
+        class="root"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          horizontal
+        </span>
+         
+        <textarea
+          class="input"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="horizontal"
+        />
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div>
+      <div
+        class="root"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          both
+        </span>
+         
+        <textarea
+          class="input"
+        />
+          
+        <!---->
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          resize="both"
+        />
+         
+        <!---->
+      </div>
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;

@@ -12,10 +12,26 @@ module.exports = {
   ],
   transform: {
     ".*\\.(vue)$": "@vue/vue2-jest",
-    "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    "^.+\\.js$": "babel-jest"
+  },
+  transformIgnorePatterns: [
+    'node_modules/(?!(@vusion|swiper|ssr-window|dom7)/)',
+  ],
+  moduleNameMapper: {
+    "\\.(css|less)$": "<rootDir>/scripts/test/__mocks__/styleMock.js",
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/scripts/test/__mocks__/fileMock.js',
+    "themeCSS": "<rootDir>/scripts/test/__mocks__/styleMock.js",
+    "swiper/swiper-bundle.esm.js": "<rootDir>/node_modules/swiper/swiper-bundle.esm.js",
   },
   snapshotSerializers: ["jest-serializer-vue"],
+  setupFiles: ['<rootDir>/scripts/test/jest.setup.js'],
   collectCoverage: true,
-  // collectCoverageFrom: ["src/**/*.{js,vue}", "!**/node_modules/**"],
+  collectCoverageFrom: [
+    "src/**/*.{js,vue}",
+    "!**/node_modules/**",
+    "!**/__tests__/**",
+    "!**/docs/**",
+  ],
   coverageReporters: ["html", "text-summary"]
 };

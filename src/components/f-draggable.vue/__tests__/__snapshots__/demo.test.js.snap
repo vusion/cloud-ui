@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`f-draggable.vue Demo-基本用法 1`] = `
+<div>
+  <div
+    class="root"
+    draggable="draggable"
+    size="normal"
+  >
+    拖我
+  </div>
+</div>
+`;
+
+exports[`f-draggable.vue Demo-移动自身 1`] = `
+<div>
+  <div
+    class="root"
+    color="primary"
+    draggable="draggable"
+    size="normal"
+    style="position: relative;"
+  >
+    static
+  </div>
+   
+  <div
+    style="width: 200px; height: 200px; border: 1px solid #ccc; position: relative; overflow: auto; margin: 10px 0px;"
+  >
+    <div
+      class="root"
+      color="primary"
+      draggable="draggable"
+      size="normal"
+      style="position: absolute; top: 50px; left: 50px;"
+    >
+      absolute
+    </div>
+  </div>
+</div>
+`;
+
+exports[`f-draggable.vue Demo-自定义移动元素 1`] = `
+<div>
+  <div
+    class="root"
+    color="primary"
+    draggable="draggable"
+    size="normal"
+  >
+    transfer
+  </div>
+</div>
+`;

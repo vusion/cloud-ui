@@ -1,0 +1,1405 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`i-ico.vue Demo-仅图标 1`] = `
+<div>
+  <span
+    class="lcp-iconv"
+  >
+    <span
+      class="iconwrap"
+    >
+      <svg
+        aria-hidden="true"
+        class="iconsvg"
+      >
+        <use
+          xlink:href="#pc-default"
+        />
+      </svg>
+    </span>
+     
+    <!---->
+  </span>
+</div>
+`;
+
+exports[`i-ico.vue Demo-基本用法 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-loading"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          加载中
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-refresh"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          刷新
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-download"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          下载
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-upload"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          上传
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-default"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          默认
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-left-arrow"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          左箭头
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-right-arrow"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          右箭头
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-top-arrow"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          上箭头
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-bottom-arrow"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          下箭头
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-close"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          关闭
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-add"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          添加
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-add-new"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          添加2
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-decrease"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          减少
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-menu"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          菜单
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-folder-add"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          文件添加
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-search"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          搜索
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-more"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          更多
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-home"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          首页
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-task"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          任务
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-task-failed"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          任务失败
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-task-done"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          任务成功
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-file"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          文件
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-calendar"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          日历
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-user"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          用户
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-edit"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          编辑
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-find"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          查找
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-copy"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          复制
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-data"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          数据
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-remove"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          删除
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-save"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          保存
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-time"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          时间
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-info"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          提醒
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-help"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          帮助
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-success"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          成功
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-error"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          失败
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-star"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          收藏
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-attachment"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          附件
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-notice"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          通知
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv"
+    >
+      <span
+        class="iconwrap"
+      >
+        <svg
+          aria-hidden="true"
+          class="iconsvg"
+        >
+          <use
+            xlink:href="#pc-dragHandler"
+          />
+        </svg>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          拖拽
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv iconcus"
+    >
+      <span
+        class="iconwrap iconwrapsvg"
+      >
+        <div
+          class="online-svg-wrap"
+          data-v-02eda915=""
+        >
+          <div
+            class="icon"
+            data-v-02eda915=""
+          />
+          <!---->
+        </div>
+      </span>
+       
+      <div
+        class="icontext"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          自定义
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv iconcus wrapleft"
+    >
+      <span
+        class="iconwrap iconwrapsvg"
+      >
+        <div
+          class="online-svg-wrap"
+          data-v-02eda915=""
+        >
+          <div
+            class="icon"
+            data-v-02eda915=""
+          />
+          <!---->
+        </div>
+      </span>
+       
+      <div
+        class="icontext textleft"
+        vusion-slot-name="default"
+      >
+        <span
+          class="root"
+          vusion-slot-name-edit="text"
+        >
+          左右图标
+        </span>
+         
+        <!---->
+      </div>
+    </span>
+     
+    <span
+      class="lcp-iconv iconcus"
+    >
+      <span
+        class="iconwrap iconwrapsvg"
+      >
+        <div
+          class="online-svg-wrap"
+          data-v-02eda915=""
+        >
+          <div
+            class="icon"
+            data-v-02eda915=""
+          />
+          <!---->
+        </div>
+      </span>
+       
+      <!---->
+    </span>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`i-ico.vue Demo-组合图标-上下 1`] = `
+<div>
+  <span
+    class="lcp-iconv"
+  >
+    <span
+      class="iconwrap"
+    >
+      <svg
+        aria-hidden="true"
+        class="iconsvg"
+      >
+        <use
+          xlink:href="#pc-default"
+        />
+      </svg>
+    </span>
+     
+    <div
+      class="icontext"
+      vusion-slot-name="default"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        图标
+      </span>
+       
+      <!---->
+    </div>
+  </span>
+</div>
+`;
+
+exports[`i-ico.vue Demo-组合图标-左右 1`] = `
+<div>
+  <span
+    class="lcp-iconv wrapleft"
+  >
+    <span
+      class="iconwrap"
+    >
+      <svg
+        aria-hidden="true"
+        class="iconsvg"
+      >
+        <use
+          xlink:href="#pc-default"
+        />
+      </svg>
+    </span>
+     
+    <div
+      class="icontext textleft"
+      vusion-slot-name="default"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        图标
+      </span>
+       
+      <!---->
+    </div>
+  </span>
+</div>
+`;

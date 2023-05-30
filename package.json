@@ -24,7 +24,8 @@
     "build:doc-entry": "cross-env VUE_CLI_SERVICE_CONFIG_PATH=$PWD/vue.config.doc-entry.js vue-cli-service build --output-path dist-doc-entry",
     "genThemeConfig": "ts-node scripts/genThemeConfig/index.ts",
     "screenshot": "node bin/screenshot",
-    "test": "jest",
+    "pretest": "node scripts/test/gen-snapshot-test.js",
+    "test": "jest --silent",
     "lint": "eslint --fix --ext .js,.vue src && stylelint --fix ./src/**/*.css",
     "ghpages": "vusion ghpages",
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
@@ -110,7 +111,10 @@
     "vue-router": "3.3.4",
     "vue-template-compiler": "2.6.12",
     "vusion": "^0.12.21",
-    "vusion-hooks": "^0.3.0"
+    "vusion-hooks": "^0.3.0",
+    "unified": "^7.0.0",
+    "remark": "^10.0.1",
+    "remark-parse": "^6.0.3"
   },
   "peerDependencies": {
     "@vusion/utils": "^0.4.9",

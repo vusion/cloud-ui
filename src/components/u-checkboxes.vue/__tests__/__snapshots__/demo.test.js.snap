@@ -1,0 +1,970 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-checkboxes.vue Demo-autofocus 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <!---->
+      
+    <!---->
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="false"
+      />
+       水杯 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="false"
+      />
+       坚果 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="false"
+      />
+       毛巾 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="false"
+      />
+       沙发 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`u-checkboxes.vue Demo-不确定状态 1`] = `
+<div>
+  <label
+    class="root"
+    tabindex="0"
+  >
+    <span
+      class="box"
+      status="null"
+    />
+     不确定 
+    <span
+      vusion-slot-name="item"
+    >
+       
+      <!---->
+    </span>
+  </label>
+</div>
+`;
+
+exports[`u-checkboxes.vue Demo-全选 1`] = `
+<div>
+  <label
+    class="root"
+    tabindex="0"
+  >
+    <span
+      class="box"
+      status="false"
+    />
+     全选 
+    <span
+      vusion-slot-name="item"
+    >
+       
+      <!---->
+    </span>
+  </label>
+   
+  <div
+    class="root"
+  >
+    <!---->
+      
+    <!---->
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="false"
+      />
+       水杯 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="false"
+      />
+       坚果 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="false"
+      />
+       毛巾 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="false"
+      />
+       沙发 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+  </div>
+  
+    []
+
+</div>
+`;
+
+exports[`u-checkboxes.vue Demo-双向绑定 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <label
+    class="root"
+    tabindex="0"
+  >
+    <span
+      class="box"
+      status="true"
+    />
+     true 
+    <span
+      vusion-slot-name="item"
+    >
+       
+      <!---->
+    </span>
+  </label>
+   
+  <label
+    class="root"
+    tabindex="0"
+  >
+    <span
+      class="box"
+      status="true"
+    />
+     true 
+    <span
+      vusion-slot-name="item"
+    >
+       
+      <!---->
+    </span>
+  </label>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-checkboxes.vue Demo-只读和禁用 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="true"
+      />
+       只读 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      disabled="disabled"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        disabled="disabled"
+        status="true"
+      />
+       禁用 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-checkboxes.vue Demo-基本用法 1`] = `
+<div>
+  <label
+    class="root"
+    tabindex="0"
+  >
+    <span
+      class="box"
+      status="false"
+    />
+     多选框 
+    <span
+      vusion-slot-name="item"
+    >
+       
+      <!---->
+    </span>
+  </label>
+</div>
+`;
+
+exports[`u-checkboxes.vue Demo-基础用法 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <!---->
+      
+    <!---->
+     
+  </div>
+</div>
+`;
+
+exports[`u-checkboxes.vue Demo-多选组 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div>
+      <div
+        class="root"
+      >
+        <!---->
+          
+        <!---->
+         
+        <label
+          class="root"
+          tabindex="0"
+        >
+          <span
+            class="box"
+            status="true"
+          />
+           水杯 
+          <span
+            vusion-slot-name="item"
+          >
+             
+            <!---->
+          </span>
+        </label>
+         
+        <label
+          class="root"
+          tabindex="0"
+        >
+          <span
+            class="box"
+            status="true"
+          />
+           坚果 
+          <span
+            vusion-slot-name="item"
+          >
+             
+            <!---->
+          </span>
+        </label>
+         
+        <label
+          class="root"
+          tabindex="0"
+        >
+          <span
+            class="box"
+            status="false"
+          />
+           毛巾 
+          <span
+            vusion-slot-name="item"
+          >
+             
+            <!---->
+          </span>
+        </label>
+         
+        <label
+          class="root"
+          tabindex="0"
+        >
+          <span
+            class="box"
+            status="false"
+          />
+           沙发 
+          <span
+            vusion-slot-name="item"
+          >
+             
+            <!---->
+          </span>
+        </label>
+      </div>
+      
+            [
+  "水杯",
+  "坚果"
+]
+        
+    </div>
+     
+    <div
+      class="root"
+    >
+      <!---->
+        
+      <!---->
+        
+      <label
+        class="root"
+        tabindex="0"
+      >
+        <span
+          class="box"
+          status="true"
+        />
+          
+        <span
+          vusion-slot-name="item"
+        >
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            书法
+          </span>
+           
+          <!---->
+        </span>
+      </label>
+       
+      <label
+        class="root"
+        tabindex="0"
+      >
+        <span
+          class="box"
+          status="true"
+        />
+          
+        <span
+          vusion-slot-name="item"
+        >
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            阅读
+          </span>
+           
+          <!---->
+        </span>
+      </label>
+       
+      <label
+        class="root"
+        tabindex="0"
+      >
+        <span
+          class="box"
+          status="false"
+        />
+          
+        <span
+          vusion-slot-name="item"
+        >
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            绘画
+          </span>
+           
+          <!---->
+        </span>
+      </label>
+       
+      <label
+        class="root"
+        tabindex="0"
+      >
+        <span
+          class="box"
+          status="false"
+        />
+          
+        <span
+          vusion-slot-name="item"
+        >
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            音乐
+          </span>
+           
+          <!---->
+        </span>
+      </label>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <!---->
+        
+      <!---->
+        
+      <label
+        class="root"
+        tabindex="0"
+      >
+        <span
+          class="box"
+          status="false"
+        />
+          
+        <span
+          vusion-slot-name="item"
+        >
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            书法
+          </span>
+           
+          <!---->
+        </span>
+      </label>
+       
+      <label
+        class="root"
+        tabindex="0"
+      >
+        <span
+          class="box"
+          status="true"
+        />
+          
+        <span
+          vusion-slot-name="item"
+        >
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            阅读
+          </span>
+           
+          <!---->
+        </span>
+      </label>
+       
+      <label
+        class="root"
+        tabindex="0"
+      >
+        <span
+          class="box"
+          status="false"
+        />
+          
+        <span
+          vusion-slot-name="item"
+        >
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            绘画
+          </span>
+           
+          <!---->
+        </span>
+      </label>
+       
+      <label
+        class="root"
+        tabindex="0"
+      >
+        <span
+          class="box"
+          status="false"
+        />
+          
+        <span
+          vusion-slot-name="item"
+        >
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            音乐
+          </span>
+           
+          <!---->
+        </span>
+      </label>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <!---->
+        
+      <!---->
+       
+      <label
+        class="root"
+        tabindex="0"
+      >
+        <span
+          class="box"
+          status="false"
+        />
+         水杯 
+        <span
+          vusion-slot-name="item"
+        >
+           
+          <!---->
+        </span>
+      </label>
+       
+      <label
+        class="root"
+        tabindex="0"
+      >
+        <span
+          class="box"
+          status="false"
+        />
+         坚果 
+        <span
+          vusion-slot-name="item"
+        >
+           
+          <!---->
+        </span>
+      </label>
+       
+      <label
+        class="root"
+        tabindex="0"
+      >
+        <span
+          class="box"
+          status="false"
+        />
+         毛巾 
+        <span
+          vusion-slot-name="item"
+        >
+           
+          <!---->
+        </span>
+      </label>
+       
+      <label
+        class="root"
+        tabindex="0"
+      >
+        <span
+          class="box"
+          status="false"
+        />
+         沙发 
+        <span
+          vusion-slot-name="item"
+        >
+           
+          <!---->
+        </span>
+      </label>
+    </div>
+    
+        []
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-checkboxes.vue Demo-多选组 2`] = `
+<div>
+  <div
+    class="root"
+  >
+    <!---->
+      
+    <!---->
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="false"
+      />
+       水杯 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="false"
+      />
+       坚果 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="true"
+      />
+       毛巾 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="true"
+      />
+       沙发 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+  </div>
+  
+    [
+  "毛巾",
+  "沙发"
+]
+
+</div>
+`;
+
+exports[`u-checkboxes.vue Demo-多选组 3`] = `
+<div>
+  <div
+    class="root"
+  >
+    <!---->
+      
+    <!---->
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="false"
+      />
+       水杯 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="false"
+      />
+       坚果 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="true"
+      />
+       毛巾 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="true"
+      />
+       沙发 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+  </div>
+  
+    毛巾,沙发
+
+</div>
+`;
+
+exports[`u-checkboxes.vue Demo-数量限制 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <!---->
+      
+    <!---->
+     
+    <label
+      class="root"
+      disabled="disabled"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        disabled="disabled"
+        status="false"
+      />
+       水杯 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      disabled="disabled"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        disabled="disabled"
+        status="false"
+      />
+       坚果 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="true"
+      />
+       毛巾 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+     
+    <label
+      class="root"
+      tabindex="0"
+    >
+      <span
+        class="box"
+        status="true"
+      />
+       沙发 
+      <span
+        vusion-slot-name="item"
+      >
+         
+        <!---->
+      </span>
+    </label>
+  </div>
+  
+    [
+  "毛巾",
+  "沙发"
+]
+
+</div>
+`;

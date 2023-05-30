@@ -1,0 +1,1325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`m-popper.vue Demo-a in a 1`] = `
+<div>
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     click
+    
+    <transition-stub
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+        <a
+          href="/"
+          target="_blank"
+        >
+          popper
+        </a>
+      </div>
+    </transition-stub>
+  </a>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     
+    <a
+      href="/"
+      target="_blank"
+    >
+      abc
+    </a>
+  </a>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     
+    <div>
+      <a
+        href="/"
+        target="_blank"
+      >
+        abc
+      </a>
+    </div>
+  </a>
+   
+  <a>
+    <div>
+      <a
+        href="/"
+        target="_blank"
+      >
+        abc
+      </a>
+    </div>
+  </a>
+</div>
+`;
+
+exports[`m-popper.vue Demo-右键菜单 1`] = `
+<div>
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     
+    右键菜单
+    
+    <transition-stub
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+        <nav
+          class="root"
+        >
+          <a
+            class="root"
+            target="_self"
+          >
+            <span
+              vusion-slot-name-edit="text"
+            >
+              指南
+            </span>
+             
+            <div />
+          </a>
+           
+          <a
+            class="root"
+            target="_self"
+          >
+            <span
+              vusion-slot-name-edit="text"
+            >
+              概念
+            </span>
+             
+            <div />
+          </a>
+           
+          <a
+            class="root"
+            target="_self"
+          >
+            <span
+              vusion-slot-name-edit="text"
+            >
+              组件
+            </span>
+             
+            <div />
+          </a>
+        </nav>
+      </div>
+    </transition-stub>
+  </a>
+</div>
+`;
+
+exports[`m-popper.vue Demo-基本用法 1`] = `
+<div>
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     
+    click
+    
+    <transition-stub
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+        <div
+          class="root"
+        >
+          popper
+        </div>
+      </div>
+    </transition-stub>
+  </a>
+</div>
+`;
+
+exports[`m-popper.vue Demo-弹出方位 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    style="min-width: 300px; max-width: 550px;"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      gap="small"
+      justify="center"
+      type=""
+      vusion-slot-name="default"
+    >
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            上左
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            上边
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            上右
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="vertical"
+      justify="center"
+      style="width: 150px; float: left;"
+      type=""
+      vusion-slot-name="default"
+    >
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            左上
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            左边
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            左下
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="vertical"
+      justify="center"
+      style="width: 150px; float: right;"
+      type=""
+      vusion-slot-name="default"
+    >
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            右上
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            右边
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            右下
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      gap="small"
+      justify="center"
+      style="clear: both;"
+      type=""
+      vusion-slot-name="default"
+    >
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            下左
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            下边
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            下右
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`m-popper.vue Demo-手动触发 1`] = `
+<a
+  class="root"
+  hovertype="underline"
+  tabindex="0"
+  target="_self"
+  vusion-slot-name-edit="text"
+>
+  <!---->
+   
+    弹出
+    
+  <transition-stub
+    name="fade"
+  >
+    <div
+      class="root"
+      style="display: none;"
+    >
+      <div
+        class="root"
+      >
+        popper
+      </div>
+    </div>
+  </transition-stub>
+</a>
+`;
+
+exports[`m-popper.vue Demo-显隐延时 1`] = `
+<div>
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     
+    hover
+    
+    <transition-stub
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+        <div
+          class="root"
+        >
+          popper
+        </div>
+      </div>
+    </transition-stub>
+  </a>
+</div>
+`;
+
+exports[`m-popper.vue Demo-禁用状态 1`] = `
+<div>
+  <a
+    class="root"
+    disabled="disabled"
+    hovertype="underline"
+    tabindex="-1"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     
+    disabled
+    
+    <transition-stub
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+        <div
+          class="root"
+        >
+          popper
+        </div>
+      </div>
+    </transition-stub>
+  </a>
+</div>
+`;
+
+exports[`m-popper.vue Demo-自动触发 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       
+        click（默认）
+        
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+          >
+            popper
+          </div>
+        </div>
+      </transition-stub>
+    </a>
+     
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       
+        hover
+        
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+          >
+            popper
+          </div>
+        </div>
+      </transition-stub>
+    </a>
+     
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       
+        right-click
+        
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+          >
+            popper
+          </div>
+        </div>
+      </transition-stub>
+    </a>
+     
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       
+        double-click
+        
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+          >
+            popper
+          </div>
+        </div>
+      </transition-stub>
+    </a>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`m-popper.vue Demo-跟随鼠标 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    style="min-width: 300px; max-width: 550px;"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      gap="small"
+      justify="center"
+      type=""
+      vusion-slot-name="default"
+    >
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            上左
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            上边
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            上右
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="vertical"
+      justify="center"
+      style="width: 150px; float: left;"
+      type=""
+      vusion-slot-name="default"
+    >
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            左上
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            左边
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            左下
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="vertical"
+      justify="center"
+      style="width: 150px; float: right;"
+      type=""
+      vusion-slot-name="default"
+    >
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            右上
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            右边
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            右下
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      gap="small"
+      justify="center"
+      style="clear: both;"
+      type=""
+      vusion-slot-name="default"
+    >
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            下左
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            下边
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            下右
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      justify="center"
+      type=""
+      vusion-slot-name="default"
+    >
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            自定义
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`m-popper.vue Demo-跟随鼠标测试 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      type=""
+      vusion-slot-name="default"
+    >
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            click
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            top
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <a
+        class="root"
+        hovertype="underline"
+        tabindex="0"
+        target="_self"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         
+            right-click
+            
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+            >
+              popper
+            </div>
+          </div>
+        </transition-stub>
+      </a>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;

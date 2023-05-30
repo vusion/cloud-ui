@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`f-scroll-view.vue Demo-原生滚动条 1`] = `
+<div>
+  <div
+    class="root"
+    color="light"
+    native="true"
+    style="display: inline-block; height: 300px; width: 200px;"
+  >
+    <div
+      class="wrap"
+    >
+      <div>
+        <div
+          style="display: inline-block; height: 600px; width: 400px;"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`f-scroll-view.vue Demo-基本用法 1`] = `
+<div>
+  <div
+    class="root"
+    color="light"
+    style="display: inline-block; height: 300px; width: 200px;"
+  >
+    <div
+      class="wrap"
+    >
+      <div>
+        <div
+          style="display: inline-block; height: 600px; width: 400px;"
+        />
+      </div>
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+    >
+      <div
+        class="thumb"
+        style="transform: translateX(0%); webkit-transform: translateX(0%);"
+      />
+    </div>
+     
+    <div
+      class="root"
+      direction="vertical"
+    >
+      <div
+        class="thumb"
+        style="transform: translateY(0%); webkit-transform: translateY(0%);"
+      />
+    </div>
+  </div>
+</div>
+`;

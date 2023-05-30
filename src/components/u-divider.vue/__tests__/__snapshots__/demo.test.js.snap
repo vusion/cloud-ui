@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-divider.vue Demo-基本用法 1`] = `
+<div>
+  <div
+    class="root hairline content-center"
+    direction="horizontal"
+    role="separator"
+    style="padding: 0px;"
+  >
+    <span
+      vusion-slot-name="default"
+      vusion-slot-name-edit="title"
+    >
+      
+            内容
+            
+      <!---->
+    </span>
+  </div>
+</div>
+`;
+
+exports[`u-divider.vue Demo-实线 1`] = `
+<div>
+  <div
+    class="root hairline content-center"
+    direction="horizontal"
+    role="separator"
+    style="padding: 0px;"
+  >
+    <span
+      vusion-slot-name="default"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        文本
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`u-divider.vue Demo-左 1`] = `
+<div>
+  <div
+    class="root dashed hairline content-left"
+    direction="horizontal"
+    role="separator"
+    style="padding: 0px;"
+  >
+    <span
+      vusion-slot-name="default"
+      vusion-slot-name-edit="title"
+    >
+      
+            左
+            
+      <!---->
+    </span>
+  </div>
+</div>
+`;
+
+exports[`u-divider.vue Demo-竖向 1`] = `
+<div>
+  <div
+    class="root dashed hairline content-left"
+    direction="column"
+    role="separator"
+    style="padding: 0px;"
+  >
+    <span
+      vusion-slot-name="default"
+      vusion-slot-name-edit="title"
+    >
+      
+            左
+            
+      <!---->
+    </span>
+  </div>
+</div>
+`;
+
+exports[`u-divider.vue Demo-竖向 2`] = `
+<div>
+  <div
+    class="root hairline content-center"
+    direction="column"
+    role="separator"
+    style="padding: 0px;"
+  >
+    <span
+      vusion-slot-name="default"
+      vusion-slot-name-edit="title"
+    >
+      
+            中
+            
+      <!---->
+    </span>
+  </div>
+</div>
+`;
+
+exports[`u-divider.vue Demo-虚线 1`] = `
+<div>
+  <div
+    class="root dashed hairline content-center"
+    direction="horizontal"
+    role="separator"
+    style="padding: 0px;"
+  >
+    <span
+      vusion-slot-name="default"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        文本
+      </span>
+    </span>
+  </div>
+</div>
+`;
