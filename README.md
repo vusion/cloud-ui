@@ -84,7 +84,7 @@ npm run deploy:screenshots u-button
 npm test
 ```
 
-在提 PR 和发布之前都会自动运行单元测试，保证可靠性。
+在提 PR 和发布之前都会自动运行测试，保证可靠性。
 
 ### 快照测试
 
@@ -96,8 +96,10 @@ npm test
 * 如何符合预期，例如对文案或者组件结构进行了修改，可以运行以下命令更新快照：
 
 ```
-npx jest -u ${组件名称(例如u-button)}
+npm test -- -u ${组件名称(例如u-button)}
 ```
+
+更新后的快照文件请提交到 Git。
 
 ### 单元测试
 

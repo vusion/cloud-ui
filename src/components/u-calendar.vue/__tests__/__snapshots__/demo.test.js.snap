@@ -2338,7 +2338,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
           <span
             class="showtext"
           >
-            2023 年 
+            2022 年 
           </span>
            
           <transition-stub
@@ -2382,6 +2382,13 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
                         <!---->
                          
                         <div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2002
+                          </div>
                           <div
                             class="root yearitem"
                             vusion-slot-name="item"
@@ -2517,6 +2524,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
                           </div>
                           <div
                             class="root yearitem"
+                            selected="selected"
                             vusion-slot-name="item"
                           >
                             <!---->
@@ -2524,7 +2532,6 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
                           </div>
                           <div
                             class="root yearitem"
-                            selected="selected"
                             vusion-slot-name="item"
                           >
                             <!---->
@@ -2550,13 +2557,6 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
                           >
                             <!---->
                              2026
-                          </div>
-                          <div
-                            class="root yearitem"
-                            vusion-slot-name="item"
-                          >
-                            <!---->
-                             2027
                           </div>
                            
                           <!---->
@@ -2603,7 +2603,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
           <span
             class="showtext"
           >
-            5 月
+            8 月
           </span>
            
           <transition-stub
@@ -2677,7 +2677,6 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
                           </div>
                           <div
                             class="root yearitem"
-                            role="true"
                             vusion-slot-name="item"
                           >
                             <!---->
@@ -2699,6 +2698,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
                           </div>
                           <div
                             class="root yearitem"
+                            role="true"
                             vusion-slot-name="item"
                           >
                             <!---->
@@ -2890,7 +2890,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
           <span
             class="item"
           >
-            30
+            31
           </span>
         </span>
         <span
@@ -2980,7 +2980,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role=""
-          sel=""
+          sel="sel"
           sindex="1"
         >
           <span
@@ -2992,7 +2992,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role=""
-          sel=""
+          sel="sel"
           sindex="2"
         >
           <span
@@ -3004,7 +3004,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role=""
-          sel=""
+          sel="sel"
           sindex="3"
         >
           <span
@@ -3016,7 +3016,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role=""
-          sel=""
+          sel="sel"
           sindex="4"
         >
           <span
@@ -3028,7 +3028,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role=""
-          sel=""
+          sel="sel"
           sindex="5"
         >
           <span
@@ -3040,7 +3040,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role=""
-          sel=""
+          sel="sel"
           sindex="6"
         >
           <span
@@ -3052,7 +3052,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role=""
-          sel=""
+          sel="sel"
           sindex="0"
         >
           <span
@@ -3232,7 +3232,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role=""
-          sel="sel"
+          sel=""
           sindex="1"
         >
           <span
@@ -3244,9 +3244,8 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role=""
-          sel="sel"
+          sel=""
           sindex="2"
-          today="true"
         >
           <span
             class="item"
@@ -3257,7 +3256,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role=""
-          sel="sel"
+          sel=""
           sindex="3"
         >
           <span
@@ -3269,7 +3268,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role="muted"
-          sel="sel"
+          sel=""
           sindex="4"
         >
           <span
@@ -3281,7 +3280,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role="muted"
-          sel="sel"
+          sel=""
           sindex="5"
         >
           <span
@@ -3293,7 +3292,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role="muted"
-          sel="sel"
+          sel=""
           sindex="6"
         >
           <span
@@ -3305,7 +3304,7 @@ exports[`u-calendar.vue Demo-周选择组件 1`] = `
         <span
           class="daywrap"
           role="muted"
-          sel="sel"
+          sel=""
           sindex="0"
         >
           <span
@@ -3459,7 +3458,7 @@ exports[`u-calendar.vue Demo-基本用法 1`] = `
           <span
             class="showtext"
           >
-            2023 年 
+            2022 年 
           </span>
            
           <transition-stub
@@ -3503,6 +3502,13 @@ exports[`u-calendar.vue Demo-基本用法 1`] = `
                         <!---->
                          
                         <div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2002
+                          </div>
                           <div
                             class="root yearitem"
                             vusion-slot-name="item"
@@ -3638,6 +3644,7 @@ exports[`u-calendar.vue Demo-基本用法 1`] = `
                           </div>
                           <div
                             class="root yearitem"
+                            selected="selected"
                             vusion-slot-name="item"
                           >
                             <!---->
@@ -3645,7 +3652,6 @@ exports[`u-calendar.vue Demo-基本用法 1`] = `
                           </div>
                           <div
                             class="root yearitem"
-                            selected="selected"
                             vusion-slot-name="item"
                           >
                             <!---->
@@ -3671,13 +3677,6 @@ exports[`u-calendar.vue Demo-基本用法 1`] = `
                           >
                             <!---->
                              2026
-                          </div>
-                          <div
-                            class="root yearitem"
-                            vusion-slot-name="item"
-                          >
-                            <!---->
-                             2027
                           </div>
                            
                           <!---->
@@ -3724,7 +3723,7 @@ exports[`u-calendar.vue Demo-基本用法 1`] = `
           <span
             class="showtext"
           >
-            5 月
+            8 月
           </span>
            
           <transition-stub
@@ -3798,7 +3797,6 @@ exports[`u-calendar.vue Demo-基本用法 1`] = `
                           </div>
                           <div
                             class="root yearitem"
-                            role="true"
                             vusion-slot-name="item"
                           >
                             <!---->
@@ -3820,6 +3818,7 @@ exports[`u-calendar.vue Demo-基本用法 1`] = `
                           </div>
                           <div
                             class="root yearitem"
+                            role="true"
                             vusion-slot-name="item"
                           >
                             <!---->
@@ -4011,7 +4010,7 @@ exports[`u-calendar.vue Demo-基本用法 1`] = `
           <span
             class="item"
           >
-            30
+            31
           </span>
         </span>
         <span
@@ -4101,7 +4100,7 @@ exports[`u-calendar.vue Demo-基本用法 1`] = `
         <span
           class="daywrap"
           role=""
-          sel=""
+          sel="sel"
           sindex="1"
         >
           <span
@@ -4365,9 +4364,8 @@ exports[`u-calendar.vue Demo-基本用法 1`] = `
         <span
           class="daywrap"
           role=""
-          sel="sel"
+          sel=""
           sindex="2"
-          today="true"
         >
           <span
             class="item"
@@ -5587,7 +5585,7 @@ exports[`u-calendar.vue Demo-季选择组件 1`] = `
         class="yearCenter"
       >
         <span>
-          2023年
+          2022年
         </span>
       </div>
        
@@ -5783,6 +5781,7 @@ exports[`u-calendar.vue Demo-年选择组件 1`] = `
           </li>
           <li
             class="boxItem"
+            role="true"
             sindex="0"
           >
             <div
@@ -5793,7 +5792,6 @@ exports[`u-calendar.vue Demo-年选择组件 1`] = `
           </li>
           <li
             class="boxItem"
-            role="true"
             sindex="1"
           >
             <div
@@ -5834,6 +5832,7 @@ exports[`u-calendar.vue Demo-年选择组件 1`] = `
           </li>
           <li
             class="boxItem"
+            disabled="disabled"
             sindex="2"
           >
             <div
@@ -7116,7 +7115,7 @@ exports[`u-calendar.vue Demo-月选择组件 1`] = `
         class="yearCenter"
       >
         <span>
-          2023年
+          2022年
         </span>
       </div>
        
@@ -7199,7 +7198,6 @@ exports[`u-calendar.vue Demo-月选择组件 1`] = `
           </li>
           <li
             class="boxItem"
-            role="true"
             sindex="1"
           >
             <div
@@ -7230,6 +7228,7 @@ exports[`u-calendar.vue Demo-月选择组件 1`] = `
           </li>
           <li
             class="boxItem"
+            role="true"
             sindex="1"
           >
             <div

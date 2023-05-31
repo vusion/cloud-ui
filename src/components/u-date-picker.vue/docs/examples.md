@@ -3,7 +3,7 @@
 ``` html
 <u-linear-layout>
     <u-date-picker date="2018-08-08" clearable></u-date-picker>
-    <u-date-picker preIcon suffixIcon="calendar" width="400" clearable></u-date-picker>
+    <u-date-picker preIcon suffixIcon="calendar" width="400" date="2022-08-08" clearable></u-date-picker>
 </u-linear-layout>
 ```
 ### 自动对焦
@@ -12,12 +12,12 @@
 <u-date-picker date="2018-08-08" autofocus></u-date-picker>
 ```
 
-### 弹窗对其方式
+### 弹窗对其方式
 
 ``` html
 <u-linear-layout>
-    <u-date-picker placeholder="请选择日期" alignment="left"></u-date-picker>
-    <u-date-picker placeholder="请选择日期" alignment="right"></u-date-picker>
+    <u-date-picker date="2018-08-08" placeholder="请选择日期" alignment="left"></u-date-picker>
+    <u-date-picker date="2018-08-08" placeholder="请选择日期" alignment="right"></u-date-picker>
 </u-linear-layout>
 
 ```
@@ -40,7 +40,7 @@
 ``` vue
 <template>
 <u-date-picker min-date="2021-06-18T00:00:00.000Z" time="morning" year-diff="1" max-date="2025" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
-</template>  
+</template>
 
 <script>
 export default {

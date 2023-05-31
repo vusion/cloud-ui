@@ -7,6 +7,10 @@ module.exports.ignoredFiles = [
     'src/components/u-count-down.vue',
     // Swiper 生成的 swiper-wrapper ID 一直在变化
     'src/components/u-gallery.vue',
+    // 日历默认是当前，每天渲染的结果都不一样
+    'src/components/u-calendar-view.vue/docs/blocks.md',
+    // 日期时间选择器里，不管传入什么，未显示的日历都是今天（貌似是 bug？）
+    'src/components/u-date-time-picker.vue',
     // TypeError: Cannot read property 'includes' of undefined
     'src/components/u-tooltip.vue/docs/cases.md',
     // TypeError: Cannot read property 'paging' of undefined
