@@ -2,19 +2,21 @@
   <table
     cellspacing="0"
     cellpadding="0"
-    class="el-date-table"
     @click="handleClick"
     @mousemove="handleMouseMove"
-    :class="{ 'is-week-mode': selectionMode === 'week' }">
+    :class="{ [$style.dateTable]: true, [$style.isWeekMode]: selectionMode === 'week' }">
     <tbody>
-    <tr>
-      <th v-if="showWeekNumber">{{ $t('el.datepicker.week') }}</th>
-      <th v-for="(week, key) in WEEKS" :key="key">{{ $t(week) }}</th>
+    <tr :class="$style.week">
+      <th
+        v-for="(week, index) in WEEKS"
+        :class="{ [$style.weekend]: index === 0 || index === 6 }"
+        :key="index">
+        {{ $t(week) }}
+      </th>
     </tr>
     <tr
-      class="el-date-table__row"
       v-for="(row, key) in rows"
-      :class="{ current: isWeekActive(row[1]) }"
+      :class="{ [$style.row]: true, [$style.current]: isWeekActive(row[1]) }"
       :key="key">
       <td
         v-for="(cell, key) in row"
@@ -22,7 +24,7 @@
         :key="key">
         <div>
           <span>
-            {{ cell.text }}
+            {{ cell.text | formatDay }}
           </span>
         </div>
       </td>
@@ -36,7 +38,7 @@ import { getFirstDayOfMonth, getDayCountOfMonth, getWeekNumber, getStartDateOfMo
 import i18n from '../i18n';
 import { coerceTruthyValueToArray } from '../util';
 
-const WEEKS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+const WEEKS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const getDateTimestamp = function(time) {
   if (typeof time === 'number' || typeof time === 'string') {
     return _clearTime(new Date(time)).getTime();
@@ -77,11 +79,6 @@ export default {
 
     selectionMode: {
       default: 'day'
-    },
-
-    showWeekNumber: {
-      type: Boolean,
-      default: true
     },
 
     disabledDate: {},
@@ -148,14 +145,8 @@ export default {
       for (let i = 0; i < 6; i++) {
         const row = rows[i];
 
-        if (this.showWeekNumber) {
-          if (!row[0]) {
-            row[0] = { type: 'week', text: getWeekNumber(nextDate(startDate, i * 7 + 1)) };
-          }
-        }
-
         for (let j = 0; j < 7; j++) {
-          let cell = row[this.showWeekNumber ? j + 1 : j];
+          let cell = row[j];
           if (!cell) {
             cell = { row: i, column: j, type: 'normal', inRange: false, start: false, end: false };
           }
@@ -165,6 +156,7 @@ export default {
           const index = i * 7 + j;
           const time = nextDate(startDate, index - offset).getTime();
           cell.inRange = time >= getDateTimestamp(this.minDate) && time <= getDateTimestamp(this.maxDate);
+
           cell.start = this.minDate && time === getDateTimestamp(this.minDate);
           cell.end = this.maxDate && time === getDateTimestamp(this.maxDate);
           const isToday = time === now;
@@ -195,12 +187,12 @@ export default {
           cell.disabled = typeof disabledDate === 'function' && disabledDate(cellDate);
           cell.selected = selectedDate.find(date => date.getTime() === cellDate.getTime());
           cell.customClass = typeof cellClassName === 'function' && cellClassName(cellDate);
-          this.$set(row, this.showWeekNumber ? j + 1 : j, cell);
+          this.$set(row, j, cell);
         }
 
         if (this.selectionMode === 'week') {
-          const start = this.showWeekNumber ? 1 : 0;
-          const end = this.showWeekNumber ? 7 : 6;
+          const start = 0;
+          const end = 6;
           const isWeekActive = this.isWeekActive(row[start + 1]);
 
           row[start].inRange = isWeekActive;
@@ -240,6 +232,12 @@ export default {
     };
   },
 
+  filters: {
+    formatDay(value) {
+      return value < 10 ? `0${value}` : value;
+    },
+  },
+
   methods: {
     cellMatchesDate(cell, date) {
       const value = new Date(date);
@@ -271,14 +269,14 @@ export default {
       }
 
       if (cell.inRange && ((cell.type === 'normal' || cell.type === 'today') || this.selectionMode === 'week')) {
-        classes.push('in-range');
+        classes.push('inRange');
 
         if (cell.start) {
-          classes.push('start-date');
+          classes.push('startDate');
         }
 
         if (cell.end) {
-          classes.push('end-date');
+          classes.push('endDate');
         }
       }
 
@@ -294,11 +292,11 @@ export default {
         classes.push(cell.customClass);
       }
 
-      return classes.join(' ');
+      return classes.map(item => this.$style[item])
     },
 
     getDateOfCell(row, column) {
-      const offsetFromStart = row * 7 + (column - (this.showWeekNumber ? 1 : 0)) - this.offsetDay;
+      const offsetFromStart = row * 7 + column - this.offsetDay;
       return nextDate(this.startDate, offsetFromStart);
     },
 
@@ -338,10 +336,8 @@ export default {
       for (let i = 0, k = rows.length; i < k; i++) {
         const row = rows[i];
         for (let j = 0, l = row.length; j < l; j++) {
-          if (this.showWeekNumber && j === 0) continue;
-
           const cell = row[j];
-          const index = i * 7 + j + (this.showWeekNumber ? -1 : 0);
+          const index = i * 7 + j;
           const time = nextDate(startDate, index - this.offsetDay).getTime();
 
           cell.inRange = minDate && time >= minDate && time <= maxDate;
@@ -438,3 +434,169 @@ export default {
   }
 };
 </script>
+
+<style module>
+.dateTable {
+  font-size: 14px;
+  user-select: none;
+}
+
+.dateTable.isWeekMode .row:hover div {
+  background-color: var(--datepicker-inrange-background-color);
+}
+
+.dateTable.isWeekMode .row:hover td.available:hover {
+  color: var(--datepicker-font-color);
+}
+
+.dateTable.isWeekMode .row:hover td:first-child div {
+  margin-left: 5px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.dateTable.isWeekMode .row:hover td:last-child div {
+  margin-right: 5px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.dateTable.isWeekMode .row.current div {
+  background-color: var(--datepicker-inrange-background-color);
+}
+
+.dateTable .week .weekend {
+  color: var(--calendar-item-week-color)
+}
+
+.dateTable td {
+  width: 24px;
+  height: 30px;
+  padding: 4px 0;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.dateTable td div {
+  height: 30px;
+  padding: 3px 0;
+  box-sizing: border-box;
+  cursor: var(--cursor-pointer);
+}
+
+.dateTable td span {
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin: 0 auto;
+  line-height: 24px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: var(--calendar-item-border-radius);
+  border: 1px solid var(--calendar-item-border-color);
+}
+
+.dateTable td.next-month,
+.dateTable td.prev-month {
+  color: var(--calendar-item-color-muted);
+}
+
+.dateTable td.today {
+  position: relative;
+}
+
+.dateTable td.today span {
+  color: var(--calendar-item-color-today);
+}
+
+.dateTable td.today.startDate span,
+.dateTable td.today.endDate span {
+  color: var(--color-white);
+  background-color: var(--calendar-item-background-selected);
+}
+
+.dateTable td.available:hover {
+  color: var(--calendar-item-color-hover);
+}
+.dateTable td.available:hover span {
+  background-color: var(--calendar-item-background-hover);
+  border-color: var(--calendar-item-border-color-hover);
+}
+
+.dateTable td.inRange div {
+  background-color: var(--calendar-inrange-background-color);
+}
+
+.dateTable td.inRange div:hover {
+  background-color: var(--calendar-item-background-hover);;
+}
+
+.dateTable td.current:not(.disabled) span {
+  color: var(--calendar-item-color-selected);
+  border-color: var(--calendar-item-border-color-selected);
+  background-color: var(--calendar-item-background-selected);
+}
+
+.dateTable td.startDate div,
+.dateTable td.endDate div {
+  color: var(--color-white);
+  background-color: var(--calendar-item-background-selected);
+}
+
+.dateTable td.startDate span,
+.dateTable td.endDate span {
+  background-color: var(--datepicker-active-color);
+}
+
+.dateTable td.startDate div {
+  margin-left: 5px;
+  border-top-left-radius: var(--calendar-item-border-radius);
+  border-bottom-left-radius: var(--calendar-item-border-radius);
+}
+
+.dateTable td.endDate div {
+  margin-right: 5px;
+  border-top-right-radius: var(--calendar-item-border-radius);
+  border-bottom-right-radius: var(--calendar-item-border-radius);
+}
+
+.dateTable td.disabled div {
+  background-color: var(--background-color-base);
+  opacity: 1;
+  cursor: not-allowed;
+  color: var(--color-text-placeholder);
+}
+
+/* 不支持多选模式，先屏蔽
+.dateTable td.selected div {
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: var(--datepicker-inrange-background-color);
+  border-radius: var(--calendar-item-border-radius);
+}
+
+.dateTable td.selected div:hover {
+  background-color: var(--datepicker-inrange-hover-background-color);
+}
+
+.dateTable td.selected span {
+  background-color: var(--datepicker-active-color);
+  color: var(--color-white);
+  border-radius: var(--calendar-item-border-radius);
+} */
+
+.dateTable td.week {
+  font-size: 80%;
+  color: var(--datepicker-header-font-color);
+}
+
+.dateTable th {
+  padding: 5px;
+  color: var(--datepicker-header-font-color);
+  font-weight: 400;
+  border-bottom: solid 1px var(--border-color-lighter);
+}
+</style>

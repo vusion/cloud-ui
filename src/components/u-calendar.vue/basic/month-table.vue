@@ -1,10 +1,10 @@
 <template>
-  <table @click="handleMonthTableClick" @mousemove="handleMouseMove" class="el-month-table">
+  <table @click="handleMonthTableClick" @mousemove="handleMouseMove" :class="$style.monthTable">
     <tbody>
     <tr v-for="(row, key) in rows" :key="key">
       <td :class="getCellStyle(cell)" v-for="(cell, key) in row" :key="key">
         <div>
-          <a class="cell">{{ $t('el.datepicker.months.' + months[cell.text]) }}</a>
+          <a :class="$style.cell">{{ monthTextList[cell.text] }}</a>
         </div>
       </td>
     </tr>
@@ -92,8 +92,21 @@ export default {
 
   data() {
     return {
-      months: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
-      tableRows: [ [], [], [] ],
+      monthTextList: [
+        this.$t('January'),
+        this.$t('February'),
+        this.$t('March'),
+        this.$t('April'),
+        this.$t('May'),
+        this.$t('June'),
+        this.$t('July'),
+        this.$t('August'),
+        this.$t('September'),
+        this.$t('October'),
+        this.$t('November'),
+        this.$t('December'),
+      ],
+      tableRows: [ [], [], [], [] ],
       lastRow: null,
       lastColumn: null
     };
@@ -128,7 +141,11 @@ export default {
           style['end-date'] = true;
         }
       }
-      return style;
+      const moduledStyle = {}
+      Object.keys(style).forEach(className => {
+        moduledStyle[this.$style[className]] = style[className]
+      })
+      return moduledStyle;
     },
     getMonthOfCell(month) {
       const year = this.date.getFullYear();
@@ -197,7 +214,7 @@ export default {
       if (hasClass(target, 'disabled')) return;
       const column = target.cellIndex;
       const row = target.parentNode.rowIndex;
-      const month = row * 4 + column;
+      const month = row * 3 + column;
       const newDate = this.getMonthOfCell(month);
       if (this.selectionMode === 'range') {
         if (!this.rangeState.selecting) {
@@ -232,9 +249,9 @@ export default {
       const selectedDate = [];
       const now = getMonthTimestamp(new Date());
 
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 4; i++) {
         const row = rows[i];
-        for (let j = 0; j < 4; j++) {
+        for (let j = 0; j < 3; j++) {
           let cell = row[j];
           if (!cell) {
             cell = { row: i, column: j, type: 'normal', inRange: false, start: false, end: false };
@@ -242,7 +259,7 @@ export default {
 
           cell.type = 'normal';
 
-          const index = i * 4 + j;
+          const index = i * 3 + j;
           const time = new Date(this.date.getFullYear(), index).getTime();
           cell.inRange = time >= getMonthTimestamp(this.minDate) && time <= getMonthTimestamp(this.maxDate);
           cell.start = this.minDate && time === getMonthTimestamp(this.minDate);
@@ -265,3 +282,92 @@ export default {
   }
 };
 </script>
+
+<style module>
+.monthTable {
+  margin: -1px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.monthTable td {
+  text-align: center;
+  /* padding: 8px 0px; */
+  cursor: pointer;
+}
+
+.monthTable td div {
+  height: 24px;
+  margin: 12px 0;
+  box-sizing: border-box;
+}
+
+/* .monthTable td.today .cell {
+	 color: var(--color-primary);
+	 font-weight: bold;
+} */
+.monthTable td.today.start-date .cell,
+.monthTable td.today.end-date .cell {
+  background-color: var(--brand-primary);
+  color: var(--field-background);
+}
+
+.monthTable td.disabled .cell {
+  background-color: var(--calendar-item-color-disabled);
+  cursor: not-allowed;
+  color: var(--calendar-item-background-disabled);
+}
+
+/* .monthTable td.disabled .cell:hover {
+  color: var(--color-text-placeholder);
+} */
+
+.monthTable td .cell {
+  width: 68px;
+  height: 24px;
+  display: block;
+  line-height: 24px;
+  color: var(--calendar-item-color);
+  margin: 0 auto;
+  border-radius: var(--calendar-item-border-radius);
+}
+
+.monthTable td .cell:hover {
+  color: var(--calendar-item-color-hover);
+  background-color: var(--calendar-item-background-hover);
+}
+
+/* .monthTable td.in-range div {
+  background-color: var(--datepicker-inrange-background-color);
+} */
+
+/* .monthTable td.in-range div:hover {
+  background-color: var(el--datepicker-inrange-hover-background-color);
+} */
+
+.monthTable td.start-date div,
+.monthTable td.end-date div {
+  color: var(--color-white);
+}
+
+.monthTable td.start-date .cell,
+.monthTable td.end-date .cell {
+  background-color: var(--brand-primary);
+  color: var(--field-background);
+}
+
+.monthTable td.start-date div {
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+.monthTable td.end-date div {
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.monthTable td.current:not(.disabled) .cell {
+  background-color: var(--brand-primary);
+  color: var(--field-background);
+}
+</style>

@@ -5,7 +5,6 @@
       class="el-picker-panel el-date-picker el-popper"
       :class="[{
         'has-sidebar': $slots.sidebar || shortcuts,
-        'has-time': showTime
       }, popperClass]">
       <div class="el-picker-panel__body-wrapper">
         <slot name="sidebar" class="el-picker-panel__sidebar"></slot>
@@ -26,12 +25,14 @@
               type="button"
               @click="prevYear"
               class="el-picker-panel__icon-btn el-date-picker__prev-btn el-icon-d-arrow-left">
+              &lt;&lt;
             </button>
             <button
               type="button"
               @click="prevMonth"
               v-show="currentView === 'date'"
               class="el-picker-panel__icon-btn el-date-picker__prev-btn el-icon-arrow-left">
+              &lt;
             </button>
             <span
               @click="showYearPicker"
@@ -42,17 +43,19 @@
               v-show="currentView === 'date'"
               role="button"
               class="el-date-picker__header-label"
-              :class="{ active: currentView === 'month' }">{{$t(`el.datepicker.month${ month + 1 }`)}}</span>
+              :class="{ active: currentView === 'month' }">{{ monthTextList[month] }}</span>
             <button
               type="button"
               @click="nextYear"
               class="el-picker-panel__icon-btn el-date-picker__next-btn el-icon-d-arrow-right">
+              &gt;&gt;
             </button>
             <button
               type="button"
               @click="nextMonth"
               v-show="currentView === 'date'"
               class="el-picker-panel__icon-btn el-date-picker__next-btn el-icon-arrow-right">
+              &gt;
             </button>
           </div>
 
@@ -120,18 +123,104 @@ import DateTable from '../basic/date-table';
 
 export default {
   i18n,
-  watch: {
-    showTime(val) {
-      /* istanbul ignore if */
-      if (!val) return;
-      this.$nextTick(_ => {
-        const inputElm = this.$refs.input.$el;
-        if (inputElm) {
-          this.pickerWidth = inputElm.getBoundingClientRect().width + 10;
-        }
-      });
+  props: {
+    value: '',
+  },
+  data() {
+    return {
+      popperClass: '',
+      date: new Date(),
+      defaultValue: null, // use getDefaultValue() for time computation
+      defaultTime: null,
+      selectionMode: 'day',
+      shortcuts: '',
+      visible: true,
+      currentView: 'date',
+      disabledDate: '',
+      cellClassName: '',
+      selectableRange: [],
+      firstDayOfWeek: 7,
+      showWeekNumber: false,
+      timePickerVisible: false,
+      format: '',
+      arrowControl: false,
+      userInputDate: null,
+      userInputTime: null,
+      monthTextList: [
+        this.$t('January'),
+        this.$t('February'),
+        this.$t('March'),
+        this.$t('April'),
+        this.$t('May'),
+        this.$t('June'),
+        this.$t('July'),
+        this.$t('August'),
+        this.$t('September'),
+        this.$t('October'),
+        this.$t('November'),
+        this.$t('December'),
+      ],
+    };
+  },
+
+  computed: {
+    year() {
+      return this.date.getFullYear();
     },
 
+    month() {
+      return this.date.getMonth();
+    },
+
+    week() {
+      return getWeekNumber(this.date);
+    },
+
+    monthDate() {
+      return this.date.getDate();
+    },
+
+    visibleTime() {
+      if (this.userInputTime !== null) {
+        return this.userInputTime;
+      } else {
+        return formatDate(this.value || this.defaultValue, this.timeFormat);
+      }
+    },
+
+    visibleDate() {
+      if (this.userInputDate !== null) {
+        return this.userInputDate;
+      } else {
+        return formatDate(this.value || this.defaultValue, this.dateFormat);
+      }
+    },
+
+    yearLabel() {
+      if (this.currentView === 'year') {
+        const startYear = Math.floor(this.year / 10) * 10;
+        return startYear + ' - ' + (startYear + 9);
+      }
+      return this.year + ' '
+    },
+
+    timeFormat() {
+      if (this.format) {
+        return extractTimeFormat(this.format);
+      } else {
+        return 'HH:mm:ss';
+      }
+    },
+
+    dateFormat() {
+      if (this.format) {
+        return extractDateFormat(this.format);
+      } else {
+        return 'yyyy-MM-dd';
+      }
+    }
+  },
+  watch: {
     value(val) {
       if (this.selectionMode === 'dates' && this.value) return;
       if (this.selectionMode === 'months' && this.value) return;
@@ -195,10 +284,10 @@ export default {
       if (!value) {
         this.$emit('pick', value, ...args);
       } else if (Array.isArray(value)) {
-        const dates = value.map(date => this.showTime ? clearMilliseconds(date) : clearTime(date));
+        const dates = value.map(date => clearTime(date));
         this.$emit('pick', dates, ...args);
       } else {
-        this.$emit('pick', this.showTime ? clearMilliseconds(value) : clearTime(value), ...args);
+        this.$emit('pick', clearTime(value), ...args);
       }
       this.userInputDate = null;
       this.userInputTime = null;
@@ -298,7 +387,7 @@ export default {
           newDate = modifyDate(this.selectableRange[0][0], value.getFullYear(), value.getMonth(), value.getDate());
         }
         this.date = newDate;
-        this.emit(this.date, this.showTime);
+        this.emit(this.date);
       } else if (this.selectionMode === 'week') {
         this.emit(value.date);
       } else if (this.selectionMode === 'dates') {
@@ -455,93 +544,6 @@ export default {
 
   components: {
     YearTable, MonthTable, DateTable,
-  },
-
-  data() {
-    return {
-      popperClass: '',
-      date: new Date(),
-      value: '',
-      defaultValue: null, // use getDefaultValue() for time computation
-      defaultTime: null,
-      showTime: false,
-      selectionMode: 'day',
-      shortcuts: '',
-      visible: true,
-      currentView: 'date',
-      disabledDate: '',
-      cellClassName: '',
-      selectableRange: [],
-      firstDayOfWeek: 7,
-      showWeekNumber: false,
-      timePickerVisible: false,
-      format: '',
-      arrowControl: false,
-      userInputDate: null,
-      userInputTime: null
-    };
-  },
-
-  computed: {
-    year() {
-      return this.date.getFullYear();
-    },
-
-    month() {
-      return this.date.getMonth();
-    },
-
-    week() {
-      return getWeekNumber(this.date);
-    },
-
-    monthDate() {
-      return this.date.getDate();
-    },
-
-    visibleTime() {
-      if (this.userInputTime !== null) {
-        return this.userInputTime;
-      } else {
-        return formatDate(this.value || this.defaultValue, this.timeFormat);
-      }
-    },
-
-    visibleDate() {
-      if (this.userInputDate !== null) {
-        return this.userInputDate;
-      } else {
-        return formatDate(this.value || this.defaultValue, this.dateFormat);
-      }
-    },
-
-    yearLabel() {
-      const yearTranslation = this.$t('el.datepicker.year');
-      if (this.currentView === 'year') {
-        const startYear = Math.floor(this.year / 10) * 10;
-        if (yearTranslation) {
-          return startYear + ' ' + yearTranslation + ' - ' + (startYear + 9) + ' ' + yearTranslation;
-        }
-        return startYear + ' - ' + (startYear + 9);
-      }
-      return this.year + ' ' + yearTranslation;
-    },
-
-    timeFormat() {
-      if (this.format) {
-        return extractTimeFormat(this.format);
-      } else {
-        return 'HH:mm:ss';
-      }
-    },
-
-    dateFormat() {
-      if (this.format) {
-        return extractDateFormat(this.format);
-      } else {
-        return 'yyyy-MM-dd';
-      }
-    }
   }
 };
 </script>

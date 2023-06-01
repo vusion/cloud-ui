@@ -4,6 +4,29 @@
 <u-calendar picker="date" date="2022-08-08"></u-calendar>
 ```
 
+### 范围选择
+
+``` vue
+<template>
+    <u-calendar-range picker="date" v-model="date" @change="change"></u-calendar-range>
+    <!-- <u-calendar-range picker="week"></u-calendar-range> -->
+</template>
+<script>
+export default {
+    data() {
+        return {
+            date: new Date()
+        };
+    },
+    methods: {
+        change(value) {
+            console.log(value);
+        },
+    }
+}
+</script>
+```
+
 ### 周选择组件
 
 ``` html
@@ -29,12 +52,6 @@
 <u-calendar picker="year" date="2022-08-08"></u-calendar>
 ```
 
-### 范围选择
-
-``` html
-<u-calendar-range picker="date"></u-calendar-range>
-<!-- <u-calendar-range picker="week"></u-calendar-range> -->
-```
 
 ### 只读和禁用
 ``` html

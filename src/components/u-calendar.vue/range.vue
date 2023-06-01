@@ -1,35 +1,43 @@
 <template>
-    <div :class="$style.root" :disabled="disabled" :border="border">
+    <div :class="$style.root">
         <DatePannel />
+        <DateRange @pick="emitInput" v-bind="$attrs" v-on="$listeners" />
     </div>
 </template>
 
 <script>
 import DatePannel from './panel/date'
+import DateRange from './panel/date-range'
 
 export default {
     name: 'u-calendar-range',
     components: {
-        DatePannel
+        DatePannel,
+        DateRange
     },
     props: {
-        date: {
-            type: [String, Number, Date],
-            default() {
-                return new Date();
-            },
-        },
-        /* week, month, year, quarter */
-        picker: { type: String, default: 'date' },
-        readonly: { type: Boolean, default: false },
-        disabled: { type: Boolean, default: false },
-        minDate: [String, Date, Number],
-        maxDate: [String, Date, Number],
-        yearDiff: { type: [String, Number], default: 20 },
-        yearAdd: { type: [String, Number], default: 4 },
-        yearPageSize: { type: Number, default: 12 },
-        border: { type: Boolean, default: true },
+        // value: {
+        //     type: [String, Number, Date],
+        //     default() {
+        //         return new Date();
+        //     },
+        // },
+        // /* week, month, year, quarter */
+        // picker: { type: String, default: 'date' },
+        // readonly: { type: Boolean, default: false },
+        // disabled: { type: Boolean, default: false },
+        // minDate: [String, Date, Number],
+        // maxDate: [String, Date, Number],
+        // yearDiff: { type: [String, Number], default: 20 },
+        // yearAdd: { type: [String, Number], default: 4 },
+        // yearPageSize: { type: Number, default: 12 },
+        // border: { type: Boolean, default: true },
     },
+    methods: {
+        emitInput(val) {
+            this.$emit('input', val);
+        },
+    }
 }
 </script>
 

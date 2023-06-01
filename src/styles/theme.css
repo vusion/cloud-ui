@@ -1733,6 +1733,7 @@
     --calendar-border-color: var(--border-color-base); /* @type color */ /* @desc 日历面板边框颜色,如：#223325 */
     --calendar-background: var(--field-background); /* @type color */ /* @desc 日历面板背景颜色,如：#223325 */
     --calendar-border-radius: var(--border-radius-base); /* @desc 日历面板边框圆角,如：1px */
+    --calendar-inrange-background-color: rgba(51, 126, 255, 0.1); /* @type color */ /* @desc 日历选中范围背景色,如：#223325 */
 
 
     --calendar-item-color: #333; /* @type color */ /* @desc 日历面板本月日期字体颜色,如：#223325 */
