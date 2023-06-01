@@ -7,6 +7,7 @@
     - [双向绑定](#双向绑定)
     - [Placeholder](#placeholder)
     - [仅显示什么区](#仅显示什么区)
+    - [过滤（可搜索）](#过滤可搜索)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -59,6 +60,15 @@ export default {
 ``` html
 <u-region-select showFinalValue trigger="hover"></u-region-select>
 ```
+
+### 过滤（可搜索）
+
+设置filterable属性即可开启过滤功能,解锁手动输入,用于快速查找选项。
+
+``` html
+<u-region-select filterable trigger="hover"></u-region-select>
+```
+
 ## API
 ### Props/Attrs
 

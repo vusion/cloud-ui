@@ -1400,9 +1400,33 @@
     "type": "boolean",
     "description": ""
   },
-  "u-cascader/data": {
+  "u-cascader/data-source": {
     "type": "Array<{ text, value }>",
     "description": "数据列表"
+  },
+  "u-cascader/data-schema": {
+    "type": "schema",
+    "description": "集合类型每一元素的数据类型"
+  },
+  "u-cascader/field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-cascader/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
+  "u-cascader/children-field": {
+    "type": "string",
+    "description": "树形数据子节点字段名，默认为children"
+  },
+  "u-cascader/parent-field": {
+    "type": "string",
+    "description": "当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置"
+  },
+  "u-cascader/value": {
+    "type": "any",
+    "description": ""
   },
   "u-cascader/placeholder": {
     "type": "string",
@@ -1422,10 +1446,6 @@
     ],
     "description": "触发方式"
   },
-  "u-cascader/value": {
-    "type": "any",
-    "description": ""
-  },
   "u-cascader/join": {
     "type": "string",
     "options": [
@@ -1443,10 +1463,6 @@
       }
     ],
     "description": "将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值"
-  },
-  "u-cascader/field": {
-    "type": "string",
-    "description": "显示文本字段"
   },
   "u-cascader/filterable": {
     "type": "boolean",
@@ -6446,9 +6462,17 @@
     "type": "string",
     "description": "集合的元素类型中，用于标识选中值的属性"
   },
+  "u-select/description": {
+    "type": "boolean",
+    "description": "是否展示文本描述"
+  },
   "u-select/description-field": {
     "type": "string",
     "description": "集合的元素类型中，用于显示文本下方辅助描述的属性名称"
+  },
+  "u-select/icon-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法"
   },
   "u-select/cancelable": {
     "type": "boolean",
@@ -6457,6 +6481,10 @@
   "u-select/multiple": {
     "type": "boolean",
     "description": "是否可以多选"
+  },
+  "u-select/show-render-footer": {
+    "type": "boolean",
+    "description": "可扩展下拉项,开启后可自定义下拉框选项"
   },
   "u-select/tags-overflow": {
     "type": "string",
@@ -6530,9 +6558,31 @@
     "type": "boolean",
     "description": "是否使用后端分页"
   },
+  "u-select/pagination": {
+    "type": "boolean",
+    "description": "是否使用分页功能加载更多"
+  },
   "u-select/page-size": {
     "type": "number",
+    "options": [
+      {
+        "value": 10,
+        "title": 10
+      },
+      {
+        "value": 20,
+        "title": 20
+      },
+      {
+        "value": 50,
+        "title": 50
+      }
+    ],
     "description": ""
+  },
+  "u-select/sorting": {
+    "type": "{ field: string, order: string, compare: Function }",
+    "description": "指数据初始化时的排序规则"
   },
   "u-select/clearable": {
     "type": "boolean",
@@ -6758,6 +6808,10 @@
     ],
     "description": "设置尺寸"
   },
+  "u-selectable-step/icon": {
+    "type": "icon",
+    "description": "在该步骤展示的图标"
+  },
   "u-selectable-step/title": {
     "type": "string",
     "description": "步骤标题文本"
@@ -6962,6 +7016,10 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-step/icon": {
+    "type": "icon",
+    "description": "在该步骤展示的图标"
+  },
   "u-step/title": {
     "type": "string",
     "description": "步骤名"
@@ -7010,23 +7068,27 @@
     "type": "boolean",
     "description": "是否使用后端分页"
   },
+  "u-table-view/pagination": {
+    "type": "boolean",
+    "description": "是否使用分页功能加载更多"
+  },
   "u-table-view/page-size": {
     "type": "number",
     "description": ""
   },
-  "u-table-view/page-number": {
-    "type": "number",
-    "description": ""
+  "u-table-view/show-sizer": {
+    "type": "boolean",
+    "description": "开启后显示分页大小切换器"
   },
   "u-table-view/page-size-options": {
     "type": "Array<number>",
-    "description": "分页大小的选项列表"
+    "description": "控制切换器有几个选项"
+  },
+  "u-table-view/page-number": {
+    "type": "number",
+    "description": "默认展示在第几页"
   },
   "u-table-view/show-total": {
-    "type": "boolean",
-    "description": ""
-  },
-  "u-table-view/show-sizer": {
     "type": "boolean",
     "description": ""
   },
@@ -7036,7 +7098,7 @@
   },
   "u-table-view/sorting": {
     "type": "{ field: string, order: string, compare: Function }",
-    "description": "指数据初始化时的排序规则"
+    "description": "控制初始化排序字段和顺序"
   },
   "u-table-view/remote-sorting": {
     "type": "boolean",
@@ -7226,13 +7288,17 @@
     "type": "boolean",
     "description": "以树形数据展示表格"
   },
+  "u-table-view/parent-field": {
+    "type": "string",
+    "description": "当数据源为平铺数据时自动生成树形数据的节点字段名，重要：值字段名需要一起配置"
+  },
   "u-table-view/children-field": {
     "type": "string",
-    "description": "树形数据子节点字段名"
+    "description": "树形数据子节点字段名，默认为children"
   },
   "u-table-view/has-children-field": {
     "type": "string",
-    "description": "该字段指定行数据是否包含子节点数据"
+    "description": "该字段指定行数据是否包含子节点数据，默认为hasChildren"
   },
   "u-table-view/tree-check-type": {
     "type": "string",
@@ -7335,14 +7401,21 @@
       },
       {
         "value": "editable",
-        "title": "编辑列"
+        "title": "编辑列",
+        "dependency": [
+          {
+            "!field": null
+          }
+        ],
+        "dependencyDisplay": "disabled",
+        "tooltip": "与列字段关联，列字段不能为空"
       },
       {
         "value": "dragHandler",
         "title": "拖拽标识列"
       }
     ],
-    "description": "支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序"
+    "description": "支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序。选择编辑列需要先设置列字段。"
   },
   "u-table-view-column/auto-index": {
     "type": "boolean",
@@ -8361,13 +8434,13 @@
     "type": "string",
     "description": "集合的元素类型中，用于标识选中值的属性"
   },
-  "u-tree-select-new/children-field": {
-    "type": "string",
-    "description": "集合的元素类型中，用于标识子节点的属性"
-  },
   "u-tree-select-new/parent-field": {
     "type": "string",
     "description": "集合的元素类型中，用于标识父节点的属性"
+  },
+  "u-tree-select-new/children-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识子节点的属性，默认为children"
   },
   "u-tree-select-new/value": {
     "type": "any",
@@ -8407,7 +8480,7 @@
   },
   "u-tree-view-new/children-field": {
     "type": "string",
-    "description": "集合的元素类型中，用于标识子节点的属性"
+    "description": "集合的元素类型中，用于标识子节点的属性，默认为children"
   },
   "u-tree-view-new/parent-field": {
     "type": "string",

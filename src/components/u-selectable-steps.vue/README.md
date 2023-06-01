@@ -7,6 +7,7 @@
     - [自定义标题](#自定义标题)
     - [宽度自适应](#宽度自适应)
     - [禁用](#禁用)
+    - [自定义图标](#自定义图标)
     - [竖向步骤条](#竖向步骤条)
 - [USelectableSteps API](#uselectablesteps-api)
     - [Props/Attrs](#propsattrs)
@@ -71,6 +72,16 @@
     <u-selectable-step title="Step1">Content1</u-selectable-step>
     <u-selectable-step title="Step2" disabled>Content2</u-selectable-step>
     <u-selectable-step title="Step3">Content3</u-selectable-step>
+</u-selectable-steps>
+```
+
+### 自定义图标
+
+```html
+<u-selectable-steps :value="1">
+    <u-selectable-step title="Step1" icon="find">Content1</u-selectable-step>
+    <u-selectable-step title="Step2" icon="task-done">Content2</u-selectable-step>
+    <u-selectable-step title="Step3" icon="notice">Content3</u-selectable-step>
 </u-selectable-steps>
 ```
 
@@ -141,6 +152,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| icon | icon |  | `''` | 在该步骤展示的图标 |
 | title | string |  |  | 步骤标题文本 |
 | desc | string |  | `''` | 步骤描述信息 |
 | disabled | boolean |  | `false` |  |

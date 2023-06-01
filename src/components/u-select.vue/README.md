@@ -1336,6 +1336,24 @@ export default {
 </u-linear-layout>
 ```
 
+#### 自定义可扩展下拉项
+
+开启可扩展下拉项后 即`showRenderFooter`为 `true`，可使用 `renderFooter`插槽 对下拉菜单进行自由扩展
+
+``` vue
+<template>
+  <u-select showRenderFooter>
+    <u-select-item value="php">PHP</u-select-item>
+    <template #renderFooter>
+     <div style="padding: 6px 0; text-align: center;">
+       <u-button>Click Me</u-button>
+      </div>
+    </template>
+   </u-select>
+</template>
+<script>
+```
+
 ## USelect API
 ### Props/Attrs
 
@@ -1346,9 +1364,12 @@ export default {
 | data-schema | schema |  |  | 选择器每一行的数据类型 |
 | text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
 | value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
+| description | boolean |  | `false` | 是否展示文本描述 |
 | description-field | string |  |  | 集合的元素类型中，用于显示文本下方辅助描述的属性名称 |
+| icon-field | string |  |  | 集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法 |
 | cancelable | boolean |  | `false` |  |
 | multiple | boolean |  | `false` | 是否可以多选 |
+| show-render-footer | boolean |  | `false` | 可扩展下拉项,开启后可自定义下拉框选项 |
 | tags-overflow | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'collapse'` | 多选项过多时的展示形式 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。 |
 | placeholder | string |  | `'请选择'` | 选择框的占位符 |
@@ -1359,7 +1380,9 @@ export default {
 | initial-load | boolean |  | `true` | 是否在初始时立即加载 |
 | pageable | boolean |  | `false` | 是否使用分页功能加载更多 |
 | remote-paging | boolean |  | `false` | 是否使用后端分页 |
-| page-size.sync | number |  | `50` |  |
+| pagination | boolean |  |  | 是否使用分页功能加载更多 |
+| page-size | number | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `50` |  |
+| sorting | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 指数据初始化时的排序规则 |
 | clearable | boolean |  | `false` | 是否有清除按钮 |
 | filterable | boolean |  | `false` | 是否使用输入框进行筛选 |
 | remote-filtering | boolean |  | `false` | 是否使用后端筛选 |
@@ -1566,6 +1589,15 @@ Methods
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
+
+#### addItem(item, inFirst)
+
+添加项
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+| item | object |  | 当前添加的项 |
+| inFirst | boolean | `false` | 是否添加到列表的第一项 |
 
 ## USelectItem API
 ### Props/Attrs
