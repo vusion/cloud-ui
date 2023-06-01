@@ -1,0 +1,2056 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-dynamic-cards.vue Demo-Mini 自定义 1`] = `
+<div
+  class="root root"
+  direction="vertical"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+  >
+    <div
+      class="mini"
+      style="display: none;"
+    >
+      <span
+        class="mini-text"
+      >
+        <span>
+          xxx 8000
+        </span>
+      </span>
+       
+      <div
+        class="textWrap"
+      >
+        <span
+          class="error"
+          style="display: none;"
+        >
+          false
+        </span>
+         
+        <a
+          class="root"
+          hovertype="underline"
+          tabindex="0"
+          target="_self"
+          vusion-slot-name-edit="text"
+        >
+          <!---->
+           展开
+        </a>
+      </div>
+    </div>
+     
+    <div>
+      <div
+        class="actions"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          type=""
+          vusion-slot-name="default"
+        >
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             删除
+          </a>
+           
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             收起
+          </a>
+           
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+        
+      <div
+        class="root"
+        direction="horizontal"
+        type=""
+        vusion-slot-name="default"
+      >
+        <div
+          color=""
+          size="huge normal"
+        >
+          <span>
+            b
+          </span>
+           
+          <span>
+            
+          </span>
+           
+          <!---->
+           
+          <input
+            size="huge normal"
+            type="text"
+          />
+            
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          size="huge normal"
+          tabindex="0"
+        >
+          <span>
+            b
+          </span>
+           
+          <span
+            style="display: none;"
+          >
+            请选择
+          </span>
+           
+          <!---->
+           
+          <div
+            style="direction: ltr;"
+            tags-overflow="collapse"
+          >
+            <!---->
+             
+            <!---->
+             
+                                abc
+                             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+           
+          <transition-stub
+            name="fade"
+            style="width: 100%;"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div>
+                 
+                <div
+                  class="root"
+                  selected="selected"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                abc
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                def
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                zzz
+                             
+                  <!---->
+                </div>
+                 
+                <!---->
+              </div>
+               
+              <!---->
+            </div>
+          </transition-stub>
+        </div>
+         
+        <div
+          size="huge normal"
+        >
+          <span>
+            b
+          </span>
+           
+          <span>
+            
+          </span>
+           
+          <!---->
+           
+          <input
+            size="huge normal"
+            type="text"
+          />
+            
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="root"
+    mini="true"
+  >
+    <div
+      class="mini"
+    >
+      <span
+        class="mini-text"
+      >
+        <span>
+          xxx 8000
+        </span>
+      </span>
+       
+      <div
+        class="textWrap"
+      >
+        <span
+          class="error"
+          style="display: none;"
+        >
+          false
+        </span>
+         
+        <a
+          class="root"
+          hovertype="underline"
+          tabindex="0"
+          target="_self"
+          vusion-slot-name-edit="text"
+        >
+          <!---->
+           展开
+        </a>
+      </div>
+    </div>
+     
+    <div
+      style="display: none;"
+    >
+      <div
+        class="actions"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          type=""
+          vusion-slot-name="default"
+        >
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             删除
+          </a>
+           
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             收起
+          </a>
+           
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+        
+      <div
+        class="root"
+        direction="horizontal"
+        type=""
+        vusion-slot-name="default"
+      >
+        <div
+          color=""
+          size="huge normal"
+        >
+          <span>
+            b
+          </span>
+           
+          <span>
+            
+          </span>
+           
+          <!---->
+           
+          <input
+            size="huge normal"
+            type="text"
+          />
+            
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          size="huge normal"
+          tabindex="0"
+        >
+          <span>
+            b
+          </span>
+           
+          <span
+            style="display: none;"
+          >
+            请选择
+          </span>
+           
+          <!---->
+           
+          <div
+            style="direction: ltr;"
+            tags-overflow="collapse"
+          >
+            <!---->
+             
+            <!---->
+             
+                                abc
+                             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+           
+          <transition-stub
+            name="fade"
+            style="width: 100%;"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div>
+                 
+                <div
+                  class="root"
+                  selected="selected"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                abc
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                def
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                zzz
+                             
+                  <!---->
+                </div>
+                 
+                <!---->
+              </div>
+               
+              <!---->
+            </div>
+          </transition-stub>
+        </div>
+         
+        <div
+          size="huge normal"
+        >
+          <span>
+            b
+          </span>
+           
+          <span>
+            
+          </span>
+           
+          <!---->
+           
+          <input
+            size="huge normal"
+            type="text"
+          />
+            
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     添加
+  </a>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-dynamic-cards.vue Demo-基本用法 1`] = `
+<div
+  class="root root"
+  direction="vertical"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+  >
+    <div
+      class="mini"
+      style="display: none;"
+    >
+      <span
+        class="mini-text"
+      >
+        xxx
+      </span>
+       
+      <div
+        class="textWrap"
+      >
+        <span
+          class="error"
+          style="display: none;"
+        >
+          false
+        </span>
+         
+        <a
+          class="root"
+          hovertype="underline"
+          tabindex="0"
+          target="_self"
+          vusion-slot-name-edit="text"
+        >
+          <!---->
+           展开
+        </a>
+      </div>
+    </div>
+     
+    <div>
+      <div
+        class="actions"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          type=""
+          vusion-slot-name="default"
+        >
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             删除
+          </a>
+           
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             收起
+          </a>
+           
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+        
+      <div
+        class="root"
+        direction="horizontal"
+        type=""
+        vusion-slot-name="default"
+      >
+        <div
+          color=""
+          size="huge normal"
+        >
+          <span>
+            b
+          </span>
+           
+          <span>
+            
+          </span>
+           
+          <!---->
+           
+          <input
+            size="huge normal"
+            type="text"
+          />
+            
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          size="huge normal"
+          tabindex="0"
+        >
+          <span>
+            b
+          </span>
+           
+          <span
+            style="display: none;"
+          >
+            请选择
+          </span>
+           
+          <!---->
+           
+          <div
+            style="direction: ltr;"
+            tags-overflow="collapse"
+          >
+            <!---->
+             
+            <!---->
+             
+                                abc
+                             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+           
+          <transition-stub
+            name="fade"
+            style="width: 100%;"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div>
+                 
+                <div
+                  class="root"
+                  selected="selected"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                abc
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                def
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                zzz
+                             
+                  <!---->
+                </div>
+                 
+                <!---->
+              </div>
+               
+              <!---->
+            </div>
+          </transition-stub>
+        </div>
+         
+        <div
+          size="huge normal"
+        >
+          <span>
+            b
+          </span>
+           
+          <span>
+            
+          </span>
+           
+          <!---->
+           
+          <input
+            size="huge normal"
+            type="text"
+          />
+            
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="root"
+    mini="true"
+  >
+    <div
+      class="mini"
+    >
+      <span
+        class="mini-text"
+      >
+        222
+      </span>
+       
+      <div
+        class="textWrap"
+      >
+        <span
+          class="error"
+          style="display: none;"
+        >
+          false
+        </span>
+         
+        <a
+          class="root"
+          hovertype="underline"
+          tabindex="0"
+          target="_self"
+          vusion-slot-name-edit="text"
+        >
+          <!---->
+           展开
+        </a>
+      </div>
+    </div>
+     
+    <div
+      style="display: none;"
+    >
+      <div
+        class="actions"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          type=""
+          vusion-slot-name="default"
+        >
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             删除
+          </a>
+           
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             收起
+          </a>
+           
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+        
+      <div
+        class="root"
+        direction="horizontal"
+        type=""
+        vusion-slot-name="default"
+      >
+        <div
+          color=""
+          size="huge normal"
+        >
+          <span>
+            b
+          </span>
+           
+          <span>
+            
+          </span>
+           
+          <!---->
+           
+          <input
+            size="huge normal"
+            type="text"
+          />
+            
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          size="huge normal"
+          tabindex="0"
+        >
+          <span>
+            b
+          </span>
+           
+          <span
+            style="display: none;"
+          >
+            请选择
+          </span>
+           
+          <!---->
+           
+          <div
+            style="direction: ltr;"
+            tags-overflow="collapse"
+          >
+            <!---->
+             
+            <!---->
+             
+                                def
+                             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+           
+          <transition-stub
+            name="fade"
+            style="width: 100%;"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div>
+                 
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                abc
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  selected="selected"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                def
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                zzz
+                             
+                  <!---->
+                </div>
+                 
+                <!---->
+              </div>
+               
+              <!---->
+            </div>
+          </transition-stub>
+        </div>
+         
+        <div
+          size="huge normal"
+        >
+          <span>
+            b
+          </span>
+           
+          <span>
+            
+          </span>
+           
+          <!---->
+           
+          <input
+            size="huge normal"
+            type="text"
+          />
+            
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     添加
+  </a>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-dynamic-cards.vue Demo-表单验证 1`] = `
+<div
+  class="root root"
+  direction="vertical"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+  >
+    <div
+      class="mini"
+      style="display: none;"
+    >
+      <span
+        class="mini-text"
+      >
+        -
+      </span>
+       
+      <div
+        class="textWrap"
+      >
+        <span
+          class="error"
+          style="display: none;"
+        >
+          
+        </span>
+         
+        <a
+          class="root"
+          hovertype="underline"
+          tabindex="0"
+          target="_self"
+          vusion-slot-name-edit="text"
+        >
+          <!---->
+           展开
+        </a>
+      </div>
+    </div>
+     
+    <div>
+      <div
+        class="actions"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          type=""
+          vusion-slot-name="default"
+        >
+          <a
+            class="root"
+            disabled="disabled"
+            hovertype="underline"
+            tabindex="-1"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             删除
+          </a>
+           
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             收起
+          </a>
+           
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+        
+      <div
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          type=""
+          vusion-slot-name="default"
+        >
+          <div
+            vusion-slot-name="default"
+          >
+            <div
+              color=""
+              size="huge normal"
+            >
+              <span>
+                b
+              </span>
+               
+              <span>
+                URL
+              </span>
+               
+              <!---->
+               
+              <input
+                size="huge normal"
+                type="text"
+              />
+                
+              <!---->
+            </div>
+             
+            <span
+              color="error"
+              style="display: none;"
+            >
+              false
+            </span>
+             
+            <!---->
+          </div>
+           
+          <div
+            vusion-slot-name="default"
+          >
+            <div
+              class="root"
+              disabled="disabled"
+              size="huge normal"
+              tabindex=""
+            >
+              <span>
+                b
+              </span>
+               
+              <span>
+                请选择
+              </span>
+               
+              <!---->
+               
+              <div
+                style="direction: ltr;"
+                tags-overflow="collapse"
+              >
+                <!---->
+                 
+                <!---->
+                 
+                <!---->
+                 
+                <!---->
+              </div>
+               
+              <!---->
+               
+              <!---->
+               
+              <transition-stub
+                name="fade"
+                style="width: 100%;"
+              >
+                <div
+                  class="root"
+                  style="display: none;"
+                >
+                  <div>
+                     
+                    <!---->
+                     
+                    <!---->
+                  </div>
+                   
+                  <!---->
+                </div>
+              </transition-stub>
+            </div>
+             
+            <span
+              color="error"
+              style="display: none;"
+            >
+              false
+            </span>
+             
+            <!---->
+          </div>
+           
+          <div
+            vusion-slot-name="default"
+          >
+            <div
+              color=""
+              size="huge normal"
+            >
+              <span>
+                b
+              </span>
+               
+              <span>
+                端口
+              </span>
+               
+              <!---->
+               
+              <input
+                size="huge normal"
+                type="text"
+              />
+                
+              <!---->
+            </div>
+             
+            <span
+              color="error"
+              style="display: none;"
+            >
+              false
+            </span>
+             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+         
+        <span
+          color="error"
+          style="display: none;"
+        >
+          
+        </span>
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     添加
+  </a>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-dynamic-cards.vue Demo-表单验证 2`] = `
+<div
+  class="root root"
+  direction="vertical"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+  >
+    <div
+      class="mini"
+      style="display: none;"
+    >
+      <span
+        class="mini-text"
+      >
+        -
+      </span>
+       
+      <div
+        class="textWrap"
+      >
+        <span
+          class="error"
+          style="display: none;"
+        >
+          
+        </span>
+         
+        <a
+          class="root"
+          hovertype="underline"
+          tabindex="0"
+          target="_self"
+          vusion-slot-name-edit="text"
+        >
+          <!---->
+           展开
+        </a>
+      </div>
+    </div>
+     
+    <div>
+      <div
+        class="actions"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          type=""
+          vusion-slot-name="default"
+        >
+          <a
+            class="root"
+            disabled="disabled"
+            hovertype="underline"
+            tabindex="-1"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             删除
+          </a>
+           
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             收起
+          </a>
+           
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+        
+      <div
+        class="root"
+        direction="vertical"
+        gap="small"
+      >
+        <table
+          class="root"
+        >
+          <thead>
+            <tr>
+              <th
+                width="20%"
+              >
+                <span>
+                  URL
+                </span>
+              </th>
+              <th
+                width="20%"
+              >
+                <span>
+                  服务
+                </span>
+              </th>
+              <th
+                width="20%"
+              >
+                <span>
+                  端口
+                </span>
+              </th>
+              <th>
+                <span>
+                  描述
+                </span>
+              </th>
+               
+              <th
+                class="last-column"
+                dynamic="true"
+              />
+            </tr>
+          </thead>
+           
+          <tbody>
+            <tr
+              class="root"
+            >
+              <td>
+                <div
+                  display="block"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <div
+                    color=""
+                    size="huge full"
+                  >
+                    <span>
+                      b
+                    </span>
+                     
+                    <span>
+                      URL
+                    </span>
+                     
+                    <!---->
+                     
+                    <input
+                      size="huge full"
+                      type="text"
+                    />
+                      
+                    <!---->
+                  </div>
+                   
+                  <span
+                    color="error"
+                    style="display: none;"
+                  >
+                    false
+                  </span>
+                   
+                  <!---->
+                </div>
+              </td>
+              <td>
+                <div
+                  display="block"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <div
+                    class="root"
+                    size="huge full"
+                    tabindex="0"
+                  >
+                    <span>
+                      b
+                    </span>
+                     
+                    <span
+                      style="display: none;"
+                    >
+                      服务
+                    </span>
+                     
+                    <!---->
+                     
+                    <div
+                      style="direction: ltr;"
+                      tags-overflow="collapse"
+                    >
+                      <!---->
+                       
+                      <!---->
+                       
+                                abc
+                             
+                      <!---->
+                    </div>
+                     
+                    <!---->
+                     
+                    <!---->
+                     
+                    <transition-stub
+                      name="fade"
+                      style="width: 100%;"
+                    >
+                      <div
+                        class="root"
+                        style="display: none;"
+                      >
+                        <div>
+                           
+                          <div
+                            class="root"
+                            selected="selected"
+                            style="direction: ltr;"
+                            vusion-slot-name="default"
+                          >
+                            <!---->
+                             
+                                abc
+                             
+                            <!---->
+                          </div>
+                          <div
+                            class="root"
+                            style="direction: ltr;"
+                            vusion-slot-name="default"
+                          >
+                            <!---->
+                             
+                                def
+                             
+                            <!---->
+                          </div>
+                          <div
+                            class="root"
+                            style="direction: ltr;"
+                            vusion-slot-name="default"
+                          >
+                            <!---->
+                             
+                                zzz
+                             
+                            <!---->
+                          </div>
+                           
+                          <!---->
+                        </div>
+                         
+                        <!---->
+                      </div>
+                    </transition-stub>
+                  </div>
+                   
+                  <span
+                    color="error"
+                    style="display: none;"
+                  >
+                    false
+                  </span>
+                   
+                  <!---->
+                </div>
+              </td>
+              <td>
+                <div
+                  display="block"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <div
+                    color=""
+                    size="huge full"
+                  >
+                    <span>
+                      b
+                    </span>
+                     
+                    <span>
+                      端口
+                    </span>
+                     
+                    <!---->
+                     
+                    <input
+                      size="huge full"
+                      type="text"
+                    />
+                      
+                    <!---->
+                  </div>
+                   
+                  <span
+                    color="error"
+                    style="display: none;"
+                  >
+                    false
+                  </span>
+                   
+                  <!---->
+                </div>
+              </td>
+              <td>
+                <div
+                  display="block"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <div
+                    color=""
+                    size="huge full"
+                  >
+                    <span>
+                      b
+                    </span>
+                     
+                    <span>
+                      描述
+                    </span>
+                     
+                    <!---->
+                     
+                    <input
+                      size="huge full"
+                      type="text"
+                    />
+                      
+                    <!---->
+                  </div>
+                   
+                  <span
+                    color="error"
+                    style="display: none;"
+                  >
+                    false
+                  </span>
+                   
+                  <!---->
+                </div>
+              </td>
+                
+              <td
+                class="last-column"
+                dynamic="true"
+              >
+                <a
+                  class="root"
+                  disabled="disabled"
+                  hovertype="underline"
+                  tabindex="-1"
+                  target="_self"
+                  vusion-slot-name-edit="text"
+                >
+                  <!---->
+                   
+                </a>
+                 
+                <!---->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+         
+        <a
+          class="root add-button"
+          hovertype="underline"
+          tabindex="0"
+          target="_self"
+          vusion-slot-name-edit="text"
+        >
+          <!---->
+           添加
+        </a>
+         
+        <!---->
+         
+        <!---->
+         
+        <!---->
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     添加
+  </a>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-dynamic-cards.vue Demo-限制数量 1`] = `
+<div
+  class="root root"
+  direction="vertical"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+  >
+    <div
+      class="mini"
+      style="display: none;"
+    >
+      <span
+        class="mini-text"
+      >
+        xxx
+      </span>
+       
+      <div
+        class="textWrap"
+      >
+        <span
+          class="error"
+          style="display: none;"
+        >
+          false
+        </span>
+         
+        <a
+          class="root"
+          hovertype="underline"
+          tabindex="0"
+          target="_self"
+          vusion-slot-name-edit="text"
+        >
+          <!---->
+           展开
+        </a>
+      </div>
+    </div>
+     
+    <div>
+      <div
+        class="actions"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          type=""
+          vusion-slot-name="default"
+        >
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             删除
+          </a>
+           
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             收起
+          </a>
+           
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+        
+      <div
+        class="root"
+        direction="horizontal"
+        type=""
+        vusion-slot-name="default"
+      >
+        <div
+          color=""
+          size="huge normal"
+        >
+          <span>
+            b
+          </span>
+           
+          <span>
+            
+          </span>
+           
+          <!---->
+           
+          <input
+            size="huge normal"
+            type="text"
+          />
+            
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          size="huge normal"
+          tabindex="0"
+        >
+          <span>
+            b
+          </span>
+           
+          <span
+            style="display: none;"
+          >
+            请选择
+          </span>
+           
+          <!---->
+           
+          <div
+            style="direction: ltr;"
+            tags-overflow="collapse"
+          >
+            <!---->
+             
+            <!---->
+             
+                                abc
+                             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+           
+          <transition-stub
+            name="fade"
+            style="width: 100%;"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div>
+                 
+                <div
+                  class="root"
+                  selected="selected"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                abc
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                def
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                zzz
+                             
+                  <!---->
+                </div>
+                 
+                <!---->
+              </div>
+               
+              <!---->
+            </div>
+          </transition-stub>
+        </div>
+         
+        <div
+          size="huge normal"
+        >
+          <span>
+            b
+          </span>
+           
+          <span>
+            
+          </span>
+           
+          <!---->
+           
+          <input
+            size="huge normal"
+            type="text"
+          />
+            
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="root"
+    mini="true"
+  >
+    <div
+      class="mini"
+    >
+      <span
+        class="mini-text"
+      >
+        xxx
+      </span>
+       
+      <div
+        class="textWrap"
+      >
+        <span
+          class="error"
+          style="display: none;"
+        >
+          false
+        </span>
+         
+        <a
+          class="root"
+          hovertype="underline"
+          tabindex="0"
+          target="_self"
+          vusion-slot-name-edit="text"
+        >
+          <!---->
+           展开
+        </a>
+      </div>
+    </div>
+     
+    <div
+      style="display: none;"
+    >
+      <div
+        class="actions"
+      >
+        <div
+          class="root"
+          direction="horizontal"
+          type=""
+          vusion-slot-name="default"
+        >
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             删除
+          </a>
+           
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             收起
+          </a>
+           
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+        
+      <div
+        class="root"
+        direction="horizontal"
+        type=""
+        vusion-slot-name="default"
+      >
+        <div
+          color=""
+          size="huge normal"
+        >
+          <span>
+            b
+          </span>
+           
+          <span>
+            
+          </span>
+           
+          <!---->
+           
+          <input
+            size="huge normal"
+            type="text"
+          />
+            
+          <!---->
+        </div>
+         
+        <div
+          class="root"
+          size="huge normal"
+          tabindex="0"
+        >
+          <span>
+            b
+          </span>
+           
+          <span
+            style="display: none;"
+          >
+            请选择
+          </span>
+           
+          <!---->
+           
+          <div
+            style="direction: ltr;"
+            tags-overflow="collapse"
+          >
+            <!---->
+             
+            <!---->
+             
+                                abc
+                             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+           
+          <transition-stub
+            name="fade"
+            style="width: 100%;"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div>
+                 
+                <div
+                  class="root"
+                  selected="selected"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                abc
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                def
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                zzz
+                             
+                  <!---->
+                </div>
+                 
+                <!---->
+              </div>
+               
+              <!---->
+            </div>
+          </transition-stub>
+        </div>
+         
+        <div
+          size="huge normal"
+        >
+          <span>
+            b
+          </span>
+           
+          <span>
+            
+          </span>
+           
+          <!---->
+           
+          <input
+            size="huge normal"
+            type="text"
+          />
+            
+          <!---->
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     添加
+  </a>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;

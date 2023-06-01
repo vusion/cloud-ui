@@ -1,0 +1,7287 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-calendar.vue Demo-只读和禁用 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      border="true"
+      class="root"
+      style="display: inline-block;"
+    >
+      <div
+        class="headCenter"
+      >
+        <span
+          class="lcp-iconv hicon"
+        >
+          <span
+            class="iconwrap"
+          >
+            <svg
+              aria-hidden="true"
+              class="iconsvg"
+            >
+              <use
+                xlink:href="#pc-d-left-arrow"
+              />
+            </svg>
+          </span>
+           
+          <div
+            class="icontext"
+            vusion-slot-name="default"
+          >
+             
+            <!---->
+          </div>
+        </span>
+         
+        <span
+          class="lcp-iconv hicon"
+        >
+          <span
+            class="iconwrap"
+          >
+            <svg
+              aria-hidden="true"
+              class="iconsvg"
+            >
+              <use
+                xlink:href="#pc-left-arrow"
+              />
+            </svg>
+          </span>
+           
+          <div
+            class="icontext"
+            vusion-slot-name="default"
+          >
+             
+            <!---->
+          </div>
+        </span>
+         
+        <div
+          class="yearCenter"
+        >
+          <span>
+            <span
+              class="showtext"
+            >
+              2018 年 
+            </span>
+             
+            <transition-stub
+              name="fade"
+            >
+              <div
+                class="root"
+                style="display: none;"
+              >
+                <div
+                  class="root"
+                >
+                  <div
+                    class="wrap"
+                  >
+                    <div>
+                      <div
+                        class="yearList"
+                      >
+                        <div
+                          border="true"
+                          class="root yearListInner"
+                          tabindex="0"
+                        >
+                          <div
+                            style="display: none;"
+                          >
+                            <!---->
+                             
+                            <span
+                              vusion-slot-name="title"
+                            >
+                              列表
+                            </span>
+                             
+                            <div>
+                              <!---->
+                            </div>
+                          </div>
+                           
+                          <!---->
+                           
+                          <div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               1998
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               1999
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2000
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2001
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2002
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2003
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2004
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2005
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2006
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2007
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2008
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2009
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2010
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2011
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2012
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2013
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2014
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2015
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2016
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2017
+                            </div>
+                            <div
+                              class="root yearitem"
+                              selected="selected"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2018
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2019
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2020
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2021
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2022
+                            </div>
+                             
+                            <!---->
+                             
+                            <!---->
+                          </div>
+                           
+                          <div
+                            style="display: none;"
+                          >
+                             
+                            <!---->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                   
+                  <div
+                    class="root"
+                    direction="horizontal"
+                  >
+                    <div
+                      class="thumb"
+                      style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                    />
+                  </div>
+                   
+                  <div
+                    class="root"
+                    direction="vertical"
+                  >
+                    <div
+                      class="thumb"
+                      style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                    />
+                  </div>
+                </div>
+              </div>
+            </transition-stub>
+          </span>
+           
+          <span>
+            <span
+              class="showtext"
+            >
+              8 月
+            </span>
+             
+            <transition-stub
+              name="fade"
+            >
+              <div
+                class="root"
+                style="display: none;"
+              >
+                <div
+                  class="root"
+                >
+                  <div
+                    class="wrap"
+                  >
+                    <div>
+                      <div
+                        class="yearList"
+                      >
+                        <div
+                          border="true"
+                          class="root yearListInner"
+                          tabindex="0"
+                        >
+                          <div
+                            style="display: none;"
+                          >
+                            <!---->
+                             
+                            <span
+                              vusion-slot-name="title"
+                            >
+                              列表
+                            </span>
+                             
+                            <div>
+                              <!---->
+                            </div>
+                          </div>
+                           
+                          <!---->
+                           
+                          <div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               1 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               3 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               4 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               5 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               6 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               7 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              role="true"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               8 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               9 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               10 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               11 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               12 月
+                            </div>
+                             
+                            <!---->
+                             
+                            <!---->
+                          </div>
+                           
+                          <div
+                            style="display: none;"
+                          >
+                             
+                            <!---->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                   
+                  <div
+                    class="root"
+                    direction="horizontal"
+                  >
+                    <div
+                      class="thumb"
+                      style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                    />
+                  </div>
+                   
+                  <div
+                    class="root"
+                    direction="vertical"
+                  >
+                    <div
+                      class="thumb"
+                      style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                    />
+                  </div>
+                </div>
+              </div>
+            </transition-stub>
+          </span>
+        </div>
+         
+        <span
+          class="lcp-iconv hicon"
+        >
+          <span
+            class="iconwrap"
+          >
+            <svg
+              aria-hidden="true"
+              class="iconsvg"
+            >
+              <use
+                xlink:href="#pc-right-arrow"
+              />
+            </svg>
+          </span>
+           
+          <div
+            class="icontext"
+            vusion-slot-name="default"
+          >
+             
+            <!---->
+          </div>
+        </span>
+         
+        <span
+          class="lcp-iconv hicon"
+        >
+          <span
+            class="iconwrap"
+          >
+            <svg
+              aria-hidden="true"
+              class="iconsvg"
+            >
+              <use
+                xlink:href="#pc-d-right-arrow"
+              />
+            </svg>
+          </span>
+           
+          <div
+            class="icontext"
+            vusion-slot-name="default"
+          >
+             
+            <!---->
+          </div>
+        </span>
+      </div>
+       
+      <!---->
+       
+      <!---->
+       
+      <div>
+        <!---->
+         
+        <!---->
+      </div>
+       
+      <div>
+        <div
+          class="week"
+        >
+          <span
+            class="dayitem"
+            role="week"
+          >
+            日
+          </span>
+          <span
+            class="dayitem"
+          >
+            一
+          </span>
+          <span
+            class="dayitem"
+          >
+            二
+          </span>
+          <span
+            class="dayitem"
+          >
+            三
+          </span>
+          <span
+            class="dayitem"
+          >
+            四
+          </span>
+          <span
+            class="dayitem"
+          >
+            五
+          </span>
+          <span
+            class="dayitem"
+            role="week"
+          >
+            六
+          </span>
+        </div>
+         
+        <div
+          class="day"
+        >
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              29
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              30
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              31
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              01
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              02
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              03
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              04
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              05
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              06
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              07
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel="sel"
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              08
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              09
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              10
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              11
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              12
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              13
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              14
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              15
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              16
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              17
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              18
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              19
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              20
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              21
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              22
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              23
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              24
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              25
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              26
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              27
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              28
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              29
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              30
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              31
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              01
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              02
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              03
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              04
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              05
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              06
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              07
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              08
+            </span>
+          </span>
+        </div>
+         
+      </div>
+    </div>
+     
+    <div
+      border="true"
+      class="root"
+      disabled="disabled"
+      style="display: inline-block;"
+    >
+      <div
+        class="headCenter"
+      >
+        <span
+          class="lcp-iconv hicon"
+        >
+          <span
+            class="iconwrap"
+          >
+            <svg
+              aria-hidden="true"
+              class="iconsvg"
+            >
+              <use
+                xlink:href="#pc-d-left-arrow"
+              />
+            </svg>
+          </span>
+           
+          <div
+            class="icontext"
+            vusion-slot-name="default"
+          >
+             
+            <!---->
+          </div>
+        </span>
+         
+        <span
+          class="lcp-iconv hicon"
+        >
+          <span
+            class="iconwrap"
+          >
+            <svg
+              aria-hidden="true"
+              class="iconsvg"
+            >
+              <use
+                xlink:href="#pc-left-arrow"
+              />
+            </svg>
+          </span>
+           
+          <div
+            class="icontext"
+            vusion-slot-name="default"
+          >
+             
+            <!---->
+          </div>
+        </span>
+         
+        <div
+          class="yearCenter"
+        >
+          <span>
+            <span
+              class="showtext"
+            >
+              2018 年 
+            </span>
+             
+            <transition-stub
+              name="fade"
+            >
+              <div
+                class="root"
+                style="display: none;"
+              >
+                <div
+                  class="root"
+                >
+                  <div
+                    class="wrap"
+                  >
+                    <div>
+                      <div
+                        class="yearList"
+                      >
+                        <div
+                          border="true"
+                          class="root yearListInner"
+                          tabindex="0"
+                        >
+                          <div
+                            style="display: none;"
+                          >
+                            <!---->
+                             
+                            <span
+                              vusion-slot-name="title"
+                            >
+                              列表
+                            </span>
+                             
+                            <div>
+                              <!---->
+                            </div>
+                          </div>
+                           
+                          <!---->
+                           
+                          <div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               1998
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               1999
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2000
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2001
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2002
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2003
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2004
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2005
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2006
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2007
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2008
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2009
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2010
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2011
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2012
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2013
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2014
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2015
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2016
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2017
+                            </div>
+                            <div
+                              class="root yearitem"
+                              selected="selected"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2018
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2019
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2020
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2021
+                            </div>
+                            <div
+                              class="root yearitem"
+                              disabled="disabled"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2022
+                            </div>
+                             
+                            <!---->
+                             
+                            <!---->
+                          </div>
+                           
+                          <div
+                            style="display: none;"
+                          >
+                             
+                            <!---->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                   
+                  <div
+                    class="root"
+                    direction="horizontal"
+                  >
+                    <div
+                      class="thumb"
+                      style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                    />
+                  </div>
+                   
+                  <div
+                    class="root"
+                    direction="vertical"
+                  >
+                    <div
+                      class="thumb"
+                      style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                    />
+                  </div>
+                </div>
+              </div>
+            </transition-stub>
+          </span>
+           
+          <span>
+            <span
+              class="showtext"
+            >
+              8 月
+            </span>
+             
+            <transition-stub
+              name="fade"
+            >
+              <div
+                class="root"
+                style="display: none;"
+              >
+                <div
+                  class="root"
+                >
+                  <div
+                    class="wrap"
+                  >
+                    <div>
+                      <div
+                        class="yearList"
+                      >
+                        <div
+                          border="true"
+                          class="root yearListInner"
+                          tabindex="0"
+                        >
+                          <div
+                            style="display: none;"
+                          >
+                            <!---->
+                             
+                            <span
+                              vusion-slot-name="title"
+                            >
+                              列表
+                            </span>
+                             
+                            <div>
+                              <!---->
+                            </div>
+                          </div>
+                           
+                          <!---->
+                           
+                          <div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               1 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               3 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               4 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               5 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               6 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               7 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              role="true"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               8 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               9 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               10 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               11 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               12 月
+                            </div>
+                             
+                            <!---->
+                             
+                            <!---->
+                          </div>
+                           
+                          <div
+                            style="display: none;"
+                          >
+                             
+                            <!---->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                   
+                  <div
+                    class="root"
+                    direction="horizontal"
+                  >
+                    <div
+                      class="thumb"
+                      style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                    />
+                  </div>
+                   
+                  <div
+                    class="root"
+                    direction="vertical"
+                  >
+                    <div
+                      class="thumb"
+                      style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                    />
+                  </div>
+                </div>
+              </div>
+            </transition-stub>
+          </span>
+        </div>
+         
+        <span
+          class="lcp-iconv hicon"
+        >
+          <span
+            class="iconwrap"
+          >
+            <svg
+              aria-hidden="true"
+              class="iconsvg"
+            >
+              <use
+                xlink:href="#pc-right-arrow"
+              />
+            </svg>
+          </span>
+           
+          <div
+            class="icontext"
+            vusion-slot-name="default"
+          >
+             
+            <!---->
+          </div>
+        </span>
+         
+        <span
+          class="lcp-iconv hicon"
+        >
+          <span
+            class="iconwrap"
+          >
+            <svg
+              aria-hidden="true"
+              class="iconsvg"
+            >
+              <use
+                xlink:href="#pc-d-right-arrow"
+              />
+            </svg>
+          </span>
+           
+          <div
+            class="icontext"
+            vusion-slot-name="default"
+          >
+             
+            <!---->
+          </div>
+        </span>
+      </div>
+       
+      <!---->
+       
+      <!---->
+       
+      <div>
+        <!---->
+         
+        <!---->
+      </div>
+       
+      <div>
+        <div
+          class="week"
+        >
+          <span
+            class="dayitem"
+            role="week"
+          >
+            日
+          </span>
+          <span
+            class="dayitem"
+          >
+            一
+          </span>
+          <span
+            class="dayitem"
+          >
+            二
+          </span>
+          <span
+            class="dayitem"
+          >
+            三
+          </span>
+          <span
+            class="dayitem"
+          >
+            四
+          </span>
+          <span
+            class="dayitem"
+          >
+            五
+          </span>
+          <span
+            class="dayitem"
+            role="week"
+          >
+            六
+          </span>
+        </div>
+         
+        <div
+          class="day"
+        >
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              29
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              30
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              31
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              01
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              02
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              03
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              04
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              05
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              06
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              07
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel="sel"
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              08
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              09
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              10
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              11
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              12
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              13
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              14
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              15
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              16
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              17
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              18
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              19
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              20
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              21
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              22
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              23
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              24
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              25
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              26
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              27
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              28
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              29
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              30
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              31
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              01
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              02
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              03
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              04
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              05
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              06
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              07
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              08
+            </span>
+          </span>
+        </div>
+         
+      </div>
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-calendar.vue Demo-周选择组件 1`] = `
+<div>
+  <div
+    border="true"
+    class="root"
+  >
+    <div
+      class="headCenter"
+    >
+      <span
+        class="lcp-iconv hicon"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-d-left-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+       
+      <span
+        class="lcp-iconv hicon"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-left-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+       
+      <div
+        class="yearCenter"
+      >
+        <span>
+          <span
+            class="showtext"
+          >
+            2022 年 
+          </span>
+           
+          <transition-stub
+            name="fade"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div
+                class="root"
+              >
+                <div
+                  class="wrap"
+                >
+                  <div>
+                    <div
+                      class="yearList"
+                    >
+                      <div
+                        border="true"
+                        class="root yearListInner"
+                        tabindex="0"
+                      >
+                        <div
+                          style="display: none;"
+                        >
+                          <!---->
+                           
+                          <span
+                            vusion-slot-name="title"
+                          >
+                            列表
+                          </span>
+                           
+                          <div>
+                            <!---->
+                          </div>
+                        </div>
+                         
+                        <!---->
+                         
+                        <div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2002
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2003
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2004
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2005
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2006
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2007
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2008
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2009
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2010
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2011
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2012
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2013
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2014
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2015
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2016
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2017
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2018
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2019
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2020
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2021
+                          </div>
+                          <div
+                            class="root yearitem"
+                            selected="selected"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2022
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2023
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2024
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2025
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2026
+                          </div>
+                           
+                          <!---->
+                           
+                          <!---->
+                        </div>
+                         
+                        <div
+                          style="display: none;"
+                        >
+                           
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="horizontal"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                  />
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="vertical"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                  />
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </span>
+         
+        <span>
+          <span
+            class="showtext"
+          >
+            8 月
+          </span>
+           
+          <transition-stub
+            name="fade"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div
+                class="root"
+              >
+                <div
+                  class="wrap"
+                >
+                  <div>
+                    <div
+                      class="yearList"
+                    >
+                      <div
+                        border="true"
+                        class="root yearListInner"
+                        tabindex="0"
+                      >
+                        <div
+                          style="display: none;"
+                        >
+                          <!---->
+                           
+                          <span
+                            vusion-slot-name="title"
+                          >
+                            列表
+                          </span>
+                           
+                          <div>
+                            <!---->
+                          </div>
+                        </div>
+                         
+                        <!---->
+                         
+                        <div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             1 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             3 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             4 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             5 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             6 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             7 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            role="true"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             8 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             9 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             10 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             11 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             12 月
+                          </div>
+                           
+                          <!---->
+                           
+                          <!---->
+                        </div>
+                         
+                        <div
+                          style="display: none;"
+                        >
+                           
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="horizontal"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                  />
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="vertical"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                  />
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </span>
+      </div>
+       
+      <span
+        class="lcp-iconv hicon"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-right-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+       
+      <span
+        class="lcp-iconv hicon"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-d-right-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+    </div>
+     
+    <!---->
+     
+    <!---->
+     
+    <div>
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div>
+      <div
+        class="week"
+      >
+        <span
+          class="dayitem"
+          role="week"
+        >
+          日
+        </span>
+        <span
+          class="dayitem"
+        >
+          一
+        </span>
+        <span
+          class="dayitem"
+        >
+          二
+        </span>
+        <span
+          class="dayitem"
+        >
+          三
+        </span>
+        <span
+          class="dayitem"
+        >
+          四
+        </span>
+        <span
+          class="dayitem"
+        >
+          五
+        </span>
+        <span
+          class="dayitem"
+          role="week"
+        >
+          六
+        </span>
+      </div>
+       
+      <div
+        class="day"
+      >
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            31
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            01
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            02
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            03
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            04
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            05
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            06
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            07
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel="sel"
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            08
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel="sel"
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            09
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel="sel"
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            10
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel="sel"
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            11
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel="sel"
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            12
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel="sel"
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            13
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel="sel"
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            14
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            15
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            16
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            17
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            18
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            19
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            20
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            21
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            22
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            23
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            24
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            25
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            26
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            27
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            28
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            29
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            30
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            31
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            01
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            02
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            03
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            04
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            05
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            06
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            07
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            08
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            09
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            10
+          </span>
+        </span>
+      </div>
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-calendar.vue Demo-基本用法 1`] = `
+<div>
+  <div
+    border="true"
+    class="root"
+  >
+    <div
+      class="headCenter"
+    >
+      <span
+        class="lcp-iconv hicon"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-d-left-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+       
+      <span
+        class="lcp-iconv hicon"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-left-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+       
+      <div
+        class="yearCenter"
+      >
+        <span>
+          <span
+            class="showtext"
+          >
+            2022 年 
+          </span>
+           
+          <transition-stub
+            name="fade"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div
+                class="root"
+              >
+                <div
+                  class="wrap"
+                >
+                  <div>
+                    <div
+                      class="yearList"
+                    >
+                      <div
+                        border="true"
+                        class="root yearListInner"
+                        tabindex="0"
+                      >
+                        <div
+                          style="display: none;"
+                        >
+                          <!---->
+                           
+                          <span
+                            vusion-slot-name="title"
+                          >
+                            列表
+                          </span>
+                           
+                          <div>
+                            <!---->
+                          </div>
+                        </div>
+                         
+                        <!---->
+                         
+                        <div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2002
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2003
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2004
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2005
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2006
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2007
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2008
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2009
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2010
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2011
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2012
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2013
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2014
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2015
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2016
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2017
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2018
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2019
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2020
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2021
+                          </div>
+                          <div
+                            class="root yearitem"
+                            selected="selected"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2022
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2023
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2024
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2025
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2026
+                          </div>
+                           
+                          <!---->
+                           
+                          <!---->
+                        </div>
+                         
+                        <div
+                          style="display: none;"
+                        >
+                           
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="horizontal"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                  />
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="vertical"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                  />
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </span>
+         
+        <span>
+          <span
+            class="showtext"
+          >
+            8 月
+          </span>
+           
+          <transition-stub
+            name="fade"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div
+                class="root"
+              >
+                <div
+                  class="wrap"
+                >
+                  <div>
+                    <div
+                      class="yearList"
+                    >
+                      <div
+                        border="true"
+                        class="root yearListInner"
+                        tabindex="0"
+                      >
+                        <div
+                          style="display: none;"
+                        >
+                          <!---->
+                           
+                          <span
+                            vusion-slot-name="title"
+                          >
+                            列表
+                          </span>
+                           
+                          <div>
+                            <!---->
+                          </div>
+                        </div>
+                         
+                        <!---->
+                         
+                        <div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             1 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             3 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             4 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             5 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             6 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             7 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            role="true"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             8 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             9 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             10 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             11 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             12 月
+                          </div>
+                           
+                          <!---->
+                           
+                          <!---->
+                        </div>
+                         
+                        <div
+                          style="display: none;"
+                        >
+                           
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="horizontal"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                  />
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="vertical"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                  />
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </span>
+      </div>
+       
+      <span
+        class="lcp-iconv hicon"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-right-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+       
+      <span
+        class="lcp-iconv hicon"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-d-right-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+    </div>
+     
+    <!---->
+     
+    <!---->
+     
+    <div>
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div>
+      <div
+        class="week"
+      >
+        <span
+          class="dayitem"
+          role="week"
+        >
+          日
+        </span>
+        <span
+          class="dayitem"
+        >
+          一
+        </span>
+        <span
+          class="dayitem"
+        >
+          二
+        </span>
+        <span
+          class="dayitem"
+        >
+          三
+        </span>
+        <span
+          class="dayitem"
+        >
+          四
+        </span>
+        <span
+          class="dayitem"
+        >
+          五
+        </span>
+        <span
+          class="dayitem"
+          role="week"
+        >
+          六
+        </span>
+      </div>
+       
+      <div
+        class="day"
+      >
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            31
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            01
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            02
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            03
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            04
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            05
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            06
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            07
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel="sel"
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            08
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            09
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            10
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            11
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            12
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            13
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            14
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            15
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            16
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            17
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            18
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            19
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            20
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            21
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            22
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            23
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            24
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            25
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            26
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            27
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            28
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            29
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            30
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            31
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            01
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            02
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            03
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            04
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            05
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            06
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            07
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            08
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            09
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role="muted"
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            10
+          </span>
+        </span>
+      </div>
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-calendar.vue Demo-增加展示年份 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      border="true"
+      class="root"
+    >
+      <div
+        class="headCenter"
+      >
+        <span
+          class="lcp-iconv hicon"
+        >
+          <span
+            class="iconwrap"
+          >
+            <svg
+              aria-hidden="true"
+              class="iconsvg"
+            >
+              <use
+                xlink:href="#pc-d-left-arrow"
+              />
+            </svg>
+          </span>
+           
+          <div
+            class="icontext"
+            vusion-slot-name="default"
+          >
+             
+            <!---->
+          </div>
+        </span>
+         
+        <span
+          class="lcp-iconv hicon"
+        >
+          <span
+            class="iconwrap"
+          >
+            <svg
+              aria-hidden="true"
+              class="iconsvg"
+            >
+              <use
+                xlink:href="#pc-left-arrow"
+              />
+            </svg>
+          </span>
+           
+          <div
+            class="icontext"
+            vusion-slot-name="default"
+          >
+             
+            <!---->
+          </div>
+        </span>
+         
+        <div
+          class="yearCenter"
+        >
+          <span>
+            <span
+              class="showtext"
+            >
+              2018 年 
+            </span>
+             
+            <transition-stub
+              name="fade"
+            >
+              <div
+                class="root"
+                style="display: none;"
+              >
+                <div
+                  class="root"
+                >
+                  <div
+                    class="wrap"
+                  >
+                    <div>
+                      <div
+                        class="yearList"
+                      >
+                        <div
+                          border="true"
+                          class="root yearListInner"
+                          tabindex="0"
+                        >
+                          <div
+                            style="display: none;"
+                          >
+                            <!---->
+                             
+                            <span
+                              vusion-slot-name="title"
+                            >
+                              列表
+                            </span>
+                             
+                            <div>
+                              <!---->
+                            </div>
+                          </div>
+                           
+                          <!---->
+                           
+                          <div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2013
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2014
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2015
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2016
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2017
+                            </div>
+                            <div
+                              class="root yearitem"
+                              selected="selected"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2018
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2019
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2020
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2021
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2022
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2023
+                            </div>
+                             
+                            <!---->
+                             
+                            <!---->
+                          </div>
+                           
+                          <div
+                            style="display: none;"
+                          >
+                             
+                            <!---->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                   
+                  <div
+                    class="root"
+                    direction="horizontal"
+                  >
+                    <div
+                      class="thumb"
+                      style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                    />
+                  </div>
+                   
+                  <div
+                    class="root"
+                    direction="vertical"
+                  >
+                    <div
+                      class="thumb"
+                      style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                    />
+                  </div>
+                </div>
+              </div>
+            </transition-stub>
+          </span>
+           
+          <span>
+            <span
+              class="showtext"
+            >
+              8 月
+            </span>
+             
+            <transition-stub
+              name="fade"
+            >
+              <div
+                class="root"
+                style="display: none;"
+              >
+                <div
+                  class="root"
+                >
+                  <div
+                    class="wrap"
+                  >
+                    <div>
+                      <div
+                        class="yearList"
+                      >
+                        <div
+                          border="true"
+                          class="root yearListInner"
+                          tabindex="0"
+                        >
+                          <div
+                            style="display: none;"
+                          >
+                            <!---->
+                             
+                            <span
+                              vusion-slot-name="title"
+                            >
+                              列表
+                            </span>
+                             
+                            <div>
+                              <!---->
+                            </div>
+                          </div>
+                           
+                          <!---->
+                           
+                          <div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               1 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               2 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               3 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               4 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               5 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               6 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               7 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              role="true"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               8 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               9 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               10 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               11 月
+                            </div>
+                            <div
+                              class="root yearitem"
+                              vusion-slot-name="item"
+                            >
+                              <!---->
+                               12 月
+                            </div>
+                             
+                            <!---->
+                             
+                            <!---->
+                          </div>
+                           
+                          <div
+                            style="display: none;"
+                          >
+                             
+                            <!---->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                   
+                  <div
+                    class="root"
+                    direction="horizontal"
+                  >
+                    <div
+                      class="thumb"
+                      style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                    />
+                  </div>
+                   
+                  <div
+                    class="root"
+                    direction="vertical"
+                  >
+                    <div
+                      class="thumb"
+                      style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                    />
+                  </div>
+                </div>
+              </div>
+            </transition-stub>
+          </span>
+        </div>
+         
+        <span
+          class="lcp-iconv hicon"
+        >
+          <span
+            class="iconwrap"
+          >
+            <svg
+              aria-hidden="true"
+              class="iconsvg"
+            >
+              <use
+                xlink:href="#pc-right-arrow"
+              />
+            </svg>
+          </span>
+           
+          <div
+            class="icontext"
+            vusion-slot-name="default"
+          >
+             
+            <!---->
+          </div>
+        </span>
+         
+        <span
+          class="lcp-iconv hicon"
+        >
+          <span
+            class="iconwrap"
+          >
+            <svg
+              aria-hidden="true"
+              class="iconsvg"
+            >
+              <use
+                xlink:href="#pc-d-right-arrow"
+              />
+            </svg>
+          </span>
+           
+          <div
+            class="icontext"
+            vusion-slot-name="default"
+          >
+             
+            <!---->
+          </div>
+        </span>
+      </div>
+       
+      <!---->
+       
+      <!---->
+       
+      <div>
+        <!---->
+         
+        <!---->
+      </div>
+       
+      <div>
+        <div
+          class="week"
+        >
+          <span
+            class="dayitem"
+            role="week"
+          >
+            日
+          </span>
+          <span
+            class="dayitem"
+          >
+            一
+          </span>
+          <span
+            class="dayitem"
+          >
+            二
+          </span>
+          <span
+            class="dayitem"
+          >
+            三
+          </span>
+          <span
+            class="dayitem"
+          >
+            四
+          </span>
+          <span
+            class="dayitem"
+          >
+            五
+          </span>
+          <span
+            class="dayitem"
+            role="week"
+          >
+            六
+          </span>
+        </div>
+         
+        <div
+          class="day"
+        >
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              29
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              30
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              31
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              01
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              02
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              03
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              04
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              05
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              06
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              07
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel="sel"
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              08
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              09
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              10
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              11
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              12
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              13
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              14
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              15
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              16
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              17
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              18
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              19
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              20
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              21
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              22
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              23
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              24
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              25
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              26
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              27
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              28
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              29
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              30
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role=""
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              31
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              01
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="0"
+          >
+            <span
+              class="item"
+            >
+              02
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="1"
+          >
+            <span
+              class="item"
+            >
+              03
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="2"
+          >
+            <span
+              class="item"
+            >
+              04
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="3"
+          >
+            <span
+              class="item"
+            >
+              05
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="4"
+          >
+            <span
+              class="item"
+            >
+              06
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="5"
+          >
+            <span
+              class="item"
+            >
+              07
+            </span>
+          </span>
+          <span
+            class="daywrap"
+            role="muted"
+            sel=""
+            sindex="6"
+          >
+            <span
+              class="item"
+            >
+              08
+            </span>
+          </span>
+        </div>
+         
+      </div>
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-calendar.vue Demo-季选择组件 1`] = `
+<div>
+  <div
+    border="true"
+    class="root"
+  >
+    <!---->
+     
+    <div
+      class="headCenter"
+    >
+      <span
+        class="lcp-iconv hicon"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-d-left-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+       
+      <div
+        class="yearCenter"
+      >
+        <span>
+          2022年
+        </span>
+      </div>
+       
+      <span
+        class="lcp-iconv hicon"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-d-right-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+    </div>
+     
+    <!---->
+     
+    <div>
+      <div
+        type="quarter"
+      >
+        <ul
+          class="quarterBox"
+        >
+          <li
+            class="boxItem quarterItem"
+          >
+            <div
+              class="sitem"
+            >
+              Q1
+            </div>
+          </li>
+          <li
+            class="boxItem quarterItem"
+          >
+            <div
+              class="sitem"
+            >
+              Q2
+            </div>
+          </li>
+          <li
+            class="boxItem quarterItem"
+          >
+            <div
+              class="sitem"
+            >
+              Q3
+            </div>
+          </li>
+          <li
+            class="boxItem quarterItem"
+          >
+            <div
+              class="sitem"
+            >
+              Q4
+            </div>
+          </li>
+        </ul>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-calendar.vue Demo-年选择组件 1`] = `
+<div>
+  <div
+    border="true"
+    class="root"
+  >
+    <!---->
+     
+    <!---->
+     
+    <div
+      type="year"
+    >
+      <div>
+        <div
+          class="iconBox"
+        >
+          <span
+            class="lcp-iconv hicon"
+          >
+            <span
+              class="iconwrap"
+            >
+              <svg
+                aria-hidden="true"
+                class="iconsvg"
+              >
+                <use
+                  xlink:href="#pc-d-left-arrow"
+                />
+              </svg>
+            </span>
+             
+            <div
+              class="icontext"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+          </span>
+           
+          <span>
+            2020-2029
+          </span>
+           
+          <span
+            class="lcp-iconv hicon"
+            disabled="disabled"
+          >
+            <span
+              class="iconwrap"
+            >
+              <svg
+                aria-hidden="true"
+                class="iconsvg"
+              >
+                <use
+                  xlink:href="#pc-d-right-arrow"
+                />
+              </svg>
+            </span>
+             
+            <div
+              class="icontext"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+          </span>
+        </div>
+         
+        <!---->
+         
+        <ul
+          class="yearBox"
+        >
+          <li
+            class="boxItem"
+            sindex="0"
+          >
+            <div
+              class="yearItem"
+            >
+              2019
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="1"
+          >
+            <div
+              class="yearItem"
+            >
+              2020
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="2"
+          >
+            <div
+              class="yearItem"
+            >
+              2021
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            role="true"
+            sindex="0"
+          >
+            <div
+              class="yearItem"
+            >
+              2022
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="1"
+          >
+            <div
+              class="yearItem"
+            >
+              2023
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="2"
+          >
+            <div
+              class="yearItem"
+            >
+              2024
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="0"
+          >
+            <div
+              class="yearItem"
+            >
+              2025
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="1"
+          >
+            <div
+              class="yearItem"
+            >
+              2026
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            disabled="disabled"
+            sindex="2"
+          >
+            <div
+              class="yearItem"
+            >
+              2027
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            disabled="disabled"
+            sindex="0"
+          >
+            <div
+              class="yearItem"
+            >
+              2028
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            disabled="disabled"
+            sindex="1"
+          >
+            <div
+              class="yearItem"
+            >
+              2029
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            disabled="disabled"
+            sindex="2"
+          >
+            <div
+              class="yearItem"
+            >
+              2030
+            </div>
+          </li>
+        </ul>
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div>
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-calendar.vue Demo-最大值最小值 1`] = `
+<div>
+  <div
+    border="true"
+    class="root"
+  >
+    <div
+      class="headCenter"
+    >
+      <span
+        class="lcp-iconv hicon"
+        disabled="disabled"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-d-left-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+       
+      <span
+        class="lcp-iconv hicon"
+        disabled="disabled"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-left-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+       
+      <div
+        class="yearCenter"
+      >
+        <span>
+          <span
+            class="showtext"
+          >
+            2018 年 
+          </span>
+           
+          <transition-stub
+            name="fade"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div
+                class="root"
+              >
+                <div
+                  class="wrap"
+                >
+                  <div>
+                    <div
+                      class="yearList"
+                    >
+                      <div
+                        border="true"
+                        class="root yearListInner"
+                        tabindex="0"
+                      >
+                        <div
+                          style="display: none;"
+                        >
+                          <!---->
+                           
+                          <span
+                            vusion-slot-name="title"
+                          >
+                            列表
+                          </span>
+                           
+                          <div>
+                            <!---->
+                          </div>
+                        </div>
+                         
+                        <!---->
+                         
+                        <div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             1998
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             1999
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2000
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2001
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2002
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2003
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2004
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2005
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2006
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2007
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2008
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2009
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2010
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2011
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2012
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2013
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2014
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2015
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2016
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2017
+                          </div>
+                          <div
+                            class="root yearitem"
+                            selected="selected"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2018
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2019
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2020
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2021
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2022
+                          </div>
+                           
+                          <!---->
+                           
+                          <!---->
+                        </div>
+                         
+                        <div
+                          style="display: none;"
+                        >
+                           
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="horizontal"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                  />
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="vertical"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                  />
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </span>
+         
+        <span>
+          <span
+            class="showtext"
+          >
+            8 月
+          </span>
+           
+          <transition-stub
+            name="fade"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div
+                class="root"
+              >
+                <div
+                  class="wrap"
+                >
+                  <div>
+                    <div
+                      class="yearList"
+                    >
+                      <div
+                        border="true"
+                        class="root yearListInner"
+                        tabindex="0"
+                      >
+                        <div
+                          style="display: none;"
+                        >
+                          <!---->
+                           
+                          <span
+                            vusion-slot-name="title"
+                          >
+                            列表
+                          </span>
+                           
+                          <div>
+                            <!---->
+                          </div>
+                        </div>
+                         
+                        <!---->
+                         
+                        <div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             1 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             2 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             3 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             4 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             5 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             6 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             7 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            role="true"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             8 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             9 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             10 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             11 月
+                          </div>
+                          <div
+                            class="root yearitem"
+                            disabled="disabled"
+                            vusion-slot-name="item"
+                          >
+                            <!---->
+                             12 月
+                          </div>
+                           
+                          <!---->
+                           
+                          <!---->
+                        </div>
+                         
+                        <div
+                          style="display: none;"
+                        >
+                           
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="horizontal"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                  />
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="vertical"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                  />
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </span>
+      </div>
+       
+      <span
+        class="lcp-iconv hicon"
+        disabled="disabled"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-right-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+       
+      <span
+        class="lcp-iconv hicon"
+        disabled="disabled"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-d-right-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+    </div>
+     
+    <!---->
+     
+    <!---->
+     
+    <div>
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div>
+      <div
+        class="week"
+      >
+        <span
+          class="dayitem"
+          role="week"
+        >
+          日
+        </span>
+        <span
+          class="dayitem"
+        >
+          一
+        </span>
+        <span
+          class="dayitem"
+        >
+          二
+        </span>
+        <span
+          class="dayitem"
+        >
+          三
+        </span>
+        <span
+          class="dayitem"
+        >
+          四
+        </span>
+        <span
+          class="dayitem"
+        >
+          五
+        </span>
+        <span
+          class="dayitem"
+          role="week"
+        >
+          六
+        </span>
+      </div>
+       
+      <div
+        class="day"
+      >
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role="muted"
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            29
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role="muted"
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            30
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role="muted"
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            31
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            01
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            02
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            03
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            04
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            05
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            06
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            07
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel="sel"
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            08
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            09
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            10
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            11
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            12
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            13
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            14
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            15
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            16
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            17
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          role=""
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            18
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            19
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            20
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            21
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            22
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            23
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            24
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            25
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            26
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            27
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            28
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            29
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            30
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role=""
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            31
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role="muted"
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            01
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role="muted"
+          sel=""
+          sindex="0"
+        >
+          <span
+            class="item"
+          >
+            02
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role="muted"
+          sel=""
+          sindex="1"
+        >
+          <span
+            class="item"
+          >
+            03
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role="muted"
+          sel=""
+          sindex="2"
+        >
+          <span
+            class="item"
+          >
+            04
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role="muted"
+          sel=""
+          sindex="3"
+        >
+          <span
+            class="item"
+          >
+            05
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role="muted"
+          sel=""
+          sindex="4"
+        >
+          <span
+            class="item"
+          >
+            06
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role="muted"
+          sel=""
+          sindex="5"
+        >
+          <span
+            class="item"
+          >
+            07
+          </span>
+        </span>
+        <span
+          class="daywrap"
+          disabled="disabled"
+          role="muted"
+          sel=""
+          sindex="6"
+        >
+          <span
+            class="item"
+          >
+            08
+          </span>
+        </span>
+      </div>
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-calendar.vue Demo-月选择组件 1`] = `
+<div>
+  <div
+    border="true"
+    class="root"
+  >
+    <!---->
+     
+    <div
+      class="headCenter"
+    >
+      <span
+        class="lcp-iconv hicon"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-d-left-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+       
+      <div
+        class="yearCenter"
+      >
+        <span>
+          2022年
+        </span>
+      </div>
+       
+      <span
+        class="lcp-iconv hicon"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-d-right-arrow"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+    </div>
+     
+    <!---->
+     
+    <div>
+      <!---->
+       
+      <div
+        type="month"
+      >
+        <ul
+          class="monthBox"
+        >
+          <li
+            class="boxItem"
+            sindex="0"
+          >
+            <div
+              class="sitem"
+            >
+              1月
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="1"
+          >
+            <div
+              class="sitem"
+            >
+              2月
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="2"
+          >
+            <div
+              class="sitem"
+            >
+              3月
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="0"
+          >
+            <div
+              class="sitem"
+            >
+              4月
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="1"
+          >
+            <div
+              class="sitem"
+            >
+              5月
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="2"
+          >
+            <div
+              class="sitem"
+            >
+              6月
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="0"
+          >
+            <div
+              class="sitem"
+            >
+              7月
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            role="true"
+            sindex="1"
+          >
+            <div
+              class="sitem"
+            >
+              8月
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="2"
+          >
+            <div
+              class="sitem"
+            >
+              9月
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="0"
+          >
+            <div
+              class="sitem"
+            >
+              10月
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="1"
+          >
+            <div
+              class="sitem"
+            >
+              11月
+            </div>
+          </li>
+          <li
+            class="boxItem"
+            sindex="2"
+          >
+            <div
+              class="sitem"
+            >
+              12月
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;

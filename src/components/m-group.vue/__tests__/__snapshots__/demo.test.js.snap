@@ -1,0 +1,711 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`m-group.vue Demo-分组 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="root"
+        vusion-slot-name="default"
+      >
+        <p>
+          默认，无折叠功能
+        </p>
+         
+        <div
+          class="root"
+        >
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                洗具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                >
+                  毛巾
+                </div>
+                 
+                <div
+                  class="root"
+                >
+                  牙刷
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+           
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                杯具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                >
+                  牙缸
+                </div>
+                 
+                <div
+                  class="root"
+                >
+                  水杯
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+           
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                餐具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                >
+                  筷子
+                </div>
+                 
+                <div
+                  class="root"
+                >
+                  碗
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+       
+      <div
+        class="root"
+        vusion-slot-name="default"
+      >
+        <p>
+          开启折叠功能
+        </p>
+         
+        <div
+          class="root"
+          collapsible=""
+        >
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                洗具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                >
+                  毛巾
+                </div>
+                 
+                <div
+                  class="root"
+                >
+                  牙刷
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+           
+          <div
+            class="root"
+            disabled="disabled"
+            expanded="true"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                杯具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                >
+                  牙缸
+                </div>
+                 
+                <div
+                  class="root"
+                >
+                  水杯
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+           
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                餐具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                >
+                  筷子
+                </div>
+                 
+                <div
+                  class="root"
+                >
+                  碗
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+       
+      <div
+        class="root"
+        vusion-slot-name="default"
+      >
+        <p>
+          手风琴模式
+        </p>
+         
+        <div
+          accordion=""
+          class="root"
+          collapsible=""
+          value="cup"
+        >
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                洗具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                  value="towel"
+                >
+                  毛巾
+                </div>
+                 
+                <div
+                  class="root"
+                  value="toothbrush"
+                >
+                  牙刷
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+           
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                杯具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                  value="toothcup"
+                >
+                  牙缸
+                </div>
+                 
+                <div
+                  class="root"
+                  value="cup"
+                >
+                  水杯
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+           
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                餐具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                  value="chopsticks"
+                >
+                  筷子
+                </div>
+                 
+                <div
+                  class="root"
+                  value="bowl"
+                >
+                  碗
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <div
+        class="root"
+        vusion-slot-name="default"
+      >
+        <p>
+          触发方式：整行点击均可触发（默认）
+        </p>
+         
+        <div
+          class="root"
+          collapsible=""
+          expand-trigger="click"
+        >
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                洗具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                >
+                  毛巾
+                </div>
+                 
+                <div
+                  class="root"
+                >
+                  牙刷
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+           
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                杯具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                >
+                  牙缸
+                </div>
+                 
+                <div
+                  class="root"
+                >
+                  水杯
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+       
+      <div
+        class="root"
+        vusion-slot-name="default"
+      >
+        <p>
+          触发方式：仅点击小箭头时触发
+        </p>
+         
+        <div
+          class="root"
+          collapsible=""
+          expand-trigger="click-expander"
+        >
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                洗具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                >
+                  毛巾
+                </div>
+                 
+                <div
+                  class="root"
+                >
+                  牙刷
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+           
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                杯具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                >
+                  牙缸
+                </div>
+                 
+                <div
+                  class="root"
+                >
+                  水杯
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`m-group.vue Demo-分组 2`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="root"
+        vusion-slot-name="default"
+      >
+        <p>
+          默认，无折叠功能
+        </p>
+         
+        <div
+          class="root"
+        >
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                洗具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                >
+                  毛巾
+                </div>
+                 
+                <div
+                  class="root"
+                >
+                  牙刷
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+           
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                杯具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                >
+                  牙缸
+                </div>
+                 
+                <div
+                  class="root"
+                >
+                  水杯
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+           
+          <div
+            class="root"
+          >
+            <div
+              class="head"
+            >
+              <div>
+                餐具
+              </div>
+               
+              <!---->
+               
+              <span
+                class="extra"
+              />
+            </div>
+             
+            <transition-stub>
+              <div
+                class="body"
+              >
+                <div
+                  class="root"
+                >
+                  筷子
+                </div>
+                 
+                <div
+                  class="root"
+                >
+                  碗
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;

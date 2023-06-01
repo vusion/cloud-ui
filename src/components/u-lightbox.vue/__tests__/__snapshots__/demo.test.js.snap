@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-lightbox.vue Demo-灯箱包含单个元素 1`] = `
+<div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       Open Lightbox
+    </a>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-lightbox.vue Demo-灯箱包含多个元素 1`] = `
+<div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <img
+      src="test-file-stub"
+      style="height: 60px; width: 60px;"
+    />
+    <img
+      src="test-file-stub"
+      style="height: 60px; width: 60px;"
+    />
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;

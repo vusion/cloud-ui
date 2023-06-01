@@ -1,0 +1,747 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-label.vue Demo-主要标签 1`] = `
+<div>
+  <span
+    class="root"
+    color="primary"
+    type="filled"
+  >
+    <span
+      vusion-slot-name-edit="text"
+    >
+      主要标签
+    </span>
+     
+    <!---->
+  </span>
+</div>
+`;
+
+exports[`u-label.vue Demo-可删除标签 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    gap="small"
+    type=""
+    vusion-slot-name="default"
+  >
+    <span
+      class="root"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Label
+      </span>
+       
+      <span
+        class="remove"
+      />
+    </span>
+     
+    <span
+      class="root"
+      color="primary"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Primary
+      </span>
+       
+      <span
+        class="remove"
+      />
+    </span>
+     
+    <span
+      class="root"
+      color="success"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Success
+      </span>
+       
+      <span
+        class="remove"
+      />
+    </span>
+     
+    <span
+      class="root"
+      color="warning"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Warning
+      </span>
+       
+      <span
+        class="remove"
+      />
+    </span>
+     
+    <span
+      class="root"
+      color="error"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Error
+      </span>
+       
+      <span
+        class="remove"
+      />
+    </span>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-label.vue Demo-块级展示 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    gap="mini"
+    style="width: 120px;"
+    type=""
+    vusion-slot-name="default"
+  >
+    <span
+      class="root"
+      display="block"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        日常工作
+      </span>
+       
+      <!---->
+    </span>
+     
+    <span
+      class="root"
+      color="primary"
+      display="block"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        重要任务
+      </span>
+       
+      <!---->
+    </span>
+     
+    <span
+      class="root"
+      display="block"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        质量效率
+      </span>
+       
+      <!---->
+    </span>
+     
+    <span
+      class="root"
+      display="block"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        学习分享
+      </span>
+       
+      <!---->
+    </span>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-label.vue Demo-基本用法 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    gap="small"
+    type=""
+    vusion-slot-name="default"
+  >
+    <span
+      class="root"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Label
+      </span>
+       
+      <!---->
+    </span>
+     
+    <span
+      class="root"
+      color="default"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        default
+      </span>
+       
+      <!---->
+    </span>
+     
+    <span
+      class="root"
+      color="primary"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Primary
+      </span>
+       
+      <!---->
+    </span>
+     
+    <span
+      class="root"
+      color="success"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Success
+      </span>
+       
+      <!---->
+    </span>
+     
+    <span
+      class="root"
+      color="warning"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Warning
+      </span>
+       
+      <!---->
+    </span>
+     
+    <span
+      class="root"
+      color="error"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Error
+      </span>
+       
+      <!---->
+    </span>
+     
+    <span
+      class="root"
+      style="background: rgb(196, 97, 251); color: white;"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Custom
+      </span>
+       
+      <!---->
+    </span>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-label.vue Demo-线性标签 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      gap="small"
+      type=""
+      vusion-slot-name="default"
+    >
+      <span
+        class="root"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Label
+        </span>
+         
+        <!---->
+      </span>
+       
+      <span
+        class="root"
+        color="primary"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Primary
+        </span>
+         
+        <!---->
+      </span>
+       
+      <span
+        class="root"
+        color="success"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Success
+        </span>
+         
+        <!---->
+      </span>
+       
+      <span
+        class="root"
+        color="warning"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Warning
+        </span>
+         
+        <!---->
+      </span>
+       
+      <span
+        class="root"
+        color="error"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Error
+        </span>
+         
+        <!---->
+      </span>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      gap="small"
+      type=""
+      vusion-slot-name="default"
+    >
+      <span
+        class="root"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Label
+        </span>
+         
+        <span
+          class="remove"
+        />
+      </span>
+       
+      <span
+        class="root"
+        color="primary"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Primary
+        </span>
+         
+        <span
+          class="remove"
+        />
+      </span>
+       
+      <span
+        class="root"
+        color="success"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Success
+        </span>
+         
+        <span
+          class="remove"
+        />
+      </span>
+       
+      <span
+        class="root"
+        color="warning"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Warning
+        </span>
+         
+        <span
+          class="remove"
+        />
+      </span>
+       
+      <span
+        class="root"
+        color="error"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Error
+        </span>
+         
+        <span
+          class="remove"
+        />
+      </span>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="root"
+      direction="horizontal"
+      gap="small"
+      type=""
+      vusion-slot-name="default"
+    >
+      <span
+        class="root"
+        size="small"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Small
+        </span>
+         
+        <!---->
+      </span>
+       
+      <span
+        class="root"
+        color="primary"
+        size="small"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Small
+        </span>
+         
+        <span
+          class="remove"
+        />
+      </span>
+       
+      <span
+        class="root"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Normal
+        </span>
+         
+        <!---->
+      </span>
+       
+      <span
+        class="root"
+        color="primary"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Normal
+        </span>
+         
+        <span
+          class="remove"
+        />
+      </span>
+       
+      <span
+        class="root"
+        size="large"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Large
+        </span>
+         
+        <!---->
+      </span>
+       
+      <span
+        class="root"
+        color="primary"
+        size="large"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Large
+        </span>
+         
+        <span
+          class="remove"
+        />
+      </span>
+       
+      <span
+        class="root"
+        size="huge"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Huge
+        </span>
+         
+        <!---->
+      </span>
+       
+      <span
+        class="root"
+        color="primary"
+        size="huge"
+        type="line"
+      >
+        <span
+          vusion-slot-name-edit="text"
+        >
+          Huge
+        </span>
+         
+        <span
+          class="remove"
+        />
+      </span>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-label.vue Demo-设置尺寸 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    gap="small"
+    type=""
+    vusion-slot-name="default"
+  >
+    <span
+      class="root"
+      size="small"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Small
+      </span>
+       
+      <!---->
+    </span>
+     
+    <span
+      class="root"
+      color="primary"
+      size="small"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Small
+      </span>
+       
+      <span
+        class="remove"
+      />
+    </span>
+     
+    <span
+      class="root"
+      color="primary"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Normal
+      </span>
+       
+      <span
+        class="remove"
+      />
+    </span>
+     
+    <span
+      class="root"
+      size="large"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Large
+      </span>
+       
+      <!---->
+    </span>
+     
+    <span
+      class="root"
+      color="primary"
+      size="large"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Large
+      </span>
+       
+      <span
+        class="remove"
+      />
+    </span>
+     
+    <span
+      class="root"
+      size="huge"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Huge
+      </span>
+       
+      <!---->
+    </span>
+     
+    <span
+      class="root"
+      color="primary"
+      size="huge"
+      type="filled"
+    >
+      <span
+        vusion-slot-name-edit="text"
+      >
+        Huge
+      </span>
+       
+      <span
+        class="remove"
+      />
+    </span>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;

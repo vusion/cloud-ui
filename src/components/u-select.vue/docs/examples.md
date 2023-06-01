@@ -1311,5 +1311,4 @@ export default {
     </template>
    </u-select>
 </template>
-<script>
 ```

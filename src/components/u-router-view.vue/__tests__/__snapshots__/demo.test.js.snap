@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-router-view.vue Demo-基本用法 1`] = `
+<div>
+  <!---->
+</div>
+`;
+
+exports[`u-router-view.vue Demo-基本用法 2`] = `
+<div>
+  <!---->
+</div>
+`;

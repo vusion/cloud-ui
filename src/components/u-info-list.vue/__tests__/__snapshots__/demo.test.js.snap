@@ -1,0 +1,3198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-info-list.vue Demo-column 分列 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          
+                基本信息
+                
+          <!---->
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+         
+        <div
+          class="root"
+          column="2"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="2"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="2"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            网段
+          </div>
+           
+          <div
+            class="value"
+          >
+            10.3.0.4/16
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="2"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            默认VPC
+          </div>
+           
+          <div
+            class="value"
+          >
+            是
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="2"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            创建时间
+          </div>
+           
+          <div
+            class="value"
+          >
+            2018-02-22
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          
+                基本信息
+                
+          <!---->
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+         
+        <div
+          class="root"
+          column="3"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="3"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="3"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            网段
+          </div>
+           
+          <div
+            class="value"
+          >
+            10.3.0.4/16
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="3"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            默认VPC
+          </div>
+           
+          <div
+            class="value"
+          >
+            是
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="3"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            创建时间
+          </div>
+           
+          <div
+            class="value"
+          >
+            2018-02-22
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          
+                基本信息
+                
+          <!---->
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+         
+        <div
+          class="root"
+          column="2"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="2"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="2"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            网段
+          </div>
+           
+          <div
+            class="value"
+          >
+            10.3.0.4/16
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="2"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            默认VPC
+          </div>
+           
+          <div
+            class="value"
+          >
+            是
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="2"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            创建时间
+          </div>
+           
+          <div
+            class="value"
+          >
+            2018-02-22
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="1"
+          label-size="auto"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            描述
+          </div>
+           
+          <div
+            class="value"
+          >
+            云服务器是网易云提供的一种弹性可伸缩的云计算基础服务，快速满足公司产品上线、开发测试等对IT基础设施的需求，帮助用户降低IT成本，简化运维工作。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-info-list.vue Demo-column 分列 2`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          
+                基本信息
+                
+          <!---->
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            网段
+          </div>
+           
+          <div
+            class="value"
+          >
+            10.3.0.4/16
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            默认VPC
+          </div>
+           
+          <div
+            class="value"
+          >
+            是
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            创建时间
+          </div>
+           
+          <div
+            class="value"
+          >
+            2018-02-22
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="1"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            描述
+          </div>
+           
+          <div
+            class="value"
+          >
+            云服务器是网易云提供的一种弹性可伸缩的云计算基础服务，快速满足公司产品上线、开发测试等对IT基础设施的需求，帮助用户降低IT成本，简化运维工作。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-info-list.vue Demo-与表格结合 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          
+                基本信息
+                
+          <!---->
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+         
+        <div
+          class="root"
+        >
+          <!---->
+           
+          <div
+            class="table"
+            position="static"
+          >
+            <div
+              class="head"
+              style="top: 0px;"
+            >
+              <table
+                class="root head-table"
+                color="light"
+              >
+                <colgroup>
+                  <col
+                    width="0"
+                  />
+                  <col
+                    width="0"
+                  />
+                  <col />
+                  <col
+                    width="0"
+                  />
+                </colgroup>
+                 
+                <thead>
+                  <tr>
+                    <th
+                      class="head-title boldHeader"
+                    >
+                      <!---->
+                       
+                      <span
+                        class="column-title"
+                        vusion-slot-name="title"
+                        vusion-slot-name-edit="title"
+                      >
+                        
+                                        用户名
+                                        
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                       
+                      <!---->
+                       
+                      <!---->
+                    </th>
+                    <th
+                      class="head-title boldHeader"
+                    >
+                      <!---->
+                       
+                      <span
+                        class="column-title"
+                        vusion-slot-name="title"
+                        vusion-slot-name-edit="title"
+                      >
+                        
+                                        手机号码
+                                        
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                       
+                      <!---->
+                       
+                      <!---->
+                    </th>
+                    <th
+                      class="head-title boldHeader"
+                    >
+                      <!---->
+                       
+                      <span
+                        class="column-title"
+                        vusion-slot-name="title"
+                        vusion-slot-name-edit="title"
+                      >
+                        
+                                        地址
+                                        
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                       
+                      <!---->
+                       
+                      <!---->
+                    </th>
+                    <th
+                      class="head-title boldHeader"
+                    >
+                      <!---->
+                       
+                      <span
+                        class="column-title"
+                        vusion-slot-name="title"
+                        vusion-slot-name-edit="title"
+                      >
+                        
+                                        最近登录时间
+                                        
+                        <!---->
+                      </span>
+                       
+                      <!---->
+                       
+                      <!---->
+                       
+                      <!---->
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+             
+            <!---->
+             
+            <div
+              class="body"
+              sticky-fixed="true"
+            >
+              <div
+                class="root scrollcview"
+              >
+                <div
+                  class="wrap"
+                >
+                  <div>
+                    <table
+                      class="root"
+                    >
+                      <colgroup>
+                        <col
+                          width="0"
+                        />
+                        <col
+                          width="0"
+                        />
+                        <col />
+                        <col
+                          width="0"
+                        />
+                      </colgroup>
+                       
+                      <tbody>
+                        <tr
+                          class="row"
+                        >
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              张三
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              18612917895
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              浙江省杭州市滨江区网商路599号网易大厦
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              2018-05-28 21:52:11
+                            </span>
+                          </td>
+                        </tr>
+                         
+                        <!---->
+                        <tr
+                          class="row"
+                        >
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              小明
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              13727160283
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              浙江省杭州市滨江区江虹路459号英飞特科技园
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              2019-03-12 22:24:36
+                            </span>
+                          </td>
+                        </tr>
+                         
+                        <!---->
+                        <tr
+                          class="row"
+                        >
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              李四
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              18897127809
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              浙江省杭州市滨江区秋溢路606号西可科技园
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              2019-05-18 15:45:30
+                            </span>
+                          </td>
+                        </tr>
+                         
+                        <!---->
+                        <tr
+                          class="row"
+                        >
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              李华
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              18749261214
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              浙江省杭州市滨江区长河路590号东忠科技园
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              2018-12-10 15:48:01
+                            </span>
+                          </td>
+                        </tr>
+                         
+                        <!---->
+                        <tr
+                          class="row"
+                        >
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              王五
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              13579340020
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              浙江省杭州市滨江区网商路599号网易大厦二期
+                            </span>
+                          </td>
+                          <td
+                            class="cell"
+                          >
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <!---->
+                             
+                            <span
+                              class="column-field"
+                              vusion-slot-name="cell"
+                            >
+                              2018-07-16 01:32:06
+                            </span>
+                          </td>
+                        </tr>
+                         
+                        <!---->
+                         
+                        <!---->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="horizontal"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                  />
+                </div>
+                 
+                <div
+                  class="root"
+                  direction="vertical"
+                >
+                  <div
+                    class="thumb"
+                    style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+           
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="line"
+              style="display: none;"
+            />
+             
+            <div
+              class="mask"
+              style="display: none;"
+            />
+          </div>
+           
+          <!---->
+           
+          <div>
+            <div
+              style="display: none;"
+            >
+              <!---->
+            </div>
+             
+            <div
+              style="display: none;"
+            >
+              <!---->
+            </div>
+             
+            <div
+              style="display: none;"
+            >
+              <!---->
+            </div>
+             
+            <div
+              style="display: none;"
+            >
+              <!---->
+            </div>
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-info-list.vue Demo-基本用法 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            基本信息
+          </span>
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+          
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              名称
+            </span>
+          </div>
+           
+          <div
+            class="value"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              张三
+            </span>
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              ID
+            </span>
+          </div>
+           
+          <div
+            class="value"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              152f36a3cfff4572a3a35
+            </span>
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              创建时间
+            </span>
+          </div>
+           
+          <div
+            class="value"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              2018-02-22
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            基本信息
+          </span>
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+          
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              名称
+            </span>
+          </div>
+           
+          <div
+            class="value"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              张三
+            </span>
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              ID
+            </span>
+          </div>
+           
+          <div
+            class="value"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              152f36a3cfff4572a3a35
+            </span>
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              创建时间
+            </span>
+          </div>
+           
+          <div
+            class="value"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              2018-02-22
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-info-list.vue Demo-基本用法 2`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          
+                基本信息
+                
+          <!---->
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="small"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+            ellipsis="true"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="small"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+            ellipsis="true"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="small"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            网段
+          </div>
+           
+          <div
+            class="value"
+          >
+            10.3.0.4/16
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="small"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            默认VPC
+          </div>
+           
+          <div
+            class="value"
+          >
+            是
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="small"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            创建时间
+          </div>
+           
+          <div
+            class="value"
+          >
+            2018-02-22
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          
+                基本信息
+                
+          <!---->
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="small"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="small"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="small"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            网段
+          </div>
+           
+          <div
+            class="value"
+          >
+            10.3.0.4/16
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="small"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            默认VPC
+          </div>
+           
+          <div
+            class="value"
+          >
+            是
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="small"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            创建时间
+          </div>
+           
+          <div
+            class="value"
+          >
+            2018-02-22
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-info-list.vue Demo-栅格分列 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          
+                基本信息
+                
+          <!---->
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            网段
+          </div>
+           
+          <div
+            class="value"
+          >
+            10.3.0.4/16
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            默认VPC
+          </div>
+           
+          <div
+            class="value"
+          >
+            是
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            创建时间
+          </div>
+           
+          <div
+            class="value"
+          >
+            2018-02-22
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          
+                基本信息
+                
+          <!---->
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            网段
+          </div>
+           
+          <div
+            class="value"
+          >
+            10.3.0.4/16
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            创建时间
+          </div>
+           
+          <div
+            class="value"
+          >
+            2018-02-22
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          
+                基本信息
+                
+          <!---->
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            网段
+          </div>
+           
+          <div
+            class="value"
+          >
+            10.3.0.4/16
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 66.66666666666666%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            默认VPC
+          </div>
+           
+          <div
+            class="value"
+          >
+            是
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            创建时间
+          </div>
+           
+          <div
+            class="value"
+          >
+            2018-02-22
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 100%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            描述
+          </div>
+           
+          <div
+            class="value"
+          >
+            云服务器是网易云提供的一种弹性可伸缩的云计算基础服务，快速满足公司产品上线、开发测试等对IT基础设施的需求，帮助用户降低IT成本，简化运维工作。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-info-list.vue Demo-栅格分列 2`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          
+                基本信息
+                
+          <!---->
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            网段
+          </div>
+           
+          <div
+            class="value"
+          >
+            10.3.0.4/16
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            默认VPC
+          </div>
+           
+          <div
+            class="value"
+          >
+            是
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            创建时间
+          </div>
+           
+          <div
+            class="value"
+          >
+            2018-02-22
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          
+                基本信息
+                
+          <!---->
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 100%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            描述
+          </div>
+           
+          <div
+            class="value"
+          >
+            云服务器是网易云提供的一种弹性可伸缩的云计算基础服务，快速满足公司产品上线、开发测试等对IT基础设施的需求，帮助用户降低IT成本，简化运维工作。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-info-list.vue Demo-隐藏标题行 1`] = `
+<div>
+  <div
+    bordered="true"
+    class="root"
+    shadow="always"
+  >
+    <div
+      class="head"
+    >
+      <div
+        class="title"
+        vusion-slot-name="title"
+        vusion-slot-name-edit="title"
+      >
+        
+                    云主机详情
+                    
+        <!---->
+      </div>
+       
+      <a />
+       
+      <div
+        class="extra"
+        vusion-slot-name="extra"
+      >
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div
+      class="body"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+      >
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            网段
+          </div>
+           
+          <div
+            class="value"
+          >
+            10.3.0.4/16
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            默认VPC
+          </div>
+           
+          <div
+            class="value"
+          >
+            是
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            创建时间
+          </div>
+           
+          <div
+            class="value"
+          >
+            2018-02-22
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 100%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            描述
+          </div>
+           
+          <div
+            class="value"
+          >
+            云服务器是网易云提供的一种弹性可伸缩的云计算基础服务，快速满足公司产品上线、开发测试等对IT基础设施的需求，帮助用户降低IT成本，简化运维工作。
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div />
+  </div>
+</div>
+`;
+
+exports[`u-info-list.vue Demo-隐藏标题行 2`] = `
+<div>
+  <div
+    bordered="true"
+    class="root"
+    shadow="always"
+  >
+    <div
+      class="head"
+    >
+      <div
+        class="title"
+        vusion-slot-name="title"
+        vusion-slot-name-edit="title"
+      >
+        
+                    云主机详情
+                    
+        <!---->
+      </div>
+       
+      <a />
+       
+      <div
+        class="extra"
+        vusion-slot-name="extra"
+      >
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div
+      class="body"
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+      >
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            网段
+          </div>
+           
+          <div
+            class="value"
+          >
+            10.3.0.4/16
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            默认VPC
+          </div>
+           
+          <div
+            class="value"
+          >
+            是
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 50%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            创建时间
+          </div>
+           
+          <div
+            class="value"
+          >
+            2018-02-22
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div />
+  </div>
+</div>
+`;
+
+exports[`u-info-list.vue Demo-额外插槽 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            基本信息
+          </span>
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             设置
+          </a>
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+           
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              名称
+            </span>
+          </div>
+           
+          <div
+            class="value"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              张三
+            </span>
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              ID
+            </span>
+          </div>
+           
+          <div
+            class="value"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              152f36a3cfff4572a3a35
+            </span>
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              创建时间
+            </span>
+          </div>
+           
+          <div
+            class="value"
+          >
+            <span
+              class="root"
+              vusion-slot-name-edit="text"
+            >
+              2018-02-22
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-info-list.vue Demo-额外插槽 2`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="head"
+      >
+        <div
+          class="title"
+          vusion-slot-name="title"
+          vusion-slot-name-edit="title"
+        >
+          
+                基本信息
+                
+          <!---->
+        </div>
+         
+        <div
+          class="extra"
+          vusion-slot-name="extra"
+        >
+          <a
+            class="root"
+            hovertype="underline"
+            tabindex="0"
+            target="_self"
+            vusion-slot-name-edit="text"
+          >
+            <!---->
+             设置
+          </a>
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="body"
+        vusion-slot-name="default"
+      >
+        <!---->
+          
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            VPC名称
+          </div>
+           
+          <div
+            class="value"
+          >
+            defaultVPC
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            UUID
+          </div>
+           
+          <div
+            class="value"
+          >
+            152f36a3cfff4572a3a35
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            网段
+          </div>
+           
+          <div
+            class="value"
+          >
+            10.3.0.4/16
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            默认VPC
+          </div>
+           
+          <div
+            class="value"
+          >
+            是
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          column="auto"
+          label-size="auto"
+          style="width: 33.33333333333333%;"
+        >
+          <div
+            class="label"
+            vusion-slot-name="label"
+            vusion-slot-name-edit="label"
+          >
+            创建时间
+          </div>
+           
+          <div
+            class="value"
+          >
+            2018-02-22
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

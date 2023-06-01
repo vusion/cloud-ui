@@ -1,0 +1,982 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-carousel.vue Demo-fade 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="body"
+      name="realpostion"
+    >
+      <!---->
+        
+      <!---->
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          animation="fade"
+          class="root"
+          style=""
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/1.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          animation="fade"
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/2.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          animation="fade"
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/3.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          animation="fade"
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/4.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          animation="fade"
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/5.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+     
+    <nav
+      class="nav"
+    >
+      <a
+        class="nav-item"
+        selected="selected"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+    </nav>
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="prev"
+      vusion-index="0"
+    />
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="next"
+      vusion-index="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`u-carousel.vue Demo-基本用法 1`] = `
+<div>
+  <div
+    class="root"
+    style="width: 100%;"
+  >
+    <div
+      class="body"
+      name="realpostion"
+    >
+      <!---->
+        
+      <!---->
+       
+    </div>
+     
+    <nav
+      class="nav"
+    />
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="prev"
+      vusion-index="-1"
+    />
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="next"
+      vusion-index="-1"
+    />
+  </div>
+</div>
+`;
+
+exports[`u-carousel.vue Demo-基本用法 2`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="body"
+      name="realpostion"
+    >
+      <!---->
+        
+      <!---->
+       
+    </div>
+     
+    <nav
+      class="nav"
+    />
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="prev"
+      vusion-index="-1"
+    />
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="next"
+      vusion-index="-1"
+    />
+  </div>
+</div>
+`;
+
+exports[`u-carousel.vue Demo-基本用法 3`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="body"
+      name="realpostion"
+    >
+      <!---->
+        
+      <!---->
+       
+      <transition-stub>
+        <div
+          class="root"
+          style=""
+        >
+          <div
+            class="body"
+          >
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+     
+    <nav
+      class="nav"
+    >
+      <a
+        class="nav-item"
+        selected="selected"
+      />
+      <a
+        class="nav-item"
+      />
+    </nav>
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="prev"
+      vusion-index="0"
+    />
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="next"
+      vusion-index="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`u-carousel.vue Demo-基本用法 4`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="body"
+      name="realpostion"
+    >
+      <!---->
+        
+      <!---->
+       
+      <transition-stub>
+        <div
+          class="root"
+          style=""
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/1.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/2.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/3.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/4.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/5.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+     
+    <nav
+      class="nav"
+    >
+      <a
+        class="nav-item"
+        selected="selected"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+    </nav>
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="prev"
+      vusion-index="0"
+    />
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="next"
+      vusion-index="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`u-carousel.vue Demo-自动播放与循环 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="body"
+      name="realpostion"
+    >
+      <!---->
+        
+      <!---->
+       
+      <transition-stub>
+        <div
+          class="root"
+          style=""
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/1.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/2.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/3.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/4.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/5.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+     
+    <nav
+      class="nav"
+    >
+      <a
+        class="nav-item"
+        selected="selected"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+    </nav>
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="prev"
+      vusion-index="0"
+    />
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="next"
+      vusion-index="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`u-carousel.vue Demo-自动播放与循环 2`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="body"
+      name="realpostion"
+    >
+      <!---->
+        
+      <!---->
+       
+      <transition-stub>
+        <div
+          class="root"
+          style=""
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/1.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/2.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/3.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/4.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/5.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+     
+    <nav
+      class="nav"
+    >
+      <a
+        class="nav-item"
+        selected="selected"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+    </nav>
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="prev"
+      vusion-index="0"
+    />
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="next"
+      vusion-index="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`u-carousel.vue Demo-自动播放与循环 3`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="body"
+      name="realpostion"
+    >
+      <!---->
+        
+      <!---->
+       
+      <transition-stub>
+        <div
+          class="root"
+          style=""
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/1.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/2.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/3.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/4.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <transition-stub>
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="body"
+          >
+            <img
+              src="../../../assets/images/5.jpg"
+            />
+             
+            <span
+              vusion-slot-name="item"
+            >
+               
+              <!---->
+            </span>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+     
+    <nav
+      class="nav"
+    >
+      <a
+        class="nav-item"
+        selected="selected"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+      <a
+        class="nav-item"
+      />
+    </nav>
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="prev"
+      style="display: none;"
+      vusion-index="0"
+    />
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="next"
+      style=""
+      vusion-index="0"
+    />
+  </div>
+</div>
+`;

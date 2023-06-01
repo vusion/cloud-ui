@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`m-pub-sub.vue Demo-使用 Option 1`] = `
+<a
+  class="root"
+  hovertype="underline"
+  tabindex="0"
+  target="_self"
+  vusion-slot-name-edit="text"
+>
+  <!---->
+   发布
+</a>
+`;
+
+exports[`m-pub-sub.vue Demo-使用 Option 2`] = `
+<div
+  class="root"
+>
+  undefined
+</div>
+`;
+
+exports[`m-pub-sub.vue Demo-使用方法 1`] = `
+<a
+  class="root"
+  hovertype="underline"
+  tabindex="0"
+  target="_self"
+  vusion-slot-name-edit="text"
+>
+  <!---->
+   发布
+</a>
+`;
+
+exports[`m-pub-sub.vue Demo-使用方法 2`] = `
+<div
+  class="root"
+>
+  undefined
+</div>
+`;

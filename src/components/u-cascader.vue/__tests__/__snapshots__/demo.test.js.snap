@@ -1,0 +1,3421 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-cascader.vue Demo-Placeholder 1`] = `
+<div>
+  <div>
+    <div
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        placeholder自定义内容
+      </span>
+       
+      <!---->
+       
+      <input
+        readonly="readonly"
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                >
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                理学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                工学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+</div>
+`;
+
+exports[`u-cascader.vue Demo-field 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div>
+    <div
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        请选择
+      </span>
+       
+      <!---->
+       
+      <input
+        readonly="readonly"
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                >
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                1
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                2
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-cascader.vue Demo-size 1`] = `
+<div
+  class="root"
+  direction="vertical"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      height="mini"
+      width="mini"
+    >
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <div
+      height="normal"
+      width="mini"
+    >
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <div
+      height="medium"
+      width="mini"
+    >
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      height="mini"
+      width="small"
+    >
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <div
+      height="normal"
+      width="small"
+    >
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <div
+      height="medium"
+      width="small"
+    >
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      height="mini"
+      width="medium"
+    >
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <div
+      height="normal"
+      width="medium"
+    >
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <div
+      height="medium"
+      width="medium"
+    >
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div
+      height="large"
+      width="large"
+    >
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <div
+      height="huge"
+      width="huge"
+    >
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <div
+      height="full"
+      width="full"
+    >
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-cascader.vue Demo-仅显示最后一级 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div>
+    <div
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        请选择
+      </span>
+       
+      <!---->
+       
+      <input
+        readonly="readonly"
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                >
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                理学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                工学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-cascader.vue Demo-动态加载 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div>
+    <div
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        请选择
+      </span>
+       
+      <!---->
+       
+      <input
+        readonly="readonly"
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                />
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-cascader.vue Demo-双向绑定 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div>
+    <div
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        请选择
+      </span>
+       
+      <!---->
+       
+      <input
+        readonly="readonly"
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                >
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                理学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                工学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-cascader.vue Demo-可清空 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div>
+    <div
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        请选择
+      </span>
+       
+      <!---->
+       
+      <input
+        readonly="readonly"
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                >
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                理学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                工学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-cascader.vue Demo-基本用法 1`] = `
+<div>
+  <div>
+    <div
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        请选择
+      </span>
+       
+      <!---->
+       
+      <input
+        readonly="readonly"
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                >
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                理学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                工学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+</div>
+`;
+
+exports[`u-cascader.vue Demo-基本用法 2`] = `
+<div>
+  <div>
+    <div
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        请选择
+      </span>
+       
+      <!---->
+       
+      <input
+        readonly="readonly"
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                >
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                理学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                工学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+</div>
+`;
+
+exports[`u-cascader.vue Demo-数据源改造 1`] = `
+<div
+  class="root"
+  direction="vertical"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div>
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      has-sub="true"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      has-sub="true"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div>
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div
+              class="root"
+              color="light"
+              style="display: inline-block;"
+            >
+              <div
+                class="wrap"
+              >
+                <div>
+                  <nav
+                    class="root"
+                  >
+                    <a
+                      class="root"
+                      has-sub="true"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                理学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                    <a
+                      class="root"
+                      has-sub="true"
+                      target="_self"
+                    >
+                      <span
+                        vusion-slot-name-edit="text"
+                      >
+                        
+                工学
+                
+                        <!---->
+                      </span>
+                       
+                      <div />
+                    </a>
+                  </nav>
+                </div>
+              </div>
+               
+              <div
+                class="root"
+                direction="horizontal"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
+                />
+              </div>
+               
+              <div
+                class="root"
+                direction="vertical"
+              >
+                <div
+                  class="thumb"
+                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
+                />
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div>
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div>
+              <div
+                class="root"
+              >
+                <div
+                  class="rotate"
+                >
+                  <span
+                    class="lcp-iconv icon"
+                  >
+                    <span
+                      class="iconwrap"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="iconsvg"
+                      >
+                        <use
+                          xlink:href="#pc-loading"
+                        />
+                      </svg>
+                    </span>
+                     
+                    <div
+                      class="icontext"
+                      vusion-slot-name="default"
+                    >
+                       
+                      <!---->
+                    </div>
+                  </span>
+                </div>
+                 
+                <!---->
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div>
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          请选择
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div>
+              <div
+                class="root"
+              >
+                <div
+                  class="rotate"
+                >
+                  <span
+                    class="lcp-iconv icon"
+                  >
+                    <span
+                      class="iconwrap"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="iconsvg"
+                      >
+                        <use
+                          xlink:href="#pc-loading"
+                        />
+                      </svg>
+                    </span>
+                     
+                    <div
+                      class="icontext"
+                      vusion-slot-name="default"
+                    >
+                       
+                      <!---->
+                    </div>
+                  </span>
+                </div>
+                 
+                <!---->
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div>
+      <div
+        readonly="readonly"
+      >
+        <span>
+          b
+        </span>
+         
+        <span>
+          
+        </span>
+         
+        <!---->
+         
+        <input
+          readonly="readonly"
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div>
+              <div
+                class="root"
+              >
+                <div
+                  class="rotate"
+                >
+                  <span
+                    class="lcp-iconv icon"
+                  >
+                    <span
+                      class="iconwrap"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="iconsvg"
+                      >
+                        <use
+                          xlink:href="#pc-loading"
+                        />
+                      </svg>
+                    </span>
+                     
+                    <div
+                      class="icontext"
+                      vusion-slot-name="default"
+                    >
+                       
+                      <!---->
+                    </div>
+                  </span>
+                </div>
+                 
+                <!---->
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-cascader.vue Demo-禁用某项 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    disabled="disabled"
+  >
+    <div
+      disabled="disabled"
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        请选择
+      </span>
+       
+      <!---->
+       
+      <input
+        disabled="disabled"
+        readonly="readonly"
+        type="text"
+      />
+        
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+   
+  <div>
+    <div
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        请选择
+      </span>
+       
+      <!---->
+       
+      <input
+        readonly="readonly"
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                >
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                理学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                工学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-cascader.vue Demo-级联间连接字符 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div>
+    <div
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        请选择
+      </span>
+       
+      <!---->
+       
+      <input
+        readonly="readonly"
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                >
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                理学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                工学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+   
+  <div>
+    <div
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        请选择
+      </span>
+       
+      <!---->
+       
+      <input
+        readonly="readonly"
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                >
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                理学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                工学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-cascader.vue Demo-触发方式 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div>
+    <div
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        默认click点击触发
+      </span>
+       
+      <!---->
+       
+      <input
+        readonly="readonly"
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                >
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                理学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                工学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+   
+  <div>
+    <div
+      readonly="readonly"
+    >
+      <span>
+        b
+      </span>
+       
+      <span>
+        hover悬浮触发
+      </span>
+       
+      <!---->
+       
+      <input
+        readonly="readonly"
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                >
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                理学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                工学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`u-cascader.vue Demo-过滤（可搜索） 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div>
+    <div>
+      <span>
+        b
+      </span>
+       
+      <span>
+        请选择
+      </span>
+       
+      <!---->
+       
+      <input
+        type="text"
+      />
+       
+      <transition-stub
+        name="fade"
+      >
+        <div
+          class="root"
+          style="display: none;"
+        >
+          <div
+            class="root"
+            color="light"
+            style="display: inline-block;"
+          >
+            <div
+              class="wrap"
+            >
+              <div>
+                <nav
+                  class="root"
+                >
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                理学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                  <a
+                    class="root"
+                    has-sub="true"
+                    target="_self"
+                  >
+                    <span
+                      vusion-slot-name-edit="text"
+                    >
+                      
+                工学
+                
+                      <!---->
+                    </span>
+                     
+                    <div />
+                  </a>
+                </nav>
+              </div>
+            </div>
+             
+            <div
+              class="root"
+              direction="horizontal"
+            >
+              <div
+                class="thumb"
+                style="transform: translateX(0%); webkit-transform: translateX(0%);"
+              />
+            </div>
+             
+            <div
+              class="root"
+              direction="vertical"
+            >
+              <div
+                class="thumb"
+                style="transform: translateY(0%); webkit-transform: translateY(0%);"
+              />
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+       
+      <!---->
+    </div>
+     
+    <span
+      style="display: none;"
+    />
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;

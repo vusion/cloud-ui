@@ -1,0 +1,1214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-dropdown.vue Demo-主要按钮样式 1`] = `
+<div>
+  <div
+    class="root"
+    type="primary"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉菜单
+      </span>
+       
+      <!---->
+       
+      <i
+        class="icon"
+      />
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            选项一
+          </span>
+           
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            选项二
+          </span>
+           
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            选项三
+          </span>
+           
+          <!---->
+        </a>
+      </div>
+    </transition-stub>
+  </div>
+</div>
+`;
+
+exports[`u-dropdown.vue Demo-列表含图标样式 1`] = `
+<div>
+  <div
+    class="root"
+    type="text"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉菜单
+      </span>
+       
+      <!---->
+       
+      <i
+        class="icon"
+      />
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <span
+            class="lcp-iconv singleicon"
+          >
+            <span
+              class="iconwrap"
+            >
+              <svg
+                aria-hidden="true"
+                class="iconsvg"
+              >
+                <use
+                  xlink:href="#pc-menu"
+                />
+              </svg>
+            </span>
+             
+            <div
+              class="icontext"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+          </span>
+           
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            选项一
+          </span>
+           
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <span
+            class="lcp-iconv singleicon"
+          >
+            <span
+              class="iconwrap"
+            >
+              <svg
+                aria-hidden="true"
+                class="iconsvg"
+              >
+                <use
+                  xlink:href="#pc-menu"
+                />
+              </svg>
+            </span>
+             
+            <div
+              class="icontext"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+          </span>
+           
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            选项二
+          </span>
+           
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <span
+            class="lcp-iconv singleicon"
+          >
+            <span
+              class="iconwrap"
+            >
+              <svg
+                aria-hidden="true"
+                class="iconsvg"
+              >
+                <use
+                  xlink:href="#pc-menu"
+                />
+              </svg>
+            </span>
+             
+            <div
+              class="icontext"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+          </span>
+           
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            选项三
+          </span>
+           
+          <!---->
+        </a>
+      </div>
+    </transition-stub>
+  </div>
+</div>
+`;
+
+exports[`u-dropdown.vue Demo-基本用法 1`] = `
+<div>
+  <div
+    class="root"
+    type="text"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉菜单
+      </span>
+       
+      <!---->
+       
+      <i
+        class="icon"
+      />
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          disabled="disabled"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+      </div>
+    </transition-stub>
+  </div>
+   
+  <div
+    class="root"
+    type="primary"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉按钮
+      </span>
+       
+      <!---->
+       
+      <i
+        class="icon"
+      />
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          disabled="disabled"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+      </div>
+    </transition-stub>
+  </div>
+   
+  <div
+    class="root"
+    type="primary_secondary"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉按钮
+      </span>
+       
+      <!---->
+       
+      <i
+        class="icon"
+      />
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          disabled="disabled"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+      </div>
+    </transition-stub>
+  </div>
+   
+  <div
+    class="root"
+    type="normal"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉按钮
+      </span>
+       
+      <!---->
+       
+      <i
+        class="icon"
+      />
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          disabled="disabled"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+      </div>
+    </transition-stub>
+  </div>
+   
+  <div
+    class="root"
+    type="more"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉按钮
+      </span>
+       
+      <!---->
+       
+      <span
+        class="lcp-iconv iconMore"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-more"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          disabled="disabled"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           item 
+          <!---->
+        </a>
+      </div>
+    </transition-stub>
+  </div>
+</div>
+`;
+
+exports[`u-dropdown.vue Demo-基础按钮样式 1`] = `
+<div>
+  <div
+    class="root"
+    type="text"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉菜单
+      </span>
+       
+      <!---->
+       
+      <i
+        class="icon"
+      />
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            选项一
+          </span>
+           
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            选项二
+          </span>
+           
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            选项三
+          </span>
+           
+          <!---->
+        </a>
+      </div>
+    </transition-stub>
+  </div>
+</div>
+`;
+
+exports[`u-dropdown.vue Demo-更多按钮样式 1`] = `
+<div>
+  <div
+    class="root"
+    type="more"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉菜单
+      </span>
+       
+      <!---->
+       
+      <span
+        class="lcp-iconv iconMore"
+      >
+        <span
+          class="iconwrap"
+        >
+          <svg
+            aria-hidden="true"
+            class="iconsvg"
+          >
+            <use
+              xlink:href="#pc-more"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="icontext"
+          vusion-slot-name="default"
+        >
+           
+          <!---->
+        </div>
+      </span>
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            选项一
+          </span>
+           
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            选项二
+          </span>
+           
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <!---->
+           
+          <span
+            class="root"
+            vusion-slot-name-edit="text"
+          >
+            选项三
+          </span>
+           
+          <!---->
+        </a>
+      </div>
+    </transition-stub>
+  </div>
+</div>
+`;
+
+exports[`u-dropdown.vue Demo-禁用状态 1`] = `
+<div>
+  <div
+    class="root"
+    disabled="disabled"
+    type="text"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉菜单
+      </span>
+       
+      <!---->
+       
+      <i
+        class="icon"
+      />
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      />
+    </transition-stub>
+  </div>
+   
+  <div
+    class="root"
+    disabled="disabled"
+    type="primary"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉按钮
+      </span>
+       
+      <!---->
+       
+      <i
+        class="icon"
+      />
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      />
+    </transition-stub>
+  </div>
+   
+  <div
+    class="root"
+    disabled="disabled"
+    type="primary_secondary"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉按钮
+      </span>
+       
+      <!---->
+       
+      <i
+        class="icon"
+      />
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      />
+    </transition-stub>
+  </div>
+   
+  <div
+    class="root"
+    disabled="disabled"
+    type="normal"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉按钮
+      </span>
+       
+      <!---->
+       
+      <i
+        class="icon"
+      />
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      />
+    </transition-stub>
+  </div>
+</div>
+`;
+
+exports[`u-dropdown.vue Demo-选项带图标 1`] = `
+<div>
+  <div
+    class="root"
+    type="text"
+  >
+    <div
+      can-nodeinfo=""
+      class="title"
+      no-for-edit=""
+      vusion-click-enabled=""
+      vusion-slot-name="title"
+      vusion-slot-name-edit="title"
+    >
+      <span
+        class="root"
+        vusion-slot-name-edit="text"
+      >
+        下拉菜单
+      </span>
+       
+      <!---->
+       
+      <i
+        class="icon"
+      />
+    </div>
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <span
+            class="lcp-iconv singleicon"
+          >
+            <span
+              class="iconwrap"
+            >
+              <svg
+                aria-hidden="true"
+                class="iconsvg"
+              >
+                <use
+                  xlink:href="#pc-task"
+                />
+              </svg>
+            </span>
+             
+            <div
+              class="icontext"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+          </span>
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <span
+            class="lcp-iconv singleicon"
+          >
+            <span
+              class="iconwrap"
+            >
+              <svg
+                aria-hidden="true"
+                class="iconsvg"
+              >
+                <use
+                  xlink:href="#pc-task"
+                />
+              </svg>
+            </span>
+             
+            <div
+              class="icontext"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+          </span>
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <span
+            class="lcp-iconv singleicon"
+          >
+            <span
+              class="iconwrap"
+            >
+              <svg
+                aria-hidden="true"
+                class="iconsvg"
+              >
+                <use
+                  xlink:href="#pc-task"
+                />
+              </svg>
+            </span>
+             
+            <div
+              class="icontext"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+          </span>
+           item 
+          <!---->
+        </a>
+         
+        <a
+          class="root"
+          disabled="disabled"
+          target="_self"
+          vusion-slot-name="default"
+        >
+          <span
+            class="lcp-iconv singleicon"
+          >
+            <span
+              class="iconwrap"
+            >
+              <svg
+                aria-hidden="true"
+                class="iconsvg"
+              >
+                <use
+                  xlink:href="#pc-task"
+                />
+              </svg>
+            </span>
+             
+            <div
+              class="icontext"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+          </span>
+           item 
+          <!---->
+        </a>
+      </div>
+    </transition-stub>
+  </div>
+</div>
+`;

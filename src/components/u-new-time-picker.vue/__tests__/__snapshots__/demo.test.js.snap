@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-new-time-picker.vue Demo-基本用法 1`] = `
+<div>
+  <u-new-time-picker />
+</div>
+`;
+
+exports[`u-new-time-picker.vue Demo-设置格式 1`] = `
+<div>
+  <u-new-time-picker
+    format="dd:HH:mm"
+  />
+</div>
+`;

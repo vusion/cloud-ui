@@ -1,0 +1,633 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-avatar.vue Demo-基本用法 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    gap="small"
+    type=""
+    vusion-slot-name="default"
+  >
+    <span>
+      <div
+        class="root"
+      />
+       王小明
+    </span>
+     
+    <span>
+      <div
+        class="root"
+        type="1"
+      />
+       李小雪
+    </span>
+     
+    <span>
+      <div
+        class="root"
+        type="2"
+      />
+       李小雪
+    </span>
+     
+    <span>
+      <div
+        class="root"
+        type="3"
+      />
+       王小明
+    </span>
+     
+    <span>
+      <div
+        class="root"
+        type="4"
+      />
+       王小明
+    </span>
+     
+    <span>
+      <div
+        class="root"
+        type="5"
+      />
+       王小明
+    </span>
+     
+    <span>
+      <div
+        class="root"
+        type="6"
+      />
+       王小明
+    </span>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-avatar.vue Demo-大头像 1`] = `
+<div>
+  <div
+    class="root"
+    size="large"
+  />
+   大头像
+
+</div>
+`;
+
+exports[`u-avatar.vue Demo-大小扩展 1`] = `
+<div>
+  <div
+    class="root"
+    direction="vertical"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div>
+      <div
+        class="root"
+        size="mini"
+      />
+       王小明（迷你）
+    </div>
+     
+    <div>
+      <div
+        class="root"
+        size="small"
+      />
+       王小明（小）
+    </div>
+     
+    <div>
+      <div
+        class="root"
+      />
+       王小明（正常）
+    </div>
+     
+    <div>
+      <div
+        class="root"
+        size="large"
+      />
+       王小明（大）
+    </div>
+     
+    <div>
+      <div
+        class="root"
+        size="huge"
+      />
+       王小明（大）
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`u-avatar.vue Demo-头像2 1`] = `
+<div>
+  <div
+    class="root"
+    type="2"
+  />
+   头像2
+
+</div>
+`;
+
+exports[`u-avatar.vue Demo-头像3 1`] = `
+<div>
+  <div
+    class="root"
+    type="3"
+  />
+   头像3
+
+</div>
+`;
+
+exports[`u-avatar.vue Demo-添加徽章 1`] = `
+<div>
+  <div
+    class="root"
+    corner=""
+  >
+    <div
+      class="root"
+    />
+     
+    <span
+      class="value"
+    >
+      99+
+    </span>
+  </div>
+</div>
+`;
+
+exports[`u-avatar.vue Demo-自定义图片 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <img
+      src="../assets/music.png"
+    />
+  </div>
+   多多
+
+</div>
+`;
+
+exports[`u-avatar.vue Demo-迷你头像 1`] = `
+<div>
+  <div
+    class="root"
+    size="mini"
+  />
+   迷你头像
+
+</div>
+`;
+
+exports[`u-avatar.vue Demo-配合 UBadge 使用 1`] = `
+<div>
+  <div
+    class="root"
+    corner=""
+    dot=""
+  >
+    <div
+      class="root"
+    />
+     
+    <span
+      class="value"
+    >
+      3
+    </span>
+  </div>
+   
+  <br />
+  <br />
+   
+  <div
+    class="root"
+    corner=""
+  >
+    <div
+      class="root"
+    />
+     
+    <span
+      class="value"
+    >
+      99+
+    </span>
+  </div>
+</div>
+`;
+
+exports[`u-avatar.vue Demo-配合 UNavbar 使用 1`] = `
+<div>
+  <div
+    animation="1"
+    class="root"
+  >
+    <div
+      class="left"
+    />
+     
+    <div
+      class="right"
+    >
+      <div>
+        <a
+          class="root"
+          target="_self"
+          vusion-slot-name="default"
+          vusion-slot-name-edit="text"
+        >
+          <!---->
+           
+          <div
+            class="root"
+          />
+           王小明
+         
+          <!---->
+        </a>
+      </div>
+    </div>
+     
+    <nav
+      class="middle"
+      vusion-slot-name="default"
+    >
+      <a
+        class="root"
+        href="#/components"
+        target="_self"
+        vusion-slot-name="default"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         组件 
+        <!---->
+      </a>
+       
+      <a
+        class="root"
+        target="_self"
+        vusion-slot-name="default"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         概念 
+        <!---->
+      </a>
+       
+      <a
+        class="root"
+        disabled="disabled"
+        target="_self"
+        vusion-slot-name="default"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         指令 
+        <!---->
+      </a>
+       
+      <div
+        class="root"
+      />
+       
+      <a
+        class="root"
+        target="_self"
+        vusion-slot-name="default"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         配置 
+        <!---->
+      </a>
+       
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`u-avatar.vue Demo-配合 UNavbar 使用 2`] = `
+<div>
+  <div
+    animation="1"
+    class="root"
+  >
+    <div
+      class="left"
+    />
+     
+    <div
+      class="right"
+    >
+      <div
+        class="root"
+      >
+        <div>
+          <span>
+            <div
+              class="root"
+            />
+             王小明
+          </span>
+        </div>
+         
+        <transition-stub
+          class="popper"
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+             
+            <nav
+              class="root"
+            >
+              <a
+                class="root"
+                target="_self"
+              >
+                <span
+                  vusion-slot-name-edit="text"
+                >
+                  Basic
+                </span>
+                 
+                <div />
+              </a>
+               
+              <a
+                class="root"
+                target="_self"
+              >
+                <span
+                  vusion-slot-name-edit="text"
+                >
+                  Layout
+                </span>
+                 
+                <div />
+              </a>
+               
+              <a
+                class="root"
+                target="_self"
+              >
+                <span
+                  vusion-slot-name-edit="text"
+                >
+                  Navigation
+                </span>
+                 
+                <div />
+              </a>
+            </nav>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+     
+    <nav
+      class="middle"
+      vusion-slot-name="default"
+    >
+      <a
+        class="root"
+        href="#/components"
+        target="_self"
+        vusion-slot-name="default"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         组件 
+        <!---->
+      </a>
+       
+      <a
+        class="root"
+        target="_self"
+        vusion-slot-name="default"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         概念 
+        <!---->
+      </a>
+       
+      <a
+        class="root"
+        disabled="disabled"
+        target="_self"
+        vusion-slot-name="default"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         指令 
+        <!---->
+      </a>
+       
+      <div
+        class="root"
+      />
+       
+      <a
+        class="root"
+        target="_self"
+        vusion-slot-name="default"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         配置 
+        <!---->
+      </a>
+       
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`u-avatar.vue Demo-配合 UNavbar 使用 3`] = `
+<div>
+  <div
+    animation="1"
+    class="root"
+  >
+    <div
+      class="left"
+    />
+     
+    <div
+      class="right"
+    >
+      <div
+        class="root"
+      >
+        <div>
+          <span>
+            <div
+              class="root"
+              corner=""
+            >
+              <div
+                class="root"
+              />
+               
+              <span
+                class="value"
+              >
+                99+
+              </span>
+            </div>
+             王小明
+          </span>
+        </div>
+         
+        <transition-stub
+          class="popper"
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+             
+            <nav
+              class="root"
+            >
+              <a
+                class="root"
+                target="_self"
+              >
+                <span
+                  vusion-slot-name-edit="text"
+                >
+                  Basic
+                </span>
+                 
+                <div />
+              </a>
+               
+              <a
+                class="root"
+                target="_self"
+              >
+                <span
+                  vusion-slot-name-edit="text"
+                >
+                  Layout
+                </span>
+                 
+                <div />
+              </a>
+               
+              <a
+                class="root"
+                target="_self"
+              >
+                <span
+                  vusion-slot-name-edit="text"
+                >
+                  Navigation
+                </span>
+                 
+                <div />
+              </a>
+            </nav>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+     
+    <nav
+      class="middle"
+      vusion-slot-name="default"
+    >
+      <a
+        class="root"
+        href="#/components"
+        target="_self"
+        vusion-slot-name="default"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         组件 
+        <!---->
+      </a>
+       
+      <a
+        class="root"
+        target="_self"
+        vusion-slot-name="default"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         概念 
+        <!---->
+      </a>
+       
+      <a
+        class="root"
+        disabled="disabled"
+        target="_self"
+        vusion-slot-name="default"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         指令 
+        <!---->
+      </a>
+       
+      <div
+        class="root"
+      />
+       
+      <a
+        class="root"
+        target="_self"
+        vusion-slot-name="default"
+        vusion-slot-name-edit="text"
+      >
+        <!---->
+         配置 
+        <!---->
+      </a>
+       
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`u-avatar.vue Demo-默认头像 1`] = `
+<div>
+  <div
+    class="root"
+  />
+   默认头像
+
+</div>
+`;

@@ -1,0 +1,864 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-desc-list.vue Demo-基本用法 1`] = `
+<div>
+  <div
+    class="root"
+    layout="block"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="title"
+      >
+        个人信息
+      </div>
+       
+      <div
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            用户名
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxxxx
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            登录账号
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            1111111
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            登录密码
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            <a
+              class="root"
+              hovertype="underline"
+              tabindex="0"
+              target="_self"
+              vusion-slot-name-edit="text"
+            >
+              <!---->
+               修改
+            </a>
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            手机
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            13888888888
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <div
+        class="title"
+      >
+        公司信息
+      </div>
+       
+      <div
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            公司名
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxxxx
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            联系电话
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            13688886666
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            联系邮箱
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxx@163.com
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-desc-list.vue Demo-行内排列 1`] = `
+<div>
+  <div
+    class="root"
+    layout="inline"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="title"
+      >
+        个人信息
+      </div>
+       
+      <div
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          label-size="auto"
+        >
+          <label
+            class="label"
+          >
+            用户名
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxxxx
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="auto"
+        >
+          <label
+            class="label"
+          >
+            登录账号
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            1111111
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="auto"
+        >
+          <label
+            class="label"
+          >
+            登录密码
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            <a
+              class="root"
+              hovertype="underline"
+              tabindex="0"
+              target="_self"
+              vusion-slot-name-edit="text"
+            >
+              <!---->
+               修改
+            </a>
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="auto"
+        >
+          <label
+            class="label"
+          >
+            手机
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            13888888888
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <div
+        class="title"
+      >
+        公司信息
+      </div>
+       
+      <div
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          label-size="auto"
+        >
+          <label
+            class="label"
+          >
+            公司名
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxxxx
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="auto"
+        >
+          <label
+            class="label"
+          >
+            联系电话
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            13688886666
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="auto"
+        >
+          <label
+            class="label"
+          >
+            联系邮箱
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxx@163.com
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-desc-list.vue Demo-间距 1`] = `
+<div>
+  <div
+    class="root"
+    gap="none"
+    layout="block"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="title"
+      >
+        个人信息
+      </div>
+       
+      <div
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            用户名
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxxxx
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            登录账号
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            1111111
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            登录密码
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            <a
+              class="root"
+              hovertype="underline"
+              tabindex="0"
+              target="_self"
+              vusion-slot-name-edit="text"
+            >
+              <!---->
+               修改
+            </a>
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            手机
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            13888888888
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <div
+        class="title"
+      >
+        公司信息
+      </div>
+       
+      <div
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            公司名
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxxxx
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            联系电话
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            13688886666
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            联系邮箱
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxx@163.com
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-desc-list.vue Demo-间距 2`] = `
+<div>
+  <div
+    class="root"
+    gap="small"
+    layout="block"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="title"
+      >
+        个人信息
+      </div>
+       
+      <div
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            用户名
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxxxx
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            登录账号
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            1111111
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            登录密码
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            <a
+              class="root"
+              hovertype="underline"
+              tabindex="0"
+              target="_self"
+              vusion-slot-name-edit="text"
+            >
+              <!---->
+               修改
+            </a>
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            手机
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            13888888888
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <div
+        class="title"
+      >
+        公司信息
+      </div>
+       
+      <div
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            公司名
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxxxx
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            联系电话
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            13688886666
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            联系邮箱
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxx@163.com
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-desc-list.vue Demo-间距 3`] = `
+<div>
+  <div
+    class="root"
+    gap="large"
+    layout="block"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="title"
+      >
+        个人信息
+      </div>
+       
+      <div
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            用户名
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxxxx
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            登录账号
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            1111111
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            登录密码
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            <a
+              class="root"
+              hovertype="underline"
+              tabindex="0"
+              target="_self"
+              vusion-slot-name-edit="text"
+            >
+              <!---->
+               修改
+            </a>
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            手机
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            13888888888
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="root"
+    >
+      <div
+        class="title"
+      >
+        公司信息
+      </div>
+       
+      <div
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            公司名
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxxxx
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            联系电话
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            13688886666
+          </div>
+        </div>
+         
+        <div
+          class="root"
+          label-size="normal"
+        >
+          <label
+            class="label"
+          >
+            联系邮箱
+          </label>
+           
+          <div
+            class="value"
+            vusion-slot-name="default"
+          >
+            xxxx@163.com
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,7 +1,7 @@
 ### 基本用法
 
 ```html
-<u-calendar-view></u-calendar-view>
+<u-calendar-view value="2022-02-01"></u-calendar-view>
 ```
 
 ### 数据日历
