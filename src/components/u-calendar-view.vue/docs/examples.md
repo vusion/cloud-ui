@@ -47,7 +47,7 @@ export default{
 ### 普通模式
 
 ``` html
-<u-calendar-view :show-advance="false" :first-day-of-week="7"></u-calendar-view>
+<u-calendar-view :show-advance="false" :first-day-of-week="7" value="2022-02-01"></u-calendar-view>
 ```
 
 ### 最大值最小值
