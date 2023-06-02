@@ -5,29 +5,12 @@
     <div :class="$style.body">
       <div :class="[$style.content, $style.left]">
         <div :class="$style.header">
-          <button
-            type="button"
-            @click="leftPrevYear"
-            class="el-picker-panel__icon-btn el-icon-d-arrow-left"></button>
-          <button
-            type="button"
-            @click="leftPrevMonth"
-            class="el-picker-panel__icon-btn el-icon-arrow-left"></button>
-          <button
-            type="button"
-            @click="leftNextYear"
-            v-if="unlinkPanels"
-            :disabled="!enableYearArrow"
-            :class="{ 'is-disabled': !enableYearArrow }"
-            class="el-picker-panel__icon-btn el-icon-d-arrow-right"></button>
-          <button
-            type="button"
-            @click="leftNextMonth"
-            v-if="unlinkPanels"
-            :disabled="!enableMonthArrow"
-            :class="{ 'is-disabled': !enableMonthArrow }"
-            class="el-picker-panel__icon-btn el-icon-arrow-right"></button>
+          <div>
+            <i-ico :class="$style.hicon" name="d-left-arrow" notext @click="leftPrevYear"></i-ico>
+            <i-ico :class="$style.hicon" name="left-arrow" notext @click="leftPrevMonth"></i-ico>
+          </div>
           <div>{{ leftLabel }}</div>
+          <div :class="$style.holder"></div>
         </div>
         <date-table
           selection-mode="range"
@@ -45,29 +28,12 @@
       </div>
       <div :class="[$style.content, $style.right]">
         <div :class="$style.header">
-          <button
-            type="button"
-            @click="rightPrevYear"
-            v-if="unlinkPanels"
-            :disabled="!enableYearArrow"
-            :class="{ 'is-disabled': !enableYearArrow }"
-            class="el-picker-panel__icon-btn el-icon-d-arrow-left"></button>
-          <button
-            type="button"
-            @click="rightPrevMonth"
-            v-if="unlinkPanels"
-            :disabled="!enableMonthArrow"
-            :class="{ 'is-disabled': !enableMonthArrow }"
-            class="el-picker-panel__icon-btn el-icon-arrow-left"></button>
-          <button
-            type="button"
-            @click="rightNextYear"
-            class="el-picker-panel__icon-btn el-icon-d-arrow-right"></button>
-          <button
-            type="button"
-            @click="rightNextMonth"
-            class="el-picker-panel__icon-btn el-icon-arrow-right"></button>
+          <div :class="$style.holder"></div>
           <div>{{ rightLabel }}</div>
+          <div>
+            <i-ico :class="$style.hicon" name="right-arrow" notext @click="rightNextMonth"></i-ico>
+            <i-ico :class="$style.hicon" name="d-right-arrow" notext @click="rightNextYear"></i-ico>
+          </div>
         </div>
         <date-table
           selection-mode="range"
@@ -599,20 +565,19 @@ export default {
   position: relative;
   text-align: center;
   height: 28px;
-}
-
-.header [class*=arrow-left] {
-  float: left;
-}
-
-.header [class*=arrow-right] {
-  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .header div {
   font-size: 16px;
   font-weight: 500;
-  margin-right: 50px;
+  /* margin-right: 50px; */
+}
+
+.header .holder {
+  width: 49px;
 }
 
 .content {
@@ -627,9 +592,26 @@ export default {
   border-right: 1px solid var(--el-datepicker-inner-border-color);
 }
 
-.content .header div {
+/* .content .header div {
   margin-left: 50px;
   margin-right: 50px;
+} */
+
+.hicon {
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--calendar-icon-color);
+}
+.hicon + .hicon {
+    margin-left: 25px;
+}
+.hicon:hover {
+    color: var(--calendar-icon-color-hover);
+}
+.hicon[disabled],
+.hicon[disabled]:hover {
+    color: var(--calendar-icon-color-disabled);
+    cursor: var(--cursor-not-allowed);
 }
 
 .editors-wrap {

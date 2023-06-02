@@ -6,25 +6,8 @@
 
 ### 范围选择
 
-``` vue
-<template>
-    <u-calendar-range picker="date" v-model="date" @change="change"></u-calendar-range>
-    <!-- <u-calendar-range picker="week"></u-calendar-range> -->
-</template>
-<script>
-export default {
-    data() {
-        return {
-            date: new Date()
-        };
-    },
-    methods: {
-        change(value) {
-            console.log(value);
-        },
-    }
-}
-</script>
+``` html
+<u-calendar-range picker="date"></u-calendar-range>
 ```
 
 ### 周选择组件

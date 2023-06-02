@@ -161,7 +161,7 @@ export default {
         for (let j = 0, l = row.length; j < l; j++) {
 
           const cell = row[j];
-          const index = i * 4 + j;
+          const index = i * 3 + j;
           const time = new Date(this.date.getFullYear(), index).getTime();
 
           cell.inRange = minDate && time >= minDate && time <= maxDate;
@@ -197,7 +197,7 @@ export default {
           maxDate: this.maxDate,
           rangeState: {
             selecting: true,
-            endDate: this.getMonthOfCell(row * 4 + column)
+            endDate: this.getMonthOfCell(row * 3 + column)
           }
         });
       }
@@ -292,7 +292,7 @@ export default {
 
 .monthTable td {
   text-align: center;
-  /* padding: 8px 0px; */
+  padding: 0;
   cursor: pointer;
 }
 
@@ -300,6 +300,16 @@ export default {
   height: 24px;
   margin: 12px 0;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.monthTable td:first-child div {
+  justify-content: flex-start;
+}
+
+.monthTable td:last-child div {
+  justify-content: flex-end;
 }
 
 /* .monthTable td.today .cell {
@@ -328,7 +338,7 @@ export default {
   display: block;
   line-height: 24px;
   color: var(--calendar-item-color);
-  margin: 0 auto;
+  margin: 0;
   border-radius: var(--calendar-item-border-radius);
 }
 
@@ -337,12 +347,12 @@ export default {
   background-color: var(--calendar-item-background-hover);
 }
 
-/* .monthTable td.in-range div {
-  background-color: var(--datepicker-inrange-background-color);
-} */
+.monthTable td.in-range div {
+  background-color: var(--calendar-inrange-background-color);
+}
 
-/* .monthTable td.in-range div:hover {
-  background-color: var(el--datepicker-inrange-hover-background-color);
+/* .monthTable td.in-range div:hover .cell {
+  background-color: var(--calendar-item-background-hover);
 } */
 
 .monthTable td.start-date div,
@@ -357,13 +367,23 @@ export default {
 }
 
 .monthTable td.start-date div {
-  border-top-left-radius: 24px;
-  border-bottom-left-radius: 24px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    transparent 50%,
+    var(--calendar-inrange-background-color) 50%,
+    var(--calendar-inrange-background-color) 100%
+  );
 }
 
 .monthTable td.end-date div {
-  border-top-right-radius: 24px;
-  border-bottom-right-radius: 24px;
+  background: linear-gradient(
+    270deg,
+    transparent,
+    transparent 50%,
+    var(--calendar-inrange-background-color) 50%,
+    var(--calendar-inrange-background-color) 100%
+  );
 }
 
 .monthTable td.current:not(.disabled) .cell {

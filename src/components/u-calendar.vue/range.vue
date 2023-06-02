@@ -2,18 +2,21 @@
     <div :class="$style.root">
         <DatePannel />
         <DateRange @pick="emitInput" v-bind="$attrs" v-on="$listeners" />
+        <MonthRange />
     </div>
 </template>
 
 <script>
 import DatePannel from './panel/date'
 import DateRange from './panel/date-range'
+import MonthRange from './panel/month-range'
 
 export default {
     name: 'u-calendar-range',
     components: {
         DatePannel,
-        DateRange
+        DateRange,
+        MonthRange
     },
     props: {
         // value: {
