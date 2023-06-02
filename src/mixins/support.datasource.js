@@ -57,11 +57,20 @@ export default {
             return final;
         },
         load(params) {
+            if (this.$emitPrevent('before-load', undefined, this))
+                return;
             this.loading = true;
             this.currentDataSource.load(params)
+                .then(() => {
+                    this.$emit('load', undefined, this);
+                })
                 .finally(() => {
                     this.loading = false;
                 });
+        },
+        reload() {
+            console.log('reload');
+            this.load();
         },
     },
 };
