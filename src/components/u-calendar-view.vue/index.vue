@@ -349,7 +349,10 @@ export default {
                 return [];
             }
             if (dataSource instanceof Promise || typeof dataSource === 'function') {
+                if (this.$emitPrevent('before-load', undefined, this))
+                    return;
                 const result = await dataSource(this.page);
+                this.$emit('load', undefined, this);
                 return this.handleData(result);
             }
             return this.handleData(dataSource);

@@ -7,21 +7,6 @@
   next: true
   nested: false
   attrs:
-    - name: value
-      title: 值
-      type: Date | string ｜ number
-      sync: true
-      model: true
-      default: TODAY
-      description: 当前选择的日期
-    - name: min-date
-      title: 最小日期
-      type: Date | string ｜ number
-      description: 最小日期，默认 10 年前
-    - name: max-date
-      title: 最大日期
-      type: Date | string ｜ number
-      description: 最大日期，默认 9 年后
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object
@@ -40,12 +25,32 @@
       default: startTime
       description: 数据内表示开始时间的字段
       group: 数据属性
+      disaply: property-select
     - name: end-key
       type: string
       title: 结束时间字段
       default: endTime
       description: 数据内表示结束时间的字段
       group: 数据属性
+      disaply: property-select
+    - name: value
+      title: 值
+      type: Date | string ｜ number
+      sync: true
+      model: true
+      default: TODAY
+      description: 当前选择的日期
+      group: 选择属性
+    - name: min-date
+      title: 最小日期
+      type: Date | string ｜ number
+      description: 最小日期，默认 10 年前
+      group: 选择属性
+    - name: max-date
+      title: 最大日期
+      type: Date | string ｜ number
+      description: 最大日期，默认 9 年后
+      group: 选择属性
     - name: show-week-days
       title: 展示周天
       type: boolean
@@ -143,10 +148,33 @@
         - name: $event.Date
           type: object
           description: dayjs 封装过后的日期信息
-  methods:
+    - name: before-load
+      title: 加载前
+      description: 加载前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止加载流程
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
     - name: load
-      description: 加载
-      params: []
+      title: 加载后
+      description: 加载后触发
+      params:
+        - name: $event
+          type: "null"
+          description: 无
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+  methods:
     - name: reload
       description: 重新加载
       params: []
