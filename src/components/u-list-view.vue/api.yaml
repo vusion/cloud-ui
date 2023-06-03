@@ -162,35 +162,70 @@
       default: normal
       description: 设置数据列表高度大小
       group: 样式属性
+    - name: designer-mode
+      title: 状态设置
+      type: string
+      options:
+        - value: success
+          title: 加载完成-有数据
+        - value: empty
+          title: 加载完成-暂无数据
+        - value: loading
+          title: 加载中
+        - value: error
+          title: 加载失败
+      default: success
+      description: 设置不同状态的展示内容
+      bindHide: true
+      group: 状态属性
     - name: loading-text
       title: 加载中文字
       type: string
       default: 加载中...
       description: 加载时的文字。使用分页加载时才会出现
       group: 状态属性
-    - name: error
-      title: 是否加载失败
+      dependency:
+        - designer-mode: loading
+    - name: loading
+      title: 自定义加载中触发条件
       type: boolean
-      description: 手动设置是否加载失败。
+      description: 支持自定义状态的触发条件，未设置则默认为系统定义条件
+      bindOpen: true
       group: 状态属性
+      dependency:
+        - designer-mode: loading
     - name: error-text
       title: 加载失败文字
       type: string
       default: 加载失败，请重试
       description: 加载失败时的文字。
       group: 状态属性
+      dependency:
+        - designer-mode: error
+    - name: error
+      title: 自定义加载失败触发条件
+      type: boolean
+      description: 支持自定义状态的触发条件，未设置则默认为系统定义条件
+      bindOpen: true
+      group: 状态属性
+      dependency:
+        - designer-mode: error
     - name: empty-text
       title: 暂无数据文字
       type: string
       default: 暂无数据
       description: 暂无数据时的文字。
       group: 状态属性
+      dependency:
+        - designer-mode: empty
     - name: placeholder
       title: 搜索框占位符
       type: string
       default: 请输入
       description: 搜索框为空时提示文本
       group: 状态属性
+      dependency:
+        - filterable: true
     - name: value
       title: 值
       type: any
@@ -204,12 +239,14 @@
       default: text
       description: 当开启可多选时，显示的选项文本字段名
       group: 选择属性
+      display: property-select
     - name: value-field
       title: 值字段名
       type: string
       default: value
       description: 当开启可多选时，选项值的字段名
       group: 选择属性
+      display: property-select
     - name: cancelable
       title: 可取消
       type: boolean
