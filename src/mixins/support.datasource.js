@@ -69,7 +69,6 @@ export default {
                 });
         },
         reload() {
-            console.log('reload');
             this.load();
         },
     },
