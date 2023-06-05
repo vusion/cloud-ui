@@ -125,6 +125,36 @@
       title: 右侧附加
       description: 在标签右侧可以附加的组件。
       advanced: true
+    - concept: Slot
+      name: title
+      title: 头部标题
+      slotProps:
+        concept: Param
+        name: current
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: Current
+          typeArguments:
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
+    - concept: Slot
+      name: content
+      title: 内容区
+      slotProps:
+        concept: Param
+        name: current
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: Current
+          typeArguments:
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
   methods:
     - name: reload
       description: 重新加载数据

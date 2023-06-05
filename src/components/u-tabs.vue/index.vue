@@ -14,12 +14,12 @@
                 <div ref="scrollView" :class="$style['scroll-view']">
                     <div :class="$style.scroll">
                         <template v-if="dataSource !== undefined">
-                            <template v-if="$env.VUE_APP_DESIGNER">
+                            <!-- <template v-if="$env.VUE_APP_DESIGNER">
                                 <a :class="$style.item" :selected="true" :alignment="itemAlign">动态选项卡1</a>
                                 <a :class="$style.item" :alignment="itemAlign">动态选项卡2</a>
                                 <a :class="$style.item" :alignment="itemAlign">动态选项卡3</a>
                             </template>
-                            <template v-else>
+                            <template v-else> -->
                                 <template v-for="(itemVM, index) in tabDataSource">
                                     <a v-show="!itemVM.hidden" :class="$style.item"
                                        ref="item"
@@ -27,18 +27,24 @@
                                        :target="itemVM.target || '_self'"
                                        :title="showTitle ? $at(item, titleField) : null"
                                        :selected="itemVM.active"
-                                       :disabled="itemVM.disabled || disabled"
+                                       :disabled="$env.VUE_APP_DESIGNER? index>1:itemVM.disabled || disabled"
                                        :style="getTabStyle(itemVM)"
                                        :width-fixed="!!currentItemWidth"
                                        :alignment="itemAlign"
                                        @click="onClick(itemVM, $event)">
                                     <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
-                                        {{ $at(itemVM, titleField) }}
+                                        <slot name="title" :item="itemVM">{{ $at(itemVM, titleField) }}</slot>
+                                        <s-empty
+                                            v-if="!$slots.title
+                                                && !($scopedSlots.title && $scopedSlots.title())
+                                                && $env.VUE_APP_DESIGNER
+                                                && !!$attrs['vusion-node-path']">
+                                        </s-empty>
                                         <span v-if="closable || $at(itemVM, closableField)" :class="$style.close" @click.stop="close(itemVM)"></span>
                                     </span>
                                     </a>
                                 </template>
-                            </template>
+                            <!-- </template> -->
                         </template>
                         <template v-else>
                             <template v-for="(itemVM, index) in itemVMs">
@@ -87,7 +93,22 @@
             <template v-if="$env.VUE_APP_DESIGNER && !itemVMs && !itemVMs.length && !dataSource && !$slots.default">
                 <span :class="$style.loadContent">{{ treeSelectTip }}</span>
             </template>
-            <slot></slot>
+            <template v-if="dataSource !== undefined">
+                <template v-for="(itemVM, index) in tabDataSource">
+                    <div vusion-slot-name="content" :key="index" v-show="itemVM.active">
+                        <slot name="content" :item="itemVM"></slot>
+                        <s-empty
+                            v-if="!$slots.content
+                                && !($scopedSlots.content && $scopedSlots.content())
+                                && $env.VUE_APP_DESIGNER
+                                && !!$attrs['vusion-node-path']">
+                        </s-empty>
+                    </div>
+                </template>
+            </template>
+            <template v-else>
+                <slot></slot>
+            </template>
         </div>
     </div>
 </template>
