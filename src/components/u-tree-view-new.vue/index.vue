@@ -334,10 +334,16 @@ export default {
             this.$emit('check', { checked }, this);
         },
         load(params) {
+            if (this.$emitPrevent('before-load', undefined, this))
+                return;
             this.loading = true;
             this.currentDataSource.load(params).then(() => {
                 this.loading = false;
+                this.$emit('load', undefined, this);
             }).catch(() => this.loading = false);
+        },
+        reload() {
+            this.load();
         },
     },
 };
