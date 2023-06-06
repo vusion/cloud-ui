@@ -175,7 +175,8 @@ export default {
                     });
                 } else {
                     if (!item.disabled) {
-                        markData[this.field] = item[this.field];
+                        // fix 打开filterable搜索不到内容，取到的值是undefined
+                        markData[this.field] = this.$at(item, this.field);
                         markData.index = [index];
                         combinedText.push(markData);
                     }
