@@ -26,7 +26,7 @@ export default {
             });
         },
         onClickReload() {
-            console.log('dddd');
+            console.log('reload');
             this.$refs.radio.reload();
         }
     },

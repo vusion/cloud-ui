@@ -139,7 +139,7 @@ export default {
         showTitle: { type: Boolean, default: false },
         titleField: { type: String, default: 'title' },
         valueField: { type: String, default: 'value' },
-        contentField: { type: String, default: 'content' },
+        urlField: { type: String, default: 'url' },
         closableField: { type: String, default: 'closable' },
     },
     data() {
@@ -196,7 +196,7 @@ export default {
                     this.$emit('click', e, itemVM);
                     const value = itemVM.value || this.$at(itemVM, this.valueField);
                     this.$emit('update:value', value, this);
-                    this.$router.replace(this.$at(itemVM, this.contentField));
+                    this.$router.replace(this.$at(itemVM, this.urlField));
                     this.tabDataSource.forEach((item) => {
                         item.active = false;
                     });
@@ -251,7 +251,7 @@ export default {
                 const allNotSelected = this.tabDataSource.every((item) => !item.active);
                 if (allNotSelected && this.tabDataSource && this.tabDataSource.length) {
                     this.tabDataSource[0].active = true;
-                    this.$router.replace(this.$at(this.tabDataSource[0], this.contentField));
+                    this.$router.replace(this.$at(this.tabDataSource[0], this.urlField));
                     this.$emit('input', this.$at(this.tabDataSource[0], this.valueField), this);
                     this.$emit('update:value', this.$at(this.tabDataSource[0], this.valueField), this);
                     this.$emit('close', {
@@ -361,9 +361,9 @@ export default {
             let matchItem = this.tabDataSource.find((itemVM) => String(this.$at(itemVM, this.valueField)) === String(value));
             matchItem = matchItem || this.tabDataSource[0];
             matchItem.active = true;
-            const url = this.$at(matchItem, this.contentField);
+            const url = this.$at(matchItem, this.urlField);
             if (url)
-                this.$router.replace(this.$at(matchItem, this.contentField));
+                this.$router.replace(this.$at(matchItem, this.urlField));
             this.$forceUpdate();
             this.scrollToSelectedVM();
         },
