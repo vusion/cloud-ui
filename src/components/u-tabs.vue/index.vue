@@ -14,37 +14,30 @@
                 <div ref="scrollView" :class="$style['scroll-view']">
                     <div :class="$style.scroll">
                         <template v-if="dataSource !== undefined">
-                            <!-- <template v-if="$env.VUE_APP_DESIGNER">
-                                <a :class="$style.item" :selected="true" :alignment="itemAlign">动态选项卡1</a>
-                                <a :class="$style.item" :alignment="itemAlign">动态选项卡2</a>
-                                <a :class="$style.item" :alignment="itemAlign">动态选项卡3</a>
+                            <template v-for="(itemVM, index) in tabDataSource">
+                                <a v-show="!itemVM.hidden" :class="[$style.item, {[$style.tabmask]: $env.VUE_APP_DESIGNER && index>0}]"
+                                    ref="item"
+                                    :key="index"
+                                    :target="itemVM.target || '_self'"
+                                    :title="showTitle ? $at(item, titleField) : null"
+                                    :selected="itemVM.active"
+                                    :disabled="$env.VUE_APP_DESIGNER? index>0:itemVM.disabled || disabled"
+                                    :style="getTabStyle(itemVM)"
+                                    :width-fixed="!!currentItemWidth"
+                                    :alignment="itemAlign"
+                                    @click="onClick(itemVM, $event)">
+                                <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
+                                    <slot name="title" :item="itemVM">{{ $at(itemVM, titleField) }}</slot>
+                                    <s-empty
+                                        v-if="!$slots.title
+                                            && !($scopedSlots.title && $scopedSlots.title())
+                                            && $env.VUE_APP_DESIGNER
+                                            && !!$attrs['vusion-node-path']">
+                                    </s-empty>
+                                    <span v-if="closable || $at(itemVM, closableField)" :class="$style.close" @click.stop="close(itemVM)"></span>
+                                </span>
+                                </a>
                             </template>
-                            <template v-else> -->
-                                <template v-for="(itemVM, index) in tabDataSource">
-                                    <a v-show="!itemVM.hidden" :class="$style.item"
-                                       ref="item"
-                                       :key="index"
-                                       :target="itemVM.target || '_self'"
-                                       :title="showTitle ? $at(item, titleField) : null"
-                                       :selected="itemVM.active"
-                                       :disabled="$env.VUE_APP_DESIGNER? index>1:itemVM.disabled || disabled"
-                                       :style="getTabStyle(itemVM)"
-                                       :width-fixed="!!currentItemWidth"
-                                       :alignment="itemAlign"
-                                       @click="onClick(itemVM, $event)">
-                                    <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
-                                        <slot name="title" :item="itemVM">{{ $at(itemVM, titleField) }}</slot>
-                                        <s-empty
-                                            v-if="!$slots.title
-                                                && !($scopedSlots.title && $scopedSlots.title())
-                                                && $env.VUE_APP_DESIGNER
-                                                && !!$attrs['vusion-node-path']">
-                                        </s-empty>
-                                        <span v-if="closable || $at(itemVM, closableField)" :class="$style.close" @click.stop="close(itemVM)"></span>
-                                    </span>
-                                    </a>
-                                </template>
-                            <!-- </template> -->
                         </template>
                         <template v-else>
                             <template v-for="(itemVM, index) in itemVMs">
@@ -202,20 +195,21 @@ export default {
                     });
                     itemVM.active = true;
                     this.$forceUpdate();
-                    return;
                 } else {
                     itemVM.$emit('click', e, itemVM);
+                    itemVM.onClick(e);
                 }
-                if (itemVM.target !== '_self')
-                    return; // 使用`to`的时候走`$router`，否则走原生
-                if (itemVM.href === undefined) {
-                    // 使用浏览器的一些快捷键时，走原生
-                    // @TODO: 考虑使用快捷键抛出事件，阻止流程的需求
-                    if (e.ctrlKey || e.shiftKey || e.metaKey || e.altKey)
-                        return;
-                    e.preventDefault();
-                    itemVM.navigate();
-                }
+                // 支持destination ，使用itemVM.onClick的能力，即使用ULink的onClick，所以这里注释了
+                // if (itemVM.target !== '_self')
+                //     return; // 使用`to`的时候走`$router`，否则走原生
+                // if (itemVM.href === undefined) {
+                //     // 使用浏览器的一些快捷键时，走原生
+                //     // @TODO: 考虑使用快捷键抛出事件，阻止流程的需求
+                //     if (e.ctrlKey || e.shiftKey || e.metaKey || e.altKey)
+                //         return;
+                //     e.preventDefault();
+                //     itemVM.navigate(itemVM.destination);
+                // }
             } else {
                 if (this.tabDataSource && this.tabDataSource.length) {
                     this.$emit('click', e, itemVM);

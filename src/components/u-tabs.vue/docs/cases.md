@@ -146,7 +146,7 @@ export default {
                 :dataSource="tabList"
                 titleField="title"
                 valueField="value"
-                contentField="contentUrl"
+                urlField="contentUrl"
                 closableField="closable"
                 showScrollButtons='auto'
                 router>
@@ -212,4 +212,27 @@ export default {
     },
 };
 </script>
+```
+
+### 路由
+
+#### 使用to
+
+``` html
+<u-tabs router>
+    <u-tab title="Button" to="/components/u-button"></u-tab>
+    <u-tab title="Input" to="/components/u-input"></u-tab>
+    <u-tab title="Tabs" to="/components/u-tabs"></u-tab>
+</u-tabs>
+
+```
+
+#### 使用tdestination
+
+``` html
+<u-tabs router>
+    <u-tab title="Button" destination="/components/u-button"></u-tab>
+    <u-tab title="Input" destination="/components/u-input"></u-tab>
+    <u-tab title="Tabs" destination="/components/u-tabs"></u-tab>
+</u-tabs>
 ```

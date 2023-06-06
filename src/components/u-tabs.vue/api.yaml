@@ -350,24 +350,19 @@
       options:
         - value: destination
           title: 页面跳转
-        - value: download
-          title: 下载链接
       default: destination
-      description: 链接类型
-      advanced: true
       compType: linkTypeSelect
       bindHide: true
+    - name: hrefAndTo
+      title: 链接
+      type: string
+      description: 点击选项卡后跳转的地址，选项卡的路由模式需要开启
+      compType: linkHrefInput
     - name: href
       title: 链接
       type: string
       description: 链接地址
       advanced: true
-    - name: hrefAndTo
-      title: 链接
-      type: string
-      description: 链接地址
-      advanced: true
-      compType: linkHrefInput
     - name: target
       title: 打开方式
       type: string
