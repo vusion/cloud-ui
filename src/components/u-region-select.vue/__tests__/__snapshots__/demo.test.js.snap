@@ -383,7 +383,7 @@ exports[`u-region-select.vue Demo-基本用法 2`] = `
     </div>
      
     <div
-      defaultvalue="浙江 / 杭州 / 滨江区"
+      defaultvalue="浙江省 / 杭州市 / 滨江区"
     >
       <div
         readonly="readonly"
@@ -460,6 +460,154 @@ exports[`u-region-select.vue Demo-基本用法 2`] = `
      
     <!---->
   </div>
+</div>
+`;
+
+exports[`u-region-select.vue Demo-转换为地区名格式 1`] = `
+<div>
+  <div
+    readonly="readonly"
+  >
+    <span>
+      b
+    </span>
+     
+    <span>
+      
+    </span>
+     
+    <!---->
+     
+    <input
+      readonly="readonly"
+      type="text"
+    />
+     
+    <transition-stub
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+        <div
+          class="root"
+          color="light"
+          style="display: inline-block;"
+        >
+          <div
+            class="wrap"
+          >
+            <div>
+              <nav
+                class="root"
+              />
+            </div>
+          </div>
+           
+          <div
+            class="root"
+            direction="horizontal"
+          >
+            <div
+              class="thumb"
+              style="transform: translateX(0%); webkit-transform: translateX(0%);"
+            />
+          </div>
+           
+          <div
+            class="root"
+            direction="vertical"
+          >
+            <div
+              class="thumb"
+              style="transform: translateY(0%); webkit-transform: translateY(0%);"
+            />
+          </div>
+        </div>
+      </div>
+    </transition-stub>
+     
+    <!---->
+  </div>
+   
+  <span
+    style="display: none;"
+  />
+</div>
+`;
+
+exports[`u-region-select.vue Demo-转换为地区码格式 1`] = `
+<div>
+  <div
+    readonly="readonly"
+  >
+    <span>
+      b
+    </span>
+     
+    <span>
+      
+    </span>
+     
+    <!---->
+     
+    <input
+      readonly="readonly"
+      type="text"
+    />
+     
+    <transition-stub
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      >
+        <div
+          class="root"
+          color="light"
+          style="display: inline-block;"
+        >
+          <div
+            class="wrap"
+          >
+            <div>
+              <nav
+                class="root"
+              />
+            </div>
+          </div>
+           
+          <div
+            class="root"
+            direction="horizontal"
+          >
+            <div
+              class="thumb"
+              style="transform: translateX(0%); webkit-transform: translateX(0%);"
+            />
+          </div>
+           
+          <div
+            class="root"
+            direction="vertical"
+          >
+            <div
+              class="thumb"
+              style="transform: translateY(0%); webkit-transform: translateY(0%);"
+            />
+          </div>
+        </div>
+      </div>
+    </transition-stub>
+     
+    <!---->
+  </div>
+   
+  <span
+    style="display: none;"
+  />
 </div>
 `;
 

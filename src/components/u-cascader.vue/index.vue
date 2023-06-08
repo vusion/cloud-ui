@@ -84,12 +84,17 @@ export default {
     },
     watch: {
         currentValue(value) {
-            this.$emit('update:value', value);
-            this.$emit('change', { sender: this, value });
-            this.$emit('input', value, this);
+            // 在 u-region-select 组件中有 converter，需要组件自己触发事件
+            if (!this.converter) {
+                this.$emit('update:value', value);
+                this.$emit('change', { sender: this, value });
+                this.$emit('input', value, this);
+            }
         },
         value(value) {
-            this.currentValue = value;
+            if (!this.converter) {
+                this.currentValue = value;
+            }
         },
         opened(value) {
             if (value === this.currentOpened)

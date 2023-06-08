@@ -1,0 +1,1043 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-region-select should render popper basic 1`] = `
+<transition-stub
+  data-popper-escaped=""
+  data-popper-placement="bottom-start"
+  data-popper-reference-hidden=""
+  name="fade"
+  style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 4px);"
+>
+  <div
+    class="root"
+    style=""
+  >
+    <div
+      class="root"
+      color="light"
+      style="display: inline-block;"
+    >
+      <div
+        class="wrap"
+      >
+        <div>
+          <nav
+            class="root"
+          >
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                北京市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                天津市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                河北省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                山西省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                内蒙古自治区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                辽宁省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                吉林省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                黑龙江省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                上海市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                江苏省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              select="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                浙江省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                安徽省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                福建省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                江西省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                山东省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                河南省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                湖北省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                湖南省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                广东省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                广西壮族自治区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                海南省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                重庆市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                四川省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                贵州省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                云南省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                西藏自治区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                陕西省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                甘肃省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                青海省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                宁夏回族自治区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                新疆维吾尔自治区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                台湾省
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                香港特别行政区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                澳门特别行政区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+          </nav>
+        </div>
+      </div>
+       
+      <div
+        class="root"
+        direction="horizontal"
+      >
+        <div
+          class="thumb"
+          style="width: 0px; transform: translateX(0%); webkit-transform: translateX(0%);"
+        />
+      </div>
+       
+      <div
+        class="root"
+        direction="vertical"
+      >
+        <div
+          class="thumb"
+          style="height: 0px; transform: translateY(0%); webkit-transform: translateY(0%);"
+        />
+      </div>
+    </div>
+    <div
+      class="root"
+      color="light"
+      style="display: inline-block;"
+    >
+      <div
+        class="wrap"
+      >
+        <div>
+          <nav
+            class="root"
+          >
+            <a
+              class="root"
+              has-sub="true"
+              select="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                杭州市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                宁波市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                温州市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                嘉兴市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                湖州市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                绍兴市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                金华市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                衢州市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                舟山市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                台州市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              has-sub="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                丽水市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+          </nav>
+        </div>
+      </div>
+       
+      <div
+        class="root"
+        direction="horizontal"
+      >
+        <div
+          class="thumb"
+          style="width: 0px; transform: translateX(0%); webkit-transform: translateX(0%);"
+        />
+      </div>
+       
+      <div
+        class="root"
+        direction="vertical"
+      >
+        <div
+          class="thumb"
+          style="height: 0px; transform: translateY(0%); webkit-transform: translateY(0%);"
+        />
+      </div>
+    </div>
+    <div
+      class="root"
+      color="light"
+      style="display: inline-block;"
+    >
+      <div
+        class="wrap"
+      >
+        <div>
+          <nav
+            class="root"
+          >
+            <a
+              class="root"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                上城区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                拱墅区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                西湖区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              select="true"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                滨江区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                萧山区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                余杭区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                富阳区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                临安区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                钱塘区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                临平区
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                桐庐县
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                淳安县
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+            <a
+              class="root"
+              target="_self"
+            >
+              <span
+                vusion-slot-name-edit="text"
+              >
+                
+                建德市
+                
+                <!---->
+              </span>
+               
+              <div />
+            </a>
+          </nav>
+        </div>
+      </div>
+       
+      <div
+        class="root"
+        direction="horizontal"
+      >
+        <div
+          class="thumb"
+          style="width: 0px; transform: translateX(0%); webkit-transform: translateX(0%);"
+        />
+      </div>
+       
+      <div
+        class="root"
+        direction="vertical"
+      >
+        <div
+          class="thumb"
+          style="height: 0px; transform: translateY(0%); webkit-transform: translateY(0%);"
+        />
+      </div>
+    </div>
+  </div>
+</transition-stub>
+`;
