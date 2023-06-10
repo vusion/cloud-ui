@@ -61,8 +61,10 @@
                                         :text-field="columnVM.textField"
                                         :value-field="columnVM.valueField"
                                         :multiple="true"
+                                        :hidden="columnVM.hiddenConfig"
                                         @select="onSelectShowColumns($event, columnVM)"
-                                        @load="onLoadConfigList(columnVM)">
+                                        @load="onLoadConfigList(columnVM)"
+                                        @change="onChangeShowColumns($event, columnVM)">
                                     </u-table-view-filters-popper>
                                 </span>
                             </template>
@@ -2276,6 +2278,16 @@ export default {
             columnVM.$emit('select', event);
         },
         /**
+         * 控制列的弹窗在表格外部实现，数据需要与表格联动时走change逻辑
+         */
+        onChangeShowColumns(event, columnVM) {
+            if (columnVM.hiddenConfig) {
+                const value = event.value || [];
+                columnVM.currentShowColumnValue = value;
+                this.handlesColumnHidden(columnVM, value);
+            }
+        },
+        /**
          * 初始时处理显隐
          */
         handleInitColumnsHidden() {
@@ -2306,7 +2318,7 @@ export default {
                     && !columnVM.configurable) {
                     columnVM.currentHidden = true;
                 } else {
-                    columnVM.currentHidden = false;
+                    columnVM.currentHidden = columnVM.hidden;
                 }
             });
         },

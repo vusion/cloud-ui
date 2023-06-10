@@ -1,5 +1,5 @@
 <template>
-<m-popper :class="$style.root" ref="popper" :trigger="trigger" :placement="placement" :disabled="disabled" @click.stop @open="onOpen">
+<m-popper :class="$style.root" ref="popper" :trigger="trigger" :placement="placement" :disabled="disabled" @click.stop @open="onOpen" v-if="!hidden">
     <f-scroll-view @click.stop :class="$style.scrollview" trigger="hover">
         <div :class="$style.wrap">
             <u-table-view-filters :value.sync="currentValue" @before-select="onBeforeSelect" :multiple="multiple" @select="onSelect">
@@ -33,6 +33,7 @@ export default {
         trigger: { type: String, default: 'click.stop' },
         valueField: { type: String, default: 'value' },
         textField: { type: String, default: 'text' },
+        hidden: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -41,8 +42,12 @@ export default {
         };
     },
     watch: {
-        currentValue() {
+        value(value) {
+            this.currentValue = value;
+        },
+        currentValue(value, oldValue) {
             this.handleData();
+            this.$emit('change', { value: this.currentValue, oldValue });
         },
         data(value) {
             this.currentData = value;

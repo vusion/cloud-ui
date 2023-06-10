@@ -1351,6 +1351,39 @@ export default {
             </u-table-view-column>
         </u-table-view>
     </u-linear-layout>
+    <u-linear-layout>
+        <u-linear-layout>
+            <u-popup-combination ref="popup_combination1">
+                <template #reference>
+                    <i-ico ref="ico2" name="setting" icotype="left">
+                        <u-text ref="text28" text="列"></u-text>
+                    </i-ico>
+                </template>
+                <u-checkboxes :value.sync="variable1" :data-source="loadCheckList" value-field="key">
+                    <template #item="current">
+                        <u-text :text="current.item.name"></u-text>
+                    </template>
+                </u-checkboxes>
+            </u-popup-combination>
+        </u-linear-layout>
+        <u-table-view striped :data="data" style="max-height: 300px;">
+            <u-table-view-column title="序号" field="id"></u-table-view-column>
+            <u-table-view-column title="姓名" field="name"></u-table-view-column>
+            <u-table-view-column title="省份" field="province"></u-table-view-column>
+            <u-table-view-column title="城市" field="city"></u-table-view-column>
+            <u-table-view-column
+                width="0px"
+                configurable
+                :data-source="loadCheckList"
+                :show-column-value.sync="variable1"
+                text-field="name"
+                value-field="key"
+                :hiddenConfig="true">
+                <template #title>
+                </template>
+            </u-table-view-column>
+        </u-table-view>
+    </u-linear-layout>
 </u-linear-layout>
 </template>
 <script>
@@ -1371,6 +1404,7 @@ export default {
             ],
             configData: ['姓名', '省份', '城市'].map((item) => ({ text: item, value: item })),
             configValue: ['name', 'province'],
+            variable1: ['name'],
         };
     },
     methods: {
@@ -1383,6 +1417,9 @@ export default {
         },
         onSelectConfig(value) {
             console.log('onSelectConfig', value);
+        },
+        loadCheckList() {
+            return [{name: '姓名', key: 'name'}, {name: '省份', key: 'province'}, {name: '城市', key: 'city'}];
         }
     }
 };

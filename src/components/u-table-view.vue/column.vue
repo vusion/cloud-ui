@@ -37,6 +37,7 @@ export default {
         filterMax: Number,
         configurable: { type: Boolean, default: false },
         showColumnValue: { type: Array }, // 配置列下拉数据里的选中项
+        hiddenConfig: { type: Boolean, default: false }, // 隐藏配置列的下拉弹层
     },
     data() {
         const data = {
@@ -71,6 +72,9 @@ export default {
         },
         hidden(value) {
             this.currentHidden = value;
+        },
+        showColumnValue(value) {
+            this.currentShowColumnValue = value;
         },
     },
     created() {
