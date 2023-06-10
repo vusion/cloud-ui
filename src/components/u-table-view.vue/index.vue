@@ -34,7 +34,8 @@
                             :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                             :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                             :shadow="(isLastLeftFixed(columnVM, columnIndex) && (!scrollXStart || $env.VUE_APP_DESIGNER)) || (isFirstRightFixed(columnVM, columnIndex) && (!scrollXEnd || $env.VUE_APP_DESIGNER))"
-                            :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden">
+                            :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden"
+                            :configurable="columnVM.configurable">
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
                                 <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
@@ -51,6 +52,18 @@
                                                 && !!$attrs['vusion-node-path']">
                                         </s-empty>
                                     </f-slot>
+                                    <!-- 配置列下拉弹窗 -->
+                                    <u-table-view-filters-popper
+                                        ref="configPopper"
+                                        v-if="columnVM.configurable"
+                                        :value="columnVM.currentShowColumnValue"
+                                        :data="getConfigurabeList(columnVM)"
+                                        :text-field="columnVM.textField"
+                                        :value-field="columnVM.valueField"
+                                        :multiple="true"
+                                        @select="onSelectShowColumns($event, columnVM)"
+                                        @load="onLoadConfigList(columnVM)">
+                                    </u-table-view-filters-popper>
                                 </span>
                             </template>
                             <!-- Sortable -->
@@ -120,7 +133,7 @@
                                         :disabled="columnVM.currentHidden">
                                         <!-- <div :class="$style.tdmask" v-if="rowIndex !== 0"></div> -->
                                         <!--可视化占据的虚拟填充区域-->
-                                        <div vusion-slot-name="cell" :plus-empty="typeCheck(columnVM.type) ? false : columnVM.$attrs['plus-empty']">
+                                        <div vusion-slot-name="cell" :plus-empty="typeCheck(columnVM.type) || columnVM.configurable ? false : columnVM.$attrs['plus-empty']">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
                                             <!-- type === 'radio' -->
@@ -632,6 +645,8 @@ export default {
                     thEl.__vue__ = columnVMs[index];
                 });
             });
+            // 隐藏列处理
+            this.handleInitColumnsHidden();
         },
         visibleColumnVMs() {
             this.handleResize();
@@ -2216,6 +2231,91 @@ export default {
             }
             return paginationHeight;
         },
+        /**
+         * 获取配置列的下拉数据
+         * 有数据源的情况下返回数据源
+         * 没有数据源解析每一列的数据，如果title是插槽，只处理第一层组件是u-text的情况
+         */
+        getConfigurabeList(currentColumnVM) {
+            if (currentColumnVM.dataSource) {
+                if (currentColumnVM.currentDataSource) {
+                    return currentColumnVM.currentDataSource.data;
+                }
+            } else {
+                // 解析列得到默认值
+                const columnVMs = this.columnVMs.filter((columnVM) => !columnVM.configurable);
+                const data = [];
+                columnVMs.forEach((columnVM) => {
+                    if (columnVM.field) {
+                        if (columnVM.title) {
+                            data.push({ text: columnVM.title, value: columnVM.field });
+                        } else {
+                            const titleSlot = columnVM.$slots.title && columnVM.$slots.title[0];
+                            if (titleSlot && titleSlot.tag && titleSlot.tag.endsWith('u-text')) {
+                                const title = titleSlot.componentOptions && titleSlot.componentOptions.propsData && titleSlot.componentOptions.propsData.text;
+                                if (title) {
+                                    data.push({ text: title, value: columnVM.field });
+                                }
+                            }
+                        }
+                    }
+                });
+                currentColumnVM.currentDataSource.data = data;
+                return data;
+            }
+        },
+        /**
+         * 选中展示列
+         */
+        onSelectShowColumns(event, columnVM) {
+            const value = event.value || [];
+            columnVM.currentShowColumnValue = value;
+            this.handlesColumnHidden(columnVM, value);
+            // 抛出事件和双向绑定值
+            columnVM.$emit('update:showColumnValue', value);
+            columnVM.$emit('select', event);
+        },
+        /**
+         * 初始时处理显隐
+         */
+        handleInitColumnsHidden() {
+            const columnVMs = this.columnVMs;
+            const configurableColumVM = columnVMs.find((columnVM) => columnVM.configurable);
+            if (!configurableColumVM)
+                return;
+            if (!configurableColumVM.currentShowColumnValue) {
+                configurableColumVM.currentShowColumnValue = columnVMs.map((columnVM) => columnVM.field);
+            }
+            const selectedValues = configurableColumVM.currentShowColumnValue;
+            this.handlesColumnHidden(configurableColumVM, selectedValues);
+        },
+        /**
+         * 处理列显隐
+         */
+        handlesColumnHidden(configurableColumVM, selectedValue) {
+            const columnVMs = this.columnVMs;
+            const currentConfigurableColumn = configurableColumVM || columnVMs.find((columnVM) => columnVM.configurable);
+            if (!currentConfigurableColumn || !selectedValue)
+                return;
+            // 有些列可能不参与隐藏处理，即不在配置列的下拉数据里，这种列不能隐藏
+            const configList = configurableColumVM.currentDataSource.data.map((item) => (this.$at(item, configurableColumVM.valueField) || item.value));
+            columnVMs.forEach((columnVM) => {
+                if (columnVM.field
+                    && configList.includes(columnVM.field)
+                    && !selectedValue.includes(columnVM.field)
+                    && !columnVM.configurable) {
+                    columnVM.currentHidden = true;
+                } else {
+                    columnVM.currentHidden = false;
+                }
+            });
+        },
+        /**
+         * 配置列的下拉数据可能是个函数，需要等数据回来后再处理一遍显隐
+         */
+        onLoadConfigList() {
+            this.handleInitColumnsHidden();
+        },
     },
 };
 </script>
@@ -2358,6 +2458,9 @@ export default {
 .head-title[disabled] {
     color: var(--text-color-disabled);
     background-color: var(--table-view-expander-background-disabled);
+}
+.head-title[configurable] {
+    cursor: pointer;
 }
 
 .extra {

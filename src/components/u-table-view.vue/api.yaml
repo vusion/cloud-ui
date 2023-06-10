@@ -962,6 +962,43 @@
       title: 双击处理函数
       type: Function
       description: 用于可编辑表格，双击表格列时的处理函数
+      advanced: true
+    - name: configurable
+      title: 配置展示列
+      type: boolean
+      default: false
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function | object | DataSource
+      designer-value: "[{}, {}, {}]"
+      description: 配置列数据源
+      dependency:
+        - configurable: true
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      compType: dataTypeSelect
+      dependency:
+        - configurable: true
+    - name: text-field
+      title: 文本字段
+      type: string
+      description: 配置列的下拉弹窗里，指定数据展示的字段
+      dependency:
+        - configurable: true
+    - name: value-field
+      title: 值字段名
+      type: string
+      description: 配置列的下拉弹窗里，指定数据唯一值的字段
+      dependency:
+        - configurable: true
+    - name: show-column-value
+      title: 值
+      type: any
+      sync: true
+      model: true
+      dependency:
+        - configurable: true
   slots:
     - concept: Slot
       name: cell
