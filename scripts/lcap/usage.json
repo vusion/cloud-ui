@@ -18947,7 +18947,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.34/src/components/u-region-select.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-region-select></u-region-select>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-region-select converter=\\\"name\\\"></u-region-select>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-region-select",
             "title": "地区选择",
@@ -18959,7 +18959,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-region-select></u-region-select>\n</template>\n"
+                    "code": "<template>\n<u-region-select converter=\"name\"></u-region-select>\n</template>\n"
                 }
             ],
             "attrs": [
