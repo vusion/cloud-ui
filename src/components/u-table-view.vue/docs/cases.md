@@ -1319,7 +1319,7 @@ export default {
             <u-table-view-column title="姓名" field="name"></u-table-view-column>
             <u-table-view-column title="省份" field="province"></u-table-view-column>
             <u-table-view-column title="城市" field="city"></u-table-view-column>
-            <u-table-view-column
+            <u-table-view-column-config
                 width="80px"
                 configurable
                 :data-source="loadConfigData"
@@ -1331,7 +1331,7 @@ export default {
                     <i-ico name="menu"></i-ico>
                     <u-text>配置</u-text>
                 </template>
-            </u-table-view-column>
+            </u-table-view-column-config>
         </u-table-view>
         双向绑定的值：{{ configValue }}
     </u-linear-layout>
@@ -1341,14 +1341,14 @@ export default {
             <u-table-view-column title="姓名" field="name"></u-table-view-column>
             <u-table-view-column title="省份" field="province"></u-table-view-column>
             <u-table-view-column title="城市" field="city"></u-table-view-column>
-            <u-table-view-column
+            <u-table-view-column-config
                 width="40px"
                 configurable
                 @select="onSelectConfig">
                 <template #title>
                     <i-ico name="add"></i-ico>
                 </template>
-            </u-table-view-column>
+            </u-table-view-column-config>
         </u-table-view>
     </u-linear-layout>
     <u-linear-layout>
@@ -1371,8 +1371,7 @@ export default {
             <u-table-view-column title="姓名" field="name"></u-table-view-column>
             <u-table-view-column title="省份" field="province"></u-table-view-column>
             <u-table-view-column title="城市" field="city"></u-table-view-column>
-            <u-table-view-column
-                width="0px"
+            <u-table-view-column-config
                 configurable
                 :data-source="loadCheckList"
                 :show-column-value.sync="variable1"
@@ -1381,7 +1380,7 @@ export default {
                 :hiddenConfig="true">
                 <template #title>
                 </template>
-            </u-table-view-column>
+            </u-table-view-column-config>
         </u-table-view>
     </u-linear-layout>
 </u-linear-layout>

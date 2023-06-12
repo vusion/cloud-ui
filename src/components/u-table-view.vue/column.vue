@@ -11,12 +11,11 @@
 <script>
 import MEmitter from '../m-emitter.vue';
 import { Formatter, parseFormatters, placeholderFormatter } from '../../utils/Formatters';
-import SupportDataSource from '../../mixins/support.datasource.js';
 
 export default {
     name: 'u-table-view-column',
     parentName: 'u-table-view',
-    mixins: [MEmitter, SupportDataSource],
+    mixins: [MEmitter],
     props: {
         type: String,
         startIndex: { type: Number, default: 1 },
@@ -35,9 +34,6 @@ export default {
         dblclickHandler: Function,
         filterMultiple: { type: Boolean, default: false },
         filterMax: Number,
-        configurable: { type: Boolean, default: false },
-        showColumnValue: { type: Array }, // 配置列下拉数据里的选中项
-        hiddenConfig: { type: Boolean, default: false }, // 隐藏配置列的下拉弹层
     },
     data() {
         const data = {
@@ -47,7 +43,6 @@ export default {
             computedWidth: this.width === undefined ? undefined : this.width + '',
             currentFormatter: undefined,
             currentHidden: this.hidden,
-            currentShowColumnValue: this.showColumnValue,
         };
         if (typeof this.formatter === 'object')
             data.currentFormatter = this.formatter;

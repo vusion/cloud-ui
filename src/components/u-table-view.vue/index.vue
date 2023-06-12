@@ -6,6 +6,29 @@
     <div v-if="title" :class="$style.title" ref="title" :style="{ textAlign: titleAlignment }" vusion-slot-name="title" vusion-slot-name-edit="title">
         <slot name="title">{{ title }}</slot>
     </div>
+    <!-- 配置列下拉弹窗 -->
+    <div :class="$style.configColumn" v-if="configColumnVM">
+         <f-slot name="title" :vm="configColumnVM" :props="{ configColumnVM }">
+            {{ configColumnVM.title }}
+            <s-empty
+                v-if="!(configColumnVM.$slots && configColumnVM.$slots.title)
+                    && !configColumnVM.title
+                    && $env.VUE_APP_DESIGNER
+                    && !!$attrs['vusion-node-path']">
+            </s-empty>
+        </f-slot>
+        <u-table-view-filters-popper
+            :value="configColumnVM.currentShowColumnValue"
+            :data="getConfigurabeList(configColumnVM)"
+            :text-field="configColumnVM.textField"
+            :value-field="configColumnVM.valueField"
+            :multiple="true"
+            :hidden="configColumnVM.hiddenConfig"
+            @select="onSelectShowColumns($event, configColumnVM)"
+            @load="onLoadConfigList(configColumnVM)"
+            @change="onChangeShowColumns($event, configColumnVM)">
+        </u-table-view-filters-popper>
+    </div>
     <div :class="$style.table" v-for="(tableMeta, tableMetaIndex) in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
@@ -34,8 +57,7 @@
                             :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                             :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                             :shadow="(isLastLeftFixed(columnVM, columnIndex) && (!scrollXStart || $env.VUE_APP_DESIGNER)) || (isFirstRightFixed(columnVM, columnIndex) && (!scrollXEnd || $env.VUE_APP_DESIGNER))"
-                            :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden"
-                            :configurable="columnVM.configurable">
+                            :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden">
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
                                 <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
@@ -52,20 +74,6 @@
                                                 && !!$attrs['vusion-node-path']">
                                         </s-empty>
                                     </f-slot>
-                                    <!-- 配置列下拉弹窗 -->
-                                    <u-table-view-filters-popper
-                                        ref="configPopper"
-                                        v-if="columnVM.configurable"
-                                        :value="columnVM.currentShowColumnValue"
-                                        :data="getConfigurabeList(columnVM)"
-                                        :text-field="columnVM.textField"
-                                        :value-field="columnVM.valueField"
-                                        :multiple="true"
-                                        :hidden="columnVM.hiddenConfig"
-                                        @select="onSelectShowColumns($event, columnVM)"
-                                        @load="onLoadConfigList(columnVM)"
-                                        @change="onChangeShowColumns($event, columnVM)">
-                                    </u-table-view-filters-popper>
                                 </span>
                             </template>
                             <!-- Sortable -->
@@ -498,6 +506,7 @@ export default {
             rowDraggable: false,
             handlerDraggable: false,
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
+            configColumnVM: undefined,
         };
     },
     computed: {
@@ -2272,7 +2281,7 @@ export default {
         onSelectShowColumns(event, columnVM) {
             const value = event.value || [];
             columnVM.currentShowColumnValue = value;
-            this.handlesColumnHidden(columnVM, value);
+            this.handleColumnsHidden(columnVM, value);
             // 抛出事件和双向绑定值
             columnVM.$emit('update:showColumnValue', value);
             columnVM.$emit('select', event);
@@ -2284,29 +2293,25 @@ export default {
             if (columnVM.hiddenConfig) {
                 const value = event.value || [];
                 columnVM.currentShowColumnValue = value;
-                this.handlesColumnHidden(columnVM, value);
+                this.handleColumnsHidden(columnVM, value);
             }
         },
         /**
          * 初始时处理显隐
          */
         handleInitColumnsHidden() {
-            const columnVMs = this.columnVMs;
-            const configurableColumVM = columnVMs.find((columnVM) => columnVM.configurable);
+            const configurableColumVM = this.configColumnVM;
             if (!configurableColumVM)
                 return;
-            if (!configurableColumVM.currentShowColumnValue) {
-                configurableColumVM.currentShowColumnValue = columnVMs.map((columnVM) => columnVM.field);
-            }
             const selectedValues = configurableColumVM.currentShowColumnValue;
-            this.handlesColumnHidden(configurableColumVM, selectedValues);
+            this.handleColumnsHidden(configurableColumVM, selectedValues);
         },
         /**
          * 处理列显隐
          */
-        handlesColumnHidden(configurableColumVM, selectedValue) {
+        handleColumnsHidden(configurableColumVM, selectedValue) {
             const columnVMs = this.columnVMs;
-            const currentConfigurableColumn = configurableColumVM || columnVMs.find((columnVM) => columnVM.configurable);
+            const currentConfigurableColumn = configurableColumVM;
             if (!currentConfigurableColumn || !selectedValue)
                 return;
             // 有些列可能不参与隐藏处理，即不在配置列的下拉数据里，这种列不能隐藏
@@ -2470,9 +2475,6 @@ export default {
 .head-title[disabled] {
     color: var(--text-color-disabled);
     background-color: var(--table-view-expander-background-disabled);
-}
-.head-title[configurable] {
-    cursor: pointer;
 }
 
 .extra {
@@ -2845,5 +2847,9 @@ export default {
 @keyframes rotate {
     0% { transform: rotate(0); }
     100% { transform: rotate(360deg); }
+}
+
+.configColumn {
+    cursor: pointer;
 }
 </style>
