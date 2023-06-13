@@ -325,6 +325,12 @@
       default: false
       description: 是否可以拖拽行排序
       group: 选择属性
+    - name: configurable
+      title: 可配置
+      type: boolean
+      default: false
+      description: 是否可以配置显隐列
+      group: 选择属性
     - name: accordion
       title: 手风琴模式
       type: boolean
@@ -1132,3 +1138,36 @@
               typeKind: typeParam
               typeName: T
   description: 表格列
+- name: u-table-view-column-config
+  accept-parent:
+    - u-table-view
+  title: 表格配置列
+  attrs:
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function | object | DataSource
+      designer-value: "[{}, {}, {}]"
+      description: 配置列数据源
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      compType: dataTypeSelect
+    - name: text-field
+      title: 文本字段
+      type: string
+      description: 配置列的下拉弹窗里，指定数据展示的字段
+    - name: value-field
+      title: 值字段名
+      type: string
+      description: 配置列的下拉弹窗里，指定数据唯一值的字段
+    - name: value
+      title: 值
+      type: any
+      sync: true
+      model: true
+  slots:
+    - concept: Slot
+      name: title
+      title: 配置列展示title
+      accept-type: all
+  description: 表格配置列

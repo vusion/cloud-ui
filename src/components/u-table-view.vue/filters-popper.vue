@@ -145,6 +145,10 @@ export default {
     min-width: 100%;
     max-height: var(--table-view-filter-max-height);
 }
+.wrap > div {
+    display: inline-block; /* 有横向滚动时为了hover、selected样式能够覆盖全 */
+    min-width: 100%;
+}
 .footer {
     padding: 0 12px;
     height: 36px;

@@ -1314,41 +1314,40 @@ export default {
 <template>
 <u-linear-layout direction="vertical">
     <u-linear-layout>
-        <u-table-view striped :data="data" style="max-height: 300px;">
+        <u-table-view striped :data="data" style="max-height: 300px;" configurable>
             <u-table-view-column title="序号" field="id"></u-table-view-column>
             <u-table-view-column title="姓名" field="name"></u-table-view-column>
             <u-table-view-column title="省份" field="province"></u-table-view-column>
             <u-table-view-column title="城市" field="city"></u-table-view-column>
-            <u-table-view-column-config
-                width="80px"
-                configurable
-                :data-source="loadConfigData"
-                :show-column-value.sync="configValue"
-                text-field="name"
-                value-field="key"
-                @select="onSelectConfig">
-                <template #title>
-                    <i-ico name="menu"></i-ico>
-                    <u-text>配置</u-text>
-                </template>
-            </u-table-view-column-config>
+            <template #config-columns>
+                <u-table-view-column-config
+                    :data-source="loadConfigData"
+                    :value.sync="configValue"
+                    text-field="name"
+                    value-field="key"
+                    @select="onSelectConfig"
+                    style="color:blue"
+                    :show-footer="false">
+                        <i-ico name="menu"></i-ico>
+                        <u-text>配置</u-text>
+                </u-table-view-column-config>
+            </template>
         </u-table-view>
         双向绑定的值：{{ configValue }}
     </u-linear-layout>
     <u-linear-layout>
-        <u-table-view striped :data="data" style="max-height: 300px;">
-            <u-table-view-column title="序号" field="id"></u-table-view-column>
+        <u-table-view striped :data="data" style="max-height: 300px;" configurable>
+            <u-table-view-column title="序号"><span slot="cell" slot-scope="{ item }">{{ item.id }}</span></u-table-view-column>
             <u-table-view-column title="姓名" field="name"></u-table-view-column>
             <u-table-view-column title="省份" field="province"></u-table-view-column>
             <u-table-view-column title="城市" field="city"></u-table-view-column>
-            <u-table-view-column-config
-                width="40px"
-                configurable
-                @select="onSelectConfig">
-                <template #title>
+            <template #config-columns>
+                <u-table-view-column-config
+                    :value="variable2"
+                    @select="onSelectConfig">
                     <i-ico name="add"></i-ico>
-                </template>
-            </u-table-view-column-config>
+                </u-table-view-column-config>
+            </template>
         </u-table-view>
     </u-linear-layout>
     <u-linear-layout>
@@ -1366,21 +1365,20 @@ export default {
                 </u-checkboxes>
             </u-popup-combination>
         </u-linear-layout>
-        <u-table-view striped :data="data" style="max-height: 300px;">
+        <u-table-view striped :data="data" style="max-height: 300px;" configurable>
             <u-table-view-column title="序号" field="id"></u-table-view-column>
             <u-table-view-column title="姓名" field="name"></u-table-view-column>
+            <template #config-columns>
+                <u-table-view-column-config
+                    :data-source="loadCheckList"
+                    :value.sync="variable1"
+                    text-field="name"
+                    value-field="key"
+                    :hiddenConfig="true">
+                </u-table-view-column-config>
+            </template>
             <u-table-view-column title="省份" field="province"></u-table-view-column>
             <u-table-view-column title="城市" field="city"></u-table-view-column>
-            <u-table-view-column-config
-                configurable
-                :data-source="loadCheckList"
-                :show-column-value.sync="variable1"
-                text-field="name"
-                value-field="key"
-                :hiddenConfig="true">
-                <template #title>
-                </template>
-            </u-table-view-column-config>
         </u-table-view>
     </u-linear-layout>
 </u-linear-layout>
@@ -1404,6 +1402,7 @@ export default {
             configData: ['姓名', '省份', '城市'].map((item) => ({ text: item, value: item })),
             configValue: ['name', 'province'],
             variable1: ['name'],
+            variable2: [],
         };
     },
     methods: {

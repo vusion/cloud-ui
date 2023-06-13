@@ -7,7 +7,7 @@
         <slot name="title">{{ title }}</slot>
     </div>
     <!-- 配置列下拉弹窗 -->
-    <div :class="$style.configColumn" v-if="configColumnVM">
+    <!-- <div :class="$style.configColumn" v-if="configurable && configColumnVM" :style="getConfigColumnStyle(configColumnVM)">
          <f-slot name="title" :vm="configColumnVM" :props="{ configColumnVM }">
             {{ configColumnVM.title }}
             <s-empty
@@ -28,7 +28,8 @@
             @load="onLoadConfigList(configColumnVM)"
             @change="onChangeShowColumns($event, configColumnVM)">
         </u-table-view-filters-popper>
-    </div>
+    </div> -->
+    <slot name="config-columns"></slot>
     <div :class="$style.table" v-for="(tableMeta, tableMetaIndex) in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
@@ -143,7 +144,7 @@
                                         :disabled="columnVM.currentHidden">
                                         <!-- <div :class="$style.tdmask" v-if="rowIndex !== 0"></div> -->
                                         <!--可视化占据的虚拟填充区域-->
-                                        <div vusion-slot-name="cell" :plus-empty="typeCheck(columnVM.type) || columnVM.configurable ? false : columnVM.$attrs['plus-empty']">
+                                        <div vusion-slot-name="cell" :plus-empty="typeCheck(columnVM.type) ? false : columnVM.$attrs['plus-empty']">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
                                             <!-- type === 'radio' -->
@@ -472,6 +473,7 @@ export default {
         // 新增用来分页
         pagination: { type: Boolean, default: undefined },
         parentField: { type: String },
+        configurable: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -656,8 +658,9 @@ export default {
                     thEl.__vue__ = columnVMs[index];
                 });
             });
-            // 隐藏列处理
-            this.handleInitColumnsHidden();
+            if (this.configColumnVM) {
+                this.configColumnVM.handleColumnsData();
+            }
         },
         visibleColumnVMs() {
             this.handleResize();
@@ -2242,97 +2245,6 @@ export default {
             }
             return paginationHeight;
         },
-        /**
-         * 获取配置列的下拉数据
-         * 有数据源的情况下返回数据源
-         * 没有数据源解析每一列的数据，如果title是插槽，只处理第一层组件是u-text的情况
-         */
-        getConfigurabeList(currentColumnVM) {
-            if (currentColumnVM.dataSource) {
-                if (currentColumnVM.currentDataSource) {
-                    return currentColumnVM.currentDataSource.data;
-                }
-            } else {
-                // 解析列得到默认值
-                const columnVMs = this.columnVMs.filter((columnVM) => !columnVM.configurable);
-                const data = [];
-                columnVMs.forEach((columnVM) => {
-                    if (columnVM.field) {
-                        if (columnVM.title) {
-                            data.push({ text: columnVM.title, value: columnVM.field });
-                        } else {
-                            const titleSlot = columnVM.$slots.title && columnVM.$slots.title[0];
-                            if (titleSlot && titleSlot.tag && titleSlot.tag.endsWith('u-text')) {
-                                const title = titleSlot.componentOptions && titleSlot.componentOptions.propsData && titleSlot.componentOptions.propsData.text;
-                                if (title) {
-                                    data.push({ text: title, value: columnVM.field });
-                                }
-                            }
-                        }
-                    }
-                });
-                currentColumnVM.currentDataSource.data = data;
-                return data;
-            }
-        },
-        /**
-         * 选中展示列
-         */
-        onSelectShowColumns(event, columnVM) {
-            const value = event.value || [];
-            columnVM.currentShowColumnValue = value;
-            this.handleColumnsHidden(columnVM, value);
-            // 抛出事件和双向绑定值
-            columnVM.$emit('update:showColumnValue', value);
-            columnVM.$emit('select', event);
-        },
-        /**
-         * 控制列的弹窗在表格外部实现，数据需要与表格联动时走change逻辑
-         */
-        onChangeShowColumns(event, columnVM) {
-            if (columnVM.hiddenConfig) {
-                const value = event.value || [];
-                columnVM.currentShowColumnValue = value;
-                this.handleColumnsHidden(columnVM, value);
-            }
-        },
-        /**
-         * 初始时处理显隐
-         */
-        handleInitColumnsHidden() {
-            const configurableColumVM = this.configColumnVM;
-            if (!configurableColumVM)
-                return;
-            const selectedValues = configurableColumVM.currentShowColumnValue;
-            this.handleColumnsHidden(configurableColumVM, selectedValues);
-        },
-        /**
-         * 处理列显隐
-         */
-        handleColumnsHidden(configurableColumVM, selectedValue) {
-            const columnVMs = this.columnVMs;
-            const currentConfigurableColumn = configurableColumVM;
-            if (!currentConfigurableColumn || !selectedValue)
-                return;
-            // 有些列可能不参与隐藏处理，即不在配置列的下拉数据里，这种列不能隐藏
-            const configList = configurableColumVM.currentDataSource.data.map((item) => (this.$at(item, configurableColumVM.valueField) || item.value));
-            columnVMs.forEach((columnVM) => {
-                if (columnVM.field
-                    && configList.includes(columnVM.field)
-                    && !selectedValue.includes(columnVM.field)
-                    && !columnVM.configurable) {
-                    columnVM.currentHidden = true;
-                } else {
-                    columnVM.currentHidden = columnVM.hidden;
-                }
-            });
-        },
-        /**
-         * 配置列的下拉数据可能是个函数，需要等数据回来后再处理一遍显隐
-         */
-        onLoadConfigList() {
-            this.handleInitColumnsHidden();
-        },
     },
 };
 </script>
@@ -2847,9 +2759,5 @@ export default {
 @keyframes rotate {
     0% { transform: rotate(0); }
     100% { transform: rotate(360deg); }
-}
-
-.configColumn {
-    cursor: pointer;
 }
 </style>
