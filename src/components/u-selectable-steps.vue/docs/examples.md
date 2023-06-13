@@ -51,6 +51,27 @@
 </u-selectable-steps>
 ```
 
+### 只读
+
+``` html
+<u-selectable-steps :value="0" :readonly="false">
+    <u-selectable-step title="Step1">Content1</u-selectable-step>
+    <u-selectable-step title="Readonly" readonly>Readonly</u-selectable-step>
+    <u-selectable-step title="Step3">Content3</u-selectable-step>
+</u-selectable-steps>
+```
+
+### 指定状态
+
+``` html
+<u-selectable-steps :value="0" :readonly="false" size="auto">
+    <u-selectable-step title="Step1" status="passed" >Content1</u-selectable-step>
+    <u-selectable-step title="Step2" status="failed" >Content2</u-selectable-step>
+    <u-selectable-step title="Step3" status="selected" >Content3</u-selectable-step>
+    <u-selectable-step title="Step4" status="pending" >Content4</u-selectable-step>
+</u-selectable-steps>
+```
+
 ### 自定义图标
 
 ```html

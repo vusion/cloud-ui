@@ -1,5 +1,332 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`u-selectable-steps.vue Demo-动态数据渲染 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    layout="inline"
+  >
+    <nav
+      class="head"
+    />
+     
+    <div
+      class="body"
+    />
+  </div>
+   
+  <div
+    class="root"
+    direction="horizontal"
+    layout="inline"
+  >
+    <nav
+      class="head"
+    >
+      <a
+        class="item"
+        desc="true"
+        passed="true"
+      >
+        <div
+          class="item-body"
+          title="步骤 1"
+        >
+          <span
+            class="radio"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="title"
+            vusion-slot-name="title"
+          >
+            步骤 1
+          </span>
+           
+          <!---->
+        </div>
+         
+        <span
+          class="desc"
+          vusion-slot-name="desc"
+        >
+          
+                            描述 1
+                            
+          <!---->
+        </span>
+      </a>
+      <a
+        class="item"
+        desc="true"
+        passed="true"
+      >
+        <div
+          class="item-body"
+          title="步骤 2"
+        >
+          <span
+            class="radio"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="title"
+            vusion-slot-name="title"
+          >
+            步骤 2
+          </span>
+           
+          <!---->
+        </div>
+         
+        <span
+          class="desc"
+          vusion-slot-name="desc"
+        >
+          
+                            描述 2
+                            
+          <!---->
+        </span>
+      </a>
+      <a
+        class="item"
+        desc="true"
+      >
+        <div
+          class="item-body"
+          title="步骤 3"
+        >
+          <span
+            class="radio"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="title"
+            vusion-slot-name="title"
+          >
+            步骤 3
+          </span>
+           
+          <!---->
+        </div>
+         
+        <span
+          class="desc"
+          vusion-slot-name="desc"
+        >
+          
+                            描述 3
+                            
+          <!---->
+        </span>
+      </a>
+    </nav>
+     
+    <div
+      class="body"
+    />
+  </div>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    size="small"
+    slot="extra"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     add step
+  </a>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    size="small"
+    slot="extra"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     value+1
+  </a>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     reload
+  </a>
+</div>
+`;
+
+exports[`u-selectable-steps.vue Demo-只读 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    layout="inline"
+  >
+    <nav
+      class="head"
+    >
+      <a
+        class="item"
+        selected="selected"
+      >
+        <div
+          class="item-body"
+          title="Step1"
+        >
+          <span
+            class="radio"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="title"
+            vusion-slot-name="title"
+          >
+            
+                        Step1
+                        
+            <!---->
+          </span>
+           
+          <!---->
+        </div>
+         
+        <span
+          class="desc"
+          vusion-slot-name="desc"
+        >
+          
+                    
+                    
+          <!---->
+        </span>
+      </a>
+      <a
+        class="item"
+        readonly="readonly"
+      >
+        <div
+          class="item-body"
+          title="Readonly"
+        >
+          <span
+            class="radio"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="title"
+            vusion-slot-name="title"
+          >
+            
+                        Readonly
+                        
+            <!---->
+          </span>
+           
+          <!---->
+        </div>
+         
+        <span
+          class="desc"
+          vusion-slot-name="desc"
+        >
+          
+                    
+                    
+          <!---->
+        </span>
+      </a>
+      <a
+        class="item"
+      >
+        <div
+          class="item-body"
+          title="Step3"
+        >
+          <span
+            class="radio"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="title"
+            vusion-slot-name="title"
+          >
+            
+                        Step3
+                        
+            <!---->
+          </span>
+           
+          <!---->
+        </div>
+         
+        <span
+          class="desc"
+          vusion-slot-name="desc"
+        >
+          
+                    
+                    
+          <!---->
+        </span>
+      </a>
+    </nav>
+     
+    <div
+      class="body"
+    >
+      <div
+        style=""
+        vusion-slot-name="default"
+      >
+        Content1 
+        <!---->
+      </div>
+       
+      <div
+        style="display: none;"
+        vusion-slot-name="default"
+      >
+        Readonly 
+        <!---->
+      </div>
+       
+      <div
+        style="display: none;"
+        vusion-slot-name="default"
+      >
+        Content3 
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`u-selectable-steps.vue Demo-基本用法 1`] = `
 <div>
   <div
@@ -43,8 +370,8 @@ exports[`u-selectable-steps.vue Demo-基本用法 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -81,8 +408,8 @@ exports[`u-selectable-steps.vue Demo-基本用法 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -118,8 +445,8 @@ exports[`u-selectable-steps.vue Demo-基本用法 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -185,8 +512,8 @@ exports[`u-selectable-steps.vue Demo-基本用法 2`] = `
             vusion-slot-name="title"
           >
             
-                    Step1
-                    
+                        Step1
+                        
             <!---->
           </span>
            
@@ -198,8 +525,8 @@ exports[`u-selectable-steps.vue Demo-基本用法 2`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -222,8 +549,8 @@ exports[`u-selectable-steps.vue Demo-基本用法 2`] = `
             vusion-slot-name="title"
           >
             
-                    Step2
-                    
+                        Step2
+                        
             <!---->
           </span>
            
@@ -235,8 +562,8 @@ exports[`u-selectable-steps.vue Demo-基本用法 2`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -258,8 +585,8 @@ exports[`u-selectable-steps.vue Demo-基本用法 2`] = `
             vusion-slot-name="title"
           >
             
-                    Step3
-                    
+                        Step3
+                        
             <!---->
           </span>
            
@@ -271,8 +598,8 @@ exports[`u-selectable-steps.vue Demo-基本用法 2`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -340,8 +667,8 @@ exports[`u-selectable-steps.vue Demo-宽度自适应 1`] = `
             vusion-slot-name="title"
           >
             
-                    Step1
-                    
+                        Step1
+                        
             <!---->
           </span>
            
@@ -353,8 +680,8 @@ exports[`u-selectable-steps.vue Demo-宽度自适应 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -378,8 +705,8 @@ exports[`u-selectable-steps.vue Demo-宽度自适应 1`] = `
             vusion-slot-name="title"
           >
             
-                    Step2
-                    
+                        Step2
+                        
             <!---->
           </span>
            
@@ -391,8 +718,8 @@ exports[`u-selectable-steps.vue Demo-宽度自适应 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -415,8 +742,8 @@ exports[`u-selectable-steps.vue Demo-宽度自适应 1`] = `
             vusion-slot-name="title"
           >
             
-                    Step3
-                    
+                        Step3
+                        
             <!---->
           </span>
            
@@ -428,8 +755,8 @@ exports[`u-selectable-steps.vue Demo-宽度自适应 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -452,8 +779,8 @@ exports[`u-selectable-steps.vue Demo-宽度自适应 1`] = `
             vusion-slot-name="title"
           >
             
-                    Step4
-                    
+                        Step4
+                        
             <!---->
           </span>
            
@@ -465,8 +792,8 @@ exports[`u-selectable-steps.vue Demo-宽度自适应 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -489,8 +816,8 @@ exports[`u-selectable-steps.vue Demo-宽度自适应 1`] = `
             vusion-slot-name="title"
           >
             
-                    Step5
-                    
+                        Step5
+                        
             <!---->
           </span>
            
@@ -502,8 +829,8 @@ exports[`u-selectable-steps.vue Demo-宽度自适应 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -556,6 +883,209 @@ exports[`u-selectable-steps.vue Demo-宽度自适应 1`] = `
 </div>
 `;
 
+exports[`u-selectable-steps.vue Demo-指定状态 1`] = `
+<div>
+  <div
+    class="root"
+    direction="horizontal"
+    layout="inline"
+    size="auto"
+  >
+    <nav
+      class="head"
+    >
+      <a
+        class="item"
+        passed="true"
+        style="width: 25%;"
+      >
+        <div
+          class="item-body"
+          title="Step1"
+        >
+          <span
+            class="radio"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="title"
+            vusion-slot-name="title"
+          >
+            
+                        Step1
+                        
+            <!---->
+          </span>
+           
+          <!---->
+        </div>
+         
+        <span
+          class="desc"
+          vusion-slot-name="desc"
+        >
+          
+                    
+                    
+          <!---->
+        </span>
+      </a>
+      <a
+        class="item"
+        failed="true"
+        style="width: 25%;"
+      >
+        <div
+          class="item-body"
+          title="Step2"
+        >
+          <span
+            class="radio"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="title"
+            vusion-slot-name="title"
+          >
+            
+                        Step2
+                        
+            <!---->
+          </span>
+           
+          <!---->
+        </div>
+         
+        <span
+          class="desc"
+          vusion-slot-name="desc"
+        >
+          
+                    
+                    
+          <!---->
+        </span>
+      </a>
+      <a
+        class="item"
+        selected="selected"
+        style="width: 25%;"
+      >
+        <div
+          class="item-body"
+          title="Step3"
+        >
+          <span
+            class="radio"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="title"
+            vusion-slot-name="title"
+          >
+            
+                        Step3
+                        
+            <!---->
+          </span>
+           
+          <!---->
+        </div>
+         
+        <span
+          class="desc"
+          vusion-slot-name="desc"
+        >
+          
+                    
+                    
+          <!---->
+        </span>
+      </a>
+      <a
+        class="item"
+        style="width: 25%;"
+      >
+        <div
+          class="item-body"
+          title="Step4"
+        >
+          <span
+            class="radio"
+          >
+            <!---->
+          </span>
+           
+          <span
+            class="title"
+            vusion-slot-name="title"
+          >
+            
+                        Step4
+                        
+            <!---->
+          </span>
+           
+          <!---->
+        </div>
+         
+        <span
+          class="desc"
+          vusion-slot-name="desc"
+        >
+          
+                    
+                    
+          <!---->
+        </span>
+      </a>
+    </nav>
+     
+    <div
+      class="body"
+    >
+      <div
+        style=""
+        vusion-slot-name="default"
+      >
+        Content1 
+        <!---->
+      </div>
+       
+      <div
+        style="display: none;"
+        vusion-slot-name="default"
+      >
+        Content2 
+        <!---->
+      </div>
+       
+      <div
+        style="display: none;"
+        vusion-slot-name="default"
+      >
+        Content3 
+        <!---->
+      </div>
+       
+      <div
+        style="display: none;"
+        vusion-slot-name="default"
+      >
+        Content4 
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`u-selectable-steps.vue Demo-禁用 1`] = `
 <div>
   <div
@@ -599,8 +1129,8 @@ exports[`u-selectable-steps.vue Demo-禁用 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -637,8 +1167,8 @@ exports[`u-selectable-steps.vue Demo-禁用 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -674,8 +1204,8 @@ exports[`u-selectable-steps.vue Demo-禁用 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -741,8 +1271,8 @@ exports[`u-selectable-steps.vue Demo-禁用 2`] = `
             vusion-slot-name="title"
           >
             
-                    Step1
-                    
+                        Step1
+                        
             <!---->
           </span>
            
@@ -754,8 +1284,8 @@ exports[`u-selectable-steps.vue Demo-禁用 2`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -778,8 +1308,8 @@ exports[`u-selectable-steps.vue Demo-禁用 2`] = `
             vusion-slot-name="title"
           >
             
-                    Step2
-                    
+                        Step2
+                        
             <!---->
           </span>
            
@@ -791,8 +1321,8 @@ exports[`u-selectable-steps.vue Demo-禁用 2`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -814,8 +1344,8 @@ exports[`u-selectable-steps.vue Demo-禁用 2`] = `
             vusion-slot-name="title"
           >
             
-                    Step3
-                    
+                        Step3
+                        
             <!---->
           </span>
            
@@ -827,8 +1357,8 @@ exports[`u-selectable-steps.vue Demo-禁用 2`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -894,8 +1424,8 @@ exports[`u-selectable-steps.vue Demo-竖向步骤条 1`] = `
             vusion-slot-name="title"
           >
             
-                    Step1
-                    
+                        Step1
+                        
             <!---->
           </span>
            
@@ -907,8 +1437,8 @@ exports[`u-selectable-steps.vue Demo-竖向步骤条 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -930,8 +1460,8 @@ exports[`u-selectable-steps.vue Demo-竖向步骤条 1`] = `
             vusion-slot-name="title"
           >
             
-                    Step2
-                    
+                        Step2
+                        
             <!---->
           </span>
            
@@ -943,8 +1473,8 @@ exports[`u-selectable-steps.vue Demo-竖向步骤条 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -966,8 +1496,8 @@ exports[`u-selectable-steps.vue Demo-竖向步骤条 1`] = `
             vusion-slot-name="title"
           >
             
-                    Step3
-                    
+                        Step3
+                        
             <!---->
           </span>
            
@@ -979,8 +1509,8 @@ exports[`u-selectable-steps.vue Demo-竖向步骤条 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -1070,8 +1600,8 @@ exports[`u-selectable-steps.vue Demo-自定义图标 1`] = `
             vusion-slot-name="title"
           >
             
-                    Step1
-                    
+                        Step1
+                        
             <!---->
           </span>
            
@@ -1083,8 +1613,8 @@ exports[`u-selectable-steps.vue Demo-自定义图标 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -1131,8 +1661,8 @@ exports[`u-selectable-steps.vue Demo-自定义图标 1`] = `
             vusion-slot-name="title"
           >
             
-                    Step2
-                    
+                        Step2
+                        
             <!---->
           </span>
            
@@ -1144,8 +1674,8 @@ exports[`u-selectable-steps.vue Demo-自定义图标 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -1191,8 +1721,8 @@ exports[`u-selectable-steps.vue Demo-自定义图标 1`] = `
             vusion-slot-name="title"
           >
             
-                    Step3
-                    
+                        Step3
+                        
             <!---->
           </span>
            
@@ -1204,8 +1734,8 @@ exports[`u-selectable-steps.vue Demo-自定义图标 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -1294,8 +1824,8 @@ exports[`u-selectable-steps.vue Demo-自定义标题 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -1341,8 +1871,8 @@ exports[`u-selectable-steps.vue Demo-自定义标题 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>
@@ -1387,8 +1917,8 @@ exports[`u-selectable-steps.vue Demo-自定义标题 1`] = `
           vusion-slot-name="desc"
         >
           
-                
-                
+                    
+                    
           <!---->
         </span>
       </a>

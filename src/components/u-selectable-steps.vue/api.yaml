@@ -7,12 +7,39 @@
   next: true
   nested: false
   attrs:
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function | Object
+      description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
+      designer-value: "[{}, {}, {}]"
+      group: 数据属性
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 集合类型每一元素的数据类型
+      group: 数据属性
+      compType: dataTypeSelect
+    - name: title-field
+      title: 标签项标题
+      type: string
+      default: title
+      description: 数据源集合的元素，用于显示步骤标题的属性
+      group: 数据属性
+      advanced: true
+    - name: desc-field
+      title: 描述项标题
+      type: string
+      default: desc
+      description: 数据源集合的元素，用于显示步骤描述的属性
+      group: 数据属性
+      advanced: true
     - name: value
-      title: 值
+      title: 当前步骤
       type: number
       sync: true
       model: true
       default: 0
+      group: 数据属性
       description: 当前步骤数
     - name: readonly
       title: 只读
@@ -53,6 +80,36 @@
           title: 步骤条子组件
           snippet: '<u-selectable-step><template #title><u-text text="步骤
             N"></u-text></template></u-selectable-step>'
+    - concept: Slot
+      name: title
+      title: 头部标题
+      slotProps:
+        concept: Param
+        name: current
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: Current
+          typeArguments:
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
+    - concept: Slot
+      name: desc
+      title: 描述
+      slotProps:
+        concept: Param
+        name: current
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: Current
+          typeArguments:
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
   events:
     - name: before-select
       title: 选择前
@@ -134,6 +191,20 @@
       type: boolean
       default: false
       description: ""
+    - name: status
+      title: 状态值
+      type: string
+      options:
+        - value: pending
+          title: 等待
+        - value: selected
+          title: 进行中
+        - value: passed
+          title: 完成
+        - value: failed
+          title: 错误
+      group: 数据属性
+      description: 是否显示标签滚动左右箭头按钮
   slots:
     - concept: Slot
       name: default
