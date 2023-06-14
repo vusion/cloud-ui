@@ -6765,8 +6765,7 @@ exports[`u-select.vue Demo-列表与 value 同时改变的问题 1`] = `
       <div
         class="root"
       >
-        <!---->
-          
+         
         <!---->
          
         <label

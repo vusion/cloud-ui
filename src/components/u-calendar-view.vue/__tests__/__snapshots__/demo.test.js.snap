@@ -2992,6 +2992,1582 @@ exports[`u-calendar-view.vue Demo-数据日历 1`] = `
 </div>
 `;
 
+exports[`u-calendar-view.vue Demo-数据日历，reload方法 1`] = `
+<div
+  class="root"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+      direction="horizontal"
+      justify="space-between"
+      type=""
+      vusion-slot-name="default"
+    >
+      <div
+        class="root"
+        direction="horizontal"
+        gap="small"
+        type=""
+        vusion-slot-name="default"
+      >
+        <a
+          class="root"
+          hovertype="underline"
+          size="mini"
+          tabindex="0"
+          target="_self"
+          vusion-slot-name-edit="text"
+        >
+          <!---->
+           上个月
+        </a>
+         
+        <a
+          class="root"
+          hovertype="underline"
+          size="mini"
+          tabindex="0"
+          target="_self"
+          vusion-slot-name-edit="text"
+        >
+          <!---->
+           今天
+        </a>
+         
+        <a
+          class="root"
+          hovertype="underline"
+          size="mini"
+          tabindex="0"
+          target="_self"
+          vusion-slot-name-edit="text"
+        >
+          <!---->
+           下个月
+        </a>
+         
+        <!---->
+         
+        <!---->
+      </div>
+       
+      <div
+        class="root"
+        direction="horizontal"
+        gap="small"
+        type=""
+        vusion-slot-name="default"
+      >
+        <div
+          class="root"
+          size="mini"
+          tabindex="0"
+        >
+          <span>
+            b
+          </span>
+           
+          <span
+            style="display: none;"
+          >
+            请选择
+          </span>
+           
+          <!---->
+           
+          <div
+            style="direction: ltr;"
+            tags-overflow="collapse"
+          >
+            <!---->
+             
+            <!---->
+             
+                                2021 年
+                             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+           
+          <transition-stub
+            name="fade"
+            style="width: 100%;"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div>
+                 
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2013 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2014 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2015 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2016 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2017 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2018 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2019 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2020 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  selected="selected"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2021 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2022 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2023 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2024 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2025 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2026 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2027 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2028 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2029 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2030 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2031 年
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2032 年
+                             
+                  <!---->
+                </div>
+                 
+                <!---->
+              </div>
+               
+              <!---->
+            </div>
+          </transition-stub>
+        </div>
+         
+        <div
+          class="root month"
+          size="mini"
+          tabindex="0"
+        >
+          <span>
+            b
+          </span>
+           
+          <span
+            style="display: none;"
+          >
+            请选择
+          </span>
+           
+          <!---->
+           
+          <div
+            style="direction: ltr;"
+            tags-overflow="collapse"
+          >
+            <!---->
+             
+            <!---->
+             
+                                10 月
+                             
+            <!---->
+          </div>
+           
+          <!---->
+           
+          <!---->
+           
+          <transition-stub
+            name="fade"
+            style="width: 100%;"
+          >
+            <div
+              class="root"
+              style="display: none;"
+            >
+              <div>
+                 
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                1 月
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                2 月
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                3 月
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                4 月
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                5 月
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                6 月
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                7 月
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                8 月
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                9 月
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  selected="selected"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                10 月
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                11 月
+                             
+                  <!---->
+                </div>
+                <div
+                  class="root"
+                  style="direction: ltr;"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                                12 月
+                             
+                  <!---->
+                </div>
+                 
+                <!---->
+              </div>
+               
+              <!---->
+            </div>
+          </transition-stub>
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="body"
+    >
+      <table
+        cellpadding="0"
+        cellspacing="0"
+        class="root"
+        month="9"
+        year="2021"
+      >
+        <thead>
+          <!---->
+           
+          <th
+            class="th"
+          >
+            一
+          </th>
+          <th
+            class="th"
+          >
+            二
+          </th>
+          <th
+            class="th"
+          >
+            三
+          </th>
+          <th
+            class="th"
+          >
+            四
+          </th>
+          <th
+            class="th"
+          >
+            五
+          </th>
+          <th
+            class="th"
+          >
+            六
+          </th>
+          <th
+            class="th"
+          >
+            日
+          </th>
+        </thead>
+         
+        <tbody>
+          <tr
+            class="tr"
+          >
+            <!---->
+             
+            <td
+              class="td"
+              type="prev"
+            >
+              <div
+                class="date"
+              >
+                
+                    27
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="prev"
+            >
+              <div
+                class="date"
+              >
+                
+                    28
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="prev"
+            >
+              <div
+                class="date"
+              >
+                
+                    29
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="prev"
+            >
+              <div
+                class="date"
+              >
+                
+                    30
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              selected="selected"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    1
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    2
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    3
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="tr"
+          >
+            <!---->
+             
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    4
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    5
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    6
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    7
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    8
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    9
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    10
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="tr"
+          >
+            <!---->
+             
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    11
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    12
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    13
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    14
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    15
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    16
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    17
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="tr"
+          >
+            <!---->
+             
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    18
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    19
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    20
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    21
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    22
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    23
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    24
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="tr"
+          >
+            <!---->
+             
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    25
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    26
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    27
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    28
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    29
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    30
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="current"
+            >
+              <div
+                class="date"
+              >
+                
+                    31
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="tr"
+          >
+            <!---->
+             
+            <td
+              class="td"
+              type="next"
+            >
+              <div
+                class="date"
+              >
+                
+                    1
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="next"
+            >
+              <div
+                class="date"
+              >
+                
+                    2
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="next"
+            >
+              <div
+                class="date"
+              >
+                
+                    3
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="next"
+            >
+              <div
+                class="date"
+              >
+                
+                    4
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="next"
+            >
+              <div
+                class="date"
+              >
+                
+                    5
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="next"
+            >
+              <div
+                class="date"
+              >
+                
+                    6
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+            <td
+              class="td"
+              type="next"
+            >
+              <div
+                class="date"
+              >
+                
+                    7
+                    
+                <div
+                  class="column"
+                  vusion-slot-name="default"
+                >
+                  <!---->
+                   
+                  <!---->
+                   
+                  <!---->
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     重新加载
+  </a>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
 exports[`u-calendar-view.vue Demo-普通模式 1`] = `
 <div>
   <div

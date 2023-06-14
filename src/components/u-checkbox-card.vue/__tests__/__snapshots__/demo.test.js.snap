@@ -43,8 +43,7 @@ exports[`u-checkbox-card.vue Demo-卡牌宽度 1`] = `
         <div
           class="root"
         >
-          <!---->
-            
+           
           <!---->
            
           <div
@@ -212,8 +211,7 @@ exports[`u-checkbox-card.vue Demo-卡牌宽度 1`] = `
         <div
           class="root"
         >
-          <!---->
-            
+           
           <!---->
            
           <div
@@ -381,8 +379,7 @@ exports[`u-checkbox-card.vue Demo-卡牌宽度 1`] = `
         <div
           class="root"
         >
-          <!---->
-            
+           
           <!---->
            
           <div
@@ -550,8 +547,7 @@ exports[`u-checkbox-card.vue Demo-卡牌宽度 1`] = `
         <div
           class="root"
         >
-          <!---->
-            
+           
           <!---->
            
           <div
@@ -720,8 +716,7 @@ exports[`u-checkbox-card.vue Demo-卡牌宽度 1`] = `
         <div
           class="root"
         >
-          <!---->
-            
+           
           <!---->
            
           <div
@@ -888,8 +883,7 @@ exports[`u-checkbox-card.vue Demo-固定每行展示数据个数 1`] = `
       <div
         class="root"
       >
-        <!---->
-          
+         
         <!---->
          
         <div
@@ -1060,8 +1054,7 @@ exports[`u-checkbox-card.vue Demo-基本用法 1`] = `
       <div
         class="root"
       >
-        <!---->
-          
+         
         <!---->
          
         <div
@@ -1282,8 +1275,7 @@ exports[`u-checkbox-card.vue Demo-自定义选择项 1`] = `
       <div
         class="root"
       >
-        <!---->
-          
+         
         <!---->
          
         <div
@@ -1530,8 +1522,7 @@ exports[`u-checkbox-card.vue Demo-表单校验 1`] = `
             <div
               class="root"
             >
-              <!---->
-                
+               
               <!---->
                
               <div
@@ -1758,8 +1749,7 @@ exports[`u-checkbox-card.vue Demo-部分选项不可选择 1`] = `
       <div
         class="root"
       >
-        <!---->
-          
+         
         <!---->
          
         <div

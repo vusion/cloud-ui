@@ -511,8 +511,7 @@ exports[`u-form.vue Demo-Header 外观 1`] = `
           <div
             class="root"
           >
-            <!---->
-              
+             
             <!---->
              
             <label
@@ -1387,8 +1386,7 @@ exports[`u-form.vue Demo-分组 1`] = `
                 <div
                   class="root"
                 >
-                  <!---->
-                    
+                   
                   <!---->
                    
                   <label
@@ -2269,8 +2267,7 @@ exports[`u-form.vue Demo-分组 Collapsible 1`] = `
                 <div
                   class="root"
                 >
-                  <!---->
-                    
+                   
                   <!---->
                    
                   <label
@@ -3981,8 +3978,7 @@ exports[`u-form.vue Demo-基本用法 1`] = `
           <div
             class="root"
           >
-            <!---->
-              
+             
             <!---->
              
             <label
@@ -4862,8 +4858,7 @@ exports[`u-form.vue Demo-基础表单 1`] = `
           <div
             class="root"
           >
-            <!---->
-              
+             
             <!---->
              
             <label
@@ -5631,8 +5626,7 @@ exports[`u-form.vue Demo-数据收集与提交 1`] = `
         <div
           class="root"
         >
-          <!---->
-            
+           
           <!---->
            
           <label
@@ -7078,8 +7072,7 @@ exports[`u-form.vue Demo-标签块级布局 1`] = `
                 <div
                   class="root"
                 >
-                  <!---->
-                    
+                   
                   <!---->
                    
                   <label
@@ -8504,8 +8497,7 @@ exports[`u-form.vue Demo-表单验证 1`] = `
         <div
           class="root"
         >
-          <!---->
-            
+           
           <!---->
            
           <label
