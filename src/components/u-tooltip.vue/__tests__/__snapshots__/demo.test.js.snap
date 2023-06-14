@@ -498,7 +498,7 @@ exports[`u-tooltip.vue Demo-弹出方位 1`] = `
               class="body"
               size="normal"
             >
-              Tooltip
+              这是下左的Tooltip这是下左的Tooltip
             </div>
           </div>
         </transition-stub>

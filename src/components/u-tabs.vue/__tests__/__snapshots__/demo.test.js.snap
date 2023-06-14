@@ -1784,7 +1784,7 @@ exports[`u-tabs.vue Demo-使用 value 控制 1`] = `
 </div>
 `;
 
-exports[`u-tabs.vue Demo-动态数据渲染 1`] = `
+exports[`u-tabs.vue Demo-使用tdestination 1`] = `
 <div>
   <div
     appear="square"
@@ -1807,6 +1807,41 @@ exports[`u-tabs.vue Demo-动态数据渲染 1`] = `
           <div>
             <a
               alignment="center"
+              href="/components/u-button"
+              target="_self"
+            >
+              <span
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                
+                                        Button
+                                        
+                <!---->
+                 
+                <!---->
+              </span>
+            </a>
+            <a
+              alignment="center"
+              href="/components/u-input"
+              target="_self"
+            >
+              <span
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                
+                                        Input
+                                        
+                <!---->
+                 
+                <!---->
+              </span>
+            </a>
+            <a
+              alignment="center"
+              href="/components/u-tabs"
               selected="selected"
               target="_self"
             >
@@ -1815,13 +1850,80 @@ exports[`u-tabs.vue Demo-动态数据渲染 1`] = `
                 vusion-slot-name-edit="title"
               >
                 
-                                    标签页 1
-                                    
-                <span />
+                                        Tabs
+                                        
+                <!---->
+                 
+                <!---->
               </span>
             </a>
+          </div>
+        </div>
+         
+        <span />
+      </nav>
+    </div>
+     
+    <div>
+      <!---->
+       
+      <div
+        class="root"
+        style="display: none;"
+        vusion-disabled-selected="true"
+        vusion-slot-name="default"
+      >
+         
+        <!---->
+      </div>
+       
+      <div
+        class="root"
+        style="display: none;"
+        vusion-disabled-selected="true"
+        vusion-slot-name="default"
+      >
+         
+        <!---->
+      </div>
+       
+      <div
+        class="root"
+        vusion-disabled-selected="true"
+        vusion-slot-name="default"
+      >
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-tabs.vue Demo-使用to 1`] = `
+<div>
+  <div
+    appear="square"
+    class="root"
+    item-width="auto"
+    size="normal"
+  >
+    <div>
+      <span
+        vusion-slot-name="extra"
+      >
+         
+        <!---->
+      </span>
+       
+      <nav>
+        <span />
+         
+        <div>
+          <div>
             <a
               alignment="center"
+              href="#/components/u-button"
               target="_self"
             >
               <span
@@ -1829,13 +1931,16 @@ exports[`u-tabs.vue Demo-动态数据渲染 1`] = `
                 vusion-slot-name-edit="title"
               >
                 
-                                    标签页 2
-                                    
+                                        Button
+                                        
+                <!---->
+                 
                 <!---->
               </span>
             </a>
             <a
               alignment="center"
+              href="#/components/u-input"
               target="_self"
             >
               <span
@@ -1843,8 +1948,169 @@ exports[`u-tabs.vue Demo-动态数据渲染 1`] = `
                 vusion-slot-name-edit="title"
               >
                 
-                                    标签页 3
-                                    
+                                        Input
+                                        
+                <!---->
+                 
+                <!---->
+              </span>
+            </a>
+            <a
+              alignment="center"
+              href="#/components/u-tabs"
+              selected="selected"
+              target="_self"
+            >
+              <span
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                
+                                        Tabs
+                                        
+                <!---->
+                 
+                <!---->
+              </span>
+            </a>
+          </div>
+        </div>
+         
+        <span />
+      </nav>
+    </div>
+     
+    <div>
+      <!---->
+       
+      <div
+        class="root"
+        style="display: none;"
+        vusion-disabled-selected="true"
+        vusion-slot-name="default"
+      >
+         
+        <!---->
+      </div>
+       
+      <div
+        class="root"
+        style="display: none;"
+        vusion-disabled-selected="true"
+        vusion-slot-name="default"
+      >
+         
+        <!---->
+      </div>
+       
+      <div
+        class="root"
+        vusion-disabled-selected="true"
+        vusion-slot-name="default"
+      >
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-tabs.vue Demo-动态数据渲染 1`] = `
+<div>
+  <div
+    appear="square"
+    class="root"
+    item-width="auto"
+    size="normal"
+  >
+    <div>
+      <span
+        vusion-slot-name="extra"
+      >
+         
+        <!---->
+      </span>
+       
+      <nav>
+        <span />
+         
+        <div>
+          <div />
+        </div>
+         
+        <span />
+      </nav>
+    </div>
+     
+    <div>
+      <!---->
+       
+    </div>
+  </div>
+   
+  <div
+    appear="square"
+    class="root"
+    item-width="auto"
+    size="normal"
+  >
+    <div>
+      <span
+        vusion-slot-name="extra"
+      >
+         
+        <!---->
+      </span>
+       
+      <nav>
+        <span />
+         
+        <div>
+          <div>
+            <a
+              alignment="center"
+              class=""
+              selected="selected"
+              target="_self"
+            >
+              <span
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                标签页 1title 
+                <!---->
+                 
+                <span />
+              </span>
+            </a>
+            <a
+              alignment="center"
+              class=""
+              target="_self"
+            >
+              <span
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                标签页 2title 
+                <!---->
+                 
+                <!---->
+              </span>
+            </a>
+            <a
+              alignment="center"
+              class=""
+              target="_self"
+            >
+              <span
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                标签页 3title 
+                <!---->
+                 
                 <span />
               </span>
             </a>
@@ -1858,6 +2124,155 @@ exports[`u-tabs.vue Demo-动态数据渲染 1`] = `
     <div>
       <!---->
        
+      <div
+        style=""
+        vusion-slot-name="content"
+      >
+        标签页 1content 
+        <!---->
+      </div>
+      <div
+        style="display: none;"
+        vusion-slot-name="content"
+      >
+        标签页 2content 
+        <!---->
+      </div>
+      <div
+        style="display: none;"
+        vusion-slot-name="content"
+      >
+        标签页 3content 
+        <!---->
+      </div>
+    </div>
+  </div>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    size="small"
+    slot="extra"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     value+1
+  </a>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     click reload
+  </a>
+</div>
+`;
+
+exports[`u-tabs.vue Demo-动态数据渲染 2`] = `
+<div>
+  <div
+    appear="square"
+    class="root"
+    contentfield="contentUrl"
+    item-width="auto"
+    size="normal"
+  >
+    <div>
+      <span
+        vusion-slot-name="extra"
+      >
+         
+        <!---->
+      </span>
+       
+      <nav>
+        <span />
+         
+        <div>
+          <div>
+            <a
+              alignment="center"
+              class=""
+              selected="selected"
+              target="_self"
+            >
+              <span
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                标签页 1 
+                <!---->
+                 
+                <span />
+              </span>
+            </a>
+            <a
+              alignment="center"
+              class=""
+              target="_self"
+            >
+              <span
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                标签页 2 
+                <!---->
+                 
+                <!---->
+              </span>
+            </a>
+            <a
+              alignment="center"
+              class=""
+              target="_self"
+            >
+              <span
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
+              >
+                标签页 3 
+                <!---->
+                 
+                <span />
+              </span>
+            </a>
+          </div>
+        </div>
+         
+        <span />
+      </nav>
+    </div>
+     
+    <div>
+      <!---->
+       
+      <div
+        style=""
+        vusion-slot-name="content"
+      >
+         
+        <!---->
+      </div>
+      <div
+        style="display: none;"
+        vusion-slot-name="content"
+      >
+         
+        <!---->
+      </div>
+      <div
+        style="display: none;"
+        vusion-slot-name="content"
+      >
+         
+        <!---->
+      </div>
     </div>
   </div>
    
@@ -1899,6 +2314,7 @@ exports[`u-tabs.vue Demo-动态数据源 1`] = `
           <div>
             <a
               alignment="center"
+              class=""
               selected="selected"
               target="_self"
             >
@@ -1906,9 +2322,9 @@ exports[`u-tabs.vue Demo-动态数据源 1`] = `
                 vusion-slot-name="title"
                 vusion-slot-name-edit="title"
               >
-                
-                                    
-                                    
+                 
+                <!---->
+                 
                 <!---->
               </span>
             </a>
@@ -1922,6 +2338,13 @@ exports[`u-tabs.vue Demo-动态数据源 1`] = `
     <div>
       <!---->
        
+      <div
+        style=""
+        vusion-slot-name="content"
+      >
+         
+        <!---->
+      </div>
     </div>
   </div>
 </div>

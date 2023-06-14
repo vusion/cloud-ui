@@ -106,13 +106,10 @@ export default {
             let data = value;
             // 设置了parentField以parentField优化
             if (this.parentField
-                && this.valueField
-                && JSON.stringify(value) !== JSON.stringify(oldValue)) {
-                // listToTree里用的是$setAt，会使currentDataSource.data的watch再进入，所以加json判断
+                && this.valueField) {
                 data = this.listToTree(value.slice(0));
             }
-            if (!this.currentData.length)
-                this.currentData = data;
+            this.currentData = data;
             this.allMergeText = this.getMergeText(this.currentData);
             this.getSubComponents();
         },
@@ -180,7 +177,8 @@ export default {
                     });
                 } else {
                     if (!item.disabled) {
-                        markData[this.field] = item[this.field];
+                        // fix 打开filterable搜索不到内容，取到的值是undefined
+                        markData[this.field] = this.$at(item, this.field);
                         markData.index = [index];
                         combinedText.push(markData);
                     }

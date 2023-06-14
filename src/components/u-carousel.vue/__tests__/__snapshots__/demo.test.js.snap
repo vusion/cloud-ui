@@ -493,6 +493,96 @@ exports[`u-carousel.vue Demo-基本用法 4`] = `
 </div>
 `;
 
+exports[`u-carousel.vue Demo-数据源 1`] = `
+<div
+  class="root"
+  direction="vertical"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+  >
+    <div
+      class="body"
+      name="realpostion"
+    >
+      <div
+        class="root"
+        size="small"
+      >
+        <div
+          class="rotate"
+        >
+          <span
+            class="lcp-iconv icon"
+          >
+            <span
+              class="iconwrap"
+            >
+              <svg
+                aria-hidden="true"
+                class="iconsvg"
+              >
+                <use
+                  xlink:href="#pc-loading"
+                />
+              </svg>
+            </span>
+             
+            <div
+              class="icontext"
+              vusion-slot-name="default"
+            >
+               
+              <!---->
+            </div>
+          </span>
+        </div>
+         
+        <!---->
+      </div>
+        
+      <!---->
+       
+    </div>
+     
+    <nav
+      class="nav"
+    />
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="prev"
+      vusion-index="-1"
+    />
+     
+    <div
+      class="button"
+      findname="realpostion"
+      role="next"
+      vusion-index="-1"
+    />
+  </div>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     click reload
+  </a>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
 exports[`u-carousel.vue Demo-自动播放与循环 1`] = `
 <div>
   <div

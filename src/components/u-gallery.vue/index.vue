@@ -33,11 +33,11 @@
 <script>
 import Swiper from 'swiper/swiper-bundle.esm.js';
 import 'swiper/swiper-bundle.min.css';
-import { formatDSResult } from '../../utils/DataSource/format';
+import SupportDataSource from '../../mixins/support.datasource';
 
 export default {
     name: 'u-gallery',
-    components: { },
+    mixins: [SupportDataSource],
     props: {
         dataSource: {
             type: [Array, Object, Function, String],
@@ -55,10 +55,10 @@ export default {
             type: String,
             default: 'big',
         },
+        urlField: String,
     },
     data() {
         return {
-            options: [],
             swiperbig: null,
             swipersmall: null,
             swiperthumb: null,
@@ -95,13 +95,11 @@ export default {
         };
     },
     computed: {
+        options() {
+            return this.currentDataSource && this.currentDataSource.data || [];
+        },
     },
     watch: {
-        dataSource: {
-            deep: true,
-            handler: 'update',
-            immediate: true,
-        },
         pattern: {
             deep: true,
             handler: 'renderSwiper',
@@ -110,34 +108,27 @@ export default {
             deep: true,
             handler: 'renderSwiper',
         },
+        options(value) {
+            if (value && value.length)
+                this.renderSwiper();
+        },
     },
     methods: {
         setThumbsSwiper(swiper) {
             this.thumbsSwiper = swiper;
         },
         getUrl(item) {
-            return item.thumb || item.url || item;
-        },
-        async update() {
-            if (typeof (this.dataSource) === 'function') {
-                try {
-                    const res = await this.dataSource({
-                        page: 1,
-                        size: 1000,
-                    });
-                    this.options = formatDSResult(res);
-                } catch (error) {
-                    console.error(error);
-                }
-            } else {
-                this.options = (formatDSResult(this.dataSource));
+            if (this.urlField) {
+                return this.$at(item, this.urlField);
             }
-            this.renderSwiper();
+            return item.thumb || item.url || item;
         },
         maxNum() {
             return Math.min(this.num, this.options.length);
         },
         resetH() {
+            if (!this.$vnode.data.staticStyle)
+                return;
             if (this.$vnode.data.staticStyle.height === 'auto' && this.$refs.rooot.style && this.$refs.rooot.style.height === 'auto') {
                 this.$refs.rooot.style.height = '600px';
             }
@@ -186,8 +177,10 @@ export default {
         },
         tagAct() {
             const allbig = document.querySelectorAll('.swiper-slide-big');
-            allbig.forEach(x => x.classList.remove('swiper-act'));
-            this[`swiperbig`].clickedSlide.classList.add('swiper-act');
+            allbig.forEach((x) => x.classList.remove('swiper-act'));
+            if (this.swiperbig && this.swiperbig.clickedSlide && this.swiperbig.clickedSlide.classList) {
+                this.swiperbig.clickedSlide.classList.add('swiper-act');
+            }
         },
     },
 };

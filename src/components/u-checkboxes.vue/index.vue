@@ -1,22 +1,24 @@
 <template>
 <div :class="$style.root">
     <u-loading v-if="loading" size="small"></u-loading>
-    <u-checkbox
-        v-for="(node, index) in currentDataSource.data"
-        :key="index"
-        :text="$at2(node, textField)"
-        :label="$at2(node, valueField)"
-        :disabled="node.disabled"
-        :readonly="node.readonly"
-        :designer="$env.VUE_APP_DESIGNER"
-        :node="node"
-    >
-        <template #item="item">
-            <slot name="item" v-bind="item">
-                {{ $at2(node, textField) }}
-            </slot>
-        </template>
-    </u-checkbox>
+    <template v-else>
+        <u-checkbox
+            v-for="(node, index) in currentDataSource.data"
+            :key="index"
+            :text="$at2(node, textField)"
+            :label="$at2(node, valueField)"
+            :disabled="node.disabled"
+            :readonly="node.readonly"
+            :designer="$env.VUE_APP_DESIGNER"
+            :node="node"
+        >
+            <template #item="item">
+                <slot name="item" v-bind="item">
+                    {{ $at2(node, textField) }}
+                </slot>
+            </template>
+        </u-checkbox>
+    </template>
     <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
         <span :class="$style.loadContent">{{ treeSelectTip }}</span>
     </template>

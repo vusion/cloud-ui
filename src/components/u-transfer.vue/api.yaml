@@ -42,11 +42,6 @@
       type: string
       default: 列表
       description: 右侧列表标题
-    - name: show-foot
-      title: 显示尾部
-      type: boolean
-      default: false
-      description: ""
     - name: filterable
       title: 过滤
       type: boolean
@@ -57,11 +52,15 @@
       type: string
       default: 请输入
       description: 搜索框的提示文字
+      dependency:
+        - filterable: true
     - name: clearable
       title: 清除
       type: boolean
       default: false
       description: 搜索框输入内容支持一键清除
+      dependency:
+        - filterable: true
     - name: match-method
       title: 过滤匹配方法
       type: string, Function
@@ -73,6 +72,8 @@
       type: boolean
       default: false
       description: 过滤时大小写敏感
+      dependency:
+        - filterable: true
     - name: pageable
       title: 分页
       type: boolean

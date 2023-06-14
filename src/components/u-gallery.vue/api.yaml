@@ -10,6 +10,13 @@
     type: Array<Item> | Function | object
     default: '[{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_1.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_2.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_3.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_4.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_5.png"}]'
     description: 数据源
+    group: 数据属性
+  - name: data-schema
+    title: 数据类型
+    type: schema
+    description: 集合类型每一元素的数据类型
+    group: 数据属性
+    compType: dataTypeSelect
   - name: pattern
     title: 画廊模式
     type: string
@@ -20,15 +27,48 @@
         title: 大图模式
     default: big
     description: 图片的显示模式，支持大图模式和缩略图模式。
+    group: 样式属性
   - name: num	
     title: 显示图片数	
     type: number
     default: 5
-    description: 显示图片数	
+    description: 显示图片数
+    group: 样式属性	
   - name: arrow	
     title: 是否显示左右箭头	
     type: boolean
     default: true
     description: 是否显示左右箭头
+    group: 样式属性
   slots: false
   events:
+    - name: before-load
+      title: 加载前
+      description: 加载前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止加载流程
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+    - name: load
+      title: 加载后
+      description: 加载后触发
+      params:
+        - name: $event
+          type: "null"
+          description: 无
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+  methods:
+    - name: reload
+      description: 重新加载数据
+      params: []

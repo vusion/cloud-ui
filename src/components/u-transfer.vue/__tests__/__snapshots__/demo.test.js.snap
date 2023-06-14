@@ -1399,8 +1399,11 @@ exports[`u-transfer.vue Demo-分页与加载更多 1`] = `
        
       <!---->
        
-      <div>
-        请从左侧添加
+      <div
+        vusion-slot-name="empty"
+      >
+        请从左侧添加 
+        <!---->
       </div>
     </div>
      
@@ -2899,8 +2902,11 @@ exports[`u-transfer.vue Demo-加载更多 1`] = `
          
         <!---->
          
-        <div>
-          请从左侧添加
+        <div
+          vusion-slot-name="empty"
+        >
+          请从左侧添加 
+          <!---->
         </div>
       </div>
        
@@ -4345,8 +4351,11 @@ exports[`u-transfer.vue Demo-加载更多 1`] = `
          
         <!---->
          
-        <div>
-          请从左侧添加
+        <div
+          vusion-slot-name="empty"
+        >
+          请从左侧添加 
+          <!---->
         </div>
       </div>
        
@@ -13464,8 +13473,11 @@ exports[`u-transfer.vue Demo-综合示例 1`] = `
        
       <!---->
        
-      <div>
-        请从左侧添加
+      <div
+        vusion-slot-name="empty"
+      >
+        请从左侧添加 
+        <!---->
       </div>
     </div>
      

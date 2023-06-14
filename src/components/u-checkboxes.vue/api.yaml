@@ -31,6 +31,7 @@
       type: string
       default: value
       description: 集合的元素类型中，用于标识选中值的属性
+      display: property-select
       group: 数据属性
     - name: value
       title: 值
@@ -45,20 +46,24 @@
       type: number
       default: 0
       description: 可以勾选多选框的最小数量
+      group: 选择属性
     - name: max
       title: 选中最大数
       type: number
       description: 可以勾选多选框的最大数量
+      group: 选择属性
     - name: readonly
       title: 只读
       type: boolean
       default: false
       description: ""
+      group: 选择属性
     - name: disabled
       title: 禁用
       type: boolean
       default: false
       description: ""
+      group: 选择属性
     - name: converter
       title: 转换器
       type: string
@@ -76,6 +81,7 @@
       default: ""
       description: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
       bindHide: true
+      group: 选择属性
   events:
     - name: input
       title: 输入时
@@ -117,6 +123,36 @@
         - name: $event.oldValue
           type: Array<string>
           description: 旧的选中状态
+    - name: before-load
+      title: 加载前
+      description: 加载前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止加载流程
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+    - name: load
+      title: 加载后
+      description: 加载后触发
+      params:
+        - name: $event
+          type: "null"
+          description: 无
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+  methods:
+    - name: reload
+      description: 清除缓存，重新加载
+      params: []
   slots:
     - concept: Slot
       name: default

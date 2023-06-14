@@ -61,8 +61,7 @@ exports[`u-validator.vue Demo-动态验证 1`] = `
         <div
           class="root"
         >
-          <!---->
-            
+           
           <!---->
            
           <label
@@ -218,8 +217,7 @@ exports[`u-validator.vue Demo-动态验证 2`] = `
         <div
           class="root"
         >
-          <!---->
-            
+           
           <!---->
            
           <label

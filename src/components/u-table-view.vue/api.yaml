@@ -24,6 +24,7 @@
       type: object
       description: 数据源除了DataSourceParams外还需要的参数
       group: 数据属性
+      advance: true
     - name: initial-load
       title: 初始加载
       type: boolean
@@ -792,9 +793,6 @@
           type: object
           description: 需要更新的数据
   methods:
-    - name: load
-      description: 带缓存地加载
-      params: []
     - name: reload
       description: 清除缓存，重新加载
       params: []

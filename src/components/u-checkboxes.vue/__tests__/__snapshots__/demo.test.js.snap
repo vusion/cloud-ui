@@ -5,8 +5,7 @@ exports[`u-checkboxes.vue Demo-autofocus 1`] = `
   <div
     class="root"
   >
-    <!---->
-      
+     
     <!---->
      
     <label
@@ -123,8 +122,7 @@ exports[`u-checkboxes.vue Demo-全选 1`] = `
   <div
     class="root"
   >
-    <!---->
-      
+     
     <!---->
      
     <label
@@ -325,8 +323,7 @@ exports[`u-checkboxes.vue Demo-基础用法 1`] = `
   <div
     class="root"
   >
-    <!---->
-      
+     
     <!---->
      
   </div>
@@ -345,8 +342,7 @@ exports[`u-checkboxes.vue Demo-多选组 1`] = `
       <div
         class="root"
       >
-        <!---->
-          
+         
         <!---->
          
         <label
@@ -428,8 +424,7 @@ exports[`u-checkboxes.vue Demo-多选组 1`] = `
     <div
       class="root"
     >
-      <!---->
-        
+       
       <!---->
         
       <label
@@ -528,8 +523,7 @@ exports[`u-checkboxes.vue Demo-多选组 1`] = `
     <div
       class="root"
     >
-      <!---->
-        
+       
       <!---->
         
       <label
@@ -628,8 +622,7 @@ exports[`u-checkboxes.vue Demo-多选组 1`] = `
     <div
       class="root"
     >
-      <!---->
-        
+       
       <!---->
        
       <label
@@ -715,8 +708,7 @@ exports[`u-checkboxes.vue Demo-多选组 2`] = `
   <div
     class="root"
   >
-    <!---->
-      
+     
     <!---->
      
     <label
@@ -801,8 +793,7 @@ exports[`u-checkboxes.vue Demo-多选组 3`] = `
   <div
     class="root"
   >
-    <!---->
-      
+     
     <!---->
      
     <label
@@ -884,8 +875,7 @@ exports[`u-checkboxes.vue Demo-数量限制 1`] = `
   <div
     class="root"
   >
-    <!---->
-      
+     
     <!---->
      
     <label
