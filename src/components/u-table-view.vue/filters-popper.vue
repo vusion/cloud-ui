@@ -6,8 +6,11 @@
                 <u-table-view-filter v-for="(filter, index) in currentData"
                     :key="$at2(filter, valueField)"
                     :value="$at2(filter, valueField)"
+                    :text="$at2(filter, textField)"
                     :disabled="filter.disabled"
-                    :item="filter" :index="index">{{ $at2(filter, textField) || filter.text }}</u-table-view-filter>
+                    :item="filter" :index="index">
+                    <slot name="item" :item="filter" :index="index">{{ $at2(filter, textField) || filter.text }}</slot>
+                </u-table-view-filter>
             </u-table-view-filters>
         </div>
     </f-scroll-view>

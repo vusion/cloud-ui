@@ -1120,18 +1120,40 @@
       title: 文本字段
       type: string
       description: 配置列的下拉弹窗里，指定数据展示的字段
+      advanced: true
     - name: value-field
-      title: 值字段名
+      title: 值字段
       type: string
       description: 配置列的下拉弹窗里，指定数据唯一值的字段
+      display: property-select
     - name: value
       title: 值
       type: any
       sync: true
       model: true
+    - name: show-footer
+      title: 重置/确定按钮
+      type: boolean
+      default: true
+      description: 控制弹出层的重置/确定按钮是否展示
   slots:
     - concept: Slot
       name: title
       title: 配置列展示title
       accept-type: all
+    - concept: Slot
+      name: item
+      description: 自定义选项的结构和样式
+      slotProps:
+        concept: Param
+        name: current
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: Current
+          typeArguments:
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
   description: 表格配置列

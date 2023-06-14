@@ -1,24 +1,38 @@
 <template>
-<div :class="$style.root" vusion-slot-name="default">
-    <slot>
-        <s-empty
-            v-if="!($slots && $slots.default)
-                && $env.VUE_APP_DESIGNER
-                && !!$attrs['vusion-node-path']">
-        </s-empty>
-    </slot>
-    <u-table-view-filters-popper
-        :value="currentValue"
-        :data="currentDataSource.data"
-        :text-field="textField"
-        :value-field="valueField"
-        :multiple="true"
-        :hidden="hiddenConfig"
-        :show-footer="showFooter"
-        @select="onSelectShowColumns($event)"
-        @load="onLoadConfigList()"
-        @change="onChangeShowColumns($event)">
-    </u-table-view-filters-popper>
+<div :class="$style.root">
+    <span vusion-slot-name="title" vusion-click-enabled>
+        <slot name="title">
+            <s-empty
+                v-if="!($slots && $slots.title)
+                    && $env.VUE_APP_DESIGNER
+                    && !!$attrs['vusion-node-path']">
+            </s-empty>
+        </slot>
+        <u-table-view-filters-popper
+            :value="currentValue"
+            :data="currentDataSource.data"
+            :text-field="textField"
+            :value-field="valueField"
+            :multiple="true"
+            :hidden="hiddenConfig"
+            :show-footer="showFooter"
+            @select="onSelectShowColumns($event)"
+            @load="onLoadConfigList()"
+            @change="onChangeShowColumns($event)"
+            :vusion-scope-id="$vnode.context.$options._scopeId"
+            :vusion-node-path="$attrs['vusion-node-path']"
+            :vusion-node-tag="$attrs['vusion-node-tag']"
+            vusion-slot-name="item">
+            <template #item="item">
+                <slot name="item" v-bind="item"></slot>
+                <s-empty v-if="$scopedSlots
+                &&!($scopedSlots.item && $scopedSlots.item(item))
+                &&$env.VUE_APP_DESIGNER
+                && !!$attrs['vusion-node-path']
+                && !!dataSource"></s-empty>
+            </template>
+        </u-table-view-filters-popper>
+    </span>
 </div>
 </template>
 <script>

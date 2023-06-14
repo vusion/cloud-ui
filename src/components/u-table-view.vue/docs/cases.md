@@ -1323,13 +1323,17 @@ export default {
                 <u-table-view-column-config
                     :data-source="loadConfigData"
                     :value.sync="configValue"
-                    text-field="name"
                     value-field="key"
                     @select="onSelectConfig"
                     style="color:blue"
                     :show-footer="false">
+                    <template #title>
                         <i-ico name="menu"></i-ico>
                         <u-text>配置</u-text>
+                    </template>
+                    <template #item="current">
+                        <u-text :text="current.item.name"></u-text>
+                    </template>
                 </u-table-view-column-config>
             </template>
         </u-table-view>
@@ -1343,9 +1347,8 @@ export default {
             <u-table-view-column title="城市" field="city"></u-table-view-column>
             <template #config-columns>
                 <u-table-view-column-config
-                    :value="variable2"
                     @select="onSelectConfig">
-                    <i-ico name="add"></i-ico>
+                    <template #title><i-ico name="add"></i-ico></template>
                 </u-table-view-column-config>
             </template>
         </u-table-view>
