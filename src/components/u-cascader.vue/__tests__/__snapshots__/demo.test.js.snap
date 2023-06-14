@@ -2213,6 +2213,111 @@ exports[`u-cascader.vue Demo-基本用法 2`] = `
 </div>
 `;
 
+exports[`u-cascader.vue Demo-数据源开启搜索 1`] = `
+<div
+  class="root"
+  direction="vertical"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+    direction="horizontal"
+    type=""
+    vusion-slot-name="default"
+  >
+    <div>
+      <div>
+        <span>
+          b
+        </span>
+         
+        <span>
+          
+        </span>
+         
+        <!---->
+         
+        <input
+          type="text"
+        />
+         
+        <transition-stub
+          name="fade"
+        >
+          <div
+            class="root"
+            style="display: none;"
+          >
+            <div>
+              <div
+                class="root"
+              >
+                <div
+                  class="rotate"
+                >
+                  <span
+                    class="lcp-iconv icon"
+                  >
+                    <span
+                      class="iconwrap"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="iconsvg"
+                      >
+                        <use
+                          xlink:href="#pc-loading"
+                        />
+                      </svg>
+                    </span>
+                     
+                    <div
+                      class="icontext"
+                      vusion-slot-name="default"
+                    >
+                       
+                      <!---->
+                    </div>
+                  </span>
+                </div>
+                 
+                <!---->
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+         
+        <!---->
+      </div>
+       
+      <span
+        style="display: none;"
+      />
+    </div>
+     
+    <a
+      class="root"
+      hovertype="underline"
+      tabindex="0"
+      target="_self"
+      vusion-slot-name-edit="text"
+    >
+      <!---->
+       click reload
+    </a>
+     
+    <!---->
+     
+    <!---->
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
 exports[`u-cascader.vue Demo-数据源改造 1`] = `
 <div
   class="root"

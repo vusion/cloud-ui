@@ -17,7 +17,7 @@
     </u-input>
     <div ref="body" :class="$style.body" @scroll.stop="onScroll">
         <slot></slot>
-        <div ref="virtual" v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length"
+        <div ref="virtual" v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length"
             :style="{ paddingTop: virtualTop + 'px', paddingBottom: virtualBottom + 'px' }">
             <component :is="ChildComponent"
                 v-for="(item, index) in virtualList"
@@ -31,11 +31,23 @@
                 <slot name="item" :item="item" :index="index" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled" vusion-slot-name="item" :ellipsis-title="ellipsisTitle">{{ $at(item, field || textField) }}<s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty></slot>
             </component>
         </div>
-        <div :class="$style.status" status="loading" v-if="currentLoading">
+        <div :class="$style.status" status="loading" v-if="currentLoading" vusion-slot-name="loading">
             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
+            <s-empty v-if="$env.VUE_APP_DESIGNER
+                && !$slots.loading
+                && $scopedSlots
+                && !($scopedSlots.loading && $scopedSlots.loading())
+                && !!$attrs['vusion-node-path']">
+            </s-empty>
         </div>
-        <div :class="$style.status" status="error" v-else-if="currentData === null || currentError">
+        <div :class="$style.status" status="error" v-else-if="currentData === null || currentError" vusion-slot-name="error">
             <slot name="error">{{ errorText }}</slot>
+            <s-empty v-if="$env.VUE_APP_DESIGNER
+                && !$slots.error
+                && $scopedSlots
+                && !($scopedSlots.error && $scopedSlots.error())
+                && !!$attrs['vusion-node-path']">
+            </s-empty>
         </div>
         <div :class="$style.status" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
             <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
@@ -43,8 +55,14 @@
         <div :class="$style.status" v-else-if="((pageable === 'auto-more' && hasScroll) || pageable === 'load-more') && !currentDataSource.hasMore() && (currentData && currentData.length)">
             {{ $t('noMore') }}
         </div>
-        <div :class="$style.status" v-else-if="currentData && !currentData.length">
+        <div :class="$style.status" v-else-if="currentData && !currentData.length || currentEmpty" vusion-slot-name="empty">
             <slot name="empty">{{ emptyText }}</slot>
+            <s-empty v-if="$env.VUE_APP_DESIGNER
+                && !$slots.empty
+                && $scopedSlots
+                && !($scopedSlots.empty && $scopedSlots.empty())
+                && !!$attrs['vusion-node-path']">
+            </s-empty>
         </div>
     </div>
     <div v-show="showFoot && (pageable === true || pageable === 'pagination')" :class="$style.foot">
@@ -147,6 +165,7 @@ export default {
         checkbox: { type: Boolean, default: false },
         ellipsisTitle: { type: [Boolean, String], default: false },
         selectedValuesData: Array, // 如果是分页数据，选中的值在可能在下拉框里没有，导致选中值展示不出来。这里传入该字段，用于展示选中的值
+        designerMode: { type: String, default: 'success' }, // 配合IDE编辑器展示不同表格状态
     },
     data() {
         return {
@@ -159,6 +178,7 @@ export default {
             currentDataSource: undefined,
             currentLoading: this.loading,
             currentError: this.error,
+            currentEmpty: false, // 配合IDE
             // virtualIndex: 0,
             // virtualTop: 0,
             // virtualBottom: 0,
@@ -235,6 +255,34 @@ export default {
                 MComplex.watch.itemVMs.handler.call(this, this.itemVMs);
             });
         },
+        designerMode: {
+            handler(designerMode) {
+                if (!this.$env.VUE_APP_DESIGNER)
+                    return;
+                switch (designerMode) {
+                    case 'loading':
+                        this.currentLoading = true;
+                        this.currentError = false;
+                        this.currentEmpty = false;
+                        break;
+                    case 'error':
+                        this.currentLoading = false;
+                        this.currentError = true;
+                        this.currentEmpty = false;
+                        break;
+                    case 'empty':
+                        this.currentLoading = false;
+                        this.currentError = false;
+                        this.currentEmpty = true;
+                        break;
+                    default:
+                        this.currentLoading = this.loading;
+                        this.currentError = this.error;
+                        this.currentEmpty = false;
+                }
+            },
+            immediate: true,
+        },
     },
     created() {
         // 自动补充 pageSizeOptions
@@ -273,6 +321,8 @@ export default {
             // @TODO: undefined or null
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
             if (this.currentDataSource && this.initialLoad) {
+                if (this.$env.VUE_APP_DESIGNER)
+                    return;
                 this.load().then(() => {
                     // 更新列表之后，原来的选择可能已不存在，这里暂存然后重新查找一遍
                     MComplex.watch.itemVMs.handler.call(this, this.itemVMs);

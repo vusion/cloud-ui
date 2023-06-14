@@ -495,10 +495,16 @@ export default {
                 this.$refs.input.blur();
         },
         load(params) {
+            if (this.$emitPrevent('before-load', undefined, this))
+                return;
             this.currentDataSource.load(params).then(() => {
                 this.dataSourceNodeList = this.handleDataSourceObj(this.currentDataSource.data, 'dataSource');
                 this.dataSourceObj = { ...this.dataSourceNodeList, ...this.virtualNodeList };
+                this.$emit('load', undefined, this);
             });
+        },
+        reload() {
+            this.load();
         },
     },
 };

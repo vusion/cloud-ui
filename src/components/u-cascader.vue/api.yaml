@@ -11,23 +11,27 @@
       title: 数据源
       type: Array<{ text, value }>
       description: 数据列表
+      group: 数据属性
     - name: data-schema
       title: 数据类型
       type: schema
       description: 集合类型每一元素的数据类型
       compType: dataTypeSelect
+      group: 数据属性
     - name: field
       title: 文本字段名
       type: string
       default: text
       description: 集合的元素类型中，用于显示文本的属性名称
       display: property-select
+      group: 数据属性
     - name: value-field
       title: 值字段名
       type: string
       default: value
       description: 集合的元素类型中，用于标识选中值的属性
       display: property-select
+      group: 数据属性
     - name: children-field
       title: 子节点字段名
       type: string
@@ -39,6 +43,7 @@
           - null
           - ''
       dependencyDisplay: disabled
+      group: 数据属性
     - name: parent-field
       title: 父节点字段名
       type: string
@@ -49,17 +54,20 @@
           - null
           - ''
       dependencyDisplay: disabled
+      group: 数据属性
     - name: value
       title: 值
       type: any
       sync: true
       model: true
       description: ""
+      group: 数据属性
     - name: placeholder
       title: 选择框占位符
       type: string
       default: 请选择
       description: 搜索框为空时提示文本
+      group: 选择属性
     - name: trigger
       title: 触发方式
       type: string
@@ -70,6 +78,7 @@
           title: 悬浮
       default: click
       description: 触发方式
+      group: 选择属性
     - name: join
       title: 连接符
       type: string
@@ -83,37 +92,44 @@
       default: " / "
       description: 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值
       advanced: true
+      group: 选择属性
     - name: filterable
       title: 可筛选
       type: boolean
       default: false
       description: 是否可以过滤（搜索），开启将会显示搜索框。
+      group: 选择属性
     - name: clearable
       title: 可清空
       type: boolean
       default: false
       description: 开启并在输入框有内容时会显示清除按钮。
+      group: 选择属性
     - name: showFinalValue
       title: 只显示最后一项
       type: boolean
       default: false
       description: 定义是否显示完整的路径，ture时只显示最后一项
+      group: 选择属性
     - name: disabled
       title: 禁用
       type: boolean
       default: false
       description: ""
+      group: 选择属性
     - name: opened
       title: 弹出状态
       type: boolean
       default: false
       description: 切换弹出/关闭状态
+      group: 选择属性
     - name: autofocus
       title: 自动获取焦点
       type: boolean
       default: false
       description: 是否自动获取焦点
       designer-value: false
+      group: 选择属性
     - name: width
       title: 宽度
       type: string
@@ -134,6 +150,7 @@
           title: 迷你
       default: normal
       description: 设置级联框宽度大小
+      group: 样式属性
     - name: height
       title: 高度
       type: string
@@ -154,6 +171,7 @@
           title: 迷你
       default: normal
       description: 设置级联框高度大小
+      group: 样式属性
   events:
     - name: input
       title: 输入时
@@ -230,6 +248,32 @@
         - name: senderVM
           type: UInput
           description: 发送事件实例
+    - name: before-load
+      title: 加载前
+      description: 加载前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止加载流程
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+    - name: load
+      title: 加载后
+      description: 加载后触发
+      params:
+        - name: $event
+          type: "null"
+          description: 无
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
   methods:
     - name: open
       description: 弹出实例。
@@ -239,4 +283,7 @@
       params: []
     - name: clear
       description: 清空输入框。
+      params: []
+    - name: reload
+      description: 重新加载数据
       params: []

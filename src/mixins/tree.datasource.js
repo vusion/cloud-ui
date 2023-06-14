@@ -8,6 +8,9 @@ export default {
         listToTree(data) {
             const { valueField, parentField, childrenField } = this;
 
+            // 避免引用关系导致数据错误
+            data = data.map((item) => Object.assign({}, item));
+
             // Map记录一下
             const nodes = {}; // Record<id, { entity }>
             data.forEach((item) => {

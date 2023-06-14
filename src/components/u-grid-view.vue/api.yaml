@@ -158,29 +158,62 @@
       description: 设置数据网格高度大小
       advanced: true
       group: 样式属性
+    - name: designer-mode
+      title: 状态设置
+      type: string
+      options:
+        - value: success
+          title: 加载完成-有数据
+        - value: empty
+          title: 加载完成-暂无数据
+        - value: loading
+          title: 加载中
+        - value: error
+          title: 加载失败
+      default: success
+      description: 设置不同状态的展示内容
+      bindHide: true
+      group: 状态属性
     - name: loading-text
       title: 加载中文字
       type: string
       default: 正在加载中...
       description: 加载时的文字。使用分页加载时才会出现
       group: 状态属性
-    - name: error
-      title: 是否加载失败
+      dependency:
+        - designer-mode: loading
+    - name: loading
+      title: 自定义加载中触发条件
       type: boolean
-      description: 手动设置是否加载失败。
+      description: 支持自定义状态的触发条件，未设置则默认为系统定义条件
+      bindOpen: true
       group: 状态属性
+      dependency:
+        - designer-mode: loading
     - name: error-text
       title: 加载失败文字
       type: string
       default: 加载失败，请重试
       description: 加载失败时的文字。
       group: 状态属性
+      dependency:
+        - designer-mode: error
+    - name: error
+      title: 自定义加载失败触发条件
+      type: boolean
+      description: 支持自定义状态的触发条件，未设置则默认为系统定义条件
+      bindOpen: true
+      group: 状态属性
+      dependency:
+        - designer-mode: error
     - name: empty-text
       title: 暂无数据文字
       type: string
       default: 暂无数据
       description: 暂无数据时的文字。
       group: 状态属性
+      dependency:
+        - designer-mode: empty
     - name: placeholder
       title: 搜索框占位符
       type: string
@@ -368,9 +401,6 @@
           type: UTableView
           description: 发送事件实例
   methods:
-    - name: load
-      description: 带缓存地加载
-      params: []
     - name: reload
       description: 清除缓存，重新加载
       params: []

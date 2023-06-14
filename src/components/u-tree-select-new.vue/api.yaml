@@ -23,7 +23,6 @@
       default: text
       group: 数据属性
       description: 集合的元素类型中，用于显示文本的属性名称
-      advanced: true
     - name: value-field
       title: 值字段
       type: string
@@ -118,3 +117,33 @@
         - name: senderVM
           type: UTreeView
           description: 发送事件实例
+    - name: before-load
+      title: 加载前
+      description: 加载前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止加载流程
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+    - name: load
+      title: 加载后
+      description: 加载后触发
+      params:
+        - name: $event
+          type: "null"
+          description: 无
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+  methods:
+    - name: reload
+      description: 重新加载
+      params: []

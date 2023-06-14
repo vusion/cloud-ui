@@ -23,24 +23,28 @@
       default: title
       description: 数据源集合的元素，用于显示标签标题的属性
       group: 数据属性
+      advanced: true
     - name: value-field
       title: 标签项标题值
       type: string
       default: value
       description: 数据源集合的元素，用于标识标签值的属性
       group: 数据属性
-    - name: content-field
+      display: property-select
+    - name: url-field
       title: 标签项内容值
       type: string
-      default: content
+      default: url
       description: 数据源集合的元素，用于标识当前打开的标签项
       group: 数据属性
+      display: property-select
     - name: closable-field
       title: 标签项是否可关闭
       type: string
       default: closable
       description: 数据源集合的元素，用于标识标签是否可关闭的属性
       group: 数据属性
+      display: property-select
     - name: value
       title: 值
       type: any
@@ -53,21 +57,25 @@
       type: boolean
       default: false
       description: 开启后，选项卡可设置跳转页面
+      group: 选择属性
     - name: readonly
       title: 只读
       type: boolean
       default: false
       description: ""
+      group: 选择属性
     - name: disabled
       title: 禁用
       type: boolean
       default: false
       description: ""
+      group: 选择属性
     - name: closable
       title: 可关闭
       type: boolean
       default: false
       description: 是否可以关闭
+      group: 样式属性
     - name: show-scroll-buttons
       title: 显示滚动按钮
       type: string
@@ -97,6 +105,7 @@
           title: 胶囊
       default: square
       description: 标签展示的外观
+      group: 样式属性
     - name: size
       title: 标签尺寸
       type: string
@@ -109,6 +118,7 @@
           title: 迷你
       default: normal
       description: 标签尺寸
+      group: 样式属性
   slots:
     - concept: Slot
       name: default
@@ -125,6 +135,36 @@
       title: 右侧附加
       description: 在标签右侧可以附加的组件。
       advanced: true
+    - concept: Slot
+      name: title
+      title: 头部标题
+      slotProps:
+        concept: Param
+        name: current
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: Current
+          typeArguments:
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
+    - concept: Slot
+      name: content
+      title: 内容区
+      slotProps:
+        concept: Param
+        name: current
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: Current
+          typeArguments:
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
   methods:
     - name: reload
       description: 重新加载数据
@@ -249,6 +289,32 @@
         - name: senderVM
           type: UTabs
           description: 发送事件实例
+    - name: before-load
+      title: 加载前
+      description: 加载前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止加载流程
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+    - name: load
+      title: 加载后
+      description: 加载后触发
+      params:
+        - name: $event
+          type: "null"
+          description: 无
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
 - name: u-tab
   title: 标签页
   control: button
@@ -284,24 +350,19 @@
       options:
         - value: destination
           title: 页面跳转
-        - value: download
-          title: 下载链接
       default: destination
-      description: 链接类型
-      advanced: true
       compType: linkTypeSelect
       bindHide: true
+    - name: hrefAndTo
+      title: 链接
+      type: string
+      description: 点击选项卡后跳转的地址，选项卡的路由模式需要开启
+      compType: linkHrefInput
     - name: href
       title: 链接
       type: string
       description: 链接地址
       advanced: true
-    - name: hrefAndTo
-      title: 链接
-      type: string
-      description: 链接地址
-      advanced: true
-      compType: linkHrefInput
     - name: target
       title: 打开方式
       type: string

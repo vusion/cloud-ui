@@ -7,38 +7,90 @@
   next: true
   nested: false
   attrs:
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function | object | DataSource
+      description: 集合类型变量或者输出参数为集合类型的逻辑
+      group: 数据属性
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 选择器每一行的数据类型
+      compType: dataTypeSelect
+      group: 数据属性
     - name: value
       title: 值
       type: any
       sync: true
       model: true
       description: ""
-    - name: data-source
-      title: 数据源
-      type: Array<Item> | Function | object | DataSource
-      description: 集合类型变量或者输出参数为集合类型的逻辑
-    - name: data-schema
-      title: 数据类型
-      type: schema
-      description: 选择器每一行的数据类型
-      compType: dataTypeSelect
+      group: 数据属性
     - name: text-field
       title: 文本字段
       type: string
       default: text
       description: 集合的元素类型中，用于显示文本的属性名称
       display: property-select
+      group: 数据属性
     - name: value-field
       title: 值字段
       type: string
       default: value
       description: 集合的元素类型中，用于标识选中值的属性
       display: property-select
+      group: 数据属性
+    - name: initial-load
+      title: 初始时加载
+      type: boolean
+      default: true
+      description: 是否在初始时立即加载
+      group: 数据属性
+    - name: pageable
+      title: 分页加载更多
+      type: boolean
+      default: false
+      description: 是否使用分页功能加载更多
+      hidden: true
+      group: 数据属性
+    - name: remote-paging
+      title: 后端分页
+      type: boolean
+      default: false
+      description: 是否使用后端分页
+      hidden: true
+      group: 数据属性
+    - name: pagination
+      title: 分页
+      type: boolean
+      description: 是否使用分页功能加载更多
+      group: 数据属性
+    - name: page-size
+      title: 默认分页大小
+      type: number
+      default: 50
+      options:
+        - value: 10
+          title: 10
+        - value: 20
+          title: 20
+        - value: 50
+          title: 50
+      description: ""
+      dependency:
+        - pagination: true
+      group: 数据属性
+    - name: sorting
+      title: 初始化排序规则
+      type: "{ field: string, order: string, compare: Function }"
+      default: "{ field: undefined, order: 'desc' }"
+      description: 指数据初始化时的排序规则
+      group: 数据属性
     - name: description
       title: 文本描述
       type: boolean
       default: false
       description: 是否展示文本描述
+      group: 数据属性
     - name: description-field
       title: 文本描述字段
       type: string
@@ -46,40 +98,62 @@
       dependency:
         - description: true
       display: property-select
+      group: 数据属性
     - name: icon-field
       title: 图标展示字段
       type: string
       description: 集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法
       display: property-select
+      group: 数据属性
+    - name: selected-values-data
+      title: 选中值的完整数据
+      type: Array
+      description: 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}]
+      group: 数据属性
+    - name: loading-text
+      title: 加载中文字
+      type: string
+      default: 加载中...
+      description: 正在加载中的文字，使用分页加载时才会出现
+      advanced: true
+      group: 状态属性
+    - name: show-empty-text
+      title: 展示暂无数据提示
+      type: boolean
+      default: true
+      description: 是否在数据为空时展示暂无数据的文字提示
+      group: 状态属性
+    - name: empty-text
+      title: 暂无数据文字
+      type: string
+      default: 暂无数据
+      description: 暂无数据时的文字
+      group: 状态属性
+    - name: empty-disabled
+      title: 为空自动禁用
+      type: boolean
+      default: false
+      description: 没有数据时，自动禁用
+      group: 状态属性
     - name: cancelable
       title: 可取消
       type: boolean
       default: false
       description: ""
       hidden: true
+      group: 选择属性
     - name: multiple
       title: 可多选
       type: boolean
       default: false
       description: 是否可以多选
+      group: 选择属性
     - name: show-render-footer
       title: 开启可扩展下拉项
       type: boolean
       default: false
       description: 可扩展下拉项,开启后可自定义下拉框选项
-    - name: tags-overflow
-      title: 多选项展示形式
-      type: string
-      default: collapse
-      options:
-        - value: hidden
-          title: 过多时省略
-        - value: collapse
-          title: 过多时收缩
-        - value: visible
-          title: 过多时显示
-      description: 多选项过多时的展示形式
-      clearable: true
+      group: 选择属性
     - name: converter
       title: 转换器
       type: string
@@ -95,88 +169,32 @@
       description: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。
       bindHide: true
       clearable: true
+      group: 选择属性
     - name: placeholder
       title: 占位符
       type: string
       default: 请选择
       description: 选择框的占位符
-    - name: loading-text
-      title: 加载中文字
-      type: string
-      default: 加载中...
-      description: 正在加载中的文字，使用分页加载时才会出现
-      advanced: true
-    - name: show-empty-text
-      title: 展示暂无数据提示
-      type: boolean
-      default: true
-      description: 是否在数据为空时展示暂无数据的文字提示
-    - name: empty-text
-      title: 暂无数据文字
-      type: string
-      default: 暂无数据
-      description: 暂无数据时的文字
-    - name: empty-disabled
-      title: 为空自动禁用
-      type: boolean
-      default: false
-      description: 没有数据时，自动禁用
-    - name: initial-load
-      title: 初始时加载
-      type: boolean
-      default: true
-      description: 是否在初始时立即加载
-    - name: pageable
-      title: 分页加载更多
-      type: boolean
-      default: false
-      description: 是否使用分页功能加载更多
-      hidden: true
-    - name: remote-paging
-      title: 后端分页
-      type: boolean
-      default: false
-      description: 是否使用后端分页
-      hidden: true
-    - name: pagination
-      title: 分页
-      type: boolean
-      description: 是否使用分页功能加载更多
-    - name: page-size
-      title: 默认分页大小
-      type: number
-      default: 50
-      options:
-        - value: 10
-          title: 10
-        - value: 20
-          title: 20
-        - value: 50
-          title: 50
-      description: ""
-      dependency:
-        - pagination: true
-    - name: sorting
-      title: 初始化排序规则
-      type: "{ field: string, order: string, compare: Function }"
-      default: "{ field: undefined, order: 'desc' }"
-      description: 指数据初始化时的排序规则
+      group: 选择属性
     - name: clearable
       title: 清除按钮
       type: boolean
       default: false
       description: 是否有清除按钮
+      group: 选择属性
     - name: filterable
       title: 可筛选
       type: boolean
       default: false
       description: 是否使用输入框进行筛选
+      group: 选择属性
     - name: remote-filtering
       title: 后端筛选
       type: boolean
       default: false
       description: 是否使用后端筛选
       hidden: true
+      group: 选择属性
     - name: match-method
       title: 匹配方法
       type: string
@@ -189,32 +207,61 @@
           title: 匹配结尾
       default: includes
       description: 过滤时的匹配方法
-    - name: selected-values-data
-      title: 选中值的完整数据
-      type: Array
-      description: 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}]
+      group: 选择属性
     - name: case-sensitive
       title: 大小写敏感
       type: string | Function
       default: includes
       description: 过滤时大小写是否敏感
       advanced: true
+      group: 选择属性
     - name: auto-complete
       title: 自动补全
       type: boolean
       default: false
       description: 是否开启自动补充模式，用于增加列表中没有的项
       advanced: true
+      group: 选择属性
     - name: readonly
       title: 只读
       type: boolean
       default: false
       description: ""
+      group: 选择属性
     - name: disabled
       title: 禁用
       type: boolean
       default: false
       description: ""
+      group: 选择属性
+    - name: opened
+      title: 弹出状态
+      type: boolean
+      sync: true
+      default: false
+      description: 切换弹出/关闭状态
+      group: 选择属性
+    - name: autofocus
+      title: 自动获取焦点
+      type: boolean
+      default: false
+      description: ""
+      designer-value: false
+      group: 选择属性
+    - name: tags-overflow
+      title: 多选项展示形式
+      type: string
+      default: collapse
+      options:
+        - value: hidden
+          title: 过多时省略
+        - value: collapse
+          title: 过多时收缩
+        - value: visible
+          title: 过多时显示
+      description: 多选项过多时的展示形式
+      clearable: true
+      group: 样式属性
     - name: width
       title: 宽度
       type: string
@@ -235,6 +282,7 @@
           title: 迷你
       default: normal
       description: 设置选择框宽度大小
+      group: 样式属性
     - name: height
       title: 高度
       type: string
@@ -255,18 +303,7 @@
           title: 迷你
       default: normal
       description: 设置选择框高度大小
-    - name: opened
-      title: 弹出状态
-      type: boolean
-      sync: true
-      default: false
-      description: 切换弹出/关闭状态
-    - name: autofocus
-      title: 自动获取焦点
-      type: boolean
-      default: false
-      description: ""
-      designer-value: false
+      group: 样式属性
     - name: prefix
       title: 前缀图标
       type: string
@@ -275,6 +312,7 @@
           title: 搜索
       description: ""
       clearable: true
+      group: 样式属性
     - name: suffix
       title: 后缀图标
       type: string
@@ -283,6 +321,7 @@
           title: 搜索
       description: ""
       clearable: true
+      group: 样式属性
     - name: append-to
       title: 弹出层展示位置
       type: string
@@ -293,6 +332,7 @@
           title: 引用元素下
         - value: body
           title: 全局body
+      group: 样式属性
   slots:
     - concept: Slot
       name: default
@@ -542,9 +582,6 @@
         - name: opened?
           type: boolean
           description: 可选。弹出/关闭状态
-    - name: load
-      description: 带缓存地加载
-      params: []
     - name: reload
       description: 清除缓存，重新加载
       params: []

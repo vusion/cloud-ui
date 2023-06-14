@@ -386,41 +386,63 @@ exports[`u-tree-select-new.vue Demo-基本用法 1`] = `
 exports[`u-tree-select-new.vue Demo-异步加载 1`] = `
 <div
   class="root"
-  tabindex="0"
+  direction="horizontal"
+  type=""
+  vusion-slot-name="default"
 >
-  <span
-    class="baseline"
+  <div
+    class="root"
+    tabindex="0"
   >
-    b
-  </span>
-   
-  <span
-    class="placeholder"
-  >
-    
+    <span
+      class="baseline"
+    >
+      b
+    </span>
+     
+    <span
+      class="placeholder"
+    >
+      
         请选择
     
-  </span>
-   
-  <div
-    class="text"
-  >
-    <!---->
+    </span>
+     
+    <div
+      class="text"
+    >
+      <!---->
+       
+      <!---->
+    </div>
      
     <!---->
+     
+    <transition-stub
+      class="popper"
+      name="fade"
+    >
+      <div
+        class="root"
+        style="display: none;"
+      />
+    </transition-stub>
   </div>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     重新加载
+  </a>
    
   <!---->
    
-  <transition-stub
-    class="popper"
-    name="fade"
-  >
-    <div
-      class="root"
-      style="display: none;"
-    />
-  </transition-stub>
+  <!---->
 </div>
 `;
 

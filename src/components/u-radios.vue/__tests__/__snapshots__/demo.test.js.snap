@@ -5,8 +5,7 @@ exports[`u-radios.vue Demo-autofocus 1`] = `
   <div
     class="root"
   >
-    <!---->
-      
+     
     <!---->
      
     <label
@@ -87,8 +86,7 @@ exports[`u-radios.vue Demo-只读、禁用、禁用某一项 1`] = `
     <div
       class="root"
     >
-      <!---->
-        
+       
       <!---->
        
       <label
@@ -168,8 +166,7 @@ exports[`u-radios.vue Demo-只读、禁用、禁用某一项 1`] = `
     <div
       class="root"
     >
-      <!---->
-        
+       
       <!---->
        
       <label
@@ -249,8 +246,7 @@ exports[`u-radios.vue Demo-只读、禁用、禁用某一项 1`] = `
     <div
       class="root"
     >
-      <!---->
-        
+       
       <!---->
        
       <label
@@ -335,8 +331,7 @@ exports[`u-radios.vue Demo-基本用法 1`] = `
   <div
     class="root"
   >
-    <!---->
-      
+     
     <!---->
      
   </div>
@@ -348,8 +343,7 @@ exports[`u-radios.vue Demo-基本用法 2`] = `
   <div
     class="root"
   >
-    <!---->
-      
+     
     <!---->
      
     <label
@@ -417,5 +411,72 @@ exports[`u-radios.vue Demo-基本用法 2`] = `
       </span>
     </label>
   </div>
+</div>
+`;
+
+exports[`u-radios.vue Demo-数据源 1`] = `
+<div
+  class="root"
+  direction="vertical"
+  type=""
+  vusion-slot-name="default"
+>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+      size="small"
+    >
+      <div
+        class="rotate"
+      >
+        <span
+          class="lcp-iconv icon"
+        >
+          <span
+            class="iconwrap"
+          >
+            <svg
+              aria-hidden="true"
+              class="iconsvg"
+            >
+              <use
+                xlink:href="#pc-loading"
+              />
+            </svg>
+          </span>
+           
+          <div
+            class="icontext"
+            vusion-slot-name="default"
+          >
+             
+            <!---->
+          </div>
+        </span>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <!---->
+     
+  </div>
+   
+  <a
+    class="root"
+    hovertype="underline"
+    tabindex="0"
+    target="_self"
+    vusion-slot-name-edit="text"
+  >
+    <!---->
+     click reload
+  </a>
+   
+  <!---->
+   
+  <!---->
 </div>
 `;
