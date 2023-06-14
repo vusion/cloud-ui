@@ -63,8 +63,9 @@
     --brand-danger-dark: #ff3434;
     --brand-danger-darker: #e60000;
     --brand-danger-darkest: #c00000;
-    --brand-error-opacity-20: #f2495733;
-    --brand-error-disabled: #fbc2c7;
+    --brand-danger-opacity-20: #f2495733;
+    --brand-danger-disabled: #fbc2c7;
+   
 
     --brand-assist-lightest: #faf2ff;
     --brand-assist-lighter: #efd9ff;
@@ -526,10 +527,10 @@
     --button-border-color-danger-secondary-hover: var(--brand-error-light); /* @type color */ /* @desc 次要危险按钮边框颜色(hover状态),如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */
     /* 按钮边框颜色-active */
     --button-border-color-primary-active: var(--button-background-primary-active); /* @type color */ /* @desc 主要按钮边框颜色(active状态),如：#223325 */ /* @depAttrs {"color": ["primary"]} */
-    --button-border-color-primary-secondary-active: var(--button-background-primary-secondary-active); /* @type color */ /* @desc 次要按钮边框颜色(active状态),如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */
+    --button-border-color-primary-secondary-active: var(--brand-primary); /* @type color */ /* @desc 次要按钮边框颜色(active状态),如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */
     --button-border-color-active: var(--brand-primary); /* @type color */ /* @desc 按钮边框颜色(active状态),如：#223325 */ /* @depAttrs {"color": ["default", null]} */
     --button-border-color-danger-active: var(--button-background-danger-active); /* @type color */ /* @desc 危险按钮边框颜色(active状态),如：#223325 */ /* @depAttrs {"color": ["danger"]} */
-    --button-border-color-danger-secondary-active: var(--button-background-danger-secondary-active); /* @type color */ /* @desc 次要危险按钮边框颜色(active状态),如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */
+    --button-border-color-danger-secondary-active: var(--danger-primary); /* @type color */ /* @desc 次要危险按钮边框颜色(active状态),如：#223325 */ /* @depAttrs {"color": ["danger_secondary"]} */
     /* 按钮边框颜色-disabled */
     --button-border-color-primary-disabled: var(--button-background-primary-disabled); /* @type color */ /* @desc 主要按钮边框颜色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["primary"]} */
     --button-border-color-primary-secondary-disabled: var(--button-border-color-disabled); /* @type color */ /* @desc 次要按钮边框颜色（禁用状态）,如：#223325 */ /* @depAttrs {"color": ["primary_secondary"]} */
