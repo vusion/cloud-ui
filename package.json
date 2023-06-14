@@ -32,7 +32,7 @@
     "usage": "node ./scripts/lcap",
     "deploy:dev": "lcap deploy dist-theme --platform http://defaulttenant.lcap.hadev.163yun.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.hadev.163yun.com",
     "deploy:test": "npm test && lcap deploy dist-theme --platform http://defaulttenant.lcap.hatest.163yun.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.hatest.163yun.com",
-    "deploy:test-without-img": "lcap deploy dist-theme --platform http://defaulttenant.lcap.hatest.163yun.com",
+    "deploy:test-without-img": "npm test &&lcap deploy dist-theme --platform http://defaulttenant.lcap.hatest.163yun.com",
     "deploy:pre": "npm test && lcap deploy dist-theme --platform http://defaulttenant.lcap.hadri.163yun.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.hadri.163yun.com",
     "deploy:online": "npm test && lcap deploy dist-theme --platform http://netease-template.lcap.163yun.com && node bin/deploy-lcp-images --platform=http://netease-template.lcap.163yun.com",
     "prepublishOnly": "rm -rf node_modules/.cache && npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add . && npm test",
