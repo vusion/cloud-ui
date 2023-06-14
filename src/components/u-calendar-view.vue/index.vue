@@ -62,6 +62,7 @@ import DateTable from './date-table.vue';
 import './initDayjs';
 import { getDay } from './utils';
 import SEmpty from '../../components/s-empty.vue';
+import MEmitter from '../m-emitter.vue';
 
 export default {
     name: 'u-calendar-view',
@@ -70,6 +71,7 @@ export default {
         DateTable,
         SEmpty,
     },
+    mixins: [MEmitter],
     props: {
         value: {
             type: [Date, String, Number],
