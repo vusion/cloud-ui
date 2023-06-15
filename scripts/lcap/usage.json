@@ -8123,7 +8123,7 @@
                         {
                             "name": "u-table-view-column",
                             "title": "表格列",
-                            "snippet": "<u-table-view-column title=\"表格列\"><template #cell=\"current\"></template></u-table-view-column>"
+                            "snippet": "<u-table-view-column><template #cell=\"current\"></template><template #title><u-text text=\"表格列\"></u-text></template></u-table-view-column>"
                         }
                     ],
                     "supportGenericComponents": [
@@ -14902,21 +14902,9 @@
                     "name": "page-size",
                     "title": "默认分页大小",
                     "type": "number",
+                    "display": "number",
                     "default": 50,
-                    "options": [
-                        {
-                            "value": 10,
-                            "title": 10
-                        },
-                        {
-                            "value": 20,
-                            "title": 20
-                        },
-                        {
-                            "value": 50,
-                            "title": 50
-                        }
-                    ],
+                    "min": 10,
                     "description": "",
                     "dependency": [
                         {
@@ -15804,8 +15792,7 @@
                     "type": "string",
                     "default": "text",
                     "group": "数据属性",
-                    "description": "集合的元素类型中，用于显示文本的属性名称",
-                    "advanced": true
+                    "description": "集合的元素类型中，用于显示文本的属性名称"
                 },
                 {
                     "name": "value-field",
@@ -19271,8 +19258,7 @@
                     "type": "string",
                     "default": "text",
                     "description": "集合的元素类型中，用于显示文本的属性名称",
-                    "group": "数据属性",
-                    "advanced": true
+                    "group": "数据属性"
                 },
                 {
                     "name": "value-field",
@@ -19721,8 +19707,7 @@
                             "name": "text",
                             "title": "文本",
                             "type": "string",
-                            "description": "节点的文本",
-                            "advanced": true
+                            "description": "节点的文本"
                         },
                         {
                             "name": "expanded",
