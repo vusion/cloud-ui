@@ -4,7 +4,6 @@
   description: 动态播放内部内容
   labels:
     - Display
-  nexted: false
   attrs:
     - name: data-source
       title: 数据源

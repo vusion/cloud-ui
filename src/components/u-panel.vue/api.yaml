@@ -46,7 +46,6 @@
 - name: u-panel-group
   advanced: true
   title: 面板组
-  nexted: false
   attrs:
     - name: title
       title: 标题

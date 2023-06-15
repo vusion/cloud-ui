@@ -35,7 +35,6 @@
           snippet: <u-crumb-item><u-text text="面包屑"></u-text></u-crumb-item>
 - name: u-crumb-item
   title: 面包屑选项
-  nexted: false
   attrs:
     - name: icon
       title: 图标

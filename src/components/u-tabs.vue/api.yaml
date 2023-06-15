@@ -317,7 +317,6 @@
           description: 发送事件实例
 - name: u-tab
   title: 标签页
-  is-sub: true
   attrs:
     - name: title
       title: 标题

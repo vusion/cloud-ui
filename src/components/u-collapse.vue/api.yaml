@@ -93,7 +93,6 @@
           description: 发送事件实例
 - name: u-collapse-item
   title: 折叠面板项
-  nexted: false
   attrs:
     - name: title
       title: 标题

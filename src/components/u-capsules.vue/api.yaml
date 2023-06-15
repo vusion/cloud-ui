@@ -147,7 +147,6 @@
           description: 发送事件实例
 - name: u-capsule
   title: 子选项
-  is-sub: true
   attrs:
     - name: value
       title: 值

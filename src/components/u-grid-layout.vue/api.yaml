@@ -128,7 +128,6 @@
 - name: u-grid-layout-column
   title: 栅格列
   description: 内部元素行内列布局
-  is-sub: true
   attrs:
     - name: mode
       title: 布局模式

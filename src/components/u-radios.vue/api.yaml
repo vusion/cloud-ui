@@ -184,7 +184,6 @@
       params: []
 - name: u-radio
   title: 单选项
-  is-sub: true
   attrs:
     - name: text
       title: 文本

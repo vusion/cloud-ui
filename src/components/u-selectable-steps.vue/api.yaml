@@ -109,7 +109,6 @@
           description: 旧的步骤数
 - name: u-selectable-step
   title: 步骤条项
-  is-sub: true
   attrs:
     - name: icon
       title: 图标

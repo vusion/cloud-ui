@@ -55,7 +55,6 @@
 - name: u-card-group
   advanced: true
   title: 卡片组
-  nexted: false
   attrs:
     - name: title
       title: 标题
