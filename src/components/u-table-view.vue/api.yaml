@@ -326,10 +326,10 @@
       description: 是否可以拖拽行排序
       group: 选择属性
     - name: configurable
-      title: 配置显隐列
+      title: 配置展示列
       type: boolean
       default: false
-      description: 是否可以配置显隐列
+      description: 是否可以配置展示列
       group: 选择属性
     - name: accordion
       title: 手风琴模式
