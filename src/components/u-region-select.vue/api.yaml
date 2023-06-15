@@ -4,8 +4,6 @@
   labels:
     - Selector
   description: 该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。
-  next: true
-  nested: false
   attrs:
     - name: data
       title: 数据

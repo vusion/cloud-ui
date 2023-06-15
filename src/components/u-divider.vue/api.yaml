@@ -4,8 +4,6 @@
   labels:
     - Display
   description: 用于将内容分隔为多个区域
-  next: true
-  nested: false
   attrs:
     - name: dashed
       title: 线条类型

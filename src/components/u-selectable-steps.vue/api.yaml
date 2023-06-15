@@ -4,8 +4,6 @@
   labels:
     - Selector
   description: 当操作需要分步骤时使用
-  next: true
-  nested: false
   attrs:
     - name: value
       title: 值
@@ -117,7 +115,7 @@
       title: 图标
       type: icon
       default: ""
-      description: "在该步骤展示的图标"
+      description: 在该步骤展示的图标
     - name: title
       title: 标题
       type: string

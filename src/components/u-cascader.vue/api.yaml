@@ -4,8 +4,6 @@
   labels:
     - Selector
   description: 一次选择多个相关联的项
-  next: true
-  nested: false
   attrs:
     - name: data-source
       title: 数据源
@@ -40,8 +38,8 @@
       display: property-select
       dependency:
         - +parent-field:
-          - null
-          - ''
+            - null
+            - ""
       dependencyDisplay: disabled
       group: 数据属性
     - name: parent-field
@@ -51,8 +49,8 @@
       display: property-select
       dependency:
         - +children-field:
-          - null
-          - ''
+            - null
+            - ""
       dependencyDisplay: disabled
       group: 数据属性
     - name: value

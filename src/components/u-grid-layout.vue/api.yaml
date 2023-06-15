@@ -337,28 +337,28 @@
       display: number
       default: 1
       description: 列占据栅格行的栅格数
-      precision: 0.00000000000001
+      precision: 1e-14
     - name: offset
       title: 偏移栅格数
       type: number
       display: number
       description: 列偏移的栅格数
       default: 0
-      precision: 0.00000000000001
+      precision: 1e-14
     - name: pull
       title: 左移动栅格数
       type: number
       display: number
       description: 列向左移动的栅格数
       default: 0
-      precision: 0.00000000000001
+      precision: 1e-14
     - name: push
       title: 右移动栅格数
       type: number
       display: number
       description: 列向右移动的栅格数
       default: 0
-      precision: 0.00000000000001
+      precision: 1e-14
     - name: media-huge
       title: 响应很大屏
       type: number

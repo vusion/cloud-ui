@@ -4,8 +4,6 @@
     - Form
   icon: checkboxes
   description: 多项中选择多个时使用
-  next: true
-  nested: false
   attrs:
     - name: data-source
       title: 数据源
@@ -179,8 +177,6 @@
               typeName: T
 - name: u-checkbox
   title: 多选项
-  next: false
-  nested: false
   attrs:
     - name: text
       title: 文本

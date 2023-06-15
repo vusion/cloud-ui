@@ -4,8 +4,6 @@
   labels:
     - Table
   description: 用于展示大量结构化数据。支持日历结构展示。
-  next: true
-  nested: false
   attrs:
     - name: data-source
       title: 数据源

@@ -49,9 +49,9 @@
           typeNamespace: nasl.ui
           typeName: Current
           typeArguments:
-          - concept: TypeAnnotation
-            typeKind: typeParam
-            typeName: T
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
 - name: u-timeline-item
   title: 时间线项
   attrs:

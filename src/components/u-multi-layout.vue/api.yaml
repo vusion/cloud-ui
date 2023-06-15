@@ -386,7 +386,7 @@
       description: 内容块间隙大小
       dependency:
         - mode: flex
-          '!justify':
+          "!justify":
             - space-between
             - space-around
   slots:

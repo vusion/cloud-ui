@@ -4,8 +4,6 @@
     - Display
   icon: countdown
   description: 用于计时
-  next: true
-  nested: false
   attrs:
     - name: timer
       title: 计时器时长（秒）

@@ -228,8 +228,6 @@
   description: 子选项
 - name: u-capsules-group
   title: 子选项组
-  next: false
-  nested: false
   slots:
     - concept: Slot
       name: default

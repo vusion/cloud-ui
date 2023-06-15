@@ -4,8 +4,6 @@
   labels:
     - Process
   description: 用于展示流程任务箱
-  next: true
-  nested: false
   attrs:
     - name: icon
       title: 图标

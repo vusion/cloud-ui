@@ -3,8 +3,6 @@
   labels:
     - Display
   icon: info-list
-  next: true
-  nested: false
   attrs:
     - name: repeat
       title: 列数

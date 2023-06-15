@@ -57,7 +57,9 @@
       support:
         - name: u-sidebar-group
           title: 侧边栏分组
-          snippet: '<u-sidebar-group><template #title><u-text text="分组"></u-text></template><u-sidebar-item><u-text text="侧边栏项"></u-text></u-sidebar-item></u-sidebar-group>'
+          snippet: '<u-sidebar-group><template #title><u-text
+            text="分组"></u-text></template><u-sidebar-item><u-text
+            text="侧边栏项"></u-text></u-sidebar-item></u-sidebar-group>'
         - name: u-sidebar-item
           title: 侧边栏项
           snippet: <u-sidebar-item><u-text text="侧边栏项"></u-text></u-sidebar-item>
@@ -119,7 +121,7 @@
     - name: icon
       title: 图标
       type: icon
-      default: ''
+      default: ""
       description: 图标
     - name: disabled
       title: 禁用
@@ -242,7 +244,9 @@
       support:
         - name: u-sidebar-group
           title: 侧边栏分组
-          snippet: '<u-sidebar-group><template #title><u-text text="分组"></u-text></template><u-sidebar-item><u-text text="侧边栏项"></u-text></u-sidebar-item></u-sidebar-group>'
+          snippet: '<u-sidebar-group><template #title><u-text
+            text="分组"></u-text></template><u-sidebar-item><u-text
+            text="侧边栏项"></u-text></u-sidebar-item></u-sidebar-group>'
         - name: u-sidebar-item
           title: 侧边栏项
           snippet: <u-sidebar-item><u-text text="侧边栏项"></u-text></u-sidebar-item>

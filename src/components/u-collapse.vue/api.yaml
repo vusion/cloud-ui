@@ -4,8 +4,6 @@
     - Container
   icon: collapse
   description: 可以折叠/展开的内容区域。
-  next: true
-  nested: false
   attrs:
     - name: accordion
       title: 手风琴模式
@@ -95,7 +93,6 @@
           description: 发送事件实例
 - name: u-collapse-item
   title: 折叠面板项
-  next: false
   nexted: false
   attrs:
     - name: title

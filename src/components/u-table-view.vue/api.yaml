@@ -4,8 +4,6 @@
   labels:
     - Table
   description: 用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。
-  next: true
-  nested: false
   attrs:
     - name: data-source
       title: 数据源
@@ -855,11 +853,7 @@
           description: 行数据
           required: false
 - name: u-table-view-column
-  accept-parent:
-    - u-table-view
   title: 表格列
-  next: false
-  nested: false
   attrs:
     - name: title
       title: 列标题
@@ -936,7 +930,7 @@
         - value: editable
           title: 编辑列
           dependency:
-            - '!field': null
+            - "!field": null
           dependencyDisplay: disabled
           tooltip: 与列字段关联，列字段不能为空
         - value: dragHandler
