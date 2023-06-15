@@ -5492,22 +5492,22 @@
                 {
                     "title": "主要按钮",
                     "description": "",
-                    "code": "<template>\n<u-button color=\"primary\" text=\"确 定\"></u-button>\n</template>\n"
+                    "code": "<template>\n<u-button color=\"primary\" text=\"确定\"></u-button>\n</template>\n"
                 },
                 {
                     "title": "次要按钮",
                     "description": "",
-                    "code": "<template>\n<u-button text=\"确 定\" color=\"primary_secondary\"></u-button>\n</template>\n"
+                    "code": "<template>\n<u-button text=\"确定\" color=\"primary_secondary\"></u-button>\n</template>\n"
                 },
                 {
                     "title": "普通按钮",
                     "description": "",
-                    "code": "<template>\n<u-button text=\"确 定\"></u-button>\n</template>\n"
+                    "code": "<template>\n<u-button text=\"确定\"></u-button>\n</template>\n"
                 },
                 {
                     "title": "图标按钮",
                     "description": "",
-                    "code": "<template>\n<u-button color=\"primary\" icon=\"add\" text=\"创 建\"></u-button>\n</template>\n"
+                    "code": "<template>\n<u-button color=\"primary\" icon=\"add\" text=\"创建\"></u-button>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -6660,8 +6660,7 @@
                             "name": "label",
                             "title": "标签名",
                             "type": "string",
-                            "description": "",
-                            "advanced": true
+                            "description": ""
                         },
                         {
                             "name": "span",
@@ -6726,8 +6725,7 @@
                             "name": "title",
                             "title": "标签",
                             "type": "string",
-                            "description": "",
-                            "advanced": true
+                            "description": ""
                         },
                         {
                             "name": "repeat",
@@ -11257,7 +11255,7 @@
                 {
                     "title": "行内表单",
                     "description": "",
-                    "code": "<template>\n<u-form layout=\"inline\">\n    <u-form-item layout=\"center\">\n        <template #label><u-text text=\"名称\"></u-text></template>\n        <u-input placeholder=\"请输入名称\"></u-input>\n    </u-form-item>\n    <u-form-item layout=\"center\">\n        <u-button color=\"primary\">查 询</u-button>\n    </u-form-item\n></u-form>\n</template>\n"
+                    "code": "<template>\n<u-form layout=\"inline\">\n    <u-form-item layout=\"center\">\n        <template #label><u-text text=\"名称\"></u-text></template>\n        <u-input placeholder=\"请输入名称\"></u-input>\n    </u-form-item>\n    <u-form-item layout=\"center\">\n        <u-button color=\"primary\">查询</u-button>\n    </u-form-item\n></u-form>\n</template>\n"
                 },
                 {
                     "title": "折叠分组",
@@ -14689,16 +14687,14 @@
                     "title": "文本字段",
                     "type": "string",
                     "default": "text",
-                    "description": "集合的元素类型中，用于显示文本的属性名称",
-                    "display": "property-select"
+                    "description": "集合的元素类型中，用于显示文本的属性名称"
                 },
                 {
                     "name": "value-field",
                     "title": "值字段",
                     "type": "string",
                     "default": "value",
-                    "description": "集合的元素类型中，用于标识选中值的属性",
-                    "display": "property-select"
+                    "description": "集合的元素类型中，用于标识选中值的属性"
                 },
                 {
                     "name": "description",
@@ -14716,15 +14712,13 @@
                         {
                             "description": true
                         }
-                    ],
-                    "display": "property-select"
+                    ]
                 },
                 {
                     "name": "icon-field",
                     "title": "图标展示字段",
                     "type": "string",
-                    "description": "集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法",
-                    "display": "property-select"
+                    "description": "集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法"
                 },
                 {
                     "name": "cancelable",
@@ -14858,21 +14852,9 @@
                     "name": "page-size",
                     "title": "默认分页大小",
                     "type": "number",
+                    "display": "number",
                     "default": 50,
-                    "options": [
-                        {
-                            "value": 10,
-                            "title": 10
-                        },
-                        {
-                            "value": 20,
-                            "title": 20
-                        },
-                        {
-                            "value": 50,
-                            "title": 50
-                        }
-                    ],
+                    "min": 10,
                     "description": "",
                     "dependency": [
                         {
@@ -15734,8 +15716,7 @@
                     "type": "string",
                     "default": "text",
                     "group": "数据属性",
-                    "description": "集合的元素类型中，用于显示文本的属性名称",
-                    "advanced": true
+                    "description": "集合的元素类型中，用于显示文本的属性名称"
                 },
                 {
                     "name": "value-field",
@@ -19148,8 +19129,7 @@
                     "type": "string",
                     "default": "text",
                     "description": "集合的元素类型中，用于显示文本的属性名称",
-                    "group": "数据属性",
-                    "advanced": true
+                    "group": "数据属性"
                 },
                 {
                     "name": "value-field",
@@ -21665,7 +21645,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-modal>\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #body>\n        <u-text>内容</u-text>\n    </template>\n    <template #foot>\n        <u-linear-layout vusion-disabled-cut justify=\"center\">\n            <u-button color=\"primary\">确 定</u-button>\n            <u-button>取 消</u-button>\n        </u-linear-layout>\n    </template>\n</u-modal>\n</template>\n"
+                    "code": "<template>\n<u-modal>\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #body>\n        <u-text>内容</u-text>\n    </template>\n    <template #foot>\n        <u-linear-layout vusion-disabled-cut justify=\"center\">\n            <u-button color=\"primary\">确定</u-button>\n            <u-button>取消</u-button>\n        </u-linear-layout>\n    </template>\n</u-modal>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -21937,7 +21917,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-drawer>\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #body>\n        <u-text>内容</u-text>\n    </template>\n    <template #foot>\n        <u-linear-layout vusion-disabled-cut justify=\"start\">\n            <u-button color=\"primary\">确 定</u-button>\n            <u-button>取 消</u-button>\n        </u-linear-layout>\n    </template>\n</u-drawer>\n</template>\n"
+                    "code": "<template>\n<u-drawer>\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #body>\n        <u-text>内容</u-text>\n    </template>\n    <template #foot>\n        <u-linear-layout vusion-disabled-cut justify=\"start\">\n            <u-button color=\"primary\">确定</u-button>\n            <u-button>取消</u-button>\n        </u-linear-layout>\n    </template>\n</u-drawer>\n</template>\n"
                 }
             ],
             "attrs": [
