@@ -450,6 +450,7 @@ export default {
         // 新增用来分页
         pagination: { type: Boolean, default: undefined },
         parentField: { type: String },
+        configurable: { type: Boolean, default: false }, // 是否配置显隐列
     },
     data() {
         return {
@@ -672,6 +673,11 @@ export default {
                 this.handleResize();
             },
             immediate: true,
+        },
+        configurable() {
+            if (this.configColumnVM) {
+                this.configColumnVM.handleColumnsData();
+            }
         },
     },
     created() {

@@ -326,7 +326,7 @@
       description: 是否可以拖拽行排序
       group: 选择属性
     - name: configurable
-      title: 可配置
+      title: 配置显隐列
       type: boolean
       default: false
       description: 是否可以配置显隐列
@@ -1156,4 +1156,33 @@
             - concept: TypeAnnotation
               typeKind: typeParam
               typeName: T
-  description: 表格配置列
+  events:
+    - name: select
+      title: 选择后
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
+        - name: $event.value
+          type: any
+          description: 改变后的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.item
+          type: object
+          description: 选择项相关对象
+        - name: $event.oldItem
+          type: object
+          description: 旧的选择项相关对象
+        - name: $event.itemVM
+          type: USelectItem
+          description: 选择项子组件
+        - name: $event.oldVM
+          type: USelectItem
+          description: 旧的选择项子组件
+        - name: senderVM
+          type: USelect
+          description: 发送事件实例

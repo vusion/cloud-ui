@@ -18,7 +18,6 @@
             :show-footer="showFooter"
             @select="onSelectShowColumns($event)"
             @load="onLoadConfigList()"
-            @change="onChangeShowColumns($event)"
             :vusion-scope-id="$vnode.context.$options._scopeId"
             :vusion-node-path="$attrs['vusion-node-path']"
             :vusion-node-tag="$attrs['vusion-node-tag']"
@@ -61,8 +60,13 @@ export default {
     },
     watch: {
         value(value, oldValue) {
-            if (JSON.stringify(value) !== JSON.stringify(oldValue))
-                this.currentValue = value;
+            this.currentValue = value;
+            this.handleColumnsHidden(value);
+        },
+        'currentDataSource.data'(value) {
+            if (!this.currentValue || (!this.value && !this.currentValue.length)) {
+                this.currentValue = value.map((item) => this.$at(item, this.valueField));
+            }
         },
     },
     created() {
@@ -105,10 +109,6 @@ export default {
                 }
             });
             this.currentDataSource.data = data;
-            console.log('default columns', data);
-            if (!this.currentValue || (!this.value && !this.currentValue.length)) {
-                this.currentValue = data.map((item) => item.value);
-            }
         },
         /**
          * 选中展示列
@@ -120,16 +120,6 @@ export default {
             // 抛出事件和双向绑定值
             this.$emit('update:value', value);
             this.$emit('select', event);
-        },
-        /**
-         * 控制列的弹窗在表格外部实现，数据需要与表格联动时走change逻辑
-         */
-        onChangeShowColumns(event) {
-            if (this.hiddenConfig) {
-                const value = event.value || [];
-                this.currentValue = value;
-                this.handleColumnsHidden(value);
-            }
         },
         /**
          * 初始时处理显隐
@@ -166,7 +156,6 @@ export default {
             this.handleInitColumnsHidden();
         },
         handleColumnsData() {
-            console.log('handleColumnsData');
             if (!this.dataSource) {
                 this.getConfigurabeList();
             }
