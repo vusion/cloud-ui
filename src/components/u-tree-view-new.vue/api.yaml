@@ -25,7 +25,6 @@
       default: text
       description: 集合的元素类型中，用于显示文本的属性名称
       group: 数据属性
-      advanced: true
     - name: value-field
       title: 选项值
       type: string
@@ -342,7 +341,6 @@
       title: 文本
       type: string
       description: 节点的文本
-      advanced: true
     - name: expanded
       title: 展开折叠
       type: boolean
