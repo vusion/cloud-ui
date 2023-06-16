@@ -148,10 +148,6 @@ export default {
     min-width: 100%;
     max-height: var(--table-view-filter-max-height);
 }
-.wrap > div {
-    display: inline-block; /* 有横向滚动时为了hover、selected样式能够覆盖全 */
-    min-width: 100%;
-}
 .footer {
     padding: 0 12px;
     height: 36px;
@@ -164,6 +160,6 @@ export default {
 /* 作用：出滚动条时hover背景能展示全 */
 .scrollview [class^="f-scroll-view_wrap__"] > div {
     display: inline-flex;
-    width: 100%;
+    min-width: 100%
 }
 </style>
