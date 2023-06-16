@@ -811,7 +811,7 @@ export default {
                 // 使用了新的分页, 数组肯定不是后端数据
                 if (isNew) {
                     options.remotePaging = false;
-                    options.remoteSorting = false;
+                    options.remoteSorting = options.remotePaging;
                 }
                 return new Constructor(options);
             } else if (dataSource instanceof Function) {
@@ -828,8 +828,7 @@ export default {
                 if (isNew) {
                     // 树形展示且配置了父节点时只能前端分页
                     options.remotePaging = (this.treeDisplay && this.parentField) ? false : !!this.pagination;
-                    // options.remotePaging = !!this.pagination;
-                    options.remoteSorting = !!(this.sorting && this.sorting.field);
+                    options.remoteSorting = !!options.remotePaging;
                 }
                 return new Constructor(options);
             } else if (dataSource instanceof Object) {
