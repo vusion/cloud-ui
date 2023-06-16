@@ -6,7 +6,7 @@ exports[`u-footbar.vue Demo-与列表一起使用 1`] = `
     class="root"
   >
     <!---->
-     
+      
     <div
       class="table"
       position="static"
