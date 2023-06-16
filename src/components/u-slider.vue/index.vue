@@ -3,33 +3,22 @@
     <div :class="$style.body">
         <div :class="$style.track" :multiple="multiple">
             <div :class="$style.trail" :style="{ width: percent[0] + '%' }" v-if="!multiple"></div>
-            <div :class="$style.trail"
-                :style="{ marginLeft: percent[0] + '%', width: percent[1] - percent[0] + '%' }"
-                v-else></div>
+            <div :class="$style.trail" :style="trailStyle" v-else></div>
             <div :class="$style.bound" role="start" v-if="rangeStartPercent" :style="{ width: rangeStartPercent + '%' }"></div>
             <div :class="$style.bound" role="end" v-if="rangeEndPercent" :style="{ width: rangeEndPercent + '%' }"></div>
         </div>
-        <f-dragger :disabled="readonly || disabled" immediate
+        <f-dragger
+            v-for="(_, index) in (multiple ? 2 : 1)"
+            :disabled="readonly || disabled" immediate
             axis="horizontal" :grid="grid[0]"
-            :source="multiple ? 'self' : 'parent'" range="offset-parent" range-mode="center"
-            @dragstart="onDragStart($event, 0)"
-            @drag="onDrag($event, 0)"
-            @dragend="onDargEnd($event, 0)">
-            <div :class="$style.handle" ref="handle1" @mouseover="openTooltip(0)" @mouseleave="closeTooltip(0)">
-                <u-popup :class="$style.popup" :placement="placement" trigger="manual" :opened="tooltipOpened[0] && !dragging[0]" v-if="showTooltip">
-                    {{ tooltip || currentValue[0] }}
-                </u-popup>
-            </div>
-        </f-dragger>
-        <f-dragger :disabled="readonly || disabled" immediate v-if="multiple"
-            axis="horizontal" :grid="grid[1]"
-            source="self" range="offset-parent" range-mode="center"
-            @dragstart="onDragStart($event, 1)"
-            @drag="onDrag($event, 1)"
-            @dragend="onDargEnd($event, 1)">
-            <div :class="$style.handle" ref="handle2" @mouseover="openTooltip(1)" @mouseleave="closeTooltip(1)">
-                <u-popup :class="$style.popup" ref="handle2" :placement="placement" trigger="manual" :opened="tooltipOpened[1] && !dragging[1]" v-if="showTooltip">
-                    {{ tooltip || currentValue[1] }}
+            :source="index === 0 && !multiple ? 'parent' : 'self'"
+            range="offset-parent" range-mode="center"
+            @dragstart="onDragStart($event, index)"
+            @drag="onDrag($event, index)"
+            @dragend="onDargEnd($event, index)">
+            <div :class="$style.handle" ref="handle"  @mouseover="openTooltip(index)" @mouseleave="closeTooltip(index)">
+                <u-popup :class="$style.popup" :placement="placement" trigger="manual" :opened="tooltipOpened[index] && !dragging[index]" v-if="showTooltip">
+                    {{ tooltip || currentValue[index] }}
                 </u-popup>
             </div>
         </f-dragger>
@@ -69,32 +58,17 @@ export default {
     },
     data() {
         return {
-            currentValue: [],
+            currentValue: [0, 0],
             currentRange: this.normalizeRange(this.range),
             grid: [
                 { x: 0, y: 0 },
                 { x: 0, y: 0 },
             ],
-            handleEl: [undefined, undefined],
             tooltipOpened: [false, false],
             dragging: [false, false],
         };
     },
     computed: {
-        percentOld: {
-            get() {
-                const percent = ((this.currentValue - this.min) / (this.max - this.min)) * 100;
-                return percent < 0 ? 0 : percent;
-            },
-            set(percent) {
-                const value = this.fix(
-                    +this.min + ((this.max - this.min) * percent) / 100,
-                );
-                this.currentValue = value;
-                this.$emit('input', value, this);
-                this.$emit('update:value', value, this);
-            },
-        },
         percent() {
             return this.currentValue.map((v) => {
                 const percent = ((v - this.min) / (this.max - this.min)) * 100;
@@ -109,12 +83,24 @@ export default {
             const end = Math.min(this.currentRange[1], this.max);
             return ((this.max - end) / (this.max - this.min)) * 100;
         },
+        trailStyle() {
+            return {
+                marginLeft: (this.percent[0] < this.percent[1] ? this.percent[0] : this.percent[1] ) + '%',
+                width: Math.abs(this.percent[1] - this.percent[0]) + '%',
+            };
+        },
     },
     watch: {
         value: {
             handler(value) {
-                this.currentValue = Array.isArray(value) ? value : [value],
-                this.updateHandleLeft();
+                if (this.multiple) {
+                    if (!Array.isArray(value)) return;
+                    // 考虑滑块前后顺序互换的情况，内部是支持先大后小的，但是外部不支持
+                    if (value[0] === this.currentValue[1] && value[1] === this.currentValue[0]) return
+                    this.currentValue = value
+                } else {
+                    this.currentValue = [value]
+                }
             },
             immediate: true,
         },
@@ -123,21 +109,17 @@ export default {
             if (!Array.isArray(this.value)) {
                 this.$emit('change', { value: value[0], oldValue: oldValue[0] }, this);
             } else {
-                this.$emit('change', { value, oldValue }, this);
+                this.$emit('change', { value: value.concat().sort(), oldValue: oldValue.concat().sort() }, this);
             }
         },
         range(range) {
             this.currentRange = this.normalizeRange(range);
         },
-        min() {
-            this.updateHandleLeft();
-        },
-        max() {
+        percent() {
             this.updateHandleLeft();
         },
     },
     mounted() {
-        this.handleEl = [this.$refs.handle1, this.$refs.handle2];
         this.updateHandleLeft();
     },
     methods: {
@@ -145,21 +127,15 @@ export default {
             const value = this.fix(
                 +this.min + ((this.max - this.min) * percent) / 100,
             );
-            // 多个滑块时，前后滑块的限制
-            if ((index > 0 && value <= this.currentValue[index - 1])
-                || (index < this.currentValue.length - 1 && value >= this.currentValue[index + 1])) {
-                return false;
-            }
             // 这里不能使用 Vue.set, 因为有 watch
             this.currentValue = this.currentValue.map((v, i) => i === index ? value : v);
             // 对外暴露的 value 需要和传入的 value 类型一致
-            const eventValue = Array.isArray(this.value) ? this.currentValue : this.currentValue[0];
+            const eventValue = Array.isArray(this.value) ? this.currentValue.concat().sort() : this.currentValue[0];
             this.$emit('input', eventValue, this);
             this.$emit('update:value', eventValue, this);
-            return true;
         },
         updateHandleLeft() {
-            this.handleEl.forEach((element, index) => {
+            this.$refs.handle.forEach((element, index) => {
                 if (element) {
                     element.style.left = this.percent[index] + '%';
                 }
@@ -192,7 +168,6 @@ export default {
             const oldValue = this.currentValue[index];
             this.updateCurrentValue(index, ($event.left / $event.range.width) * 100);
             const percent = this.percent[index];
-            this.handleEl[index].style.left = percent + '%';
             this.$emit(
                 'slide',
                 { oldValue, value: this.currentValue[index], percent, index },
@@ -203,7 +178,6 @@ export default {
             const oldValue = this.currentValue[index];
             this.updateCurrentValue(index, ($event.left / $event.range.width) * 100);
             const percent = this.percent[index];
-            this.handleEl[index].style.left = percent + '%';
             this.$emit(
                 'slide',
                 { oldValue, value: this.currentValue[index], percent, index },
@@ -241,6 +215,10 @@ export default {
     cursor: var(--cursor-pointer);
     height: var(--slider-track-height);
     background: var(--slider-track-background);
+}
+
+.track[multiple] {
+    cursor: default;
 }
 
 .trail {
