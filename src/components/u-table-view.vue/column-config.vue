@@ -21,12 +21,13 @@
             :vusion-scope-id="$vnode.context.$options._scopeId"
             :vusion-node-path="$attrs['vusion-node-path']"
             :vusion-node-tag="$attrs['vusion-node-tag']"
-            vusion-slot-name="item">
-            <template #item="item">
+            vusion-slot-name="item"
+            :class="[{[$style.designerMask]: dataSource && $env.VUE_APP_DESIGNER}]">
+            <template #item="item" v-if="dataSource">
                 <slot name="item" v-bind="item"></slot>
                 <s-empty v-if="$scopedSlots
-                &&!($scopedSlots.item && $scopedSlots.item(item))
-                &&$env.VUE_APP_DESIGNER
+                && !($scopedSlots.item && $scopedSlots.item(item))
+                && $env.VUE_APP_DESIGNER
                 && !!$attrs['vusion-node-path']
                 && !!dataSource"></s-empty>
             </template>
@@ -64,9 +65,15 @@ export default {
             this.handleColumnsHidden(value);
         },
         'currentDataSource.data'(value) {
-            if (!this.currentValue || (!this.value && !this.currentValue.length)) {
-                this.currentValue = value.map((item) => this.$at(item, this.valueField));
-            }
+            this.setCurrentValue(value);
+        },
+        dataSource(value) {
+            this.$nextTick(() => {
+                this.currentValue = undefined;
+                if (this.currentDataSource && this.currentDataSource.load)
+                    this.load();
+                this.handleColumnsData();
+            });
         },
     },
     created() {
@@ -161,6 +168,11 @@ export default {
             }
             this.handleInitColumnsHidden();
         },
+        setCurrentValue(value) {
+            if (!this.currentValue || (!this.value && !this.currentValue.length)) {
+                this.currentValue = value.map((item) => this.$at(item, this.valueField) || item.value);
+            }
+        },
     },
 };
 </script>
@@ -172,5 +184,19 @@ export default {
     z-index: 1;
     right: 7px;
     top: 8px;
+}
+.designerMask [class^='u-table-view_filter__']:not(:first-child) {
+    position: relative;
+}
+.designerMask [class^='u-table-view_filter__']:not(:first-child)::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.8);
+    z-index: 999;
 }
 </style>

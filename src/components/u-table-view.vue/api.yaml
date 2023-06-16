@@ -1126,6 +1126,10 @@
       type: string
       description: 配置列的下拉弹窗里，指定数据唯一值的字段
       display: property-select
+      default: value
+      dependency:
+        - '!data-source': null
+      dependencyDisplay: disabled
     - name: value
       title: 值
       type: any

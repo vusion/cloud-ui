@@ -4,9 +4,9 @@
         <div :class="$style.wrap">
             <u-table-view-filters :value.sync="currentValue" @before-select="onBeforeSelect" :multiple="multiple" @select="onSelect">
                 <u-table-view-filter v-for="(filter, index) in currentData"
-                    :key="$at2(filter, valueField)"
-                    :value="$at2(filter, valueField)"
-                    :text="$at2(filter, textField)"
+                    :key="$at2(filter, valueField) || filter.value"
+                    :value="$at2(filter, valueField) || filter.value"
+                    :text="$at2(filter, textField) || filter.text"
                     :disabled="filter.disabled"
                     :item="filter" :index="index">
                     <slot name="item" :item="filter" :index="index">{{ $at2(filter, textField) || filter.text }}</slot>
