@@ -1347,7 +1347,7 @@ export default {
             <u-table-view-column title="城市" field="city"></u-table-view-column>
             <template #config-columns>
                 <u-table-view-column-config
-                    :data-source="loadConfigData"
+                    :data-source="dataSource"
                     value-field="key"
                     @select="onSelectConfig"
                     style="color:blue"
@@ -1362,6 +1362,7 @@ export default {
                 </u-table-view-column-config>
             </template>
         </u-table-view>
+        <u-button @click="onSetDataSource">点击切换数据源</u-button>
     </u-linear-layout>
     <u-linear-layout>
         <u-table-view striped :data="data" style="max-height: 300px;" configurable>
@@ -1431,13 +1432,15 @@ export default {
             configValue: ['name', 'province'],
             variable1: ['name'],
             variable2: [],
+            dataSource: undefined,
         };
     },
     methods: {
         loadConfigData() {
+            console.log('loadConfigData');
              return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    resolve([{name: '姓名', key: 'name'}, {name: '省份', key: 'province'}, {name: '城市', key: 'city'}]);
+                    resolve([{name: '姓名', key: 'name'}, {name: '省份', key: 'province'}]);
                 }, 500);
             });
         },
@@ -1446,6 +1449,11 @@ export default {
         },
         loadCheckList() {
             return [{name: '姓名', key: 'name'}, {name: '省份', key: 'province'}, {name: '城市', key: 'city'}];
+        },
+        onSetDataSource() {
+            console.log('set');
+            this.seting = !this.seting;
+            this.dataSource = this.seting?this.loadConfigData:undefined;
         }
     }
 };
