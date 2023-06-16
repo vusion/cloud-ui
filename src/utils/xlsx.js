@@ -34,8 +34,8 @@ export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns,
             // 0开头的数字字符串，比如'001234'，不会被转化为数字
             if (excludeNumberRegx.test(value)) return;
             if (value.indexOf('.') > -1) {
-                const percentLength = value.split('.')[1].length;
-                template = '0.0'+new Array(percentLength-1).fill(0).join('');
+                const percentLength = value.split('.')[1].length ;
+                template = '0.'+new Array(percentLength).fill(0).join('');
             } else {
                 template = '0'
             }
