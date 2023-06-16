@@ -40,7 +40,7 @@ exports[`u-grid-layout.vue Demo- 1`] = `
     class="root"
   >
     <!---->
-     
+      
     <div
       class="table"
       position="static"

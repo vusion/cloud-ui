@@ -6,6 +6,7 @@
     <div v-if="title" :class="$style.title" ref="title" :style="{ textAlign: titleAlignment }" vusion-slot-name="title" vusion-slot-name-edit="title">
         <slot name="title">{{ title }}</slot>
     </div>
+    <slot name="config-columns"></slot>
     <div :class="$style.table" v-for="(tableMeta, tableMetaIndex) in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
@@ -449,6 +450,7 @@ export default {
         // 新增用来分页
         pagination: { type: Boolean, default: undefined },
         parentField: { type: String },
+        configurable: { type: Boolean, default: false }, // 是否配置显隐列
     },
     data() {
         return {
@@ -483,6 +485,7 @@ export default {
             rowDraggable: false,
             handlerDraggable: false,
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
+            configColumnVM: undefined,
         };
     },
     computed: {
@@ -632,6 +635,9 @@ export default {
                     thEl.__vue__ = columnVMs[index];
                 });
             });
+            if (this.configColumnVM) {
+                this.configColumnVM.handleColumnsData();
+            }
         },
         visibleColumnVMs() {
             this.handleResize();
@@ -667,6 +673,11 @@ export default {
                 this.handleResize();
             },
             immediate: true,
+        },
+        configurable() {
+            if (this.configColumnVM) {
+                this.configColumnVM.handleColumnsData();
+            }
         },
     },
     created() {

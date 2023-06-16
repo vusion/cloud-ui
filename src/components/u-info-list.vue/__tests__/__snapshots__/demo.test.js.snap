@@ -639,7 +639,7 @@ exports[`u-info-list.vue Demo-与表格结合 1`] = `
           class="root"
         >
           <!---->
-           
+            
           <div
             class="table"
             position="static"
