@@ -283,7 +283,7 @@ export default {
                 type,
                 value,
             });
-            this.$emit('change', { sender: this, time: showTime, value: showTime });
+            this.$emit('select', { sender: this, time: showTime, value: showTime });
         },
         onConfirm() {
             const value = this.showTime ? this.showTime : undefined;

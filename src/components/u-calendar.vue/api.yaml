@@ -4,8 +4,8 @@
     - name: date
       title: 值
       type: Date | string
-      sync: true
-      model: true
+      sync: false
+      model: false
       default: TODAY
       description: 当前选择的日期
     - name: min-date
