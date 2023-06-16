@@ -55404,23 +55404,20 @@ exports[`u-table-view.vue Demo-树型展示 1`] = `
       >
         <table
           class="root head-table"
-          style="width: 130px;"
         >
           <colgroup>
             <col
               width="30"
             />
             <col
-              width="0"
+              width="20%"
             />
             <col
-              width="0"
+              width="20%"
             />
+            <col />
             <col
-              width="100"
-            />
-            <col
-              width="0"
+              width="20%"
             />
           </colgroup>
            
@@ -55573,23 +55570,20 @@ exports[`u-table-view.vue Demo-树型展示 1`] = `
             <div>
               <table
                 class="root"
-                style="width: 130px;"
               >
                 <colgroup>
                   <col
                     width="30"
                   />
                   <col
-                    width="0"
+                    width="20%"
                   />
                   <col
-                    width="0"
+                    width="20%"
                   />
+                  <col />
                   <col
-                    width="100"
-                  />
-                  <col
-                    width="0"
+                    width="20%"
                   />
                 </colgroup>
                  
