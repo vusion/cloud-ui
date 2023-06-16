@@ -3,3 +3,4 @@ dist-theme/
 dist-raw/
 dist-doc-entry/
 public/
+src/**/*.d.ts

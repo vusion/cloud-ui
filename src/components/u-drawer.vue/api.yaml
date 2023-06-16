@@ -14,7 +14,6 @@
     - name: placement
       title: 抽屉位置
       type: string
-      sync: true
       default: right
       options:
         - value: left
