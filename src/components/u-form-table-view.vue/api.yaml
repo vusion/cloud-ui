@@ -220,6 +220,7 @@
       type: boolean
       default: false
       description: 忽略验证规则。已废弃，同`ignore-validation`
+      deprecated: true
     - name: validating-options
       title: 验证辅助对象
       type: object
