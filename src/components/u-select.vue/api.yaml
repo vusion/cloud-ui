@@ -110,6 +110,7 @@
       type: Array
       description: 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}]
       group: 数据属性
+      advanced: true
     - name: loading-text
       title: 加载中文字
       type: string
