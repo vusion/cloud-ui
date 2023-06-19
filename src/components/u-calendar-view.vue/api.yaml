@@ -23,14 +23,14 @@
       default: startTime
       description: 数据内表示开始时间的字段
       group: 数据属性
-      disaply: property-select
+      display: property-select
     - name: end-key
       type: string
       title: 结束时间字段
       default: endTime
       description: 数据内表示结束时间的字段
       group: 数据属性
-      disaply: property-select
+      display: property-select
     - name: value
       title: 值
       type: Date | string ｜ number

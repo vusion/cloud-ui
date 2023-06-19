@@ -11,4 +11,17 @@ const mutationObserverMock = jest.fn(function MutationObserver(callback) {
         callback(mockedMutationsList, this);
     };
 });
-global.MutationObserver = mutationObserverMock;
+window.MutationObserver = mutationObserverMock;
+
+// 将模拟对象赋值给实际的 VisualViewport 属性
+Object.defineProperty(window, 'VisualViewport', { value : function() {} });
+Object.assign(window.VisualViewport.prototype, {
+    width: window.innerWidth,
+    height: window.innerHeight,
+    offsetLeft: 0,
+    offsetTop: 0,
+    pageLeft: window.pageXOffset,
+    pageTop: window.pageYOffset,
+    scale: Math.max(window.innerWidth / screen.width, window.innerHeight / screen.height),
+    zoom: Math.log2(Math.max(window.innerWidth / screen.availWidth, window.innerHeight / screen.availHeight)),
+});

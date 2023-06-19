@@ -43,6 +43,15 @@
       default: " / "
       description: 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值
       advanced: true
+    - name: converter
+      title: 转换器
+      type: string
+      options:
+        - value: name
+          title: 地区名称
+        - value: code
+          title: 地区码
+      description: 选择地区名称，返回：浙江省/杭州市/滨江区（不加空格）；选择地区码，返回：330108
     - name: field
       title: 文本字段
       type: string

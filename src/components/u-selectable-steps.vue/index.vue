@@ -120,6 +120,12 @@ export default {
     icon-font: url("./assets/pass.svg");
 }
 
+.item[failed] .radio:not([custom-icon])::before {
+    position: relative;
+    top: -1px;
+    icon-font: url("./assets/fail.svg");
+}
+
 .item[selected]:not([passed]) .radio {
     background: var(--steps-seleatable-radio-background-selected);
     border: 1px solid var(--steps-seleatable-border-color-passed);
@@ -134,6 +140,16 @@ export default {
     border-radius: 100px;
     background: var(--steps-seleatable-background-selected);
     top: 0;
+}
+
+.item[failed] .radio {
+    background: var(--steps-seleatable-background-failed);
+    border: 1px solid var(--steps-seleatable-border-color-failed);
+    color: var(--steps-item-radio-color-failed);
+}
+
+.item[failed] .title {
+    color: var(--steps-seleatable-item-title-color-failed);
 }
 
 .root[direction="vertical"] {
@@ -186,5 +202,20 @@ export default {
 .root[direction="vertical"] .body {
     margin-top: 0;
     flex: 1;
+}
+
+.stepmask {
+    position: relative;
+}
+.stepmask::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.8);
+    z-index: 999;
 }
 </style>
