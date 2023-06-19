@@ -359,7 +359,9 @@ export default {
             if (url)
                 this.$router.replace(this.$at(matchItem, this.urlField));
             this.$forceUpdate();
-            this.scrollToSelectedVM();
+            // IDE 切换到数据源 item插槽里放数据会滚动，不要滚动
+            if (!this.$env.VUE_APP_DESIGNER)
+                this.scrollToSelectedVM();
         },
     },
 };
