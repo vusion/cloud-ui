@@ -10,7 +10,10 @@
       type: any
       sync: true
       model: true
-      description: 当前选择的值
+      description: 当前选中的值
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 当前选择的值
   slots:
     - concept: Slot
       name: default
@@ -81,21 +84,28 @@
   title: 目录节点
   attrs:
     - name: label
-      title: 显示文本
+      title: 文本
       type: string
       hidden: true
       description: 集合的元素类型中，用于显示文本的属性名称
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: value
-      title: 选项值
+      title: 选中值
       type: any
-      description: 集合的元素类型中，用于标识选中值的属性
+      description: 当前选中的值
       group: 数据属性
+      brifeDoc: ""
+      docDescription: 当前选择的值
     - name: item
       title: 相关对象
       type: object
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
       hidden: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
     - name: linkType
       title: 链接类型
       type: string
@@ -105,16 +115,20 @@
         - value: download
           title: 下载链接
       default: destination
-      description: 链接类型
+      description: ""
       compType: linkTypeSelect
       bindHide: true
       group: 交互属性
+      brifeDoc: ""
+      docDescription: 支持页面跳转、普通链接、下载链接
     - name: hrefAndTo
       title: 链接地址
       type: string
-      description: 链接地址
+      description: ""
       compType: linkHrefInput
       group: 交互属性
+      brifeDoc: ""
+      docDescription: 链接的详细地址
     - name: target
       title: 链接打开方式
       type: string
@@ -130,14 +144,18 @@
           value: _top
           advanced: true
       default: _self
-      description: 父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。
+      description: 链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。
       group: 交互属性
+      brifeDoc: ""
+      docDescription: 可选新窗口、父级窗口、当前窗口和顶级窗口，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 禁用此项
-      group: 交互属性
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
   slots:
     - concept: Slot
       name: default

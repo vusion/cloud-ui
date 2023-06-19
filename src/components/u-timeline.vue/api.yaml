@@ -7,16 +7,20 @@
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object | DataSource
-      description: 数据源
+      description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
+      brifeDoc: ""
+      docDescription: 时间线的数据源。
     - name: data-schema
       title: 数据类型
       type: schema
-      description: 数据类型
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
+      brifeDoc: ""
+      docDescription: 时间线数据类型。该属性为展示属性，由数据源推倒得到，无需填写。
     - name: mode
-      title: 模式
+      title: 排布方式
       type: string
       options:
         - value: default
@@ -24,11 +28,18 @@
         - value: label
           title: 时间线居中
       default: default
+      group: 主要属性
+      description: 时间线节点与内容的排布方式
+      brifeDoc: ""
+      docDescription: 默认、时间线居中
     - name: pending
       title: 待定节点
       type: boolean
       default: false
       description: 待定节点连接线为虚线展示，用于表示即将发生或者正在进行的节点
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 待定节点连接线为虚线展示，用于表示即将发生或者正在进行的节点
   slots:
     - concept: Slot
       name: default
@@ -55,15 +66,13 @@
 - name: u-timeline-item
   title: 时间线项
   attrs:
-    - name: color
-      title: 颜色
-      type: string
-      default: blue
-      description: 指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值
     - name: label
       title: 标签
       type: string
       description: 指定展示在另一侧的 `label`，只在 `label` 模式下生效
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 指定展示在另一侧的 `label`，只在 `label` 模式下生效。
     - name: position
       title: 位置
       type: string
@@ -74,6 +83,17 @@
           title: 右
       default: right
       description: 指定交替展示时的位置，只在 `alternate` 或 `label` 模式下生效
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 指定交替展示时的位置，只在 `alternate` 或 `label` 模式下生效。
+    - name: color
+      title: 节点颜色
+      type: string
+      default: blue
+      description: 指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值。
   slots:
     - concept: Slot
       name: default

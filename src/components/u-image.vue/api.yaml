@@ -5,12 +5,22 @@
     - Display
   description: 可以用来展示一张图片，支持设置图片地址。
   attrs:
+    - name: convertSrcFn
+      title: 图片地址转换器
+      type: Function
+      default: (src) => {  try { const tempSrc = JSON.parse(src); const tempItem =
+        tempSrc[0]; return tempItem.url; } catch (e) { return src;}}
+      description: 将传入的src转换为符合要求的字符串
+      advanced: true
     - name: src
       title: 地址
       type: image
       default: ""
-      description: 图片地址
+      description: ""
       compType: linkInput
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 图片链接，可以是来自网络的链接，也可以上传本地图片。
     - name: fit
       title: 填充方式
       type: string
@@ -26,12 +36,18 @@
         - value: cover
           title: 填充
       default: contain
-      description: 图片填充方式
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 设置图片的显示方式，适应、适应（图片小于父元素时以原尺寸展示、原尺寸、拉伸、填充）
     - name: circle
       title: 圆形遮罩
       type: boolean
       default: false
       description: 是否开启圆形遮罩
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 是否使用圆形进行图片展示。
     - name: horizontalCenter
       title: 水平对齐方式
       type: string
@@ -43,7 +59,10 @@
         - value: right
           name: 右对齐
       default: center
-      description: 图片水平对齐方式
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 左对齐、右对齐、居中对齐
     - name: verticalCenter
       title: 垂直对齐方式
       type: string
@@ -55,19 +74,18 @@
         - value: bottom
           name: 底部对齐
       default: center
-      description: 图片垂直对齐方式
-    - name: convertSrcFn
-      title: 图片地址转换器
-      type: Function
-      default: (src) => {  try { const tempSrc = JSON.parse(src); const tempItem =
-        tempSrc[0]; return tempItem.url; } catch (e) { return src;}}
-      description: 将传入的src转换为符合要求的字符串
-      advanced: true
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 顶部对齐、居中对齐、底部对齐
     - name: preview
       title: 点击放大
       type: boolean
       default: false
       description: 是否支持点击放大全屏展示
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 是否支持点击放大全屏展示
   slots: false
   events:
     - name: load

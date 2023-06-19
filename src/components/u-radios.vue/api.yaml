@@ -8,15 +8,19 @@
     - name: data-source
       title: 数据源
       type: Array<Item> | Function
-      description: 集合类型变量或者输出参数为集合类型的逻辑
+      description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       designer-value: "[{}, {}, {}]"
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: data-schema
       title: 数据类型
       type: schema
-      description: 集合类型每一元素的数据类型
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
+      brifeDoc: ""
+      docDescription: ""
     - name: text-field
       title: 选项文本
       type: string
@@ -25,31 +29,39 @@
       group: 数据属性
       advanced: true
     - name: value-field
-      title: 值字段
+      title: 选项值字段
       type: string
       default: value
-      description: 集合的元素类型中，用于标识选中值的属性
+      description: 集合的元素类型中，用于标识选中值的字段
       display: property-select
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: value
-      title: 值
+      title: 选中值
       type: any
       sync: true
       model: true
-      description: 当前选择的值
+      description: 当前选中的值
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: ""
-      group: 选择属性
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: ""
-      group: 选择属性
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
   slots:
     - concept: Slot
       name: default
@@ -193,22 +205,34 @@
     - name: label
       title: 选项值
       type: any
-      description: 单选框选项值。
-    - name: readonly
-      title: 只读
-      type: boolean
-      default: false
-      description: ""
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: ""
+      description: 用于标识选项的值
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: autofocus
       title: 自动获取焦点
       type: boolean
       default: false
-      description: ""
+      description: 设置是否自动获取焦点
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
   events:
     - name: before-select
       title: 选择前

@@ -8,26 +8,34 @@
     - name: data-source
       title: 数据源
       type: array
-      description: 一个包含字符串或对象的数组
+      description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: data-schema
       title: 数据类型
       type: schema
-      description: 组件列表每一项的结构
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       compType: dataTypeComsItem
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: colnum
       title: 每行排列项数
       type: number
       default: 5
       description: 为空时默认为5
-      group: 样式属性
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
     - name: equalWidth
-      title: 是否均分宽度
+      title: 均分宽度
       type: boolean
       default: true
-      description: 是否均分宽度
+      description: 设置是否均分宽度
       group: 样式属性
+      brifeDoc: ""
+      docDescription: ""
   slots:
     - concept: Slot
       name: default

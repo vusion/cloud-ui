@@ -8,30 +8,38 @@
     - name: data-source
       title: 数据源
       type: Array<{ text, value }>
-      description: 数据列表
+      description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: data-schema
       title: 数据类型
       type: schema
-      description: 集合类型每一元素的数据类型
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       compType: dataTypeSelect
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: field
-      title: 文本字段名
+      title: 文本字段
       type: string
       default: text
       description: 集合的元素类型中，用于显示文本的属性名称
       display: property-select
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: value-field
-      title: 值字段名
+      title: 值字段
       type: string
       default: value
       description: 集合的元素类型中，用于标识选中值的属性
       display: property-select
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: children-field
-      title: 子节点字段名
+      title: 子级节点字段
       type: string
       default: children
       description: 树形数据子节点字段名，默认为children
@@ -42,8 +50,10 @@
             - ""
       dependencyDisplay: disabled
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: parent-field
-      title: 父节点字段名
+      title: 父级节点字段
       type: string
       description: 当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置
       display: property-select
@@ -53,6 +63,8 @@
             - ""
       dependencyDisplay: disabled
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: value
       title: 值
       type: any
@@ -60,12 +72,41 @@
       model: true
       description: ""
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: filterable
+      title: 筛选
+      type: boolean
+      default: false
+      description: 设置是否可以筛选，开启将会显示搜索框。
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: placeholder
-      title: 选择框占位符
+      title: 占位符
       type: string
       default: 请选择
-      description: 搜索框为空时提示文本
-      group: 选择属性
+      description: 为空时显示的占位符文本
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: showFinalValue
+      title: 只显示最后一项
+      type: boolean
+      default: false
+      description: 定义是否显示完整的路径，ture时只显示最后一项
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: autofocus
+      title: 自动获取焦点
+      type: boolean
+      default: false
+      description: 设置是否自动获取焦点
+      designer-value: false
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
     - name: trigger
       title: 触发方式
       type: string
@@ -75,59 +116,34 @@
         - value: hover
           title: 悬浮
       default: click
-      description: 触发方式
-      group: 选择属性
-    - name: join
-      title: 连接符
-      type: string
-      options:
-        - value: ","
-          title: 以','连接
-        - value: "|"
-          title: 以'|'连接
-        - value: " / "
-          title: 以' / '连接
-      default: " / "
-      description: 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值
-      advanced: true
-      group: 选择属性
-    - name: filterable
-      title: 可筛选
-      type: boolean
-      default: false
-      description: 是否可以过滤（搜索），开启将会显示搜索框。
-      group: 选择属性
+      description: ""
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: ""
     - name: clearable
       title: 可清空
       type: boolean
       default: false
-      description: 开启并在输入框有内容时会显示清除按钮。
-      group: 选择属性
-    - name: showFinalValue
-      title: 只显示最后一项
-      type: boolean
-      default: false
-      description: 定义是否显示完整的路径，ture时只显示最后一项
-      group: 选择属性
+      description: 设置是否可以清空搜索框，开启后将在有内容时显示清除按钮。
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: ""
-      group: 选择属性
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
     - name: opened
       title: 弹出状态
       type: boolean
       default: false
-      description: 切换弹出/关闭状态
-      group: 选择属性
-    - name: autofocus
-      title: 自动获取焦点
-      type: boolean
-      default: false
-      description: 是否自动获取焦点
-      designer-value: false
-      group: 选择属性
+      description: 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
     - name: width
       title: 宽度
       type: string
@@ -149,6 +165,8 @@
       default: normal
       description: 设置级联框宽度大小
       group: 样式属性
+      brifeDoc: ""
+      docDescription: ""
     - name: height
       title: 高度
       type: string
@@ -170,6 +188,22 @@
       default: normal
       description: 设置级联框高度大小
       group: 样式属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: join
+      title: 连接符
+      type: string
+      options:
+        - value: ","
+          title: 以','连接
+        - value: "|"
+          title: 以'|'连接
+        - value: " / "
+          title: 以' / '连接
+      default: " / "
+      description: 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值
+      advanced: true
+      group: 选择属性
   events:
     - name: input
       title: 输入时

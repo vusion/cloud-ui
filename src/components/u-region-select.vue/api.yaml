@@ -5,31 +5,6 @@
     - Selector
   description: 该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。
   attrs:
-    - name: data
-      title: 数据
-      type: Array<{ text, value }>
-      description: 数据列表
-    - name: placeholder
-      title: 选择框占位符
-      type: string
-      default: 请选择
-      description: 搜索框为空时提示文本
-    - name: trigger
-      title: 触发方式
-      type: string
-      options:
-        - value: click
-          title: 点击
-        - value: hover
-          title: 悬浮
-      default: click
-      description: 触发方式
-    - name: value
-      title: 值
-      type: any
-      sync: true
-      model: true
-      description: ""
     - name: join
       title: 连接符
       type: string
@@ -52,42 +27,100 @@
         - value: code
           title: 地区码
       description: 选择地区名称，返回：浙江省/杭州市/滨江区（不加空格）；选择地区码，返回：330108
+    - name: data
+      title: 数据
+      type: Array<{ text, value }>
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: value
+      title: 值
+      type: any
+      sync: true
+      model: true
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: field
       title: 文本字段
       type: string
       default: text
-      description: 显示文本字段
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: filterable
-      title: 可筛选
+      title: 筛选
       type: boolean
       default: false
-      description: 是否可以过滤（搜索），开启将会显示搜索框。
-    - name: clearable
-      title: 可清空
-      type: boolean
-      default: false
-      description: 开启并在输入框有内容时会显示清除按钮。
+      description: 设置是否可以筛选，开启将会显示搜索框。
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: placeholder
+      title: 占位符
+      type: string
+      default: 请选择
+      description: 为空时显示的占位符文本
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
     - name: showFinalValue
       title: 只显示最后一项
       type: boolean
       default: false
       description: 定义是否显示完整的路径，ture时只显示最后一项
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: ""
-    - name: opened
-      title: 弹出状态
-      type: boolean
-      default: false
-      description: 切换弹出/关闭状态
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
     - name: autofocus
       title: 自动获取焦点
       type: boolean
       default: false
-      description: 是否自动获取焦点
+      description: 设置是否自动获取焦点
       designer-value: false
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: trigger
+      title: 触发方式
+      type: string
+      options:
+        - value: click
+          title: 点击
+        - value: hover
+          title: 悬浮
+      default: click
+      description: ""
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: clearable
+      title: 可清空
+      type: boolean
+      default: false
+      description: 设置是否可以清空搜索框，开启后将在有内容时显示清除按钮。
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: opened
+      title: 弹出状态
+      type: boolean
+      default: false
+      description: 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
   events:
     - name: input
       title: 输入时

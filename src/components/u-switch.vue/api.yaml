@@ -10,22 +10,34 @@
       sync: true
       model: true
       default: false
-      description: 开关状态
-    - name: readonly
-      title: 只读
-      type: boolean
-      default: false
-      description: ""
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: ""
+      description: 标识开关状态的值
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: with-text
       title: 显示开关文字
       type: boolean
       default: false
       description: 是否显示开关`ON`和`OFF`文字
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
   slots: false
   events:
     - name: before-toggle

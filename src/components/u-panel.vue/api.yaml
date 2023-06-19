@@ -15,22 +15,28 @@
           snippet: '<u-panel-group><template #title><u-text
             text="面板组"></u-text></template>面板项</u-panel-group>'
   attrs:
-    - name: title
-      title: 标题
-      type: string
-      description: 面板项的标题
-      advanced: true
     - name: content
       title: 内容
       type: string
       default: ""
       description: 面板内容
       advanced: true
+    - name: title
+      title: 标题
+      type: string
+      description: 面板项的标题
+      advanced: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 面板组的标题
     - name: bordered
-      title: 边框
+      title: 显示边框
       type: boolean
       default: true
-      description: 显示/隐藏边框
+      description: 设置是否显示边框
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 支持配置面板边框的显示和隐藏，默认显示
     - name: shadow
       title: 阴影
       type: string
@@ -43,6 +49,12 @@
           title: 不显示
       default: always
       description: 阴影显示方式
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: |-
+        支持配置面板阴影状态，默认为一直显示。- 一直显示：常态显示面板阴影。
+        - hover时显示：鼠标悬停在面板区域时显示面板阴影。
+        - 不显示：不显示面板阴影
 - name: u-panel-group
   advanced: true
   title: 面板组
@@ -51,6 +63,9 @@
       title: 标题
       type: string
       description: 面板项的标题
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 面板组的标题
   description: 面板组
   slots:
     - concept: Slot

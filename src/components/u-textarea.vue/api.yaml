@@ -5,28 +5,34 @@
     - Form
   description: 多行输入组件
   attrs:
-    - name: value
-      title: 值
-      type: string
-      sync: true
-      model: true
-      description: 输入框的值
-    - name: clearable
-      title: 清除按钮
-      type: boolean
-      default: false
-      description: 是否可清空。开启并在输入框有内容时会显示清空按钮。
-    - name: placeholder
-      title: 占位符
-      type: string
-      description: 为空时的提示文本
     - name: minlength
       title: 最小长度
       type: number
       description: ""
       advanced: true
+    - name: spellcheck
+      title: 拼写检查
+      type: boolean
+      description: ""
+      advanced: true
+    - name: value
+      title: 值
+      type: string
+      sync: true
+      model: true
+      description: 输入的值
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: placeholder
+      title: 占位符
+      type: string
+      description: 为空时显示的占位符文本
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
     - name: maxlength
-      title: 可输入最大字符数
+      title: 最大字符数
       type: number
       display: number
       place: 不限制
@@ -35,12 +41,18 @@
         - value: ""
           updateData:
             show-word-limit: false
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
     - name: show-word-limit
       title: 显示字数统计
       type: boolean
       description: 设置是否显示「可输入最大字符数」的字数统计
       dependency:
         - "!maxlength": ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
     - name: limit-position
       title: 字数统计位置
       type: string
@@ -52,17 +64,59 @@
       description: 设置字数统计位置
       dependency:
         - show-word-limit: true
-    - name: spellcheck
-      title: 拼写检查
-      type: boolean
-      description: ""
-      advanced: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
     - name: autofocus
       title: 自动获取焦点
       type: boolean
       default: false
-      description: ""
+      description: 设置是否自动获取焦点
       designer-value: false
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: clearable
+      title: 可清除
+      type: boolean
+      default: false
+      description: 可点击清除按钮一键清除内容
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: resize
+      title: 可调整大小
+      type: string
+      options:
+        - value: none
+          title: 不可调整
+        - value: both
+          title: 可调整
+        - value: horizontal
+          title: 水平可调整
+        - value: vertical
+          title: 竖直可调整
+      default: none
+      description: 设置调整大小的方式
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
     - name: size
       title: 尺寸
       type: string
@@ -79,35 +133,17 @@
           title: 正常
       default: normal
       description: 设置多行输入框大小
-    - name: resize
-      title: 调整大小
-      type: string
-      options:
-        - value: none
-          title: 不可调整
-        - value: both
-          title: 可调整
-        - value: horizontal
-          title: 水平可调整
-        - value: vertical
-          title: 竖直可调整
-      default: none
-      description: 是否可以调整大小
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: ""
     - name: autosize
       title: 自适应内容高度
       type: boolean, object
       place: 不设置则根据输入内容自适应
       description: 可输入如{maxHeight:100,minHeight:50}，单位默认为px
-    - name: readonly
-      title: 只读
-      type: boolean
-      default: false
-      description: ""
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: ""
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: ""
   slots:
     - concept: Slot
       name: default

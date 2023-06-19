@@ -14,8 +14,10 @@
         "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_3.png"},{"url":
         "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_4.png"},{"url":
         "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_5.png"}]'
-      description: 数据源
+      description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
+      brifeDoc: ""
+      docDescription: 组件所展示数据的输入源，可以是逻辑、变量。格式可参见示例
     - name: data-schema
       title: 数据类型
       type: schema
@@ -32,19 +34,25 @@
           title: 大图模式
       default: big
       description: 图片的显示模式，支持大图模式和缩略图模式。
-      group: 样式属性
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 图片的显示模式，支持大图模式和缩略图模式
     - name: num
       title: 显示图片数
       type: number
       default: 5
-      description: 显示图片数
-      group: 样式属性
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 同时展示的图片数量
     - name: arrow
-      title: 是否显示左右箭头
+      title: 显示左右箭头
       type: boolean
       default: true
-      description: 是否显示左右箭头
-      group: 样式属性
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 图片支持通过鼠标按住拖动或点击左右箭头的方式调整位置，关闭该选项后不显示左右箭头
   slots: false
   events:
     - name: before-load

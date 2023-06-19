@@ -9,14 +9,18 @@
       title: 数据源
       type: Array<Item> | Function | object | DataSource
       designer-value: "[{}, {}, {}]"
-      description: 集合类型变量或者输出参数为集合类型的逻辑
+      description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: data-schema
       title: 数据类型
       type: schema
-      description: 选择器每一行的数据类型
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
+      brifeDoc: ""
+      docDescription: ""
     - name: text-field
       title: 文本字段
       type: string
@@ -29,18 +33,24 @@
       default: value
       description: 集合的元素类型中，用于标识选中值的属性
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: parent-field
-      title: 父节点字段名
+      title: 父节点字段
       type: string
       default: ""
       description: 集合的元素类型中，用于标识父节点的属性
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: children-field
-      title: 子节点字段名
+      title: 子节点字段
       type: string
       default: children
       description: 集合的元素类型中，用于标识子节点的属性，默认为children
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
     - name: value
       title: 选中值
       type: any
@@ -48,6 +58,8 @@
       model: true
       description: 选择后，所选中的值
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
   slots:
     - concept: Slot
       name: default

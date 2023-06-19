@@ -38,19 +38,9 @@
       model: true
       default: 0
       group: 数据属性
-      description: 当前步骤数
-    - name: readonly
-      title: 只读
-      type: boolean
-      default: false
-      description: 是否只读，非只读的情况下可以选择
-      group: 状态属性
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: ""
-      group: 状态属性
+      description: 设置当前处于选中状态的步骤
+      brifeDoc: ""
+      docDescription: ""
     - name: direction
       title: 步骤条方向
       type: string
@@ -61,6 +51,25 @@
           title: 竖向
       default: horizontal
       description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
     - name: size
       title: 尺寸
       type: string
@@ -70,8 +79,10 @@
         - value: normal
           title: 正常
       default: normal
-      description: 设置尺寸
+      description: ""
       group: 样式属性
+      brifeDoc: ""
+      docDescription: ""
   slots:
     - concept: Slot
       name: default
@@ -174,11 +185,6 @@
 - name: u-selectable-step
   title: 步骤条项
   attrs:
-    - name: icon
-      title: 图标
-      type: icon
-      default: ""
-      description: 在该步骤展示的图标
     - name: title
       title: 标题
       type: string
@@ -190,18 +196,6 @@
       default: ""
       description: 步骤描述信息
       advanced: true
-    - name: readonly
-      title: 只读
-      type: boolean
-      default: false
-      description: ""
-      group: 状态属性
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: ""
-      group: 状态属性
     - name: status
       title: 状态值
       type: string
@@ -216,6 +210,30 @@
           title: 错误
       group: 数据属性
       description: 是否显示标签滚动左右箭头按钮
+    - name: icon
+      title: 图标
+      type: icon
+      default: ""
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
   slots:
     - concept: Slot
       name: default
