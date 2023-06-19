@@ -18,6 +18,8 @@ export default {
         value: { type: Number, default: 0 },
         desc: { type: String, default: null },
         icon: { type: String, default: null },
+        readonly: { type: Boolean, default: false },
+        status: String,
     },
     computed: {
         index() {
