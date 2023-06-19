@@ -138,7 +138,7 @@ export default {
         },
     },
     mounted() {
-        this.dateTime = this.format(new Date(this.finalDateTime.replace(/-/g, '/')), 'YYYY-MM-DD HH:mm:ss');
+        this.dateTime = this.finalDateTime ? this.format(new Date(this.finalDateTime.replace(/-/g, '/')), 'YYYY-MM-DD HH:mm:ss') : undefined;
         this.showDate = this.format(this.dateTime, 'YYYY-MM-DD');
         this.showTime = this.format(this.dateTime, 'HH:mm:ss');
     },
@@ -265,6 +265,11 @@ export default {
         onConfirm() {
             this.finalDateTime = this.dateTime;
             this.emitValue();
+            const newDateTime = this.finalDateTime ? this.toValue(new Date(this.finalDateTime.replace(/-/g, '/'))) : undefined;
+            this.$emit('confirm', {
+                sender: this,
+                date: this.finalDateTime ? new Date(this.finalDateTime.replace(/-/g, '/')).getTime() : undefined,
+            });
         },
         emitValue() {
             const newDateTime = this.finalDateTime ? this.toValue(new Date(this.finalDateTime.replace(/-/g, '/'))) : undefined;
