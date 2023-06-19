@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root">
-    <div :class="$style.main" :unit="!!unit">
+    <div :class="$style.main" :unit="!!unit" :multiple="multiple">
          <!-- @override: 增加提示 tip -->
         <div :class="$style.tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
             <slot name="tip">
@@ -15,7 +15,7 @@
         </div>
         <u-slider :class="$style.slider" @mousedown.native="onMousedown" :value="currentValue" @input="onInput" @slide="onSlide"
             :min="min" :max="max" :step="step" :precision="precision" :range="range" :readonly="readonly" :disabled="disabled"
-            :show-tooltip="showTooltip" :tooltip="tooltip" :placement="placement"
+            :show-tooltip="showTooltip" :tooltip="tooltip" :placement="placement" :multiple="multiple"
         ></u-slider>
          <!-- @override: 增加数值显示 -->
         <div :class="$style.scales">
@@ -27,7 +27,7 @@
     <u-number-input :class="$style.input" :value="currentValue" @change="onInput($event.value, 'numberInput')" @validate="onValidate"
         :min="numberMin" :max="numberMax" :step="step || 1" :precision="precision"
         :formatter="formatter" :hide-buttons="hideButtons"
-        :readonly="readonly" :disabled="disabled"
+        :readonly="readonly" :disabled="disabled" v-if="!multiple"
     ></u-number-input>
     <slot>
         <!-- @override: 增加单位显示 -->
@@ -45,7 +45,7 @@ export default {
     components: { SEmpty },
     mixins: [MField],
     props: {
-        value: { type: Number, default: 0 },
+        value: { type: [Number, Array], default: 0 },
         min: { type: Number, default: 0 },
         max: { type: Number, default: 100 },
         step: { type: Number, default: 1, validator: (step) => step >= 0 },
@@ -71,6 +71,7 @@ export default {
         tooltip: String,
         placement: { type: String, default: 'top' },
         layout: { type: String, default: 'flex' },
+        multiple: { type: Boolean, default: false },
     },
     data() {
         return { currentValue: this.value, isMousedown: false };
@@ -172,6 +173,10 @@ export default {
 }
 .main[unit="true"] {
     width: calc(100% - var(--combo-slider-input-width) - 20px - var(--combo-slider-input-margin-left) - 0.5em);
+}
+
+.main[multiple] {
+    width: 100%;
 }
 
 .body {
