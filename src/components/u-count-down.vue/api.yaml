@@ -13,6 +13,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 计时器的总时长，单位为秒。支持手动输入或是动态绑定。
+      tooltipLink: ""
     - name: reverse
       title: 计时方式
       type: string
@@ -26,6 +27,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 可选择正计时和倒计时
+      tooltipLink: ""
     - name: autostart
       title: 自动计时
       type: boolean
@@ -34,6 +36,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 默认自动开始计时，支持动态绑定布尔类型（Boolean）的变量
+      tooltipLink: ""
   events:
     - name: start
       title: 计时器开始

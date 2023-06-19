@@ -14,6 +14,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: auto-select
       title: 自动选择
       type: boolean
@@ -22,6 +23,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: cancelable
       title: 可取消
       type: boolean
@@ -30,6 +32,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: multiple
       title: 可多选
       type: boolean
@@ -38,6 +41,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -46,6 +50,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -54,6 +59,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -178,6 +184,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: label
       title: 标签
       type: string
@@ -186,6 +193,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: flag
       title: flag标志
       type: boolean
@@ -194,6 +202,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -202,6 +211,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: size
       title: 尺寸
       type: string
@@ -215,6 +225,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

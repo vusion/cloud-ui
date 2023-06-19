@@ -15,6 +15,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: minUnit
       title: 最小单位
       type: string
@@ -28,6 +29,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: min-time
       title: 最小时间值
       type: string
@@ -36,6 +38,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: max-time
       title: 最大时间值
       type: string
@@ -44,6 +47,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: autofocus
       title: 自动获取焦点
       type: boolean
@@ -53,6 +57,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: showRightNowButton
       title: 此刻按钮
       type: boolean
@@ -61,6 +66,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: rightNowTitle
       title: 此刻按钮名称
       type: string
@@ -70,6 +76,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: showFooterButton
       title: 取消/确定按钮
       type: boolean
@@ -78,6 +85,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: cancelTitle
       title: 取消按钮名称
       type: string
@@ -87,6 +95,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: okTitle
       title: 确定按钮名称
       type: string
@@ -96,6 +105,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: preIcon
       title: 前缀图标
       type: string
@@ -108,6 +118,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: suffixIcon
       title: 后缀图标
       type: string
@@ -119,6 +130,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: append-to
       title: 弹出层位置依据
       type: string
@@ -132,6 +144,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: clearable
       title: 可清除
       type: boolean
@@ -140,6 +153,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -148,6 +162,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -156,6 +171,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: visible
       title: 显示状态
       type: boolean
@@ -165,6 +181,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: width
       title: 宽度
       type: string
@@ -188,6 +205,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: height
       title: 高度
       type: string
@@ -211,6 +229,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   events:
     - name: change
       title: 改变后

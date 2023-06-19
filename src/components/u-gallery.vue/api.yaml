@@ -18,6 +18,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 组件所展示数据的输入源，可以是逻辑、变量。格式可参见示例
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
@@ -37,6 +38,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 图片的显示模式，支持大图模式和缩略图模式
+      tooltipLink: ""
     - name: num
       title: 显示图片数
       type: number
@@ -45,6 +47,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 同时展示的图片数量
+      tooltipLink: ""
     - name: arrow
       title: 显示左右箭头
       type: boolean
@@ -53,6 +56,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 图片支持通过鼠标按住拖动或点击左右箭头的方式调整位置，关闭该选项后不显示左右箭头
+      tooltipLink: ""
   slots: false
   events:
     - name: before-load

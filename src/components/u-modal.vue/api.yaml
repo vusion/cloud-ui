@@ -48,6 +48,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-foot
       title: 显示底部栏
       type: boolean
@@ -56,6 +57,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: icon
       title: 提示图标
       type: string
@@ -73,6 +75,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: mask-close
       title: 点击遮罩关闭
       type: boolean
@@ -81,6 +84,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: visible
       title: 显示状态
       type: boolean
@@ -90,6 +94,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: size
       title: 尺寸
       type: string
@@ -109,6 +114,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: title

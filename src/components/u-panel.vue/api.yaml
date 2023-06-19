@@ -29,6 +29,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 面板组的标题
+      tooltipLink: ""
     - name: bordered
       title: 显示边框
       type: boolean
@@ -37,6 +38,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 支持配置面板边框的显示和隐藏，默认显示
+      tooltipLink: ""
     - name: shadow
       title: 阴影
       type: string
@@ -55,6 +57,7 @@
         支持配置面板阴影状态，默认为一直显示。- 一直显示：常态显示面板阴影。
         - hover时显示：鼠标悬停在面板区域时显示面板阴影。
         - 不显示：不显示面板阴影
+      tooltipLink: ""
 - name: u-panel-group
   advanced: true
   title: 面板组
@@ -66,6 +69,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 面板组的标题
+      tooltipLink: ""
   description: 面板组
   slots:
     - concept: Slot

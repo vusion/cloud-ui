@@ -24,6 +24,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 支持修改栅格行之间的间隔，支持紧凑（-1）、无（0）、小（8）、正常（16）、大（32）共6种间隔模式。
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -71,6 +72,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。
+      tooltipLink: ""
     - name: alignment
       title: 纵轴对齐
       type: string
@@ -102,6 +104,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
+      tooltipLink: ""
     - name: repeat
       title: 栅格数
       type: number
@@ -113,6 +116,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持设置栅格行大小，默认为24。
+      tooltipLink: ""
     - name: gap
       title: 行间隔
       type: string
@@ -134,6 +138,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 支持修改栅格行之间的间隔，支持紧凑（-1）、无（0）、小（8）、正常（16）、大（32）共6种间隔模式。
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -177,7 +182,7 @@
       display: capsules
       bindHide: true
       description: ""
-      tooltipLink: http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
+      tooltipLink: ""
       options:
         - value: inline
           title: 块级
@@ -223,6 +228,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 横向：内部子元素进行横向排布，建议内部子元素使用行内布局。纵向：内部子元素进行纵向排布，建议内部子元素使用块级布局。
+      tooltipLink: ""
     - name: justify
       title: 横轴对齐
       type: string
@@ -264,6 +270,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。
+      tooltipLink: ""
     - name: alignment
       title: 纵轴对齐
       type: string
@@ -298,6 +305,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
+      tooltipLink: ""
     - name: alignment
       title: 纵轴对齐
       type: string
@@ -328,6 +336,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
+      tooltipLink: ""
     - name: justify
       title: 横轴对齐
       type: string
@@ -369,6 +378,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。
+      tooltipLink: ""
     - name: span
       title: 占据栅格数
       type: number
@@ -379,6 +389,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持设置当前栅格列占据的栅格数，不能超过当前栅格行栅格数。
+      tooltipLink: ""
     - name: offset
       title: 偏移栅格数
       type: number
@@ -389,6 +400,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持设置栅格列偏移数，控制当前栅格列与其左侧栅格列的距离，处于当前栅格列右侧的栅格列也会同步偏移。
+      tooltipLink: ""
     - name: pull
       title: 左移动栅格数
       type: number
@@ -399,6 +411,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 向左移动的栅格数，支持栅格互相重合。
+      tooltipLink: ""
     - name: push
       title: 右移动栅格数
       type: number
@@ -409,6 +422,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 向右移动的栅格数，支持栅格互相重合。
+      tooltipLink: ""
     - name: wrap
       title: 可换行
       type: boolean
@@ -420,6 +434,7 @@
       brifeDoc: ""
       docDescription: |
         支持控制弹性布局模式下，子元素总宽度超过父级时是否换行展示，默认开启。
+      tooltipLink: ""
     - name: gap
       title: 行间隔
       type: string
@@ -445,6 +460,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 支持修改栅格行之间的间隔，支持紧凑（-1）、无（0）、小（8）、正常（16）、大（32）共6种间隔模式。
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

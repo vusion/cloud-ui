@@ -23,6 +23,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 实线、虚线
+      tooltipLink: ""
     - name: content-position
       title: 内容位置
       type: string
@@ -38,6 +39,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 居中、左、右
+      tooltipLink: ""
     - name: direction
       title: 方向
       type: string
@@ -51,6 +53,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 横向、竖向
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

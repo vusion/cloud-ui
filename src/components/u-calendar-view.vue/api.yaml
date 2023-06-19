@@ -13,6 +13,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
@@ -21,6 +22,7 @@
       compType: dataTypeSelect
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: start-key
       type: string
       title: 开始时间字段
@@ -30,6 +32,7 @@
       display: property-select
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: end-key
       type: string
       title: 结束时间字段
@@ -39,6 +42,7 @@
       display: property-select
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: value
       title: 选中值
       type: Date | string ｜ number
@@ -49,6 +53,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: min-date
       title: 最小日期值
       type: Date | string ｜ number
@@ -56,6 +61,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: max-date
       title: 最大日期值
       type: Date | string ｜ number
@@ -63,6 +69,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-week-days
       title: 展示周天
       type: boolean
@@ -71,6 +78,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-weeks
       title: 展示周数
       type: boolean
@@ -79,6 +87,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-basic
       title: 展示基础配置
       type: boolean
@@ -87,6 +96,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-advance
       title: 展示高级配置
       type: boolean
@@ -95,6 +105,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: first-day-of-week
       title: 首列星期
       type: number
@@ -103,6 +114,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

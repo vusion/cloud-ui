@@ -41,6 +41,7 @@
       description: 设置当前处于选中状态的步骤
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: direction
       title: 步骤条方向
       type: string
@@ -54,6 +55,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -62,6 +64,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -70,6 +73,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: size
       title: 尺寸
       type: string
@@ -83,6 +87,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -218,6 +223,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -226,6 +232,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -234,6 +241,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

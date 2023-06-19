@@ -14,6 +14,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: with-text
       title: 显示开关文字
       type: boolean
@@ -22,6 +23,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -30,6 +32,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -38,6 +41,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   slots: false
   events:
     - name: before-toggle

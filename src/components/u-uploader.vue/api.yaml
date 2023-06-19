@@ -28,6 +28,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: url
       title: 上传的地址
       type: string
@@ -37,6 +38,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: name
       title: 上传的文件字段
       type: string
@@ -45,12 +47,13 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: accept
       title: 支持上传的文件类型
       type: string
       place: 所有类型
       description: 若要限制上传文件类型，请输入类型名称，格式为“.后缀名”，多个文件类型时使用英文逗号隔开。例如“.jpeg,.png,.gif”
-      tooltipLink: http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/150.%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0.html#%E7%BB%84%E4%BB%B6%E8%AF%B4%E6%98%8E
+      tooltipLink: ""
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
@@ -62,6 +65,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: data
       title: 附加数据
       type: object
@@ -69,6 +73,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: limit
       title: 列表数量上限
       type: number
@@ -76,6 +81,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: max-size
       title: 最大文件大小
       type: string
@@ -83,6 +89,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: list-type
       title: 列表类型
       type: string
@@ -98,6 +105,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: url-field
       title: URL 字段
       type: string
@@ -106,6 +114,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: headers
       title: 请求 headers
       type: Object
@@ -113,6 +122,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: multiple
       title: 多文件上传
       type: boolean
@@ -121,6 +131,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: multiple-once
       title: 一次性上传多文件
       type: boolean
@@ -129,6 +140,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: open-cropper
       title: 启用图片裁剪
       type: boolean
@@ -137,6 +149,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: fixedCropper
       title: 固定图片裁剪框大小
       type: boolean
@@ -145,6 +158,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: cropperBoxWidth
       title: 图片裁剪框宽度
       type: number
@@ -153,6 +167,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: cropperBoxHeight
       title: 图片裁剪框高度
       type: number
@@ -161,6 +176,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: cropperPreviewShape
       title: 图片裁剪框预览形状
       type: string
@@ -174,6 +190,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: cropperTitle
       title: 图片裁剪框标题
       type: string
@@ -182,6 +199,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: auto-upload
       title: 自动上传
       type: boolean
@@ -190,6 +208,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-file-list
       title: 显示文件列表
       type: boolean
@@ -198,6 +217,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: converter
       title: 转换器
       type: string
@@ -211,6 +231,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: display
       title: 展示方式
       type: string
@@ -224,6 +245,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: description
       title: 辅助文本
       type: string
@@ -232,6 +254,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: showErrorMessage
       title: 报错信息
       type: boolean
@@ -240,6 +263,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: dragDescription
       title: 辅助文本
       type: string
@@ -248,6 +272,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: check-file
       title: 文件校验
       type: Function
@@ -255,6 +280,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: access
       title: 文件访问策略
       type: string
@@ -267,6 +293,7 @@
       description: ""
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: ttl
       title: 文件有效期
       type: boolean
@@ -274,6 +301,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: ttlValue
       title: 上传后有效天数
       type: number
@@ -284,6 +312,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: draggable
       title: 可拖拽
       type: boolean
@@ -292,6 +321,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -300,6 +330,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -308,6 +339,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

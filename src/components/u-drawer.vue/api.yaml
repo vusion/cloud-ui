@@ -18,6 +18,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: maskClosable
       title: 点击遮罩关闭
       type: boolean
@@ -26,6 +27,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-head
       title: 显示顶部栏
       type: boolean
@@ -34,6 +36,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-foot
       title: 显示底部栏
       type: boolean
@@ -42,6 +45,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: visible
       title: 显示状态
       type: boolean
@@ -51,6 +55,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: size
       type: string
       title: 尺寸
@@ -66,6 +71,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   events:
     - name: open
       title: 打开时

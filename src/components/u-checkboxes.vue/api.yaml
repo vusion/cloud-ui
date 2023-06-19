@@ -13,6 +13,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
@@ -21,6 +22,7 @@
       compType: dataTypeSelect
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: text-field
       title: 选项文本
       type: string
@@ -37,6 +39,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: value
       title: 选中值
       type: Array
@@ -47,6 +50,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: min
       title: 最少选中数
       type: number
@@ -55,6 +59,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: max
       title: 最大选中数
       type: number
@@ -62,6 +67,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: converter
       title: 转换器
       type: string
@@ -82,6 +88,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -90,6 +97,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -98,6 +106,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   events:
     - name: input
       title: 输入时
@@ -211,6 +220,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: label
       title: 选项值
       type: any
@@ -218,6 +228,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: autofocus
       title: 自动获取焦点
       type: boolean
@@ -226,6 +237,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -234,6 +246,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -242,6 +255,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   events:
     - name: before-check
       title: 选中前

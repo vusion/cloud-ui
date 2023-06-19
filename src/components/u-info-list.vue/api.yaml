@@ -12,6 +12,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: "- 设置列表信息展示的划分列数"
+      tooltipLink: ""
     - name: label-size
       title: 列表项标题宽度
       type: string
@@ -29,6 +30,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 列表中所有列表项的标签大小
+      tooltipLink: ""
     - name: show-head
       title: 显示表格头部
       type: boolean
@@ -37,6 +39,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 开启时会显示表格头部
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -70,6 +73,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 当前列表项占的列数，为空默认取列表组的列数值，优先取列表项的值
+      tooltipLink: ""
     - name: ellipsis
       title: 文本省略显示
       type: boolean
@@ -78,6 +82,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 开启时该项文本过长会省略显示，默认不开启为换行显示
+      tooltipLink: ""
     - name: label-size
       title: 列表项标题宽度
       type: string
@@ -95,6 +100,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 列表中所有列表项的标签大小
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -120,6 +126,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: "- 设置列表信息展示的划分列数"
+      tooltipLink: ""
     - name: label-size
       title: 列表项标题宽度
       type: string
@@ -137,6 +144,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 列表中所有列表项的标签大小
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

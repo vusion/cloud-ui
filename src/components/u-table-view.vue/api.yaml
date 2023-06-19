@@ -13,6 +13,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
@@ -21,6 +22,7 @@
       compType: dataTypeSelect
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: extra-params
       title: 数据源参数
       type: object
@@ -29,6 +31,7 @@
       advance: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: pageable
       title: 前端分页
       type: boolean
@@ -38,6 +41,7 @@
       hidden: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: remote-paging
       title: 后端分页
       type: boolean
@@ -49,6 +53,7 @@
       hidden: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: pagination
       title: 分页
       type: boolean
@@ -56,6 +61,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: page-size
       title: 默认每页条数
       type: number
@@ -67,6 +73,7 @@
         - pagination: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-sizer
       title: 显示每页条数
       type: boolean
@@ -77,6 +84,7 @@
         - pagination: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: page-size-options
       title: 每页条数选项
       type: Array<number>
@@ -90,6 +98,7 @@
         - pagination: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: page-number
       title: 当前页数
       type: number
@@ -103,6 +112,7 @@
         - pagination: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-total
       title: 显示总条数
       type: boolean
@@ -113,6 +123,7 @@
         - pagination: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-jumper
       title: 显示跳转输入
       type: boolean
@@ -123,6 +134,7 @@
         - pagination: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: sorting
       title: 初始化排序规则
       type: "{ field: string, order: string, compare: Function }"
@@ -132,6 +144,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: remote-sorting
       title: 排序
       type: boolean
@@ -141,6 +154,7 @@
       hidden: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: default-order
       title: 排序初始顺序
       type: string
@@ -157,6 +171,7 @@
       hidden: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: filtering
       title: 筛选参数
       type: object
@@ -178,6 +193,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: value
       title: 单选值
       type: any
@@ -187,6 +203,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: values
       title: 多选值
       type: Array
@@ -195,6 +212,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: tree-display
       title: 树形模式
       type: boolean
@@ -203,6 +221,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: parent-field
       title: 父节点字段
       type: string
@@ -212,6 +231,7 @@
         - tree-display: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: children-field
       title: 子节点字段
       type: string
@@ -222,6 +242,7 @@
         - tree-display: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: has-children-field
       title: 包含子节点字段
       type: string
@@ -232,6 +253,7 @@
         - tree-display: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: tree-check-type
       title: 关联选中类型
       description: 父子树节点是否关联选中
@@ -251,6 +273,7 @@
         - tree-display: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: title
       title: 表格标题
       type: string
@@ -258,6 +281,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-head
       title: 显示表格头部
       type: boolean
@@ -266,6 +290,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: stick-head
       title: 表格头部吸顶
       type: boolean
@@ -274,6 +299,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: stick-head-offset
       title: 表格头部吸顶偏移量
       type: number
@@ -282,6 +308,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: hover
       title: 悬浮高亮行
       type: boolean
@@ -291,6 +318,7 @@
       hidden: true
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: selectable
       title: 可选行
       type: boolean
@@ -299,6 +327,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: cancelable
       title: 可取消
       type: boolean
@@ -307,6 +336,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: draggable
       title: 可拖拽
       type: boolean
@@ -315,6 +345,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: accordion
       title: 手风琴模式
       type: boolean
@@ -323,6 +354,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: resizable
       title: 可调整列宽
       type: boolean
@@ -331,6 +363,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: resize-remaining
       title: 调整列宽效果
       type: string
@@ -346,6 +379,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: initial-load
       title: 初始即加载
       type: boolean
@@ -354,6 +388,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: designer-mode
       title: 加载状态设置
       type: string
@@ -372,6 +407,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: loading-text
       title: 加载中文案
       type: string
@@ -382,6 +418,7 @@
         - designer-mode: loading
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: loading
       title: 加载中触发条件
       type: boolean
@@ -392,6 +429,7 @@
         - designer-mode: loading
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: error-text
       title: 加载失败文案
       type: string
@@ -402,6 +440,7 @@
         - designer-mode: error
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: error
       title: 加载失败触发条件
       type: boolean
@@ -412,6 +451,7 @@
         - designer-mode: error
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: empty-text
       title: 暂无数据文案
       type: string
@@ -422,6 +462,7 @@
         - designer-mode: empty
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -430,6 +471,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -438,6 +480,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: title-alignment
       title: 标题对齐方式
       type: string
@@ -453,6 +496,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: boldHeader
       title: 表头加粗
       type: boolean
@@ -461,6 +505,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: border
       title: 显示边框
       type: boolean
@@ -469,6 +514,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: line
       title: 分隔线条
       type: boolean
@@ -477,6 +523,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: striped
       title: 斑马条纹
       type: boolean
@@ -485,6 +532,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: default-column-width
       title: 默认列宽度
       type: string | number
@@ -492,6 +540,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: configurable
       title: 配置展示列
       type: boolean
@@ -978,6 +1027,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: sortable
       title: 排序
       type: boolean
@@ -986,6 +1036,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: default-order
       title: 排序初始顺序
       type: string
@@ -1001,6 +1052,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: type
       title: 列类型
       type: string
@@ -1030,6 +1082,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: auto-index
       title: 换页继续编号
       type: boolean
@@ -1040,6 +1093,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: start-index
       title: 起始序号
       type: number
@@ -1051,6 +1105,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: dblclickHandler
       title: 双击处理函数
       type: Function
@@ -1059,6 +1114,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: title
       title: 表格标题
       type: string
@@ -1067,6 +1123,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: fixed
       title: 固定列
       type: boolean
@@ -1075,6 +1132,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: ellipsis
       title: 省略显示
       type: boolean
@@ -1083,6 +1141,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: hidden
       title: 隐藏列
       type: boolean
@@ -1091,6 +1150,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: width
       title: 列宽度
       type: string | number
@@ -1098,6 +1158,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: cell
@@ -1252,6 +1313,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
@@ -1260,6 +1322,7 @@
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: value-field
       title: 值字段
       type: string
@@ -1272,6 +1335,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: value
       title: 单选值
       type: any
@@ -1281,6 +1345,7 @@
       description: 用于标识单选选项的值
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: title

@@ -18,6 +18,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 当前提醒消息的条数。
+      tooltipLink: ""
     - name: max
       title: 最大值
       type: number
@@ -26,6 +27,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 提醒消息的最大值，超过最大值将不再显示准确的数字，用最大值+代替，如99+。
+      tooltipLink: ""
     - name: corner
       title: 插入右上角
       type: boolean
@@ -34,6 +36,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 开启时提醒角标位置显示在右上角，关闭时提醒角标显示在组件右侧。
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

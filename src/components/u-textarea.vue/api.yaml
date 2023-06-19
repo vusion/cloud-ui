@@ -24,6 +24,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: placeholder
       title: 占位符
       type: string
@@ -31,6 +32,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: maxlength
       title: 最大字符数
       type: number
@@ -44,6 +46,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-word-limit
       title: 显示字数统计
       type: boolean
@@ -53,6 +56,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: limit-position
       title: 字数统计位置
       type: string
@@ -67,6 +71,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: autofocus
       title: 自动获取焦点
       type: boolean
@@ -76,6 +81,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: clearable
       title: 可清除
       type: boolean
@@ -84,6 +90,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: resize
       title: 可调整大小
       type: string
@@ -101,6 +108,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -109,6 +117,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -117,6 +126,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: size
       title: 尺寸
       type: string
@@ -136,6 +146,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: autosize
       title: 自适应内容高度
       type: boolean, object
@@ -144,6 +155,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

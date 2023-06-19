@@ -13,6 +13,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持控制面包屑生成方式。
+      tooltipLink: ""
     - name: separator
       title: 样式类型
       type: string
@@ -26,6 +27,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持控制面包屑样式，包含基础样式和分隔符样式。
+      tooltipLink: ""
     - name: icon
       title: 显示面包屑图标
       type: boolean
@@ -34,6 +36,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持控制面包屑选项图标显隐，开启后显示面包屑选项图标。
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -71,6 +74,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持控制面包屑选项图标显隐，开启后显示面包屑选项图标。
+      tooltipLink: ""
     - name: type
       title: 类型
       type: string
@@ -85,6 +89,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: linkType
       title: 链接类型
       type: string
@@ -100,6 +105,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 支持页面跳转、下载链接。
+      tooltipLink: ""
     - name: hrefAndTo
       title: 链接地址
       type: string
@@ -108,6 +114,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 设置链接路径。
+      tooltipLink: ""
     - name: target
       title: 链接打开方式
       type: string
@@ -127,6 +134,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 可选新窗口、当前窗口、父级窗口或顶级窗口，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -135,6 +143,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。
+      tooltipLink: ""
   events:
     - name: $listeners
       kind: trigger

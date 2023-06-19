@@ -21,6 +21,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: direction
       title: 进度条方向
       type: string
@@ -34,6 +35,7 @@
       description: ""
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: size
       title: 尺寸
       type: string
@@ -51,6 +53,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

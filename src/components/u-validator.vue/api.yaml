@@ -14,6 +14,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: validating-process
       title: 值预处理
       type: Function
@@ -21,6 +22,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: name
       title: 表单项名称
       type: string
@@ -28,6 +30,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: label
       title: 标签
       type: string
@@ -35,6 +38,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: rules
       title: 规则
       type: string | Array
@@ -44,6 +48,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: message
       title: 提示信息
       type: string
@@ -51,6 +56,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: muted
       title: 静默
       type: string
@@ -58,6 +64,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: ignore-validation
       title: 忽略验证
       type: boolean
@@ -66,6 +73,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: ignore-rules
       title: 忽略验证规则
       type: boolean
@@ -74,6 +82,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: validating-options
       title: 验证辅助对象
       type: object
@@ -81,6 +90,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: manual
       title: 手动验证
       type: boolean
@@ -90,6 +100,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: append-to
       title: 报错位置依据
       type: string
@@ -104,6 +115,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: placement
       title: 出错信息展示位置
       type: string
@@ -119,6 +131,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   computed:
     - name: touched
       title: 触碰

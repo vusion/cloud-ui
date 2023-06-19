@@ -45,6 +45,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 信息、成功、警告、错误
+      tooltipLink: ""
     - name: showIcon
       title: 图标
       type: boolean
@@ -53,6 +54,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 是否展开图标
+      tooltipLink: ""
     - name: closeable
       title: 手动关闭
       type: boolean
@@ -61,6 +63,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 是否显示关闭按钮
+      tooltipLink: ""
     - name: bordered
       title: 显示边框
       type: boolean
@@ -69,6 +72,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 是否显示边框
+      tooltipLink: ""
   events:
     - name: close
       title: 关闭时

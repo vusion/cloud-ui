@@ -17,6 +17,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: size
       type: number
       default: 5
@@ -25,6 +26,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: interval
       type: number
       default: 30
@@ -33,6 +35,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   events:
     - name: $listeners
       title: 监听事件

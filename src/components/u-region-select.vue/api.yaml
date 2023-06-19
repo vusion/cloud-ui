@@ -34,6 +34,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: value
       title: 值
       type: any
@@ -43,6 +44,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: field
       title: 文本字段
       type: string
@@ -51,6 +53,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: filterable
       title: 筛选
       type: boolean
@@ -59,6 +62,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: placeholder
       title: 占位符
       type: string
@@ -67,6 +71,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: showFinalValue
       title: 只显示最后一项
       type: boolean
@@ -75,6 +80,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: autofocus
       title: 自动获取焦点
       type: boolean
@@ -84,6 +90,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: trigger
       title: 触发方式
       type: string
@@ -97,6 +104,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: clearable
       title: 可清空
       type: boolean
@@ -105,6 +113,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -113,6 +122,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: opened
       title: 弹出状态
       type: boolean
@@ -121,6 +131,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   events:
     - name: input
       title: 输入时

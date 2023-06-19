@@ -14,6 +14,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: total
       title: 总页数
       type: number
@@ -22,6 +23,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: side
       title: 两端页码数量
       type: number
@@ -30,6 +32,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: around
       title: 中间页码数量
       type: number
@@ -38,6 +41,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: total-items
       title: 总条数
       type: number
@@ -45,6 +49,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: page-size
       title: 默认每页条数
       type: number
@@ -54,6 +59,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: page-size-options
       title: 每页条数选项
       type: Array
@@ -65,6 +71,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-total
       title: 显示总条数
       type: boolean
@@ -73,6 +80,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-sizer
       title: 显示每页条数
       type: boolean
@@ -81,6 +89,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: show-jumper
       title: 显示跳转输入
       type: boolean
@@ -89,6 +98,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -97,6 +107,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -105,6 +116,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   events:
     - name: before-select
       title: 选择前

@@ -13,6 +13,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
@@ -21,6 +22,7 @@
       compType: dataTypeSelect
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: text-field
       title: 文本字段
       type: string
@@ -35,6 +37,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: parent-field
       title: 父节点字段
       type: string
@@ -43,6 +46,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: children-field
       title: 子节点字段
       type: string
@@ -51,6 +55,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
     - name: value
       title: 选中值
       type: any
@@ -60,6 +65,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
