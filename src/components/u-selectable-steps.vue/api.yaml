@@ -113,6 +113,10 @@
             - concept: TypeAnnotation
               typeKind: typeParam
               typeName: T
+  methods:
+    - name: reload
+      description: 重新加载数据
+      params: []
   events:
     - name: before-select
       title: 选择前
