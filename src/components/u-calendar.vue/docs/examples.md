@@ -4,12 +4,6 @@
 <u-calendar picker="date" date="2022-08-08"></u-calendar>
 ```
 
-### 范围选择
-
-``` html
-<u-calendar-range picker="date"></u-calendar-range>
-```
-
 ### 周选择组件
 
 ``` html
@@ -33,6 +27,18 @@
 
 ``` html
 <u-calendar picker="year" date="2022-08-08"></u-calendar>
+```
+
+### 日期范围选择
+
+``` html
+<u-calendar-range picker="date"></u-calendar-range>
+```
+
+### 月份范围选择
+
+``` html
+<u-calendar-range picker="month"></u-calendar-range>
 ```
 
 

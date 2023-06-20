@@ -521,17 +521,13 @@ export default {
 .dateTable td.available:hover {
   color: var(--calendar-item-color-hover);
 }
-.dateTable td.available:hover span {
+.dateTable td.available:not(.inRange):hover span {
   background-color: var(--calendar-item-background-hover);
   border-color: var(--calendar-item-border-color-hover);
 }
 
 .dateTable td.inRange div {
   background-color: var(--calendar-inrange-background-color);
-}
-
-.dateTable td.inRange div:hover {
-  background-color: var(--calendar-item-background-hover);;
 }
 
 .dateTable td.current:not(.disabled) span {

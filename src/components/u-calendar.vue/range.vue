@@ -1,24 +1,30 @@
 <template>
     <div :class="$style.root">
-        <DatePannel />
-        <DateRange @pick="emitInput" v-bind="$attrs" v-on="$listeners" />
-        <MonthRange />
+        <DateRange
+            v-if="picker === 'date'"
+            @pick="emitInput"
+            v-bind="$attrs"
+            v-on="$listeners" />
+        <MonthRange
+            v-if="picker === 'month'"
+            @pick="emitInput"
+            v-bind="$attrs"
+            v-on="$listeners" />
     </div>
 </template>
 
 <script>
-import DatePannel from './panel/date'
 import DateRange from './panel/date-range'
 import MonthRange from './panel/month-range'
 
 export default {
     name: 'u-calendar-range',
     components: {
-        DatePannel,
         DateRange,
         MonthRange
     },
     props: {
+        picker: { type: String, default: 'date' },
         // value: {
         //     type: [String, Number, Date],
         //     default() {
@@ -46,7 +52,7 @@ export default {
 
 <style module>
 .root {
-    width: var(--calendar-width);
+    width: var(--calendar-range-width);
     padding: var(--calendar-padding);
     user-select: none;
     background: var(--calendar-background);

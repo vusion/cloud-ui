@@ -544,7 +544,7 @@ export default {
 
 <style module>
 .dateRangePicker {
-  width: 646px;
+  /* width: 646px; */
 }
 
 .dateRangePicker table {

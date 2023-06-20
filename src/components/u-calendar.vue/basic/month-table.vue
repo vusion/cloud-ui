@@ -386,6 +386,11 @@ export default {
   );
 }
 
+.monthTable td.start-date.end-date div {
+  /* 第一次点击的时候不需要设置 */
+  background: unset;
+}
+
 .monthTable td.current:not(.disabled) .cell {
   background-color: var(--brand-primary);
   color: var(--field-background);

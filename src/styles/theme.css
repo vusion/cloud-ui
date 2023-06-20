@@ -1760,6 +1760,7 @@
     --calendar-item-week-color: #F24957; /* @type color */ /* @desc 日历面板week字体颜色,如：#223325 */
 
     --calendar-width: 300px; /* @hidden */
+    --calendar-range-width: 600px; /* @hidden */
     --calendar-padding: 15px; /* @hidden */
 
     --calendar-icon-color: var(--gray-dark); /* @type color */ /* @desc 日历面板icon字体颜色,如：#223325 */
