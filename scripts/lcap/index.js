@@ -8,10 +8,8 @@ const defaultTheme = require('../genThemeConfig/property.json');
 const themeConfig = require('../genThemeConfig/result.json');
 
 components.forEach((component) => {
-    if (component.show) {
-        const targetFile = path.join(root, component.name + '.vue');
-        map.push(getUsage(targetFile));
-    }
+    const targetFile = path.join(root, component.name + '.vue');
+    map.push(getUsage(targetFile));
 });
 const packageJSON = require('../../package.json');
 const libInfo = `${packageJSON.name}@${packageJSON.version}`;
