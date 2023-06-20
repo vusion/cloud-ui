@@ -4,46 +4,68 @@
   labels:
     - Form
   description: 滑动选择
-  next: true
-  nested: false
   attrs:
+    - name: tip
+      title: 提示
+      type: string
+      description: ""
+      advanced: true
     - name: value
-      title: 滑块的值
+      title: 滑块值
       type: number, Array<number>
       sync: true
       model: true
       default: 0
       description: ""
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: min
       title: 最小值
       type: number
       default: 0
       description: ""
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: max
       title: 最大值
       type: number
       default: 100
       description: ""
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: step
       title: 间隔
       type: number
       default: 1
       description: 间隔，`0`表示连续
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: precision
       title: 精度
       type: number
       default: 1
       description: 精度，表示数字要保留的最小单位，整数、小数均可
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: range
       title: 范围
       type: Array
       default: []
       description: 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: formatter
       title: 格式化
       type: string, object
@@ -56,6 +78,14 @@
       default: false
       description: 设置是否展示多滑块
       group: 数据属性
+    - name: unit
+      title: 单位
+      type: string
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: sync-on
       title: 同步时机
       type: string
@@ -67,45 +97,53 @@
       default: input
       description: ""
       group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: hide-buttons
       title: 隐藏按钮
       type: boolean
       default: true
-      description: 是否隐藏按钮
+      description: ""
       group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: show-tooltip
+      title: 展示提示信息
+      type: boolean
+      default: false
+      description: 鼠标悬浮时展示Tooltip提示信息
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: tooltip
+      title: 提示信息
+      type: string
+      description: Tooltip提示信息设置。在展示提示信息开关打开的情况下才会生效
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: ""
+      description: 正常显示，但禁止选择/输入
       group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: ""
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-    - name: unit
-      title: 单位
-      type: string
-      description: ""
-      group: 数据属性
-    - name: tip
-      title: 提示
-      type: string
-      description: ""
-      advanced: true
-    - name: show-tooltip
-      title: 展示Tooltip
-      type: boolean
-      default: false
-      description: 鼠标悬浮时展示提示文字
-      group: 主要属性
-    - name: tooltip
-      title: 提示信息
-      type: string
-      description: Tooltip文字设置。在展示Tooltip开关打开的情况下才会生效
-      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
   events:
     - name: input
       description: 滑块的值改变时触发

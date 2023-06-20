@@ -20,6 +20,13 @@
           icon: flex-vertical
           tooltip: 纵向
       default: horizontal
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: |-
+        横向：内部子元素进行横向排布。
+        纵向：内部子元素进行纵向排布。
+      tooltipLink: ""
     - name: justify
       title: 横轴对齐
       type: string
@@ -49,6 +56,11 @@
       default: start
       dependency:
         - direction: horizontal
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: 支持左对齐、居中对齐、右对齐、占满容器宽度。
+      tooltipLink: ""
     - name: alignment
       title: 纵轴对齐
       type: string
@@ -78,8 +90,13 @@
       default: stretch
       dependency:
         - direction: horizontal
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: 支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
+      tooltipLink: ""
     - name: alignment
-      title: 横轴对齐
+      title: 纵轴对齐
       type: string
       display: capsules
       bindHide: true
@@ -103,8 +120,13 @@
       default: stretch
       dependency:
         - direction: vertical
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: 支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
+      tooltipLink: ""
     - name: justify
-      title: 纵轴对齐
+      title: 横轴对齐
       type: string
       display: capsules
       bindHide: true
@@ -132,8 +154,13 @@
       default: start
       dependency:
         - direction: vertical
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: 支持左对齐、居中对齐、右对齐、占满容器宽度。
+      tooltipLink: ""
     - name: gap
-      title: 分栏间隙
+      title: 内容间隙
       type: string
       options:
         - value: shrink
@@ -148,6 +175,10 @@
           title: 大
       default: none
       description: 布局中各分栏间的空隙大小
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 分栏布局中各分栏间的空隙大小，缺省为无，支持收缩、无、小、正常、大共5个级别。
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -201,8 +232,8 @@
       type: string
       display: capsules
       bindHide: true
-      description: 设置布局模式
-      tooltipLink: http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/040.%E5%88%86%E6%A0%8F%E5%B8%83%E5%B1%80.html
+      description: ""
+      tooltipLink: ""
       options:
         - value: inline
           title: 块级
@@ -217,6 +248,12 @@
         - justify
         - alignment
         - wrap
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: >-
+        - 内联布局：将当前元素修改为内联布局模式，各个内联布局模式的元素将默认排布在同一行中，若空间不足以排布下一个内联布局元素，则该元素将会换行。
+
+        - 弹性布局：在弹性布局模式中，子元素可以在任何方向上排布，也可以“弹性伸缩”其尺寸，既可以增加尺寸以填满未使用的空间，也可以收缩尺寸以避免溢出父元素。
     - name: direction
       title: 主轴方向
       type: string
@@ -232,12 +269,18 @@
           icon: flex-vertical
           tooltip: 纵向
       default: horizontal
-      description: 可更改布局的排列方向
+      description: ""
       toggleclear:
         - justify
         - alignment
       dependency:
         - mode: flex
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: |-
+        横向：内部子元素进行横向排布。
+        纵向：内部子元素进行纵向排布。
+      tooltipLink: ""
     - name: justify
       title: 横轴对齐
       type: string
@@ -275,6 +318,11 @@
         - value: space-around
           updateData:
             gap: normal
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: 支持左对齐、居中对齐、右对齐、占满容器宽度。
+      tooltipLink: ""
     - name: alignment
       title: 纵轴对齐
       type: string
@@ -305,8 +353,13 @@
       dependency:
         - mode: flex
           direction: horizontal
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: 支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
+      tooltipLink: ""
     - name: alignment
-      title: 横轴对齐
+      title: 纵轴对齐
       type: string
       display: capsules
       bindHide: true
@@ -331,8 +384,13 @@
       dependency:
         - mode: flex
           direction: vertical
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: 支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
+      tooltipLink: ""
     - name: justify
-      title: 纵轴对齐
+      title: 横轴对齐
       type: string
       display: capsules
       bindHide: true
@@ -368,6 +426,11 @@
         - value: space-around
           updateData:
             gap: normal
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: 支持左对齐、居中对齐、右对齐、占满容器宽度。
+      tooltipLink: ""
     - name: gap
       title: 内容间隙
       type: string
@@ -383,12 +446,16 @@
         - value: large
           title: 大
       default: none
-      description: 内容块间隙大小
+      description: 布局中各分栏间的空隙大小
       dependency:
         - mode: flex
-          '!justify':
+          "!justify":
             - space-between
             - space-around
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 分栏布局中各分栏间的空隙大小，缺省为无，支持收缩、无、小、正常、大共5个级别。
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

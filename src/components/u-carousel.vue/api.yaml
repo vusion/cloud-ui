@@ -4,46 +4,13 @@
   description: 动态播放内部内容
   labels:
     - Display
-  next: true
-  nexted: false
   attrs:
-    - name: data-source
-      title: 数据源
-      type: Array<Item> | Function
-      description: 集合类型变量或者输出参数为集合类型的逻辑
-      designer-value: "[{}]"
-      group: 数据属性
-    - name: data-schema
-      title: 数据类型
-      type: schema
-      description: 集合类型每一元素的数据类型
-      group: 数据属性
-      compType: dataTypeSelect
-    - name: value
-      title: 值
-      type: any
-      sync: true
-      description: 播放位置
-      advanced: true
-      group: 数据属性
-    - name: autoplay
-      title: 是否轮播
-      type: boolean
-      default: true
-      description: 是否轮播
-      group: 选择属性
     - name: loop
       title: 循环播放
       type: boolean
       default: true
       description: 是否循环播放
       advanced: true
-    - name: interval
-      title: 切换时间
-      type: number
-      default: 4000
-      description: 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换
-      group: 选择属性
     - name: direction
       title: 播放方向
       type: string
@@ -55,6 +22,49 @@
       type: string
       description: 幻灯片过渡动画
       advanced: true
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function
+      description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
+      designer-value: "[{}]"
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
+      group: 数据属性
+      compType: dataTypeSelect
+      brifeDoc: ""
+      docDescription: IDE 根据配置的数据源动态计算返回内容的数据结构，用于动态配置项 current.item 的类型说明。
+      tooltipLink: ""
+    - name: value
+      title: 值
+      type: any
+      sync: true
+      description: 播放位置
+      advanced: true
+      group: 数据属性
+    - name: autoplay
+      title: 轮播
+      type: boolean
+      default: true
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 是否循环播放所有图片
+      tooltipLink: ""
+    - name: interval
+      title: 切换时间
+      type: number
+      default: 4000
+      description: 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -161,8 +171,6 @@
       params: []
 - name: u-carousel-item
   title: 幻灯片选项
-  next: false
-  nested: false
   attrs:
     - name: title
       title: 标题

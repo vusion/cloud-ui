@@ -4,24 +4,7 @@
     - Container
   icon: collapse
   description: 可以折叠/展开的内容区域。
-  next: true
-  nested: false
   attrs:
-    - name: accordion
-      title: 手风琴模式
-      type: boolean
-      default: false
-      description: 是否每次只会展开一个面板
-    - name: expand-trigger
-      title: 展开触发方式
-      type: string
-      options:
-        - value: click
-          title: 整行点击均可触发
-        - value: click-expander
-          title: 仅点击小箭头时触发
-      default: click
-      description: 展开/折叠的触发方式
     - name: appear
       title: 显示效果
       type: string
@@ -32,11 +15,10 @@
           title: 简洁模式
       default: default
       description: ""
-    - name: disabled
-      title: 禁用展开/折叠
-      type: boolean
-      default: false
-      description: 不可点击展开/折叠
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持默认模式和简洁模式，默认模式面板有边框，简洁模式面板无左右边框
+      tooltipLink: ""
     - name: fill
       title: 填充位置
       type: string
@@ -48,7 +30,46 @@
         - value: none
           title: 无填充
       default: head
-      description: 填充位置
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 可选背景色填充位置，支持头部填充、内容填充和无填充
+      tooltipLink: ""
+    - name: accordion
+      title: 手风琴模式
+      type: boolean
+      default: false
+      description: 设置是否每次只展开一个
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: |-
+        控制手风琴模式的开关，默认关闭。
+        - 开启：展开一个面板项时，其他面板项全部折叠。
+        - 关闭：可同时展开多个面板项。
+      tooltipLink: ""
+    - name: expand-trigger
+      title: 展开触发方式
+      type: string
+      options:
+        - value: click
+          title: 整行点击均可触发
+        - value: click-expander
+          title: 仅点击小箭头时触发
+      default: click
+      description: 展开/折叠操作的触发方式
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 可选择点击整行均可触发或仅点击小箭头时触发
+      tooltipLink: ""
+    - name: disabled
+      title: 禁用展开/折叠
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止展开/折叠操作
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 开启后当前面板所有项均无法展开或折叠，默认关闭
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -95,8 +116,6 @@
           description: 发送事件实例
 - name: u-collapse-item
   title: 折叠面板项
-  next: false
-  nexted: false
   attrs:
     - name: title
       title: 标题
@@ -104,16 +123,24 @@
       description: 显示的标题
       advanced: true
     - name: expanded
-      title: 当前"展开/折叠"状态
+      title: 展开状态
       type: boolean
       sync: true
       default: false
-      description: 展开/折叠状态
+      description: 展开状态分为“True(展开)/False(折叠)”，默认为“展开”
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 控制折叠面板项的默认状态，若开启当前面板项默认展开，若关闭当前面板项默认关闭
+      tooltipLink: ""
     - name: disabled
-      title: 是否禁用
+      title: 禁用展开/折叠
       type: boolean
       default: false
-      description: 是否禁用。禁用时无法展开/折叠
+      description: 置灰显示，且禁止展开/折叠操作
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 开启后当前面板所有项均无法展开或折叠，默认关闭
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
