@@ -2,11 +2,15 @@
     <div :class="$style.root">
         <DateRange
             v-if="picker === 'date'"
+            :value="value"
+            :disabledDate="disabledDate"
             @pick="emitInput"
             v-bind="$attrs"
             v-on="$listeners" />
         <MonthRange
             v-if="picker === 'month'"
+            :value="value"
+            :disabledDate="disabledDate"
             @pick="emitInput"
             v-bind="$attrs"
             v-on="$listeners" />
@@ -25,22 +29,32 @@ export default {
     },
     props: {
         picker: { type: String, default: 'date' },
-        // value: {
-        //     type: [String, Number, Date],
-        //     default() {
-        //         return new Date();
-        //     },
-        // },
-        // /* week, month, year, quarter */
-        // picker: { type: String, default: 'date' },
-        // readonly: { type: Boolean, default: false },
-        // disabled: { type: Boolean, default: false },
-        // minDate: [String, Date, Number],
-        // maxDate: [String, Date, Number],
+        startTime: { type: [String, Number, Date] },
+        endTime: { type: [String, Number, Date] },
+        readonly: { type: Boolean, default: false },
+        disabled: { type: Boolean, default: false },
+        minDate: [String, Date, Number],
+        maxDate: [String, Date, Number],
         // yearDiff: { type: [String, Number], default: 20 },
         // yearAdd: { type: [String, Number], default: 4 },
         // yearPageSize: { type: Number, default: 12 },
         // border: { type: Boolean, default: true },
+    },
+    computed: {
+        value() {
+            return [this.startTime, this.endTime]
+        },
+        disabledDate() {
+            const minDate = this.minDate && new Date(this.minDate);
+            const maxDate = this.maxDate && new Date(this.maxDate);
+            const disabled = this.disabled;
+            return function(date) {
+                if (disabled || (minDate && date < minDate) || (maxDate && date > maxDate)) {
+                    return true;
+                }
+                return false;
+            };
+        },
     },
     methods: {
         emitInput(val) {

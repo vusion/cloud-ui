@@ -32,7 +32,11 @@
 ### 日期范围选择
 
 ``` html
-<u-calendar-range picker="date"></u-calendar-range>
+<u-calendar-range
+    picker="date"
+    start-time="2023-03-10"
+    end-time="2023-03-20">
+</u-calendar-range>
 ```
 
 ### 月份范围选择

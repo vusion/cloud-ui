@@ -84,10 +84,24 @@ const calcDefaultValue = (defaultValue) => {
 
 export default {
   i18n,
+  props: {
+    visible: { type: Boolean, default: true },
+
+    value: { type: Array, default: () => [] },
+
+    defaultValue: {
+      default: null,
+      validator(val) {
+        // either: null, valid Date object, Array of valid Date objects
+        return val === null || isDate(val) || (Array.isArray(val) && val.every(isDate));
+      }
+    },
+
+    disabledDate: '',
+  },
+
   data() {
     return {
-      value: [],
-      defaultValue: null,
       defaultTime: null,
       minDate: '',
       maxDate: '',
@@ -99,8 +113,6 @@ export default {
         row: null,
         column: null
       },
-      visible: true,
-      disabledDate: '',
       cellClassName: '',
       firstDayOfWeek: 7,
       minTimePickerVisible: false,
@@ -270,31 +282,34 @@ export default {
       }
     },
 
-    value(newVal) {
-      if (!newVal) {
-        this.minDate = null;
-        this.maxDate = null;
-      } else if (Array.isArray(newVal)) {
-        this.minDate = isDate(newVal[0]) ? new Date(newVal[0]) : null;
-        this.maxDate = isDate(newVal[1]) ? new Date(newVal[1]) : null;
-        if (this.minDate) {
-          this.leftDate = this.minDate;
-          if (this.unlinkPanels && this.maxDate) {
-            const minDateYear = this.minDate.getFullYear();
-            const minDateMonth = this.minDate.getMonth();
-            const maxDateYear = this.maxDate.getFullYear();
-            const maxDateMonth = this.maxDate.getMonth();
-            this.rightDate = minDateYear === maxDateYear && minDateMonth === maxDateMonth
-              ? nextMonth(this.maxDate)
-              : this.maxDate;
+    value: {
+      handler(newVal) {
+        if (!newVal) {
+          this.minDate = null;
+          this.maxDate = null;
+        } else if (Array.isArray(newVal)) {
+          this.minDate = isDate(newVal[0]) ? new Date(newVal[0]) : null;
+          this.maxDate = isDate(newVal[1]) ? new Date(newVal[1]) : null;
+          if (this.minDate) {
+            this.leftDate = this.minDate;
+            if (this.unlinkPanels && this.maxDate) {
+              const minDateYear = this.minDate.getFullYear();
+              const minDateMonth = this.minDate.getMonth();
+              const maxDateYear = this.maxDate.getFullYear();
+              const maxDateMonth = this.maxDate.getMonth();
+              this.rightDate = minDateYear === maxDateYear && minDateMonth === maxDateMonth
+                ? nextMonth(this.maxDate)
+                : this.maxDate;
+            } else {
+              this.rightDate = nextMonth(this.leftDate);
+            }
           } else {
+            this.leftDate = calcDefaultValue(this.defaultValue)[0];
             this.rightDate = nextMonth(this.leftDate);
           }
-        } else {
-          this.leftDate = calcDefaultValue(this.defaultValue)[0];
-          this.rightDate = nextMonth(this.leftDate);
         }
-      }
+      },
+      immediate: true
     },
 
     defaultValue(val) {
