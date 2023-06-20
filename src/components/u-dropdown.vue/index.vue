@@ -34,7 +34,7 @@
             <slot></slot>
         </m-popper>
         <!-- append-to body的情况下能够拿到width值 -->
-        <div :class="$style.popperghost" ref="popperghost"></div>
+        <div :class="$style.popperghost" ref="popperghost" v-if="appendTo === 'body'"></div>
     </div>
 </template>
 
