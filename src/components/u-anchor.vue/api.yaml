@@ -8,7 +8,8 @@
     - name: label
       title: 标识
       type: string
-      sync: true
-      model: true
       description: 锚点的唯一标识，用于跳转链接，如“/page#linkname”
-      group: 交互属性
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 锚点的唯一标识，用于跳转链接，标识为空时，默认将组件名作为标识
+      tooltipLink: ""

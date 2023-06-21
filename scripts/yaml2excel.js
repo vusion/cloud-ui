@@ -5,7 +5,6 @@ const glob = require('glob');
 const yamljs = require('yaml');
 const xlsx = require('node-xlsx');
 
-
 // 当前命令所在目录
 const cwd = process.cwd();
 
@@ -44,7 +43,6 @@ for (const key in allAttrMap) {
     const { title, description } = allAttrMap[key];
     data.push([title, description]);
 }
-
 
 jsonList.forEach(({ attrs }, index) => {
     const attrsMap = {};

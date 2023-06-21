@@ -11,8 +11,12 @@
       default: ""
       description: ""
       clearable: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持从图标库选择图标或上传自定义图标。
+      tooltipLink: ""
     - name: icotype
-      title: 图标类型
+      title: 图标布局
       type: string
       options:
         - value: only
@@ -22,7 +26,11 @@
         - value: left
           title: 组合图标-左右
       default: top
-      description: 图标类型
+      description: 图标和文本的布局方式
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持选择图标的展示方式，包括仅图标、组合图标-上下、组合图标-左右三种方式。
+      tooltipLink: ""
     - name: linkType
       title: 链接类型
       type: string
@@ -35,13 +43,21 @@
       description: ""
       compType: linkTypeSelect
       bindHide: true
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 支持页面跳转、普通链接、下载链接。
+      tooltipLink: ""
     - name: hrefAndTo
       title: 链接地址
       type: string
       description: ""
       compType: linkHrefInput
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 链接的详细地址。
+      tooltipLink: ""
     - name: target
-      title: 打开方式
+      title: 链接打开方式
       type: string
       options:
         - value: _blank
@@ -55,7 +71,11 @@
           title: 顶级窗口
           advanced: true
       default: _self
-      description: 父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。
+      description: 链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 可选新窗口、父级窗口、当前窗口和顶级窗口，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。
+      tooltipLink: ""
   slots: false
   events:
     - name: click

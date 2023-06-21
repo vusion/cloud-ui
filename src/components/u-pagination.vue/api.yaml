@@ -4,73 +4,119 @@
   labels:
     - Selector
   description: 展示多页列表时使用
-  next: true
-  nested: false
   attrs:
     - name: page
-      title: 当前页码
+      title: 当前页数
       type: number
       sync: true
       default: 1
-      description: ""
+      description: 当前默认展示在第几页
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: total
       title: 总页数
       type: number
       default: 11
       description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: side
-      title: 两边显示的数量
+      title: 两端页码数量
       type: number
       default: 2
-      description: 当页数多时，两边恒定显示的数量
+      description: 当页数多时，两端恒定显示的页码数量
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: around
-      title: 中间显示的数量
+      title: 中间页码数量
       type: number
       default: 5
-      description: 当页数多时，中间恒定显示的数量
-    - name: readonly
-      title: 只读
-      type: boolean
-      default: false
-      description: ""
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: ""
+      description: 当页数多时，中间恒定显示的页码数量
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: total-items
       title: 总条数
       type: number
-      description: 总条数
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: page-size
-      title: 每条页数
+      title: 默认每页条数
       type: number
       sync: true
       default: 20
       description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: page-size-options
-      title: 条数选项列表
+      title: 每页条数选项
       type: Array
       default:
         - 10
         - 20
         - 50
-      description: 每页条数选项列表
+      description: 每页条数切换器的选项
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: show-total
-      title: 总条数
+      title: 显示总条数
       type: boolean
       default: false
       description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: show-sizer
-      title: 切换条数选项
+      title: 显示每页条数
       type: boolean
       default: false
-      description: 是否显示切换每页条数选项
+      description: 显示每页条数切换器
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: show-jumper
-      title: 跳转输入框
+      title: 显示跳转输入
       type: boolean
       default: false
-      description: 是否显示页面跳转输入框
+      description: 显示页面跳转输入框
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
   events:
     - name: before-select
       title: 选择前

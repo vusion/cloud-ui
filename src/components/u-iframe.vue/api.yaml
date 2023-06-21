@@ -6,9 +6,13 @@
   description: 用于嵌入其他网页的容器。
   attrs:
     - name: src
-      title: 地址
+      title: 网页地址
       type: string
       description: 需要嵌入的网页地址
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 需要嵌入的网页地址
+      tooltipLink: ""
   slots: false
   events:
     - name: load

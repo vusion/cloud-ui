@@ -4,9 +4,12 @@
   labels:
     - Display
   description: 用于将内容分隔为多个区域
-  next: true
-  nested: false
   attrs:
+    - name: title
+      title: 文本
+      type: string
+      description: 文本
+      advanced: true
     - name: dashed
       title: 线条类型
       type: string
@@ -16,7 +19,11 @@
         - value: a
           title: 实线
       default: a
-      description: 线条类型
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 实线、虚线
+      tooltipLink: ""
     - name: content-position
       title: 内容位置
       type: string
@@ -28,12 +35,11 @@
         - value: right
           title: 右
       default: center
-      description: 内容位置
-    - name: title
-      title: 文本
-      type: string
-      description: 文本
-      advanced: true
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 居中、左、右
+      tooltipLink: ""
     - name: direction
       title: 方向
       type: string
@@ -43,6 +49,11 @@
         - value: column
           title: 竖向
       default: horizontal
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: 横向、竖向
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
