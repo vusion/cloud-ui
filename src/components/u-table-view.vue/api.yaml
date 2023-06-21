@@ -28,7 +28,7 @@
       type: object
       description: 数据源除了DataSourceParams外还需要的参数
       group: 数据属性
-      advance: true
+      advanced: true
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""

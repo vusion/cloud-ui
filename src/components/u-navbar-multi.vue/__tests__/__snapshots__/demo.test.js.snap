@@ -228,6 +228,8 @@ exports[`u-navbar-multi.vue Demo-导航栏 1`] = `
               </a>
             </div>
           </transition-stub>
+           
+          <!---->
         </div>
          
         <!---->

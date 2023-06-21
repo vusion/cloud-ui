@@ -838,7 +838,7 @@
     --dropdown-color-text-hover: var(--brand-primary-light); /* @type color */ /* @desc 下拉菜单字体颜色（hover状态）,如 #223325 */
     --dropdown-color-text-active: var(--dropdown-color-text); /* @type color */ /* @desc 下拉菜单字体颜色（激活状态）,如 #223325 */
     --dropdown-color-text-disabled: var(--font-disabled-color); /* @type color */ /* @desc 下拉菜单字体颜色（禁用状态）,如 #223325 */
-
+    --dropdown-popper-width: 100%; /* @desc 下拉弹层宽度,如 1px */
     /*
      * ========================
      *   数据

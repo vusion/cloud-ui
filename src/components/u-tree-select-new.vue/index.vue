@@ -497,6 +497,8 @@ export default {
         load(params) {
             if (this.$emitPrevent('before-load', undefined, this))
                 return;
+            if (!this.currentDataSource.load)
+                return;
             this.currentDataSource.load(params).then(() => {
                 this.dataSourceNodeList = this.handleDataSourceObj(this.currentDataSource.data, 'dataSource');
                 this.dataSourceObj = { ...this.dataSourceNodeList, ...this.virtualNodeList };
@@ -505,6 +507,7 @@ export default {
         },
         reload() {
             this.load();
+            this.$refs.treeView && this.$refs.treeView.reload();
         },
     },
 };
