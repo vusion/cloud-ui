@@ -4,76 +4,13 @@
     - Selector
   title: 穿梭框
   description: 双栏穿梭选择框，常用于将多个项目从一边移动到另一边。
-  next: true
-  nested: false
   attrs:
-    - name: source
-      title: 原始数据
-      type: Array<{ text, value }>
-      sync: true
-      description: 原数据列表
-    - name: target
-      title: 目标数据
-      type: Array<{ text, value }>
-      sync: true
-      description: 目标数据列表
-    - name: text-field
-      title: 文本字段
-      type: string
-      default: text
-      description: 选项文本的字段名
-    - name: value-field
-      title: 值字段
-      type: string
-      default: value
-      description: 选项值的字段名
-    - name: show-head
-      title: 显示头部
-      type: boolean
-      default: false
-      description: ""
-    - name: source-title
-      title: 左侧列表标题
-      type: string
-      default: 列表
-      description: 左侧列表标题
-    - name: target-title
-      title: 右侧列表标题
-      type: string
-      default: 列表
-      description: 右侧列表标题
-    - name: filterable
-      title: 过滤
-      type: boolean
-      default: false
-      description: 显示过滤（搜索框）
-    - name: placeholder
-      title: 占位符
-      type: string
-      default: 请输入
-      description: 搜索框的提示文字
-      dependency:
-        - filterable: true
-    - name: clearable
-      title: 清除
-      type: boolean
-      default: false
-      description: 搜索框输入内容支持一键清除
-      dependency:
-        - filterable: true
     - name: match-method
       title: 过滤匹配方法
       type: string, Function
       default: includes
       description: 过滤时的匹配方法
       advanced: true
-    - name: case-sensitive
-      title: 大小写敏感
-      type: boolean
-      default: false
-      description: 过滤时大小写敏感
-      dependency:
-        - filterable: true
     - name: pageable
       title: 分页
       type: boolean
@@ -86,16 +23,129 @@
       default: 50
       description: ""
       advanced: true
+    - name: source
+      title: 原始数据
+      type: Array<{ text, value }>
+      sync: true
+      description: 原数据列表
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: target
+      title: 目标数据
+      type: Array<{ text, value }>
+      sync: true
+      description: 目标数据列表
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: text-field
+      title: 文本字段
+      type: string
+      default: text
+      description: 选项文本的字段名
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: value-field
+      title: 值字段
+      type: string
+      default: value
+      description: 选项值的字段名
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: filterable
+      title: 过滤
+      type: boolean
+      default: false
+      description: 显示过滤（搜索框）
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: case-sensitive
+      title: 大小写敏感
+      type: boolean
+      default: false
+      description: 设置是否区分大小写
+      dependency:
+        - filterable: true
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: show-head
+      title: 显示头部
+      type: boolean
+      default: false
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: source-title
+      title: 左侧列表标题
+      type: string
+      default: 列表
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: target-title
+      title: 右侧列表标题
+      type: string
+      default: 列表
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: placeholder
+      title: 占位符
+      type: string
+      default: 请输入
+      description: 为空时显示的占位符文本
+      dependency:
+        - filterable: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: clearable
+      title: 可清除
+      type: boolean
+      default: false
+      description: 可点击清除按钮一键清除内容
+      dependency:
+        - filterable: true
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: ""
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: ""
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

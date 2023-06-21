@@ -5,41 +5,58 @@
     - Display
   description: 画廊
   attrs:
-  - name: data-source
-    title: 数据源
-    type: Array<Item> | Function | object
-    default: '[{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_1.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_2.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_3.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_4.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_5.png"}]'
-    description: 数据源
-    group: 数据属性
-  - name: data-schema
-    title: 数据类型
-    type: schema
-    description: 集合类型每一元素的数据类型
-    group: 数据属性
-    compType: dataTypeSelect
-  - name: pattern
-    title: 画廊模式
-    type: string
-    options:
-      - value: small
-        title: 缩略图模式
-      - value: big
-        title: 大图模式
-    default: big
-    description: 图片的显示模式，支持大图模式和缩略图模式。
-    group: 样式属性
-  - name: num	
-    title: 显示图片数	
-    type: number
-    default: 5
-    description: 显示图片数
-    group: 样式属性	
-  - name: arrow	
-    title: 是否显示左右箭头	
-    type: boolean
-    default: true
-    description: 是否显示左右箭头
-    group: 样式属性
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function | object
+      default: '[{"url":
+        "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_1.png"},{"url":
+        "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_2.png"},{"url":
+        "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_3.png"},{"url":
+        "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_4.png"},{"url":
+        "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_5.png"}]'
+      description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 组件所展示数据的输入源，可以是逻辑、变量。格式可参见示例
+      tooltipLink: ""
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 集合类型每一元素的数据类型
+      group: 数据属性
+      compType: dataTypeSelect
+    - name: pattern
+      title: 画廊模式
+      type: string
+      options:
+        - value: small
+          title: 缩略图模式
+        - value: big
+          title: 大图模式
+      default: big
+      description: 图片的显示模式，支持大图模式和缩略图模式。
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 图片的显示模式，支持大图模式和缩略图模式
+      tooltipLink: ""
+    - name: num
+      title: 显示图片数
+      type: number
+      default: 5
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 同时展示的图片数量
+      tooltipLink: ""
+    - name: arrow
+      title: 显示左右箭头
+      type: boolean
+      default: true
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 图片支持通过鼠标按住拖动或点击左右箭头的方式调整位置，关闭该选项后不显示左右箭头
+      tooltipLink: ""
   slots: false
   events:
     - name: before-load

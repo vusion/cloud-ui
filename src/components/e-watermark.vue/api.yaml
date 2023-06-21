@@ -5,19 +5,27 @@
   labels:
     - Effects
   attrs:
-    - name: text
-      title: 文本
-      type: string
-      default: 水印
-      description: 水印文本
     - name: image
       title: 水印图案
       type: CanvasImageSource
       default: null
       description: 水印图案。如果没有，则默认按文本绘制
       advanced: true
+    - name: text
+      title: 文本
+      type: string
+      default: 水印
+      description: 水印文本
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: opacity
-      title: 透明程度
+      title: 不透明度
       type: number
       default: 0.1
       description: 0-1之间的小数，0代表完全透明，1代表完全不透明
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""

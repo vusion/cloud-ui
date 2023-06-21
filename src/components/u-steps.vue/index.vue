@@ -2,42 +2,80 @@
 <div :class="$style.root" :readonly="readonly" :disabled="disabled"
     :counter="counter" :layout="layout" :size="size" :direction="direction">
     <nav :class="$style.head">
-        <a :class="$style.item"
-            v-for="(itemVM, index) in itemVMs"
-            ref="item"
-            :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
-            :vusion-node-path="itemVM.$attrs['vusion-node-path']"
-            :vusion-node-tag="itemVM.$attrs['vusion-node-tag']"
-            :vusion-disabled-move="itemVM.$attrs['vusion-disabled-move']"
-            :vusion-disabled-duplicate="itemVM.$attrs['vusion-disabled-duplicate']"
-            :vusion-disabled-cut="itemVM.$attrs['vusion-disabled-cut']"
-            :passed="selectedVM && index < selectedVM.index || value >= itemVMs.length && index <= value"
-            :selected="selectedVM && index === selectedVM.index"
-            :disabled="itemVM.disabled || disabled"
-            :desc="!!(itemVM.desc || itemVM.$slots.desc)"
-            v-show="!itemVM.hidden"
-            :style="getItemStyle(itemVM)"
-            :vusion-template-title-node-path="itemVM.$attrs['vusion-template-title-node-path']"
-            :vusion-template-desc-node-path="itemVM.$attrs['vusion-template-desc-node-path']">
-            <div :class="$style['item-body']" :title="itemVM.title">
-                <span :class="$style.radio" :custom-icon="!!itemVM.icon" @click="select(itemVM)">
-                    <i-ico v-if="itemVM.icon" :name="itemVM.icon" notext></i-ico>
-                </span>
-                <span :class="$style.title" @click="select(itemVM)"
-                    vusion-slot-name="title"><f-slot :vm="itemVM" name="title">
-                    {{ itemVM.title }}
-                    <s-empty v-if="!itemVM.title && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+        <template v-if="dataSource !== undefined">
+            <template v-for="(itemVM, index) in stepDataSource">
+                <a :class="[$style.item, {[$style.stepmask]: $env.VUE_APP_DESIGNER && index>0}]"
+                    ref="item"
+                    :passed="itemVM.status === 'passed' || !itemVM.status && (selectedVM && index < selectedVM.index || value >= itemVMs.length && index <= value)"
+                    :selected="itemVM.status === 'selected' || !itemVM.status && (selectedVM && index === selectedVM.index)"
+                    :failed="itemVM.status === 'failed'"
+                    :disabled="$env.VUE_APP_DESIGNER? index > 0 : itemVM.disabled || disabled "
+                    :readonly="itemVM.readonly"
+                    :desc="!!($at(itemVM, descField) || $slots.desc)"
+                    v-show="!itemVM.hidden">
+                    <div :class="$style['item-body']" :title="$at(itemVM, titleField)">
+                        <span :class="$style.radio" :custom-icon="!!itemVM.icon" @click="select(itemVM)">
+                            <i-ico v-if="itemVM.icon" :name="itemVM.icon" notext></i-ico>
+                        </span>
+                        <span :class="$style.title" @click="select(itemVM)" vusion-slot-name="title">
+                            <slot name="title" :item="itemVM">
+                                {{ $at(itemVM, titleField) }}
+                                <s-empty v-if="!$at(itemVM, titleField) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+                            </slot>
+                        </span>
+                        <u-tooltip v-if="itemVM.tooltip || $slots.tooltip">
+                            <slot name="tooltip" :item="itemVM">{{ itemVM.tooltip }}</slot>
+                        </u-tooltip>
+                    </div>
+                    <span :class="$style.desc" vusion-slot-name="desc">
+                        <slot name="desc" :item="itemVM">
+                            {{ $at(itemVM, descField) }}
+                            <s-empty v-if="!$at(itemVM, descField) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+                        </slot>
+                    </span>
+                </a>
+            </template>
+        </template>
+        <template v-else>
+            <a :class="$style.item"
+                v-for="(itemVM, index) in itemVMs"
+                ref="item"
+                :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
+                :vusion-node-path="itemVM.$attrs['vusion-node-path']"
+                :vusion-node-tag="itemVM.$attrs['vusion-node-tag']"
+                :vusion-disabled-move="itemVM.$attrs['vusion-disabled-move']"
+                :vusion-disabled-duplicate="itemVM.$attrs['vusion-disabled-duplicate']"
+                :vusion-disabled-cut="itemVM.$attrs['vusion-disabled-cut']"
+                :passed="itemVM.status === 'passed' || !itemVM.status && (selectedVM && index < selectedVM.index || value >= itemVMs.length && index <= value)"
+                :selected="itemVM.status === 'selected' || !itemVM.status && (selectedVM && index === selectedVM.index)"
+                :failed="itemVM.status === 'failed'"
+                :disabled="itemVM.disabled || disabled"
+                :readonly="itemVM.readonly"
+                :desc="!!(itemVM.desc || itemVM.$slots.desc)"
+                v-show="!itemVM.hidden"
+                :style="getItemStyle(itemVM)"
+                :vusion-template-title-node-path="itemVM.$attrs['vusion-template-title-node-path']"
+                :vusion-template-desc-node-path="itemVM.$attrs['vusion-template-desc-node-path']">
+                <div :class="$style['item-body']" :title="itemVM.title">
+                    <span :class="$style.radio" :custom-icon="!!itemVM.icon" @click="select(itemVM)">
+                        <i-ico v-if="itemVM.icon" :name="itemVM.icon" notext></i-ico>
+                    </span>
+                    <span :class="$style.title" @click="select(itemVM)"
+                        vusion-slot-name="title"><f-slot :vm="itemVM" name="title">
+                        {{ itemVM.title }}
+                        <s-empty v-if="!itemVM.title && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+                    </f-slot></span>
+                    <u-tooltip v-if="itemVM.tooltip || itemVM.$slots.tooltip">
+                        <f-slot name="tooltip" :vm="itemVM">{{ itemVM.tooltip }}</f-slot>
+                    </u-tooltip>
+                </div>
+                <span :class="$style.desc"
+                    vusion-slot-name="desc"><f-slot name="desc" :vm="itemVM">
+                    {{ itemVM.desc }}
+                    <s-empty v-if="!itemVM.desc && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                 </f-slot></span>
-                <u-tooltip v-if="itemVM.tooltip || itemVM.$slots.tooltip">
-                    <f-slot name="tooltip" :vm="itemVM">{{ itemVM.tooltip }}</f-slot>
-                </u-tooltip>
-            </div>
-            <span :class="$style.desc"
-                vusion-slot-name="desc"><f-slot name="desc" :vm="itemVM">
-                {{ itemVM.desc }}
-                <s-empty v-if="!itemVM.desc && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
-            </f-slot></span>
-        </a>
+            </a>
+        </template>
     </nav>
     <div :class="$style.body">
         <slot></slot>
@@ -62,6 +100,8 @@ export default {
         counter: { type: Boolean, default: true },
         // direction暂时只支持USelectableSteps组件
         direction: { type: String, default: 'horizontal' },
+        titleField: { type: String, default: 'title' },
+        descField: { type: String, default: 'desc' },
     },
     computed: {
         currentItemWidth() {
@@ -69,6 +109,10 @@ export default {
                 return (1 / this.itemVMs.length) * 100 + '%';
             else
                 return undefined;
+        },
+        stepDataSource() {
+            const data = this.currentDataSource && this.currentDataSource.data || [];
+            return data.map((item, index) => ({ ...item, index }))
         },
     },
     watch: {
@@ -105,7 +149,7 @@ export default {
             }
         },
         select(itemVM) {
-            if (this.readonly || this.disabled || (itemVM && itemVM.disabled))
+            if (this.readonly || this.disabled || (itemVM && (itemVM.disabled || itemVM.readonly)))
                 return;
             const oldValue = this.value;
             if (
@@ -167,7 +211,8 @@ export default {
     z-index: 2;
 }
 
-.root[readonly] .item-body {
+.root[readonly] .item-body,
+.item[readonly] .item-body {
     cursor: default;
 }
 

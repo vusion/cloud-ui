@@ -3,8 +3,6 @@
   labels:
     - Feedback
   title: 弹窗
-  next: true
-  nested: false
   attrs:
     - name: title
       title: 标题
@@ -24,12 +22,6 @@
       default: 详情描述
       description: 弹窗的详情描述
       advanced: true
-    - name: visible
-      title: 是否显示
-      type: boolean
-      sync: true
-      default: false
-      description: 弹窗默认打开
     - name: ok-button
       title: 确定按钮
       type: string
@@ -42,16 +34,30 @@
       default: 取消
       description: 取消按钮文本，如果为空则不显示
       advanced: true
+    - name: static
+      title: 嵌入页面显示
+      type: boolean
+      default: false
+      description: 是否嵌入页面显示
+      advanced: true
     - name: show-head
       title: 显示头部栏
       type: boolean
       default: true
-      description: 控制头部栏的显示
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: show-foot
       title: 显示底部栏
       type: boolean
       default: true
-      description: 控制底部栏的显示
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: icon
       title: 提示图标
       type: string
@@ -66,6 +72,29 @@
           title: 错误
       default: ""
       description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: mask-close
+      title: 点击遮罩关闭
+      type: boolean
+      default: false
+      description: 点击遮罩关闭弹窗
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: visible
+      title: 显示状态
+      type: boolean
+      sync: true
+      default: false
+      description: 显示状态分为“True(打开)/False(关闭)”，默认为“打开”
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: size
       title: 尺寸
       type: string
@@ -82,17 +111,10 @@
           title: 自适应
       default: normal
       description: 弹窗的尺寸
-    - name: static
-      title: 嵌入页面显示
-      type: boolean
-      default: false
-      description: 是否嵌入页面显示
-      advanced: true
-    - name: mask-close
-      title: 点击遮罩关闭
-      type: boolean
-      default: false
-      description: 点击遮罩关闭弹窗
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: title

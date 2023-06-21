@@ -4,21 +4,25 @@
   labels:
     - Table
   description: 用于展示大量结构化数据。支持日历结构展示。
-  next: true
-  nested: false
   attrs:
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object
       designer-value: "[{}]"
-      description: 日历的数据源，数据集对象或者返回数据集的逻辑
+      description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
-      description: 日历中每天的数据类型
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: start-key
       type: string
       title: 开始时间字段
@@ -26,6 +30,9 @@
       description: 数据内表示开始时间的字段
       group: 数据属性
       display: property-select
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: end-key
       type: string
       title: 结束时间字段
@@ -33,54 +40,81 @@
       description: 数据内表示结束时间的字段
       group: 数据属性
       display: property-select
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: value
-      title: 值
+      title: 选中值
       type: Date | string ｜ number
       sync: true
       model: true
       default: TODAY
-      description: 当前选择的日期
-      group: 选择属性
+      description: 当前选中的日期
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: min-date
-      title: 最小日期
+      title: 最小日期值
       type: Date | string ｜ number
-      description: 最小日期，默认 10 年前
-      group: 选择属性
+      description: 最小可选的日期值，默认为10年前，日期填写格式为“yyyy-mm-dd”
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: max-date
-      title: 最大日期
+      title: 最大日期值
       type: Date | string ｜ number
-      description: 最大日期，默认 9 年后
-      group: 选择属性
+      description: 最大可选的日期值，默认为9年后，日期填写格式为“yyyy-mm-dd”
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: show-week-days
       title: 展示周天
       type: boolean
       default: true
       description: ""
-      group: 样式属性
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: show-weeks
       title: 展示周数
       type: boolean
       default: false
       description: ""
-      group: 样式属性
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: show-basic
       title: 展示基础配置
       type: boolean
       default: true
       description: 是否展示顶部左侧的 "<" "今天" ">" 等基础配置功能
-      group: 样式属性
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: show-advance
       title: 展示高级配置
       type: boolean
       default: true
       description: 是否展示顶部右侧的年份、月份选项高级配置
-      group: 样式属性
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: first-day-of-week
       title: 首列星期
       type: number
       default: 1
       description: 填写数字1~7，分别表示周一~周日
-      group: 样式属性
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

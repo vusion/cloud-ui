@@ -4,19 +4,10 @@
   description: 抽屉
   labels:
     - Feedback
-  next: true
-  nested: false
   attrs:
-    - name: visible
-      title: 是否显示
-      type: boolean
-      sync: true
-      default: false
-      description: 抽屉默认打开
     - name: placement
       title: 抽屉位置
       type: string
-      sync: true
       default: right
       options:
         - value: left
@@ -24,6 +15,47 @@
         - value: right
           title: 右
       description: 抽屉弹出的位置
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: maskClosable
+      title: 点击遮罩关闭
+      type: boolean
+      default: true
+      description: 点击遮罩关闭抽屉
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: show-head
+      title: 显示顶部栏
+      type: boolean
+      default: true
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: show-foot
+      title: 显示底部栏
+      type: boolean
+      default: true
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: visible
+      title: 显示状态
+      type: boolean
+      sync: true
+      default: false
+      description: 显示状态分为“True(打开)/False(关闭)”，默认为“打开”
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: size
       type: string
       title: 尺寸
@@ -36,21 +68,10 @@
           title: 大
       default: normal
       description: 抽屉的尺寸
-    - name: maskClosable
-      title: 点击遮罩关闭
-      type: boolean
-      default: true
-      description: 点击遮罩关闭抽屉
-    - name: show-head
-      title: 显示顶部栏
-      type: boolean
-      default: true
-      description: 控制顶部栏的显示
-    - name: show-foot
-      title: 显示底部栏
-      type: boolean
-      default: true
-      description: 控制底部栏的显示
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
   events:
     - name: open
       title: 打开时
