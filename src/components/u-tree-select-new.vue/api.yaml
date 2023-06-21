@@ -143,7 +143,3 @@
         - name: senderVM
           type: UTableView
           description: 发送事件实例
-  methods:
-    - name: reload
-      description: 重新加载
-      params: []
