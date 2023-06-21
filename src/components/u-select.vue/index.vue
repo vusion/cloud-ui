@@ -218,6 +218,7 @@ export default {
             currentPopperWidth: this.popperWidth || '100%',
             compositionInputing: false,
             collapseCounter: 0,
+            selectedDataQueue: [], // 选中不在第一页数据处理
         };
     },
     computed: {
@@ -267,6 +268,18 @@ export default {
         appendTo(appendTo) {
             this.setPopperWidth();
         },
+        value(value) {
+            this.setSelectedDataQueue(value);
+        },
+        selectedDataQueue(value) {
+            // 当value有值，并且已经加载过一次数据才能开启判断
+            // value 和 data 可能都是异步的，所以需要watch
+            // 只有数据源是load函数的情况才需要处理
+            const hasData = (value || []).every((item) => !!item);
+            if (hasData && value.length === 2) {
+                this.loadMoreForSelected();
+            }
+        },
     },
     created() {
         this.$watch('selectedVM', (selectedVM, oldVM) => {
@@ -285,42 +298,44 @@ export default {
             popperVM && popperVM.currentOpened && popperVM.scheduleUpdate();
             // 计算折叠时，最多能展示几个标签
             if (this.tagsOverflow === 'collapse') {
-                this.collapseCounter = 0;
-                const collapseTagWidth = 30;
-                const marginWidth = 3;
-                let lastAddElementWidth = 0;
-                // 预留出"+N"的标签宽度
-                let inputWidth = this.$refs.inputOuter.offsetWidth - collapseTagWidth;
-                // 先计算前N-1个元素长度是否超出输入框
-                for (let i = 0; i < this.selectedVMs.length - 1; i++) {
-                    if (this.$refs[`item_${i}`]) {
-                        this.$refs[`item_${i}`][0].style.display = 'inline-block';
-                        const itemWidth = this.$refs[`item_${i}`][0].offsetWidth + marginWidth;
-                        if (inputWidth - itemWidth < 0) {
-                            break;
-                        }
-                        inputWidth -= itemWidth;
-                        this.collapseCounter += 1;
-                    }
-                }
-                // 计算最后一个元素能否加入输入框
                 this.$nextTick(() => {
-                    const lastItem = this.$refs[`item_${this.selectedVMs.length - 1}`];
-                    if (lastItem) {
-                        lastItem[0].style.display = 'inline-block';
-                        lastAddElementWidth = lastItem[0].offsetWidth;
+                    this.collapseCounter = 0;
+                    const collapseTagWidth = 30;
+                    const marginWidth = 3;
+                    let lastAddElementWidth = 0;
+                    // 预留出"+N"的标签宽度
+                    let inputWidth = this.$refs.inputOuter.offsetWidth - collapseTagWidth;
+                    // 先计算前N-1个元素长度是否超出输入框
+                    for (let i = 0; i < this.selectedVMs.length - 1; i++) {
+                        if (this.$refs[`item_${i}`]) {
+                            this.$refs[`item_${i}`][0].style.display = 'inline-block';
+                            const itemWidth = this.$refs[`item_${i}`][0].offsetWidth + marginWidth;
+                            if (inputWidth - itemWidth < 0) {
+                                break;
+                            }
+                            inputWidth -= itemWidth;
+                            this.collapseCounter += 1;
+                        }
                     }
-                    if (inputWidth > 0 && inputWidth - lastAddElementWidth > 0) {
-                        this.collapseCounter += 1;
-                    }
-                    // 隐藏掉超出输入框长度的元素
-                    if (this.collapseCounter === this.selectedVMs.length || this.selectedVMs.length === 1)
-                        return;
-                    for (let i = this.collapseCounter; i < this.selectedVMs.length; i++) {
-                        this.$nextTick(() => {
-                            this.$refs[`item_${i}`][0].style.display = 'none';
-                        });
-                    }
+                    // 计算最后一个元素能否加入输入框
+                    this.$nextTick(() => {
+                        const lastItem = this.$refs[`item_${this.selectedVMs.length - 1}`];
+                        if (lastItem) {
+                            lastItem[0].style.display = 'inline-block';
+                            lastAddElementWidth = lastItem[0].offsetWidth;
+                        }
+                        if (inputWidth > 0 && inputWidth - lastAddElementWidth > 0) {
+                            this.collapseCounter += 1;
+                        }
+                        // 隐藏掉超出输入框长度的元素
+                        if (this.collapseCounter === this.selectedVMs.length || this.selectedVMs.length === 1)
+                            return;
+                        for (let i = this.collapseCounter; i < this.selectedVMs.length; i++) {
+                            this.$nextTick(() => {
+                                this.$refs[`item_${i}`][0].style.display = 'none';
+                            });
+                        }
+                    });
                 });
             }
         });
@@ -346,6 +361,7 @@ export default {
                 });
             }
         });
+        this.setSelectedDataQueue(this.value);
     },
     mounted() {
         this.autofocus && this.$el.focus();
@@ -514,6 +530,11 @@ export default {
                         return Promise.resolve();
                     this.currentLoading = false;
                     this.ensureSelectedInItemVMs();
+                    // 选中数据不在第一页处理
+                    // 只需要初始的时候处理，这里存储数据用于判断是否是第一次加载数据
+                    if (!this.selectedDataQueue[1]) {
+                        this.selectedDataQueue.splice(1, 1, data);
+                    }
                     this.$refs.popper.currentOpened
                         && this.$refs.popper.scheduleUpdate();
                     return data;
@@ -763,6 +784,46 @@ export default {
                 return;
             if (this.clearable) {
                 this.clear();
+            }
+        },
+        /**
+         * 当下拉列表是分页的而传入的value值不在第一页的情况下，选项没有选中展示
+         * 判断是否在列表里，没在列表里会开启循环加载数据
+         */
+        async loadMoreForSelected() {
+            const data = this.currentDataSource.viewData;
+            const value = this.selectedDataQueue[0];
+            if (value && data) {
+                let allInData = false;
+                if (Array.isArray(value)) {
+                    allInData = value.every((val) => !!data.find(
+                        (item) => '' + this.$at2(item, this.valueField) === '' + val,
+                    ));
+                } else {
+                    allInData = !!data.find(
+                        (item) => '' + this.$at2(item, this.valueField) === '' + value,
+                    );
+                }
+                const currentDataSource = this.currentDataSource;
+                if (!allInData && currentDataSource && currentDataSource.hasMore()) {
+                    await currentDataSource.loadMore();
+                    this.loadMoreForSelected();
+                }
+            }
+        },
+        /**
+         * 存储value
+         */
+        setSelectedDataQueue(value) {
+            if (this.multiple) {
+                let currentValue = value;
+                if (this.converter)
+                    currentValue = this.currentConverter.set(value);
+                if (Array.isArray(currentValue)) {
+                    this.selectedDataQueue.splice(0, 1, currentValue);
+                }
+            } else {
+                this.selectedDataQueue.splice(0, 1, value);
             }
         },
     },
