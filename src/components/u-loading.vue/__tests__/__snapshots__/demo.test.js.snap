@@ -2,170 +2,70 @@
 
 exports[`u-loading.vue Demo-基本用法 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="rotate"
-    >
-      <span
-        class="lcp-iconv icon"
-      >
-        <span
-          class="iconwrap"
-        >
-          <svg
-            aria-hidden="true"
-            class="iconsvg"
-          >
-            <use
-              xlink:href="#pc-loading"
-            />
+  <div class="root">
+    <div class="rotate">
+      <span class="lcp-iconv icon">
+        <span class="iconwrap">
+          <svg aria-hidden="true" class="iconsvg">
+            <use xlink:href="#pc-loading" />
           </svg>
         </span>
-         
-        <div
-          class="icontext"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="icontext" vusion-slot-name="default">
         </div>
       </span>
     </div>
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-loading.vue Demo-大小扩展 1`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    type=""
-    vusion-slot-name="default"
-  >
+  <div class="root" direction="vertical" type vusion-slot-name="default">
     <div>
-      <div
-        class="root"
-        size="small"
-      >
-        <div
-          class="rotate"
-        >
-          <span
-            class="lcp-iconv icon"
-          >
-            <span
-              class="iconwrap"
-            >
-              <svg
-                aria-hidden="true"
-                class="iconsvg"
-              >
-                <use
-                  xlink:href="#pc-loading"
-                />
+      <div class="root" size="small">
+        <div class="rotate">
+          <span class="lcp-iconv icon">
+            <span class="iconwrap">
+              <svg aria-hidden="true" class="iconsvg">
+                <use xlink:href="#pc-loading" />
               </svg>
             </span>
-             
-            <div
-              class="icontext"
-              vusion-slot-name="default"
-            >
-               
-              <!---->
+            <div class="icontext" vusion-slot-name="default">
             </div>
           </span>
         </div>
-         
-        <!---->
-      </div>
-       small 
+      </div> small
     </div>
-     
     <div>
-      <div
-        class="root"
-      >
-        <div
-          class="rotate"
-        >
-          <span
-            class="lcp-iconv icon"
-          >
-            <span
-              class="iconwrap"
-            >
-              <svg
-                aria-hidden="true"
-                class="iconsvg"
-              >
-                <use
-                  xlink:href="#pc-loading"
-                />
+      <div class="root">
+        <div class="rotate">
+          <span class="lcp-iconv icon">
+            <span class="iconwrap">
+              <svg aria-hidden="true" class="iconsvg">
+                <use xlink:href="#pc-loading" />
               </svg>
             </span>
-             
-            <div
-              class="icontext"
-              vusion-slot-name="default"
-            >
-               
-              <!---->
+            <div class="icontext" vusion-slot-name="default">
             </div>
           </span>
         </div>
-         
-        <!---->
-      </div>
-       normal 
+      </div> normal
     </div>
-     
     <div>
-      <div
-        class="root"
-        size="large"
-      >
-        <div
-          class="rotate"
-        >
-          <span
-            class="lcp-iconv icon"
-          >
-            <span
-              class="iconwrap"
-            >
-              <svg
-                aria-hidden="true"
-                class="iconsvg"
-              >
-                <use
-                  xlink:href="#pc-loading"
-                />
+      <div class="root" size="large">
+        <div class="rotate">
+          <span class="lcp-iconv icon">
+            <span class="iconwrap">
+              <svg aria-hidden="true" class="iconsvg">
+                <use xlink:href="#pc-loading" />
               </svg>
             </span>
-             
-            <div
-              class="icontext"
-              vusion-slot-name="default"
-            >
-               
-              <!---->
+            <div class="icontext" vusion-slot-name="default">
             </div>
           </span>
         </div>
-         
-        <!---->
-      </div>
-       large 
+      </div> large
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;

@@ -2,225 +2,64 @@
 
 exports[`u-combo-slider.vue Demo-只读和禁用 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="root"
-      vusion-slot-name="default"
-    >
-      <div
-        class="root"
-      >
-        <div
-          class="main"
-        >
-          <div
-            class="tip"
-            vusion-slot-name="tip"
-            vusion-slot-name-edit="tip"
-          >
-            
-                
-                
-            <!---->
+  <div class="root">
+    <div class="root" vusion-slot-name="default">
+      <div class="root">
+        <div class="main">
+          <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
           </div>
-           
-          <div
-            class="root slider"
-            readonly="readonly"
-          >
-            <div
-              class="body"
-            >
-              <div
-                class="track"
-              >
-                <div
-                  class="trail"
-                  style="width: 36%;"
-                />
-                 
-                <!---->
-                 
-                <!---->
+          <div class="root slider" readonly="readonly">
+            <div class="body">
+              <div class="track">
+                <div class="trail" style="width: 36%;"></div>
               </div>
-               
-              <div
-                class="handle"
-                style="left: 36%;"
-              >
-                <!---->
+              <div class="handle" style="left: 36%;">
               </div>
             </div>
           </div>
-           
-          <div
-            class="scales"
-          >
-            <span
-              class="scale"
-            >
-              0
-            </span>
-             
-            <span
-              class="scale"
-            >
-              50
-            </span>
-             
-            <span
-              class="scale"
-            >
-              100
-            </span>
+          <div class="scales">
+            <span class="scale">0</span>
+            <span class="scale">50</span>
+            <span class="scale">100</span>
           </div>
         </div>
-         
-        <div
-          buttondisplay="tail"
-          class="root input"
-          hidebuttons="true"
-          readonly="readonly"
-        >
-          <span>
-            b
-          </span>
-           
-          <span
-            style="display: none;"
-          >
-            
-          </span>
-           
-          <!---->
-           
-          <input
-            buttondisplay="tail"
-            hidebuttons="true"
-            readonly="readonly"
-            type="text"
-          />
-            
-          <!---->
+        <div buttondisplay="tail" class="root input" hidebuttons="true" readonly="readonly">
+          <span>b</span>
+          <span style="display: none;"></span>
+          <input buttondisplay="tail" hidebuttons="true" readonly="readonly" type="text">
         </div>
-         
-        <span>
-          
-        </span>
+        <span></span>
       </div>
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      vusion-slot-name="default"
-    >
-      <div
-        class="root"
-      >
-        <div
-          class="main"
-        >
-          <div
-            class="tip"
-            vusion-slot-name="tip"
-            vusion-slot-name-edit="tip"
-          >
-            
-                
-                
-            <!---->
+    <div class="root" vusion-slot-name="default">
+      <div class="root">
+        <div class="main">
+          <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
           </div>
-           
-          <div
-            class="root slider"
-            disabled="disabled"
-          >
-            <div
-              class="body"
-            >
-              <div
-                class="track"
-              >
-                <div
-                  class="trail"
-                  style="width: 36%;"
-                />
-                 
-                <!---->
-                 
-                <!---->
+          <div class="root slider" disabled="disabled">
+            <div class="body">
+              <div class="track">
+                <div class="trail" style="width: 36%;"></div>
               </div>
-               
-              <div
-                class="handle"
-                style="left: 36%;"
-              >
-                <!---->
+              <div class="handle" style="left: 36%;">
               </div>
             </div>
           </div>
-           
-          <div
-            class="scales"
-          >
-            <span
-              class="scale"
-            >
-              0
-            </span>
-             
-            <span
-              class="scale"
-            >
-              50
-            </span>
-             
-            <span
-              class="scale"
-            >
-              100
-            </span>
+          <div class="scales">
+            <span class="scale">0</span>
+            <span class="scale">50</span>
+            <span class="scale">100</span>
           </div>
         </div>
-         
-        <div
-          buttondisplay="tail"
-          class="root input"
-          disabled="disabled"
-          hidebuttons="true"
-        >
-          <span>
-            b
-          </span>
-           
-          <span
-            style="display: none;"
-          >
-            
-          </span>
-           
-          <!---->
-           
-          <input
-            buttondisplay="tail"
-            disabled="disabled"
-            hidebuttons="true"
-            type="text"
-          />
-            
-          <!---->
+        <div buttondisplay="tail" class="root input" disabled="disabled" hidebuttons="true">
+          <span>b</span>
+          <span style="display: none;"></span>
+          <input buttondisplay="tail" disabled="disabled" hidebuttons="true" type="text">
         </div>
-         
-        <span>
-          
-        </span>
+        <span></span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -228,221 +67,64 @@ exports[`u-combo-slider.vue Demo-只读和禁用 1`] = `
 
 exports[`u-combo-slider.vue Demo-同步时机 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="root"
-      vusion-slot-name="default"
-    >
-      <div
-        class="root"
-      >
-        <div
-          class="main"
-        >
-          <div
-            class="tip"
-            vusion-slot-name="tip"
-            vusion-slot-name-edit="tip"
-          >
-            
-                
-                
-            <!---->
+  <div class="root">
+    <div class="root" vusion-slot-name="default">
+      <div class="root">
+        <div class="main">
+          <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
           </div>
-           
-          <div
-            class="root slider"
-          >
-            <div
-              class="body"
-              draggable="draggable"
-            >
-              <div
-                class="track"
-              >
-                <div
-                  class="trail"
-                  style="width: 20%;"
-                />
-                 
-                <!---->
-                 
-                <!---->
+          <div class="root slider">
+            <div class="body" draggable="draggable">
+              <div class="track">
+                <div class="trail" style="width: 20%;"></div>
               </div>
-               
-              <div
-                class="handle"
-                style="left: 20%;"
-              >
-                <!---->
+              <div class="handle" style="left: 20%;">
               </div>
             </div>
           </div>
-           
-          <div
-            class="scales"
-          >
-            <span
-              class="scale"
-            >
-              0
-            </span>
-             
-            <span
-              class="scale"
-            >
-              50
-            </span>
-             
-            <span
-              class="scale"
-            >
-              100
-            </span>
+          <div class="scales">
+            <span class="scale">0</span>
+            <span class="scale">50</span>
+            <span class="scale">100</span>
           </div>
         </div>
-         
-        <div
-          buttondisplay="tail"
-          class="root input"
-          hidebuttons="true"
-        >
-          <span>
-            b
-          </span>
-           
-          <span
-            style="display: none;"
-          >
-            
-          </span>
-           
-          <!---->
-           
-          <input
-            buttondisplay="tail"
-            hidebuttons="true"
-            type="text"
-          />
-            
-          <!---->
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
+          <span>b</span>
+          <span style="display: none;"></span>
+          <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
-         
-        <span>
-          
-        </span>
+        <span></span>
       </div>
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      vusion-slot-name="default"
-    >
-      <div
-        class="root"
-      >
-        <div
-          class="main"
-        >
-          <div
-            class="tip"
-            vusion-slot-name="tip"
-            vusion-slot-name-edit="tip"
-          >
-            
-                
-                
-            <!---->
+    <div class="root" vusion-slot-name="default">
+      <div class="root">
+        <div class="main">
+          <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
           </div>
-           
-          <div
-            class="root slider"
-          >
-            <div
-              class="body"
-              draggable="draggable"
-            >
-              <div
-                class="track"
-              >
-                <div
-                  class="trail"
-                  style="width: 20%;"
-                />
-                 
-                <!---->
-                 
-                <!---->
+          <div class="root slider">
+            <div class="body" draggable="draggable">
+              <div class="track">
+                <div class="trail" style="width: 20%;"></div>
               </div>
-               
-              <div
-                class="handle"
-                style="left: 20%;"
-              >
-                <!---->
+              <div class="handle" style="left: 20%;">
               </div>
             </div>
           </div>
-           
-          <div
-            class="scales"
-          >
-            <span
-              class="scale"
-            >
-              0
-            </span>
-             
-            <span
-              class="scale"
-            >
-              50
-            </span>
-             
-            <span
-              class="scale"
-            >
-              100
-            </span>
+          <div class="scales">
+            <span class="scale">0</span>
+            <span class="scale">50</span>
+            <span class="scale">100</span>
           </div>
         </div>
-         
-        <div
-          buttondisplay="tail"
-          class="root input"
-          hidebuttons="true"
-        >
-          <span>
-            b
-          </span>
-           
-          <span
-            style="display: none;"
-          >
-            
-          </span>
-           
-          <!---->
-           
-          <input
-            buttondisplay="tail"
-            hidebuttons="true"
-            type="text"
-          />
-            
-          <!---->
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
+          <span>b</span>
+          <span style="display: none;"></span>
+          <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
-         
-        <span>
-          
-        </span>
+        <span></span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -450,1125 +132,335 @@ exports[`u-combo-slider.vue Demo-同步时机 1`] = `
 
 exports[`u-combo-slider.vue Demo-基本用法 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="main"
-    >
-      <div
-        class="tip"
-        vusion-slot-name="tip"
-        vusion-slot-name-edit="tip"
-      >
-        
-                
-                
-        <!---->
+  <div class="root">
+    <div class="main">
+      <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
       </div>
-       
-      <div
-        class="root slider"
-      >
-        <div
-          class="body"
-          draggable="draggable"
-        >
-          <div
-            class="track"
-          >
-            <div
-              class="trail"
-              style="width: 0%;"
-            />
-             
-            <!---->
-             
-            <!---->
+      <div class="root slider">
+        <div class="body" draggable="draggable">
+          <div class="track">
+            <div class="trail" style="width: 0%;"></div>
           </div>
-           
-          <div
-            class="handle"
-            style="left: 0%;"
-          >
-            <!---->
+          <div class="handle" style="left: 0%;">
           </div>
         </div>
       </div>
-       
-      <div
-        class="scales"
-      >
-        <span
-          class="scale"
-        >
-          0
-        </span>
-         
-        <span
-          class="scale"
-        >
-          50
-        </span>
-         
-        <span
-          class="scale"
-        >
-          100
-        </span>
+      <div class="scales">
+        <span class="scale">0</span>
+        <span class="scale">50</span>
+        <span class="scale">100</span>
       </div>
     </div>
-     
-    <div
-      buttondisplay="tail"
-      class="root input"
-      hidebuttons="true"
-    >
-      <span>
-        b
-      </span>
-       
-      <span
-        style="display: none;"
-      >
-        
-      </span>
-       
-      <!---->
-       
-      <input
-        buttondisplay="tail"
-        hidebuttons="true"
-        type="text"
-      />
-        
-      <!---->
+    <div buttondisplay="tail" class="root input" hidebuttons="true">
+      <span>b</span>
+      <span style="display: none;"></span>
+      <input buttondisplay="tail" hidebuttons="true" type="text">
     </div>
-     
-    <span>
-      
-    </span>
+    <span></span>
   </div>
 </div>
 `;
 
 exports[`u-combo-slider.vue Demo-基本用法 2`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="main"
-    >
-      <div
-        class="tip"
-        vusion-slot-name="tip"
-        vusion-slot-name-edit="tip"
-      >
-        
-                
-                
-        <!---->
+  <div class="root">
+    <div class="main">
+      <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
       </div>
-       
-      <div
-        class="root slider"
-      >
-        <div
-          class="body"
-          draggable="draggable"
-        >
-          <div
-            class="track"
-          >
-            <div
-              class="trail"
-              style="width: 0%;"
-            />
-             
-            <!---->
-             
-            <!---->
+      <div class="root slider">
+        <div class="body" draggable="draggable">
+          <div class="track">
+            <div class="trail" style="width: 0%;"></div>
           </div>
-           
-          <div
-            class="handle"
-            style="left: 0%;"
-          >
-            <!---->
+          <div class="handle" style="left: 0%;">
           </div>
         </div>
       </div>
-       
-      <div
-        class="scales"
-      >
-        <span
-          class="scale"
-        >
-          0
-        </span>
-         
-        <span
-          class="scale"
-        >
-          50
-        </span>
-         
-        <span
-          class="scale"
-        >
-          100
-        </span>
+      <div class="scales">
+        <span class="scale">0</span>
+        <span class="scale">50</span>
+        <span class="scale">100</span>
       </div>
     </div>
-     
-    <div
-      buttondisplay="tail"
-      class="root input"
-      hidebuttons="true"
-    >
-      <span>
-        b
-      </span>
-       
-      <span
-        style="display: none;"
-      >
-        
-      </span>
-       
-      <!---->
-       
-      <input
-        buttondisplay="tail"
-        hidebuttons="true"
-        type="text"
-      />
-        
-      <!---->
+    <div buttondisplay="tail" class="root input" hidebuttons="true">
+      <span>b</span>
+      <span style="display: none;"></span>
+      <input buttondisplay="tail" hidebuttons="true" type="text">
     </div>
-     
-    <span>
-      
-    </span>
+    <span></span>
   </div>
 </div>
 `;
 
 exports[`u-combo-slider.vue Demo-多滑块 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="main"
-      multiple="multiple"
-    >
-      <div
-        class="tip"
-        vusion-slot-name="tip"
-        vusion-slot-name-edit="tip"
-      >
-        
-                
-                
-        <!---->
+  <div class="root">
+    <div class="main" multiple="multiple">
+      <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
       </div>
-       
-      <div
-        class="root slider"
-      >
-        <div
-          class="body"
-        >
-          <div
-            class="track"
-            multiple="multiple"
-          >
-            <div
-              class="trail"
-              style="margin-left: 18%; width: 18%;"
-            />
-             
-            <!---->
-             
-            <!---->
+      <div class="root slider">
+        <div class="body">
+          <div class="track" multiple="multiple">
+            <div class="trail" style="margin-left: 18%; width: 18%;"></div>
           </div>
-           
-          <div
-            class="handle"
-            draggable="draggable"
-            style="left: 18%;"
-          >
-            <!---->
+          <div class="handle" draggable="draggable" style="left: 18%;">
           </div>
-          <div
-            class="handle"
-            draggable="draggable"
-            style="left: 36%;"
-          >
-            <!---->
+          <div class="handle" draggable="draggable" style="left: 36%;">
           </div>
         </div>
       </div>
-       
-      <div
-        class="scales"
-      >
-        <span
-          class="scale"
-        >
-          0
-        </span>
-         
-        <span
-          class="scale"
-        >
-          50
-        </span>
-         
-        <span
-          class="scale"
-        >
-          100
-        </span>
+      <div class="scales">
+        <span class="scale">0</span>
+        <span class="scale">50</span>
+        <span class="scale">100</span>
       </div>
     </div>
-     
-    <!---->
-     
-    <span>
-      
-    </span>
+    <span></span>
   </div>
 </div>
 `;
 
 exports[`u-combo-slider.vue Demo-提示 1`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      class="root"
-    >
-      <div
-        class="main"
-        unit="true"
-      >
-        <div
-          class="tip"
-          vusion-slot-name="tip"
-          vusion-slot-name-edit="tip"
-        >
-          
-                步长为10GB
-                
-          <!---->
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root">
+      <div class="main" unit="true">
+        <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+          步长为10GB
         </div>
-         
-        <div
-          class="root slider"
-        >
-          <div
-            class="body"
-            draggable="draggable"
-          >
-            <div
-              class="track"
-            >
-              <div
-                class="trail"
-                style="width: 0%;"
-              />
-               
-              <!---->
-               
-              <!---->
+        <div class="root slider">
+          <div class="body" draggable="draggable">
+            <div class="track">
+              <div class="trail" style="width: 0%;"></div>
             </div>
-             
-            <div
-              class="handle"
-              style="left: 0%;"
-            >
-              <!---->
+            <div class="handle" style="left: 0%;">
             </div>
           </div>
         </div>
-         
-        <div
-          class="scales"
-        >
-          <span
-            class="scale"
-          >
-            0GB
-          </span>
-           
-          <span
-            class="scale"
-          >
-            50GB
-          </span>
-           
-          <span
-            class="scale"
-          >
-            100GB
-          </span>
+        <div class="scales">
+          <span class="scale">0GB</span>
+          <span class="scale">50GB</span>
+          <span class="scale">100GB</span>
         </div>
       </div>
-       
-      <div
-        buttondisplay="tail"
-        class="root input"
-        hidebuttons="true"
-      >
-        <span>
-          b
-        </span>
-         
-        <span
-          style="display: none;"
-        >
-          
-        </span>
-         
-        <!---->
-         
-        <input
-          buttondisplay="tail"
-          hidebuttons="true"
-          type="text"
-        />
-          
-        <!---->
+      <div buttondisplay="tail" class="root input" hidebuttons="true">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input buttondisplay="tail" hidebuttons="true" type="text">
       </div>
-       
-      <span>
-        GB
-      </span>
+      <span>GB</span>
     </div>
-     
-    <div
-      class="root"
-    >
-      <div
-        class="main"
-        unit="true"
-      >
-        <div
-          class="tip"
-          vusion-slot-name="tip"
-          vusion-slot-name-edit="tip"
-        >
-          <div
-            class="root"
-            direction="horizontal"
-            gap="small"
-            type=""
-            vusion-slot-name="default"
-          >
-            <span
-              class="lcp-iconv"
-            >
-              <span
-                class="iconwrap"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="iconsvg"
-                >
-                  <use
-                    xlink:href="#pc-help"
-                  />
+    <div class="root">
+      <div class="main" unit="true">
+        <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+          <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+            <span class="lcp-iconv">
+              <span class="iconwrap">
+                <svg aria-hidden="true" class="iconsvg">
+                  <use xlink:href="#pc-help" />
                 </svg>
               </span>
-               
-              <div
-                class="icontext"
-                vusion-slot-name="default"
-              >
-                 
-                <!---->
+              <div class="icontext" vusion-slot-name="default">
               </div>
             </span>
-             
-            <span
-              class="root"
-              vusion-slot-name-edit="text"
-            >
-              步长为10GB
-            </span>
-             
-            <!---->
-             
-            <!---->
+            <span class="root" vusion-slot-name-edit="text">步长为10GB</span>
           </div>
         </div>
-         
-        <div
-          class="root slider"
-        >
-          <div
-            class="body"
-            draggable="draggable"
-          >
-            <div
-              class="track"
-            >
-              <div
-                class="trail"
-                style="width: 0%;"
-              />
-               
-              <!---->
-               
-              <!---->
+        <div class="root slider">
+          <div class="body" draggable="draggable">
+            <div class="track">
+              <div class="trail" style="width: 0%;"></div>
             </div>
-             
-            <div
-              class="handle"
-              style="left: 0%;"
-            >
-              <!---->
+            <div class="handle" style="left: 0%;">
             </div>
           </div>
         </div>
-         
-        <div
-          class="scales"
-        >
-          <span
-            class="scale"
-          >
-            0GB
-          </span>
-           
-          <span
-            class="scale"
-          >
-            50GB
-          </span>
-           
-          <span
-            class="scale"
-          >
-            100GB
-          </span>
+        <div class="scales">
+          <span class="scale">0GB</span>
+          <span class="scale">50GB</span>
+          <span class="scale">100GB</span>
         </div>
       </div>
-       
-      <div
-        buttondisplay="tail"
-        class="root input"
-        hidebuttons="true"
-      >
-        <span>
-          b
-        </span>
-         
-        <span
-          style="display: none;"
-        >
-          
-        </span>
-         
-        <!---->
-         
-        <input
-          buttondisplay="tail"
-          hidebuttons="true"
-          type="text"
-        />
-          
-        <!---->
+      <div buttondisplay="tail" class="root input" hidebuttons="true">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input buttondisplay="tail" hidebuttons="true" type="text">
       </div>
-       
-      <span>
-        GB
-      </span>
+      <span>GB</span>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-combo-slider.vue Demo-显示tooltip 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="main"
-    >
-      <div
-        class="tip"
-        vusion-slot-name="tip"
-        vusion-slot-name-edit="tip"
-      >
-        
-                
-                
-        <!---->
+  <div class="root">
+    <div class="main">
+      <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
       </div>
-       
-      <div
-        class="root slider"
-      >
-        <div
-          class="body"
-          draggable="draggable"
-        >
-          <div
-            class="track"
-          >
-            <div
-              class="trail"
-              style="width: 0%;"
-            />
-             
-            <!---->
-             
-            <!---->
+      <div class="root slider">
+        <div class="body" draggable="draggable">
+          <div class="track">
+            <div class="trail" style="width: 0%;"></div>
           </div>
-           
-          <div
-            class="handle"
-            style="left: 0%;"
-          >
-            <transition-stub
-              class="popup"
-              name="fade"
-            >
-              <div
-                class="root"
-                merge-borders="true"
-                style="display: none;"
-              >
-                <span
-                  class="arrow"
-                  data-popper-arrow=""
-                />
-                 
-                <!---->
-                 
-                <div
-                  class="body"
-                  vusion-slot-name="default"
-                >
-                  
-                    0
-                
+          <div class="handle" style="left: 0%;">
+            <transition-stub class="popup" name="fade">
+              <div class="root" merge-borders="true" style="display: none;">
+                <span class="arrow" data-popper-arrow></span>
+                <div class="body" vusion-slot-name="default">
+                  0
                 </div>
-                 
-                <!---->
               </div>
             </transition-stub>
           </div>
         </div>
       </div>
-       
-      <div
-        class="scales"
-      >
-        <span
-          class="scale"
-        >
-          0
-        </span>
-         
-        <span
-          class="scale"
-        >
-          50
-        </span>
-         
-        <span
-          class="scale"
-        >
-          100
-        </span>
+      <div class="scales">
+        <span class="scale">0</span>
+        <span class="scale">50</span>
+        <span class="scale">100</span>
       </div>
     </div>
-     
-    <div
-      buttondisplay="tail"
-      class="root input"
-      hidebuttons="true"
-    >
-      <span>
-        b
-      </span>
-       
-      <span
-        style="display: none;"
-      >
-        
-      </span>
-       
-      <!---->
-       
-      <input
-        buttondisplay="tail"
-        hidebuttons="true"
-        type="text"
-      />
-        
-      <!---->
+    <div buttondisplay="tail" class="root input" hidebuttons="true">
+      <span>b</span>
+      <span style="display: none;"></span>
+      <input buttondisplay="tail" hidebuttons="true" type="text">
     </div>
-     
-    <span>
-      
-    </span>
+    <span></span>
   </div>
 </div>
 `;
 
 exports[`u-combo-slider.vue Demo-显示输入框button 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="main"
-    >
-      <div
-        class="tip"
-        vusion-slot-name="tip"
-        vusion-slot-name-edit="tip"
-      >
-        
-                
-                
-        <!---->
+  <div class="root">
+    <div class="main">
+      <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
       </div>
-       
-      <div
-        class="root slider"
-      >
-        <div
-          class="body"
-          draggable="draggable"
-        >
-          <div
-            class="track"
-          >
-            <div
-              class="trail"
-              style="width: 0%;"
-            />
-             
-            <!---->
-             
-            <!---->
+      <div class="root slider">
+        <div class="body" draggable="draggable">
+          <div class="track">
+            <div class="trail" style="width: 0%;"></div>
           </div>
-           
-          <div
-            class="handle"
-            style="left: 0%;"
-          >
-            <!---->
+          <div class="handle" style="left: 0%;">
           </div>
         </div>
       </div>
-       
-      <div
-        class="scales"
-      >
-        <span
-          class="scale"
-        >
-          0
-        </span>
-         
-        <span
-          class="scale"
-        >
-          50
-        </span>
-         
-        <span
-          class="scale"
-        >
-          100
-        </span>
+      <div class="scales">
+        <span class="scale">0</span>
+        <span class="scale">50</span>
+        <span class="scale">100</span>
       </div>
     </div>
-     
-    <div
-      buttondisplay="tail"
-      class="root input"
-    >
-      <span>
-        b
-      </span>
-       
-      <span
-        style="display: none;"
-      >
-        
-      </span>
-       
-      <!---->
-       
-      <input
-        buttondisplay="tail"
-        type="text"
-      />
-       
-      <span
-        class="button"
-        role="up"
-        tabindex="0"
-      />
-       
-      <span
-        class="button"
-        disabled="disabled"
-        role="down"
-        tabindex="0"
-      />
-        
-      <!---->
+    <div buttondisplay="tail" class="root input">
+      <span>b</span>
+      <span style="display: none;"></span>
+      <input buttondisplay="tail" type="text">
+      <span class="button" role="up" tabindex="0"></span>
+      <span class="button" disabled="disabled" role="down" tabindex="0"></span>
     </div>
-     
-    <span>
-      
-    </span>
+    <span></span>
   </div>
 </div>
 `;
 
 exports[`u-combo-slider.vue Demo-最大值和最小值 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="main"
-      unit="true"
-    >
-      <div
-        class="tip"
-        vusion-slot-name="tip"
-        vusion-slot-name-edit="tip"
-      >
-        
-                步长为10GB
-                
-        <!---->
+  <div class="root">
+    <div class="main" unit="true">
+      <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+        步长为10GB
       </div>
-       
-      <div
-        class="root slider"
-      >
-        <div
-          class="body"
-          draggable="draggable"
-        >
-          <div
-            class="track"
-          >
-            <div
-              class="trail"
-              style="width: 37.5%;"
-            />
-             
-            <!---->
-             
-            <!---->
+      <div class="root slider">
+        <div class="body" draggable="draggable">
+          <div class="track">
+            <div class="trail" style="width: 37.5%;"></div>
           </div>
-           
-          <div
-            class="handle"
-            style="left: 37.5%;"
-          >
-            <!---->
+          <div class="handle" style="left: 37.5%;">
           </div>
         </div>
       </div>
-       
-      <div
-        class="scales"
-      >
-        <span
-          class="scale"
-        >
-          10GB
-        </span>
-         
-        <span
-          class="scale"
-        >
-          50GB
-        </span>
-         
-        <span
-          class="scale"
-        >
-          90GB
-        </span>
+      <div class="scales">
+        <span class="scale">10GB</span>
+        <span class="scale">50GB</span>
+        <span class="scale">90GB</span>
       </div>
     </div>
-     
-    <div
-      buttondisplay="tail"
-      class="root input"
-      hidebuttons="true"
-    >
-      <span>
-        b
-      </span>
-       
-      <span
-        style="display: none;"
-      >
-        
-      </span>
-       
-      <!---->
-       
-      <input
-        buttondisplay="tail"
-        hidebuttons="true"
-        type="text"
-      />
-        
-      <!---->
+    <div buttondisplay="tail" class="root input" hidebuttons="true">
+      <span>b</span>
+      <span style="display: none;"></span>
+      <input buttondisplay="tail" hidebuttons="true" type="text">
     </div>
-     
-    <span>
-      GB
-    </span>
+    <span>GB</span>
   </div>
 </div>
 `;
 
 exports[`u-combo-slider.vue Demo-格式化 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="root"
-      vusion-slot-name="default"
-    >
-      <div
-        class="root"
-      >
-        <div
-          class="main"
-        >
-          <div
-            class="tip"
-            vusion-slot-name="tip"
-            vusion-slot-name-edit="tip"
-          >
-            
-                
-                
-            <!---->
+  <div class="root">
+    <div class="root" vusion-slot-name="default">
+      <div class="root">
+        <div class="main">
+          <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
           </div>
-           
-          <div
-            class="root slider"
-          >
-            <div
-              class="body"
-              draggable="draggable"
-            >
-              <div
-                class="track"
-              >
-                <div
-                  class="trail"
-                  style="width: 6%;"
-                />
-                 
-                <!---->
-                 
-                <!---->
+          <div class="root slider">
+            <div class="body" draggable="draggable">
+              <div class="track">
+                <div class="trail" style="width: 6%;"></div>
               </div>
-               
-              <div
-                class="handle"
-                style="left: 6%;"
-              >
-                <!---->
+              <div class="handle" style="left: 6%;">
               </div>
             </div>
           </div>
-           
-          <div
-            class="scales"
-          >
-            <span
-              class="scale"
-            >
-              0
-            </span>
-             
-            <span
-              class="scale"
-            >
-              50
-            </span>
-             
-            <span
-              class="scale"
-            >
-              100
-            </span>
+          <div class="scales">
+            <span class="scale">0</span>
+            <span class="scale">50</span>
+            <span class="scale">100</span>
           </div>
         </div>
-         
-        <div
-          buttondisplay="tail"
-          class="root input"
-          hidebuttons="true"
-        >
-          <span>
-            b
-          </span>
-           
-          <span
-            style="display: none;"
-          >
-            
-          </span>
-           
-          <!---->
-           
-          <input
-            buttondisplay="tail"
-            hidebuttons="true"
-            type="text"
-          />
-            
-          <!---->
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
+          <span>b</span>
+          <span style="display: none;"></span>
+          <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
-         
-        <span>
-          
-        </span>
+        <span></span>
       </div>
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      vusion-slot-name="default"
-    >
-      <div
-        class="root"
-      >
-        <div
-          class="main"
-        >
-          <div
-            class="tip"
-            vusion-slot-name="tip"
-            vusion-slot-name-edit="tip"
-          >
-            
-                
-                
-            <!---->
+    <div class="root" vusion-slot-name="default">
+      <div class="root">
+        <div class="main">
+          <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
           </div>
-           
-          <div
-            class="root slider"
-          >
-            <div
-              class="body"
-              draggable="draggable"
-            >
-              <div
-                class="track"
-              >
-                <div
-                  class="trail"
-                  style="width: 20%;"
-                />
-                 
-                <!---->
-                 
-                <!---->
+          <div class="root slider">
+            <div class="body" draggable="draggable">
+              <div class="track">
+                <div class="trail" style="width: 20%;"></div>
               </div>
-               
-              <div
-                class="handle"
-                style="left: 20%;"
-              >
-                <!---->
+              <div class="handle" style="left: 20%;">
               </div>
             </div>
           </div>
-           
-          <div
-            class="scales"
-          >
-            <span
-              class="scale"
-            >
-              0
-            </span>
-             
-            <span
-              class="scale"
-            >
-              50
-            </span>
-             
-            <span
-              class="scale"
-            >
-              100
-            </span>
+          <div class="scales">
+            <span class="scale">0</span>
+            <span class="scale">50</span>
+            <span class="scale">100</span>
           </div>
         </div>
-         
-        <div
-          buttondisplay="tail"
-          class="root input"
-          hidebuttons="true"
-        >
-          <span>
-            b
-          </span>
-           
-          <span
-            style="display: none;"
-          >
-            
-          </span>
-           
-          <!---->
-           
-          <input
-            buttondisplay="tail"
-            hidebuttons="true"
-            type="text"
-          />
-            
-          <!---->
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
+          <span>b</span>
+          <span style="display: none;"></span>
+          <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
-         
-        <span>
-          
-        </span>
+        <span></span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -1576,328 +468,93 @@ exports[`u-combo-slider.vue Demo-格式化 1`] = `
 
 exports[`u-combo-slider.vue Demo-精度与间隔 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="root"
-      vusion-slot-name="default"
-    >
-      <div
-        class="root"
-      >
-        <div
-          class="main"
-        >
-          <div
-            class="tip"
-            vusion-slot-name="tip"
-            vusion-slot-name-edit="tip"
-          >
-            
-                
-                
-            <!---->
+  <div class="root">
+    <div class="root" vusion-slot-name="default">
+      <div class="root">
+        <div class="main">
+          <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
           </div>
-           
-          <div
-            class="root slider"
-          >
-            <div
-              class="body"
-              draggable="draggable"
-            >
-              <div
-                class="track"
-              >
-                <div
-                  class="trail"
-                  style="width: 20%;"
-                />
-                 
-                <!---->
-                 
-                <!---->
+          <div class="root slider">
+            <div class="body" draggable="draggable">
+              <div class="track">
+                <div class="trail" style="width: 20%;"></div>
               </div>
-               
-              <div
-                class="handle"
-                style="left: 20%;"
-              >
-                <!---->
+              <div class="handle" style="left: 20%;">
               </div>
             </div>
           </div>
-           
-          <div
-            class="scales"
-          >
-            <span
-              class="scale"
-            >
-              0
-            </span>
-             
-            <span
-              class="scale"
-            >
-              50
-            </span>
-             
-            <span
-              class="scale"
-            >
-              100
-            </span>
+          <div class="scales">
+            <span class="scale">0</span>
+            <span class="scale">50</span>
+            <span class="scale">100</span>
           </div>
         </div>
-         
-        <div
-          buttondisplay="tail"
-          class="root input"
-          hidebuttons="true"
-        >
-          <span>
-            b
-          </span>
-           
-          <span
-            style="display: none;"
-          >
-            
-          </span>
-           
-          <!---->
-           
-          <input
-            buttondisplay="tail"
-            hidebuttons="true"
-            type="text"
-          />
-            
-          <!---->
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
+          <span>b</span>
+          <span style="display: none;"></span>
+          <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
-         
-        <span>
-          
-        </span>
+        <span></span>
       </div>
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      vusion-slot-name="default"
-    >
-      <div
-        class="root"
-      >
-        <div
-          class="main"
-        >
-          <div
-            class="tip"
-            vusion-slot-name="tip"
-            vusion-slot-name-edit="tip"
-          >
-            
-                
-                
-            <!---->
+    <div class="root" vusion-slot-name="default">
+      <div class="root">
+        <div class="main">
+          <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
           </div>
-           
-          <div
-            class="root slider"
-          >
-            <div
-              class="body"
-              draggable="draggable"
-            >
-              <div
-                class="track"
-              >
-                <div
-                  class="trail"
-                  style="width: 20%;"
-                />
-                 
-                <!---->
-                 
-                <!---->
+          <div class="root slider">
+            <div class="body" draggable="draggable">
+              <div class="track">
+                <div class="trail" style="width: 20%;"></div>
               </div>
-               
-              <div
-                class="handle"
-                style="left: 20%;"
-              >
-                <!---->
+              <div class="handle" style="left: 20%;">
               </div>
             </div>
           </div>
-           
-          <div
-            class="scales"
-          >
-            <span
-              class="scale"
-            >
-              0
-            </span>
-             
-            <span
-              class="scale"
-            >
-              50
-            </span>
-             
-            <span
-              class="scale"
-            >
-              100
-            </span>
+          <div class="scales">
+            <span class="scale">0</span>
+            <span class="scale">50</span>
+            <span class="scale">100</span>
           </div>
         </div>
-         
-        <div
-          buttondisplay="tail"
-          class="root input"
-          hidebuttons="true"
-        >
-          <span>
-            b
-          </span>
-           
-          <span
-            style="display: none;"
-          >
-            
-          </span>
-           
-          <!---->
-           
-          <input
-            buttondisplay="tail"
-            hidebuttons="true"
-            type="text"
-          />
-            
-          <!---->
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
+          <span>b</span>
+          <span style="display: none;"></span>
+          <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
-         
-        <span>
-          
-        </span>
+        <span></span>
       </div>
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      vusion-slot-name="default"
-    >
-      <div
-        class="root"
-      >
-        <div
-          class="main"
-        >
-          <div
-            class="tip"
-            vusion-slot-name="tip"
-            vusion-slot-name-edit="tip"
-          >
-            
-                
-                
-            <!---->
+    <div class="root" vusion-slot-name="default">
+      <div class="root">
+        <div class="main">
+          <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
           </div>
-           
-          <div
-            class="root slider"
-          >
-            <div
-              class="body"
-              draggable="draggable"
-            >
-              <div
-                class="track"
-              >
-                <div
-                  class="trail"
-                  style="width: 20%;"
-                />
-                 
-                <!---->
-                 
-                <!---->
+          <div class="root slider">
+            <div class="body" draggable="draggable">
+              <div class="track">
+                <div class="trail" style="width: 20%;"></div>
               </div>
-               
-              <div
-                class="handle"
-                style="left: 20%;"
-              >
-                <!---->
+              <div class="handle" style="left: 20%;">
               </div>
             </div>
           </div>
-           
-          <div
-            class="scales"
-          >
-            <span
-              class="scale"
-            >
-              0
-            </span>
-             
-            <span
-              class="scale"
-            >
-              50
-            </span>
-             
-            <span
-              class="scale"
-            >
-              100
-            </span>
+          <div class="scales">
+            <span class="scale">0</span>
+            <span class="scale">50</span>
+            <span class="scale">100</span>
           </div>
         </div>
-         
-        <div
-          buttondisplay="tail"
-          class="root input"
-          hidebuttons="true"
-        >
-          <span>
-            b
-          </span>
-           
-          <span
-            style="display: none;"
-          >
-            
-          </span>
-           
-          <!---->
-           
-          <input
-            buttondisplay="tail"
-            hidebuttons="true"
-            type="text"
-          />
-            
-          <!---->
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
+          <span>b</span>
+          <span style="display: none;"></span>
+          <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
-         
-        <span>
-          
-        </span>
+        <span></span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -1905,233 +562,67 @@ exports[`u-combo-slider.vue Demo-精度与间隔 1`] = `
 
 exports[`u-combo-slider.vue Demo-范围 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="root"
-      vusion-slot-name="default"
-    >
-      <div
-        class="root"
-      >
-        <div
-          class="main"
-        >
-          <div
-            class="tip"
-            vusion-slot-name="tip"
-            vusion-slot-name-edit="tip"
-          >
-            
-                
-                
-            <!---->
+  <div class="root">
+    <div class="root" vusion-slot-name="default">
+      <div class="root">
+        <div class="main">
+          <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
           </div>
-           
-          <div
-            class="root slider"
-          >
-            <div
-              class="body"
-              draggable="draggable"
-            >
-              <div
-                class="track"
-              >
-                <div
-                  class="trail"
-                  style="width: 50%;"
-                />
-                 
-                <div
-                  class="bound"
-                  role="start"
-                  style="width: 20%;"
-                />
-                 
-                <div
-                  class="bound"
-                  role="end"
-                  style="width: 15%;"
-                />
+          <div class="root slider">
+            <div class="body" draggable="draggable">
+              <div class="track">
+                <div class="trail" style="width: 50%;"></div>
+                <div class="bound" role="start" style="width: 20%;"></div>
+                <div class="bound" role="end" style="width: 15%;"></div>
               </div>
-               
-              <div
-                class="handle"
-                style="left: 50%;"
-              >
-                <!---->
+              <div class="handle" style="left: 50%;">
               </div>
             </div>
           </div>
-           
-          <div
-            class="scales"
-          >
-            <span
-              class="scale"
-            >
-              0
-            </span>
-             
-            <span
-              class="scale"
-            >
-              50
-            </span>
-             
-            <span
-              class="scale"
-            >
-              100
-            </span>
+          <div class="scales">
+            <span class="scale">0</span>
+            <span class="scale">50</span>
+            <span class="scale">100</span>
           </div>
         </div>
-         
-        <div
-          buttondisplay="tail"
-          class="root input"
-          hidebuttons="true"
-        >
-          <span>
-            b
-          </span>
-           
-          <span
-            style="display: none;"
-          >
-            
-          </span>
-           
-          <!---->
-           
-          <input
-            buttondisplay="tail"
-            hidebuttons="true"
-            type="text"
-          />
-            
-          <!---->
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
+          <span>b</span>
+          <span style="display: none;"></span>
+          <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
-         
-        <span>
-          
-        </span>
+        <span></span>
       </div>
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      vusion-slot-name="default"
-    >
-      <div
-        class="root"
-      >
-        <div
-          class="main"
-        >
-          <div
-            class="tip"
-            vusion-slot-name="tip"
-            vusion-slot-name-edit="tip"
-          >
-            
-                
-                
-            <!---->
+    <div class="root" vusion-slot-name="default">
+      <div class="root">
+        <div class="main">
+          <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
           </div>
-           
-          <div
-            class="root slider"
-          >
-            <div
-              class="body"
-              draggable="draggable"
-            >
-              <div
-                class="track"
-              >
-                <div
-                  class="trail"
-                  style="width: 40%;"
-                />
-                 
-                <div
-                  class="bound"
-                  role="start"
-                  style="width: 30%;"
-                />
-                 
-                <!---->
+          <div class="root slider">
+            <div class="body" draggable="draggable">
+              <div class="track">
+                <div class="trail" style="width: 40%;"></div>
+                <div class="bound" role="start" style="width: 30%;"></div>
               </div>
-               
-              <div
-                class="handle"
-                style="left: 40%;"
-              >
-                <!---->
+              <div class="handle" style="left: 40%;">
               </div>
             </div>
           </div>
-           
-          <div
-            class="scales"
-          >
-            <span
-              class="scale"
-            >
-              0
-            </span>
-             
-            <span
-              class="scale"
-            >
-              50
-            </span>
-             
-            <span
-              class="scale"
-            >
-              100
-            </span>
+          <div class="scales">
+            <span class="scale">0</span>
+            <span class="scale">50</span>
+            <span class="scale">100</span>
           </div>
         </div>
-         
-        <div
-          buttondisplay="tail"
-          class="root input"
-          hidebuttons="true"
-        >
-          <span>
-            b
-          </span>
-           
-          <span
-            style="display: none;"
-          >
-            
-          </span>
-           
-          <!---->
-           
-          <input
-            buttondisplay="tail"
-            hidebuttons="true"
-            type="text"
-          />
-            
-          <!---->
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
+          <span>b</span>
+          <span style="display: none;"></span>
+          <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
-         
-        <span>
-          
-        </span>
+        <span></span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>

@@ -2,299 +2,98 @@
 
 exports[`u-collapse.vue Demo-使用插槽 1`] = `
 <div>
-  <div
-    class="root"
-    fill="head"
-  >
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板1
-                
-          <!---->
+  <div class="root" fill="head">
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板1
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-          <a
-            class="root"
-            hovertype="underline"
-            tabindex="0"
-            target="_self"
-            vusion-slot-name-edit="text"
-          >
-            <!---->
-             设置
-          </a>
-           
-          <!---->
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra">
+          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text"> 设置</a>
         </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            
-        Content1
-     
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">
+            Content1
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-      expanded="true"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板2
-                
-          <!---->
+    <div class="root" expanded="true">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板2
         </span>
-         
-        <span
-          class="expander"
-          expanded="true"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander" expanded="true"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            <div
-              class="root"
-              fill="head"
-            >
-              <div
-                class="root"
-              >
-                <div
-                  class="head"
-                  expand-trigger="click"
-                >
-                  <span
-                    vusion-slot-name="title"
-                    vusion-slot-name-edit="title"
-                  >
-                    
-                面板1
-                
-                    <!---->
+        <div class="body">
+          <div class="content" vusion-slot-name="default">
+            <div class="root" fill="head">
+              <div class="root">
+                <div class="head" expand-trigger="click">
+                  <span vusion-slot-name="title" vusion-slot-name-edit="title">
+                    面板1
                   </span>
-                   
-                  <span
-                    class="expander"
-                  />
-                   
-                  <span
-                    class="extra"
-                    vusion-slot-name="extra"
-                  >
-                     
-                    <!---->
-                  </span>
+                  <span class="expander"></span>
+                  <span class="extra" vusion-slot-name="extra"> </span>
                 </div>
-                 
                 <transition-stub>
-                  <div
-                    class="body"
-                    style="display: none;"
-                  >
-                    <div
-                      class="content"
-                      vusion-slot-name="default"
-                    >
-                      Content1 
-                      <!---->
+                  <div class="body" style="display: none;">
+                    <div class="content" vusion-slot-name="default">Content1
                     </div>
                   </div>
                 </transition-stub>
               </div>
-               
-              <div
-                class="root"
-                expanded="true"
-              >
-                <div
-                  class="head"
-                  expand-trigger="click"
-                >
-                  <span
-                    vusion-slot-name="title"
-                    vusion-slot-name-edit="title"
-                  >
-                    
-                面板2
-                
-                    <!---->
+              <div class="root" expanded="true">
+                <div class="head" expand-trigger="click">
+                  <span vusion-slot-name="title" vusion-slot-name-edit="title">
+                    面板2
                   </span>
-                   
-                  <span
-                    class="expander"
-                    expanded="true"
-                  />
-                   
-                  <span
-                    class="extra"
-                    vusion-slot-name="extra"
-                  >
-                     
-                    <!---->
-                  </span>
+                  <span class="expander" expanded="true"></span>
+                  <span class="extra" vusion-slot-name="extra"> </span>
                 </div>
-                 
                 <transition-stub>
-                  <div
-                    class="body"
-                  >
-                    <div
-                      class="content"
-                      vusion-slot-name="default"
-                    >
-                      Content2 
-                      <!---->
+                  <div class="body">
+                    <div class="content" vusion-slot-name="default">Content2
                     </div>
                   </div>
                 </transition-stub>
               </div>
-               
-              <div
-                class="root"
-              >
-                <div
-                  class="head"
-                  expand-trigger="click"
-                >
-                  <span
-                    vusion-slot-name="title"
-                    vusion-slot-name-edit="title"
-                  >
-                    
-                面板3
-                
-                    <!---->
+              <div class="root">
+                <div class="head" expand-trigger="click">
+                  <span vusion-slot-name="title" vusion-slot-name-edit="title">
+                    面板3
                   </span>
-                   
-                  <span
-                    class="expander"
-                  />
-                   
-                  <span
-                    class="extra"
-                    vusion-slot-name="extra"
-                  >
-                     
-                    <!---->
-                  </span>
+                  <span class="expander"></span>
+                  <span class="extra" vusion-slot-name="extra"> </span>
                 </div>
-                 
                 <transition-stub>
-                  <div
-                    class="body"
-                    style="display: none;"
-                  >
-                    <div
-                      class="content"
-                      vusion-slot-name="default"
-                    >
-                      Content3 
-                      <!---->
+                  <div class="body" style="display: none;">
+                    <div class="content" vusion-slot-name="default">Content3
                     </div>
                   </div>
                 </transition-stub>
               </div>
             </div>
-             
-            <!---->
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板3
-                
-          <!---->
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板3
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content3 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content3
           </div>
         </div>
       </transition-stub>
@@ -305,150 +104,48 @@ exports[`u-collapse.vue Demo-使用插槽 1`] = `
 
 exports[`u-collapse.vue Demo-基本用法 1`] = `
 <div>
-  <div
-    class="root"
-    fill="head"
-  >
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          <span
-            class="root"
-            vusion-slot-name-edit="text"
-          >
-            面板1
-          </span>
+  <div class="root" fill="head">
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          <span class="root" vusion-slot-name-edit="text">面板1</span>
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content1 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content1
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-      expanded="true"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          <span
-            class="root"
-            vusion-slot-name-edit="text"
-          >
-            面板2
-          </span>
+    <div class="root" expanded="true">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          <span class="root" vusion-slot-name-edit="text">面板2</span>
         </span>
-         
-        <span
-          class="expander"
-          expanded="true"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander" expanded="true"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content2 
-            <!---->
+        <div class="body">
+          <div class="content" vusion-slot-name="default">Content2
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          <span
-            class="root"
-            vusion-slot-name-edit="text"
-          >
-            面板3
-          </span>
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          <span class="root" vusion-slot-name-edit="text">面板3</span>
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content3 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content3
           </div>
         </div>
       </transition-stub>
@@ -459,145 +156,48 @@ exports[`u-collapse.vue Demo-基本用法 1`] = `
 
 exports[`u-collapse.vue Demo-基本用法 2`] = `
 <div>
-  <div
-    class="root"
-    fill="head"
-  >
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板1
-                
-          <!---->
+  <div class="root" fill="head">
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板1
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content1 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content1
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-      expanded="true"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板2
-                
-          <!---->
+    <div class="root" expanded="true">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板2
         </span>
-         
-        <span
-          class="expander"
-          expanded="true"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander" expanded="true"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content2 
-            <!---->
+        <div class="body">
+          <div class="content" vusion-slot-name="default">Content2
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-      disabled="disabled"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板3
-                
-          <!---->
+    <div class="root" disabled="disabled">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板3
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content3 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content3
           </div>
         </div>
       </transition-stub>
@@ -608,144 +208,48 @@ exports[`u-collapse.vue Demo-基本用法 2`] = `
 
 exports[`u-collapse.vue Demo-填充模式 1`] = `
 <div>
-  <div
-    class="root"
-    fill="content"
-  >
-    <div
-      class="root"
-      expanded="true"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板1
-                
-          <!---->
+  <div class="root" fill="content">
+    <div class="root" expanded="true">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板1
         </span>
-         
-        <span
-          class="expander"
-          expanded="true"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander" expanded="true"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content1 
-            <!---->
+        <div class="body">
+          <div class="content" vusion-slot-name="default">Content1
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板2
-                
-          <!---->
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板2
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content2 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content2
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板3
-                
-          <!---->
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板3
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content3 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content3
           </div>
         </div>
       </transition-stub>
@@ -756,144 +260,48 @@ exports[`u-collapse.vue Demo-填充模式 1`] = `
 
 exports[`u-collapse.vue Demo-填充模式 2`] = `
 <div>
-  <div
-    class="root"
-    fill="none"
-  >
-    <div
-      class="root"
-      expanded="true"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板1
-                
-          <!---->
+  <div class="root" fill="none">
+    <div class="root" expanded="true">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板1
         </span>
-         
-        <span
-          class="expander"
-          expanded="true"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander" expanded="true"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content1 
-            <!---->
+        <div class="body">
+          <div class="content" vusion-slot-name="default">Content1
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板2
-                
-          <!---->
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板2
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content2 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content2
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板3
-                
-          <!---->
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板3
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content3 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content3
           </div>
         </div>
       </transition-stub>
@@ -904,144 +312,48 @@ exports[`u-collapse.vue Demo-填充模式 2`] = `
 
 exports[`u-collapse.vue Demo-手风琴模式 1`] = `
 <div>
-  <div
-    class="root"
-    fill="head"
-  >
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板1
-                
-          <!---->
+  <div class="root" fill="head">
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板1
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content1 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content1
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-      expanded="true"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板2
-                
-          <!---->
+    <div class="root" expanded="true">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板2
         </span>
-         
-        <span
-          class="expander"
-          expanded="true"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander" expanded="true"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content2 
-            <!---->
+        <div class="body">
+          <div class="content" vusion-slot-name="default">Content2
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板3
-                
-          <!---->
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板3
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content3 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content3
           </div>
         </div>
       </transition-stub>
@@ -1052,159 +364,52 @@ exports[`u-collapse.vue Demo-手风琴模式 1`] = `
 
 exports[`u-collapse.vue Demo-简洁模式 1`] = `
 <div>
-  <div
-    appear="simple"
-    class="root"
-    fill="head"
-  >
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板1
-                
-          <!---->
+  <div appear="simple" class="root" fill="head">
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板1
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-          <a
-            class="root"
-            hovertype="underline"
-            tabindex="0"
-            target="_self"
-            vusion-slot-name-edit="text"
-          >
-            <!---->
-             设置
-          </a>
-           
-          <!---->
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra">
+          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text"> 设置</a>
         </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            
-        Content1
-     
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">
+            Content1
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-      expanded="true"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板2
-                
-          <!---->
+    <div class="root" expanded="true">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板2
         </span>
-         
-        <span
-          class="expander"
-          expanded="true"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander" expanded="true"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            
-        Content2
-     
-            <!---->
+        <div class="body">
+          <div class="content" vusion-slot-name="default">
+            Content2
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板3
-                
-          <!---->
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板3
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content3 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content3
           </div>
         </div>
       </transition-stub>
@@ -1215,146 +420,48 @@ exports[`u-collapse.vue Demo-简洁模式 1`] = `
 
 exports[`u-collapse.vue Demo-设置尺寸 1`] = `
 <div>
-  <div
-    class="root"
-    fill="head"
-    size="small"
-  >
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板1
-                
-          <!---->
+  <div class="root" fill="head" size="small">
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板1
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content1 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content1
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-      expanded="true"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板2
-                
-          <!---->
+    <div class="root" expanded="true">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板2
         </span>
-         
-        <span
-          class="expander"
-          expanded="true"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander" expanded="true"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content2 
-            <!---->
+        <div class="body">
+          <div class="content" vusion-slot-name="default">Content2
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-      disabled="disabled"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板3
-                
-          <!---->
+    <div class="root" disabled="disabled">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板3
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content3 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content3
           </div>
         </div>
       </transition-stub>
@@ -1365,287 +472,95 @@ exports[`u-collapse.vue Demo-设置尺寸 1`] = `
 
 exports[`u-collapse.vue Demo-面板嵌套 1`] = `
 <div>
-  <div
-    class="root"
-    fill="head"
-  >
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板1
-                
-          <!---->
+  <div class="root" fill="head">
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板1
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content1 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content1
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-      expanded="true"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板2
-                
-          <!---->
+    <div class="root" expanded="true">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板2
         </span>
-         
-        <span
-          class="expander"
-          expanded="true"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander" expanded="true"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            <div
-              class="root"
-              fill="head"
-            >
-              <div
-                class="root"
-              >
-                <div
-                  class="head"
-                  expand-trigger="click"
-                >
-                  <span
-                    vusion-slot-name="title"
-                    vusion-slot-name-edit="title"
-                  >
-                    
-                面板1
-                
-                    <!---->
+        <div class="body">
+          <div class="content" vusion-slot-name="default">
+            <div class="root" fill="head">
+              <div class="root">
+                <div class="head" expand-trigger="click">
+                  <span vusion-slot-name="title" vusion-slot-name-edit="title">
+                    面板1
                   </span>
-                   
-                  <span
-                    class="expander"
-                  />
-                   
-                  <span
-                    class="extra"
-                    vusion-slot-name="extra"
-                  >
-                     
-                    <!---->
-                  </span>
+                  <span class="expander"></span>
+                  <span class="extra" vusion-slot-name="extra"> </span>
                 </div>
-                 
                 <transition-stub>
-                  <div
-                    class="body"
-                    style="display: none;"
-                  >
-                    <div
-                      class="content"
-                      vusion-slot-name="default"
-                    >
-                      Content1 
-                      <!---->
+                  <div class="body" style="display: none;">
+                    <div class="content" vusion-slot-name="default">Content1
                     </div>
                   </div>
                 </transition-stub>
               </div>
-               
-              <div
-                class="root"
-                expanded="true"
-              >
-                <div
-                  class="head"
-                  expand-trigger="click"
-                >
-                  <span
-                    vusion-slot-name="title"
-                    vusion-slot-name-edit="title"
-                  >
-                    
-                面板2
-                
-                    <!---->
+              <div class="root" expanded="true">
+                <div class="head" expand-trigger="click">
+                  <span vusion-slot-name="title" vusion-slot-name-edit="title">
+                    面板2
                   </span>
-                   
-                  <span
-                    class="expander"
-                    expanded="true"
-                  />
-                   
-                  <span
-                    class="extra"
-                    vusion-slot-name="extra"
-                  >
-                     
-                    <!---->
-                  </span>
+                  <span class="expander" expanded="true"></span>
+                  <span class="extra" vusion-slot-name="extra"> </span>
                 </div>
-                 
                 <transition-stub>
-                  <div
-                    class="body"
-                  >
-                    <div
-                      class="content"
-                      vusion-slot-name="default"
-                    >
-                      Content2 
-                      <!---->
+                  <div class="body">
+                    <div class="content" vusion-slot-name="default">Content2
                     </div>
                   </div>
                 </transition-stub>
               </div>
-               
-              <div
-                class="root"
-              >
-                <div
-                  class="head"
-                  expand-trigger="click"
-                >
-                  <span
-                    vusion-slot-name="title"
-                    vusion-slot-name-edit="title"
-                  >
-                    
-                面板3
-                
-                    <!---->
+              <div class="root">
+                <div class="head" expand-trigger="click">
+                  <span vusion-slot-name="title" vusion-slot-name-edit="title">
+                    面板3
                   </span>
-                   
-                  <span
-                    class="expander"
-                  />
-                   
-                  <span
-                    class="extra"
-                    vusion-slot-name="extra"
-                  >
-                     
-                    <!---->
-                  </span>
+                  <span class="expander"></span>
+                  <span class="extra" vusion-slot-name="extra"> </span>
                 </div>
-                 
                 <transition-stub>
-                  <div
-                    class="body"
-                    style="display: none;"
-                  >
-                    <div
-                      class="content"
-                      vusion-slot-name="default"
-                    >
-                      Content3 
-                      <!---->
+                  <div class="body" style="display: none;">
+                    <div class="content" vusion-slot-name="default">Content3
                     </div>
                   </div>
                 </transition-stub>
               </div>
             </div>
-             
-            <!---->
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          
-                面板3
-                
-          <!---->
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          面板3
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content3 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content3
           </div>
         </div>
       </transition-stub>
@@ -1656,160 +571,50 @@ exports[`u-collapse.vue Demo-面板嵌套 1`] = `
 
 exports[`u-collapse.vue Demo-额外插槽 1`] = `
 <div>
-  <div
-    class="root"
-    fill="head"
-  >
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          <span
-            class="root"
-            vusion-slot-name-edit="text"
-          >
-            面板1
-          </span>
+  <div class="root" fill="head">
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          <span class="root" vusion-slot-name-edit="text">面板1</span>
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-          <a
-            class="root"
-            hovertype="underline"
-            tabindex="0"
-            target="_self"
-            vusion-slot-name-edit="text"
-          >
-            <!---->
-             设置
-          </a>
-           
-          <!---->
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra">
+          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text"> 设置</a>
         </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content1 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content1
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-      expanded="true"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          <span
-            class="root"
-            vusion-slot-name-edit="text"
-          >
-            面板2
-          </span>
+    <div class="root" expanded="true">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          <span class="root" vusion-slot-name-edit="text">面板2</span>
         </span>
-         
-        <span
-          class="expander"
-          expanded="true"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander" expanded="true"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content2 
-            <!---->
+        <div class="body">
+          <div class="content" vusion-slot-name="default">Content2
           </div>
         </div>
       </transition-stub>
     </div>
-     
-    <div
-      class="root"
-    >
-      <div
-        class="head"
-        expand-trigger="click"
-      >
-        <span
-          vusion-slot-name="title"
-          vusion-slot-name-edit="title"
-        >
-          <span
-            class="root"
-            vusion-slot-name-edit="text"
-          >
-            面板3
-          </span>
+    <div class="root">
+      <div class="head" expand-trigger="click">
+        <span vusion-slot-name="title" vusion-slot-name-edit="title">
+          <span class="root" vusion-slot-name-edit="text">面板3</span>
         </span>
-         
-        <span
-          class="expander"
-        />
-         
-        <span
-          class="extra"
-          vusion-slot-name="extra"
-        >
-           
-          <!---->
-        </span>
+        <span class="expander"></span>
+        <span class="extra" vusion-slot-name="extra"> </span>
       </div>
-       
       <transition-stub>
-        <div
-          class="body"
-          style="display: none;"
-        >
-          <div
-            class="content"
-            vusion-slot-name="default"
-          >
-            Content3 
-            <!---->
+        <div class="body" style="display: none;">
+          <div class="content" vusion-slot-name="default">Content3
           </div>
         </div>
       </transition-stub>

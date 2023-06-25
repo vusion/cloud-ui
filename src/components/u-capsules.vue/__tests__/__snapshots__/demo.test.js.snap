@@ -2,69 +2,24 @@
 
 exports[`u-capsules.vue Demo-Flag 1`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    tabindex="0"
-  >
-    <div
-      style="display: none;"
-    >
-      <!---->
-       
-      <span
-        vusion-slot-name="title"
-      >
-        列表
-      </span>
-       
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
       <div>
-        <!---->
       </div>
     </div>
-     
-    <!---->
-     
     <div>
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Apple 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        Apple
       </div>
-       
-      <div
-        class="root"
-        flag=""
-        vusion-slot-name="default"
-      >
-        <!---->
-         Banana 
-        <!---->
+      <div class="root" flag vusion-slot-name="default">
+        Banana
       </div>
-       
-      <div
-        class="root"
-        flag=""
-        vusion-slot-name="default"
-      >
-        <!---->
-         Cake 
-        <!---->
+      <div class="root" flag vusion-slot-name="default">
+        Cake
       </div>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      style="display: none;"
-    >
-       
-      <!---->
+    <div style="display: none;">
     </div>
   </div>
 </div>
@@ -72,287 +27,91 @@ exports[`u-capsules.vue Demo-Flag 1`] = `
 
 exports[`u-capsules.vue Demo-只读、禁用、禁用某一项 1`] = `
 <div>
-  <div
-    class="root"
-    direction="horizontal"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      border="true"
-      class="root"
-      readonly="readonly"
-      tabindex=""
-    >
-      <div
-        style="display: none;"
-      >
-        <!---->
-         
-        <span
-          vusion-slot-name="title"
-        >
-          列表
-        </span>
-         
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div border="true" class="root" readonly="readonly" tabindex>
+      <div style="display: none;">
+        <span vusion-slot-name="title">列表</span>
         <div>
-          <!---->
         </div>
       </div>
-       
-      <!---->
-       
       <div>
-        <div
-          class="root"
-          readonly="readonly"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Apple 
-          <!---->
+        <div class="root" readonly="readonly" vusion-slot-name="default">
+          Apple
         </div>
-         
-        <div
-          class="root"
-          readonly="readonly"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Banana 
-          <!---->
+        <div class="root" readonly="readonly" vusion-slot-name="default">
+          Banana
         </div>
-         
-        <div
-          class="root"
-          readonly="readonly"
-          selected="selected"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Cake 
-          <!---->
+        <div class="root" readonly="readonly" selected="selected" vusion-slot-name="default">
+          Cake
         </div>
-         
-        <!---->
-         
-        <!---->
       </div>
-       
-      <div
-        style="display: none;"
-      >
-         
-        <!---->
+      <div style="display: none;">
       </div>
     </div>
-     
-    <div
-      border="true"
-      class="root"
-      disabled="disabled"
-      tabindex=""
-    >
-      <div
-        style="display: none;"
-      >
-        <!---->
-         
-        <span
-          vusion-slot-name="title"
-        >
-          列表
-        </span>
-         
+    <div border="true" class="root" disabled="disabled" tabindex>
+      <div style="display: none;">
+        <span vusion-slot-name="title">列表</span>
         <div>
-          <!---->
         </div>
       </div>
-       
-      <!---->
-       
       <div>
-        <div
-          class="root"
-          disabled="disabled"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Apple 
-          <!---->
+        <div class="root" disabled="disabled" vusion-slot-name="default">
+          Apple
         </div>
-         
-        <div
-          class="root"
-          disabled="disabled"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Banana 
-          <!---->
+        <div class="root" disabled="disabled" vusion-slot-name="default">
+          Banana
         </div>
-         
-        <div
-          class="root"
-          disabled="disabled"
-          selected="selected"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Cake 
-          <!---->
+        <div class="root" disabled="disabled" selected="selected" vusion-slot-name="default">
+          Cake
         </div>
-         
-        <!---->
-         
-        <!---->
       </div>
-       
-      <div
-        style="display: none;"
-      >
-         
-        <!---->
+      <div style="display: none;">
       </div>
     </div>
-     
-    <div
-      border="true"
-      class="root"
-      tabindex="0"
-    >
-      <div
-        style="display: none;"
-      >
-        <!---->
-         
-        <span
-          vusion-slot-name="title"
-        >
-          列表
-        </span>
-         
+    <div border="true" class="root" tabindex="0">
+      <div style="display: none;">
+        <span vusion-slot-name="title">列表</span>
         <div>
-          <!---->
         </div>
       </div>
-       
-      <!---->
-       
       <div>
-        <div
-          class="root"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Apple 
-          <!---->
+        <div class="root" vusion-slot-name="default">
+          Apple
         </div>
-         
-        <div
-          class="root"
-          disabled="disabled"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Banana 
-          <!---->
+        <div class="root" disabled="disabled" vusion-slot-name="default">
+          Banana
         </div>
-         
-        <div
-          class="root"
-          selected="selected"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Cake 
-          <!---->
+        <div class="root" selected="selected" vusion-slot-name="default">
+          Cake
         </div>
-         
-        <!---->
-         
-        <!---->
       </div>
-       
-      <div
-        style="display: none;"
-      >
-         
-        <!---->
+      <div style="display: none;">
       </div>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-capsules.vue Demo-可取消 1`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    tabindex="0"
-  >
-    <div
-      style="display: none;"
-    >
-      <!---->
-       
-      <span
-        vusion-slot-name="title"
-      >
-        列表
-      </span>
-       
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
       <div>
-        <!---->
       </div>
     </div>
-     
-    <!---->
-     
     <div>
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Apple 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        Apple
       </div>
-       
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Banana 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        Banana
       </div>
-       
-      <div
-        class="root"
-        selected="selected"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Cake 
-        <!---->
+      <div class="root" selected="selected" vusion-slot-name="default">
+        Cake
       </div>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      style="display: none;"
-    >
-       
-      <!---->
+    <div style="display: none;">
     </div>
   </div>
 </div>
@@ -360,67 +119,24 @@ exports[`u-capsules.vue Demo-可取消 1`] = `
 
 exports[`u-capsules.vue Demo-基本样式 1`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    tabindex="0"
-  >
-    <div
-      style="display: none;"
-    >
-      <!---->
-       
-      <span
-        vusion-slot-name="title"
-      >
-        列表
-      </span>
-       
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
       <div>
-        <!---->
       </div>
     </div>
-     
-    <!---->
-     
     <div>
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Apple 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        Apple
       </div>
-       
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Banana 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        Banana
       </div>
-       
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Cake 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        Cake
       </div>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      style="display: none;"
-    >
-       
-      <!---->
+    <div style="display: none;">
     </div>
   </div>
 </div>
@@ -428,67 +144,24 @@ exports[`u-capsules.vue Demo-基本样式 1`] = `
 
 exports[`u-capsules.vue Demo-基础用法 1`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    tabindex="0"
-  >
-    <div
-      style="display: none;"
-    >
-      <!---->
-       
-      <span
-        vusion-slot-name="title"
-      >
-        列表
-      </span>
-       
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
       <div>
-        <!---->
       </div>
     </div>
-     
-    <!---->
-     
     <div>
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Option-A 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        Option-A
       </div>
-       
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Option-B 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        Option-B
       </div>
-       
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Option-C 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        Option-C
       </div>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      style="display: none;"
-    >
-       
-      <!---->
+    <div style="display: none;">
     </div>
   </div>
 </div>
@@ -496,86 +169,29 @@ exports[`u-capsules.vue Demo-基础用法 1`] = `
 
 exports[`u-capsules.vue Demo-多项选择 1`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    tabindex="0"
-  >
-    <div
-      style="display: none;"
-    >
-      <label
-        class="root"
-        tabindex="0"
-      >
-        <span
-          class="box"
-          status="false"
-        />
-          
-        <span
-          vusion-slot-name="item"
-        >
-           
-          <!---->
-        </span>
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <label class="root" tabindex="0">
+        <span class="box" status="false"></span>
+        <span vusion-slot-name="item"> </span>
       </label>
-       
-      <span
-        vusion-slot-name="title"
-      >
-        列表
-      </span>
-       
+      <span vusion-slot-name="title">列表</span>
       <div>
-        <span>
-          2
-        </span>
+        <span>2</span>
       </div>
     </div>
-     
-    <!---->
-     
     <div>
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Apple 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        Apple
       </div>
-       
-      <div
-        class="root"
-        selected="selected"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Banana 
-        <!---->
+      <div class="root" selected="selected" vusion-slot-name="default">
+        Banana
       </div>
-       
-      <div
-        class="root"
-        selected="selected"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Cake 
-        <!---->
+      <div class="root" selected="selected" vusion-slot-name="default">
+        Cake
       </div>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      style="display: none;"
-    >
-       
-      <!---->
+    <div style="display: none;">
     </div>
   </div>
 </div>
@@ -583,106 +199,33 @@ exports[`u-capsules.vue Demo-多项选择 1`] = `
 
 exports[`u-capsules.vue Demo-标签 1`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    tabindex="0"
-  >
-    <div
-      style="display: none;"
-    >
-      <!---->
-       
-      <span
-        vusion-slot-name="title"
-      >
-        列表
-      </span>
-       
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
       <div>
-        <!---->
       </div>
     </div>
-     
-    <!---->
-     
     <div>
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         1 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        1
       </div>
-       
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         2 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        2
       </div>
-       
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         3 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        3
       </div>
-       
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <span
-          class="label"
-        >
-          88折
-        </span>
-         4 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        <span class="label">88折</span> 4
       </div>
-       
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <span
-          class="label"
-        >
-          88折
-        </span>
-         5 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        <span class="label">88折</span> 5
       </div>
-       
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <span
-          class="label"
-        >
-          88折
-        </span>
-         6 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        <span class="label">88折</span> 6
       </div>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      style="display: none;"
-    >
-       
-      <!---->
+    <div style="display: none;">
     </div>
   </div>
 </div>
@@ -690,103 +233,30 @@ exports[`u-capsules.vue Demo-标签 1`] = `
 
 exports[`u-capsules.vue Demo-标签 2`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    size="small"
-    tabindex="0"
-  >
-    <div
-      style="display: none;"
-    >
-      <!---->
-       
-      <span
-        vusion-slot-name="title"
-      >
-        列表
-      </span>
-       
+  <div border="true" class="root" size="small" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
       <div>
-        <!---->
       </div>
     </div>
-     
-    <!---->
-     
     <div>
-      <div
-        class="root"
-        size="small"
-        vusion-slot-name="default"
-      >
-        <!---->
-         1月 
-        <!---->
+      <div class="root" size="small" vusion-slot-name="default">
+        1月
       </div>
-       
-      <div
-        class="root"
-        size="small"
-        vusion-slot-name="default"
-      >
-        <!---->
-         3月 
-        <!---->
+      <div class="root" size="small" vusion-slot-name="default">
+        3月
       </div>
-       
-      <div
-        class="root"
-        size="small"
-        vusion-slot-name="default"
-      >
-        <span
-          class="label"
-        >
-          95折
-        </span>
-         6月 
-        <!---->
+      <div class="root" size="small" vusion-slot-name="default">
+        <span class="label">95折</span> 6月
       </div>
-       
-      <div
-        class="root"
-        size="small"
-        vusion-slot-name="default"
-      >
-        <span
-          class="label"
-        >
-          88折
-        </span>
-         1年 
-        <!---->
+      <div class="root" size="small" vusion-slot-name="default">
+        <span class="label">88折</span> 1年
       </div>
-       
-      <div
-        class="root"
-        size="small"
-        vusion-slot-name="default"
-      >
-        <span
-          class="label"
-        >
-          80折
-        </span>
-         2年 
-        <!---->
+      <div class="root" size="small" vusion-slot-name="default">
+        <span class="label">80折</span> 2年
       </div>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      style="display: none;"
-    >
-       
-      <!---->
+    <div style="display: none;">
     </div>
   </div>
 </div>
@@ -794,84 +264,31 @@ exports[`u-capsules.vue Demo-标签 2`] = `
 
 exports[`u-capsules.vue Demo-胶囊组 1`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    tabindex="0"
-  >
-    <div
-      style="display: none;"
-    >
-      <!---->
-       
-      <span
-        vusion-slot-name="title"
-      >
-        列表
-      </span>
-       
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
       <div>
-        <!---->
       </div>
     </div>
-     
-    <!---->
-     
     <div>
-      <div
-        class="root"
-      >
-        <div
-          class="root"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Option-A 
-          <!---->
+      <div class="root">
+        <div class="root" vusion-slot-name="default">
+          Option-A
         </div>
-         
-        <div
-          class="root"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Option-B 
-          <!---->
+        <div class="root" vusion-slot-name="default">
+          Option-B
         </div>
       </div>
-       
-      <div
-        class="root"
-      >
-        <div
-          class="root"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Option-A 
-          <!---->
+      <div class="root">
+        <div class="root" vusion-slot-name="default">
+          Option-A
         </div>
-         
-        <div
-          class="root"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Option-B 
-          <!---->
+        <div class="root" vusion-slot-name="default">
+          Option-B
         </div>
       </div>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      style="display: none;"
-    >
-       
-      <!---->
+    <div style="display: none;">
     </div>
   </div>
 </div>
@@ -879,102 +296,37 @@ exports[`u-capsules.vue Demo-胶囊组 1`] = `
 
 exports[`u-capsules.vue Demo-胶囊组 2`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    tabindex="0"
-  >
-    <div
-      style="display: none;"
-    >
-      <!---->
-       
-      <span
-        vusion-slot-name="title"
-      >
-        列表
-      </span>
-       
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
       <div>
-        <!---->
       </div>
     </div>
-     
-    <!---->
-     
     <div>
-      <div
-        class="root"
-      >
-        <div
-          class="root"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Apple 
-          <!---->
+      <div class="root">
+        <div class="root" vusion-slot-name="default">
+          Apple
         </div>
-         
-        <div
-          class="root"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Banana 
-          <!---->
+        <div class="root" vusion-slot-name="default">
+          Banana
         </div>
-         
-        <div
-          class="root"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Cake 
-          <!---->
+        <div class="root" vusion-slot-name="default">
+          Cake
         </div>
       </div>
-       
-      <div
-        class="root"
-      >
-        <div
-          class="root"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Apple 
-          <!---->
+      <div class="root">
+        <div class="root" vusion-slot-name="default">
+          Apple
         </div>
-         
-        <div
-          class="root"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Banana 
-          <!---->
+        <div class="root" vusion-slot-name="default">
+          Banana
         </div>
-         
-        <div
-          class="root"
-          vusion-slot-name="default"
-        >
-          <!---->
-           Cake 
-          <!---->
+        <div class="root" vusion-slot-name="default">
+          Cake
         </div>
       </div>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      style="display: none;"
-    >
-       
-      <!---->
+    <div style="display: none;">
     </div>
   </div>
 </div>
@@ -982,68 +334,24 @@ exports[`u-capsules.vue Demo-胶囊组 2`] = `
 
 exports[`u-capsules.vue Demo-选择值 1`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    tabindex="0"
-  >
-    <div
-      style="display: none;"
-    >
-      <!---->
-       
-      <span
-        vusion-slot-name="title"
-      >
-        列表
-      </span>
-       
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
       <div>
-        <!---->
       </div>
     </div>
-     
-    <!---->
-     
     <div>
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Apple 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        Apple
       </div>
-       
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Banana 
-        <!---->
+      <div class="root" vusion-slot-name="default">
+        Banana
       </div>
-       
-      <div
-        class="root"
-        selected="selected"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Cake 
-        <!---->
+      <div class="root" selected="selected" vusion-slot-name="default">
+        Cake
       </div>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      style="display: none;"
-    >
-       
-      <!---->
+    <div style="display: none;">
     </div>
   </div>
 </div>

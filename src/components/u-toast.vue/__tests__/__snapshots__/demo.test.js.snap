@@ -1,363 +1,105 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`u-toast.vue Demo-位置扩展 1`] = `
-<div
-  class="root"
-  direction="horizontal"
-  type=""
-  vusion-slot-name="default"
->
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Top Center
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Top Left
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Top Right
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Bottom Center
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Bottom Left
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Bottom Right
-  </a>
-   
-  <!---->
-   
-  <!---->
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Top Center</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Top Left</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Top Right</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Bottom Center</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Bottom Left</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Bottom Right</a>
 </div>
 `;
 
 exports[`u-toast.vue Demo-可关闭 1`] = `
 <div>
   <p>
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       Static
-    </a>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      Static</a>
   </p>
-   
-  <transition-group-stub
-    class="root"
-    enteractiveclass="animate__animated animate__fadeInUpSmall"
-    leaveactiveclass="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active"
-    moveclass="animate__move"
-    position="static"
-    tag="div"
-  />
+  <transition-group-stub class="root" enteractiveclass="animate__animated animate__fadeInUpSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active" moveclass="animate__move" position="static" tag="div"></transition-group-stub>
 </div>
 `;
 
 exports[`u-toast.vue Demo-基本用法 1`] = `
 <div>
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     组件
-  </a>
-   
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    组件</a>
 </div>
 `;
 
 exports[`u-toast.vue Demo-基本用法 2`] = `
 <div>
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     弹出消息
-  </a>
-   
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    弹出消息</a>
 </div>
 `;
 
 exports[`u-toast.vue Demo-始终显示一条 1`] = `
-<a
-  class="root"
-  hovertype="underline"
-  tabindex="0"
-  target="_self"
-  vusion-slot-name-edit="text"
->
-  <!---->
-   Single
-</a>
+<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+  Single</a>
 `;
 
 exports[`u-toast.vue Demo-嵌入文档流 1`] = `
 <div>
   <p>
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       Static
-    </a>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      Static</a>
   </p>
-   
-  <transition-group-stub
-    class="root"
-    enteractiveclass="animate__animated animate__fadeInUpSmall"
-    leaveactiveclass="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active"
-    moveclass="animate__move"
-    position="static"
-    tag="div"
-  />
+  <transition-group-stub class="root" enteractiveclass="animate__animated animate__fadeInUpSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active" moveclass="animate__move" position="static" tag="div"></transition-group-stub>
 </div>
 `;
 
 exports[`u-toast.vue Demo-嵌入文档流可关闭 1`] = `
 <div>
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Static
-  </a>
-   
-  <transition-group-stub
-    class="root"
-    enteractiveclass="animate__animated animate__fadeInUpSmall"
-    leaveactiveclass="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active"
-    moveclass="animate__move"
-    position="static"
-    tag="div"
-  />
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Static</a>
+  <transition-group-stub class="root" enteractiveclass="animate__animated animate__fadeInUpSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active" moveclass="animate__move" position="static" tag="div"></transition-group-stub>
 </div>
 `;
 
 exports[`u-toast.vue Demo-快捷方式 1`] = `
-<a
-  class="root"
-  hovertype="underline"
-  tabindex="0"
-  target="_self"
-  vusion-slot-name-edit="text"
->
-  <!---->
-   弹出消息
-</a>
+<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+  弹出消息</a>
 `;
 
 exports[`u-toast.vue Demo-提示停留时间 1`] = `
-<div
-  class="root"
-  direction="horizontal"
-  type=""
-  vusion-slot-name="default"
->
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     1s
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     3s
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     10s
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     常驻
-  </a>
-   
-  <!---->
-   
-  <!---->
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    1s</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    3s</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    10s</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    常驻</a>
 </div>
 `;
 
 exports[`u-toast.vue Demo-设置颜色 1`] = `
-<div
-  class="root"
-  direction="horizontal"
-  type=""
-  vusion-slot-name="default"
->
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     长文本
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     短文本
-  </a>
-   
-  <!---->
-   
-  <!---->
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    长文本</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    短文本</a>
 </div>
 `;
 
 exports[`u-toast.vue Demo-设置颜色 2`] = `
-<div
-  class="root"
-  direction="horizontal"
-  type=""
-  vusion-slot-name="default"
->
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Info
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Success
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Warning
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Error
-  </a>
-   
-  <!---->
-   
-  <!---->
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Info</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Success</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Warning</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Error</a>
 </div>
 `;

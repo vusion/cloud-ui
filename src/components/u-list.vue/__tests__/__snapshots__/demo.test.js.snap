@@ -2,136 +2,34 @@
 
 exports[`u-list.vue Demo-列表前缀 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="root"
-    >
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <ul
-          class="root"
-          style="list-style-type: disc;"
-        >
-          <li
-            class="root"
-          >
-            List Item 1
-          </li>
-           
-          <li
-            class="root"
-          >
-            List Item 2
-          </li>
-           
-          <li
-            class="root"
-          >
-            List Item 3
-          </li>
-           
-          <li
-            class="root"
-          >
-            List Item 4
-          </li>
-           
-          <li
-            class="root"
-          >
-            List Item 5
-          </li>
+  <div class="root">
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <ul class="root" style="list-style-type: disc;">
+          <li class="root">List Item 1</li>
+          <li class="root">List Item 2</li>
+          <li class="root">List Item 3</li>
+          <li class="root">List Item 4</li>
+          <li class="root">List Item 5</li>
         </ul>
-         
-        <!---->
       </div>
-       
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <ul
-          class="root"
-          style="list-style-type: circle;"
-        >
-          <li
-            class="root"
-          >
-            List Item 1
-          </li>
-           
-          <li
-            class="root"
-          >
-            List Item 2
-          </li>
-           
-          <li
-            class="root"
-          >
-            List Item 3
-          </li>
-           
-          <li
-            class="root"
-          >
-            List Item 4
-          </li>
-           
-          <li
-            class="root"
-          >
-            List Item 5
-          </li>
+      <div class="root" vusion-slot-name="default">
+        <ul class="root" style="list-style-type: circle;">
+          <li class="root">List Item 1</li>
+          <li class="root">List Item 2</li>
+          <li class="root">List Item 3</li>
+          <li class="root">List Item 4</li>
+          <li class="root">List Item 5</li>
         </ul>
-         
-        <!---->
       </div>
-       
-      <div
-        class="root"
-        vusion-slot-name="default"
-      >
-        <ul
-          class="root"
-          style="list-style-type: decimal;"
-        >
-          <li
-            class="root"
-          >
-            List Item 1
-          </li>
-           
-          <li
-            class="root"
-          >
-            List Item 2
-          </li>
-           
-          <li
-            class="root"
-          >
-            List Item 3
-          </li>
-           
-          <li
-            class="root"
-          >
-            List Item 4
-          </li>
-           
-          <li
-            class="root"
-          >
-            List Item 5
-          </li>
+      <div class="root" vusion-slot-name="default">
+        <ul class="root" style="list-style-type: decimal;">
+          <li class="root">List Item 1</li>
+          <li class="root">List Item 2</li>
+          <li class="root">List Item 3</li>
+          <li class="root">List Item 4</li>
+          <li class="root">List Item 5</li>
         </ul>
-         
-        <!---->
       </div>
     </div>
   </div>
@@ -140,196 +38,60 @@ exports[`u-list.vue Demo-列表前缀 1`] = `
 
 exports[`u-list.vue Demo-列表线条 1`] = `
 <div>
-  <ul
-    class="root"
-    line=""
-  >
-    <li
-      class="root"
-    >
-      List Item 1
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 2
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 3
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 4
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 5
-    </li>
+  <ul class="root" line>
+    <li class="root">List Item 1</li>
+    <li class="root">List Item 2</li>
+    <li class="root">List Item 3</li>
+    <li class="root">List Item 4</li>
+    <li class="root">List Item 5</li>
   </ul>
 </div>
 `;
 
 exports[`u-list.vue Demo-基本用法 1`] = `
 <div>
-  <ul
-    class="root"
-  >
-    <li
-      class="root"
-    >
-      List Item 1
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 2
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 3
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 4
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 5
-    </li>
+  <ul class="root">
+    <li class="root">List Item 1</li>
+    <li class="root">List Item 2</li>
+    <li class="root">List Item 3</li>
+    <li class="root">List Item 4</li>
+    <li class="root">List Item 5</li>
   </ul>
 </div>
 `;
 
 exports[`u-list.vue Demo-悬浮高亮 1`] = `
 <div>
-  <ul
-    class="root"
-    hover=""
-  >
-    <li
-      class="root"
-    >
-      List Item 1
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 2
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 3
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 4
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 5
-    </li>
+  <ul class="root" hover>
+    <li class="root">List Item 1</li>
+    <li class="root">List Item 2</li>
+    <li class="root">List Item 3</li>
+    <li class="root">List Item 4</li>
+    <li class="root">List Item 5</li>
   </ul>
 </div>
 `;
 
 exports[`u-list.vue Demo-条纹展示 1`] = `
 <div>
-  <ul
-    class="root"
-    striped=""
-  >
-    <li
-      class="root"
-    >
-      List Item 1
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 2
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 3
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 4
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 5
-    </li>
+  <ul class="root" striped>
+    <li class="root">List Item 1</li>
+    <li class="root">List Item 2</li>
+    <li class="root">List Item 3</li>
+    <li class="root">List Item 4</li>
+    <li class="root">List Item 5</li>
   </ul>
 </div>
 `;
 
 exports[`u-list.vue Demo-组合修饰 1`] = `
 <div>
-  <ul
-    class="root"
-    hover=""
-    line=""
-    striped=""
-  >
-    <li
-      class="root"
-    >
-      List Item 1
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 2
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 3
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 4
-    </li>
-     
-    <li
-      class="root"
-    >
-      List Item 5
-    </li>
+  <ul class="root" hover line striped>
+    <li class="root">List Item 1</li>
+    <li class="root">List Item 2</li>
+    <li class="root">List Item 3</li>
+    <li class="root">List Item 4</li>
+    <li class="root">List Item 5</li>
   </ul>
 </div>
 `;
