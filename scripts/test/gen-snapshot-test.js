@@ -2,10 +2,40 @@ const fs = require('fs-extra');
 const path = require('path');
 const unified = require('unified')
 const remarkParse = require('remark-parse');
+const acorn = require("acorn");
+const walk = require("acorn-walk");
 const template = require('./template');
 const { ignoredFiles } = require('./config');
 
 const componentsPath = path.resolve(__dirname, '../../src/components')
+
+function getDelayValue(code) {
+    // 提取出 <script> 标签中的内容
+    const scriptRegex = /<script\b[^>]*>([\s\S]*?)<\/script>/;
+    const matches = code.match(scriptRegex);
+    const scriptContent = matches && matches[1];
+
+    const ast = acorn.parse(scriptContent, {
+        ecmaVersion: 'latest',
+        sourceType: "module",
+    });
+
+    let delay = 400;
+    // 遍历 AST，查找对应的 setTimeout 调用表达式节点
+    walk.simple(ast, {
+        CallExpression(node) {
+            if (node.callee.name === "setTimeout") {
+                // 确定第二个参数节点的类型和值
+                const secondArgument = node.arguments[1];
+                if (secondArgument.type === "Literal" && typeof secondArgument.value === "number") {
+                    delay = secondArgument.value + 100;
+                }
+            }
+        }
+    });
+
+    return delay;
+}
 
 // 遍历每个 xxx 目录
 const dirs = fs.readdirSync(componentsPath);
@@ -51,9 +81,15 @@ dirs.filter(compName => fs.statSync(`src/components/${compName}`).isDirectory())
                 const vueFilePath = path.join(demosDir, `demo${count}.vue`)
                 const code = template.demoFile(node, lastHeading)
                 fs.writeFileSync(vueFilePath, code);
+                // 处理 demo 中的 setTimeout
+                let sleep = 16
+                if (node.value.includes('setTimeout')) {
+                    sleep = getDelayValue(node.value)
+                }
                 cases.push({
                     title: lastHeading,
                     order: count,
+                    sleep
                 })
                 count++
             }

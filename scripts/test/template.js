@@ -38,7 +38,7 @@ describe('${compName}', () => {
 ${cases.map(item => `
     it('Demo-${item.title}', async () => {
         const wrapper = mount(Demo${item.order},  { localVue, router });
-        await sleep(16);
+        await sleep(${item.sleep || 16});
         expect(wrapper).toMatchSnapshot();
     });
 `).join('\n')}
