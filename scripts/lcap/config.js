@@ -1,5 +1,6 @@
 module.exports = [
     { group: 'Layout', name: 'u-linear-layout', alias: '线性布局' },
+    { group: 'Layout', name: 'u-absolute-layout', alias: '自由布局' },
     { group: 'Layout', name: 'u-grid-layout', alias: '栅格布局' },
     { group: 'Layout', name: 'u-multi-layout', alias: '分栏布局' },
 

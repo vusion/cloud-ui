@@ -1198,7 +1198,7 @@
                         },
                         {
                             "name": "gap",
-                            "title": "内容间隙",
+                            "title": "行间隔",
                             "type": "string",
                             "options": [
                                 {
@@ -1224,7 +1224,7 @@
                                 }
                             ],
                             "default": "normal",
-                            "description": "内容块间隙大小",
+                            "description": "栅格行之间的间隔",
                             "dependency": [
                                 {
                                     "mode": "flex",
@@ -1712,7 +1712,7 @@
                                 }
                             ],
                             "default": "horizontal",
-                            "description": "可更改布局的排列方向",
+                            "description": "",
                             "toggleclear": [
                                 "justify",
                                 "alignment"
@@ -1980,7 +1980,7 @@
                                 }
                             ],
                             "default": "none",
-                            "description": "内容块间隙大小",
+                            "description": "布局中各分栏间的空隙大小",
                             "dependency": [
                                 {
                                     "mode": "flex",
@@ -9910,7 +9910,7 @@
                                 }
                             ],
                             "default": "asc",
-                            "description": "该列首次点击时的排序顺序",
+                            "description": "",
                             "dependency": [
                                 {
                                     "sortable": true
@@ -15594,7 +15594,7 @@
                         },
                         {
                             "name": "value",
-                            "title": "值",
+                            "title": "选中值",
                             "type": "boolean, null",
                             "sync": true,
                             "model": true,
@@ -16077,7 +16077,7 @@
                         },
                         {
                             "name": "value",
-                            "title": "值",
+                            "title": "选中值",
                             "type": "any",
                             "description": "此项的值",
                             "group": "数据属性",
@@ -19240,7 +19240,7 @@
             "attrs": [
                 {
                     "name": "data-source",
-                    "title": "数据源",
+                    "title": "数据类型",
                     "type": "Array<Item> | Function | object | DataSource",
                     "description": "展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。",
                     "group": "数据属性",
