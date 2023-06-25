@@ -55404,20 +55404,23 @@ exports[`u-table-view.vue Demo-树型展示 1`] = `
       >
         <table
           class="root head-table"
+          style="width: 130px;"
         >
           <colgroup>
             <col
               width="30"
             />
             <col
-              width="20%"
+              width="0"
             />
             <col
-              width="20%"
+              width="0"
             />
-            <col />
             <col
-              width="20%"
+              width="100"
+            />
+            <col
+              width="0"
             />
           </colgroup>
            
@@ -55570,20 +55573,23 @@ exports[`u-table-view.vue Demo-树型展示 1`] = `
             <div>
               <table
                 class="root"
+                style="width: 130px;"
               >
                 <colgroup>
                   <col
                     width="30"
                   />
                   <col
-                    width="20%"
+                    width="0"
                   />
                   <col
-                    width="20%"
+                    width="0"
                   />
-                  <col />
                   <col
-                    width="20%"
+                    width="100"
+                  />
+                  <col
+                    width="0"
                   />
                 </colgroup>
                  
@@ -62586,15 +62592,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
               width="0"
             />
             <col
-              width="0"
-            />
-            <col
-              width="0"
-            />
-            <col
-              width="0"
-            />
-            <col
               width="120"
             />
           </colgroup>
@@ -62700,72 +62697,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
                   vusion-slot-name-edit="title"
                 >
                   
-                                        最近登录时间
-                                        
-                  <!---->
-                </span>
-                 
-                <!---->
-                 
-                <!---->
-                 
-                <!---->
-              </th>
-              <th
-                class="head-title boldHeader"
-              >
-                <!---->
-                 
-                <span
-                  class="column-title"
-                  vusion-slot-name="title"
-                  vusion-slot-name-edit="title"
-                >
-                  
-                                        最近登录时间
-                                        
-                  <!---->
-                </span>
-                 
-                <!---->
-                 
-                <!---->
-                 
-                <!---->
-              </th>
-              <th
-                class="head-title boldHeader"
-              >
-                <!---->
-                 
-                <span
-                  class="column-title"
-                  vusion-slot-name="title"
-                  vusion-slot-name-edit="title"
-                >
-                  
-                                        最近登录时间
-                                        
-                  <!---->
-                </span>
-                 
-                <!---->
-                 
-                <!---->
-                 
-                <!---->
-              </th>
-              <th
-                class="head-title boldHeader"
-              >
-                <!---->
-                 
-                <span
-                  class="column-title"
-                  vusion-slot-name="title"
-                  vusion-slot-name-edit="title"
-                >
-                  
                                         操作
                                         
                   <!---->
@@ -62808,15 +62739,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
                   />
                   <col
                     width="100"
-                  />
-                  <col
-                    width="0"
-                  />
-                  <col
-                    width="0"
-                  />
-                  <col
-                    width="0"
                   />
                   <col
                     width="0"
@@ -62892,72 +62814,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
                           zhangsan@163.com
                         </div>
                       </div>
-                    </td>
-                    <td
-                      class="cell"
-                    >
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <span
-                        class="column-field"
-                        vusion-slot-name="cell"
-                      >
-                        2018-05-28 21:52:11
-                      </span>
-                    </td>
-                    <td
-                      class="cell"
-                    >
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <span
-                        class="column-field"
-                        vusion-slot-name="cell"
-                      >
-                        2018-05-28 21:52:11
-                      </span>
-                    </td>
-                    <td
-                      class="cell"
-                    >
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <span
-                        class="column-field"
-                        vusion-slot-name="cell"
-                      >
-                        2018-05-28 21:52:11
-                      </span>
                     </td>
                     <td
                       class="cell"
@@ -63138,72 +62994,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
                        
                       <!---->
                        
-                      <span
-                        class="column-field"
-                        vusion-slot-name="cell"
-                      >
-                        2019-03-12 22:24:36
-                      </span>
-                    </td>
-                    <td
-                      class="cell"
-                    >
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <span
-                        class="column-field"
-                        vusion-slot-name="cell"
-                      >
-                        2019-03-12 22:24:36
-                      </span>
-                    </td>
-                    <td
-                      class="cell"
-                    >
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <span
-                        class="column-field"
-                        vusion-slot-name="cell"
-                      >
-                        2019-03-12 22:24:36
-                      </span>
-                    </td>
-                    <td
-                      class="cell"
-                    >
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
                       <div>
                         <div
                           class="root"
@@ -63346,72 +63136,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
                        
                       <!---->
                        
-                      <span
-                        class="column-field"
-                        vusion-slot-name="cell"
-                      >
-                        2019-05-18 15:45:30
-                      </span>
-                    </td>
-                    <td
-                      class="cell"
-                    >
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <span
-                        class="column-field"
-                        vusion-slot-name="cell"
-                      >
-                        2019-05-18 15:45:30
-                      </span>
-                    </td>
-                    <td
-                      class="cell"
-                    >
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <span
-                        class="column-field"
-                        vusion-slot-name="cell"
-                      >
-                        2019-05-18 15:45:30
-                      </span>
-                    </td>
-                    <td
-                      class="cell"
-                    >
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
-                      <!---->
-                       
                       <div>
                         <div
                           class="root"
@@ -63499,24 +63223,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
     <!---->
      
     <div>
-      <div
-        style="display: none;"
-      >
-        <!---->
-      </div>
-       
-      <div
-        style="display: none;"
-      >
-        <!---->
-      </div>
-       
-      <div
-        style="display: none;"
-      >
-        <!---->
-      </div>
-       
       <div
         style="display: none;"
       >

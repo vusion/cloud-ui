@@ -1738,9 +1738,6 @@ export default {
             </div>
         </u-table-view-column>
         <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
-        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
-        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
-        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
         <u-table-view-column title="操作" width="120">
             <div slot="cell" slot-scope="{ item }">
                 <u-linear-layout gap="small">
