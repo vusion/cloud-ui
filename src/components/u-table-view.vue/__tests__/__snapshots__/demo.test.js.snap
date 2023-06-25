@@ -14002,13 +14002,13 @@ exports[`u-table-view.vue Demo-树型展示 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" style="width: 130px;">
           <colgroup>
             <col width="30">
-            <col width="20%">
-            <col width="20%">
-            <col>
-            <col width="20%">
+            <col width="0">
+            <col width="0">
+            <col width="100">
+            <col width="0">
           </colgroup>
           <thead>
             <tr>
@@ -14051,13 +14051,13 @@ exports[`u-table-view.vue Demo-树型展示 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" style="width: 130px;">
                 <colgroup>
                   <col width="30">
-                  <col width="20%">
-                  <col width="20%">
-                  <col>
-                  <col width="20%">
+                  <col width="0">
+                  <col width="0">
+                  <col width="100">
+                  <col width="0">
                 </colgroup>
                 <tbody>
                   <tr class="row">
@@ -15538,9 +15538,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
             <col width="0">
             <col width="100">
             <col width="0">
-            <col width="0">
-            <col width="0">
-            <col width="0">
             <col width="120">
           </colgroup>
           <thead>
@@ -15567,21 +15564,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
               </th>
               <th class="head-title boldHeader">
                 <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
-                  最近登录时间
-                </span>
-              </th>
-              <th class="head-title boldHeader">
-                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
-                  最近登录时间
-                </span>
-              </th>
-              <th class="head-title boldHeader">
-                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
-                  最近登录时间
-                </span>
-              </th>
-              <th class="head-title boldHeader">
-                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                   操作
                 </span>
               </th>
@@ -15598,9 +15580,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
                   <col width="0">
                   <col width="0">
                   <col width="100">
-                  <col width="0">
-                  <col width="0">
-                  <col width="0">
                   <col width="0">
                   <col width="120">
                 </colgroup>
@@ -15620,15 +15599,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
                       <div>
                         <div>zhangsan@163.com</div>
                       </div>
-                    </td>
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
-                    </td>
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
-                    </td>
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
                     </td>
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
@@ -15664,15 +15634,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
                       <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
                     </td>
                     <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
-                    </td>
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
-                    </td>
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
-                    </td>
-                    <td class="cell">
                       <div>
                         <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
@@ -15698,15 +15659,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
                       <div>
                         <div>lisi@163.com</div>
                       </div>
-                    </td>
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
-                    </td>
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
-                    </td>
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
                     </td>
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
@@ -15740,12 +15692,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
       <div class="mask" style="display: none;"></div>
     </div>
     <div>
-      <div style="display: none;">
-      </div>
-      <div style="display: none;">
-      </div>
-      <div style="display: none;">
-      </div>
       <div style="display: none;">
       </div>
       <div style="display: none;">
