@@ -97,7 +97,7 @@
     "husky": "^3.0.4",
     "jest": "^28.1.3",
     "jest-environment-jsdom": "^28.1.3",
-    "jest-serializer-vue": "^3.1.0",
+    "jest-serializer-vue-tjw": "^3.20.0",
     "minimist": "^1.2.5",
     "node-xlsx": "^0.21.2",
     "postcss": "^8.3.11",
@@ -125,5 +125,9 @@
   "vetur": {
     "tags": "./vetur/tags.json",
     "attributes": "./vetur/attributes.json"
+  },
+  "jestSerializer": {
+    "removeComments": true,
+    "sortAttributes": true
   }
 }

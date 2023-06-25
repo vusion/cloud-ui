@@ -2,104 +2,36 @@
 
 exports[`u-split-layout.vue Demo-基本用法 1`] = `
 <div>
-  <div
-    class="root"
-    style="width: 600px; height: 400px;"
-  >
-    <div
-      class="root"
-      direction="horizontal"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Left
-                    
-            <!---->
+  <div class="root" style="width: 600px; height: 400px;">
+    <div class="root" direction="horizontal">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Left
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="body" vusion-slot-name="default">
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      direction="horizontal"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Right
-                    
-            <!---->
+    <div class="root" direction="horizontal">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Right
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-          Some content 
-          <!---->
+        <div class="body" vusion-slot-name="default">Some content
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -107,154 +39,51 @@ exports[`u-split-layout.vue Demo-基本用法 1`] = `
 
 exports[`u-split-layout.vue Demo-基本用法 2`] = `
 <div>
-  <div
-    class="root"
-    style="width: 600px; height: 400px;"
-  >
-    <div
-      class="root"
-      direction="horizontal"
-      style="width: 0px;"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Left
-                    
-            <!---->
+  <div class="root" style="width: 600px; height: 400px;">
+    <div class="root" direction="horizontal" style="width: 0px;">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Left
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="body" vusion-slot-name="default">
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      direction="horizontal"
-      style="width: 0px;"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Middle
-                    
-            <!---->
+    <div class="root" direction="horizontal" style="width: 0px;">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Middle
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="body" vusion-slot-name="default">
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      direction="horizontal"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Right
-                    
-            <!---->
+    <div class="root" direction="horizontal">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Right
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-          Some content 
-          <!---->
+        <div class="body" vusion-slot-name="default">Some content
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -262,104 +91,36 @@ exports[`u-split-layout.vue Demo-基本用法 2`] = `
 
 exports[`u-split-layout.vue Demo-基本用法 3`] = `
 <div>
-  <div
-    class="root"
-    style="width: 600px; height: 400px;"
-  >
-    <div
-      class="root"
-      direction="vertical"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Left
-                    
-            <!---->
+  <div class="root" style="width: 600px; height: 400px;">
+    <div class="root" direction="vertical">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Left
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="body" vusion-slot-name="default">
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      direction="vertical"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Right
-                    
-            <!---->
+    <div class="root" direction="vertical">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Right
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-          Some content 
-          <!---->
+        <div class="body" vusion-slot-name="default">Some content
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -367,154 +128,51 @@ exports[`u-split-layout.vue Demo-基本用法 3`] = `
 
 exports[`u-split-layout.vue Demo-基本用法 4`] = `
 <div>
-  <div
-    class="root"
-    style="width: 600px; height: 400px;"
-  >
-    <div
-      class="root"
-      direction="vertical"
-      style="height: 0px;"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Left
-                    
-            <!---->
+  <div class="root" style="width: 600px; height: 400px;">
+    <div class="root" direction="vertical" style="height: 0px;">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Left
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="body" vusion-slot-name="default">
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      direction="vertical"
-      style="height: 0px;"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Middle
-                    
-            <!---->
+    <div class="root" direction="vertical" style="height: 0px;">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Middle
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="body" vusion-slot-name="default">
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      direction="vertical"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Right
-                    
-            <!---->
+    <div class="root" direction="vertical">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Right
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-          Some content 
-          <!---->
+        <div class="body" vusion-slot-name="default">Some content
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -522,107 +180,37 @@ exports[`u-split-layout.vue Demo-基本用法 4`] = `
 
 exports[`u-split-layout.vue Demo-调整大小 1`] = `
 <div>
-  <div
-    class="root"
-    style="width: 600px; height: 400px;"
-  >
-    <div
-      class="root"
-      direction="horizontal"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Left
-                    
-            <!---->
+  <div class="root" style="width: 600px; height: 400px;">
+    <div class="root" direction="horizontal">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Left
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="body" vusion-slot-name="default">
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <div
-        class="splitter"
-        draggable="draggable"
-      />
+      <div class="splitter" draggable="draggable"></div>
     </div>
-     
-    <div
-      class="root"
-      direction="horizontal"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Right
-                    
-            <!---->
+    <div class="root" direction="horizontal">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Right
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-          Some content 
-          <!---->
+        <div class="body" vusion-slot-name="default">Some content
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -630,160 +218,53 @@ exports[`u-split-layout.vue Demo-调整大小 1`] = `
 
 exports[`u-split-layout.vue Demo-调整大小 2`] = `
 <div>
-  <div
-    class="root"
-    style="width: 600px; height: 400px;"
-  >
-    <div
-      class="root"
-      direction="horizontal"
-      style="width: 0px;"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Left
-                    
-            <!---->
+  <div class="root" style="width: 600px; height: 400px;">
+    <div class="root" direction="horizontal" style="width: 0px;">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Left
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="body" vusion-slot-name="default">
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <div
-        class="splitter"
-        draggable="draggable"
-      />
+      <div class="splitter" draggable="draggable"></div>
     </div>
-     
-    <div
-      class="root"
-      direction="horizontal"
-      style="width: 0px;"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Middle
-                    
-            <!---->
+    <div class="root" direction="horizontal" style="width: 0px;">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Middle
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="body" vusion-slot-name="default">
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <div
-        class="splitter"
-        draggable="draggable"
-      />
+      <div class="splitter" draggable="draggable"></div>
     </div>
-     
-    <div
-      class="root"
-      direction="horizontal"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Right
-                    
-            <!---->
+    <div class="root" direction="horizontal">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Right
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-          Some content 
-          <!---->
+        <div class="body" vusion-slot-name="default">Some content
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -791,107 +272,37 @@ exports[`u-split-layout.vue Demo-调整大小 2`] = `
 
 exports[`u-split-layout.vue Demo-调整大小 3`] = `
 <div>
-  <div
-    class="root"
-    style="width: 600px; height: 400px;"
-  >
-    <div
-      class="root"
-      direction="vertical"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Left
-                    
-            <!---->
+  <div class="root" style="width: 600px; height: 400px;">
+    <div class="root" direction="vertical">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Left
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="body" vusion-slot-name="default">
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <div
-        class="splitter"
-        draggable="draggable"
-      />
+      <div class="splitter" draggable="draggable"></div>
     </div>
-     
-    <div
-      class="root"
-      direction="vertical"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Right
-                    
-            <!---->
+    <div class="root" direction="vertical">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Right
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-          Some content 
-          <!---->
+        <div class="body" vusion-slot-name="default">Some content
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -899,160 +310,53 @@ exports[`u-split-layout.vue Demo-调整大小 3`] = `
 
 exports[`u-split-layout.vue Demo-调整大小 4`] = `
 <div>
-  <div
-    class="root"
-    style="width: 600px; height: 400px;"
-  >
-    <div
-      class="root"
-      direction="vertical"
-      style="height: 0px;"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Left
-                    
-            <!---->
+  <div class="root" style="width: 600px; height: 400px;">
+    <div class="root" direction="vertical" style="height: 0px;">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Left
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="body" vusion-slot-name="default">
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <div
-        class="splitter"
-        draggable="draggable"
-      />
+      <div class="splitter" draggable="draggable"></div>
     </div>
-     
-    <div
-      class="root"
-      direction="vertical"
-      style="height: 0px;"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Middle
-                    
-            <!---->
+    <div class="root" direction="vertical" style="height: 0px;">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Middle
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="body" vusion-slot-name="default">
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <div
-        class="splitter"
-        draggable="draggable"
-      />
+      <div class="splitter" draggable="draggable"></div>
     </div>
-     
-    <div
-      class="root"
-      direction="vertical"
-    >
-      <div
-        bordered="true"
-        class="root"
-        shadow="always"
-      >
-        <div
-          class="head"
-        >
-          <div
-            class="title"
-            vusion-slot-name="title"
-            vusion-slot-name-edit="title"
-          >
-            
-                    Right
-                    
-            <!---->
+    <div class="root" direction="vertical">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            Right
           </div>
-           
-          <a />
-           
-          <div
-            class="extra"
-            vusion-slot-name="extra"
-          >
-             
-            <!---->
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
           </div>
         </div>
-         
-        <div
-          class="body"
-          vusion-slot-name="default"
-        >
-          Some content 
-          <!---->
+        <div class="body" vusion-slot-name="default">Some content
         </div>
-         
-        <div />
+        <div></div>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>

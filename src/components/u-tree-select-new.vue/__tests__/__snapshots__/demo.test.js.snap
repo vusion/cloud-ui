@@ -2,42 +2,15 @@
 
 exports[`u-tree-select-new.vue Demo- 1`] = `
 <div>
-  <div
-    class="root"
-    tabindex="0"
-  >
-    <span
-      class="baseline"
-    >
-      b
+  <div class="root" tabindex="0">
+    <span class="baseline">b</span>
+    <span class="placeholder">
+      请选择
     </span>
-     
-    <span
-      class="placeholder"
-    >
-      
-        请选择
-    
-    </span>
-     
-    <div
-      class="text"
-    >
-      <!---->
-       
-      <!---->
+    <div class="text">
     </div>
-     
-    <!---->
-     
-    <transition-stub
-      class="popper"
-      name="fade"
-    >
-      <div
-        class="root"
-        style="display: none;"
-      />
+    <transition-stub class="popper" name="fade">
+      <div class="root" style="display: none;"></div>
     </transition-stub>
   </div>
 </div>
@@ -45,124 +18,45 @@ exports[`u-tree-select-new.vue Demo- 1`] = `
 
 exports[`u-tree-select-new.vue Demo-Data 方式 1`] = `
 <div>
-  <div
-    class="root"
-    tabindex="0"
-  >
-    <span
-      class="baseline"
-    >
-      b
-    </span>
-     
-    <!---->
-     
-    <div
-      class="text"
-    >
+  <div class="root" tabindex="0">
+    <span class="baseline">b</span>
+    <div class="text">
       <span>
-        
-                节点 1
-            
+        节点 1
       </span>
-       
-      <!---->
     </div>
-     
-    <!---->
-     
-    <transition-stub
-      class="popper"
-      name="fade"
-    >
-      <div
-        class="root"
-        style="display: none;"
-      />
+    <transition-stub class="popper" name="fade">
+      <div class="root" style="display: none;"></div>
     </transition-stub>
   </div>
 </div>
 `;
 
 exports[`u-tree-select-new.vue Demo-Tag 方式 1`] = `
-<div
-  class="root"
-  tabindex="0"
->
-  <span
-    class="baseline"
-  >
-    b
+<div class="root" tabindex="0">
+  <span class="baseline">b</span>
+  <span class="placeholder">
+    请选择
   </span>
-   
-  <span
-    class="placeholder"
-  >
-    
-        请选择
-    
-  </span>
-   
-  <div
-    class="text"
-  >
-    <!---->
-     
-    <!---->
+  <div class="text">
   </div>
-   
-  <!---->
-   
-  <transition-stub
-    class="popper"
-    name="fade"
-  >
-    <div
-      class="root"
-      style="display: none;"
-    />
+  <transition-stub class="popper" name="fade">
+    <div class="root" style="display: none;"></div>
   </transition-stub>
 </div>
 `;
 
 exports[`u-tree-select-new.vue Demo-Tag 方式 2`] = `
 <div>
-  <div
-    class="root"
-    tabindex="0"
-  >
-    <span
-      class="baseline"
-    >
-      b
+  <div class="root" tabindex="0">
+    <span class="baseline">b</span>
+    <span class="placeholder">
+      请选择
     </span>
-     
-    <span
-      class="placeholder"
-    >
-      
-        请选择
-    
-    </span>
-     
-    <div
-      class="text"
-    >
-      <!---->
-       
-      <!---->
+    <div class="text">
     </div>
-     
-    <!---->
-     
-    <transition-stub
-      class="popper"
-      name="fade"
-    >
-      <div
-        class="root"
-        style="display: none;"
-      />
+    <transition-stub class="popper" name="fade">
+      <div class="root" style="display: none;"></div>
     </transition-stub>
   </div>
 </div>
@@ -170,42 +64,15 @@ exports[`u-tree-select-new.vue Demo-Tag 方式 2`] = `
 
 exports[`u-tree-select-new.vue Demo-一维Data 1`] = `
 <div>
-  <div
-    class="root"
-    tabindex="0"
-  >
-    <span
-      class="baseline"
-    >
-      b
+  <div class="root" tabindex="0">
+    <span class="baseline">b</span>
+    <span class="placeholder">
+      请选择
     </span>
-     
-    <span
-      class="placeholder"
-    >
-      
-        请选择
-    
-    </span>
-     
-    <div
-      class="text"
-    >
-      <!---->
-       
-      <!---->
+    <div class="text">
     </div>
-     
-    <!---->
-     
-    <transition-stub
-      class="popper"
-      name="fade"
-    >
-      <div
-        class="root"
-        style="display: none;"
-      />
+    <transition-stub class="popper" name="fade">
+      <div class="root" style="display: none;"></div>
     </transition-stub>
   </div>
 </div>
@@ -213,42 +80,15 @@ exports[`u-tree-select-new.vue Demo-一维Data 1`] = `
 
 exports[`u-tree-select-new.vue Demo-动态插槽数据 1`] = `
 <div>
-  <div
-    class="root"
-    tabindex="0"
-  >
-    <span
-      class="baseline"
-    >
-      b
+  <div class="root" tabindex="0">
+    <span class="baseline">b</span>
+    <span class="placeholder">
+      请选择
     </span>
-     
-    <span
-      class="placeholder"
-    >
-      
-        请选择
-    
-    </span>
-     
-    <div
-      class="text"
-    >
-      <!---->
-       
-      <!---->
+    <div class="text">
     </div>
-     
-    <!---->
-     
-    <transition-stub
-      class="popper"
-      name="fade"
-    >
-      <div
-        class="root"
-        style="display: none;"
-      />
+    <transition-stub class="popper" name="fade">
+      <div class="root" style="display: none;"></div>
     </transition-stub>
   </div>
 </div>
@@ -256,42 +96,15 @@ exports[`u-tree-select-new.vue Demo-动态插槽数据 1`] = `
 
 exports[`u-tree-select-new.vue Demo-动静结合选项回填 1`] = `
 <div>
-  <div
-    class="root"
-    tabindex="0"
-  >
-    <span
-      class="baseline"
-    >
-      b
+  <div class="root" tabindex="0">
+    <span class="baseline">b</span>
+    <span class="placeholder">
+      请选择
     </span>
-     
-    <span
-      class="placeholder"
-    >
-      
-        请选择
-    
-    </span>
-     
-    <div
-      class="text"
-    >
-      <!---->
-       
-      <!---->
+    <div class="text">
     </div>
-     
-    <!---->
-     
-    <transition-stub
-      class="popper"
-      name="fade"
-    >
-      <div
-        class="root"
-        style="display: none;"
-      />
+    <transition-stub class="popper" name="fade">
+      <div class="root" style="display: none;"></div>
     </transition-stub>
   </div>
 </div>
@@ -299,42 +112,15 @@ exports[`u-tree-select-new.vue Demo-动静结合选项回填 1`] = `
 
 exports[`u-tree-select-new.vue Demo-动静结合选项回填 2`] = `
 <div>
-  <div
-    class="root"
-    tabindex="0"
-  >
-    <span
-      class="baseline"
-    >
-      b
+  <div class="root" tabindex="0">
+    <span class="baseline">b</span>
+    <span class="placeholder">
+      请选择
     </span>
-     
-    <span
-      class="placeholder"
-    >
-      
-        请选择
-    
-    </span>
-     
-    <div
-      class="text"
-    >
-      <!---->
-       
-      <!---->
+    <div class="text">
     </div>
-     
-    <!---->
-     
-    <transition-stub
-      class="popper"
-      name="fade"
-    >
-      <div
-        class="root"
-        style="display: none;"
-      />
+    <transition-stub class="popper" name="fade">
+      <div class="root" style="display: none;"></div>
     </transition-stub>
   </div>
 </div>
@@ -342,452 +128,128 @@ exports[`u-tree-select-new.vue Demo-动静结合选项回填 2`] = `
 
 exports[`u-tree-select-new.vue Demo-基本用法 1`] = `
 <div>
-  <div
-    class="root"
-    tabindex="0"
-  >
-    <span
-      class="baseline"
-    >
-      b
+  <div class="root" tabindex="0">
+    <span class="baseline">b</span>
+    <span class="placeholder">
+      请选择
     </span>
-     
-    <span
-      class="placeholder"
-    >
-      
-        请选择
-    
-    </span>
-     
-    <div
-      class="text"
-    >
-      <!---->
-       
-      <!---->
+    <div class="text">
     </div>
-     
-    <!---->
-     
-    <transition-stub
-      class="popper"
-      name="fade"
-    >
-      <div
-        class="root"
-        style="display: none;"
-      />
+    <transition-stub class="popper" name="fade">
+      <div class="root" style="display: none;"></div>
     </transition-stub>
   </div>
 </div>
 `;
 
 exports[`u-tree-select-new.vue Demo-异步加载 1`] = `
-<div
-  class="root"
-  direction="horizontal"
-  type=""
-  vusion-slot-name="default"
->
-  <div
-    class="root"
-    tabindex="0"
-  >
-    <span
-      class="baseline"
-    >
-      b
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div class="root" tabindex="0">
+    <span class="baseline">b</span>
+    <span class="placeholder">
+      请选择
     </span>
-     
-    <span
-      class="placeholder"
-    >
-      
-        请选择
-    
-    </span>
-     
-    <div
-      class="text"
-    >
-      <!---->
-       
-      <!---->
+    <div class="text">
     </div>
-     
-    <!---->
-     
-    <transition-stub
-      class="popper"
-      name="fade"
-    >
-      <div
-        class="root"
-        style="display: none;"
-      />
+    <transition-stub class="popper" name="fade">
+      <div class="root" style="display: none;"></div>
     </transition-stub>
   </div>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     重新加载
-  </a>
-   
-  <!---->
-   
-  <!---->
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    重新加载</a>
 </div>
 `;
 
 exports[`u-tree-select-new.vue Demo-支持多选 1`] = `
 <div>
-  <div
-    class="root"
-    tabindex="0"
-  >
-    <span
-      class="baseline"
-    >
-      b
-    </span>
-     
-    <!---->
-     
-    <div
-      class="text"
-    >
+  <div class="root" tabindex="0">
+    <span class="baseline">b</span>
+    <div class="text">
       <span>
-        
-                节点 1
-            
+        节点 1
       </span>
-       
-      <!---->
     </div>
-     
-    <!---->
-     
-    <transition-stub
-      class="popper"
-      name="fade"
-    >
-      <div
-        class="root"
-        style="display: none;"
-      />
+    <transition-stub class="popper" name="fade">
+      <div class="root" style="display: none;"></div>
     </transition-stub>
   </div>
 </div>
 `;
 
 exports[`u-tree-select-new.vue Demo-表单验证 1`] = `
-<div
-  class="root"
-  layout="block"
->
-  <div
-    class="root"
-    distance=""
-    label-size="normal"
-  >
-    <label
-      class="label"
-      required="required"
-      vusion-slot-name="label"
-      vusion-slot-name-edit="label"
-    >
-      <span
-        vusion-slot-name-edit="label"
-      >
-        树选择器 
-        <!---->
-      </span>
+<div class="root" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">树选择器 </span>
     </label>
-     
-    <!---->
-     
-    <div
-      class="field"
-    >
-      <div
-        class="description"
-        vusion-slot-name="description"
-        vusion-slot-name-edit="description"
-      >
-        
-      </div>
-       
-      <div
-        class="wrap"
-        vusion-slot-name="default"
-      >
-        <div
-          class="root"
-          tabindex="0"
-        >
-          <span
-            class="baseline"
-          >
-            b
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root" tabindex="0">
+          <span class="baseline">b</span>
+          <span class="placeholder">
+            请选择
           </span>
-           
-          <span
-            class="placeholder"
-          >
-            
-        请选择
-    
-          </span>
-           
-          <div
-            class="text"
-          >
-            <!---->
-             
-            <!---->
+          <div class="text">
           </div>
-           
-          <!---->
-           
-          <transition-stub
-            class="popper"
-            name="fade"
-          >
-            <div
-              class="root"
-              style="display: none;"
-            />
+          <transition-stub class="popper" name="fade">
+            <div class="root" style="display: none;"></div>
           </transition-stub>
         </div>
-         
-        <!---->
-         
-        <!---->
       </div>
     </div>
   </div>
-   
-  <div
-    class="root"
-    distance=""
-    label-size="normal"
-  >
-    <label
-      class="label"
-      required="required"
-      vusion-slot-name="label"
-      vusion-slot-name-edit="label"
-    >
-      <span
-        vusion-slot-name-edit="label"
-      >
-        树选择器 
-        <!---->
-      </span>
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">树选择器 </span>
     </label>
-     
-    <!---->
-     
-    <div
-      class="field"
-    >
-      <div
-        class="description"
-        vusion-slot-name="description"
-        vusion-slot-name-edit="description"
-      >
-        
-      </div>
-       
-      <div
-        class="wrap"
-        vusion-slot-name="default"
-      >
-        <div
-          class="root"
-          tabindex="0"
-        >
-          <span
-            class="baseline"
-          >
-            b
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root" tabindex="0">
+          <span class="baseline">b</span>
+          <span class="placeholder">
+            请选择
           </span>
-           
-          <span
-            class="placeholder"
-          >
-            
-        请选择
-    
-          </span>
-           
-          <div
-            class="text"
-          >
-            <!---->
-             
-            <!---->
+          <div class="text">
           </div>
-           
-          <!---->
-           
-          <transition-stub
-            class="popper"
-            name="fade"
-          >
-            <div
-              class="root"
-              style="display: none;"
-            />
+          <transition-stub class="popper" name="fade">
+            <div class="root" style="display: none;"></div>
           </transition-stub>
         </div>
-         
-        <!---->
-         
-        <!---->
       </div>
     </div>
   </div>
-   
-  <div
-    class="root"
-    distance=""
-    label-size="normal"
-  >
-    <label
-      class="label"
-      required="required"
-      vusion-slot-name="label"
-      vusion-slot-name-edit="label"
-    >
-      <span
-        vusion-slot-name-edit="label"
-      >
-        树选择器 
-        <!---->
-      </span>
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">树选择器 </span>
     </label>
-     
-    <!---->
-     
-    <div
-      class="field"
-    >
-      <div
-        class="description"
-        vusion-slot-name="description"
-        vusion-slot-name-edit="description"
-      >
-        
-      </div>
-       
-      <div
-        class="wrap"
-        vusion-slot-name="default"
-      >
-        <div
-          class="root"
-          tabindex="0"
-        >
-          <span
-            class="baseline"
-          >
-            b
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root" tabindex="0">
+          <span class="baseline">b</span>
+          <span class="placeholder">
+            请选择
           </span>
-           
-          <span
-            class="placeholder"
-          >
-            
-        请选择
-    
-          </span>
-           
-          <div
-            class="text"
-          >
-            <!---->
-             
-            <!---->
+          <div class="text">
           </div>
-           
-          <!---->
-           
-          <transition-stub
-            class="popper"
-            name="fade"
-          >
-            <div
-              class="root"
-              style="display: none;"
-            />
+          <transition-stub class="popper" name="fade">
+            <div class="root" style="display: none;"></div>
           </transition-stub>
         </div>
-         
-        <!---->
-         
-        <!---->
       </div>
     </div>
   </div>
-   
-  <div
-    class="root"
-    distance=""
-    label-size="normal"
-  >
-    <label
-      class="label"
-      vusion-slot-name="label"
-      vusion-slot-name-edit="label"
-    >
-      <span
-        vusion-slot-name-edit="label"
-      >
-         
-        <!---->
-      </span>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label"> </span>
     </label>
-     
-    <!---->
-     
-    <div
-      class="field"
-    >
-      <div
-        class="description"
-        vusion-slot-name="description"
-        vusion-slot-name-edit="description"
-      >
-        
-      </div>
-       
-      <div
-        class="wrap"
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          color="primary"
-          hovertype="underline"
-          tabindex="0"
-          target="_self"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           立即创建
-        </a>
-         
-        <!---->
-         
-        <!---->
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          立即创建</a>
       </div>
     </div>
   </div>

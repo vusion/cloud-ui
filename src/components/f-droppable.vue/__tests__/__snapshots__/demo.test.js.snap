@@ -2,71 +2,17 @@
 
 exports[`f-droppable.vue Demo- 1`] = `
 <div>
-  <div
-    class="root"
-    color="primary"
-    draggable="draggable"
-    droppable="droppable"
-    inline=""
-    size="normal"
-  >
-    0
-  </div>
-   
-  <div
-    class="root"
-    color="error"
-    draggable="draggable"
-    droppable="droppable"
-    inline=""
-    size="normal"
-  >
-    0
-  </div>
+  <div class="root" color="primary" draggable="draggable" droppable="droppable" inline size="normal">0</div>
+  <div class="root" color="error" draggable="draggable" droppable="droppable" inline size="normal">0</div>
 </div>
 `;
 
 exports[`f-droppable.vue Demo-基本用法 1`] = `
 <div>
-  <div
-    class="root"
-    color="primary"
-    draggable="draggable"
-    inline=""
-    size="normal"
-  >
-    拖我
-  </div>
-   
-  <div
-    class="root"
-    color="success"
-    draggable="draggable"
-    inline=""
-    size="normal"
-  >
-    拖我
-  </div>
-   
-  <div
-    class="root"
-    color="error"
-    draggable="draggable"
-    inline=""
-    size="normal"
-  >
-    拖我
-  </div>
-   
-  <p />
-   
-  <div
-    class="root"
-    color=""
-    droppable="droppable"
-    size="normal"
-  >
-    放到这里
-  </div>
+  <div class="root" color="primary" draggable="draggable" inline size="normal">拖我</div>
+  <div class="root" color="success" draggable="draggable" inline size="normal">拖我</div>
+  <div class="root" color="error" draggable="draggable" inline size="normal">拖我</div>
+  <p></p>
+  <div class="root" color droppable="droppable" size="normal">放到这里</div>
 </div>
 `;
