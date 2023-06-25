@@ -1,0 +1,17 @@
+- name: u-absolute-layout
+  title: 自由布局
+  description: 拖拽内部元素到任意位置
+  icon: absolute-layout
+  labels:
+    - Layout
+  next: true
+  nested: true
+  slots:
+    - concept: Slot
+      name: default
+      description: 内容
+  events:
+    - name: $listeners
+      kind: trigger
+      description: 监听所有事件。
+      params: []
