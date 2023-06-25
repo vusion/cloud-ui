@@ -877,6 +877,11 @@
       title: 展开行前
       description: 点击展开按钮前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ExpandEvent"
         - name: $event.item
           type: object
           description: 选择行相关对象
@@ -890,6 +895,11 @@
       title: 展开行后
       description: 点击展开按钮后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ExpandEvent"
         - name: $event.item
           type: object
           description: 选择行相关对象
