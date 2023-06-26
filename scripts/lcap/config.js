@@ -46,8 +46,6 @@ module.exports = [
     { group: 'Form', name: 'u-switch', alias: '开关', show: true },
     { group: 'Form', name: 'u-checkboxes', alias: '多选组', show: true },
     { group: 'Form', name: 'u-capsules', alias: '胶囊', show: true },
-    { group: 'Form', name: 'u-select', alias: '选择框', show: true },
-    { group: 'Form', name: 'u-tree-select-new', alias: '树选择器', show: true },
     { group: 'Form', name: 'u-rate', alias: '评分', show: true },
     { group: 'Form', name: 'u-combo-slider', alias: '滑块', show: true },
     { group: 'Form', name: 'u-uploader', alias: '文件上传', show: true },
@@ -63,6 +61,8 @@ module.exports = [
     { group: 'Selector', name: 'u-date-picker', alias: '日期选择', show: true },
     { group: 'Selector', name: 'u-time-picker', alias: '时间选择', show: true },
     { group: 'Selector', name: 'u-date-time-picker', alias: '日期时间选择', show: true },
+    { group: 'Selector', name: 'u-select', alias: '选择器', show: true },
+    { group: 'Selector', name: 'u-tree-select-new', alias: '树选择', show: true },
 
     { group: 'Chart', name: 'u-linear-progress', alias: '线形进度条', show: true },
     { group: 'Chart', name: 'u-circular-progress', alias: '圆型进度条', show: true },
