@@ -1390,41 +1390,43 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 列表的数据源，数据集对象或者返回数据集的逻辑 |
-| data-schema | schema |  |  | 表格每一行的数据类型 |
-| initial-load | boolean |  | `true` | 是否在初始时立即加载 |
-| pageable | boolean |  | `false` |  |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
+| pageable | boolean |  | `false` | 设置是否分页展示数据 |
 | page-size | number |  | `50` |  |
-| page-number.sync | number |  | `1` | 当前页数。 |
-| page-size-options | Array\<number\> |  | `[10, 20, 50]` | 分页大小的选项列表。 |
-| show-total | boolean |  | `false` | 是否显示总条目数。 |
-| show-sizer | boolean |  | `false` | 是否显示切换分页大小选项。 |
-| show-jumper | boolean |  | `false` | 是否显示页面跳转输入框。 |
-| filterable | boolean |  | `false` | 是否可以过滤（搜索），开启将会显示搜索框。 |
+| page-number.sync | number |  | `1` | 当前默认展示在第几页 |
+| page-size-options | Array\<number\> |  | `[10, 20, 50]` | 每页条数切换器的选项 |
+| show-total | boolean |  | `false` |  |
+| show-sizer | boolean |  | `false` | 显示每页条数切换器 |
+| show-jumper | boolean |  | `false` | 显示页面跳转输入框 |
+| filterable | boolean |  | `false` | 设置是否可以筛选，开启将会显示搜索框。 |
 | remote-paging | boolean |  | `false` | 是否使用后端分页。 |
 | remote-filtering | boolean |  | `false` |  |
 | match-method | string, Function |  | `'includes'` | 筛选时的匹配方法 |
-| case-sensitive | boolean |  | `false` | 是否区分大小写 |
+| case-sensitive | boolean |  | `false` | 设置是否区分大小写 |
+| placeholder | string |  | `'请输入'` | 搜搜框为空时显示的占位符文本 |
+| value.sync, v-model | any |  |  | 显示的值 |
+| text-field | string |  | `'text'` | 当开启可多选时，显示的选项文本字段名 |
+| value-field | string |  | `'value'` | 当开启可多选时，选项值的字段 |
+| cancelable | boolean |  | `false` | 设置是否可以取消选择 |
+| multiple | boolean |  | `false` | 设置是否可以多选行 |
+| clearable | boolean |  | `false` | 可点击搜索框中的清除按钮一键清除内容 |
 | show-head | boolean |  | `false` |  |
 | title | string |  | `'列表'` |  |
 | show-foot | boolean |  | `true` |  |
+| repeat | number |  | `5` |  |
+| initial-load | boolean |  | `true` | 设置初始时是否立即加载 |
+| designer-mode | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'success'` | 设置不同状态的展示内容 |
+| loading-text | string |  | `'加载中...'` | 加载中状态显示的文案 |
+| loading | boolean |  |  | 支持自定义状态的触发条件，未设置则默认为系统定义条件 |
+| error-text | string |  | `'加载失败，请重试'` | 加载失败状态显示的提示文案 |
+| error | boolean |  |  | 加载失败状态的触发条件，未设置则默认为系统定义条件 |
+| empty-text | string |  | `'暂无数据'` | 暂无数据状态显示的提示文案 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 | border | boolean |  | `true` |  |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 设置数据列表宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置数据列表高度大小 |
-| loading-text | string |  | `'加载中...'` | 加载时的文字。使用分页加载时才会出现 |
-| error | boolean |  |  | 手动设置是否加载失败。 |
-| error-text | string |  | `'加载失败，请重试'` | 加载失败时的文字。 |
-| empty-text | string |  | `'暂无数据'` | 暂无数据时的文字。 |
-| placeholder | string |  | `'请输入'` | 搜索框为空时提示文本 |
-| value.sync, v-model | any |  |  | 显示的值 |
-| text-field | string |  | `'text'` | 当开启可多选时，显示的选项文本字段名 |
-| value-field | string |  | `'value'` | 当开启可多选时，选项值的字段名 |
-| cancelable | boolean |  | `false` |  |
-| multiple | boolean |  | `false` |  |
-| repeat | number |  | `5` | 每行排列几项 |
-| clearable | boolean |  | `false` | 搜索框是否有清除按钮 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
 
 ### Slots
 
@@ -1511,13 +1513,6 @@ export default {
 | senderVM | UTableView | 发送事件实例 |
 
 Methods
-
-#### load()
-
-带缓存地加载
-
-| Param | Type | Default | Description |
-| ----- | ---- | ------- | ----------- |
 
 #### reload()
 

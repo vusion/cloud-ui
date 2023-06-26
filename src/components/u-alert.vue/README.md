@@ -66,13 +66,13 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'info'` | 选择公告类型 |
 | title | string |  | `''` | 公告标题 |
 | desc | string |  | `''` | 公告辅助文本 |
 | horizontal | string | `[object Object]`<br/>`[object Object]` | `'left'` | 选择对齐方式 |
+| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'info'` |  |
 | showIcon | boolean |  | `true` | 显示/隐藏图标 |
-| bordered | boolean |  | `true` | 显示/隐藏边框 |
 | closeable | boolean |  | `false` | 是否可手动关闭 |
+| bordered | boolean |  | `true` | 显示/隐藏边框 |
 
 ### Slots
 

@@ -23,7 +23,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| text | string |  | `'水印'` | 水印文本 |
 | image | CanvasImageSource |  |  | 水印图案。如果没有，则默认按文本绘制 |
+| text | string |  | `'水印'` | 水印文本 |
 | opacity | number |  | `0.1` | 0-1之间的小数，0代表完全透明，1代表完全不透明 |
 

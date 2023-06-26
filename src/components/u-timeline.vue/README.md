@@ -178,9 +178,9 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 数据源 |
-| data-schema | schema |  |  | 数据类型 |
-| mode | string | `[object Object]`<br/>`[object Object]` | `'default'` | undefined |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
+| mode | string | `[object Object]`<br/>`[object Object]` | `'default'` | 时间线节点与内容的排布方式 |
 | pending | boolean |  | `false` | 待定节点连接线为虚线展示，用于表示即将发生或者正在进行的节点 |
 
 ### Slots
@@ -198,9 +198,9 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| color | string |  | `'blue'` | 指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值 |
 | label | string |  |  | 指定展示在另一侧的 `label`，只在 `label` 模式下生效 |
 | position | string | `[object Object]`<br/>`[object Object]` | `'right'` | 指定交替展示时的位置，只在 `alternate` 或 `label` 模式下生效 |
+| color | string |  | `'blue'` | 指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值 |
 
 ### Slots
 

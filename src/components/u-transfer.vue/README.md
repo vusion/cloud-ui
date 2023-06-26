@@ -714,23 +714,22 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| match-method | string, Function |  | `'includes'` | 过滤时的匹配方法 |
+| pageable | boolean |  | `false` | 是否需要分页 |
+| page-size | number |  | `50` |  |
 | source.sync | Array\<{ text, value }\> |  |  | 原数据列表 |
 | target.sync | Array\<{ text, value }\> |  |  | 目标数据列表 |
 | text-field | string |  | `'text'` | 选项文本的字段名 |
 | value-field | string |  | `'value'` | 选项值的字段名 |
-| show-head | boolean |  | `false` |  |
-| source-title | string |  | `'列表'` | 左侧列表标题 |
-| target-title | string |  | `'列表'` | 右侧列表标题 |
-| show-foot | boolean |  | `false` |  |
 | filterable | boolean |  | `false` | 显示过滤（搜索框） |
-| placeholder | string |  | `'请输入'` | 搜索框的提示文字 |
-| clearable | boolean |  | `false` | 搜索框输入内容支持一键清除 |
-| match-method | string, Function |  | `'includes'` | 过滤时的匹配方法 |
-| case-sensitive | boolean |  | `false` | 过滤时大小写敏感 |
-| pageable | boolean |  | `false` | 是否需要分页 |
-| page-size | number |  | `50` |  |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
+| case-sensitive | boolean |  | `false` | 设置是否区分大小写 |
+| show-head | boolean |  | `false` |  |
+| source-title | string |  | `'列表'` |  |
+| target-title | string |  | `'列表'` |  |
+| placeholder | string |  | `'请输入'` | 为空时显示的占位符文本 |
+| clearable | boolean |  | `false` | 可点击清除按钮一键清除内容 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Slots
 

@@ -30,10 +30,10 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| icon | icon |  | `'通知'` | 图标 |
+| title | string |  |  | 鼠标 hover 在图标上展示文案 |
+| icon | icon |  | `'通知'` |  |
 | size | number |  | `5` | 每页展示的任务数量 |
 | interval | number |  | `30` | 任务刷新时间间隔 |
-| title | string |  |  | 鼠标 hover 在图标上展示文案 |
 
 ### Events
 

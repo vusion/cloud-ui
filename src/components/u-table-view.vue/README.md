@@ -34,6 +34,10 @@
 - [UTableViewColumn API](#utableviewcolumn-api)
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
+- [UTableViewColumnConfig API](#utableviewcolumnconfig-api)
+    - [Props/Attrs](#propsattrs-3)
+    - [Slots](#slots-3)
+    - [Events](#events-2)
 
 **Table**
 
@@ -1780,9 +1784,6 @@ export default {
             </div>
         </u-table-view-column>
         <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
-        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
-        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
-        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
         <u-table-view-column title="操作" width="120">
             <div slot="cell" slot-scope="{ item }">
                 <u-linear-layout gap="small">
@@ -2227,55 +2228,58 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 表格的数据源，数据集对象或者返回数据集的逻辑 |
-| data-schema | schema |  |  | 表格每一行的数据类型 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
 | extra-params | object |  |  | 数据源除了DataSourceParams外还需要的参数 |
-| initial-load | boolean |  | `true` | 是否在初始时立即加载 |
 | pageable | boolean |  | `false` |  |
-| remote-paging | boolean |  | `false` | 是否使用后端分页 |
+| remote-paging | boolean |  | `false` |  |
+| pagination | boolean |  |  | 设置是否分页展示数据 |
 | page-size.sync | number |  | `20` |  |
-| page-number.sync | number |  | `1` |  |
-| page-size-options | Array\<number\> |  | `[10, 20, 50]` | 分页大小的选项列表 |
+| show-sizer | boolean |  | `false` | 显示每页条数切换器 |
+| page-size-options | Array\<number\> |  | `[10, 20, 50]` | 每页条数切换器的选项 |
+| page-number.sync | number |  | `1` | 当前默认展示在第几页 |
 | show-total | boolean |  | `false` |  |
-| show-sizer | boolean |  | `false` |  |
-| show-jumper | boolean |  | `false` |  |
-| sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 指数据初始化时的排序规则 |
-| remote-sorting | boolean |  | `false` | 是否使用排序操作 |
-| default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 开启排序功能时，默认的排序规则 |
+| show-jumper | boolean |  | `false` | 显示页面跳转输入框 |
+| sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 设置数据初始化时的排序字段和顺序规则 |
+| remote-sorting | boolean |  | `false` |  |
+| default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` |  |
 | filtering.sync | object |  |  |  |
 | remote-filtering | boolean |  | `false` | 是否使用后端筛选 |
+| value-field | string |  |  | 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段 |
+| value.sync, v-model | any |  |  | 用于标识单选选项的值 |
+| values.sync | Array |  |  | 用于标识多选选项的值 |
+| tree-display | boolean |  | `false` | 以树形数据展示表格 |
+| parent-field | string |  |  | 当数据源为平铺数据时自动生成树形数据的节点字段名，重要：值字段名需要一起配置 |
+| children-field | string |  | `'children'` | 树形数据子节点字段名，默认为children |
+| has-children-field | string |  | `'hasChildren'` | 该字段指定行数据是否包含子节点数据，默认为hasChildren |
+| tree-check-type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'up+down'` | 父子树节点是否关联选中 |
 | title | string |  |  |  |
+| show-head | boolean |  | `true` |  |
+| stick-head | boolean |  | `false` |  |
+| stick-head-offset | number |  | `0` |  |
+| hover | boolean |  | `false` | 表格行在悬浮时是否高亮显示 |
+| selectable | boolean |  | `false` | 设置是否可以单选行 |
+| cancelable | boolean |  | `false` | 设置是否可以取消选择 |
+| draggable | boolean |  | `false` | 设置是否可以拖拽行排序 |
+| accordion | boolean |  | `false` | 设置是否每次只展开一个 |
+| resizable | boolean |  | `false` | 设置是否可以调整列宽 |
+| resize-remaining | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'average'` | 设置调整列宽时如何处理剩余大小 |
+| initial-load | boolean |  | `true` | 设置初始时是否立即加载 |
+| designer-mode | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'success'` | 设置不同状态的展示内容 |
+| loading-text | string |  | `'正在加载中...'` | 加载中状态显示的提示文案 |
+| loading | boolean |  |  | 加载中状态的触发条件，未设置则默认为系统定义条件 |
+| error-text | string |  | `'加载失败，请重试'` | 加载失败状态显示的提示文案 |
+| error | boolean |  |  | 加载失败状态的触发条件，未设置则默认为系统定义条件 |
+| empty-text | string |  | `'暂无数据'` | 暂无数据状态显示的提示文案 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 | title-alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'center'` |  |
 | boldHeader | boolean |  | `true` |  |
 | border | boolean |  | `false` |  |
 | line | boolean |  | `false` | 单元格之间是否显示分隔线条 |
 | striped | boolean |  | `false` | 表格行是否按斑马线条纹显示 |
-| hover | boolean |  | `false` | 表格行在悬浮时是否高亮显示 |
-| show-head | boolean |  | `true` |  |
-| stick-head | boolean |  | `false` |  |
-| stick-head-offset | number |  | `0` |  |
-| default-column-width | string \| number |  |  | 表格的默认列宽度，可以设置为百分比或数字 |
-| designer-mode | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'success'` | 设置不同状态的展示内容 |
-| loading-text | string |  | `'正在加载中...'` | 设置加载中的提示文案 |
-| loading | boolean |  |  | 支持自定义状态的触发条件，未设置则默认为系统定义条件 |
-| error-text | string |  | `'加载失败，请重试'` | 设置加载失败的提示文案 |
-| error | boolean |  |  | 支持自定义状态的触发条件，未设置则默认为系统定义条件 |
-| empty-text | string |  | `'暂无数据'` | 设置暂无数据的提示文案 |
-| value-field | string |  |  | 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段 |
-| value.sync, v-model | any |  |  | 单项选择的值 |
-| values.sync | Array |  |  | 多项选择的值 |
-| selectable | boolean |  | `false` | 是否可以单选行 |
-| cancelable | boolean |  | `false` | 是否可以取消选择 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
-| draggable | boolean |  | `false` | 是否可以拖拽行排序 |
-| accordion | boolean |  | `false` | 是否每次只会展开一行 |
-| resizable | boolean |  | `false` | 是否可以调整列宽 |
-| resize-remaining | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'average'` | 调整列宽时如何处理剩余大小 |
-| tree-display | boolean |  | `false` | 以树形数据展示表格 |
-| children-field | string |  | `'children'` | 树形数据子节点字段名 |
-| has-children-field | string |  | `'hasChildren'` | 该字段指定行数据是否包含子节点数据 |
-| tree-check-type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'up+down'` | 父子树节点是否关联选中 |
+| default-column-width | string \| number |  |  | 表格的默认列宽度，可设置为数字或百分比 |
+| configurable | boolean |  | `false` | 是否可以配置展示列 |
 
 ### Slots
 
@@ -2519,13 +2523,6 @@ export default {
 
 Methods
 
-#### load()
-
-带缓存地加载
-
-| Param | Type | Default | Description |
-| ----- | ---- | ------- | ----------- |
-
 #### reload()
 
 清除缓存，重新加载
@@ -2553,25 +2550,33 @@ Methods
 | order | string | `'tableView.params.order'` | 排序顺序，'asc' 或 'desc' |
 | excludeColumns | Array\<string\> | `[]` | 排除字段 |
 
+#### resetEdit(item)
+
+重制编辑列的编辑状态为非编辑态
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+| item | object |  | 行数据 |
+
 ## UTableViewColumn API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| title | string |  |  | 列标题 |
-| field | string |  |  | data 项中的字段名 |
-| width | string \| number |  |  | 给列指定宽度，可以为数字或百分比 |
 | formatter | string \| object \| Function \| Formatter |  | `'placeholder'` | 格式器 |
-| fixed | boolean |  | `false` | 该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。 |
-| sortable | boolean |  | `false` | 该列是否可以排序 |
-| default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 该列首次点击时的排序顺序 |
 | filters | Array\<{ text: string, value: any }\> |  |  | 筛选项的参数 |
-| ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
-| hidden | boolean |  | `false` | 是否隐藏该列 |
-| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序 |
+| field | string |  |  | data 项中的字段 |
+| sortable | boolean |  | `false` | 设置该列是否可以排序 |
+| default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` |  |
+| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序。选择编辑列需要先设置列字段。 |
 | auto-index | boolean |  | `false` | 换页后，继续上一页的列序号进行编号 |
 | start-index | number |  | `1` | 序号列的起始序号 |
 | dblclickHandler | Function |  |  | 用于可编辑表格，双击表格列时的处理函数 |
+| title | string |  |  |  |
+| fixed | boolean |  | `false` | 该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。 |
+| ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
+| hidden | boolean |  | `false` |  |
+| width | string \| number |  |  | 设置列宽度，可设置为数字或百分比 |
 
 ### Slots
 
@@ -2619,4 +2624,43 @@ Methods
 | columnVM | string | 展开列组件实例 |
 | rowIndex | number | 行的索引 |
 | columnIndex | number | 展开列的索引 |
+
+## UTableViewColumnConfig API
+### Props/Attrs
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| text-field | string |  |  | 配置列的下拉弹窗里，指定数据展示的字段 |
+| show-footer | boolean |  | `true` | 控制弹出层的重置/确定按钮是否展示 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
+| value-field | string |  | `'value'` | 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段 |
+| value.sync, v-model | any |  |  | 用于标识单选选项的值 |
+
+### Slots
+
+#### title
+
+
+
+#### item
+
+自定义选项的结构和样式
+
+### Events
+
+#### @select
+
+
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.value | any | 改变后的值 |
+| $event.oldValue | any | 旧的值 |
+| $event.item | object | 选择项相关对象 |
+| $event.oldItem | object | 旧的选择项相关对象 |
+| $event.itemVM | USelectItem | 选择项子组件 |
+| $event.oldVM | USelectItem | 旧的选择项子组件 |
+| senderVM | USelect | 发送事件实例 |
 

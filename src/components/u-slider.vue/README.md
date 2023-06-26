@@ -9,6 +9,7 @@
     - [范围](#范围)
     - [只读和禁用](#只读和禁用)
     - [展示 ToolTip](#展示-tooltip)
+    - [多滑块](#多滑块)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -75,6 +76,12 @@
 <u-slider :value="36" :show-tooltip="true" tooltip="展示 ToolTip"></u-slider>
 ```
 
+### 多滑块
+
+``` html
+<u-slider multiple :value="[18, 36]"></u-slider>
+```
+
 ## API
 ### Props/Attrs
 
@@ -90,6 +97,7 @@
 | disabled | boolean |  | `false` | 是否禁用 |
 | show-tooltip | boolean |  | `false` | 鼠标悬浮时展示提示文字 |
 | tooltip | string |  |  | Tooltip文字设置。在展示Tooltip开关打开的情况下才会生效 |
+| multiple | boolean |  | `false` | 设置是否展示多滑块 |
 
 ### Events
 

@@ -69,10 +69,10 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| percent | number |  | `0` | 进度条显示的进度百分比，1-100之间的数字 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 进度条高度大小 |
 | range | array\<number\> |  | `[0, 100]` | 百分比范围限制 |
-| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` | undefined |
+| percent | number |  | `0` | 进度条显示的进度百分比，1-100之间的数字 |
+| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` |  |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 进度条高度大小 |
 
 ### Slots
 

@@ -64,10 +64,10 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| title | string |  |  | 卡片标题 |
-| width | string |  |  | 卡片宽度：像素或百分比 |
+| title | string |  |  | 卡片组的标题 |
+| width | string |  |  | 设置卡片宽度，可设置为像素或百分比 |
 | shadow | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'always'` | 卡片阴影显示时机 |
-| border | boolean |  | `true` | 是否显示卡片边框 |
+| border | boolean |  | `true` | 设置是否显示边框 |
 | split | boolean |  | `false` | 是否显示分割线 |
 
 ### Slots

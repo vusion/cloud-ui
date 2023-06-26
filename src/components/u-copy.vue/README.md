@@ -239,13 +239,13 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value | string |  |  | 需要复制的值 |
 | text | string |  | `'复制'` | 默认显示的文本 |
 | success-text | string |  | `'已复制'` | 复制成功提示文本 |
 | feedback | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'tooltip'` | 复制提示反馈方式 |
 | placement | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'top'` | tooltip 提示框位置 |
 | hide-delay | number |  | `3000` | 提示框显示时长 |
-| disabled | boolean |  | `false` | 禁止复制 |
+| value | string |  |  | 需要复制的值 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Slots
 

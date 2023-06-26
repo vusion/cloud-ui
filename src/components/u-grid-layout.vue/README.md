@@ -321,10 +321,10 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | undefined |
-| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | undefined |
+| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` |  |
+| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` |  |
 | repeat | number |  | `12` | 默认24，可设置栅格行大小 |
-| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 栅格列之间的间隔 |
+| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 栅格行之间的间隔 |
 
 ### Slots
 
@@ -337,23 +337,23 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| mode | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 设置布局模式 |
-| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` | undefined |
-| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | undefined |
-| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | undefined |
-| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | undefined |
-| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | undefined |
-| wrap | boolean |  | `true` | 弹性布局下子元素总宽度超出父级时子元素是否换行展示 |
-| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 内容块间隙大小 |
-| span | number |  | `1` | 列占据栅格行的栅格数 |
-| offset | number |  | `0` | 列偏移的栅格数 |
-| pull | number |  | `0` | 列向左移动的栅格数 |
-| push | number |  | `0` | 列向右移动的栅格数 |
 | media-huge | number |  |  | 响应式布局`<=1440px`的列跨越栅格数 |
 | media-large | number |  |  | 响应式布局`<=1200px`的列跨越栅格数 |
 | media-medium | number |  |  | 响应式布局`<=960px`的列跨越栅格数 |
 | media-small | number |  |  | 响应式布局`<=768px`的列跨越栅格数 |
 | media-mini | number |  |  | 响应式布局`<=480px`的列跨越栅格数 |
+| mode | string | `[object Object]`<br/>`[object Object]` | `'inline'` |  |
+| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` |  |
+| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` |  |
+| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` |  |
+| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` |  |
+| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` |  |
+| span | number |  | `1` | 列占据栅格行的栅格数 |
+| offset | number |  | `0` | 列偏移的栅格数 |
+| pull | number |  | `0` | 列向左移动的栅格数 |
+| push | number |  | `0` | 列向右移动的栅格数 |
+| wrap | boolean |  | `true` | 设置弹性布局下子元素总宽度超出父级时子元素是否换行展示 |
+| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 栅格行之间的间隔 |
 
 ### Slots
 

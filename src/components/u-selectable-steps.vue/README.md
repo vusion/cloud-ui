@@ -7,11 +7,15 @@
     - [自定义标题](#自定义标题)
     - [宽度自适应](#宽度自适应)
     - [禁用](#禁用)
+    - [只读](#只读)
+    - [指定状态](#指定状态)
+    - [自定义图标](#自定义图标)
     - [竖向步骤条](#竖向步骤条)
 - [USelectableSteps API](#uselectablesteps-api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
     - [Events](#events)
+    - [Methods](#methods)
 - [USelectableStep API](#uselectablestep-api)
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
@@ -74,6 +78,37 @@
 </u-selectable-steps>
 ```
 
+### 只读
+
+``` html
+<u-selectable-steps :value="0" :readonly="false">
+    <u-selectable-step title="Step1">Content1</u-selectable-step>
+    <u-selectable-step title="Readonly" readonly>Readonly</u-selectable-step>
+    <u-selectable-step title="Step3">Content3</u-selectable-step>
+</u-selectable-steps>
+```
+
+### 指定状态
+
+``` html
+<u-selectable-steps :value="0" :readonly="false" size="auto">
+    <u-selectable-step title="Step1" status="passed" >Content1</u-selectable-step>
+    <u-selectable-step title="Step2" status="failed" >Content2</u-selectable-step>
+    <u-selectable-step title="Step3" status="selected" >Content3</u-selectable-step>
+    <u-selectable-step title="Step4" status="pending" >Content4</u-selectable-step>
+</u-selectable-steps>
+```
+
+### 自定义图标
+
+```html
+<u-selectable-steps :value="1">
+    <u-selectable-step title="Step1" icon="find">Content1</u-selectable-step>
+    <u-selectable-step title="Step2" icon="task-done">Content2</u-selectable-step>
+    <u-selectable-step title="Step3" icon="notice">Content3</u-selectable-step>
+</u-selectable-steps>
+```
+
 ### 竖向步骤条
 
 ``` html
@@ -89,17 +124,29 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | number |  | `0` | 当前步骤数 |
-| readonly | boolean |  | `false` | 是否只读，非只读的情况下可以选择 |
-| disabled | boolean |  | `false` |  |
+| data-source | Array\<Item\> \| Function \| Object |  |  | 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑 |
+| data-schema | schema |  |  | 集合类型每一元素的数据类型 |
+| title-field | string |  | `'title'` | 数据源集合的元素，用于显示步骤标题的属性 |
+| desc-field | string |  | `'desc'` | 数据源集合的元素，用于显示步骤描述的属性 |
+| value.sync, v-model | number |  | `0` | 设置当前处于选中状态的步骤 |
 | direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` |  |
-| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` |  |
 
 ### Slots
 
 #### (default)
 
 插入`<u-selectable-step>`子组件。
+
+#### title
+
+
+
+#### desc
+
+
 
 ### Events
 
@@ -136,6 +183,15 @@
 | value | number | 当前步骤数 |
 | oldValue | number | 旧的步骤数 |
 
+Methods
+
+#### reload()
+
+重新加载数据
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+
 ## USelectableStep API
 ### Props/Attrs
 
@@ -143,7 +199,10 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 步骤标题文本 |
 | desc | string |  | `''` | 步骤描述信息 |
-| disabled | boolean |  | `false` |  |
+| status | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 是否显示标签滚动左右箭头按钮 |
+| icon | icon |  | `''` |  |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Slots
 

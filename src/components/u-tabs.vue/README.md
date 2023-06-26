@@ -253,20 +253,20 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | Array\<Item\> \| Function \| Object |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
-| data-schema | schema |  |  | 集合类型每一元素的数据类型 |
+| show-scroll-buttons | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 是否显示标签滚动左右箭头按钮 |
+| data-source | Array\<Item\> \| Function \| Object |  |  | 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
 | title-field | string |  | `'title'` | 数据源集合的元素，用于显示标签标题的属性 |
 | value-field | string |  | `'value'` | 数据源集合的元素，用于标识标签值的属性 |
-| content-field | string |  | `'content'` | 数据源集合的元素，用于标识当前打开的标签项 |
-| closable-field | string |  | `'closable'` | 数据源集合的元素，用于标识标签是否可关闭的属性 |
+| url-field | string |  | `'url'` | 数据源集合的元素，用于标识当前打开的标签项 |
 | value.sync, v-model | any |  |  | 指当前打开标签的标签项 |
 | router | boolean |  | `false` | 开启后，选项卡可设置跳转页面 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
-| closable | boolean |  | `false` | 是否可以关闭 |
-| show-scroll-buttons | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 是否显示标签滚动左右箭头按钮 |
-| appear | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'square'` | 标签展示的外观 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 标签尺寸 |
+| closable-field | string |  | `'closable'` | 设置标签项是否可关闭 |
+| closable | boolean |  | `false` | 设置标签是否可关闭 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| appear | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'square'` |  |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` |  |
 
 ### Slots
 
@@ -277,6 +277,14 @@ export default {
 #### extra
 
 在标签右侧可以附加的组件。
+
+#### title
+
+
+
+#### content
+
+
 
 ### Events
 
@@ -344,6 +352,25 @@ export default {
 | $event.preventDefault | Function | 阻止关闭后自动选择页的流程 |
 | senderVM | UTabs | 发送事件实例 |
 
+#### @before-load
+
+加载前触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.preventDefault | Function | 阻止加载流程 |
+| senderVM | UTableView | 发送事件实例 |
+
+#### @load
+
+加载后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | null | 无 |
+| senderVM | UTableView | 发送事件实例 |
+
 Methods
 
 #### reload()
@@ -359,18 +386,18 @@ Methods
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 标签页标题。 |
-| value | any |  |  | 标签页的值。 |
-| disabled | boolean |  | `false` | 是否禁用此标签页。 |
-| showTabItem | boolean |  | `true` | 控制标签项是否默认显示。 |
-| closable | boolean |  | `false` | 控制是否可手动关闭标签。 |
-| linkType | string | `[object Object]`<br/>`[object Object]` | `'destination'` | 链接类型 |
+| linkType | string | `[object Object]` | `'destination'` | undefined |
+| hrefAndTo | string |  |  | 点击选项卡后跳转的地址，选项卡的路由模式需要开启 |
 | href | string |  |  | 链接地址 |
-| hrefAndTo | string |  |  | 链接地址 |
 | target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 打开方式 |
 | to | string, Location |  |  | 需要 router 为 true，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | append | boolean |  | `false` | 需要 router 为 true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |
 | exact | boolean |  | `false` | 需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。 |
+| value | any |  |  | 指当前打开标签的标签项 |
+| showTabItem | boolean |  | `true` | 显示状态分为“True(显示)/False(隐藏)”，默认为“显示” |
+| closable | boolean |  | `false` | 设置标签是否可关闭 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Slots
 

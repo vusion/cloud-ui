@@ -231,12 +231,12 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| visible.sync | boolean |  | `false` | 抽屉默认打开 |
-| placement.sync | string | `[object Object]`<br/>`[object Object]` | `'right'` | 抽屉弹出的位置 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 抽屉的尺寸 |
+| placement | string | `[object Object]`<br/>`[object Object]` | `'right'` | 抽屉弹出的位置 |
 | maskClosable | boolean |  | `true` | 点击遮罩关闭抽屉 |
-| show-head | boolean |  | `true` | 控制顶部栏的显示 |
-| show-foot | boolean |  | `true` | 控制底部栏的显示 |
+| show-head | boolean |  | `true` |  |
+| show-foot | boolean |  | `true` |  |
+| visible.sync | boolean |  | `false` | 显示状态分为“True(打开)/False(关闭)”，默认为“打开” |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 抽屉的尺寸 |
 
 ### Events
 

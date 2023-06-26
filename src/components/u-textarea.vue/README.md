@@ -122,20 +122,20 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | string |  |  | 输入框的值 |
-| clearable | boolean |  | `false` | 是否可清空。开启并在输入框有内容时会显示清空按钮。 |
-| placeholder | string |  |  | 为空时的提示文本 |
 | minlength | number |  |  |  |
+| spellcheck | boolean |  |  |  |
+| value.sync, v-model | string |  |  | 输入的值 |
+| placeholder | string |  |  | 为空时显示的占位符文本 |
 | maxlength | number |  |  | 输入框内可输入的最大字符数，超过时不支持输入 |
 | show-word-limit | boolean |  |  | 设置是否显示「可输入最大字符数」的字数统计 |
 | limit-position | string | `[object Object]`<br/>`[object Object]` |  | 设置字数统计位置 |
-| spellcheck | boolean |  |  |  |
-| autofocus | boolean |  | `false` |  |
+| autofocus | boolean |  | `false` | 设置是否自动获取焦点 |
+| clearable | boolean |  | `false` | 可点击清除按钮一键清除内容 |
+| resize | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 设置调整大小的方式 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置多行输入框大小 |
-| resize | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 是否可以调整大小 |
 | autosize | boolean, object |  |  | 可输入如{maxHeight:100,minHeight:50}，单位默认为px |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
 
 ### Slots
 
