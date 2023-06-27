@@ -1,7 +1,7 @@
 - name: u-date-picker
   title: 日期选择
   icon: date-picker
-  description: 日期选择器
+  description: 日期选择
   labels:
     - Selector
   attrs:
