@@ -15,11 +15,11 @@
       title: 文本
       type: string
       default: 水印
-      description: 水印文本
+      description: 水印文本显示内容
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 设置水印文本内容
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/15.%E7%89%B9%E6%95%88/010.%E6%B0%B4%E5%8D%B0.html
     - name: opacity
       title: 不透明度
       type: number
@@ -27,5 +27,5 @@
       description: 0-1之间的小数，0代表完全透明，1代表完全不透明
       group: 样式属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 设置水印透明度，参数为0-1之间的小数，0代表完全透明，1代表完全不透明
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/15.%E7%89%B9%E6%95%88/010.%E6%B0%B4%E5%8D%B0.html

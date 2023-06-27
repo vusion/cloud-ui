@@ -12,8 +12,8 @@
       designer-value: "[{}, {}, {}]"
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
     - name: data-schema
       title: 数据类型
       type: schema
@@ -21,8 +21,8 @@
       group: 数据属性
       compType: dataTypeSelect
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 该属性为只读状态，当数据源动态绑定集合List\<T>后，会自动识别T的类型并进行展示。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
     - name: text-field
       title: 选项文本
       type: string
@@ -38,8 +38,8 @@
       display: property-select
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 集合的元素类型中，用于标识选中值的属性，支持自定义变更。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
     - name: value
       title: 选中值
       type: Array
@@ -49,25 +49,25 @@
       description: 当前选中的值
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 多选组的选中项，返还结构为List\<T>。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
     - name: min
-      title: 最少选中数
+      title: 最小选中数
       type: number
       default: 0
       description: 可以勾选多选框的最小数量
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 多选组可以勾选多选框的最小数量。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
     - name: max
       title: 最大选中数
       type: number
       description: 可以勾选多选框的最大数量
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 多选组可以勾选多选框的最大数量。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
     - name: converter
       title: 转换器
       type: string
@@ -87,8 +87,8 @@
       bindHide: true
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
     - name: readonly
       title: 只读
       type: boolean
@@ -96,8 +96,8 @@
       description: 正常显示，但禁止选择/输入
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 正常显示，但禁止选择或输入
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
     - name: disabled
       title: 禁用
       type: boolean
@@ -105,8 +105,8 @@
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
   events:
     - name: input
       title: 输入时
@@ -219,8 +219,8 @@
       description: 当前选中的值
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 多选组的选中项，返还结构为List\<T>。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
     - name: label
       title: 选项值
       type: any
@@ -228,16 +228,16 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
     - name: autofocus
       title: 自动获取焦点
       type: boolean
       default: false
-      description: 设置是否自动获取焦点
+      description: ""
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
     - name: readonly
       title: 只读
       type: boolean
@@ -245,8 +245,8 @@
       description: 正常显示，但禁止选择/输入
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 正常显示，但禁止选择或输入
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
     - name: disabled
       title: 禁用
       type: boolean
@@ -254,8 +254,8 @@
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/134.%E5%A4%9A%E9%80%89%E7%BB%84.html
   events:
     - name: before-check
       title: 选中前

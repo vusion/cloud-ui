@@ -13,8 +13,8 @@
       description: 标识开关状态的值
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 开关状态，返还true或者false。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/133.%E5%BC%80%E5%85%B3.html
     - name: with-text
       title: 显示开关文字
       type: boolean
@@ -22,8 +22,8 @@
       description: 是否显示开关`ON`和`OFF`文字
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 设置开关是否显示开关`ON`和`OFF`文字。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/133.%E5%BC%80%E5%85%B3.html
     - name: readonly
       title: 只读
       type: boolean
@@ -31,8 +31,8 @@
       description: 正常显示，但禁止选择/输入
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 正常显示，但禁止选择或输入。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/133.%E5%BC%80%E5%85%B3.html
     - name: disabled
       title: 禁用
       type: boolean
@@ -40,8 +40,8 @@
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/133.%E5%BC%80%E5%85%B3.html
   slots: false
   events:
     - name: before-toggle

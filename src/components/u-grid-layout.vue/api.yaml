@@ -24,7 +24,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 支持修改栅格行之间的间隔，支持紧凑（-1）、无（0）、小（8）、正常（16）、大（32）共6种间隔模式。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
   slots:
     - concept: Slot
       name: default
@@ -72,7 +72,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: alignment
       title: 纵轴对齐
       type: string
@@ -104,7 +104,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: repeat
       title: 栅格数
       type: number
@@ -116,9 +116,9 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持设置栅格行大小，默认为24。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: gap
-      title: 行间隔
+      title: 列间隔
       type: string
       options:
         - value: none
@@ -134,11 +134,11 @@
         - value: huge
           title: 巨大（32）
       default: normal
-      description: 栅格行之间的间隔
+      description: 栅格列之间的间隔
       group: 样式属性
       brifeDoc: ""
-      docDescription: 支持修改栅格行之间的间隔，支持紧凑（-1）、无（0）、小（8）、正常（16）、大（32）共6种间隔模式。
-      tooltipLink: ""
+      docDescription: 栅格列之间的间隔，支持无（0）、迷你（4）、小（8）、正常（16）、巨大（32）共6种间隔模式。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
   slots:
     - concept: Slot
       name: default
@@ -182,7 +182,7 @@
       display: capsules
       bindHide: true
       description: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
       options:
         - value: inline
           title: 块级
@@ -228,7 +228,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 横向：内部子元素进行横向排布，建议内部子元素使用行内布局。纵向：内部子元素进行纵向排布，建议内部子元素使用块级布局。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: justify
       title: 横轴对齐
       type: string
@@ -270,7 +270,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: alignment
       title: 纵轴对齐
       type: string
@@ -305,7 +305,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: alignment
       title: 纵轴对齐
       type: string
@@ -336,7 +336,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: justify
       title: 横轴对齐
       type: string
@@ -378,7 +378,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: span
       title: 占据栅格数
       type: number
@@ -389,7 +389,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持设置当前栅格列占据的栅格数，不能超过当前栅格行栅格数。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: offset
       title: 偏移栅格数
       type: number
@@ -400,7 +400,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持设置栅格列偏移数，控制当前栅格列与其左侧栅格列的距离，处于当前栅格列右侧的栅格列也会同步偏移。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: pull
       title: 左移动栅格数
       type: number
@@ -411,7 +411,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 向左移动的栅格数，支持栅格互相重合。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: push
       title: 右移动栅格数
       type: number
@@ -422,21 +422,21 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 向右移动的栅格数，支持栅格互相重合。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: wrap
-      title: 可换行
+      title: 换行
       type: boolean
       default: true
       description: 设置弹性布局下子元素总宽度超出父级时子元素是否换行展示
       dependency:
         - mode: flex
-      group: 交互属性
+      group: 主要属性
       brifeDoc: ""
       docDescription: |
         支持控制弹性布局模式下，子元素总宽度超过父级时是否换行展示，默认开启。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: gap
-      title: 行间隔
+      title: 内容间隔
       type: string
       options:
         - value: shrink
@@ -451,7 +451,7 @@
         - value: large
           title: 大
       default: normal
-      description: 栅格行之间的间隔
+      description: 内容块间隔大小
       dependency:
         - mode: flex
           "!justify":
@@ -459,8 +459,8 @@
             - space-around
       group: 样式属性
       brifeDoc: ""
-      docDescription: 支持修改栅格行之间的间隔，支持紧凑（-1）、无（0）、小（8）、正常（16）、大（32）共6种间隔模式。
-      tooltipLink: ""
+      docDescription: 布局内各个组件之间的间隔，通常有收缩、无、小、正常、大，默认为正常。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
   slots:
     - concept: Slot
       name: default

@@ -13,8 +13,8 @@
       description: 当前选中的值
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 当前选择的值
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/136.%E8%83%B6%E5%9B%8A.html
     - name: auto-select
       title: 自动选择
       type: boolean
@@ -22,8 +22,8 @@
       description: 是否自动选择第一个非禁用的项
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 是否自动选择第一个非禁用的项
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/136.%E8%83%B6%E5%9B%8A.html
     - name: cancelable
       title: 可取消
       type: boolean
@@ -31,8 +31,8 @@
       description: 是否可以取消选择
       group: 交互属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 是否可以取消选择
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/136.%E8%83%B6%E5%9B%8A.html
     - name: multiple
       title: 可多选
       type: boolean
@@ -40,8 +40,8 @@
       description: 是否可以多选
       group: 交互属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 是否可以多选
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/136.%E8%83%B6%E5%9B%8A.html
     - name: readonly
       title: 只读
       type: boolean
@@ -49,8 +49,8 @@
       description: 正常显示，但禁止选择/输入
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 正常显示，但禁止选择或输入。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/136.%E8%83%B6%E5%9B%8A.html
     - name: disabled
       title: 禁用
       type: boolean
@@ -58,8 +58,8 @@
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/136.%E8%83%B6%E5%9B%8A.html
   slots:
     - concept: Slot
       name: default
@@ -183,8 +183,8 @@
       description: 当前选中的值
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 当前选择的值
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/136.%E8%83%B6%E5%9B%8A.html
     - name: label
       title: 标签
       type: string
@@ -192,8 +192,8 @@
       description: 顶部自定义提示文本
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 顶部自定义提示文本
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/136.%E8%83%B6%E5%9B%8A.html
     - name: flag
       title: flag标志
       type: boolean
@@ -201,8 +201,8 @@
       description: 是否右上角有flag标志
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 是否右上角有flag标志
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/136.%E8%83%B6%E5%9B%8A.html
     - name: disabled
       title: 禁用
       type: boolean
@@ -210,8 +210,8 @@
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/136.%E8%83%B6%E5%9B%8A.html
     - name: size
       title: 尺寸
       type: string
@@ -224,8 +224,8 @@
       description: 胶囊大小
       group: 样式属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 支持小尺寸和正常尺寸
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/136.%E8%83%B6%E5%9B%8A.html
   slots:
     - concept: Slot
       name: default
