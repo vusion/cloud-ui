@@ -22,7 +22,8 @@
             :vusion-node-path="$attrs['vusion-node-path']"
             :vusion-node-tag="$attrs['vusion-node-tag']"
             vusion-slot-name="item"
-            :class="[{[$style.designerMask]: dataSource && $env.VUE_APP_DESIGNER}]">
+            :class="[{[$style.designerMask]: dataSource && $env.VUE_APP_DESIGNER}]"
+            ref="filterPopper">
             <template #item="item" v-if="dataSource">
                 <slot name="item" v-bind="item"></slot>
                 <s-empty v-if="$scopedSlots
@@ -30,6 +31,10 @@
                 && $env.VUE_APP_DESIGNER
                 && !!$attrs['vusion-node-path']
                 && !!dataSource"></s-empty>
+            </template>
+            <template #footer>
+                <u-link @click="confirm">确定</u-link>
+                <u-link @click="cancel">取消</u-link>
             </template>
         </u-table-view-filters-popper>
     </span>
@@ -172,6 +177,12 @@ export default {
             if (!this.currentValue || (!this.value && !this.currentValue.length)) {
                 this.currentValue = value.map((item) => this.$at(item, this.valueField) || item.value);
             }
+        },
+        confirm() {
+            this.$refs.filterPopper.confirm();
+        },
+        cancel() {
+            this.$refs.filterPopper.cancel();
         },
     },
 };
