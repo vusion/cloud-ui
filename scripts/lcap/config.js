@@ -56,6 +56,7 @@ module.exports = [
     { group: 'Selector', name: 'u-tabs', alias: '选项卡' },
     { group: 'Selector', name: 'u-selectable-steps', alias: '步骤条' },
     { group: 'Selector', name: 'u-pagination', alias: '翻页器' },
+    { group: 'Selector', name: 'u-select', alias: '选择器' },
     { group: 'Selector', name: 'u-cascader', alias: '级联选择' },
     { group: 'Selector', name: 'u-region-select', alias: '地区选择' },
     { group: 'Selector', name: 'u-tree-view-new', alias: '树形视图' },
@@ -63,7 +64,6 @@ module.exports = [
     { group: 'Selector', name: 'u-date-picker', alias: '日期选择' },
     { group: 'Selector', name: 'u-time-picker', alias: '时间选择' },
     { group: 'Selector', name: 'u-date-time-picker', alias: '日期时间选择' },
-    { group: 'Selector', name: 'u-select', alias: '选择器' },
     { group: 'Selector', name: 'u-tree-select-new', alias: '树选择' },
 
     { group: 'Chart', name: 'u-linear-progress', alias: '线形进度条' },

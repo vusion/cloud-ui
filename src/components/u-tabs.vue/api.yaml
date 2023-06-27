@@ -57,7 +57,7 @@
       docDescription: 数据源集合的元素，用于标识标签值的属性
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
     - name: url-field
-      title: 标签项内容值
+      title: 标签项内容值值字段
       type: string
       default: url
       description: 数据源集合的元素，用于标识当前打开的标签项
