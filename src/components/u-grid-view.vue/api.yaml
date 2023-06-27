@@ -5,221 +5,6 @@
   labels:
     - Table
   attrs:
-    - name: data-source
-      title: 数据源
-      type: Array<Item> | Function | object | DataSource
-      designer-value: "[{}, {}, {}, {}, {}, {}, {}, {}]"
-      description: 数据网格的数据源，数据集对象或者返回数据集的逻辑
-      group: 数据属性
-    - name: data-schema
-      title: 数据类型
-      type: schema
-      description: 表格每一行的数据类型
-      group: 数据属性
-      compType: dataTypeSelect
-    - name: initial-load
-      title: 初始加载
-      type: boolean
-      default: true
-      description: 是否在初始时立即加载
-      group: 数据属性
-    - name: pageable
-      title: 可分页
-      type: boolean
-      default: false
-      description: ""
-      group: 数据属性
-    - name: page-size
-      title: 分页大小
-      type: number
-      default: 50
-      description: ""
-      group: 数据属性
-    - name: page-number
-      title: 当前页数
-      type: number
-      sync: true
-      default: 1
-      description: 当前页数。
-      group: 数据属性
-      schema:
-        $ref: "#/basicTypes/Integer"
-    - name: page-size-options
-      title: 分页大小选项
-      type: Array<number>
-      default:
-        - 10
-        - 20
-        - 50
-      description: ""
-      group: 数据属性
-    - name: show-total
-      title: 显示总条目数
-      type: boolean
-      default: false
-      description: ""
-      group: 数据属性
-    - name: show-sizer
-      title: 显示分页大小
-      type: boolean
-      default: false
-      description: ""
-      group: 数据属性
-    - name: show-jumper
-      title: 显示跳转输入
-      type: boolean
-      default: false
-      description: ""
-      group: 数据属性
-    - name: remote-paging
-      title: 后端分页
-      type: boolean
-      default: false
-      description: ""
-      group: 数据属性
-    - name: remote-filtering
-      title: 后端筛选
-      type: boolean
-      default: false
-      description: ""
-      advanced: true
-      group: 数据属性
-    - name: match-method
-      title: 匹配方法
-      type: string, Function
-      default: includes
-      description: 过滤时的匹配方法
-      advanced: true
-      group: 数据属性
-    - name: case-sensitive
-      title: 大小写敏感
-      type: string, Function
-      default: includes
-      description: 过滤时是否区分大小写
-      advanced: true
-      group: 数据属性
-    - name: repeat
-      title: 网格数
-      type: number
-      default: 5
-      description: 每行排列几项
-      group: 样式属性
-    - name: show-head
-      title: 显示头部
-      type: boolean
-      default: false
-      description: ""
-      group: 样式属性
-    - name: title
-      title: 头部标题
-      type: string
-      default: 列表
-      description: ""
-      group: 样式属性
-    - name: show-foot
-      title: 显示底部
-      type: boolean
-      default: true
-      description: ""
-      group: 样式属性
-    - name: width
-      title: 宽度
-      type: string
-      options:
-        - value: full
-          title: 占满
-        - value: huge
-          title: 巨大
-        - value: large
-          title: 大
-        - value: normal
-          title: 正常
-        - value: auto
-          title: 自适应
-      default: auto
-      description: 设置数据网格宽度大小
-      advanced: true
-      group: 样式属性
-    - name: height
-      title: 高度
-      type: string
-      options:
-        - value: full
-          title: 占满
-        - value: huge
-          title: 巨大
-        - value: large
-          title: 大
-        - value: normal
-          title: 正常
-        - value: auto
-          title: 自适应
-      default: normal
-      description: 设置数据网格高度大小
-      advanced: true
-      group: 样式属性
-    - name: designer-mode
-      title: 状态设置
-      type: string
-      options:
-        - value: success
-          title: 加载完成-有数据
-        - value: empty
-          title: 加载完成-暂无数据
-        - value: loading
-          title: 加载中
-        - value: error
-          title: 加载失败
-      default: success
-      description: 设置不同状态的展示内容
-      bindHide: true
-      group: 状态属性
-    - name: loading-text
-      title: 加载中文字
-      type: string
-      default: 正在加载中...
-      description: 加载时的文字。使用分页加载时才会出现
-      group: 状态属性
-      dependency:
-        - designer-mode: loading
-    - name: loading
-      title: 自定义加载中触发条件
-      type: boolean
-      description: 支持自定义状态的触发条件，未设置则默认为系统定义条件
-      bindOpen: true
-      group: 状态属性
-      dependency:
-        - designer-mode: loading
-    - name: error-text
-      title: 加载失败文字
-      type: string
-      default: 加载失败，请重试
-      description: 加载失败时的文字。
-      group: 状态属性
-      dependency:
-        - designer-mode: error
-    - name: error
-      title: 自定义加载失败触发条件
-      type: boolean
-      description: 支持自定义状态的触发条件，未设置则默认为系统定义条件
-      bindOpen: true
-      group: 状态属性
-      dependency:
-        - designer-mode: error
-    - name: empty-text
-      title: 暂无数据文字
-      type: string
-      default: 暂无数据
-      description: 暂无数据时的文字。
-      group: 状态属性
-      dependency:
-        - designer-mode: empty
-    - name: placeholder
-      title: 搜索框占位符
-      type: string
-      default: 请输入
-      description: 搜索框为空时提示文本
-      advanced: true
     - name: value
       title: 值
       type: any
@@ -265,18 +50,309 @@
       default: false
       description: 搜索框是否有清除按钮
       advanced: true
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function | object | DataSource
+      designer-value: "[{}, {}, {}, {}, {}, {}, {}, {}]"
+      description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 组件的数据源，配置内容为数据集对象或者返回数据集的逻辑。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
+      group: 数据属性
+      compType: dataTypeSelect
+      brifeDoc: ""
+      docDescription: IDE 根据配置的数据源动态计算返回内容的数据结构，用于动态配置项 current.item 的类型说明。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: pageable
+      title: 分页
+      type: boolean
+      default: false
+      description: 设置是否分页展示数据
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: |-
+        可分页：是否需要数据分页展示，默认关闭。
+        - 开启：展示分页内容，调用数据源逻辑时会将分页信息作为入参传入。
+        - 关闭：不展示分页内容。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: page-size
+      title: 默认每页条数
+      type: number
+      default: 50
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 每页的数据条数，默认 50。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: page-number
+      title: 当前页数
+      type: number
+      sync: true
+      default: 1
+      description: 当前默认展示在第几页
+      group: 数据属性
+      schema:
+        $ref: "#/basicTypes/Integer"
+      brifeDoc: ""
+      docDescription: 可设置加载出的网格处于第几页的位置。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: page-size-options
+      title: 每页条数选项
+      type: Array<number>
+      default:
+        - 10
+        - 20
+        - 50
+      description: 每页条数切换器的选项
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 每页显示数据条数的选择列表，需设置数组，如 [10,20,50]。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: show-total
+      title: 显示总条数
+      type: boolean
+      default: false
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: |-
+        开启时显示列表所有行数，默认关闭。
+        - 开启：展示分页内容，调用数据源时会将数据源作为入参传入。
+        - 关闭：不展示分页内容。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: show-sizer
+      title: 显示每页条数
+      type: boolean
+      default: false
+      description: 显示每页条数切换器
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 开启时显示分页大小选项，可选择每页显示条数，默认关闭。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: show-jumper
+      title: 显示跳转输入
+      type: boolean
+      default: false
+      description: 显示页面跳转输入框
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 开启时可直接输入要跳转的页数，默认关闭
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: remote-paging
+      title: 后端分页
+      type: boolean
+      default: false
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 数据网格内容展示，完全由数据源返回值控制，比如总条目数、数据展示条数等。默认开启。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: remote-filtering
+      title: 后端筛选
+      type: boolean
+      default: false
+      description: ""
+      advanced: true
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: match-method
+      title: 匹配方法
+      type: string, Function
+      default: includes
+      description: 过滤时的匹配方法
+      advanced: true
+      group: 数据属性
+    - name: case-sensitive
+      title: 大小写敏感
+      type: string, Function
+      default: includes
+      description: 过滤时是否区分大小写
+      advanced: true
+      group: 数据属性
+    - name: placeholder
+      title: 搜索框占位符
+      type: string
+      default: 请输入
+      description: 开启筛选后，搜索框为空时的占位符提示文本
+      advanced: true
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: repeat
+      title: 网格数
+      type: number
+      default: 5
+      description: 每行排列几项
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 每行排列多少个网格。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: show-head
+      title: 显示头部
+      type: boolean
+      default: false
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 显示数据网格列表标题，默认关闭。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: title
+      title: 头部标题
+      type: string
+      default: 列表
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 数据网格列表标题，在开始显示头部功能后显示
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: show-foot
+      title: 显示底部
+      type: boolean
+      default: true
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 显示数据网格底部选项，如分页大小，跳转输入等，默认开启。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: initial-load
+      title: 初始即加载
+      type: boolean
+      default: true
+      description: 设置初始时是否立即加载
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 是否在初始时立即加载，当数据源配置为逻辑时，组件首次渲染自动调用逻辑。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: designer-mode
+      title: 状态设置
+      type: string
+      options:
+        - value: success
+          title: 加载完成-有数据
+        - value: empty
+          title: 加载完成-暂无数据
+        - value: loading
+          title: 加载中
+        - value: error
+          title: 加载失败
+      default: success
+      description: 设置不同状态的展示内容
+      bindHide: true
+      group: 状态属性
+    - name: loading-text
+      title: 加载中文案
+      type: string
+      default: 正在加载中...
+      description: 加载中状态显示的提示文案
+      group: 状态属性
+      dependency:
+        - designer-mode: loading
+      brifeDoc: ""
+      docDescription: 加载中显示的文字，仅在使用分页加载时出现，默认正在加载中。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: loading
+      title: 自定义加载中触发条件
+      type: boolean
+      description: 支持自定义状态的触发条件，未设置则默认为系统定义条件
+      bindOpen: true
+      group: 状态属性
+      dependency:
+        - designer-mode: loading
+    - name: error-text
+      title: 加载失败文案
+      type: string
+      default: 加载失败，请重试
+      description: 加载失败状态显示的提示文案
+      group: 状态属性
+      dependency:
+        - designer-mode: error
+      brifeDoc: ""
+      docDescription: 数据网格加载失败时展示的文字，加载失败，请重试。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: error
+      title: 加载失败触发条件
+      type: boolean
+      description: 加载失败状态的触发条件，未设置则默认为系统定义条件
+      bindOpen: true
+      group: 状态属性
+      dependency:
+        - designer-mode: error
+      brifeDoc: ""
+      docDescription: 开启后所有数据均不展示，仅展示加载失败文字，常用在数据源不是逻辑的时候，由外部触发组件的加载失败状态，默认关闭
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: empty-text
+      title: 暂无数据文案
+      type: string
+      default: 暂无数据
+      description: 暂无数据状态显示的提示文案
+      group: 状态属性
+      dependency:
+        - designer-mode: empty
+      brifeDoc: ""
+      docDescription: 数据网格数据源返回值为空时展示的文字，默认暂无数据。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: ""
-      group: 选择属性
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 正常显示，但禁止选择或输入。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: ""
-      group: 选择属性
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/120.%E6%95%B0%E6%8D%AE%E7%BD%91%E6%A0%BC.html
+    - name: width
+      title: 宽度
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: normal
+          title: 正常
+        - value: auto
+          title: 自适应
+      default: auto
+      description: 设置数据网格宽度大小
+      advanced: true
+      group: 样式属性
+    - name: height
+      title: 高度
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: normal
+          title: 正常
+        - value: auto
+          title: 自适应
+      default: normal
+      description: 设置数据网格高度大小
+      advanced: true
+      group: 样式属性
   slots:
     - concept: Slot
       name: default

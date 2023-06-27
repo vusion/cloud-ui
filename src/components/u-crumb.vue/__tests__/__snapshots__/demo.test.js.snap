@@ -2,65 +2,22 @@
 
 exports[`u-crumb.vue Demo-分隔符 1`] = `
 <div>
-  <nav
-    class="root"
-  >
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        href="#/"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <!---->
-         首页 
-        <!---->
+  <nav class="root">
+    <div class="root">
+      <a class="link" href="#/" target="_self" vusion-slot-name="default">
+        首页
       </a>
-       
-      <span
-        class="separator"
-        icon="slash"
-      />
+      <span class="separator" icon="slash"></span>
     </div>
-     
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        href="#/cloud-ui"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <!---->
-         原型组件 
-        <!---->
+    <div class="root">
+      <a class="link" href="#/cloud-ui" target="_self" vusion-slot-name="default">
+        原型组件
       </a>
-       
-      <span
-        class="separator"
-        icon="slash"
-      />
+      <span class="separator" icon="slash"></span>
     </div>
-     
-    <div
-      class="root"
-    >
-      <span
-        class="disabled"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Navigation 
-        <!---->
-      </span>
-       
-      <span
-        class="separator"
-        icon="slash"
-      />
+    <div class="root">
+      <span class="disabled" vusion-slot-name="default"> Navigation </span>
+      <span class="separator" icon="slash"></span>
     </div>
   </nav>
 </div>
@@ -68,154 +25,51 @@ exports[`u-crumb.vue Demo-分隔符 1`] = `
 
 exports[`u-crumb.vue Demo-图标面包屑 1`] = `
 <div>
-  <nav
-    class="root"
-  >
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-home"
-              />
+  <nav class="root">
+    <div class="root">
+      <a class="link" target="_self" vusion-slot-name="default">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-home" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
-         
-        <span
-          class="root"
-          vusion-slot-name-edit="text"
-        >
-          主页面
-        </span>
-         
-        <!---->
+        <span class="root" vusion-slot-name-edit="text">主页面</span>
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
-     
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-user"
-              />
+    <div class="root">
+      <a class="link" target="_self" vusion-slot-name="default">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-user" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
-         
-        <span
-          class="root"
-          vusion-slot-name-edit="text"
-        >
-          一级子页面
-        </span>
-         
-        <!---->
+        <span class="root" vusion-slot-name-edit="text">一级子页面</span>
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
-     
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-task"
-              />
+    <div class="root">
+      <a class="link" target="_self" vusion-slot-name="default">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-task" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
-         
-        <span
-          class="root"
-          vusion-slot-name-edit="text"
-        >
-          二级子页面
-        </span>
-         
-        <!---->
+        <span class="root" vusion-slot-name-edit="text">二级子页面</span>
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
   </nav>
 </div>
@@ -223,171 +77,54 @@ exports[`u-crumb.vue Demo-图标面包屑 1`] = `
 
 exports[`u-crumb.vue Demo-基本用法 1`] = `
 <div>
-  <nav
-    class="root"
-  >
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        href="#/"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <!---->
-         首页 
-        <!---->
+  <nav class="root">
+    <div class="root">
+      <a class="link" href="#/" target="_self" vusion-slot-name="default">
+        首页
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
-     
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        href="#/cloud-ui"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <!---->
-         原型组件 
-        <!---->
+    <div class="root">
+      <a class="link" href="#/cloud-ui" target="_self" vusion-slot-name="default">
+        原型组件
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
-     
-    <div
-      class="root"
-      type="text"
-    >
-      <a
-        class="link"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Navigation 
-        <!---->
+    <div class="root" type="text">
+      <a class="link" target="_self" vusion-slot-name="default">
+        Navigation
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
-     
-    <div
-      class="root"
-      type="text"
-    >
-      <a
-        class="link"
-        href="#/cloud-ui/u-crumb"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <!---->
-         面包屑 
-        <!---->
+    <div class="root" type="text">
+      <a class="link" href="#/cloud-ui/u-crumb" target="_self" vusion-slot-name="default">
+        面包屑
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
   </nav>
-   
-  <nav
-    class="root"
-  >
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        href="#/"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <!---->
-         首页 
-        <!---->
+  <nav class="root">
+    <div class="root">
+      <a class="link" href="#/" target="_self" vusion-slot-name="default">
+        首页
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
-     
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        href="#/cloud-ui"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <!---->
-         原型组件 
-        <!---->
+    <div class="root">
+      <a class="link" href="#/cloud-ui" target="_self" vusion-slot-name="default">
+        原型组件
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
-     
-    <div
-      class="root"
-    >
-      <span
-        class="disabled"
-        vusion-slot-name="default"
-      >
-        <!---->
-         Navigation 
-        <!---->
-      </span>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+    <div class="root">
+      <span class="disabled" vusion-slot-name="default"> Navigation </span>
+      <span class="separator" icon="arrow"></span>
     </div>
-     
-    <div
-      class="root"
-      type="text"
-    >
-      <a
-        class="link"
-        href="#/cloud-ui/u-crumb"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <!---->
-         面包屑 
-        <!---->
+    <div class="root" type="text">
+      <a class="link" href="#/cloud-ui/u-crumb" target="_self" vusion-slot-name="default">
+        面包屑
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
   </nav>
 </div>
@@ -395,134 +132,48 @@ exports[`u-crumb.vue Demo-基本用法 1`] = `
 
 exports[`u-crumb.vue Demo-带图标面包屑 1`] = `
 <div>
-  <nav
-    class="root"
-  >
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        href="#/"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-home"
-              />
+  <nav class="root">
+    <div class="root">
+      <a class="link" href="#/" target="_self" vusion-slot-name="default">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-home" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
-        </span>
-         首页 
-        <!---->
+        </span> 首页
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
-     
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        href="#/cloud-ui"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-file"
-              />
+    <div class="root">
+      <a class="link" href="#/cloud-ui" target="_self" vusion-slot-name="default">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-file" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
-        </span>
-         原型组件 
-        <!---->
+        </span> 原型组件
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
-     
-    <div
-      class="root"
-    >
-      <span
-        class="disabled"
-        vusion-slot-name="default"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-task"
-              />
+    <div class="root">
+      <span class="disabled" vusion-slot-name="default">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-task" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
-        </span>
-         Navigation 
-        <!---->
+        </span> Navigation
       </span>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
   </nav>
 </div>
@@ -530,85 +181,24 @@ exports[`u-crumb.vue Demo-带图标面包屑 1`] = `
 
 exports[`u-crumb.vue Demo-手动面包屑 1`] = `
 <div>
-  <nav
-    class="root"
-  >
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <!---->
-         
-        <span
-          class="root"
-          vusion-slot-name-edit="text"
-        >
-          主页面
-        </span>
-         
-        <!---->
+  <nav class="root">
+    <div class="root">
+      <a class="link" target="_self" vusion-slot-name="default">
+        <span class="root" vusion-slot-name-edit="text">主页面</span>
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
-     
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <!---->
-         
-        <span
-          class="root"
-          vusion-slot-name-edit="text"
-        >
-          一级子页面
-        </span>
-         
-        <!---->
+    <div class="root">
+      <a class="link" target="_self" vusion-slot-name="default">
+        <span class="root" vusion-slot-name-edit="text">一级子页面</span>
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
-     
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        target="_self"
-        vusion-slot-name="default"
-      >
-        <!---->
-         
-        <span
-          class="root"
-          vusion-slot-name-edit="text"
-        >
-          二级子页面
-        </span>
-         
-        <!---->
+    <div class="root">
+      <a class="link" target="_self" vusion-slot-name="default">
+        <span class="root" vusion-slot-name-edit="text">二级子页面</span>
       </a>
-       
-      <span
-        class="separator"
-        icon="arrow"
-      />
+      <span class="separator" icon="arrow"></span>
     </div>
   </nav>
 </div>
@@ -616,8 +206,6 @@ exports[`u-crumb.vue Demo-手动面包屑 1`] = `
 
 exports[`u-crumb.vue Demo-自动面包屑 1`] = `
 <div>
-  <nav
-    class="root"
-  />
+  <nav class="root"></nav>
 </div>
 `;

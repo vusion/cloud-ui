@@ -8,7 +8,8 @@
     - name: label
       title: 标识
       type: string
-      sync: true
-      model: true
       description: 锚点的唯一标识，用于跳转链接，如“/page#linkname”
-      group: 交互属性
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 锚点的唯一标识，用于跳转链接，标识为空时，默认将组件名作为标识
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/080.%E9%94%9A%E7%82%B9.html

@@ -2,10 +2,6 @@
 
 exports[`u-block.vue Demo-基本用法 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    Block
-  </div>
+  <div class="root">Block</div>
 </div>
 `;

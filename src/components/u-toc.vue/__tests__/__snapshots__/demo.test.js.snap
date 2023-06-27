@@ -1,245 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`u-toc.vue Demo-value 1`] = `
-<nav
-  class="root"
->
-  <div
-    class="body"
-  >
-    <div
-      class="arrow"
-      style="top: 8px;"
-    />
-     
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        target=""
-        value="examples"
-      >
-        <span
-          vusion-slot-name="label"
-        >
-          <!---->
-           基础示例
-        </span>
+<nav class="root">
+  <div class="body">
+    <div class="arrow" style="top: 8px;"></div>
+    <div class="root">
+      <a class="link" target value="examples">
+        <span vusion-slot-name="label"> 基础示例</span>
       </a>
-       
-      <div
-        class="sub"
-      >
-        <div
-          class="root"
-        >
-          <a
-            class="link"
-            target=""
-            value="基本用法"
-          >
-            <span
-              vusion-slot-name="label"
-            >
-              <!---->
-               基本用法
-            </span>
+      <div class="sub">
+        <div class="root">
+          <a class="link" target value="基本用法">
+            <span vusion-slot-name="label"> 基本用法</span>
           </a>
-           
-          <div
-            class="sub"
-          />
+          <div class="sub"></div>
         </div>
-         
-        <div
-          class="root"
-        >
-          <a
-            class="link"
-            target=""
-            value="value"
-          >
-            <span
-              vusion-slot-name="label"
-            >
-              <!---->
-               value
-            </span>
+        <div class="root">
+          <a class="link" target value="value">
+            <span vusion-slot-name="label"> value</span>
           </a>
-           
-          <div
-            class="sub"
-          />
+          <div class="sub"></div>
         </div>
       </div>
     </div>
-     
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        target=""
-        value="utocapi"
-      >
-        <span
-          vusion-slot-name="label"
-        >
-          <!---->
-           UToc API
-        </span>
+    <div class="root">
+      <a class="link" target value="utocapi">
+        <span vusion-slot-name="label"> UToc API</span>
       </a>
-       
-      <div
-        class="sub"
-      >
-        <div
-          class="root"
-        >
-          <a
-            class="link"
-            target=""
-            value="propsattrs"
-          >
-            <span
-              vusion-slot-name="label"
-            >
-              <!---->
-               Props/Attrs
-            </span>
+      <div class="sub">
+        <div class="root">
+          <a class="link" target value="propsattrs">
+            <span vusion-slot-name="label"> Props/Attrs</span>
           </a>
-           
-          <div
-            class="sub"
-          />
+          <div class="sub"></div>
         </div>
-         
-        <div
-          class="root"
-        >
-          <a
-            class="link"
-            target=""
-            value="slots"
-          >
-            <span
-              vusion-slot-name="label"
-            >
-              <!---->
-               Slots
-            </span>
+        <div class="root">
+          <a class="link" target value="slots">
+            <span vusion-slot-name="label"> Slots</span>
           </a>
-           
-          <div
-            class="sub"
-          />
+          <div class="sub"></div>
         </div>
-         
-        <div
-          class="root"
-        >
-          <a
-            class="link"
-            target=""
-            value="events"
-          >
-            <span
-              vusion-slot-name="label"
-            >
-              <!---->
-               Events
-            </span>
+        <div class="root">
+          <a class="link" target value="events">
+            <span vusion-slot-name="label"> Events</span>
           </a>
-           
-          <div
-            class="sub"
-          />
+          <div class="sub"></div>
         </div>
       </div>
     </div>
-     
-    <div
-      class="root"
-    >
-      <a
-        class="link"
-        selected="selected"
-        target=""
-        value="utocitemapi"
-      >
-        <span
-          vusion-slot-name="label"
-        >
-          <!---->
-           UTocItem API
-        </span>
+    <div class="root">
+      <a class="link" selected="selected" target value="utocitemapi">
+        <span vusion-slot-name="label"> UTocItem API</span>
       </a>
-       
-      <div
-        class="sub"
-      >
-        <div
-          class="root"
-        >
-          <a
-            class="link"
-            target=""
-            value="propsattrs1"
-          >
-            <span
-              vusion-slot-name="label"
-            >
-              <!---->
-               Props/Attrs
-            </span>
+      <div class="sub">
+        <div class="root">
+          <a class="link" target value="propsattrs1">
+            <span vusion-slot-name="label"> Props/Attrs</span>
           </a>
-           
-          <div
-            class="sub"
-          />
+          <div class="sub"></div>
         </div>
-         
-        <div
-          class="root"
-        >
-          <a
-            class="link"
-            target=""
-            value="slots1"
-          >
-            <span
-              vusion-slot-name="label"
-            >
-              <!---->
-               Slots
-            </span>
+        <div class="root">
+          <a class="link" target value="slots1">
+            <span vusion-slot-name="label"> Slots</span>
           </a>
-           
-          <div
-            class="sub"
-          />
+          <div class="sub"></div>
         </div>
-         
-        <div
-          class="root"
-        >
-          <a
-            class="link"
-            target=""
-            value="events1"
-          >
-            <span
-              vusion-slot-name="label"
-            >
-              <!---->
-               Events
-            </span>
+        <div class="root">
+          <a class="link" target value="events1">
+            <span vusion-slot-name="label"> Events</span>
           </a>
-           
-          <div
-            class="sub"
-          />
+          <div class="sub"></div>
         </div>
       </div>
     </div>
@@ -249,110 +79,40 @@ exports[`u-toc.vue Demo-value 1`] = `
 
 exports[`u-toc.vue Demo-value 2`] = `
 <div>
-  <div
-    anchor=""
-    id="锚点1"
-    name="锚点1"
-    vusion-slot-name="default"
-  >
-    <!---->
-     
+  <div anchor id="锚点1" name="锚点1" vusion-slot-name="default">
   </div>
 </div>
 `;
 
 exports[`u-toc.vue Demo-基本用法 1`] = `
 <div>
-  <nav
-    class="root"
-  >
-    <div
-      class="body"
-    >
-      <div
-        class="arrow"
-        style="top: 8px;"
-      />
-       
-      <div
-        class="root"
-      >
-        <a
-          class="link"
-          target=""
-        >
-          <span
-            vusion-slot-name="label"
-          >
-            <!---->
-             目录节点1
-          </span>
+  <nav class="root">
+    <div class="body">
+      <div class="arrow" style="top: 8px;"></div>
+      <div class="root">
+        <a class="link" target>
+          <span vusion-slot-name="label"> 目录节点1</span>
         </a>
-         
-        <div
-          class="sub"
-        >
-           
-          <div
-            class="root"
-          >
-            <a
-              class="link"
-              target=""
-            >
-              <span
-                vusion-slot-name="label"
-              >
-                <!---->
-                 目录节点1.1
-              </span>
+        <div class="sub">
+          <div class="root">
+            <a class="link" target>
+              <span vusion-slot-name="label"> 目录节点1.1</span>
             </a>
-             
-            <div
-              class="sub"
-            />
+            <div class="sub"></div>
           </div>
         </div>
       </div>
-       
-      <div
-        class="root"
-      >
-        <a
-          class="link"
-          target=""
-        >
-          <span
-            vusion-slot-name="label"
-          >
-            <!---->
-             目录节点2
-          </span>
+      <div class="root">
+        <a class="link" target>
+          <span vusion-slot-name="label"> 目录节点2</span>
         </a>
-         
-        <div
-          class="sub"
-        />
+        <div class="sub"></div>
       </div>
-       
-      <div
-        class="root"
-      >
-        <a
-          class="link"
-          target=""
-        >
-          <span
-            vusion-slot-name="label"
-          >
-            <!---->
-             目录节点3
-          </span>
+      <div class="root">
+        <a class="link" target>
+          <span vusion-slot-name="label"> 目录节点3</span>
         </a>
-         
-        <div
-          class="sub"
-        />
+        <div class="sub"></div>
       </div>
     </div>
   </nav>
@@ -361,289 +121,87 @@ exports[`u-toc.vue Demo-基本用法 1`] = `
 
 exports[`u-toc.vue Demo-基本用法 2`] = `
 <div>
-  <nav
-    class="root"
-  >
-    <div
-      class="body"
-    >
-      <div
-        class="arrow"
-        style="top: 8px;"
-      />
-       
-      <div
-        class="root"
-      >
-        <a
-          class="link"
-          disabled="disabled"
-          target=""
-          value="锚点value1"
-        >
-          <span
-            vusion-slot-name="label"
-          >
-            <!---->
-             锚点跳转1
-          </span>
+  <nav class="root">
+    <div class="body">
+      <div class="arrow" style="top: 8px;"></div>
+      <div class="root">
+        <a class="link" disabled="disabled" target value="锚点value1">
+          <span vusion-slot-name="label"> 锚点跳转1</span>
         </a>
-         
-        <div
-          class="sub"
-        />
+        <div class="sub"></div>
       </div>
-       
-      <div
-        class="root"
-      >
-        <a
-          class="link"
-          href="/#/components/u-anchor/examples#锚点2"
-          target=""
-          value="锚点value2"
-        >
-          <span
-            vusion-slot-name="label"
-          >
-            <!---->
-             锚点其它页面
-          </span>
+      <div class="root">
+        <a class="link" href="/#/components/u-anchor/examples#锚点2" target value="锚点value2">
+          <span vusion-slot-name="label"> 锚点其它页面</span>
         </a>
-         
-        <div
-          class="sub"
-        />
+        <div class="sub"></div>
       </div>
-       
-      <div
-        class="root"
-      >
-        <a
-          class="link"
-          href="/#/components/u-toc/examples#锚点1"
-          target=""
-          value="锚点value1"
-        >
-          <span
-            vusion-slot-name="label"
-          >
-            <!---->
-             锚点本页面
-          </span>
+      <div class="root">
+        <a class="link" href="/#/components/u-toc/examples#锚点1" target value="锚点value1">
+          <span vusion-slot-name="label"> 锚点本页面</span>
         </a>
-         
-        <div
-          class="sub"
-        />
+        <div class="sub"></div>
       </div>
-       
-      <div
-        class="root"
-      >
-        <a
-          class="link"
-          href="#/examples"
-          target=""
-        >
-          <span
-            vusion-slot-name="label"
-          >
-            <!---->
-             基础示例
-          </span>
+      <div class="root">
+        <a class="link" href="#/examples" target>
+          <span vusion-slot-name="label"> 基础示例</span>
         </a>
-         
-        <div
-          class="sub"
-        >
-          <div
-            class="root"
-          >
-            <a
-              class="link"
-              href="#/examples#value"
-              target=""
-            >
-              <span
-                vusion-slot-name="label"
-              >
-                <!---->
-                 value
-              </span>
+        <div class="sub">
+          <div class="root">
+            <a class="link" href="#/examples#value" target>
+              <span vusion-slot-name="label"> value</span>
             </a>
-             
-            <div
-              class="sub"
-            />
+            <div class="sub"></div>
           </div>
         </div>
       </div>
-       
-      <div
-        class="root"
-      >
-        <a
-          class="link"
-          href="#/api#api"
-          target=""
-        >
-          <span
-            vusion-slot-name="label"
-          >
-            <!---->
-             UToc API
-          </span>
+      <div class="root">
+        <a class="link" href="#/api#api" target>
+          <span vusion-slot-name="label"> UToc API</span>
         </a>
-         
-        <div
-          class="sub"
-        >
-          <div
-            class="root"
-          >
-            <a
-              class="link"
-              href="#/api#propsattrs"
-              target=""
-            >
-              <span
-                vusion-slot-name="label"
-              >
-                <!---->
-                 Props/Attrs
-              </span>
+        <div class="sub">
+          <div class="root">
+            <a class="link" href="#/api#propsattrs" target>
+              <span vusion-slot-name="label"> Props/Attrs</span>
             </a>
-             
-            <div
-              class="sub"
-            />
+            <div class="sub"></div>
           </div>
-           
-          <div
-            class="root"
-          >
-            <a
-              class="link"
-              href="#/api#slots"
-              target=""
-            >
-              <span
-                vusion-slot-name="label"
-              >
-                <!---->
-                 Slots
-              </span>
+          <div class="root">
+            <a class="link" href="#/api#slots" target>
+              <span vusion-slot-name="label"> Slots</span>
             </a>
-             
-            <div
-              class="sub"
-            />
+            <div class="sub"></div>
           </div>
-           
-          <div
-            class="root"
-          >
-            <a
-              class="link"
-              href="#/api#events"
-              target=""
-            >
-              <span
-                vusion-slot-name="label"
-              >
-                <!---->
-                 Events
-              </span>
+          <div class="root">
+            <a class="link" href="#/api#events" target>
+              <span vusion-slot-name="label"> Events</span>
             </a>
-             
-            <div
-              class="sub"
-            />
+            <div class="sub"></div>
           </div>
         </div>
       </div>
-       
-      <div
-        class="root"
-      >
-        <a
-          class="link"
-          href="#/api#api"
-          target=""
-        >
-          <span
-            vusion-slot-name="label"
-          >
-            <!---->
-             UTocItem API
-          </span>
+      <div class="root">
+        <a class="link" href="#/api#api" target>
+          <span vusion-slot-name="label"> UTocItem API</span>
         </a>
-         
-        <div
-          class="sub"
-        >
-          <div
-            class="root"
-          >
-            <a
-              class="link"
-              href="#/api#propsattrs"
-              target=""
-            >
-              <span
-                vusion-slot-name="label"
-              >
-                <!---->
-                 Props/Attrs
-              </span>
+        <div class="sub">
+          <div class="root">
+            <a class="link" href="#/api#propsattrs" target>
+              <span vusion-slot-name="label"> Props/Attrs</span>
             </a>
-             
-            <div
-              class="sub"
-            />
+            <div class="sub"></div>
           </div>
-           
-          <div
-            class="root"
-          >
-            <a
-              class="link"
-              href="#/api#slots"
-              target=""
-            >
-              <span
-                vusion-slot-name="label"
-              >
-                <!---->
-                 Slots
-              </span>
+          <div class="root">
+            <a class="link" href="#/api#slots" target>
+              <span vusion-slot-name="label"> Slots</span>
             </a>
-             
-            <div
-              class="sub"
-            />
+            <div class="sub"></div>
           </div>
-           
-          <div
-            class="root"
-          >
-            <a
-              class="link"
-              href="#/api#events"
-              target=""
-            >
-              <span
-                vusion-slot-name="label"
-              >
-                <!---->
-                 Events
-              </span>
+          <div class="root">
+            <a class="link" href="#/api#events" target>
+              <span vusion-slot-name="label"> Events</span>
             </a>
-             
-            <div
-              class="sub"
-            />
+            <div class="sub"></div>
           </div>
         </div>
       </div>

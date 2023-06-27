@@ -2,215 +2,63 @@
 
 exports[`u-actions.vue Demo-使用指令 1`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      class="root"
-    >
-      <div
-        style="display: none;"
-      >
-        <span>
-          设置
-        </span>
-         
-        <span>
-          显示Tips
-        </span>
-         
-        <span>
-          重启
-        </span>
-         
-        <span>
-          保存为镜像
-        </span>
-         
-        <span>
-          显示Tips
-        </span>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root">
+      <div style="display: none;">
+        <span>设置</span>
+        <span>显示Tips</span>
+        <span>重启</span>
+        <span>保存为镜像</span>
+        <span>显示Tips</span>
       </div>
-       
-      <div
-        class="root"
-        direction="horizontal"
-        gap="small"
-        type=""
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          disabled="disabled"
-          hovertype="underline"
-          tabindex="-1"
-          target="_self"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           设置
-        </a>
-        <a
-          class="root"
-          hovertype="underline"
-          tabindex="0"
-          target="_self"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           显示Tips
-        </a>
-         
-        <a
-          class="root"
-          hovertype="underline"
-          tabindex="0"
-          target="_self"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           更多 ▾
-            
-          <transition-stub
-            name="fade"
-          >
-            <div
-              class="root"
-              merge-borders="true"
-              style="display: none;"
-            >
-              <span
-                class="arrow"
-                data-popper-arrow=""
-              />
-               
-              <nav
-                class="root"
-              >
-                <a
-                  class="root"
-                  target="_self"
-                >
-                  <span
-                    vusion-slot-name-edit="text"
-                  >
-                    重启
-                  </span>
-                   
-                  <div />
+      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+        <a class="root" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
+          设置</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          显示Tips</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          更多 ▾
+          <transition-stub name="fade">
+            <div class="root" merge-borders="true" style="display: none;">
+              <span class="arrow" data-popper-arrow></span>
+              <nav class="root">
+                <a class="root" target="_self">
+                  <span vusion-slot-name-edit="text">重启</span>
+                  <div></div>
                 </a>
-                <a
-                  class="root"
-                  disabled="disabled"
-                  target="_self"
-                >
-                  <span
-                    vusion-slot-name-edit="text"
-                  >
-                    保存为镜像
-                  </span>
-                   
-                  <div />
+                <a class="root" disabled="disabled" target="_self">
+                  <span vusion-slot-name-edit="text">保存为镜像</span>
+                  <div></div>
                 </a>
-                <a
-                  class="root"
-                  target="_self"
-                >
-                  <span
-                    vusion-slot-name-edit="text"
-                  >
-                    显示Tips
-                  </span>
-                   
-                  <div />
+                <a class="root" target="_self">
+                  <span vusion-slot-name-edit="text">显示Tips</span>
+                  <div></div>
                 </a>
               </nav>
             </div>
           </transition-stub>
         </a>
-         
-        <!---->
-         
-        <!---->
       </div>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-actions.vue Demo-基本用法 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      style="display: none;"
-    >
-      <span>
-        设置
-      </span>
-       
-      <span>
-        重启
-      </span>
-       
-      <span>
-        保存为镜像
-      </span>
+  <div class="root">
+    <div style="display: none;">
+      <span>设置</span>
+      <span>重启</span>
+      <span>保存为镜像</span>
     </div>
-     
-    <div
-      class="root"
-      direction="horizontal"
-      gap="small"
-      type=""
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        disabled="disabled"
-        hovertype="underline"
-        tabindex="-1"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         设置
-      </a>
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         重启
-      </a>
-      <a
-        class="root"
-        disabled="disabled"
-        hovertype="underline"
-        tabindex="-1"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         保存为镜像
-      </a>
-       
-      <!---->
-       
-      <!---->
-       
-      <!---->
+    <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+      <a class="root" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
+        设置</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        重启</a>
+      <a class="root" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
+        保存为镜像</a>
     </div>
   </div>
 </div>
@@ -218,211 +66,59 @@ exports[`u-actions.vue Demo-基本用法 1`] = `
 
 exports[`u-actions.vue Demo-基本用法 2`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      class="root"
-    >
-      <div
-        style="display: none;"
-      >
-        <span>
-          设置
-        </span>
-         
-        <span>
-          跳转到 Navbar
-        </span>
-         
-        <span>
-          重启
-        </span>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root">
+      <div style="display: none;">
+        <span>设置</span>
+        <span>跳转到 Navbar</span>
+        <span>重启</span>
       </div>
-       
-      <div
-        class="root"
-        direction="horizontal"
-        gap="small"
-        type=""
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          disabled="disabled"
-          hovertype="underline"
-          tabindex="-1"
-          target="_self"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           设置
-        </a>
-        <a
-          class="root"
-          hovertype="underline"
-          tabindex="0"
-          target="_self"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           跳转到 Navbar
-        </a>
-        <a
-          class="root"
-          hovertype="underline"
-          tabindex="0"
-          target="_self"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           重启
-        </a>
-         
-        <!---->
-         
-        <!---->
-         
-        <!---->
+      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+        <a class="root" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
+          设置</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          跳转到 Navbar</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          重启</a>
       </div>
     </div>
-     
-    <div
-      class="root"
-    >
-      <div
-        style="display: none;"
-      >
-        <span>
-          设置
-        </span>
-         
-        <span>
-          跳转到 Navbar
-        </span>
-         
-        <span>
-          重启
-        </span>
-         
-        <span>
-          保存为镜像
-        </span>
-         
-        <span>
-          跳转到 Select
-        </span>
+    <div class="root">
+      <div style="display: none;">
+        <span>设置</span>
+        <span>跳转到 Navbar</span>
+        <span>重启</span>
+        <span>保存为镜像</span>
+        <span>跳转到 Select</span>
       </div>
-       
-      <div
-        class="root"
-        direction="horizontal"
-        gap="small"
-        type=""
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          disabled="disabled"
-          hovertype="underline"
-          tabindex="-1"
-          target="_self"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           设置
-        </a>
-        <a
-          class="root"
-          hovertype="underline"
-          tabindex="0"
-          target="_self"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           跳转到 Navbar
-        </a>
-         
-        <a
-          class="root"
-          hovertype="underline"
-          tabindex="0"
-          target="_self"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           更多 ▾
-            
-          <transition-stub
-            name="fade"
-          >
-            <div
-              class="root"
-              merge-borders="true"
-              style="display: none;"
-            >
-              <span
-                class="arrow"
-                data-popper-arrow=""
-              />
-               
-              <nav
-                class="root"
-              >
-                <a
-                  class="root"
-                  target="_self"
-                >
-                  <span
-                    vusion-slot-name-edit="text"
-                  >
-                    重启
-                  </span>
-                   
-                  <div />
+      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+        <a class="root" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
+          设置</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          跳转到 Navbar</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          更多 ▾
+          <transition-stub name="fade">
+            <div class="root" merge-borders="true" style="display: none;">
+              <span class="arrow" data-popper-arrow></span>
+              <nav class="root">
+                <a class="root" target="_self">
+                  <span vusion-slot-name-edit="text">重启</span>
+                  <div></div>
                 </a>
-                <a
-                  class="root"
-                  disabled="disabled"
-                  target="_self"
-                >
-                  <span
-                    vusion-slot-name-edit="text"
-                  >
-                    保存为镜像
-                  </span>
-                   
-                  <div />
+                <a class="root" disabled="disabled" target="_self">
+                  <span vusion-slot-name-edit="text">保存为镜像</span>
+                  <div></div>
                 </a>
-                <a
-                  class="root"
-                  target="_self"
-                >
-                  <span
-                    vusion-slot-name-edit="text"
-                  >
-                    跳转到 Select
-                  </span>
-                   
-                  <div />
+                <a class="root" target="_self">
+                  <span vusion-slot-name-edit="text">跳转到 Select</span>
+                  <div></div>
                 </a>
               </nav>
             </div>
           </transition-stub>
         </a>
-         
-        <!---->
-         
-        <!---->
       </div>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;

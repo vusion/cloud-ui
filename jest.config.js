@@ -26,7 +26,7 @@ module.exports = {
     "themeCSS": "<rootDir>/scripts/test/__mocks__/styleMock.js",
     "swiper/swiper-bundle.esm.js": "<rootDir>/node_modules/swiper/swiper-bundle.esm.js",
   },
-  snapshotSerializers: ["jest-serializer-vue"],
+  snapshotSerializers: ["jest-serializer-vue-tjw"],
   setupFiles: ['<rootDir>/scripts/test/jest.setup.js'],
   collectCoverage: true,
   collectCoverageFrom: [

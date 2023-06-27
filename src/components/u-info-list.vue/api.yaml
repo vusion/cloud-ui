@@ -3,16 +3,27 @@
   labels:
     - Display
   icon: info-list
-  next: true
-  nested: false
   attrs:
     - name: repeat
       title: 列数
       type: number
       default: 3
       description: 整个详情列表的划分列数
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: "- 设置列表信息展示的划分列数"
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
+    - name: show-head
+      title: 显示表格头部
+      type: boolean
+      default: true
+      description: 是否显示表格头部
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 开启时会显示表格头部
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
     - name: label-size
-      title: 标签大小
+      title: 列表项标题宽度
       type: string
       options:
         - value: auto
@@ -24,13 +35,11 @@
         - value: large
           title: 大
       default: auto
-      description: 详情列表所有项的标签大小。
-    - name: show-head
-      title: 显示表格头部
-      type: boolean
-      default: true
-      description: 是否显示表格头部
+      description: 设置详情列表所有列表项的标题宽度。
       group: 样式属性
+      brifeDoc: ""
+      docDescription: 列表中所有列表项的标签大小
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
   slots:
     - concept: Slot
       name: default
@@ -61,8 +70,21 @@
       title: 占据数
       type: string
       description: 列跨越的格数
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 当前列表项占的列数，为空默认取列表组的列数值，优先取列表项的值
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
+    - name: ellipsis
+      title: 文本过长省略
+      type: boolean
+      default: false
+      description: 文字过长是否省略显示。默认文字超出时会换行。
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 开启时该项文本过长会省略显示，默认不开启为换行显示
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
     - name: label-size
-      title: 标签大小
+      title: 列表项标题宽度
       type: string
       options:
         - value: auto
@@ -74,12 +96,11 @@
         - value: large
           title: 大
       default: auto
-      description: ""
-    - name: ellipsis
-      title: 省略显示
-      type: boolean
-      default: false
-      description: 文字过长是否省略显示。默认文字超出时会换行。
+      description: 设置详情列表所有列表项的标题宽度。
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 列表中所有列表项的标签大小
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
   slots:
     - concept: Slot
       name: default
@@ -101,9 +122,13 @@
     - name: repeat
       title: 列数
       type: number
-      description: 当前组范围内的划分列数
+      description: 整个详情列表的划分列数
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: "- 设置列表信息展示的划分列数"
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
     - name: label-size
-      title: 标签大小
+      title: 列表项标题宽度
       type: string
       options:
         - value: auto
@@ -115,7 +140,11 @@
         - value: large
           title: 大
       default: auto
-      description: 当前组所有项的标签大小。
+      description: 设置详情列表所有列表项的标题宽度。
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 列表中所有列表项的标签大小
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
   slots:
     - concept: Slot
       name: default

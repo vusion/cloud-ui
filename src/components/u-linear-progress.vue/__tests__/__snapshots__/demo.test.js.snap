@@ -2,138 +2,46 @@
 
 exports[`u-linear-progress.vue Demo-垂直方向 1`] = `
 <div>
-  <div
-    class="root"
-    direction="horizontal"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      class="root"
-      direction="vertical"
-      size="small"
-    >
-      <div
-        class="track"
-        direction="vertical"
-        size="small"
-      >
-        <div
-          class="trail"
-          style="max-height: 100%; height: 36%; top: 0%;"
-        />
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div class="root" direction="vertical" size="small">
+      <div class="track" direction="vertical" size="small">
+        <div class="trail" style="max-height: 100%; height: 36%; top: 0%;"></div>
       </div>
-       
-      <div
-        vusion-slot-name="default"
-      >
-        small 
-        <!---->
+      <div vusion-slot-name="default">small
       </div>
     </div>
-     
-    <div
-      class="root"
-      direction="vertical"
-      size="normal"
-    >
-      <div
-        class="track"
-        direction="vertical"
-        size="normal"
-      >
-        <div
-          class="trail"
-          style="max-height: 100%; height: 36%; top: 0%;"
-        />
+    <div class="root" direction="vertical" size="normal">
+      <div class="track" direction="vertical" size="normal">
+        <div class="trail" style="max-height: 100%; height: 36%; top: 0%;"></div>
       </div>
-       
-      <div
-        vusion-slot-name="default"
-      >
-        normal 
-        <!---->
+      <div vusion-slot-name="default">normal
       </div>
     </div>
-     
-    <div
-      class="root"
-      color="error"
-      direction="vertical"
-      size="large"
-    >
-      <div
-        class="track"
-        color="error"
-        direction="vertical"
-        size="large"
-      >
-        <div
-          class="trail"
-          style="max-height: 80%; height: 36%; top: 20%;"
-        />
+    <div class="root" color="error" direction="vertical" size="large">
+      <div class="track" color="error" direction="vertical" size="large">
+        <div class="trail" style="max-height: 80%; height: 36%; top: 20%;"></div>
       </div>
-       
-      <div
-        vusion-slot-name="default"
-      >
-        large 
-        <!---->
+      <div vusion-slot-name="default">large
       </div>
     </div>
-     
-    <div
-      class="root"
-      color="success"
-      direction="vertical"
-      size="huge"
-    >
-      <div
-        class="track"
-        color="success"
-        direction="vertical"
-        size="huge"
-      >
-        <div
-          class="trail"
-          style="max-height: 30%; height: 36%; top: 20%;"
-        />
+    <div class="root" color="success" direction="vertical" size="huge">
+      <div class="track" color="success" direction="vertical" size="huge">
+        <div class="trail" style="max-height: 30%; height: 36%; top: 20%;"></div>
       </div>
-       
-      <div
-        vusion-slot-name="default"
-      >
-        huge 
-        <!---->
+      <div vusion-slot-name="default">huge
       </div>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-linear-progress.vue Demo-基本用法 1`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="track"
-    >
-      <div
-        class="trail"
-        style="max-width: 100%; width: 36%; left: 0%;"
-      />
+  <div class="root">
+    <div class="track">
+      <div class="trail" style="max-width: 100%; width: 36%; left: 0%;"></div>
     </div>
-     
-    <div
-      vusion-slot-name="default"
-    >
-       
-      <!---->
+    <div vusion-slot-name="default">
     </div>
   </div>
 </div>
@@ -141,23 +49,11 @@ exports[`u-linear-progress.vue Demo-基本用法 1`] = `
 
 exports[`u-linear-progress.vue Demo-基本用法 2`] = `
 <div>
-  <div
-    class="root"
-  >
-    <div
-      class="track"
-    >
-      <div
-        class="trail"
-        style="max-width: 100%; width: 36%; left: 0%;"
-      />
+  <div class="root">
+    <div class="track">
+      <div class="trail" style="max-width: 100%; width: 36%; left: 0%;"></div>
     </div>
-     
-    <div
-      vusion-slot-name="default"
-    >
-       
-      <!---->
+    <div vusion-slot-name="default">
     </div>
   </div>
 </div>
@@ -165,237 +61,84 @@ exports[`u-linear-progress.vue Demo-基本用法 2`] = `
 
 exports[`u-linear-progress.vue Demo-范围限制 1`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      class="root"
-    >
-      <div
-        class="track"
-      >
-        <div
-          class="trail"
-          style="max-width: 80%; width: 36%; left: 20%;"
-        />
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root">
+      <div class="track">
+        <div class="trail" style="max-width: 80%; width: 36%; left: 20%;"></div>
       </div>
-       
-      <div
-        vusion-slot-name="default"
-      >
-        20 
-        <!---->
+      <div vusion-slot-name="default">20
       </div>
     </div>
-     
-    <div
-      class="root"
-    >
-      <div
-        class="track"
-      >
-        <div
-          class="trail"
-          style="max-width: 30%; width: 36%; left: 20%;"
-        />
+    <div class="root">
+      <div class="track">
+        <div class="trail" style="max-width: 30%; width: 36%; left: 20%;"></div>
       </div>
-       
-      <div
-        vusion-slot-name="default"
-      >
-        20,50 
-        <!---->
+      <div vusion-slot-name="default">20,50
       </div>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-linear-progress.vue Demo-颜色属性 1`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      class="root"
-    >
-      <div
-        class="track"
-      >
-        <div
-          class="trail"
-          style="max-width: 100%; width: 36%; left: 0%;"
-        />
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root">
+      <div class="track">
+        <div class="trail" style="max-width: 100%; width: 36%; left: 0%;"></div>
       </div>
-       
-      <div
-        vusion-slot-name="default"
-      >
-         
-        <!---->
+      <div vusion-slot-name="default">
       </div>
     </div>
-     
-    <div
-      class="root"
-      color="error"
-    >
-      <div
-        class="track"
-        color="error"
-      >
-        <div
-          class="trail"
-          style="max-width: 100%; width: 36%; left: 0%;"
-        />
+    <div class="root" color="error">
+      <div class="track" color="error">
+        <div class="trail" style="max-width: 100%; width: 36%; left: 0%;"></div>
       </div>
-       
-      <div
-        vusion-slot-name="default"
-      >
-         
-        <!---->
+      <div vusion-slot-name="default">
       </div>
     </div>
-     
-    <div
-      class="root"
-      color="success"
-    >
-      <div
-        class="track"
-        color="success"
-      >
-        <div
-          class="trail"
-          style="max-width: 100%; width: 36%; left: 0%;"
-        />
+    <div class="root" color="success">
+      <div class="track" color="success">
+        <div class="trail" style="max-width: 100%; width: 36%; left: 0%;"></div>
       </div>
-       
-      <div
-        vusion-slot-name="default"
-      >
-         
-        <!---->
+      <div vusion-slot-name="default">
       </div>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-linear-progress.vue Demo-高度扩展 1`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      class="root"
-      size="small"
-    >
-      <div
-        class="track"
-        size="small"
-      >
-        <div
-          class="trail"
-          style="max-width: 100%; width: 36%; left: 0%;"
-        />
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root" size="small">
+      <div class="track" size="small">
+        <div class="trail" style="max-width: 100%; width: 36%; left: 0%;"></div>
       </div>
-       
-      <div
-        vusion-slot-name="default"
-      >
-        small 
-        <!---->
+      <div vusion-slot-name="default">small
       </div>
     </div>
-     
-    <div
-      class="root"
-      size="normal"
-    >
-      <div
-        class="track"
-        size="normal"
-      >
-        <div
-          class="trail"
-          style="max-width: 100%; width: 36%; left: 0%;"
-        />
+    <div class="root" size="normal">
+      <div class="track" size="normal">
+        <div class="trail" style="max-width: 100%; width: 36%; left: 0%;"></div>
       </div>
-       
-      <div
-        vusion-slot-name="default"
-      >
-        normal 
-        <!---->
+      <div vusion-slot-name="default">normal
       </div>
     </div>
-     
-    <div
-      class="root"
-      size="large"
-    >
-      <div
-        class="track"
-        size="large"
-      >
-        <div
-          class="trail"
-          style="max-width: 100%; width: 36%; left: 0%;"
-        />
+    <div class="root" size="large">
+      <div class="track" size="large">
+        <div class="trail" style="max-width: 100%; width: 36%; left: 0%;"></div>
       </div>
-       
-      <div
-        vusion-slot-name="default"
-      >
-        large 
-        <!---->
+      <div vusion-slot-name="default">large
       </div>
     </div>
-     
-    <div
-      class="root"
-      size="huge"
-    >
-      <div
-        class="track"
-        size="huge"
-      >
-        <div
-          class="trail"
-          style="max-width: 100%; width: 36%; left: 0%;"
-        />
+    <div class="root" size="huge">
+      <div class="track" size="huge">
+        <div class="trail" style="max-width: 100%; width: 36%; left: 0%;"></div>
       </div>
-       
-      <div
-        vusion-slot-name="default"
-      >
-        huge 
-        <!---->
+      <div vusion-slot-name="default">huge
       </div>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;

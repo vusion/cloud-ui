@@ -4,34 +4,7 @@
   labels:
     - Selector
   description: 该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。
-  next: true
-  nested: false
   attrs:
-    - name: data
-      title: 数据
-      type: Array<{ text, value }>
-      description: 数据列表
-    - name: placeholder
-      title: 选择框占位符
-      type: string
-      default: 请选择
-      description: 搜索框为空时提示文本
-    - name: trigger
-      title: 触发方式
-      type: string
-      options:
-        - value: click
-          title: 点击
-        - value: hover
-          title: 悬浮
-      default: click
-      description: 触发方式
-    - name: value
-      title: 值
-      type: any
-      sync: true
-      model: true
-      description: ""
     - name: join
       title: 连接符
       type: string
@@ -54,42 +27,111 @@
         - value: code
           title: 地区码
       description: 选择地区名称，返回：浙江省/杭州市/滨江区（不加空格）；选择地区码，返回：330108
+    - name: data
+      title: 数据源
+      type: Array<{ text, value }>
+      description: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑。
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: "- 支持动态绑定集合类型变量（List\\<T>）或输出参数为集合类型的逻辑。"
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/179.%E5%9C%B0%E5%8C%BA%E9%80%89%E6%8B%A9.html
+    - name: value
+      title: 值
+      type: any
+      sync: true
+      model: true
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 当前选择的值
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/179.%E5%9C%B0%E5%8C%BA%E9%80%89%E6%8B%A9.html
     - name: field
       title: 文本字段
       type: string
       default: text
-      description: 显示文本字段
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 集合的元素类型中，用于显示文本的属性名称，支持自定义变更
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/179.%E5%9C%B0%E5%8C%BA%E9%80%89%E6%8B%A9.html
     - name: filterable
-      title: 可筛选
+      title: 筛选
       type: boolean
       default: false
-      description: 是否可以过滤（搜索），开启将会显示搜索框。
-    - name: clearable
-      title: 可清空
-      type: boolean
-      default: false
-      description: 开启并在输入框有内容时会显示清除按钮。
+      description: 设置是否可以筛选，开启将会显示搜索框。
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 开启后选择框可输入文本进行筛选
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/179.%E5%9C%B0%E5%8C%BA%E9%80%89%E6%8B%A9.html
+    - name: placeholder
+      title: 占位符
+      type: string
+      default: 请选择
+      description: 为空时显示的占位符文本
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 选择框无内容时的提示信息，支持自定义编辑，默认为请选择
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/179.%E5%9C%B0%E5%8C%BA%E9%80%89%E6%8B%A9.html
     - name: showFinalValue
       title: 只显示最后一项
       type: boolean
       default: false
       description: 定义是否显示完整的路径，ture时只显示最后一项
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: ""
-    - name: opened
-      title: 弹出状态
-      type: boolean
-      default: false
-      description: 切换弹出/关闭状态
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 控制选择地区项后输入框里展示的形式，开启时只展示最后一项目，未开启时展示所有项路径。默认关闭。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/179.%E5%9C%B0%E5%8C%BA%E9%80%89%E6%8B%A9.html
     - name: autofocus
       title: 自动获取焦点
       type: boolean
       default: false
-      description: 是否自动获取焦点
+      description: 设置是否自动获取焦点
       designer-value: false
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 控制是否在进入页面时聚焦到该组件
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/179.%E5%9C%B0%E5%8C%BA%E9%80%89%E6%8B%A9.html
+    - name: trigger
+      title: 触发方式
+      type: string
+      options:
+        - value: click
+          title: 点击
+        - value: hover
+          title: 悬浮
+      default: click
+      description: ""
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 地区选择时下一层级的展开方式，可以点击展开或者鼠标悬浮时展开
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/179.%E5%9C%B0%E5%8C%BA%E9%80%89%E6%8B%A9.html
+    - name: clearable
+      title: 可清空
+      type: boolean
+      default: false
+      description: 设置是否可以清空搜索框，开启后将在有内容时显示清除按钮。
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 控制是否显示清除按钮，支持一键清除所选内容
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/179.%E5%9C%B0%E5%8C%BA%E9%80%89%E6%8B%A9.html
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/179.%E5%9C%B0%E5%8C%BA%E9%80%89%E6%8B%A9.html
+    - name: opened
+      title: 弹出状态
+      type: boolean
+      default: false
+      description: 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 开启时加载下拉框时，下拉框自动弹出，默认关闭
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/179.%E5%9C%B0%E5%8C%BA%E9%80%89%E6%8B%A9.html
   events:
     - name: input
       title: 输入时

@@ -4,76 +4,13 @@
     - Selector
   title: 穿梭框
   description: 双栏穿梭选择框，常用于将多个项目从一边移动到另一边。
-  next: true
-  nested: false
   attrs:
-    - name: source
-      title: 原始数据
-      type: Array<{ text, value }>
-      sync: true
-      description: 原数据列表
-    - name: target
-      title: 目标数据
-      type: Array<{ text, value }>
-      sync: true
-      description: 目标数据列表
-    - name: text-field
-      title: 文本字段
-      type: string
-      default: text
-      description: 选项文本的字段名
-    - name: value-field
-      title: 值字段
-      type: string
-      default: value
-      description: 选项值的字段名
-    - name: show-head
-      title: 显示头部
-      type: boolean
-      default: false
-      description: ""
-    - name: source-title
-      title: 左侧列表标题
-      type: string
-      default: 列表
-      description: 左侧列表标题
-    - name: target-title
-      title: 右侧列表标题
-      type: string
-      default: 列表
-      description: 右侧列表标题
-    - name: filterable
-      title: 过滤
-      type: boolean
-      default: false
-      description: 显示过滤（搜索框）
-    - name: placeholder
-      title: 占位符
-      type: string
-      default: 请输入
-      description: 搜索框的提示文字
-      dependency:
-        - filterable: true
-    - name: clearable
-      title: 清除
-      type: boolean
-      default: false
-      description: 搜索框输入内容支持一键清除
-      dependency:
-        - filterable: true
     - name: match-method
       title: 过滤匹配方法
       type: string, Function
       default: includes
       description: 过滤时的匹配方法
       advanced: true
-    - name: case-sensitive
-      title: 大小写敏感
-      type: boolean
-      default: false
-      description: 过滤时大小写敏感
-      dependency:
-        - filterable: true
     - name: pageable
       title: 分页
       type: boolean
@@ -86,16 +23,129 @@
       default: 50
       description: ""
       advanced: true
+    - name: source
+      title: 原始数据
+      type: Array<{ text, value }>
+      sync: true
+      description: 原数据列表
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 支持动态绑定集合类型变量（List<T>）或输出参数为集合类型的逻辑。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/181.%E7%A9%BF%E6%A2%AD%E6%A1%86.html
+    - name: target
+      title: 目标数据
+      type: Array<{ text, value }>
+      sync: true
+      description: 目标数据列表
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/181.%E7%A9%BF%E6%A2%AD%E6%A1%86.html
+    - name: text-field
+      title: 文本字段
+      type: string
+      default: text
+      description: 选项文本的字段名
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 集合的元素类型中，用于显示文本的属性名称，支持自定义变更。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/181.%E7%A9%BF%E6%A2%AD%E6%A1%86.html
+    - name: value-field
+      title: 值字段
+      type: string
+      default: value
+      description: 选项值的字段名
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 集合的元素类型中，用于指定数据唯一值的字段，支持自定义变更
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/181.%E7%A9%BF%E6%A2%AD%E6%A1%86.html
+    - name: filterable
+      title: 筛选
+      type: boolean
+      default: false
+      description: 显示筛选（搜索框）
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 是否开启过滤输入框和过滤功能。默认关闭
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/181.%E7%A9%BF%E6%A2%AD%E6%A1%86.html
+    - name: case-sensitive
+      title: 大小写敏感
+      type: boolean
+      default: false
+      description: 设置是否区分大小写
+      dependency:
+        - filterable: true
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 搜索是否大小写敏感。默认关闭。在过滤属性开启后有效。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/181.%E7%A9%BF%E6%A2%AD%E6%A1%86.html
+    - name: clearable
+      title: 可清除筛选
+      type: boolean
+      default: false
+      description: 可点击清除按钮一键清除搜索框内容
+      dependency:
+        - filterable: true
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 过滤输入框是否开启清除按钮。默认开启。在过滤属性开启后有效
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/181.%E7%A9%BF%E6%A2%AD%E6%A1%86.html
+    - name: show-head
+      title: 显示头部
+      type: boolean
+      default: false
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 开启后会显示头部全选栏。默认开启
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/181.%E7%A9%BF%E6%A2%AD%E6%A1%86.html
+    - name: source-title
+      title: 左侧列表标题
+      type: string
+      default: 列表
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: "- 左侧头部全选框右侧展示的文字。默认为“左列表”。"
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/181.%E7%A9%BF%E6%A2%AD%E6%A1%86.html
+    - name: target-title
+      title: 右侧列表标题
+      type: string
+      default: 列表
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 右侧头部全选框右侧展示的文字。默认为“右列表”
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/181.%E7%A9%BF%E6%A2%AD%E6%A1%86.html
+    - name: placeholder
+      title: 占位符
+      type: string
+      default: 请输入
+      description: 为空时显示的占位符文本
+      dependency:
+        - filterable: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 过滤输入框无内容时的提示信息，支持自定义编辑，默认为请选择。在过滤属性开启后有效
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/181.%E7%A9%BF%E6%A2%AD%E6%A1%86.html
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: ""
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 正常显示，但禁止选择或输入
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/181.%E7%A9%BF%E6%A2%AD%E6%A1%86.html
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: ""
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/181.%E7%A9%BF%E6%A2%AD%E6%A1%86.html
   slots:
     - concept: Slot
       name: default

@@ -19,19 +19,22 @@
                 "
             ></s-empty>
             <i :class="$style.icon" v-if="type !== 'more'"></i>
-            <i-ico name=more v-else :class="$style.iconMore"></i-ico>
+            <i-ico name="more" v-else :class="$style.iconMore"></i-ico>
         </div>
         <m-popper
+            :style="{ width: currentPopperWidth }"
             :class="$style.popper"
             :trigger="trigger"
             :placement="placement"
             :disabled="disabled"
             :append-to="appendTo"
             :opened="opened"
-            @update:opened="$emit('update:opened', $event)"
+            @update:opened="onUpdateOpened"
         >
             <slot></slot>
         </m-popper>
+        <!-- append-to body的情况下能够拿到width值 -->
+        <div :class="$style.popperghost" ref="popperghost" v-if="appendTo === 'body'"></div>
     </div>
 </template>
 
@@ -68,8 +71,21 @@ export default {
             validator: (value) => ['body', 'reference'].includes(value),
         },
     },
+    data() {
+        return {
+            currentPopperWidth: undefined,
+        };
+    },
+    watch: {
+        appendTo(appendTo) {
+            this.setPopperWidth();
+        },
+    },
     created() {
         this.$on('select', ({ itemVM }) => this.router && itemVM.navigate());
+    },
+    mounted() {
+        this.setPopperWidth();
     },
     methods: {
         logout() {
@@ -90,6 +106,19 @@ export default {
                 d.setTime(d.getTime() - 1 * 24 * 60 * 60 * 1000);
                 document.cookie = `${name}=; expires=${d.toGMTString()}; path=/`;
             });
+        },
+        setPopperWidth() {
+            if (this.appendTo === 'body') {
+                this.currentPopperWidth = this.$refs.popperghost && (this.$refs.popperghost.offsetWidth + 'px');
+            } else {
+                this.currentPopperWidth = undefined;
+            }
+        },
+        onUpdateOpened($event) {
+            this.$emit('update:opened', $event);
+            if (this.$env.VUE_APP_DESIGNER) {
+                this.setPopperWidth();
+            }
         },
     },
 };
@@ -243,8 +272,8 @@ export default {
     border-left: var(--button-border-width) solid var(--button-border-color-primary-hover);
 }
 .popper {
-    width: 120px;
-    min-width: 100%;
+    width: var(--dropdown-popper-width);
+    min-width: 120px;
     line-height: var(--navbar-dropdown-popper-line-height);
     font-size: var(--navbar-dropdown-popper-font-size);
     padding: 8px 0px;
@@ -252,5 +281,11 @@ export default {
     border-radius: 4px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     background: #fff;
+}
+.popperghost {
+    width: var(--dropdown-popper-width);
+    min-width: 120px;
+    visibility: hidden;
+    position: absolute;
 }
 </style>

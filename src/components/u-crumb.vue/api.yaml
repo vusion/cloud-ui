@@ -4,16 +4,18 @@
     - Navigation
   description: 导航指引
   icon: crumb
-  next: true
-  nested: false
   attrs:
     - name: auto
       title: 自动生成
       type: boolean
       default: false
       description: 是否自动根据子页面配置的面包屑属性自动生成
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持控制面包屑生成方式。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/030.%E9%9D%A2%E5%8C%85%E5%B1%91.html
     - name: separator
-      title: 面包屑样式
+      title: 样式类型
       type: string
       options:
         - value: arrow
@@ -21,12 +23,20 @@
         - value: slash
           title: 分隔符样式
       default: arrow
-      description: 面包屑分隔符
+      description: 设置面包屑分隔样式类型，基础样式为箭头，分隔符样式为斜杠
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持控制面包屑样式，包含基础样式和分隔符样式。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/030.%E9%9D%A2%E5%8C%85%E5%B1%91.html
     - name: icon
-      title: 面包屑图标
+      title: 显示面包屑图标
       type: boolean
       default: false
-      description: 是否显示面包屑图标
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持控制面包屑选项图标显隐，开启后显示面包屑选项图标。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/030.%E9%9D%A2%E5%8C%85%E5%B1%91.html
   slots:
     - concept: Slot
       name: default
@@ -37,62 +47,12 @@
           snippet: <u-crumb-item><u-text text="面包屑"></u-text></u-crumb-item>
 - name: u-crumb-item
   title: 面包屑选项
-  next: false
-  nexted: false
   attrs:
-    - name: icon
-      title: 图标
-      type: icon
-      description: 面包屑图标
     - name: text
       title: 文本
       type: string
       description: 文本内容
       advanced: true
-    - name: type
-      title: 类型
-      type: string
-      options:
-        - value: link
-          title: 链接
-        - value: text
-          title: 显示为默认颜色文本，不可点
-      default: link
-      description: 类型
-      hidden: true
-    - name: linkType
-      title: 链接类型
-      type: string
-      options:
-        - value: destination
-          title: 页面跳转
-        - value: download
-          title: 下载链接
-      default: destination
-      description: 链接类型
-      compType: linkTypeSelect
-      bindHide: true
-    - name: hrefAndTo
-      title: 链接
-      type: string
-      description: 链接地址
-      compType: linkHrefInput
-    - name: target
-      title: 打开方式
-      type: string
-      options:
-        - value: _blank
-          title: 新窗口
-        - value: _self
-          title: 当前窗口
-        - value: _parent
-          title: 父级窗口
-          advanced: true
-        - value: _top
-          title: 顶级窗口
-          advanced: true
-      default: _self
-      description: 父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。
     - name: replace
       title: 替换
       type: boolean
@@ -107,11 +67,83 @@
       default: false
       description: 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
       advanced: true
+    - name: icon
+      title: 图标
+      type: icon
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持从图标库选择或上传自定义图标。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/030.%E9%9D%A2%E5%8C%85%E5%B1%91.html
+    - name: type
+      title: 类型
+      type: string
+      options:
+        - value: link
+          title: 链接
+        - value: text
+          title: 显示为默认颜色文本，不可点
+      default: link
+      description: ""
+      hidden: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/030.%E9%9D%A2%E5%8C%85%E5%B1%91.html
+    - name: linkType
+      title: 链接类型
+      type: string
+      options:
+        - value: destination
+          title: 页面跳转
+        - value: download
+          title: 下载链接
+      default: destination
+      description: ""
+      compType: linkTypeSelect
+      bindHide: true
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 支持页面跳转、下载链接。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/030.%E9%9D%A2%E5%8C%85%E5%B1%91.html
+    - name: hrefAndTo
+      title: 链接地址
+      type: string
+      description: ""
+      compType: linkHrefInput
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 设置链接路径。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/030.%E9%9D%A2%E5%8C%85%E5%B1%91.html
+    - name: target
+      title: 链接打开方式
+      type: string
+      options:
+        - value: _blank
+          title: 新窗口
+        - value: _self
+          title: 当前窗口
+        - value: _parent
+          title: 父级窗口
+          advanced: true
+        - value: _top
+          title: 顶级窗口
+          advanced: true
+      default: _self
+      description: 链接打开后的展示方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 可选新窗口、当前窗口、父级窗口或顶级窗口，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/030.%E9%9D%A2%E5%8C%85%E5%B1%91.html
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否不可点击。如果为`true`，则不会响应`click`事件。
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/030.%E9%9D%A2%E5%8C%85%E5%B1%91.html
   events:
     - name: $listeners
       kind: trigger

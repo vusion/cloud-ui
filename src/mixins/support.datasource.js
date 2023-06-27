@@ -74,7 +74,9 @@ export default {
                 });
         },
         reload() {
-            this.load();
+            // 数据源不是function的时候，调用reload会报错，进行容错处理
+            if (this.currentDataSource.load)
+                this.load();
         },
     },
 };

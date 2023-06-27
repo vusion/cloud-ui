@@ -4,16 +4,33 @@
   icon: linear-layout
   labels:
     - Layout
-  next: true
-  nested: true
   attrs:
+    - name: display
+      title: 展示方式
+      type: string
+      options:
+        - value: inline
+          title: 行内
+        - value: block
+          title: 块级
+      default: block
+      description: 行内展示，或块级换行展示
+      advanced: true
+    - name: type
+      title: 布局模式
+      type: string
+      options:
+        - value: flex
+          title: flex 布局模式
+      description: 布局模式
+      advanced: true
     - name: mode
       title: 布局模式
       type: string
       display: capsules
       bindHide: true
-      description: 设置布局模式
-      tooltipLink: http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html
+      description: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html
       options:
         - value: inline
           title: 行内
@@ -33,6 +50,14 @@
         - alignment
         - wrap
         - layout
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: >-
+        内联布局：将当前元素修改为内联布局模式，各个内联布局模式的元素将默认排布在同一行中，若空间不足以排布下一个内联布局元素，则该元素将会换行。
+
+        块级布局：将当前元素修改为块级布局模式，各个块级布局模式的元素之前和之后均会换行。
+
+        弹性布局：在弹性布局模式中，子元素可以在任何方向上排布，也可以“弹性伸缩”其尺寸，既可以增加尺寸以填满未使用的空间，也可以收缩尺寸以避免溢出父元素。
     - name: direction
       title: 主轴方向
       type: string
@@ -51,6 +76,13 @@
       toggleclear:
         - justify
         - alignment
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: |-
+        横向：内部子元素进行横向排布，建议内部子元素使用行内布局。
+        纵向：内部子元素进行纵向排布，建议内部子元素使用块级布局。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html
     - name: justify
       title: 横轴对齐
       type: string
@@ -100,6 +132,13 @@
         - value: space-around
           updateData:
             gap: normal
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: |-
+        主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布，其中平均分布仅在弹性布局模式下展示。
+        主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度，其中占满容器宽度仅在弹性布局模式下展示。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html
     - name: alignment
       title: 纵轴对齐
       type: string
@@ -130,8 +169,15 @@
       dependency:
         - mode: flex
           direction: horizontal
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: |-
+        主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
+        主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html
     - name: alignment
-      title: 横轴对齐
+      title: 纵轴对齐
       type: string
       display: capsules
       bindHide: true
@@ -156,8 +202,15 @@
       dependency:
         - mode: flex
           direction: vertical
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: |-
+        主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
+        主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html
     - name: justify
-      title: 纵轴对齐
+      title: 横轴对齐
       type: string
       display: capsules
       bindHide: true
@@ -193,13 +246,70 @@
         - value: space-around
           updateData:
             gap: normal
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: |-
+        主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布，其中平均分布仅在弹性布局模式下展示。
+        主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度，其中占满容器宽度仅在弹性布局模式下展示。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html
+    - name: layout
+      title: 子元素展示方式
+      type: string
+      options:
+        - value: none
+          title: 子元素默认布局
+        - value: inline
+          title: 子元素行内布局
+        - value: block
+          title: 子元素块级布局
+      default: none
+      description: 子元素行内展示或块级换行展示
+      dependency:
+        - mode: inline
+        - mode: block
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 布局内各个组件的布局方式，支持默认、行内和块级三种布局方式。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html
     - name: wrap
-      title: 是否换行
+      title: 换行
       type: boolean
       default: true
-      description: 弹性布局下子元素总宽度超出父级时子元素是否换行展示
+      description: 设置弹性布局下子元素总宽度超出父级时子元素是否换行展示
       dependency:
         - mode: flex
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持控制弹性布局模式下，子元素总宽度超过父级时是否换行展示，默认开启。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html
+    - name: loadingIcon
+      title: 加载中图标
+      type: icon
+      default: loading
+      description: 加载中状态显示的图标
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 支持从图标库选择图标或上传自定义图标。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html
+    - name: loadingIconRotate
+      title: 加载中图标旋转
+      type: boolean
+      default: true
+      description: 设置加载中图标是否旋转，默认开启。
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 支持控制加载中图标是否旋转，默认开启。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html
+    - name: loadingText
+      title: 加载中文案
+      type: string
+      default: ""
+      description: 加载中状态显示的提示文案
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 支持编辑组件加载中情况显示文案。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html
     - name: gap
       title: 内容间隙
       type: string
@@ -221,55 +331,10 @@
         - "!justify":
             - space-between
             - space-around
-    - name: display
-      title: 展示方式
-      type: string
-      options:
-        - value: inline
-          title: 行内
-        - value: block
-          title: 块级
-      default: block
-      description: 行内展示，或块级换行展示
-      advanced: true
-    - name: layout
-      title: 子元素展示方式
-      type: string
-      options:
-        - value: none
-          title: 子元素默认布局
-        - value: inline
-          title: 子元素行内布局
-        - value: block
-          title: 子元素块级布局
-      default: none
-      description: 子元素行内展示或块级换行展示
-      dependency:
-        - mode: inline
-        - mode: block
-    - name: type
-      title: 布局模式
-      type: string
-      options:
-        - value: flex
-          title: flex 布局模式
-      description: 布局模式
-      advanced: true
-    - name: loadingIcon
-      title: 加载中图标
-      type: icon
-      default: loading
-      description: 加载图标
-    - name: loadingIconRotate
-      title: 加载中图标旋转
-      type: boolean
-      default: true
-      description: 加载中图标旋转
-    - name: loadingText
-      title: 加载中文案
-      type: string
-      default: ""
-      description: 加载中文案
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 布局内各个组件之间的间隔，通常有收缩、无、小、正常、大，默认为正常。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/020.%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80.html
   slots:
     - concept: Slot
       name: default

@@ -4229,6 +4229,11 @@
                         "desc": "步骤条按钮图标颜色（已选中部分）,如 #223325",
                         "prefix": "steps"
                     },
+                    "--steps-item-radio-color-failed": {
+                        "type": "color",
+                        "desc": "步骤条按钮图标颜色（错误部分）,如 #223325",
+                        "prefix": "steps"
+                    },
                     "--steps-item-radio-background-disabled": {
                         "type": "color",
                         "desc": "步骤条按钮背景色（禁用状态）,如 #223325",
@@ -4239,9 +4244,19 @@
                         "desc": "步骤条按钮边框颜色（完成状态）,如 #223325",
                         "prefix": "steps-seleatable"
                     },
+                    "--steps-seleatable-border-color-failed": {
+                        "type": "color",
+                        "desc": "步骤条按钮边框颜色（错误状态）,如 #223325",
+                        "prefix": "steps-seleatable"
+                    },
                     "--steps-seleatable-background-selected": {
                         "type": "color",
                         "desc": "步骤条按钮圆心背景色（选中状态）,如 #223325",
+                        "prefix": "steps-seleatable"
+                    },
+                    "--steps-seleatable-background-failed": {
+                        "type": "color",
+                        "desc": "步骤条按钮圆心背景色（错误状态）,如 #223325",
                         "prefix": "steps-seleatable"
                     },
                     "--steps-seleatable-radio-background": {
@@ -4282,6 +4297,11 @@
                     "--steps-seleatable-item-line-margin-right": {
                         "type": "input",
                         "desc": "步骤项连接线右边距",
+                        "prefix": "steps-seleatable"
+                    },
+                    "--steps-seleatable-item-title-color-failed": {
+                        "type": "color",
+                        "desc": "步骤条标题颜色（错误状态）,如 #223325",
                         "prefix": "steps-seleatable"
                     }
                 },

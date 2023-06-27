@@ -2,46 +2,19 @@
 
 exports[`u-image.vue Demo-原尺寸 1`] = `
 <div>
-  <div
-    class="root"
-    fit="none"
-    horizontal-center="center"
-    vertical-center="center"
-  >
-    <div
-      class="root loading"
-      size="small"
-    >
-      <div
-        class="rotate"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-loading"
-              />
+  <div class="root" fit="none" horizontal-center="center" vertical-center="center">
+    <div class="root loading" size="small">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -49,47 +22,19 @@ exports[`u-image.vue Demo-原尺寸 1`] = `
 
 exports[`u-image.vue Demo-原尺寸 2`] = `
 <div>
-  <div
-    class="root"
-    fit="none"
-    horizontal-center="center"
-    style="width: 300px; height: 150px;"
-    vertical-center="center"
-  >
-    <div
-      class="root loading"
-      size="small"
-    >
-      <div
-        class="rotate"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-loading"
-              />
+  <div class="root" fit="none" horizontal-center="center" style="width: 300px; height: 150px;" vertical-center="center">
+    <div class="root loading" size="small">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -97,46 +42,19 @@ exports[`u-image.vue Demo-原尺寸 2`] = `
 
 exports[`u-image.vue Demo-填充 1`] = `
 <div>
-  <div
-    class="root"
-    fit="cover"
-    horizontal-center="center"
-    vertical-center="center"
-  >
-    <div
-      class="root loading"
-      size="small"
-    >
-      <div
-        class="rotate"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-loading"
-              />
+  <div class="root" fit="cover" horizontal-center="center" vertical-center="center">
+    <div class="root loading" size="small">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -144,47 +62,19 @@ exports[`u-image.vue Demo-填充 1`] = `
 
 exports[`u-image.vue Demo-填充 2`] = `
 <div>
-  <div
-    class="root"
-    fit="cover"
-    horizontal-center="center"
-    style="width: 300px; height: 150px;"
-    vertical-center="center"
-  >
-    <div
-      class="root loading"
-      size="small"
-    >
-      <div
-        class="rotate"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-loading"
-              />
+  <div class="root" fit="cover" horizontal-center="center" style="width: 300px; height: 150px;" vertical-center="center">
+    <div class="root loading" size="small">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -192,140 +82,57 @@ exports[`u-image.vue Demo-填充 2`] = `
 
 exports[`u-image.vue Demo-多个url 1`] = `
 <div>
-  <div
-    class="root"
-    fit="none"
-    horizontal-center="center"
-    style="width: 300px; height: 150px;"
-    vertical-center="center"
-  >
-    <div
-      class="root loading"
-      size="small"
-    >
-      <div
-        class="rotate"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-loading"
-              />
+  <div class="root" fit="none" horizontal-center="center" style="width: 300px; height: 150px;" vertical-center="center">
+    <div class="root loading" size="small">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
 `;
 
 exports[`u-image.vue Demo-异步展示图片报错 1`] = `
-<div
-  class="root"
-  fit="contain"
-  horizontal-center="center"
-  style="width: 300px; height: 150px;"
-  vertical-center="center"
->
-  <div
-    class="root loading"
-    size="small"
-  >
-    <div
-      class="rotate"
-    >
-      <span
-        class="lcp-iconv icon"
-      >
-        <span
-          class="iconwrap"
-        >
-          <svg
-            aria-hidden="true"
-            class="iconsvg"
-          >
-            <use
-              xlink:href="#pc-loading"
-            />
+<div class="root" fit="contain" horizontal-center="center" style="width: 300px; height: 150px;" vertical-center="center">
+  <div class="root loading" size="small">
+    <div class="rotate">
+      <span class="lcp-iconv icon">
+        <span class="iconwrap">
+          <svg aria-hidden="true" class="iconsvg">
+            <use xlink:href="#pc-loading" />
           </svg>
         </span>
-         
-        <div
-          class="icontext"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="icontext" vusion-slot-name="default">
         </div>
       </span>
     </div>
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-image.vue Demo-拉伸 1`] = `
 <div>
-  <div
-    class="root"
-    fit="fill"
-    horizontal-center="center"
-    vertical-center="center"
-  >
-    <div
-      class="root loading"
-      size="small"
-    >
-      <div
-        class="rotate"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-loading"
-              />
+  <div class="root" fit="fill" horizontal-center="center" vertical-center="center">
+    <div class="root loading" size="small">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -333,140 +140,57 @@ exports[`u-image.vue Demo-拉伸 1`] = `
 
 exports[`u-image.vue Demo-拉伸 2`] = `
 <div>
-  <div
-    class="root"
-    fit="fill"
-    horizontal-center="center"
-    style="width: 300px; height: 150px;"
-    vertical-center="center"
-  >
-    <div
-      class="root loading"
-      size="small"
-    >
-      <div
-        class="rotate"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-loading"
-              />
+  <div class="root" fit="fill" horizontal-center="center" style="width: 300px; height: 150px;" vertical-center="center">
+    <div class="root loading" size="small">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
 `;
 
 exports[`u-image.vue Demo-模拟异步展示图片 1`] = `
-<div
-  class="root"
-  fit="contain"
-  horizontal-center="center"
-  style="width: 300px; height: 150px;"
-  vertical-center="center"
->
-  <div
-    class="root loading"
-    size="small"
-  >
-    <div
-      class="rotate"
-    >
-      <span
-        class="lcp-iconv icon"
-      >
-        <span
-          class="iconwrap"
-        >
-          <svg
-            aria-hidden="true"
-            class="iconsvg"
-          >
-            <use
-              xlink:href="#pc-loading"
-            />
+<div class="root" fit="contain" horizontal-center="center" style="width: 300px; height: 150px;" vertical-center="center">
+  <div class="root loading" size="small">
+    <div class="rotate">
+      <span class="lcp-iconv icon">
+        <span class="iconwrap">
+          <svg aria-hidden="true" class="iconsvg">
+            <use xlink:href="#pc-loading" />
           </svg>
         </span>
-         
-        <div
-          class="icontext"
-          vusion-slot-name="default"
-        >
-           
-          <!---->
+        <div class="icontext" vusion-slot-name="default">
         </div>
       </span>
     </div>
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-image.vue Demo-适应 1`] = `
 <div>
-  <div
-    class="root"
-    fit="contain"
-    horizontal-center="center"
-    vertical-center="center"
-  >
-    <div
-      class="root loading"
-      size="small"
-    >
-      <div
-        class="rotate"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-loading"
-              />
+  <div class="root" fit="contain" horizontal-center="center" vertical-center="center">
+    <div class="root loading" size="small">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -474,47 +198,19 @@ exports[`u-image.vue Demo-适应 1`] = `
 
 exports[`u-image.vue Demo-适应 2`] = `
 <div>
-  <div
-    class="root"
-    fit="contain"
-    horizontal-center="center"
-    style="width: 300px; height: 150px;"
-    vertical-center="center"
-  >
-    <div
-      class="root loading"
-      size="small"
-    >
-      <div
-        class="rotate"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-loading"
-              />
+  <div class="root" fit="contain" horizontal-center="center" style="width: 300px; height: 150px;" vertical-center="center">
+    <div class="root loading" size="small">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -522,46 +218,19 @@ exports[`u-image.vue Demo-适应 2`] = `
 
 exports[`u-image.vue Demo-适应（图片小于父元素时以原尺寸展示） 1`] = `
 <div>
-  <div
-    class="root"
-    fit="scale-down"
-    horizontal-center="center"
-    vertical-center="center"
-  >
-    <div
-      class="root loading"
-      size="small"
-    >
-      <div
-        class="rotate"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-loading"
-              />
+  <div class="root" fit="scale-down" horizontal-center="center" vertical-center="center">
+    <div class="root loading" size="small">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>
@@ -569,47 +238,19 @@ exports[`u-image.vue Demo-适应（图片小于父元素时以原尺寸展示）
 
 exports[`u-image.vue Demo-适应（图片小于父元素时以原尺寸展示） 2`] = `
 <div>
-  <div
-    class="root"
-    fit="scale-down"
-    horizontal-center="center"
-    style="width: 300px; height: 150px;"
-    vertical-center="center"
-  >
-    <div
-      class="root loading"
-      size="small"
-    >
-      <div
-        class="rotate"
-      >
-        <span
-          class="lcp-iconv icon"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-loading"
-              />
+  <div class="root" fit="scale-down" horizontal-center="center" style="width: 300px; height: 150px;" vertical-center="center">
+    <div class="root loading" size="small">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
         </span>
       </div>
-       
-      <!---->
     </div>
   </div>
 </div>

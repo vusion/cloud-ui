@@ -5,20 +5,6 @@
     - Display
   description: 公告。
   attrs:
-    - name: type
-      title: 公告类型
-      type: string
-      options:
-        - value: info
-          title: 信息
-        - value: success
-          title: 成功
-        - value: warning
-          title: 警告
-        - value: error
-          title: 错误
-      default: "info"
-      description: 选择公告类型
     - name: title
       title: 标题
       type: string
@@ -42,21 +28,51 @@
           title: 居中对齐
       description: 选择对齐方式
       advanced: true
+    - name: type
+      title: 公告类型
+      type: string
+      options:
+        - value: info
+          title: 信息
+        - value: success
+          title: 成功
+        - value: warning
+          title: 警告
+        - value: error
+          title: 错误
+      default: info
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 信息、成功、警告、错误
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/140.%E5%85%AC%E5%91%8A.html
     - name: showIcon
-      title: 图标
+      title: 显示图标
       type: boolean
       default: true
-      description: 显示/隐藏图标
-    - name: bordered
-      title: 边框
-      type: boolean
-      default: true
-      description: 显示/隐藏边框
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 是否展开图标
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/140.%E5%85%AC%E5%91%8A.html
     - name: closeable
       title: 手动关闭
       type: boolean
       default: false
-      description: 是否可手动关闭
+      description: 是否可手动关闭公告
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 是否显示关闭按钮
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/140.%E5%85%AC%E5%91%8A.html
+    - name: bordered
+      title: 显示边框
+      type: boolean
+      default: true
+      description: ""
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 是否显示边框
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/140.%E5%85%AC%E5%91%8A.html
   events:
     - name: close
       title: 关闭时

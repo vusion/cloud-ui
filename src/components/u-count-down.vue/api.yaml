@@ -4,14 +4,16 @@
     - Display
   icon: countdown
   description: 用于计时
-  next: true
-  nested: false
   attrs:
     - name: timer
-      title: 计时器时长（秒）
+      title: 定时时长（秒）
       type: number
       default: 60
       description: 设置定时时间
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 计时器的总时长，单位为秒。支持手动输入或是动态绑定。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/150.%E8%AE%A1%E6%97%B6%E5%99%A8.html
     - name: reverse
       title: 计时方式
       type: string
@@ -22,11 +24,19 @@
           title: 倒计时
       default: positive
       description: 设置计时器计时方式
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 可选择正计时和倒计时
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/150.%E8%AE%A1%E6%97%B6%E5%99%A8.html
     - name: autostart
-      title: 是否自动开始计时
+      title: 自动计时
       type: boolean
       default: true
-      description: 设置是否自动开始计时器
+      description: 设置是否自动开始计时
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 默认自动开始计时，支持动态绑定布尔类型（Boolean）的变量
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/150.%E8%AE%A1%E6%97%B6%E5%99%A8.html
   events:
     - name: start
       title: 计时器开始

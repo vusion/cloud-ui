@@ -2,154 +2,57 @@
 
 exports[`u-card.vue Demo-卡片分组 1`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    shadow="always"
-  >
-    <div
-      class="root scrollview"
-    >
-      <div
-        class="wrap"
-      >
+  <div border="true" class="root" shadow="always">
+    <div class="root scrollview">
+      <div class="wrap">
         <div>
-          <div
-            class="cover"
-            vusion-slot-name="cover"
-          >
-             
-            <!---->
+          <div class="cover" vusion-slot-name="cover">
           </div>
-           
-          <div
-            class="head"
-          >
-            <div
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                        卡片
-                        
-              <!---->
+          <div class="head">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              卡片
             </div>
-             
-            <a />
-             
-            <div
-              class="extra"
-            />
+            <a></a>
+            <div class="extra"></div>
           </div>
-           
-          <div
-            class="body"
-            vusion-slot-name="default"
-          >
-            <div
-              class="root"
-            >
-              <div
-                class="cover"
-              />
-               
-              <div
-                class="head"
-              >
-                
-        卡片分组
-    
+          <div class="body" vusion-slot-name="default">
+            <div class="root">
+              <div class="cover"></div>
+              <div class="head">
+                卡片分组
               </div>
-               
-              <div
-                class="body"
-              >
-                <div
-                  class="root"
-                  type="paragraph"
-                >
-                  <h3
-                    class="title"
-                  />
-                   
-                  <p
-                    class="paragraph"
-                  />
-                  <p
-                    class="paragraph"
-                  />
-                  <p
-                    class="paragraph"
-                  />
+              <div class="body">
+                <div class="root" type="paragraph">
+                  <h3 class="title"></h3>
+                  <p class="paragraph"></p>
+                  <p class="paragraph"></p>
+                  <p class="paragraph"></p>
                 </div>
               </div>
             </div>
-             
-            <div
-              class="root"
-            >
-              <div
-                class="cover"
-              />
-               
-              <div
-                class="head"
-              >
-                
-        卡片分组
-    
+            <div class="root">
+              <div class="cover"></div>
+              <div class="head">
+                卡片分组
               </div>
-               
-              <div
-                class="body"
-              >
-                <div
-                  class="root"
-                  type="paragraph"
-                >
-                  <h3
-                    class="title"
-                  />
-                   
-                  <p
-                    class="paragraph"
-                  />
-                  <p
-                    class="paragraph"
-                  />
-                  <p
-                    class="paragraph"
-                  />
+              <div class="body">
+                <div class="root" type="paragraph">
+                  <h3 class="title"></h3>
+                  <p class="paragraph"></p>
+                  <p class="paragraph"></p>
+                  <p class="paragraph"></p>
                 </div>
               </div>
             </div>
-             
-            <!---->
           </div>
-           
-          <div />
+          <div></div>
         </div>
       </div>
-       
-      <div
-        class="root"
-        direction="horizontal"
-      >
-        <div
-          class="thumb"
-          style="transform: translateX(0%); webkit-transform: translateX(0%);"
-        />
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
       </div>
-       
-      <div
-        class="root"
-        direction="vertical"
-      >
-        <div
-          class="thumb"
-          style="transform: translateY(0%); webkit-transform: translateY(0%);"
-        />
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </div>
@@ -158,79 +61,29 @@ exports[`u-card.vue Demo-卡片分组 1`] = `
 
 exports[`u-card.vue Demo-基本样式 1`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    shadow="always"
-  >
-    <div
-      class="root scrollview"
-    >
-      <div
-        class="wrap"
-      >
+  <div border="true" class="root" shadow="always">
+    <div class="root scrollview">
+      <div class="wrap">
         <div>
-          <div
-            class="cover"
-            vusion-slot-name="cover"
-          >
-             
-            <!---->
+          <div class="cover" vusion-slot-name="cover">
           </div>
-           
-          <div
-            class="head"
-          >
-            <div
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              <span
-                class="root"
-                vusion-slot-name-edit="text"
-              >
-                卡片
-              </span>
+          <div class="head">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              <span class="root" vusion-slot-name-edit="text">卡片</span>
             </div>
-             
-            <a />
-             
-            <div
-              class="extra"
-            />
+            <a></a>
+            <div class="extra"></div>
           </div>
-           
-          <div
-            class="body"
-            vusion-slot-name="default"
-          >
-            卡片内容 
-            <!---->
+          <div class="body" vusion-slot-name="default">卡片内容
           </div>
-           
-          <div />
+          <div></div>
         </div>
       </div>
-       
-      <div
-        class="root"
-        direction="horizontal"
-      >
-        <div
-          class="thumb"
-          style="transform: translateX(0%); webkit-transform: translateX(0%);"
-        />
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
       </div>
-       
-      <div
-        class="root"
-        direction="vertical"
-      >
-        <div
-          class="thumb"
-          style="transform: translateY(0%); webkit-transform: translateY(0%);"
-        />
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </div>
@@ -239,95 +92,35 @@ exports[`u-card.vue Demo-基本样式 1`] = `
 
 exports[`u-card.vue Demo-基本用法 1`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    shadow="always"
-  >
-    <div
-      class="root scrollview"
-    >
-      <div
-        class="wrap"
-      >
+  <div border="true" class="root" shadow="always">
+    <div class="root scrollview">
+      <div class="wrap">
         <div>
-          <div
-            class="cover"
-            vusion-slot-name="cover"
-          >
-             
-            <!---->
+          <div class="cover" vusion-slot-name="cover">
           </div>
-           
-          <div
-            class="head"
-          >
-            <div
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                        卡片
-                        
-              <!---->
+          <div class="head">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              卡片
             </div>
-             
-            <a />
-             
-            <div
-              class="extra"
-            />
+            <a></a>
+            <div class="extra"></div>
           </div>
-           
-          <div
-            class="body"
-            vusion-slot-name="default"
-          >
-            <div
-              class="root"
-              type="paragraph"
-            >
-              <h3
-                class="title"
-              />
-               
-              <p
-                class="paragraph"
-              />
-              <p
-                class="paragraph"
-              />
-              <p
-                class="paragraph"
-              />
+          <div class="body" vusion-slot-name="default">
+            <div class="root" type="paragraph">
+              <h3 class="title"></h3>
+              <p class="paragraph"></p>
+              <p class="paragraph"></p>
+              <p class="paragraph"></p>
             </div>
-             
-            <!---->
           </div>
-           
-          <div />
+          <div></div>
         </div>
       </div>
-       
-      <div
-        class="root"
-        direction="horizontal"
-      >
-        <div
-          class="thumb"
-          style="transform: translateX(0%); webkit-transform: translateX(0%);"
-        />
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
       </div>
-       
-      <div
-        class="root"
-        direction="vertical"
-      >
-        <div
-          class="thumb"
-          style="transform: translateY(0%); webkit-transform: translateY(0%);"
-        />
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </div>
@@ -336,80 +129,29 @@ exports[`u-card.vue Demo-基本用法 1`] = `
 
 exports[`u-card.vue Demo-带分割线样式 1`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    shadow="always"
-    split="true"
-  >
-    <div
-      class="root scrollview"
-    >
-      <div
-        class="wrap"
-      >
+  <div border="true" class="root" shadow="always" split="true">
+    <div class="root scrollview">
+      <div class="wrap">
         <div>
-          <div
-            class="cover"
-            vusion-slot-name="cover"
-          >
-             
-            <!---->
+          <div class="cover" vusion-slot-name="cover">
           </div>
-           
-          <div
-            class="head"
-          >
-            <div
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              <span
-                class="root"
-                vusion-slot-name-edit="text"
-              >
-                卡片
-              </span>
+          <div class="head">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              <span class="root" vusion-slot-name-edit="text">卡片</span>
             </div>
-             
-            <a />
-             
-            <div
-              class="extra"
-            />
+            <a></a>
+            <div class="extra"></div>
           </div>
-           
-          <div
-            class="body"
-            vusion-slot-name="default"
-          >
-            卡片内容 
-            <!---->
+          <div class="body" vusion-slot-name="default">卡片内容
           </div>
-           
-          <div />
+          <div></div>
         </div>
       </div>
-       
-      <div
-        class="root"
-        direction="horizontal"
-      >
-        <div
-          class="thumb"
-          style="transform: translateX(0%); webkit-transform: translateX(0%);"
-        />
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
       </div>
-       
-      <div
-        class="root"
-        direction="vertical"
-      >
-        <div
-          class="thumb"
-          style="transform: translateY(0%); webkit-transform: translateY(0%);"
-        />
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </div>
@@ -418,96 +160,35 @@ exports[`u-card.vue Demo-带分割线样式 1`] = `
 
 exports[`u-card.vue Demo-带分割线样式 2`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    shadow="always"
-    split="true"
-  >
-    <div
-      class="root scrollview"
-    >
-      <div
-        class="wrap"
-      >
+  <div border="true" class="root" shadow="always" split="true">
+    <div class="root scrollview">
+      <div class="wrap">
         <div>
-          <div
-            class="cover"
-            vusion-slot-name="cover"
-          >
-             
-            <!---->
+          <div class="cover" vusion-slot-name="cover">
           </div>
-           
-          <div
-            class="head"
-          >
-            <div
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                        卡片
-                        
-              <!---->
+          <div class="head">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              卡片
             </div>
-             
-            <a />
-             
-            <div
-              class="extra"
-            />
+            <a></a>
+            <div class="extra"></div>
           </div>
-           
-          <div
-            class="body"
-            vusion-slot-name="default"
-          >
-            <div
-              class="root"
-              type="paragraph"
-            >
-              <h3
-                class="title"
-              />
-               
-              <p
-                class="paragraph"
-              />
-              <p
-                class="paragraph"
-              />
-              <p
-                class="paragraph"
-              />
+          <div class="body" vusion-slot-name="default">
+            <div class="root" type="paragraph">
+              <h3 class="title"></h3>
+              <p class="paragraph"></p>
+              <p class="paragraph"></p>
+              <p class="paragraph"></p>
             </div>
-             
-            <!---->
           </div>
-           
-          <div />
+          <div></div>
         </div>
       </div>
-       
-      <div
-        class="root"
-        direction="horizontal"
-      >
-        <div
-          class="thumb"
-          style="transform: translateX(0%); webkit-transform: translateX(0%);"
-        />
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
       </div>
-       
-      <div
-        class="root"
-        direction="vertical"
-      >
-        <div
-          class="thumb"
-          style="transform: translateY(0%); webkit-transform: translateY(0%);"
-        />
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </div>
@@ -516,122 +197,44 @@ exports[`u-card.vue Demo-带分割线样式 2`] = `
 
 exports[`u-card.vue Demo-带图片样式 1`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    shadow="always"
-    style="width: 280px;"
-  >
-    <div
-      class="root scrollview"
-    >
-      <div
-        class="wrap"
-      >
+  <div border="true" class="root" shadow="always" style="width: 280px;">
+    <div class="root scrollview">
+      <div class="wrap">
         <div>
-          <div
-            class="cover"
-            vusion-slot-name="cover"
-          >
-            <div
-              class="root"
-              fit="contain"
-              horizontal-center="center"
-              vertical-center="center"
-            >
-              <div
-                class="root loading"
-                size="small"
-              >
-                <div
-                  class="rotate"
-                >
-                  <span
-                    class="lcp-iconv icon"
-                  >
-                    <span
-                      class="iconwrap"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="iconsvg"
-                      >
-                        <use
-                          xlink:href="#pc-loading"
-                        />
+          <div class="cover" vusion-slot-name="cover">
+            <div class="root" fit="contain" horizontal-center="center" vertical-center="center">
+              <div class="root loading" size="small">
+                <div class="rotate">
+                  <span class="lcp-iconv icon">
+                    <span class="iconwrap">
+                      <svg aria-hidden="true" class="iconsvg">
+                        <use xlink:href="#pc-loading" />
                       </svg>
                     </span>
-                     
-                    <div
-                      class="icontext"
-                      vusion-slot-name="default"
-                    >
-                       
-                      <!---->
+                    <div class="icontext" vusion-slot-name="default">
                     </div>
                   </span>
                 </div>
-                 
-                <!---->
               </div>
             </div>
-             
-            <!---->
           </div>
-           
-          <div
-            class="head"
-          >
-            <div
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              <span
-                class="root"
-                vusion-slot-name-edit="text"
-              >
-                卡片
-              </span>
+          <div class="head">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              <span class="root" vusion-slot-name-edit="text">卡片</span>
             </div>
-             
-            <a />
-             
-            <div
-              class="extra"
-            />
+            <a></a>
+            <div class="extra"></div>
           </div>
-           
-          <div
-            class="body"
-            vusion-slot-name="default"
-          >
-            卡片内容 
-            <!---->
+          <div class="body" vusion-slot-name="default">卡片内容
           </div>
-           
-          <div />
+          <div></div>
         </div>
       </div>
-       
-      <div
-        class="root"
-        direction="horizontal"
-      >
-        <div
-          class="thumb"
-          style="transform: translateX(0%); webkit-transform: translateX(0%);"
-        />
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
       </div>
-       
-      <div
-        class="root"
-        direction="vertical"
-      >
-        <div
-          class="thumb"
-          style="transform: translateY(0%); webkit-transform: translateY(0%);"
-        />
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </div>
@@ -640,139 +243,50 @@ exports[`u-card.vue Demo-带图片样式 1`] = `
 
 exports[`u-card.vue Demo-带图片样式 2`] = `
 <div>
-  <div
-    border="true"
-    class="root"
-    shadow="always"
-    style="width: 280px;"
-  >
-    <div
-      class="root scrollview"
-    >
-      <div
-        class="wrap"
-      >
+  <div border="true" class="root" shadow="always" style="width: 280px;">
+    <div class="root scrollview">
+      <div class="wrap">
         <div>
-          <div
-            class="cover"
-            vusion-slot-name="cover"
-          >
-            <div
-              class="root"
-              fit="contain"
-              horizontal-center="center"
-              vertical-center="center"
-            >
-              <div
-                class="root loading"
-                size="small"
-              >
-                <div
-                  class="rotate"
-                >
-                  <span
-                    class="lcp-iconv icon"
-                  >
-                    <span
-                      class="iconwrap"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="iconsvg"
-                      >
-                        <use
-                          xlink:href="#pc-loading"
-                        />
+          <div class="cover" vusion-slot-name="cover">
+            <div class="root" fit="contain" horizontal-center="center" vertical-center="center">
+              <div class="root loading" size="small">
+                <div class="rotate">
+                  <span class="lcp-iconv icon">
+                    <span class="iconwrap">
+                      <svg aria-hidden="true" class="iconsvg">
+                        <use xlink:href="#pc-loading" />
                       </svg>
                     </span>
-                     
-                    <div
-                      class="icontext"
-                      vusion-slot-name="default"
-                    >
-                       
-                      <!---->
+                    <div class="icontext" vusion-slot-name="default">
                     </div>
                   </span>
                 </div>
-                 
-                <!---->
               </div>
             </div>
-             
-            <!---->
           </div>
-           
-          <div
-            class="head"
-          >
-            <div
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                        卡片
-                        
-              <!---->
+          <div class="head">
+            <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              卡片
             </div>
-             
-            <a />
-             
-            <div
-              class="extra"
-            />
+            <a></a>
+            <div class="extra"></div>
           </div>
-           
-          <div
-            class="body"
-            vusion-slot-name="default"
-          >
-             
-            <div
-              class="root"
-              type="paragraph"
-            >
-              <h3
-                class="title"
-              />
-               
-              <p
-                class="paragraph"
-              />
-              <p
-                class="paragraph"
-              />
-              <p
-                class="paragraph"
-              />
+          <div class="body" vusion-slot-name="default">
+            <div class="root" type="paragraph">
+              <h3 class="title"></h3>
+              <p class="paragraph"></p>
+              <p class="paragraph"></p>
+              <p class="paragraph"></p>
             </div>
-             
-            <!---->
           </div>
-           
-          <div />
+          <div></div>
         </div>
       </div>
-       
-      <div
-        class="root"
-        direction="horizontal"
-      >
-        <div
-          class="thumb"
-          style="transform: translateX(0%); webkit-transform: translateX(0%);"
-        />
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
       </div>
-       
-      <div
-        class="root"
-        direction="vertical"
-      >
-        <div
-          class="thumb"
-          style="transform: translateY(0%); webkit-transform: translateY(0%);"
-        />
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </div>
