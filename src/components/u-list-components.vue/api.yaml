@@ -11,8 +11,8 @@
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 组件的数据源，配置内容为数据集对象或者返回数据集的逻辑。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/140.%E7%BB%84%E4%BB%B6%E5%88%97%E8%A1%A8.html
     - name: data-schema
       title: 数据类型
       type: schema
@@ -20,8 +20,8 @@
       compType: dataTypeComsItem
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: IDE 根据配置的数据源动态计算返回内容的数据结构，用于动态配置项 current.item 的类型说明。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/140.%E7%BB%84%E4%BB%B6%E5%88%97%E8%A1%A8.html
     - name: colnum
       title: 每行排列项数
       type: number
@@ -29,8 +29,8 @@
       description: 为空时默认为5
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 支持定义每一行排列的项数，为空时会自适应宽度并自动换行。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/140.%E7%BB%84%E4%BB%B6%E5%88%97%E8%A1%A8.html
     - name: equalWidth
       title: 均分宽度
       type: boolean
@@ -38,8 +38,11 @@
       description: 设置是否均分宽度
       group: 样式属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: |-
+        支持根据组件列表所占宽度自动均匀排布各项。
+        - 开启：默认根据组件列表宽度自动计算每一项内容宽度，宽度为 100% / 每行项数。
+        - 关闭：每一项内容自适应宽度。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/140.%E7%BB%84%E4%BB%B6%E5%88%97%E8%A1%A8.html
   slots:
     - concept: Slot
       name: default

@@ -13,16 +13,16 @@
       description: 临时修改验证值
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 临时修改验证值
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/151.%E9%AA%8C%E8%AF%81%E5%99%A8.html
     - name: validating-process
       title: 值预处理
       type: Function
       description: 验证前对值进行预处理
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 验证前对值进行预处理
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/151.%E9%AA%8C%E8%AF%81%E5%99%A8.html
     - name: name
       title: 表单项名称
       type: string
@@ -30,15 +30,15 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/151.%E9%AA%8C%E8%AF%81%E5%99%A8.html
     - name: label
       title: 标签
       type: string
       description: 在 UValidator 用于提示消息的合成，在 UFormItem 等其他组件用于显示标签
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 用于提示消息的合成
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/151.%E9%AA%8C%E8%AF%81%E5%99%A8.html
     - name: rules
       title: 规则
       type: string | Array
@@ -47,24 +47,24 @@
       bindHide: true
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型，详见[验证规则](#验证规则)
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/151.%E9%AA%8C%E8%AF%81%E5%99%A8.html
     - name: message
       title: 提示信息
       type: string
       description: 鼠标悬浮时显示的提示信息
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 默认提示消息
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/151.%E9%AA%8C%E8%AF%81%E5%99%A8.html
     - name: muted
       title: 静默
       type: string
       description: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/151.%E9%AA%8C%E8%AF%81%E5%99%A8.html
     - name: ignore-validation
       title: 忽略验证
       type: boolean
@@ -72,8 +72,8 @@
       description: ""
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 忽略验证
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/151.%E9%AA%8C%E8%AF%81%E5%99%A8.html
     - name: ignore-rules
       title: 忽略验证规则
       type: boolean
@@ -82,15 +82,15 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/151.%E9%AA%8C%E8%AF%81%E5%99%A8.html
     - name: validating-options
       title: 验证辅助对象
       type: object
       description: 在 Rule 的 `validate` 方法中使用
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 验证辅助对象
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/151.%E9%AA%8C%E8%AF%81%E5%99%A8.html
     - name: manual
       title: 手动验证
       type: boolean
@@ -99,8 +99,10 @@
         将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证。
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: |-
+        是否采取手动验证。如果为`true`，则验证器。
+            将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/151.%E9%AA%8C%E8%AF%81%E5%99%A8.html
     - name: append-to
       title: 报错位置依据
       type: string
@@ -114,10 +116,11 @@
           title: 全局body
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 设置添加到哪个元素。可选值：`'body'`表示添加到
+        document.body，`'reference'`表示添加到参考元素中。当父级有overflow:hidden而又想展示出错信息，可以设置为body
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/151.%E9%AA%8C%E8%AF%81%E5%99%A8.html
     - name: placement
-      title: 出错信息展示位置
+      title: 报错位置方向
       type: string
       options:
         - value: right
@@ -130,8 +133,8 @@
         - "!append-to": body
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 提示信息显示位置
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/151.%E9%AA%8C%E8%AF%81%E5%99%A8.html
   computed:
     - name: touched
       title: 触碰

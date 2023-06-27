@@ -12,7 +12,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 显示的文本内容
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/050.%E6%96%87%E6%9C%AC.html
     - name: color
       title: 主题颜色
       type: string
@@ -36,7 +36,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持定义文本的颜色，支持默认、主要色、辅助色、成功色、警告色、错误色、禁用色
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/050.%E6%96%87%E6%9C%AC.html
     - name: display
       title: 展示方式
       type: string
@@ -50,7 +50,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 文本展示方式，支持行内展示或块级换行展示
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/050.%E6%96%87%E6%9C%AC.html
     - name: overflow
       title: 隐藏过长文本
       type: string
@@ -64,11 +64,11 @@
         - value: nowrap
           title: 始终不换行
       default: normal
-      description: 文本过长的处理方式
+      description: 文本过长时省略显示
       group: 主要属性
       brifeDoc: ""
       docDescription: 文本过长的处理方式，支持默认不处理、多余的文本省略、强制换行且英文自动添加换行符、始终不换行共四种隐藏处理方式，缺省情况为默认不处理
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/050.%E6%96%87%E6%9C%AC.html
     - name: size
       title: 尺寸
       type: string
@@ -88,7 +88,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 文本框尺寸，支持小、正常、大、巨大
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/050.%E6%96%87%E6%9C%AC.html
   events:
     - name: click
       title: 点击

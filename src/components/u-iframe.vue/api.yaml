@@ -12,7 +12,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 需要嵌入的网页地址
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/03.%E5%AE%B9%E5%99%A8/020.iframe.html
   slots: false
   events:
     - name: load

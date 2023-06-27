@@ -1,18 +1,18 @@
 - name: u-select
   icon: select
-  title: 选择框
+  title: 选择器
   labels:
     - Form
-  description: 下拉选择框，支持单选、多选、搜索等功能
+  description: 下拉选择器，支持单选、多选、搜索等功能
   attrs:
     - name: data-source
-      title: 数据类型
+      title: 数据源
       type: Array<Item> | Function | object | DataSource
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 支持动态绑定集合类型变量（List<T>）或输出参数为集合类型的逻辑
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: data-schema
       title: 数据类型
       type: schema
@@ -21,7 +21,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 该属性为只读状态，当数据源动态绑定集合List<T>后，会自动识别T的类型并进行展示。
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: value
       title: 选中值
       type: any
@@ -30,8 +30,8 @@
       description: 当前选中的值
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 当前选择的值
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: text-field
       title: 文本字段
       type: string
@@ -40,8 +40,8 @@
       display: property-select
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 集合的元素类型中，用于显示文本的属性名称，支持自定义变更。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: value-field
       title: 值字段
       type: string
@@ -50,8 +50,8 @@
       display: property-select
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 集合的元素类型中，用于标识选中值的属性，支持自定义变更
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: pageable
       title: 分页加载更多
       type: boolean
@@ -60,8 +60,8 @@
       hidden: true
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 是否使用分页功能加载更多
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: remote-paging
       title: 后端分页
       type: boolean
@@ -70,8 +70,8 @@
       hidden: true
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 控制是否使用后端分页，不支持自定义分页条数，默认为50条
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: pagination
       title: 分页
       type: boolean
@@ -79,7 +79,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: page-size
       title: 默认每页条数
       type: number
@@ -97,7 +97,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: sorting
       title: 初始化排序规则
       type: "{ field: string, order: string, compare: Function }"
@@ -106,7 +106,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: description
       title: 选项辅助文本
       type: boolean
@@ -115,7 +115,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: description-field
       title: 辅助文本字段
       type: string
@@ -125,8 +125,8 @@
       display: property-select
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 集合的元素类型中，用于显示文本下方辅助描述的属性名称
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: icon-field
       title: 图标展示字段
       type: string
@@ -135,24 +135,15 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: selected-values-data
       title: 选中值完整数据
       type: Array
       description: 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}]
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
-    - name: clearable
-      title: 可清除
-      type: boolean
-      default: false
-      description: 可点击清除按钮一键清除内容
-      group: 数据属性
-      brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}]
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: filterable
       title: 筛选
       type: boolean
@@ -160,8 +151,8 @@
       description: 设置是否可以筛选，开启将会支持搜索。
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 开启后选择框可输入文本进行筛选
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: remote-filtering
       title: 后端筛选
       type: boolean
@@ -171,7 +162,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: match-method
       title: 匹配方法
       type: string
@@ -186,8 +177,8 @@
       description: 过滤时的匹配方法
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 支持配置过滤时的匹配模式，共有包括、匹配开头或匹配结尾3种模式
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: show-render-footer
       title: 可扩展下拉项
       type: boolean
@@ -196,7 +187,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: converter
       title: 转换器
       type: string
@@ -214,8 +205,8 @@
       clearable: true
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: placeholder
       title: 占位符
       type: string
@@ -223,8 +214,8 @@
       description: 为空时显示的占位符文本
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 选择框无内容时的提示信息，支持自定义编辑，默认为请选择
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: autofocus
       title: 自动获取焦点
       type: boolean
@@ -233,8 +224,55 @@
       designer-value: false
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 控制是否在进入页面时聚焦到该组件
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
+    - name: prefix
+      title: 前缀图标
+      type: string
+      options:
+        - value: search
+          title: 搜索
+      description: ""
+      clearable: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持添加前缀图标，如搜索图标
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
+    - name: suffix
+      title: 后缀图标
+      type: string
+      options:
+        - value: search
+          title: 搜索
+      description: ""
+      clearable: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持添加后缀图标，如搜索图标
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
+    - name: append-to
+      title: 弹出层位置依据
+      type: string
+      default: reference
+      description: 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。
+      options:
+        - value: reference
+          title: 引用元素下
+        - value: body
+          title: 全局body
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 设置添加到哪个元素
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
+    - name: clearable
+      title: 可清除
+      type: boolean
+      default: false
+      description: 可点击清除按钮一键清除所选内容
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 控制是否显示清除按钮，支持一键清除所选内容
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: tags-overflow
       title: 多选项展示形式
       type: string
@@ -248,48 +286,10 @@
           title: 过多时显示
       description: 多选项过多时的展示形式
       clearable: true
-      group: 主要属性
+      group: 交互属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
-    - name: prefix
-      title: 前缀图标
-      type: string
-      options:
-        - value: search
-          title: 搜索
-      description: ""
-      clearable: true
-      group: 主要属性
-      brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
-    - name: suffix
-      title: 后缀图标
-      type: string
-      options:
-        - value: search
-          title: 搜索
-      description: ""
-      clearable: true
-      group: 主要属性
-      brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
-    - name: append-to
-      title: 弹出层位置依据
-      type: string
-      default: reference
-      description: 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。
-      options:
-        - value: reference
-          title: 引用元素下
-        - value: body
-          title: 全局body
-      group: 主要属性
-      brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: cancelable
       title: 可取消
       type: boolean
@@ -299,7 +299,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: multiple
       title: 可多选
       type: boolean
@@ -307,8 +307,8 @@
       description: 设置是否可以多选行
       group: 交互属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 是否可以多选
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: initial-load
       title: 初始即加载
       type: boolean
@@ -316,8 +316,8 @@
       description: 设置初始时是否立即加载
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 是否在初始时立即加载
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: loading-text
       title: 加载中文字
       type: string
@@ -332,8 +332,8 @@
       description: 是否在数据为空时展示暂无数据的文字提示
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 是否在数据为空时展示暂无数据的文字提示
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: empty-text
       title: 暂无数据文案
       type: string
@@ -341,8 +341,8 @@
       description: 暂无数据状态显示的提示文案
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 暂无数据时的文字
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: empty-disabled
       title: 为空自动禁用
       type: boolean
@@ -350,8 +350,8 @@
       description: 为空时置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: readonly
       title: 只读
       type: boolean
@@ -359,8 +359,8 @@
       description: 正常显示，但禁止选择/输入
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 正常显示，但禁止选择或输入。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: disabled
       title: 禁用
       type: boolean
@@ -368,8 +368,8 @@
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: opened
       title: 弹出状态
       type: boolean
@@ -378,8 +378,8 @@
       description: 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 开启时加载下拉框时，下拉框自动弹出，默认关闭
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: width
       title: 宽度
       type: string
@@ -402,8 +402,8 @@
       description: 设置选择框宽度大小
       group: 样式属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 设置选择框宽度大小，支持占满、巨大、大、中型、正常、小共6种模式
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: height
       title: 高度
       type: string
@@ -426,8 +426,8 @@
       description: 设置选择框高度大小
       group: 样式属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 设置选择框高度大小，支持占满、巨大、大、中型、正常、小共6种模式
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: case-sensitive
       title: 大小写敏感
       type: string | Function
@@ -725,8 +725,8 @@
       description: 当前选中的值
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 当前选择的值
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: description
       title: 选项辅助文本
       type: string
@@ -734,15 +734,15 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: item
       title: 相关对象
       type: object
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发。
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: disabled
       title: 禁用
       type: boolean
@@ -750,8 +750,8 @@
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
   slots:
     - concept: Slot
       name: default
@@ -806,8 +806,8 @@
       description: ""
       group: 主要属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 选择分组的标题，标题只有在没有文本插槽的时候生效
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
   slots:
     - concept: Slot
       name: default

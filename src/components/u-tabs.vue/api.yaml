@@ -25,8 +25,8 @@
       designer-value: "[{}, {}, {}]"
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 集合类型变量或者输出参数为集合类型的逻辑
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
     - name: data-schema
       title: 数据类型
       type: schema
@@ -34,8 +34,8 @@
       group: 数据属性
       compType: dataTypeSelect
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 集合类型每一元素的数据类型
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
     - name: title-field
       title: 标签项标题
       type: string
@@ -44,8 +44,8 @@
       group: 数据属性
       advanced: true
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 数据源集合的元素，用于显示标签标题的属性
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
     - name: value-field
       title: 标签项标题值字段
       type: string
@@ -54,8 +54,8 @@
       group: 数据属性
       display: property-select
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 数据源集合的元素，用于标识标签值的属性
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
     - name: url-field
       title: 标签项内容值
       type: string
@@ -71,17 +71,17 @@
       description: 指当前打开标签的标签项
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 指当前打开标签的标签项
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
     - name: router
       title: 使用路由
       type: boolean
       default: false
       description: 开启后，选项卡可设置跳转页面
-      group: 主要属性
+      group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 开启后，选项卡可设置跳转页面
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
     - name: closable-field
       title: 标签项可关闭
       type: string
@@ -90,8 +90,8 @@
       group: 交互属性
       display: property-select
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 数据源集合的元素，用于标识标签是否可关闭的属性
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
     - name: closable
       title: 可关闭
       type: boolean
@@ -99,8 +99,8 @@
       description: 设置标签是否可关闭
       group: 交互属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 是否可以关闭
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
     - name: readonly
       title: 只读
       type: boolean
@@ -109,7 +109,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
     - name: disabled
       title: 禁用
       type: boolean
@@ -118,7 +118,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
     - name: appear
       title: 展示外观
       type: string
@@ -137,8 +137,8 @@
       description: ""
       group: 样式属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 标签展示的外观
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
     - name: size
       title: 标签尺寸
       type: string
@@ -153,8 +153,8 @@
       description: ""
       group: 样式属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 标签展示的尺寸
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
   slots:
     - concept: Slot
       name: default
@@ -359,20 +359,6 @@
       type: string
       description: 标签页标题。
       advanced: true
-    - name: linkType
-      title: 链接类型
-      type: string
-      options:
-        - value: destination
-          title: 页面跳转
-      default: destination
-      compType: linkTypeSelect
-      bindHide: true
-    - name: hrefAndTo
-      title: 链接
-      type: string
-      description: 点击选项卡后跳转的地址，选项卡的路由模式需要开启
-      compType: linkHrefInput
     - name: href
       title: 链接
       type: string
@@ -427,17 +413,29 @@
       description: 指当前打开标签的标签项
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
+      docDescription: 指当前打开标签的标签项
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
+    - name: linkType
+      title: 链接类型
+      type: string
+      options:
+        - value: destination
+          title: 页面跳转
+      default: destination
+      compType: linkTypeSelect
+      bindHide: true
+      group: 交互属性
+      description: ""
       tooltipLink: ""
-    - name: showTabItem
-      title: 显示状态
-      type: boolean
-      default: true
-      description: 显示状态分为“True(显示)/False(隐藏)”，默认为“显示”
-      group: 主要属性
-      brifeDoc: ""
       docDescription: ""
+    - name: hrefAndTo
+      title: 链接地址
+      type: string
+      description: ""
+      compType: linkHrefInput
+      group: 交互属性
       tooltipLink: ""
+      docDescription: ""
     - name: closable
       title: 可关闭
       type: boolean
@@ -445,8 +443,17 @@
       description: 设置标签是否可关闭
       group: 交互属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 是否可以关闭
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
+    - name: showTabItem
+      title: 显示状态
+      type: boolean
+      default: true
+      description: 显示状态分为“True(显示)/False(隐藏)”，默认为“显示”
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 控制标签页是否默认显示
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
     - name: disabled
       title: 禁用
       type: boolean
@@ -455,7 +462,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/160.%E9%80%89%E9%A1%B9%E5%8D%A1.html
   slots:
     - concept: Slot
       name: default

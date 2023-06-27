@@ -14,14 +14,14 @@
       description: 百分比范围限制
       advanced: true
     - name: percent
-      title: 百分比
+      title: 当前进度(%)
       type: number
       default: 0
       description: 进度条显示的进度百分比，1-100之间的数字
-      group: 主要属性
+      group: 数据属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 进度条显示的进度百分比，1-100之间的数字
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/08.%E5%9B%BE%E8%A1%A8/198.%E7%BA%BF%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1.html
     - name: direction
       title: 进度条方向
       type: string
@@ -34,8 +34,8 @@
       group: 主要属性
       description: ""
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 横向、竖向
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/08.%E5%9B%BE%E8%A1%A8/198.%E7%BA%BF%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1.html
     - name: size
       title: 尺寸
       type: string
@@ -52,8 +52,8 @@
       description: 进度条高度大小
       group: 样式属性
       brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
+      docDescription: 支持小、正常、大、巨大
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/08.%E5%9B%BE%E8%A1%A8/198.%E7%BA%BF%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1.html
   slots:
     - concept: Slot
       name: default
