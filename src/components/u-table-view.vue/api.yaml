@@ -28,7 +28,7 @@
       type: object
       description: 数据源除了DataSourceParams外还需要的参数
       group: 数据属性
-      advance: true
+      advanced: true
       brifeDoc: ""
       docDescription: 当数据源绑定的是逻辑，逻辑的第一个输入参数无法满足要求时，可绑定该字段值，传入更多的参数值。数据类型为对象{key:value}格式。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
@@ -879,6 +879,11 @@
       title: 展开行前
       description: 点击展开按钮前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ExpandEvent"
         - name: $event.item
           type: object
           description: 选择行相关对象
@@ -892,6 +897,11 @@
       title: 展开行后
       description: 点击展开按钮后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ExpandEvent"
         - name: $event.item
           type: object
           description: 选择行相关对象

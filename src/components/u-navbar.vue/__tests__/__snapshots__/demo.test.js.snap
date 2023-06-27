@@ -2,66 +2,21 @@
 
 exports[`u-navbar.vue Demo-value 模式 1`] = `
 <div>
-  <div
-    animation="1"
-    class="root"
-    style="background: rgb(66, 137, 219);"
-  >
-    <div
-      class="left"
-    />
-     
-    <div
-      class="right"
-    />
-     
-    <nav
-      class="middle"
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         组件 
-        <!---->
+  <div animation="1" class="root" style="background: rgb(66, 137, 219);">
+    <div class="left"></div>
+    <div class="right"></div>
+    <nav class="middle" vusion-slot-name="default">
+      <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        组件
       </a>
-       
-      <a
-        class="root"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         备案管理 
-        <!---->
+      <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        备案管理
       </a>
-       
-      <a
-        class="root"
-        selected="selected"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         帮助 
-        <!---->
+      <a class="root" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        帮助
       </a>
-       
-      <a
-        class="root"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         GitHub 
-        <!---->
+      <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        GitHub
       </a>
     </nav>
   </div>
@@ -70,143 +25,45 @@ exports[`u-navbar.vue Demo-value 模式 1`] = `
 
 exports[`u-navbar.vue Demo-下拉菜单与选择 1`] = `
 <div>
-  <div
-    animation="1"
-    class="root"
-  >
-    <div
-      class="left"
-    />
-     
-    <div
-      class="right"
-    />
-     
-    <nav
-      class="middle"
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        href="#/components"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         组件 
-        <!---->
+  <div animation="1" class="root">
+    <div class="left"></div>
+    <div class="right"></div>
+    <nav class="middle" vusion-slot-name="default">
+      <a class="root" href="#/components" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        组件
       </a>
-       
-      <a
-        class="root"
-        disabled="disabled"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         指令 
-        <!---->
+      <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        指令
       </a>
-       
-      <div
-        class="root"
-      >
-        <div>
-          下拉菜单
-        </div>
-         
-        <transition-stub
-          class="popper"
-          name="fade"
-        >
-          <div
-            class="root"
-            style="display: none;"
-          >
-            <nav
-              class="root"
-            >
-              <a
-                class="root"
-                target="_self"
-              >
-                <span
-                  vusion-slot-name-edit="text"
-                >
-                  Basic
-                </span>
-                 
-                <div />
+      <div class="root">
+        <div>下拉菜单</div>
+        <transition-stub class="popper" name="fade">
+          <div class="root" style="display: none;">
+            <nav class="root">
+              <a class="root" target="_self">
+                <span vusion-slot-name-edit="text">Basic</span>
+                <div></div>
               </a>
-               
-              <a
-                class="root"
-                target="_self"
-              >
-                <span
-                  vusion-slot-name-edit="text"
-                >
-                  Layout
-                </span>
-                 
-                <div />
+              <a class="root" target="_self">
+                <span vusion-slot-name-edit="text">Layout</span>
+                <div></div>
               </a>
-               
-              <a
-                class="root"
-                has-sub="true"
-                target="_self"
-              >
-                <span
-                  vusion-slot-name-edit="text"
-                >
-                  Navigation
-                
+              <a class="root" has-sub="true" target="_self">
+                <span vusion-slot-name-edit="text">Navigation
                 </span>
-                 
                 <div>
-                  <nav
-                    class="root"
-                  >
-                    <a
-                      class="root"
-                      target="_self"
-                    >
-                      <span
-                        vusion-slot-name-edit="text"
-                      >
-                        Navbar
-                      </span>
-                       
-                      <div />
+                  <nav class="root">
+                    <a class="root" target="_self">
+                      <span vusion-slot-name-edit="text">Navbar</span>
+                      <div></div>
                     </a>
-                     
-                    <a
-                      class="root"
-                      target="_self"
-                    >
-                      <span
-                        vusion-slot-name-edit="text"
-                      >
-                        Sidebar
-                      </span>
-                       
-                      <div />
+                    <a class="root" target="_self">
+                      <span vusion-slot-name-edit="text">Sidebar</span>
+                      <div></div>
                     </a>
-                     
-                    <a
-                      class="root"
-                      target="_self"
-                    >
-                      <span
-                        vusion-slot-name-edit="text"
-                      >
-                        Menu
-                      </span>
-                       
-                      <div />
+                    <a class="root" target="_self">
+                      <span vusion-slot-name-edit="text">Menu</span>
+                      <div></div>
                     </a>
                   </nav>
                 </div>
@@ -215,107 +72,30 @@ exports[`u-navbar.vue Demo-下拉菜单与选择 1`] = `
           </div>
         </transition-stub>
       </div>
-       
-      <div
-        class="root"
-        tabindex="0"
-      >
-        <span>
-          b
-        </span>
-         
-        <span
-          class="placeholder"
-        >
-          请选择
-        </span>
-         
-        <!---->
-         
-        <div
-          class="text"
-          style="direction: ltr;"
-          tags-overflow="collapse"
-        >
-          <!---->
-           
-          <!---->
-           
-          <!---->
-           
-          <!---->
+      <div class="root" tabindex="0">
+        <span>b</span>
+        <span class="placeholder">请选择</span>
+        <div class="text" style="direction: ltr;" tags-overflow="collapse">
         </div>
-         
-        <!---->
-         
-        <!---->
-         
-        <transition-stub
-          class="popper"
-          name="fade"
-          style="width: 100%;"
-        >
-          <div
-            class="root"
-            style="display: none;"
-          >
+        <transition-stub class="popper" name="fade" style="width: 100%;">
+          <div class="root" style="display: none;">
             <div>
-              <div
-                class="root"
-                style="direction: ltr;"
-                vusion-slot-name="default"
-              >
-                <!---->
-                 请选择 
-                <!---->
+              <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                请选择
               </div>
-               
-              <div
-                class="root"
-                style="direction: ltr;"
-                vusion-slot-name="default"
-              >
-                <!---->
-                 中文 
-                <!---->
+              <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                中文
               </div>
-               
-              <div
-                class="root"
-                style="direction: ltr;"
-                vusion-slot-name="default"
-              >
-                <!---->
-                 English 
-                <!---->
+              <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                English
               </div>
-               
-              <div
-                class="root"
-                style="direction: ltr;"
-                vusion-slot-name="default"
-              >
-                <!---->
-                 Français 
-                <!---->
+              <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                Français
               </div>
-               
-              <div
-                class="root"
-                style="direction: ltr;"
-                vusion-slot-name="default"
-              >
-                <!---->
-                 Русский 
-                <!---->
+              <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                Русский
               </div>
-               
-              <!---->
-               
-              <!---->
             </div>
-             
-            <!---->
           </div>
         </transition-stub>
       </div>
@@ -326,1088 +106,316 @@ exports[`u-navbar.vue Demo-下拉菜单与选择 1`] = `
 
 exports[`u-navbar.vue Demo-与 Logo 结合 1`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      animation="1"
-      class="root"
-      style="background: rgb(66, 137, 219);"
-    >
-      <div
-        class="left"
-      >
-        <div
-          class="root"
-        >
-          <a
-            class="icon"
-          />
-           
-          <span
-            class="divider"
-          />
-           
-          <span
-            class="sub"
-          >
-            <a
-              href="/"
-              target="_blank"
-            >
-              ICP 备案系统
-            </a>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div animation="1" class="root" style="background: rgb(66, 137, 219);">
+      <div class="left">
+        <div class="root">
+          <a class="icon"></a>
+          <span class="divider"></span>
+          <span class="sub">
+            <a href="/" target="_blank">ICP 备案系统</a>
           </span>
-           
-          <!---->
         </div>
       </div>
-       
-      <div
-        class="right"
-      />
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-         
-        <a
-          class="root"
-          href="#/u-navbar"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           主体 
-          <!---->
+      <div class="right"></div>
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" href="#/u-navbar" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          主体
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           备案管理 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          备案管理
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           帮助 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          帮助
         </a>
       </nav>
     </div>
-     
-    <div
-      alignment="right"
-      animation="1"
-      class="root"
-      style="background: rgb(21, 29, 43);"
-    >
-      <div
-        class="left"
-      >
-        <div
-          class="root"
-        >
-          <a
-            class="icon"
-          />
-           
-          <!---->
-           
-          <!---->
-           
-          <!---->
+    <div alignment="right" animation="1" class="root" style="background: rgb(21, 29, 43);">
+      <div class="left">
+        <div class="root">
+          <a class="icon"></a>
         </div>
       </div>
-       
-      <div
-        class="right"
-      />
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           产品 
-          <!---->
+      <div class="right"></div>
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          产品
         </a>
-         
-        <a
-          class="root"
-          href="#/u-navbar"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           价格 
-          <!---->
+        <a class="root" href="#/u-navbar" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          价格
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           帮助 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          帮助
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           合作与生态 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          合作与生态
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           博客 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          博客
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           备案 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          备案
         </a>
       </nav>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-navbar.vue Demo-切换动画 1`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      animation="0"
-      class="root"
-    >
-      <div
-        class="left"
-      />
-       
-      <div
-        class="right"
-      />
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div animation="0" class="root">
+      <div class="left"></div>
+      <div class="right"></div>
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           概念 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          概念
         </a>
-         
-        <a
-          class="root"
-          disabled="disabled"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指令 
-          <!---->
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指令
         </a>
-         
-        <div
-          class="root"
-        />
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           配置 
-          <!---->
+        <div class="root"></div>
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          配置
         </a>
-         
-        <a
-          class="root"
-          href="https://github.com/vusion/cloud-ui"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           GitHub 
-          <!---->
+        <a class="root" href="https://github.com/vusion/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          GitHub
         </a>
       </nav>
     </div>
-     
-    <div
-      animation="1"
-      class="root"
-    >
-      <div
-        class="left"
-      />
-       
-      <div
-        class="right"
-      />
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+    <div animation="1" class="root">
+      <div class="left"></div>
+      <div class="right"></div>
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           概念 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          概念
         </a>
-         
-        <a
-          class="root"
-          disabled="disabled"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指令 
-          <!---->
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指令
         </a>
-         
-        <div
-          class="root"
-        />
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           配置 
-          <!---->
+        <div class="root"></div>
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          配置
         </a>
-         
-        <a
-          class="root"
-          href="https://github.com/vusion/cloud-ui"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           GitHub 
-          <!---->
+        <a class="root" href="https://github.com/vusion/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          GitHub
         </a>
       </nav>
     </div>
-     
-    <div
-      animation="2"
-      class="root"
-    >
-      <div
-        class="left"
-      />
-       
-      <div
-        class="right"
-      />
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+    <div animation="2" class="root">
+      <div class="left"></div>
+      <div class="right"></div>
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           概念 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          概念
         </a>
-         
-        <a
-          class="root"
-          disabled="disabled"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指令 
-          <!---->
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指令
         </a>
-         
-        <div
-          class="root"
-        />
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           配置 
-          <!---->
+        <div class="root"></div>
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          配置
         </a>
-         
-        <a
-          class="root"
-          href="https://github.com/vusion/cloud-ui"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           GitHub 
-          <!---->
+        <a class="root" href="https://github.com/vusion/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          GitHub
         </a>
       </nav>
     </div>
-     
-    <div
-      animation="3"
-      class="root"
-    >
-      <div
-        class="left"
-      />
-       
-      <div
-        class="right"
-      />
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+    <div animation="3" class="root">
+      <div class="left"></div>
+      <div class="right"></div>
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           概念 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          概念
         </a>
-         
-        <a
-          class="root"
-          disabled="disabled"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指令 
-          <!---->
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指令
         </a>
-         
-        <div
-          class="root"
-        />
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           配置 
-          <!---->
+        <div class="root"></div>
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          配置
         </a>
-         
-        <a
-          class="root"
-          href="https://github.com/vusion/cloud-ui"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           GitHub 
-          <!---->
+        <a class="root" href="https://github.com/vusion/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          GitHub
         </a>
       </nav>
     </div>
-     
-    <div
-      animation="4"
-      class="root"
-    >
-      <div
-        class="left"
-      />
-       
-      <div
-        class="right"
-      />
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+    <div animation="4" class="root">
+      <div class="left"></div>
+      <div class="right"></div>
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           概念 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          概念
         </a>
-         
-        <a
-          class="root"
-          disabled="disabled"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指令 
-          <!---->
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指令
         </a>
-         
-        <div
-          class="root"
-        />
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           配置 
-          <!---->
+        <div class="root"></div>
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          配置
         </a>
-         
-        <a
-          class="root"
-          href="https://github.com/vusion/cloud-ui"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           GitHub 
-          <!---->
+        <a class="root" href="https://github.com/vusion/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          GitHub
         </a>
       </nav>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-navbar.vue Demo-切换动画效果 1`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      animation="1"
-      class="root"
-    >
-      <div
-        class="left"
-      />
-       
-      <div
-        class="right"
-      />
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div animation="1" class="root">
+      <div class="left"></div>
+      <div class="right"></div>
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           概念 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          概念
         </a>
-         
-        <a
-          class="root"
-          disabled="disabled"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指令 
-          <!---->
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指令
         </a>
-         
-        <div
-          class="root"
-        />
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           配置 
-          <!---->
+        <div class="root"></div>
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          配置
         </a>
-         
-        <a
-          class="root"
-          href="https://github.com/vusion/cloud-ui"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           GitHub 
-          <!---->
+        <a class="root" href="https://github.com/vusion/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          GitHub
         </a>
       </nav>
     </div>
-     
-    <div
-      animation="2"
-      class="root"
-    >
-      <div
-        class="left"
-      />
-       
-      <div
-        class="right"
-      />
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+    <div animation="2" class="root">
+      <div class="left"></div>
+      <div class="right"></div>
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           概念 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          概念
         </a>
-         
-        <a
-          class="root"
-          disabled="disabled"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指令 
-          <!---->
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指令
         </a>
-         
-        <div
-          class="root"
-        />
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           配置 
-          <!---->
+        <div class="root"></div>
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          配置
         </a>
-         
-        <a
-          class="root"
-          href="https://github.com/vusion/cloud-ui"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           GitHub 
-          <!---->
+        <a class="root" href="https://github.com/vusion/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          GitHub
         </a>
       </nav>
     </div>
-     
-    <div
-      animation="3"
-      class="root"
-    >
-      <div
-        class="left"
-      />
-       
-      <div
-        class="right"
-      />
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+    <div animation="3" class="root">
+      <div class="left"></div>
+      <div class="right"></div>
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           概念 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          概念
         </a>
-         
-        <a
-          class="root"
-          disabled="disabled"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指令 
-          <!---->
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指令
         </a>
-         
-        <div
-          class="root"
-        />
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           配置 
-          <!---->
+        <div class="root"></div>
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          配置
         </a>
-         
-        <a
-          class="root"
-          href="https://github.com/vusion/cloud-ui"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           GitHub 
-          <!---->
+        <a class="root" href="https://github.com/vusion/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          GitHub
         </a>
       </nav>
     </div>
-     
-    <div
-      animation="4"
-      class="root"
-    >
-      <div
-        class="left"
-      />
-       
-      <div
-        class="right"
-      />
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+    <div animation="4" class="root">
+      <div class="left"></div>
+      <div class="right"></div>
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           概念 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          概念
         </a>
-         
-        <a
-          class="root"
-          disabled="disabled"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指令 
-          <!---->
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指令
         </a>
-         
-        <div
-          class="root"
-        />
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           配置 
-          <!---->
+        <div class="root"></div>
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          配置
         </a>
-         
-        <a
-          class="root"
-          href="https://github.com/vusion/cloud-ui"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           GitHub 
-          <!---->
+        <a class="root" href="https://github.com/vusion/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          GitHub
         </a>
       </nav>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-navbar.vue Demo-只读与禁用 1`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      animation="1"
-      class="root"
-      readonly="readonly"
-    >
-      <div
-        class="left"
-      />
-       
-      <div
-        class="right"
-      />
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          readonly="readonly"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指南 
-          <!---->
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div animation="1" class="root" readonly="readonly">
+      <div class="left"></div>
+      <div class="right"></div>
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" readonly="readonly" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指南
         </a>
-         
-        <a
-          class="root"
-          href="#/cloud-ui"
-          readonly="readonly"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+        <a class="root" href="#/cloud-ui" readonly="readonly" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
-        <div
-          class="root"
-        >
-          <div>
-            下拉菜单
-          </div>
-           
-          <transition-stub
-            class="popper"
-            name="fade"
-          >
-            <div
-              class="root"
-              style="display: none;"
-            >
-              <nav
-                class="root"
-              >
-                <a
-                  class="root"
-                  target="_self"
-                >
-                  <span
-                    vusion-slot-name-edit="text"
-                  >
-                    Basic
-                  </span>
-                   
-                  <div />
+        <div class="root">
+          <div>下拉菜单</div>
+          <transition-stub class="popper" name="fade">
+            <div class="root" style="display: none;">
+              <nav class="root">
+                <a class="root" target="_self">
+                  <span vusion-slot-name-edit="text">Basic</span>
+                  <div></div>
                 </a>
-                 
-                <a
-                  class="root"
-                  target="_self"
-                >
-                  <span
-                    vusion-slot-name-edit="text"
-                  >
-                    Layout
-                  </span>
-                   
-                  <div />
+                <a class="root" target="_self">
+                  <span vusion-slot-name-edit="text">Layout</span>
+                  <div></div>
                 </a>
-                 
-                <a
-                  class="root"
-                  has-sub="true"
-                  target="_self"
-                >
-                  <span
-                    vusion-slot-name-edit="text"
-                  >
-                    Navigation
-                    
+                <a class="root" has-sub="true" target="_self">
+                  <span vusion-slot-name-edit="text">Navigation
                   </span>
-                   
                   <div>
-                    <nav
-                      class="root"
-                    >
-                      <a
-                        class="root"
-                        target="_self"
-                      >
-                        <span
-                          vusion-slot-name-edit="text"
-                        >
-                          Navbar
-                        </span>
-                         
-                        <div />
+                    <nav class="root">
+                      <a class="root" target="_self">
+                        <span vusion-slot-name-edit="text">Navbar</span>
+                        <div></div>
                       </a>
-                       
-                      <a
-                        class="root"
-                        target="_self"
-                      >
-                        <span
-                          vusion-slot-name-edit="text"
-                        >
-                          Sidebar
-                        </span>
-                         
-                        <div />
+                      <a class="root" target="_self">
+                        <span vusion-slot-name-edit="text">Sidebar</span>
+                        <div></div>
                       </a>
-                       
-                      <a
-                        class="root"
-                        target="_self"
-                      >
-                        <span
-                          vusion-slot-name-edit="text"
-                        >
-                          Menu
-                        </span>
-                         
-                        <div />
+                      <a class="root" target="_self">
+                        <span vusion-slot-name-edit="text">Menu</span>
+                        <div></div>
                       </a>
                     </nav>
                   </div>
@@ -1416,252 +424,74 @@ exports[`u-navbar.vue Demo-只读与禁用 1`] = `
             </div>
           </transition-stub>
         </div>
-         
-        <div
-          class="root"
-          tabindex="0"
-        >
-          <span>
-            b
-          </span>
-           
-          <span
-            class="placeholder"
-          >
-            请选择
-          </span>
-           
-          <!---->
-           
-          <div
-            class="text"
-            style="direction: ltr;"
-            tags-overflow="collapse"
-          >
-            <!---->
-             
-            <!---->
-             
-            <!---->
-             
-            <!---->
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span class="placeholder">请选择</span>
+          <div class="text" style="direction: ltr;" tags-overflow="collapse">
           </div>
-           
-          <!---->
-           
-          <!---->
-           
-          <transition-stub
-            class="popper"
-            name="fade"
-            style="width: 100%;"
-          >
-            <div
-              class="root"
-              style="display: none;"
-            >
+          <transition-stub class="popper" name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
               <div>
-                <div
-                  class="root"
-                  style="direction: ltr;"
-                  vusion-slot-name="default"
-                >
-                  <!---->
-                   请选择 
-                  <!---->
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  请选择
                 </div>
-                 
-                <div
-                  class="root"
-                  style="direction: ltr;"
-                  vusion-slot-name="default"
-                >
-                  <!---->
-                   中文 
-                  <!---->
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  中文
                 </div>
-                 
-                <div
-                  class="root"
-                  style="direction: ltr;"
-                  vusion-slot-name="default"
-                >
-                  <!---->
-                   English 
-                  <!---->
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  English
                 </div>
-                 
-                <div
-                  class="root"
-                  style="direction: ltr;"
-                  vusion-slot-name="default"
-                >
-                  <!---->
-                   Français 
-                  <!---->
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  Français
                 </div>
-                 
-                <div
-                  class="root"
-                  style="direction: ltr;"
-                  vusion-slot-name="default"
-                >
-                  <!---->
-                   Русский 
-                  <!---->
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  Русский
                 </div>
-                 
-                <!---->
-                 
-                <!---->
               </div>
-               
-              <!---->
             </div>
           </transition-stub>
         </div>
       </nav>
     </div>
-     
-    <div
-      animation="1"
-      class="root"
-      disabled="disabled"
-    >
-      <div
-        class="left"
-      />
-       
-      <div
-        class="right"
-      />
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-        <a
-          class="root"
-          disabled="disabled"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指南 
-          <!---->
+    <div animation="1" class="root" disabled="disabled">
+      <div class="left"></div>
+      <div class="right"></div>
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指南
         </a>
-         
-        <a
-          class="root"
-          disabled="disabled"
-          href="#/cloud-ui"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+        <a class="root" disabled="disabled" href="#/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
-        <div
-          class="root"
-        >
-          <div>
-            下拉菜单
-          </div>
-           
-          <transition-stub
-            class="popper"
-            name="fade"
-          >
-            <div
-              class="root"
-              style="display: none;"
-            >
-              <nav
-                class="root"
-              >
-                <a
-                  class="root"
-                  target="_self"
-                >
-                  <span
-                    vusion-slot-name-edit="text"
-                  >
-                    Basic
-                  </span>
-                   
-                  <div />
+        <div class="root">
+          <div>下拉菜单</div>
+          <transition-stub class="popper" name="fade">
+            <div class="root" style="display: none;">
+              <nav class="root">
+                <a class="root" target="_self">
+                  <span vusion-slot-name-edit="text">Basic</span>
+                  <div></div>
                 </a>
-                 
-                <a
-                  class="root"
-                  target="_self"
-                >
-                  <span
-                    vusion-slot-name-edit="text"
-                  >
-                    Layout
-                  </span>
-                   
-                  <div />
+                <a class="root" target="_self">
+                  <span vusion-slot-name-edit="text">Layout</span>
+                  <div></div>
                 </a>
-                 
-                <a
-                  class="root"
-                  has-sub="true"
-                  target="_self"
-                >
-                  <span
-                    vusion-slot-name-edit="text"
-                  >
-                    Navigation
-                    
+                <a class="root" has-sub="true" target="_self">
+                  <span vusion-slot-name-edit="text">Navigation
                   </span>
-                   
                   <div>
-                    <nav
-                      class="root"
-                    >
-                      <a
-                        class="root"
-                        target="_self"
-                      >
-                        <span
-                          vusion-slot-name-edit="text"
-                        >
-                          Navbar
-                        </span>
-                         
-                        <div />
+                    <nav class="root">
+                      <a class="root" target="_self">
+                        <span vusion-slot-name-edit="text">Navbar</span>
+                        <div></div>
                       </a>
-                       
-                      <a
-                        class="root"
-                        target="_self"
-                      >
-                        <span
-                          vusion-slot-name-edit="text"
-                        >
-                          Sidebar
-                        </span>
-                         
-                        <div />
+                      <a class="root" target="_self">
+                        <span vusion-slot-name-edit="text">Sidebar</span>
+                        <div></div>
                       </a>
-                       
-                      <a
-                        class="root"
-                        target="_self"
-                      >
-                        <span
-                          vusion-slot-name-edit="text"
-                        >
-                          Menu
-                        </span>
-                         
-                        <div />
+                      <a class="root" target="_self">
+                        <span vusion-slot-name-edit="text">Menu</span>
+                        <div></div>
                       </a>
                     </nav>
                   </div>
@@ -1670,176 +500,54 @@ exports[`u-navbar.vue Demo-只读与禁用 1`] = `
             </div>
           </transition-stub>
         </div>
-         
-        <div
-          class="root"
-          tabindex="0"
-        >
-          <span>
-            b
-          </span>
-           
-          <span
-            class="placeholder"
-          >
-            请选择
-          </span>
-           
-          <!---->
-           
-          <div
-            class="text"
-            style="direction: ltr;"
-            tags-overflow="collapse"
-          >
-            <!---->
-             
-            <!---->
-             
-            <!---->
-             
-            <!---->
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span class="placeholder">请选择</span>
+          <div class="text" style="direction: ltr;" tags-overflow="collapse">
           </div>
-           
-          <!---->
-           
-          <!---->
-           
-          <transition-stub
-            class="popper"
-            name="fade"
-            style="width: 100%;"
-          >
-            <div
-              class="root"
-              style="display: none;"
-            >
+          <transition-stub class="popper" name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
               <div>
-                <div
-                  class="root"
-                  style="direction: ltr;"
-                  vusion-slot-name="default"
-                >
-                  <!---->
-                   请选择 
-                  <!---->
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  请选择
                 </div>
-                 
-                <div
-                  class="root"
-                  style="direction: ltr;"
-                  vusion-slot-name="default"
-                >
-                  <!---->
-                   中文 
-                  <!---->
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  中文
                 </div>
-                 
-                <div
-                  class="root"
-                  style="direction: ltr;"
-                  vusion-slot-name="default"
-                >
-                  <!---->
-                   English 
-                  <!---->
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  English
                 </div>
-                 
-                <div
-                  class="root"
-                  style="direction: ltr;"
-                  vusion-slot-name="default"
-                >
-                  <!---->
-                   Français 
-                  <!---->
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  Français
                 </div>
-                 
-                <div
-                  class="root"
-                  style="direction: ltr;"
-                  vusion-slot-name="default"
-                >
-                  <!---->
-                   Русский 
-                  <!---->
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  Русский
                 </div>
-                 
-                <!---->
-                 
-                <!---->
               </div>
-               
-              <!---->
             </div>
           </transition-stub>
         </div>
       </nav>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-navbar.vue Demo-基本用法 1`] = `
 <div>
-  <div
-    animation="1"
-    class="root"
-    style="background: rgb(66, 137, 219);"
-  >
-    <div
-      class="left"
-    />
-     
-    <div
-      class="right"
-    />
-     
-    <nav
-      class="middle"
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        href="https://github.com/vusion/cloud-ui"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         GitHub 
-        <!---->
+  <div animation="1" class="root" style="background: rgb(66, 137, 219);">
+    <div class="left"></div>
+    <div class="right"></div>
+    <nav class="middle" vusion-slot-name="default">
+      <a class="root" href="https://github.com/vusion/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        GitHub
       </a>
-       
-      <a
-        class="root"
-        disabled="disabled"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         指令 
-        <!---->
+      <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        指令
       </a>
-       
-      <div
-        class="root"
-      />
-       
-      <a
-        class="root"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         配置 
-        <!---->
+      <div class="root"></div>
+      <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        配置
       </a>
     </nav>
   </div>
@@ -1848,106 +556,33 @@ exports[`u-navbar.vue Demo-基本用法 1`] = `
 
 exports[`u-navbar.vue Demo-基本用法 2`] = `
 <div>
-  <div
-    animation="1"
-    class="root"
-    style="background: rgb(66, 137, 219);"
-  >
-    <div
-      class="left"
-    />
-     
-    <div
-      class="right"
-    />
-     
-    <nav
-      class="middle"
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        href="#/components"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <span
-          class="lcp-iconv"
-        >
-          <span
-            class="iconwrap"
-          >
-            <svg
-              aria-hidden="true"
-              class="iconsvg"
-            >
-              <use
-                xlink:href="#pc-home"
-              />
+  <div animation="1" class="root" style="background: rgb(66, 137, 219);">
+    <div class="left"></div>
+    <div class="right"></div>
+    <nav class="middle" vusion-slot-name="default">
+      <a class="root" href="#/components" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        <span class="lcp-iconv">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-home" />
             </svg>
           </span>
-           
-          <div
-            class="icontext"
-            vusion-slot-name="default"
-          >
-             
-            <!---->
+          <div class="icontext" vusion-slot-name="default">
           </div>
-        </span>
-         组件 
-        <!---->
+        </span> 组件
       </a>
-       
-      <a
-        class="root"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         概念 
-        <!---->
+      <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        概念
       </a>
-       
-      <a
-        class="root"
-        disabled="disabled"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         指令 
-        <!---->
+      <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        指令
       </a>
-       
-      <div
-        class="root"
-      />
-       
-      <a
-        class="root"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         配置 
-        <!---->
+      <div class="root"></div>
+      <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        配置
       </a>
-       
-      <a
-        class="root"
-        href="https://github.com/vusion/cloud-ui"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         GitHub 
-        <!---->
+      <a class="root" href="https://github.com/vusion/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        GitHub
       </a>
     </nav>
   </div>
@@ -1956,358 +591,103 @@ exports[`u-navbar.vue Demo-基本用法 2`] = `
 
 exports[`u-navbar.vue Demo-对齐方式 1`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      alignment="left"
-      animation="1"
-      class="root"
-    >
-      <div
-        class="left"
-      >
-        <div
-          class="root"
-        >
-          <a
-            class="icon"
-          />
-           
-          <!---->
-           
-          <!---->
-           
-          <!---->
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div alignment="left" animation="1" class="root">
+      <div class="left">
+        <div class="root">
+          <a class="icon"></a>
         </div>
       </div>
-       
-      <div
-        class="right"
-      >
-        <a
-          class="root"
-          href="https://github.com/vusion/cloud-ui"
-          target="_blank"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           
-          <i
-            name="github"
-          />
-           
-          <!---->
+      <div class="right">
+        <a class="root" href="https://github.com/vusion/cloud-ui" target="_blank" vusion-slot-name="default" vusion-slot-name-edit="text">
+          <i name="github"></i>
         </a>
       </div>
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指南 
-          <!---->
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指南
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           概念 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          概念
         </a>
-         
-        <a
-          class="root"
-          href="#/cloud-ui"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+        <a class="root" href="#/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
       </nav>
     </div>
-     
-    <div
-      alignment="center"
-      animation="1"
-      class="root"
-    >
-      <div
-        class="left"
-      >
-        <div
-          class="root"
-        >
-          <a
-            class="icon"
-          />
-           
-          <!---->
-           
-          <!---->
-           
-          <!---->
+    <div alignment="center" animation="1" class="root">
+      <div class="left">
+        <div class="root">
+          <a class="icon"></a>
         </div>
       </div>
-       
-      <div
-        class="right"
-      >
-        <a
-          class="root"
-          href="https://github.com/vusion/cloud-ui"
-          target="_blank"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           
-          <i
-            name="github"
-          />
-           
-          <!---->
+      <div class="right">
+        <a class="root" href="https://github.com/vusion/cloud-ui" target="_blank" vusion-slot-name="default" vusion-slot-name-edit="text">
+          <i name="github"></i>
         </a>
       </div>
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指南 
-          <!---->
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指南
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           概念 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          概念
         </a>
-         
-        <a
-          class="root"
-          href="#/cloud-ui"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+        <a class="root" href="#/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
       </nav>
     </div>
-     
-    <div
-      alignment="right"
-      animation="1"
-      class="root"
-    >
-      <div
-        class="left"
-      >
-        <div
-          class="root"
-        >
-          <a
-            class="icon"
-          />
-           
-          <!---->
-           
-          <!---->
-           
-          <!---->
+    <div alignment="right" animation="1" class="root">
+      <div class="left">
+        <div class="root">
+          <a class="icon"></a>
         </div>
       </div>
-       
-      <div
-        class="right"
-      >
-        <a
-          class="root"
-          href="https://github.com/vusion/cloud-ui"
-          target="_blank"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           
-          <i
-            name="github"
-          />
-           
-          <!---->
+      <div class="right">
+        <a class="root" href="https://github.com/vusion/cloud-ui" target="_blank" vusion-slot-name="default" vusion-slot-name-edit="text">
+          <i name="github"></i>
         </a>
       </div>
-       
-      <nav
-        class="middle"
-        vusion-slot-name="default"
-      >
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           指南 
-          <!---->
+      <nav class="middle" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          指南
         </a>
-         
-        <a
-          class="root"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           概念 
-          <!---->
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          概念
         </a>
-         
-        <a
-          class="root"
-          href="#/cloud-ui"
-          target="_self"
-          vusion-slot-name="default"
-          vusion-slot-name-edit="text"
-        >
-          <!---->
-           组件 
-          <!---->
+        <a class="root" href="#/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          组件
         </a>
-         
       </nav>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-navbar.vue Demo-左右插槽 1`] = `
 <div>
-  <div
-    animation="1"
-    class="root"
-  >
-    <div
-      class="left"
-    >
-      <div
-        class="root"
-      >
-        <a
-          class="icon"
-        />
-         
-        <!---->
-         
-        <!---->
-         
-        <!---->
+  <div animation="1" class="root">
+    <div class="left">
+      <div class="root">
+        <a class="icon"></a>
       </div>
     </div>
-     
-    <div
-      class="right"
-    >
-      <a
-        class="root"
-        href="https://github.com/vusion/cloud-ui"
-        target="_blank"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-        <i
-          name="github"
-        />
-         
-        <!---->
+    <div class="right">
+      <a class="root" href="https://github.com/vusion/cloud-ui" target="_blank" vusion-slot-name="default" vusion-slot-name-edit="text">
+        <i name="github"></i>
       </a>
     </div>
-     
-    <nav
-      class="middle"
-      vusion-slot-name="default"
-    >
-       
-      <a
-        class="root"
-        href="#/components"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         组件 
-        <!---->
+    <nav class="middle" vusion-slot-name="default">
+      <a class="root" href="#/components" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        组件
       </a>
-       
-      <a
-        class="root"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         概念 
-        <!---->
+      <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        概念
       </a>
-       
-      <a
-        class="root"
-        disabled="disabled"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         指令 
-        <!---->
+      <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        指令
       </a>
-       
     </nav>
   </div>
 </div>
@@ -2315,68 +695,21 @@ exports[`u-navbar.vue Demo-左右插槽 1`] = `
 
 exports[`u-navbar.vue Demo-路由模式 1`] = `
 <div>
-  <div
-    animation="1"
-    class="root"
-    style="background: rgb(66, 137, 219);"
-  >
-    <div
-      class="left"
-    />
-     
-    <div
-      class="right"
-    />
-     
-    <nav
-      class="middle"
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        href="#/u-navbar"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         组件 
-        <!---->
+  <div animation="1" class="root" style="background: rgb(66, 137, 219);">
+    <div class="left"></div>
+    <div class="right"></div>
+    <nav class="middle" vusion-slot-name="default">
+      <a class="root" href="#/u-navbar" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        组件
       </a>
-       
-      <a
-        class="root"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         备案管理 
-        <!---->
+      <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        备案管理
       </a>
-       
-      <a
-        class="root"
-        disabled="disabled"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         帮助 
-        <!---->
+      <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        帮助
       </a>
-       
-      <a
-        class="root"
-        href="https://github.com/vusion/cloud-ui"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         GitHub 
-        <!---->
+      <a class="root" href="https://github.com/vusion/cloud-ui" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        GitHub
       </a>
     </nav>
   </div>
@@ -2385,66 +718,21 @@ exports[`u-navbar.vue Demo-路由模式 1`] = `
 
 exports[`u-navbar.vue Demo-选择控制 1`] = `
 <div>
-  <div
-    animation="1"
-    class="root"
-    style="background: rgb(66, 137, 219);"
-  >
-    <div
-      class="left"
-    />
-     
-    <div
-      class="right"
-    />
-     
-    <nav
-      class="middle"
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         组件 
-        <!---->
+  <div animation="1" class="root" style="background: rgb(66, 137, 219);">
+    <div class="left"></div>
+    <div class="right"></div>
+    <nav class="middle" vusion-slot-name="default">
+      <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        组件
       </a>
-       
-      <a
-        class="root"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         备案管理 
-        <!---->
+      <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        备案管理
       </a>
-       
-      <a
-        class="root"
-        selected="selected"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         帮助 
-        <!---->
+      <a class="root" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        帮助
       </a>
-       
-      <a
-        class="root"
-        target="_self"
-        vusion-slot-name="default"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         GitHub 
-        <!---->
+      <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+        GitHub
       </a>
     </nav>
   </div>

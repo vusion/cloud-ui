@@ -15,8 +15,10 @@
         </div>
     </f-scroll-view>
     <u-linear-layout justify="space-between" :class="$style.footer" v-if="multiple && showFooter">
-        <u-link @click="reset">重置</u-link>
-        <u-link @click="confirm">确定</u-link>
+        <slot name="footer">
+            <u-link @click="reset">重置</u-link>
+            <u-link @click="confirm">确定</u-link>
+        </slot>
     </u-linear-layout>
 </m-popper>
 </template>
@@ -126,6 +128,9 @@ export default {
         },
         exceedMax() {
             return Array.isArray(this.currentValue) && this.currentValue.length >= this.max;
+        },
+        cancel() {
+            this.close();
         },
     },
 };

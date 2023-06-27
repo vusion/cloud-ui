@@ -83,14 +83,9 @@
     - name: page-size
       title: 默认每页条数
       type: number
+      display: number
       default: 50
-      options:
-        - value: 10
-          title: 10
-        - value: 20
-          title: 20
-        - value: 50
-          title: 50
+      min: 10
       description: ""
       dependency:
         - pagination: true
@@ -141,6 +136,7 @@
       type: Array
       description: 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}]
       group: 数据属性
+      advanced: true
       brifeDoc: ""
       docDescription: 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}]
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html

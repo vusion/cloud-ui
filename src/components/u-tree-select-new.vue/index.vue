@@ -106,7 +106,9 @@
                 @input="$emit('input', $event, this)"
                 @update:value="onUpdateValue"
                 @toggle="$emit('toggle', $event, this)"
-                @check="$emit('check', $event, this)">
+                @check="$emit('check', $event, this)"
+                @before-load="onBeforeLoad"
+                @load="onLoad">
                 <template #item="item">
                     <slot name="item" v-bind="item">{{ item.text }}</slot>
                     <s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER "></s-empty>
@@ -495,16 +497,22 @@ export default {
                 this.$refs.input.blur();
         },
         load(params) {
-            if (this.$emitPrevent('before-load', undefined, this))
+            if (!this.currentDataSource.load)
                 return;
             this.currentDataSource.load(params).then(() => {
                 this.dataSourceNodeList = this.handleDataSourceObj(this.currentDataSource.data, 'dataSource');
                 this.dataSourceObj = { ...this.dataSourceNodeList, ...this.virtualNodeList };
-                this.$emit('load', undefined, this);
             });
         },
         reload() {
             this.load();
+            this.$refs.treeView && this.$refs.treeView.reload();
+        },
+        onBeforeLoad() {
+            this.$emit('before-load');
+        },
+        onLoad() {
+            this.$emit('load', undefined, this);
         },
     },
 };

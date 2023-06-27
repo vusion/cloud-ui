@@ -1,79 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`f-collapse-transition.vue Demo-基本用法 1`] = `
-<div
-  class="root"
->
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     展开/收起
-  </a>
-   
+<div class="root">
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    展开/收起</a>
   <transition-stub>
-    <nav
-      class="root menu"
-      style="width: 128px; display: none;"
-    >
-      <a
-        class="root"
-        href="#/guides/"
-        target="_self"
-      >
-        <span
-          vusion-slot-name-edit="text"
-        >
-          指南
-        </span>
-         
-        <div />
+    <nav class="root menu" style="width: 128px; display: none;">
+      <a class="root" href="#/guides/" target="_self">
+        <span vusion-slot-name-edit="text">指南</span>
+        <div></div>
       </a>
-       
-      <a
-        class="root"
-        href="#/api/"
-        target="_self"
-      >
-        <span
-          vusion-slot-name-edit="text"
-        >
-          API
-        </span>
-         
-        <div />
+      <a class="root" href="#/api/" target="_self">
+        <span vusion-slot-name-edit="text">API</span>
+        <div></div>
       </a>
-       
-      <a
-        class="root"
-        href="#/components/"
-        target="_self"
-      >
-        <span
-          vusion-slot-name-edit="text"
-        >
-          原型组件
-        </span>
-         
-        <div />
+      <a class="root" href="#/components/" target="_self">
+        <span vusion-slot-name-edit="text">原型组件</span>
+        <div></div>
       </a>
-       
-      <a
-        class="root"
-        href="https://github.com/vusion"
-        target="_self"
-      >
-        <span
-          vusion-slot-name-edit="text"
-        >
-          GitHub
-        </span>
-         
-        <div />
+      <a class="root" href="https://github.com/vusion" target="_self">
+        <span vusion-slot-name-edit="text">GitHub</span>
+        <div></div>
       </a>
     </nav>
   </transition-stub>

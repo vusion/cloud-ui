@@ -2,107 +2,28 @@
 
 exports[`u-modal.vue Demo-Static 1`] = `
 <div>
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="normal"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    提示
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="normal">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              提示
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
-              </div>
-               
-              <div
-                class="content"
-              >
-                静态显示，该属性用于文档中局部展示，实际开发时请去除。
-              </div>
-               
-              <!---->
+          <div child-cut-disabled="true" class="body" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">静态显示，该属性用于文档中局部展示，实际开发时请去除。</div>
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
-            <div
-              class="root"
-              direction="horizontal"
-              gap="small"
-              justify="end"
-              type=""
-              vusion-slot-name="default"
-            >
-              <a
-                class="root"
-                color=""
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 取 消
-              </a>
-               
-              <a
-                class="root"
-                color="primary"
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 确 定
-              </a>
-               
-              <!---->
-               
-              <!---->
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
+            <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
+              <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                取 消</a>
+              <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                确 定</a>
             </div>
           </div>
         </div>
@@ -114,332 +35,87 @@ exports[`u-modal.vue Demo-Static 1`] = `
 
 exports[`u-modal.vue Demo-图标、小标题与描述 1`] = `
 <div>
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="normal"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    删除
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="normal">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              删除
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            icon="warning"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
-              </div>
-               
-              <div
-                class="content"
-              >
-                确定删除该服务吗？
-              </div>
-               
-              <div
-                class="description"
-              >
-                <span>
-                  删除后不可恢复。
-                </span>
+          <div child-cut-disabled="true" class="body" icon="warning" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">确定删除该服务吗？</div>
+              <div class="description">
+                <span>删除后不可恢复。</span>
               </div>
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
-            <div
-              class="root"
-              direction="horizontal"
-              gap="small"
-              justify="end"
-              type=""
-              vusion-slot-name="default"
-            >
-              <a
-                class="root"
-                color=""
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 取 消
-              </a>
-               
-              <a
-                class="root"
-                color="primary"
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 确 定
-              </a>
-               
-              <!---->
-               
-              <!---->
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
+            <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
+              <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                取 消</a>
+              <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                确 定</a>
             </div>
           </div>
         </div>
       </transition-stub>
     </div>
   </transition-stub>
-   
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="normal"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    创建
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="normal">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              创建
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            icon="success"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
-              </div>
-               
-              <div
-                class="content"
-              >
-                创建成功!
-              </div>
-               
-              <!---->
+          <div child-cut-disabled="true" class="body" icon="success" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">创建成功!</div>
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
-            <div
-              class="root"
-              direction="horizontal"
-              gap="small"
-              justify="end"
-              type=""
-              vusion-slot-name="default"
-            >
-              <a
-                class="root"
-                color=""
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 取 消
-              </a>
-               
-              <a
-                class="root"
-                color="primary"
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 确 定
-              </a>
-               
-              <!---->
-               
-              <!---->
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
+            <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
+              <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                取 消</a>
+              <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                确 定</a>
             </div>
           </div>
         </div>
       </transition-stub>
     </div>
   </transition-stub>
-   
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="normal"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    创建
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="normal">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              创建
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            icon="error"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
-              </div>
-               
-              <div
-                class="content"
-              >
-                创建失败!
-              </div>
-               
-              <!---->
+          <div child-cut-disabled="true" class="body" icon="error" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">创建失败!</div>
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
-            <div
-              class="root"
-              direction="horizontal"
-              gap="small"
-              justify="end"
-              type=""
-              vusion-slot-name="default"
-            >
-              <a
-                class="root"
-                color=""
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 取 消
-              </a>
-               
-              <a
-                class="root"
-                color="primary"
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 确 定
-              </a>
-               
-              <!---->
-               
-              <!---->
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
+            <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
+              <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                取 消</a>
+              <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                确 定</a>
             </div>
           </div>
         </div>
@@ -449,609 +125,174 @@ exports[`u-modal.vue Demo-图标、小标题与描述 1`] = `
 </div>
 `;
 
-exports[`u-modal.vue Demo-基本用法 1`] = `<div />`;
+exports[`u-modal.vue Demo-基本用法 1`] = `<div></div>`;
 
 exports[`u-modal.vue Demo-基本用法 2`] = `
 <div>
-   
-  <div
-    class="root"
-    direction="horizontal"
-    type=""
-    vusion-slot-name="default"
-  >
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       Modal
-    </a>
-     
-    <!---->
-     
-    <!---->
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      Modal</a>
   </div>
 </div>
 `;
 
-exports[`u-modal.vue Demo-基本用法 3`] = `<div />`;
+exports[`u-modal.vue Demo-基本用法 3`] = `<div></div>`;
 
 exports[`u-modal.vue Demo-基本用法 4`] = `
 <div>
-   
-  <div
-    class="root"
-    direction="horizontal"
-    type=""
-    vusion-slot-name="default"
-  >
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       Modal
-    </a>
-     
-    <!---->
-     
-    <!---->
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      Modal</a>
   </div>
 </div>
 `;
 
 exports[`u-modal.vue Demo-大小扩展 1`] = `
 <div>
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="small"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    提示
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="small">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              提示
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
+          <div child-cut-disabled="true" class="body" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">
+                Small
               </div>
-               
-              <div
-                class="content"
-              >
-                
-    Small
-
-              </div>
-               
-              <!---->
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
-            <div
-              class="root"
-              direction="horizontal"
-              gap="small"
-              justify="end"
-              type=""
-              vusion-slot-name="default"
-            >
-              <a
-                class="root"
-                color=""
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 取 消
-              </a>
-               
-              <a
-                class="root"
-                color="primary"
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 确 定
-              </a>
-               
-              <!---->
-               
-              <!---->
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
+            <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
+              <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                取 消</a>
+              <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                确 定</a>
             </div>
           </div>
         </div>
       </transition-stub>
     </div>
   </transition-stub>
-   
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="normal"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    提示
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="normal">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              提示
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
+          <div child-cut-disabled="true" class="body" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">
+                Normal
               </div>
-               
-              <div
-                class="content"
-              >
-                
-    Normal
-
-              </div>
-               
-              <!---->
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
-            <div
-              class="root"
-              direction="horizontal"
-              gap="small"
-              justify="end"
-              type=""
-              vusion-slot-name="default"
-            >
-              <a
-                class="root"
-                color=""
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 取 消
-              </a>
-               
-              <a
-                class="root"
-                color="primary"
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 确 定
-              </a>
-               
-              <!---->
-               
-              <!---->
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
+            <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
+              <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                取 消</a>
+              <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                确 定</a>
             </div>
           </div>
         </div>
       </transition-stub>
     </div>
   </transition-stub>
-   
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="large"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    提示
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="large">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              提示
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
+          <div child-cut-disabled="true" class="body" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">
+                Large
               </div>
-               
-              <div
-                class="content"
-              >
-                
-    Large
-
-              </div>
-               
-              <!---->
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
-            <div
-              class="root"
-              direction="horizontal"
-              gap="small"
-              justify="end"
-              type=""
-              vusion-slot-name="default"
-            >
-              <a
-                class="root"
-                color=""
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 取 消
-              </a>
-               
-              <a
-                class="root"
-                color="primary"
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 确 定
-              </a>
-               
-              <!---->
-               
-              <!---->
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
+            <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
+              <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                取 消</a>
+              <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                确 定</a>
             </div>
           </div>
         </div>
       </transition-stub>
     </div>
   </transition-stub>
-   
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="huge"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    提示
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="huge">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              提示
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
+          <div child-cut-disabled="true" class="body" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">
+                Huge
               </div>
-               
-              <div
-                class="content"
-              >
-                
-    Huge
-
-              </div>
-               
-              <!---->
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
-            <div
-              class="root"
-              direction="horizontal"
-              gap="small"
-              justify="end"
-              type=""
-              vusion-slot-name="default"
-            >
-              <a
-                class="root"
-                color=""
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 取 消
-              </a>
-               
-              <a
-                class="root"
-                color="primary"
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 确 定
-              </a>
-               
-              <!---->
-               
-              <!---->
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
+            <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
+              <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                取 消</a>
+              <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                确 定</a>
             </div>
           </div>
         </div>
       </transition-stub>
     </div>
   </transition-stub>
-   
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="auto"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    提示
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="auto">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              提示
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
+          <div child-cut-disabled="true" class="body" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">
+                Auto
               </div>
-               
-              <div
-                class="content"
-              >
-                
-    Auto
-
-              </div>
-               
-              <!---->
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
-            <div
-              class="root"
-              direction="horizontal"
-              gap="small"
-              justify="end"
-              type=""
-              vusion-slot-name="default"
-            >
-              <a
-                class="root"
-                color=""
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 取 消
-              </a>
-               
-              <a
-                class="root"
-                color="primary"
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 确 定
-              </a>
-               
-              <!---->
-               
-              <!---->
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
+            <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
+              <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                取 消</a>
+              <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                确 定</a>
             </div>
           </div>
         </div>
@@ -1062,155 +303,40 @@ exports[`u-modal.vue Demo-大小扩展 1`] = `
 `;
 
 exports[`u-modal.vue Demo-快捷方式 1`] = `
-<div
-  class="root"
-  direction="horizontal"
-  gap="small"
-  type=""
-  vusion-slot-name="default"
->
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Alert
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Confirm
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     Custom
-  </a>
-   
-  <!---->
-   
-  <!---->
+<div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Alert</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Confirm</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    Custom</a>
 </div>
 `;
 
 exports[`u-modal.vue Demo-改变主要按钮 1`] = `
 <div>
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="normal"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    标题
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="normal">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              标题
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
-              </div>
-               
-              <div
-                class="content"
-              >
-                内容
-              </div>
-               
-              <!---->
+          <div child-cut-disabled="true" class="body" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">内容</div>
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
-            <div
-              class="root"
-              direction="horizontal"
-              gap="small"
-              justify="end"
-              type=""
-              vusion-slot-name="default"
-            >
-              <a
-                class="root"
-                color="primary"
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 取 消
-              </a>
-               
-              <a
-                class="root"
-                color=""
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 确 定
-              </a>
-               
-              <!---->
-               
-              <!---->
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
+            <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
+              <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                取 消</a>
+              <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                确 定</a>
             </div>
           </div>
         </div>
@@ -1222,107 +348,28 @@ exports[`u-modal.vue Demo-改变主要按钮 1`] = `
 
 exports[`u-modal.vue Demo-标题与内容 1`] = `
 <div>
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="normal"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    标题
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="normal">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              标题
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
-              </div>
-               
-              <div
-                class="content"
-              >
-                内容
-              </div>
-               
-              <!---->
+          <div child-cut-disabled="true" class="body" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">内容</div>
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
-            <div
-              class="root"
-              direction="horizontal"
-              gap="small"
-              justify="end"
-              type=""
-              vusion-slot-name="default"
-            >
-              <a
-                class="root"
-                color=""
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 取 消
-              </a>
-               
-              <a
-                class="root"
-                color="primary"
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 确 定
-              </a>
-               
-              <!---->
-               
-              <!---->
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
+            <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
+              <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                取 消</a>
+              <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                确 定</a>
             </div>
           </div>
         </div>
@@ -1334,107 +381,28 @@ exports[`u-modal.vue Demo-标题与内容 1`] = `
 
 exports[`u-modal.vue Demo-点击遮罩关闭 1`] = `
 <div>
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="normal"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    标题
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="normal">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              标题
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
-              </div>
-               
-              <div
-                class="content"
-              >
-                内容
-              </div>
-               
-              <!---->
+          <div child-cut-disabled="true" class="body" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">内容</div>
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
-            <div
-              class="root"
-              direction="horizontal"
-              gap="small"
-              justify="end"
-              type=""
-              vusion-slot-name="default"
-            >
-              <a
-                class="root"
-                color=""
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 取 消
-              </a>
-               
-              <a
-                class="root"
-                color="primary"
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 确 定
-              </a>
-               
-              <!---->
-               
-              <!---->
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
+            <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
+              <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                取 消</a>
+              <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                确 定</a>
             </div>
           </div>
         </div>
@@ -1446,108 +414,28 @@ exports[`u-modal.vue Demo-点击遮罩关闭 1`] = `
 
 exports[`u-modal.vue Demo-禁用按钮 1`] = `
 <div>
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="normal"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    标题
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="normal">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              标题
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
-              </div>
-               
-              <div
-                class="content"
-              >
-                内容
-              </div>
-               
-              <!---->
+          <div child-cut-disabled="true" class="body" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">内容</div>
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
-            <div
-              class="root"
-              direction="horizontal"
-              gap="small"
-              justify="end"
-              type=""
-              vusion-slot-name="default"
-            >
-              <a
-                class="root"
-                color=""
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 取 消
-              </a>
-               
-              <a
-                class="root"
-                color="primary"
-                disabled="disabled"
-                hovertype="underline"
-                tabindex="-1"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 确 定
-              </a>
-               
-              <!---->
-               
-              <!---->
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
+            <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
+              <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                取 消</a>
+              <a class="root" color="primary" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
+                确 定</a>
             </div>
           </div>
         </div>
@@ -1559,84 +447,26 @@ exports[`u-modal.vue Demo-禁用按钮 1`] = `
 
 exports[`u-modal.vue Demo-自定义 1`] = `
 <div>
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="normal"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              <div>
-                自定义
-              </div>
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="normal">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              <div>自定义</div>
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
-              </div>
-               
-              <div
-                class="content"
-              >
-                
-              </div>
-               
-              <!---->
+          <div child-cut-disabled="true" class="body" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content"></div>
             </div>
-             
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="foot"
-            vusion-slot-name="foot"
-          >
+          <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div>
-              <a
-                class="root"
-                color="primary"
-                hovertype="underline"
-                tabindex="0"
-                target="_self"
-                vusion-slot-name-edit="text"
-              >
-                <!---->
-                 关闭
-              </a>
+              <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                关闭</a>
             </div>
           </div>
         </div>
@@ -1648,68 +478,22 @@ exports[`u-modal.vue Demo-自定义 1`] = `
 
 exports[`u-modal.vue Demo-隐藏底部栏 1`] = `
 <div>
-  <transition-stub
-    enteractiveclass="animate__animated animate__fadeIn"
-    leaveactiveclass="animate__animated animate__fadeOut animate__fast"
-  >
-    <div
-      class="root"
-      static="true"
-    >
-      <transition-stub
-        enteractiveclass="animate__animated animate__fadeInDownSmall"
-        leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast"
-      >
-        <div
-          class="dialog"
-          size="normal"
-        >
-           
-          <div
-            child-cut-disabled="true"
-            class="head"
-            vusion-slot-name="head"
-          >
-            <div
-              child-cut-disabled="true"
-              class="title"
-              vusion-slot-name="title"
-              vusion-slot-name-edit="title"
-            >
-              
-                                    标题
-                                
+  <transition-stub enteractiveclass="animate__animated animate__fadeIn" leaveactiveclass="animate__animated animate__fadeOut animate__fast">
+    <div class="root" static="true">
+      <transition-stub enteractiveclass="animate__animated animate__fadeInDownSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall animate__fast">
+        <div class="dialog" size="normal">
+          <div child-cut-disabled="true" class="head" vusion-slot-name="head">
+            <div child-cut-disabled="true" class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+              标题
             </div>
-             
-            <a
-              class="close"
-            />
+            <a class="close"></a>
           </div>
-           
-          <div
-            child-cut-disabled="true"
-            class="body"
-            vusion-slot-name="body"
-          >
-            <div
-              class="text"
-            >
-              <div>
-                
-              </div>
-               
-              <div
-                class="content"
-              >
-                内容
-              </div>
-               
-              <!---->
+          <div child-cut-disabled="true" class="body" vusion-slot-name="body">
+            <div class="text">
+              <div></div>
+              <div class="content">内容</div>
             </div>
-             
           </div>
-           
-          <!---->
         </div>
       </transition-stub>
     </div>

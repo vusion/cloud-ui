@@ -2,25 +2,10 @@
 
 exports[`u-tooltip.vue Demo-基本用法 1`] = `
 <div>
-  <transition-stub
-    name="fade-fast"
-  >
-    <div
-      arraw-size="normal"
-      class="root"
-      style="display: none;"
-    >
-      <div
-        class="arrow"
-        data-popper-arrow=""
-      />
-       
-      <div
-        class="body"
-        size="normal"
-      >
-        直接插入文本
-      </div>
+  <transition-stub name="fade-fast">
+    <div arraw-size="normal" class="root" style="display: none;">
+      <div class="arrow" data-popper-arrow></div>
+      <div class="body" size="normal">直接插入文本</div>
     </div>
   </transition-stub>
 </div>
@@ -28,593 +13,155 @@ exports[`u-tooltip.vue Demo-基本用法 1`] = `
 
 exports[`u-tooltip.vue Demo-基本用法 2`] = `
 <div>
-  <div
-    class="root"
-    direction="horizontal"
-    type=""
-    vusion-slot-name="default"
-  >
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       
-        直接插入
-        
-      <transition-stub
-        name="fade-fast"
-      >
-        <div
-          arraw-size="normal"
-          class="root"
-          style="display: none;"
-        >
-          <div
-            class="arrow"
-            data-popper-arrow=""
-          />
-           
-          <div
-            class="body"
-            size="normal"
-          >
-            直接插入
-            <a
-              class="root"
-              hovertype="underline"
-              tabindex="0"
-              target="_self"
-              vusion-slot-name-edit="text"
-            >
-              <!---->
-               文本
-            </a>
-            或
-            <a
-              class="root"
-              hovertype="underline"
-              tabindex="0"
-              target="_self"
-              vusion-slot-name-edit="text"
-            >
-              <!---->
-               HTML
-            </a>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      直接插入
+      <transition-stub name="fade-fast">
+        <div arraw-size="normal" class="root" style="display: none;">
+          <div class="arrow" data-popper-arrow></div>
+          <div class="body" size="normal">直接插入<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+              文本</a>或<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+              HTML</a>
           </div>
         </div>
       </transition-stub>
     </a>
-     
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       指令
-    </a>
-     
-    <!---->
-     
-    <!---->
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      指令</a>
   </div>
 </div>
 `;
 
 exports[`u-tooltip.vue Demo-弹出方位 1`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    style="min-width: 300px; max-width: 550px;"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      class="root"
-      direction="horizontal"
-      gap="small"
-      justify="center"
-      type=""
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            上左
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+  <div class="root" direction="vertical" style="min-width: 300px; max-width: 550px;" type vusion-slot-name="default">
+    <div class="root" direction="horizontal" gap="small" justify="center" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        上左
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            上边
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        上边
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            上右
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        上右
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      direction="vertical"
-      justify="center"
-      style="width: 150px; float: left;"
-      type=""
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            左上
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+    <div class="root" direction="vertical" justify="center" style="width: 150px; float: left;" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        左上
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            左边
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        左边
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            左下
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        左下
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      direction="vertical"
-      justify="center"
-      style="width: 150px; float: right;"
-      type=""
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            右上
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+    <div class="root" direction="vertical" justify="center" style="width: 150px; float: right;" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        右上
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            右边
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        右边
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            右下
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        右下
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      direction="horizontal"
-      gap="small"
-      justify="center"
-      style="clear: both;"
-      type=""
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            下左
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              这是下左的Tooltip这是下左的Tooltip
-            </div>
+    <div class="root" direction="horizontal" gap="small" justify="center" style="clear: both;" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        下左
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">这是下左的Tooltip这是下左的Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            下边
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        下边
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            下右
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        下右
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-tooltip.vue Demo-手动触发 1`] = `
-<a
-  class="root"
-  hovertype="underline"
-  tabindex="0"
-  target="_self"
-  vusion-slot-name-edit="text"
->
-  <!---->
-   
-    弹出
-    
-  <transition-stub
-    name="fade-fast"
-  >
-    <div
-      arraw-size="normal"
-      class="root"
-      style="display: none;"
-    >
-      <div
-        class="arrow"
-        data-popper-arrow=""
-      />
-       
-      <div
-        class="body"
-        size="normal"
-      >
-        Tooltip
-      </div>
+<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+  弹出
+  <transition-stub name="fade-fast">
+    <div arraw-size="normal" class="root" style="display: none;">
+      <div class="arrow" data-popper-arrow></div>
+      <div class="body" size="normal">Tooltip</div>
     </div>
   </transition-stub>
 </a>
@@ -622,402 +169,95 @@ exports[`u-tooltip.vue Demo-手动触发 1`] = `
 
 exports[`u-tooltip.vue Demo-指令形式 1`] = `
 <div>
-  <div
-    class="root"
-    direction="horizontal"
-    type=""
-    vusion-slot-name="default"
-  >
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       hover（默认）
-    </a>
-     
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       click
-    </a>
-     
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       right-click
-    </a>
-     
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       double-click
-    </a>
-     
-    <!---->
-     
-    <!---->
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      hover（默认）</a>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      click</a>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      right-click</a>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      double-click</a>
   </div>
 </div>
 `;
 
 exports[`u-tooltip.vue Demo-指令形式 2`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    style="min-width: 300px; max-width: 550px;"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      class="root"
-      direction="horizontal"
-      gap="small"
-      justify="center"
-      type=""
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         上左
-      </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         上边
-      </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         上右
-      </a>
-       
-      <!---->
-       
-      <!---->
+  <div class="root" direction="vertical" style="min-width: 300px; max-width: 550px;" type vusion-slot-name="default">
+    <div class="root" direction="horizontal" gap="small" justify="center" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        上左</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        上边</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        上右</a>
     </div>
-     
-    <div
-      class="root"
-      direction="vertical"
-      justify="center"
-      style="width: 150px; float: left;"
-      type=""
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         左上
-      </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         左边
-      </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         左下
-      </a>
-       
-      <!---->
-       
-      <!---->
+    <div class="root" direction="vertical" justify="center" style="width: 150px; float: left;" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        左上</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        左边</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        左下</a>
     </div>
-     
-    <div
-      class="root"
-      direction="vertical"
-      justify="center"
-      style="width: 150px; float: right;"
-      type=""
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         右上
-      </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         右边
-      </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         右下
-      </a>
-       
-      <!---->
-       
-      <!---->
+    <div class="root" direction="vertical" justify="center" style="width: 150px; float: right;" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        右上</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        右边</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        右下</a>
     </div>
-     
-    <div
-      class="root"
-      direction="horizontal"
-      gap="small"
-      justify="center"
-      style="clear: both;"
-      type=""
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         下左
-      </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         下边
-      </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         下右
-      </a>
-       
-      <!---->
-       
-      <!---->
+    <div class="root" direction="horizontal" gap="small" justify="center" style="clear: both;" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        下左</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        下边</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        下右</a>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-tooltip.vue Demo-指令形式 3`] = `
-<div
-  class="root"
-  direction="horizontal"
-  type=""
-  vusion-slot-name="default"
->
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     small
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     normal
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     large
-  </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     auto
-  </a>
-   
-  <!---->
-   
-  <!---->
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    small</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    normal</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    large</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    auto</a>
 </div>
 `;
 
 exports[`u-tooltip.vue Demo-显隐延时 1`] = `
 <div>
-  <div
-    class="root"
-    direction="horizontal"
-    type=""
-    vusion-slot-name="default"
-  >
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       Hover Delay
-        
-      <transition-stub
-        name="fade-fast"
-      >
-        <div
-          arraw-size="normal"
-          class="root"
-          style="display: none;"
-        >
-          <div
-            class="arrow"
-            data-popper-arrow=""
-          />
-           
-          <div
-            class="body"
-            size="normal"
-          >
-            Tooltip
-          </div>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      Hover Delay
+      <transition-stub name="fade-fast">
+        <div arraw-size="normal" class="root" style="display: none;">
+          <div class="arrow" data-popper-arrow></div>
+          <div class="body" size="normal">Tooltip</div>
         </div>
       </transition-stub>
     </a>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-tooltip.vue Demo-禁用状态 1`] = `
 <div>
-  <a
-    class="root"
-    disabled="disabled"
-    hovertype="underline"
-    tabindex="-1"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     
+  <a class="root" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
     disabled
-    
-    <transition-stub
-      name="fade-fast"
-    >
-      <div
-        arraw-size="normal"
-        class="root"
-        style="display: none;"
-      >
-        <div
-          class="arrow"
-          data-popper-arrow=""
-        />
-         
-        <div
-          class="body"
-          size="normal"
-        >
-          disabled
-        </div>
+    <transition-stub name="fade-fast">
+      <div arraw-size="normal" class="root" style="display: none;">
+        <div class="arrow" data-popper-arrow></div>
+        <div class="body" size="normal">disabled</div>
       </div>
     </transition-stub>
   </a>
@@ -1026,773 +266,207 @@ exports[`u-tooltip.vue Demo-禁用状态 1`] = `
 
 exports[`u-tooltip.vue Demo-触发方式 1`] = `
 <div>
-  <div
-    class="root"
-    direction="horizontal"
-    type=""
-    vusion-slot-name="default"
-  >
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       
-        hover（默认）
-        
-      <transition-stub
-        name="fade-fast"
-      >
-        <div
-          arraw-size="normal"
-          class="root"
-          style="display: none;"
-        >
-          <div
-            class="arrow"
-            data-popper-arrow=""
-          />
-           
-          <div
-            class="body"
-            size="normal"
-          >
-            Tooltip
-          </div>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      hover（默认）
+      <transition-stub name="fade-fast">
+        <div arraw-size="normal" class="root" style="display: none;">
+          <div class="arrow" data-popper-arrow></div>
+          <div class="body" size="normal">Tooltip</div>
         </div>
       </transition-stub>
     </a>
-     
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       
-        click
-        
-      <transition-stub
-        name="fade-fast"
-      >
-        <div
-          arraw-size="normal"
-          class="root"
-          style="display: none;"
-        >
-          <div
-            class="arrow"
-            data-popper-arrow=""
-          />
-           
-          <div
-            class="body"
-            size="normal"
-          >
-            Tooltip
-          </div>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      click
+      <transition-stub name="fade-fast">
+        <div arraw-size="normal" class="root" style="display: none;">
+          <div class="arrow" data-popper-arrow></div>
+          <div class="body" size="normal">Tooltip</div>
         </div>
       </transition-stub>
     </a>
-     
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       
-        right-click
-        
-      <transition-stub
-        name="fade-fast"
-      >
-        <div
-          arraw-size="normal"
-          class="root"
-          style="display: none;"
-        >
-          <div
-            class="arrow"
-            data-popper-arrow=""
-          />
-           
-          <div
-            class="body"
-            size="normal"
-          >
-            Tooltip
-          </div>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      right-click
+      <transition-stub name="fade-fast">
+        <div arraw-size="normal" class="root" style="display: none;">
+          <div class="arrow" data-popper-arrow></div>
+          <div class="body" size="normal">Tooltip</div>
         </div>
       </transition-stub>
     </a>
-     
-    <a
-      class="root"
-      hovertype="underline"
-      tabindex="0"
-      target="_self"
-      vusion-slot-name-edit="text"
-    >
-      <!---->
-       
-        double-click
-        
-      <transition-stub
-        name="fade-fast"
-      >
-        <div
-          arraw-size="normal"
-          class="root"
-          style="display: none;"
-        >
-          <div
-            class="arrow"
-            data-popper-arrow=""
-          />
-           
-          <div
-            class="body"
-            size="normal"
-          >
-            Tooltip
-          </div>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      double-click
+      <transition-stub name="fade-fast">
+        <div arraw-size="normal" class="root" style="display: none;">
+          <div class="arrow" data-popper-arrow></div>
+          <div class="body" size="normal">Tooltip</div>
         </div>
       </transition-stub>
     </a>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-tooltip.vue Demo-设置尺寸 1`] = `
-<div
-  class="root"
-  direction="horizontal"
-  type=""
-  vusion-slot-name="default"
->
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     small
-            
-    <transition-stub
-      name="fade-fast"
-    >
-      <div
-        arraw-size="normal"
-        class="root"
-        style="display: none;"
-      >
-        <div
-          class="arrow"
-          data-popper-arrow=""
-        />
-         
-        <div
-          class="body"
-          size="small"
-        >
-          深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜。其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力地刺去。那猹却将身一扭，反从他的胯下逃走了。
-        </div>
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    small
+    <transition-stub name="fade-fast">
+      <div arraw-size="normal" class="root" style="display: none;">
+        <div class="arrow" data-popper-arrow></div>
+        <div class="body" size="small">深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜。其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力地刺去。那猹却将身一扭，反从他的胯下逃走了。</div>
       </div>
     </transition-stub>
   </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     normal
-            
-    <transition-stub
-      name="fade-fast"
-    >
-      <div
-        arraw-size="normal"
-        class="root"
-        style="display: none;"
-      >
-        <div
-          class="arrow"
-          data-popper-arrow=""
-        />
-         
-        <div
-          class="body"
-          size="normal"
-        >
-          深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜。其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力地刺去。那猹却将身一扭，反从他的胯下逃走了。
-        </div>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    normal
+    <transition-stub name="fade-fast">
+      <div arraw-size="normal" class="root" style="display: none;">
+        <div class="arrow" data-popper-arrow></div>
+        <div class="body" size="normal">深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜。其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力地刺去。那猹却将身一扭，反从他的胯下逃走了。</div>
       </div>
     </transition-stub>
   </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     large
-            
-    <transition-stub
-      name="fade-fast"
-    >
-      <div
-        arraw-size="normal"
-        class="root"
-        style="display: none;"
-      >
-        <div
-          class="arrow"
-          data-popper-arrow=""
-        />
-         
-        <div
-          class="body"
-          size="large"
-        >
-          深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜。其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力地刺去。那猹却将身一扭，反从他的胯下逃走了。
-        </div>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    large
+    <transition-stub name="fade-fast">
+      <div arraw-size="normal" class="root" style="display: none;">
+        <div class="arrow" data-popper-arrow></div>
+        <div class="body" size="large">深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜。其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力地刺去。那猹却将身一扭，反从他的胯下逃走了。</div>
       </div>
     </transition-stub>
   </a>
-   
-  <a
-    class="root"
-    hovertype="underline"
-    tabindex="0"
-    target="_self"
-    vusion-slot-name-edit="text"
-  >
-    <!---->
-     auto
-            
-    <transition-stub
-      name="fade-fast"
-    >
-      <div
-        arraw-size="normal"
-        class="root"
-        style="display: none;"
-      >
-        <div
-          class="arrow"
-          data-popper-arrow=""
-        />
-         
-        <div
-          class="body"
-          size="auto"
-        >
-          深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜。其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力地刺去。那猹却将身一扭，反从他的胯下逃走了。
-        </div>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    auto
+    <transition-stub name="fade-fast">
+      <div arraw-size="normal" class="root" style="display: none;">
+        <div class="arrow" data-popper-arrow></div>
+        <div class="body" size="auto">深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜。其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力地刺去。那猹却将身一扭，反从他的胯下逃走了。</div>
       </div>
     </transition-stub>
   </a>
-   
-  <!---->
-   
-  <!---->
 </div>
 `;
 
 exports[`u-tooltip.vue Demo-跟随鼠标 1`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    style="min-width: 300px; max-width: 550px;"
-    type=""
-    vusion-slot-name="default"
-  >
-    <div
-      class="root"
-      direction="horizontal"
-      gap="small"
-      justify="center"
-      type=""
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            上左
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+  <div class="root" direction="vertical" style="min-width: 300px; max-width: 550px;" type vusion-slot-name="default">
+    <div class="root" direction="horizontal" gap="small" justify="center" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        上左
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            上边
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        上边
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            上右
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        上右
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      direction="vertical"
-      justify="center"
-      style="width: 150px; float: left;"
-      type=""
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            左上
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+    <div class="root" direction="vertical" justify="center" style="width: 150px; float: left;" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        左上
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            左边
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        左边
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            左下
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        左下
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      direction="vertical"
-      justify="center"
-      style="width: 150px; float: right;"
-      type=""
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            右上
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+    <div class="root" direction="vertical" justify="center" style="width: 150px; float: right;" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        右上
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            右边
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        右边
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            右下
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        右下
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <div
-      class="root"
-      direction="horizontal"
-      gap="small"
-      justify="center"
-      style="clear: both;"
-      type=""
-      vusion-slot-name="default"
-    >
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            下左
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+    <div class="root" direction="horizontal" gap="small" justify="center" style="clear: both;" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        下左
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            下边
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        下边
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <a
-        class="root"
-        hovertype="underline"
-        tabindex="0"
-        target="_self"
-        vusion-slot-name-edit="text"
-      >
-        <!---->
-         
-            下右
-            
-        <transition-stub
-          name="fade-fast"
-        >
-          <div
-            arraw-size="normal"
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="arrow"
-              data-popper-arrow=""
-            />
-             
-            <div
-              class="body"
-              size="normal"
-            >
-              Tooltip
-            </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        下右
+        <transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
           </div>
         </transition-stub>
       </a>
-       
-      <!---->
-       
-      <!---->
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;

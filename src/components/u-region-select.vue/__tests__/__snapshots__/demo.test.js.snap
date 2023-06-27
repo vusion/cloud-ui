@@ -3,75 +3,29 @@
 exports[`u-region-select.vue Demo-Placeholder 1`] = `
 <div>
   <div>
-    <div
-      readonly="readonly"
-    >
-      <span>
-        b
-      </span>
-       
-      <span>
-        请选择省份
-      </span>
-       
-      <!---->
-       
-      <input
-        readonly="readonly"
-        type="text"
-      />
-       
-      <transition-stub
-        name="fade"
-      >
-        <div
-          class="root"
-          style="display: none;"
-        >
-          <div
-            class="root"
-            color="light"
-            style="display: inline-block;"
-          >
-            <div
-              class="wrap"
-            >
+    <div readonly="readonly">
+      <span>b</span>
+      <span>请选择省份</span>
+      <input readonly="readonly" type="text">
+      <transition-stub name="fade">
+        <div class="root" style="display: none;">
+          <div class="root" color="light" style="display: inline-block;">
+            <div class="wrap">
               <div>
-                <nav
-                  class="root"
-                />
+                <nav class="root"></nav>
               </div>
             </div>
-             
-            <div
-              class="root"
-              direction="horizontal"
-            >
-              <div
-                class="thumb"
-                style="transform: translateX(0%); webkit-transform: translateX(0%);"
-              />
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
             </div>
-             
-            <div
-              class="root"
-              direction="vertical"
-            >
-              <div
-                class="thumb"
-                style="transform: translateY(0%); webkit-transform: translateY(0%);"
-              />
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
             </div>
           </div>
         </div>
       </transition-stub>
-       
-      <!---->
     </div>
-     
-    <span
-      style="display: none;"
-    />
+    <span style="display: none;"></span>
   </div>
 </div>
 `;
@@ -79,535 +33,201 @@ exports[`u-region-select.vue Demo-Placeholder 1`] = `
 exports[`u-region-select.vue Demo-仅显示什么区 1`] = `
 <div>
   <div>
-    <div
-      readonly="readonly"
-    >
-      <span>
-        b
-      </span>
-       
-      <span>
-        请选择
-      </span>
-       
-      <!---->
-       
-      <input
-        readonly="readonly"
-        type="text"
-      />
-       
-      <transition-stub
-        name="fade"
-      >
-        <div
-          class="root"
-          style="display: none;"
-        >
-          <div
-            class="root"
-            color="light"
-            style="display: inline-block;"
-          >
-            <div
-              class="wrap"
-            >
+    <div readonly="readonly">
+      <span>b</span>
+      <span>请选择</span>
+      <input readonly="readonly" type="text">
+      <transition-stub name="fade">
+        <div class="root" style="display: none;">
+          <div class="root" color="light" style="display: inline-block;">
+            <div class="wrap">
               <div>
-                <nav
-                  class="root"
-                />
+                <nav class="root"></nav>
               </div>
             </div>
-             
-            <div
-              class="root"
-              direction="horizontal"
-            >
-              <div
-                class="thumb"
-                style="transform: translateX(0%); webkit-transform: translateX(0%);"
-              />
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
             </div>
-             
-            <div
-              class="root"
-              direction="vertical"
-            >
-              <div
-                class="thumb"
-                style="transform: translateY(0%); webkit-transform: translateY(0%);"
-              />
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
             </div>
           </div>
         </div>
       </transition-stub>
-       
-      <!---->
     </div>
-     
-    <span
-      style="display: none;"
-    />
+    <span style="display: none;"></span>
   </div>
 </div>
 `;
 
 exports[`u-region-select.vue Demo-双向绑定 1`] = `
 <div>
-  <div
-    readonly="readonly"
-  >
-    <span>
-      b
-    </span>
-     
-    <span>
-      请选择
-    </span>
-     
-    <!---->
-     
-    <input
-      readonly="readonly"
-      type="text"
-    />
-     
-    <transition-stub
-      name="fade"
-    >
-      <div
-        class="root"
-        style="display: none;"
-      >
-        <div
-          class="root"
-          color="light"
-          style="display: inline-block;"
-        >
-          <div
-            class="wrap"
-          >
+  <div readonly="readonly">
+    <span>b</span>
+    <span>请选择</span>
+    <input readonly="readonly" type="text">
+    <transition-stub name="fade">
+      <div class="root" style="display: none;">
+        <div class="root" color="light" style="display: inline-block;">
+          <div class="wrap">
             <div>
-              <nav
-                class="root"
-              />
+              <nav class="root"></nav>
             </div>
           </div>
-           
-          <div
-            class="root"
-            direction="horizontal"
-          >
-            <div
-              class="thumb"
-              style="transform: translateX(0%); webkit-transform: translateX(0%);"
-            />
+          <div class="root" direction="horizontal">
+            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
           </div>
-           
-          <div
-            class="root"
-            direction="vertical"
-          >
-            <div
-              class="thumb"
-              style="transform: translateY(0%); webkit-transform: translateY(0%);"
-            />
+          <div class="root" direction="vertical">
+            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
           </div>
         </div>
       </div>
     </transition-stub>
-     
-    <!---->
   </div>
-   
-  <span
-    style="display: none;"
-  />
+  <span style="display: none;"></span>
 </div>
 `;
 
 exports[`u-region-select.vue Demo-基本用法 1`] = `
 <div>
   <div>
-    <div
-      readonly="readonly"
-    >
-      <span>
-        b
-      </span>
-       
-      <span>
-        请选择
-      </span>
-       
-      <!---->
-       
-      <input
-        readonly="readonly"
-        type="text"
-      />
-       
-      <transition-stub
-        name="fade"
-      >
-        <div
-          class="root"
-          style="display: none;"
-        >
-          <div
-            class="root"
-            color="light"
-            style="display: inline-block;"
-          >
-            <div
-              class="wrap"
-            >
+    <div readonly="readonly">
+      <span>b</span>
+      <span>请选择</span>
+      <input readonly="readonly" type="text">
+      <transition-stub name="fade">
+        <div class="root" style="display: none;">
+          <div class="root" color="light" style="display: inline-block;">
+            <div class="wrap">
               <div>
-                <nav
-                  class="root"
-                />
+                <nav class="root"></nav>
               </div>
             </div>
-             
-            <div
-              class="root"
-              direction="horizontal"
-            >
-              <div
-                class="thumb"
-                style="transform: translateX(0%); webkit-transform: translateX(0%);"
-              />
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
             </div>
-             
-            <div
-              class="root"
-              direction="vertical"
-            >
-              <div
-                class="thumb"
-                style="transform: translateY(0%); webkit-transform: translateY(0%);"
-              />
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
             </div>
           </div>
         </div>
       </transition-stub>
-       
-      <!---->
     </div>
-     
-    <span
-      style="display: none;"
-    />
+    <span style="display: none;"></span>
   </div>
 </div>
 `;
 
 exports[`u-region-select.vue Demo-基本用法 2`] = `
 <div>
-  <div
-    class="root"
-    direction="vertical"
-    type=""
-    vusion-slot-name="default"
-  >
+  <div class="root" direction="vertical" type vusion-slot-name="default">
     <div>
-      <div
-        readonly="readonly"
-      >
-        <span>
-          b
-        </span>
-         
-        <span>
-          请选择
-        </span>
-         
-        <!---->
-         
-        <input
-          readonly="readonly"
-          type="text"
-        />
-         
-        <transition-stub
-          name="fade"
-        >
-          <div
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="root"
-              color="light"
-              style="display: inline-block;"
-            >
-              <div
-                class="wrap"
-              >
+      <div readonly="readonly">
+        <span>b</span>
+        <span>请选择</span>
+        <input readonly="readonly" type="text">
+        <transition-stub name="fade">
+          <div class="root" style="display: none;">
+            <div class="root" color="light" style="display: inline-block;">
+              <div class="wrap">
                 <div>
-                  <nav
-                    class="root"
-                  />
+                  <nav class="root"></nav>
                 </div>
               </div>
-               
-              <div
-                class="root"
-                direction="horizontal"
-              >
-                <div
-                  class="thumb"
-                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
-                />
+              <div class="root" direction="horizontal">
+                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
               </div>
-               
-              <div
-                class="root"
-                direction="vertical"
-              >
-                <div
-                  class="thumb"
-                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
-                />
+              <div class="root" direction="vertical">
+                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
               </div>
             </div>
           </div>
         </transition-stub>
-         
-        <!---->
       </div>
-       
-      <span
-        style="display: none;"
-      />
+      <span style="display: none;"></span>
     </div>
-     
-    <div
-      defaultvalue="浙江省 / 杭州市 / 滨江区"
-    >
-      <div
-        readonly="readonly"
-      >
-        <span>
-          b
-        </span>
-         
-        <span>
-          请选择
-        </span>
-         
-        <!---->
-         
-        <input
-          readonly="readonly"
-          type="text"
-        />
-         
-        <transition-stub
-          name="fade"
-        >
-          <div
-            class="root"
-            style="display: none;"
-          >
-            <div
-              class="root"
-              color="light"
-              style="display: inline-block;"
-            >
-              <div
-                class="wrap"
-              >
+    <div defaultvalue="浙江省 / 杭州市 / 滨江区">
+      <div readonly="readonly">
+        <span>b</span>
+        <span>请选择</span>
+        <input readonly="readonly" type="text">
+        <transition-stub name="fade">
+          <div class="root" style="display: none;">
+            <div class="root" color="light" style="display: inline-block;">
+              <div class="wrap">
                 <div>
-                  <nav
-                    class="root"
-                  />
+                  <nav class="root"></nav>
                 </div>
               </div>
-               
-              <div
-                class="root"
-                direction="horizontal"
-              >
-                <div
-                  class="thumb"
-                  style="transform: translateX(0%); webkit-transform: translateX(0%);"
-                />
+              <div class="root" direction="horizontal">
+                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
               </div>
-               
-              <div
-                class="root"
-                direction="vertical"
-              >
-                <div
-                  class="thumb"
-                  style="transform: translateY(0%); webkit-transform: translateY(0%);"
-                />
+              <div class="root" direction="vertical">
+                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
               </div>
             </div>
           </div>
         </transition-stub>
-         
-        <!---->
       </div>
-       
-      <span
-        style="display: none;"
-      />
+      <span style="display: none;"></span>
     </div>
-     
-    <!---->
-     
-    <!---->
   </div>
 </div>
 `;
 
 exports[`u-region-select.vue Demo-转换为地区名格式 1`] = `
 <div>
-  <div
-    readonly="readonly"
-  >
-    <span>
-      b
-    </span>
-     
-    <span>
-      
-    </span>
-     
-    <!---->
-     
-    <input
-      readonly="readonly"
-      type="text"
-    />
-     
-    <transition-stub
-      name="fade"
-    >
-      <div
-        class="root"
-        style="display: none;"
-      >
-        <div
-          class="root"
-          color="light"
-          style="display: inline-block;"
-        >
-          <div
-            class="wrap"
-          >
+  <div readonly="readonly">
+    <span>b</span>
+    <span></span>
+    <input readonly="readonly" type="text">
+    <transition-stub name="fade">
+      <div class="root" style="display: none;">
+        <div class="root" color="light" style="display: inline-block;">
+          <div class="wrap">
             <div>
-              <nav
-                class="root"
-              />
+              <nav class="root"></nav>
             </div>
           </div>
-           
-          <div
-            class="root"
-            direction="horizontal"
-          >
-            <div
-              class="thumb"
-              style="transform: translateX(0%); webkit-transform: translateX(0%);"
-            />
+          <div class="root" direction="horizontal">
+            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
           </div>
-           
-          <div
-            class="root"
-            direction="vertical"
-          >
-            <div
-              class="thumb"
-              style="transform: translateY(0%); webkit-transform: translateY(0%);"
-            />
+          <div class="root" direction="vertical">
+            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
           </div>
         </div>
       </div>
     </transition-stub>
-     
-    <!---->
   </div>
-   
-  <span
-    style="display: none;"
-  />
+  <span style="display: none;"></span>
 </div>
 `;
 
 exports[`u-region-select.vue Demo-转换为地区码格式 1`] = `
 <div>
-  <div
-    readonly="readonly"
-  >
-    <span>
-      b
-    </span>
-     
-    <span>
-      
-    </span>
-     
-    <!---->
-     
-    <input
-      readonly="readonly"
-      type="text"
-    />
-     
-    <transition-stub
-      name="fade"
-    >
-      <div
-        class="root"
-        style="display: none;"
-      >
-        <div
-          class="root"
-          color="light"
-          style="display: inline-block;"
-        >
-          <div
-            class="wrap"
-          >
+  <div readonly="readonly">
+    <span>b</span>
+    <span></span>
+    <input readonly="readonly" type="text">
+    <transition-stub name="fade">
+      <div class="root" style="display: none;">
+        <div class="root" color="light" style="display: inline-block;">
+          <div class="wrap">
             <div>
-              <nav
-                class="root"
-              />
+              <nav class="root"></nav>
             </div>
           </div>
-           
-          <div
-            class="root"
-            direction="horizontal"
-          >
-            <div
-              class="thumb"
-              style="transform: translateX(0%); webkit-transform: translateX(0%);"
-            />
+          <div class="root" direction="horizontal">
+            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
           </div>
-           
-          <div
-            class="root"
-            direction="vertical"
-          >
-            <div
-              class="thumb"
-              style="transform: translateY(0%); webkit-transform: translateY(0%);"
-            />
+          <div class="root" direction="vertical">
+            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
           </div>
         </div>
       </div>
     </transition-stub>
-     
-    <!---->
   </div>
-   
-  <span
-    style="display: none;"
-  />
+  <span style="display: none;"></span>
 </div>
 `;
 
@@ -615,71 +235,28 @@ exports[`u-region-select.vue Demo-过滤（可搜索） 1`] = `
 <div>
   <div>
     <div>
-      <span>
-        b
-      </span>
-       
-      <span>
-        请选择
-      </span>
-       
-      <!---->
-       
-      <input
-        type="text"
-      />
-       
-      <transition-stub
-        name="fade"
-      >
-        <div
-          class="root"
-          style="display: none;"
-        >
-          <div
-            class="root"
-            color="light"
-            style="display: inline-block;"
-          >
-            <div
-              class="wrap"
-            >
+      <span>b</span>
+      <span>请选择</span>
+      <input type="text">
+      <transition-stub name="fade">
+        <div class="root" style="display: none;">
+          <div class="root" color="light" style="display: inline-block;">
+            <div class="wrap">
               <div>
-                <nav
-                  class="root"
-                />
+                <nav class="root"></nav>
               </div>
             </div>
-             
-            <div
-              class="root"
-              direction="horizontal"
-            >
-              <div
-                class="thumb"
-                style="transform: translateX(0%); webkit-transform: translateX(0%);"
-              />
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
             </div>
-             
-            <div
-              class="root"
-              direction="vertical"
-            >
-              <div
-                class="thumb"
-                style="transform: translateY(0%); webkit-transform: translateY(0%);"
-              />
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
             </div>
           </div>
         </div>
       </transition-stub>
-       
-      <!---->
     </div>
-     
-    <span
-      style="display: none;"
-    />
+    <span style="display: none;"></span>
   </div>
 </div>
 `;

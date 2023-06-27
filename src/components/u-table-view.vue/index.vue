@@ -777,7 +777,9 @@ export default {
             if (typeof this.data === 'function' || (this.data instanceof Object && !Array.isArray(this.data)))
                 throw new Error(`[cloud-ui] Don't assign a function or object to 'data' prop. Try to use 'data-source' prop.`);
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
-            this.initialLoad && this.load();
+            // fix 2637418667735552 添加编辑行时已经添加的下拉框还是会重新load数据
+            // 原因：list添加了一项，进入了dataSource的watch，该函数会进来，调用了load方法，会设置loading状态，导致表格重新渲染
+            this.initialLoad && (typeof this.dataSource === 'function') && this.load();
             this.handleResize();
             this.$nextTick(() => {
                 this.$forceUpdate();
@@ -822,7 +824,7 @@ export default {
                 // 使用了新的分页, 数组肯定不是后端数据
                 if (isNew) {
                     options.remotePaging = false;
-                    options.remoteSorting = false;
+                    options.remoteSorting = options.remotePaging;
                 }
                 return new Constructor(options);
             } else if (dataSource instanceof Function) {
@@ -839,8 +841,7 @@ export default {
                 if (isNew) {
                     // 树形展示且配置了父节点时只能前端分页
                     options.remotePaging = (this.treeDisplay && this.parentField) ? false : !!this.pagination;
-                    // options.remotePaging = !!this.pagination;
-                    options.remoteSorting = !!(this.sorting && this.sorting.field);
+                    options.remoteSorting = !!options.remotePaging;
                 }
                 return new Constructor(options);
             } else if (dataSource instanceof Object) {
