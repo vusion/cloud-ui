@@ -3,7 +3,7 @@
   description: 树选择
   icon: tree-view
   labels:
-    - Form
+    - Selector
   attrs:
     - name: data-source
       title: 数据源

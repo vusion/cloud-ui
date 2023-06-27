@@ -2,7 +2,7 @@
   icon: select
   title: 选择器
   labels:
-    - Form
+    - Selector
   description: 下拉选择器，支持单选、多选、搜索等功能
   attrs:
     - name: data-source
