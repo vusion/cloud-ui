@@ -7,44 +7,6 @@
   docs:
     rules: 内置规则
   attrs:
-    - name: name
-      title: 表单项名称
-      type: string
-      description: 表单项名称。已废弃
-      deprecated: true
-    - name: label
-      title: 标签
-      type: string
-      description: 标签。在 UValidator 用于提示消息的合成，在 UFormItem 等其他组件用于显示标签
-    - name: rules
-      title: 规则
-      type: string | Array
-      description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
-      compType: validationRulesSelect
-      bindHide: true
-    - name: message
-      title: 提示信息
-      type: string
-      description: 默认提示消息
-    - name: muted
-      title: 静默
-      type: string
-      description: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
-    - name: ignore-validation
-      title: 忽略验证
-      type: boolean
-      default: false
-      description: 忽略验证
-    - name: ignore-rules
-      title: 忽略验证规则
-      type: boolean
-      default: false
-      description: 忽略验证规则。已废弃，同`ignore-validation`
-      deprecated: true
-    - name: validating-options
-      title: 验证辅助对象
-      type: object
-      description: 验证辅助对象。在 Rule 的 `validate` 方法中使用
     - name: validating-value
       title: 验证值
       type: any
