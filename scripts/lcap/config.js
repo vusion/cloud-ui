@@ -6,7 +6,7 @@ module.exports = [
     { group: 'Navigation', name: 'u-crumb', alias: '面包屑' },
     { group: 'Navigation', name: 'u-sidebar', alias: '侧边栏' },
     { group: 'Navigation', name: 'u-navbar-multi', alias: '导航栏' },
-    { group: 'Navigation', name: 'u-navbar', alias: '导航栏', show: false }, // IDE里不展示，但API里需要有
+    { group: 'Navigation', name: 'u-navbar', alias: '导航栏(tradition)', show: false }, // IDE里不展示，但API里需要有
     { group: 'Navigation', name: 'u-dropdown', alias: '下拉菜单' },
     { group: 'Navigation', name: 'u-toc', alias: '目录' },
     { group: 'Navigation', name: 'u-anchor', alias: '锚点' },
