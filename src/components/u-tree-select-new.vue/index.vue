@@ -528,11 +528,10 @@ export default {
   width: var(--select-width);
   height: var(--select-height);
   line-height: calc(var(--select-height) - var(--select-border-width) * 2);
-  padding: 0 var(--select-padding-x);
-  padding-right: calc(
+  padding: 0 calc(
     var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
       var(--select-padding-x)
-  );
+  ) 0 var(--select-padding-x);
   background: var(--select-background);
   border: var(--select-border-width) solid var(--select-border-color);
   color: var(--select-color);
@@ -684,11 +683,10 @@ export default {
 
 .root[size$="mini"] {
   width: var(--select-width-mini);
-  padding: 0 var(--select-padding-x-mini);
-  padding-right: calc(
+  padding: 0 calc(
     var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
       var(--select-padding-x-mini)
-  );
+  ) 0 var(--select-padding-x-mini);
 }
 .root[size$="mini"] .item {
   padding: 0 var(--select-padding-x-mini);
@@ -711,11 +709,10 @@ export default {
 
 .root[size$="small"] {
   width: var(--select-width-small);
-  padding: 0 var(--select-padding-x-small);
-  padding-right: calc(
+  padding: 0 calc(
     var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
       var(--select-padding-x-small)
-  );
+  ) 0 var(--select-padding-x-small);
 }
 .root[size$="small"] .item {
   padding: 0 var(--select-padding-x-small);
@@ -742,11 +739,10 @@ export default {
 
 .root[size$="normal"] {
   width: var(--select-width);
-  padding: 0 var(--select-padding-x);
-  padding-right: calc(
+  padding: 0 calc(
     var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
       var(--select-padding-x)
-  );
+  ) 0 var(--select-padding-x);
 }
 .root[size$="normal"] .item {
   padding: 0 var(--select-padding-x);
@@ -769,11 +765,10 @@ export default {
 
 .root[size$="medium"] {
   width: var(--select-width-medium);
-  padding: 0 var(--select-padding-x-medium);
-  padding-right: calc(
+  padding: 0 calc(
     var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
       var(--select-padding-x-medium)
-  );
+  ) 0 var(--select-padding-x-medium);
 }
 .root[size$="medium"] .item {
   padding: 0 var(--select-padding-x-medium);
@@ -800,11 +795,10 @@ export default {
 
 .root[size$="large"] {
   width: var(--select-width-large);
-  padding: 0 var(--select-padding-x-large);
-  padding-right: calc(
+  padding: 0 calc(
     var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
       var(--select-padding-x-large)
-  );
+  ) 0 var(--select-padding-x-large);
 }
 .root[size$="large"] .item {
   padding: 0 var(--select-padding-x-large);
@@ -831,11 +825,10 @@ export default {
 
 .root[size$="huge"] {
   width: var(--select-width-huge);
-  padding: 0 var(--select-padding-x-huge);
-  padding-right: calc(
+  padding: 0 calc(
     var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
       var(--select-padding-x-huge)
-  );
+  ) 0 var(--select-padding-x-huge);
 }
 .root[size$="huge"] .item {
   padding: 0 var(--select-padding-x-huge);
@@ -858,11 +851,10 @@ export default {
 
 .root[size$="full"] {
   width: 100%;
-  padding: 0 var(--select-padding-x-full);
-  padding-right: calc(
+  padding: 0 calc(
     var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
       var(--select-padding-x-full)
-  );
+  ) 0 var(--select-padding-x-full);
 }
 .root[size$="full"] .item {
   padding: 0 var(--select-padding-x-full);

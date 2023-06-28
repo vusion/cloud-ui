@@ -6,8 +6,6 @@
     text-overflow: ellipsis;
     position: relative;
     line-height: 32px;
-    padding-top: 0;
-    padding-bottom: 0;
     color: var(--select-popper-item-color);
     background: var(--select-popper-item-background);
 }
@@ -15,6 +13,11 @@
 .root:hover {
     color: var(--select-popper-item-color-hover);
     background: var(--select-popper-item-background-hover);
+}
+
+.root {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .root[readonly] {
