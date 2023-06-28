@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :type="type" :direction="direction" v-on="$listeners" vusion-slot-name="default" :nowrap="!wrap">
+<div :class="$style.root" :type="type" :direction="direction" v-on="$listeners" vusion-slot-name="default" :nowrap="!wrap" ref="root">
     <slot></slot>
     <template v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']">
         <div :class="$style.emptyTip" v-if="type === 'root'">拖拽右侧组件放至此处</div>
@@ -57,12 +57,31 @@ export default {
             showLoading: false,
         };
     },
+    mounted() {
+        this.$refs.root.addEventListener('scroll', this.throttle(this.handleScroll.bind(this), 200));
+    },
     methods: {
         openLoading() {
             this.showLoading = true;
         },
         closeLoading() {
             this.showLoading = false;
+        },
+        handleScroll(e) {
+            console.log('scroll');
+            this.$emit('scroll', e);
+        },
+        throttle(fn, delay) {
+            let timer = null;
+            return function () {
+                if (timer) {
+                    return;
+                }
+                timer = setTimeout(() => {
+                    fn.apply(this, arguments);
+                    timer = null;
+                }, delay);
+            };
         },
     },
 };
