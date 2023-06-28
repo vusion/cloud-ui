@@ -1313,10 +1313,10 @@
       description: 配置列的下拉弹窗里，指定数据展示的字段
       advanced: true
     - name: show-footer
-      title: 重置/确定按钮
+      title: 确定/取消按钮
       type: boolean
       default: true
-      description: 控制弹出层的重置/确定按钮是否展示
+      description: 控制弹出层的确定/取消按钮是否展示
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object | DataSource
