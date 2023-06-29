@@ -23,7 +23,8 @@
             :vusion-node-tag="$attrs['vusion-node-tag']"
             vusion-slot-name="item"
             :class="[{[$style.designerMask]: dataSource && $env.VUE_APP_DESIGNER}]"
-            ref="filterPopper">
+            ref="filterPopper"
+            @open="onPopperOpen">
             <template #item="item" v-if="dataSource">
                 <slot name="item" v-bind="item"></slot>
                 <s-empty v-if="$scopedSlots
@@ -183,6 +184,10 @@ export default {
         },
         cancel() {
             this.$refs.filterPopper.cancel();
+        },
+        onPopperOpen() {
+            if (this.$env.VUE_APP_DESIGNER)
+                this.handleColumnsData();
         },
     },
 };
