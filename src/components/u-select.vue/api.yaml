@@ -714,7 +714,6 @@
       title: 选项文本
       type: string
       description: 此项的显示值
-      advanced: true
     - name: value
       title: 选中值
       type: any
