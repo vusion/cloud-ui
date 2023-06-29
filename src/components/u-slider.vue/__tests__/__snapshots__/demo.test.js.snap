@@ -43,7 +43,7 @@ exports[`u-slider.vue Demo-基本用法 1`] = `
 </div>
 `;
 
-exports[`u-slider.vue Demo-多滑块 1`] = `
+exports[`u-slider.vue Demo-双滑块 1`] = `
 <div>
   <div class="root">
     <div class="body">

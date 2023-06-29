@@ -73,7 +73,7 @@
       advanced: true
       group: 数据属性
     - name: multiple
-      title: 多滑块
+      title: 双滑块
       type: boolean
       default: false
       description: 设置是否展示多滑块
