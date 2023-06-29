@@ -118,6 +118,18 @@ export default {
         percent() {
             this.updateHandleLeft();
         },
+        multiple(newVal) {
+            if (!newVal) {
+                this.currentValue = [this.currentValue[0]];
+            } else if (!Array.isArray(this.value)) {
+                // 如果外部传入的不是数组，就处理为 value + 10
+                const value0 = this.value || 0;
+                this.currentValue = [value0, value0 + 10];
+            }
+            this.$nextTick(() => {
+                this.updateHandleLeft();
+            });
+        },
     },
     mounted() {
         this.updateHandleLeft();

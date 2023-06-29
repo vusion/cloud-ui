@@ -47,7 +47,7 @@
       type: string
       description: Tooltip文字设置。在展示Tooltip开关打开的情况下才会生效
     - name: multiple
-      title: 多滑块
+      title: 双滑块
       type: boolean
       default: false
       description: 设置是否展示多滑块
