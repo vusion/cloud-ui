@@ -67,6 +67,9 @@ export default {
     },
     watch: {
         value(value, oldValue) {
+            // 当绑定的是:value=['name']这样的，watch会一直进来，所以增加判断
+            if (JSON.stringify(value) === JSON.stringify(oldValue))
+                return;
             this.currentValue = value;
             this.handleColumnsHidden(value);
         },
