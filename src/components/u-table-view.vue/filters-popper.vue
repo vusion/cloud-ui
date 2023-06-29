@@ -118,6 +118,7 @@ export default {
         onOpen() {
             this.transfomValue();
             this.handleData();
+            this.$emit('open');
         },
         transfomValue() {
             if (!this.multiple)
