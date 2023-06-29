@@ -50,7 +50,7 @@
       title: 双滑块
       type: boolean
       default: false
-      description: 设置是否展示多滑块
+      description: 设置是否展示双滑块
   events:
     - name: input
       description: 拖动滑块时触发
