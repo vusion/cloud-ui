@@ -25,7 +25,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 弹出框的标题，显示在弹出框内容上方
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/100.%E5%BC%B9%E5%87%BA%E6%A1%86.html
+      tooltipLink: ""
     - name: placement
       title: 弹出方向
       type: string
@@ -59,7 +59,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 设置弹出框的弹出方向
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/100.%E5%BC%B9%E5%87%BA%E6%A1%86.html
+      tooltipLink: ""
     - name: hide-delay
       title: 消失延迟时间
       type: number
@@ -68,7 +68,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 当触发方式为悬浮时，弹出框内容消失的延迟时间，单位为ms
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/100.%E5%BC%B9%E5%87%BA%E6%A1%86.html
+      tooltipLink: ""
     - name: follow-cursor
       title: 跟随鼠标
       type: boolean
@@ -77,7 +77,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 控制弹出框弹出位置，开启后会以鼠标点击位置为基点弹出，关闭则为默认弹出位置
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/100.%E5%BC%B9%E5%87%BA%E6%A1%86.html
+      tooltipLink: ""
     - name: display
       title: 展示方式
       type: string
@@ -91,7 +91,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 控制展示方式，支持行内展示、块级展示（占据整行）
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/100.%E5%BC%B9%E5%87%BA%E6%A1%86.html
+      tooltipLink: ""
     - name: ellipsis
       title: 文本过长省略
       type: boolean
@@ -100,7 +100,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 开启时该项文本过长会省略显示，默认不开启为换行显示
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/100.%E5%BC%B9%E5%87%BA%E6%A1%86.html
+      tooltipLink: ""
     - name: trigger
       title: 触发方式
       type: string
@@ -126,7 +126,7 @@
         - 右击：右键单击弹出框触发组件。
         - 双击：左键双击弹出框触发组件。
         - 手动：无法直接通过弹出框组件触发，需要手动配置弹出框调用逻辑。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/100.%E5%BC%B9%E5%87%BA%E6%A1%86.html
+      tooltipLink: ""
     - name: opened
       title: 弹出状态
       type: boolean
@@ -136,7 +136,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 控制弹出框的默认状态。开启时弹出框默认为弹出状态，关闭时弹出框默认为关闭状态
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/100.%E5%BC%B9%E5%87%BA%E6%A1%86.html
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -145,7 +145,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/100.%E5%BC%B9%E5%87%BA%E6%A1%86.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

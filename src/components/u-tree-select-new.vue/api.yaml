@@ -13,7 +13,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/145.%E6%A0%91%E9%80%89%E6%8B%A9%E5%99%A8.html
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
@@ -22,7 +22,7 @@
       compType: dataTypeSelect
       brifeDoc: ""
       docDescription: 该属性为只读状态，当数据源动态绑定集合List<T>后，会自动识别T的类型并进行展示
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/145.%E6%A0%91%E9%80%89%E6%8B%A9%E5%99%A8.html
+      tooltipLink: ""
     - name: text-field
       title: 文本字段
       type: string
@@ -37,7 +37,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识选中值的属性
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/145.%E6%A0%91%E9%80%89%E6%8B%A9%E5%99%A8.html
+      tooltipLink: ""
     - name: parent-field
       title: 父节点字段
       type: string
@@ -46,7 +46,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识父节点的属性
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/145.%E6%A0%91%E9%80%89%E6%8B%A9%E5%99%A8.html
+      tooltipLink: ""
     - name: children-field
       title: 子节点字段
       type: string
@@ -55,7 +55,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识子节点的属性
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/145.%E6%A0%91%E9%80%89%E6%8B%A9%E5%99%A8.html
+      tooltipLink: ""
     - name: value
       title: 选中值
       type: any
@@ -65,7 +65,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 通过组件进行选择后，最终选中的值，支持双向绑定到变量
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/145.%E6%A0%91%E9%80%89%E6%8B%A9%E5%99%A8.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

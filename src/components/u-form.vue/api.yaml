@@ -54,7 +54,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 更改表单的布局方式。行内展示，标签与表单项在一行展示。块级展示，宽度会充满父元素。栅格展示，可设置列数。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: repeat
       title: 列数
       type: number
@@ -68,7 +68,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 整个表单的划分列数，此项需要设置表单布局为“栅格展示”。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: label-layout
       title: 标签布局
       type: string
@@ -82,7 +82,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: "设置标签布局方式。行内展示；块级展示，标签与单项分行展示- "
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: label-ellipsis
       title: 标签过长省略
       type: boolean
@@ -91,7 +91,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 文字过长是否省略显示，默认文字超出时会换行。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: collapsible
       title: 可折叠
       type: boolean
@@ -100,7 +100,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 分组是否可以折叠。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: accordion
       title: 手风琴模式
       type: boolean
@@ -109,7 +109,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 是否每次只会展开一个分组。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: expand-trigger
       title: 展开触发方式
       type: string
@@ -126,7 +126,7 @@
         展开/折叠的触发方式。
         - 整行点击均可触发。
         - 仅点击小箭头时触发。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: gap-width
       title: 列间隔
       type: string
@@ -146,7 +146,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 设置表单项间隔大小。支持无、小、正常、大四个级别，此项需要设置表单布局为“行内展示”。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: gap-height
       title: 行间隔
       type: string
@@ -164,7 +164,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 设置表单行间隔大小。支持无、小、正常、大四个级别。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: label-size
       title: 标签宽度
       type: string
@@ -184,7 +184,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 设置标签宽度。支持迷你、小、正常、大四个级别。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
   computed:
     - name: touched
       title: 触碰
@@ -339,7 +339,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 列跨越的格数。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: label-layout
       title: 标签布局
       type: string
@@ -352,8 +352,8 @@
       description: ""
       group: 主要属性
       brifeDoc: ""
-      docDescription: "设置标签布局方式。行内展示；块级展示，标签与单项分行展示- "
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      docDescription: 设置标签布局方式，行内展示、块级展示，标签与表单项分行展示
+      tooltipLink: ""
     - name: label-ellipsis
       title: 标签过长省略
       type: boolean
@@ -362,7 +362,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 文字过长是否省略显示，默认文字超出时会换行。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: required
       title: 必填标记
       type: boolean
@@ -371,7 +371,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 是否必填。仅显示样式，如果要验证必填项，需要在rules中添加必填规则。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: message
       title: 释义提示
       type: string
@@ -379,7 +379,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 默认提示消息。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: description
       title: 辅助文本
       type: string
@@ -387,7 +387,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 添加描述内容。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: layout
       title: 标签纵轴对齐
       type: string
@@ -401,8 +401,8 @@
       default: center
       description: 标签与表单元素的纵轴对齐方式，默认为顶对齐
       group: 主要属性
-      docDescription: 标签与表单元素的纵轴对齐方式，默认为顶对齐
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      docDescription: 标签与表单元素的纵轴对齐方式，默认为顶对齐。
+      tooltipLink: ""
     - name: rules
       title: 验证规则
       type: string | Array
@@ -412,7 +412,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型，详见[验证规则](#验证规则)。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: ignore-validation
       title: 忽略验证
       type: boolean
@@ -421,7 +421,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 设置是否忽略验证。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: field-size
       title: 字段大小
       type: string
@@ -439,7 +439,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 单独设置表单项的内容大小。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: label-size
       title: 表单项标题宽度
       type: string
@@ -457,7 +457,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 单独设置表单项的标签宽度大小。支持迷你、小、正常、大四个级别。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -524,7 +524,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 显示的标题。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: repeat
       title: 列数
       type: number
@@ -532,8 +532,8 @@
       description: 整个表单的划分列数
       group: 主要属性
       brifeDoc: ""
-      docDescription: 整个表单的划分列数，此项需要设置表单布局为“栅格展示”。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      docDescription: 整个表单的划分列数。
+      tooltipLink: ""
     - name: label-layout
       title: 标签布局
       type: string
@@ -546,8 +546,8 @@
       description: ""
       group: 主要属性
       brifeDoc: ""
-      docDescription: "设置标签布局方式。行内展示；块级展示，标签与单项分行展示- "
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      docDescription: 设置标签布局方式。行内展示、块级展示，标签与表单项分行展示。
+      tooltipLink: ""
     - name: label-ellipsis
       title: 标签过长省略
       type: boolean
@@ -555,8 +555,8 @@
       description: 文字过长是否省略显示。默认文字超出时会换行。
       group: 主要属性
       brifeDoc: ""
-      docDescription: 文字过长是否省略显示，默认文字超出时会换行。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      docDescription: 文字过长是否省略显示。默认文字超出时会换行。
+      tooltipLink: ""
     - name: collapsible
       title: 可折叠
       type: boolean
@@ -565,7 +565,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 分组是否可以折叠。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: expanded
       title: 展开状态
       type: boolean
@@ -575,7 +575,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 绑定展开/折叠状态的值
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -584,7 +584,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

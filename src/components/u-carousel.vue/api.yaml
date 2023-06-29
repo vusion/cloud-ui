@@ -30,7 +30,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/080.%E5%B9%BB%E7%81%AF%E7%89%87.html
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
@@ -39,7 +39,7 @@
       compType: dataTypeSelect
       brifeDoc: ""
       docDescription: IDE 根据配置的数据源动态计算返回内容的数据结构，用于动态配置项 current.item 的类型说明。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/080.%E5%B9%BB%E7%81%AF%E7%89%87.html
+      tooltipLink: ""
     - name: value
       title: 值
       type: any
@@ -55,7 +55,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 是否循环播放所有图片
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/080.%E5%B9%BB%E7%81%AF%E7%89%87.html
+      tooltipLink: ""
     - name: interval
       title: 切换间隔时间
       type: number
@@ -64,7 +64,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/080.%E5%B9%BB%E7%81%AF%E7%89%87.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

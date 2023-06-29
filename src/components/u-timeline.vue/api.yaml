@@ -11,7 +11,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 时间线的数据源。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/170.%E6%97%B6%E9%97%B4%E7%BA%BF.html
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
@@ -20,7 +20,7 @@
       compType: dataTypeSelect
       brifeDoc: ""
       docDescription: 时间线数据类型。该属性为展示属性，由数据源推倒得到，无需填写。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/170.%E6%97%B6%E9%97%B4%E7%BA%BF.html
+      tooltipLink: ""
     - name: mode
       title: 排布方式
       type: string
@@ -34,7 +34,7 @@
       description: 时间线节点与内容的排布方式
       brifeDoc: ""
       docDescription: 默认、时间线居中
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/170.%E6%97%B6%E9%97%B4%E7%BA%BF.html
+      tooltipLink: ""
     - name: pending
       title: 待定节点
       type: boolean
@@ -43,7 +43,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 待定节点连接线为虚线展示，用于表示即将发生或者正在进行的节点
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/170.%E6%97%B6%E9%97%B4%E7%BA%BF.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -77,7 +77,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 指定展示在另一侧的 `label`，只在 `label` 模式下生效。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/170.%E6%97%B6%E9%97%B4%E7%BA%BF.html
+      tooltipLink: ""
     - name: position
       title: 位置
       type: string
@@ -91,7 +91,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 指定交替展示时的位置，只在 `alternate` 或 `label` 模式下生效。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/170.%E6%97%B6%E9%97%B4%E7%BA%BF.html
+      tooltipLink: ""
     - name: color
       title: 节点颜色
       type: string
@@ -100,7 +100,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/170.%E6%97%B6%E9%97%B4%E7%BA%BF.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

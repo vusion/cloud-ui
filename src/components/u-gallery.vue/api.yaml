@@ -18,7 +18,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 组件所展示数据的输入源，可以是逻辑、变量。格式可参见示例
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/063.%E7%94%BB%E5%BB%8A.html
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
@@ -38,7 +38,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 图片的显示模式，支持大图模式和缩略图模式
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/063.%E7%94%BB%E5%BB%8A.html
+      tooltipLink: ""
     - name: num
       title: 显示图片数
       type: number
@@ -47,7 +47,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 同时展示的图片数量
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/063.%E7%94%BB%E5%BB%8A.html
+      tooltipLink: ""
     - name: arrow
       title: 显示左右箭头
       type: boolean
@@ -56,7 +56,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 图片支持通过鼠标按住拖动或点击左右箭头的方式调整位置，关闭该选项后不显示左右箭头
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/063.%E7%94%BB%E5%BB%8A.html
+      tooltipLink: ""
   slots: false
   events:
     - name: before-load
