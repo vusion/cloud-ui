@@ -123,7 +123,7 @@
 <u-combo-slider :show-tooltip="true"></u-combo-slider>
 ```
 
-### 多滑块
+### 双滑块
 
 ``` html
 <u-combo-slider multiple :value="[18, 36]"></u-combo-slider>
