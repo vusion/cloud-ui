@@ -40,7 +40,7 @@
       description: ""
       brifeDoc: ""
       docDescription: 支持基础按钮样式、主要按钮样式、次要按钮样式、普通按钮样式共4种样式
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/060.%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html
+      tooltipLink: ""
     - name: placement
       title: 弹出方向
       type: string
@@ -74,7 +74,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 设置下拉菜单的弹出位置，支持上、下、左、右、上左、上右、下左、下右、左上、左下、右上、右下共12个方向
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/060.%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html
+      tooltipLink: ""
     - name: append-to
       title: 弹出层位置依据
       type: string
@@ -88,7 +88,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 设置弹出层在html里的位置，支持引用元素下、全局body设置。当把下拉菜单放入某个组件，而组件overflow是hidden的时候，需要设置为全局body
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/060.%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -97,7 +97,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/060.%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -131,7 +131,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 菜单项前增加自定义图标显示
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/060.%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html
+      tooltipLink: ""
     - name: linkType
       title: 链接类型
       type: string
@@ -147,7 +147,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 支持页面跳转、下载链接
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/060.%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html
+      tooltipLink: ""
     - name: hrefAndTo
       title: 链接地址
       type: string
@@ -156,7 +156,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 链接地址配置
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/060.%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html
+      tooltipLink: ""
     - name: target
       title: 链接打开方式
       type: string
@@ -176,7 +176,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 支持新窗口、当前窗口、父级窗口、顶级窗口四种方式，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/060.%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -185,7 +185,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/060.%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html
+      tooltipLink: ""
   events:
     - name: click
       title: 点击

@@ -15,7 +15,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 当前选择的值
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/146.%E8%AF%84%E5%88%86.html
+      tooltipLink: ""
     - name: max
       title: 最大分数
       type: number
@@ -24,7 +24,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 评分组件的最大分数
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/146.%E8%AF%84%E5%88%86.html
+      tooltipLink: ""
     - name: show-text
       title: 展示辅助文本
       type: boolean
@@ -33,7 +33,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 在评分后展示辅助文字
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/146.%E8%AF%84%E5%88%86.html
+      tooltipLink: ""
     - name: texts
       title: 辅助文本
       type: Array
@@ -47,7 +47,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 辅助文字设置。在展示辅助文字开关打开的情况下才会生效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/146.%E8%AF%84%E5%88%86.html
+      tooltipLink: ""
     - name: show-tooltip
       title: 展示提示信息
       type: boolean
@@ -56,7 +56,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 鼠标悬浮时展示提示文字
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/146.%E8%AF%84%E5%88%86.html
+      tooltipLink: ""
     - name: tooltips
       title: 提示信息
       type: Array
@@ -70,7 +70,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: Tooltip文字设置。在展示Tooltip开关打开的情况下才会生效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/146.%E8%AF%84%E5%88%86.html
+      tooltipLink: ""
     - name: allow-half
       title: 可半选
       type: boolean
@@ -79,7 +79,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 是否允许半选
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/146.%E8%AF%84%E5%88%86.html
+      tooltipLink: ""
     - name: clearable
       title: 可清除
       type: boolean
@@ -88,7 +88,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 是否允许选中后点击清除
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/146.%E8%AF%84%E5%88%86.html
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -97,7 +97,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/146.%E8%AF%84%E5%88%86.html
+      tooltipLink: ""
   events:
     - name: change
       title: 改变后

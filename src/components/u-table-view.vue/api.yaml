@@ -13,7 +13,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 表格展示的数据。数据源可以绑定变量或者逻辑。变量或逻辑的返回值可以是数组，也可以是对象。对象格式为{list:[], total:10}
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
@@ -22,7 +22,7 @@
       compType: dataTypeSelect
       brifeDoc: ""
       docDescription: 表格每一行的数据类型。该属性为展示属性，由数据源推导得到，无需填写
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: extra-params
       title: 数据源参数
       type: object
@@ -31,7 +31,7 @@
       advanced: true
       brifeDoc: ""
       docDescription: 当数据源绑定的是逻辑，逻辑的第一个输入参数无法满足要求时，可绑定该字段值，传入更多的参数值。数据类型为对象{key:value}格式。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: pageable
       title: 前端分页
       type: boolean
@@ -41,7 +41,7 @@
       hidden: true
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: remote-paging
       title: 后端分页
       type: boolean
@@ -53,7 +53,7 @@
       hidden: true
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: pagination
       title: 分页
       type: boolean
@@ -61,7 +61,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 是否展示分页组件，数据源调用接口是否加入分页参数。默认开启
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: page-size
       title: 默认每页条数
       type: number
@@ -73,7 +73,7 @@
         - pagination: true
       brifeDoc: ""
       docDescription: 每页的数据条数。默认20条。在"分页"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: show-sizer
       title: 显示每页条数
       type: boolean
@@ -84,7 +84,7 @@
         - pagination: true
       brifeDoc: ""
       docDescription: 分页组件处是否展示数据条数的选择列表。默认开启。在"分页"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: page-size-options
       title: 每页条数选项
       type: Array<number>
@@ -98,7 +98,7 @@
         - pagination: true
       brifeDoc: ""
       docDescription: 分页组件处是否展示每页显示数据条数的选择列表，需设置数组，如[10,20,30,40,50]。在"分页"属性开启时有效。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: page-number
       title: 当前页数
       type: number
@@ -112,7 +112,7 @@
         - pagination: true
       brifeDoc: ""
       docDescription: 当前加载的表格页。默认1。在"分页"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: show-total
       title: 显示总条数
       type: boolean
@@ -123,7 +123,7 @@
         - pagination: true
       brifeDoc: ""
       docDescription: 分页组件处是否显示表格总数。默认关闭。在"分页"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: show-jumper
       title: 显示跳转输入
       type: boolean
@@ -134,7 +134,7 @@
         - pagination: true
       brifeDoc: ""
       docDescription: 分页组件处是否展示跳转到某一页的输入框。默认关闭。在"分页"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: sorting
       title: 初始化排序规则
       type: "{ field: string, order: string, compare: Function }"
@@ -144,7 +144,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 支持选择数据表格数据源中的某一条数据，配置默认排序规则，支持升序和降序
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: remote-sorting
       title: 排序
       type: boolean
@@ -154,7 +154,7 @@
       hidden: true
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: default-order
       title: 排序初始顺序
       type: string
@@ -171,7 +171,7 @@
       hidden: true
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: filtering
       title: 筛选参数
       type: object
@@ -193,7 +193,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 在表格开启了单选、多选操作、渲染树形数据中，指定数据唯一值的字段
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: value
       title: 单选值
       type: any
@@ -202,8 +202,8 @@
       description: 用于标识单选选项的值
       group: 数据属性
       brifeDoc: ""
-      docDescription: ''
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      docDescription: 当表格设置了单选列，或开启了可选行，选中某一行时的值。该取值由值字段名决定。一般会是id等能唯一标识每一行数据的值
+      tooltipLink: ""
     - name: values
       title: 多选值
       type: Array
@@ -212,7 +212,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 当表格设置了多选列，选择多个值后获得了值列表数组。该取值由值字段名决定
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: tree-display
       title: 树形模式
       type: boolean
@@ -221,7 +221,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 表格是否以树型方式展示。默认关闭
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: parent-field
       title: 父节点字段
       type: string
@@ -231,7 +231,7 @@
         - tree-display: true
       brifeDoc: ""
       docDescription: 标识父节点字段名，用于标识表格行取哪个数据作为父级的判断，需同步配置“值字段名”。在"树行模式"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: children-field
       title: 子节点字段
       type: string
@@ -242,7 +242,7 @@
         - tree-display: true
       brifeDoc: ""
       docDescription: 标识子节点字段名，用于表格显示时取哪个数据展示子树。在"树行模式"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: has-children-field
       title: 包含子节点字段
       type: string
@@ -253,7 +253,7 @@
         - tree-display: true
       brifeDoc: ""
       docDescription: 表示当前行是否需要展示子节点的"展开/收起"图标。在"树形模式"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: tree-check-type
       title: 关联选中类型
       description: 父子树节点是否关联选中
@@ -273,7 +273,7 @@
         - tree-display: true
       brifeDoc: ""
       docDescription: 当选中父节点时，子节点是否相应选中等。在"树形模式"属性开启并且表格存在"多选列"时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: title
       title: 表格标题
       type: string
@@ -281,7 +281,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 表格上方的标题信息。默认为空
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: show-head
       title: 显示表格头部
       type: boolean
@@ -290,7 +290,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 是否显示表格头。默认开启
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: stick-head
       title: 表格头部吸顶
       type: boolean
@@ -299,7 +299,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 当页面滚动到顶时，表格头是否固定在头部，不随页面滚动。默认关闭
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: stick-head-offset
       title: 表格头部吸顶偏移量
       type: number
@@ -308,7 +308,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 与"表格头部吸顶"选项配合使用，表示表格头吸顶时与顶部的距离
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: hover
       title: 悬浮高亮行
       type: boolean
@@ -318,7 +318,7 @@
       hidden: true
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: selectable
       title: 可选行
       type: boolean
@@ -327,7 +327,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 表格行是否可点击选中，该取值由值字段名决定，一般会是id等能唯一标识每一行数据的值。默认关闭。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: cancelable
       title: 可取消
       type: boolean
@@ -336,7 +336,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 与"可选行"属性对应，表示选中的行再点击时是否可以取消选中。默认关闭。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: draggable
       title: 可拖拽
       type: boolean
@@ -345,7 +345,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 表格行是否可拖拽放置。默认关闭
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: accordion
       title: 手风琴模式
       type: boolean
@@ -354,7 +354,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 表示点击展开行时，其它已经展开的行是否收起。在表格存在"展开列"时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: resizable
       title: 可调整列宽
       type: boolean
@@ -363,7 +363,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 表格列之间是否出现调整样式，可以手动调整列宽
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: resize-remaining
       title: 调整列宽效果
       type: string
@@ -379,7 +379,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 表示调整列宽时其他列宽的处理方式。在"可调整列宽"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: configurable
       title: 配置展示列
       type: boolean
@@ -396,7 +396,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: "- 是否在表格出现时立即加载数据，默认开启。"
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: designer-mode
       title: 加载状态设置
       type: string
@@ -415,7 +415,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 可通过切换该选项，设置不同状态时该组件的展示形式，支持配置
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: loading-text
       title: 加载中文案
       type: string
@@ -426,7 +426,7 @@
         - designer-mode: loading
       brifeDoc: ""
       docDescription: 当加载表格数据过程中的提示文字。默认“正在加载中...”。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: loading
       title: 加载中触发条件
       type: boolean
@@ -437,7 +437,7 @@
         - designer-mode: loading
       brifeDoc: ""
       docDescription: 支持自定义状态的触发条件，未设置则默认为系统定义条件。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: error-text
       title: 加载失败文案
       type: string
@@ -448,7 +448,7 @@
         - designer-mode: error
       brifeDoc: ""
       docDescription: 加载失败的提示文字。默认"加载失败，请重试"。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: error
       title: 加载失败触发条件
       type: boolean
@@ -459,7 +459,7 @@
         - designer-mode: error
       brifeDoc: ""
       docDescription: 支持自定义状态的触发条件，未设置则默认为系统定义条件。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: empty-text
       title: 暂无数据文案
       type: string
@@ -470,7 +470,7 @@
         - designer-mode: empty
       brifeDoc: ""
       docDescription: 当表格为空时的提示文字。默认"暂无数据"。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -479,7 +479,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -488,7 +488,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: title-alignment
       title: 标题对齐方式
       type: string
@@ -504,7 +504,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 表格上方的标题信息的对齐方式。默认"居中对齐"。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: boldHeader
       title: 表头加粗
       type: boolean
@@ -513,7 +513,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 表格每一列的表头文字是否加粗。默认开启
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: border
       title: 显示边框
       type: boolean
@@ -522,7 +522,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 表格是否展示边框。默认关闭
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: line
       title: 分隔线条
       type: boolean
@@ -531,7 +531,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 表格每列之间是否展示分隔线条。默认关闭
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: striped
       title: 斑马条纹
       type: boolean
@@ -540,7 +540,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 表格行是否按斑马线条纹显示。默认关闭
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: default-column-width
       title: 默认列宽度
       type: string | number
@@ -548,7 +548,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 表格每列的默认宽度。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -1039,7 +1039,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 数据项中对应的字段名，如createdTime
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: sortable
       title: 排序
       type: boolean
@@ -1048,7 +1048,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 开启后该列可排序，可设置默认顺序，升序或倒序
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: default-order
       title: 排序初始顺序
       type: string
@@ -1064,7 +1064,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 该列首次点击时的排序顺序。与表格属性中的"默认排序顺序"相同
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: type
       title: 列类型
       type: string
@@ -1094,7 +1094,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 可设置序号列、单选列、多选列、展开列或树型列
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: auto-index
       title: 换页继续编号
       type: boolean
@@ -1105,7 +1105,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 支持换页后，继续上一页的列序号进行编号
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: start-index
       title: 起始序号
       type: number
@@ -1117,7 +1117,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 当列类型为"序号列"时有效。默认值为1
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: dblclickHandler
       title: 双击处理函数
       type: Function
@@ -1126,7 +1126,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 用于可编辑表格，双击表格列时的处理函数。在表格是"可编辑"的表格时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: title
       title: 表格标题
       type: string
@@ -1144,7 +1144,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: ellipsis
       title: 文本过长省略
       type: boolean
@@ -1153,7 +1153,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 开启后，该列文本过长会省略显示，否则换行显示，默认关闭
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: hidden
       title: 隐藏列
       type: boolean
@@ -1162,7 +1162,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 开启后，当表格横向滚动条滚动时，该列会固定不会跟随滚动条滚动
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
     - name: width
       title: 列宽度
       type: string | number
@@ -1170,7 +1170,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 指定列宽，可以是数字或百分比，如100，或10%。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: cell
@@ -1349,9 +1349,9 @@
       sync: true
       model: true
       group: 数据属性
-      description: ''
+      description: ""
       brifeDoc: ""
-      docDescription: ''
+      docDescription: ""
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: show-footer
       title: 确定/取消按钮

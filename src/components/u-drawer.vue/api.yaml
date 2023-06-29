@@ -18,7 +18,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持选择抽屉的显示位置，支持左、右两个位置
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/220.%E6%8A%BD%E5%B1%89.html
+      tooltipLink: ""
     - name: show-head
       title: 显示顶部栏
       type: boolean
@@ -27,7 +27,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 控制抽屉顶部栏的开启和关闭
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/220.%E6%8A%BD%E5%B1%89.html
+      tooltipLink: ""
     - name: show-foot
       title: 显示底部栏
       type: boolean
@@ -36,7 +36,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 控制抽屉底部栏的开启和关闭
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/220.%E6%8A%BD%E5%B1%89.html
+      tooltipLink: ""
     - name: maskClosable
       title: 点击遮罩关闭
       type: boolean
@@ -48,7 +48,7 @@
         控制抽屉打开时，点击遮罩区域的作用，默认开启。
         - 开启：点击遮罩区域则自动关闭抽屉。
         - 关闭：点击遮罩区域无实际作用
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/220.%E6%8A%BD%E5%B1%89.html
+      tooltipLink: ""
     - name: visible
       title: 显示状态
       type: boolean
@@ -58,7 +58,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 控制抽屉是否进入页面时自动显示。开启表示自动显示，关闭表示不自动显示
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/220.%E6%8A%BD%E5%B1%89.html
+      tooltipLink: ""
     - name: size
       type: string
       title: 尺寸
@@ -74,7 +74,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 支持配置抽屉的宽度，支持小、正常、大三个尺寸
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/09.%E5%8F%8D%E9%A6%88/220.%E6%8A%BD%E5%B1%89.html
+      tooltipLink: ""
   events:
     - name: open
       title: 打开时

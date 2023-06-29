@@ -12,7 +12,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: "- 设置列表信息展示的划分列数"
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: show-head
       title: 显示表格头部
       type: boolean
@@ -21,7 +21,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 开启时会显示表格头部
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: label-size
       title: 列表项标题宽度
       type: string
@@ -39,7 +39,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 列表中所有列表项的标签大小
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -73,7 +73,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 当前列表项占的列数，为空默认取列表组的列数值，优先取列表项的值
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: ellipsis
       title: 文本过长省略
       type: boolean
@@ -82,7 +82,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 开启时该项文本过长会省略显示，默认不开启为换行显示
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: label-size
       title: 列表项标题宽度
       type: string
@@ -100,7 +100,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 当前列表项的标签大小，优先取列表项的值
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -126,7 +126,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 当前组信息展示划分的列数，为空默认取详情列表的值，若和列表列数不一致，优先取列表组的值。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: label-size
       title: 列表项标题宽度
       type: string
@@ -144,7 +144,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 当前组列表项的标签大小，若和列表列数不一致，优先取列表组的值。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/090.%E8%AF%A6%E6%83%85%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
