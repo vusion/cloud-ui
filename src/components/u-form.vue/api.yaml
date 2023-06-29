@@ -352,7 +352,7 @@
       description: ""
       group: 主要属性
       brifeDoc: ""
-      docDescription: "设置标签布局方式。行内展示；块级展示，标签与单项分行展示- "
+      docDescription: 设置标签布局方式，行内展示、块级展示，标签与表单项分行展示
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
     - name: label-ellipsis
       title: 标签过长省略
@@ -401,7 +401,7 @@
       default: center
       description: 标签与表单元素的纵轴对齐方式，默认为顶对齐
       group: 主要属性
-      docDescription: 标签与表单元素的纵轴对齐方式，默认为顶对齐
+      docDescription: 标签与表单元素的纵轴对齐方式，默认为顶对齐。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
     - name: rules
       title: 验证规则
@@ -532,7 +532,7 @@
       description: 整个表单的划分列数
       group: 主要属性
       brifeDoc: ""
-      docDescription: 整个表单的划分列数，此项需要设置表单布局为“栅格展示”。
+      docDescription: 整个表单的划分列数。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
     - name: label-layout
       title: 标签布局
@@ -546,7 +546,7 @@
       description: ""
       group: 主要属性
       brifeDoc: ""
-      docDescription: "设置标签布局方式。行内展示；块级展示，标签与单项分行展示- "
+      docDescription: 设置标签布局方式。行内展示、块级展示，标签与表单项分行展示。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
     - name: label-ellipsis
       title: 标签过长省略
@@ -555,7 +555,7 @@
       description: 文字过长是否省略显示。默认文字超出时会换行。
       group: 主要属性
       brifeDoc: ""
-      docDescription: 文字过长是否省略显示，默认文字超出时会换行。
+      docDescription: 文字过长是否省略显示。默认文字超出时会换行。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
     - name: collapsible
       title: 可折叠

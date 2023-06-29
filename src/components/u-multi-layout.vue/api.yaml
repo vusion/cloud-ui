@@ -269,7 +269,7 @@
           icon: flex-vertical
           tooltip: 纵向
       default: horizontal
-      description: ""
+      description: 可更改布局的排列方向
       toggleclear:
         - justify
         - alignment
@@ -277,9 +277,9 @@
         - mode: flex
       group: 主要属性
       brifeDoc: ""
-      docDescription: |-
-        横向：内部子元素进行横向排布。
-        纵向：内部子元素进行纵向排布。
+      docDescription: |2
+         横向：内部子元素进行横向排布，建议内部子元素使用行内布局。
+        纵向：内部子元素进行纵向排布，建议内部子元素使用块级布局。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/040.%E5%88%86%E6%A0%8F%E5%B8%83%E5%B1%80.html
     - name: justify
       title: 横轴对齐
@@ -321,7 +321,7 @@
       group: 主要属性
       description: ""
       brifeDoc: ""
-      docDescription: 支持左对齐、居中对齐、右对齐、占满容器宽度。
+      docDescription: 主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/040.%E5%88%86%E6%A0%8F%E5%B8%83%E5%B1%80.html
     - name: alignment
       title: 纵轴对齐
@@ -356,7 +356,9 @@
       group: 主要属性
       description: ""
       brifeDoc: ""
-      docDescription: 支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
+      docDescription: |-
+        主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
+         主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/040.%E5%88%86%E6%A0%8F%E5%B8%83%E5%B1%80.html
     - name: alignment
       title: 纵轴对齐
@@ -387,7 +389,9 @@
       group: 主要属性
       description: ""
       brifeDoc: ""
-      docDescription: 支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
+      docDescription: |-
+        主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
+         主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/040.%E5%88%86%E6%A0%8F%E5%B8%83%E5%B1%80.html
     - name: justify
       title: 横轴对齐
@@ -429,7 +433,7 @@
       group: 主要属性
       description: ""
       brifeDoc: ""
-      docDescription: 支持左对齐、居中对齐、右对齐、占满容器宽度。
+      docDescription: 主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/040.%E5%88%86%E6%A0%8F%E5%B8%83%E5%B1%80.html
     - name: gap
       title: 内容间隙
@@ -446,7 +450,7 @@
         - value: large
           title: 大
       default: none
-      description: 布局中各分栏间的空隙大小
+      description: 内容块间隙大小
       dependency:
         - mode: flex
           "!justify":
@@ -454,7 +458,7 @@
             - space-around
       group: 样式属性
       brifeDoc: ""
-      docDescription: 分栏布局中各分栏间的空隙大小，缺省为无，支持收缩、无、小、正常、大共5个级别。
+      docDescription: 布局内各个组件之间的间隔，通常有收缩、无、小、正常、大，默认为无。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/040.%E5%88%86%E6%A0%8F%E5%B8%83%E5%B1%80.html
   slots:
     - concept: Slot

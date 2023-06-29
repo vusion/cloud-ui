@@ -716,12 +716,12 @@
       description: 此项的显示值
       advanced: true
     - name: value
-      title: 选中值
+      title: 值
       type: any
-      description: 当前选中的值
+      description: 此项的值。
       group: 数据属性
       brifeDoc: ""
-      docDescription: 当前选择的值
+      docDescription: 此项的值
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: description
       title: 选项辅助文本
@@ -729,7 +729,7 @@
       description: 选项的辅助说明信息，展示在选项文本下方
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
+      docDescription: 选项文本的辅助描述，展示在选项文本下方
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
     - name: item
       title: 相关对象
@@ -746,7 +746,7 @@
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
       brifeDoc: ""
-      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      docDescription: 该项不可选，默认关闭
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/140.%E9%80%89%E6%8B%A9%E6%A1%86.html
   slots:
     - concept: Slot

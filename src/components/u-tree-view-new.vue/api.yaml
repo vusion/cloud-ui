@@ -375,12 +375,12 @@
       description: 当选择此节点时，抛出的事件会传递该对象，便于开发
       advanced: true
     - name: value
-      title: 选中值
+      title: 值
       type: any
-      description: 选择后，所选中的值
+      description: 节点的值
       group: 数据属性
       brifeDoc: ""
-      docDescription: 当前选择的值
+      docDescription: ""
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/180.%E6%A0%91%E5%BD%A2%E8%A7%86%E5%9B%BE.html
     - name: checked
       title: 可选中/取消
@@ -407,7 +407,7 @@
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
       brifeDoc: ""
-      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      docDescription: ""
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/180.%E6%A0%91%E5%BD%A2%E8%A7%86%E5%9B%BE.html
   slots:
     - concept: Slot

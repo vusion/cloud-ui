@@ -269,7 +269,9 @@
       group: 主要属性
       description: ""
       brifeDoc: ""
-      docDescription: 支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。
+      docDescription: |-
+        主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。
+        主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: alignment
       title: 纵轴对齐
@@ -304,7 +306,7 @@
       group: 主要属性
       description: ""
       brifeDoc: ""
-      docDescription: 支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
+      docDescription: 主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: alignment
       title: 纵轴对齐
@@ -335,7 +337,7 @@
       group: 主要属性
       description: ""
       brifeDoc: ""
-      docDescription: 支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
+      docDescription: 主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: justify
       title: 横轴对齐
@@ -377,7 +379,9 @@
       group: 主要属性
       description: ""
       brifeDoc: ""
-      docDescription: 支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。
+      docDescription: |-
+        主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。
+        主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: span
       title: 占据栅格数
@@ -436,7 +440,7 @@
         支持控制弹性布局模式下，子元素总宽度超过父级时是否换行展示，默认开启。
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/01.%E5%B8%83%E5%B1%80/030.%E6%A0%85%E6%A0%BC%E5%B8%83%E5%B1%80.html
     - name: gap
-      title: 内容间隔
+      title: 内容间隙
       type: string
       options:
         - value: shrink
@@ -451,7 +455,7 @@
         - value: large
           title: 大
       default: normal
-      description: 内容块间隔大小
+      description: 内容块间隙大小
       dependency:
         - mode: flex
           "!justify":

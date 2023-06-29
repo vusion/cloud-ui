@@ -139,7 +139,7 @@
       description: 置灰显示，且禁止展开/折叠操作
       group: 状态属性
       brifeDoc: ""
-      docDescription: 开启后当前面板所有项均无法展开或折叠，默认关闭
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/03.%E5%AE%B9%E5%99%A8/040.%E6%8A%98%E5%8F%A0%E9%9D%A2%E6%9D%BF.html
   slots:
     - concept: Slot

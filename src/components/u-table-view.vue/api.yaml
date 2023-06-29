@@ -202,7 +202,7 @@
       description: 用于标识单选选项的值
       group: 数据属性
       brifeDoc: ""
-      docDescription: 当表格设置了单选列，或开启了可选行，选中某一行时的值。该取值由值字段名决定。一般会是id等能唯一标识每一行数据的值
+      docDescription: ''
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: values
       title: 多选值
@@ -1058,12 +1058,12 @@
         - value: desc
           title: 倒序
       default: asc
-      description: ""
+      description: 该列首次点击时的排序顺序
       dependency:
         - sortable: true
       group: 数据属性
       brifeDoc: ""
-      docDescription: ""
+      docDescription: 该列首次点击时的排序顺序。与表格属性中的"默认排序顺序"相同
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: type
       title: 列类型
@@ -1312,11 +1312,6 @@
       type: string
       description: 配置列的下拉弹窗里，指定数据展示的字段
       advanced: true
-    - name: show-footer
-      title: 确定/取消按钮
-      type: boolean
-      default: true
-      description: 控制弹出层的确定/取消按钮是否展示
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object | DataSource
@@ -1349,15 +1344,21 @@
       docDescription: 在表格开启了单选、多选操作、渲染树形数据中，指定数据唯一值的字段
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: value
-      title: 单选值
+      title: 值
       type: any
       sync: true
       model: true
       group: 数据属性
-      description: 用于标识单选选项的值
+      description: ''
       brifeDoc: ""
-      docDescription: 当表格设置了单选列，或开启了可选行，选中某一行时的值。该取值由值字段名决定。一般会是id等能唯一标识每一行数据的值
+      docDescription: ''
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+    - name: show-footer
+      title: 确定/取消按钮
+      type: boolean
+      default: true
+      description: 控制弹出层的确定/取消按钮是否展示
+      group: 主要属性
   slots:
     - concept: Slot
       name: title
