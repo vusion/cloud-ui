@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.root">
+    <div :class="$style.root" :border="border">
         <DateRange
             v-if="picker === 'date'"
             :value="value"
@@ -29,8 +29,8 @@ export default {
     },
     props: {
         picker: { type: String, default: 'date' },
-        startTime: { type: [String, Number, Date] },
-        endTime: { type: [String, Number, Date] },
+        startDate: { type: [String, Number, Date] },
+        endDate: { type: [String, Number, Date] },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         minDate: [String, Date, Number],
@@ -38,11 +38,11 @@ export default {
         // yearDiff: { type: [String, Number], default: 20 },
         // yearAdd: { type: [String, Number], default: 4 },
         // yearPageSize: { type: Number, default: 12 },
-        // border: { type: Boolean, default: true },
+        border: { type: Boolean, default: true },
     },
     computed: {
         value() {
-            return [this.startTime, this.endTime]
+            return [this.startDate, this.endDate]
         },
         disabledDate() {
             const minDate = this.minDate && new Date(this.minDate);

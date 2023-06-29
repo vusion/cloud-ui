@@ -329,7 +329,7 @@ export default {
       this.maxDate = null;
       this.leftDate = calcDefaultValue(this.defaultValue)[0];
       this.rightDate = nextMonth(this.leftDate);
-      this.$emit('pick', null);
+      this.$emit('select', { sender: this, startDate: null, endDate: null });
     },
 
     handleChangeRange(val) {
@@ -528,7 +528,7 @@ export default {
 
     handleConfirm(visible = false) {
       if (this.isValidValue([this.minDate, this.maxDate])) {
-        this.$emit('pick', [this.minDate, this.maxDate], visible);
+        this.$emit('select', { sender: this, startDate: this.minDate, endDate: this.maxDate });
       }
     },
 

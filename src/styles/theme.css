@@ -65,7 +65,7 @@
     --brand-danger-darkest: #c00000;
     --brand-danger-opacity-20: #f2495733;
     --brand-danger-disabled: #fbc2c7;
-   
+
 
     --brand-assist-lightest: #faf2ff;
     --brand-assist-lighter: #efd9ff;
@@ -1788,6 +1788,7 @@
     --datepicker-popper-border-radius: var(--border-radius-base); /* hidden */
 
     --datepicker-input-width: var(--input-width); /* @desc 日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
+    --datepicker-range-input-width: var(--input-width-medium); /* @desc 日期选择器范围输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
     --datepicker-input-height: var(--input-height); /* @desc 日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["height"] */
     --datepicker-input-padding-x: var(--input-padding-x); /* @desc 日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
     --datepicker-input-width-mini: var(--input-width-mini); /* @desc Mini日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["mini"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */

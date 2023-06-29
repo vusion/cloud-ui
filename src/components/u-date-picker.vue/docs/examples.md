@@ -167,3 +167,25 @@ export default {
 };
 </script>
 ```
+
+### 日期范围
+
+``` html
+<u-date-range-picker
+    picker="date"
+    start-date="2023-03-10"
+    end-date="2023-03-20"
+    clearable>
+</u-date-range-picker>
+```
+
+### 月份范围
+
+``` html
+<u-date-range-picker
+    picker="month"
+    start-date="2023-02-10"
+    end-date="2023-04-20"
+    clearable>
+</u-date-range-picker>
+```

@@ -67,7 +67,41 @@ const calcDefaultValue = (defaultValue) => {
 };
 export default {
   i18n,
+  props: {
+    visible: { type: Boolean, default: true },
 
+    value: { type: Array, default: () => [] },
+
+    defaultValue: {
+      default: null,
+      validator(val) {
+        // either: null, valid Date object, Array of valid Date objects
+        return val === null || isDate(val) || (Array.isArray(val) && val.every(isDate));
+      }
+    },
+
+    disabledDate: '',
+  },
+  data() {
+    return {
+      popperClass: '',
+      defaultTime: null,
+      minDate: '',
+      maxDate: '',
+      leftDate: new Date(),
+      rightDate: nextYear(new Date()),
+      rangeState: {
+        endDate: null,
+        selecting: false,
+        row: null,
+        column: null
+      },
+      shortcuts: '',
+      format: '',
+      arrowControl: false,
+      unlinkPanels: false
+    };
+  },
   computed: {
     btnDisabled() {
       return !(this.minDate && this.maxDate && !this.selecting && this.isValidValue([this.minDate, this.maxDate]));
@@ -93,56 +127,33 @@ export default {
       return this.unlinkPanels && this.rightYear > this.leftYear + 1;
     }
   },
-
-  data() {
-    return {
-      popperClass: '',
-      value: [],
-      defaultValue: null,
-      defaultTime: null,
-      minDate: '',
-      maxDate: '',
-      leftDate: new Date(),
-      rightDate: nextYear(new Date()),
-      rangeState: {
-        endDate: null,
-        selecting: false,
-        row: null,
-        column: null
-      },
-      shortcuts: '',
-      visible: true,
-      disabledDate: '',
-      format: '',
-      arrowControl: false,
-      unlinkPanels: false
-    };
-  },
-
   watch: {
-    value(newVal) {
-      if (!newVal) {
-        this.minDate = null;
-        this.maxDate = null;
-      } else if (Array.isArray(newVal)) {
-        this.minDate = isDate(newVal[0]) ? new Date(newVal[0]) : null;
-        this.maxDate = isDate(newVal[1]) ? new Date(newVal[1]) : null;
-        if (this.minDate) {
-          this.leftDate = this.minDate;
-          if (this.unlinkPanels && this.maxDate) {
-            const minDateYear = this.minDate.getFullYear();
-            const maxDateYear = this.maxDate.getFullYear();
-            this.rightDate = minDateYear === maxDateYear
-              ? nextYear(this.maxDate)
-              : this.maxDate;
+    value: {
+      handler(newVal) {
+        if (!newVal) {
+          this.minDate = null;
+          this.maxDate = null;
+        } else if (Array.isArray(newVal)) {
+          this.minDate = isDate(newVal[0]) ? new Date(newVal[0]) : null;
+          this.maxDate = isDate(newVal[1]) ? new Date(newVal[1]) : null;
+          if (this.minDate) {
+            this.leftDate = this.minDate;
+            if (this.unlinkPanels && this.maxDate) {
+              const minDateYear = this.minDate.getFullYear();
+              const maxDateYear = this.maxDate.getFullYear();
+              this.rightDate = minDateYear === maxDateYear
+                ? nextYear(this.maxDate)
+                : this.maxDate;
+            } else {
+              this.rightDate = nextYear(this.leftDate);
+            }
           } else {
+            this.leftDate = calcDefaultValue(this.defaultValue)[0];
             this.rightDate = nextYear(this.leftDate);
           }
-        } else {
-          this.leftDate = calcDefaultValue(this.defaultValue)[0];
-          this.rightDate = nextYear(this.leftDate);
         }
-      }
+      },
+      immediate: true
     },
 
     defaultValue(val) {
@@ -162,7 +173,7 @@ export default {
       this.maxDate = null;
       this.leftDate = calcDefaultValue(this.defaultValue)[0];
       this.rightDate = nextYear(this.leftDate);
-      this.$emit('pick', null);
+      this.$emit('select', { sender: this, startDate: null, endDate: null });
     },
 
     handleChangeRange(val) {
@@ -223,7 +234,7 @@ export default {
 
     handleConfirm(visible = false) {
       if (this.isValidValue([this.minDate, this.maxDate])) {
-        this.$emit('pick', [this.minDate, this.maxDate], visible);
+        this.$emit('select', { sender: this, startDate: this.minDate, endDate: this.maxDate });
       }
     },
 
