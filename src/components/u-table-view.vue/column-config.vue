@@ -61,7 +61,7 @@ export default {
     data() {
         const data = {
             parentVM: undefined,
-            currentValue: this.value,
+            currentValue: this.value || [],
         };
         return data;
     },
@@ -154,7 +154,7 @@ export default {
             if (!selectedValue)
                 return;
             // 有些列可能不参与隐藏处理，即不在配置列的下拉数据里，这种列不能隐藏
-            const configList = this.currentDataSource.data.map((item) => (this.$at(item, this.valueField) || item.value));
+            const configList = this.currentDataSource.data.map((item) => (this.$at(item, this.valueField) || item.value || item));
             columnVMs.forEach((columnVM) => {
                 if (columnVM.field
                     && configList.includes(columnVM.field)
