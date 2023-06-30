@@ -199,8 +199,9 @@ export default {
                     }
                     const values = value.split(',');
                     const currentValue = this.currentValue || [];
-                    currentValue.forEach((item, index) => {
-                        item.url = values[index];
+                    values.forEach((item, index) => {
+                        currentValue[index] = currentValue[index] || {};
+                        currentValue[index].url = values[index];
                     });
                     return currentValue;
                 } catch (err) {
