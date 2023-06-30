@@ -561,8 +561,14 @@
           snippet: '<u-table-view-column><template #cell="current"></template><template
             #title><u-text
             text="表格列"></u-text></template></u-table-view-column>'
+        - name: u-table-view-column-dynamic
+          title: 表格动态列
+          snippet: '<u-table-view-column-dynamic><template #cell="current"></template><template
+            #title="current"><u-text
+            text="表格动态列"></u-text></template></u-table-view-column-dynamic>'
       supportGenericComponents:
         - u-table-view-column
+        - u-table-view-column-dynamic
     - concept: Slot
       name: loading
       title: 加载中内容
@@ -1409,3 +1415,73 @@
         - name: senderVM
           type: USelect
           description: 发送事件实例
+- name: u-table-view-column-dynamic
+  title: 表格动态列
+  attrs:
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function | object | DataSource
+      designer-value: "[{}]"
+      description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 表格展示的数据。数据源可以绑定变量或者逻辑。变量或逻辑的返回值可以是数组，也可以是对象。对象格式为{list:[], total:10}
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      compType: dataTypeSelect
+      group: 数据属性
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
+      brifeDoc: ""
+      docDescription: 表格每一行的数据类型。该属性为展示属性，由数据源推导得到，无需填写
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+    - name: value-field
+      title: 值字段
+      type: string
+      description: 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段
+      display: property-select
+      default: value
+      dependency:
+        - "!data-source": null
+      dependencyDisplay: disabled
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 在表格开启了单选、多选操作、渲染树形数据中，指定数据唯一值的字段
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
+  slots:
+    - concept: Slot
+      name: title
+      title: 配置列展示title
+      slotProps:
+        concept: Param
+        name: current
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: Current
+          typeArguments:
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
+    - concept: Slot
+      name: cell
+      plus-empty: true
+      description: 自定义选项的结构和样式
+      slotProps:
+        concept: Param
+        name: current
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: CurrentDynamic
+          typeArguments:
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T1
+

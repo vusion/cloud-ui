@@ -486,6 +486,7 @@ export default {
             handlerDraggable: false,
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
             configColumnVM: undefined,
+            dynamicColumnVM: undefined,
         };
     },
     computed: {
@@ -1206,6 +1207,10 @@ export default {
         reload() {
             this.currentDataSource.clearLocalData();
             this.load();
+            console.log('table reload');
+            if (this.dynamicColumnVM) {
+                this.dynamicColumnVM.reload();
+            }
         },
         getFields() {
             return this.visibleColumnVMs

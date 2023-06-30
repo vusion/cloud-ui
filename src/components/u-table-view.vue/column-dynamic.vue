@@ -32,13 +32,15 @@ export default {
     },
     destroyed() {
         this.$contact(this.$options.parentName, (parentVM) => {
-            parentVM.columnVMs.splice(parentVM.columnVMs.indexOf(this), 1);
+            parentVM.columnVMs.splice(parentVM.columnVMs.indexOf(this), this.currentDataSource.data.length);
             this.parentVM = undefined;
+            parentVM.dynamicColumnVM = undefined;
         });
     },
     methods: {
         addVms() {
             this.$contact(this.$options.parentName, (parentVM) => {
+                parentVM.dynamicColumnVM = this;
                 const currentIndex = parentVM.columnVMs.findIndex((vm) => vm === this);
                 const vms = this.currentDataSource.data.map((item) => {
                     this.columnItem = item;
