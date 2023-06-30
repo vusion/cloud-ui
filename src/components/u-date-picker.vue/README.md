@@ -5,7 +5,7 @@
 - [示例](#示例)
     - [基本用法](#基本用法)
     - [自动对焦](#自动对焦)
-    - [弹窗对其方式](#弹窗对其方式)
+    - [弹窗对其方式](#弹窗对其方式)
     - [最大值和最小值](#最大值和最小值)
     - [只读和禁用](#只读和禁用)
     - [方法](#方法)
@@ -18,7 +18,7 @@
 
 **Selector**
 
-日期选择器
+日期选择
 
 ## 示例
 ### 基本用法
@@ -26,7 +26,7 @@
 ``` html
 <u-linear-layout>
     <u-date-picker date="2018-08-08" clearable></u-date-picker>
-    <u-date-picker preIcon suffixIcon="calendar" width="400" clearable></u-date-picker>
+    <u-date-picker preIcon suffixIcon="calendar" width="400" date="2022-08-08" clearable></u-date-picker>
 </u-linear-layout>
 ```
 ### 自动对焦
@@ -35,12 +35,12 @@
 <u-date-picker date="2018-08-08" autofocus></u-date-picker>
 ```
 
-### 弹窗对其方式
+### 弹窗对其方式
 
 ``` html
 <u-linear-layout>
-    <u-date-picker placeholder="请选择日期" alignment="left"></u-date-picker>
-    <u-date-picker placeholder="请选择日期" alignment="right"></u-date-picker>
+    <u-date-picker date="2018-08-08" placeholder="请选择日期" alignment="left"></u-date-picker>
+    <u-date-picker date="2018-08-08" placeholder="请选择日期" alignment="right"></u-date-picker>
 </u-linear-layout>
 
 ```
@@ -63,7 +63,7 @@
 ``` vue
 <template>
 <u-date-picker min-date="2021-06-18T00:00:00.000Z" time="morning" year-diff="1" max-date="2025" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
-</template>  
+</template>
 
 <script>
 export default {
@@ -197,25 +197,25 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | date.sync, v-model | string,number,Date |  |  | 默认显示的日期值，格式如2018-08-08 |
-| minDate | string,number,Date |  |  | 支持输入的最小日期，不限制填写null |
-| maxDate | string,number,Date |  |  | 支持输入的最大日期，不限制填写null |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
-| opened | boolean |  | `false` | 切换弹出/关闭状态 |
-| autofocus | boolean |  | `false` | 是否自动获取焦点 |
-| placeholder | string |  | `'请输入'` | 输入框的提示文字 |
-| clearable | boolean |  |  | 输入框输入内容支持一键清除 |
-| alignment | string | `[object Object]`<br/>`[object Object]` | `'left'` | 日历弹窗对齐方式 |
+| minDate | string,number,Date |  |  | 最小可选的日期值，默认为10年前，日期填写格式为“yyyy-mm-dd” |
+| maxDate | string,number,Date |  |  | 最大可选的日期值，默认为9年后，日期填写格式为“yyyy-mm-dd” |
 | time | string, number |  | `'00:00:00'` | 输入对应格式的字符串（8:00:00）即可 |
-| yearDiff | number |  | `20` | 最小可选年份值为当前年减去此值 |
-| yearAdd | number |  | `20` | 最大可选年份值为当前年加上此值 |
+| yearDiff | number |  | `20` | 最小可选年份值与当前年份值的差值 |
+| yearAdd | number |  | `20` | 最大可选年份值与当前年份值的差值 |
+| autofocus | boolean |  | `false` | 设置是否自动获取焦点 |
+| placeholder | string |  | `'请输入'` | 为空时显示的占位符文本 |
+| alignment | string | `[object Object]`<br/>`[object Object]` | `'left'` | 日历弹窗对齐方式 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'format'` | 转换器，用于转换时间结果 |
 | picker | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'date'` | 日期格式设置 |
 | preIcon | string | `[object Object]` | `'calendar'` |  |
 | suffixIcon | string | `[object Object]` |  |  |
+| append-to | string | `[object Object]`<br/>`[object Object]` | `'body'` | 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。 |
+| clearable | boolean |  |  | 可点击清除按钮一键清除内容 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| opened | boolean |  | `false` | 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出” |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置日期选择输入框宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置日期选择输入框高度大小 |
-| append-to | string | `[object Object]`<br/>`[object Object]` | `'body'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
 
 ### Events
 

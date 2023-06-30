@@ -425,18 +425,18 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | model | object |  |  | 表单数据模型 |
-| rules | object |  |  | 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules |
+| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` |  |
+| rules | object |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
 | layout | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'block'` |  |
 | repeat | number |  | `1` | 整个表单的划分列数 |
+| label-layout | string | `[object Object]`<br/>`[object Object]` | `'inline'` |  |
+| label-ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
+| collapsible | boolean |  | `false` | 设置是否可以展开/折叠 |
+| accordion | boolean |  | `false` | 设置是否每次只展开一个 |
+| expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠操作的触发方式 |
 | gap-width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置表单列间隔大小 |
 | gap-height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置表单行间隔大小 |
-| label-layout | string | `[object Object]`<br/>`[object Object]` | `'inline'` |  |
 | label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` |  |
-| label-ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
-| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` |  |
-| collapsible | boolean |  | `false` | 分组是否可以折叠 |
-| accordion | boolean |  | `false` | 是否每次只会展开一个分组 |
-| expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
 
 ### Computed
 
@@ -497,23 +497,23 @@ Methods
 | --------- | ---- | ------- | ------- | ----------- |
 | name | string |  |  | 表单项名称。已废弃 |
 | label | string |  |  | 用于左侧显示，同时用于提示消息的合成 |
-| span | string |  | `1` | 列跨越的格数 |
-| label-layout | string | `[object Object]`<br/>`[object Object]` | `'inline'` |  |
-| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 单独设置表单项的标签大小。 |
-| label-ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
-| field-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 单独设置表单项的内容大小 |
-| required | boolean |  | `false` | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
-| message | string |  |  | 默认提示消息 |
 | muted | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 验证是否静默 |
-| description | string |  |  | 添加描述内容 |
 | placement | string | `[object Object]`<br/>`[object Object]` | `'right'` | 改变提示信息显示位置 |
-| layout | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'center'` | 标签与表单元素的纵轴对齐方式，默认为顶对齐 |
-| rules | string \| Array |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
-| ignore-validation | boolean |  | `false` | 忽略验证 |
 | ignore-rules | boolean |  | `false` | 忽略验证规则。已废弃，同`ignore-validation` |
 | validating-options | object |  |  | 验证辅助对象。在 Rule 的 `validate` 方法中使用 |
 | validating-value | any |  |  | 临时修改验证值 |
 | validating-process | Function |  |  | 验证前对值进行预处理 |
+| span | string |  | `1` | 列跨越的格数 |
+| label-layout | string | `[object Object]`<br/>`[object Object]` | `'inline'` |  |
+| label-ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
+| required | boolean |  | `false` | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
+| message | string |  |  | 鼠标悬浮标签后的图标显示释义提示信息 |
+| description | string |  |  | 辅助说明的文本信息 |
+| layout | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'center'` | 标签与表单元素的纵轴对齐方式，默认为顶对齐 |
+| rules | string \| Array |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
+| ignore-validation | boolean |  | `false` |  |
+| field-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 单独设置表单项的内容大小 |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` |  |
 
 ### Slots
 
@@ -563,13 +563,13 @@ Methods
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| title | string |  |  | 显示的标题 |
+| title | string |  |  |  |
 | repeat | number |  | `1` | 整个表单的划分列数 |
 | label-layout | string | `[object Object]`<br/>`[object Object]` | `'inline'` |  |
 | label-ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
-| collapsible | boolean |  | `false` | 分组是否可以折叠 |
-| expanded.sync | boolean |  | `false` | 展开/折叠状态 |
-| disabled | boolean |  | `false` | 是否禁用。禁用时无法展开/折叠 |
+| collapsible | boolean |  | `false` | 设置是否可以展开/折叠 |
+| expanded.sync | boolean |  | `false` | 展开状态分为“True(展开)/False(折叠)”，默认为“展开” |
+| disabled | boolean |  | `false` | 置灰显示，且禁止展开/折叠操作 |
 
 ### Slots
 

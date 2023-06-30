@@ -172,8 +172,8 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | repeat | number |  | `3` | 整个详情列表的划分列数 |
-| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 详情列表所有项的标签大小。 |
 | show-head | boolean |  | `true` | 是否显示表格头部 |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 设置详情列表所有列表项的标题宽度。 |
 
 ### Slots
 
@@ -188,8 +188,8 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | label | string |  |  |  |
 | span | string |  |  | 列跨越的格数 |
-| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` |  |
 | ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` |  |
 
 ### Slots
 
@@ -208,7 +208,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  |  |
 | repeat | number |  |  | 当前组范围内的划分列数 |
-| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 当前组所有项的标签大小。 |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 设置详情列表组所有列表项的标题宽度。 |
 
 ### Slots
 

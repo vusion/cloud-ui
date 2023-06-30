@@ -16,7 +16,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 当前选择的值，值仅在不适用路由下支持编辑
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
     - name: router
       title: 使用路由
       type: boolean
@@ -27,7 +27,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 设置是否根据vue-router来控制选择哪一项，默认关闭。开启后当前所在的侧边栏项底部会有标识，
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
     - name: collapsible
       title: 可折叠
       type: boolean
@@ -36,7 +36,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 设置分组是否可折叠。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
     - name: accordion
       title: 手风琴模式
       type: boolean
@@ -45,7 +45,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: " 开启后每次仅会展开一个分组。"
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
     - name: expand-trigger
       title: 展开触发方式
       type: string
@@ -59,7 +59,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 支持整行点击均可触发和仅点击小箭头时触发两种方式
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -68,7 +68,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -77,7 +77,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -173,7 +173,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 用于标识此项的值
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
     - name: icon
       title: 图标
       type: icon
@@ -182,7 +182,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持从图标库选择图标或上传自定义图标
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
     - name: linkType
       title: 链接类型
       type: string
@@ -198,7 +198,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 支持页面跳转、普通链接、下载链接
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
     - name: hrefAndTo
       title: 链接地址
       type: string
@@ -207,7 +207,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 链接的详细地址
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
     - name: target
       title: 链接打开方式
       type: string
@@ -227,7 +227,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 支持新窗口、当前窗口、父级窗口、顶级窗口四种方式，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -236,7 +236,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
   events:
     - name: $listeners
       kind: trigger
@@ -280,8 +280,8 @@
       description: 设置是否可以展开/折叠
       group: 交互属性
       brifeDoc: ""
-      docDescription: 设置分组是否可折叠。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      docDescription: 设置分组是否可折叠
+      tooltipLink: ""
     - name: expanded
       title: 展开状态
       type: boolean
@@ -291,7 +291,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 设置分组的展开折叠状态。在某些场景下需要预置分组的展开或者折叠状态
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
+      tooltipLink: ""
     - name: disabled
       title: 禁用展开/折叠
       type: boolean
@@ -300,8 +300,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/02.%E5%AF%BC%E8%88%AA/040.%E4%BE%A7%E8%BE%B9%E6%A0%8F.html
-
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

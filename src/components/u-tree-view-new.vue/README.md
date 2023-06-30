@@ -804,19 +804,19 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
-| data-schema | schema |  |  | 表格每一行的数据类型 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
 | text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
 | value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
-| children-field | string |  | `'children'` | 集合的元素类型中，用于标识子节点的属性 |
+| children-field | string |  | `'children'` | 集合的元素类型中，用于标识子节点的属性，默认为children |
 | parent-field | string |  | `''` | 集合的元素类型中，用于标识父节点的属性 |
 | value.sync, v-model | any |  |  | 选择后，所选中的值 |
-| checkable | boolean |  | `false` | 是否开启多选模式，显示多选框 |
-| accordion | boolean |  | `false` | 是否每次只会展开一个分组 |
-| expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
 | check-controlled | boolean |  | `false` | 开启后父节点选择不会全选子节点，子节点选择不会联动父节点 |
+| checkable | boolean |  | `false` | 设置是否开启多选模式，显示多选框 |
+| accordion | boolean |  | `false` | 设置是否每次只展开一个 |
+| expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Slots
 
@@ -911,6 +911,25 @@ export default {
 | $event.nodeVM | UTreeViewNode | 节点组件 |
 | senderVM | UTreeView | 发送事件实例 |
 
+#### @before-load
+
+加载前触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.preventDefault | Function | 阻止加载流程 |
+| senderVM | UTableView | 发送事件实例 |
+
+#### @load
+
+加载后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | null | 无 |
+| senderVM | UTableView | 发送事件实例 |
+
 Methods
 
 #### walk(func)
@@ -945,17 +964,24 @@ Methods
 | ----- | ---- | ------- | ----------- |
 | expanded | boolean |  | 选中/取消 |
 
+#### reload()
+
+重新加载
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+
 ## UTreeViewNodeNew API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value | any |  |  | 节点的值 |
 | text | string |  |  | 节点的文本 |
-| expanded.sync | boolean |  |  | 节点默认展开 |
-| checked.sync | boolean |  |  | 是否可以选中/取消 |
-| disabled | boolean |  | `false` |  |
 | node | object |  |  | 当选择此节点时，抛出的事件会传递该对象，便于开发 |
+| value | any |  |  | 节点的值 |
+| checked.sync | boolean |  |  |  |
+| expanded.sync | boolean |  |  | 展开状态分为“True(展开)/False(折叠)”，默认为“展开” |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Slots
 

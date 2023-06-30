@@ -337,9 +337,10 @@ export default {
                     popperEl.style.width = rect.width + 'px';
                 }
             }
-            if (this.appendTo === 'body')
-                document.body.appendChild(popperEl);
-            else if (this.appendTo === 'reference')
+            if (this.appendTo === 'body') {
+                const container = window.LcapMicro && window.LcapMicro.appendTo ? window.LcapMicro.appendTo : document.body;
+                container.appendChild(popperEl);
+            } else if (this.appendTo === 'reference')
                 referenceEl.appendChild(popperEl);
             const options = this.getOptions();
             this.popper = initialPopper(referenceEl, popperEl, options);
@@ -353,9 +354,10 @@ export default {
         destroyPopper() {
             const referenceEl = this.referenceEl;
             const popperEl = this.$el;
-            if (this.appendTo === 'body')
-                popperEl.parentElement === document.body && document.body.removeChild(popperEl);
-            else if (this.appendTo === 'reference')
+            if (this.appendTo === 'body') {
+                const container = window.LcapMicro && window.LcapMicro.appendTo ? window.LcapMicro.appendTo : document.body;
+                popperEl.parentElement === container && container.removeChild(popperEl);
+            } else if (this.appendTo === 'reference')
                 popperEl.parentElement === referenceEl && referenceEl.removeChild(popperEl);
             this.popper && this.popper.destroy();
             this.popper = undefined;

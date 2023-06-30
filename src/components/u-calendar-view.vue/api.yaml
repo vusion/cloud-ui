@@ -13,7 +13,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 组件的数据源，配置内容为数据集对象或者返回数据集的逻辑。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/130.%E6%97%A5%E5%8E%86.html
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
@@ -22,7 +22,7 @@
       compType: dataTypeSelect
       brifeDoc: ""
       docDescription: IDE 根据配置的数据源动态计算返回内容的数据结构，用于动态配置项 current.item 的类型说明。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/130.%E6%97%A5%E5%8E%86.html
+      tooltipLink: ""
     - name: start-key
       type: string
       title: 开始时间字段
@@ -32,7 +32,7 @@
       display: property-select
       brifeDoc: ""
       docDescription: 数据内表示开始时间的字段，要求对应数据必须包含日期（日期/日期时间格式），**单独使用表示当天**；跟结束时间字段配合使用表示日期区间，组件根据日期区间判断展示在哪些日期内。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/130.%E6%97%A5%E5%8E%86.html
+      tooltipLink: ""
     - name: end-key
       type: string
       title: 结束时间字段
@@ -42,7 +42,7 @@
       display: property-select
       brifeDoc: ""
       docDescription: 数据内表示结束时间的字段，要求对应数据必须包含日期（日期/日期时间格式），跟开始时间字段配合使用表示日期区间，组件根据时间区间判断展示在哪些日期内。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/130.%E6%97%A5%E5%8E%86.html
+      tooltipLink: ""
     - name: value
       title: 选中值
       type: Date | string ｜ number
@@ -53,7 +53,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 当前选择的日期。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/130.%E6%97%A5%E5%8E%86.html
+      tooltipLink: ""
     - name: min-date
       title: 最小日期值
       type: Date | string ｜ number
@@ -61,7 +61,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 控制日历展示的日期范围，默认 10 年前。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/130.%E6%97%A5%E5%8E%86.html
+      tooltipLink: ""
     - name: max-date
       title: 最大日期值
       type: Date | string ｜ number
@@ -69,7 +69,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 控制日历展示的日期范围，默认 9 年后。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/130.%E6%97%A5%E5%8E%86.html
+      tooltipLink: ""
     - name: show-week-days
       title: 展示周天
       type: boolean
@@ -78,7 +78,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 控制头部示例星期几信息展示，默认开启
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/130.%E6%97%A5%E5%8E%86.html
+      tooltipLink: ""
     - name: show-weeks
       title: 展示周数
       type: boolean
@@ -87,7 +87,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 控制当前周为第几周信息展示，默认关闭。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/130.%E6%97%A5%E5%8E%86.html
+      tooltipLink: ""
     - name: show-basic
       title: 展示基础配置
       type: boolean
@@ -96,7 +96,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 控制顶部左侧 上个月、当天、下个月 的快捷操作入口展示，默认开启。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/130.%E6%97%A5%E5%8E%86.html
+      tooltipLink: ""
     - name: show-advance
       title: 展示高级配置
       type: boolean
@@ -105,7 +105,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 控制顶部右侧 年份、月份 快捷切换操作入口展示，默认开启。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/130.%E6%97%A5%E5%8E%86.html
+      tooltipLink: ""
     - name: first-day-of-week
       title: 首列星期
       type: number
@@ -114,7 +114,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 0～7 (周一～周日) 数字配置，自定义每行从周几开始展示，默认 1，**当开启展示周数时固定周一开始**。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/130.%E6%97%A5%E5%8E%86.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

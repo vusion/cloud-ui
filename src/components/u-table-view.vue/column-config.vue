@@ -23,7 +23,8 @@
             :vusion-node-tag="$attrs['vusion-node-tag']"
             vusion-slot-name="item"
             :class="[{[$style.designerMask]: dataSource && $env.VUE_APP_DESIGNER}]"
-            ref="filterPopper">
+            ref="filterPopper"
+            @open="onPopperOpen">
             <template #item="item" v-if="dataSource">
                 <slot name="item" v-bind="item"></slot>
                 <s-empty v-if="$scopedSlots
@@ -60,19 +61,29 @@ export default {
     data() {
         const data = {
             parentVM: undefined,
-            currentValue: this.value,
+            currentValue: this.value || [],
         };
         return data;
     },
     watch: {
         value(value, oldValue) {
+            // 当绑定的是:value=['name']这样的，watch会一直进来，所以增加判断
+            if (JSON.stringify(value) === JSON.stringify(oldValue))
+                return;
             this.currentValue = value;
             this.handleColumnsHidden(value);
         },
         'currentDataSource.data'(value) {
             this.setCurrentValue(value);
         },
-        dataSource(value) {
+        dataSource(dataSource, oldDataSource) {
+            // 当绑定的是:data-source=['name']这样的，watch会一直进来，所以增加判断
+            if (typeof dataSource === 'function' || typeof oldDataSource === 'function') {
+                if (String(dataSource) === String(oldDataSource))
+                    return;
+            } else if (JSON.stringify(dataSource) === JSON.stringify(oldDataSource)) {
+                return;
+            }
             this.$nextTick(() => {
                 this.currentValue = [];
                 if (this.currentDataSource && this.currentDataSource.load)
@@ -150,7 +161,7 @@ export default {
             if (!selectedValue)
                 return;
             // 有些列可能不参与隐藏处理，即不在配置列的下拉数据里，这种列不能隐藏
-            const configList = this.currentDataSource.data.map((item) => (this.$at(item, this.valueField) || item.value));
+            const configList = this.currentDataSource.data.map((item) => (this.$at(item, this.valueField) || item.value || item));
             columnVMs.forEach((columnVM) => {
                 if (columnVM.field
                     && configList.includes(columnVM.field)
@@ -175,7 +186,7 @@ export default {
         },
         setCurrentValue(value) {
             if (!this.currentValue || (!this.value && !this.currentValue.length)) {
-                this.currentValue = value.map((item) => this.$at(item, this.valueField) || item.value);
+                this.currentValue = value.map((item) => this.$at(item, this.valueField) || item.value || item);
             }
         },
         confirm() {
@@ -183,6 +194,10 @@ export default {
         },
         cancel() {
             this.$refs.filterPopper.cancel();
+        },
+        onPopperOpen() {
+            if (this.$env.VUE_APP_DESIGNER)
+                this.handleColumnsData();
         },
     },
 };

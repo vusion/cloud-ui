@@ -389,41 +389,41 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| data-type | string |  | `'json'` | 接收数据类型。可选值：`text`、`xml`、`json` |
+| pastable | boolean |  | `false` |  |
 | value.sync, v-model | Array |  | `'\[\]'` | 当前文件列表 |
 | url | string |  |  | 上传的 URL 地址 |
 | name | string |  | `'file'` | 上传的文件字段名，后端需要这个字段获取 |
 | accept | string |  |  | 若要限制上传文件类型，请输入类型名称，格式为“.后缀名”，多个文件类型时使用英文逗号隔开。例如“.jpeg,.png,.gif” |
-| headers | Object |  |  |  |
 | with-credentials | boolean |  | `false` | 通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略 |
-| multiple | boolean |  | `false` |  |
-| multiple-once | boolean |  | `false` | 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件 |
-| open-cropper | boolean |  | `false` | 设置是否开启图片裁剪，只对单文件上传有效 |
-| fixedCropper | boolean |  | `false` | 设置是否固定裁剪框大小 |
-| cropperBoxWidth | number |  | `200` | 设置裁剪框宽度 |
-| cropperBoxHeight | number |  | `200` | 设置裁剪框高度 |
-| cropperPreviewShape | string | `[object Object]`<br/>`[object Object]` | `'circle'` | 设置裁剪框预览形状 |
-| cropperTitle | string |  | `'图片裁剪'` | 设置裁剪框标题 |
-| data-type | string |  | `'json'` | 接收数据类型。可选值：`text`、`xml`、`json` |
 | data | object |  |  |  |
 | limit | number |  |  |  |
 | max-size | string |  |  | 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`KB`、`MB`、`GB` |
-| list-type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'text'` | 列表展示类型 |
+| list-type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'text'` |  |
 | url-field | string |  | `'url'` | 请求返回的 URL 字段名 |
+| headers | Object |  |  |  |
+| multiple | boolean |  | `false` |  |
+| multiple-once | boolean |  | `false` | 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件 |
+| open-cropper | boolean |  | `false` | 设置是否启用图片裁剪功能，只对单文件上传有效 |
+| fixedCropper | boolean |  | `false` |  |
+| cropperBoxWidth | number |  | `200` |  |
+| cropperBoxHeight | number |  | `200` |  |
+| cropperPreviewShape | string | `[object Object]`<br/>`[object Object]` | `'circle'` |  |
+| cropperTitle | string |  | `'图片裁剪'` |  |
 | auto-upload | boolean |  | `true` |  |
-| draggable | boolean |  | `false` |  |
-| pastable | boolean |  | `false` |  |
 | show-file-list | boolean |  | `true` |  |
 | converter | string | `[object Object]`<br/>`[object Object]` | `'json'` |  |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
 | display | string | `[object Object]`<br/>`[object Object]` | `'block'` | 行内展示，或块级换行展示 |
-| description | string |  |  | 在上传组件下方展示一些提示信息，如上传的数量、大小等 |
-| showErrorMessage | boolean |  | `true` | 是否展示上传时的出错信息，如超出数量、大小 |
-| dragDescription | string |  | `'点击/拖动/粘贴文件到这里'` | 拖拽描述信息 |
+| description | string |  |  | 辅助说明的文本信息，如上传的数量、大小等，在上传组件下方展示。 |
+| showErrorMessage | boolean |  | `true` | 设置是否展示上传时的出错信息，如超出数量、大小 |
+| dragDescription | string |  | `'点击/拖动/粘贴文件到这里'` | 辅助说明的文本信息 |
 | check-file | Function |  |  | 文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息 |
-| access | string | `[object Object]`<br/>`[object Object]` |  | undefined |
+| access | string | `[object Object]`<br/>`[object Object]` |  |  |
 | ttl | boolean |  |  | 是否开启文件有效期控制 |
-| ttlValue | number |  |  | 文件有效期天数 |
+| ttlValue | number |  |  | 文件上传后的有效期天数 |
+| draggable | boolean |  | `false` |  |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Slots
 

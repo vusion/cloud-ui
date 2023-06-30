@@ -48,10 +48,10 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| dashed | string | `[object Object]`<br/>`[object Object]` | `'a'` | 线条类型 |
-| content-position | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'center'` | 内容位置 |
 | title | string |  |  | 文本 |
-| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` | undefined |
+| dashed | string | `[object Object]`<br/>`[object Object]` | `'a'` |  |
+| content-position | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'center'` |  |
+| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` |  |
 
 ### Slots
 

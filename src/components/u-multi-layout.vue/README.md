@@ -145,11 +145,11 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` | undefined |
-| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | undefined |
-| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | undefined |
-| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | undefined |
-| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | undefined |
+| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` |  |
+| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` |  |
+| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` |  |
+| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` |  |
+| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` |  |
 | gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 布局中各分栏间的空隙大小 |
 
 ### Slots
@@ -175,12 +175,12 @@
 | fixed | boolean |  | `false` | 开启后滚动时该项固定显示 |
 | fixdirec | string | `[object Object]`<br/>`[object Object]` | `'left'` | 固定在左侧还是右侧 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'block'` | 行内展示，或块级换行展示 |
-| mode | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 设置布局模式 |
+| mode | string | `[object Object]`<br/>`[object Object]` | `'inline'` |  |
 | direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` | 可更改布局的排列方向 |
-| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | undefined |
-| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | undefined |
-| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | undefined |
-| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | undefined |
+| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` |  |
+| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` |  |
+| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` |  |
+| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` |  |
 | gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 内容块间隙大小 |
 
 ### Slots

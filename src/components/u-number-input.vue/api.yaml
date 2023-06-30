@@ -20,7 +20,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 输入框的值。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/129.%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5.html
+      tooltipLink: ""
     - name: min
       title: 最小值
       type: number
@@ -29,7 +29,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 限制输入数值的最小值。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/129.%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5.html
+      tooltipLink: ""
     - name: max
       title: 最大值
       type: number
@@ -38,7 +38,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 限制输入数值的最大值。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/129.%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5.html
+      tooltipLink: ""
     - name: precision
       title: 精度
       type: number
@@ -47,7 +47,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 限制数字要保留的最小单位，整数、小数均可，如需要保留两位小数，则填入0.01。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/129.%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5.html
+      tooltipLink: ""
     - name: placeholder
       title: 占位符
       type: string
@@ -55,7 +55,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 为空时的提示文本。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/129.%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5.html
+      tooltipLink: ""
     - name: autofocus
       title: 自动获取焦点
       type: boolean
@@ -64,7 +64,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 是否自动获取输入框的焦点。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/129.%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5.html
+      tooltipLink: ""
     - name: hide-buttons
       title: 隐藏按钮
       type: boolean
@@ -73,7 +73,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 是否隐藏数值加减按钮
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/129.%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5.html
+      tooltipLink: ""
     - name: clearable
       title: 可清除
       type: boolean
@@ -81,7 +81,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 开启并在输入框有内容时会显示清除按钮
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/129.%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5.html
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -90,7 +90,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/129.%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5.html
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -99,7 +99,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/129.%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5.html
+      tooltipLink: ""
     - name: step
       title: 间隔
       type: number
@@ -108,7 +108,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 限制点击按钮或按上下键所增加或减少的量。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/129.%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5.html
+      tooltipLink: ""
     - name: width
       title: 宽度
       type: string
@@ -132,7 +132,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 设置数字输入框宽度大小，可选占满、巨大、大、中型、正常、小、迷你。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/129.%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5.html
+      tooltipLink: ""
     - name: height
       title: 高度
       type: string
@@ -156,7 +156,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 设置数字输入框高度大小，可选占满、巨大、大、中型、正常、小、迷你。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/129.%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

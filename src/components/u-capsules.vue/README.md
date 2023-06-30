@@ -141,8 +141,8 @@
 | auto-select | boolean |  | `false` | 是否自动选择第一个非禁用的项 |
 | cancelable | boolean |  | `false` | 是否可以取消选择 |
 | multiple | boolean |  | `false` | 是否可以多选 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Slots
 
@@ -210,12 +210,12 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 | value | any |  |  | 此项的值 |
-| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` | 胶囊大小 |
-| disabled | boolean |  | `false` | 禁用此项 |
 | label | string |  | `''` | 顶部自定义提示文本 |
 | flag | boolean |  | `false` | 是否右上角有flag标志 |
-| item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` | 胶囊大小 |
 
 ### Slots
 

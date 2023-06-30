@@ -123,12 +123,18 @@ export const UModal = {
         },
     },
     mounted() {
-        if (this.$el && !this.static)
-            document.body.appendChild(this.$el);
+        if (this.$el && !this.static) {
+            const container = window.LcapMicro && window.LcapMicro.appendTo ? window.LcapMicro.appendTo : document.body;
+            container.appendChild(this.$el);
+        }
+            
     },
     destroyed() {
-        if (this.$el && this.$el.parentNode === document.body)
-            document.body.removeChild(this.$el);
+        if (this.$el) {
+            const container = window.LcapMicro && window.LcapMicro.appendTo ? window.LcapMicro.appendTo : document.body;
+            this.$el.parentNode === container && container.removeChild(this.$el);
+        }
+            
         if (this.currentVisible)
             document.removeEventListener('keydown', this.escPress);
     },

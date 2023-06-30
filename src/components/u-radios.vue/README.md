@@ -10,6 +10,7 @@
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
     - [Events](#events)
+    - [Methods](#methods)
 - [URadio API](#uradio-api)
     - [Props/Attrs](#propsattrs-2)
     - [Events](#events-2)
@@ -71,13 +72,13 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | Array\<Item\> \| Function |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
-| data-schema | schema |  |  | 集合类型每一元素的数据类型 |
+| data-source | Array\<Item\> \| Function |  |  | 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
 | text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
-| value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
-| value.sync, v-model | any |  |  | 当前选择的值 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
+| value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的字段 |
+| value.sync, v-model | any |  |  | 当前选中的值 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Slots
 
@@ -137,16 +138,44 @@
 | $event.itemVM | URadio | 选择项子组件 |
 | senderVM | URadios | 发送事件实例 |
 
+#### @before-load
+
+加载前触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.preventDefault | Function | 阻止加载流程 |
+| senderVM | UTableView | 发送事件实例 |
+
+#### @load
+
+加载后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | null | 无 |
+| senderVM | UTableView | 发送事件实例 |
+
+Methods
+
+#### reload()
+
+清除缓存，重新加载
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+
 ## URadio API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | text | string |  |  | 显示文本内容 |
-| label | any |  |  | 单选框选项值。 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
-| autofocus | boolean |  | `false` |  |
+| label | any |  |  | 用于标识选项的值 |
+| autofocus | boolean |  | `false` | 设置是否自动获取焦点 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Events
 
