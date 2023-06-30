@@ -116,12 +116,12 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| text | string |  |  | 显示文本内容 |
+| text | string |  |  |  |
 | type | string | `[object Object]`<br/>`[object Object]` | `'filled'` | 设置标签样式，主要标签有背景，次要标签没有背景 |
-| color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置文本颜色 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置标签大小 |
-| removable | boolean |  | `false` |  |
+| color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置主题颜色样式 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 行内展示，或块级换行展示 |
+| removable | boolean |  | `false` | 设置标签是否可点击删除图标进行关闭 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置标签大小 |
 
 ### Events
 

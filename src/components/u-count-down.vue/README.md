@@ -93,7 +93,7 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | timer | number |  | `60` | 设置定时时间 |
 | reverse | string | `[object Object]`<br/>`[object Object]` | `'positive'` | 设置计时器计时方式 |
-| autostart | boolean |  | `true` | 设置是否自动开始计时器 |
+| autostart | boolean |  | `true` | 设置是否自动开始计时 |
 
 ### Events
 

@@ -30,10 +30,10 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | array |  |  | 一个包含字符串或对象的数组 |
-| data-schema | schema |  |  | 组件列表每一项的结构 |
+| data-source | array |  |  | 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
 | colnum | number |  | `5` | 为空时默认为5 |
-| equalWidth | boolean |  | `true` | 是否均分宽度 |
+| equalWidth | boolean |  | `true` | 设置是否均分宽度 |
 
 ### Slots
 

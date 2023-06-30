@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# USelect 选择框
+# USelect 选择器
 
 - [示例](#示例)
     - [基本用法](#基本用法)
@@ -33,9 +33,9 @@
 - [USelectDivider API](#uselectdivider-api)
 
 
-**Form**
+**Selector**
 
-下拉选择框，支持单选、多选、搜索等功能
+下拉选择器，支持单选、多选、搜索等功能
 
 ## 示例
 ### 基本用法
@@ -1351,7 +1351,6 @@ export default {
     </template>
    </u-select>
 </template>
-<script>
 ```
 
 ## USelect API
@@ -1359,46 +1358,46 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | any |  |  |  |
-| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
-| data-schema | schema |  |  | 选择器每一行的数据类型 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
+| value.sync, v-model | any |  |  | 当前选中的值 |
 | text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
 | value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
-| description | boolean |  | `false` | 是否展示文本描述 |
-| description-field | string |  |  | 集合的元素类型中，用于显示文本下方辅助描述的属性名称 |
-| icon-field | string |  |  | 集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法 |
-| cancelable | boolean |  | `false` |  |
-| multiple | boolean |  | `false` | 是否可以多选 |
-| show-render-footer | boolean |  | `false` | 可扩展下拉项,开启后可自定义下拉框选项 |
-| tags-overflow | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'collapse'` | 多选项过多时的展示形式 |
-| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。 |
-| placeholder | string |  | `'请选择'` | 选择框的占位符 |
-| loading-text | string |  | `'加载中...'` | 正在加载中的文字，使用分页加载时才会出现 |
-| show-empty-text | boolean |  | `true` | 是否在数据为空时展示暂无数据的文字提示 |
-| empty-text | string |  | `'暂无数据'` | 暂无数据时的文字 |
-| empty-disabled | boolean |  | `false` | 没有数据时，自动禁用 |
-| initial-load | boolean |  | `true` | 是否在初始时立即加载 |
-| pageable | boolean |  | `false` | 是否使用分页功能加载更多 |
+| pageable | boolean |  | `false` | 设置是否分页加载更多 |
 | remote-paging | boolean |  | `false` | 是否使用后端分页 |
-| pagination | boolean |  |  | 是否使用分页功能加载更多 |
-| page-size | number | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `50` |  |
-| sorting | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 指数据初始化时的排序规则 |
-| clearable | boolean |  | `false` | 是否有清除按钮 |
-| filterable | boolean |  | `false` | 是否使用输入框进行筛选 |
-| remote-filtering | boolean |  | `false` | 是否使用后端筛选 |
-| match-method | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'includes'` | 过滤时的匹配方法 |
+| pagination | boolean |  |  | 设置是否分页展示数据 |
+| page-size | number |  | `50` |  |
+| sorting | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 设置数据初始化时的排序字段和顺序规则 |
+| description | boolean |  | `false` | 选项的辅助说明信息，展示在选项文本下方 |
+| description-field | string |  |  | 集合的元素类型中，用于显示文本下方辅助描述的字段 |
+| icon-field | string |  |  | 集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法 |
 | selected-values-data | Array |  |  | 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}] |
-| case-sensitive | string \| Function |  | `'includes'` | 过滤时大小写是否敏感 |
-| auto-complete | boolean |  | `false` | 是否开启自动补充模式，用于增加列表中没有的项 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
-| width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置选择框宽度大小 |
-| height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置选择框高度大小 |
-| opened.sync | boolean |  | `false` | 切换弹出/关闭状态 |
-| autofocus | boolean |  | `false` |  |
+| filterable | boolean |  | `false` | 设置是否可以筛选，开启将会支持搜索。 |
+| remote-filtering | boolean |  | `false` | 设置是否使用后端筛选 |
+| match-method | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'includes'` | 过滤时的匹配方法 |
+| show-render-footer | boolean |  | `false` | 设置是否可扩展下拉项,开启后可自定义下拉框选项 |
+| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。 |
+| placeholder | string |  | `'请选择'` | 为空时显示的占位符文本 |
+| autofocus | boolean |  | `false` | 设置是否自动获取焦点 |
 | prefix | string | `[object Object]` |  |  |
 | suffix | string | `[object Object]` |  |  |
-| append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
+| append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。 |
+| clearable | boolean |  | `false` | 可点击清除按钮一键清除所选内容 |
+| tags-overflow | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'collapse'` | 多选项过多时的展示形式 |
+| cancelable | boolean |  | `false` | 设置是否可以取消选择 |
+| multiple | boolean |  | `false` | 设置是否可以多选行 |
+| initial-load | boolean |  | `true` | 设置初始时是否立即加载 |
+| loading-text | string |  | `'加载中...'` | 正在加载中的文字，使用分页加载时才会出现 |
+| show-empty-text | boolean |  | `true` | 是否在数据为空时展示暂无数据的文字提示 |
+| empty-text | string |  | `'暂无数据'` | 暂无数据状态显示的提示文案 |
+| empty-disabled | boolean |  | `false` | 为空时置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| opened.sync | boolean |  | `false` | 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出” |
+| width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置选择框宽度大小 |
+| height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置选择框高度大小 |
+| case-sensitive | string \| Function |  | `'includes'` | 过滤时大小写是否敏感 |
+| auto-complete | boolean |  | `false` | 是否开启自动补充模式，用于增加列表中没有的项 |
 
 ### Slots
 
@@ -1576,13 +1575,6 @@ Methods
 | ----- | ---- | ------- | ----------- |
 | opened? | boolean |  | 可选。弹出/关闭状态 |
 
-#### load()
-
-带缓存地加载
-
-| Param | Type | Default | Description |
-| ----- | ---- | ------- | ----------- |
-
 #### reload()
 
 清除缓存，重新加载
@@ -1604,11 +1596,11 @@ Methods
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value | any |  |  | 此项的值。 |
 | text | string |  |  | 此项的显示值 |
-| description | string |  |  | 选项文本的辅助描述，展示在选项文本下方 |
-| disabled | boolean |  | `false` | 禁用此项。 |
+| value | any |  |  | 此项的值。 |
+| description | string |  |  | 选项的辅助说明信息，展示在选项文本下方 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发。 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Slots
 
@@ -1636,7 +1628,7 @@ Methods
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| title | string |  |  | 显示的标题 |
+| title | string |  |  |  |
 
 ### Slots
 

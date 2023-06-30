@@ -256,20 +256,20 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| mode | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'block'` | 设置布局模式 |
-| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` | undefined |
-| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | undefined |
-| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | undefined |
-| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | undefined |
-| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | undefined |
-| wrap | boolean |  | `true` | 弹性布局下子元素总宽度超出父级时子元素是否换行展示 |
-| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 内容块间隙大小 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'block'` | 行内展示，或块级换行展示 |
-| layout | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 子元素行内展示或块级换行展示 |
 | type | string | `[object Object]` |  | 布局模式 |
-| loadingIcon | icon |  | `'loading'` | 加载图标 |
-| loadingIconRotate | boolean |  | `true` | 加载中图标旋转 |
-| loadingText | string |  | `''` | 加载中文案 |
+| mode | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'block'` |  |
+| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` |  |
+| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` |  |
+| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` |  |
+| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` |  |
+| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` |  |
+| layout | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 子元素行内展示或块级换行展示 |
+| wrap | boolean |  | `true` | 设置弹性布局下子元素总宽度超出父级时子元素是否换行展示 |
+| loadingIcon | icon |  | `'loading'` | 加载中状态显示的图标 |
+| loadingIconRotate | boolean |  | `true` | 设置加载中图标是否旋转，默认开启。 |
+| loadingText | string |  | `''` | 加载中状态显示的提示文案 |
+| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 内容块间隙大小 |
 
 ### Slots
 

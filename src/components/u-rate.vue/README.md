@@ -130,13 +130,13 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | number |  | `0` |  |
 | max | number |  | `5` |  |
-| readonly | boolean |  | `false` |  |
-| allow-half | boolean |  | `false` | 是否允许半选 |
-| clearable | boolean |  | `false` | 是否允许选中后点击清除 |
 | show-text | boolean |  | `false` | 在评分后展示辅助文字 |
-| texts | Array |  | `[极差, 失望, 一般, 满意, 惊喜]` | 辅助文字设置。在展示辅助文字开关打开的情况下才会生效 |
-| show-tooltip | boolean |  | `false` | 鼠标悬浮时展示提示文字 |
-| tooltips | Array |  | `[极差, 失望, 一般, 满意, 惊喜]` | Tooltip文字设置。在展示Tooltip开关打开的情况下才会生效 |
+| texts | Array |  | `[极差, 失望, 一般, 满意, 惊喜]` | 辅助说明的文本信息，在展示辅助文本开关打开的情况下才会生效 |
+| show-tooltip | boolean |  | `false` | 鼠标悬浮时展示Tooltip提示信息 |
+| tooltips | Array |  | `[极差, 失望, 一般, 满意, 惊喜]` | Tooltip提示信息设置。在展示提示信息开关打开的情况下才会生效 |
+| allow-half | boolean |  | `false` | 是否允许半选 |
+| clearable | boolean |  | `false` | 可选中后再次点击以清除选中 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
 
 ### Events
 

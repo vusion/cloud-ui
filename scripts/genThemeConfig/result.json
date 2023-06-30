@@ -5909,6 +5909,10 @@
                     "--dropdown-color-text-disabled": {
                         "type": "color",
                         "desc": "下拉菜单字体颜色（禁用状态）,如 #223325"
+                    },
+                    "--dropdown-popper-width": {
+                        "type": "input",
+                        "desc": "下拉弹层宽度,如 1px"
                     }
                 },
                 "preview": {

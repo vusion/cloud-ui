@@ -68,10 +68,10 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | name | icon |  | `''` |  |
-| icotype | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'top'` | 图标类型 |
+| icotype | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'top'` | 图标和文本的布局方式 |
 | linkType | string | `[object Object]`<br/>`[object Object]` | `'destination'` |  |
 | hrefAndTo | string |  |  |  |
-| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。 |
+| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。 |
 
 ### Events
 
