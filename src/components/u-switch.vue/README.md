@@ -67,10 +67,10 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | boolean |  | `false` | 开关状态 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
+| value.sync, v-model | boolean |  | `false` | 标识开关状态的值 |
 | with-text | boolean |  | `false` | 是否显示开关`ON`和`OFF`文字 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Events
 

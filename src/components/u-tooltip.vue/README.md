@@ -145,7 +145,7 @@ export default {
     <u-linear-layout justify="center" gap="small" style="clear: both">
         <u-button>
             下左
-            <u-tooltip placement="bottom-start">Tooltip</u-tooltip>
+            <u-tooltip placement="bottom-start">这是下左的Tooltip这是下左的Tooltip</u-tooltip>
         </u-button>
         <u-button>
             下边

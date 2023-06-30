@@ -126,18 +126,18 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| page.sync | number |  | `1` |  |
+| page.sync | number |  | `1` | 当前默认展示在第几页 |
 | total | number |  | `11` |  |
-| side | number |  | `2` | 当页数多时，两边恒定显示的数量 |
-| around | number |  | `5` | 当页数多时，中间恒定显示的数量 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
-| total-items | number |  |  | 总条数 |
+| side | number |  | `2` | 当页数多时，两端恒定显示的页码数量 |
+| around | number |  | `5` | 当页数多时，中间恒定显示的页码数量 |
+| total-items | number |  |  |  |
 | page-size.sync | number |  | `20` |  |
-| page-size-options | Array |  | `[10, 20, 50]` | 每页条数选项列表 |
+| page-size-options | Array |  | `[10, 20, 50]` | 每页条数切换器的选项 |
 | show-total | boolean |  | `false` |  |
-| show-sizer | boolean |  | `false` | 是否显示切换每页条数选项 |
-| show-jumper | boolean |  | `false` | 是否显示页面跳转输入框 |
+| show-sizer | boolean |  | `false` | 显示每页条数切换器 |
+| show-jumper | boolean |  | `false` | 显示页面跳转输入框 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Events
 

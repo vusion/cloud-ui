@@ -10,6 +10,7 @@
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
     - [Events](#events)
+    - [Methods](#methods)
 - [UCarouselItem API](#ucarouselitem-api)
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
@@ -99,14 +100,14 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | Array\<Item\> \| Function |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
-| data-schema | schema |  |  | 集合类型每一元素的数据类型 |
-| value.sync | any |  |  | 播放位置 |
-| autoplay | boolean |  | `true` | 是否轮播 |
 | loop | boolean |  | `true` | 是否循环播放 |
-| interval | number |  | `4000` | 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换 |
 | direction | string |  | `'right'` | 幻灯片播放方向 |
 | animation | string |  |  | 幻灯片过渡动画 |
+| data-source | Array\<Item\> \| Function |  |  | 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
+| value.sync | any |  |  | 播放位置 |
+| autoplay | boolean |  | `true` |  |
+| interval | number |  | `4000` | 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换 |
 
 ### Slots
 
@@ -144,6 +145,34 @@
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UCarouselItem | 选中项实例 |
 | senderVM | UCarousel | 发送事件实例 |
+
+#### @before-load
+
+加载前触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.preventDefault | Function | 阻止加载流程 |
+| senderVM | UTableView | 发送事件实例 |
+
+#### @load
+
+加载后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | null | 无 |
+| senderVM | UTableView | 发送事件实例 |
+
+Methods
+
+#### reload()
+
+清除缓存，重新加载
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
 
 ## UCarouselItem API
 ### Props/Attrs

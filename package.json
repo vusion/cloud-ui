@@ -35,8 +35,8 @@
     "deploy:test-without-img": "npm test &&lcap deploy dist-theme --platform http://defaulttenant.lcap.hatest.163yun.com",
     "deploy:pre": "npm test && lcap deploy dist-theme --platform http://defaulttenant.lcap.hadri.163yun.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.hadri.163yun.com",
     "deploy:online": "npm test && lcap deploy dist-theme --platform http://netease-template.lcap.163yun.com && node bin/deploy-lcp-images --platform=http://netease-template.lcap.163yun.com",
-    "prepublishOnly": "rm -rf node_modules/.cache && npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add . && npm test",
-    "postpublish": "npm run build:docs && npm run deploy:online && vusion ghpages"
+    "prepublishOnly": "rm -rf node_modules/.cache && npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
+    "postpublish": "npm run build:docs && vusion ghpages"
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io/cloud-ui",

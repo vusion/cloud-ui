@@ -91,7 +91,7 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | any |  |  | 当前选择的值 |
+| value.sync, v-model | any |  |  | 当前选中的值 |
 
 ### Slots
 
@@ -138,10 +138,10 @@ export default {
 | label | string |  |  | 集合的元素类型中，用于显示文本的属性名称 |
 | value | any |  |  | 集合的元素类型中，用于标识选中值的属性 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
-| linkType | string | `[object Object]`<br/>`[object Object]` | `'destination'` | 链接类型 |
-| hrefAndTo | string |  |  | 链接地址 |
-| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。 |
-| disabled | boolean |  | `false` | 禁用此项 |
+| linkType | string | `[object Object]`<br/>`[object Object]` | `'destination'` |  |
+| hrefAndTo | string |  |  |  |
+| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Slots
 
