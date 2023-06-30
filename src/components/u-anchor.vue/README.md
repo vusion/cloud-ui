@@ -73,5 +73,5 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| label.sync, v-model | string |  |  | 锚点的唯一标识，用于跳转链接，如“/page#linkname” |
+| label | string |  |  | 锚点的唯一标识，用于跳转链接，如“/page#linkname” |
 

@@ -69,9 +69,9 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| title | string |  |  | 面板项的标题 |
 | content | string |  | `''` | 面板内容 |
-| bordered | boolean |  | `true` | 显示/隐藏边框 |
+| title | string |  |  | 面板项的标题 |
+| bordered | boolean |  | `true` | 设置是否显示边框 |
 | shadow | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'always'` | 阴影显示方式 |
 
 ### Slots

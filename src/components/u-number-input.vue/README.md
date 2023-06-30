@@ -131,18 +131,18 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | number |  | `0` | 输入框的值 |
-| min | number |  | `''` |  |
-| max | number |  | `''` |  |
-| step | number |  | `1` | 间隔，表示点击按钮或按上下键所增加或减少的量 |
-| precision | number |  | `1` | 精度，表示数字要保留的最小单位，整数、小数均可 |
 | formatter | string, object |  |  | 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。 |
-| placeholder | string |  |  | 为空时的提示文本 |
-| autofocus | boolean |  |  |  |
+| value.sync, v-model | number |  | `0` | 输入的值 |
+| min | number |  | `''` | 最小可输入的值 |
+| max | number |  | `''` | 最大可输入的值 |
+| precision | number |  | `1` | 精度，表示数字要保留的最小单位，整数、小数均可 |
+| placeholder | string |  |  | 为空时显示的占位符文本 |
+| autofocus | boolean |  |  | 设置是否自动获取焦点 |
 | hide-buttons | boolean |  | `false` | 是否隐藏上下点击按钮 |
-| clearable | boolean |  |  | 开启并在输入框有内容时会显示清除按钮。 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
+| clearable | boolean |  |  | 可点击清除按钮一键清除内容 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| step | number |  | `1` | 间隔，表示点击按钮或按上下键所增加或减少的量 |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置数字输入框宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置数字输入框高度大小 |
 

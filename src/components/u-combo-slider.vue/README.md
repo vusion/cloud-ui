@@ -13,6 +13,7 @@
     - [格式化](#格式化)
     - [显示输入框button](#显示输入框button)
     - [显示tooltip](#显示tooltip)
+    - [双滑块](#双滑块)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -148,26 +149,33 @@
 <u-combo-slider :show-tooltip="true"></u-combo-slider>
 ```
 
+### 双滑块
+
+``` html
+<u-combo-slider multiple :value="[18, 36]"></u-combo-slider>
+```
+
 ## API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | number |  | `0` |  |
+| tip | string |  |  |  |
+| value.sync, v-model | number, Array\<number\> |  | `0` |  |
 | min | number |  | `0` |  |
 | max | number |  | `100` |  |
 | step | number |  | `1` | 间隔，`0`表示连续 |
 | precision | number |  | `1` | 精度，表示数字要保留的最小单位，整数、小数均可 |
 | range | Array |  | `[]` | 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值 |
 | formatter | string, object |  |  | 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象 |
-| sync-on | string | `[object Object]`<br/>`[object Object]` | `'input'` |  |
-| hide-buttons | boolean |  | `true` | 是否隐藏按钮 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
+| multiple | boolean |  | `false` | 设置是否展示双滑块 |
 | unit | string |  |  |  |
-| tip | string |  |  |  |
-| show-tooltip | boolean |  | `false` | 鼠标悬浮时展示提示文字 |
-| tooltip | string |  |  | Tooltip文字设置。在展示Tooltip开关打开的情况下才会生效 |
+| sync-on | string | `[object Object]`<br/>`[object Object]` | `'input'` |  |
+| hide-buttons | boolean |  | `true` |  |
+| show-tooltip | boolean |  | `false` | 鼠标悬浮时展示Tooltip提示信息 |
+| tooltip | string |  |  | Tooltip提示信息设置。在展示提示信息开关打开的情况下才会生效 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Events
 

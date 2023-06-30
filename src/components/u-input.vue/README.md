@@ -161,22 +161,22 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| type | string | `[object Object]`<br/>`[object Object]` | `'text'` | 文本框或者密码框 |
-| value.sync, v-model | string |  |  | 输入框的值 |
-| clearable | boolean |  |  | 开启并在输入框有内容时会显示清除按钮 |
-| password | boolean |  | `false` | 切换密码的显示/隐藏 |
-| placeholder | string |  |  | 为空时的提示文本 |
 | minlength | number |  |  |  |
-| maxlength | number |  |  |  |
 | spellcheck | boolean |  |  | 原生属性 |
-| autofocus | boolean |  | `false` | 是否自动获取焦点 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
-| width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置单行输入框宽度大小 |
-| height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置单行输入框高度大小 |
-| maxlengthMessage | string |  |  | 输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效 |
+| maxlengthMessage | string |  |  | 输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效 |
+| type | string | `[object Object]`<br/>`[object Object]` | `'text'` | 文本框或者密码框 |
+| value.sync, v-model | string |  |  | 输入的值 |
+| placeholder | string |  |  | 为空时显示的占位符文本 |
+| maxlength | number |  |  |  |
+| autofocus | boolean |  | `false` | 设置是否自动获取焦点 |
 | prefix | icon |  | `''` |  |
 | suffix | icon |  | `''` |  |
+| clearable | boolean |  |  | 可点击清除按钮一键清除内容 |
+| password | boolean |  | `false` | 显示状态分为“True(显示)/False(隐藏)”，默认为“显示” |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置单行输入框宽度大小 |
+| height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置单行输入框高度大小 |
 
 ### Slots
 

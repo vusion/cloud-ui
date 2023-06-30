@@ -57,10 +57,10 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value | number \| string |  |  | 显示的值 |
-| max | number |  | `99` | 最大值，超过最大值会显示为“最大值+”的形式，当最大值是数字类型时生效 |
-| corner | boolean |  | `false` |  |
 | dot | boolean |  | `false` | 是否显示为小圆点 |
+| value | number \| string |  |  | 用于标识的值 |
+| max | number |  | `99` | 最大值，超过最大值会显示为“最大值+”的形式，当最大值是数字类型时生效 |
+| corner | boolean |  | `false` | 开启时提醒角标位置显示在右上角，关闭时提醒角标显示在组件右侧。 |
 
 ### Slots
 

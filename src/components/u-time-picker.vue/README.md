@@ -16,7 +16,7 @@
 
 **Selector**
 
-时间选择器
+时间选择
 
 ## 示例
 ### 基本用法
@@ -108,23 +108,23 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | time.sync, v-model | string |  | `''` | 默认显示的时间值，格式如08:08:08 |
 | minUnit | string | `[object Object]`<br/>`[object Object]` | `'second'` | 最小时间单位 |
-| min-time | string |  | `'00:00:00'` | 支持输入的最小时间 |
-| max-time | string |  | `'23:59:59'` | 支持输入的最大时间 |
-| autofocus | boolean |  | `false` | 是否自动获得焦点 |
-| readonly | boolean |  | `false` |  |
-| disabled | boolean |  | `false` |  |
-| visible | boolean |  | `true` | 是否显示 |
-| clearable | boolean |  | `true` | 开启并在输入框有内容时会显示清除按钮 |
-| showRightNowButton | boolean |  | `true` | 快捷选择当前时间 |
+| min-time | string |  | `'00:00:00'` | 最小可选的时间值，填写null则不限制，日期填写格式为“00:00:00” |
+| max-time | string |  | `'23:59:59'` | 最大可选的时间值，填写null则不限制，日期填写格式为“00:00:00” |
+| autofocus | boolean |  | `false` | 设置是否自动获取焦点 |
+| showRightNowButton | boolean |  | `true` | 点击可快捷选择当前时间 |
 | rightNowTitle | string |  | `''` |  |
-| showFooterButton | boolean |  | `true` | 控制弹出层的开启与关闭 |
+| showFooterButton | boolean |  | `true` | 控制弹出层的关闭和设置的生效与否 |
 | cancelTitle | string |  | `''` |  |
-| okTitle | string |  | `''` |  |
+| okTitle | string |  | `''` | 确定按钮的显示名称，如果为空则不显示 |
 | preIcon | string | `[object Object]` | `'time'` |  |
 | suffixIcon | string | `[object Object]` |  |  |
+| append-to | string | `[object Object]`<br/>`[object Object]` | `'body'` | 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。 |
+| clearable | boolean |  | `true` | 可点击清除按钮一键清除内容 |
+| readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| visible | boolean |  | `true` | 显示状态分为“True(打开)/False(关闭)”，默认为“打开” |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置时间选择输入框宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置时间选择输入框高度大小 |
-| append-to | string | `[object Object]`<br/>`[object Object]` | `'body'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
 
 ### Events
 
