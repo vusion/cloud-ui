@@ -76,7 +76,14 @@ export default {
         'currentDataSource.data'(value) {
             this.setCurrentValue(value);
         },
-        dataSource(value) {
+        dataSource(dataSource, oldDataSource) {
+            // 当绑定的是:data-source=['name']这样的，watch会一直进来，所以增加判断
+            if (typeof dataSource === 'function' || typeof oldDataSource === 'function') {
+                if (String(dataSource) === String(oldDataSource))
+                    return;
+            } else if (JSON.stringify(dataSource) === JSON.stringify(oldDataSource)) {
+                return;
+            }
             this.$nextTick(() => {
                 this.currentValue = [];
                 if (this.currentDataSource && this.currentDataSource.load)
@@ -179,7 +186,7 @@ export default {
         },
         setCurrentValue(value) {
             if (!this.currentValue || (!this.value && !this.currentValue.length)) {
-                this.currentValue = value.map((item) => this.$at(item, this.valueField) || item.value);
+                this.currentValue = value.map((item) => this.$at(item, this.valueField) || item.value || item);
             }
         },
         confirm() {
