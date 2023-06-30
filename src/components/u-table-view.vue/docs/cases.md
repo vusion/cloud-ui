@@ -1397,6 +1397,23 @@ export default {
         </u-table-view>
     </u-linear-layout>
     <u-linear-layout>
+        <u-table-view striped :data="data" style="max-height: 300px;" configurable>
+            <u-table-view-column title="序号11"><span slot="cell" slot-scope="{ item }">{{ item.id }}</span></u-table-view-column>
+            <u-table-view-column title="姓名" field="name"></u-table-view-column>
+            <u-table-view-column title="省份" field="province"></u-table-view-column>
+            <u-table-view-column title="城市" field="city"></u-table-view-column>
+            <template #config-columns>
+                <u-table-view-column-config
+                    :data-source="['name', 'province']">
+                    <template #title><i-ico name="add"></i-ico></template>
+                    <template #item="current">
+                        <u-text :text="current.item"></u-text>
+                    </template>
+                </u-table-view-column-config>
+            </template>
+        </u-table-view>
+    </u-linear-layout>
+    <u-linear-layout>
         <u-linear-layout>
             <u-popup-combination ref="popup_combination1">
                 <template #reference>
