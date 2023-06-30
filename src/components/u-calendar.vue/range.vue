@@ -14,18 +14,27 @@
             @pick="emitInput"
             v-bind="$attrs"
             v-on="$listeners" />
+        <QuarterRange
+            v-if="picker === 'quarter'"
+            :value="value"
+            :disabledDate="disabledDate"
+            @pick="emitInput"
+            v-bind="$attrs"
+            v-on="$listeners" />
     </div>
 </template>
 
 <script>
 import DateRange from './panel/date-range'
 import MonthRange from './panel/month-range'
+import QuarterRange from './panel/quarter-range'
 
 export default {
     name: 'u-calendar-range',
     components: {
         DateRange,
-        MonthRange
+        MonthRange,
+        QuarterRange,
     },
     props: {
         picker: { type: String, default: 'date' },

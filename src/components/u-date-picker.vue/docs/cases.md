@@ -3,6 +3,7 @@
 ``` html
 <u-date-range-picker
     picker="date"
+    width="large"
     minDate="2023-01-01"
     maxDate="2023-07-31"
     start-date="2023-03-10"

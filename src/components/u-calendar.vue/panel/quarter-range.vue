@@ -11,7 +11,7 @@
           <div>{{ leftLabel }}</div>
           <div :class="$style.holder"></div>
         </div>
-        <month-table
+        <quarter-table
           selection-mode="range"
           :date="leftDate"
           :default-value="defaultValue"
@@ -21,7 +21,7 @@
           :disabled-date="disabledDate"
           @changerange="handleChangeRange"
           @pick="handleRangePick">
-        </month-table>
+        </quarter-table>
       </div>
       <div :class="[$style.content, $style.right]">
         <div :class="$style.header">
@@ -29,7 +29,7 @@
           <div>{{ rightLabel }}</div>
           <i-ico :class="$style.hicon" name="right-arrow" notext @click="rightNextYear"></i-ico>
         </div>
-        <month-table
+        <quarter-table
           selection-mode="range"
           :date="rightDate"
           :default-value="defaultValue"
@@ -39,7 +39,7 @@
           :disabled-date="disabledDate"
           @changerange="handleChangeRange"
           @pick="handleRangePick">
-        </month-table>
+        </quarter-table>
       </div>
     </div>
   </div>
@@ -51,18 +51,18 @@ import {
   modifyWithTimeString,
   prevYear,
   nextYear,
-  nextMonth
+  nextQuarter
 } from '../date-util';
 import i18n from '../i18n';
-import MonthTable from '../basic/month-table';
+import QuarterTable from '../basic/quarter-table';
 
 const calcDefaultValue = (defaultValue) => {
   if (Array.isArray(defaultValue)) {
     return [new Date(defaultValue[0]), new Date(defaultValue[1])];
   } else if (defaultValue) {
-    return [new Date(defaultValue), nextMonth(new Date(defaultValue))];
+    return [new Date(defaultValue), nextQuarter(new Date(defaultValue))];
   } else {
-    return [new Date(), nextMonth(new Date())];
+    return [new Date(), nextQuarter(new Date())];
   }
 };
 export default {
@@ -258,7 +258,7 @@ export default {
     }
   },
 
-  components: { MonthTable }
+  components: { QuarterTable }
 };
 </script>
 

@@ -385,10 +385,6 @@ export default {
 .root[width="mini"] {
     width: var(--datepicker-input-width-mini);
 }
-.root[width="mini"] .input {
-    padding-left: var(--datepicker-input-padding-x-mini);
-    padding-right: var(--datepicker-input-padding-x-mini);
-}
 
 .root[height="mini"] .input {
     height: var(--datepicker-input-height-mini);
@@ -397,11 +393,6 @@ export default {
 
 .root[width="small"] {
     width: var(--datepicker-input-width-small);
-}
-
-.root[width="small"] .input{
-    padding-left: var(--datepicker-input-padding-x-small);
-    padding-right: var(--datepicker-input-padding-x-small);
 }
 
 .root[height="small"] .input {
@@ -413,11 +404,6 @@ export default {
     width: var(--datepicker-input-width);
 }
 
-.root[width="normal"] .input {
-    padding-left: var(--datepicker-input-padding-x);
-    padding-right: var(--datepicker-input-padding-x);
-}
-
 .root[height="normal"] .input {
     height: var(--datepicker-input-height);
     line-height: calc(var(--datepicker-input-height) - var(--datepicker-input-border-width) * 2);
@@ -425,11 +411,6 @@ export default {
 
 .root[width="medium"] {
     width: var(--datepicker-input-width-medium);
-}
-
-.root[width="medium"] .input {
-    padding-left: var(--datepicker-input-padding-x-medium);
-    padding-right: var(--datepicker-input-padding-x-medium);
 }
 
 .root[height="medium"] .input {
@@ -441,11 +422,6 @@ export default {
     width: var(--datepicker-input-width-large);
 }
 
-.root[width="large"] .input {
-    padding-left: var(--datepicker-input-padding-x-large);
-    padding-right: var(--datepicker-input-padding-x-large);
-}
-
 .root[height="large"] .input {
     height: var(--datepicker-input-height-large);
     line-height: calc(var(--datepicker-input-height-large) - var(--datepicker-input-border-width) * 2);
@@ -453,11 +429,6 @@ export default {
 
 .root[width="huge"] {
     width: var(--datepicker-input-width-huge);
-}
-
-.root[width="huge"] .input {
-    padding-left: var(--datepicker-input-padding-x-huge);
-    padding-right: var(--datepicker-input-padding-x-huge);
 }
 
 .root[height="huge"] .input {

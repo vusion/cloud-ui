@@ -55,6 +55,20 @@ export const getDayCountOfMonth = function(year, month) {
   return new Date(year, +month + 1, 0).getDate();
 };
 
+export const getDayCountOfQuarter = function(year, quarter) {
+  if (isNaN(+quarter)) return 31 * 3;
+
+  const startMonth = (quarter - 1) * 3;
+  const endMonth = startMonth + 2;
+
+  let dayCount = 0;
+  for (let month = startMonth; month <= endMonth; month++) {
+    dayCount += getDayCountOfMonth(year, month);
+  }
+
+  return dayCount;
+};
+
 export const getDayCountOfYear = function(year) {
   const isLeapYear = year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0);
   return isLeapYear ? 366 : 365;
@@ -252,6 +266,14 @@ export const nextMonth = function(date) {
   return month === 11
     ? changeYearMonthAndClampDate(date, year + 1, 0)
     : changeYearMonthAndClampDate(date, year, month + 1);
+};
+
+export const nextQuarter = function(date) {
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  return month >= 9
+    ? changeYearMonthAndClampDate(date, year + 1, 0)
+    : changeYearMonthAndClampDate(date, year, Math.floor(month / 3) * 3 + 3);
 };
 
 export const prevYear = function(date, amount = 1) {

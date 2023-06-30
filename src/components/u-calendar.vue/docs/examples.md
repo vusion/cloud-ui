@@ -45,6 +45,12 @@
 <u-calendar-range picker="month"></u-calendar-range>
 ```
 
+### 季度范围选择
+
+``` html
+<u-calendar-range picker="quarter"></u-calendar-range>
+```
+
 
 ### 只读和禁用
 ``` html
