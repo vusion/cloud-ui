@@ -5,26 +5,38 @@
   labels:
     - Display
   attrs:
-    - name: value
-      title: 值
-      type: number | string
-      description: 显示的值
-    - name: max
-      title: 最大值
-      type: number
-      description: 最大值，超过最大值会显示为“最大值+”的形式，当最大值是数字类型时生效
-      default: 99
-    - name: corner
-      title: 插入右上角
-      type: boolean
-      default: false
-      description: ""
     - name: dot
       title: 显示小圆点
       type: boolean
       default: false
       description: 是否显示为小圆点
       advanced: true
+    - name: value
+      title: 值
+      type: number | string
+      description: 用于标识的值
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 当前提醒消息的条数。
+      tooltipLink: ""
+    - name: max
+      title: 最大值
+      type: number
+      description: 最大值，超过最大值会显示为“最大值+”的形式，当最大值是数字类型时生效
+      default: 99
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 提醒消息的最大值，超过最大值将不再显示准确的数字，用最大值+代替，如99+。
+      tooltipLink: ""
+    - name: corner
+      title: 角标在右上角
+      type: boolean
+      default: false
+      description: 开启时提醒角标位置显示在右上角，关闭时提醒角标显示在组件右侧。
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 开启时提醒角标位置显示在右上角，关闭时提醒角标显示在组件右侧。
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

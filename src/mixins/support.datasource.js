@@ -49,7 +49,13 @@ export default {
 
             if (Array.isArray(dataSource))
                 final.data = dataSource;
-            else if (dataSource instanceof Object && dataSource.hasOwnProperty('list') && Array.isArray(dataSource.list)) {
+            else if (typeof dataSource === 'string') {
+                try {
+                    return this.normalizeDataSource(JSON.parse(dataSource));
+                } catch (err) {
+                    console.error(err);
+                }
+            } else if (dataSource instanceof Object && dataSource.hasOwnProperty('list') && Array.isArray(dataSource.list)) {
                 final.data = dataSource.list;
             } else if (typeof dataSource === 'function')
                 final.load = createLoad(dataSource);
@@ -57,11 +63,20 @@ export default {
             return final;
         },
         load(params) {
+            this.$emit('before-load', undefined, this);
             this.loading = true;
             this.currentDataSource.load(params)
+                .then(() => {
+                    this.$emit('load', undefined, this);
+                })
                 .finally(() => {
                     this.loading = false;
                 });
+        },
+        reload() {
+            // 数据源不是function的时候，调用reload会报错，进行容错处理
+            if (this.currentDataSource.load)
+                this.load();
         },
     },
 };

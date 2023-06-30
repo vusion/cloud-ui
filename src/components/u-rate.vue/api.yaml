@@ -4,8 +4,6 @@
     - Form
   icon: rate
   description: 评分组件。
-  next: true
-  nested: false
   attrs:
     - name: value
       title: 评分值
@@ -14,56 +12,92 @@
       model: true
       default: 0
       description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 当前选择的值
+      tooltipLink: ""
     - name: max
       title: 最大分数
       type: number
       default: 5
       description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 评分组件的最大分数
+      tooltipLink: ""
+    - name: show-text
+      title: 展示辅助文本
+      type: boolean
+      default: false
+      description: 在评分后展示辅助文字
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 在评分后展示辅助文字
+      tooltipLink: ""
+    - name: texts
+      title: 辅助文本
+      type: Array
+      default:
+        - 极差
+        - 失望
+        - 一般
+        - 满意
+        - 惊喜
+      description: 辅助说明的文本信息，在展示辅助文本开关打开的情况下才会生效
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 辅助文字设置。在展示辅助文字开关打开的情况下才会生效
+      tooltipLink: ""
+    - name: show-tooltip
+      title: 展示提示信息
+      type: boolean
+      default: false
+      description: 鼠标悬浮时展示Tooltip提示信息
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 鼠标悬浮时展示提示文字
+      tooltipLink: ""
+    - name: tooltips
+      title: 提示信息
+      type: Array
+      default:
+        - 极差
+        - 失望
+        - 一般
+        - 满意
+        - 惊喜
+      description: Tooltip提示信息设置。在展示提示信息开关打开的情况下才会生效
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: Tooltip文字设置。在展示Tooltip开关打开的情况下才会生效
+      tooltipLink: ""
+    - name: allow-half
+      title: 可半选
+      type: boolean
+      default: false
+      description: 是否允许半选
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 是否允许半选
+      tooltipLink: ""
+    - name: clearable
+      title: 可清除
+      type: boolean
+      default: false
+      description: 可选中后再次点击以清除选中
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 是否允许选中后点击清除
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: ""
-    - name: allow-half
-      title: 允许半选
-      type: boolean
-      default: false
-      description: 是否允许半选
-    - name: clearable
-      title: 允许清除
-      type: boolean
-      default: false
-      description: 是否允许选中后点击清除
-    - name: show-text
-      title: 展示辅助文字
-      type: boolean
-      default: false
-      description: 在评分后展示辅助文字
-    - name: texts
-      title: 辅助文字
-      type: Array
-      default:
-        - 极差
-        - 失望
-        - 一般
-        - 满意
-        - 惊喜
-      description: 辅助文字设置。在展示辅助文字开关打开的情况下才会生效
-    - name: show-tooltip
-      title: 展示Tooltip
-      type: boolean
-      default: false
-      description: 鼠标悬浮时展示提示文字
-    - name: tooltips
-      title: Tooltip文字
-      type: Array
-      default:
-        - 极差
-        - 失望
-        - 一般
-        - 满意
-        - 惊喜
-      description: Tooltip文字设置。在展示Tooltip开关打开的情况下才会生效
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 正常显示，但禁止选择或输入
+      tooltipLink: ""
   events:
     - name: change
       title: 改变后

@@ -4,21 +4,25 @@
     - Form
   icon: checkboxes
   description: 多项中选择多个时使用
-  next: true
-  nested: false
   attrs:
     - name: data-source
       title: 数据源
       type: Array<Item> | Function
-      description: 集合类型变量或者输出参数为集合类型的逻辑
+      description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       designer-value: "[{}, {}, {}]"
       group: 数据属性
+      brifeDoc: ""
+      docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
-      description: 集合类型每一元素的数据类型
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
+      brifeDoc: ""
+      docDescription: 该属性为只读状态，当数据源动态绑定集合List\<T>后，会自动识别T的类型并进行展示。
+      tooltipLink: ""
     - name: text-field
       title: 选项文本
       type: string
@@ -27,38 +31,43 @@
       group: 数据属性
       advanced: true
     - name: value-field
-      title: 选项值
+      title: 值字段
       type: string
       default: value
-      description: 集合的元素类型中，用于标识选中值的属性
+      description: 用于标识选中值的字段
+      display: property-select
       group: 数据属性
+      brifeDoc: ""
+      docDescription: 集合的元素类型中，用于标识选中值的属性，支持自定义变更。
+      tooltipLink: ""
     - name: value
-      title: 值
+      title: 选中值
       type: Array
       sync: true
       model: true
       default: []
-      description: 多选组的选中项
+      description: 当前选中的值
       group: 数据属性
+      brifeDoc: ""
+      docDescription: 多选组的选中项，返还结构为List\<T>。
+      tooltipLink: ""
     - name: min
-      title: 选中最小数
+      title: 最小选中数
       type: number
       default: 0
       description: 可以勾选多选框的最小数量
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 多选组可以勾选多选框的最小数量。
+      tooltipLink: ""
     - name: max
-      title: 选中最大数
+      title: 最大选中数
       type: number
       description: 可以勾选多选框的最大数量
-    - name: readonly
-      title: 只读
-      type: boolean
-      default: false
-      description: ""
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 多选组可以勾选多选框的最大数量。
+      tooltipLink: ""
     - name: converter
       title: 转换器
       type: string
@@ -76,6 +85,28 @@
       default: ""
       description: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
       bindHide: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
+      tooltipLink: ""
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 正常显示，但禁止选择或输入
+      tooltipLink: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: ""
   events:
     - name: input
       title: 输入时
@@ -117,6 +148,36 @@
         - name: $event.oldValue
           type: Array<string>
           description: 旧的选中状态
+    - name: before-load
+      title: 加载前
+      description: 加载前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止加载流程
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+    - name: load
+      title: 加载后
+      description: 加载后触发
+      params:
+        - name: $event
+          type: "null"
+          description: 无
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+  methods:
+    - name: reload
+      description: 清除缓存，重新加载
+      params: []
   slots:
     - concept: Slot
       name: default
@@ -143,8 +204,6 @@
               typeName: T
 - name: u-checkbox
   title: 多选项
-  next: false
-  nested: false
   attrs:
     - name: text
       title: 文本
@@ -157,26 +216,46 @@
       sync: true
       model: true
       default: false
-      description: 选中状态，`null`表示不确定状态
+      description: 标志选中状态的值，`null`表示不确定状态
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 选项返还的选项值。
+      tooltipLink: ""
     - name: label
       title: 选项值
       type: any
-      description: 多选框选项值，只在多选组中使用
-    - name: readonly
-      title: 只读
-      type: boolean
-      default: false
-      description: ""
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: ""
+      description: 用于标识选项的值
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: autofocus
       title: 自动获取焦点
       type: boolean
       default: false
       description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 正常显示，但禁止选择或输入
+      tooltipLink: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。
+      tooltipLink: ""
   events:
     - name: before-check
       title: 选中前

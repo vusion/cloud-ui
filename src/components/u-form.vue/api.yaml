@@ -4,22 +4,35 @@
   description: 具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。
   labels:
     - Form
-  next: true
-  nested: false
   attrs:
     - name: model
       title: 数据模型
       type: object
       description: 表单数据模型
       advanced: true
+    - name: size
+      title: 表单尺寸
+      type: string
+      options:
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+      default: normal
+      description: ""
+      advanced: true
     - name: rules
       title: 验证规则
       type: object
-      description: 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules
+      description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
       advanced: true
       deprecated: true
       compType: validationRulesSelect
       bindHide: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型，详见[验证规则](#验证规则)。
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/121.%E8%A1%A8%E5%8D%95.html
     - name: layout
       title: 表单布局
       type: string
@@ -38,6 +51,10 @@
         - value: inline-flex
           updateData:
             repeat: 1
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 更改表单的布局方式。行内展示，标签与表单项在一行展示。块级展示，宽度会充满父元素。栅格展示，可设置列数。
+      tooltipLink: ""
     - name: repeat
       title: 列数
       type: number
@@ -48,6 +65,68 @@
       dependency:
         - layout: inline-flex
         - "!repeat": 1
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 整个表单的划分列数，此项需要设置表单布局为“栅格展示”。
+      tooltipLink: ""
+    - name: label-layout
+      title: 标签布局
+      type: string
+      options:
+        - value: inline
+          title: 行内展示
+        - value: block
+          title: 块级展示，标签与表单项分行展示
+      default: inline
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: "设置标签布局方式。行内展示；块级展示，标签与单项分行展示- "
+      tooltipLink: ""
+    - name: label-ellipsis
+      title: 标签过长省略
+      type: boolean
+      default: false
+      description: 文字过长是否省略显示。默认文字超出时会换行。
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 文字过长是否省略显示，默认文字超出时会换行。
+      tooltipLink: ""
+    - name: collapsible
+      title: 可折叠
+      type: boolean
+      default: false
+      description: 设置是否可以展开/折叠
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 分组是否可以折叠。
+      tooltipLink: ""
+    - name: accordion
+      title: 手风琴模式
+      type: boolean
+      default: false
+      description: 设置是否每次只展开一个
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 是否每次只会展开一个分组。
+      tooltipLink: ""
+    - name: expand-trigger
+      title: 展开触发方式
+      type: string
+      options:
+        - value: click
+          title: 整行点击均可触发
+        - value: click-expander
+          title: 仅点击小箭头时触发
+      default: click
+      description: 展开/折叠操作的触发方式
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: |-
+        展开/折叠的触发方式。
+        - 整行点击均可触发。
+        - 仅点击小箭头时触发。
+      tooltipLink: ""
     - name: gap-width
       title: 列间隔
       type: string
@@ -64,6 +143,10 @@
       description: 设置表单列间隔大小
       dependency:
         - layout: inline
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 设置表单项间隔大小。支持无、小、正常、大四个级别，此项需要设置表单布局为“行内展示”。
+      tooltipLink: ""
     - name: gap-height
       title: 行间隔
       type: string
@@ -78,16 +161,10 @@
           title: 大
       default: normal
       description: 设置表单行间隔大小
-    - name: label-layout
-      title: 标签布局
-      type: string
-      options:
-        - value: inline
-          title: 行内展示
-        - value: block
-          title: 块级展示，标签与表单项分行展示
-      default: inline
-      description: ""
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 设置表单行间隔大小。支持无、小、正常、大四个级别。
+      tooltipLink: ""
     - name: label-size
       title: 标签宽度
       type: string
@@ -104,42 +181,10 @@
       description: ""
       dependency:
         - label-layout: inline
-    - name: label-ellipsis
-      title: 标签省略显示
-      type: boolean
-      default: false
-      description: 文字过长是否省略显示。默认文字超出时会换行。
-    - name: size
-      title: 表单尺寸
-      type: string
-      options:
-        - value: small
-          title: 小
-        - value: normal
-          title: 正常
-      default: normal
-      description: ""
-      advanced: true
-    - name: collapsible
-      title: 是否可折叠
-      type: boolean
-      default: false
-      description: 分组是否可以折叠
-    - name: accordion
-      title: 手风琴模式
-      type: boolean
-      default: false
-      description: 是否每次只会展开一个分组
-    - name: expand-trigger
-      title: 展开触发方式
-      type: string
-      options:
-        - value: click
-          title: 整行点击均可触发
-        - value: click-expander
-          title: 仅点击小箭头时触发
-      default: click
-      description: 展开/折叠的触发方式
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 设置标签宽度。支持迷你、小、正常、大四个级别。
+      tooltipLink: ""
   computed:
     - name: touched
       title: 触碰
@@ -228,8 +273,6 @@
           description: 是否验证后无提示
 - name: u-form-item
   title: 表单项
-  next: false
-  nested: false
   attrs:
     - name: name
       title: 字段名称
@@ -242,63 +285,6 @@
       type: string
       description: 用于左侧显示，同时用于提示消息的合成
       advanced: true
-    - name: span
-      title: 占据数
-      type: string
-      default: 1
-      description: 列跨越的格数
-    - name: label-layout
-      title: 标签布局
-      type: string
-      options:
-        - value: inline
-          title: 行内展示
-        - value: block
-          title: 块级展示，标签与表单项分行展示
-      default: inline
-      description: ""
-    - name: label-size
-      title: 标签大小
-      type: string
-      options:
-        - value: mini
-          title: 迷你
-        - value: small
-          title: 小
-        - value: normal
-          title: 正常
-        - value: large
-          title: 大
-      default: normal
-      description: 单独设置表单项的标签大小。
-    - name: label-ellipsis
-      title: 标签省略显示
-      type: boolean
-      default: false
-      description: 文字过长是否省略显示。默认文字超出时会换行。
-    - name: field-size
-      title: 字段大小
-      type: string
-      options:
-        - value: mini
-          title: 迷你
-        - value: small
-          title: 小
-        - value: normal
-          title: 正常
-        - value: large
-          title: 大
-      default: normal
-      description: 单独设置表单项的内容大小
-    - name: required
-      title: 必填标记
-      type: boolean
-      default: false
-      description: 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。
-    - name: message
-      title: 提示消息
-      type: string
-      description: 默认提示消息
     - name: muted
       title: 验证是否静默
       type: string
@@ -312,10 +298,6 @@
       default: none
       description: 验证是否静默
       advanced: true
-    - name: description
-      title: 描述内容
-      type: string
-      description: 添加描述内容
     - name: placement
       title: 提示信息位置
       type: string
@@ -327,29 +309,6 @@
       default: right
       description: 改变提示信息显示位置
       advanced: true
-    - name: layout
-      title: 标签纵轴对齐
-      type: string
-      options:
-        - value: block
-          title: 顶对齐
-        - value: center
-          title: 居中对齐
-        - value: end
-          title: 尾对齐
-      default: center
-      description: 标签与表单元素的纵轴对齐方式，默认为顶对齐
-    - name: rules
-      title: 验证规则
-      type: string | Array
-      description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
-      compType: validationRulesSelect
-      bindHide: true
-    - name: ignore-validation
-      title: 忽略验证
-      type: boolean
-      default: false
-      description: 忽略验证
     - name: ignore-rules
       title: 忽略验证规则
       type: boolean
@@ -372,6 +331,133 @@
       type: Function
       description: 验证前对值进行预处理
       advanced: true
+    - name: span
+      title: 占据数
+      type: string
+      default: 1
+      description: 列跨越的格数
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 列跨越的格数。
+      tooltipLink: ""
+    - name: label-layout
+      title: 标签布局
+      type: string
+      options:
+        - value: inline
+          title: 行内展示
+        - value: block
+          title: 块级展示，标签与表单项分行展示
+      default: inline
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 设置标签布局方式，行内展示、块级展示，标签与表单项分行展示
+      tooltipLink: ""
+    - name: label-ellipsis
+      title: 标签过长省略
+      type: boolean
+      default: false
+      description: 文字过长是否省略显示。默认文字超出时会换行。
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 文字过长是否省略显示，默认文字超出时会换行。
+      tooltipLink: ""
+    - name: required
+      title: 必填标记
+      type: boolean
+      default: false
+      description: 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 是否必填。仅显示样式，如果要验证必填项，需要在rules中添加必填规则。
+      tooltipLink: ""
+    - name: message
+      title: 释义提示
+      type: string
+      description: 鼠标悬浮标签后的图标显示释义提示信息
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 默认提示消息。
+      tooltipLink: ""
+    - name: description
+      title: 辅助文本
+      type: string
+      description: 辅助说明的文本信息
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 添加描述内容。
+      tooltipLink: ""
+    - name: layout
+      title: 标签纵轴对齐
+      type: string
+      options:
+        - value: block
+          title: 顶对齐
+        - value: center
+          title: 居中对齐
+        - value: end
+          title: 尾对齐
+      default: center
+      description: 标签与表单元素的纵轴对齐方式，默认为顶对齐
+      group: 主要属性
+      docDescription: 标签与表单元素的纵轴对齐方式，默认为顶对齐。
+      tooltipLink: ""
+    - name: rules
+      title: 验证规则
+      type: string | Array
+      description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
+      compType: validationRulesSelect
+      bindHide: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型，详见[验证规则](#验证规则)。
+      tooltipLink: ""
+    - name: ignore-validation
+      title: 忽略验证
+      type: boolean
+      default: false
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 设置是否忽略验证。
+      tooltipLink: ""
+    - name: field-size
+      title: 字段大小
+      type: string
+      options:
+        - value: mini
+          title: 迷你
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+      default: normal
+      description: 单独设置表单项的内容大小
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 单独设置表单项的内容大小。
+      tooltipLink: ""
+    - name: label-size
+      title: 表单项标题宽度
+      type: string
+      options:
+        - value: mini
+          title: 迷你
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+      default: normal
+      description: ""
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 单独设置表单项的标签宽度大小。支持迷你、小、正常、大四个级别。
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -430,18 +516,24 @@
   description: 表单项
 - name: u-form-group
   title: 表单分组
-  next: false
-  nested: false
   attrs:
     - name: title
       title: 标题
       type: string
-      description: 显示的标题
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 显示的标题。
+      tooltipLink: ""
     - name: repeat
       title: 列数
       type: number
       default: 1
       description: 整个表单的划分列数
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 整个表单的划分列数。
+      tooltipLink: ""
     - name: label-layout
       title: 标签布局
       type: string
@@ -452,27 +544,47 @@
           title: 块级展示，标签与表单项分行展示
       default: inline
       description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 设置标签布局方式。行内展示、块级展示，标签与表单项分行展示。
+      tooltipLink: ""
     - name: label-ellipsis
-      title: 标签省略显示
+      title: 标签过长省略
       type: boolean
       default: false
       description: 文字过长是否省略显示。默认文字超出时会换行。
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 文字过长是否省略显示。默认文字超出时会换行。
+      tooltipLink: ""
     - name: collapsible
-      title: 是否可折叠
+      title: 可折叠
       type: boolean
       default: false
-      description: 分组是否可以折叠
+      description: 设置是否可以展开/折叠
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 分组是否可以折叠。
+      tooltipLink: ""
     - name: expanded
-      title: 展开折叠状态
+      title: 展开状态
       type: boolean
       sync: true
       default: false
-      description: 展开/折叠状态
+      description: 展开状态分为“True(展开)/False(折叠)”，默认为“展开”
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 绑定展开/折叠状态的值
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用。禁用时无法展开/折叠
+      description: 置灰显示，且禁止展开/折叠操作
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

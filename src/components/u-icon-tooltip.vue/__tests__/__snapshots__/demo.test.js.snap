@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-icon-tooltip.vue Demo-切换类型 1`] = `
+<div>
+  信息 <span class="root" type="info"><transition-stub name="fade-fast">
+      <div arraw-size="normal" class="root" style="display: none;">
+        <div class="arrow" data-popper-arrow></div>
+        <div class="body" size="normal">这是提示内容</div>
+      </div>
+    </transition-stub></span>
+  <br>
+  帮助 <span class="root" type="help"><transition-stub name="fade-fast">
+      <div arraw-size="normal" class="root" style="display: none;">
+        <div class="arrow" data-popper-arrow></div>
+        <div class="body" size="normal">这是提示内容</div>
+      </div>
+    </transition-stub></span>
+  <br>
+  详情 <span class="root" type="detail"><transition-stub name="fade-fast">
+      <div arraw-size="normal" class="root" style="display: none;">
+        <div class="arrow" data-popper-arrow></div>
+        <div class="body" size="normal">这是提示内容</div>
+      </div>
+    </transition-stub></span>
+</div>
+`;
+
+exports[`u-icon-tooltip.vue Demo-基本用法 1`] = `
+<div>
+  文字旁的提示 <span class="root" type="info"><transition-stub name="fade-fast">
+      <div arraw-size="normal" class="root" style="display: none;">
+        <div class="arrow" data-popper-arrow></div>
+        <div class="body" size="normal">这是提示内容</div>
+      </div>
+    </transition-stub></span>
+</div>
+`;
+
+exports[`u-icon-tooltip.vue Demo-弹出位置 1`] = `
+<div>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <span>
+      top
+      <span class="root" type="info"><transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
+          </div>
+        </transition-stub></span>
+    </span>
+    <span>
+      left
+      <span class="root" type="info"><transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
+          </div>
+        </transition-stub></span>
+    </span>
+    <span>
+      right
+      <span class="root" type="info"><transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
+          </div>
+        </transition-stub></span>
+    </span>
+    <span>
+      bottom
+      <span class="root" type="info"><transition-stub name="fade-fast">
+          <div arraw-size="normal" class="root" style="display: none;">
+            <div class="arrow" data-popper-arrow></div>
+            <div class="body" size="normal">Tooltip</div>
+          </div>
+        </transition-stub></span>
+    </span>
+  </div>
+</div>
+`;

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`m-parent.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root">
+    <div class="root">水杯</div>
+    <div class="root">咖啡</div>
+    <div class="root">坚果</div>
+  </div>
+</div>
+`;
+
+exports[`m-parent.vue Demo-基本用法 2`] = `
+<div>
+  <div class="root">
+    <div class="root">水杯</div>
+    <div class="root">咖啡</div>
+    <div class="root">坚果</div>
+  </div>
+</div>
+`;

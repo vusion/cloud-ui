@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-block.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root">Block</div>
+</div>
+`;

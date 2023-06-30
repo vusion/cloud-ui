@@ -1,6 +1,6 @@
 - name: u-new-time-picker
-  title: 时间选择器
-  description: 新版时间选择器
+  title: 时间选择
+  description: 新版时间选择
   attrs:
     - name: value
       type: string

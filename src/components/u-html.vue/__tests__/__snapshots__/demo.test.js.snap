@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-html.vue Demo-不使用安全过滤 1`] = `
+<div class="root">
+  <a href="https://www.163yun.com" target="_blank">html 元素</a>
+  <img onerror="console.log(1)" src>
+</div>
+`;
+
+exports[`u-html.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root">
+    <a href="https://www.163yun.com" target="_blank">html 元素</a>
+    <img src>
+  </div>
+</div>
+`;
+
+exports[`u-html.vue Demo-基本用法 2`] = `
+<div>
+  <div class="root">
+    <a href="https://www.163yun.com" target="_blank">html 元素</a>
+    <img src>
+  </div>
+</div>
+`;

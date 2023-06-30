@@ -6,6 +6,7 @@
     <div v-if="title" :class="$style.title" ref="title" :style="{ textAlign: titleAlignment }" vusion-slot-name="title" vusion-slot-name-edit="title">
         <slot name="title">{{ title }}</slot>
     </div>
+    <slot name="config-columns"></slot>
     <div :class="$style.table" v-for="(tableMeta, tableMetaIndex) in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
@@ -449,6 +450,7 @@ export default {
         // 新增用来分页
         pagination: { type: Boolean, default: undefined },
         parentField: { type: String },
+        configurable: { type: Boolean, default: false }, // 是否配置显隐列
     },
     data() {
         return {
@@ -483,6 +485,7 @@ export default {
             rowDraggable: false,
             handlerDraggable: false,
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
+            configColumnVM: undefined,
         };
     },
     computed: {
@@ -632,6 +635,9 @@ export default {
                     thEl.__vue__ = columnVMs[index];
                 });
             });
+            if (this.configColumnVM) {
+                this.configColumnVM.handleColumnsData();
+            }
         },
         visibleColumnVMs() {
             this.handleResize();
@@ -667,6 +673,11 @@ export default {
                 this.handleResize();
             },
             immediate: true,
+        },
+        configurable() {
+            if (this.configColumnVM) {
+                this.configColumnVM.handleColumnsData();
+            }
         },
     },
     created() {
@@ -766,7 +777,9 @@ export default {
             if (typeof this.data === 'function' || (this.data instanceof Object && !Array.isArray(this.data)))
                 throw new Error(`[cloud-ui] Don't assign a function or object to 'data' prop. Try to use 'data-source' prop.`);
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
-            this.initialLoad && this.load();
+            // fix 2637418667735552 添加编辑行时已经添加的下拉框还是会重新load数据
+            // 原因：list添加了一项，进入了dataSource的watch，该函数会进来，调用了load方法，会设置loading状态，导致表格重新渲染
+            this.initialLoad && (typeof this.dataSource === 'function') && this.load();
             this.handleResize();
             this.$nextTick(() => {
                 this.$forceUpdate();
@@ -811,7 +824,7 @@ export default {
                 // 使用了新的分页, 数组肯定不是后端数据
                 if (isNew) {
                     options.remotePaging = false;
-                    options.remoteSorting = false;
+                    options.remoteSorting = options.remotePaging;
                 }
                 return new Constructor(options);
             } else if (dataSource instanceof Function) {
@@ -828,8 +841,7 @@ export default {
                 if (isNew) {
                     // 树形展示且配置了父节点时只能前端分页
                     options.remotePaging = (this.treeDisplay && this.parentField) ? false : !!this.pagination;
-                    // options.remotePaging = !!this.pagination;
-                    options.remoteSorting = !!(this.sorting && this.sorting.field);
+                    options.remoteSorting = !!options.remotePaging;
                 }
                 return new Constructor(options);
             } else if (dataSource instanceof Object) {

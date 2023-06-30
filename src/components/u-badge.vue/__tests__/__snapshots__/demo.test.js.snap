@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-badge.vue Demo-右上角 1`] = `
+<div>
+  <div class="root" corner>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      评论</a>
+    <span class="value">3</span>
+  </div>
+</div>
+`;
+
+exports[`u-badge.vue Demo-基本用法 1`] = `
+<div>
+  <p>消息 </p>
+  <div class="root">
+    <span class="value">3</span>
+  </div>
+  <p></p>
+  <p>消息 </p>
+  <div class="root">
+    <span class="value">new</span>
+  </div>
+  <p></p>
+</div>
+`;
+
+exports[`u-badge.vue Demo-小圆点 1`] = `
+<div>
+  <div class="root" corner="true" dot="true">
+    <span class="root" vusion-slot-name-edit="text">消息</span>
+    <span class="value">3</span>
+  </div>
+</div>
+`;
+
+exports[`u-badge.vue Demo-小圆点 2`] = `
+<div>
+  <p>消息 </p>
+  <div class="root" dot>
+    <span class="value">3</span>
+  </div>
+  <p></p>
+  <p>
+  </p>
+  <div class="root" corner dot>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      评论</a>
+    <span class="value">3</span>
+  </div>
+  <p></p>
+</div>
+`;
+
+exports[`u-badge.vue Demo-数字徽章 1`] = `
+<div>
+  <div class="root" corner="true">
+    <span class="root" vusion-slot-name-edit="text">消息</span>
+    <span class="value">3</span>
+  </div>
+</div>
+`;
+
+exports[`u-badge.vue Demo-最大值 1`] = `
+<div>
+  <div class="root" corner>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      评论</a>
+    <span class="value">99+</span>
+  </div>
+</div>
+`;

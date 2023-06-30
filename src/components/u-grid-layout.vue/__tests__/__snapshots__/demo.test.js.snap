@@ -1,0 +1,986 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-grid-layout.vue Demo- 1`] = `
+<div>
+  <div class="root">
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+    </div>
+  </div>
+  <div class="root">
+    <div class="table" position="static">
+      <div class="head" style="top: 0px;">
+        <table class="root head-table">
+          <colgroup>
+            <col width="0">
+            <col width="0">
+            <col>
+            <col width="0">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  用户名
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  手机号码
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  地址
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  最近登录时间
+                </span>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="body" sticky-fixed="true">
+        <div class="root scrollcview">
+          <div class="wrap">
+            <div>
+              <table class="root">
+                <colgroup>
+                  <col width="0">
+                  <col width="0">
+                  <col>
+                  <col width="0">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td class="center" colspan="4" vusion-slot-name="empty">
+                      <div class="root" direction="horizontal" justify="center" layout="block" type vusion-slot-name="default">
+                        暂无数据
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="root" direction="horizontal">
+            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+          </div>
+          <div class="root" direction="vertical">
+            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" style="display: none;">
+      <div class="line" style="display: none;"></div>
+      <div class="mask" style="display: none;"></div>
+    </div>
+    <div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+    </div>
+  </div>
+  <div class="root">
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-grid-layout.vue Demo-2列样式（8:16） 1`] = `
+<div>
+  <div class="root">
+    <div class="root">
+      <div class="root" empty="true" vusion-slot-name="default">
+      </div>
+      <div class="root" empty="true" vusion-slot-name="default">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-grid-layout.vue Demo-3列样式（8:8:8） 1`] = `
+<div>
+  <div class="root">
+    <div class="root">
+      <div class="root" empty="true" vusion-slot-name="default">
+      </div>
+      <div class="root" empty="true" vusion-slot-name="default">
+      </div>
+      <div class="root" empty="true" vusion-slot-name="default">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-grid-layout.vue Demo-4列样式（2:4:8:10） 1`] = `
+<div>
+  <div class="root">
+    <div class="root">
+      <div class="root" empty="true" vusion-slot-name="default">
+      </div>
+      <div class="root" empty="true" vusion-slot-name="default">
+      </div>
+      <div class="root" empty="true" vusion-slot-name="default">
+      </div>
+      <div class="root" empty="true" vusion-slot-name="default">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-grid-layout.vue Demo-列偏移 1`] = `
+<div>
+  <div class="root">
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">4/12</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">4/12 offset=4</div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">3/12 offset=3</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">3/12 offset=3</div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-grid-layout.vue Demo-列排序 1`] = `
+<div>
+  <div class="root">
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">4/10 push=6</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">6/10 pull=4</div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">2/10 push=8</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">3/10 push=5</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">5/10 push=5</div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-grid-layout.vue Demo-列间隙 1`] = `
+<div>
+  <div class="root">
+    <div class="root" gap="none">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="root">
+    <div class="root" gap="mini">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">mini</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">mini</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">mini</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">mini</div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="root">
+    <div class="root" gap="small">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small</div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="root">
+    <div class="root" gap="normal">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">normal</div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="root">
+    <div class="root" gap="large">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">large</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">large</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">large</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">large</div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="root">
+    <div class="root" gap="huge">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">huge</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">huge</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">huge</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">huge</div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-grid-layout.vue Demo-响应式 1`] = `
+<div>
+  <div class="root">
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">Responsive</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">Responsive</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">Responsive</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">Responsive</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">Responsive</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">Responsive</div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-grid-layout.vue Demo-垂直对齐方式 1`] = `
+<div>
+  <div class="root" gap="large small">
+    <div alignment="start" class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">start</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root" size="normal auto">start</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root" size="large auto">start</div>
+      </div>
+    </div>
+    <div alignment="center" class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">center</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root" size="normal auto">center</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root" size="large auto">center</div>
+      </div>
+    </div>
+    <div alignment="end" class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">end</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root" size="normal auto">end</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root" size="large auto">end</div>
+      </div>
+    </div>
+    <div alignment="baseline" class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">baseline</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root" size="normal auto">baseline</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root" size="large auto">baseline</div>
+      </div>
+    </div>
+    <div alignment="stretch" class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root" style="height: 100%;">stretch</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root" size="normal auto" style="height: 100%;">stretch</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root" size="large auto" style="height: 100%;">stretch</div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-grid-layout.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root">
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">1/6</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">1/6</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">1/6</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">1/6</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">1/6</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">1/6</div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">2/24</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">4/24</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">8/24</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">10/24</div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">1/3</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">2/3</div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-grid-layout.vue Demo-水平分布方式 1`] = `
+<div>
+  <div class="root">
+    <div class="root" justify="start">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">start</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">start</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">start</div>
+      </div>
+    </div>
+    <div class="root" justify="center">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">center</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">center</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">center</div>
+      </div>
+    </div>
+    <div class="root" justify="end">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">end</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">end</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">end</div>
+      </div>
+    </div>
+    <div class="root" justify="space-between">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">space-between</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">space-between</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">space-between</div>
+      </div>
+    </div>
+    <div class="root" justify="space-around">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">space-around</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">space-around</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">space-around</div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-grid-layout.vue Demo-测试多种布局属性影响 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root" direction="vertical" type vusion-slot-name="default">
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">方向：</span>
+        </span>
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span>请选择</span>
+          <div style="direction: ltr;" tags-overflow="collapse">
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  横向排列
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  纵向排列
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">主轴对齐方式：</span>
+        </span>
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span>请选择</span>
+          <div style="direction: ltr;" tags-overflow="collapse">
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  左对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  居中对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  右对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  各行之间留有空
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  之前、之间、之后都留有空白
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">纵轴对齐方式：</span>
+        </span>
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span>请选择</span>
+          <div style="direction: ltr;" tags-overflow="collapse">
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  头对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  居中对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  尾对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  基线对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  拉伸子元素充满整个父元素空间
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="root">
+        <div class="root" style="border: 1px solid #ddd;" vusion-slot-name="default">
+          <div bordered="true" class="root" shadow="always">
+            <div class="head" flex="true">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+
+              </div>
+              <a></a>
+              <div class="extra" vusion-slot-name="extra">
+              </div>
+            </div>
+            <div class="body" vusion-slot-name="default">1
+            </div>
+            <div></div>
+          </div>
+        </div>
+        <div class="root" style="border: 1px solid #ddd;" vusion-slot-name="default">
+          <div class="root">2</div>
+        </div>
+        <div class="root" style="border: 1px solid #ddd;" vusion-slot-name="default">
+          <div class="root">3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root" direction="vertical" type vusion-slot-name="default">
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">布局模式：</span>
+        </span>
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span>请选择</span>
+          <div style="direction: ltr;" tags-overflow="collapse">
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  行内
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  块级
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  弹性
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">方向：</span>
+        </span>
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span>请选择</span>
+          <div style="direction: ltr;" tags-overflow="collapse">
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  横向排列
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  纵向排列
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">主轴对齐方式：</span>
+        </span>
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span>请选择</span>
+          <div style="direction: ltr;" tags-overflow="collapse">
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  左对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  居中对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  右对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  各行之间留有空
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  之前、之间、之后都留有空白
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">纵轴对齐方式：</span>
+        </span>
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span>请选择</span>
+          <div style="direction: ltr;" tags-overflow="collapse">
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  头对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  居中对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  尾对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  基线对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  拉伸子元素充满整个父元素空间
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">内容间隙：</span>
+        </span>
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span>请选择</span>
+          <div style="direction: ltr;" tags-overflow="collapse">
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  shrink
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  none
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  mini
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  small
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  large
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="root">
+        <div class="root" gap style="border: 1px solid #ddd;" vusion-slot-name="default">
+          <div bordered="true" class="root" shadow="always">
+            <div class="head" flex="true">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+
+              </div>
+              <a></a>
+              <div class="extra" vusion-slot-name="extra">
+              </div>
+            </div>
+            <div class="body" vusion-slot-name="default">1
+            </div>
+            <div></div>
+          </div>
+          <div bordered="true" class="root" shadow="always">
+            <div class="head" flex="true">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+
+              </div>
+              <a></a>
+              <div class="extra" vusion-slot-name="extra">
+              </div>
+            </div>
+            <div class="body" vusion-slot-name="default">1
+            </div>
+            <div></div>
+          </div>
+          <div bordered="true" class="root" shadow="always">
+            <div class="head" flex="true">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+
+              </div>
+              <a></a>
+              <div class="extra" vusion-slot-name="extra">
+              </div>
+            </div>
+            <div class="body" vusion-slot-name="default">1
+            </div>
+            <div></div>
+          </div>
+        </div>
+        <div class="root" style="border: 1px solid #ddd;" vusion-slot-name="default">
+          <div class="root">2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-grid-layout.vue Demo-间隙 1`] = `
+<div>
+  <div class="root" gap="none">
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">none</div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="root" gap="small">
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small</div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small</div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="root" gap="normal">
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">normal</div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">normal</div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="root" gap="large">
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">large</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">large</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">large</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">large</div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">large</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">large</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">large</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">large</div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="root" gap="small normal">
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small normal</div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small normal</div>
+      </div>
+      <div class="root" vusion-slot-name="default">
+        <div class="root">small normal</div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

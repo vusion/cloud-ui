@@ -1,0 +1,461 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`m-singlex.vue Demo-单向绑定 1`] = `
+<div>
+  <nav class="root">
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      水杯
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      咖啡
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      坚果
+    </a>
+    <a class="root" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      毛巾
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      沙发
+    </a>
+  </nav>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-双向绑定 1`] = `
+<div class="root" direction="vertical" gap="small" type vusion-slot-name="default">
+  <nav class="root">
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      水杯
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      咖啡
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      坚果
+    </a>
+    <a class="root" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      毛巾
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      沙发
+    </a>
+  </nav>
+  <nav class="root">
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      水杯
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      咖啡
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      坚果
+    </a>
+    <a class="root" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      毛巾
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      沙发
+    </a>
+  </nav>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-双向绑定 2`] = `
+<div class="root" direction="vertical" gap="small" type vusion-slot-name="default">
+  <nav class="root">
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      水杯
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      咖啡
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      坚果
+    </a>
+    <a class="root" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      毛巾
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      沙发
+    </a>
+  </nav>
+  <nav class="root">
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      水杯
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      咖啡
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      坚果
+    </a>
+    <a class="root" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      毛巾
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      沙发
+    </a>
+  </nav>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-只读、禁用、禁用某一项 1`] = `
+<div>
+  <div class="root">
+    <div class="root" vusion-slot-name="default">
+      <nav class="root" readonly="readonly">
+        <a class="root" readonly="readonly" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          水杯
+        </a>
+        <a class="root" readonly="readonly" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          咖啡
+        </a>
+        <a class="root" readonly="readonly" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          坚果
+        </a>
+        <a class="root" readonly="readonly" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          毛巾
+        </a>
+        <a class="root" readonly="readonly" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          沙发
+        </a>
+      </nav>
+    </div>
+    <div class="root" vusion-slot-name="default">
+      <nav class="root" disabled="disabled">
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          水杯
+        </a>
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          咖啡
+        </a>
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          坚果
+        </a>
+        <a class="root" disabled="disabled" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          毛巾
+        </a>
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          沙发
+        </a>
+      </nav>
+    </div>
+    <div class="root" vusion-slot-name="default">
+      <nav class="root">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          水杯
+        </a>
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          咖啡
+        </a>
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          坚果
+        </a>
+        <a class="root" disabled="disabled" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          毛巾
+        </a>
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          沙发
+        </a>
+      </nav>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-只读、禁用、禁用某一项 2`] = `
+<div>
+  <div class="root">
+    <div class="root" vusion-slot-name="default">
+      <nav class="root" readonly="readonly">
+        <a class="root" readonly="readonly" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          水杯
+        </a>
+        <a class="root" readonly="readonly" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          咖啡
+        </a>
+        <a class="root" readonly="readonly" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          坚果
+        </a>
+        <a class="root" readonly="readonly" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          毛巾
+        </a>
+        <a class="root" readonly="readonly" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          沙发
+        </a>
+      </nav>
+    </div>
+    <div class="root" vusion-slot-name="default">
+      <nav class="root" disabled="disabled">
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          水杯
+        </a>
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          咖啡
+        </a>
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          坚果
+        </a>
+        <a class="root" disabled="disabled" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          毛巾
+        </a>
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          沙发
+        </a>
+      </nav>
+    </div>
+    <div class="root" vusion-slot-name="default">
+      <nav class="root">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          水杯
+        </a>
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          咖啡
+        </a>
+        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          坚果
+        </a>
+        <a class="root" disabled="disabled" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          毛巾
+        </a>
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+          沙发
+        </a>
+      </nav>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-可取消 1`] = `
+<div>
+  <nav class="root">
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      水杯
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      咖啡
+    </a>
+    <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      坚果
+    </a>
+    <a class="root" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      毛巾
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      沙发
+    </a>
+  </nav>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-可取消 2`] = `
+<div>
+  <nav class="root">
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      水杯
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      咖啡
+    </a>
+    <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      坚果
+    </a>
+    <a class="root" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      毛巾
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      沙发
+    </a>
+  </nav>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-同步顺序 1`] = `
+<div>
+  <nav class="root">
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      水杯
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      咖啡
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      坚果
+    </a>
+  </nav>
+  <span>value: toothbrush</span>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    更新列表</a>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-基本用法 1`] = `
+<div>
+  <nav class="root">
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      水杯
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      咖啡
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      坚果
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      毛巾
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      沙发
+    </a>
+  </nav>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-基本用法 2`] = `
+<div>
+  <nav class="root">
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      水杯
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      咖啡
+    </a>
+    <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      坚果
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      毛巾
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      沙发
+    </a>
+  </nav>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-更新列表 1`] = `
+<div>
+  <nav class="root">
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      水杯
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      咖啡
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      坚果
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      毛巾
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      沙发
+    </a>
+  </nav>
+  <span>value: toothbrush</span>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    更新列表</a>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-自动选择 1`] = `
+<div>
+  <nav class="root">
+    <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      水杯
+    </a>
+    <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      咖啡
+    </a>
+    <a class="root" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      坚果
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      毛巾
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      沙发
+    </a>
+  </nav>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-自动选择 2`] = `
+<div>
+  <nav class="root">
+    <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      水杯
+    </a>
+    <a class="root" disabled="disabled" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      咖啡
+    </a>
+    <a class="root" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      坚果
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      毛巾
+    </a>
+    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      沙发
+    </a>
+  </nav>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-路由模式 1`] = `
+<div>
+  <nav class="root">
+    <a class="root" href="#/components/m-singlex" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      MSinglex
+    </a>
+    <a class="root" href="#/components/m-singlex" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      MSinglex Exact
+    </a>
+    <a class="root" href="#/components/m-singlex/cases" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      Cases
+    </a>
+    <a class="root" href="#/components/m-multiplex" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      MMultiplex
+    </a>
+    <a class="root" disabled="disabled" href="#/components/m-multiplex" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      MMultiplex Disabled
+    </a>
+    <a class="root" href="/" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      Href
+    </a>
+    <a class="root" disabled="disabled" href="/" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      Href Disabled
+    </a>
+  </nav>
+</div>
+`;
+
+exports[`m-singlex.vue Demo-路由模式 2`] = `
+<div>
+  <nav class="root" disabled="disabled">
+    <a class="root" disabled="disabled" href="#/components/m-singlex" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      MSinglex
+    </a>
+    <a class="root" disabled="disabled" href="#/components/m-singlex" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      MSinglex Exact
+    </a>
+    <a class="root" disabled="disabled" href="#/components/m-singlex/cases" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      Cases
+    </a>
+    <a class="root" disabled="disabled" href="#/components/m-multiplex" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      MMultiplex
+    </a>
+    <a class="root" disabled="disabled" href="#/components/m-multiplex" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      MMultiplex Disabled
+    </a>
+    <a class="root" disabled="disabled" href="/" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      Href
+    </a>
+    <a class="root" disabled="disabled" href="/" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+      Href Disabled
+    </a>
+  </nav>
+</div>
+`;

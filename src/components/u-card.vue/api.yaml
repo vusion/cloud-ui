@@ -4,8 +4,6 @@
   labels:
     - Container
   description: 用于快速布局
-  next: false
-  nested: false
   slots:
     - concept: Slot
       name: default
@@ -17,13 +15,20 @@
     - name: title
       title: 标题
       type: string
-      description: 卡片标题
+      description: ""
       advanced: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/03.%E5%AE%B9%E5%99%A8/050.%E5%8D%A1%E7%89%87.html
     - name: width
       title: 宽度
       type: string
-      description: 卡片宽度：像素或百分比
+      description: 设置卡片宽度，可设置为像素或百分比
       group: 样式属性
+      brifeDoc: ""
+      docDescription: 卡片宽度，支持设置像素或是百分比
+      tooltipLink: ""
     - name: shadow
       title: 阴影
       type: string
@@ -37,18 +42,31 @@
         - value: never
           title: 不显示
       group: 样式属性
+      brifeDoc: ""
+      docDescription: |-
+        支持配置卡片阴影状态，默认为一直显示。
+        - 一直显示：常态显示卡片阴影。
+        - hover时显示：鼠标悬停在卡片区域时显示卡片阴影。
+        - 不显示：不显示卡片阴影
+      tooltipLink: ""
     - name: border
       title: 显示边框
       type: boolean
       default: true
-      description: 是否显示卡片边框
+      description: ""
       group: 样式属性
+      brifeDoc: ""
+      docDescription: 控制卡片边框的显隐，默认开启
+      tooltipLink: ""
     - name: split
       title: 分割线
       type: boolean
       default: false
-      description: 是否显示分割线
+      description: ""
       group: 样式属性
+      brifeDoc: ""
+      docDescription: 控制卡片标题和内容间分割线的显隐，默认关闭
+      tooltipLink: ""
   events:
     - name: $listeners
       kind: trigger
@@ -57,13 +75,15 @@
 - name: u-card-group
   advanced: true
   title: 卡片组
-  next: false
-  nexted: false
   attrs:
     - name: title
       title: 标题
       type: string
-      description: 卡片组的标题
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
   description: 卡片组
   slots:
     - concept: Slot

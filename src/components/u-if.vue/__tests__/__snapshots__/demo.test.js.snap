@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-if.vue Demo-基础示例 1`] = `
+<div>
+  <span class="root" vusion-slot-name-edit="text">成功</span>
+</div>
+`;
+
+exports[`u-if.vue Demo-基础示例 2`] = `
+<div>
+  <span class="root" vusion-slot-name-edit="text">成功</span>
+</div>
+`;

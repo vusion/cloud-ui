@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`m-complex.vue Demo-单选模式 1`] = `
+<div class="root">
+  <div class="root" vusion-slot-name-edit="text">水杯</div>
+  <div class="root" vusion-slot-name-edit="text">咖啡</div>
+  <div class="root" vusion-slot-name-edit="text">坚果</div>
+  <div class="root" selected="selected" vusion-slot-name-edit="text">毛巾</div>
+  <div class="root" vusion-slot-name-edit="text">沙发</div>
+</div>
+`;
+
+exports[`m-complex.vue Demo-单选模式 2`] = `
+<div class="root">
+  <div class="root" vusion-slot-name-edit="text">水杯</div>
+  <div class="root" vusion-slot-name-edit="text">咖啡</div>
+  <div class="root" vusion-slot-name-edit="text">坚果</div>
+  <div class="root" selected="selected" vusion-slot-name-edit="text">毛巾</div>
+  <div class="root" vusion-slot-name-edit="text">沙发</div>
+</div>
+`;
+
+exports[`m-complex.vue Demo-只读、禁用、禁用某一项 1`] = `
+<div>
+  <div class="root">
+    <div class="root" vusion-slot-name="default">
+      <div class="root" readonly="readonly">
+        <div class="root" readonly="readonly" vusion-slot-name-edit="text">水杯</div>
+        <div class="root" readonly="readonly" vusion-slot-name-edit="text">咖啡</div>
+        <div class="root" readonly="readonly" vusion-slot-name-edit="text">坚果</div>
+        <div class="root" readonly="readonly" selected="selected" vusion-slot-name-edit="text">毛巾</div>
+        <div class="root" readonly="readonly" vusion-slot-name-edit="text">沙发</div>
+      </div>
+    </div>
+    <div class="root" vusion-slot-name="default">
+      <div class="root" disabled="disabled">
+        <div class="root" disabled="disabled" vusion-slot-name-edit="text">水杯</div>
+        <div class="root" disabled="disabled" vusion-slot-name-edit="text">咖啡</div>
+        <div class="root" disabled="disabled" vusion-slot-name-edit="text">坚果</div>
+        <div class="root" disabled="disabled" selected="selected" vusion-slot-name-edit="text">毛巾</div>
+        <div class="root" disabled="disabled" vusion-slot-name-edit="text">沙发</div>
+      </div>
+    </div>
+    <div class="root" vusion-slot-name="default">
+      <div class="root">
+        <div class="root" vusion-slot-name-edit="text">水杯</div>
+        <div class="root" vusion-slot-name-edit="text">咖啡</div>
+        <div class="root" disabled="disabled" vusion-slot-name-edit="text">坚果</div>
+        <div class="root" disabled="disabled" selected="selected" vusion-slot-name-edit="text">毛巾</div>
+        <div class="root" vusion-slot-name-edit="text">沙发</div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`m-complex.vue Demo-只读、禁用、禁用某一项 2`] = `
+<div>
+  <div class="root">
+    <div class="root" vusion-slot-name="default">
+      <div class="root" readonly="readonly">
+        <div class="root" readonly="readonly" vusion-slot-name-edit="text">水杯</div>
+        <div class="root" readonly="readonly" vusion-slot-name-edit="text">咖啡</div>
+        <div class="root" readonly="readonly" vusion-slot-name-edit="text">坚果</div>
+        <div class="root" readonly="readonly" selected="selected" vusion-slot-name-edit="text">毛巾</div>
+        <div class="root" readonly="readonly" vusion-slot-name-edit="text">沙发</div>
+      </div>
+    </div>
+    <div class="root" vusion-slot-name="default">
+      <div class="root" disabled="disabled">
+        <div class="root" disabled="disabled" vusion-slot-name-edit="text">水杯</div>
+        <div class="root" disabled="disabled" vusion-slot-name-edit="text">咖啡</div>
+        <div class="root" disabled="disabled" vusion-slot-name-edit="text">坚果</div>
+        <div class="root" disabled="disabled" selected="selected" vusion-slot-name-edit="text">毛巾</div>
+        <div class="root" disabled="disabled" vusion-slot-name-edit="text">沙发</div>
+      </div>
+    </div>
+    <div class="root" vusion-slot-name="default">
+      <div class="root">
+        <div class="root" vusion-slot-name-edit="text">水杯</div>
+        <div class="root" vusion-slot-name-edit="text">咖啡</div>
+        <div class="root" disabled="disabled" vusion-slot-name-edit="text">坚果</div>
+        <div class="root" disabled="disabled" selected="selected" vusion-slot-name-edit="text">毛巾</div>
+        <div class="root" vusion-slot-name-edit="text">沙发</div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`m-complex.vue Demo-可取消 1`] = `
+<div>
+  <div class="root">
+    <div class="root" vusion-slot-name-edit="text">水杯</div>
+    <div class="root" disabled="disabled" vusion-slot-name-edit="text">咖啡</div>
+    <div class="root" vusion-slot-name-edit="text">坚果</div>
+    <div class="root" selected="selected" vusion-slot-name-edit="text">毛巾</div>
+    <div class="root" vusion-slot-name-edit="text">沙发</div>
+  </div>
+</div>
+`;
+
+exports[`m-complex.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root">
+    <div class="root" vusion-slot-name-edit="text">水杯</div>
+    <div class="root" vusion-slot-name-edit="text">咖啡</div>
+    <div class="root" vusion-slot-name-edit="text">坚果</div>
+    <div class="root" vusion-slot-name-edit="text">毛巾</div>
+    <div class="root" vusion-slot-name-edit="text">沙发</div>
+  </div>
+</div>
+`;
+
+exports[`m-complex.vue Demo-基本用法 2`] = `
+<div>
+  <div class="root">
+    <div class="root" vusion-slot-name-edit="text">水杯</div>
+    <div class="root" vusion-slot-name-edit="text">咖啡</div>
+    <div class="root" disabled="disabled" vusion-slot-name-edit="text">坚果</div>
+    <div class="root" vusion-slot-name-edit="text">毛巾</div>
+    <div class="root" vusion-slot-name-edit="text">沙发</div>
+  </div>
+</div>
+`;
+
+exports[`m-complex.vue Demo-多选模式 1`] = `
+<div class="root">
+  <div class="root" vusion-slot-name-edit="text">水杯</div>
+  <div class="root" vusion-slot-name-edit="text">咖啡</div>
+  <div class="root" selected="selected" vusion-slot-name-edit="text">坚果</div>
+  <div class="root" selected="selected" vusion-slot-name-edit="text">毛巾</div>
+  <div class="root" vusion-slot-name-edit="text">沙发</div>
+</div>
+`;
+
+exports[`m-complex.vue Demo-多选模式 2`] = `
+<div class="root">
+  <div class="root" vusion-slot-name-edit="text">水杯</div>
+  <div class="root" vusion-slot-name-edit="text">咖啡</div>
+  <div class="root" selected="selected" vusion-slot-name-edit="text">坚果</div>
+  <div class="root" selected="selected" vusion-slot-name-edit="text">毛巾</div>
+  <div class="root" vusion-slot-name-edit="text">沙发</div>
+</div>
+`;
+
+exports[`m-complex.vue Demo-自动选择 1`] = `
+<div>
+  <div class="root">
+    <div class="root" disabled="disabled" vusion-slot-name-edit="text">水杯</div>
+    <div class="root" disabled="disabled" vusion-slot-name-edit="text">咖啡</div>
+    <div class="root" selected="selected" vusion-slot-name-edit="text">坚果</div>
+    <div class="root" vusion-slot-name-edit="text">毛巾</div>
+    <div class="root" vusion-slot-name-edit="text">沙发</div>
+  </div>
+</div>
+`;

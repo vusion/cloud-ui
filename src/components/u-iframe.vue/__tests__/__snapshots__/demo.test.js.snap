@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-iframe.vue Demo-iframe 其他属性 1`] = `
+<div>
+  <div class="root" sandbox="allow-same-origin" style="width: 100%; height: 400px;">
+    <div class="root loading" size="large">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
+        </span>
+      </div>
+    </div>
+    <iframe allowfullscreen="allowfullscreen" frameborder="0" sandbox="allow-same-origin" src="https://sf.163.com"></iframe>
+  </div>
+</div>
+`;
+
+exports[`u-iframe.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root" style="width: 100%; height: 400px;">
+    <div class="root loading" size="large">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
+        </span>
+      </div>
+    </div>
+    <iframe allowfullscreen="allowfullscreen" frameborder="0" src="https://sf.163.com"></iframe>
+  </div>
+</div>
+`;
+
+exports[`u-iframe.vue Demo-基本用法 2`] = `
+<div>
+  <div class="root" style="width: 100%; height: 400px;">
+    <div class="root loading" size="large">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
+        </span>
+      </div>
+    </div>
+    <iframe allowfullscreen="allowfullscreen" frameborder="0" src="https://sf.163.com"></iframe>
+  </div>
+</div>
+`;

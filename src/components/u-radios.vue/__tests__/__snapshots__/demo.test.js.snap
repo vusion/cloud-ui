@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-radios.vue Demo-autofocus 1`] = `
+<div>
+  <div class="root">
+    <label class="root" tabindex="0">
+      <span class="radio"></span> 水杯 <span vusion-slot-name="item"> </span>
+    </label>
+    <label class="root" tabindex="0">
+      <span class="radio"></span> 坚果 <span vusion-slot-name="item"> </span>
+    </label>
+    <label class="root" tabindex="0">
+      <span class="radio"></span> 毛巾 <span vusion-slot-name="item"> </span>
+    </label>
+    <label class="root" tabindex="0">
+      <span class="radio"></span> 沙发 <span vusion-slot-name="item"> </span>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`u-radios.vue Demo-只读、禁用、禁用某一项 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root">
+      <label class="root" readonly="readonly" tabindex="0">
+        <span class="radio" readonly="readonly"></span> 水杯 <span vusion-slot-name="item"> </span>
+      </label>
+      <label class="root" readonly="readonly" tabindex="0">
+        <span class="radio" readonly="readonly"></span> 坚果 <span vusion-slot-name="item"> </span>
+      </label>
+      <label class="root" readonly="readonly" tabindex="0">
+        <span class="radio" readonly="readonly" selected="selected"></span> 毛巾 <span vusion-slot-name="item"> </span>
+      </label>
+      <label class="root" readonly="readonly" tabindex="0">
+        <span class="radio" readonly="readonly"></span> 沙发 <span vusion-slot-name="item"> </span>
+      </label>
+    </div>
+    <div class="root">
+      <label class="root" disabled="disabled" tabindex="0">
+        <span class="radio" disabled="disabled"></span> 水杯 <span vusion-slot-name="item"> </span>
+      </label>
+      <label class="root" disabled="disabled" tabindex="0">
+        <span class="radio" disabled="disabled"></span> 坚果 <span vusion-slot-name="item"> </span>
+      </label>
+      <label class="root" disabled="disabled" tabindex="0">
+        <span class="radio" disabled="disabled" selected="selected"></span> 毛巾 <span vusion-slot-name="item"> </span>
+      </label>
+      <label class="root" disabled="disabled" tabindex="0">
+        <span class="radio" disabled="disabled"></span> 沙发 <span vusion-slot-name="item"> </span>
+      </label>
+    </div>
+    <div class="root">
+      <label class="root" tabindex="0">
+        <span class="radio"></span> 水杯 <span vusion-slot-name="item"> </span>
+      </label>
+      <label class="root" tabindex="0">
+        <span class="radio" selected="selected"></span> 坚果 <span vusion-slot-name="item"> </span>
+      </label>
+      <label class="root" disabled="disabled" tabindex="0">
+        <span class="radio" disabled="disabled"></span> 毛巾 <span vusion-slot-name="item"> </span>
+      </label>
+      <label class="root" disabled="disabled" tabindex="0">
+        <span class="radio" disabled="disabled"></span> 沙发 <span vusion-slot-name="item"> </span>
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-radios.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root">
+  </div>
+</div>
+`;
+
+exports[`u-radios.vue Demo-基本用法 2`] = `
+<div>
+  <div class="root">
+    <label class="root" tabindex="0">
+      <span class="radio"></span> 水杯 <span vusion-slot-name="item"> </span>
+    </label>
+    <label class="root" tabindex="0">
+      <span class="radio"></span> 坚果 <span vusion-slot-name="item"> </span>
+    </label>
+    <label class="root" tabindex="0">
+      <span class="radio" selected="selected"></span> 毛巾 <span vusion-slot-name="item"> </span>
+    </label>
+    <label class="root" tabindex="0">
+      <span class="radio"></span> 沙发 <span vusion-slot-name="item"> </span>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`u-radios.vue Demo-数据源 1`] = `
+<div class="root" direction="vertical" type vusion-slot-name="default">
+  <div class="root">
+    <div class="root" size="small">
+      <div class="rotate">
+        <span class="lcp-iconv icon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-loading" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    click reload</a>
+</div>
+`;

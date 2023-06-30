@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-for.vue Demo-基础示例 1`] = `
+<div>
+  <div>
+    <span class="root" display="block" vusion-slot-name-edit="text">序号:0, 值:1</span>
+    <span class="root" display="block" vusion-slot-name-edit="text">序号:1, 值:2</span>
+    <span class="root" display="block" vusion-slot-name-edit="text">序号:2, 值:3</span>
+  </div>
+</div>
+`;

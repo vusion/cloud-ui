@@ -1,0 +1,561 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-checkbox-card.vue Demo-卡牌宽度 1`] = `
+<div>
+  <p>samll尺寸</p>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div class="root" size="small">
+      <div class="head">
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 全选 <span vusion-slot-name="item"> </span>
+        </label>
+      </div>
+      <div class="body">
+        <div class="root">
+          <div class="item">
+            <label class="root" tabindex="0" title="jiande-private">
+              <span class="box" status="false"></span>
+              jiande-private
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="jiande-public">
+              <span class="box" status="false"></span>
+              jiande-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="yiqiao-public">
+              <span class="box" status="false"></span>
+              yiqiao-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="liantong-public">
+              <span class="box" status="false"></span>
+              liantong-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="region-1">
+              <span class="box" status="false"></span>
+              region-1
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>默认尺寸</p>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div class="root" size="normal">
+      <div class="head">
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 全选 <span vusion-slot-name="item"> </span>
+        </label>
+      </div>
+      <div class="body">
+        <div class="root">
+          <div class="item">
+            <label class="root" tabindex="0" title="jiande-private">
+              <span class="box" status="false"></span>
+              jiande-private
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="jiande-public">
+              <span class="box" status="false"></span>
+              jiande-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="yiqiao-public">
+              <span class="box" status="false"></span>
+              yiqiao-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="liantong-public">
+              <span class="box" status="false"></span>
+              liantong-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="region-1">
+              <span class="box" status="false"></span>
+              region-1
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>large尺寸</p>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div class="root" size="large">
+      <div class="head">
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 全选 <span vusion-slot-name="item"> </span>
+        </label>
+      </div>
+      <div class="body">
+        <div class="root">
+          <div class="item">
+            <label class="root" tabindex="0" title="jiande-private">
+              <span class="box" status="false"></span>
+              jiande-private
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="jiande-public">
+              <span class="box" status="false"></span>
+              jiande-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="yiqiao-public">
+              <span class="box" status="false"></span>
+              yiqiao-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="liantong-public">
+              <span class="box" status="false"></span>
+              liantong-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="region-1">
+              <span class="box" status="false"></span>
+              region-1
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>huge尺寸</p>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div class="root" size="huge">
+      <div class="head">
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 全选 <span vusion-slot-name="item"> </span>
+        </label>
+      </div>
+      <div class="body">
+        <div class="root">
+          <div class="item">
+            <label class="root" tabindex="0" title="jiande-private">
+              <span class="box" status="false"></span>
+              jiande-private
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="jiande-public">
+              <span class="box" status="false"></span>
+              jiande-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="yiqiao-public">
+              <span class="box" status="false"></span>
+              yiqiao-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="liantong-public">
+              <span class="box" status="false"></span>
+              liantong-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="region-1">
+              <span class="box" status="false"></span>
+              region-1
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>自适应尺寸</p>
+  <div class="root" direction="horizontal" style="width: 900px;" type vusion-slot-name="default">
+    <div class="root" size="auto">
+      <div class="head">
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 全选 <span vusion-slot-name="item"> </span>
+        </label>
+      </div>
+      <div class="body">
+        <div class="root">
+          <div class="item">
+            <label class="root" tabindex="0" title="jiande-private">
+              <span class="box" status="false"></span>
+              jiande-private
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="jiande-public">
+              <span class="box" status="false"></span>
+              jiande-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="yiqiao-public">
+              <span class="box" status="false"></span>
+              yiqiao-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="liantong-public">
+              <span class="box" status="false"></span>
+              liantong-public
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="item">
+            <label class="root" tabindex="0" title="region-1">
+              <span class="box" status="false"></span>
+              region-1
+              <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-checkbox-card.vue Demo-固定每行展示数据个数 1`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div class="root" size="large">
+    <div class="head">
+      <label class="root" tabindex="0">
+        <span class="box" status="false"></span> 全选 <span vusion-slot-name="item"> </span>
+      </label>
+    </div>
+    <div class="body">
+      <div class="root">
+        <div class="item" style="width: 33.333333333333336%;">
+          <label class="root" tabindex="0" title="jiande-private">
+            <span class="box" status="false"></span>
+            jiande-private
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item" style="width: 33.333333333333336%;">
+          <label class="root" tabindex="0" title="jiande-public">
+            <span class="box" status="false"></span>
+            jiande-public
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item" style="width: 33.333333333333336%;">
+          <label class="root" tabindex="0" title="yiqiao-public">
+            <span class="box" status="false"></span>
+            yiqiao-public
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item" style="width: 33.333333333333336%;">
+          <label class="root" tabindex="0" title="liantong-public">
+            <span class="box" status="false"></span>
+            liantong-public
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item" style="width: 33.333333333333336%;">
+          <label class="root" tabindex="0" title="region-1">
+            <span class="box" status="false"></span>
+            region-1
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-checkbox-card.vue Demo-基本用法 1`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div class="root" size="normal">
+    <div class="head">
+      <label class="root" tabindex="0">
+        <span class="box" status="null"></span> 全选 <span vusion-slot-name="item"> </span>
+      </label>
+    </div>
+    <div class="body">
+      <div class="root">
+        <div class="item">
+          <label class="root" tabindex="0" title="jiande-private">
+            <span class="box" status="true"></span>
+            jiande-private
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item">
+          <label class="root" tabindex="0" title="jiande-public">
+            <span class="box" status="false"></span>
+            jiande-public
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item">
+          <label class="root" tabindex="0" title="yiqiao-public">
+            <span class="box" status="false"></span>
+            yiqiao-public
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item">
+          <label class="root" tabindex="0" title="liantong-public">
+            <span class="box" status="true"></span>
+            liantong-public
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item">
+          <label class="root" tabindex="0" title="region-1">
+            <span class="box" status="false"></span>
+            region-1
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-checkbox-card.vue Demo-自定义placeholder 1`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div class="root" size="normal">
+    <div class="head">
+      <label class="root" disabled="disabled" tabindex="0">
+        <span class="box" disabled="disabled" status="false"></span> 全选 <span vusion-slot-name="item"> </span>
+      </label>
+    </div>
+    <div class="body">
+      <div class="placeholder">
+        <p style="margin: 0px;">自定义placeholder内容</p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-checkbox-card.vue Demo-自定义选择项 1`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div class="root" size="large">
+    <div class="head">
+      <label class="root" tabindex="0">
+        <span class="box" status="false"></span> 全选 <span vusion-slot-name="item"> </span>
+      </label>
+    </div>
+    <div class="body">
+      <div class="root">
+        <div class="item" style="width: 33.333333333333336%;">
+          <label class="root" tabindex="0" title="jiande-private">
+            <span class="box" status="false"></span>
+            <div style="display: inline-block;">
+              jiande-private
+            </div>
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item" style="width: 33.333333333333336%;">
+          <label class="root" disabled="disabled" tabindex="0" title="jiande-public">
+            <span class="box" disabled="disabled" status="false"></span>
+            <div style="display: inline-block;">
+              jiande-public
+            </div>
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item" style="width: 33.333333333333336%;">
+          <label class="root" tabindex="0" title="yiqiao-public">
+            <span class="box" status="false"></span>
+            <div style="display: inline-block;">
+              yiqiao-public
+              <span style="width: 10px; height: 10px; padding: 0px; border-radius: 100%; display: inline-block; background: rgb(255, 138, 122);"></span>
+            </div>
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item" style="width: 33.333333333333336%;">
+          <label class="root" disabled="disabled" tabindex="0" title="liantong-public">
+            <span class="box" disabled="disabled" status="false"></span>
+            <div style="display: inline-block;">
+              liantong-public
+            </div>
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item" style="width: 33.333333333333336%;">
+          <label class="root" tabindex="0" title="region-1">
+            <span class="box" status="false"></span>
+            <div style="display: inline-block;">
+              region-1
+            </div>
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-checkbox-card.vue Demo-表单校验 1`] = `
+<div class="root" layout="block">
+  <div class="root" distance label-size="normal" layout="block" placement="bottom">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">选择环境 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root" size="large">
+          <div class="head">
+            <label class="root" tabindex="0">
+              <span class="box" status="false"></span> 全选 <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+          <div class="body">
+            <div class="root">
+              <div class="item" style="width: 33.333333333333336%;">
+                <label class="root" tabindex="0" title="jiande-private">
+                  <span class="box" status="false"></span>
+                  jiande-private
+                  <span vusion-slot-name="item"> </span>
+                </label>
+              </div>
+              <div class="item" style="width: 33.333333333333336%;">
+                <label class="root" tabindex="0" title="jiande-public">
+                  <span class="box" status="false"></span>
+                  jiande-public
+                  <span vusion-slot-name="item"> </span>
+                </label>
+              </div>
+              <div class="item" style="width: 33.333333333333336%;">
+                <label class="root" tabindex="0" title="yiqiao-public">
+                  <span class="box" status="false"></span>
+                  yiqiao-public
+                  <span vusion-slot-name="item"> </span>
+                </label>
+              </div>
+              <div class="item" style="width: 33.333333333333336%;">
+                <label class="root" tabindex="0" title="liantong-public">
+                  <span class="box" status="false"></span>
+                  liantong-public
+                  <span vusion-slot-name="item"> </span>
+                </label>
+              </div>
+              <div class="item" style="width: 33.333333333333336%;">
+                <label class="root" tabindex="0" title="region-1">
+                  <span class="box" status="false"></span>
+                  region-1
+                  <span vusion-slot-name="item"> </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-checkbox-card.vue Demo-设置空态 1`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div class="root" size="normal">
+    <div class="head">
+      <label class="root" disabled="disabled" tabindex="0">
+        <span class="box" disabled="disabled" status="false"></span> 全选 <span vusion-slot-name="item"> </span>
+      </label>
+    </div>
+    <div class="body">
+      <div class="placeholder">
+        当前无相关环境
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-checkbox-card.vue Demo-部分选项不可选择 1`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div class="root" size="normal">
+    <div class="head">
+      <label class="root" tabindex="0">
+        <span class="box" status="null"></span> 全选 <span vusion-slot-name="item"> </span>
+      </label>
+    </div>
+    <div class="body">
+      <div class="root">
+        <div class="item">
+          <label class="root" tabindex="0" title="jiande-private">
+            <span class="box" status="false"></span>
+            jiande-private
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item">
+          <label class="root" disabled="disabled" tabindex="0" title="jiande-public">
+            <span class="box" disabled="disabled" status="true"></span>
+            jiande-public
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item">
+          <label class="root" tabindex="0" title="yiqiao-public">
+            <span class="box" status="true"></span>
+            yiqiao-public
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item">
+          <label class="root" disabled="disabled" tabindex="0" title="liantong-public">
+            <span class="box" disabled="disabled" status="false"></span>
+            liantong-public
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+        <div class="item">
+          <label class="root" tabindex="0" title="region-1">
+            <span class="box" status="false"></span>
+            region-1
+            <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

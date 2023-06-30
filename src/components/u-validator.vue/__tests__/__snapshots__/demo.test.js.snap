@@ -1,0 +1,396 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-validator.vue Demo- 1`] = `
+<div>
+  <div vusion-slot-name="default">
+    <span color="error" style="display: none;">false</span>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-动态验证 1`] = `
+<div class="root" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label"> </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root">
+          <label class="root" tabindex="0">
+            <span class="radio" selected="selected"></span> HTTP <span vusion-slot-name="item"> </span>
+          </label>
+          <label class="root" tabindex="0">
+            <span class="radio"></span> HTTPS <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">端口 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="5" size="huge medium">
+          <span>b</span>
+          <span>80-65535内的整数</span>
+          <input maxlength="5" size="huge medium" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-动态验证 2`] = `
+<div class="root" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label"> </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root">
+          <label class="root" tabindex="0">
+            <span class="radio" selected="selected"></span> HTTP <span vusion-slot-name="item"> </span>
+          </label>
+          <label class="root" tabindex="0">
+            <span class="radio"></span> HTTPS <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">端口 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="5" size="huge medium">
+          <span>b</span>
+          <span>80或1025-65535内的整数</span>
+          <input maxlength="5" size="huge medium" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-单行嵌套 1`] = `
+<div>
+  <div vusion-slot-name="default">
+    <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+      <div vusion-slot-name="default">
+        <div color size="huge normal">
+          <span>b</span>
+          <span>容器端口，1-65535内的整数</span>
+          <input size="huge normal" type="text">
+        </div>
+        <span color="error" style="display: none;">false</span>
+      </div>
+      <div vusion-slot-name="default">
+        <div color size="huge normal">
+          <span>b</span>
+          <span>服务端口，1-65535内的整数</span>
+          <input size="huge normal" type="text">
+        </div>
+        <span color="error" style="display: none;">false</span>
+      </div>
+    </div>
+    <span color="error" style="display: none;"></span>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-单行嵌套 2`] = `
+<div>
+  <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+    <div placement="bottom" vusion-slot-name="default">
+      <div color size="huge normal">
+        <span>b</span>
+        <span>容器端口，1-65535内的整数</span>
+        <input size="huge normal" type="text">
+      </div>
+      <span color="error" style="display: none;">false</span>
+    </div>
+    <div placement="bottom" vusion-slot-name="default">
+      <div color size="huge normal">
+        <span>b</span>
+        <span>服务端口，1-65535内的整数</span>
+        <input size="huge normal" type="text">
+      </div>
+      <span color="error" style="display: none;">false</span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-复合验证规则 1`] = `
+<div class="root" gap="large" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">名称1 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="12" size="huge medium">
+          <span>b</span>
+          <span>4-12个字符</span>
+          <input maxlength="12" size="huge medium" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">名称2 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="24" size="huge medium">
+          <span>b</span>
+          <span>8-24个字符</span>
+          <input maxlength="24" size="huge medium" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-失去焦点，还原正确的值 1`] = `
+<div>
+  <div class="root" distance label-size="auto">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">用户名 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="12">
+          <span>b</span>
+          <span></span>
+          <input maxlength="12" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-字符串简写说明： 1`] = `
+<div>
+  <div class="root" distance label-size="auto">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">用户名 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="12">
+          <span>b</span>
+          <span>4-12个字符</span>
+          <input maxlength="12" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-完整格式 1`] = `
+<div>
+  <div class="root" distance label-size="auto">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">用户名 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="12">
+          <span>b</span>
+          <span>4-12个字符</span>
+          <input maxlength="12" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-密码确认场景 1`] = `
+<div class="root" gap="large" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">密码 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="8" size="huge medium">
+          <span>b</span>
+          <span>以字母、数字或'_'组成</span>
+          <input maxlength="8" size="huge medium" type="password">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">确认密码 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="8" size="huge medium">
+          <span>b</span>
+          <span>再次输入密码</span>
+          <input maxlength="8" size="huge medium" type="password">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-注册验证规则 1`] = `
+<div class="root" distance label-size="auto">
+  <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+    <span vusion-slot-name-edit="label">颜色 </span>
+  </label>
+  <div class="field">
+    <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+    <div class="wrap" vusion-slot-name="default">
+      <div color>
+        <span>b</span>
+        <span>请输入十六进制颜色值</span>
+        <input type="text">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-注册验证规则 2`] = `
+<div class="root" distance label-size="auto">
+  <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+    <span vusion-slot-name-edit="label">颜色 </span>
+  </label>
+  <div class="field">
+    <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+    <div class="wrap" vusion-slot-name="default">
+      <div color>
+        <span>b</span>
+        <span>请输入十六进制颜色值</span>
+        <input type="text">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-混合编写 1`] = `
+<div class="root" distance label-size="auto">
+  <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+    <span vusion-slot-name-edit="label">用户名 </span>
+  </label>
+  <div class="field">
+    <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+    <div class="wrap" vusion-slot-name="default">
+      <div color maxlength="12">
+        <span>b</span>
+        <span>4-12个字符</span>
+        <input maxlength="12" type="text">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-混合编写 2`] = `
+<div class="root" distance label-size="auto">
+  <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+    <span vusion-slot-name-edit="label">用户名 </span>
+  </label>
+  <div class="field">
+    <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+    <div class="wrap" vusion-slot-name="default">
+      <div color maxlength="12">
+        <span>b</span>
+        <span>4-12个字符</span>
+        <input maxlength="12" type="text">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-简写格式 1`] = `
+<div>
+  <div class="root" distance label-size="auto">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">用户名 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="12">
+          <span>b</span>
+          <span>4-12个字符</span>
+          <input maxlength="12" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-过长提示 1`] = `
+<div>
+  <div class="root" layout="block">
+    <div class="root" distance label-size="normal">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">用户名 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color maxlength="4">
+            <span>b</span>
+            <span>不超过4个字符</span>
+            <input maxlength="4" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-validator.vue Demo-验证唯一性 1`] = `
+<div class="root" distance label-size="auto">
+  <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+    <span vusion-slot-name-edit="label">端口 </span>
+  </label>
+  <div class="field">
+    <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+    <div class="wrap" vusion-slot-name="default">
+      <div color maxlength="5">
+        <span>b</span>
+        <span>80-65535内的整数</span>
+        <input maxlength="5" type="text">
+      </div>
+    </div>
+  </div>
+</div>
+`;

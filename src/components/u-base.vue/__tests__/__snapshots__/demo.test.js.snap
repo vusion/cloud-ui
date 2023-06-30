@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-base.vue Demo-一级标题 1`] = `
+<div>
+  <h1>一级标题</h1>
+</div>
+`;
+
+exports[`u-base.vue Demo-三级标题 1`] = `
+<div>
+  <h3>三级标题</h3>
+</div>
+`;
+
+exports[`u-base.vue Demo-二级标题 1`] = `
+<div>
+  <h2>二级标题</h2>
+</div>
+`;
+
+exports[`u-base.vue Demo-代码块 1`] = `
+<div><pre>factorial = (num) -&gt;
+    if not /^\\d+$/.test(num)
+        throw 'Error: Not an integer!'
+
+    _factorial = (num) -&gt;
+        return (if num &lt;= 1 then 1 else num * _factorial(num - 1))
+
+    return _factorial(num)
+</pre>
+</div>
+`;
+
+exports[`u-base.vue Demo-列表 1`] = `
+<div>
+  <ul>
+    <li>选项1</li>
+    <li>选项2
+      <ul>
+        <li>选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+      </ul>
+    </li>
+    <li>选项3</li>
+  </ul>
+  <ol>
+    <li>选项1</li>
+    <li>选项2
+      <ol>
+        <li>选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+      </ol>
+    </li>
+    <li>选项3</li>
+  </ol>
+</div>
+`;
+
+exports[`u-base.vue Demo-四级标题 1`] = `
+<div>
+  <h4>四级标题</h4>
+</div>
+`;
+
+exports[`u-base.vue Demo-引用块 1`] = `
+<div>
+  <blockquote>
+    覆盖开发、测试、构建、发布到上线运行、治理、运维以及故障排查，源自网易内部的大规模互联网业务实践，经过金融、制造、物流等行业客户的生产环境验证。
+  </blockquote>
+</div>
+`;
+
+exports[`u-base.vue Demo-引用块 2`] = `
+<div>
+  <blockquote>
+    覆盖开发、测试、构建、发布到上线运行、治理、运维以及故障排查，源自网易内部的大规模互联网业务实践，经过金融、制造、物流等行业客户的生产环境验证。
+  </blockquote>
+</div>
+`;
+
+exports[`u-base.vue Demo-按键 1`] = `
+<div>
+  <div class="root" direction="vertical" gap="small" type vusion-slot-name="default">
+    <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+      <kbd>⌘</kbd>
+      <kbd>⌥</kbd>
+      <kbd>⌃</kbd>
+      <kbd>⇧</kbd>
+      <kbd>⇪</kbd>
+    </div>
+    <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+      <kbd>←</kbd>
+      <kbd>→</kbd>
+      <kbd>↑</kbd>
+      <kbd>↓</kbd>
+      <kbd>⇥</kbd>
+      <kbd>Tab</kbd>
+      <kbd>⌫</kbd>
+      <kbd>Delete</kbd>
+      <kbd>↩</kbd>
+      <kbd>Enter</kbd>
+      <kbd>␣</kbd>
+      <kbd>Space</kbd>
+      <kbd>⎋</kbd>
+      <kbd>Escape</kbd>
+    </div>
+    <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+      <kbd>Q</kbd>
+      <kbd>W</kbd>
+      <kbd>E</kbd>
+      <kbd>R</kbd>
+      <kbd>T</kbd>
+      <kbd>Y</kbd>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-base.vue Demo-描述列表 1`] = `
+<div>
+  <dl>
+    <dt>Web前端</dt>
+    <dd>通常是指网站的前台部分，包括网站的表现层和结构层。因此前端技术一般分为前端设计和前端开发，前端设计一般可以理解为网站的视觉设计，前端开发则是网站的前台代码实现，包括基本的HTML、CSS和JavaScript。</dd>
+    <dt>CSS</dt>
+    <dd>级联样式表，是一种用来表现HTML或XML等文件样式的计算机语言。目前最新版本为CSS3，是能够真正做到网页表现与内容分离的一种样式设计语言。</dd>
+    <dt>JavaScript</dt>
+    <dd>一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型，广泛用于客户端的脚本语言，最早是在HTML网页上使用，用来给HTML网页增加动态功能。</dd>
+  </dl>
+</div>
+`;
+
+exports[`u-base.vue Demo-标题 1`] = `
+<div>
+  <h1>H1 标题1 <small>小标题1</small>
+  </h1>
+  <h2>H2 标题2 <small>小标题2</small>
+  </h2>
+  <h3>H3 标题3 <small>小标题3</small>
+  </h3>
+  <h4>H4 标题4 <small>小标题4</small>
+  </h4>
+  <h5>H5 标题5 <small>小标题5</small>
+  </h5>
+  <h6>H6 标题6 <small>小标题6</small>
+  </h6>
+</div>
+`;
+
+exports[`u-base.vue Demo-段落 1`] = `
+<div>
+  <p>轻舟微服务是围绕应用和微服务，通过云原生技术帮助用户快速实现易接入、易运维的微服务解决方案。用户可以轻松部署、更新、测试以及治理其微服务应用。</p>
+  <p>平台完全基于开源技术构建，提供了简洁友好的接入方式，并采用模块化设计，可实现与企业内 IT 基础设施的快速集成。该产品适用于微服务改造、业务中台、数字化转型、工业互联网、开放平台等多种场景。</p>
+</div>
+`;
+
+exports[`u-base.vue Demo-段落 2`] = `
+<div>
+  <p>轻舟微服务是围绕应用和微服务，通过云原生技术帮助用户快速实现易接入、易运维的微服务解决方案。用户可以轻松部署、更新、测试以及治理其微服务应用。</p>
+  <p>平台完全基于开源技术构建，提供了简洁友好的接入方式，并采用模块化设计，可实现与企业内 IT 基础设施的快速集成。该产品适用于微服务改造、业务中台、数字化转型、工业互联网、开放平台等多种场景。</p>
+</div>
+`;
+
+exports[`u-base.vue Demo-水平线 1`] = `
+<div>
+  <hr>
+</div>
+`;
+
+exports[`u-base.vue Demo-水平线 2`] = `
+<div>
+  <hr>
+</div>
+`;
+
+exports[`u-base.vue Demo-特殊文字 1`] = `
+<div>
+  <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+    <em>强调文本</em>
+    <strong>加粗文本</strong>
+    <ins>插入文本</ins>
+    <del>删除文本</del>
+    <mark>标记文本</mark>
+    <small>缩小文本</small> <code>代码片段</code>
+    <abbr title="Abbreviation">Abbr</abbr>
+    <span>
+      <sup>上</sup>
+      <sub>下</sub>标
+    </span>
+    <q>引用片段</q>
+    <dfn>定义术语</dfn>
+  </div>
+</div>
+`;

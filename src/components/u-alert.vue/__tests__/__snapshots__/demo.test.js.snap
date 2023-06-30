@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-alert.vue Demo-可手动关闭 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div bordered="true" class="root" type="info">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            信息提示
+          </div>
+          <div class="desc" vusion-slot-name="default">
+          </div>
+        </div>
+      </div>
+      <a class="close"></a>
+    </div>
+    <div bordered="true" class="root" type="success">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            成功提示
+          </div>
+          <div class="desc" vusion-slot-name="default">
+          </div>
+        </div>
+      </div>
+      <a class="close"></a>
+    </div>
+    <div bordered="true" class="root" type="warning">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            警告提示
+          </div>
+          <div class="desc" vusion-slot-name="default">
+          </div>
+        </div>
+      </div>
+      <a class="close"></a>
+    </div>
+    <div bordered="true" class="root" type="error">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            错误提示
+          </div>
+          <div class="desc" vusion-slot-name="default">
+          </div>
+        </div>
+      </div>
+      <a class="close"></a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-alert.vue Demo-含辅助性文字的通告形式 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div bordered="true" class="root" type="info">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            信息提示
+          </div>
+          <div class="desc" vusion-slot-name="default">描述信息
+          </div>
+        </div>
+      </div>
+    </div>
+    <div bordered="true" class="root" type="success">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            成功提示
+          </div>
+          <div class="desc" vusion-slot-name="default">描述信息
+          </div>
+        </div>
+      </div>
+    </div>
+    <div bordered="true" class="root" type="warning">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            警告提示
+          </div>
+          <div class="desc" vusion-slot-name="default">描述信息
+          </div>
+        </div>
+      </div>
+    </div>
+    <div bordered="true" class="root" type="error">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            错误提示
+          </div>
+          <div class="desc" vusion-slot-name="default">描述信息
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-alert.vue Demo-基本用法 1`] = `
+<div>
+  <div bordered="true" class="root" type="info">
+    <div class="content" horizontal="left">
+      <i class="icon"></i>
+      <div>
+        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+          <span class="root" vusion-slot-name-edit="text">公告内容</span>
+        </div>
+        <div class="desc" vusion-slot-name="default">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-alert.vue Demo-基础样式 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div bordered="true" class="root" type="info">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            信息提示
+          </div>
+          <div class="desc" vusion-slot-name="default">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div bordered="true" class="root" type="success">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            成功提示
+          </div>
+          <div class="desc" vusion-slot-name="default">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div bordered="true" class="root" type="warning">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            警告提示
+          </div>
+          <div class="desc" vusion-slot-name="default">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div bordered="true" class="root" type="error">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            错误提示
+          </div>
+          <div class="desc" vusion-slot-name="default">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-alert.vue Demo-页面顶部通告形式 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root" type="info">
+      <div class="content" horizontal="left">
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            信息提示
+          </div>
+          <div class="desc" vusion-slot-name="default">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" type="success">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            成功提示
+          </div>
+          <div class="desc" vusion-slot-name="default">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" type="warning">
+      <div class="content" horizontal="center">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            警告提示
+          </div>
+          <div class="desc" vusion-slot-name="default">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" type="error">
+      <div class="content" horizontal="left">
+        <i class="icon"></i>
+        <div>
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">标题提示slot</div>
+          <div class="desc" vusion-slot-name="default">描述信息slot
+          </div>
+        </div>
+      </div>
+      <a class="close"></a>
+    </div>
+  </div>
+</div>
+`;

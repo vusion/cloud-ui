@@ -1,0 +1,502 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-steps.vue Demo-动态数据渲染 1`] = `
+<div>
+  <div class="root" counter="true" direction="horizontal" layout="block" readonly="readonly">
+    <nav class="head"></nav>
+    <div class="body"></div>
+  </div>
+  <div class="root" counter="true" direction="horizontal" layout="block" readonly="readonly">
+    <nav class="head">
+      <a class="item" passed="true">
+        <div class="item-body" title="步骤 1">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">步骤 1</span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item" passed="true">
+        <div class="item-body" title="步骤 2">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">步骤 2</span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item">
+        <div class="item-body" title="步骤 3">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">步骤 3</span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+    </nav>
+    <div class="body"></div>
+  </div>
+  <a class="root" hovertype="underline" size="small" slot="extra" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    add step</a>
+  <a class="root" hovertype="underline" size="small" slot="extra" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    value+1</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    reload</a>
+</div>
+`;
+
+exports[`u-steps.vue Demo-可选择 1`] = `
+<div>
+  <div class="root" counter="true" direction="horizontal" layout="block">
+    <nav class="head">
+      <a class="item" passed="true">
+        <div class="item-body" title="Step1">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step1
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item" selected="selected">
+        <div class="item-body" title="Step2">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step2
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item">
+        <div class="item-body" title="Step3">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step3
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+    </nav>
+    <div class="body">
+      <div style="display: none;" vusion-slot-name="default">Content1
+      </div>
+      <div style vusion-slot-name="default">Content2
+      </div>
+      <div style="display: none;" vusion-slot-name="default">Content3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-steps.vue Demo-图形大小 1`] = `
+<div>
+  <div class="root" counter="true" direction="horizontal" layout="block" shape-size="large">
+    <nav class="head">
+      <a class="item" passed="true">
+        <div class="item-body" title="Step1">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step1
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item" selected="selected">
+        <div class="item-body" title="Step2">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step2
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item">
+        <div class="item-body" title="Step3">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step3
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+    </nav>
+    <div class="body">
+      <div style="display: none;" vusion-slot-name="default">Content1
+      </div>
+      <div style vusion-slot-name="default">Content2
+      </div>
+      <div style="display: none;" vusion-slot-name="default">Content3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-steps.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root" counter="true" direction="horizontal" layout="block" readonly="readonly">
+    <nav class="head">
+      <a class="item" passed="true">
+        <div class="item-body" title="Step1">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step1
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item" selected="selected">
+        <div class="item-body" title="Step2">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step2
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item">
+        <div class="item-body" title="Step3">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step3
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+    </nav>
+    <div class="body">
+      <div style="display: none;" vusion-slot-name="default">Content1
+      </div>
+      <div style vusion-slot-name="default">Content2
+      </div>
+      <div style="display: none;" vusion-slot-name="default">Content3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-steps.vue Demo-宽度自适应 1`] = `
+<div>
+  <div class="root" counter="true" direction="horizontal" layout="block" readonly="readonly" size="auto">
+    <nav class="head">
+      <a class="item" passed="true" style="width: 33.33333333333333%;">
+        <div class="item-body" title="Step1">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step1
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item" selected="selected" style="width: 33.33333333333333%;">
+        <div class="item-body" title="Step2">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step2
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item" style="width: 33.33333333333333%;">
+        <div class="item-body" title="Step3">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step3
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+    </nav>
+    <div class="body">
+      <div style="display: none;" vusion-slot-name="default">Content1
+      </div>
+      <div style vusion-slot-name="default">Content2
+      </div>
+      <div style="display: none;" vusion-slot-name="default">Content3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-steps.vue Demo-工具提示 1`] = `
+<div>
+  <div class="root" counter="true" direction="horizontal" layout="block">
+    <nav class="head">
+      <a class="item" passed="true">
+        <div class="item-body">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item" selected="selected">
+        <div class="item-body">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+
+          </span>
+          <transition-stub name="fade-fast">
+            <div arraw-size="normal" class="root" style="display: none;">
+              <div class="arrow" data-popper-arrow></div>
+              <div class="body" size="normal"></div>
+            </div>
+          </transition-stub>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item">
+        <div class="item-body">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+
+          </span>
+          <transition-stub name="fade-fast">
+            <div arraw-size="normal" class="root" style="display: none;">
+              <div class="arrow" data-popper-arrow></div>
+              <div class="body" size="normal"></div>
+            </div>
+          </transition-stub>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+    </nav>
+    <div class="body">
+      <div style="display: none;" tooltip="使用属性添加工具提示" vusion-slot-name="default">
+      </div>
+      <div style vusion-slot-name="default">
+      </div>
+      <div style="display: none;" vusion-slot-name="default">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-steps.vue Demo-禁用 1`] = `
+<div>
+  <div class="root" counter="true" direction="horizontal" layout="block">
+    <nav class="head">
+      <a class="item" selected="selected">
+        <div class="item-body" title="Step1">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step1
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item" disabled="disabled">
+        <div class="item-body" title="Step2">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step2
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item">
+        <div class="item-body" title="Step3">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step3
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+    </nav>
+    <div class="body">
+      <div style vusion-slot-name="default">Content1
+      </div>
+      <div style="display: none;" vusion-slot-name="default">Content2
+      </div>
+      <div style="display: none;" vusion-slot-name="default">Content3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-steps.vue Demo-自定义图标 1`] = `
+<div>
+  <div class="root" counter="true" direction="horizontal" layout="block">
+    <nav class="head">
+      <a class="item" passed="true">
+        <div class="item-body" title="Step1">
+          <span class="radio" custom-icon="true">
+            <span class="lcp-iconv">
+              <span class="iconwrap">
+                <svg aria-hidden="true" class="iconsvg">
+                  <use xlink:href="#pc-find" />
+                </svg>
+              </span>
+              <div class="icontext" vusion-slot-name="default">
+              </div>
+            </span>
+          </span>
+          <span class="title" vusion-slot-name="title">
+            Step1
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item" passed="true">
+        <div class="item-body" title="Step2">
+          <span class="radio" custom-icon="true">
+            <span class="lcp-iconv">
+              <span class="iconwrap">
+                <svg aria-hidden="true" class="iconsvg">
+                  <use xlink:href="#pc-task-done" />
+                </svg>
+              </span>
+              <div class="icontext" vusion-slot-name="default">
+              </div>
+            </span>
+          </span>
+          <span class="title" vusion-slot-name="title">
+            Step2
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item" selected="selected">
+        <div class="item-body" title="Step3">
+          <span class="radio" custom-icon="true">
+            <span class="lcp-iconv">
+              <span class="iconwrap">
+                <svg aria-hidden="true" class="iconsvg">
+                  <use xlink:href="#pc-notice" />
+                </svg>
+              </span>
+              <div class="icontext" vusion-slot-name="default">
+              </div>
+            </span>
+          </span>
+          <span class="title" vusion-slot-name="title">
+            Step3
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+    </nav>
+    <div class="body">
+      <div style="display: none;" vusion-slot-name="default">Content1
+      </div>
+      <div style="display: none;" vusion-slot-name="default">Content2
+      </div>
+      <div style vusion-slot-name="default">Content3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-steps.vue Demo-自定义标题 1`] = `
+<div>
+  <div class="root" counter="true" direction="horizontal" layout="block" readonly="readonly">
+    <nav class="head">
+      <a class="item" passed="true">
+        <div class="item-body">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            <span>Step <span class="root" type="filled">
+                <span vusion-slot-name-edit="text">1</span>
+              </span>
+            </span>
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item" selected="selected">
+        <div class="item-body">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            <span>Step <span class="root" type="filled">
+                <span vusion-slot-name-edit="text">2</span>
+              </span>
+            </span>
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+      <a class="item">
+        <div class="item-body">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            <span>Step <span class="root" type="filled">
+                <span vusion-slot-name-edit="text">3</span>
+              </span>
+            </span>
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
+
+        </span>
+      </a>
+    </nav>
+    <div class="body">
+      <div style="display: none;" vusion-slot-name="default">
+        Content1
+      </div>
+      <div style vusion-slot-name="default">
+        Content2
+      </div>
+      <div style="display: none;" vusion-slot-name="default">
+        Content3
+      </div>
+    </div>
+  </div>
+</div>
+`;

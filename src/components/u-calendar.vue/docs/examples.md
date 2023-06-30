@@ -1,32 +1,32 @@
 ### 基本用法
 
 ``` html
-<u-calendar picker="date"></u-calendar>
+<u-calendar picker="date" date="2022-08-08"></u-calendar>
 ```
 
 ### 周选择组件
 
 ``` html
-<u-calendar picker="week"></u-calendar>
+<u-calendar picker="week" date="2022-08-08"></u-calendar>
 ```
 
 ### 月选择组件
 
 ``` html
-<u-calendar picker="month"></u-calendar>
+<u-calendar picker="month" date="2022-08-08"></u-calendar>
 ```
 
 ### 季选择组件
 
 ``` html
-<u-calendar picker="quarter"></u-calendar>
+<u-calendar picker="quarter" date="2022-08-08"></u-calendar>
 ```
 
 
 ### 年选择组件
 
 ``` html
-<u-calendar picker="year"></u-calendar>
+<u-calendar picker="year" date="2022-08-08"></u-calendar>
 ```
 
 

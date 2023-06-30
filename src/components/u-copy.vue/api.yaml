@@ -5,10 +5,6 @@
   labels:
     - Effects
   attrs:
-    - name: value
-      title: 需要复制的值
-      type: string
-      description: 需要复制的值
     - name: text
       title: 默认显示文本
       type: string
@@ -71,11 +67,23 @@
       default: 3000
       description: 提示框显示时长
       advanced: true
+    - name: value
+      title: 复制的值
+      type: string
+      description: 需要复制的值
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 禁止复制
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

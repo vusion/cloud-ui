@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`f-forbidden.vue Demo-基本用法 1`] = `
+<div>
+  <div></div>
+</div>
+`;

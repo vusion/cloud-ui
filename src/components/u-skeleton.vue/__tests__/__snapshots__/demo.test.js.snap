@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-skeleton.vue Demo-修改段落行数 1`] = `
+<div>
+  <div class="root" type="paragraph">
+    <h3 class="title"></h3>
+    <p class="paragraph"></p>
+    <p class="paragraph"></p>
+    <p class="paragraph"></p>
+    <p class="paragraph"></p>
+    <p class="paragraph"></p>
+  </div>
+</div>
+`;
+
+exports[`u-skeleton.vue Demo-图片类型 1`] = `
+<div>
+  <div class="root" type="image">
+  </div>
+</div>
+`;
+
+exports[`u-skeleton.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root" type="paragraph">
+    <h3 class="title"></h3>
+    <p class="paragraph"></p>
+    <p class="paragraph"></p>
+    <p class="paragraph"></p>
+  </div>
+</div>
+`;

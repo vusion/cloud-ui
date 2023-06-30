@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-timeline.vue Demo-交替展示 1`] = `
+<div>
+</div>
+`;
+
+exports[`u-timeline.vue Demo-使用label单独展示时间 1`] = ``;
+
+exports[`u-timeline.vue Demo-修改颜色 1`] = ``;
+
+exports[`u-timeline.vue Demo-基本用法 1`] = `
+<div>
+</div>
+`;
+
+exports[`u-timeline.vue Demo-幽灵节点 1`] = `
+<div>
+</div>
+`;
+
+exports[`u-timeline.vue Demo-普通用法 1`] = `
+<div>
+</div>
+`;
+
+exports[`u-timeline.vue Demo-自定义图标 1`] = `
+<div>
+</div>
+`;

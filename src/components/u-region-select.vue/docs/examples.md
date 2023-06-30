@@ -3,7 +3,7 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-region-select></u-region-select>
-    <u-region-select defaultValue="浙江 / 杭州 / 滨江区"></u-region-select>
+    <u-region-select defaultValue="浙江省 / 杭州市 / 滨江区"></u-region-select>
 </u-linear-layout>
 ```
 
@@ -47,4 +47,52 @@ export default {
 
 ``` html
 <u-region-select filterable trigger="hover"></u-region-select>
+```
+
+### 转换为地区名格式
+
+将值转换为地区名称。
+
+```vue
+<template>
+    <u-region-select v-model="address" converter="name" @change="onChange"></u-region-select>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            address: '浙江省/杭州市/滨江区',
+        };
+    },
+    methods: {
+        onChange({ value }) {
+            console.log(value)
+        }
+    }
+};
+</script>
+```
+
+### 转换为地区码格式
+
+将值转换为地区码。
+
+```vue
+<template>
+    <u-region-select v-model="address" converter="code" @change="onChange"></u-region-select>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            address: '330108',
+        };
+    },
+    methods: {
+        onChange(event) {
+            console.log(event)
+        }
+    }
+};
+</script>
 ```

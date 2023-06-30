@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`f-dragger.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root" draggable="draggable" size="normal" style="position: relative;">拖我</div>
+</div>
+`;
+
+exports[`f-dragger.vue Demo-网格约束 1`] = `
+<div>
+  <div class="root" color="primary" draggable="draggable" inline size="normal" style="position: relative;">网格</div>
+</div>
+`;
+
+exports[`f-dragger.vue Demo-范围约束 1`] = `
+<div>
+  <div class="well">
+    <div class="root block" color="primary" draggable="draggable" inline size="normal">object</div>
+  </div>
+  <div class="well">
+    <div class="root block" color="primary" draggable="draggable" inline size="normal">offset-parent</div>
+  </div>
+</div>
+`;
+
+exports[`f-dragger.vue Demo-范围约束模式 1`] = `
+<div>
+  <div class="well">
+    <div class="root block" color="primary" draggable="draggable" inline size="normal">object</div>
+  </div>
+  <div class="well">
+    <div class="root block" color="primary" draggable="draggable" inline range-mode="center" size="normal">offset-parent</div>
+  </div>
+</div>
+`;
+
+exports[`f-dragger.vue Demo-轴向约束 1`] = `
+<div>
+  <div class="root" draggable="draggable" inline size="normal" style="position: relative;">水平</div>
+  <div class="root" draggable="draggable" inline size="normal" style="position: relative;">垂直</div>
+</div>
+`;

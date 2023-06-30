@@ -1,47 +1,61 @@
 - name: u-tree-select-new
-  title: 树选择器
-  description: 树选择器
+  title: 树选择
+  description: 树选择
   icon: tree-view
   labels:
-    - Form
+    - Selector
   attrs:
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object | DataSource
       designer-value: "[{}, {}, {}]"
-      description: 集合类型变量或者输出参数为集合类型的逻辑
+      description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       group: 数据属性
+      brifeDoc: ""
+      docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
-      description: 选择器每一行的数据类型
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
+      brifeDoc: ""
+      docDescription: 该属性为只读状态，当数据源动态绑定集合List<T>后，会自动识别T的类型并进行展示
+      tooltipLink: ""
     - name: text-field
       title: 文本字段
       type: string
       default: text
       group: 数据属性
       description: 集合的元素类型中，用于显示文本的属性名称
-      advanced: true
     - name: value-field
       title: 值字段
       type: string
       default: value
       description: 集合的元素类型中，用于标识选中值的属性
       group: 数据属性
+      brifeDoc: ""
+      docDescription: 集合的元素类型中，用于标识选中值的属性
+      tooltipLink: ""
     - name: parent-field
-      title: 父节点字段名
+      title: 父节点字段
       type: string
       default: ""
       description: 集合的元素类型中，用于标识父节点的属性
       group: 数据属性
+      brifeDoc: ""
+      docDescription: 集合的元素类型中，用于标识父节点的属性
+      tooltipLink: ""
     - name: children-field
-      title: 子节点字段名
+      title: 子节点字段
       type: string
       default: children
       description: 集合的元素类型中，用于标识子节点的属性，默认为children
       group: 数据属性
+      brifeDoc: ""
+      docDescription: 集合的元素类型中，用于标识子节点的属性
+      tooltipLink: ""
     - name: value
       title: 选中值
       type: any
@@ -49,6 +63,9 @@
       model: true
       description: 选择后，所选中的值
       group: 数据属性
+      brifeDoc: ""
+      docDescription: 通过组件进行选择后，最终选中的值，支持双向绑定到变量
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -118,3 +135,33 @@
         - name: senderVM
           type: UTreeView
           description: 发送事件实例
+    - name: before-load
+      title: 加载前
+      description: 加载前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止加载流程
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+    - name: load
+      title: 加载后
+      description: 加载后触发
+      params:
+        - name: $event
+          type: "null"
+          description: 无
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+  methods:
+    - name: reload
+      description: 重新加载
+      params: []

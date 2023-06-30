@@ -4,15 +4,17 @@
   labels:
     - Display
   description: 用于展示文字或表达式
-  next: true
-  nested: false
   attrs:
     - name: text
       title: 文本
       type: string
       description: 显示文本内容
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 显示的文本内容
+      tooltipLink: ""
     - name: color
-      title: 颜色
+      title: 主题颜色
       type: string
       options:
         - value: default
@@ -30,7 +32,43 @@
         - value: disabled
           title: 禁用色
       default: default
-      description: 设置文本颜色
+      description: 设置主题颜色样式
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持定义文本的颜色，支持默认、主要色、辅助色、成功色、警告色、错误色、禁用色
+      tooltipLink: ""
+    - name: display
+      title: 展示方式
+      type: string
+      options:
+        - value: inline
+          title: 行内
+        - value: block
+          title: 块级
+      default: inline
+      description: 行内展示，或块级换行展示
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 文本展示方式，支持行内展示或块级换行展示
+      tooltipLink: ""
+    - name: overflow
+      title: 隐藏过长文本
+      type: string
+      options:
+        - value: normal
+          title: 默认不处理
+        - value: ellipsis
+          title: 多余的文本省略
+        - value: break
+          title: 强制换行且英文自动添加换行符
+        - value: nowrap
+          title: 始终不换行
+      default: normal
+      description: 文本过长时省略显示
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 文本过长的处理方式，支持默认不处理、多余的文本省略、强制换行且英文自动添加换行符、始终不换行共四种隐藏处理方式，缺省情况为默认不处理
+      tooltipLink: ""
     - name: size
       title: 尺寸
       type: string
@@ -47,30 +85,10 @@
           title: 巨大
       default: default
       description: 设置文本大小
-    - name: display
-      title: 展示方式
-      type: string
-      options:
-        - value: inline
-          title: 行内
-        - value: block
-          title: 块级
-      default: inline
-      description: 行内展示，或块级换行展示
-    - name: overflow
-      title: 隐藏处理
-      type: string
-      options:
-        - value: normal
-          title: 默认不处理
-        - value: ellipsis
-          title: 多余的文本省略
-        - value: break
-          title: 强制换行且英文自动添加换行符
-        - value: nowrap
-          title: 始终不换行
-      default: normal
-      description: 文本过长的处理方式
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 文本框尺寸，支持小、正常、大、巨大
+      tooltipLink: ""
   events:
     - name: click
       title: 点击

@@ -1,0 +1,2342 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-form.vue Demo-Bubble 1`] = `
+<div class="root" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">用户名 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="12">
+          <span>b</span>
+          <span>4~12个字符</span>
+          <input maxlength="12" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">邮箱 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="24">
+          <span>b</span>
+          <span>请输入邮箱</span>
+          <input maxlength="24" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal" layout="block">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">嵌套列表 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root" distance label-size="normal" layout="none">
+          <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+            <span vusion-slot-name-edit="label">邮箱1 </span>
+          </label>
+          <div class="field">
+            <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+            <div class="wrap" vusion-slot-name="default">
+              <div color maxlength="24">
+                <span>b</span>
+                <span>请输入邮箱</span>
+                <input maxlength="24" type="text">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="root" distance label-size="normal" layout="none">
+          <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+            <span vusion-slot-name-edit="label">邮箱2 </span>
+          </label>
+          <div class="field">
+            <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+            <div class="wrap" vusion-slot-name="default">
+              <div color maxlength="24">
+                <span>b</span>
+                <span>请输入邮箱</span>
+                <input maxlength="24" type="text">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">手机号码 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="11">
+          <span>b</span>
+          <span>请输入手机号码</span>
+          <input maxlength="11" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label"> </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <a class="root" color="primary" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
+          提交</a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-Header 外观 1`] = `
+<div>
+  <div class="root" gap="large" layout="block">
+    <div appear="header" class="root" size="normal">
+      <div class="head" title="域名信息">
+        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+          域名信息
+        </div>
+        <div class="extra" vusion-slot-name="extra">
+        </div>
+      </div>
+      <transition-stub>
+        <div class="body" vusion-slot-name="default"></div>
+      </transition-stub>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">域名管理密码 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div class="root">
+            <label class="root" tabindex="0">
+              <span class="radio" selected="selected"></span> 包年包月 <span vusion-slot-name="item"> </span>
+            </label>
+            <label class="root" tabindex="0">
+              <span class="radio"></span> 按量付费 <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">实例名称 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color maxlength="63" size="huge">
+            <span>b</span>
+            <span>由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾</span>
+            <input maxlength="63" size="huge" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">　 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color maxlength="63" size="huge">
+            <span>b</span>
+            <span>label为空的必填项</span>
+            <input maxlength="63" size="huge" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div appear="header" class="root" size="normal">
+      <div class="head" title="域名信息">
+        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+          域名信息
+        </div>
+        <div class="extra" vusion-slot-name="extra">
+        </div>
+      </div>
+      <transition-stub>
+        <div class="body" vusion-slot-name="default"></div>
+      </transition-stub>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">规格 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div border="true" class="root" tabindex="0">
+            <div style="display: none;">
+              <span vusion-slot-name="title">列表</span>
+              <div>
+              </div>
+            </div>
+            <div>
+              <div class="root" selected="selected" vusion-slot-name="default">
+                1核 1GB
+              </div>
+              <div class="root" vusion-slot-name="default">
+                1核 2GB
+              </div>
+              <div class="root" vusion-slot-name="default">
+                2核 4GB
+              </div>
+              <div class="root" vusion-slot-name="default">
+                4核 8GB
+              </div>
+              <div class="root" vusion-slot-name="default">
+                8核 16GB
+              </div>
+              <div class="root" vusion-slot-name="default">
+                8核 32GB
+              </div>
+              <div class="root" vusion-slot-name="default">
+                16核 64GB
+              </div>
+            </div>
+            <div style="display: none;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal" layout="block">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">类型 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description">高性能 SSD 云盘不支持快照功能</div>
+        <div class="wrap" vusion-slot-name="default">
+          <div border="true" class="root" tabindex="0">
+            <div style="display: none;">
+              <span vusion-slot-name="title">列表</span>
+              <div>
+              </div>
+            </div>
+            <div>
+              <div class="root" selected="selected" vusion-slot-name="default">
+                SSD 云盘
+              </div>
+              <div class="root" vusion-slot-name="default">
+                高性能 SSD 云盘
+              </div>
+            </div>
+            <div style="display: none;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">端口号 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color maxlength="5" size="huge medium">
+            <span>b</span>
+            <span></span>
+            <input maxlength="5" size="huge medium" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">公网带宽 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div class="root">
+            <div class="main" unit="true">
+              <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
+              </div>
+              <div class="root slider">
+                <div class="body" draggable="draggable">
+                  <div class="track">
+                    <div class="trail" style="width: 0%;"></div>
+                  </div>
+                  <div class="handle" style="left: 0%;">
+                  </div>
+                </div>
+              </div>
+              <div class="scales">
+                <span class="scale">0Mbps</span>
+                <span class="scale">50Mbps</span>
+                <span class="scale">100Mbps</span>
+              </div>
+            </div>
+            <div buttondisplay="tail" class="root input" hidebuttons="true">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input buttondisplay="tail" hidebuttons="true" type="text">
+            </div>
+            <span>Mbps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal" layout="block">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">详情 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div class="root" color size="huge">
+            <span>b</span>
+            <textarea class="input" size="huge"></textarea>
+            <div class="handle" draggable="draggable" resize="vertical"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label"> </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            立即创建</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-分组 1`] = `
+<div>
+  <div class="root" gap="large" layout="block">
+    <div class="root" size="normal">
+      <div class="head" title="域名信息">
+        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+          域名信息
+        </div>
+        <div class="extra" vusion-slot-name="extra">
+        </div>
+      </div>
+      <transition-stub>
+        <div class="body" vusion-slot-name="default">
+          <div class="root" distance label-size="normal">
+            <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">域名管理密码 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div class="root">
+                  <label class="root" tabindex="0">
+                    <span class="radio" selected="selected"></span> 包年包月 <span vusion-slot-name="item"> </span>
+                  </label>
+                  <label class="root" tabindex="0">
+                    <span class="radio"></span> 按量付费 <span vusion-slot-name="item"> </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal">
+            <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">实例名称 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color maxlength="63" size="huge">
+                  <span>b</span>
+                  <span>由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾</span>
+                  <input maxlength="63" size="huge" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal">
+            <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">　 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color maxlength="63" size="huge">
+                  <span>b</span>
+                  <span>label为空的必填项</span>
+                  <input maxlength="63" size="huge" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+    <div class="root" size="normal">
+      <div class="head" title="域名信息">
+        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+          域名信息
+        </div>
+        <div class="extra" vusion-slot-name="extra">
+        </div>
+      </div>
+      <transition-stub>
+        <div class="body" vusion-slot-name="default">
+          <div class="root" distance label-size="normal">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">规格 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div border="true" class="root" tabindex="0">
+                  <div style="display: none;">
+                    <span vusion-slot-name="title">列表</span>
+                    <div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="root" selected="selected" vusion-slot-name="default">
+                      1核 1GB
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      1核 2GB
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      2核 4GB
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      4核 8GB
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      8核 16GB
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      8核 32GB
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      16核 64GB
+                    </div>
+                  </div>
+                  <div style="display: none;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal" layout="block">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">类型 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description">高性能 SSD 云盘不支持快照功能</div>
+              <div class="wrap" vusion-slot-name="default">
+                <div border="true" class="root" tabindex="0">
+                  <div style="display: none;">
+                    <span vusion-slot-name="title">列表</span>
+                    <div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="root" selected="selected" vusion-slot-name="default">
+                      SSD 云盘
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      高性能 SSD 云盘
+                    </div>
+                  </div>
+                  <div style="display: none;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal">
+            <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">端口号 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color maxlength="5" size="huge medium">
+                  <span>b</span>
+                  <span></span>
+                  <input maxlength="5" size="huge medium" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">公网带宽 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div class="root">
+                  <div class="main" unit="true">
+                    <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
+                    </div>
+                    <div class="root slider">
+                      <div class="body" draggable="draggable">
+                        <div class="track">
+                          <div class="trail" style="width: 0%;"></div>
+                        </div>
+                        <div class="handle" style="left: 0%;">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="scales">
+                      <span class="scale">0Mbps</span>
+                      <span class="scale">50Mbps</span>
+                      <span class="scale">100Mbps</span>
+                    </div>
+                  </div>
+                  <div buttondisplay="tail" class="root input" hidebuttons="true">
+                    <span>b</span>
+                    <span style="display: none;"></span>
+                    <input buttondisplay="tail" hidebuttons="true" type="text">
+                  </div>
+                  <span>Mbps</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal" layout="block">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">详情 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div class="root" color size="huge">
+                  <span>b</span>
+                  <textarea class="input" size="huge"></textarea>
+                  <div class="handle" draggable="draggable" resize="vertical"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label"> </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            立即创建</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-分组 Collapsible 1`] = `
+<div>
+  <div class="root" gap="large" layout="block">
+    <div class="root" collapsible="true" size="normal">
+      <div class="head" title="域名信息">
+        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+          域名信息
+        </div>
+        <span class="expander" expanded="true"></span>
+        <div class="extra" vusion-slot-name="extra">
+        </div>
+      </div>
+      <transition-stub>
+        <div class="body" vusion-slot-name="default">
+          <div class="root" distance label-size="normal">
+            <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">域名管理密码 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div class="root">
+                  <label class="root" tabindex="0">
+                    <span class="radio" selected="selected"></span> 包年包月 <span vusion-slot-name="item"> </span>
+                  </label>
+                  <label class="root" tabindex="0">
+                    <span class="radio"></span> 按量付费 <span vusion-slot-name="item"> </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal">
+            <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">实例名称 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color maxlength="63" size="huge">
+                  <span>b</span>
+                  <span>由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾</span>
+                  <input maxlength="63" size="huge" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal">
+            <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">　 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color maxlength="63" size="huge">
+                  <span>b</span>
+                  <span>label为空的必填项</span>
+                  <input maxlength="63" size="huge" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+    <div class="root" collapsible="true" size="normal">
+      <div class="head" title="域名信息">
+        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+          域名信息
+        </div>
+        <span class="expander" expanded="true"></span>
+        <div class="extra" vusion-slot-name="extra">
+        </div>
+      </div>
+      <transition-stub>
+        <div class="body" vusion-slot-name="default">
+          <div class="root" distance label-size="normal">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">规格 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div border="true" class="root" tabindex="0">
+                  <div style="display: none;">
+                    <span vusion-slot-name="title">列表</span>
+                    <div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="root" selected="selected" vusion-slot-name="default">
+                      1核 1GB
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      1核 2GB
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      2核 4GB
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      4核 8GB
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      8核 16GB
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      8核 32GB
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      16核 64GB
+                    </div>
+                  </div>
+                  <div style="display: none;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal" layout="block">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">类型 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description">高性能 SSD 云盘不支持快照功能</div>
+              <div class="wrap" vusion-slot-name="default">
+                <div border="true" class="root" tabindex="0">
+                  <div style="display: none;">
+                    <span vusion-slot-name="title">列表</span>
+                    <div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="root" selected="selected" vusion-slot-name="default">
+                      SSD 云盘
+                    </div>
+                    <div class="root" vusion-slot-name="default">
+                      高性能 SSD 云盘
+                    </div>
+                  </div>
+                  <div style="display: none;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal">
+            <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">端口号 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color maxlength="5" size="huge medium">
+                  <span>b</span>
+                  <span></span>
+                  <input maxlength="5" size="huge medium" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">公网带宽 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div class="root">
+                  <div class="main" unit="true">
+                    <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
+                    </div>
+                    <div class="root slider">
+                      <div class="body" draggable="draggable">
+                        <div class="track">
+                          <div class="trail" style="width: 0%;"></div>
+                        </div>
+                        <div class="handle" style="left: 0%;">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="scales">
+                      <span class="scale">0Mbps</span>
+                      <span class="scale">50Mbps</span>
+                      <span class="scale">100Mbps</span>
+                    </div>
+                  </div>
+                  <div buttondisplay="tail" class="root input" hidebuttons="true">
+                    <span>b</span>
+                    <span style="display: none;"></span>
+                    <input buttondisplay="tail" hidebuttons="true" type="text">
+                  </div>
+                  <span>Mbps</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal" layout="block">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">详情 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div class="root" color size="huge">
+                  <span>b</span>
+                  <textarea class="input" size="huge"></textarea>
+                  <div class="handle" draggable="draggable" resize="vertical"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label"> </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            立即创建</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-分组 Small 1`] = `
+<div>
+  <div class="root" layout="inline">
+    <div class="root" collapsible="true" size="small">
+      <div class="head" title="常用条件">
+        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+          常用条件
+        </div>
+        <span class="expander" expanded="true"></span>
+        <div class="extra" vusion-slot-name="extra">
+        </div>
+      </div>
+      <transition-stub>
+        <div class="body" vusion-slot-name="default">
+          <div class="root" distance label-size="normal">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">名称 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color>
+                  <span>b</span>
+                  <span>请输入名称</span>
+                  <input type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">状态 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div class="root" tabindex="0">
+                  <span>b</span>
+                  <span>请选择</span>
+                  <div style="direction: ltr;" tags-overflow="collapse">
+                  </div>
+                  <transition-stub name="fade" style="width: 100%;">
+                    <div class="root" style="display: none;">
+                      <div>
+                        <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                          启用
+                        </div>
+                        <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                          禁用
+                        </div>
+                      </div>
+                    </div>
+                  </transition-stub>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+    <div class="root" collapsible="true" size="small">
+      <div class="head" title="更多条件">
+        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+          更多条件
+        </div>
+        <span class="expander" expanded="true"></span>
+        <div class="extra" vusion-slot-name="extra">
+        </div>
+      </div>
+      <transition-stub>
+        <div class="body" vusion-slot-name="default">
+          <div class="root" distance label-size="normal">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">名称 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color>
+                  <span>b</span>
+                  <span>请输入名称</span>
+                  <input type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">状态 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div class="root" tabindex="0">
+                  <span>b</span>
+                  <span>请选择</span>
+                  <div style="direction: ltr;" tags-overflow="collapse">
+                  </div>
+                  <transition-stub name="fade" style="width: 100%;">
+                    <div class="root" style="display: none;">
+                      <div>
+                        <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                          启用
+                        </div>
+                        <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                          禁用
+                        </div>
+                      </div>
+                    </div>
+                  </transition-stub>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-基本 1`] = `
+<div class="root" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">用户名 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="12">
+          <span>b</span>
+          <span>4~12个字符</span>
+          <input maxlength="12" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">邮箱 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="24">
+          <span>b</span>
+          <span>请输入邮箱</span>
+          <input maxlength="24" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal" layout="block">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">嵌套列表 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root" distance label-size="normal">
+          <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+            <span vusion-slot-name-edit="label">邮箱1 </span>
+          </label>
+          <div class="field">
+            <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+            <div class="wrap" vusion-slot-name="default">
+              <div color maxlength="24">
+                <span>b</span>
+                <span>请输入邮箱</span>
+                <input maxlength="24" type="text">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="root" distance label-size="normal">
+          <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+            <span vusion-slot-name-edit="label">邮箱2 </span>
+          </label>
+          <div class="field">
+            <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+            <div class="wrap" vusion-slot-name="default">
+              <div color maxlength="24">
+                <span>b</span>
+                <span>请输入邮箱</span>
+                <input maxlength="24" type="text">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">手机号码 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="11">
+          <span>b</span>
+          <span>请输入手机号码</span>
+          <input maxlength="11" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label"> </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <a class="root" color="primary" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
+          提交</a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root" gap="large" layout="block">
+    <div class="root" distance label-size="normal">
+      <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">计费方式 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div class="root">
+            <label class="root" tabindex="0">
+              <span class="radio" selected="selected"></span> 包年包月 <span vusion-slot-name="item"> </span>
+            </label>
+            <label class="root" tabindex="0">
+              <span class="radio"></span> 按量付费 <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">实例名称 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color maxlength="63" size="huge">
+            <span>b</span>
+            <span>由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾</span>
+            <input maxlength="63" size="huge" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">　 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color maxlength="63" size="huge">
+            <span>b</span>
+            <span>label为空的必填项</span>
+            <input maxlength="63" size="huge" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">规格 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div border="true" class="root" tabindex="0">
+            <div style="display: none;">
+              <span vusion-slot-name="title">列表</span>
+              <div>
+              </div>
+            </div>
+            <div>
+              <div class="root" selected="selected" vusion-slot-name="default">
+                1核 1GB
+              </div>
+              <div class="root" vusion-slot-name="default">
+                1核 2GB
+              </div>
+              <div class="root" vusion-slot-name="default">
+                2核 4GB
+              </div>
+              <div class="root" vusion-slot-name="default">
+                4核 8GB
+              </div>
+              <div class="root" vusion-slot-name="default">
+                8核 16GB
+              </div>
+              <div class="root" vusion-slot-name="default">
+                8核 32GB
+              </div>
+              <div class="root" vusion-slot-name="default">
+                16核 64GB
+              </div>
+            </div>
+            <div style="display: none;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal" layout="block">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">类型 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description">高性能 SSD 云盘不支持快照功能</div>
+        <div class="wrap" vusion-slot-name="default">
+          <div border="true" class="root" tabindex="0">
+            <div style="display: none;">
+              <span vusion-slot-name="title">列表</span>
+              <div>
+              </div>
+            </div>
+            <div>
+              <div class="root" selected="selected" vusion-slot-name="default">
+                SSD 云盘
+              </div>
+              <div class="root" vusion-slot-name="default">
+                高性能 SSD 云盘
+              </div>
+            </div>
+            <div style="display: none;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">端口号 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color maxlength="5" size="huge medium">
+            <span>b</span>
+            <span></span>
+            <input maxlength="5" size="huge medium" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">公网带宽 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div class="root">
+            <div class="main" unit="true">
+              <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
+              </div>
+              <div class="root slider">
+                <div class="body" draggable="draggable">
+                  <div class="track">
+                    <div class="trail" style="width: 0%;"></div>
+                  </div>
+                  <div class="handle" style="left: 0%;">
+                  </div>
+                </div>
+              </div>
+              <div class="scales">
+                <span class="scale">0Mbps</span>
+                <span class="scale">50Mbps</span>
+                <span class="scale">100Mbps</span>
+              </div>
+            </div>
+            <div buttondisplay="tail" class="root input" hidebuttons="true">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input buttondisplay="tail" hidebuttons="true" type="text">
+            </div>
+            <span>Mbps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal" layout="block">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">详情 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div class="root" color size="huge">
+            <span>b</span>
+            <textarea class="input" size="huge"></textarea>
+            <div class="handle" draggable="draggable" resize="vertical"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label"> </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            立即创建</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-基础表单 1`] = `
+<div>
+  <div class="root" layout="block">
+    <div class="root" distance label-size="normal" layout="center">
+      <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">
+          <span class="root" vusion-slot-name-edit="text">名称</span>
+        </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color>
+            <span>b</span>
+            <span>由字母、数字和中划线组成</span>
+            <input type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal" layout="center">
+      <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">
+          <span class="root" vusion-slot-name-edit="text">类型</span>
+        </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div class="root">
+            <label class="root" tabindex="0">
+              <span class="radio"></span>
+              <span vusion-slot-name="item">
+                <span class="root" vusion-slot-name-edit="text">类型 A</span>
+              </span>
+            </label>
+            <label class="root" tabindex="0">
+              <span class="radio"></span>
+              <span vusion-slot-name="item">
+                <span class="root" vusion-slot-name-edit="text">类型 B</span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal" layout="center">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label"> </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            立即创建</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-折叠分组 1`] = `
+<div>
+  <div class="root" layout="inline">
+    <div class="root" collapsible="true" size="normal">
+      <div class="head">
+        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+          <span class="root" vusion-slot-name-edit="text">常用条件</span>
+        </div>
+        <span class="expander" expanded="true"></span>
+        <div class="extra" vusion-slot-name="extra">
+        </div>
+      </div>
+      <transition-stub>
+        <div class="body" vusion-slot-name="default">
+          <div class="root" distance label-size="normal" layout="center">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">
+                <span class="root" vusion-slot-name-edit="text">名称</span>
+              </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color>
+                  <span>b</span>
+                  <span>请输入名称</span>
+                  <input type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal" layout="center">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">
+                <span class="root" vusion-slot-name-edit="text">状态</span>
+              </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div class="root" tabindex="0">
+                  <span>b</span>
+                  <span>请选择</span>
+                  <div style="direction: ltr;" tags-overflow="collapse">
+                  </div>
+                  <transition-stub name="fade" style="width: 100%;">
+                    <div class="root" style="display: none;">
+                      <div>
+                        <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                          <span class="root" vusion-slot-name-edit="text">启用</span>
+                        </div>
+                        <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                          <span class="root" vusion-slot-name-edit="text">禁用</span>
+                        </div>
+                      </div>
+                    </div>
+                  </transition-stub>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+    <div class="root" collapsible="true" size="normal">
+      <div class="head">
+        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+          <span class="root" vusion-slot-name-edit="text">更多条件</span>
+        </div>
+        <span class="expander" expanded="true"></span>
+        <div class="extra" vusion-slot-name="extra">
+        </div>
+      </div>
+      <transition-stub>
+        <div class="body" vusion-slot-name="default">
+          <div class="root" distance label-size="normal" layout="center">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">
+                <span class="root" vusion-slot-name-edit="text">名称</span>
+              </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color>
+                  <span>b</span>
+                  <span>请输入名称</span>
+                  <input type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-size="normal" layout="center">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">
+                <span class="root" vusion-slot-name-edit="text">状态</span>
+              </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div class="root" tabindex="0">
+                  <span>b</span>
+                  <span>请选择</span>
+                  <div style="direction: ltr;" tags-overflow="collapse">
+                  </div>
+                  <transition-stub name="fade" style="width: 100%;">
+                    <div class="root" style="display: none;">
+                      <div>
+                        <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                          <span class="root" vusion-slot-name-edit="text">启用</span>
+                        </div>
+                        <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                          <span class="root" vusion-slot-name-edit="text">禁用</span>
+                        </div>
+                      </div>
+                    </div>
+                  </transition-stub>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-插槽 1`] = `
+<div>
+  <div class="root" layout="block">
+    <div class="root" distance="extra" label-size="normal" layout="block">
+      <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">
+          <span>
+            用户名
+          </span>
+        </span>
+      </label>
+      <span class="extra" vusion-slot-name="extra">
+        <span class="root" type="info"><transition-stub name="fade-fast">
+            <div arraw-size="normal" class="root" style="display: none;">
+              <div class="arrow" data-popper-arrow></div>
+              <div class="body" size="normal">请输入正确格式的中文汉字</div>
+            </div>
+          </transition-stub></span>
+      </span>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description">
+          <div>描述描述</div>
+        </div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color maxlength="4">
+            <span>b</span>
+            <span>不超过4个字符</span>
+            <input maxlength="4" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-数据收集与提交 1`] = `
+<div class="root" gap="large" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">计费方式 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root">
+          <label class="root" tabindex="0">
+            <span class="radio" selected="selected"></span> 包年包月 <span vusion-slot-name="item"> </span>
+          </label>
+          <label class="root" tabindex="0">
+            <span class="radio"></span> 按量付费 <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">实例名称 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="63" size="huge">
+          <span>b</span>
+          <span>由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾</span>
+          <input maxlength="63" size="huge" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">规格 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div border="true" class="root" tabindex="0">
+          <div style="display: none;">
+            <span vusion-slot-name="title">列表</span>
+            <div>
+            </div>
+          </div>
+          <div>
+            <div class="root" selected="selected" vusion-slot-name="default">
+              1核 1GB
+            </div>
+            <div class="root" vusion-slot-name="default">
+              1核 2GB
+            </div>
+            <div class="root" vusion-slot-name="default">
+              2核 4GB
+            </div>
+            <div class="root" vusion-slot-name="default">
+              4核 8GB
+            </div>
+            <div class="root" vusion-slot-name="default">
+              8核 16GB
+            </div>
+            <div class="root" vusion-slot-name="default">
+              8核 32GB
+            </div>
+            <div class="root" vusion-slot-name="default">
+              16核 64GB
+            </div>
+          </div>
+          <div style="display: none;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal" layout="block">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">类型 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description">高性能 SSD 云盘不支持快照功能</div>
+      <div class="wrap" vusion-slot-name="default">
+        <div border="true" class="root" tabindex="0">
+          <div style="display: none;">
+            <span vusion-slot-name="title">列表</span>
+            <div>
+            </div>
+          </div>
+          <div>
+            <div class="root" selected="selected" vusion-slot-name="default">
+              SSD 云盘
+            </div>
+            <div class="root" vusion-slot-name="default">
+              高性能 SSD 云盘
+            </div>
+          </div>
+          <div style="display: none;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">端口号 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="5" size="huge normal">
+          <span>b</span>
+          <span>1150-65535</span>
+          <input maxlength="5" size="huge normal" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">公网带宽 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root">
+          <div class="main" unit="true">
+            <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
+            </div>
+            <div class="root slider">
+              <div class="body" draggable="draggable">
+                <div class="track">
+                  <div class="trail" style="width: 10%;"></div>
+                </div>
+                <div class="handle" style="left: 10%;">
+                </div>
+              </div>
+            </div>
+            <div class="scales">
+              <span class="scale">0Mbps</span>
+              <span class="scale">50Mbps</span>
+              <span class="scale">100Mbps</span>
+            </div>
+          </div>
+          <div buttondisplay="tail" class="root input" hidebuttons="true">
+            <span>b</span>
+            <span style="display: none;"></span>
+            <input buttondisplay="tail" hidebuttons="true" type="text">
+          </div>
+          <span>Mbps</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal" layout="block">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">描述 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root" color size="huge">
+          <span>b</span>
+          <textarea class="input" size="huge"></textarea>
+          <div class="handle" draggable="draggable" resize="vertical"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label"> </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          立即创建</a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-数据转换 1`] = `
+<div class="root" gap="large" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">超时时长 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="5" size="huge normal">
+          <span>b</span>
+          <span></span>
+          <input maxlength="5" size="huge normal" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">端口号 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="5" size="huge normal">
+          <span>b</span>
+          <span>1150-65535</span>
+          <input maxlength="5" size="huge normal" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label"> </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          立即创建</a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-栅格布局 1`] = `
+<div>
+  <div class="root" layout="inline" repeat="3">
+    <div class="root" distance label-size="normal" style="width: 33.33333333333333%; margin-left: -2.6666666666666665px;">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">状态 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div class="root" tabindex="0">
+            <span>b</span>
+            <span style="display: none;">请选择</span>
+            <div style="direction: ltr;" tags-overflow="collapse">
+              认证中
+            </div>
+            <transition-stub name="fade" style="width: 100%;">
+              <div class="root" style="display: none;">
+                <div>
+                  <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                    认证中
+                  </div>
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal" style="width: 33.33333333333333%; margin-left: -2.6666666666666665px;">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">备案类型 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div class="root" tabindex="0">
+            <span>b</span>
+            <span style="display: none;">请选择</span>
+            <div style="direction: ltr;" tags-overflow="collapse">
+              全部
+            </div>
+            <transition-stub name="fade" style="width: 100%;">
+              <div class="root" style="display: none;">
+                <div>
+                  <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                    全部
+                  </div>
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal" style="width: 33.33333333333333%; margin-left: -2.6666666666666665px;">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">备案号 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color maxlength="63">
+            <span>b</span>
+            <span style="display: none;"></span>
+            <input maxlength="63" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal" style="width: 33.33333333333333%; margin-left: -2.6666666666666665px;">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">用户名 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color maxlength="63">
+            <span>b</span>
+            <span style="display: none;"></span>
+            <input maxlength="63" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal" style="width: 33.33333333333333%; margin-left: -2.6666666666666665px;">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">单位名称 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color maxlength="63">
+            <span>b</span>
+            <span style="display: none;"></span>
+            <input maxlength="63" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal" style="width: 100%; margin-left: -2.6666666666666665px;">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label"> </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            查询</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-标签块级布局 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div bordered="true" class="root" shadow="always">
+      <div class="head">
+        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+          结合默认布局
+        </div>
+        <a></a>
+        <div class="extra" vusion-slot-name="extra">
+        </div>
+      </div>
+      <div class="body" vusion-slot-name="default">
+        <div class="root" label-layout="block" layout="block">
+          <div class="root" distance label-layout="block" label-size="normal">
+            <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">计费方式 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div class="root">
+                  <label class="root" tabindex="0">
+                    <span class="radio" selected="selected"></span> 包年包月 <span vusion-slot-name="item"> </span>
+                  </label>
+                  <label class="root" tabindex="0">
+                    <span class="radio"></span> 按量付费 <span vusion-slot-name="item"> </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-layout="block" label-size="normal">
+            <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">实例名称 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description">高性能 SSD 云盘不支持快照功能</div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color maxlength="63" size="huge">
+                  <span>b</span>
+                  <span>由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾</span>
+                  <input maxlength="63" size="huge" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-layout="block" label-size="normal">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label"> </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                  查询</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div></div>
+    </div>
+    <div bordered="true" class="root" shadow="always">
+      <div class="head">
+        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+          结合栅格布局
+        </div>
+        <a></a>
+        <div class="extra" vusion-slot-name="extra">
+        </div>
+      </div>
+      <div class="body" vusion-slot-name="default">
+        <div class="root" label-layout="block" layout="inline" repeat="3">
+          <div class="root" distance label-layout="block" label-size="normal" style="width: 33.33333333333333%; margin-left: -2.6666666666666665px;">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">状态 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div class="root" tabindex="0">
+                  <span>b</span>
+                  <span style="display: none;">请选择</span>
+                  <div style="direction: ltr;" tags-overflow="collapse">
+                    认证中
+                  </div>
+                  <transition-stub name="fade" style="width: 100%;">
+                    <div class="root" style="display: none;">
+                      <div>
+                        <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                          认证中
+                        </div>
+                      </div>
+                    </div>
+                  </transition-stub>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-layout="block" label-size="normal" style="width: 33.33333333333333%; margin-left: -2.6666666666666665px;">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">备案类型 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div class="root" tabindex="0">
+                  <span>b</span>
+                  <span style="display: none;">请选择</span>
+                  <div style="direction: ltr;" tags-overflow="collapse">
+                    全部
+                  </div>
+                  <transition-stub name="fade" style="width: 100%;">
+                    <div class="root" style="display: none;">
+                      <div>
+                        <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                          全部
+                        </div>
+                      </div>
+                    </div>
+                  </transition-stub>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-layout="block" label-size="normal" style="width: 33.33333333333333%; margin-left: -2.6666666666666665px;">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">备案号 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color maxlength="63">
+                  <span>b</span>
+                  <span style="display: none;"></span>
+                  <input maxlength="63" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-layout="block" label-size="normal" style="width: 33.33333333333333%; margin-left: -2.6666666666666665px;">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">用户名 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color maxlength="63">
+                  <span>b</span>
+                  <span style="display: none;"></span>
+                  <input maxlength="63" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-layout="block" label-size="normal" style="width: 33.33333333333333%; margin-left: -2.6666666666666665px;">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label">单位名称 </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <div color maxlength="63">
+                  <span>b</span>
+                  <span style="display: none;"></span>
+                  <input maxlength="63" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="root" distance label-layout="block" label-size="normal" style="width: 100%; margin-left: -2.6666666666666665px;">
+            <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+              <span vusion-slot-name-edit="label"> </span>
+            </label>
+            <div class="field">
+              <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+              <div class="wrap" vusion-slot-name="default">
+                <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                  查询</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div></div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-行内 1`] = `
+<div>
+  <div class="root" layout="inline">
+    <div class="root" distance label-size="auto">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">状态 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div class="root" tabindex="0">
+            <span>b</span>
+            <span style="display: none;">请选择</span>
+            <div style="direction: ltr;" tags-overflow="collapse">
+              认证中
+            </div>
+            <transition-stub name="fade" style="width: 100%;">
+              <div class="root" style="display: none;">
+                <div>
+                  <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                    认证中
+                  </div>
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="auto">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">用户名 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color maxlength="63">
+            <span>b</span>
+            <span>请输入用户名</span>
+            <input maxlength="63" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="auto">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">联系号码 </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color maxlength="63">
+            <span>b</span>
+            <span>请输入联系号码</span>
+            <input maxlength="63" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="auto">
+      <label class="label" style="display: none;" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label"> </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            查询</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-行内表单 1`] = `
+<div>
+  <div class="root" layout="inline">
+    <div class="root" distance label-size="normal" layout="center">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label">
+          <span class="root" vusion-slot-name-edit="text">名称</span>
+        </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <div color>
+            <span>b</span>
+            <span>请输入名称</span>
+            <input type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" distance label-size="normal" layout="center">
+      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span vusion-slot-name-edit="label"> </span>
+      </label>
+      <div class="field">
+        <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+        <div class="wrap" vusion-slot-name="default">
+          <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            查 询</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-表单逻辑 1`] = `
+<div class="root" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">用户名 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="12">
+          <span>b</span>
+          <span>4~12个字符</span>
+          <input maxlength="12" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">邮箱 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="24">
+          <span>b</span>
+          <span>请输入邮箱</span>
+          <input maxlength="24" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">手机号码 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="11">
+          <span>b</span>
+          <span>请输入手机号码</span>
+          <input maxlength="11" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label"> </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          提交</a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form.vue Demo-表单验证 1`] = `
+<div class="root" gap="large" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">计费方式 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root">
+          <label class="root" tabindex="0">
+            <span class="radio" selected="selected"></span> 包年包月 <span vusion-slot-name="item"> </span>
+          </label>
+          <label class="root" tabindex="0">
+            <span class="radio"></span> 按量付费 <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">实例名称 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="63" size="huge">
+          <span>b</span>
+          <span>由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾</span>
+          <input maxlength="63" size="huge" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">规格 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div border="true" class="root" tabindex="0">
+          <div style="display: none;">
+            <span vusion-slot-name="title">列表</span>
+            <div>
+            </div>
+          </div>
+          <div>
+            <div class="root" selected="selected" vusion-slot-name="default">
+              1核 1GB
+            </div>
+            <div class="root" vusion-slot-name="default">
+              1核 2GB
+            </div>
+            <div class="root" vusion-slot-name="default">
+              2核 4GB
+            </div>
+            <div class="root" vusion-slot-name="default">
+              4核 8GB
+            </div>
+            <div class="root" vusion-slot-name="default">
+              8核 16GB
+            </div>
+            <div class="root" vusion-slot-name="default">
+              8核 32GB
+            </div>
+            <div class="root" vusion-slot-name="default">
+              16核 64GB
+            </div>
+          </div>
+          <div style="display: none;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal" layout="block">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">类型 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description">高性能 SSD 云盘不支持快照功能</div>
+      <div class="wrap" vusion-slot-name="default">
+        <div border="true" class="root" tabindex="0">
+          <div style="display: none;">
+            <span vusion-slot-name="title">列表</span>
+            <div>
+            </div>
+          </div>
+          <div>
+            <div class="root" selected="selected" vusion-slot-name="default">
+              SSD 云盘
+            </div>
+            <div class="root" vusion-slot-name="default">
+              高性能 SSD 云盘
+            </div>
+          </div>
+          <div style="display: none;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">端口号 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="5" size="huge normal">
+          <span>b</span>
+          <span>1150-65535</span>
+          <input maxlength="5" size="huge normal" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">公网带宽 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root">
+          <div class="main" unit="true">
+            <div class="tip" vusion-slot-name="tip" vusion-slot-name-edit="tip">
+
+            </div>
+            <div class="root slider">
+              <div class="body" draggable="draggable">
+                <div class="track">
+                  <div class="trail" style="width: 10%;"></div>
+                </div>
+                <div class="handle" style="left: 10%;">
+                </div>
+              </div>
+            </div>
+            <div class="scales">
+              <span class="scale">0Mbps</span>
+              <span class="scale">50Mbps</span>
+              <span class="scale">100Mbps</span>
+            </div>
+          </div>
+          <div buttondisplay="tail" class="root input" hidebuttons="true">
+            <span>b</span>
+            <span style="display: none;"></span>
+            <input buttondisplay="tail" hidebuttons="true" type="text">
+          </div>
+          <span>Mbps</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal" layout="block">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">描述 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root" color size="huge">
+          <span>b</span>
+          <textarea class="input" size="huge"></textarea>
+          <div class="handle" draggable="draggable" resize="vertical"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label"> </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          立即创建</a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

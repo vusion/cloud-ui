@@ -5,69 +5,6 @@
     - Selector
   description: 选项卡切换组件，常用于平级区域大块内容的收纳和展现。
   attrs:
-    - name: data-source
-      title: 数据源
-      type: Array<Item> | Function | Object
-      description: 集合类型变量或者输出参数为集合类型的逻辑
-      designer-value: "[{}, {}, {}]"
-      group: 数据属性
-    - name: data-schema
-      title: 数据类型
-      type: schema
-      description: 集合类型每一元素的数据类型
-      group: 数据属性
-      compType: dataTypeSelect
-    - name: title-field
-      title: 标签项标题
-      type: string
-      default: title
-      description: 数据源集合的元素，用于显示标签标题的属性
-      group: 数据属性
-    - name: value-field
-      title: 标签项标题值
-      type: string
-      default: value
-      description: 数据源集合的元素，用于标识标签值的属性
-      group: 数据属性
-    - name: content-field
-      title: 标签项内容值
-      type: string
-      default: content
-      description: 数据源集合的元素，用于标识当前打开的标签项
-      group: 数据属性
-    - name: closable-field
-      title: 标签项是否可关闭
-      type: string
-      default: closable
-      description: 数据源集合的元素，用于标识标签是否可关闭的属性
-      group: 数据属性
-    - name: value
-      title: 值
-      type: any
-      sync: true
-      model: true
-      description: 指当前打开标签的标签项
-      group: 数据属性
-    - name: router
-      title: 路由模式
-      type: boolean
-      default: false
-      description: 开启后，选项卡可设置跳转页面
-    - name: readonly
-      title: 只读
-      type: boolean
-      default: false
-      description: ""
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: ""
-    - name: closable
-      title: 可关闭
-      type: boolean
-      default: false
-      description: 是否可以关闭
     - name: show-scroll-buttons
       title: 显示滚动按钮
       type: string
@@ -81,6 +18,109 @@
       default: auto
       description: 是否显示标签滚动左右箭头按钮
       advanced: true
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function | Object
+      description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
+      designer-value: "[{}, {}, {}]"
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 集合类型变量或者输出参数为集合类型的逻辑
+      tooltipLink: ""
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
+      group: 数据属性
+      compType: dataTypeSelect
+      brifeDoc: ""
+      docDescription: 集合类型每一元素的数据类型
+      tooltipLink: ""
+    - name: title-field
+      title: 标签项标题
+      type: string
+      default: title
+      description: 数据源集合的元素，用于显示标签标题的属性
+      group: 数据属性
+      advanced: true
+      brifeDoc: ""
+      docDescription: 数据源集合的元素，用于显示标签标题的属性
+      tooltipLink: ""
+    - name: value-field
+      title: 标签项标题值字段
+      type: string
+      default: value
+      description: 数据源集合的元素，用于标识标签值的属性
+      group: 数据属性
+      display: property-select
+      brifeDoc: ""
+      docDescription: 数据源集合的元素，用于标识标签值的属性
+      tooltipLink: ""
+    - name: url-field
+      title: 标签项内容值字段
+      type: string
+      default: url
+      description: 数据源集合的元素，用于标识当前打开的标签项
+      group: 数据属性
+      display: property-select
+      tooltipLink: ""
+      docDescription: 数据源集合的元素，用于标识当前打开的标签项
+    - name: value
+      title: 值
+      type: any
+      sync: true
+      model: true
+      description: 指当前打开标签的标签项
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 指当前打开标签的标签项
+      tooltipLink: ""
+    - name: router
+      title: 使用路由
+      type: boolean
+      default: false
+      description: 开启后，选项卡可设置跳转页面
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 开启后，选项卡可设置跳转页面
+      tooltipLink: ""
+    - name: closable-field
+      title: 标签项可关闭
+      type: string
+      default: closable
+      description: 设置标签项是否可关闭
+      group: 交互属性
+      display: property-select
+      brifeDoc: ""
+      docDescription: 数据源集合的元素，用于标识标签是否可关闭的属性
+      tooltipLink: ""
+    - name: closable
+      title: 可关闭
+      type: boolean
+      default: false
+      description: 设置标签是否可关闭
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 是否可以关闭
+      tooltipLink: ""
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: appear
       title: 展示外观
       type: string
@@ -96,7 +136,11 @@
         - value: capsule
           title: 胶囊
       default: square
-      description: 标签展示的外观
+      description: ""
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 标签展示的外观
+      tooltipLink: ""
     - name: size
       title: 标签尺寸
       type: string
@@ -108,7 +152,11 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 标签尺寸
+      description: ""
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 标签展示的尺寸
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
@@ -125,6 +173,36 @@
       title: 右侧附加
       description: 在标签右侧可以附加的组件。
       advanced: true
+    - concept: Slot
+      name: title
+      title: 头部标题
+      slotProps:
+        concept: Param
+        name: current
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: Current
+          typeArguments:
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
+    - concept: Slot
+      name: content
+      title: 内容区
+      slotProps:
+        concept: Param
+        name: current
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: Current
+          typeArguments:
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
   methods:
     - name: reload
       description: 重新加载数据
@@ -249,59 +327,45 @@
         - name: senderVM
           type: UTabs
           description: 发送事件实例
+    - name: before-load
+      title: 加载前
+      description: 加载前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止加载流程
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+    - name: load
+      title: 加载后
+      description: 加载后触发
+      params:
+        - name: $event
+          type: "null"
+          description: 无
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
 - name: u-tab
   title: 标签页
-  control: button
-  is-sub: true
   attrs:
     - name: title
       title: 标题
       type: string
       description: 标签页标题。
       advanced: true
-    - name: value
-      title: 值
-      type: any
-      description: 标签页的值。
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: 是否禁用此标签页。
-    - name: showTabItem
-      title: 默认显示
-      type: boolean
-      default: true
-      description: 控制标签项是否默认显示。
-    - name: closable
-      title: 可关闭
-      type: boolean
-      default: false
-      description: 控制是否可手动关闭标签。
-    - name: linkType
-      title: 链接类型
-      type: string
-      options:
-        - value: destination
-          title: 页面跳转
-        - value: download
-          title: 下载链接
-      default: destination
-      description: 链接类型
-      advanced: true
-      compType: linkTypeSelect
-      bindHide: true
     - name: href
       title: 链接
       type: string
       description: 链接地址
       advanced: true
-    - name: hrefAndTo
-      title: 链接
-      type: string
-      description: 链接地址
-      advanced: true
-      compType: linkHrefInput
     - name: target
       title: 打开方式
       type: string
@@ -345,6 +409,62 @@
       default: false
       description: 需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
       advanced: true
+    - name: value
+      title: 值
+      type: any
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 标签页的值。
+      tooltipLink: ""
+    - name: linkType
+      title: 链接类型
+      type: string
+      options:
+        - value: destination
+          title: 页面跳转
+      default: destination
+      compType: linkTypeSelect
+      bindHide: true
+      group: 交互属性
+      description: ""
+      tooltipLink: ""
+      docDescription: ""
+    - name: hrefAndTo
+      title: 链接地址
+      type: string
+      description: ""
+      compType: linkHrefInput
+      group: 交互属性
+      tooltipLink: ""
+      docDescription: ""
+    - name: closable
+      title: 可关闭
+      type: boolean
+      default: false
+      description: 设置标签是否可关闭
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 控制标签页是否可关闭，开启效果如下
+      tooltipLink: ""
+    - name: showTabItem
+      title: 显示状态
+      type: boolean
+      default: true
+      description: 显示状态分为“True(显示)/False(隐藏)”，默认为“显示”
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 控制标签页是否默认显示
+      tooltipLink: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

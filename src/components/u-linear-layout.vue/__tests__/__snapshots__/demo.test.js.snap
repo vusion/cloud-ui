@@ -1,0 +1,497 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-linear-layout.vue Demo-两端排布 1`] = `
+<div>
+  <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+    </div>
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-linear-layout.vue Demo-主轴分布方式 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root" direction="horizontal" justify="start" type="flex" vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+    </div>
+    <div class="root" direction="horizontal" justify="center" type="flex" vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+    </div>
+    <div class="root" direction="horizontal" justify="end" type="flex" vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+    </div>
+    <div class="root" direction="horizontal" justify="space-between" type="flex" vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+    </div>
+    <div class="root" direction="horizontal" justify="space-around" type="flex" vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-linear-layout.vue Demo-交叉轴对齐方式 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div alignment="start" class="root" direction="horizontal" type="flex" vusion-slot-name="default">
+      <div class="root">Block</div>
+      <div class="root" size="normal auto">Block</div>
+      <div class="root" size="large auto">Block</div>
+    </div>
+    <div alignment="center" class="root" direction="horizontal" type="flex" vusion-slot-name="default">
+      <div class="root">Block</div>
+      <div class="root" size="normal auto">Block</div>
+      <div class="root" size="large auto">Block</div>
+    </div>
+    <div alignment="end" class="root" direction="horizontal" type="flex" vusion-slot-name="default">
+      <div class="root">Block</div>
+      <div class="root" size="normal auto">Block</div>
+      <div class="root" size="large auto">Block</div>
+    </div>
+    <div alignment="baseline" class="root" direction="horizontal" type="flex" vusion-slot-name="default">
+      <div class="root">Block</div>
+      <div class="root" size="normal auto">Block</div>
+      <div class="root" size="large auto">Block</div>
+    </div>
+    <div alignment="stretch" class="root" direction="horizontal" type="flex" vusion-slot-name="default">
+      <div class="root">Block</div>
+      <div class="root" size="normal auto">Block</div>
+      <div class="root" size="large auto">Block</div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-linear-layout.vue Demo-单行排布 1`] = `
+<div>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+  </div>
+</div>
+`;
+
+exports[`u-linear-layout.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root" direction="horizontal" style="height: 200px; border: 1px solid #aaa; padding: 20px; margin: 20px;" type vusion-slot-name="default">
+  </div>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    打开加载</a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    关闭加载</a>
+</div>
+`;
+
+exports[`u-linear-layout.vue Demo-多行排布 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+    </div>
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-linear-layout.vue Demo-展示方式与布局方式 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+      <div class="root" direction="horizontal" display="inline" type vusion-slot-name="default">
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+      </div>
+      <span><code>&lt;u-linear-layout&gt;</code>本身为<code>&lt;block&gt;</code>类型，修改<code>display</code>可以拥有行内的特性。</span>
+    </div>
+    <div class="root" direction="vertical" layout="block" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <span>这个<code>&lt;u-linear-layout&gt;</code>中的元素本来都是行内元素，添加<code>layout</code>属性后可全部变成块级元素。</span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-linear-layout.vue Demo-方向 1`] = `
+<div>
+  <div class="root" direction="horizontal" type="root" vusion-slot-name="default">
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      Button</a>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      Button</a>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      Button</a>
+  </div>
+  <p></p>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root">
+      <div class="track">
+        <div class="trail" style="max-width: 100%; width: 25%; left: 0%;"></div>
+      </div>
+      <div vusion-slot-name="default">
+      </div>
+    </div>
+    <div class="root">
+      <div class="track">
+        <div class="trail" style="max-width: 100%; width: 50%; left: 0%;"></div>
+      </div>
+      <div vusion-slot-name="default">
+      </div>
+    </div>
+    <div class="root">
+      <div class="track">
+        <div class="trail" style="max-width: 100%; width: 75%; left: 0%;"></div>
+      </div>
+      <div vusion-slot-name="default">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-linear-layout.vue Demo-水平分布方式 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root" direction="horizontal" justify="start" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+    </div>
+    <div class="root" direction="horizontal" justify="center" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+    </div>
+    <div class="root" direction="horizontal" justify="end" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+    </div>
+    <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-linear-layout.vue Demo-水平分布方式 2`] = `
+<div>
+  <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+    </div>
+    <div class="root" direction="horizontal" gap="shrink" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        Button</a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-linear-layout.vue Demo-测试多种布局属性影响 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root" direction="vertical" type vusion-slot-name="default">
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">布局模式：</span>
+        </span>
+        <div class="root" clearable="true" tabindex="0">
+          <span>b</span>
+          <span style="display: none;">请选择</span>
+          <div style="direction: ltr;" tags-overflow="collapse">
+            块级
+          </div>
+          <span></span>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  行内
+                </div>
+                <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                  块级
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  弹性
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">方向：</span>
+        </span>
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span>请选择</span>
+          <div style="direction: ltr;" tags-overflow="collapse">
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  横向排列
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  纵向排列
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">子元素展示方式：</span>
+        </span>
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span>请选择</span>
+          <div style="direction: ltr;" tags-overflow="collapse">
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  行内
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  块级
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">主轴对齐方式：</span>
+        </span>
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span>请选择</span>
+          <div style="direction: ltr;" tags-overflow="collapse">
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  左对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  居中对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  右对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  各行之间留有空
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  之前、之间、之后都留有空白
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">纵轴对齐方式：</span>
+        </span>
+        <div class="root" tabindex="0">
+          <span>b</span>
+          <span>请选择</span>
+          <div style="direction: ltr;" tags-overflow="collapse">
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  头对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  居中对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  尾对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  基线对齐
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  拉伸子元素充满整个父元素空间
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+      <div class="root" direction="horizontal" type vusion-slot-name="default">
+        <span class="root" type="filled">
+          <span vusion-slot-name-edit="text">是否换行：</span>
+        </span>
+        <label checked="checked" class="root" tabindex="0">
+          <span class="button"></span>
+          <span class="text" vusion-slot-name="default"></span>
+        </label>
+      </div>
+    </div>
+    <div class="root" direction="horizontal" mode="block" style="height: 300px; border: 1px solid #aaa; padding: 20px; margin: 20px;" type vusion-slot-name="default">
+      <div bordered="true" class="root" shadow="always">
+        <div class="head" flex="true">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+
+          </div>
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
+          </div>
+        </div>
+        <div class="body" vusion-slot-name="default">1
+        </div>
+        <div></div>
+      </div>
+      <div bordered="true" class="root" shadow="always">
+        <div class="head" flex="true">
+          <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+
+          </div>
+          <a></a>
+          <div class="extra" vusion-slot-name="extra">
+          </div>
+        </div>
+        <div class="body" vusion-slot-name="default">2
+        </div>
+        <div></div>
+      </div>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        3</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        3</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        3</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        3</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        3</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        3</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        3</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        3</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        3</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        3</a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-linear-layout.vue Demo-间距 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+      <div class="root" direction="horizontal" display="inline" gap="small" type vusion-slot-name="default">
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+      </div>
+      <div class="root" direction="horizontal" display="inline" gap="none" type vusion-slot-name="default">
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+      </div>
+      <div class="root" direction="horizontal" display="inline" gap="shrink" type vusion-slot-name="default">
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+      </div>
+    </div>
+    <div class="root" direction="vertical" gap="large" type vusion-slot-name="default">
+      <div class="root" direction="horizontal" gap="normal" type vusion-slot-name="default">
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+      </div>
+      <div class="root" direction="horizontal" gap="large" type vusion-slot-name="default">
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+        <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          Button</a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

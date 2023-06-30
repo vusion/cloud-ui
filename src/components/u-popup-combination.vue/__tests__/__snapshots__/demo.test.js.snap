@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-popup-combination.vue Demo-基本用法 1`] = `
+<div>
+  <span class="root">
+    <span class="reference" vusion-slot-name="reference">
+      <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text"> 触发弹出框组件，可删除替换</a>
+    </span>
+    <transition-stub name="fade">
+      <div class="root" merge-borders="true" style="display: none;">
+        <span class="arrow" data-popper-arrow></span>
+        <div class="body" vusion-slot-name="default">
+          <span class="root" vusion-slot-name-edit="text">内容</span>
+        </div>
+      </div>
+    </transition-stub>
+  </span>
+</div>
+`;

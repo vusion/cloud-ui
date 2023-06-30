@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`m-root.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root">
+    <div class="root">
+      <div class="text">节点 1</div>
+      <div>
+        <div class="root">
+          <div class="text">节点 1.1</div>
+          <div></div>
+        </div>
+        <div class="root">
+          <div class="text">节点 1.2</div>
+          <div>
+            <div class="root">
+              <div class="text">节点 1.2.1</div>
+              <div></div>
+            </div>
+            <div class="root">
+              <div class="text">节点 1.2.2</div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+        <div class="root">
+          <div class="text">节点 1.3</div>
+          <div></div>
+        </div>
+        <div class="root">
+          <div class="text">节点 1.4</div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="text">节点 2</div>
+      <div></div>
+    </div>
+    <div class="root">
+      <div class="text">节点 3</div>
+      <div>
+        <div class="root">
+          <div class="text">节点 3.1</div>
+          <div></div>
+        </div>
+        <div class="root">
+          <div class="text">节点 3.2</div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-countup.vue Demo-分组 (1,000 vs 1000) 1`] = `
+<div>
+  <span class="root">
+    <span class="count">
+      <span>0</span>
+      <span></span>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`u-countup.vue Demo-前缀，后缀 1`] = `
+<div>
+  <span class="root">
+    <span class="count">
+      <span>$0美元</span>
+      <span></span>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`u-countup.vue Demo-动画函数 1`] = `
+<div>
+  <span class="root">
+    <span class="count">
+      <span>0</span>
+      <span></span>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`u-countup.vue Demo-基本用法 1`] = `
+<div>
+  <span class="root">
+    <span class="count">
+      <span>0</span>
+      <span></span>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`u-countup.vue Demo-小数 1`] = `
+<div>
+  <span class="root">
+    <span class="count">
+      <span>0.00</span>
+      <span></span>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`u-countup.vue Demo-方法 1`] = `
+<div class="root" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">演示效果 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root" direction="horizontal" type vusion-slot-name="default">
+          <span class="root">
+            <span class="count">
+              <span>0</span>
+              <span></span>
+            </span>
+          </span>
+          <a class="root" color="primary" hovertype="underline" style="vertical-align: bottom;" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            开启渐变</a>
+          <a class="root" hovertype="underline" style="vertical-align: bottom;" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            重置</a>
+          <a class="root" hovertype="underline" style="vertical-align: bottom;" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            暂停</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">结束值 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color>
+          <span>b</span>
+          <span style="display: none;"></span>
+          <input type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-countup.vue Demo-渐变时间(时间单位是秒) 1`] = `
+<div>
+  <span class="root">
+    <span class="count">
+      <span>0</span>
+      <span></span>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`u-countup.vue Demo-渐变结束回调函数 1`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <span class="root">
+    <span class="count">
+      <span>0</span>
+      <span></span>
+    </span>
+  </span>
+  <a class="root" color="primary" hovertype="underline" style="vertical-align: bottom;" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    autoStart</a>
+</div>
+`;
+
+exports[`u-countup.vue Demo-转换单位简化数据 1`] = `
+<div>
+  <span class="root">
+    <span class="count">
+      <span>0</span>
+      <span>M+</span>
+    </span>
+  </span>
+</div>
+`;

@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`i-icon.vue Demo-基本用法 1`] = `
+<div>
+  <i name="arrow-up"></i>
+</div>
+`;
+
+exports[`i-icon.vue Demo-基本用法 2`] = `
+<div>
+  <i name="arrow-down"></i>
+</div>
+`;
+
+exports[`i-icon.vue Demo-基本用法 3`] = `
+<div>
+  <i name="arrow-left"></i>
+</div>
+`;
+
+exports[`i-icon.vue Demo-基本用法 4`] = `
+<div>
+  <i name="arrow-right"></i>
+</div>
+`;
+
+exports[`i-icon.vue Demo-基本用法 5`] = `
+<div>
+  <i name="angle-up"></i>
+</div>
+`;
+
+exports[`i-icon.vue Demo-基本用法 6`] = `
+<div>
+  <i name="angle-down"></i>
+</div>
+`;
+
+exports[`i-icon.vue Demo-基本用法 7`] = `
+<div>
+  <i name="angle-left"></i>
+</div>
+`;
+
+exports[`i-icon.vue Demo-基本用法 8`] = `
+<div>
+  <i name="angle-right"></i>
+</div>
+`;
+
+exports[`i-icon.vue Demo-基本用法 9`] = `
+<div>
+  <i name="close"></i>
+</div>
+`;
+
+exports[`i-icon.vue Demo-基本用法 10`] = `
+<div>
+  <i name="close-solid"></i>
+</div>
+`;
+
+exports[`i-icon.vue Demo-基本用法 11`] = `
+<div>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <i name="area">area</i>
+    <i name="portrait">portrait</i>
+    <i name="angle-left">left</i>
+    <i name="angle-right">right</i>
+    <i name="arrow-down">arrow-down</i>
+    <i name="arrow-up">arrow-up</i>
+    <i name="refresh">refresh</i>
+    <i name="search">search</i>
+    <i name="apm-alert">alert</i>
+    <i name="logout" size="small">logout</i>
+    <i name="dropdown" size="large">dropdown</i>
+    <i name="angle-down">down</i>
+    <i name="angle-up">up</i>
+    <i name="chart-refresh">chart-refresh</i>
+    <i name="chart-zoom">chart-zoom</i>
+    <i name="close">close</i>
+  </div>
+</div>
+`;

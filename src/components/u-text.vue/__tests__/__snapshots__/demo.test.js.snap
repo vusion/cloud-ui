@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-text.vue Demo-主要文本 1`] = `
+<div>
+  <span class="root" color="primary" vusion-slot-name-edit="text">主要文本</span>
+</div>
+`;
+
+exports[`u-text.vue Demo-块级展示 1`] = `
+<div>
+  <span class="root" color="secondary" vusion-slot-name-edit="text">行内文本</span>与周围其他文字保持在同一行。
+  <span class="root" color="secondary" display="block" vusion-slot-name-edit="text">块级文本</span>宽度充满整行。
+</div>
+`;
+
+exports[`u-text.vue Demo-大号文本 1`] = `
+<div>
+  <span class="root" size="large" vusion-slot-name-edit="text">大号文本</span>
+</div>
+`;
+
+exports[`u-text.vue Demo-小号文本 1`] = `
+<div>
+  <span class="root" size="small" vusion-slot-name-edit="text">小号文本</span>
+</div>
+`;
+
+exports[`u-text.vue Demo-成功文本 1`] = `
+<div>
+  <span class="root" color="success" vusion-slot-name-edit="text">成功文本</span>
+</div>
+`;
+
+exports[`u-text.vue Demo-文本过长 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <span class="root" display="block" overflow="ellipsis" style="width: 200px;" vusion-slot-name-edit="text">围绕应用和微服务打造的一站式 PaaS 平台，帮助用户快速实现易接入、易运维的微服务解决方案。</span>
+    <span class="root" display="block" overflow="break" style="width: 200px;" vusion-slot-name-edit="text">围绕应用和微服务打造的一站式 PaaS 平台，帮助用户快速实现易接入、易运维的微服务解决方案。</span>
+    <span class="root" display="block" overflow="nowrap" style="width: 200px;" vusion-slot-name-edit="text">围绕应用和微服务打造的一站式 PaaS 平台，帮助用户快速实现易接入、易运维的微服务解决方案。</span>
+  </div>
+</div>
+`;
+
+exports[`u-text.vue Demo-文本过长省略 1`] = `
+<div>
+  <span class="root" overflow="ellipsis" vusion-slot-name-edit="text">文字过长省略过长省略过长省略过长省略过长省略。</span>
+</div>
+`;
+
+exports[`u-text.vue Demo-普通文本 1`] = `
+<div>
+  <span class="root" vusion-slot-name-edit="text">普通文本</span>
+</div>
+`;
+
+exports[`u-text.vue Demo-禁用文本 1`] = `
+<div>
+  <span class="root" color="disabled" vusion-slot-name-edit="text">禁用文本</span>
+</div>
+`;
+
+exports[`u-text.vue Demo-警告文本 1`] = `
+<div>
+  <span class="root" color="warning" vusion-slot-name-edit="text">警告文本</span>
+</div>
+`;
+
+exports[`u-text.vue Demo-设置尺寸 1`] = `
+<div>
+  <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+    <span class="root" size="small" vusion-slot-name-edit="text">小号文本</span>
+    <span class="root" size="normal" vusion-slot-name-edit="text">正常文本</span>
+    <span class="root" size="large" vusion-slot-name-edit="text">大号文本</span>
+    <span class="root" size="huge" vusion-slot-name-edit="text">特大号文本</span>
+    <span class="root" style="font-size: 26px;" vusion-slot-name-edit="text">自定义大小</span>
+  </div>
+</div>
+`;
+
+exports[`u-text.vue Demo-设置颜色 1`] = `
+<div>
+  <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+    <span class="root" vusion-slot-name-edit="text">默认颜色</span>
+    <span class="root" color="primary" vusion-slot-name-edit="text">主要文本</span>
+    <span class="root" color="secondary" vusion-slot-name-edit="text">次要文本</span>
+    <span class="root" color="success" vusion-slot-name-edit="text">成功文本</span>
+    <span class="root" color="warning" vusion-slot-name-edit="text">警告文本</span>
+    <span class="root" color="error" vusion-slot-name-edit="text">错误文本</span>
+    <span class="root" color="disabled" vusion-slot-name-edit="text">禁默文本</span>
+  </div>
+</div>
+`;
+
+exports[`u-text.vue Demo-辅助文本 1`] = `
+<div>
+  <span class="root" color="secondary" vusion-slot-name-edit="text">辅助文本</span>
+</div>
+`;
+
+exports[`u-text.vue Demo-错误文本 1`] = `
+<div>
+  <span class="root" color="error" vusion-slot-name-edit="text">错误文本</span>
+</div>
+`;

@@ -128,6 +128,8 @@ const VueDataSource = Vue.extend({
             originTotal: Infinity, // @readonly - originTotal 作为很重要的判断有没有加载完所有数据的依据
             initialLoaded: false,
 
+            cleared: false, // 标志是否触发了清除本地数据 通常组件reload会触发
+
             queryChanged: false,
 
             treeDisplay: false,
@@ -177,6 +179,17 @@ const VueDataSource = Vue.extend({
     },
     methods: {
         arrange(data = this.data) {
+            // 树形展示处理一下
+            if (this.treeDisplay) {
+                data = this.listToTree(data, {
+                    valueField: this.treeDisplay.valueField,
+                    parentField: this.treeDisplay.parentField,
+                    childrenField: this.treeDisplay.childrenField,
+                });
+
+                this.originTotal = data.length;
+            }
+
             let arrangedData = Array.from(data);
 
             const filtering = this.filtering;
@@ -201,6 +214,15 @@ const VueDataSource = Vue.extend({
                 }
             }
 
+            // 重置清除标志
+            if (this.cleared) {
+                this.cleared = false;
+            }
+
+            if (this.queryChanged) {
+                this.queryChanged = false;
+            }
+
             this.arrangedData = arrangedData;
             return arrangedData;
         },
@@ -213,11 +235,13 @@ const VueDataSource = Vue.extend({
             this.originTotal = Infinity; // originTotal 必须清空，否则空列表不会更新
             this.arranged = false;
             this.initialLoaded = false;
+
+            this.cleared = true;
         },
         mustRemote() {
             return (
-                !this.hasAllRemoteData() // 没有全部的后端数据
-                || (this.queryChanged && (this.remoteFiltering || this.remoteSorting))// query有变化
+                !this.hasAllRemoteData() // 还有后端数据
+                || (this.queryChanged && (this.remoteFiltering || this.remoteSorting)) // query有变化
             );
         },
         /**
@@ -273,8 +297,8 @@ const VueDataSource = Vue.extend({
             if (limit === undefined)
                 limit = this.limit;
 
-            // reload 或 query变化
-            if (!this.initialLoaded || this.queryChanged) {
+            // reload 或 query变化 重置分页
+            if (this.cleared || this.queryChanged) {
                 if (this.paging) {
                     this.paging.number = 1;
                 }
@@ -285,7 +309,6 @@ const VueDataSource = Vue.extend({
             if (this.initialLoaded) {
                 // 后端数据已经全部获取，调用前端缓存数据
                 if (!this.remote || !this.mustRemote()) {
-                    this.queryChanged && (this.queryChanged = false);
                     return Promise.resolve(
                         this.arrange(this.data),
                     );
@@ -295,7 +318,6 @@ const VueDataSource = Vue.extend({
             // 调用后端数据
             if (!this.initialLoaded || this.queryChanged) {
                 this.clearLocalData();
-                this.queryChanged && (this.queryChanged = false);
             }
             const paging = Object.assign(
                 {
@@ -380,17 +402,6 @@ const VueDataSource = Vue.extend({
                     }
 
                     this.originTotal = finalResult.total;
-                }
-
-                // 树形展示处理一下
-                if (this.treeDisplay) {
-                    this.data = this.listToTree(this.data, {
-                        valueField: this.treeDisplay.valueField,
-                        parentField: this.treeDisplay.parentField,
-                        childrenField: this.treeDisplay.childrenField,
-                    });
-
-                    this.originTotal = this.data.length;
                 }
 
                 return this.arrange(this.data);

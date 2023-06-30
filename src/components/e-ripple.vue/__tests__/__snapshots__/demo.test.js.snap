@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`e-ripple.vue Demo-基本用法 1`] = `
+<div>
+  <a class="root" hovertype="underline" style="overflow: hidden;" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    按钮
+    <span class="root"></span>
+  </a>
+  <nav class="root" size="normal" style="overflow: hidden;">
+    <a class="item-wrap" disabled="disabled">
+      <i class="item" role="prev"></i>
+    </a>
+    <a class="item" selected="selected">1</a>
+    <a class="item-wrap" disabled="disabled">
+      <i class="item" role="next"></i>
+    </a>
+    <span class="root" color="light"></span>
+  </nav>
+</div>
+`;

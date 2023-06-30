@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-spinner.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root"></div> 正在加载中...
+</div>
+`;

@@ -1,0 +1,454 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-input.vue Demo- 1`] = `
+<div>
+  <div>
+    <span>b</span>
+    <span>请输入</span>
+    <input type="text">
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-@deprecated 搜索图标 1`] = `
+<div>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div search="left" size="normal medium">
+      <span>b</span>
+      <span>1~12位小写字母</span>
+      <input search="left" size="normal medium" type="text">
+      <span> </span>
+    </div>
+    <div search="right" size="normal medium">
+      <span>b</span>
+      <span>1~12位小写字母</span>
+      <input search="right" size="normal medium" type="text">
+      <span> </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-加密 1`] = `
+<div>
+  <div maxlength="12" password="true">
+    <span>b</span>
+    <span>请输入密码</span>
+    <input maxlength="12" type="password">
+    <span>
+      <span></span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-加密 2`] = `
+<div>
+  <div maxlength="12" password="true">
+    <span>b</span>
+    <span>请输入密码</span>
+    <input maxlength="12" type="password">
+    <span>
+      <span></span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-双向绑定 1`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div maxlength="12">
+    <span>b</span>
+    <span></span>
+    <input maxlength="12" type="text">
+  </div>
+  <div maxlength="12">
+    <span>b</span>
+    <span></span>
+    <input maxlength="12" type="text">
+  </div>
+  <div maxlength="12">
+    <span>b</span>
+    <span></span>
+    <input maxlength="12" type="text">
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-双向绑定 2`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div maxlength="12">
+    <span>b</span>
+    <span></span>
+    <input maxlength="12" type="text">
+  </div>
+  <div maxlength="12">
+    <span>b</span>
+    <span></span>
+    <input maxlength="12" type="text">
+  </div>
+  <div maxlength="12">
+    <span>b</span>
+    <span></span>
+    <input maxlength="12" type="text">
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-只读和禁用 1`] = `
+<div>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div readonly="readonly">
+      <span>b</span>
+      <span style="display: none;"></span>
+      <input readonly="readonly" type="text">
+    </div>
+    <div disabled="disabled">
+      <span>b</span>
+      <span style="display: none;"></span>
+      <input disabled="disabled" type="text">
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-只读和禁用 2`] = `
+<div>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div readonly="readonly">
+      <span>b</span>
+      <span style="display: none;"></span>
+      <input readonly="readonly" type="text">
+    </div>
+    <div disabled="disabled">
+      <span>b</span>
+      <span style="display: none;"></span>
+      <input disabled="disabled" type="text">
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-可清空 1`] = `
+<div>
+  <div clearable="可清空">
+    <span>b</span>
+    <span style="display: none;"></span>
+    <input type="text">
+    <span>
+      <span></span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-可清除 1`] = `
+<div>
+  <div clearable="可清除">
+    <span>b</span>
+    <span style="display: none;"></span>
+    <input type="text">
+    <span>
+      <span></span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-基本用法 1`] = `
+<div>
+  <div maxlength="12">
+    <span>b</span>
+    <span>请输入</span>
+    <input maxlength="12" type="text">
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-基本用法 2`] = `
+<div>
+  <div maxlength="12">
+    <span>b</span>
+    <span>1~12位小写字母</span>
+    <input maxlength="12" type="text">
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-大小扩展 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+      <div height="mini" readonly="readonly" width="mini">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="mini" readonly="readonly" type="text" width="mini">
+      </div>
+      <div height="mini" readonly="readonly" width="small">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="mini" readonly="readonly" type="text" width="small">
+      </div>
+      <div height="mini" readonly="readonly" width="normal">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="mini" readonly="readonly" type="text" width="normal">
+      </div>
+      <div height="mini" readonly="readonly" width="medium">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="mini" readonly="readonly" type="text" width="medium">
+      </div>
+    </div>
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+      <div height="small" readonly="readonly" width="mini">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="small" readonly="readonly" type="text" width="mini">
+      </div>
+      <div height="small" readonly="readonly" width="small">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="small" readonly="readonly" type="text" width="small">
+      </div>
+      <div height="small" readonly="readonly" width="normal">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="small" readonly="readonly" type="text" width="normal">
+      </div>
+      <div height="small" readonly="readonly" width="medium">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="small" readonly="readonly" type="text" width="medium">
+      </div>
+    </div>
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+      <div height="normal" readonly="readonly" width="mini">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="normal" readonly="readonly" type="text" width="mini">
+      </div>
+      <div height="normal" readonly="readonly" width="small">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="normal" readonly="readonly" type="text" width="small">
+      </div>
+      <div height="normal" readonly="readonly" width="normal">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="normal" readonly="readonly" type="text" width="normal">
+      </div>
+      <div height="normal" readonly="readonly" width="medium">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="normal" readonly="readonly" type="text" width="medium">
+      </div>
+    </div>
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+      <div height="medium" readonly="readonly" width="mini">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="medium" readonly="readonly" type="text" width="mini">
+      </div>
+      <div height="medium" readonly="readonly" width="small">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="medium" readonly="readonly" type="text" width="small">
+      </div>
+      <div height="medium" readonly="readonly" width="normal">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="medium" readonly="readonly" type="text" width="normal">
+      </div>
+      <div height="medium" readonly="readonly" width="medium">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="medium" readonly="readonly" type="text" width="medium">
+      </div>
+    </div>
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+      <div height="large" readonly="readonly" width="large">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="large" readonly="readonly" type="text" width="large">
+      </div>
+    </div>
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+      <div height="huge" readonly="readonly" width="huge">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="huge" readonly="readonly" type="text" width="huge">
+      </div>
+    </div>
+    <div class="root" direction="horizontal" type vusion-slot-name="default">
+      <div height="full" readonly="readonly" width="full">
+        <span>b</span>
+        <span style="display: none;"></span>
+        <input height="full" readonly="readonly" type="text" width="full">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-展示方式 1`] = `
+<div>
+  <div class="root" direction="vertical" gap="small" type vusion-slot-name="default">
+    <div maxlength="12">
+      <span>b</span>
+      <span>行内展示（默认）</span>
+      <input maxlength="12" type="text">
+    </div> 与文字对齐
+    <div display="block" maxlength="12">
+      <span>b</span>
+      <span>块级展示</span>
+      <input display="block" maxlength="12" type="text">
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-展示方式 2`] = `
+<div>
+  <div class="root" direction="vertical" gap="small" type vusion-slot-name="default">
+    <div maxlength="12">
+      <span>b</span>
+      <span>行内展示（默认）</span>
+      <input maxlength="12" type="text">
+    </div> 与文字对齐
+    <div display="block" maxlength="12">
+      <span>b</span>
+      <span>块级展示</span>
+      <input display="block" maxlength="12" type="text">
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-添加图标 1`] = `
+<div>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div prefix="search" size="normal medium">
+      <span>b</span>
+      <span>1~12位小写字母</span>
+      <span name="search">
+        <span class="lcp-iconv">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-search" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
+        </span>
+      </span>
+      <input size="normal medium" type="text">
+      <span> </span>
+    </div>
+    <div size="normal medium" suffix="search">
+      <span>b</span>
+      <span>1~12位小写字母</span>
+      <input size="normal medium" type="text">
+      <span>
+        <span>
+          <span class="lcp-iconv">
+            <span class="iconwrap">
+              <svg aria-hidden="true" class="iconsvg">
+                <use xlink:href="#pc-search" />
+              </svg>
+            </span>
+            <div class="icontext" vusion-slot-name="default">
+            </div>
+          </span>
+        </span>
+      </span>
+    </div>
+    <div prefix="bug" size="normal medium">
+      <span>b</span>
+      <span>1~12位小写字母</span>
+      <span name="bug">
+        <span class="lcp-iconv">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-bug" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
+        </span>
+      </span>
+      <input size="normal medium" type="text">
+      <span> </span>
+    </div>
+    <div size="normal medium" suffix="bug">
+      <span>b</span>
+      <span>1~12位小写字母</span>
+      <input size="normal medium" type="text">
+      <span>
+        <span>
+          <span class="lcp-iconv">
+            <span class="iconwrap">
+              <svg aria-hidden="true" class="iconsvg">
+                <use xlink:href="#pc-bug" />
+              </svg>
+            </span>
+            <div class="icontext" vusion-slot-name="default">
+            </div>
+          </span>
+        </span>
+      </span>
+    </div>
+    <div prefix="top" size="normal medium">
+      <span>b</span>
+      <span>1~12位小写字母</span>
+      <span name="top">
+        <span class="lcp-iconv">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-default" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
+        </span>
+      </span>
+      <input size="normal medium" type="text">
+      <span> </span>
+    </div>
+    <div prefix size="normal medium">
+      <span>b</span>
+      <span>1~12位小写字母</span>
+      <span name>
+        <span>111</span>
+      </span>
+      <input size="normal medium" type="text">
+      <span> </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-自动扩展大小 1`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div style="width: 0px;">
+    <span>b</span>
+    <span style="display: none;"></span>
+    <input style type="text">
+  </div>
+</div>
+`;
+
+exports[`u-input.vue Demo-自定义样式 1`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div class="custom" maxlength="12">
+    <span>b</span>
+    <span>class</span>
+    <input maxlength="12" type="text">
+  </div>
+  <div maxlength="12" style="background: rgb(247, 248, 252); width: 200px;">
+    <span>b</span>
+    <span>style</span>
+    <input maxlength="12" type="text">
+  </div>
+</div>
+`;

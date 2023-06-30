@@ -122,3 +122,9 @@
 ``` html
 <u-combo-slider :show-tooltip="true"></u-combo-slider>
 ```
+
+### 双滑块
+
+``` html
+<u-combo-slider multiple :value="[18, 36]"></u-combo-slider>
+```

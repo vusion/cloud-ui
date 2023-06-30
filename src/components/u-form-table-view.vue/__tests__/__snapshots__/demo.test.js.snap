@@ -1,0 +1,1079 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-form-table-view.vue Demo-动态表格 1`] = `
+<div class="root" direction="vertical" gap="small">
+  <table class="root">
+    <thead>
+      <tr>
+        <th width="20%">
+          <span>URL</span>
+        </th>
+        <th width="20%">
+          <span>服务</span>
+        </th>
+        <th width="20%">
+          <span>端口</span>
+        </th>
+        <th>
+          <span>描述</span>
+        </th>
+        <th class="last-column" dynamic="true"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="root">
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div class="root" size="huge full" tabindex="0">
+              <span>b</span>
+              <span style="display: none;">请选择</span>
+              <div style="direction: ltr;" tags-overflow="collapse">
+                abc
+              </div>
+              <transition-stub name="fade" style="width: 100%;">
+                <div class="root" style="display: none;">
+                  <div>
+                    <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                      abc
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      def
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      zzz
+                    </div>
+                  </div>
+                </div>
+              </transition-stub>
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td class="last-column" dynamic="true">
+          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          </a>
+        </td>
+      </tr>
+      <tr class="root">
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div class="root" size="huge full" tabindex="0">
+              <span>b</span>
+              <span style="display: none;">请选择</span>
+              <div style="direction: ltr;" tags-overflow="collapse">
+                abc
+              </div>
+              <transition-stub name="fade" style="width: 100%;">
+                <div class="root" style="display: none;">
+                  <div>
+                    <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                      abc
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      def
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      zzz
+                    </div>
+                  </div>
+                </div>
+              </transition-stub>
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td class="last-column" dynamic="true">
+          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a class="root add-button" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    添加</a>
+</div>
+`;
+
+exports[`u-form-table-view.vue Demo-在表单中使用 1`] = `
+<div class="root" layout="block">
+  <div class="root" distance label-size="normal" layout="block">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">规则 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div class="root" direction="vertical" gap="small">
+          <table class="root">
+            <thead>
+              <tr>
+                <th width="20%">
+                  <span>URL</span>
+                </th>
+                <th width="20%">
+                  <span>服务</span>
+                </th>
+                <th width="20%">
+                  <span>端口</span>
+                </th>
+                <th>
+                  <span>描述</span>
+                </th>
+                <th class="last-column"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="root">
+                <td>
+                  <div display="block" vusion-slot-name="default">
+                    <div color size="huge full">
+                      <span>b</span>
+                      <span style="display: none;"></span>
+                      <input size="huge full" type="text">
+                    </div>
+                    <span color="error" style="display: none;">false</span>
+                  </div>
+                </td>
+                <td>
+                  <div display="block" vusion-slot-name="default">
+                    <div class="root" size="huge full" tabindex="0">
+                      <span>b</span>
+                      <span style="display: none;">请选择</span>
+                      <div style="direction: ltr;" tags-overflow="collapse">
+                        abc
+                      </div>
+                      <transition-stub name="fade" style="width: 100%;">
+                        <div class="root" style="display: none;">
+                          <div>
+                            <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                              abc
+                            </div>
+                            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                              def
+                            </div>
+                            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                              zzz
+                            </div>
+                          </div>
+                        </div>
+                      </transition-stub>
+                    </div>
+                    <span color="error" style="display: none;">false</span>
+                  </div>
+                </td>
+                <td>
+                  <div display="block" vusion-slot-name="default">
+                    <div color size="huge full">
+                      <span>b</span>
+                      <span style="display: none;"></span>
+                      <input size="huge full" type="text">
+                    </div>
+                    <span color="error" style="display: none;">false</span>
+                  </div>
+                </td>
+                <td>
+                  <div display="block" vusion-slot-name="default">
+                    <div color size="huge full">
+                      <span>b</span>
+                      <span style="display: none;"></span>
+                      <input size="huge full" type="text">
+                    </div>
+                    <span color="error" style="display: none;">false</span>
+                  </div>
+                </td>
+                <td class="last-column">
+                </td>
+              </tr>
+              <tr class="root">
+                <td>
+                  <div display="block" vusion-slot-name="default">
+                    <div color size="huge full">
+                      <span>b</span>
+                      <span style="display: none;"></span>
+                      <input size="huge full" type="text">
+                    </div>
+                    <span color="error" style="display: none;">false</span>
+                  </div>
+                </td>
+                <td>
+                  <div display="block" vusion-slot-name="default">
+                    <div class="root" size="huge full" tabindex="0">
+                      <span>b</span>
+                      <span style="display: none;">请选择</span>
+                      <div style="direction: ltr;" tags-overflow="collapse">
+                        abc
+                      </div>
+                      <transition-stub name="fade" style="width: 100%;">
+                        <div class="root" style="display: none;">
+                          <div>
+                            <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                              abc
+                            </div>
+                            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                              def
+                            </div>
+                            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                              zzz
+                            </div>
+                          </div>
+                        </div>
+                      </transition-stub>
+                    </div>
+                    <span color="error" style="display: none;">false</span>
+                  </div>
+                </td>
+                <td>
+                  <div display="block" vusion-slot-name="default">
+                    <div color size="huge full">
+                      <span>b</span>
+                      <span style="display: none;"></span>
+                      <input size="huge full" type="text">
+                    </div>
+                    <span color="error" style="display: none;">false</span>
+                  </div>
+                </td>
+                <td>
+                  <div display="block" vusion-slot-name="default">
+                    <div color size="huge full">
+                      <span>b</span>
+                      <span style="display: none;"></span>
+                      <input size="huge full" type="text">
+                    </div>
+                    <span color="error" style="display: none;">false</span>
+                  </div>
+                </td>
+                <td class="last-column">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-form-table-view.vue Demo-基本用法 1`] = `
+<div>
+  <div class="root" direction="vertical" gap="small">
+    <table class="root">
+      <thead>
+        <tr>
+          <th width="20%">
+            <span>URL</span>
+          </th>
+          <th width="20%">
+            <span>服务</span>
+          </th>
+          <th width="20%">
+            <span>端口</span>
+          </th>
+          <th>
+            <span>描述</span>
+          </th>
+          <th class="last-column"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="root">
+          <td>
+            <div display="block" vusion-slot-name="default">
+              <div>Cannot read property 'item' of undefined</div>
+              <span color="error" style="display: none;">false</span>
+            </div>
+          </td>
+          <td>
+            <div display="block" vusion-slot-name="default">
+              <div>Cannot read property 'item' of undefined</div>
+              <span color="error" style="display: none;">false</span>
+            </div>
+          </td>
+          <td>
+            <div display="block" vusion-slot-name="default">
+              <div>Cannot read property 'item' of undefined</div>
+              <span color="error" style="display: none;">false</span>
+            </div>
+          </td>
+          <td>
+            <div display="block" vusion-slot-name="default">
+              <div>Cannot read property 'item' of undefined</div>
+              <span color="error" style="display: none;">false</span>
+            </div>
+          </td>
+          <td class="last-column">
+          </td>
+        </tr>
+        <tr class="root">
+          <td>
+            <div display="block" vusion-slot-name="default">
+              <div>Cannot read property 'item' of undefined</div>
+              <span color="error" style="display: none;">false</span>
+            </div>
+          </td>
+          <td>
+            <div display="block" vusion-slot-name="default">
+              <div>Cannot read property 'item' of undefined</div>
+              <span color="error" style="display: none;">false</span>
+            </div>
+          </td>
+          <td>
+            <div display="block" vusion-slot-name="default">
+              <div>Cannot read property 'item' of undefined</div>
+              <span color="error" style="display: none;">false</span>
+            </div>
+          </td>
+          <td>
+            <div display="block" vusion-slot-name="default">
+              <div>Cannot read property 'item' of undefined</div>
+              <span color="error" style="display: none;">false</span>
+            </div>
+          </td>
+          <td class="last-column">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`u-form-table-view.vue Demo-基本用法 2`] = `
+<div class="root" direction="vertical" gap="small">
+  <table class="root">
+    <thead>
+      <tr>
+        <th width="20%">
+          <span>URL</span>
+        </th>
+        <th width="20%">
+          <span>服务</span>
+        </th>
+        <th width="20%">
+          <span>端口</span>
+        </th>
+        <th>
+          <span>描述</span>
+        </th>
+        <th class="last-column"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="root">
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div class="root" size="huge full" tabindex="0">
+              <span>b</span>
+              <span style="display: none;">请选择</span>
+              <div style="direction: ltr;" tags-overflow="collapse">
+                abc
+              </div>
+              <transition-stub name="fade" style="width: 100%;">
+                <div class="root" style="display: none;">
+                  <div>
+                    <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                      abc
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      def
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      zzz
+                    </div>
+                  </div>
+                </div>
+              </transition-stub>
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td class="last-column">
+        </td>
+      </tr>
+      <tr class="root">
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div class="root" size="huge full" tabindex="0">
+              <span>b</span>
+              <span style="display: none;">请选择</span>
+              <div style="direction: ltr;" tags-overflow="collapse">
+                abc
+              </div>
+              <transition-stub name="fade" style="width: 100%;">
+                <div class="root" style="display: none;">
+                  <div>
+                    <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                      abc
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      def
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      zzz
+                    </div>
+                  </div>
+                </div>
+              </transition-stub>
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td class="last-column">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`u-form-table-view.vue Demo-自定义操作列 1`] = `
+<div class="root" direction="vertical" gap="small">
+  <table class="root">
+    <thead>
+      <tr>
+        <th width="20%">
+          <span>URL</span>
+        </th>
+        <th width="20%">
+          <span>服务</span>
+        </th>
+        <th width="20%">
+          <span>端口</span>
+        </th>
+        <th>
+          <span>描述</span>
+        </th>
+        <th class="last-column" custom="true" dynamic="true" style="width: 80px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="root">
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td class="last-column" dynamic="true">
+          <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+            <a class="root" hovertype="underline" size="huge full" tabindex="0" target="_self" vusion-slot-name-edit="text">
+              复制</a>
+            <a class="root" hovertype="underline" size="huge full" tabindex="0" target="_self" vusion-slot-name-edit="text">
+              删除</a>
+          </div>
+        </td>
+      </tr>
+      <tr class="root">
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td class="last-column" dynamic="true">
+          <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+            <a class="root" hovertype="underline" size="huge full" tabindex="0" target="_self" vusion-slot-name-edit="text">
+              复制</a>
+            <a class="root" hovertype="underline" size="huge full" tabindex="0" target="_self" vusion-slot-name-edit="text">
+              删除</a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a class="root" hovertype="underline" style="margin-top: 10px;" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    <span class="lcp-iconv">
+      <span class="iconwrap">
+        <svg aria-hidden="true" class="iconsvg">
+          <use xlink:href="#pc-default" />
+        </svg>
+      </span>
+      <div class="icontext" vusion-slot-name="default">
+      </div>
+    </span> 添加
+  </a>
+</div>
+`;
+
+exports[`u-form-table-view.vue Demo-表单验证 1`] = `
+<div class="root" direction="vertical" gap="small">
+  <table class="root">
+    <thead>
+      <tr>
+        <th width="20%">
+          <span>URL</span>
+        </th>
+        <th width="20%">
+          <span>服务</span>
+        </th>
+        <th width="20%">
+          <span>端口</span>
+        </th>
+        <th>
+          <span>描述</span>
+        </th>
+        <th class="last-column" dynamic="true"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="root">
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div class="root" size="huge full" tabindex="0">
+              <span>b</span>
+              <span style="display: none;">请选择</span>
+              <div style="direction: ltr;" tags-overflow="collapse">
+                abc
+              </div>
+              <transition-stub name="fade" style="width: 100%;">
+                <div class="root" style="display: none;">
+                  <div>
+                    <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                      abc
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      def
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      zzz
+                    </div>
+                  </div>
+                </div>
+              </transition-stub>
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td class="last-column" dynamic="true">
+          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          </a>
+        </td>
+      </tr>
+      <tr class="root">
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div class="root" size="huge full" tabindex="0">
+              <span>b</span>
+              <span style="display: none;">请选择</span>
+              <div style="direction: ltr;" tags-overflow="collapse">
+                abc
+              </div>
+              <transition-stub name="fade" style="width: 100%;">
+                <div class="root" style="display: none;">
+                  <div>
+                    <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                      abc
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      def
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      zzz
+                    </div>
+                  </div>
+                </div>
+              </transition-stub>
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td class="last-column" dynamic="true">
+          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a class="root add-button" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    添加</a>
+</div>
+`;
+
+exports[`u-form-table-view.vue Demo-表单验证 2`] = `
+<div class="root" direction="vertical" gap="small">
+  <table class="root">
+    <thead>
+      <tr>
+        <th width="20%">
+          <span>URL</span>
+        </th>
+        <th width="20%">
+          <span>服务</span>
+        </th>
+        <th width="20%">
+          <span>端口</span>
+        </th>
+        <th>
+          <span>描述</span>
+        </th>
+        <th class="last-column"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="root">
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div class="root" size="huge full" tabindex="0">
+              <span>b</span>
+              <span style="display: none;">请选择</span>
+              <div style="direction: ltr;" tags-overflow="collapse">
+                abc
+              </div>
+              <transition-stub name="fade" style="width: 100%;">
+                <div class="root" style="display: none;">
+                  <div>
+                    <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                      abc
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      def
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      zzz
+                    </div>
+                  </div>
+                </div>
+              </transition-stub>
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td class="last-column">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`u-form-table-view.vue Demo-限制数量 1`] = `
+<div class="root" direction="vertical" gap="small">
+  <table class="root">
+    <thead>
+      <tr>
+        <th width="20%">
+          <span>URL</span>
+        </th>
+        <th width="20%">
+          <span>服务</span>
+        </th>
+        <th width="20%">
+          <span>端口</span>
+        </th>
+        <th>
+          <span>描述</span>
+        </th>
+        <th class="last-column" dynamic="true"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="root">
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div class="root" size="huge full" tabindex="0">
+              <span>b</span>
+              <span style="display: none;">请选择</span>
+              <div style="direction: ltr;" tags-overflow="collapse">
+                abc
+              </div>
+              <transition-stub name="fade" style="width: 100%;">
+                <div class="root" style="display: none;">
+                  <div>
+                    <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                      abc
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      def
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      zzz
+                    </div>
+                  </div>
+                </div>
+              </transition-stub>
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td class="last-column" dynamic="true">
+          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          </a>
+        </td>
+      </tr>
+      <tr class="root">
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div class="root" size="huge full" tabindex="0">
+              <span>b</span>
+              <span style="display: none;">请选择</span>
+              <div style="direction: ltr;" tags-overflow="collapse">
+                abc
+              </div>
+              <transition-stub name="fade" style="width: 100%;">
+                <div class="root" style="display: none;">
+                  <div>
+                    <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                      abc
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      def
+                    </div>
+                    <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                      zzz
+                    </div>
+                  </div>
+                </div>
+              </transition-stub>
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td>
+          <div display="block" vusion-slot-name="default">
+            <div color size="huge full">
+              <span>b</span>
+              <span style="display: none;"></span>
+              <input size="huge full" type="text">
+            </div>
+            <span color="error" style="display: none;">false</span>
+          </div>
+        </td>
+        <td class="last-column" dynamic="true">
+          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a class="root add-button" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    添加</a>
+</div>
+`;

@@ -5,84 +5,6 @@
   labels:
     - Form
   attrs:
-    - name: value
-      title: 值
-      type: Array
-      sync: true
-      model: true
-      default: "[]"
-      description: 当前文件列表
-    - name: url
-      title: 上传的地址
-      type: string
-      description: 上传的 URL 地址
-      required: true
-      compType: interfaceSelect
-    - name: name
-      title: 上传的文件字段名
-      type: string
-      default: file
-      description: 上传的文件字段名，后端需要这个字段获取
-    - name: accept
-      title: 支持上传的文件类型
-      type: string
-      place: 所有类型
-      description: 若要限制上传文件类型，请输入类型名称，格式为“.后缀名”，多个文件类型时使用英文逗号隔开。例如“.jpeg,.png,.gif”
-      tooltipLink: http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/150.%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0.html#%E7%BB%84%E4%BB%B6%E8%AF%B4%E6%98%8E
-    - name: headers
-      title: 请求 headers
-      type: Object
-      description: ""
-    - name: with-credentials
-      title: 设置cookie值
-      type: boolean
-      default: false
-      description: 通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略
-    - name: multiple
-      title: 多文件上传
-      type: boolean
-      default: false
-      description: ""
-    - name: multiple-once
-      title: 一次性上传多文件
-      type: boolean
-      default: false
-      description: 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件
-    - name: open-cropper
-      title: 是否开启图片裁剪
-      type: boolean
-      default: false
-      description: 设置是否开启图片裁剪，只对单文件上传有效
-    - name: fixedCropper
-      title: 固定图片裁剪框大小
-      type: boolean
-      default: false
-      description: 设置是否固定裁剪框大小
-    - name: cropperBoxWidth
-      title: 图片裁剪框宽度
-      type: number
-      default: 200
-      description: 设置裁剪框宽度
-    - name: cropperBoxHeight
-      title: 图片裁剪框高度
-      type: number
-      default: 200
-      description: 设置裁剪框高度
-    - name: cropperPreviewShape
-      title: 图片裁剪框预览形状
-      type: string
-      options:
-        - title: 正方形
-          value: square
-        - title: 圆形
-          value: circle
-      default: circle
-      description: 设置裁剪框预览形状
-    - name: cropperTitle
-      title: 图片裁剪框标题
-      type: string
-      default: 图片裁剪
-      description: 设置裁剪框标题
     - name: data-type
       title: 接收数据类型
       type: string
@@ -90,18 +12,84 @@
       description: 接收数据类型。可选值：`text`、`xml`、`json`
       advanced: true
       hidden: true
+    - name: pastable
+      title: 是否可以粘贴
+      type: boolean
+      default: false
+      description: ""
+      advanced: true
+    - name: value
+      title: 值
+      type: Array
+      sync: true
+      model: true
+      default: "[]"
+      description: 当前文件列表
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 当前的文件列表
+      tooltipLink: ""
+    - name: url
+      title: 上传地址
+      type: string
+      description: 上传的 URL 地址
+      required: true
+      compType: interfaceSelect
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 文件上传的URL地址，如/upload
+      tooltipLink: ""
+    - name: name
+      title: 上传的文件字段
+      type: string
+      default: file
+      description: 上传的文件字段名，后端需要这个字段获取
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 默认file，支持自定义，后端通过该字段获取文件
+      tooltipLink: ""
+    - name: accept
+      title: 支持上传的文件类型
+      type: string
+      place: 所有类型
+      description: 若要限制上传文件类型，请输入类型名称，格式为“.后缀名”，多个文件类型时使用英文逗号隔开。例如“.jpeg,.png,.gif”
+      tooltipLink: http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/150.%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0.html#%E7%BB%84%E4%BB%B6%E8%AF%B4%E6%98%8E
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 支持对上传的文件类型进行限制，格式为“.后缀名”，如“.jpeg”表示仅支持上传jpeg格式的文件。多个文件类型时需使用英文逗号隔开，如“.jpeg,.png,.gif”表示仅支持上传jpeg、png、gif格式的文件。若为空值，则支持上传所有类型的文件
+    - name: with-credentials
+      title: cookie值
+      type: boolean
+      default: false
+      description: 通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略
+      tooltipLink: ""
     - name: data
       title: 附加数据
       type: object
       description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 补充描述
+      tooltipLink: ""
     - name: limit
       title: 列表数量上限
       type: number
       description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 列表数量上限，默认为999
+      tooltipLink: ""
     - name: max-size
       title: 最大文件大小
       type: string
       description: 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`KB`、`MB`、`GB`
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 可上传的最大文件大小。默认50MB；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位kB、MB、GB
+      tooltipLink: ""
     - name: list-type
       title: 列表类型
       type: string
@@ -113,33 +101,123 @@
         - title: 卡片
           value: card
       default: text
-      description: 列表展示类型
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 列表的展示类型，支持使用文本、图片和卡片
+      tooltipLink: ""
     - name: url-field
-      title: URL 字段名
+      title: URL 字段
       type: string
       default: url
       description: 请求返回的 URL 字段名
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 请求返回的URL字段名
+      tooltipLink: ""
+    - name: headers
+      title: 请求 headers
+      type: Object
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 请求头
+      tooltipLink: ""
+    - name: multiple
+      title: 多文件上传
+      type: boolean
+      default: false
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 开启后可上传多个文件，默认关闭，多文件可设置数量上限
+      tooltipLink: ""
+    - name: multiple-once
+      title: 一次性上传多文件
+      type: boolean
+      default: false
+      description: 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 开启后支持一次性上传多个文件
+      tooltipLink: ""
+    - name: open-cropper
+      title: 启用图片裁剪
+      type: boolean
+      default: false
+      description: 设置是否启用图片裁剪功能，只对单文件上传有效
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 开启后支持对选择的图片进行裁剪后上传
+      tooltipLink: ""
+    - name: fixedCropper
+      title: 固定图片裁剪框大小
+      type: boolean
+      default: false
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: cropperBoxWidth
+      title: 图片裁剪框宽度
+      type: number
+      default: 200
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: cropperBoxHeight
+      title: 图片裁剪框高度
+      type: number
+      default: 200
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: cropperPreviewShape
+      title: 图片裁剪框预览形状
+      type: string
+      options:
+        - title: 正方形
+          value: square
+        - title: 圆形
+          value: circle
+      default: circle
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: cropperTitle
+      title: 图片裁剪框标题
+      type: string
+      default: 图片裁剪
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: auto-upload
-      title: 是否自动上传
+      title: 自动上传
       type: boolean
       default: true
       description: ""
-    - name: draggable
-      title: 是否可以拖拽
-      type: boolean
-      default: false
-      description: ""
-    - name: pastable
-      title: 是否可以粘贴
-      type: boolean
-      default: false
-      description: ""
-      advanced: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 开启后选择文件后会自动上传，默认开启
+      tooltipLink: ""
     - name: show-file-list
-      title: 是否显示文件列表
+      title: 显示文件列表
       type: boolean
       default: true
       description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 开启后上传多个文件时，会显示文件列表，默认开启
+      tooltipLink: ""
     - name: converter
       title: 转换器
       type: string
@@ -150,16 +228,10 @@
           value: simple
       default: json
       description: ""
-    - name: readonly
-      title: 只读
-      type: boolean
-      default: false
-      description: ""
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持使用JSON或URL字符串
+      tooltipLink: ""
     - name: display
       title: 展示方式
       type: string
@@ -170,25 +242,45 @@
           title: 块级展示，宽度会充满父元素
       default: block
       description: 行内展示，或块级换行展示
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持行内展示或块级换行展示
+      tooltipLink: ""
     - name: description
-      title: 上传提示信息
+      title: 辅助文本
       type: string
       default: null
-      description: 在上传组件下方展示一些提示信息，如上传的数量、大小等
+      description: 辅助说明的文本信息，如上传的数量、大小等，在上传组件下方展示。
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 在上传组件下方展示一些提示信息，如上传的数量、大小等，默认为null
+      tooltipLink: ""
     - name: showErrorMessage
-      title: 出错信息
+      title: 报错信息
       type: boolean
       default: true
-      description: 是否展示上传时的出错信息，如超出数量、大小
+      description: 设置是否展示上传时的出错信息，如超出数量、大小
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 是否展示上传时的出错信息，如超出数量、大小
+      tooltipLink: ""
     - name: dragDescription
-      title: 拖拽描述
+      title: 辅助文本
       type: string
       default: 点击/拖动/粘贴文件到这里
-      description: 拖拽描述信息
+      description: 辅助说明的文本信息
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 拖拽位置的文字指引
+      tooltipLink: ""
     - name: check-file
       title: 文件校验
       type: Function
       description: 文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息
+      tooltipLink: ""
     - name: access
       title: 文件访问策略
       type: string
@@ -197,17 +289,57 @@
           title: 任何人可访问
         - value: private
           title: 用户登录后可访问
+      group: 主要属性
+      description: ""
+      brifeDoc: ""
+      docDescription: 支持任何人可访问和用户登录后可访问两种方式
+      tooltipLink: ""
     - name: ttl
       title: 文件有效期
       type: boolean
       description: 是否开启文件有效期控制
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 支持配置文件自动清理，开启后可自定义上传后有效天数
+      tooltipLink: ""
     - name: ttlValue
       title: 上传后有效天数
       type: number
-      description: 文件有效期天数
+      description: 文件上传后的有效期天数
       depProp:
         - name: ttl
           value: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 开启文件有效期开关后显示，可配置文件自动清理的时间
+      tooltipLink: ""
+    - name: draggable
+      title: 可拖拽
+      type: boolean
+      default: false
+      description: ""
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 开启后支持拖拽上传文件，默认关闭
+      tooltipLink: ""
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 正常显示，但禁止选择或输入
+      tooltipLink: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

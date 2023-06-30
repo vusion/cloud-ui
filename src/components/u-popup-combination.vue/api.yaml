@@ -4,36 +4,28 @@
   labels:
     - Feedback
   description: 点击/鼠标移入元素，弹出气泡式的卡片浮层。
-  next: true
-  nested: false
   attrs:
+    - name: offset
+      title: 弹出层偏移
+      type: string
+      default: "0"
+      description: 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`
+      advanced: true
+    - name: merge-borders
+      title: 合并边框
+      type: boolean
+      default: true
+      description: 是否自动合并内外边框
+      advanced: true
     - name: title
       title: 标题
       type: string
       default: 标题
       description: 弹出框标题
-    - name: opened
-      title: 弹出关闭状态
-      type: boolean
-      sync: true
-      default: false
-      description: 弹出/关闭状态
-    - name: trigger
-      title: 触发方式
-      type: string
-      options:
-        - value: click
-          title: 点击
-        - value: hover
-          title: 悬浮
-        - value: right-click
-          title: 右击
-        - value: double-click
-          title: 双击
-        - value: manual
-          title: 手动
-      default: click
-      description: 弹出框的触发方式
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 弹出框的标题，显示在弹出框内容上方
+      tooltipLink: ""
     - name: placement
       title: 弹出方向
       type: string
@@ -63,34 +55,29 @@
         - value: right-end
           title: 右下
       default: bottom-start
-      description: 弹出框的弹出方向。
+      description: 弹出层的弹出方向
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 设置弹出框的弹出方向
+      tooltipLink: ""
     - name: hide-delay
       title: 消失延迟时间
       type: number
       default: 200
-      description: 当触发方式为'悬浮'时，提示内容消失延迟时间，单位是`'ms'`
-    - name: offset
-      title: 弹出层偏移
-      type: string
-      default: "0"
-      description: 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`
-      advanced: true
+      description: 当触发方式为'悬浮'时，提示内容消失延迟时间，单位是毫秒(ms)
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 当触发方式为悬浮时，弹出框内容消失的延迟时间，单位为ms
+      tooltipLink: ""
     - name: follow-cursor
       title: 跟随鼠标
       type: boolean
       default: false
-      description: 是否跟随鼠标
-    - name: disabled
-      title: 禁用
-      type: boolean
-      default: false
-      description: 是否禁用
-    - name: merge-borders
-      title: 合并边框
-      type: boolean
-      default: true
-      description: 是否自动合并内外边框
-      advanced: true
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 控制弹出框弹出位置，开启后会以鼠标点击位置为基点弹出，关闭则为默认弹出位置
+      tooltipLink: ""
     - name: display
       title: 展示方式
       type: string
@@ -100,12 +87,65 @@
         - value: block
           title: 块级展示，宽度会充满父元素
       default: inline
-      description: 展示方式
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 控制展示方式，支持行内展示、块级展示（占据整行）
+      tooltipLink: ""
     - name: ellipsis
-      title: 省略显示
+      title: 文本过长省略
       type: boolean
       default: false
       description: 文字过长是否省略显示。
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 开启时该项文本过长会省略显示，默认不开启为换行显示
+      tooltipLink: ""
+    - name: trigger
+      title: 触发方式
+      type: string
+      options:
+        - value: click
+          title: 点击
+        - value: hover
+          title: 悬浮
+        - value: right-click
+          title: 右击
+        - value: double-click
+          title: 双击
+        - value: manual
+          title: 手动
+      default: click
+      description: 弹出框的触发方式
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: |-
+        支持配置弹出框弹出的触发方式，支持点击、悬浮、右击、双击、手动共5种方式。
+        - 点击：左键单击弹出框触发组件。
+        - 悬浮：鼠标悬停在弹出框触发组件区域。
+        - 右击：右键单击弹出框触发组件。
+        - 双击：左键双击弹出框触发组件。
+        - 手动：无法直接通过弹出框组件触发，需要手动配置弹出框调用逻辑。
+      tooltipLink: ""
+    - name: opened
+      title: 弹出状态
+      type: boolean
+      sync: true
+      default: false
+      description: 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 控制弹出框的默认状态。开启时弹出框默认为弹出状态，关闭时弹出框默认为关闭状态
+      tooltipLink: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
