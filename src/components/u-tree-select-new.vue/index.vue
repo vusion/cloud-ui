@@ -14,7 +14,7 @@
         @blur="onRootBlur">
         <!-- 用于基线对齐 -->
         <span :class="$style.baseline">b</span>
-        <span v-if="!filterText && !selectedItem"
+        <span v-if="(!filterText && !selectedItem && !checkable) || (checkable && !checkableValue)"
             :class="$style.placeholder">
             {{ placeholder }}
         </span>
@@ -47,6 +47,13 @@
                 <span v-else>
                     {{ $at(selectedItem, textField) || selectedItem.text }}
                 </span>
+            </template>
+            <template v-if="checkable">
+                <f-slot name="text" :vm="this">
+                    <span>
+                        {{ checkableValue }}
+                    </span>
+                </f-slot>
             </template>
             <u-input
               v-if="filterable"
@@ -213,6 +220,15 @@ export default {
                 return this.$at(this.dataSourceNodeList, this.actualValue);
             }
         },
+        checkableValue() {
+            if (!this.checkable)
+                return '';
+            else if (this.value.length === 0){
+                return '';
+            } else {
+                return this.value.join('、');
+            }
+        }
     },
     watch: {
         value() {

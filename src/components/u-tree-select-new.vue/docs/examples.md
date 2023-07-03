@@ -89,7 +89,7 @@ export default {
 
 ```vue { width: 30% }
 <template>
-    <u-tree-select-new  v-model="value" checkable valueField="value1" :checkControlled="true" textField="text1" :data-source="[
+    <u-tree-select-new  v-model="value" checkable valueField="text1" :checkControlled="false" textField="text1" :data-source="[
     { text1: '节点 1', value1: '1', children: [
         { text1: '节点 1.1' , value1: '1.1'},
         { text1: '节点 1.2', value1: '1.2' ,children: [
