@@ -4,12 +4,12 @@
         <div :class="$style.wrap">
             <u-table-view-filters :value.sync="currentValue" @before-select="onBeforeSelect" :multiple="multiple" @select="onSelect">
                 <u-table-view-filter v-for="(filter, index) in currentData"
-                    :key="$at2(filter, valueField) || filter.value"
-                    :value="$at2(filter, valueField) || filter.value"
-                    :text="$at2(filter, textField) || filter.text"
+                    :key="getItemValue(filter)"
+                    :value="getItemValue(filter)"
+                    :text="getItemText(filter)"
                     :disabled="filter.disabled"
                     :item="filter" :index="index">
-                    <slot name="item" :item="filter" :index="index">{{ $at2(filter, textField) || filter.text }}</slot>
+                    <slot name="item" :item="filter" :index="index">{{ getItemText(filter) }}</slot>
                 </u-table-view-filter>
             </u-table-view-filters>
         </div>
@@ -24,6 +24,8 @@
 </template>
 
 <script>
+
+import isObject from 'lodash/isObject';
 
 export default {
     name: 'u-table-view-filters-popper',
@@ -111,13 +113,15 @@ export default {
             if (this.multiple) {
                 const exceedMax = this.exceedMax();
                 this.currentData.forEach((item) => {
-                    item.disabled = exceedMax && !this.currentValue.includes(item.value);
+                    if (isObject(item))
+                        item.disabled = exceedMax && !this.currentValue.includes(item.value);
                 });
             }
         },
         onOpen() {
             this.transfomValue();
             this.handleData();
+            this.$emit('open');
         },
         transfomValue() {
             if (!this.multiple)
@@ -131,6 +135,20 @@ export default {
         },
         cancel() {
             this.close();
+        },
+        getItemValue(item) {
+            if (isObject(item)) {
+                return this.$at2(item, this.valueField) || item.value;
+            } else {
+                return item;
+            }
+        },
+        getItemText(item) {
+            if (isObject(item)) {
+                return this.$at2(item, this.textField) || item.text;
+            } else {
+                return item;
+            }
         },
     },
 };

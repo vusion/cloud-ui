@@ -13,7 +13,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 列表展示的数据。数据源可以绑定变量或者逻辑。变量或逻辑的返回值可以是数组，也可以是对象。对象格式为{list:[], total:10}
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: data-schema
       title: 数据类型
       type: schema
@@ -22,7 +22,7 @@
       compType: dataTypeSelect
       brifeDoc: ""
       docDescription: 列表每一行的数据类型。该属性为展示属性，由数据源推倒得到，无需填写。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: pageable
       title: 分页
       type: boolean
@@ -31,7 +31,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 是否展示分页组件，数据源调用接口是否加入分页参数。默认开启
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: page-size
       title: 默认每页条数
       type: number
@@ -40,7 +40,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 每页的数据条数。默认50条。在"可分页"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: page-number
       title: 当前页数
       type: number
@@ -52,7 +52,7 @@
         $ref: "#/basicTypes/Integer"
       brifeDoc: ""
       docDescription: 当前加载的列表页。默认1。在"可分页"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: page-size-options
       title: 每页条数选项
       type: Array<number>
@@ -64,7 +64,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 每页显示数据条数的选择列表，需设置数组，如[10,20,30,40,50]。在"可分页"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: show-total
       title: 显示总条数
       type: boolean
@@ -73,7 +73,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 分页组件处是否显示列表总数。默认关闭。在"可分页"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: show-sizer
       title: 显示每页条数
       type: boolean
@@ -82,7 +82,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 是否展示数据条数的选择列表。默认开启。在"可分页"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: show-jumper
       title: 显示跳转输入
       type: boolean
@@ -91,7 +91,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 分页组件处是否展示跳转到某一页的输入框。默认关闭。在"可分页"属性开启时有效。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: filterable
       title: 筛选
       type: boolean
@@ -100,7 +100,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 是否展示可筛选的输入框。默认关闭。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: remote-paging
       title: 后端分页
       type: boolean
@@ -109,7 +109,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 表示数据列表的分页由接口处理。分页参数传入后端接口，由后端接口返回相应的数据。默认开始。关闭后，如果"可分页"属性开启，分页将由列表组件处理，不会发送后端接口。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: remote-filtering
       title: 后端筛选
       type: boolean
@@ -128,7 +128,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 筛选时的匹配方法。可写值"="、"=="、"eq"、"!="、"neq"、"<"，"lt"，"<="，"lte"，">"，"gt"，">="，"gte"，"includes"，"startsWith"，"endsWith"。也可传入处理函数。当"可筛选"属性开启时有效。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: case-sensitive
       title: 大小写敏感
       type: boolean
@@ -137,7 +137,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 表示筛选时是否大小写敏感。当"可筛选"属性开启时有效。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: placeholder
       title: 搜索框占位符
       type: string
@@ -148,7 +148,7 @@
         - filterable: true
       brifeDoc: ""
       docDescription: 搜索框为空时提示文本，默认"请输入"。当"可筛选"属性开启时有效。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: value
       title: 选中值
       type: any
@@ -158,7 +158,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 在列表开启可多选时，指定数据唯一值的字段。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: text-field
       title: 文本字段
       type: string
@@ -168,7 +168,7 @@
       display: property-select
       brifeDoc: ""
       docDescription: 当开启可多选时，显示的选项文本字段名。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: value-field
       title: 值字段
       type: string
@@ -178,7 +178,7 @@
       display: property-select
       brifeDoc: ""
       docDescription: 当开启可多选时，选项值的字段名。当"可多选"属性开启时有效。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: cancelable
       title: 可取消
       type: boolean
@@ -187,7 +187,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 与"可多选"属性对应，表示选中的行再点击时是否可以取消选中。默认关闭。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: multiple
       title: 可多选
       type: boolean
@@ -196,7 +196,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 列表的行是否可选中。默认关闭。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: clearable
       title: 可清除筛选
       type: boolean
@@ -205,7 +205,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 搜索框是否有清除按钮，默认关闭。当"可筛选"属性开启时有效。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: show-head
       title: 显示头部
       type: boolean
@@ -214,7 +214,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 是否显示列表头。默认关闭。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: title
       title: 列表标题
       type: string
@@ -223,7 +223,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 列表头部的标题信息。当"显示头部"属性开启时有效
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: show-foot
       title: 显示底部
       type: boolean
@@ -232,7 +232,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 显示列表底部，包括分页组件。默认开启。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: repeat
       type: number
       default: 5
@@ -241,7 +241,7 @@
       title: 每行排列项数
       brifeDoc: ""
       docDescription: 每行排列几项。默认为5
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: initial-load
       type: boolean
       title: 初始即加载
@@ -250,7 +250,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 是否在列表出现时立即加载数据，默认开启。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: designer-mode
       title: 加载状态设置
       type: string
@@ -279,7 +279,7 @@
         - designer-mode: loading
       brifeDoc: ""
       docDescription: 当数据正在加载时展示的文字，默认为"加载中..."。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: loading
       title: 自定义加载中触发条件
       type: boolean
@@ -298,7 +298,7 @@
         - designer-mode: error
       brifeDoc: ""
       docDescription: 加载失败的提示文字。默认"加载失败，请重试"
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: error
       title: 加载失败触发条件
       type: boolean
@@ -309,7 +309,7 @@
         - designer-mode: error
       brifeDoc: ""
       docDescription: 控制表格加载失败的展示时机。默认关闭。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: empty-text
       title: 暂无数据文案
       type: string
@@ -320,7 +320,7 @@
         - designer-mode: empty
       brifeDoc: ""
       docDescription: 当列表为空时的提示文字。默认"暂无数据"
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -329,7 +329,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -338,7 +338,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: border
       title: 显示边框
       type: boolean
@@ -347,7 +347,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 列表是否展示边框。默认关闭。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: width
       title: 宽度
       type: string
@@ -367,7 +367,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 数据列表宽度。默认自适应。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
     - name: height
       title: 高度
       type: string
@@ -387,7 +387,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 数据列表高度。默认正常。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/105.%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

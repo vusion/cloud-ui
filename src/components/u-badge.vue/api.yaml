@@ -18,7 +18,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 当前提醒消息的条数。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/070.%E5%BE%BD%E7%AB%A0.html
+      tooltipLink: ""
     - name: max
       title: 最大值
       type: number
@@ -27,7 +27,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 提醒消息的最大值，超过最大值将不再显示准确的数字，用最大值+代替，如99+。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/070.%E5%BE%BD%E7%AB%A0.html
+      tooltipLink: ""
     - name: corner
       title: 角标在右上角
       type: boolean
@@ -36,7 +36,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 开启时提醒角标位置显示在右上角，关闭时提醒角标显示在组件右侧。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/04.%E5%B1%95%E7%A4%BA/070.%E5%BE%BD%E7%AB%A0.html
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

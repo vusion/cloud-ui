@@ -1607,19 +1607,19 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| name | string |  |  | 表单项名称。已废弃 |
-| label | string |  |  | 标签。在 UValidator 用于提示消息的合成，在 UFormItem 等其他组件用于显示标签 |
-| rules | string \| Array |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
-| message | string |  |  | 默认提示消息 |
-| muted | string |  |  | 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示 |
-| ignore-validation | boolean |  | `false` | 忽略验证 |
-| ignore-rules | boolean |  | `false` | 忽略验证规则。已废弃，同`ignore-validation` |
-| validating-options | object |  |  | 验证辅助对象。在 Rule 的 `validate` 方法中使用 |
 | validating-value | any |  |  | 临时修改验证值 |
 | validating-process | Function |  |  | 验证前对值进行预处理 |
+| name | string |  |  |  |
+| label | string |  |  | 在 UValidator 用于提示消息的合成，在 UFormItem 等其他组件用于显示标签 |
+| rules | string \| Array |  |  | 简写格式为字符串类型，完整格式或混合格式为数组类型 |
+| message | string |  |  | 鼠标悬浮时显示的提示信息 |
+| muted | string |  |  | 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示 |
+| ignore-validation | boolean |  | `false` |  |
+| ignore-rules | boolean |  | `false` |  |
+| validating-options | object |  |  | 在 Rule 的 `validate` 方法中使用 |
 | manual | boolean |  | `false` | 是否采取手动验证。如果为`true`，则 UValidator 将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证。 |
-| append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。当父级有overflow:hidden而又想展示出错信息，可以设置为body |
-| placement | string | `[object Object]`<br/>`[object Object]` | `'right'` | 改变提示信息显示位置 |
+| append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置报错信息依据哪个元素定位位置。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。当父级有overflow:hidden而又想展示出错信息，可以设置为body |
+| placement | string | `[object Object]`<br/>`[object Object]` | `'right'` | 设置报错信息展示的位置方向 |
 
 ### Computed
 

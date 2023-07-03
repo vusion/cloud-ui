@@ -89,16 +89,51 @@ exports[`u-uploader.vue Demo-单文件卡片 2`] = `
 `;
 
 exports[`u-uploader.vue Demo-单文件只读 1`] = `
-<div class="root">
-  <div class="list" list-type="card">
-    <div class="card">
-      <div class="thumb">
-        <img class="img" src="https://static-vusion.163yun.com/assets/breakfast.png">
+<div class="root" direction="vertical" type vusion-slot-name="default">
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div class="root">
+      <div class="list" list-type="card">
+        <div class="card">
+          <div class="thumb">
+            <img class="img" src="https://static-vusion.163yun.com/assets/breakfast.png">
+          </div>
+          <div class="mask">
+            <div class="buttons">
+              <span class="button" role="remove"></span>
+              <span class="button" role="preview"></span>
+              <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="mask" multiple="multiple">
-        <div class="buttons">
-          <span class="button" role="preview"></span>
-          <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+    </div>
+  </div>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div class="root">
+      <div class="list" list-type="card">
+        <div class="card">
+          <div class="thumb">
+            <img class="img" src="https://static-vusion.163yun.com/assets/breakfast.png">
+          </div>
+          <div class="mask">
+            <div class="buttons">
+              <span class="button" role="remove"></span>
+              <span class="button" role="preview"></span>
+              <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="thumb">
+            <img class="img" src="https://static-vusion.163yun.com/assets/breakfast.png">
+          </div>
+          <div class="mask">
+            <div class="buttons">
+              <span class="button" role="remove"></span>
+              <span class="button" role="preview"></span>
+              <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -216,6 +251,30 @@ exports[`u-uploader.vue Demo-图片列表 1`] = `
 exports[`u-uploader.vue Demo-图片列表simple 1`] = `
 <div class="root">
   <div class="list" list-type="card">
+    <div class="card">
+      <div class="thumb">
+        <img class="img" src="https://static-vusion.163yun.com/assets/breakfast.png">
+      </div>
+      <div class="mask" multiple="multiple">
+        <div class="buttons">
+          <span class="button" role="remove"></span>
+          <span class="button" role="preview"></span>
+          <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="thumb">
+        <img class="img" src="https://static-vusion.163yun.com/assets/salad.png">
+      </div>
+      <div class="mask" multiple="multiple">
+        <div class="buttons">
+          <span class="button" role="remove"></span>
+          <span class="button" role="preview"></span>
+          <a class="button" href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank"></a>
+        </div>
+      </div>
+    </div>
     <div class="cardwrap">
       <div class="card" role="select">
         <input accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp" class="file" multiple="multiple" name="file" type="file">
@@ -328,6 +387,30 @@ exports[`u-uploader.vue Demo-多文件上传 1`] = `
 exports[`u-uploader.vue Demo-多文件上传simple 1`] = `
 <div class="root">
   <div class="list" list-type="card">
+    <div class="card">
+      <div class="thumb">
+        <img class="img" src="https://static-vusion.163yun.com/assets/breakfast.png">
+      </div>
+      <div class="mask" multiple="multiple">
+        <div class="buttons">
+          <span class="button" role="remove"></span>
+          <span class="button" role="preview"></span>
+          <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="thumb">
+        <img class="img" src="https://static-vusion.163yun.com/assets/salad.png">
+      </div>
+      <div class="mask" multiple="multiple">
+        <div class="buttons">
+          <span class="button" role="remove"></span>
+          <span class="button" role="preview"></span>
+          <a class="button" href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank"></a>
+        </div>
+      </div>
+    </div>
     <div class="cardwrap">
       <div class="card" role="select">
         <input class="file" multiple="multiple" name="file" type="file">

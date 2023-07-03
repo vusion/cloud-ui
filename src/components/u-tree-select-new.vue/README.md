@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# UTreeSelectNew 树选择器
+# UTreeSelectNew 树选择
 
 - [示例](#示例)
     - [基本用法](#基本用法)
@@ -8,10 +8,11 @@
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
     - [Events](#events)
+    - [Methods](#methods)
 
-**Form**
+**Selector**
 
-树选择器
+树选择
 
 ## 示例
 ### 基本用法
@@ -220,12 +221,12 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 集合类型变量或者输出参数为集合类型的逻辑 |
-| data-schema | schema |  |  | 选择器每一行的数据类型 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
 | text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
 | value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
-| children-field | string |  | `'children'` | 集合的元素类型中，用于标识子节点的属性 |
 | parent-field | string |  | `''` | 集合的元素类型中，用于标识父节点的属性 |
+| children-field | string |  | `'children'` | 集合的元素类型中，用于标识子节点的属性，默认为children |
 | value.sync, v-model | any |  |  | 选择后，所选中的值 |
 
 ### Slots
@@ -264,4 +265,32 @@ export default {
 | $event.nodeVM | UTreeViewNode | 选择项子组件 |
 | $event.oldVM | UTreeViewNode | 旧的选择项子组件 |
 | senderVM | UTreeView | 发送事件实例 |
+
+#### @before-load
+
+加载前触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.preventDefault | Function | 阻止加载流程 |
+| senderVM | UTableView | 发送事件实例 |
+
+#### @load
+
+加载后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | null | 无 |
+| senderVM | UTableView | 发送事件实例 |
+
+Methods
+
+#### reload()
+
+重新加载
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
 

@@ -152,11 +152,11 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| accordion | boolean |  | `false` | 是否每次只会展开一个面板 |
-| expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
 | appear | string | `[object Object]`<br/>`[object Object]` | `'default'` |  |
-| disabled | boolean |  | `false` | 不可点击展开/折叠 |
-| fill | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'head'` | 填充位置 |
+| fill | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'head'` |  |
+| accordion | boolean |  | `false` | 设置是否每次只展开一个 |
+| expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠操作的触发方式 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止展开/折叠操作 |
 
 ### Slots
 
@@ -193,8 +193,8 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 显示的标题 |
-| expanded.sync | boolean |  | `false` | 展开/折叠状态 |
-| disabled | boolean |  | `false` | 是否禁用。禁用时无法展开/折叠 |
+| expanded.sync | boolean |  | `false` | 展开状态分为“True(展开)/False(折叠)”，默认为“展开” |
+| disabled | boolean |  | `false` | 置灰显示，且禁止展开/折叠操作 |
 
 ### Slots
 

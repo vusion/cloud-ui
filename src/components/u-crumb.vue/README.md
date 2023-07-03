@@ -61,8 +61,8 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | auto | boolean |  | `false` | 是否自动根据子页面配置的面包屑属性自动生成 |
-| separator | string | `[object Object]`<br/>`[object Object]` | `'arrow'` | 面包屑分隔符 |
-| icon | boolean |  | `false` | 是否显示面包屑图标 |
+| separator | string | `[object Object]`<br/>`[object Object]` | `'arrow'` | 设置面包屑分隔样式类型，基础样式为箭头，分隔符样式为斜杠 |
+| icon | boolean |  | `false` |  |
 
 ### Slots
 
@@ -75,15 +75,15 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| icon | icon |  |  | 面包屑图标 |
 | text | string |  |  | 文本内容 |
-| type | string | `[object Object]`<br/>`[object Object]` | `'link'` | 类型 |
-| linkType | string | `[object Object]`<br/>`[object Object]` | `'destination'` | 链接类型 |
-| hrefAndTo | string |  |  | 链接地址 |
-| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | append | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |
-| disabled | boolean |  | `false` | 是否不可点击。如果为`true`，则不会响应`click`事件。 |
+| icon | icon |  |  |  |
+| type | string | `[object Object]`<br/>`[object Object]` | `'link'` |  |
+| linkType | string | `[object Object]`<br/>`[object Object]` | `'destination'` |  |
+| hrefAndTo | string |  |  |  |
+| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 链接打开后的展示方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Events
 

@@ -15,7 +15,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 默认显示的日期值。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: minUnit
       title: 最小单位
       type: string
@@ -29,7 +29,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 最小时间单位，支持秒或分
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: min-time
       title: 最小时间值
       type: string
@@ -38,7 +38,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 支持输入的最小时间。
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: max-time
       title: 最大时间值
       type: string
@@ -47,7 +47,7 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 支持输入的最大时间
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: autofocus
       title: 自动获取焦点
       type: boolean
@@ -57,7 +57,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 是否自动获得焦点
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: showRightNowButton
       title: 此刻按钮
       type: boolean
@@ -66,7 +66,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 是否展示此刻按钮
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: rightNowTitle
       title: 此刻按钮名称
       type: string
@@ -76,7 +76,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持自定义修改原此刻按钮名称
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: showFooterButton
       title: 取消/确定按钮
       type: boolean
@@ -85,7 +85,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 是否展示取消/确定按钮
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: cancelTitle
       title: 取消按钮名称
       type: string
@@ -95,7 +95,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持自定义修改原取消按钮名称
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: okTitle
       title: 确定按钮名称
       type: string
@@ -105,7 +105,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持自定义修改原确定按钮名称
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: preIcon
       title: 前缀图标
       type: string
@@ -118,7 +118,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持配置选择框前缀图标，仅支持时间图标
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: suffixIcon
       title: 后缀图标
       type: string
@@ -130,7 +130,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持配置选择框后缀图标，仅支持时间图标
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: append-to
       title: 弹出层位置依据
       type: string
@@ -144,7 +144,7 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 设置添加到哪个元素：引用元素下、全局body
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: clearable
       title: 可清除
       type: boolean
@@ -153,7 +153,7 @@
       group: 交互属性
       brifeDoc: ""
       docDescription: 是否展示清除按钮
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: readonly
       title: 只读
       type: boolean
@@ -162,7 +162,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
@@ -171,7 +171,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: visible
       title: 显示状态
       type: boolean
@@ -181,7 +181,7 @@
       group: 状态属性
       brifeDoc: ""
       docDescription: ""
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: width
       title: 宽度
       type: string
@@ -205,7 +205,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 支持占满、巨大、大、中型、正常、小、迷你
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
     - name: height
       title: 高度
       type: string
@@ -229,7 +229,7 @@
       group: 样式属性
       brifeDoc: ""
       docDescription: 支持占满、巨大、大、中型、正常、小、迷你
-      tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/185.%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9.html
+      tooltipLink: ""
   events:
     - name: change
       title: 改变后

@@ -17,17 +17,17 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| title | string |  | `'标题'` | 弹出框标题 |
-| opened.sync | boolean |  | `false` | 弹出/关闭状态 |
-| trigger | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'click'` | 弹出框的触发方式 |
-| placement | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'bottom-start'` | 弹出框的弹出方向。 |
-| hide-delay | number |  | `200` | 当触发方式为'悬浮'时，提示内容消失延迟时间，单位是`'ms'` |
 | offset | string |  | `'0'` | 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px` |
-| follow-cursor | boolean |  | `false` | 是否跟随鼠标 |
-| disabled | boolean |  | `false` | 是否禁用 |
 | merge-borders | boolean |  | `true` | 是否自动合并内外边框 |
-| display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 展示方式 |
+| title | string |  | `'标题'` | 弹出框标题 |
+| placement | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'bottom-start'` | 弹出层的弹出方向 |
+| hide-delay | number |  | `200` | 当触发方式为'悬浮'时，提示内容消失延迟时间，单位是毫秒(ms) |
+| follow-cursor | boolean |  | `false` |  |
+| display | string | `[object Object]`<br/>`[object Object]` | `'inline'` |  |
 | ellipsis | boolean |  | `false` | 文字过长是否省略显示。 |
+| trigger | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'click'` | 弹出框的触发方式 |
+| opened.sync | boolean |  | `false` | 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出” |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Slots
 

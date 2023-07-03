@@ -182,7 +182,7 @@
     - name: icon
       title: 图标
       type: icon
-      default: ''
+      default: ""
       description: 图标
     - name: disabled
       title: 禁用

@@ -584,20 +584,24 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data | Array\<{ text, value }\> |  |  | 数据列表 |
-| placeholder | string |  | `'请选择'` | 搜索框为空时提示文本 |
-| trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 触发方式 |
+| data-source | Array\<{ text, value }\> |  |  | 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
+| field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
+| value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
+| children-field | string |  | `'children'` | 树形数据子节点字段名，默认为children |
+| parent-field | string |  |  | 当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置 |
 | value.sync, v-model | any |  |  |  |
-| join | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `' / '` | 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值 |
-| field | string |  | `'text'` | 显示文本字段 |
-| filterable | boolean |  | `false` | 是否可以过滤（搜索），开启将会显示搜索框。 |
-| clearable | boolean |  | `false` | 开启并在输入框有内容时会显示清除按钮。 |
+| filterable | boolean |  | `false` | 设置是否可以筛选，开启将会显示搜索框。 |
+| placeholder | string |  | `'请选择'` | 为空时显示的占位符文本 |
 | showFinalValue | boolean |  | `false` | 定义是否显示完整的路径，ture时只显示最后一项 |
-| disabled | boolean |  | `false` |  |
-| opened | boolean |  | `false` | 切换弹出/关闭状态 |
-| autofocus | boolean |  | `false` | 是否自动获取焦点 |
+| autofocus | boolean |  | `false` | 设置是否自动获取焦点 |
+| trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` |  |
+| clearable | boolean |  | `false` | 设置是否可以清空搜索框，开启后将在有内容时显示清除按钮。 |
+| disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| opened | boolean |  | `false` | 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出” |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置级联框宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置级联框高度大小 |
+| join | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `' / '` | 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值 |
 
 ### Events
 
@@ -651,6 +655,25 @@ export default {
 | $event.oldValue | string | 旧的值 |
 | senderVM | UInput | 发送事件实例 |
 
+#### @before-load
+
+加载前触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.preventDefault | Function | 阻止加载流程 |
+| senderVM | UTableView | 发送事件实例 |
+
+#### @load
+
+加载后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | null | 无 |
+| senderVM | UTableView | 发送事件实例 |
+
 Methods
 
 #### open()
@@ -670,6 +693,13 @@ Methods
 #### clear()
 
 清空输入框。
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+
+#### reload()
+
+重新加载数据
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
