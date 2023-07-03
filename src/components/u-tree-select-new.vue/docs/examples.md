@@ -2,7 +2,7 @@
 
 #### Tag 方式
 
-``` vue
+```vue
 <template>
     <u-tree-select-new v-model="value" :data-source="load" text-field="title" value-field="title">
     </u-tree-select-new>
@@ -87,23 +87,37 @@ export default {
 
 #### 支持多选
 
-``` html { width: 30% }
-<u-tree-select-new value="节点 1" checkable valueField="text1" textField="text1" :data-source="[
-    { text1: '节点 1', children: [
-        { text1: '节点 1.1' },
-        { text1: '节点 1.2', children: [
-            { text1: '节点 1.2.1' },
-            { text1: '节点 1.2.2' },
+```vue { width: 30% }
+<template>
+    <u-tree-select-new  v-model="value" checkable valueField="value1" :checkControlled="true" textField="text1" :data-source="[
+    { text1: '节点 1', value1: '1', children: [
+        { text1: '节点 1.1' , value1: '1.1'},
+        { text1: '节点 1.2', value1: '1.2' ,children: [
+            { text1: '节点 1.2.1', value1: '1.2.1' },
+            { text1: '节点 1.2.2' , value1: '1.2.2' },
         ] },
-        { text1: '节点 1.3' },
-        { text1: '节点 1.4' },
+        { text1: '节点 1.3', value1: '1.3' },
+        { text1: '节点 1.4' , value1: '1.4'},
     ] },
-    { text1: '节点 2' },
-    { text1: '节点 3', children: [
-        { text1: '节点 3.1' },
-        { text1: '节点 3.2' },
+    { text1: '节点 2' ,value1: '2'},
+    { text1: '节点 3', value1: '3', children: [
+        { text1: '节点 3.1', value1: '3.1' },
+        { text1: '节点 3.2' , value1: '3.2'},
     ] },
 ]"></u-tree-select-new>
+</template>
+<script>
+    export default {
+        data() {
+            return {
+                value: [],
+            };
+        },
+        methods: {
+            
+        },
+    }
+</script>
 ```
 
 #### 一维Data

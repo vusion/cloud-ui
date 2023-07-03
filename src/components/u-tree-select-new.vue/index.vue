@@ -91,6 +91,7 @@
                 :checkable="checkable"
                 :cancelable="cancelable"
                 :accordion="accordion"
+                :checkControlled="checkControlled"
                 :tree-select-tip="treeSelectTip"
                 :expand-trigger="expandTrigger"
                 :initial-load="initialLoad"
@@ -143,6 +144,7 @@ export default {
         moreChildrenFields: Array,
         excludeFields: { type: Array, default: () => [] },
         checkable: { type: Boolean, default: false },
+        checkControlled: { type: Boolean, default: false },
         cancelable: { type: Boolean, default: false },
         accordion: { type: Boolean, default: false },
         expandTrigger: { type: String, default: 'click' },
