@@ -106,7 +106,7 @@ export default {
         ? datesInYear(cellYear).every(this.disabledDate)
         : false;
       style.current = coerceTruthyValueToArray(this.value).findIndex(date => date.getFullYear() === year && date.getFullYear() === cellYear) >= 0;
-      style.today = today.getFullYear() === year && today.getFullYear() === cellYear;
+      // style.today = today.getFullYear() === year && today.getFullYear() === cellYear;
       style.default = defaultValue.some(date => this.cellMatchesDate(cell, date));
 
 
@@ -197,6 +197,9 @@ export default {
       if (hasClass(target, 'disabled')) return;
       const column = target.cellIndex;
       const row = target.parentNode.rowIndex;
+      // can not select disabled date
+      if (this.rows[row][column].disabled) return;
+
       const newDate = this.getYearOfCell(this.rows[row][column].text);
       if (this.selectionMode === 'range') {
         if (!this.rangeState.selecting) {
@@ -276,7 +279,6 @@ export default {
 .yearTable td {
   text-align: center;
   padding: 0;
-  cursor: pointer;
 }
 
 .yearTable td div {
@@ -285,6 +287,7 @@ export default {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .yearTable td:first-child div {
@@ -299,20 +302,11 @@ export default {
 	 color: var(--color-primary);
 	 font-weight: bold;
 } */
-.yearTable td.today.start-date .cell,
+/* .yearTable td.today.start-date .cell,
 .yearTable td.today.end-date .cell {
-  background-color: var(--brand-primary);
-  color: var(--field-background);
-}
-
-.yearTable td.disabled .cell {
-  background-color: var(--calendar-item-color-disabled);
-  cursor: not-allowed;
-  color: var(--calendar-item-background-disabled);
-}
-
-/* .yearTable td.disabled .cell:hover {
-  color: var(--color-text-placeholder);
+  background-color: var(--calendar-item-background-selected);
+  border-color: var(--calendar-item-border-color-selected);
+  color: var(--calendar-item-color-selected);
 } */
 
 .yearTable td .cell {
@@ -323,6 +317,7 @@ export default {
   color: var(--calendar-item-color);
   margin: 0;
   border-radius: var(--calendar-item-border-radius);
+  cursor: inherit;
 }
 
 .yearTable td .cell:hover {
@@ -331,32 +326,43 @@ export default {
 }
 
 .yearTable td.in-range div {
-  background-color: var(--calendar-inrange-background-color);
+  background-color: var(--calendar-item-background-inrange);
 }
 
 /* .yearTable td.in-range div:hover .cell {
   background-color: var(--calendar-item-background-hover);
 } */
 
+.yearTable td.disabled div {
+  background-color: var(--calendar-item-background-disabled);
+  cursor: not-allowed;
+  color: var(--calendar-item-color-disabled);
+}
+
+/* .yearTable td.disabled .cell:hover {
+  color: var(--color-text-placeholder);
+} */
+
 .yearTable td.start-date div,
 .yearTable td.end-date div {
-  color: var(--color-white);
+  color: var(--calendar-item-color-selected);
 }
 
-.yearTable td.start-date .cell,
-.yearTable td.end-date .cell {
-  background-color: var(--brand-primary);
-  color: var(--field-background);
+.yearTable td.start-date:not(.disabled) .cell,
+.yearTable td.end-date:not(.disabled) .cell {
+  background-color: var(--calendar-item-background-selected);
+  border-color: var(--calendar-item-border-color-selected);
+  color: var(--calendar-item-color-selected);
 }
 
-.yearTable td.start-date .cell {
+.yearTable td.start-date:not(.end-date) .cell {
   border-top-left-radius: var(--calendar-item-border-radius);
   border-bottom-left-radius: var(--calendar-item-border-radius);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.yearTable td.end-date .cell {
+.yearTable td.end-date:not(.start-date) .cell {
   border-top-right-radius: var(--calendar-item-border-radius);
   border-bottom-right-radius: var(--calendar-item-border-radius);
   border-top-left-radius: 0;
@@ -368,23 +374,23 @@ export default {
   color: var(--calendar-item-color-muted);
 }
 
-.yearTable td.start-date div {
+.yearTable td.start-date:not(.disabled) div {
   background: linear-gradient(
     90deg,
     transparent,
     transparent 50%,
-    var(--calendar-inrange-background-color) 50%,
-    var(--calendar-inrange-background-color) 100%
+    var(--calendar-item-background-inrange) 50%,
+    var(--calendar-item-background-inrange) 100%
   );
 }
 
-.yearTable td.end-date div {
+.yearTable td.end-date:not(.disabled) div {
   background: linear-gradient(
     270deg,
     transparent,
     transparent 50%,
-    var(--calendar-inrange-background-color) 50%,
-    var(--calendar-inrange-background-color) 100%
+    var(--calendar-item-background-inrange) 50%,
+    var(--calendar-item-background-inrange) 100%
   );
 }
 
@@ -394,7 +400,8 @@ export default {
 }
 
 .yearTable td.current:not(.disabled) .cell {
-  background-color: var(--brand-primary);
-  color: var(--field-background);
+  background-color: var(--calendar-item-background-selected);
+  border-color: var(--calendar-item-border-color-selected);
+  color: var(--calendar-item-color-selected);
 }
 </style>

@@ -64,7 +64,6 @@ export default {
 <style module>
 .root {
     width: var(--calendar-range-width);
-    padding: var(--calendar-padding);
     user-select: none;
     background: var(--calendar-background);
     box-sizing: border-box;

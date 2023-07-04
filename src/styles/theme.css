@@ -1733,13 +1733,12 @@
     --calendar-border-color: var(--border-color-base); /* @type color */ /* @desc 日历面板边框颜色,如：#223325 */
     --calendar-background: var(--field-background); /* @type color */ /* @desc 日历面板背景颜色,如：#223325 */
     --calendar-border-radius: var(--border-radius-base); /* @desc 日历面板边框圆角,如：1px */
-    --calendar-inrange-background-color: rgba(51, 126, 255, 0.1); /* @type color */ /* @desc 日历选中范围背景色,如：#223325 */
-
 
     --calendar-item-color: #333; /* @type color */ /* @desc 日历面板本月日期字体颜色,如：#223325 */
     --calendar-item-border-radius: 4px; /* @desc 日历面板日期圆角大小,如：1px */
     --calendar-item-border-color: transparent; /* @type color */ /* @desc 日历面板日期边框颜色,如：#223325 */
     --calendar-item-background: var(--calendar-background); /* @type color */ /* @desc 日历面板日期背景颜色,如：#223325 */
+    --calendar-item-background-inrange: rgba(51, 126, 255, 0.1); /* @type color */ /* @desc 日历选中范围背景色,如：#223325 */
 
     --calendar-item-color-hover: #333; /* @type color */ /* @desc 日历面板日期字体颜色（hover状态）,如：#223325 */
     --calendar-item-border-color-hover: var(--calendar-item-border-color); /* @type color */ /* @desc 日历面板日期边框颜色（选中状态）,如：#223325 */

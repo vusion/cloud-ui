@@ -441,7 +441,8 @@ export default {
   user-select: none;
 }
 
-.dateTable.isWeekMode .row:hover div {
+/* 启用周模式后，需要适配这里的样式 */
+/* .dateTable.isWeekMode .row:hover div {
   background-color: var(--datepicker-inrange-background-color);
 }
 
@@ -463,7 +464,7 @@ export default {
 
 .dateTable.isWeekMode .row.current div {
   background-color: var(--datepicker-inrange-background-color);
-}
+} */
 
 .dateTable .week .weekend {
   color: var(--calendar-item-week-color)
@@ -472,16 +473,17 @@ export default {
 .dateTable td {
   width: 24px;
   height: 30px;
-  padding: 4px 0;
+  padding: 3px 0;
   box-sizing: border-box;
   text-align: center;
   cursor: pointer;
   position: relative;
+  color: var(--calendar-item-color)
 }
 
 .dateTable td div {
-  height: 30px;
-  padding: 3px 0;
+  height: 24px;
+  margin: 3px 0;
   box-sizing: border-box;
   cursor: var(--cursor-pointer);
 }
@@ -527,7 +529,30 @@ export default {
 }
 
 .dateTable td.inRange div {
-  background-color: var(--calendar-inrange-background-color);
+  background-color: var(--calendar-item-background-inrange);
+}
+
+.dateTable td.endDate:not(.disabled)  div {
+  background: linear-gradient(
+    270deg,
+    transparent,
+    transparent 50%,
+    var(--calendar-item-background-inrange) 50%,
+    var(--calendar-item-background-inrange) 100%
+  );
+}
+.dateTable td.startDate:not(.disabled)  div {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    transparent 50%,
+    var(--calendar-item-background-inrange) 50%,
+    var(--calendar-item-background-inrange) 100%
+  );
+}
+.dateTable td.startDate.endDate div {
+  /* 第一次点击的时候不需要设置 */
+  background: unset;
 }
 
 .dateTable td.current:not(.disabled) span {
@@ -536,34 +561,32 @@ export default {
   background-color: var(--calendar-item-background-selected);
 }
 
-.dateTable td.startDate div,
-.dateTable td.endDate div {
-  color: var(--color-white);
+.dateTable td.startDate:not(.disabled)  span,
+.dateTable td.endDate:not(.disabled)  span {
+  color: var(--calendar-item-color-selected);
+  border-color: var(--calendar-item-border-color-selected);
   background-color: var(--calendar-item-background-selected);
 }
 
-.dateTable td.startDate span,
-.dateTable td.endDate span {
-  background-color: var(--datepicker-active-color);
-}
-
-.dateTable td.startDate div {
-  margin-left: 5px;
-  border-top-left-radius: var(--calendar-item-border-radius);
-  border-bottom-left-radius: var(--calendar-item-border-radius);
-}
-
-.dateTable td.endDate div {
-  margin-right: 5px;
+.dateTable td.endDate:not(.startDate) span {
   border-top-right-radius: var(--calendar-item-border-radius);
   border-bottom-right-radius: var(--calendar-item-border-radius);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.dateTable td.startDate:not(.endDate) span {
+  border-top-left-radius: var(--calendar-item-border-radius);
+  border-bottom-left-radius: var(--calendar-item-border-radius);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .dateTable td.disabled div {
-  background-color: var(--background-color-base);
+  background-color: var(--calendar-item-background-disabled);
   opacity: 1;
   cursor: not-allowed;
-  color: var(--color-text-placeholder);
+  color: var(--calendar-item-color-disabled);
 }
 
 /* 不支持多选模式，先屏蔽
@@ -590,7 +613,7 @@ export default {
 }
 
 .dateTable th {
-  padding: 5px;
+  padding: 6px 0;
   color: var(--datepicker-header-font-color);
   font-weight: 400;
   border-bottom: solid 1px var(--border-color-lighter);

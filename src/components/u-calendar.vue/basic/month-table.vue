@@ -216,6 +216,10 @@ export default {
       if (hasClass(target, 'disabled')) return;
       const column = target.cellIndex;
       const row = target.parentNode.rowIndex;
+
+      // can not select disabled date
+      if (this.rows[row][column].disabled) return;
+
       const month = row * 3 + column;
       const newDate = this.getMonthOfCell(month);
       if (this.selectionMode === 'range') {
@@ -295,7 +299,6 @@ export default {
 .monthTable td {
   text-align: center;
   padding: 0;
-  cursor: pointer;
 }
 
 .monthTable td div {
@@ -304,6 +307,7 @@ export default {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .monthTable td:first-child div {
@@ -318,20 +322,11 @@ export default {
 	 color: var(--color-primary);
 	 font-weight: bold;
 } */
-.monthTable td.today.start-date .cell,
+/* .monthTable td.today.start-date .cell,
 .monthTable td.today.end-date .cell {
-  background-color: var(--brand-primary);
-  color: var(--field-background);
-}
-
-.monthTable td.disabled .cell {
-  background-color: var(--calendar-item-color-disabled);
-  cursor: not-allowed;
-  color: var(--calendar-item-background-disabled);
-}
-
-/* .monthTable td.disabled .cell:hover {
-  color: var(--color-text-placeholder);
+  background-color: var(--calendar-item-background-selected);
+  border-color: var(--calendar-item-border-color-selected);
+  color: var(--calendar-item-color-selected);
 } */
 
 .monthTable td .cell {
@@ -342,6 +337,7 @@ export default {
   color: var(--calendar-item-color);
   margin: 0;
   border-radius: var(--calendar-item-border-radius);
+  cursor: inherit;
 }
 
 .monthTable td .cell:hover {
@@ -350,55 +346,66 @@ export default {
 }
 
 .monthTable td.in-range div {
-  background-color: var(--calendar-inrange-background-color);
+  background-color: var(--calendar-item-background-inrange);
 }
 
 /* .monthTable td.in-range div:hover .cell {
   background-color: var(--calendar-item-background-hover);
 } */
 
+.monthTable td.disabled div {
+  background-color: var(--calendar-item-background-disabled);
+  cursor: not-allowed;
+  color: var(--calendar-item-color-disabled);
+}
+
+/* .monthTable td.disabled .cell:hover {
+  color: var(--color-text-placeholder);
+} */
+
 .monthTable td.start-date div,
 .monthTable td.end-date div {
-  color: var(--color-white);
+  color: var(--calendar-item-color-selected);
 }
 
-.monthTable td.start-date .cell,
-.monthTable td.end-date .cell {
-  background-color: var(--brand-primary);
-  color: var(--field-background);
+.monthTable td.start-date:not(.disabled) .cell,
+.monthTable td.end-date:not(.disabled) .cell {
+  background-color: var(--calendar-item-background-selected);
+  border-color: var(--calendar-item-border-color-selected);
+  color: var(--calendar-item-color-selected);
 }
 
-.monthTable td.start-date .cell {
+.monthTable td.start-date:not(.end-date) .cell {
   border-top-left-radius: var(--calendar-item-border-radius);
   border-bottom-left-radius: var(--calendar-item-border-radius);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.monthTable td.end-date .cell {
+.monthTable td.end-date:not(.start-date) .cell {
   border-top-right-radius: var(--calendar-item-border-radius);
   border-bottom-right-radius: var(--calendar-item-border-radius);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.monthTable td.start-date div {
+.monthTable td.start-date:not(.disabled) div {
   background: linear-gradient(
     90deg,
     transparent,
     transparent 50%,
-    var(--calendar-inrange-background-color) 50%,
-    var(--calendar-inrange-background-color) 100%
+    var(--calendar-item-background-inrange) 50%,
+    var(--calendar-item-background-inrange) 100%
   );
 }
 
-.monthTable td.end-date div {
+.monthTable td.end-date:not(.disabled) div {
   background: linear-gradient(
     270deg,
     transparent,
     transparent 50%,
-    var(--calendar-inrange-background-color) 50%,
-    var(--calendar-inrange-background-color) 100%
+    var(--calendar-item-background-inrange) 50%,
+    var(--calendar-item-background-inrange) 100%
   );
 }
 
@@ -408,7 +415,8 @@ export default {
 }
 
 .monthTable td.current:not(.disabled) .cell {
-  background-color: var(--brand-primary);
-  color: var(--field-background);
+  background-color: var(--calendar-item-background-selected);
+  border-color: var(--calendar-item-border-color-selected);
+  color: var(--calendar-item-color-selected);
 }
 </style>

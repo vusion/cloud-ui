@@ -6,7 +6,7 @@
       <div :class="[$style.content, $style.left]">
         <div :class="$style.header">
           <div :class="$style.hiconWrap">
-            <i-ico :class="$style.hicon" name="left-arrow" notext @click="leftPrevYear"></i-ico>
+            <i-ico :class="$style.hicon" name="d-left-arrow" notext @click="leftPrevYear"></i-ico>
           </div>
           <div>{{ leftLabel }}</div>
           <div :class="$style.holder"></div>
@@ -28,7 +28,7 @@
         <div :class="$style.header">
           <div :class="$style.holder"></div>
           <div>{{ rightLabel }}</div>
-          <i-ico :class="$style.hicon" name="right-arrow" notext @click="rightNextYear"></i-ico>
+          <i-ico :class="$style.hicon" name="d-right-arrow" notext @click="rightNextYear"></i-ico>
         </div>
         <component
           :is="currentTable"
@@ -331,12 +331,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  margin-top: 3px;
+  margin-bottom: 12px;
 }
 
 .header div {
-  font-size: 16px;
   font-weight: 500;
-  /* margin-right: 50px; */
 }
 
 .header .holder {
@@ -365,7 +365,7 @@ export default {
   width: 50%;
   box-sizing: border-box;
   margin: 0;
-  padding: 16px;
+  padding: var(--calendar-padding);
 }
 
 .content .left {

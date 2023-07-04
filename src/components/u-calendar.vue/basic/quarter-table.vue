@@ -193,6 +193,9 @@ export default {
       if (target.tagName !== 'TD') return;
       if (hasClass(target, 'disabled')) return;
       const column = target.cellIndex;
+      // can not select disabled date
+      if (this.row[column].disabled) return;
+
       const quarter = column + 1;
       const newDate = this.getQuarterOfCell(quarter);
       if (this.selectionMode === 'range') {
@@ -261,7 +264,6 @@ export default {
 .quarterTable td {
   text-align: center;
   padding: 0;
-  cursor: pointer;
 }
 
 .quarterTable td div {
@@ -270,6 +272,7 @@ export default {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .quarterTable td:first-child div {
@@ -284,20 +287,11 @@ export default {
 	 color: var(--color-primary);
 	 font-weight: bold;
 } */
-.quarterTable td.today.start-date .cell,
+/* .quarterTable td.today.start-date .cell,
 .quarterTable td.today.end-date .cell {
-  background-color: var(--brand-primary);
-  color: var(--field-background);
-}
-
-.quarterTable td.disabled .cell {
-  background-color: var(--calendar-item-color-disabled);
-  cursor: not-allowed;
-  color: var(--calendar-item-background-disabled);
-}
-
-/* .quarterTable td.disabled .cell:hover {
-  color: var(--color-text-placeholder);
+  background-color: var(--calendar-item-background-selected);
+  border-color: var(--calendar-item-border-color-selected);
+  color: var(--calendar-item-color-selected);
 } */
 
 .quarterTable td .cell {
@@ -308,6 +302,7 @@ export default {
   color: var(--calendar-item-color);
   margin: 0;
   border-radius: var(--calendar-item-border-radius);
+  cursor: inherit;
 }
 
 .quarterTable td .cell:hover {
@@ -316,55 +311,66 @@ export default {
 }
 
 .quarterTable td.in-range div {
-  background-color: var(--calendar-inrange-background-color);
+  background-color: var(--calendar-item-background-inrange);
 }
 
 /* .quarterTable td.in-range div:hover .cell {
   background-color: var(--calendar-item-background-hover);
 } */
 
+.quarterTable td.disabled div {
+  background-color: var(--calendar-item-background-disabled);
+  cursor: not-allowed;
+  color: var(--calendar-item-color-disabled);
+}
+
+/* .quarterTable td.disabled .cell:hover {
+  color: var(--color-text-placeholder);
+} */
+
 .quarterTable td.start-date div,
 .quarterTable td.end-date div {
-  color: var(--color-white);
+  color: var(--calendar-item-color-selected);
 }
 
-.quarterTable td.start-date .cell,
-.quarterTable td.end-date .cell {
-  background-color: var(--brand-primary);
-  color: var(--field-background);
+.quarterTable td.start-date:not(.disabled) .cell,
+.quarterTable td.end-date:not(.disabled) .cell {
+  background-color: var(--calendar-item-background-selected);
+  border-color: var(--calendar-item-border-color-selected);
+  color: var(--calendar-item-color-selected);
 }
 
-.quarterTable td.start-date .cell {
+.quarterTable td.start-date:not(.end-date) .cell {
   border-top-left-radius: var(--calendar-item-border-radius);
   border-bottom-left-radius: var(--calendar-item-border-radius);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.quarterTable td.end-date .cell {
+.quarterTable td.end-date:not(.start-date) .cell {
   border-top-right-radius: var(--calendar-item-border-radius);
   border-bottom-right-radius: var(--calendar-item-border-radius);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.quarterTable td.start-date div {
+.quarterTable td.start-date:not(.disabled) div {
   background: linear-gradient(
     90deg,
     transparent,
     transparent 50%,
-    var(--calendar-inrange-background-color) 50%,
-    var(--calendar-inrange-background-color) 100%
+    var(--calendar-item-background-inrange) 50%,
+    var(--calendar-item-background-inrange) 100%
   );
 }
 
-.quarterTable td.end-date div {
+.quarterTable td.end-date:not(.disabled) div {
   background: linear-gradient(
     270deg,
     transparent,
     transparent 50%,
-    var(--calendar-inrange-background-color) 50%,
-    var(--calendar-inrange-background-color) 100%
+    var(--calendar-item-background-inrange) 50%,
+    var(--calendar-item-background-inrange) 100%
   );
 }
 
@@ -374,7 +380,8 @@ export default {
 }
 
 .quarterTable td.current:not(.disabled) .cell {
-  background-color: var(--brand-primary);
-  color: var(--field-background);
+  background-color: var(--calendar-item-background-selected);
+  border-color: var(--calendar-item-border-color-selected);
+  color: var(--calendar-item-color-selected);
 }
 </style>
