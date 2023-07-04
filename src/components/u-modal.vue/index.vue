@@ -146,7 +146,8 @@ export const UModal = {
             if (!this.$el) {
                 const el = document.createElement('div');
                 this.$mount(el);
-                document.body.appendChild(this.$el);
+                const container = window.LcapMicro && window.LcapMicro.appendTo ? window.LcapMicro.appendTo : document.body;
+                container.appendChild(this.$el);
             }
             this.currentVisible = true;
             this.$emit('open');
