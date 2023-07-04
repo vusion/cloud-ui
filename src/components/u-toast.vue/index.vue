@@ -39,12 +39,16 @@ export default {
         },
     },
     mounted() {
-        if (this.position !== 'static')
-            document.body.appendChild(this.$el);
+        if (this.position !== 'static') {
+            const container = window.LcapMicro && window.LcapMicro.appendTo ? window.LcapMicro.appendTo : document.body;
+            container.appendChild(this.$el);
+        }
     },
     destroyed() {
-        if (this.position !== 'static')
-            document.body.removeChild(this.$el);
+        if (this.position !== 'static') {
+            const container = window.LcapMicro && window.LcapMicro.appendTo ? window.LcapMicro.appendTo : document.body;
+            container.removeChild(this.$el);
+        }    
     },
     methods: {
         show(text, duration, color) {
