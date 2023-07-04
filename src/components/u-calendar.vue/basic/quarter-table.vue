@@ -4,7 +4,7 @@
     <tr>
       <td :class="getCellStyle(cell)" v-for="(cell, key) in row" :key="key">
         <div>
-          <a :class="$style.cell">{{ $t(`Q${cell.text}`) }}</a>
+          <a :class="$style.cell">{{ $t('quarter') }}{{ $t(`Q${cell.text}`) }}</a>
         </div>
       </td>
     </tr>
@@ -13,15 +13,9 @@
 </template>
 
 <script>
-import { isDate, range, getDayCountOfMonth, getDayCountOfQuarter, nextDate } from '../date-util';
+import { isDate, range, getDayCountOfQuarter, nextDate } from '../date-util';
 import { coerceTruthyValueToArray, hasClass } from '../util';
 import i18n from '../i18n';
-
-const datesInMonth = (year, month) => {
-  const numOfDays = getDayCountOfMonth(year, month);
-  const firstDay = new Date(year, month, 1);
-  return range(numOfDays).map(n => nextDate(firstDay, n));
-};
 
 const datesInQuarter = (year, quarter) => {
   const numOfDays = getDayCountOfQuarter(year, quarter);
@@ -36,10 +30,10 @@ const isInQuarter = (date, quarter) => {
 }
 
 const clearDate = (date) => {
-  return new Date(date.getFullYear(), date.getMonth());
+  return new Date(date.getFullYear(), Math.floor(date.getMonth() / 3) * 3);
 };
 
-const getTimestamp = function(time) {
+const getQuarterTimestamp = function(time) {
   if (typeof time === 'number' || typeof time === 'string') {
     return clearDate(new Date(time)).getTime();
   } else if (time instanceof Date) {
@@ -49,13 +43,6 @@ const getTimestamp = function(time) {
   }
 };
 
-// remove the first element that satisfies `pred` from arr
-// return a new array if modification occurs
-// return the original array otherwise
-const removeFromArray = function(arr, pred) {
-  const idx = typeof pred === 'function' ? arr.findIndex(pred) : arr.indexOf(pred);
-  return idx >= 0 ? [...arr.slice(0, idx), ...arr.slice(idx + 1)] : arr;
-};
 export default {
   i18n,
   props: {
@@ -90,13 +77,13 @@ export default {
     },
 
     minDate(newVal, oldVal) {
-      if (getTimestamp(newVal) !== getTimestamp(oldVal)) {
+      if (getQuarterTimestamp(newVal) !== getQuarterTimestamp(oldVal)) {
         this.markRange(this.minDate, this.maxDate);
       }
     },
 
     maxDate(newVal, oldVal) {
-      if (getTimestamp(newVal) !== getTimestamp(oldVal)) {
+      if (getQuarterTimestamp(newVal) !== getQuarterTimestamp(oldVal)) {
         this.markRange(this.minDate, this.maxDate);
       }
     }
@@ -141,25 +128,22 @@ export default {
       }
       const moduledStyle = {}
       Object.keys(style).forEach(className => {
-        moduledStyle[this.$style[className]] = style[className]
+        if (this.$style[className]) {
+          moduledStyle[this.$style[className]] = style[className]
+        }
       })
       return moduledStyle;
-    },
-    getMonthOfCell(month) {
-      const year = this.date.getFullYear();
-      return new Date(year, month, 1);
     },
     getQuarterOfCell(quarter) {
       const year = this.date.getFullYear();
       return new Date(year, (quarter - 1) * 3, 1);
     },
     markRange(minDate, maxDate) {
-      minDate = getTimestamp(minDate);
-      maxDate = getTimestamp(maxDate) || minDate;
+      minDate = getQuarterTimestamp(minDate);
+      maxDate = getQuarterTimestamp(maxDate) || minDate;
       [minDate, maxDate] = [Math.min(minDate, maxDate), Math.max(minDate, maxDate)];
       const row = this.row;
       for (let index = 0, l = row.length; index < l; index++) {
-        // TODO: 有个问题，选中范围以后，再往后切几年，回来以后会导致范围错误
         const cell = row[index];
         const time = new Date(this.date.getFullYear(), index * 3).getTime();
 
@@ -235,7 +219,7 @@ export default {
       const row = this.tableRow;
       const disabledDate = this.disabledDate;
       const selectedDate = [];
-      const now = getTimestamp(new Date());
+      const now = getQuarterTimestamp(new Date());
 
       for (let i = 0; i < 4; i++) {
         let cell = row[i];
@@ -245,10 +229,10 @@ export default {
 
         cell.type = 'normal';
 
-        const time = new Date(this.date.getFullYear(), i).getTime();
-        cell.inRange = time >= getTimestamp(this.minDate) && time <= getTimestamp(this.maxDate);
-        cell.start = this.minDate && time === getTimestamp(this.minDate);
-        cell.end = this.maxDate && time === getTimestamp(this.maxDate);
+        const time = new Date(this.date.getFullYear(), i * 3).getTime();
+        cell.inRange = time >= getQuarterTimestamp(this.minDate) && time <= getQuarterTimestamp(this.maxDate);
+        cell.start = this.minDate && time === getQuarterTimestamp(this.minDate);
+        cell.end = this.maxDate && time === getQuarterTimestamp(this.maxDate);
         const isToday = time === now;
 
         if (isToday) {
@@ -348,6 +332,20 @@ export default {
 .quarterTable td.end-date .cell {
   background-color: var(--brand-primary);
   color: var(--field-background);
+}
+
+.quarterTable td.start-date .cell {
+  border-top-left-radius: var(--calendar-item-border-radius);
+  border-bottom-left-radius: var(--calendar-item-border-radius);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.quarterTable td.end-date .cell {
+  border-top-right-radius: var(--calendar-item-border-radius);
+  border-bottom-right-radius: var(--calendar-item-border-radius);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .quarterTable td.start-date div {

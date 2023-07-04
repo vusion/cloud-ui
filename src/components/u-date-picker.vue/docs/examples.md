@@ -189,3 +189,23 @@ export default {
     clearable>
 </u-date-range-picker>
 ```
+
+### 季度范围选择
+
+``` html
+<u-date-range-picker
+    picker="quarter"
+    start-date="2022-06-10"
+    end-date="2023-03-20">
+</u-date-range-picker>
+```
+
+### 年度范围选择
+
+``` html
+<u-date-range-picker
+    picker="year"
+    start-date="2021-06-10"
+    end-date="2023-03-20">
+</u-date-range-picker>
+```

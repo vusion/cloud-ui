@@ -143,7 +143,9 @@ export default {
       }
       const moduledStyle = {}
       Object.keys(style).forEach(className => {
-        moduledStyle[this.$style[className]] = style[className]
+        if (this.$style[className]) {
+          moduledStyle[this.$style[className]] = style[className]
+        }
       })
       return moduledStyle;
     },
@@ -364,6 +366,20 @@ export default {
 .monthTable td.end-date .cell {
   background-color: var(--brand-primary);
   color: var(--field-background);
+}
+
+.monthTable td.start-date .cell {
+  border-top-left-radius: var(--calendar-item-border-radius);
+  border-bottom-left-radius: var(--calendar-item-border-radius);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.monthTable td.end-date .cell {
+  border-top-right-radius: var(--calendar-item-border-radius);
+  border-bottom-right-radius: var(--calendar-item-border-radius);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .monthTable td.start-date div {

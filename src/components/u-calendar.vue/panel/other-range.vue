@@ -11,7 +11,8 @@
           <div>{{ leftLabel }}</div>
           <div :class="$style.holder"></div>
         </div>
-        <quarter-table
+        <component
+          :is="currentTable"
           selection-mode="range"
           :date="leftDate"
           :default-value="defaultValue"
@@ -21,7 +22,7 @@
           :disabled-date="disabledDate"
           @changerange="handleChangeRange"
           @pick="handleRangePick">
-        </quarter-table>
+        </component>
       </div>
       <div :class="[$style.content, $style.right]">
         <div :class="$style.header">
@@ -29,7 +30,8 @@
           <div>{{ rightLabel }}</div>
           <i-ico :class="$style.hicon" name="right-arrow" notext @click="rightNextYear"></i-ico>
         </div>
-        <quarter-table
+        <component
+          :is="currentTable"
           selection-mode="range"
           :date="rightDate"
           :default-value="defaultValue"
@@ -39,7 +41,7 @@
           :disabled-date="disabledDate"
           @changerange="handleChangeRange"
           @pick="handleRangePick">
-        </quarter-table>
+        </component>
       </div>
     </div>
   </div>
@@ -51,23 +53,33 @@ import {
   modifyWithTimeString,
   prevYear,
   nextYear,
+  nextMonth,
   nextQuarter
 } from '../date-util';
 import i18n from '../i18n';
+import MonthTable from '../basic/month-table';
 import QuarterTable from '../basic/quarter-table';
+import YearTable from '../basic/year-table';
 
-const calcDefaultValue = (defaultValue) => {
-  if (Array.isArray(defaultValue)) {
-    return [new Date(defaultValue[0]), new Date(defaultValue[1])];
-  } else if (defaultValue) {
-    return [new Date(defaultValue), nextQuarter(new Date(defaultValue))];
-  } else {
-    return [new Date(), nextQuarter(new Date())];
-  }
-};
+const pickerMap = {
+  month: {
+    component: MonthTable,
+    next: nextMonth,
+  },
+  quarter: {
+    component: QuarterTable,
+    next: nextQuarter,
+  },
+  year: {
+    component: YearTable,
+    next: nextYear,
+  },
+}
+
 export default {
   i18n,
   props: {
+    picker: { type: String, default: 'month' },
     visible: { type: Boolean, default: true },
 
     value: { type: Array, default: () => [] },
@@ -89,7 +101,7 @@ export default {
       minDate: '',
       maxDate: '',
       leftDate: new Date(),
-      rightDate: nextYear(new Date()),
+      rightDate: this.nextYear(new Date()),
       rangeState: {
         endDate: null,
         selecting: false,
@@ -103,16 +115,30 @@ export default {
     };
   },
   computed: {
+    currentTable() {
+      return pickerMap[this.picker]?.component || MonthTable;
+    },
+
     btnDisabled() {
       return !(this.minDate && this.maxDate && !this.selecting && this.isValidValue([this.minDate, this.maxDate]));
     },
 
     leftLabel() {
-      return this.leftDate.getFullYear();
+      if (this.picker !== 'year') {
+        return this.leftDate.getFullYear();
+      } else {
+        const decade = Math.floor(this.leftDate.getFullYear() / 10) * 10;
+        return `${decade}-${decade + 9}`;
+      }
     },
 
     rightLabel() {
-      return this.rightDate.getFullYear();
+      if (this.picker !== 'year') {
+        return this.rightDate.getFullYear();
+      } else {
+        const decade = Math.floor(this.rightDate.getFullYear() / 10) * 10;
+        return `${decade}-${decade + 9}`;
+      }
     },
 
     leftYear() {
@@ -142,14 +168,14 @@ export default {
               const minDateYear = this.minDate.getFullYear();
               const maxDateYear = this.maxDate.getFullYear();
               this.rightDate = minDateYear === maxDateYear
-                ? nextYear(this.maxDate)
+                ? this.nextYear(this.maxDate)
                 : this.maxDate;
             } else {
-              this.rightDate = nextYear(this.leftDate);
+              this.rightDate = this.nextYear(this.leftDate);
             }
           } else {
-            this.leftDate = calcDefaultValue(this.defaultValue)[0];
-            this.rightDate = nextYear(this.leftDate);
+            this.leftDate = this.calcDefaultValue(this.defaultValue)[0];
+            this.rightDate = this.nextYear(this.leftDate);
           }
         }
       },
@@ -158,21 +184,40 @@ export default {
 
     defaultValue(val) {
       if (!Array.isArray(this.value)) {
-        const [left, right] = calcDefaultValue(val);
+        const [left, right] = this.calcDefaultValue(val);
         this.leftDate = left;
         this.rightDate = val && val[1] && left.getFullYear() !== right.getFullYear() && this.unlinkPanels
           ? right
-          : nextYear(this.leftDate);
+          : this.nextYear(this.leftDate);
       }
     }
   },
 
   methods: {
+    nextYear(date) {
+      return nextYear(date, this.picker === 'year' ? 10 : 1)
+    },
+
+    prevYear(date) {
+      return prevYear(date, this.picker === 'year' ? 10 : 1)
+    },
+
+    calcDefaultValue(defaultValue) {
+      const next = pickerMap[this.picker]?.next || nextMonth;
+      if (Array.isArray(defaultValue)) {
+        return [new Date(defaultValue[0]), new Date(defaultValue[1])];
+      } else if (defaultValue) {
+        return [new Date(defaultValue), next(new Date(defaultValue))];
+      } else {
+        return [new Date(), next(new Date())];
+      }
+    },
+
     handleClear() {
       this.minDate = null;
       this.maxDate = null;
-      this.leftDate = calcDefaultValue(this.defaultValue)[0];
-      this.rightDate = nextYear(this.leftDate);
+      this.leftDate = this.calcDefaultValue(this.defaultValue)[0];
+      this.rightDate = this.nextYear(this.leftDate);
       this.$emit('select', { sender: this, startDate: null, endDate: null });
     },
 
@@ -210,26 +255,26 @@ export default {
 
     // leftPrev*, rightNext* need to take care of `unlinkPanels`
     leftPrevYear() {
-      this.leftDate = prevYear(this.leftDate);
+      this.leftDate = this.prevYear(this.leftDate);
       if (!this.unlinkPanels) {
-        this.rightDate = prevYear(this.rightDate);
+        this.rightDate = this.prevYear(this.rightDate);
       }
     },
 
     rightNextYear() {
       if (!this.unlinkPanels) {
-        this.leftDate = nextYear(this.leftDate);
+        this.leftDate = this.nextYear(this.leftDate);
       }
-      this.rightDate = nextYear(this.rightDate);
+      this.rightDate = this.nextYear(this.rightDate);
     },
 
     // leftNext*, rightPrev* are called when `unlinkPanels` is true
     leftNextYear() {
-      this.leftDate = nextYear(this.leftDate);
+      this.leftDate = this.nextYear(this.leftDate);
     },
 
     rightPrevYear() {
-      this.rightDate = prevYear(this.rightDate);
+      this.rightDate = this.prevYear(this.rightDate);
     },
 
     handleConfirm(visible = false) {
@@ -257,8 +302,6 @@ export default {
       this.maxDate = this.value && isDate(this.value[0]) ? new Date(this.value[1]) : null;
     }
   },
-
-  components: { QuarterTable }
 };
 </script>
 

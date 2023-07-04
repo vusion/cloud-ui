@@ -1,51 +1,21 @@
 <template>
-  <table @click="handleYearTableClick" class="el-year-table">
+  <table @click="handleTableClick" @mousemove="handleMouseMove" :class="$style.yearTable">
     <tbody>
-    <tr>
-      <td class="available" :class="getCellStyle(startYear + 0)">
-        <a class="cell">{{ startYear }}</a>
+    <tr v-for="(row, key) in rows" :key="key">
+      <td :class="getCellStyle(cell)" v-for="(cell, key) in row" :key="key">
+        <div>
+          <a :class="$style.cell">{{ cell.text }}</a>
+        </div>
       </td>
-      <td class="available" :class="getCellStyle(startYear + 1)">
-        <a class="cell">{{ startYear + 1 }}</a>
-      </td>
-      <td class="available" :class="getCellStyle(startYear + 2)">
-        <a class="cell">{{ startYear + 2 }}</a>
-      </td>
-      <td class="available" :class="getCellStyle(startYear + 3)">
-        <a class="cell">{{ startYear + 3 }}</a>
-      </td>
-    </tr>
-    <tr>
-      <td class="available" :class="getCellStyle(startYear + 4)">
-        <a class="cell">{{ startYear + 4 }}</a>
-      </td>
-      <td class="available" :class="getCellStyle(startYear + 5)">
-        <a class="cell">{{ startYear + 5 }}</a>
-      </td>
-      <td class="available" :class="getCellStyle(startYear + 6)">
-        <a class="cell">{{ startYear + 6 }}</a>
-      </td>
-      <td class="available" :class="getCellStyle(startYear + 7)">
-        <a class="cell">{{ startYear + 7 }}</a>
-      </td>
-    </tr>
-    <tr>
-      <td class="available" :class="getCellStyle(startYear + 8)">
-        <a class="cell">{{ startYear + 8 }}</a>
-      </td>
-      <td class="available" :class="getCellStyle(startYear + 9)">
-        <a class="cell">{{ startYear + 9 }}</a>
-      </td>
-      <td></td>
-      <td></td>
     </tr>
     </tbody>
   </table>
 </template>
 
 <script>
-import { isDate, range, nextDate, getDayCountOfYear } from '../date-util';
-import { hasClass, coerceTruthyValueToArray } from '../util';
+import { isDate, range, getDayCountOfYear, nextDate } from '../date-util';
+import { coerceTruthyValueToArray, hasClass } from '../util';
+import i18n from '../i18n';
 
 const datesInYear = year => {
   const numOfDays = getDayCountOfYear(year);
@@ -53,58 +23,378 @@ const datesInYear = year => {
   return range(numOfDays).map(n => nextDate(firstDay, n));
 };
 
+const clearDate = (date) => {
+  return new Date(date.getFullYear(), 0);
+};
+
+const getYearTimestamp = function(time) {
+  if (typeof time === 'number' || typeof time === 'string') {
+    return clearDate(new Date(time)).getTime();
+  } else if (time instanceof Date) {
+    return clearDate(time).getTime();
+  } else {
+    return NaN;
+  }
+};
+
 export default {
+  i18n,
   props: {
     disabledDate: {},
     value: {},
+    selectionMode: {
+      default: 'year'
+    },
+    minDate: {},
+
+    maxDate: {},
     defaultValue: {
       validator(val) {
         // null or valid Date Object
-        return val === null || (val instanceof Date && isDate(val));
+        return val === null || isDate(val) || (Array.isArray(val) && val.every(isDate));
       }
     },
     date: {},
-    selectionMode: {}
-  },
-
-  computed: {
-    startYear() {
-      return Math.floor(this.date.getFullYear() / 10) * 10;
+    rangeState: {
+      default() {
+        return {
+          endDate: null,
+          selecting: false
+        };
+      }
     }
   },
 
-  methods: {
-    getCellStyle(year) {
-      const style = {};
-      const today = new Date();
-
-      style.disabled = typeof this.disabledDate === 'function'
-        ? datesInYear(year).every(this.disabledDate)
-        : false;
-      style.current = coerceTruthyValueToArray(this.value).findIndex(date => date.getFullYear() === year) >= 0;
-      style.today = today.getFullYear() === year;
-      style.default = this.defaultValue && this.defaultValue.getFullYear() === year;
-
-      return style;
+  watch: {
+    'rangeState.endDate'(newVal) {
+      this.markRange(this.minDate, newVal);
     },
 
-    handleYearTableClick(event) {
-      const target = event.target;
-      if (target.tagName === 'A') {
-        if (hasClass(target.parentNode, 'disabled')) return;
-        const year = target.textContent || target.innerText;
-        if (this.selectionMode === 'years') {
-          const value = this.value || [];
-          const idx = value.findIndex(date => date.getFullYear() === Number(year));
-          const newValue = idx > -1
-            ? [...value.slice(0, idx), ...value.slice(idx + 1)]
-            : [...value, new Date(year)];
-          this.$emit('pick', newValue);
-        } else {
-          this.$emit('pick', Number(year));
+    minDate(newVal, oldVal) {
+      if (getYearTimestamp(newVal) !== getYearTimestamp(oldVal)) {
+        this.markRange(this.minDate, this.maxDate);
+      }
+    },
+
+    maxDate(newVal, oldVal) {
+      if (getYearTimestamp(newVal) !== getYearTimestamp(oldVal)) {
+        this.markRange(this.minDate, this.maxDate);
+      }
+    }
+  },
+
+  data() {
+    return {
+      tableRows: [ [], [], [], [] ],
+      lastRow: null,
+      lastColumn: null
+    };
+  },
+
+  methods: {
+    cellMatchesDate(cell, date) {
+      const value = new Date(date);
+      return this.date.getFullYear() === value.getFullYear() && Number(cell.text) === value.getFullYear();
+    },
+    getCellStyle(cell) {
+      const style = {};
+      const year = this.date.getFullYear();
+      const today = new Date();
+      const cellYear = cell.text;
+      const defaultValue = this.defaultValue ? Array.isArray(this.defaultValue) ? this.defaultValue : [this.defaultValue] : [];
+      style.disabled = typeof this.disabledDate === 'function'
+        ? datesInYear(cellYear).every(this.disabledDate)
+        : false;
+      style.current = coerceTruthyValueToArray(this.value).findIndex(date => date.getFullYear() === year && date.getFullYear() === cellYear) >= 0;
+      style.today = today.getFullYear() === year && today.getFullYear() === cellYear;
+      style.default = defaultValue.some(date => this.cellMatchesDate(cell, date));
+
+
+      if (cell.type === 'prev-decade' || cell.type === 'next-decade') {
+        style[cell.type] = true;
+      } else if (cell.inRange) {
+        style['in-range'] = true;
+
+        if (cell.start) {
+          style['start-date'] = true;
+        }
+
+        if (cell.end) {
+          style['end-date'] = true;
         }
       }
+
+      const moduledStyle = {}
+      Object.keys(style).forEach(className => {
+        if (this.$style[className]) {
+          moduledStyle[this.$style[className]] = style[className]
+        }
+      })
+      return moduledStyle;
+    },
+    getYearOfCell(year) {
+      return new Date(Number(year), 0, 1);
+    },
+    markRange(minDate, maxDate) {
+      minDate = getYearTimestamp(minDate);
+      maxDate = getYearTimestamp(maxDate) || minDate;
+      [minDate, maxDate] = [Math.min(minDate, maxDate), Math.max(minDate, maxDate)];
+      const rows = this.rows;
+      for (let i = 0, k = rows.length; i < k; i++) {
+        const row = rows[i];
+        for (let j = 0, l = row.length; j < l; j++) {
+
+          const cell = row[j];
+          const time = this.getYearOfCell(cell.text).getTime();
+
+          cell.inRange = minDate && time >= minDate && time <= maxDate;
+          cell.start = minDate && time === minDate;
+          cell.end = maxDate && time === maxDate;
+        }
+      }
+    },
+    handleMouseMove(event) {
+      if (!this.rangeState.selecting) return;
+
+      let target = event.target;
+      if (target.tagName === 'A') {
+        target = target.parentNode.parentNode;
+      }
+      if (target.tagName === 'DIV') {
+        target = target.parentNode;
+      }
+      if (target.tagName !== 'TD') return;
+
+      const row = target.parentNode.rowIndex;
+      const column = target.cellIndex;
+      // can not select disabled date
+      if (this.rows[row][column].disabled) return;
+
+      // only update rangeState when mouse moves to a new cell
+      // this avoids frequent Date object creation and improves performance
+      if (row !== this.lastRow || column !== this.lastColumn) {
+        this.lastRow = row;
+        this.lastColumn = column;
+        this.$emit('changerange', {
+          minDate: this.minDate,
+          maxDate: this.maxDate,
+          rangeState: {
+            selecting: true,
+            endDate: this.getYearOfCell(this.rows[row][column].text)
+          }
+        });
+      }
+    },
+    handleTableClick(event) {
+      let target = event.target;
+      if (target.tagName === 'A') {
+        target = target.parentNode.parentNode;
+      }
+      if (target.tagName === 'DIV') {
+        target = target.parentNode;
+      }
+      if (target.tagName !== 'TD') return;
+      if (hasClass(target, 'disabled')) return;
+      const column = target.cellIndex;
+      const row = target.parentNode.rowIndex;
+      const newDate = this.getYearOfCell(this.rows[row][column].text);
+      if (this.selectionMode === 'range') {
+        if (!this.rangeState.selecting) {
+          this.$emit('pick', {minDate: newDate, maxDate: null});
+          this.rangeState.selecting = true;
+        } else {
+          if (newDate >= this.minDate) {
+            this.$emit('pick', {minDate: this.minDate, maxDate: newDate});
+          } else {
+            this.$emit('pick', {minDate: newDate, maxDate: this.minDate});
+          }
+          this.rangeState.selecting = false;
+        }
+      } else {
+        this.$emit('pick', this.rows[row][column].text);
+      }
+    }
+  },
+
+  computed: {
+    rows() {
+      // TODO: refactory rows / getCellClasses
+      const rows = this.tableRows;
+      const disabledDate = this.disabledDate;
+      const selectedDate = [];
+      const now = getYearTimestamp(new Date());
+      // 年代，2010/2020 这种
+      const decade = Math.floor(this.date.getFullYear() / 10) * 10;
+
+      for (let i = 0; i < 4; i++) {
+        const row = rows[i];
+        for (let j = 0; j < 3; j++) {
+          let cell = row[j];
+          if (!cell) {
+            cell = { row: i, column: j, type: 'normal', inRange: false, start: false, end: false };
+          }
+
+          cell.type = 'normal';
+
+          const index = i * 3 + j;
+          const date = new Date(decade - 1 + index, 0);
+          const time = date.getTime();
+          cell.inRange = time >= getYearTimestamp(this.minDate) && time <= getYearTimestamp(this.maxDate);
+          cell.start = this.minDate && time === getYearTimestamp(this.minDate);
+          cell.end = this.maxDate && time === getYearTimestamp(this.maxDate);
+          const isToday = time === now;
+
+          if (isToday) {
+            cell.type = 'today';
+          }
+          if (i === 0 && j === 0) {
+            cell.type = 'prev-decade';
+          } else if (i === 3 && j === 2) {
+            cell.type = 'next-decade';
+          }
+          cell.text = date.getFullYear();
+          let cellDate = new Date(time);
+          cell.disabled = typeof disabledDate === 'function' && disabledDate(cellDate);
+          cell.selected = selectedDate.find(date => date.getTime() === cellDate.getTime());
+
+          this.$set(row, j, cell);
+        }
+      }
+      return rows;
     }
   }
 };
 </script>
+
+<style module>
+.yearTable {
+  margin: -1px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.yearTable td {
+  text-align: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.yearTable td div {
+  height: 24px;
+  margin: 12px 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.yearTable td:first-child div {
+  justify-content: flex-start;
+}
+
+.yearTable td:last-child div {
+  justify-content: flex-end;
+}
+
+/* .yearTable td.today .cell {
+	 color: var(--color-primary);
+	 font-weight: bold;
+} */
+.yearTable td.today.start-date .cell,
+.yearTable td.today.end-date .cell {
+  background-color: var(--brand-primary);
+  color: var(--field-background);
+}
+
+.yearTable td.disabled .cell {
+  background-color: var(--calendar-item-color-disabled);
+  cursor: not-allowed;
+  color: var(--calendar-item-background-disabled);
+}
+
+/* .yearTable td.disabled .cell:hover {
+  color: var(--color-text-placeholder);
+} */
+
+.yearTable td .cell {
+  width: 68px;
+  height: 24px;
+  display: block;
+  line-height: 24px;
+  color: var(--calendar-item-color);
+  margin: 0;
+  border-radius: var(--calendar-item-border-radius);
+}
+
+.yearTable td .cell:hover {
+  color: var(--calendar-item-color-hover);
+  background-color: var(--calendar-item-background-hover);
+}
+
+.yearTable td.in-range div {
+  background-color: var(--calendar-inrange-background-color);
+}
+
+/* .yearTable td.in-range div:hover .cell {
+  background-color: var(--calendar-item-background-hover);
+} */
+
+.yearTable td.start-date div,
+.yearTable td.end-date div {
+  color: var(--color-white);
+}
+
+.yearTable td.start-date .cell,
+.yearTable td.end-date .cell {
+  background-color: var(--brand-primary);
+  color: var(--field-background);
+}
+
+.yearTable td.start-date .cell {
+  border-top-left-radius: var(--calendar-item-border-radius);
+  border-bottom-left-radius: var(--calendar-item-border-radius);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.yearTable td.end-date .cell {
+  border-top-right-radius: var(--calendar-item-border-radius);
+  border-bottom-right-radius: var(--calendar-item-border-radius);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.yearTable td.next-decade .cell,
+.yearTable td.prev-decade .cell {
+  color: var(--calendar-item-color-muted);
+}
+
+.yearTable td.start-date div {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    transparent 50%,
+    var(--calendar-inrange-background-color) 50%,
+    var(--calendar-inrange-background-color) 100%
+  );
+}
+
+.yearTable td.end-date div {
+  background: linear-gradient(
+    270deg,
+    transparent,
+    transparent 50%,
+    var(--calendar-inrange-background-color) 50%,
+    var(--calendar-inrange-background-color) 100%
+  );
+}
+
+.yearTable td.start-date.end-date div {
+  /* 第一次点击的时候不需要设置 */
+  background: unset;
+}
+
+.yearTable td.current:not(.disabled) .cell {
+  background-color: var(--brand-primary);
+  color: var(--field-background);
+}
+</style>
