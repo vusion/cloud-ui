@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { isDate, range, getDayCountOfYear, nextDate } from '../date-util';
+import { isDate, range, getDayCountOfYear, getYearTimestamp, nextDate } from '../date-util';
 import { coerceTruthyValueToArray, hasClass } from '../util';
 import i18n from '../i18n';
 
@@ -21,20 +21,6 @@ const datesInYear = year => {
   const numOfDays = getDayCountOfYear(year);
   const firstDay = new Date(year, 0, 1);
   return range(numOfDays).map(n => nextDate(firstDay, n));
-};
-
-const clearDate = (date) => {
-  return new Date(date.getFullYear(), 0);
-};
-
-const getYearTimestamp = function(time) {
-  if (typeof time === 'number' || typeof time === 'string') {
-    return clearDate(new Date(time)).getTime();
-  } else if (time instanceof Date) {
-    return clearDate(time).getTime();
-  } else {
-    return NaN;
-  }
 };
 
 export default {

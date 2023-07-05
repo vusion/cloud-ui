@@ -603,14 +603,9 @@ export default {
   padding: var(--calendar-padding);
 }
 
-.content .left {
-  border-right: 1px solid var(--el-datepicker-inner-border-color);
+.content.left {
+  border-right: 1px solid var(--calendar-range-inner-border-color);
 }
-
-/* .content .header div {
-  margin-left: 50px;
-  margin-right: 50px;
-} */
 
 .hicon {
     font-size: 12px;
@@ -627,45 +622,5 @@ export default {
 .hicon[disabled]:hover {
     color: var(--calendar-icon-color-disabled);
     cursor: var(--cursor-not-allowed);
-}
-
-.editors-wrap {
-  box-sizing: border-box;
-  display: table-cell;
-}
-
-.editors-wrap .right {
-  text-align: right;
-}
-
-.time-header {
-  position: relative;
-  border-bottom: 1px solid var(--el-datepicker-inner-border-color);
-  font-size: 12px;
-  padding: 8px 5px 5px 5px;
-  display: table;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.time-header>.el-icon-arrow-right {
-  font-size: 20px;
-  vertical-align: middle;
-  display: table-cell;
-  color: var(--el-datepicker-icon-color);
-}
-
-.time-picker-wrap {
-  position: relative;
-  display: table-cell;
-  padding: 0 5px;
-}
-
-.time-picker-wrap .el-picker-panel {
-  position: absolute;
-  top: 13px;
-  right: 0;
-  z-index: 1;
-  background: var(--el-color-white);
 }
 </style>

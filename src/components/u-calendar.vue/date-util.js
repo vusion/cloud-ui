@@ -210,6 +210,58 @@ export const clearTime = function(date) {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate());
 };
 
+export const getDateTimestamp = function(time) {
+  if (typeof time === 'number' || typeof time === 'string') {
+    return clearTime(new Date(time)).getTime();
+  } else if (time instanceof Date) {
+    return clearTime(time).getTime();
+  } else {
+    return NaN;
+  }
+};
+
+export const getMonthTimestamp = function(time) {
+  const clearDate = (date) => {
+    return new Date(date.getFullYear(), date.getMonth());
+  };
+
+  if (typeof time === 'number' || typeof time === 'string') {
+    return clearDate(new Date(time)).getTime();
+  } else if (time instanceof Date) {
+    return clearDate(time).getTime();
+  } else {
+    return NaN;
+  }
+};
+
+export const getQuarterTimestamp = function(time) {
+  const clearDate = (date) => {
+    return new Date(date.getFullYear(), Math.floor(date.getMonth() / 3) * 3);
+  };
+
+  if (typeof time === 'number' || typeof time === 'string') {
+    return clearDate(new Date(time)).getTime();
+  } else if (time instanceof Date) {
+    return clearDate(time).getTime();
+  } else {
+    return NaN;
+  }
+};
+
+export const getYearTimestamp = function(time) {
+  const clearDate = (date) => {
+    return new Date(date.getFullYear(), 0);
+  };
+
+  if (typeof time === 'number' || typeof time === 'string') {
+    return clearDate(new Date(time)).getTime();
+  } else if (time instanceof Date) {
+    return clearDate(time).getTime();
+  } else {
+    return NaN;
+  }
+};
+
 export const clearMilliseconds = function(date) {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds(), 0);
 };

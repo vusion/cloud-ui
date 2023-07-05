@@ -34,20 +34,11 @@
 </template>
 
 <script>
-import { getFirstDayOfMonth, getDayCountOfMonth, getWeekNumber, getStartDateOfMonth, prevDate, nextDate, isDate, clearTime as _clearTime} from '../date-util';
+import { getFirstDayOfMonth, getDayCountOfMonth, getWeekNumber, getStartDateOfMonth, prevDate, nextDate, isDate, getDateTimestamp } from '../date-util';
 import i18n from '../i18n';
 import { coerceTruthyValueToArray } from '../util';
 
 const WEEKS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-const getDateTimestamp = function(time) {
-  if (typeof time === 'number' || typeof time === 'string') {
-    return _clearTime(new Date(time)).getTime();
-  } else if (time instanceof Date) {
-    return _clearTime(time).getTime();
-  } else {
-    return NaN;
-  }
-};
 
 // remove the first element that satisfies `pred` from arr
 // return a new array if modification occurs
@@ -466,6 +457,9 @@ export default {
   background-color: var(--datepicker-inrange-background-color);
 } */
 
+.dateTable .week {
+  color: var(--calendar-item-color);
+}
 .dateTable .week .weekend {
   color: var(--calendar-item-week-color)
 }
@@ -609,13 +603,10 @@ export default {
 
 .dateTable td.week {
   font-size: 80%;
-  color: var(--datepicker-header-font-color);
 }
 
 .dateTable th {
   padding: 6px 0;
-  color: var(--datepicker-header-font-color);
   font-weight: 400;
-  border-bottom: solid 1px var(--border-color-lighter);
 }
 </style>

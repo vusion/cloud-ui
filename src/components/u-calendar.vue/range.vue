@@ -21,6 +21,7 @@
 <script>
 import DateRange from './panel/date-range'
 import OtherRange from './panel/other-range'
+import { getDateTimestamp, getMonthTimestamp, getQuarterTimestamp, getYearTimestamp } from './date-util'
 
 export default {
     name: 'u-calendar-range',
@@ -42,11 +43,18 @@ export default {
             return [this.startDate, this.endDate]
         },
         disabledDate() {
-            const minDate = this.minDate && new Date(this.minDate);
-            const maxDate = this.maxDate && new Date(this.maxDate);
-            const disabled = this.disabled;
-            return function(date) {
-                if (disabled || (minDate && date < minDate) || (maxDate && date > maxDate)) {
+            const timestampFnMap = {
+                date: getDateTimestamp,
+                month: getMonthTimestamp,
+                quarter: getQuarterTimestamp,
+                year: getYearTimestamp,
+            }
+            const timestampFn = timestampFnMap[this.picker] || (() => false);
+            return (date) => {
+                const time = new Date(date).getTime();
+                if (this.disabled ||
+                    (this.minDate && time < timestampFn(this.minDate)) ||
+                    (this.maxDate && date > timestampFn(this.maxDate))) {
                     return true;
                 }
                 return false;

@@ -330,9 +330,8 @@ export default {
   height: 28px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  margin-top: 3px;
-  margin-bottom: 12px;
+  justify-content: space-between;
+  margin: 3px 12px;
 }
 
 .header div {
@@ -368,52 +367,7 @@ export default {
   padding: var(--calendar-padding);
 }
 
-.content .left {
-  border-right: 1px solid var(--el-datepicker-inner-border-color);
-}
-
-/* .content .header div {
-  margin-left: 50px;
-  margin-right: 50px;
-} */
-
-.editors-wrap {
-  box-sizing: border-box;
-  display: table-cell;
-}
-
-.editors-wrap .right {
-  text-align: right;
-}
-
-.time-header {
-  position: relative;
-  border-bottom: 1px solid var(--el-datepicker-inner-border-color);
-  font-size: 12px;
-  padding: 8px 5px 5px 5px;
-  display: table;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.time-header>.el-icon-arrow-right {
-  font-size: 20px;
-  vertical-align: middle;
-  display: table-cell;
-  color: var(--el-datepicker-icon-color);
-}
-
-.time-picker-wrap {
-  position: relative;
-  display: table-cell;
-  padding: 0 5px;
-}
-
-.time-picker-wrap .el-picker-panel {
-  position: absolute;
-  top: 13px;
-  right: 0;
-  z-index: 1;
-  background: var(--el-color-white);
+.content.left {
+  border-right: 1px solid var(--calendar-range-inner-border-color);
 }
 </style>

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { isDate, range, getDayCountOfQuarter, nextDate } from '../date-util';
+import { isDate, range, getDayCountOfQuarter, getQuarterTimestamp, nextDate } from '../date-util';
 import { coerceTruthyValueToArray, hasClass } from '../util';
 import i18n from '../i18n';
 
@@ -28,20 +28,6 @@ const isInQuarter = (date, quarter) => {
   const monthQuarter = Math.floor(month / 3) + 1;
   return monthQuarter === quarter;
 }
-
-const clearDate = (date) => {
-  return new Date(date.getFullYear(), Math.floor(date.getMonth() / 3) * 3);
-};
-
-const getQuarterTimestamp = function(time) {
-  if (typeof time === 'number' || typeof time === 'string') {
-    return clearDate(new Date(time)).getTime();
-  } else if (time instanceof Date) {
-    return clearDate(time).getTime();
-  } else {
-    return NaN;
-  }
-};
 
 export default {
   i18n,

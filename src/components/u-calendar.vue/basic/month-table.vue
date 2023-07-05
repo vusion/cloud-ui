@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { isDate, range, getDayCountOfMonth, nextDate } from '../date-util';
+import { isDate, range, getDayCountOfMonth, getMonthTimestamp, nextDate } from '../date-util';
 import { coerceTruthyValueToArray, hasClass } from '../util';
 import i18n from '../i18n';
 
@@ -21,20 +21,6 @@ const datesInMonth = (year, month) => {
   const numOfDays = getDayCountOfMonth(year, month);
   const firstDay = new Date(year, month, 1);
   return range(numOfDays).map(n => nextDate(firstDay, n));
-};
-
-const clearDate = (date) => {
-  return new Date(date.getFullYear(), date.getMonth());
-};
-
-const getMonthTimestamp = function(time) {
-  if (typeof time === 'number' || typeof time === 'string') {
-    return clearDate(new Date(time)).getTime();
-  } else if (time instanceof Date) {
-    return clearDate(time).getTime();
-  } else {
-    return NaN;
-  }
 };
 
 // remove the first element that satisfies `pred` from arr
