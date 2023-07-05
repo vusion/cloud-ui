@@ -171,41 +171,45 @@ export default {
 ### 日期范围选择
 
 ``` html
-<u-date-range-picker
+<u-date-picker
+    range
     picker="date"
     start-date="2023-03-10"
     end-date="2023-03-20"
     clearable>
-</u-date-range-picker>
+</u-date-picker>
 ```
 
 ### 月份范围选择
 
 ``` html
-<u-date-range-picker
+<u-date-picker
+    range
     picker="month"
     start-date="2021-06-10"
     end-date="2022-03-20"
     clearable>
-</u-date-range-picker>
+</u-date-picker>
 ```
 
 ### 季度范围选择
 
 ``` html
-<u-date-range-picker
+<u-date-picker
+    range
     picker="quarter"
     start-date="2021-06-10"
     end-date="2022-03-20">
-</u-date-range-picker>
+</u-date-picker>
 ```
 
 ### 年度范围选择
 
 ``` html
-<u-date-range-picker
+<u-date-picker
+    range
     picker="year"
     start-date="2001-06-10"
     end-date="2013-03-20">
-</u-date-range-picker>
+</u-date-picker>
 ```

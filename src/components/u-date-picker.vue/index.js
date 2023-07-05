@@ -1,9 +1,7 @@
-import UDatePicker from './index.vue';
-import UDateRangePicker from './range.vue'
+import UDatePicker from './wrap';
 
 export {
     UDatePicker,
-    UDateRangePicker,
 };
 
 export default UDatePicker;

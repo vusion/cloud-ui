@@ -4,16 +4,6 @@
 <u-calendar picker="date" date="2022-08-08"></u-calendar>
 ```
 
-### 日期范围选择
-
-``` html
-<u-calendar-range
-    picker="date"
-    start-date="2023-03-10"
-    end-date="2023-03-20">
-</u-calendar-range>
-```
-
 ### 周选择组件
 
 ``` html
@@ -25,47 +15,16 @@
 ``` html
 <u-calendar picker="month" date="2022-08-08"></u-calendar>
 ```
-
-### 月份范围选择
-
-``` html
-<u-calendar-range
-    picker="month"
-    start-date="2021-06-10"
-    end-date="2022-03-20">
-</u-calendar-range>
-```
-
 ### 季选择组件
 
 ``` html
 <u-calendar picker="quarter" date="2022-08-08"></u-calendar>
 ```
 
-### 季度范围选择
-
-``` html
-<u-calendar-range
-    picker="quarter"
-    start-date="2021-06-10"
-    end-date="2022-03-20">
-</u-calendar-range>
-```
-
 ### 年选择组件
 
 ``` html
 <u-calendar picker="year" date="2022-08-08"></u-calendar>
-```
-
-### 年度范围选择
-
-``` html
-<u-calendar-range
-    picker="year"
-    start-date="2001-06-10"
-    end-date="2013-03-20">
-</u-calendar-range>
 ```
 
 ### 只读和禁用
@@ -89,4 +48,44 @@
 <u-linear-layout>
 <u-calendar yearDiff="5" yearAdd="5" date="2018-08-08"></u-calendar>
 </u-linear-layout>
+```
+
+### 日期范围选择
+
+``` html
+<u-calendar-range
+    picker="date"
+    start-date="2023-03-10"
+    end-date="2023-03-20">
+</u-calendar-range>
+```
+
+### 月份范围选择
+
+``` html
+<u-calendar-range
+    picker="month"
+    start-date="2021-06-10"
+    end-date="2022-03-20">
+</u-calendar-range>
+```
+
+### 季度范围选择
+
+``` html
+<u-calendar-range
+    picker="quarter"
+    start-date="2021-06-10"
+    end-date="2022-03-20">
+</u-calendar-range>
+```
+
+### 年度范围选择
+
+``` html
+<u-calendar-range
+    picker="year"
+    start-date="2001-06-10"
+    end-date="2013-03-20">
+</u-calendar-range>
 ```

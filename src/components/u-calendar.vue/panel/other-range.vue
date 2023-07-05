@@ -50,12 +50,11 @@
 <script type="text/babel">
 import {
   isDate,
-  modifyWithTimeString,
   prevYear,
   nextYear,
   nextMonth,
   nextQuarter
-} from '../date-util';
+} from '../util';
 import i18n from '../i18n';
 import MonthTable from '../basic/month-table';
 import QuarterTable from '../basic/quarter-table';
@@ -97,7 +96,6 @@ export default {
   data() {
     return {
       popperClass: '',
-      defaultTime: null,
       minDate: '',
       maxDate: '',
       leftDate: new Date(),
@@ -228,9 +226,8 @@ export default {
     },
 
     handleRangePick(val, close = true) {
-      const defaultTime = this.defaultTime || [];
-      const minDate = modifyWithTimeString(val.minDate, defaultTime[0]);
-      const maxDate = modifyWithTimeString(val.maxDate, defaultTime[1]);
+      const minDate = val.minDate;
+      const maxDate = val.maxDate;
       if (this.maxDate === maxDate && this.minDate === minDate) {
         return;
       }

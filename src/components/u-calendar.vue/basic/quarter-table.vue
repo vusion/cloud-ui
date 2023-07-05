@@ -13,8 +13,14 @@
 </template>
 
 <script>
-import { isDate, range, getDayCountOfQuarter, getQuarterTimestamp, nextDate } from '../date-util';
-import { coerceTruthyValueToArray, hasClass } from '../util';
+import {
+  isDate,
+  range,
+  getDayCountOfQuarter,
+  getQuarterTimestamp,
+  nextDate,
+  coerceTruthyValueToArray,
+} from '../util';
 import i18n from '../i18n';
 
 const datesInQuarter = (year, quarter) => {
@@ -177,7 +183,7 @@ export default {
         target = target.parentNode;
       }
       if (target.tagName !== 'TD') return;
-      if (hasClass(target, 'disabled')) return;
+
       const column = target.cellIndex;
       // can not select disabled date
       if (this.row[column].disabled) return;

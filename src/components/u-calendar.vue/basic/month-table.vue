@@ -13,8 +13,14 @@
 </template>
 
 <script>
-import { isDate, range, getDayCountOfMonth, getMonthTimestamp, nextDate } from '../date-util';
-import { coerceTruthyValueToArray, hasClass } from '../util';
+import {
+  isDate,
+  range,
+  getDayCountOfMonth,
+  getMonthTimestamp,
+  nextDate,
+  coerceTruthyValueToArray,
+} from '../util';
 import i18n from '../i18n';
 
 const datesInMonth = (year, month) => {
@@ -199,10 +205,9 @@ export default {
         target = target.parentNode;
       }
       if (target.tagName !== 'TD') return;
-      if (hasClass(target, 'disabled')) return;
+
       const column = target.cellIndex;
       const row = target.parentNode.rowIndex;
-
       // can not select disabled date
       if (this.rows[row][column].disabled) return;
 

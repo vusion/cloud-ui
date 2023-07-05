@@ -34,9 +34,18 @@
 </template>
 
 <script>
-import { getFirstDayOfMonth, getDayCountOfMonth, getWeekNumber, getStartDateOfMonth, prevDate, nextDate, isDate, getDateTimestamp } from '../date-util';
+import {
+  getFirstDayOfMonth,
+  getDayCountOfMonth,
+  getWeekNumber,
+  getStartDateOfMonth,
+  prevDate,
+  nextDate,
+  isDate,
+  getDateTimestamp,
+  coerceTruthyValueToArray,
+} from '../util';
 import i18n from '../i18n';
-import { coerceTruthyValueToArray } from '../util';
 
 const WEEKS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 

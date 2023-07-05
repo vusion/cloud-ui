@@ -21,7 +21,7 @@
 <script>
 import DateRange from './panel/date-range'
 import OtherRange from './panel/other-range'
-import { getDateTimestamp, getMonthTimestamp, getQuarterTimestamp, getYearTimestamp } from './date-util'
+import { getDateTimestamp, getMonthTimestamp, getQuarterTimestamp, getYearTimestamp } from './util'
 
 export default {
     name: 'u-calendar-range',
