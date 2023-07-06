@@ -25,8 +25,8 @@ export default {
         const data = [];
         for (let i = 0; i < 75; i++) {
             const item = Object.assign({}, baseData[i % 5]);
-            item.name += '-' + (Math.random() * 20 >> 0);
-            item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+            item.name += '-' + i;
+            item.phone = String(+item.phone + i);
             item.createdTime += i * 1000 * 3600 * 24;
             item.loginTime += i * 1000 * 3600 * 24;
             data.push(item);
@@ -92,8 +92,8 @@ export default {
         const data = [];
         for (let i = 0; i < 75; i++) {
             const item = Object.assign({}, baseData[i % 5]);
-            item.name += '-' + (Math.random() * 20 >> 0);
-            item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+            item.name += '-' + i;
+            item.phone = String(+item.phone + i);
             item.createdTime += i * 1000 * 3600 * 24;
             item.loginTime += i * 1000 * 3600 * 24;
             data.push(item);
@@ -130,8 +130,8 @@ const baseData = [
 const remoteData = [];
 for (let i = 0; i < 75; i++) {
     const item = Object.assign({}, baseData[i % 5]);
-    item.name += '-' + (Math.random() * 20 >> 0);
-    item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+    item.name += '-' + i;
+    item.phone = String(+item.phone + i);
     item.createdTime += i * 1000 * 3600 * 24;
     item.loginTime += i * 1000 * 3600 * 24;
     remoteData.push(item);
@@ -193,8 +193,8 @@ export default {
         const data = [];
         for (let i = 0; i < 75; i++) {
             const item = Object.assign({}, baseData[i % 5]);
-            item.name += '-' + (Math.random() * 20 >> 0);
-            item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+            item.name += '-' + i;
+            item.phone = String(+item.phone + i);
             item.createdTime += i * 1000 * 3600 * 24;
             item.loginTime += i * 1000 * 3600 * 24;
             data.push(item);
@@ -238,8 +238,8 @@ const baseData = [
 const remoteData = [];
 for (let i = 0; i < 75; i++) {
     const item = Object.assign({}, baseData[i % 5]);
-    item.name += '-' + (Math.random() * 20 >> 0);
-    item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+    item.name += '-' + i;
+    item.phone = String(+item.phone + i);
     item.createdTime += i * 1000 * 3600 * 24;
     item.loginTime += i * 1000 * 3600 * 24;
     remoteData.push(item);
@@ -614,8 +614,8 @@ const baseData = [
 const remoteData = [];
 for (let i = 0; i < 75; i++) {
     const item = Object.assign({}, baseData[i % 5]);
-    item.name += '-' + (Math.random() * 20 >> 0);
-    item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+    item.name += '-' + i;
+    item.phone = String(+item.phone + i);
     item.createdTime += i * 1000 * 3600 * 24;
     item.loginTime += i * 1000 * 3600 * 24;
     remoteData.push(item);
@@ -729,8 +729,8 @@ export default {
         const data = [];
         for (let i = 0; i < 75; i++) {
             const item = Object.assign({}, baseData[i % 5]);
-            item.name += '-' + (Math.random() * 20 >> 0);
-            item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+            item.name += '-' + i;
+            item.phone = String(+item.phone + i);
             item.createdTime += i * 1000 * 3600 * 24;
             item.loginTime += i * 1000 * 3600 * 24;
             data.push(item);
@@ -766,8 +766,8 @@ const baseData = [
 const remoteData = [];
 for (let i = 0; i < 15; i++) {
     const item = Object.assign({}, baseData[i % 5]);
-    item.name += '-' + (Math.random() * 20 >> 0);
-    item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+    item.name += '-' + i;
+    item.phone = String(+item.phone + i);
     item.createdTime += i * 1000 * 3600 * 24;
     item.loginTime += i * 1000 * 3600 * 24;
     remoteData.push(item);
@@ -963,8 +963,8 @@ export default {
         const data = [];
         for (let i = 0; i < 75; i++) {
             const item = Object.assign({}, baseData[i % 5]);
-            item.name += '-' + (Math.random() * 20 >> 0);
-            item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+            item.name += '-' + i;
+            item.phone = String(+item.phone + i);
             item.createdTime += i * 1000 * 3600 * 24;
             item.loginTime += i * 1000 * 3600 * 24;
             data.push(item);
@@ -1016,8 +1016,8 @@ export default {
             const data = [];
             for (let i = 0; i < 75; i++) {
                 const item = Object.assign({}, baseData[i % 5]);
-                item.name += '-' + (Math.random() * 20 >> 0);
-                item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+                item.name += '-' + i;
+                item.phone = String(+item.phone + i);
                 item.createdTime += i * 1000 * 3600 * 24;
                 item.loginTime += i * 1000 * 3600 * 24;
                 data.push(item);
@@ -1067,8 +1067,8 @@ const mockService = {
             const result = [];
             for (let i = 0; i < 75; i++) {
                 const item = Object.assign({}, baseData[i % 5]);
-                item.name += '-' + (Math.random() * 20 >> 0);
-                item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+                item.name += '-' + i;
+                item.phone = String(+item.phone + i);
                 item.createdTime += i * 1000 * 3600 * 24;
                 item.loginTime += i * 1000 * 3600 * 24;
                 result.push(item);
@@ -1141,8 +1141,8 @@ const mockData = (() => {
     const result = [];
     for (let i = 0; i < 75; i++) {
         const item = Object.assign({}, baseData[i % 5]);
-        item.name += '-' + (Math.random() * 20 >> 0);
-        item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+        item.name += '-' + i;
+        item.phone = String(+item.phone + i);
         item.createdTime += i * 1000 * 3600 * 24;
         item.loginTime += i * 1000 * 3600 * 24;
         result.push(item);
