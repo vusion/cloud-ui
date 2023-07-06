@@ -64,8 +64,7 @@ export default {
             let to = this.to;
             if (this.destination) {
                 if (this.destination.startsWith('http')) {
-                    location.href = encodeUrl(this.destination);
-                    return;
+                    return false;
                 }
                 to = this.destination;
             }
