@@ -1392,6 +1392,7 @@ export default {
             return sheetData;
         },
         page(number, size) {
+            if (!this.currentDataSource?.paging) return;
             if (size === undefined)
                 size = this.currentDataSource.paging.size;
             const paging = {

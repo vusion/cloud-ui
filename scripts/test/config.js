@@ -13,9 +13,6 @@ module.exports.ignoredFiles = [
     'src/components/u-date-time-picker.vue',
     // TypeError: Cannot read property 'includes' of undefined
     'src/components/u-tooltip.vue/docs/cases.md',
-    // TypeError: Cannot read property 'paging' of undefined
-    'src/components/u-table-view.vue/docs/blocks.md',
-    'src/components/u-table-view.vue/docs/cases.md',
     // TypeError: Cannot read property 'userInfo' of undefined
     'src/components/u-navbar-multi.vue/docs/blocks.md',
 ]
