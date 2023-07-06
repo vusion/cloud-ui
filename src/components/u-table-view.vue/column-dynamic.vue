@@ -52,7 +52,7 @@ export default {
                     field: this.$at(item, this.valueField),
                     dynamicId: this._uid,
                 }));
-                console.log('vms', vms);
+                if (vms.length === 0) return;
                 // this是初始加载的组件，需要保留作为后续查找依据
                 this.columnItem = vms[0].columnItem;
                 this.field = vms[0].field;

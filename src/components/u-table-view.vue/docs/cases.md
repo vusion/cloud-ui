@@ -1651,6 +1651,7 @@ export default {
 ``` vue
 <template>
 <u-linear-layout direction="vertical" gap="small">
+    <u-text>from data</u-text>
     <u-linear-layout>
         <u-table-view striped :data-source="data">
             <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
@@ -1689,6 +1690,7 @@ export default {
         </u-linear-layout>
     </u-linear-layout>
     <u-linear-layout>
+        <u-text>from load()</u-text>
         <u-table-view striped :data-source="load">
             <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
             <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
@@ -1732,6 +1734,7 @@ export default {
         </u-table-view>
     </u-linear-layout>
     <u-linear-layout>
+        <u-text>sortable</u-text>
         <u-table-view striped :data-source="load1" pagination>
             <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
             <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
@@ -1746,6 +1749,38 @@ export default {
             </u-table-view-column-dynamic>
             <u-table-view-column title="地址" field="address"></u-table-view-column>
             <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+        </u-table-view>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-text>hidden</u-text>
+        <u-table-view striped :data-source="data">
+            <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
+            <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
+            <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+            <u-table-view-column-dynamic :data-source="list" hidden>
+                <template #title="current">
+                    <u-text>{{ current.columnItem.name }}</u-text>
+                </template>
+                <template #cell="current">
+                    <u-text>{{ current.item.name }} {{ current.columnItem.name }}</u-text>
+                </template>
+            </u-table-view-column-dynamic>
+        </u-table-view>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-text>ellipsis</u-text>
+        <u-table-view striped :data-source="data">
+            <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
+            <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
+            <u-table-view-column title="手机号码" field="phone" width="50%"></u-table-view-column>
+            <u-table-view-column-dynamic :data-source="list" width="100" ellipsis>
+                <template #title="current">
+                    <u-text>{{ current.columnItem.name }}</u-text>
+                </template>
+                <template #cell="current">
+                    <u-text>{{ current.item.address }}</u-text>
+                </template>
+            </u-table-view-column-dynamic>
         </u-table-view>
     </u-linear-layout>
 </u-linear-layout>

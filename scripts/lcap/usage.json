@@ -9104,10 +9104,16 @@
                             "name": "u-table-view-column",
                             "title": "表格列",
                             "snippet": "<u-table-view-column><template #cell=\"current\"></template><template #title><u-text text=\"表格列\"></u-text></template></u-table-view-column>"
+                        },
+                        {
+                            "name": "u-table-view-column-dynamic",
+                            "title": "表格动态列",
+                            "snippet": "<u-table-view-column-dynamic><template #cell=\"current\"></template><template #title=\"current\"><u-text text=\"表格动态列\"></u-text></template></u-table-view-column-dynamic>"
                         }
                     ],
                     "supportGenericComponents": [
-                        "u-table-view-column"
+                        "u-table-view-column",
+                        "u-table-view-column-dynamic"
                     ]
                 },
                 {
@@ -10419,6 +10425,184 @@
                                     "description": "发送事件实例"
                                 }
                             ]
+                        }
+                    ]
+                },
+                {
+                    "name": "u-table-view-column-dynamic",
+                    "title": "表格动态列",
+                    "attrs": [
+                        {
+                            "name": "data-source",
+                            "title": "数据源",
+                            "type": "Array<Item> | Function | object | DataSource",
+                            "designer-value": "[{}]",
+                            "description": "展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑",
+                            "group": "数据属性",
+                            "brifeDoc": "",
+                            "docDescription": "表格展示的数据。数据源可以绑定变量或者逻辑。变量或逻辑的返回值可以是数组，也可以是对象。对象格式为{list:[], total:10}",
+                            "tooltipLink": "https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html"
+                        },
+                        {
+                            "name": "data-schema",
+                            "title": "数据类型",
+                            "type": "schema",
+                            "compType": "dataTypeSelect",
+                            "group": "数据属性",
+                            "description": "数据源返回的数据结构的类型，自动识别类型进行展示说明",
+                            "brifeDoc": "",
+                            "docDescription": "表格每一行的数据类型。该属性为展示属性，由数据源推导得到，无需填写",
+                            "tooltipLink": "https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html"
+                        },
+                        {
+                            "name": "value-field",
+                            "title": "值字段",
+                            "type": "string",
+                            "description": "在单选、多选操作、渲染树形数据中，指定数据唯一值的字段",
+                            "display": "property-select",
+                            "default": "value",
+                            "dependency": [
+                                {
+                                    "!data-source": null
+                                }
+                            ],
+                            "dependencyDisplay": "disabled",
+                            "group": "数据属性",
+                            "brifeDoc": "",
+                            "docDescription": "在表格开启了单选、多选操作、渲染树形数据中，指定数据唯一值的字段",
+                            "tooltipLink": "https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html"
+                        },
+                        {
+                            "name": "sortable",
+                            "title": "排序",
+                            "type": "boolean",
+                            "default": false,
+                            "description": "设置该列是否可以排序",
+                            "group": "数据属性",
+                            "brifeDoc": "",
+                            "docDescription": "开启后该列可排序，可设置默认顺序，升序或倒序",
+                            "tooltipLink": ""
+                        },
+                        {
+                            "name": "default-order",
+                            "title": "排序初始顺序",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "asc",
+                                    "title": "升序"
+                                },
+                                {
+                                    "value": "desc",
+                                    "title": "倒序"
+                                }
+                            ],
+                            "default": "asc",
+                            "description": "该列首次点击时的排序顺序",
+                            "dependency": [
+                                {
+                                    "sortable": true
+                                }
+                            ],
+                            "group": "数据属性",
+                            "brifeDoc": "",
+                            "docDescription": "该列首次点击时的排序顺序。与表格属性中的\"默认排序顺序\"相同",
+                            "tooltipLink": ""
+                        },
+                        {
+                            "name": "fixed",
+                            "title": "固定列",
+                            "type": "boolean",
+                            "default": false,
+                            "description": "该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。",
+                            "group": "主要属性",
+                            "brifeDoc": "",
+                            "docDescription": "",
+                            "tooltipLink": ""
+                        },
+                        {
+                            "name": "ellipsis",
+                            "title": "文本过长省略",
+                            "type": "boolean",
+                            "default": false,
+                            "description": "文字过长是否省略显示。默认文字超出时会换行。",
+                            "group": "主要属性",
+                            "brifeDoc": "",
+                            "docDescription": "开启后，该列文本过长会省略显示，否则换行显示，默认关闭",
+                            "tooltipLink": ""
+                        },
+                        {
+                            "name": "hidden",
+                            "title": "隐藏列",
+                            "type": "boolean",
+                            "default": false,
+                            "description": "",
+                            "group": "主要属性",
+                            "brifeDoc": "",
+                            "docDescription": "开启后，当表格横向滚动条滚动时，该列会固定不会跟随滚动条滚动",
+                            "tooltipLink": ""
+                        },
+                        {
+                            "name": "width",
+                            "title": "列宽度",
+                            "type": "string | number",
+                            "description": "设置列宽度，可设置为数字或百分比",
+                            "group": "样式属性",
+                            "brifeDoc": "",
+                            "docDescription": "指定列宽，可以是数字或百分比，如100，或10%。",
+                            "tooltipLink": ""
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "concept": "Slot",
+                            "name": "title",
+                            "title": "配置列展示title",
+                            "slotProps": {
+                                "concept": "Param",
+                                "name": "current",
+                                "typeAnnotation": {
+                                    "concept": "TypeAnnotation",
+                                    "typeKind": "generic",
+                                    "typeNamespace": "nasl.ui",
+                                    "typeName": "Current",
+                                    "typeArguments": [
+                                        {
+                                            "concept": "TypeAnnotation",
+                                            "typeKind": "typeParam",
+                                            "typeName": "T"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "concept": "Slot",
+                            "name": "cell",
+                            "plus-empty": true,
+                            "description": "自定义选项的结构和样式",
+                            "slotProps": {
+                                "concept": "Param",
+                                "name": "current",
+                                "typeAnnotation": {
+                                    "concept": "TypeAnnotation",
+                                    "typeKind": "generic",
+                                    "typeNamespace": "nasl.ui",
+                                    "typeName": "CurrentDynamic",
+                                    "typeArguments": [
+                                        {
+                                            "concept": "TypeAnnotation",
+                                            "typeKind": "typeParam",
+                                            "typeName": "T"
+                                        },
+                                        {
+                                            "concept": "TypeAnnotation",
+                                            "typeKind": "typeParam",
+                                            "typeName": "T1"
+                                        }
+                                    ]
+                                }
+                            }
                         }
                     ]
                 }
