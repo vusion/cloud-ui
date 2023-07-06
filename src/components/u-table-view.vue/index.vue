@@ -94,12 +94,13 @@
                 <tbody>
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
-                            <tr :key="rowIndex" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }"
+                            <tr :key="rowIndex" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
                             :draggable="rowDraggable?rowDraggable:undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
                             @dragstart="onDragStart($event, item, rowIndex)"
-                            @dragover="onDragOver($event, item, rowIndex)">
+                            @dragover="onDragOver($event, item, rowIndex)"
+                            @click="onClickRow($event, item, rowIndex)">
                                 <template v-if="$env.VUE_APP_DESIGNER">
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'" v-ellipsis-title
                                         vusion-slot-name="cell"
@@ -1506,6 +1507,13 @@ export default {
                         this.checkedItems[label] = item;
                     }
                 });
+            }
+        },
+        onClickRow(e, item, rowIndex) {
+            this.$emit('click-row', { item, index: rowIndex });
+
+            if (this.selectable) {
+                this.select(item);
             }
         },
         select(item, cancelable) {
