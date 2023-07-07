@@ -10,7 +10,7 @@
             :disabled="node.disabled"
             :readonly="node.readonly"
             :designer="$env.VUE_APP_DESIGNER"
-            :node="node"
+            :node="{ ...node, index }"
         >
             <template #item="item">
                 <slot name="item" v-bind="item">
