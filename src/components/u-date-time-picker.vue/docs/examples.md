@@ -93,3 +93,14 @@ export default {
 };
 </script>
 ```
+
+### 范围选择
+
+``` html
+<u-date-time-picker
+    range
+    start-date="2023-03-10"
+    end-date="2023-03-20"
+    clearable>
+</u-date-time-picker>
+```

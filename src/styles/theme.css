@@ -1831,6 +1831,7 @@
     --datetime-input-background: var(--input-background); /* @type color */ /* @desc 日期时间选择器输入框背景颜色,如：#223325 */ /* @prefix datetime-input */
 
     --datetime-input-width: var(--input-width); /* @desc 日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */
+    --datetime-range-input-width: var(--input-width-large); /* @desc 日期时间范围选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */
     --datetime-input-height: var(--input-height); /* @desc 日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["height"] */
     --datetime-input-padding-x: var(--input-padding-x); /* @desc 日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
     --datetime-input-width-mini: var(--input-width-mini); /* @desc Mini日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["mini"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */

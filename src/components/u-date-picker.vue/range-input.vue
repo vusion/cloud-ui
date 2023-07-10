@@ -1,6 +1,7 @@
 <template>
-    <div :class="$style.root" :focus="focused" @click.stop="onClick">
+    <div :class="$style.root" :focus="focused">
         <u-input
+            :width="leftWidth"
             height="full"
             :class="$style.input"
             type="text"
@@ -12,6 +13,7 @@
             :disabled="disabled"
             :placeholder="placeholder"
             :color="color"
+            @click.stop="onLeftClick"
             @focus="onFocus"
             @blur="onBlur"
             @update:value="onUpdateLeftValue"
@@ -21,7 +23,7 @@
             </template>
         </u-input>
         <u-input
-            width="full"
+            :width="rightWidth"
             height="full"
             :class="$style.input"
             type="text"
@@ -35,6 +37,7 @@
             :placeholder="placeholder"
             :clearable="clearable"
             :color="color"
+            @click.stop="onRightClick"
             @focus="onFocus"
             @blur="onBlur"
             @clear="onClear"
@@ -56,6 +59,8 @@ export default {
     props: {
         leftValue: { type: String },
         rightValue: { type: String },
+        leftWidth: { type: String, default: undefined },
+        rightWidth: { type: String, default: 'full' },
         preIcon: {
             type: String,
             default: 'calendar',
@@ -81,8 +86,11 @@ export default {
         }
     },
     methods: {
-        onClick(event) {
-            this.$emit('click', event)
+        onLeftClick(event) {
+            this.$emit('left-click', event)
+        },
+        onRightClick(event) {
+            this.$emit('right-click', event)
         },
         onUpdateLeftValue(value) {
             this.$emit('update:value', {

@@ -15,6 +15,26 @@
       brifeDoc: ""
       docDescription: 默认显示的日期时间值
       tooltipLink: ""
+    - name: startDate
+      title: 起始值
+      type: string,number,Date
+      sync: true
+      description: 默认显示的起始日期值，格式如2018-08-08
+      group: 数据属性
+      brifeDoc: ""
+      tooltipLink: ""
+      dependency:
+        - range: true
+    - name: endDate
+      title: 结束值
+      type: string,number,Date
+      sync: true
+      description: 默认显示的结束日期值，格式如2018-08-08
+      group: 数据属性
+      brifeDoc: ""
+      tooltipLink: ""
+      dependency:
+        - range: true
     - name: minDate
       title: 最小日期时间值
       type: string, number, Date
@@ -134,6 +154,14 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: "- SON、Unix 时间戳、 Date 对象、 YYYY-MM-DD HH:mm:ss"
+      tooltipLink: ""
+    - name: range
+      title: 区间选择
+      type: boolean
+      default: false
+      description: 是否支持进行日期区间选择，关闭则为日期点选择
+      group: 主要属性
+      brifeDoc: ""
       tooltipLink: ""
     - name: preIcon
       title: 前缀图标
