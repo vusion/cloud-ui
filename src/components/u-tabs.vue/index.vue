@@ -27,7 +27,7 @@
                                     :alignment="itemAlign"
                                     @click="onClick(itemVM, $event)">
                                 <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
-                                    <slot name="title" :item="itemVM">{{ $at(itemVM, titleField) }}</slot>
+                                    <slot name="title" :item="itemVM" :index="index">{{ $at(itemVM, titleField) }}</slot>
                                     <s-empty
                                         v-if="!$slots.title
                                             && !($scopedSlots.title && $scopedSlots.title())
@@ -63,6 +63,7 @@
                                         <f-slot
                                             :vm="itemVM"
                                             name="title"
+                                            :index="index"
                                             :props="{ selected: router ? itemVM.active : itemVM === selectedVM }">
                                             {{ itemVM.title || $at(itemVM, titleField) }}
                                             <s-empty
@@ -89,7 +90,7 @@
             <template v-if="dataSource !== undefined">
                 <template v-for="(itemVM, index) in tabDataSource">
                     <div vusion-slot-name="content" :key="index" v-show="itemVM.active">
-                        <slot name="content" :item="itemVM"></slot>
+                        <slot name="content" :item="itemVM" :index="index"></slot>
                         <s-empty
                             v-if="!$slots.content
                                 && !($scopedSlots.content && $scopedSlots.content())

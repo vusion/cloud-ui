@@ -13,7 +13,7 @@
             :node="node"
         >
             <template #item="item">
-                <slot name="item" v-bind="item">
+                <slot name="item" v-bind="item" :index="index">
                     {{ $at2(node, textField) }}
                 </slot>
             </template>
