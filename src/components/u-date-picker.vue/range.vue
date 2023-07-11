@@ -113,8 +113,8 @@ export default {
             showStartDate,
             showEndDate,
             // calendar里的值
-            calendarStartDate: showStartDate,
-            calendarEndDate: showEndDate,
+            calendarStartDate: showStartDate ? new Date(this.transformDate(showStartDate)) : undefined,
+            calendarEndDate: showEndDate ? new Date(this.transformDate(showEndDate)) : undefined,
         };
     },
     computed: {
@@ -136,7 +136,7 @@ export default {
             const showDate = this.returnTime(newValue);
             const newDate = showDate ? new Date(this.transformDate(showDate)) : undefined;
             this.$emit('update:startDate', this.toValue(newDate));
-            this.$emit('change', { sender: this, startDate: newDate, endDate: this.transformDate(this.showEndDate) });
+            this.$emit('change', { sender: this, startDate: newDate });
             // this.$emit('input', this.toValue(newDate));
             this.calendarStartDate = newDate; // showDate改变时设置calendar里的值
         },
@@ -144,7 +144,7 @@ export default {
             const showDate = this.returnTime(newValue);
             const newDate = showDate ? new Date(this.transformDate(showDate)) : undefined;
             this.$emit('update:endDate', this.toValue(newDate));
-            this.$emit('change', { sender: this, startDate: this.transformDate(this.showStartDate), endDate: newDate });
+            this.$emit('change', { sender: this, endDate: newDate });
             // this.$emit('input', this.toValue(newDate));
             this.calendarEndDate = newDate; // showDate改变时设置calendar里的值
         },
@@ -257,7 +257,7 @@ export default {
                 date = isOutOfRange ? this.showStartDate : date;
                 const showDate = this.format(date, this.getFormatString());
                 this.showStartDate = showDate;
-                this.calendarStartDate = showDate;
+                this.calendarStartDate = this.transformDate(showDate);
                 this.$refs.input.updateCurrentValue({ leftValue: this.showStartDate });
             }
             if (this.checkValid(rightValue)) {
@@ -266,7 +266,7 @@ export default {
                 date = isOutOfRange ? this.showEndDate : date;
                 const showDate = this.format(date, this.getFormatString());
                 this.showEndDate = showDate;
-                this.calendarEndDate = showDate;
+                this.calendarEndDate = this.transformDate(showDate);
                 this.$refs.input.updateCurrentValue({ rightValue: this.showEndDate });
             }
         },
@@ -340,8 +340,17 @@ export default {
             this.$refs.popper && this.$refs.popper.toggle(value);
         },
         checkValid(value) {
-            const reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
-            return reg.test(value);
+            switch (this.picker) {
+                case 'year':
+                    return /^[1-9]\d{3}$/.test(value);
+                case 'month':
+                    return /^[1-9]\d{3}-(0[1-9]|1[0-2])$/.test(value);
+                case 'quarter':
+                    return /^[1-9]\d{3}-(Q[1-4])$/.test(value);
+                default:
+                    // date format
+                    return /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/.test(value);
+            }
         },
         onBlurInputValue({ leftValue, rightValue }) {
             // 当输入框输入的值不合法，需还原成上一次合法的值
