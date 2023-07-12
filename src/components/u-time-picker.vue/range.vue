@@ -37,7 +37,7 @@
         :cancelTitle="cancelTitle"
         :okTitle="okTitle"
         :inputTime.sync="startInputTime"
-        @change="onChange"
+        @change="onStartTimeChange"
         @update:time="onUpdateStartTime"
         @blur="onPopperBlur"
         @toggle="onPopperToggle"
@@ -59,7 +59,7 @@
         :cancelTitle="cancelTitle"
         :okTitle="okTitle"
         :inputTime.sync="endInputTime"
-        @change="onChange"
+        @change="onEndTimeChange"
         @update:time="onUpdateEndTime"
         @blur="onPopperBlur"
         @toggle="onPopperToggle"
@@ -179,8 +179,11 @@ export default {
         onFocus(e) {
             this.$emit('focus', e, this);
         },
-        onChange(e) {
-            this.$emit('change', e, this);
+        onStartTimeChange(e) {
+            this.$emit('change', { sender: this, startTime: e.value }, this);
+        },
+        onEndTimeChange(e) {
+            this.$emit('change', { sender: this, endTime: e.value }, this);
         },
         onUpdateStartTime(value) {
             this.$emit('update:startTime', value);
