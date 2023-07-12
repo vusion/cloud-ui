@@ -119,6 +119,7 @@ export default {
             this.$emit('blur:value', { leftValue: this.leftValue, rightValue: value })
         },
         onClear() {
+            this.$emit('clear');
             this.$nextTick(() => {
                 // 右边被清除的时候，左边也要清除
                 this.$refs.leftInput.clear()
