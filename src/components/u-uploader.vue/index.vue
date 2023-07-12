@@ -43,9 +43,9 @@
                     <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                     <div :class="$style.buttons">
                         <span v-if="!readonly && !disabled" :class="$style.button" role="remove" @click.stop="remove(index)"></span>
-                        <span :class="$style.button" role="preview" @click="onPreview(item, index)"></span>
-                        <a v-if="downLoadFilename" :class="$style.button" :href="item.url" target="_blank" role="download" :download="downLoadFilename"></a>
-                        <a v-else :class="$style.button" :href="item.url" target="_blank" role="download"></a>
+                        <span :class="$style.button" role="preview" @click.stop="onPreview(item, index)"></span>
+                        <a v-if="downLoadFilename" :class="$style.button" @click.stop :href="item.url" target="_blank" role="download" :download="downLoadFilename"></a>
+                        <a v-else :class="$style.button" :href="item.url" @click.stop target="_blank" role="download"></a>
                     </div>
                 </div>
             </div>
