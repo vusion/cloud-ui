@@ -755,6 +755,8 @@
         - name: $event
           type: object
           description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/OperatorItemEvent"
         - name: $event.item
           type: object
           description: 点击行相关对象
