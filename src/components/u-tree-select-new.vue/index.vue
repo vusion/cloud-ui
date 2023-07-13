@@ -85,38 +85,13 @@
             <u-tree-view-new v-if="popperOpened" ref="treeView"
                 :if-expanded="ifExpanded"
                 style="border: none; min-width: 100%; display: inline-block"
-                :value="value"
-                :data="dataSource"
-                :data-source="dataSource"
+
+                :value="actualValue"
+
+                :data-source="currentDataSource && currentDataSource.data || []"
                 :text-field="textField"
                 :value-field="valueField"
-                :parent-field="parentField"
-                :is-leaf-field="isLeafField"
-                :children-field="childrenField"
-                :more-children-fields="moreChildrenFields"
-                :exclude-fields="excludeFields"
-                :checkable="checkable"
-                :cancelable="cancelable"
-                :accordion="accordion"
-                :checkControlled="checkControlled"
-                :tree-select-tip="treeSelectTip"
-                :expand-trigger="expandTrigger"
-                :initial-load="initialLoad"
-                :readonly="readonly"
-                :disabled="disabled"
-                :expander-width="expanderWidth"
-                :filterable="filterable"
-                :filter-text="filterText"
-                :filter-fields="filterFields"
-                @change="$emit('change', $event, this)"
-                @before-select="$emit('before-select', $event, this)"
-                @select="$emit('select', $event, this)"
-                @input="$emit('input', $event, this)"
-                @update:value="onUpdateValue"
-                @toggle="$emit('toggle', $event, this)"
-                @check="$emit('check', $event, this)"
-                @before-load="onBeforeLoad"
-                @load="onLoad">
+                :checkable="checkable">
                 <template #item="item">
                     <slot name="item" v-bind="item">{{ item.text }}</slot>
                     <s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER "></s-empty>
@@ -186,7 +161,7 @@ export default {
     data() {
         return {
             focusedVM: undefined,
-            // @inherit: currentDataSource: undefined,
+            currentDataSource: undefined,
             // @inherit: currentLoading: false,
             currentText: '', // 显示文本
             filterText: '', // 过滤文本，只有 input 时会改变它
@@ -223,21 +198,22 @@ export default {
         checkableValue() {
             if (!this.checkable)
                 return '';
-            else if (this.value.length === 0){
+            else if (this.value.length === 0) {
                 return '';
             } else {
                 return this.value.join('、');
             }
-        }
+        },
     },
     watch: {
-        value() {
-            this.actualValue = this.value;
+        value(val) {
+            this.actualValue = val;
             // 在验证器里，当初始value是异步接口获取的时候，没有触发验证机制，增加update事件触发。
             this.$emit('update', this.value, this);
         },
-        actualValue() {
+        actualValue(val) {
             this.loadUntilSelectedItem();
+            this.$emit('update:value', val, this);
         },
         data() {
             this.handleData();
@@ -380,6 +356,8 @@ export default {
         },
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+
+            console.log('currentDataSource', this.currentDataSource);
             this.dataSourceNodeList = this.handleDataSourceObj(this.currentDataSource.data, 'dataSource');
             this.dataSourceObj = { ...this.dataSourceNodeList, ...this.virtualNodeList };
         },
@@ -451,6 +429,8 @@ export default {
                 final.data = data;
                 final.load = dataSource.load && createLoad(dataSource.load);
             }
+
+            console.log('final', final);
             return final;
         },
         open() {

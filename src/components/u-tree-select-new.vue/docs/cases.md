@@ -1,128 +1,35 @@
+#### 支持多选
 
-```html { width: 70% }
-<u-tree-select-new :data-source="
-[ { 'data': { 'id': 1, 'deptname': '一级部门a', 'parentid': 99, 'name': '小明' } }, { 'data': { 'id': 2, 'deptname': '一级部门b', 'parentid': 11, 'name': '刷新' } }, { 'data': { 'id': 3, 'deptname': '二级部门a', 'parentid': 1, 'name': '左箭头' } }, { 'data': { 'id': 4, 'deptname': '三级部门a', 'parentid': 3, 'name': '小明3' } } ]
-"   
-                   value-field="data.id" 
-                   text-field="data.deptname"
-                   parent-field="data.parentid"
-                   childrenField="children"  
-></u-tree-select-new>
-```
-
-### 异步加载
-
-```vue
+```vue { width: 30% }
 <template>
-<u-linear-layout>
-    <u-tree-select-new :data-source="load" 
-                    value-field="data.id"
-                    text-field="data.deptname"
-                    parent-field="data.parentid"
-                    childrenField="children" ref="treeselect"
-                    :value.sync="selectValue"
-                    @load="onLoad"
-                    @before-load="onBeforeLoad">
-    </u-tree-select-new>
-    <u-button @click="reload">重新加载</u-button>
-</u-linear-layout>
+    <u-tree-select-new  v-model="value" checkable valueField="text1" :checkControlled="false" textField="text1" :data-source="list"></u-tree-select-new>
 </template>
 <script>
-// 模拟后端请求
-const mockRequest = (data, timeout = 300) => new Promise((resolve, rej) => setTimeout(() => resolve(data), timeout));
-
-export default {
-    data() {
-        return {
-            selectValue: 1,
-            data: [{ 'data': { 'id': 1, 'deptname': '一级部门a', 'parentid': 99, 'name': '小明' } }, { 'data': { 'id': 2, 'deptname': '一级部门b', 'parentid': 11, 'name': '刷新' } }, { 'data': { 'id': 3, 'deptname': '二级部门a', 'parentid': 1, 'name': '左箭头' } }, { 'data': { 'id': 4, 'deptname': '三级部门a', 'parentid': 3, 'name': '小明3' } } ]
-        }
-    },
-    methods: {
-        load(params) {
-            console.log('load');
-            return mockRequest({
-                list:  this.data,
-            });
+    export default {
+        data() {
+            return {
+                value: ['节点 3.1', '节点 1.2.1'],
+                list:[
+    { text1: '节点 1', value1: '1', children: [
+        { text1: '节点 1.1' , value1: '1.1'},
+        { text1: '节点 1.2', value1: '1.2' ,children: [
+            { text1: '节点 1.2.1', value1: '1.2.1' },
+            { text1: '节点 1.2.2' , value1: '1.2.2' },
+        ] },
+        { text1: '节点 1.3', value1: '1.3' },
+        { text1: '节点 1.4' , value1: '1.4'},
+    ] },
+    { text1: '节点 2' ,value1: '2'},
+    { text1: '节点 3', value1: '3', children: [
+        { text1: '节点 3.1', value1: '3.1' },
+        { text1: '节点 3.2' , value1: '3.2'},
+    ] },
+]
+            };
         },
-        reload() {
-            console.log('reload');
-            this.data.push({ 'data': { 'id': 5, 'deptname': '三级部门a1', 'parentid': 3, 'name': '小明5' } });
-            this.$refs.treeselect.reload();
+        methods: {
+            
         },
-        onLoad() {
-            console.log('onLoad');
-        },
-        onBeforeLoad() {
-            console.log('onBeforeLoad');
-        }
-    },
-}
-</script>
-```
-
-### 表单验证
-
-```vue
-<template>
-<u-form ref="form">
-    <u-form-item label="树选择器" required rules="required">
-        <u-tree-select-new :data-source="load" 
-                    value-field="data.id"
-                    text-field="data.deptname"
-                    parent-field="data.parentid"
-                    childrenField="children">
-        </u-tree-select-new>
-    </u-form-item>
-    <u-form-item label="树选择器" required rules="required">
-        <u-tree-select-new :data-source="load" 
-                    value-field="data.id"
-                    text-field="data.deptname"
-                    parent-field="data.parentid"
-                    childrenField="children"
-                    :value.sync="selectValue">
-        </u-tree-select-new>
-    </u-form-item>
-    <u-form-item label="树选择器" required rules="required">
-        <u-tree-select-new :data-source="load" 
-                    value-field="data.id"
-                    text-field="data.deptname"
-                    parent-field="data.parentid"
-                    childrenField="children"
-                    :value.sync="selectValue1">
-        </u-tree-select-new>
-    </u-form-item>
-    <u-form-item>
-        <u-button color="primary" @click="onValidate">立即创建</u-button>
-    </u-form-item>
-</u-form>
-</template>
-<script>
-// 模拟后端请求
-const mockRequest = (data, timeout = 300) => new Promise((resolve, rej) => setTimeout(() => resolve(data), timeout));
-
-export default {
-    data() {
-        return {
-            selectValue: '',
-            selectValue1: 2,
-        }
-    },
-    created() {
-        setTimeout(()=>{
-            this.selectValue = 1;
-        }, 1000);
-    },
-    methods: {
-        load(params) {
-                return mockRequest({
-                    list:  [{ 'data': { 'id': 1, 'deptname': '一级部门a', 'parentid': 99, 'name': '小明' } }, { 'data': { 'id': 2, 'deptname': '一级部门b', 'parentid': 11, 'name': '刷新' } }, { 'data': { 'id': 3, 'deptname': '二级部门a', 'parentid': 1, 'name': '左箭头' } }, { 'data': { 'id': 4, 'deptname': '三级部门a', 'parentid': 3, 'name': '小明3' } } ]
-                });
-        },
-        onValidate() {
-            this.$refs.form.validate();
-        }
-    },
-}
+    }
 </script>
 ```

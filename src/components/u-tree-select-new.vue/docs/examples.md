@@ -89,7 +89,14 @@ export default {
 
 ```vue { width: 30% }
 <template>
-    <u-tree-select-new  v-model="value" checkable valueField="text1" :checkControlled="false" textField="text1" :data-source="[
+    <u-tree-select-new  v-model="value" checkable valueField="text1" :checkControlled="false" textField="text1" :data-source="list"></u-tree-select-new>
+</template>
+<script>
+    export default {
+        data() {
+            return {
+                value: ['节点 3.1'],
+                list: [
     { text1: '节点 1', value1: '1', children: [
         { text1: '节点 1.1' , value1: '1.1'},
         { text1: '节点 1.2', value1: '1.2' ,children: [
@@ -104,13 +111,7 @@ export default {
         { text1: '节点 3.1', value1: '3.1' },
         { text1: '节点 3.2' , value1: '3.2'},
     ] },
-]"></u-tree-select-new>
-</template>
-<script>
-    export default {
-        data() {
-            return {
-                value: [],
+]
             };
         },
         methods: {
