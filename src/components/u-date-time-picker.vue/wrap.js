@@ -3,6 +3,7 @@ import Range from './range.vue'
 
 export default {
   name: 'u-date-time-picker-wrap',
+  inheritAttrs: false,
   components: {
     Single,
     Range
@@ -16,8 +17,10 @@ export default {
   render(createElement) {
     const component = this.range ? Range : Single
     return createElement(component, {
-      attrs: this.$attrs,
+      props: this.$attrs,
       on: this.$listeners,
+      slots: this.$slots,
+      scopedSlots: this.$scopedSlots,
     })
   }
 }

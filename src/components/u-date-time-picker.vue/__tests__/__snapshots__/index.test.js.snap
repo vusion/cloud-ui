@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`u-date-time-picker.vue date time picker 1`] = `
-<div class="root" picker="date">
+<div class="root">
   <div class="input" height="full" prefix="calendar" width="full">
     <span>b</span>
     <span></span>
@@ -30,7 +30,7 @@ exports[`u-date-time-picker.vue date time picker 1`] = `
               <span></span>
             </span>
           </div>
-          <span class="root pickerinput" popper-width="134px" pre-icon simple-foot="true" time="18:18:59" width="50">
+          <span class="root pickerinput" width="50">
             <div class="input" clearable="18:18:59" height="full" width="full">
               <span>b</span>
               <span></span>
@@ -915,7 +915,7 @@ exports[`u-date-time-picker.vue date time picker 1`] = `
 `;
 
 exports[`u-date-time-picker.vue date time range picker 1`] = `
-<div class="root" picker="date">
+<div class="root">
   <div class="root input">
     <div class="input" height="full" prefix="calendar" width="full">
       <span>b</span>
@@ -942,7 +942,7 @@ exports[`u-date-time-picker.vue date time range picker 1`] = `
       <input height="full" type="text" width="full">
     </div>
   </div>
-  <transition-stub class="popper" name="fade" style="position: absolute; left: 0px; top: 0px; margin: 0px;">
+  <transition-stub class="popper" data-popper-escaped data-popper-placement="bottom-start" data-popper-reference-hidden name="fade" style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 4px);">
     <div class="root" style>
       <div>
         <div class="popperhead">
@@ -954,23 +954,14 @@ exports[`u-date-time-picker.vue date time range picker 1`] = `
               <span></span>
             </span>
           </div>
-          <span class="root pickerinput" popper-width="134px" pre-icon simple-foot="true" time="00:00:00">
-            <div class="input" clearable height="full" prefix="time" width="full">
+          <span class="root pickerinput" width="50">
+            <div class="input" clearable="00:00:00" height="full" width="full">
               <span>b</span>
-              <span>请选择时间</span>
-              <span name="time">
-                <span class="lcp-iconv preIcon">
-                  <span class="iconwrap">
-                    <svg aria-hidden="true" class="iconsvg">
-                      <use xlink:href="#pc-time" />
-                    </svg>
-                  </span>
-                  <div class="icontext" vusion-slot-name="default">
-                  </div>
-                </span>
-              </span>
+              <span></span>
               <input height="full" type="text" width="full">
-              <span> </span>
+              <span>
+                <span></span>
+              </span>
             </div>
             <transition-stub class="popper" name="fade" style="width: 134px;">
               <div class="root" style="display: none;">
@@ -1462,18 +1453,12 @@ exports[`u-date-time-picker.vue date time range picker 1`] = `
                     </div>
                   </div>
                 </div>
-                <div class="foot">
-                  <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
-                    <div class="root ctimewrap" direction="horizontal" type vusion-slot-name="default">
-                      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        此刻</a>
-                    </div>
-                    <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                      <a class="root" hovertype="underline" size="small" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        取 消</a>
-                      <a class="root" color="primary" hovertype="underline" size="small" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        确 定</a>
-                    </div>
+                <div class="foot" simple="true">
+                  <div class="root" direction="horizontal" justify="end" type vusion-slot-name="default">
+                    <a class="root textbtn" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                      取 消</a>
+                    <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                      确 定</a>
                   </div>
                 </div>
               </div>
@@ -1854,7 +1839,7 @@ exports[`u-date-time-picker.vue date time range picker 1`] = `
 `;
 
 exports[`u-date-time-picker.vue date time range picker 2`] = `
-<div class="root" picker="date">
+<div class="root">
   <div class="root input">
     <div class="input" height="full" prefix="calendar" width="full">
       <span>b</span>
@@ -1881,7 +1866,7 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
       <input height="full" type="text" width="full">
     </div>
   </div>
-  <transition-stub class="popper" name="fade" style="position: absolute; left: 0px; top: 0px; margin: 0px;">
+  <transition-stub class="popper" data-popper-escaped data-popper-placement="bottom-start" data-popper-reference-hidden name="fade" style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 4px);">
     <div class="root" style>
       <div>
         <div class="popperhead">
@@ -1893,23 +1878,14 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
               <span></span>
             </span>
           </div>
-          <span class="root pickerinput" popper-width="134px" pre-icon simple-foot="true" time="00:00:00">
-            <div class="input" clearable height="full" prefix="time" width="full">
+          <span class="root pickerinput" width="50">
+            <div class="input" clearable="00:00:00" height="full" width="full">
               <span>b</span>
-              <span>请选择时间</span>
-              <span name="time">
-                <span class="lcp-iconv preIcon">
-                  <span class="iconwrap">
-                    <svg aria-hidden="true" class="iconsvg">
-                      <use xlink:href="#pc-time" />
-                    </svg>
-                  </span>
-                  <div class="icontext" vusion-slot-name="default">
-                  </div>
-                </span>
-              </span>
+              <span></span>
               <input height="full" type="text" width="full">
-              <span> </span>
+              <span>
+                <span></span>
+              </span>
             </div>
             <transition-stub class="popper" name="fade" style="width: 134px;">
               <div class="root" style="display: none;">
@@ -1920,7 +1896,7 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
                         <div>
                           <div class="wrap">
                             <div class="itemwrap">
-                              <div class="item" value="0">
+                              <div class="item" selected="selected" value="0">
                                 00
                               </div>
                               <div class="item" value="1">
@@ -1977,7 +1953,7 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
                               <div class="item" value="18">
                                 18
                               </div>
-                              <div class="item" selected="selected" value="19">
+                              <div class="item" value="19">
                                 19
                               </div>
                               <div class="item" value="20">
@@ -2010,7 +1986,7 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
                         <div>
                           <div class="wrap">
                             <div class="itemwrap">
-                              <div class="item" value="0">
+                              <div class="item" selected="selected" value="0">
                                 00
                               </div>
                               <div class="item" value="1">
@@ -2163,7 +2139,7 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
                               <div class="item" value="50">
                                 50
                               </div>
-                              <div class="item" selected="selected" value="51">
+                              <div class="item" value="51">
                                 51
                               </div>
                               <div class="item" value="52">
@@ -2208,7 +2184,7 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
                         <div>
                           <div class="wrap">
                             <div class="itemwrap">
-                              <div class="item" value="0">
+                              <div class="item" selected="selected" value="0">
                                 00
                               </div>
                               <div class="item" value="1">
@@ -2337,7 +2313,7 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
                               <div class="item" value="42">
                                 42
                               </div>
-                              <div class="item" selected="selected" value="43">
+                              <div class="item" value="43">
                                 43
                               </div>
                               <div class="item" value="44">
@@ -2401,18 +2377,12 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
                     </div>
                   </div>
                 </div>
-                <div class="foot">
-                  <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
-                    <div class="root ctimewrap" direction="horizontal" type vusion-slot-name="default">
-                      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        此刻</a>
-                    </div>
-                    <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                      <a class="root" hovertype="underline" size="small" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        取 消</a>
-                      <a class="root" color="primary" hovertype="underline" size="small" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        确 定</a>
-                    </div>
+                <div class="foot" simple="true">
+                  <div class="root" direction="horizontal" justify="end" type vusion-slot-name="default">
+                    <a class="root textbtn" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                      取 消</a>
+                    <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                      确 定</a>
                   </div>
                 </div>
               </div>

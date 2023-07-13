@@ -4442,7 +4442,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -4871,7 +4871,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -5300,7 +5300,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -5729,7 +5729,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -6158,7 +6158,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -6587,7 +6587,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -7016,7 +7016,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -7445,7 +7445,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -7874,7 +7874,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -8303,7 +8303,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -8732,7 +8732,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -9161,7 +9161,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -9590,7 +9590,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -10019,7 +10019,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -10448,7 +10448,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -10877,7 +10877,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -11306,7 +11306,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -11735,7 +11735,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -12164,7 +12164,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
@@ -12593,7 +12593,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" date="2018-08-08">
+                      <div class="root">
                         <div class="input" height="full" prefix="calendar" width="full">
                           <span>b</span>
                           <span></span>
