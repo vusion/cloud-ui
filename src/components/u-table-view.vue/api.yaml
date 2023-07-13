@@ -749,6 +749,8 @@
     - name: click-row
       title: 点击
       description: 点击某一行时触发
+      schema:
+        $ref: "#/systemTypes/Current"
       params:
         - name: $event
           type: object
