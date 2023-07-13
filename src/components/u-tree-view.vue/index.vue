@@ -349,7 +349,7 @@ export default {
 
                 propsData.node = propsData.node || {};
                 this.childrenWm.set(propsData.node, [
-                    ...this.getPropsDataOfDataSource(this.getChildren(propsData.node, propsData), level + 1, propsData.expanded ? _collapsedParentCount : _collapsedParentCount + 1),
+                    ...this.getPropsDataOfDataSource(this.getChildren(propsData.node, propsData), propsData.node, level + 1, propsData.expanded ? _collapsedParentCount : _collapsedParentCount + 1),
                     ...this.getPropsDataOfSlot(vNode.componentOptions && vNode.componentOptions.children, level + 1, propsData.expanded ? _collapsedParentCount : _collapsedParentCount + 1),
                 ]);
 
@@ -411,7 +411,7 @@ export default {
             }
             return children;
         },
-        getPropsDataOfDataSource(arr = [], level = 0, _collapsedParentCount = 0) {
+        getPropsDataOfDataSource(arr = [], parent = null, level = 0, _collapsedParentCount = 0) {
             const res = [];
             for (const node of arr) {
                 const propsData = {
@@ -423,12 +423,13 @@ export default {
                     childrenField: this.childrenField,
                     hidden: this.filterText ? this.$at(node, 'hiddenByFilter') : this.$at(node, this.hiddenField),
                     node,
+                    parent, 
                     draggable: node.draggable,
                 };
                 propsData._collapsedParentCount = _collapsedParentCount;
                 propsData.level = level;
                 this.childrenWm.set(propsData.node,
-                                    this.getPropsDataOfDataSource(this.getChildren(node), level + 1, propsData.expanded ? _collapsedParentCount : _collapsedParentCount + 1));
+                                    this.getPropsDataOfDataSource(this.getChildren(node), node, level + 1, propsData.expanded ? _collapsedParentCount : _collapsedParentCount + 1));
                 res.push(propsData);
             }
             return res;
