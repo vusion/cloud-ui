@@ -176,6 +176,8 @@ export default {
     picker="date"
     start-date="2023-03-10"
     end-date="2023-03-20"
+    min-date="2023-02-01"
+    max-date="2023-05-02"
     clearable>
 </u-date-picker>
 ```
@@ -188,6 +190,8 @@ export default {
     picker="month"
     start-date="2021-06-10"
     end-date="2022-03-20"
+    min-date="2021-02-01"
+    max-date="2022-05-02"
     clearable>
 </u-date-picker>
 ```
@@ -199,7 +203,9 @@ export default {
     range
     picker="quarter"
     start-date="2021-06-10"
-    end-date="2022-03-20">
+    end-date="2022-03-20"
+    min-date="2020-12-01"
+    max-date="2022-09-02">
 </u-date-picker>
 ```
 
@@ -210,6 +216,8 @@ export default {
     range
     picker="year"
     start-date="2001-06-10"
-    end-date="2013-03-20">
+    end-date="2013-03-20"
+    min-date="2000-12-01"
+    max-date="2015-09-02">
 </u-date-picker>
 ```

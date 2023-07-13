@@ -18,6 +18,10 @@ export default {
     const component = this.range ? Range : Single
     return createElement(component, {
       props: this.$attrs,
+      attrs: {
+        'vusion-node-tag': this.$attrs['vusion-node-tag'],
+        'vusion-node-path': this.$attrs['vusion-node-path'],
+      },
       on: this.$listeners,
       slots: this.$slots,
       scopedSlots: this.$scopedSlots,

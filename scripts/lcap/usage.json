@@ -22503,6 +22503,40 @@
                     "tooltipLink": ""
                 },
                 {
+                    "name": "range",
+                    "title": "区间选择",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否支持进行日期区间选择，关闭则为日期点选择",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "startDate",
+                    "title": "起始值",
+                    "type": "string,number,Date",
+                    "sync": true,
+                    "description": "默认显示的起始日期值，格式如2018-08-08",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "range": true
+                        }
+                    ]
+                },
+                {
+                    "name": "endDate",
+                    "title": "结束值",
+                    "type": "string,number,Date",
+                    "sync": true,
+                    "description": "默认显示的结束日期值，格式如2018-08-08",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "range": true
+                        }
+                    ]
+                },
+                {
                     "name": "minDate",
                     "title": "最小日期值",
                     "type": "string,number,Date",
@@ -22542,7 +22576,12 @@
                     "group": "数据属性",
                     "brifeDoc": "",
                     "docDescription": "设置日期范围，最小可选择的年份",
-                    "tooltipLink": ""
+                    "tooltipLink": "",
+                    "dependency": [
+                        {
+                            "range": false
+                        }
+                    ]
                 },
                 {
                     "name": "yearAdd",
@@ -22553,7 +22592,12 @@
                     "group": "数据属性",
                     "brifeDoc": "",
                     "docDescription": "设置日期范围，最大可选择的年份",
-                    "tooltipLink": ""
+                    "tooltipLink": "",
+                    "dependency": [
+                        {
+                            "range": false
+                        }
+                    ]
                 },
                 {
                     "name": "autofocus",
@@ -23001,6 +23045,40 @@
                     "tooltipLink": ""
                 },
                 {
+                    "name": "range",
+                    "title": "区间选择",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否支持进行时间区间选择，关闭则为时间点选择",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "startTime",
+                    "title": "起始值",
+                    "type": "string",
+                    "sync": true,
+                    "description": "默认显示的起始时间值，格式如08:08:08",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "range": true
+                        }
+                    ]
+                },
+                {
+                    "name": "endDate",
+                    "title": "结束值",
+                    "type": "string",
+                    "sync": true,
+                    "description": "默认显示的结束时间值，格式如08:08:08",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "range": true
+                        }
+                    ]
+                },
+                {
                     "name": "min-time",
                     "title": "最小时间值",
                     "type": "string",
@@ -23356,6 +23434,40 @@
                     "tooltipLink": ""
                 },
                 {
+                    "name": "range",
+                    "title": "区间选择",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否支持进行日期时间区间选择，关闭则为日期时间点选择",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "startDate",
+                    "title": "起始值",
+                    "type": "string,number,Date",
+                    "sync": true,
+                    "description": "默认显示的起始日期时间值，格式如2018-08-08 08:08:08",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "range": true
+                        }
+                    ]
+                },
+                {
+                    "name": "endDate",
+                    "title": "结束值",
+                    "type": "string,number,Date",
+                    "sync": true,
+                    "description": "默认显示的结束日期时间值，格式如2018-08-08 08:08:08",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "range": true
+                        }
+                    ]
+                },
+                {
                     "name": "minDate",
                     "title": "最小日期时间值",
                     "type": "string, number, Date",
@@ -23384,7 +23496,12 @@
                     "group": "数据属性",
                     "brifeDoc": "",
                     "docDescription": "最小可选年份值为当前年减去此值",
-                    "tooltipLink": ""
+                    "tooltipLink": "",
+                    "dependency": [
+                        {
+                            "range": false
+                        }
+                    ]
                 },
                 {
                     "name": "yearAdd",
@@ -23395,7 +23512,12 @@
                     "group": "数据属性",
                     "brifeDoc": "",
                     "docDescription": "最大可选年份值为当前年加上此值",
-                    "tooltipLink": ""
+                    "tooltipLink": "",
+                    "dependency": [
+                        {
+                            "range": false
+                        }
+                    ]
                 },
                 {
                     "name": "placeholder",
