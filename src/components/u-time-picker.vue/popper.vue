@@ -128,9 +128,9 @@ export default {
         popperWidth: { type: String, default: '' },
         showRightNowButton: { type: Boolean, default: true },
         showFooterButton: { type: Boolean, default: true },
-        rightNowTitle: {type: String, default: ""},
-        cancelTitle: {type: String, default: ""},
-        okTitle: {type: String, default: ""},
+        rightNowTitle: { type: String, default: '' },
+        cancelTitle: { type: String, default: '' },
+        okTitle: { type: String, default: '' },
     },
     data() {
         const validTime = this.getUnitFormatTime(this.isOutOfRange(this.time) ? this.isOutOfRange(this.time) : this.time || '00:00:00');
@@ -364,7 +364,7 @@ export default {
                 return;
             this.adjustSpinner(type, value.value);
             this.setShowTime(type, value.value);
-            this.$emit('spinner-click')
+            this.$emit('spinner-click');
         },
         onConfirm() {
             if (!this.validShowTime) {

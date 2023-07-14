@@ -16,8 +16,8 @@ describe('u-date-time-picker.vue', () => {
             },
             listeners: {
                 change: onChange,
-                'update:date': onUpdateValue
-            }
+                'update:date': onUpdateValue,
+            },
         });
         // 输入框的值
         expect(wrapper.find('input').element.value).toBe('2023-03-10 18:18:59');
@@ -33,7 +33,7 @@ describe('u-date-time-picker.vue', () => {
         // 校验事件参数
         expect(onChange.mock.calls[0][0]).toHaveProperty('date', 1678875539000);
         expect(onUpdateValue.mock.calls[0][0]).toBe('2023-03-15 18:18:59');
-    })
+    });
 
     it('date time range picker', async () => {
         const onChange = jest.fn();
@@ -52,7 +52,7 @@ describe('u-date-time-picker.vue', () => {
                 change: onChange,
                 'update:startDate': onUpdateStartDate,
                 'update:endDate': onUpdateEndDate,
-            }
+            },
         });
         // 输入框的值
         expect(wrapper.findAll('input').at(0).element.value).toBe('2023-03-10 00:00:00');
@@ -79,5 +79,5 @@ describe('u-date-time-picker.vue', () => {
         // 校验事件参数
         expect(onUpdateEndDate).toHaveBeenLastCalledWith('2023-03-25 00:00:00');
         expect(onChange.mock.calls[1][0]).toHaveProperty('endDate', 1679673600000);
-    })
-})
+    });
+});

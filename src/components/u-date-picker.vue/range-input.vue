@@ -44,7 +44,7 @@
             @update:value="onUpdateRightValue"
             @blur:value="onBlurRightValue">
             <template #prefix>
-                <span :class="$style.toIcon" />
+                <span :class="$style.toIcon"></span>
             </template>
             <template #suffix>
                 <i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.suffixIcon]" notext></i-ico>
@@ -83,58 +83,58 @@ export default {
     data() {
         return {
             focused: false,
-        }
+        };
     },
     methods: {
         onLeftClick(event) {
-            this.$emit('left-click', event)
+            this.$emit('left-click', event);
         },
         onRightClick(event) {
-            this.$emit('right-click', event)
+            this.$emit('right-click', event);
         },
         onUpdateLeftValue(value) {
             this.$emit('update:value', {
                 leftValue: value,
-                rightValue: this.rightValue
-            })
+                rightValue: this.rightValue,
+            });
         },
         onUpdateRightValue(value) {
             this.$emit('update:value', {
                 leftValue: this.leftValue,
-                rightValue: value
-            })
+                rightValue: value,
+            });
         },
         onFocus(e) {
             this.focused = true;
-            this.$emit('focus', e)
+            this.$emit('focus', e);
         },
         onBlur(e) {
             this.focused = false;
-            this.$emit('blur', e)
+            this.$emit('blur', e);
         },
         onBlurLeftValue(value) {
-            this.$emit('blur:value', { leftValue: value, rightValue: this.rightValue })
+            this.$emit('blur:value', { leftValue: value, rightValue: this.rightValue });
         },
         onBlurRightValue(value) {
-            this.$emit('blur:value', { leftValue: this.leftValue, rightValue: value })
+            this.$emit('blur:value', { leftValue: this.leftValue, rightValue: value });
         },
         onClear() {
             this.$emit('clear');
             this.$nextTick(() => {
                 // 右边被清除的时候，左边也要清除
-                this.$refs.leftInput.clear()
-            })
+                this.$refs.leftInput.clear();
+            });
         },
         updateCurrentValue({ leftValue, rightValue }) {
             if (leftValue) {
-                this.$refs.leftInput.updateCurrentValue(leftValue)
+                this.$refs.leftInput.updateCurrentValue(leftValue);
             }
             if (rightValue) {
-                this.$refs.rightInput.updateCurrentValue(rightValue)
+                this.$refs.rightInput.updateCurrentValue(rightValue);
             }
-        }
-    }
-}
+        },
+    },
+};
 </script>
 <style module>
 .root {

@@ -4049,7 +4049,7 @@ exports[`u-time-picker.vue Demo-日期范围 2`] = `
 
 exports[`u-time-picker.vue Demo-时间单位容错 1`] = `
 <span class="root">
-  <div class="input" clearable="02:02" height="full" prefix="time" width="full">
+  <div class="input" clearable="02:02:00" height="full" prefix="time" width="full">
     <span>b</span>
     <span></span>
     <span name="time">

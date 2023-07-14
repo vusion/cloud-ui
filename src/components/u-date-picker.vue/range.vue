@@ -6,16 +6,16 @@
         :autofocus="autofocus"
         :readonly="readonly"
         :disabled="disabled"
-        :leftValue="showStartDate"
-        :rightValue="showEndDate"
+        :left-value="showStartDate"
+        :right-value="showEndDate"
         :clearable="clearable" :placeholder="placeholder"
         @left-click="toggle(true)"
         @right-click="toggle(true)"
         @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
         @blur:value="onBlurInputValue($event)"
         @clear="clearValue"
-        :preIcon="preIcon"
-        :suffixIcon="suffixIcon"
+        :pre-icon="preIcon"
+        :suffix-icon="suffixIcon"
         :color="formItemVM && formItemVM.color">
     </u-range-input>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
@@ -27,8 +27,8 @@
                 :year-diff="yearDiff"
                 :year-add="yearAdd"
                 :max-date="maxDate"
-                :startDate="calendarStartDate"
-                :endDate="calendarEndDate"
+                :start-date="calendarStartDate"
+                :end-date="calendarEndDate"
                 @select="select($event)">
             </u-calendar-range>
         </div>
@@ -127,10 +127,10 @@ export default {
     },
     watch: {
         startDate(newValue) {
-            this.showStartDate = this.format(newValue, this.getFormatString())
+            this.showStartDate = this.format(newValue, this.getFormatString());
         },
         endDate(newValue) {
-            this.showEndDate = this.format(newValue, this.getFormatString())
+            this.showEndDate = this.format(newValue, this.getFormatString());
         },
         showStartDate(newValue) {
             const showDate = this.returnTime(newValue);
@@ -216,8 +216,8 @@ export default {
          * @return {void}
          */
         select({ startDate, endDate }) {
-            if (this.readonly || this.disabled ||
-                this.isOutOfRange(startDate) || this.isOutOfRange(endDate))
+            if (this.readonly || this.disabled
+                || this.isOutOfRange(startDate) || this.isOutOfRange(endDate))
                 return;
             this.showStartDate = this.format(startDate, this.getFormatString());
             this.showEndDate = this.format(endDate, this.getFormatString());
@@ -241,12 +241,14 @@ export default {
          * @param  {object} $event
          * @return {void}
          */
-        onInput({ leftValue, rightValue}) {
-            if (!leftValue) this.showStartDate = undefined;
-            if (!rightValue) this.showEndDate = undefined;
+        onInput({ leftValue, rightValue }) {
+            if (!leftValue)
+                this.showStartDate = undefined;
+            if (!rightValue)
+                this.showEndDate = undefined;
             // 处理 left > right 的情况
-            if (this.checkValid(leftValue) && this.checkValid(rightValue) &&
-                new Date(this.transformDate(leftValue)) > new Date(this.transformDate(rightValue))) {
+            if (this.checkValid(leftValue) && this.checkValid(rightValue)
+                && new Date(this.transformDate(leftValue)) > new Date(this.transformDate(rightValue))) {
                 const temp = leftValue;
                 leftValue = rightValue;
                 rightValue = temp;

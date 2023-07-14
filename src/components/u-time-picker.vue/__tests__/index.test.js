@@ -11,8 +11,8 @@ describe('u-time-picker.vue', () => {
             },
             listeners: {
                 change: onChange,
-                'update:time': onUpdateTime
-            }
+                'update:time': onUpdateTime,
+            },
         });
 
         // 输入框的值
@@ -28,7 +28,7 @@ describe('u-time-picker.vue', () => {
         // 校验事件参数
         expect(onChange.mock.calls[0][0]).toHaveProperty('value', '18:18:59');
         expect(onUpdateTime.mock.calls[0][0]).toBe('18:18:59');
-    })
+    });
 
     it('time picker with minute unit', async () => {
         const onChange = jest.fn();
@@ -40,8 +40,8 @@ describe('u-time-picker.vue', () => {
             },
             listeners: {
                 change: onChange,
-                'update:time': onUpdateTime
-            }
+                'update:time': onUpdateTime,
+            },
         });
 
         // 输入框的值
@@ -56,7 +56,7 @@ describe('u-time-picker.vue', () => {
         // 校验事件参数
         expect(onChange.mock.calls[0][0]).toHaveProperty('value', '18:18');
         expect(onUpdateTime.mock.calls[0][0]).toBe('18:18');
-    })
+    });
 
     it('time picker with second unit', async () => {
         const onChange = jest.fn();
@@ -72,7 +72,7 @@ describe('u-time-picker.vue', () => {
                 change: onChange,
                 'update:startTime': onUpdateStartTime,
                 'update:endTime': onUpdateEndTime,
-            }
+            },
         });
 
         // 输入框的值
@@ -100,7 +100,7 @@ describe('u-time-picker.vue', () => {
         // 校验事件参数
         expect(onChange.mock.calls[1][0]).toHaveProperty('endTime', '16:17:18');
         expect(onUpdateEndTime.mock.calls[0][0]).toBe('16:17:18');
-    })
+    });
 
     it('time picker with minute unit', async () => {
         const onChange = jest.fn();
@@ -117,7 +117,7 @@ describe('u-time-picker.vue', () => {
                 change: onChange,
                 'update:startTime': onUpdateStartTime,
                 'update:endTime': onUpdateEndTime,
-            }
+            },
         });
 
         // 输入框的值
@@ -143,5 +143,5 @@ describe('u-time-picker.vue', () => {
         // 校验事件参数
         expect(onChange.mock.calls[1][0]).toHaveProperty('endTime', '16:17');
         expect(onUpdateEndTime.mock.calls[0][0]).toBe('16:17');
-    })
+    });
 });

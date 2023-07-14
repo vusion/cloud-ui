@@ -2,8 +2,8 @@
 <span :class="$style.root" :width="width" :height="height">
     <u-range-input
         :class="$style.input"
-        :leftValue="startInputTime"
-        :rightValue="endInputTime"
+        :left-value="startInputTime"
+        :right-value="endInputTime"
         :autofocus="autofocus"
         :disabled="!!readonly || disabled"
         ref="input"
@@ -22,48 +22,48 @@
     </u-range-input>
     <u-time-picker-popper
         ref="startPopper"
-        :minUnit="minUnit"
+        :min-unit="minUnit"
         :time="startTime"
         :disabled="disabled"
         :readonly="readonly"
-        :minTime="minTime"
-        :maxTime="maxStartTime"
-        :appendTo="appendTo"
-        :simpleFoot="simpleFoot"
-        :popperWidth="popperWidth"
-        :showRightNowButton="showRightNowButton"
-        :showFooterButton="showFooterButton"
-        :rightNowTitle="rightNowTitle"
-        :cancelTitle="cancelTitle"
-        :okTitle="okTitle"
-        :inputTime.sync="startInputTime"
+        :min-time="minTime"
+        :max-time="maxStartTime"
+        :append-to="appendTo"
+        :simple-foot="simpleFoot"
+        :popper-width="popperWidth"
+        :show-right-now-button="showRightNowButton"
+        :show-footer-button="showFooterButton"
+        :right-now-title="rightNowTitle"
+        :cancel-title="cancelTitle"
+        :ok-title="okTitle"
+        :input-time.sync="startInputTime"
         @change="onStartTimeChange"
         @update:time="onUpdateStartTime"
         @blur="onPopperBlur"
         @toggle="onPopperToggle"
-    />
+    ></u-time-picker-popper>
     <u-time-picker-popper
         ref="endPopper"
-        :minUnit="minUnit"
+        :min-unit="minUnit"
         :time="endTime"
         :disabled="disabled"
         :readonly="readonly"
-        :minTime="minEndTime"
-        :maxTime="maxTime"
-        :appendTo="appendTo"
-        :simpleFoot="simpleFoot"
-        :popperWidth="popperWidth"
-        :showRightNowButton="showRightNowButton"
-        :showFooterButton="showFooterButton"
-        :rightNowTitle="rightNowTitle"
-        :cancelTitle="cancelTitle"
-        :okTitle="okTitle"
-        :inputTime.sync="endInputTime"
+        :min-time="minEndTime"
+        :max-time="maxTime"
+        :append-to="appendTo"
+        :simple-foot="simpleFoot"
+        :popper-width="popperWidth"
+        :show-right-now-button="showRightNowButton"
+        :show-footer-button="showFooterButton"
+        :right-now-title="rightNowTitle"
+        :cancel-title="cancelTitle"
+        :ok-title="okTitle"
+        :input-time.sync="endInputTime"
         @change="onEndTimeChange"
         @update:time="onUpdateEndTime"
         @blur="onPopperBlur"
         @toggle="onPopperToggle"
-    />
+    ></u-time-picker-popper>
 </span>
 </template>
 
@@ -90,8 +90,8 @@ import URangeInput from '../u-date-picker.vue/range-input.vue';
 export default {
     name: 'u-time-range-picker',
     i18n,
-    mixins: [MField],
     components: { URangeInput, UTimePickerPopper },
+    mixins: [MField],
     props: {
         minUnit: { type: String, default: 'second' },
         startTime: { type: String, default: '' },
@@ -121,9 +121,9 @@ export default {
         popperWidth: { type: String, default: '' },
         showRightNowButton: { type: Boolean, default: true },
         showFooterButton: { type: Boolean, default: true },
-        rightNowTitle: {type: String, default: ""},
-        cancelTitle: {type: String, default: ""},
-        okTitle: {type: String, default: ""},
+        rightNowTitle: { type: String, default: '' },
+        cancelTitle: { type: String, default: '' },
+        okTitle: { type: String, default: '' },
     },
     data() {
         return {
@@ -145,7 +145,7 @@ export default {
         callPopperMethod(methodName, ...args) {
             const refName = this.editTarget === 'start' ? 'startPopper' : 'endPopper';
             if (this.$refs[refName] && this.$refs[refName][methodName]) {
-                this.$refs[refName][methodName](...args);;
+                this.$refs[refName][methodName](...args);
             }
         },
         onLeftClick() {
@@ -159,8 +159,7 @@ export default {
             this.callPopperMethod('open');
         },
         onInputChange(value) {
-            const changedValue = this.editTarget === 'start' ?
-                value.leftValue : value.rightValue;
+            const changedValue = this.editTarget === 'start' ? value.leftValue : value.rightValue;
             this.callPopperMethod('onInputChange', changedValue);
         },
         onBlur() {
@@ -236,7 +235,6 @@ export default {
 .root[width="small"] {
     width: var(--timepicker-input-width-small);
 }
-
 
 .root[height="small"] .input {
     height: var(--timepicker-input-height-small);

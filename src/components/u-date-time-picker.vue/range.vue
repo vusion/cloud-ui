@@ -6,17 +6,17 @@
         :autofocus="autofocus"
         :readonly="readonly"
         :disabled="disabled"
-        leftWidth="full"
-        :leftValue="finalStartDateTime"
-        :rightValue="finalEndDateTime"
+        left-width="full"
+        :left-value="finalStartDateTime"
+        :right-value="finalEndDateTime"
         :clearable="clearable" :placeholder="placeholder"
         @left-click="toggleLeft(true)"
         @right-click="toggleRight(true)"
         @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
         @blur:value="onBlurInputValue($event)"
         @clear="clearValue"
-        :preIcon="preIcon"
-        :suffixIcon="suffixIcon"
+        :pre-icon="preIcon"
+        :suffix-icon="suffixIcon"
         :color="formItemVM && formItemVM.color">
     </u-range-input>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement"
@@ -82,8 +82,8 @@ import i18n from './i18n';
 export default {
     name: 'u-date-time-range-picker',
     i18n,
-    mixins: [MField],
     components: { URangeInput },
+    mixins: [MField],
     props: {
         preIcon: {
             type: String,
@@ -422,9 +422,8 @@ export default {
         },
         // 根据当前编辑目标更新输入框的值（起始/结束）
         updateCurrentInputValue(value) {
-            const updateKey = this.editTarget === 'start' ? 'leftValue': 'rightValue';
+            const updateKey = this.editTarget === 'start' ? 'leftValue' : 'rightValue';
             this.$refs.input.updateCurrentValue({ [updateKey]: value });
-
         },
         setDateNow() {
             this.updateDate(new Date());
@@ -456,24 +455,28 @@ export default {
             const { popper } = this.$refs;
             if (popper) {
                 // 如果已经打开了右侧的，则关闭右侧的面板
-                if (this.editTarget === 'end' && open) popper.toggle(!open);
-                if (open) this.editTarget = 'start';
+                if (this.editTarget === 'end' && open)
+                    popper.toggle(!open);
+                if (open)
+                    this.editTarget = 'start';
                 // 下一个时序触发，等待事件完成
                 this.$nextTick(() => {
                     popper.toggle(open);
-                })
+                });
             }
         },
         toggleRight(open) {
             const { popper } = this.$refs;
             if (popper) {
                 // 如果已经打开了左侧的，则关闭左侧的面板
-                if (this.editTarget === 'start' && open) popper.toggle(!open);
-                if (open) this.editTarget = 'end';
+                if (this.editTarget === 'start' && open)
+                    popper.toggle(!open);
+                if (open)
+                    this.editTarget = 'end';
                 // 下一个时序触发，等待事件完成
                 this.$nextTick(() => {
                     popper.toggle(open);
-                })
+                });
             }
         },
         format,
@@ -523,10 +526,8 @@ export default {
             this.emitValue();
         },
         emitValue() {
-            const newStartDateTime = this.finalStartDateTime ?
-                this.toValue(new Date(this.finalStartDateTime.replace(/-/g, '/'))) : undefined;
-            const newEndDateTime = this.finalEndDateTime ?
-                this.toValue(new Date(this.finalEndDateTime.replace(/-/g, '/'))) : undefined;
+            const newStartDateTime = this.finalStartDateTime ? this.toValue(new Date(this.finalStartDateTime.replace(/-/g, '/'))) : undefined;
+            const newEndDateTime = this.finalEndDateTime ? this.toValue(new Date(this.finalEndDateTime.replace(/-/g, '/'))) : undefined;
             this.$emit('update:startDate', newStartDateTime);
             this.$emit('update:endDate', newEndDateTime);
             /**
@@ -536,10 +537,8 @@ export default {
              */
             this.$emit('change', {
                 sender: this,
-                startDate: this.finalStartDateTime ?
-                    new Date(this.finalStartDateTime.replace(/-/g, '/')).getTime() : undefined,
-                endDate: this.finalEndDateTime ?
-                    new Date(this.finalEndDateTime.replace(/-/g, '/')).getTime() : undefined
+                startDate: this.finalStartDateTime ? new Date(this.finalStartDateTime.replace(/-/g, '/')).getTime() : undefined,
+                endDate: this.finalEndDateTime ? new Date(this.finalEndDateTime.replace(/-/g, '/')).getTime() : undefined,
             }); // 方便u-field组件捕获到其值
         },
         onPopperOpen() {

@@ -14,269 +14,269 @@
 
 <script>
 import {
-  isDate,
-  range,
-  getDayCountOfMonth,
-  getMonthTimestamp,
-  nextDate,
-  coerceTruthyValueToArray,
+    isDate,
+    range,
+    getDayCountOfMonth,
+    getMonthTimestamp,
+    nextDate,
+    coerceTruthyValueToArray,
 } from '../util';
 import i18n from '../i18n';
 
 const datesInMonth = (year, month) => {
-  const numOfDays = getDayCountOfMonth(year, month);
-  const firstDay = new Date(year, month, 1);
-  return range(numOfDays).map(n => nextDate(firstDay, n));
+    const numOfDays = getDayCountOfMonth(year, month);
+    const firstDay = new Date(year, month, 1);
+    return range(numOfDays).map((n) => nextDate(firstDay, n));
 };
 
 // remove the first element that satisfies `pred` from arr
 // return a new array if modification occurs
 // return the original array otherwise
-const removeFromArray = function(arr, pred) {
-  const idx = typeof pred === 'function' ? arr.findIndex(pred) : arr.indexOf(pred);
-  return idx >= 0 ? [...arr.slice(0, idx), ...arr.slice(idx + 1)] : arr;
+const removeFromArray = function (arr, pred) {
+    const idx = typeof pred === 'function' ? arr.findIndex(pred) : arr.indexOf(pred);
+    return idx >= 0 ? [...arr.slice(0, idx), ...arr.slice(idx + 1)] : arr;
 };
 export default {
-  i18n,
-  props: {
-    disabledDate: {},
-    value: {},
-    selectionMode: {
-      default: 'month'
-    },
-    minDate: {},
+    i18n,
+    props: {
+        disabledDate: {},
+        value: {},
+        selectionMode: {
+            default: 'month',
+        },
+        minDate: {},
 
-    maxDate: {},
-    defaultValue: {
-      validator(val) {
-        // null or valid Date Object
-        return val === null || isDate(val) || (Array.isArray(val) && val.every(isDate));
-      }
+        maxDate: {},
+        defaultValue: {
+            validator(val) {
+                // null or valid Date Object
+                return val === null || isDate(val) || (Array.isArray(val) && val.every(isDate));
+            },
+        },
+        date: {},
+        rangeState: {
+            default() {
+                return {
+                    endDate: null,
+                    selecting: false,
+                };
+            },
+        },
     },
-    date: {},
-    rangeState: {
-      default() {
+
+    data() {
         return {
-          endDate: null,
-          selecting: false
+            monthTextList: [
+                this.$t('January'),
+                this.$t('February'),
+                this.$t('March'),
+                this.$t('April'),
+                this.$t('May'),
+                this.$t('June'),
+                this.$t('July'),
+                this.$t('August'),
+                this.$t('September'),
+                this.$t('October'),
+                this.$t('November'),
+                this.$t('December'),
+            ],
+            tableRows: [[], [], [], []],
+            lastRow: null,
+            lastColumn: null,
         };
-      }
-    }
-  },
-
-  watch: {
-    'rangeState.endDate'(newVal) {
-      this.markRange(this.minDate, newVal);
     },
 
-    minDate(newVal, oldVal) {
-      if (getMonthTimestamp(newVal) !== getMonthTimestamp(oldVal)) {
-        this.markRange(this.minDate, this.maxDate);
-      }
+    computed: {
+        rows() {
+            // TODO: refactory rows / getCellClasses
+            const rows = this.tableRows;
+            const disabledDate = this.disabledDate;
+            const selectedDate = [];
+            const now = getMonthTimestamp(new Date());
+
+            for (let i = 0; i < 4; i++) {
+                const row = rows[i];
+                for (let j = 0; j < 3; j++) {
+                    let cell = row[j];
+                    if (!cell) {
+                        cell = { row: i, column: j, type: 'normal', inRange: false, start: false, end: false };
+                    }
+
+                    cell.type = 'normal';
+
+                    const index = i * 3 + j;
+                    const time = new Date(this.date.getFullYear(), index).getTime();
+                    cell.inRange = time >= getMonthTimestamp(this.minDate) && time <= getMonthTimestamp(this.maxDate);
+                    cell.start = this.minDate && time === getMonthTimestamp(this.minDate);
+                    cell.end = this.maxDate && time === getMonthTimestamp(this.maxDate);
+                    const isToday = time === now;
+
+                    if (isToday) {
+                        cell.type = 'today';
+                    }
+                    cell.text = index;
+                    const cellDate = new Date(time);
+                    cell.disabled = typeof disabledDate === 'function' && disabledDate(cellDate);
+                    cell.selected = selectedDate.find((date) => date.getTime() === cellDate.getTime());
+
+                    this.$set(row, j, cell);
+                }
+            }
+            return rows;
+        },
     },
 
-    maxDate(newVal, oldVal) {
-      if (getMonthTimestamp(newVal) !== getMonthTimestamp(oldVal)) {
-        this.markRange(this.minDate, this.maxDate);
-      }
-    }
-  },
+    watch: {
+        'rangeState.endDate'(newVal) {
+            this.markRange(this.minDate, newVal);
+        },
 
-  data() {
-    return {
-      monthTextList: [
-        this.$t('January'),
-        this.$t('February'),
-        this.$t('March'),
-        this.$t('April'),
-        this.$t('May'),
-        this.$t('June'),
-        this.$t('July'),
-        this.$t('August'),
-        this.$t('September'),
-        this.$t('October'),
-        this.$t('November'),
-        this.$t('December'),
-      ],
-      tableRows: [ [], [], [], [] ],
-      lastRow: null,
-      lastColumn: null
-    };
-  },
+        minDate(newVal, oldVal) {
+            if (getMonthTimestamp(newVal) !== getMonthTimestamp(oldVal)) {
+                this.markRange(this.minDate, this.maxDate);
+            }
+        },
 
-  methods: {
-    cellMatchesDate(cell, date) {
-      const value = new Date(date);
-      return this.date.getFullYear() === value.getFullYear() && Number(cell.text) === value.getMonth();
+        maxDate(newVal, oldVal) {
+            if (getMonthTimestamp(newVal) !== getMonthTimestamp(oldVal)) {
+                this.markRange(this.minDate, this.maxDate);
+            }
+        },
     },
-    getCellStyle(cell) {
-      const style = {};
-      const year = this.date.getFullYear();
-      const today = new Date();
-      const month = cell.text;
-      const defaultValue = this.defaultValue ? Array.isArray(this.defaultValue) ? this.defaultValue : [this.defaultValue] : [];
-      style.disabled = typeof this.disabledDate === 'function'
-        ? datesInMonth(year, month).every(this.disabledDate)
-        : false;
-      style.current = coerceTruthyValueToArray(this.value).findIndex(date => date.getFullYear() === year && date.getMonth() === month) >= 0;
-      style.today = today.getFullYear() === year && today.getMonth() === month;
-      style.default = defaultValue.some(date => this.cellMatchesDate(cell, date));
 
-      if (cell.inRange) {
-        style['in-range'] = true;
+    methods: {
+        cellMatchesDate(cell, date) {
+            const value = new Date(date);
+            return this.date.getFullYear() === value.getFullYear() && Number(cell.text) === value.getMonth();
+        },
+        getCellStyle(cell) {
+            const style = {};
+            const year = this.date.getFullYear();
+            const today = new Date();
+            const month = cell.text;
+            const defaultValue = this.defaultValue ? Array.isArray(this.defaultValue) ? this.defaultValue : [this.defaultValue] : [];
+            style.disabled = typeof this.disabledDate === 'function' ? datesInMonth(year, month).every(this.disabledDate) : false;
+            style.current = coerceTruthyValueToArray(this.value).findIndex((date) => date.getFullYear() === year && date.getMonth() === month) >= 0;
+            style.today = today.getFullYear() === year && today.getMonth() === month;
+            style.default = defaultValue.some((date) => this.cellMatchesDate(cell, date));
 
-        if (cell.start) {
-          style['start-date'] = true;
-        }
+            if (cell.inRange) {
+                style['in-range'] = true;
 
-        if (cell.end) {
-          style['end-date'] = true;
-        }
-      }
-      const moduledStyle = {}
-      Object.keys(style).forEach(className => {
-        if (this.$style[className]) {
-          moduledStyle[this.$style[className]] = style[className]
-        }
-      })
-      return moduledStyle;
+                if (cell.start) {
+                    style['start-date'] = true;
+                }
+
+                if (cell.end) {
+                    style['end-date'] = true;
+                }
+            }
+            const moduledStyle = {};
+            Object.keys(style).forEach((className) => {
+                if (this.$style[className]) {
+                    moduledStyle[this.$style[className]] = style[className];
+                }
+            });
+            return moduledStyle;
+        },
+        getMonthOfCell(month) {
+            const year = this.date.getFullYear();
+            return new Date(year, month, 1);
+        },
+        markRange(minDate, maxDate) {
+            minDate = getMonthTimestamp(minDate);
+            maxDate = getMonthTimestamp(maxDate) || minDate;
+            [minDate, maxDate] = [Math.min(minDate, maxDate), Math.max(minDate, maxDate)];
+            const rows = this.rows;
+            for (let i = 0, k = rows.length; i < k; i++) {
+                const row = rows[i];
+                for (let j = 0, l = row.length; j < l; j++) {
+                    const cell = row[j];
+                    const index = i * 3 + j;
+                    const time = new Date(this.date.getFullYear(), index).getTime();
+
+                    cell.inRange = minDate && time >= minDate && time <= maxDate;
+                    cell.start = minDate && time === minDate;
+                    cell.end = maxDate && time === maxDate;
+                }
+            }
+        },
+        handleMouseMove(event) {
+            if (!this.rangeState.selecting)
+                return;
+
+            let target = event.target;
+            if (target.tagName === 'A') {
+                target = target.parentNode.parentNode;
+            }
+            if (target.tagName === 'DIV') {
+                target = target.parentNode;
+            }
+            if (target.tagName !== 'TD')
+                return;
+
+            const row = target.parentNode.rowIndex;
+            const column = target.cellIndex;
+            // can not select disabled date
+            if (this.rows[row][column].disabled)
+                return;
+
+            // only update rangeState when mouse moves to a new cell
+            // this avoids frequent Date object creation and improves performance
+            if (row !== this.lastRow || column !== this.lastColumn) {
+                this.lastRow = row;
+                this.lastColumn = column;
+                this.$emit('changerange', {
+                    minDate: this.minDate,
+                    maxDate: this.maxDate,
+                    rangeState: {
+                        selecting: true,
+                        endDate: this.getMonthOfCell(row * 3 + column),
+                    },
+                });
+            }
+        },
+        handleMonthTableClick(event) {
+            let target = event.target;
+            if (target.tagName === 'A') {
+                target = target.parentNode.parentNode;
+            }
+            if (target.tagName === 'DIV') {
+                target = target.parentNode;
+            }
+            if (target.tagName !== 'TD')
+                return;
+
+            const column = target.cellIndex;
+            const row = target.parentNode.rowIndex;
+            // can not select disabled date
+            if (this.rows[row][column].disabled)
+                return;
+
+            const month = row * 3 + column;
+            const newDate = this.getMonthOfCell(month);
+            if (this.selectionMode === 'range') {
+                if (!this.rangeState.selecting) {
+                    this.$emit('pick', { minDate: newDate, maxDate: null });
+                    this.rangeState.selecting = true;
+                } else {
+                    if (newDate >= this.minDate) {
+                        this.$emit('pick', { minDate: this.minDate, maxDate: newDate });
+                    } else {
+                        this.$emit('pick', { minDate: newDate, maxDate: this.minDate });
+                    }
+                    this.rangeState.selecting = false;
+                }
+            } else if (this.selectionMode === 'months') {
+                const value = this.value || [];
+                const year = this.date.getFullYear();
+                const newValue = value.findIndex((date) => date.getFullYear() === year && date.getMonth() === month) >= 0 ? removeFromArray(value, (date) => date.getTime() === newDate.getTime()) : [...value, newDate];
+                this.$emit('pick', newValue);
+            } else {
+                this.$emit('pick', month);
+            }
+        },
     },
-    getMonthOfCell(month) {
-      const year = this.date.getFullYear();
-      return new Date(year, month, 1);
-    },
-    markRange(minDate, maxDate) {
-      minDate = getMonthTimestamp(minDate);
-      maxDate = getMonthTimestamp(maxDate) || minDate;
-      [minDate, maxDate] = [Math.min(minDate, maxDate), Math.max(minDate, maxDate)];
-      const rows = this.rows;
-      for (let i = 0, k = rows.length; i < k; i++) {
-        const row = rows[i];
-        for (let j = 0, l = row.length; j < l; j++) {
-
-          const cell = row[j];
-          const index = i * 3 + j;
-          const time = new Date(this.date.getFullYear(), index).getTime();
-
-          cell.inRange = minDate && time >= minDate && time <= maxDate;
-          cell.start = minDate && time === minDate;
-          cell.end = maxDate && time === maxDate;
-        }
-      }
-    },
-    handleMouseMove(event) {
-      if (!this.rangeState.selecting) return;
-
-      let target = event.target;
-      if (target.tagName === 'A') {
-        target = target.parentNode.parentNode;
-      }
-      if (target.tagName === 'DIV') {
-        target = target.parentNode;
-      }
-      if (target.tagName !== 'TD') return;
-
-      const row = target.parentNode.rowIndex;
-      const column = target.cellIndex;
-      // can not select disabled date
-      if (this.rows[row][column].disabled) return;
-
-      // only update rangeState when mouse moves to a new cell
-      // this avoids frequent Date object creation and improves performance
-      if (row !== this.lastRow || column !== this.lastColumn) {
-        this.lastRow = row;
-        this.lastColumn = column;
-        this.$emit('changerange', {
-          minDate: this.minDate,
-          maxDate: this.maxDate,
-          rangeState: {
-            selecting: true,
-            endDate: this.getMonthOfCell(row * 3 + column)
-          }
-        });
-      }
-    },
-    handleMonthTableClick(event) {
-      let target = event.target;
-      if (target.tagName === 'A') {
-        target = target.parentNode.parentNode;
-      }
-      if (target.tagName === 'DIV') {
-        target = target.parentNode;
-      }
-      if (target.tagName !== 'TD') return;
-
-      const column = target.cellIndex;
-      const row = target.parentNode.rowIndex;
-      // can not select disabled date
-      if (this.rows[row][column].disabled) return;
-
-      const month = row * 3 + column;
-      const newDate = this.getMonthOfCell(month);
-      if (this.selectionMode === 'range') {
-        if (!this.rangeState.selecting) {
-          this.$emit('pick', {minDate: newDate, maxDate: null});
-          this.rangeState.selecting = true;
-        } else {
-          if (newDate >= this.minDate) {
-            this.$emit('pick', {minDate: this.minDate, maxDate: newDate});
-          } else {
-            this.$emit('pick', {minDate: newDate, maxDate: this.minDate});
-          }
-          this.rangeState.selecting = false;
-        }
-      } else if (this.selectionMode === 'months') {
-        const value = this.value || [];
-        const year = this.date.getFullYear();
-        const newValue = value.findIndex(date => date.getFullYear() === year && date.getMonth() === month) >= 0
-          ? removeFromArray(value, date => date.getTime() === newDate.getTime())
-          : [...value, newDate];
-        this.$emit('pick', newValue);
-      } else {
-        this.$emit('pick', month);
-      }
-    }
-  },
-
-  computed: {
-    rows() {
-      // TODO: refactory rows / getCellClasses
-      const rows = this.tableRows;
-      const disabledDate = this.disabledDate;
-      const selectedDate = [];
-      const now = getMonthTimestamp(new Date());
-
-      for (let i = 0; i < 4; i++) {
-        const row = rows[i];
-        for (let j = 0; j < 3; j++) {
-          let cell = row[j];
-          if (!cell) {
-            cell = { row: i, column: j, type: 'normal', inRange: false, start: false, end: false };
-          }
-
-          cell.type = 'normal';
-
-          const index = i * 3 + j;
-          const time = new Date(this.date.getFullYear(), index).getTime();
-          cell.inRange = time >= getMonthTimestamp(this.minDate) && time <= getMonthTimestamp(this.maxDate);
-          cell.start = this.minDate && time === getMonthTimestamp(this.minDate);
-          cell.end = this.maxDate && time === getMonthTimestamp(this.maxDate);
-          const isToday = time === now;
-
-          if (isToday) {
-            cell.type = 'today';
-          }
-          cell.text = index;
-          let cellDate = new Date(time);
-          cell.disabled = typeof disabledDate === 'function' && disabledDate(cellDate);
-          cell.selected = selectedDate.find(date => date.getTime() === cellDate.getTime());
-
-          this.$set(row, j, cell);
-        }
-      }
-      return rows;
-    }
-  }
 };
 </script>
 

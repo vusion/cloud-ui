@@ -14,250 +14,251 @@
 
 <script>
 import {
-  isDate,
-  range,
-  getDayCountOfYear,
-  getYearTimestamp,
-  nextDate,
-  coerceTruthyValueToArray,
+    isDate,
+    range,
+    getDayCountOfYear,
+    getYearTimestamp,
+    nextDate,
+    coerceTruthyValueToArray,
 } from '../util';
 import i18n from '../i18n';
 
-const datesInYear = year => {
-  const numOfDays = getDayCountOfYear(year);
-  const firstDay = new Date(year, 0, 1);
-  return range(numOfDays).map(n => nextDate(firstDay, n));
+const datesInYear = (year) => {
+    const numOfDays = getDayCountOfYear(year);
+    const firstDay = new Date(year, 0, 1);
+    return range(numOfDays).map((n) => nextDate(firstDay, n));
 };
 
 export default {
-  i18n,
-  props: {
-    disabledDate: {},
-    value: {},
-    selectionMode: {
-      default: 'year'
-    },
-    minDate: {},
+    i18n,
+    props: {
+        disabledDate: {},
+        value: {},
+        selectionMode: {
+            default: 'year',
+        },
+        minDate: {},
 
-    maxDate: {},
-    defaultValue: {
-      validator(val) {
-        // null or valid Date Object
-        return val === null || isDate(val) || (Array.isArray(val) && val.every(isDate));
-      }
+        maxDate: {},
+        defaultValue: {
+            validator(val) {
+                // null or valid Date Object
+                return val === null || isDate(val) || (Array.isArray(val) && val.every(isDate));
+            },
+        },
+        date: {},
+        rangeState: {
+            default() {
+                return {
+                    endDate: null,
+                    selecting: false,
+                };
+            },
+        },
     },
-    date: {},
-    rangeState: {
-      default() {
+
+    data() {
         return {
-          endDate: null,
-          selecting: false
+            tableRows: [[], [], [], []],
+            lastRow: null,
+            lastColumn: null,
         };
-      }
-    }
-  },
-
-  watch: {
-    'rangeState.endDate'(newVal) {
-      this.markRange(this.minDate, newVal);
     },
 
-    minDate(newVal, oldVal) {
-      if (getYearTimestamp(newVal) !== getYearTimestamp(oldVal)) {
-        this.markRange(this.minDate, this.maxDate);
-      }
+    computed: {
+        rows() {
+            // TODO: refactory rows / getCellClasses
+            const rows = this.tableRows;
+            const disabledDate = this.disabledDate;
+            const selectedDate = [];
+            const now = getYearTimestamp(new Date());
+            // 年代，2010/2020 这种
+            const decade = Math.floor(this.date.getFullYear() / 10) * 10;
+
+            for (let i = 0; i < 4; i++) {
+                const row = rows[i];
+                for (let j = 0; j < 3; j++) {
+                    let cell = row[j];
+                    if (!cell) {
+                        cell = { row: i, column: j, type: 'normal', inRange: false, start: false, end: false };
+                    }
+
+                    cell.type = 'normal';
+
+                    const index = i * 3 + j;
+                    const date = new Date(decade - 1 + index, 0);
+                    const time = date.getTime();
+                    cell.inRange = time >= getYearTimestamp(this.minDate) && time <= getYearTimestamp(this.maxDate);
+                    cell.start = this.minDate && time === getYearTimestamp(this.minDate);
+                    cell.end = this.maxDate && time === getYearTimestamp(this.maxDate);
+                    const isToday = time === now;
+
+                    if (isToday) {
+                        cell.type = 'today';
+                    }
+                    if (i === 0 && j === 0) {
+                        cell.type = 'prev-decade';
+                    } else if (i === 3 && j === 2) {
+                        cell.type = 'next-decade';
+                    }
+                    cell.text = date.getFullYear();
+                    const cellDate = new Date(time);
+                    cell.disabled = typeof disabledDate === 'function' && disabledDate(cellDate);
+                    cell.selected = selectedDate.find((date) => date.getTime() === cellDate.getTime());
+
+                    this.$set(row, j, cell);
+                }
+            }
+            return rows;
+        },
     },
 
-    maxDate(newVal, oldVal) {
-      if (getYearTimestamp(newVal) !== getYearTimestamp(oldVal)) {
-        this.markRange(this.minDate, this.maxDate);
-      }
-    }
-  },
+    watch: {
+        'rangeState.endDate'(newVal) {
+            this.markRange(this.minDate, newVal);
+        },
 
-  data() {
-    return {
-      tableRows: [ [], [], [], [] ],
-      lastRow: null,
-      lastColumn: null
-    };
-  },
+        minDate(newVal, oldVal) {
+            if (getYearTimestamp(newVal) !== getYearTimestamp(oldVal)) {
+                this.markRange(this.minDate, this.maxDate);
+            }
+        },
 
-  methods: {
-    cellMatchesDate(cell, date) {
-      const value = new Date(date);
-      return this.date.getFullYear() === value.getFullYear() && Number(cell.text) === value.getFullYear();
+        maxDate(newVal, oldVal) {
+            if (getYearTimestamp(newVal) !== getYearTimestamp(oldVal)) {
+                this.markRange(this.minDate, this.maxDate);
+            }
+        },
     },
-    getCellStyle(cell) {
-      const style = {};
-      const year = this.date.getFullYear();
-      const today = new Date();
-      const cellYear = cell.text;
-      const defaultValue = this.defaultValue ? Array.isArray(this.defaultValue) ? this.defaultValue : [this.defaultValue] : [];
-      style.disabled = typeof this.disabledDate === 'function'
-        ? datesInYear(cellYear).every(this.disabledDate)
-        : false;
-      style.current = coerceTruthyValueToArray(this.value).findIndex(date => date.getFullYear() === year && date.getFullYear() === cellYear) >= 0;
-      // style.today = today.getFullYear() === year && today.getFullYear() === cellYear;
-      style.default = defaultValue.some(date => this.cellMatchesDate(cell, date));
 
+    methods: {
+        cellMatchesDate(cell, date) {
+            const value = new Date(date);
+            return this.date.getFullYear() === value.getFullYear() && Number(cell.text) === value.getFullYear();
+        },
+        getCellStyle(cell) {
+            const style = {};
+            const year = this.date.getFullYear();
+            const today = new Date();
+            const cellYear = cell.text;
+            const defaultValue = this.defaultValue ? Array.isArray(this.defaultValue) ? this.defaultValue : [this.defaultValue] : [];
+            style.disabled = typeof this.disabledDate === 'function' ? datesInYear(cellYear).every(this.disabledDate) : false;
+            style.current = coerceTruthyValueToArray(this.value).findIndex((date) => date.getFullYear() === year && date.getFullYear() === cellYear) >= 0;
+            // style.today = today.getFullYear() === year && today.getFullYear() === cellYear;
+            style.default = defaultValue.some((date) => this.cellMatchesDate(cell, date));
 
-      if (cell.type === 'prev-decade' || cell.type === 'next-decade') {
-        style[cell.type] = true;
-      } else if (cell.inRange) {
-        style['in-range'] = true;
+            if (cell.type === 'prev-decade' || cell.type === 'next-decade') {
+                style[cell.type] = true;
+            } else if (cell.inRange) {
+                style['in-range'] = true;
 
-        if (cell.start) {
-          style['start-date'] = true;
-        }
+                if (cell.start) {
+                    style['start-date'] = true;
+                }
 
-        if (cell.end) {
-          style['end-date'] = true;
-        }
-      }
+                if (cell.end) {
+                    style['end-date'] = true;
+                }
+            }
 
-      const moduledStyle = {}
-      Object.keys(style).forEach(className => {
-        if (this.$style[className]) {
-          moduledStyle[this.$style[className]] = style[className]
-        }
-      })
-      return moduledStyle;
+            const moduledStyle = {};
+            Object.keys(style).forEach((className) => {
+                if (this.$style[className]) {
+                    moduledStyle[this.$style[className]] = style[className];
+                }
+            });
+            return moduledStyle;
+        },
+        getYearOfCell(year) {
+            return new Date(Number(year), 0, 1);
+        },
+        markRange(minDate, maxDate) {
+            minDate = getYearTimestamp(minDate);
+            maxDate = getYearTimestamp(maxDate) || minDate;
+            [minDate, maxDate] = [Math.min(minDate, maxDate), Math.max(minDate, maxDate)];
+            const rows = this.rows;
+            for (let i = 0, k = rows.length; i < k; i++) {
+                const row = rows[i];
+                for (let j = 0, l = row.length; j < l; j++) {
+                    const cell = row[j];
+                    const time = this.getYearOfCell(cell.text).getTime();
+
+                    cell.inRange = minDate && time >= minDate && time <= maxDate;
+                    cell.start = minDate && time === minDate;
+                    cell.end = maxDate && time === maxDate;
+                }
+            }
+        },
+        handleMouseMove(event) {
+            if (!this.rangeState.selecting)
+                return;
+
+            let target = event.target;
+            if (target.tagName === 'A') {
+                target = target.parentNode.parentNode;
+            }
+            if (target.tagName === 'DIV') {
+                target = target.parentNode;
+            }
+            if (target.tagName !== 'TD')
+                return;
+
+            const row = target.parentNode.rowIndex;
+            const column = target.cellIndex;
+            // can not select disabled date
+            if (this.rows[row][column].disabled)
+                return;
+
+            // only update rangeState when mouse moves to a new cell
+            // this avoids frequent Date object creation and improves performance
+            if (row !== this.lastRow || column !== this.lastColumn) {
+                this.lastRow = row;
+                this.lastColumn = column;
+                this.$emit('changerange', {
+                    minDate: this.minDate,
+                    maxDate: this.maxDate,
+                    rangeState: {
+                        selecting: true,
+                        endDate: this.getYearOfCell(this.rows[row][column].text),
+                    },
+                });
+            }
+        },
+        handleTableClick(event) {
+            let target = event.target;
+            if (target.tagName === 'A') {
+                target = target.parentNode.parentNode;
+            }
+            if (target.tagName === 'DIV') {
+                target = target.parentNode;
+            }
+            if (target.tagName !== 'TD')
+                return;
+
+            const column = target.cellIndex;
+            const row = target.parentNode.rowIndex;
+            // can not select disabled date
+            if (this.rows[row][column].disabled)
+                return;
+
+            const newDate = this.getYearOfCell(this.rows[row][column].text);
+            if (this.selectionMode === 'range') {
+                if (!this.rangeState.selecting) {
+                    this.$emit('pick', { minDate: newDate, maxDate: null });
+                    this.rangeState.selecting = true;
+                } else {
+                    if (newDate >= this.minDate) {
+                        this.$emit('pick', { minDate: this.minDate, maxDate: newDate });
+                    } else {
+                        this.$emit('pick', { minDate: newDate, maxDate: this.minDate });
+                    }
+                    this.rangeState.selecting = false;
+                }
+            } else {
+                this.$emit('pick', this.rows[row][column].text);
+            }
+        },
     },
-    getYearOfCell(year) {
-      return new Date(Number(year), 0, 1);
-    },
-    markRange(minDate, maxDate) {
-      minDate = getYearTimestamp(minDate);
-      maxDate = getYearTimestamp(maxDate) || minDate;
-      [minDate, maxDate] = [Math.min(minDate, maxDate), Math.max(minDate, maxDate)];
-      const rows = this.rows;
-      for (let i = 0, k = rows.length; i < k; i++) {
-        const row = rows[i];
-        for (let j = 0, l = row.length; j < l; j++) {
-
-          const cell = row[j];
-          const time = this.getYearOfCell(cell.text).getTime();
-
-          cell.inRange = minDate && time >= minDate && time <= maxDate;
-          cell.start = minDate && time === minDate;
-          cell.end = maxDate && time === maxDate;
-        }
-      }
-    },
-    handleMouseMove(event) {
-      if (!this.rangeState.selecting) return;
-
-      let target = event.target;
-      if (target.tagName === 'A') {
-        target = target.parentNode.parentNode;
-      }
-      if (target.tagName === 'DIV') {
-        target = target.parentNode;
-      }
-      if (target.tagName !== 'TD') return;
-
-      const row = target.parentNode.rowIndex;
-      const column = target.cellIndex;
-      // can not select disabled date
-      if (this.rows[row][column].disabled) return;
-
-      // only update rangeState when mouse moves to a new cell
-      // this avoids frequent Date object creation and improves performance
-      if (row !== this.lastRow || column !== this.lastColumn) {
-        this.lastRow = row;
-        this.lastColumn = column;
-        this.$emit('changerange', {
-          minDate: this.minDate,
-          maxDate: this.maxDate,
-          rangeState: {
-            selecting: true,
-            endDate: this.getYearOfCell(this.rows[row][column].text)
-          }
-        });
-      }
-    },
-    handleTableClick(event) {
-      let target = event.target;
-      if (target.tagName === 'A') {
-        target = target.parentNode.parentNode;
-      }
-      if (target.tagName === 'DIV') {
-        target = target.parentNode;
-      }
-      if (target.tagName !== 'TD') return;
-
-      const column = target.cellIndex;
-      const row = target.parentNode.rowIndex;
-      // can not select disabled date
-      if (this.rows[row][column].disabled) return;
-
-      const newDate = this.getYearOfCell(this.rows[row][column].text);
-      if (this.selectionMode === 'range') {
-        if (!this.rangeState.selecting) {
-          this.$emit('pick', {minDate: newDate, maxDate: null});
-          this.rangeState.selecting = true;
-        } else {
-          if (newDate >= this.minDate) {
-            this.$emit('pick', {minDate: this.minDate, maxDate: newDate});
-          } else {
-            this.$emit('pick', {minDate: newDate, maxDate: this.minDate});
-          }
-          this.rangeState.selecting = false;
-        }
-      } else {
-        this.$emit('pick', this.rows[row][column].text);
-      }
-    }
-  },
-
-  computed: {
-    rows() {
-      // TODO: refactory rows / getCellClasses
-      const rows = this.tableRows;
-      const disabledDate = this.disabledDate;
-      const selectedDate = [];
-      const now = getYearTimestamp(new Date());
-      // 年代，2010/2020 这种
-      const decade = Math.floor(this.date.getFullYear() / 10) * 10;
-
-      for (let i = 0; i < 4; i++) {
-        const row = rows[i];
-        for (let j = 0; j < 3; j++) {
-          let cell = row[j];
-          if (!cell) {
-            cell = { row: i, column: j, type: 'normal', inRange: false, start: false, end: false };
-          }
-
-          cell.type = 'normal';
-
-          const index = i * 3 + j;
-          const date = new Date(decade - 1 + index, 0);
-          const time = date.getTime();
-          cell.inRange = time >= getYearTimestamp(this.minDate) && time <= getYearTimestamp(this.maxDate);
-          cell.start = this.minDate && time === getYearTimestamp(this.minDate);
-          cell.end = this.maxDate && time === getYearTimestamp(this.maxDate);
-          const isToday = time === now;
-
-          if (isToday) {
-            cell.type = 'today';
-          }
-          if (i === 0 && j === 0) {
-            cell.type = 'prev-decade';
-          } else if (i === 3 && j === 2) {
-            cell.type = 'next-decade';
-          }
-          cell.text = date.getFullYear();
-          let cellDate = new Date(time);
-          cell.disabled = typeof disabledDate === 'function' && disabledDate(cellDate);
-          cell.selected = selectedDate.find(date => date.getTime() === cellDate.getTime());
-
-          this.$set(row, j, cell);
-        }
-      }
-      return rows;
-    }
-  }
 };
 </script>
 

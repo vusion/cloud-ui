@@ -14,235 +14,238 @@
 
 <script>
 import {
-  isDate,
-  range,
-  getDayCountOfQuarter,
-  getQuarterTimestamp,
-  nextDate,
-  coerceTruthyValueToArray,
+    isDate,
+    range,
+    getDayCountOfQuarter,
+    getQuarterTimestamp,
+    nextDate,
+    coerceTruthyValueToArray,
 } from '../util';
 import i18n from '../i18n';
 
 const datesInQuarter = (year, quarter) => {
-  const numOfDays = getDayCountOfQuarter(year, quarter);
-  const firstDay = new Date(year, (quarter - 1) * 3, 1);
-  return range(numOfDays).map(n => nextDate(firstDay, n));
+    const numOfDays = getDayCountOfQuarter(year, quarter);
+    const firstDay = new Date(year, (quarter - 1) * 3, 1);
+    return range(numOfDays).map((n) => nextDate(firstDay, n));
 };
 
 const isInQuarter = (date, quarter) => {
-  const month = date.getMonth();
-  const monthQuarter = Math.floor(month / 3) + 1;
-  return monthQuarter === quarter;
-}
+    const month = date.getMonth();
+    const monthQuarter = Math.floor(month / 3) + 1;
+    return monthQuarter === quarter;
+};
 
 export default {
-  i18n,
-  props: {
-    disabledDate: {},
-    value: {},
-    selectionMode: {
-      default: 'quarter'
-    },
-    minDate: {},
+    i18n,
+    props: {
+        disabledDate: {},
+        value: {},
+        selectionMode: {
+            default: 'quarter',
+        },
+        minDate: {},
 
-    maxDate: {},
-    defaultValue: {
-      validator(val) {
-        // null or valid Date Object
-        return val === null || isDate(val) || (Array.isArray(val) && val.every(isDate));
-      }
+        maxDate: {},
+        defaultValue: {
+            validator(val) {
+                // null or valid Date Object
+                return val === null || isDate(val) || (Array.isArray(val) && val.every(isDate));
+            },
+        },
+        date: {},
+        rangeState: {
+            default() {
+                return {
+                    endDate: null,
+                    selecting: false,
+                };
+            },
+        },
     },
-    date: {},
-    rangeState: {
-      default() {
+
+    data() {
         return {
-          endDate: null,
-          selecting: false
+            tableRow: [],
+            lastRow: null,
+            lastColumn: null,
         };
-      }
-    }
-  },
-
-  watch: {
-    'rangeState.endDate'(newVal) {
-      this.markRange(this.minDate, newVal);
     },
 
-    minDate(newVal, oldVal) {
-      if (getQuarterTimestamp(newVal) !== getQuarterTimestamp(oldVal)) {
-        this.markRange(this.minDate, this.maxDate);
-      }
+    computed: {
+        row() {
+            // TODO: refactory rows / getCellClasses
+            const row = this.tableRow;
+            const disabledDate = this.disabledDate;
+            const selectedDate = [];
+            const now = getQuarterTimestamp(new Date());
+
+            for (let i = 0; i < 4; i++) {
+                let cell = row[i];
+                if (!cell) {
+                    cell = { row: 0, column: i, type: 'normal', inRange: false, start: false, end: false };
+                }
+
+                cell.type = 'normal';
+
+                const time = new Date(this.date.getFullYear(), i * 3).getTime();
+                cell.inRange = time >= getQuarterTimestamp(this.minDate) && time <= getQuarterTimestamp(this.maxDate);
+                cell.start = this.minDate && time === getQuarterTimestamp(this.minDate);
+                cell.end = this.maxDate && time === getQuarterTimestamp(this.maxDate);
+                const isToday = time === now;
+
+                if (isToday) {
+                    cell.type = 'today';
+                }
+                cell.text = i + 1;
+                const cellDate = new Date(time);
+                cell.disabled = typeof disabledDate === 'function' && disabledDate(cellDate);
+                cell.selected = selectedDate.find((date) => date.getTime() === cellDate.getTime());
+
+                this.$set(row, i, cell);
+            }
+            return row;
+        },
     },
 
-    maxDate(newVal, oldVal) {
-      if (getQuarterTimestamp(newVal) !== getQuarterTimestamp(oldVal)) {
-        this.markRange(this.minDate, this.maxDate);
-      }
-    }
-  },
+    watch: {
+        'rangeState.endDate'(newVal) {
+            this.markRange(this.minDate, newVal);
+        },
 
-  data() {
-    return {
-      tableRow: [],
-      lastRow: null,
-      lastColumn: null
-    };
-  },
+        minDate(newVal, oldVal) {
+            if (getQuarterTimestamp(newVal) !== getQuarterTimestamp(oldVal)) {
+                this.markRange(this.minDate, this.maxDate);
+            }
+        },
 
-  methods: {
-    cellMatchesDate(cell, date) {
-      const value = new Date(date);
-      return this.date.getFullYear() === value.getFullYear() && isInQuarter(value, Number(cell.text));
+        maxDate(newVal, oldVal) {
+            if (getQuarterTimestamp(newVal) !== getQuarterTimestamp(oldVal)) {
+                this.markRange(this.minDate, this.maxDate);
+            }
+        },
     },
-    getCellStyle(cell) {
-      const style = {};
-      const year = this.date.getFullYear();
-      const today = new Date();
-      const quarter = cell.text;
-      const defaultValue = this.defaultValue ? Array.isArray(this.defaultValue) ? this.defaultValue : [this.defaultValue] : [];
-      style.disabled = typeof this.disabledDate === 'function'
-        ? datesInQuarter(year, quarter).every(this.disabledDate)
-        : false;
-      style.current = coerceTruthyValueToArray(this.value).findIndex(date => date.getFullYear() === year && isInQuarter(date, quarter)) >= 0;
-      style.today = today.getFullYear() === year && isInQuarter(today, quarter);
-      style.default = defaultValue.some(date => this.cellMatchesDate(cell, date));
 
-      if (cell.inRange) {
-        style['in-range'] = true;
+    methods: {
+        cellMatchesDate(cell, date) {
+            const value = new Date(date);
+            return this.date.getFullYear() === value.getFullYear() && isInQuarter(value, Number(cell.text));
+        },
+        getCellStyle(cell) {
+            const style = {};
+            const year = this.date.getFullYear();
+            const today = new Date();
+            const quarter = cell.text;
+            const defaultValue = this.defaultValue ? Array.isArray(this.defaultValue) ? this.defaultValue : [this.defaultValue] : [];
+            style.disabled = typeof this.disabledDate === 'function' ? datesInQuarter(year, quarter).every(this.disabledDate) : false;
+            style.current = coerceTruthyValueToArray(this.value).findIndex((date) => date.getFullYear() === year && isInQuarter(date, quarter)) >= 0;
+            style.today = today.getFullYear() === year && isInQuarter(today, quarter);
+            style.default = defaultValue.some((date) => this.cellMatchesDate(cell, date));
 
-        if (cell.start) {
-          style['start-date'] = true;
-        }
+            if (cell.inRange) {
+                style['in-range'] = true;
 
-        if (cell.end) {
-          style['end-date'] = true;
-        }
-      }
-      const moduledStyle = {}
-      Object.keys(style).forEach(className => {
-        if (this.$style[className]) {
-          moduledStyle[this.$style[className]] = style[className]
-        }
-      })
-      return moduledStyle;
+                if (cell.start) {
+                    style['start-date'] = true;
+                }
+
+                if (cell.end) {
+                    style['end-date'] = true;
+                }
+            }
+            const moduledStyle = {};
+            Object.keys(style).forEach((className) => {
+                if (this.$style[className]) {
+                    moduledStyle[this.$style[className]] = style[className];
+                }
+            });
+            return moduledStyle;
+        },
+        getQuarterOfCell(quarter) {
+            const year = this.date.getFullYear();
+            return new Date(year, (quarter - 1) * 3, 1);
+        },
+        markRange(minDate, maxDate) {
+            minDate = getQuarterTimestamp(minDate);
+            maxDate = getQuarterTimestamp(maxDate) || minDate;
+            [minDate, maxDate] = [Math.min(minDate, maxDate), Math.max(minDate, maxDate)];
+            const row = this.row;
+            for (let index = 0, l = row.length; index < l; index++) {
+                const cell = row[index];
+                const time = new Date(this.date.getFullYear(), index * 3).getTime();
+
+                cell.inRange = minDate && time >= minDate && time <= maxDate;
+                cell.start = minDate && time === minDate;
+                cell.end = maxDate && time === maxDate;
+            }
+        },
+        handleMouseMove(event) {
+            if (!this.rangeState.selecting)
+                return;
+
+            let target = event.target;
+            if (target.tagName === 'A') {
+                target = target.parentNode.parentNode;
+            }
+            if (target.tagName === 'DIV') {
+                target = target.parentNode;
+            }
+            if (target.tagName !== 'TD')
+                return;
+
+            const column = target.cellIndex;
+            // can not select disabled date
+            if (this.row[column].disabled)
+                return;
+
+            // only update rangeState when mouse moves to a new cell
+            // this avoids frequent Date object creation and improves performance
+            if (column !== this.lastColumn) {
+                this.lastColumn = column;
+                this.$emit('changerange', {
+                    minDate: this.minDate,
+                    maxDate: this.maxDate,
+                    rangeState: {
+                        selecting: true,
+                        endDate: this.getQuarterOfCell(column + 1),
+                    },
+                });
+            }
+        },
+        handleTableClick(event) {
+            let target = event.target;
+            if (target.tagName === 'A') {
+                target = target.parentNode.parentNode;
+            }
+            if (target.tagName === 'DIV') {
+                target = target.parentNode;
+            }
+            if (target.tagName !== 'TD')
+                return;
+
+            const column = target.cellIndex;
+            // can not select disabled date
+            if (this.row[column].disabled)
+                return;
+
+            const quarter = column + 1;
+            const newDate = this.getQuarterOfCell(quarter);
+            if (this.selectionMode === 'range') {
+                if (!this.rangeState.selecting) {
+                    this.$emit('pick', { minDate: newDate, maxDate: null });
+                    this.rangeState.selecting = true;
+                } else {
+                    if (newDate >= this.minDate) {
+                        this.$emit('pick', { minDate: this.minDate, maxDate: newDate });
+                    } else {
+                        this.$emit('pick', { minDate: newDate, maxDate: this.minDate });
+                    }
+                    this.rangeState.selecting = false;
+                }
+            } else {
+                this.$emit('pick', quarter);
+            }
+        },
     },
-    getQuarterOfCell(quarter) {
-      const year = this.date.getFullYear();
-      return new Date(year, (quarter - 1) * 3, 1);
-    },
-    markRange(minDate, maxDate) {
-      minDate = getQuarterTimestamp(minDate);
-      maxDate = getQuarterTimestamp(maxDate) || minDate;
-      [minDate, maxDate] = [Math.min(minDate, maxDate), Math.max(minDate, maxDate)];
-      const row = this.row;
-      for (let index = 0, l = row.length; index < l; index++) {
-        const cell = row[index];
-        const time = new Date(this.date.getFullYear(), index * 3).getTime();
-
-        cell.inRange = minDate && time >= minDate && time <= maxDate;
-        cell.start = minDate && time === minDate;
-        cell.end = maxDate && time === maxDate;
-      }
-    },
-    handleMouseMove(event) {
-      if (!this.rangeState.selecting) return;
-
-      let target = event.target;
-      if (target.tagName === 'A') {
-        target = target.parentNode.parentNode;
-      }
-      if (target.tagName === 'DIV') {
-        target = target.parentNode;
-      }
-      if (target.tagName !== 'TD') return;
-
-      const column = target.cellIndex;
-      // can not select disabled date
-      if (this.row[column].disabled) return;
-
-      // only update rangeState when mouse moves to a new cell
-      // this avoids frequent Date object creation and improves performance
-      if (column !== this.lastColumn) {
-        this.lastColumn = column;
-        this.$emit('changerange', {
-          minDate: this.minDate,
-          maxDate: this.maxDate,
-          rangeState: {
-            selecting: true,
-            endDate: this.getQuarterOfCell(column + 1)
-          }
-        });
-      }
-    },
-    handleTableClick(event) {
-      let target = event.target;
-      if (target.tagName === 'A') {
-        target = target.parentNode.parentNode;
-      }
-      if (target.tagName === 'DIV') {
-        target = target.parentNode;
-      }
-      if (target.tagName !== 'TD') return;
-
-      const column = target.cellIndex;
-      // can not select disabled date
-      if (this.row[column].disabled) return;
-
-      const quarter = column + 1;
-      const newDate = this.getQuarterOfCell(quarter);
-      if (this.selectionMode === 'range') {
-        if (!this.rangeState.selecting) {
-          this.$emit('pick', {minDate: newDate, maxDate: null});
-          this.rangeState.selecting = true;
-        } else {
-          if (newDate >= this.minDate) {
-            this.$emit('pick', {minDate: this.minDate, maxDate: newDate});
-          } else {
-            this.$emit('pick', {minDate: newDate, maxDate: this.minDate});
-          }
-          this.rangeState.selecting = false;
-        }
-      } else {
-        this.$emit('pick', quarter);
-      }
-    }
-  },
-
-  computed: {
-    row() {
-      // TODO: refactory rows / getCellClasses
-      const row = this.tableRow;
-      const disabledDate = this.disabledDate;
-      const selectedDate = [];
-      const now = getQuarterTimestamp(new Date());
-
-      for (let i = 0; i < 4; i++) {
-        let cell = row[i];
-        if (!cell) {
-          cell = { row: 0, column: i, type: 'normal', inRange: false, start: false, end: false };
-        }
-
-        cell.type = 'normal';
-
-        const time = new Date(this.date.getFullYear(), i * 3).getTime();
-        cell.inRange = time >= getQuarterTimestamp(this.minDate) && time <= getQuarterTimestamp(this.maxDate);
-        cell.start = this.minDate && time === getQuarterTimestamp(this.minDate);
-        cell.end = this.maxDate && time === getQuarterTimestamp(this.maxDate);
-        const isToday = time === now;
-
-        if (isToday) {
-          cell.type = 'today';
-        }
-        cell.text = i + 1;
-        let cellDate = new Date(time);
-        cell.disabled = typeof disabledDate === 'function' && disabledDate(cellDate);
-        cell.selected = selectedDate.find(date => date.getTime() === cellDate.getTime());
-
-        this.$set(row, i, cell);
-      }
-      return row;
-    }
-  }
 };
 </script>
 

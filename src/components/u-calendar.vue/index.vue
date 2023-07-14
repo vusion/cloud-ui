@@ -1,8 +1,8 @@
 <template>
 <div :class="$style.root" :disabled="disabled" :border="border">
     <div :class="$style.headCenter" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
-        <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!this.getYearPrev()" @click="handleYearPrev()"></i-ico>
-        <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!this.getMonthPrev()" @click="handleMonthPrev()"></i-ico>
+        <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!getYearPrev()" @click="handleYearPrev()"></i-ico>
+        <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!getMonthPrev()" @click="handleMonthPrev()"></i-ico>
         <div :class="$style.yearCenter">
             <span>
                 <span :class="$style.showtext" :active="yearvisible">{{ showYear }} {{ $t('year') }} </span>
@@ -24,34 +24,34 @@
                         <f-scroll-view @click.stop>
                             <div :class="$style.yearList" @click.stop>
                                 <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="monthSelect($event, '' ,false)">
-                                    <u-list-view-item :class="$style.yearitem" v-for="(month, mindex) in monthCol" :key="mindex" :value="month.value" :disabled="month.disabled" :role="month.value === showMonth" >{{ month.value }} {{ $t('month') }}</u-list-view-item>
+                                    <u-list-view-item :class="$style.yearitem" v-for="(month, mindex) in monthCol" :key="mindex" :value="month.value" :disabled="month.disabled" :role="month.value === showMonth">{{ month.value }} {{ $t('month') }}</u-list-view-item>
                                 </u-list-view>
                             </div>
                         </f-scroll-view>
                     </m-popper>
                 </span>
         </div>
-        <i-ico :class="$style.hicon" name="right-arrow" notext :disabled="!this.getMonthNext()" @click="handleMonthNext()"></i-ico>
-        <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!this.getYearNext()" @click="handleYearNext()"></i-ico>
+        <i-ico :class="$style.hicon" name="right-arrow" notext :disabled="!getMonthNext()" @click="handleMonthNext()"></i-ico>
+        <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!getYearNext()" @click="handleYearNext()"></i-ico>
     </div>
     <div :class="$style.headCenter" v-if="(picker === 'month' || picker === 'quarter') && currentMode === ''">
-        <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!this.getYearPrev()" @click="handleYearPrev()"></i-ico>
+        <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!getYearPrev()" @click="handleYearPrev()"></i-ico>
         <div :class="$style.yearCenter">
-            <span @click="handlerMode" >{{ showYear }}{{ $t('year') }}</span>
+            <span @click="handlerMode">{{ showYear }}{{ $t('year') }}</span>
         </div>
-        <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!this.getYearNext()" @click="handleYearNext()"></i-ico>
+        <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!getYearNext()" @click="handleYearNext()"></i-ico>
     </div>
     <div v-if="picker === 'year' || currentMode === 'year'" :class="$style.content" type="year">
         <year-page
             :date="showDate"
-            :minDate="minDate"
-            :maxDate="maxDate"
-            :yearDiff="yearDiff"
-            :yearAdd="yearAdd"
+            :min-date="minDate"
+            :max-date="maxDate"
+            :year-diff="yearDiff"
+            :year-add="yearAdd"
             @ok="handlerOk"
-            :showYear="showYear"
+            :show-year="showYear"
             :picker="picker"
-            :pageSize="yearPageSize"
+            :page-size="yearPageSize"
             @select="yearSelect($event)"
         >
         </year-page>
@@ -264,11 +264,11 @@ export default {
     },
     methods: {
         getYearPrev() {
-            let yearmin = this.getRangeYear(this.minDate);
+            const yearmin = this.getRangeYear(this.minDate);
             return !yearmin || this.showYear > yearmin;
         },
         getYearNext() {
-            let yearmax = this.getRangeYear(this.maxDate);
+            const yearmax = this.getRangeYear(this.maxDate);
             return !yearmax || this.showYear < yearmax;
         },
         handleYearPrev() {
@@ -289,9 +289,9 @@ export default {
             // date.setHours(0, 0, 0, 0);
             // this.selectedDate = date;
 
-            if(!this.getYearPrev())
+            if (!this.getYearPrev())
                 return;
-            let date = this.showDate;
+            const date = this.showDate;
             date.setYear(this.showYear - 1);
             this.updateFlag = true;
             this.showDate = new Date(date);
@@ -313,38 +313,38 @@ export default {
             // date.setHours(0, 0, 0, 0);
             // this.selectedDate = date;
 
-            if(!this.getYearNext())
+            if (!this.getYearNext())
                 return;
-            let date = this.showDate;
+            const date = this.showDate;
             date.setYear(this.showYear + 1);
             this.updateFlag = true;
             this.showDate = new Date(date);
         },
-        getMonthPrev(){
+        getMonthPrev() {
             return !this.minDate || this.minDate && this.getTime(this.showDate) > this.getTime(this.minDate);
         },
-        getMonthNext(){
+        getMonthNext() {
             return !this.maxDate || this.maxDate && this.getTime(this.showDate) < this.getTime(this.maxDate);
         },
-        handleMonthPrev(){
-            if(!this.getMonthPrev())
+        handleMonthPrev() {
+            if (!this.getMonthPrev())
                 return;
-            let date = this.showDate;
+            const date = this.showDate;
             date.setMonth(date.getMonth() - 1);
             this.updateFlag = true;
             this.showDate = new Date(date);
         },
-        handleMonthNext(){
-            if(!this.getMonthNext())
+        handleMonthNext() {
+            if (!this.getMonthNext())
                 return;
-            let date = this.showDate;
+            const date = this.showDate;
             date.setMonth(date.getMonth() + 1);
             this.updateFlag = true;
             this.showDate = new Date(date);
         },
         handlerMode() {
             // 切换到年份选择模式
-           this.currentMode = 'year';
+            this.currentMode = 'year';
         },
         handlerOk({ start, limit }) {
             this.currentYearList = this.getYearCol().splice(start, limit);
@@ -356,7 +356,7 @@ export default {
             }
             // 周选择，当前所在周都为高亮，并且 this.day 记录为这周的第一天
             if (this.picker === 'week') {
-                let weekDiff = this.selectedDate.getDay() -1;
+                const weekDiff = this.selectedDate.getDay() - 1;
                 // 选择的当前周的第一天
                 const tmpTime = this.selectedDate - weekDiff * MS_OF_DAY;
                 const tmp = new Date(tmpTime);
@@ -392,7 +392,7 @@ export default {
                 // 选择年份后模式设置为普通模式
                 this.currentMode = '';
             }
-            if(isEmit !== false)
+            if (isEmit !== false)
                 this.$emit('select', { sender: this, date });
         },
         monthSelect(month, flag, isEmit) {
@@ -637,7 +637,7 @@ date.setDate(0);
             return date.toString() !== 'Invalid Date';
         },
         getTime(value) {
-            if(this.isValidDate(value)){
+            if (this.isValidDate(value)) {
                 const date = new Date(value);
                 date.setDate(1);
                 date.setHours(0, 0, 0, 0);
@@ -645,11 +645,11 @@ date.setDate(0);
             }
         },
         getRangeYear(value) {
-            if(this.isValidDate(value)){
+            if (this.isValidDate(value)) {
                 const date = new Date(value);
                 return date.getFullYear();
             }
-        }
+        },
     },
 };
 </script>

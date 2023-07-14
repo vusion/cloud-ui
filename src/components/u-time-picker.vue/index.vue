@@ -16,28 +16,28 @@
     </u-input>
     <u-time-picker-popper
         ref="popper"
-        :minUnit="minUnit"
+        :min-unit="minUnit"
         :time="time"
         :disabled="disabled"
         :readonly="readonly"
-        :minTime="minTime"
-        :maxTime="maxTime"
-        :appendTo="appendTo"
-        :simpleFoot="simpleFoot"
-        :popperWidth="popperWidth"
-        :showRightNowButton="showRightNowButton"
-        :showFooterButton="showFooterButton"
-        :rightNowTitle="rightNowTitle"
-        :cancelTitle="cancelTitle"
-        :okTitle="okTitle"
-        :inputTime.sync="inputTime"
+        :min-time="minTime"
+        :max-time="maxTime"
+        :append-to="appendTo"
+        :simple-foot="simpleFoot"
+        :popper-width="popperWidth"
+        :show-right-now-button="showRightNowButton"
+        :show-footer-button="showFooterButton"
+        :right-now-title="rightNowTitle"
+        :cancel-title="cancelTitle"
+        :ok-title="okTitle"
+        :input-time.sync="inputTime"
         @spinner-click="onSpinnerClick"
         @change="onChange"
         @update:time="onUpdateTime"
         @blur="onPopperBlur"
         @toggle="onPopperToggle"
         @input="onEmitInput"
-    />
+    ></u-time-picker-popper>
 </span>
 </template>
 
@@ -60,12 +60,11 @@ import UTimePickerPopper from './popper.vue';
  * @param {string=''}               options.data.class               => 补充class
  */
 
-
 export default {
     name: 'u-time-picker',
     i18n,
-    mixins: [MField],
     components: { UTimePickerPopper },
+    mixins: [MField],
     props: {
         minUnit: { type: String, default: 'second' },
         time: { type: String, default: '' },
@@ -94,9 +93,9 @@ export default {
         popperWidth: { type: String, default: '' },
         showRightNowButton: { type: Boolean, default: true },
         showFooterButton: { type: Boolean, default: true },
-        rightNowTitle: {type: String, default: ""},
-        cancelTitle: {type: String, default: ""},
-        okTitle: {type: String, default: ""},
+        rightNowTitle: { type: String, default: '' },
+        cancelTitle: { type: String, default: '' },
+        okTitle: { type: String, default: '' },
     },
     data() {
         return {
@@ -152,8 +151,8 @@ export default {
             this.$refs.popper && this.$refs.popper.clearValue();
         },
         onSpinnerClick() {
-            this.$refs.input.focus()
-        }
+            this.$refs.input.focus();
+        },
     },
 };
 </script>

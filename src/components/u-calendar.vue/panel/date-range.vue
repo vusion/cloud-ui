@@ -59,256 +59,252 @@ import i18n from '../i18n';
 import DateTable from '../basic/date-table';
 
 const calcDefaultValue = (defaultValue) => {
-  if (Array.isArray(defaultValue)) {
-    return [new Date(defaultValue[0]), new Date(defaultValue[1])];
-  } else if (defaultValue) {
-    return [new Date(defaultValue), nextDate(new Date(defaultValue), 1)];
-  } else {
-    return [new Date(), nextDate(new Date(), 1)];
-  }
+    if (Array.isArray(defaultValue)) {
+        return [new Date(defaultValue[0]), new Date(defaultValue[1])];
+    } else if (defaultValue) {
+        return [new Date(defaultValue), nextDate(new Date(defaultValue), 1)];
+    } else {
+        return [new Date(), nextDate(new Date(), 1)];
+    }
 };
 
 export default {
-  i18n,
-  props: {
-    visible: { type: Boolean, default: true },
+    i18n,
 
-    value: { type: Array, default: () => [] },
+    components: { DateTable },
+    props: {
+        visible: { type: Boolean, default: true },
 
-    defaultValue: {
-      default: null,
-      validator(val) {
-        // either: null, valid Date object, Array of valid Date objects
-        return val === null || isDate(val) || (Array.isArray(val) && val.every(isDate));
-      }
+        value: { type: Array, default: () => [] },
+
+        defaultValue: {
+            default: null,
+            validator(val) {
+                // either: null, valid Date object, Array of valid Date objects
+                return val === null || isDate(val) || (Array.isArray(val) && val.every(isDate));
+            },
+        },
+
+        disabledDate: '',
     },
 
-    disabledDate: '',
-  },
+    data() {
+        return {
+            minDate: '',
+            maxDate: '',
+            leftDate: new Date(),
+            rightDate: nextMonth(new Date()),
+            rangeState: {
+                endDate: null,
+                selecting: false,
+                row: null,
+                column: null,
+            },
+            cellClassName: '',
+            firstDayOfWeek: 7,
+            format: '',
+            unlinkPanels: false,
+            monthTextList: [
+                this.$t('January'),
+                this.$t('February'),
+                this.$t('March'),
+                this.$t('April'),
+                this.$t('May'),
+                this.$t('June'),
+                this.$t('July'),
+                this.$t('August'),
+                this.$t('September'),
+                this.$t('October'),
+                this.$t('November'),
+                this.$t('December'),
+            ],
+        };
+    },
+    computed: {
+        leftLabel() {
+            return this.leftDate.getFullYear() + ' ' + this.$t('year') + ' '
+                + this.monthTextList[this.leftDate.getMonth()] + ' ' + this.$t('month');
+        },
 
-  data() {
-    return {
-      minDate: '',
-      maxDate: '',
-      leftDate: new Date(),
-      rightDate: nextMonth(new Date()),
-      rangeState: {
-        endDate: null,
-        selecting: false,
-        row: null,
-        column: null
-      },
-      cellClassName: '',
-      firstDayOfWeek: 7,
-      format: '',
-      unlinkPanels: false,
-      monthTextList: [
-        this.$t('January'),
-        this.$t('February'),
-        this.$t('March'),
-        this.$t('April'),
-        this.$t('May'),
-        this.$t('June'),
-        this.$t('July'),
-        this.$t('August'),
-        this.$t('September'),
-        this.$t('October'),
-        this.$t('November'),
-        this.$t('December'),
-      ],
-    };
-  },
-  computed: {
-    leftLabel() {
-      return this.leftDate.getFullYear() + ' ' + this.$t('year') + ' '
-        + this.monthTextList[this.leftDate.getMonth()] + ' ' + this.$t('month');
+        rightLabel() {
+            return this.rightDate.getFullYear() + ' ' + this.$t('year') + ' '
+                + this.monthTextList[this.rightDate.getMonth()] + ' ' + this.$t('month');
+        },
+
+        leftYear() {
+            return this.leftDate.getFullYear();
+        },
+
+        leftMonth() {
+            return this.leftDate.getMonth();
+        },
+
+        leftMonthDate() {
+            return this.leftDate.getDate();
+        },
+
+        rightYear() {
+            return this.rightDate.getFullYear();
+        },
+
+        rightMonth() {
+            return this.rightDate.getMonth();
+        },
+
+        rightMonthDate() {
+            return this.rightDate.getDate();
+        },
     },
 
-    rightLabel() {
-      return this.rightDate.getFullYear() + ' ' +  this.$t('year') + ' '
-        + this.monthTextList[this.rightDate.getMonth()] + ' ' + this.$t('month');
-    },
+    watch: {
+        value: {
+            handler(newVal) {
+                if (!newVal) {
+                    this.minDate = null;
+                    this.maxDate = null;
+                } else if (Array.isArray(newVal)) {
+                    this.minDate = isDate(newVal[0]) ? new Date(newVal[0]) : null;
+                    this.maxDate = isDate(newVal[1]) ? new Date(newVal[1]) : null;
+                    if (this.minDate) {
+                        this.leftDate = this.minDate;
+                        if (this.unlinkPanels && this.maxDate) {
+                            const minDateYear = this.minDate.getFullYear();
+                            const minDateMonth = this.minDate.getMonth();
+                            const maxDateYear = this.maxDate.getFullYear();
+                            const maxDateMonth = this.maxDate.getMonth();
+                            this.rightDate = minDateYear === maxDateYear && minDateMonth === maxDateMonth ? nextMonth(this.maxDate) : this.maxDate;
+                        } else {
+                            this.rightDate = nextMonth(this.leftDate);
+                        }
+                    } else {
+                        this.leftDate = calcDefaultValue(this.defaultValue)[0];
+                        this.rightDate = nextMonth(this.leftDate);
+                    }
+                }
+            },
+            immediate: true,
+        },
 
-    leftYear() {
-      return this.leftDate.getFullYear();
-    },
-
-    leftMonth() {
-      return this.leftDate.getMonth();
-    },
-
-    leftMonthDate() {
-      return this.leftDate.getDate();
-    },
-
-    rightYear() {
-      return this.rightDate.getFullYear();
-    },
-
-    rightMonth() {
-      return this.rightDate.getMonth();
-    },
-
-    rightMonthDate() {
-      return this.rightDate.getDate();
-    },
-  },
-
-  watch: {
-    value: {
-      handler(newVal) {
-        if (!newVal) {
-          this.minDate = null;
-          this.maxDate = null;
-        } else if (Array.isArray(newVal)) {
-          this.minDate = isDate(newVal[0]) ? new Date(newVal[0]) : null;
-          this.maxDate = isDate(newVal[1]) ? new Date(newVal[1]) : null;
-          if (this.minDate) {
-            this.leftDate = this.minDate;
-            if (this.unlinkPanels && this.maxDate) {
-              const minDateYear = this.minDate.getFullYear();
-              const minDateMonth = this.minDate.getMonth();
-              const maxDateYear = this.maxDate.getFullYear();
-              const maxDateMonth = this.maxDate.getMonth();
-              this.rightDate = minDateYear === maxDateYear && minDateMonth === maxDateMonth
-                ? nextMonth(this.maxDate)
-                : this.maxDate;
-            } else {
-              this.rightDate = nextMonth(this.leftDate);
+        defaultValue(val) {
+            if (!Array.isArray(this.value)) {
+                const [left, right] = calcDefaultValue(val);
+                this.leftDate = left;
+                this.rightDate = val && val[1] && this.unlinkPanels ? right : nextMonth(this.leftDate);
             }
-          } else {
+        },
+    },
+
+    methods: {
+        handleClear() {
+            this.minDate = null;
+            this.maxDate = null;
             this.leftDate = calcDefaultValue(this.defaultValue)[0];
             this.rightDate = nextMonth(this.leftDate);
-          }
-        }
-      },
-      immediate: true
+            this.$emit('select', { sender: this, startDate: null, endDate: null });
+        },
+
+        handleChangeRange(val) {
+            this.minDate = val.minDate;
+            this.maxDate = val.maxDate;
+            this.rangeState = val.rangeState;
+        },
+
+        handleRangePick(val, close = true) {
+            const minDate = val.minDate;
+            const maxDate = val.maxDate;
+
+            if (this.maxDate === maxDate && this.minDate === minDate) {
+                return;
+            }
+            this.onPick && this.onPick(val);
+            this.maxDate = maxDate;
+            this.minDate = minDate;
+
+            // workaround for https://github.com/ElemeFE/element/issues/7539, should remove this block when we don't have to care about Chromium 55 - 57
+            setTimeout(() => {
+                this.maxDate = maxDate;
+                this.minDate = minDate;
+            }, 10);
+            if (!close)
+                return;
+            this.handleConfirm();
+        },
+
+        // leftPrev*, rightNext* need to take care of `unlinkPanels`
+        leftPrevYear() {
+            this.leftDate = prevYear(this.leftDate);
+            if (!this.unlinkPanels) {
+                this.rightDate = nextMonth(this.leftDate);
+            }
+        },
+
+        leftPrevMonth() {
+            this.leftDate = prevMonth(this.leftDate);
+            if (!this.unlinkPanels) {
+                this.rightDate = nextMonth(this.leftDate);
+            }
+        },
+
+        rightNextYear() {
+            if (!this.unlinkPanels) {
+                this.leftDate = nextYear(this.leftDate);
+                this.rightDate = nextMonth(this.leftDate);
+            } else {
+                this.rightDate = nextYear(this.rightDate);
+            }
+        },
+
+        rightNextMonth() {
+            if (!this.unlinkPanels) {
+                this.leftDate = nextMonth(this.leftDate);
+                this.rightDate = nextMonth(this.leftDate);
+            } else {
+                this.rightDate = nextMonth(this.rightDate);
+            }
+        },
+
+        // leftNext*, rightPrev* are called when `unlinkPanels` is true
+        leftNextYear() {
+            this.leftDate = nextYear(this.leftDate);
+        },
+
+        leftNextMonth() {
+            this.leftDate = nextMonth(this.leftDate);
+        },
+
+        rightPrevYear() {
+            this.rightDate = prevYear(this.rightDate);
+        },
+
+        rightPrevMonth() {
+            this.rightDate = prevMonth(this.rightDate);
+        },
+
+        handleConfirm(visible = false) {
+            if (this.isValidValue([this.minDate, this.maxDate])) {
+                this.$emit('select', { sender: this, startDate: this.minDate, endDate: this.maxDate });
+            }
+        },
+
+        isValidValue(value) {
+            return Array.isArray(value)
+                && value && value[0] && value[1]
+                && isDate(value[0]) && isDate(value[1])
+                && value[0].getTime() <= value[1].getTime() && (
+                    typeof this.disabledDate === 'function' ? !this.disabledDate(value[0]) && !this.disabledDate(value[1]) : true
+                );
+        },
+
+        resetView() {
+            // NOTE: this is a hack to reset {min, max}Date on picker open.
+            // TODO: correct way of doing so is to refactor {min, max}Date to be dependent on value and internal selection state
+            //       an alternative would be resetView whenever picker becomes visible, should also investigate date-panel's resetView
+            if (this.minDate && this.maxDate == null)
+                this.rangeState.selecting = false;
+            this.minDate = this.value && isDate(this.value[0]) ? new Date(this.value[0]) : null;
+            this.maxDate = this.value && isDate(this.value[0]) ? new Date(this.value[1]) : null;
+        },
     },
-
-    defaultValue(val) {
-      if (!Array.isArray(this.value)) {
-        const [left, right] = calcDefaultValue(val);
-        this.leftDate = left;
-        this.rightDate = val && val[1] && this.unlinkPanels
-          ? right
-          : nextMonth(this.leftDate);
-      }
-    }
-  },
-
-  methods: {
-    handleClear() {
-      this.minDate = null;
-      this.maxDate = null;
-      this.leftDate = calcDefaultValue(this.defaultValue)[0];
-      this.rightDate = nextMonth(this.leftDate);
-      this.$emit('select', { sender: this, startDate: null, endDate: null });
-    },
-
-    handleChangeRange(val) {
-      this.minDate = val.minDate;
-      this.maxDate = val.maxDate;
-      this.rangeState = val.rangeState;
-    },
-
-    handleRangePick(val, close = true) {
-      const minDate = val.minDate;
-      const maxDate = val.maxDate;
-
-      if (this.maxDate === maxDate && this.minDate === minDate) {
-        return;
-      }
-      this.onPick && this.onPick(val);
-      this.maxDate = maxDate;
-      this.minDate = minDate;
-
-      // workaround for https://github.com/ElemeFE/element/issues/7539, should remove this block when we don't have to care about Chromium 55 - 57
-      setTimeout(() => {
-        this.maxDate = maxDate;
-        this.minDate = minDate;
-      }, 10);
-      if (!close) return;
-      this.handleConfirm();
-    },
-
-    // leftPrev*, rightNext* need to take care of `unlinkPanels`
-    leftPrevYear() {
-      this.leftDate = prevYear(this.leftDate);
-      if (!this.unlinkPanels) {
-        this.rightDate = nextMonth(this.leftDate);
-      }
-    },
-
-    leftPrevMonth() {
-      this.leftDate = prevMonth(this.leftDate);
-      if (!this.unlinkPanels) {
-        this.rightDate = nextMonth(this.leftDate);
-      }
-    },
-
-    rightNextYear() {
-      if (!this.unlinkPanels) {
-        this.leftDate = nextYear(this.leftDate);
-        this.rightDate = nextMonth(this.leftDate);
-      } else {
-        this.rightDate = nextYear(this.rightDate);
-      }
-    },
-
-    rightNextMonth() {
-      if (!this.unlinkPanels) {
-        this.leftDate = nextMonth(this.leftDate);
-        this.rightDate = nextMonth(this.leftDate);
-      } else {
-        this.rightDate = nextMonth(this.rightDate);
-      }
-    },
-
-    // leftNext*, rightPrev* are called when `unlinkPanels` is true
-    leftNextYear() {
-      this.leftDate = nextYear(this.leftDate);
-    },
-
-    leftNextMonth() {
-      this.leftDate = nextMonth(this.leftDate);
-    },
-
-    rightPrevYear() {
-      this.rightDate = prevYear(this.rightDate);
-    },
-
-    rightPrevMonth() {
-      this.rightDate = prevMonth(this.rightDate);
-    },
-
-    handleConfirm(visible = false) {
-      if (this.isValidValue([this.minDate, this.maxDate])) {
-        this.$emit('select', { sender: this, startDate: this.minDate, endDate: this.maxDate });
-      }
-    },
-
-    isValidValue(value) {
-      return Array.isArray(value) &&
-        value && value[0] && value[1] &&
-        isDate(value[0]) && isDate(value[1]) &&
-        value[0].getTime() <= value[1].getTime() && (
-        typeof this.disabledDate === 'function'
-          ? !this.disabledDate(value[0]) && !this.disabledDate(value[1])
-          : true
-      );
-    },
-
-    resetView() {
-      // NOTE: this is a hack to reset {min, max}Date on picker open.
-      // TODO: correct way of doing so is to refactor {min, max}Date to be dependent on value and internal selection state
-      //       an alternative would be resetView whenever picker becomes visible, should also investigate date-panel's resetView
-      if (this.minDate && this.maxDate == null) this.rangeState.selecting = false;
-      this.minDate = this.value && isDate(this.value[0]) ? new Date(this.value[0]) : null;
-      this.maxDate = this.value && isDate(this.value[0]) ? new Date(this.value[1]) : null;
-    }
-  },
-
-  components: { DateTable }
 };
 </script>
 

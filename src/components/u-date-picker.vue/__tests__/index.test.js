@@ -20,7 +20,7 @@ describe('u-date-picker.vue', () => {
                 toggle: onToggle,
                 'update:startDate': onUpdateStartDate,
                 'update:endDate': onUpdateEndDate,
-            }
+            },
         });
         // 输入框的值
         expect(wrapper.findAll('input').at(0).element.value).toBe('2023-03-10');
@@ -42,7 +42,7 @@ describe('u-date-picker.vue', () => {
         expect(onChange.mock.calls[0][0]).toHaveProperty('startDate', new Date('2023-03-06 00:00:00'));
         expect(onChange.mock.calls[1][0]).toHaveProperty('endDate', new Date('2023-04-20 00:00:00'));
         expect(onToggle.mock.calls[1][0]).toHaveProperty('opened', false);
-    })
+    });
 
     it('month range picker', async () => {
         const onChange = jest.fn();
@@ -62,7 +62,7 @@ describe('u-date-picker.vue', () => {
                 toggle: onToggle,
                 'update:startDate': onUpdateStartDate,
                 'update:endDate': onUpdateEndDate,
-            }
+            },
         });
         // 输入框的值
         expect(wrapper.findAll('input').at(0).element.value).toBe('2021-06');
@@ -84,7 +84,7 @@ describe('u-date-picker.vue', () => {
         expect(onChange.mock.calls[0][0]).toHaveProperty('startDate', new Date('2021-05-01 00:00:00'));
         expect(onChange.mock.calls[1][0]).toHaveProperty('endDate', new Date('2022-09-01 00:00:00'));
         expect(onToggle.mock.calls[1][0]).toHaveProperty('opened', false);
-    })
+    });
 
     it('quarter range picker', async () => {
         const onChange = jest.fn();
@@ -104,7 +104,7 @@ describe('u-date-picker.vue', () => {
                 toggle: onToggle,
                 'update:startDate': onUpdateStartDate,
                 'update:endDate': onUpdateEndDate,
-            }
+            },
         });
         // 输入框的值
         expect(wrapper.findAll('input').at(0).element.value).toBe('2021-Q2');
@@ -126,7 +126,7 @@ describe('u-date-picker.vue', () => {
         expect(onChange.mock.calls[0][0]).toHaveProperty('startDate', new Date('2021-07-01 00:00:00'));
         expect(onChange.mock.calls[1][0]).toHaveProperty('endDate', new Date('2022-04-01 00:00:00'));
         expect(onToggle.mock.calls[1][0]).toHaveProperty('opened', false);
-    })
+    });
 
     it('year range picker', async () => {
         const onChange = jest.fn();
@@ -146,7 +146,7 @@ describe('u-date-picker.vue', () => {
                 toggle: onToggle,
                 'update:startDate': onUpdateStartDate,
                 'update:endDate': onUpdateEndDate,
-            }
+            },
         });
         // 输入框的值
         expect(wrapper.findAll('input').at(0).element.value).toBe('2011');
@@ -168,5 +168,5 @@ describe('u-date-picker.vue', () => {
         expect(onChange.mock.calls[0][0]).toHaveProperty('startDate', new Date('2016-01-01 00:00:00'));
         expect(onChange.mock.calls[1][0]).toHaveProperty('endDate', new Date('2025-01-01 00:00:00'));
         expect(onToggle.mock.calls[1][0]).toHaveProperty('opened', false);
-    })
-})
+    });
+});

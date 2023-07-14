@@ -1,32 +1,32 @@
 <template>
     <div :class="$style.root" :border="border">
-        <DateRange
+        <date-range
             v-if="picker === 'date'"
             :value="value"
-            :disabledDate="disabledDate"
+            :disabled-date="disabledDate"
             @pick="emitInput"
             v-bind="$attrs"
-            v-on="$listeners" />
-        <OtherRange
+            v-on="$listeners"></date-range>
+        <other-range
             v-else
             :picker="picker"
             :value="value"
-            :disabledDate="disabledDate"
+            :disabled-date="disabledDate"
             @pick="emitInput"
             v-bind="$attrs"
-            v-on="$listeners" />
+            v-on="$listeners"></other-range>
     </div>
 </template>
 
 <script>
-import DateRange from './panel/date-range'
-import OtherRange from './panel/other-range'
-import { getDateTimestamp, getMonthTimestamp, getQuarterTimestamp, getYearTimestamp } from './util'
+import DateRange from './panel/date-range';
+import OtherRange from './panel/other-range';
+import { getDateTimestamp, getMonthTimestamp, getQuarterTimestamp, getYearTimestamp } from './util';
 
 export default {
     name: 'u-calendar-range',
     components: {
-        DateRange, OtherRange
+        DateRange, OtherRange,
     },
     props: {
         picker: { type: String, default: 'date' },
@@ -40,7 +40,7 @@ export default {
     },
     computed: {
         value() {
-            return [this.startDate, this.endDate]
+            return [this.startDate, this.endDate];
         },
         disabledDate() {
             const timestampFnMap = {
@@ -48,13 +48,13 @@ export default {
                 month: getMonthTimestamp,
                 quarter: getQuarterTimestamp,
                 year: getYearTimestamp,
-            }
+            };
             const timestampFn = timestampFnMap[this.picker] || (() => false);
             return (date) => {
                 const time = new Date(date).getTime();
-                if (this.disabled ||
-                    (this.minDate && time < timestampFn(this.minDate)) ||
-                    (this.maxDate && date > timestampFn(this.maxDate))) {
+                if (this.disabled
+                    || (this.minDate && time < timestampFn(this.minDate))
+                    || (this.maxDate && date > timestampFn(this.maxDate))) {
                     return true;
                 }
                 return false;
@@ -65,8 +65,8 @@ export default {
         emitInput(val) {
             this.$emit('input', val);
         },
-    }
-}
+    },
+};
 </script>
 
 <style module>
