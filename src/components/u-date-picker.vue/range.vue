@@ -1,20 +1,36 @@
 <template>
 <div :class="$style.root" :width="width" :height="height">
-    <u-input :class="$style.input" width="full" height="full" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
+    <u-range-input
+        :class="$style.input"
+        ref="input"
+        :autofocus="autofocus"
+        :readonly="readonly"
+        :disabled="disabled"
+        :left-value="showStartDate"
+        :right-value="showEndDate"
         :clearable="clearable" :placeholder="placeholder"
-        @click.stop="toggle(true)"
+        @left-click="toggle(true)"
+        @right-click="toggle(true)"
         @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
         @blur:value="onBlurInputValue($event)"
         @clear="clearValue"
-        :prefix="preIcon?preIcon:undefined"
-        :suffix="suffixIcon?suffixIcon:undefined"
+        :pre-icon="preIcon"
+        :suffix-icon="suffixIcon"
         :color="formItemVM && formItemVM.color">
-        <template #prefix><i-ico v-if="preIcon" :name="preIcon" :class="[$style.preIcon]" notext slot="prefix"></i-ico></template>
-        <template #suffix><i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.suffixIcon]" notext></i-ico></template>
-    </u-input>
+    </u-range-input>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
         <div @click.stop>
-            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="calendarDate" :value="date" @select="select($event.date)"></u-calendar>
+            <u-calendar-range
+                :picker="picker"
+                ref="calendar"
+                :min-date="minDate"
+                :year-diff="yearDiff"
+                :year-add="yearAdd"
+                :max-date="maxDate"
+                :start-date="calendarStartDate"
+                :end-date="calendarEndDate"
+                @select="select($event)">
+            </u-calendar-range>
         </div>
     </m-popper>
 </div>
@@ -25,6 +41,7 @@ import { DateRangeError } from '../u-calendar.vue/error.js';
 import { clickOutside } from '../../directives';
 import { format, transformDate, ChangeDate } from '../../utils/date';
 import MField from '../m-field.vue';
+import URangeInput from './range-input.vue';
 import i18n from './i18n';
 const MS_OF_DAY = 24 * 3600 * 1000;
 
@@ -42,8 +59,9 @@ const MS_OF_DAY = 24 * 3600 * 1000;
  */
 
 export default {
-    name: 'u-date-picker',
+    name: 'u-date-range-picker',
     i18n,
+    components: { URangeInput },
     directives: { clickOutside },
     mixins: [MField],
     props: {
@@ -51,12 +69,9 @@ export default {
             type: String,
             default: 'calendar',
         },
-        suffixIcon: {
-            type: String,
-            default: '',
-        },
-        date: [String, Number, Date],
-        value: [String, Number, Date],
+        suffixIcon: { type: String },
+        startDate: { type: [String, Number, Date] },
+        endDate: { type: [String, Number, Date] },
         minDate: [String, Number, Date],
         maxDate: [String, Number, Date],
         picker: { type: String, default: 'date' },
@@ -91,11 +106,15 @@ export default {
         height: String,
     },
     data() {
-        const date = this.date || this.value;
-        const showDate = this.format(date, this.getFormatString());
+        const showStartDate = this.format(this.startDate, this.getFormatString());
+        const showEndDate = this.format(this.endDate, this.getFormatString());
         return {
-            showDate,
-            calendarDate: showDate, // calendar里的值
+            // 输入框里的值
+            showStartDate,
+            showEndDate,
+            // calendar里的值
+            calendarStartDate: showStartDate ? new Date(this.transformDate(showStartDate)) : undefined,
+            calendarEndDate: showEndDate ? new Date(this.transformDate(showEndDate)) : undefined,
         };
     },
     computed: {
@@ -107,23 +126,27 @@ export default {
         },
     },
     watch: {
-        date(newValue) {
-            this.showDate = this.format(newValue, this.getFormatString());
+        startDate(newValue) {
+            this.showStartDate = this.format(newValue, this.getFormatString());
         },
-        value(newValue) {
-            this.showDate = this.format(newValue, this.getFormatString());
+        endDate(newValue) {
+            this.showEndDate = this.format(newValue, this.getFormatString());
         },
-        showDate(newValue) {
-            /**
-             * @event change 日期改变时触发
-             * @property {object} sender 事件发送对象
-             * @property {number} date 改变后的日期 返回格式为日期对象
-             */ const showDate = this.returnTime(newValue);
+        showStartDate(newValue) {
+            const showDate = this.returnTime(newValue);
             const newDate = showDate ? new Date(this.transformDate(showDate)) : undefined;
-            this.$emit('update:date', this.toValue(newDate));
-            this.$emit('change', { sender: this, date: newDate });
-            this.$emit('input', this.toValue(newDate));
-            this.calendarDate = newDate; // showDate改变时设置calendar里的值
+            this.$emit('update:startDate', this.toValue(newDate));
+            this.$emit('change', { sender: this, startDate: newDate });
+            // this.$emit('input', this.toValue(newDate));
+            this.calendarStartDate = newDate; // showDate改变时设置calendar里的值
+        },
+        showEndDate(newValue) {
+            const showDate = this.returnTime(newValue);
+            const newDate = showDate ? new Date(this.transformDate(showDate)) : undefined;
+            this.$emit('update:endDate', this.toValue(newDate));
+            this.$emit('change', { sender: this, endDate: newDate });
+            // this.$emit('input', this.toValue(newDate));
+            this.calendarEndDate = newDate; // showDate改变时设置calendar里的值
         },
         minDate(newValue) {
             return this.checkDate(newValue);
@@ -141,15 +164,6 @@ export default {
                     throw new DateRangeError(minDate, maxDate);
             }
         }
-        // this.$emit(
-        //     'input',
-        //     this.toValue(this.showDate ? new Date(this.transformDate(this.showDate)) : ''),
-        // ); // document.addEventListener('click', this.fadeOut, false);
-
-        this.$emit(
-            'update',
-            this.toValue(this.showDate ? new Date(this.transformDate(this.showDate)) : ''),
-        );
     },
     mounted() {
         // this.autofocus && this.$refs.input.focus();
@@ -201,11 +215,14 @@ export default {
          * @param  {Date=null} date 选择的日期
          * @return {void}
          */
-        select(date) {
-            if (this.readonly || this.disabled || this.isOutOfRange(date))
+        select({ startDate, endDate }) {
+            if (this.readonly || this.disabled
+                || this.isOutOfRange(startDate) || this.isOutOfRange(endDate))
                 return;
-            this.showDate = this.format(date, this.getFormatString());
-            const showDate = this.returnTime(this.showDate);
+            this.showStartDate = this.format(startDate, this.getFormatString());
+            this.showEndDate = this.format(endDate, this.getFormatString());
+            const showStartDate = this.returnTime(this.showStartDate);
+            const showEndDate = this.returnTime(this.showEndDate);
             /**
              * @event select 选择某一项时触发
              * @property {object} sender 事件发送对象
@@ -213,7 +230,8 @@ export default {
              */
             this.$emit('select', {
                 sender: this,
-                date: new Date(this.transformDate(showDate)),
+                startDate: new Date(this.transformDate(showStartDate)),
+                endDate: new Date(this.transformDate(showEndDate)),
             });
             this.toggle(false);
         },
@@ -223,20 +241,35 @@ export default {
          * @param  {object} $event
          * @return {void}
          */
-        onInput($event) {
-            const value = $event;
-            if (value === '') { // 可以输空值
-                this.showDate = undefined;
-                return;
+        onInput({ leftValue, rightValue }) {
+            if (!leftValue)
+                this.showStartDate = undefined;
+            if (!rightValue)
+                this.showEndDate = undefined;
+            // 处理 left > right 的情况
+            if (this.checkValid(leftValue) && this.checkValid(rightValue)
+                && new Date(this.transformDate(leftValue)) > new Date(this.transformDate(rightValue))) {
+                const temp = leftValue;
+                leftValue = rightValue;
+                rightValue = temp;
             }
-            if (this.checkValid(value)) {
-                let date = new Date(this.transformDate(value));
+            if (this.checkValid(leftValue)) {
+                let date = new Date(this.transformDate(leftValue));
                 const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
-                date = isOutOfRange ? this.showDate : date;
+                date = isOutOfRange ? this.showStartDate : date;
                 const showDate = this.format(date, this.getFormatString());
-                this.showDate = showDate;
-                this.calendarDate = showDate;
-                this.$refs.input.updateCurrentValue(this.showDate);
+                this.showStartDate = showDate;
+                this.calendarStartDate = this.transformDate(showDate);
+                this.$refs.input.updateCurrentValue({ leftValue: this.showStartDate });
+            }
+            if (this.checkValid(rightValue)) {
+                let date = new Date(this.transformDate(rightValue));
+                const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
+                date = isOutOfRange ? this.showEndDate : date;
+                const showDate = this.format(date, this.getFormatString());
+                this.showEndDate = showDate;
+                this.calendarEndDate = this.transformDate(showDate);
+                this.$refs.input.updateCurrentValue({ rightValue: this.showEndDate });
             }
         },
         /**
@@ -294,7 +327,8 @@ export default {
             return date + ' ' + time;
         },
         clearValue() {
-            this.showDate = undefined;
+            this.showStartDate = undefined;
+            this.showEndDate = undefined;
         },
         onBlur(e) {
             if (this.preventBlur)
@@ -320,11 +354,15 @@ export default {
                     return /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/.test(value);
             }
         },
-        onBlurInputValue(value) {
+        onBlurInputValue({ leftValue, rightValue }) {
             // 当输入框输入的值不合法，需还原成上一次合法的值
-            if (value && !this.checkValid(value)) {
-                this.showDate = this.format(this.calendarDate, this.getFormatString());
-                this.$refs.input.updateCurrentValue(this.showDate);
+            if (leftValue && !this.checkValid(leftValue)) {
+                this.showStartDate = this.format(this.calendarStartDate, this.getFormatString());
+                this.$refs.input.updateCurrentValue({ leftValue: this.showStartDate });
+            }
+            if (rightValue && !this.checkValid(rightValue)) {
+                this.showEndDate = this.format(this.calendarEndDate, this.getFormatString());
+                this.$refs.input.updateCurrentValue({ rightValue: this.showEndDate });
             }
         },
         onPopperClose(e) {
@@ -341,11 +379,10 @@ export default {
 .root {
     display: inline-block;
     position: relative;
-    width: var(--datepicker-input-width);
+    width: var(--datepicker-range-input-width);
 }
 
 .input {
-    padding: 0 var(--datepicker-input-padding-x);
     border: var(--datepicker-input-border-width) solid var(--datepicker-input-border-color);
     color: var(--datepicker-input-color);
     background: var(--datepicker-input-background);
@@ -360,10 +397,6 @@ export default {
 .root[width="mini"] {
     width: var(--datepicker-input-width-mini);
 }
-.root[width="mini"] .input {
-    padding-left: var(--datepicker-input-padding-x-mini);
-    padding-right: var(--datepicker-input-padding-x-mini);
-}
 
 .root[height="mini"] .input {
     height: var(--datepicker-input-height-mini);
@@ -372,11 +405,6 @@ export default {
 
 .root[width="small"] {
     width: var(--datepicker-input-width-small);
-}
-
-.root[width="small"] .input{
-    padding-left: var(--datepicker-input-padding-x-small);
-    padding-right: var(--datepicker-input-padding-x-small);
 }
 
 .root[height="small"] .input {
@@ -388,11 +416,6 @@ export default {
     width: var(--datepicker-input-width);
 }
 
-.root[width="normal"] .input {
-    padding-left: var(--datepicker-input-padding-x);
-    padding-right: var(--datepicker-input-padding-x);
-}
-
 .root[height="normal"] .input {
     height: var(--datepicker-input-height);
     line-height: calc(var(--datepicker-input-height) - var(--datepicker-input-border-width) * 2);
@@ -400,11 +423,6 @@ export default {
 
 .root[width="medium"] {
     width: var(--datepicker-input-width-medium);
-}
-
-.root[width="medium"] .input {
-    padding-left: var(--datepicker-input-padding-x-medium);
-    padding-right: var(--datepicker-input-padding-x-medium);
 }
 
 .root[height="medium"] .input {
@@ -416,11 +434,6 @@ export default {
     width: var(--datepicker-input-width-large);
 }
 
-.root[width="large"] .input {
-    padding-left: var(--datepicker-input-padding-x-large);
-    padding-right: var(--datepicker-input-padding-x-large);
-}
-
 .root[height="large"] .input {
     height: var(--datepicker-input-height-large);
     line-height: calc(var(--datepicker-input-height-large) - var(--datepicker-input-border-width) * 2);
@@ -428,11 +441,6 @@ export default {
 
 .root[width="huge"] {
     width: var(--datepicker-input-width-huge);
-}
-
-.root[width="huge"] .input {
-    padding-left: var(--datepicker-input-padding-x-huge);
-    padding-right: var(--datepicker-input-padding-x-huge);
 }
 
 .root[height="huge"] .input {
@@ -452,16 +460,6 @@ export default {
 
 .root[height="full"] .input {
     height: 100%;
-}
-
-.preIcon {
-    left: 12px;
-    color: var(--datepicker-input-pre-icon-color);
-}
-
-.suffixIcon {
-    right: 12px;
-    color: var(--datepicker-input-after-icon-color);
 }
 
 .popper {

@@ -11,17 +11,45 @@
 </template>
 <script>
 export default {
-	data() {
-		return {
+    data() {
+        return {
             // 传入值单位为秒，应该有容错
-			time: '02:02:00',
-		};
-	},
+            time: '02:02:00',
+        };
+    },
     mounted() {
         setTimeout(() => {
             // 这里变更后，之前会变成当前时间，已修复
             this.time = '12:30:00';
         }, 200);
+    },
+};
+</script>
+```
+
+### 范围选择变量绑定
+
+``` vue
+<template>
+    <u-time-picker
+        range
+        :start-time.sync="starTime"
+        :end-time.sync="endTime"
+        @change="onChange">
+    </u-time-picker>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            starTime: '12:46:33',
+            endTime: '18:18:33',
+        };
+    },
+    methods: {
+        onChange(event) {
+            console.log(event);
+        },
     },
 };
 </script>

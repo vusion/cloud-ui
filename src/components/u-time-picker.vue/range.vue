@@ -1,10 +1,16 @@
 <template>
 <span :class="$style.root" :width="width" :height="height">
-    <u-input :class="$style.input" width="full" height="full" :value="inputTime" :autofocus="autofocus" :disabled="!!readonly || disabled"
+    <u-range-input
+        :class="$style.input"
+        :left-value="startInputTime"
+        :right-value="endInputTime"
+        :autofocus="autofocus"
+        :disabled="!!readonly || disabled"
         ref="input"
         :clearable="clearable" :placeholder="placeholder"
         @update:value="onInputChange($event)"
-        @click="onInputClick"
+        @left-click="onLeftClick"
+        @right-click="onRightClick"
         @focus="onFocus" @blur="onBlur"
         @blur:value="onBlurInputValue($event)"
         @clear="clearValue"
@@ -13,14 +19,36 @@
         :color="formItemVM && formItemVM.color">
         <template #prefix><i-ico v-if="preIcon" :name="preIcon" :class="[$style.preIcon]" notext></i-ico></template>
         <template #suffix><i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.suffixIcon]" notext></i-ico></template>
-    </u-input>
+    </u-range-input>
     <u-time-picker-popper
-        ref="popper"
+        ref="startPopper"
         :min-unit="minUnit"
-        :time="time"
+        :time="startTime"
         :disabled="disabled"
         :readonly="readonly"
         :min-time="minTime"
+        :max-time="maxStartTime"
+        :append-to="appendTo"
+        :simple-foot="simpleFoot"
+        :popper-width="popperWidth"
+        :show-right-now-button="showRightNowButton"
+        :show-footer-button="showFooterButton"
+        :right-now-title="rightNowTitle"
+        :cancel-title="cancelTitle"
+        :ok-title="okTitle"
+        :input-time.sync="startInputTime"
+        @change="onStartTimeChange"
+        @update:time="onUpdateStartTime"
+        @blur="onPopperBlur"
+        @toggle="onPopperToggle"
+    ></u-time-picker-popper>
+    <u-time-picker-popper
+        ref="endPopper"
+        :min-unit="minUnit"
+        :time="endTime"
+        :disabled="disabled"
+        :readonly="readonly"
+        :min-time="minEndTime"
         :max-time="maxTime"
         :append-to="appendTo"
         :simple-foot="simpleFoot"
@@ -30,13 +58,11 @@
         :right-now-title="rightNowTitle"
         :cancel-title="cancelTitle"
         :ok-title="okTitle"
-        :input-time.sync="inputTime"
-        @spinner-click="onSpinnerClick"
-        @change="onChange"
-        @update:time="onUpdateTime"
+        :input-time.sync="endInputTime"
+        @change="onEndTimeChange"
+        @update:time="onUpdateEndTime"
         @blur="onPopperBlur"
         @toggle="onPopperToggle"
-        @input="onEmitInput"
     ></u-time-picker-popper>
 </span>
 </template>
@@ -45,6 +71,7 @@
 import i18n from './i18n';
 import MField from '../m-field.vue';
 import UTimePickerPopper from './popper.vue';
+import URangeInput from '../u-date-picker.vue/range-input.vue';
 
 /**
  * @class TimePicker
@@ -61,13 +88,14 @@ import UTimePickerPopper from './popper.vue';
  */
 
 export default {
-    name: 'u-time-picker',
+    name: 'u-time-range-picker',
     i18n,
-    components: { UTimePickerPopper },
+    components: { URangeInput, UTimePickerPopper },
     mixins: [MField],
     props: {
         minUnit: { type: String, default: 'second' },
-        time: { type: String, default: '' },
+        startTime: { type: String, default: '' },
+        endTime: { type: String, default: '' },
         autofocus: [String, Boolean],
         disabled: [String, Boolean],
         readonly: [String, Boolean],
@@ -99,59 +127,79 @@ export default {
     },
     data() {
         return {
-            inputTime: this.time,
+            startInputTime: this.startTime,
+            endInputTime: this.endTime,
+            editTarget: '', // 标明当前编辑的是起始/结束值
             placeholder: this.$t('selectTimeText'),
         };
     },
+    computed: {
+        maxStartTime() {
+            return this.endInputTime || this.maxTime;
+        },
+        minEndTime() {
+            return this.startInputTime || this.minTime;
+        },
+    },
     methods: {
-        open() {
-            this.$refs.popper && this.$refs.popper.open();
+        callPopperMethod(methodName, ...args) {
+            const refName = this.editTarget === 'start' ? 'startPopper' : 'endPopper';
+            if (this.$refs[refName] && this.$refs[refName][methodName]) {
+                this.$refs[refName][methodName](...args);
+            }
         },
-        close() {
-            this.$refs.popper && this.$refs.popper.close();
+        onLeftClick() {
+            this.editTarget = 'start';
+            this.$refs.endPopper && this.$refs.endPopper.close();
+            this.callPopperMethod('open');
         },
-        onInputClick() {
-            this.open();
+        onRightClick() {
+            this.editTarget = 'end';
+            this.$refs.startPopper && this.$refs.startPopper.close();
+            this.callPopperMethod('open');
         },
         onInputChange(value) {
-            this.$refs.popper && this.$refs.popper.onInputChange(value);
+            const changedValue = this.editTarget === 'start' ? value.leftValue : value.rightValue;
+            this.callPopperMethod('onInputChange', changedValue);
         },
         onBlur() {
             // 先不抛出事件，内部处理掉
-            this.$refs.popper && this.$refs.popper.onBlur();
+            this.callPopperMethod('onBlur');
         },
         onBlurInputValue(value) {
-            this.$refs.popper && this.$refs.popper.onBlurInputValue(value);
+            this.callPopperMethod('onBlurInputValue', value);
             this.$nextTick(() => {
-                this.$refs.input.updateCurrentValue(this.inputTime);
+                this.$refs.input.updateCurrentValue({
+                    leftValue: this.startInputTime,
+                    rightValue: this.endInputTime,
+                });
             });
         },
         onFocus(e) {
             this.$emit('focus', e, this);
         },
-        onChange(e) {
-            this.$emit('change', e, this);
+        onStartTimeChange(e) {
+            this.$emit('change', { sender: this, startTime: e.value }, this);
         },
-        onUpdateTime(e) {
-            // time 值的更新也由内部触发
-            this.$emit('update:time', e, this);
+        onEndTimeChange(e) {
+            this.$emit('change', { sender: this, endTime: e.value }, this);
+        },
+        onUpdateStartTime(value) {
+            this.$emit('update:startTime', value);
+        },
+        onUpdateEndTime(value) {
+            this.$emit('update:endTime', value);
         },
         // blur 有很多种情况，这里放到 popper 内部统一处理
-        onPopperBlur(e) {
-            this.$emit('blur', e, this);
+        onPopperBlur() {
+            this.$emit('blur', this);
         },
         onPopperToggle(e) {
             this.$emit('toggle', e, this);
         },
-        onEmitInput(e) {
-            // input 也由内部触发
-            this.$emit('input', e, this);
-        },
         clearValue() {
-            this.$refs.popper && this.$refs.popper.clearValue();
-        },
-        onSpinnerClick() {
-            this.$refs.input.focus();
+            this.$refs.startPopper && this.$refs.startPopper.clearValue();
+            this.$refs.endPopper && this.$refs.endPopper.clearValue();
         },
     },
 };
@@ -161,16 +209,14 @@ export default {
 .root {
     display: inline-block;
     position: relative;
-    width: var(--timepicker-input-width);
+    width: var(--timepicker-range-input-width);
 }
 
 .input {
-    padding: 0 var(--timepicker-input-padding-x);
     border: var(--timepicker-input-border-width) solid var(--timepicker-input-border-color);
     color: var(--timepicker-input-color);
     background: var(--timepicker-input-background);
     border-radius: var(--timepicker-input-border-radius);
-    width: var(--timepicker-input-width);
     height: var(--timepicker-input-height);
 }
 .input [class^="u-input_placeholder__"] {
@@ -179,10 +225,6 @@ export default {
 
 .root[width="mini"] {
     width: var(--timepicker-input-width-mini);
-}
-.root[width="mini"] .input {
-    padding-left: var(--timepicker-input-padding-x-mini);
-    padding-right: var(--timepicker-input-padding-x-mini);
 }
 
 .root[height="mini"] .input {
@@ -194,11 +236,6 @@ export default {
     width: var(--timepicker-input-width-small);
 }
 
-.root[width="small"] .input{
-    padding-left: var(--timepicker-input-padding-x-small);
-    padding-right: var(--timepicker-input-padding-x-small);
-}
-
 .root[height="small"] .input {
     height: var(--timepicker-input-height-small);
     line-height: calc(var(--timepicker-input-height-small) - var(--timepicker-input-border-width) * 2);
@@ -206,11 +243,6 @@ export default {
 
 .root[width="normal"] {
     width: var(--timepicker-input-width);
-}
-
-.root[width="normal"] .input {
-    padding-left: var(--timepicker-input-padding-x);
-    padding-right: var(--timepicker-input-padding-x);
 }
 
 .root[height="normal"] .input {
@@ -222,11 +254,6 @@ export default {
     width: var(--timepicker-input-width-medium);
 }
 
-.root[width="medium"] .input {
-    padding-left: var(--timepicker-input-padding-x-medium);
-    padding-right: var(--timepicker-input-padding-x-medium);
-}
-
 .root[height="medium"] .input {
     height: var(--timepicker-input-height-medium);
     line-height: calc(var(--timepicker-input-height-medium) - var(--timepicker-input-border-width) * 2);
@@ -234,11 +261,6 @@ export default {
 
 .root[width="large"] {
     width: var(--timepicker-input-width-large);
-}
-
-.root[width="large"] .input {
-    padding-left: var(--timepicker-input-padding-x-large);
-    padding-right: var(--timepicker-input-padding-x-large);
 }
 
 .root[height="large"] .input {
@@ -250,11 +272,6 @@ export default {
     width: var(--timepicker-input-width-huge);
 }
 
-.root[width="huge"] .input {
-    padding-left: var(--timepicker-input-padding-x-huge);
-    padding-right: var(--timepicker-input-padding-x-huge);
-}
-
 .root[height="huge"] .input {
     height: var(--timepicker-input-height-huge);
     line-height: calc(var(--timepicker-input-height-huge) - var(--timepicker-input-border-width) * 2);
@@ -262,11 +279,6 @@ export default {
 
 .root[width="full"] {
     width: 100%;
-    padding-right: var(--timepicker-input-padding-x-full);
-}
-
-.root[width="full"] .input {
-    padding-left: var(--timepicker-input-padding-x-full);
     padding-right: var(--timepicker-input-padding-x-full);
 }
 

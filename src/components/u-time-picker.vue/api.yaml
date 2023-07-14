@@ -30,6 +30,28 @@
       brifeDoc: ""
       docDescription: 最小时间单位，支持秒或分
       tooltipLink: ""
+    - name: range
+      title: 区间选择
+      type: boolean
+      default: false
+      description: 是否支持进行时间区间选择，关闭则为时间点选择
+      group: 数据属性
+    - name: startTime
+      title: 起始值
+      type: string
+      sync: true
+      description: 默认显示的起始时间值，格式如08:08:08
+      group: 数据属性
+      dependency:
+        - range: true
+    - name: endDate
+      title: 结束值
+      type: string
+      sync: true
+      description: 默认显示的结束时间值，格式如08:08:08
+      group: 数据属性
+      dependency:
+        - range: true
     - name: min-time
       title: 最小时间值
       type: string
