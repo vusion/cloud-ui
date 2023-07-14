@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :color="color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
+<div :class="$style.root" :color="color || formItemVM && formItemVM.color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
     :clearable="clearable && !!(filterable ? filterText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
     :prefix="prefix" :suffix="suffix"
     :start="!!prefix"
