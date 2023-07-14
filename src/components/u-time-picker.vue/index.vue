@@ -248,7 +248,7 @@ export default {
                 const isOutOfRange = this.isOutOfRange(currentTime);
                 this.showTime = isOutOfRange || currentTime;
             } else {
-                if (!this.checkTime(newValue)) {
+                if (!this.checkTime(newValue, false)) {
                     newValue = this.getCurrentTime();
                 }
                 this.showTime = this.getUnitFormatTime(newValue);
