@@ -113,6 +113,192 @@ exports[`u-slider.vue Demo-基本用法 1`] = `
 </div>
 `;
 
+exports[`u-slider.vue Demo-双滑块 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="body"
+    >
+      <div
+        class="track"
+        multiple="multiple"
+      >
+        <div
+          class="trail"
+          style="margin-left: 18%; width: 18%;"
+        />
+         
+        <!---->
+         
+        <!---->
+      </div>
+       
+      <div
+        class="handle"
+        draggable="draggable"
+        style="left: 18%;"
+      >
+        <!---->
+      </div>
+      <div
+        class="handle"
+        draggable="draggable"
+        style="left: 36%;"
+      >
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-slider.vue Demo-多滑块最大值和最小值 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="body"
+  >
+    <div
+      class="track"
+      multiple="multiple"
+    >
+      <div
+        class="trail"
+        style="margin-left: 25%; width: 37.5%;"
+      />
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="handle"
+      draggable="draggable"
+      style="left: 25%;"
+    >
+      <!---->
+    </div>
+    <div
+      class="handle"
+      draggable="draggable"
+      style="left: 62.5%;"
+    >
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-slider.vue Demo-多滑块范围 & 步长 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="root"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="body"
+      >
+        <div
+          class="track"
+          multiple="multiple"
+        >
+          <div
+            class="trail"
+            style="margin-left: 30%; width: 30%;"
+          />
+           
+          <div
+            class="bound"
+            role="start"
+            style="width: 20%;"
+          />
+           
+          <div
+            class="bound"
+            role="end"
+            style="width: 15%;"
+          />
+        </div>
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          style="left: 30%;"
+        >
+          <!---->
+        </div>
+        <div
+          class="handle"
+          draggable="draggable"
+          style="left: 60%;"
+        >
+          <!---->
+        </div>
+      </div>
+    </div>
+     
+    <!---->
+  </div>
+   
+  <div
+    class="root"
+    vusion-slot-name="default"
+  >
+    <div
+      class="root"
+    >
+      <div
+        class="body"
+      >
+        <div
+          class="track"
+          multiple="multiple"
+        >
+          <div
+            class="trail"
+            style="margin-left: 40%; width: 30%;"
+          />
+           
+          <div
+            class="bound"
+            role="start"
+            style="width: 30%;"
+          />
+           
+          <!---->
+        </div>
+         
+        <div
+          class="handle"
+          draggable="draggable"
+          style="left: 40%;"
+        >
+          <!---->
+        </div>
+        <div
+          class="handle"
+          draggable="draggable"
+          style="left: 70%;"
+        >
+          <!---->
+        </div>
+      </div>
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`u-slider.vue Demo-展示 ToolTip 1`] = `
 <div>
   <div

@@ -656,6 +656,95 @@ exports[`u-combo-slider.vue Demo-基本用法 2`] = `
 </div>
 `;
 
+exports[`u-combo-slider.vue Demo-双滑块 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="main"
+      multiple="multiple"
+    >
+      <div
+        class="tip"
+        vusion-slot-name="tip"
+        vusion-slot-name-edit="tip"
+      >
+        
+                
+                
+        <!---->
+      </div>
+       
+      <div
+        class="root slider"
+      >
+        <div
+          class="body"
+        >
+          <div
+            class="track"
+            multiple="multiple"
+          >
+            <div
+              class="trail"
+              style="margin-left: 18%; width: 18%;"
+            />
+             
+            <!---->
+             
+            <!---->
+          </div>
+           
+          <div
+            class="handle"
+            draggable="draggable"
+            style="left: 18%;"
+          >
+            <!---->
+          </div>
+          <div
+            class="handle"
+            draggable="draggable"
+            style="left: 36%;"
+          >
+            <!---->
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="scales"
+      >
+        <span
+          class="scale"
+        >
+          0
+        </span>
+         
+        <span
+          class="scale"
+        >
+          50
+        </span>
+         
+        <span
+          class="scale"
+        >
+          100
+        </span>
+      </div>
+    </div>
+     
+    <!---->
+     
+    <span>
+      
+    </span>
+  </div>
+</div>
+`;
+
 exports[`u-combo-slider.vue Demo-提示 1`] = `
 <div>
   <div
