@@ -6509,6 +6509,12 @@
     },
     {
         "id": 0.2,
+        "title": "画布尺寸及缩放",
+        "toPosition": "canvasScale",
+        "items": []
+    },
+    {
+        "id": 0.3,
         "title": "标签页设置",
         "toPosition": "tabStyle",
         "items": []
