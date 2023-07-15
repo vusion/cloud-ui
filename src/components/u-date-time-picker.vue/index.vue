@@ -117,9 +117,9 @@ export default {
         height: String,
         showRightNowButton: { type: Boolean, default: true },
         showFooterButton: { type: Boolean, default: true },
-        rightNowTitle: {type: String, default: ""},
-        cancelTitle: {type: String, default: ""},
-        okTitle: {type: String, default: ""},
+        rightNowTitle: { type: String, default: '' },
+        cancelTitle: { type: String, default: '' },
+        okTitle: { type: String, default: '' },
 
     },
     data() {
@@ -622,7 +622,7 @@ export default {
     border-top: 1px solid var(--datetime-popper-border-color);
 }
 
-.pickerinput {
+.pickerinput[class] {
     width: 134px;
     height: 32px;
 }
