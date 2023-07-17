@@ -69,6 +69,7 @@ export * from './u-input.vue';
 export * from './u-label.vue';
 export * from './u-lightbox.vue';
 export * from './u-linear-layout.vue';
+export * from './u-absolute-layout.vue';
 export * from './u-linear-progress.vue';
 export * from './u-link.vue';
 export * from './u-list-view.vue';
