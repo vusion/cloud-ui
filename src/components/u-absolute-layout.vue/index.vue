@@ -23,6 +23,7 @@ export default {
 
 .root>* {
     position: absolute !important;
+    text-decoration: inherit;
 }
 /* 在编辑器里禁用 transition，防止位置尺寸变化时候出现延迟 */
 .root>[vusion-node-path]{
