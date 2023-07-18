@@ -34,7 +34,7 @@ export default {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: #666666;
+    color: #999;
 }
 .emptyTip::before {
     icon-font: url("./assets/drag-in-copy.svg");
