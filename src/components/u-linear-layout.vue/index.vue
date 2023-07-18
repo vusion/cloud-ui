@@ -19,6 +19,7 @@
 <script>
 import SEmpty from '../s-empty.vue';
 import ULoading from '../u-loading.vue';
+import { throttle } from '@/utils/throttle';
 
 export default {
     name: 'u-linear-layout',
@@ -58,7 +59,7 @@ export default {
         };
     },
     mounted() {
-        this.$refs.root.addEventListener('scroll', this.throttle(this.handleScroll.bind(this), 200));
+        this.$refs.root.addEventListener('scroll', throttle(this.handleScroll.bind(this), 200));
     },
     methods: {
         openLoading() {
@@ -68,21 +69,17 @@ export default {
             this.showLoading = false;
         },
         handleScroll(e) {
-            console.log('scroll');
-            this.$emit('scroll', e);
+            const el = e.target;
+            const { scrollHeight, scrollWidth, scrollTop, clientHeight, clientWidth} = el;
+            this.$emit('scroll', {
+                scrollHeight,
+                scrollWidth,
+                scrollTop,
+                clientHeight,
+                clientWidth,
+            });
         },
-        throttle(fn, delay) {
-            let timer = null;
-            return function () {
-                if (timer) {
-                    return;
-                }
-                timer = setTimeout(() => {
-                    fn.apply(this, arguments);
-                    timer = null;
-                }, delay);
-            };
-        },
+
     },
 };
 </script>

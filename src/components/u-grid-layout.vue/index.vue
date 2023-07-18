@@ -1,14 +1,31 @@
 <template>
-<div :class="$style.root">
+<div :class="$style.root" ref="root">
     <slot></slot>
 </div>
 </template>
 
 <script>
+import { throttle } from '@/utils/throttle';
 export default {
     name: 'u-grid-layout',
     props: {
         repeat: { type: Number, default: 12 },
+    },
+    mounted() {
+        this.$refs.root.addEventListener('scroll', throttle(this.handleScroll.bind(this), 200));
+    },
+    methods: {
+        handleScroll(e) {
+            const el = e.target;
+            const { scrollHeight, scrollWidth, scrollTop, clientHeight, clientWidth} = el;
+            this.$emit('scroll', {
+                scrollHeight,
+                scrollWidth,
+                scrollTop,
+                clientHeight,
+                clientWidth,
+            });
+        },
     },
 };
 </script>
