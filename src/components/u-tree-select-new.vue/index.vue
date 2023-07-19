@@ -1,6 +1,6 @@
 <template>
     <div :class="$style.root"
-        :color="color"
+        :color="color || formItemVM && formItemVM.color"
         :readonly="readonly"
         :disabled="currentDisabled"
         :opened="popperOpened"
@@ -861,6 +861,10 @@ export default {
 }
 .root[size^="full"] {
   height: 100%;
+}
+
+.root[color="error"] {
+    border-color: var(--select-input-border-color-error);
 }
 
 .root[color="inverse"] {

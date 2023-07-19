@@ -825,7 +825,7 @@ exports[`u-form.vue Demo-分组 Small 1`] = `
             <div class="field">
               <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
               <div class="wrap" vusion-slot-name="default">
-                <div class="root" tabindex="0">
+                <div class="root" color tabindex="0">
                   <span>b</span>
                   <span>请选择</span>
                   <div style="direction: ltr;" tags-overflow="collapse">
@@ -882,7 +882,7 @@ exports[`u-form.vue Demo-分组 Small 1`] = `
             <div class="field">
               <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
               <div class="wrap" vusion-slot-name="default">
-                <div class="root" tabindex="0">
+                <div class="root" color tabindex="0">
                   <span>b</span>
                   <span>请选择</span>
                   <div style="direction: ltr;" tags-overflow="collapse">
@@ -1317,7 +1317,7 @@ exports[`u-form.vue Demo-折叠分组 1`] = `
             <div class="field">
               <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
               <div class="wrap" vusion-slot-name="default">
-                <div class="root" tabindex="0">
+                <div class="root" color tabindex="0">
                   <span>b</span>
                   <span>请选择</span>
                   <div style="direction: ltr;" tags-overflow="collapse">
@@ -1378,7 +1378,7 @@ exports[`u-form.vue Demo-折叠分组 1`] = `
             <div class="field">
               <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
               <div class="wrap" vusion-slot-name="default">
-                <div class="root" tabindex="0">
+                <div class="root" color tabindex="0">
                   <span>b</span>
                   <span>请选择</span>
                   <div style="direction: ltr;" tags-overflow="collapse">
@@ -1685,7 +1685,7 @@ exports[`u-form.vue Demo-栅格布局 1`] = `
       <div class="field">
         <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
         <div class="wrap" vusion-slot-name="default">
-          <div class="root" tabindex="0">
+          <div class="root" color tabindex="0">
             <span>b</span>
             <span style="display: none;">请选择</span>
             <div style="direction: ltr;" tags-overflow="collapse">
@@ -1711,7 +1711,7 @@ exports[`u-form.vue Demo-栅格布局 1`] = `
       <div class="field">
         <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
         <div class="wrap" vusion-slot-name="default">
-          <div class="root" tabindex="0">
+          <div class="root" color tabindex="0">
             <span>b</span>
             <span style="display: none;">请选择</span>
             <div style="direction: ltr;" tags-overflow="collapse">
@@ -1872,7 +1872,7 @@ exports[`u-form.vue Demo-标签块级布局 1`] = `
             <div class="field">
               <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
               <div class="wrap" vusion-slot-name="default">
-                <div class="root" tabindex="0">
+                <div class="root" color tabindex="0">
                   <span>b</span>
                   <span style="display: none;">请选择</span>
                   <div style="direction: ltr;" tags-overflow="collapse">
@@ -1898,7 +1898,7 @@ exports[`u-form.vue Demo-标签块级布局 1`] = `
             <div class="field">
               <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
               <div class="wrap" vusion-slot-name="default">
-                <div class="root" tabindex="0">
+                <div class="root" color tabindex="0">
                   <span>b</span>
                   <span style="display: none;">请选择</span>
                   <div style="direction: ltr;" tags-overflow="collapse">
@@ -1992,7 +1992,7 @@ exports[`u-form.vue Demo-行内 1`] = `
       <div class="field">
         <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
         <div class="wrap" vusion-slot-name="default">
-          <div class="root" tabindex="0">
+          <div class="root" color tabindex="0">
             <span>b</span>
             <span style="display: none;">请选择</span>
             <div style="direction: ltr;" tags-overflow="collapse">

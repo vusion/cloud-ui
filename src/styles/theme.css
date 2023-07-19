@@ -1342,6 +1342,8 @@
     --select-icon-width: 14px; /* @hidden */
     --select-icon-height: 14px; /* @hidden */
     --select-icon-border-radius: 14px;  /* @hidden */
+    --select-input-border-color-error: var(--input-border-color-error); /* hidden */
+
 
     /* @component u-rate */
     --rate-space: 6px; /* @desc 五角星之间的间距,如 1px */
