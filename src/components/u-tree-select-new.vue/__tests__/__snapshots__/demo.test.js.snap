@@ -185,7 +185,7 @@ exports[`u-tree-select-new.vue Demo-表单验证 1`] = `
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
-        <div class="root" tabindex="0">
+        <div class="root" color tabindex="0">
           <span class="baseline">b</span>
           <span class="placeholder">
             请选择
@@ -206,7 +206,7 @@ exports[`u-tree-select-new.vue Demo-表单验证 1`] = `
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
-        <div class="root" tabindex="0">
+        <div class="root" color tabindex="0">
           <span class="baseline">b</span>
           <span class="placeholder">
             请选择
@@ -227,7 +227,7 @@ exports[`u-tree-select-new.vue Demo-表单验证 1`] = `
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
-        <div class="root" tabindex="0">
+        <div class="root" color tabindex="0">
           <span class="baseline">b</span>
           <span class="placeholder">
             请选择
