@@ -193,7 +193,7 @@ export default {
                     const temp = JSON.parse(JSON.stringify(dataSource));
                     final.data = this.list2tree(temp, this.valueField, this.parentField);
                 } else {
-                    final.data = dataSource;
+                    final.data = JSON.parse(JSON.stringify(dataSource)); // 数据深拷贝
                 }
             else if (typeof dataSource === 'function') {
                 final.load = createLoad(dataSource);
