@@ -1,0 +1,34 @@
+- name: u-absolute-layout
+  title: 自由布局
+  description: 拖拽内部元素到任意位置
+  icon: absolute-layout
+  labels:
+    - Layout
+  next: true
+  nested: true
+  slots:
+    - concept: Slot
+      name: default
+      description: 内容
+  events:
+    - name: click
+      title: 点击
+      description: 在元素上按下并释放任意鼠标按钮时触发。
+    - name: dblclick
+      title: 双击
+      description: 在元素上双击鼠标按钮时触发。
+    - name: contextmenu
+      title: 右键点击
+      description: 在右键菜单显示前触发。
+    - name: mousedown
+      title: 鼠标按下
+      description: 在元素上按下任意鼠标按钮时触发。
+    - name: mouseup
+      title: 鼠标释放
+      description: 在元素上释放任意鼠标按钮时触发。
+    - name: mouseenter
+      title: 鼠标移入
+      description: 鼠标移入元素时触发。
+    - name: mouseleave
+      title: 鼠标移出
+      description: 鼠标移出元素时触发。
