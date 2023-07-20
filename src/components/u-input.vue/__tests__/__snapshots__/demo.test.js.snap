@@ -155,6 +155,37 @@ exports[`u-input.vue Demo-可清除 1`] = `
 </div>
 `;
 
+exports[`u-input.vue Demo-和倒计时一起使用 1`] = `
+<div class="root" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">中文名 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color>
+          <span>b</span>
+          <span style="display: none;"></span>
+          <input type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span vusion-slot-name-edit="label">倒计时 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        600 秒后重新获取
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`u-input.vue Demo-基本用法 1`] = `
 <div>
   <div maxlength="12">

@@ -125,9 +125,12 @@ export default {
             this.currentValue = value;
         },
         currentValue(value, oldValue) {
-            this.autoSize && this.autoResize();
-            this.$emit('update', value, this);
-            this.$emit('change', { value, oldValue }, this);
+            // 如果输入法还在输入中，不向外部输出变更
+            if (!this.compositionInputing) {
+                this.autoSize && this.autoResize();
+                this.$emit('update', value, this);
+                this.$emit('change', { value, oldValue }, this);
+            }
         },
         color(color) {
             this.currentColor = color;
@@ -182,6 +185,9 @@ export default {
                 this.currentValue = $event.value;
                 this.$emit('input', $event.value, this);
                 this.$emit('update:value', $event.value, this);
+            }
+            else {
+                this.currentValue = e.target.value;
             }
         },
         onFocus(e) {
