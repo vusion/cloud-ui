@@ -7,7 +7,7 @@
 
 <script>
 import SEmpty from '../s-empty.vue';
-import { throttle } from '@/utils/throttle';
+import { throttle } from '../../utils/throttle';
 
 export default {
     name: 'u-multi-layout',
