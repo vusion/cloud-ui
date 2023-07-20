@@ -4768,8 +4768,8 @@ exports[`u-list-view.vue Demo-自定义内容 1`] = `
 
 exports[`u-list-view.vue Demo-表单验证 1`] = `
 <div class="root" distance label-size="auto">
-  <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-    <span vusion-slot-name-edit="label">选择语言 </span>
+  <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+    <span class="text" vusion-slot-name-edit="label">选择语言 </span>
   </label>
   <div class="field">
     <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
