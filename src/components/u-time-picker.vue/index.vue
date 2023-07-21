@@ -154,6 +154,7 @@ export default {
     props: {
         minUnit: { type: String, default: 'second' },
         time: { type: String, default: '' },
+        value: { type: String, default: '' },
         autofocus: [String, Boolean],
         disabled: [String, Boolean],
         readonly: [String, Boolean],
@@ -179,16 +180,17 @@ export default {
         popperWidth: { type: String, default: '' },
         showRightNowButton: { type: Boolean, default: true },
         showFooterButton: { type: Boolean, default: true },
-        rightNowTitle: {type: String, default: ""},
-        cancelTitle: {type: String, default: ""},
-        okTitle: {type: String, default: ""},
+        rightNowTitle: { type: String, default: '' },
+        cancelTitle: { type: String, default: '' },
+        okTitle: { type: String, default: '' },
     },
     data() {
-        const validTime = this.getUnitFormatTime(this.isOutOfRange(this.time) ? this.isOutOfRange(this.time) : this.time || '00:00:00');
+        const value = this.time || this.value;
+        const validTime = this.getUnitFormatTime(this.isOutOfRange(value) ? this.isOutOfRange(value) : value || '00:00:00');
         return {
             showTime: validTime,
-            validShowTime: this.getUnitFormatTime(this.time),
-            lastValidShowTime: this.getUnitFormatTime(this.time),
+            validShowTime: this.getUnitFormatTime(value),
+            lastValidShowTime: this.getUnitFormatTime(value),
             hoverItem: {
                 hours: {},
                 minutes: {},
@@ -263,6 +265,30 @@ export default {
                 this.showTime,
             );
         },
+        value(newValue) {
+            if (!newValue) {
+                this.initValidShowTime = false; // 控制为空设置showTime值时，不设置validShowTime值
+                this.validShowTime = newValue;
+                this.lastValidShowTime = newValue;
+                const currentTime = this.getCurrentTime();
+                const isOutOfRange = this.isOutOfRange(currentTime);
+                this.showTime = isOutOfRange || currentTime;
+            } else {
+                if (!this.checkTime(newValue, false)) {
+                    newValue = this.getCurrentTime();
+                }
+                this.showTime = this.getUnitFormatTime(newValue);
+                // this.showTime默认设置的是'00:00:00'，如果time初始是'00:00:00'，showTime的watch会没有进入，导致validShowTime没有设置
+                if (this.showTime === '00:00:00') {
+                    this.validShowTime = this.showTime;
+                    this.lastValidShowTime = this.showTime;
+                }
+            }
+            this.$emit(
+                'update',
+                this.showTime,
+            );
+        },
         showTime(newValue) {
             // if (!newValue)
             //     throw new TypeError('Invalid Time');
@@ -275,8 +301,8 @@ export default {
             this.initValidShowTime = true;
         },
         minUnit(newValue) {
-            if (this.time) {
-                const showTime = this.getUnitFormatTime(this.time);
+            if (this.time || this.value) {
+                const showTime = this.getUnitFormatTime(this.time || this.value);
                 const isOutOfRange = this.isOutOfRange(showTime);
                 this.showTime = isOutOfRange || showTime;
             }
@@ -291,7 +317,7 @@ export default {
     created() {
         this.$emit(
             'update',
-            this.getUnitFormatTime(this.time),
+            this.getUnitFormatTime(this.time || this.value),
         );
     },
     mounted() {
@@ -478,6 +504,7 @@ export default {
             const value = this.validShowTime ? this.validShowTime : undefined;
             this.$emit('input', value, this);
             this.$emit('update:time', value, this);
+            this.$emit('update:value', value, this);
             this.$emit('change', { sender: this, time: value, value }, this);
         },
         /**

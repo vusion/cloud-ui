@@ -14,7 +14,7 @@
     </u-input>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
         <div @click.stop>
-            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="calendarDate" :value="date" @select="select($event.date)"></u-calendar>
+            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="calendarDate" :value="date || value" @select="select($event.date)"></u-calendar>
         </div>
     </m-popper>
 </div>
@@ -121,6 +121,7 @@ export default {
              */ const showDate = this.returnTime(newValue);
             const newDate = showDate ? new Date(this.transformDate(showDate)) : undefined;
             this.$emit('update:date', this.toValue(newDate));
+            this.$emit('update:value', this.toValue(newDate));
             this.$emit('change', { sender: this, date: newDate });
             this.$emit('input', this.toValue(newDate));
             this.calendarDate = newDate; // showDate改变时设置calendar里的值

@@ -5,7 +5,7 @@
   labels:
     - Selector
   attrs:
-    - name: date
+    - name: value
       title: 值
       type: string,number,Date
       sync: true
