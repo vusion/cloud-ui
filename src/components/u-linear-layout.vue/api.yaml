@@ -369,6 +369,7 @@
           type: object
           description: 滚动事件对象
           schema:
+            # TODO: 该事件的schema有问题
             $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.scrollHeight
           type: any
