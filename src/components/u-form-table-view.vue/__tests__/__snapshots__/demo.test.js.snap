@@ -157,8 +157,8 @@ exports[`u-form-table-view.vue Demo-动态表格 1`] = `
 exports[`u-form-table-view.vue Demo-在表单中使用 1`] = `
 <div class="root" layout="block">
   <div class="root" distance label-size="normal" layout="block">
-    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">规则 </span>
+    <label class="label" position="right" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">规则 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>

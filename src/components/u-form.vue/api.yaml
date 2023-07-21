@@ -372,6 +372,18 @@
       brifeDoc: ""
       docDescription: 是否必填。仅显示样式，如果要验证必填项，需要在rules中添加必填规则。
       tooltipLink: ""
+    - name: required-position
+      title: 必填标记位置
+      type: string
+      options:
+        - value: left
+          title: 文本左侧
+        - value: right
+          title: 文本右侧
+      default: right
+      group: 主要属性
+      dependency:
+        - required: true
     - name: message
       title: 释义提示
       type: string
