@@ -308,8 +308,17 @@ export default {
             this.$refs.popper && this.$refs.popper.toggle(value);
         },
         checkValid(value) {
-            const reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
-            return reg.test(value);
+            switch (this.picker) {
+                case 'year':
+                    return /^[1-9]\d{3}$/.test(value);
+                case 'month':
+                    return /^[1-9]\d{3}-(0[1-9]|1[0-2])$/.test(value);
+                case 'quarter':
+                    return /^[1-9]\d{3}-(Q[1-4])$/.test(value);
+                default:
+                    // date format
+                    return /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/.test(value);
+            }
         },
         onBlurInputValue(value) {
             // 当输入框输入的值不合法，需还原成上一次合法的值

@@ -2,7 +2,8 @@
     <u-input ref="input" :class="$style.root" :buttonDisplay="buttonDisplay" :value="formattedValue"
         :readonly="readonly" :disabled="disabled" :clearable="clearable"
         @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
-        @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside" :hideButtons="hideButtons">
+        @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside"
+        :hideButtons="hideButtons" :color="formItemVM && formItemVM.color">
         <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue >= max" role="up" v-repeat-click="increase"
             tabindex="0" @keydown.prevent></span>
         <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue <= min" role="down" v-repeat-click="decrease"
@@ -100,7 +101,7 @@ export default {
                 return value = this.defaultValue !== undefined ? this.defaultValue : '';
             else if (isNaN(value))
                 value = this.currentValue || this.defaultValue || 0;
-            
+
             value = +value; // 精度约束
             value = Math.round(this.strip(value / precision)) * precision; // 最大最小约束
             value = Math.min(Math.max(this.min, value), this.max); // 保留小数位数
@@ -371,12 +372,12 @@ export default {
     font-size: 16px;
 }
 
-.root[buttonDisplay="tail"] .button:hover, 
+.root[buttonDisplay="tail"] .button:hover,
 .root[buttonDisplay="bothEnds"] .button:hover {
     color: var(--number-input-button-color-hover);
 }
 
-.root .button[disabled]:hover, 
+.root .button[disabled]:hover,
 .root[disabled] .button:hover {
      color: var(--number-input-button-color-disabled);
 }

@@ -4,6 +4,7 @@ import UTableViewFilters from './filters.vue';
 import UTableViewFilter from './filter.vue';
 import UTableViewFiltersPopper from './filters-popper.vue';
 import UTableViewColumnConfig from './column-config.vue';
+import UTableViewColumnDynamic from './column-dynamic.vue';
 
 export {
     UTableView,
@@ -12,6 +13,7 @@ export {
     UTableViewFilter,
     UTableViewFiltersPopper,
     UTableViewColumnConfig,
+    UTableViewColumnDynamic,
 };
 
 export default UTableView;

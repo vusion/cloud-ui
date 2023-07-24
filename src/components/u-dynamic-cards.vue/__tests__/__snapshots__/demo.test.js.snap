@@ -265,7 +265,7 @@ exports[`u-dynamic-cards.vue Demo-表单验证 1`] = `
             <span color="error" style="display: none;">false</span>
           </div>
           <div vusion-slot-name="default">
-            <div class="root" disabled="disabled" size="huge normal" tabindex>
+            <div class="root" color disabled="disabled" size="huge normal" tabindex>
               <span>b</span>
               <span>请选择</span>
               <div style="direction: ltr;" tags-overflow="collapse">
@@ -350,7 +350,7 @@ exports[`u-dynamic-cards.vue Demo-表单验证 2`] = `
               </td>
               <td>
                 <div display="block" vusion-slot-name="default">
-                  <div class="root" size="huge full" tabindex="0">
+                  <div class="root" color size="huge full" tabindex="0">
                     <span>b</span>
                     <span style="display: none;">服务</span>
                     <div style="direction: ltr;" tags-overflow="collapse">

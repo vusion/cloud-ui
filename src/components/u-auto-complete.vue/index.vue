@@ -1,5 +1,5 @@
 <template>
-    <u-input ref="input" :value="currentValue" :color="color" :placeholder="placeholder" :size="size"
+    <u-input ref="input" :value="currentValue" :color="color || formItemVM && formItemVM.color" :placeholder="placeholder" :size="size"
         :opened="currentOpened"
         :clearable="clearable" :readonly="readonly" :disabled="disabled"
         @input="onInput" @focus="onFocus" @blur="onBlur"

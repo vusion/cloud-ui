@@ -58,8 +58,8 @@ exports[`u-countup.vue Demo-小数 1`] = `
 exports[`u-countup.vue Demo-方法 1`] = `
 <div class="root" layout="block">
   <div class="root" distance label-size="normal">
-    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">演示效果 </span>
+    <label class="label" position="right" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">演示效果 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -82,8 +82,8 @@ exports[`u-countup.vue Demo-方法 1`] = `
     </div>
   </div>
   <div class="root" distance label-size="normal">
-    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">结束值 </span>
+    <label class="label" position="right" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">结束值 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>

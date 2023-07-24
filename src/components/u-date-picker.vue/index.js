@@ -1,4 +1,4 @@
-import UDatePicker from './index.vue';
+import UDatePicker from './wrap';
 
 export {
     UDatePicker,
