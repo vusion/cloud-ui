@@ -179,13 +179,13 @@ exports[`u-tree-select-new.vue Demo-支持多选 1`] = `
 exports[`u-tree-select-new.vue Demo-表单验证 1`] = `
 <div class="root" layout="block">
   <div class="root" distance label-size="normal">
-    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">树选择器 </span>
+    <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">树选择器 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
-        <div class="root" tabindex="0">
+        <div class="root" color tabindex="0">
           <span class="baseline">b</span>
           <span class="placeholder">
             请选择
@@ -200,13 +200,13 @@ exports[`u-tree-select-new.vue Demo-表单验证 1`] = `
     </div>
   </div>
   <div class="root" distance label-size="normal">
-    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">树选择器 </span>
+    <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">树选择器 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
-        <div class="root" tabindex="0">
+        <div class="root" color tabindex="0">
           <span class="baseline">b</span>
           <span class="placeholder">
             请选择
@@ -221,13 +221,13 @@ exports[`u-tree-select-new.vue Demo-表单验证 1`] = `
     </div>
   </div>
   <div class="root" distance label-size="normal">
-    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">树选择器 </span>
+    <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">树选择器 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
-        <div class="root" tabindex="0">
+        <div class="root" color tabindex="0">
           <span class="baseline">b</span>
           <span class="placeholder">
             请选择
@@ -242,8 +242,8 @@ exports[`u-tree-select-new.vue Demo-表单验证 1`] = `
     </div>
   </div>
   <div class="root" distance label-size="normal">
-    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label"> </span>
+    <label class="label" position="right" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label"> </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>

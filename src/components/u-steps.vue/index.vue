@@ -18,7 +18,7 @@
                             <i-ico v-if="itemVM.icon" :name="itemVM.icon" notext></i-ico>
                         </span>
                         <span :class="$style.title" @click="select(itemVM)" vusion-slot-name="title">
-                            <slot name="title" :item="itemVM">
+                            <slot name="title" :item="itemVM" :index="index">
                                 {{ $at(itemVM, titleField) }}
                                 <s-empty v-if="!$at(itemVM, titleField) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                             </slot>
@@ -28,7 +28,7 @@
                         </u-tooltip>
                     </div>
                     <span :class="$style.desc" vusion-slot-name="desc">
-                        <slot name="desc" :item="itemVM">
+                        <slot name="desc" :item="itemVM" :index="index">
                             {{ $at(itemVM, descField) }}
                             <s-empty v-if="!$at(itemVM, descField) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                         </slot>
@@ -61,7 +61,7 @@
                         <i-ico v-if="itemVM.icon" :name="itemVM.icon" notext></i-ico>
                     </span>
                     <span :class="$style.title" @click="select(itemVM)"
-                        vusion-slot-name="title"><f-slot :vm="itemVM" name="title">
+                        vusion-slot-name="title"><f-slot :vm="itemVM" name="title" :index="index">
                         {{ itemVM.title }}
                         <s-empty v-if="!itemVM.title && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                     </f-slot></span>
@@ -70,7 +70,7 @@
                     </u-tooltip>
                 </div>
                 <span :class="$style.desc"
-                    vusion-slot-name="desc"><f-slot name="desc" :vm="itemVM">
+                    vusion-slot-name="desc"><f-slot name="desc" :vm="itemVM" :index="index">
                     {{ itemVM.desc }}
                     <s-empty v-if="!itemVM.desc && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
                 </f-slot></span>

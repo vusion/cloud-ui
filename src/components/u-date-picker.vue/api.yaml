@@ -15,6 +15,28 @@
       brifeDoc: ""
       docDescription: 当前选择的值
       tooltipLink: ""
+    - name: range
+      title: 区间选择
+      type: boolean
+      default: false
+      description: 是否支持进行日期区间选择，关闭则为日期点选择
+      group: 数据属性
+    - name: startDate
+      title: 起始值
+      type: string,number,Date
+      sync: true
+      description: 默认显示的起始日期值，格式如2018-08-08
+      group: 数据属性
+      dependency:
+        - range: true
+    - name: endDate
+      title: 结束值
+      type: string,number,Date
+      sync: true
+      description: 默认显示的结束日期值，格式如2018-08-08
+      group: 数据属性
+      dependency:
+        - range: true
     - name: minDate
       title: 最小日期值
       type: string,number,Date
@@ -49,6 +71,8 @@
       brifeDoc: ""
       docDescription: 设置日期范围，最小可选择的年份
       tooltipLink: ""
+      dependency:
+        - range: false
     - name: yearAdd
       title: 最大年份差值
       type: number
@@ -58,6 +82,8 @@
       brifeDoc: ""
       docDescription: 设置日期范围，最大可选择的年份
       tooltipLink: ""
+      dependency:
+        - range: false
     - name: autofocus
       title: 自动获取焦点
       type: boolean

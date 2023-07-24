@@ -43,7 +43,7 @@
                             <!-- Normal title -->
                             <template>
                                 <span vusion-slot-name="title" vusion-slot-name-edit="title" :class="$style['column-title']">
-                                    <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">
+                                    <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex, columnItem: columnVM.columnItem }">
                                         {{ columnVM.title }}
                                         <s-empty
                                             v-if="!(columnVM.$slots && columnVM.$slots.title)
@@ -94,12 +94,13 @@
                 <tbody>
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
-                            <tr :key="rowIndex" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }"
+                            <tr :key="rowIndex" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
                             :draggable="rowDraggable?rowDraggable:undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
                             @dragstart="onDragStart($event, item, rowIndex)"
-                            @dragover="onDragOver($event, item, rowIndex)">
+                            @dragover="onDragOver($event, item, rowIndex)"
+                            @click="onClickRow($event, item, rowIndex)">
                                 <template v-if="$env.VUE_APP_DESIGNER">
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'" v-ellipsis-title
                                         vusion-slot-name="cell"
@@ -140,7 +141,7 @@
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- Normal text -->
-                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                             </f-slot>
                                             <!-- type === 'dragHandler' -->
@@ -205,7 +206,7 @@
                                                             </f-slot>
                                                         </template>
                                                         <template v-else>
-                                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
                                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                             </f-slot>
                                                         </template>
@@ -213,7 +214,7 @@
                                                 </div>
                                             </template>
                                             <template v-else>
-                                                <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
                                                     <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                 </f-slot>
                                             </template>
@@ -486,6 +487,7 @@ export default {
             handlerDraggable: false,
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
             configColumnVM: undefined,
+            dynamicColumnVM: undefined,
         };
     },
     computed: {
@@ -1206,6 +1208,10 @@ export default {
         reload() {
             this.currentDataSource.clearLocalData();
             this.load();
+            console.log('table reload');
+            if (this.dynamicColumnVM) {
+                this.dynamicColumnVM.reload();
+            }
         },
         getFields() {
             return this.visibleColumnVMs
@@ -1387,6 +1393,7 @@ export default {
             return sheetData;
         },
         page(number, size) {
+            if (!this.currentDataSource?.paging) return;
             if (size === undefined)
                 size = this.currentDataSource.paging.size;
             const paging = {
@@ -1506,6 +1513,13 @@ export default {
                         this.checkedItems[label] = item;
                     }
                 });
+            }
+        },
+        onClickRow(e, item, rowIndex) {
+            this.$emit('click-row', { item, index: rowIndex });
+
+            if (this.selectable) {
+                this.select(item);
             }
         },
         select(item, cancelable) {
