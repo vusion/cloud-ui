@@ -96,7 +96,7 @@ export default {
         minDate: [String, Number, Date],
         maxDate: [String, Number, Date],
         date: [String, Number, Date],
-        value: [String, Number, Date],
+        value: [String, Number, Date], // 优先使用
         yearDiff: { type: [String, Number], default: 20 },
         yearAdd: { type: [String, Number], default: 20 },
         converter: { type: String, default: 'json' },
@@ -125,13 +125,13 @@ export default {
     },
     data() {
         return {
-            dateTime: this.format(this.date || this.value, 'YYYY-MM-DD HH:mm:ss'), // popper选择以后的值
+            dateTime: this.format(this.value ?? this.date, 'YYYY-MM-DD HH:mm:ss'), // popper选择以后的值
             open: false,
             minTime: undefined,
             maxTime: undefined,
             currentMaxDate: this.getMaxDate(), // 可能会存在最大值小于最小值情况，组件需要内部处理让最大值和最小值一样
             popperplaceholder: this.$t('selectPopperDateText'),
-            finalDateTime: this.format(this.date || this.value, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
+            finalDateTime: this.format(this.value ?? this.date, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
             showDate: undefined, // popper里的日期输入框
             showTime: undefined, // popper里的时间输入框
         };
@@ -441,8 +441,8 @@ export default {
         },
         emitValue() {
             const newDateTime = this.finalDateTime ? this.toValue(new Date(this.finalDateTime.replace(/-/g, '/'))) : undefined;
-            this.$emit('update:date', newDateTime);
             this.$emit('update:value', newDateTime);
+            this.$emit('update:date', newDateTime);
             /**
              * @event change 日期时间改变时触发
              * @property {object} sender 事件发送对象
