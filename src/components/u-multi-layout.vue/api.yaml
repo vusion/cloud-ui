@@ -194,7 +194,7 @@
           type: object
           description: 滚动事件对象
           schema:
-            $ref: "#/systemTypes/ChangeItemEvent"
+            $ref: "#/systemTypes/ScrollEvent"
         - name: $event.scrollHeight
           type: any
           description: 滚动内容高度
@@ -203,7 +203,10 @@
           description: 滚动内容宽度
         - name: $event.scrollTop
           type: any
-          description: 滚动距离顶部高度
+          description: 滚动内容距离顶部高度
+        - name: $event.scrollLeft
+          type: any
+          description: 滚动内容距离左侧宽度
         - name: $event.clientHeight
           type: any
           description: 可视区域高度

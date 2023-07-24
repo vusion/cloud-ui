@@ -17,11 +17,12 @@ export default {
     methods: {
         handleScroll(e) {
             const el = e.target;
-            const { scrollHeight, scrollWidth, scrollTop, clientHeight, clientWidth} = el;
+            const { scrollHeight, scrollWidth, scrollTop, scrollLeft, clientHeight, clientWidth} = el;
             this.$emit('scroll', {
                 scrollHeight,
                 scrollWidth,
                 scrollTop,
+                scrollLeft,
                 clientHeight,
                 clientWidth,
             });
