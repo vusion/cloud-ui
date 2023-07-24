@@ -100,7 +100,7 @@ export default {
     },
     data() {
         return {
-            inputTime: this.value ?? this.time,
+            inputTime: this.value || this.time,
             placeholder: this.$t('selectTimeText'),
         };
     },
