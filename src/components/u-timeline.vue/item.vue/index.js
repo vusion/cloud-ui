@@ -41,28 +41,26 @@ export const UTimelineItem = {
         },
     },
     mounted() {
-        this.observerwh = new MutationObserver(this.pwh);
-        this.observerwh.observe(this.$refs.labelwrap, {
-            attributes: true, childList: true, subtree: true,
-        });
-        setTimeout(() => {
-            this.pwh();
-        });
+        this.observeLabel();
     },
     updated() {
-        this.observerwh = new MutationObserver(this.pwh);
-        this.observerwh.observe(this.$refs.labelwrap, {
-            attributes: true, childList: true, subtree: true,
-        });
-        setTimeout(() => {
-            this.pwh();
-        });
+        this.observeLabel();
     },
     destroyed() {
         this.observerwh && this.observerwh.disconnect();
     },
     methods: {
-        pwh(mutationsList, observer) {
+        observeLabel() {
+            if (!this.$refs.labelwrap) return;
+            this.observerwh = new MutationObserver(this.pwh);
+            this.observerwh.observe(this.$refs.labelwrap, {
+                attributes: true, childList: true, subtree: true,
+            });
+            setTimeout(() => {
+                this.pwh();
+            });
+        },
+        pwh() {
             let realH;
             const realHeight = this.$refs.labelwrap.scrollHeight;
             const realHeightr = this.$refs.contentwrap.scrollHeight;
