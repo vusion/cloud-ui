@@ -44,7 +44,6 @@
     - name: page-number
       title: 当前页数
       type: number
-      sync: true
       default: 1
       description: 当前默认展示在第几页
       group: 数据属性

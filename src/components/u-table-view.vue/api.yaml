@@ -65,7 +65,6 @@
     - name: page-size
       title: 默认每页条数
       type: number
-      sync: true
       default: 20
       description: ""
       group: 数据属性
@@ -102,7 +101,6 @@
     - name: page-number
       title: 当前页数
       type: number
-      sync: true
       default: 1
       description: 当前默认展示在第几页
       group: 数据属性
@@ -138,7 +136,6 @@
     - name: sorting
       title: 初始化排序规则
       type: "{ field: string, order: string, compare: Function }"
-      sync: true
       default: "{ field: undefined, order: 'desc' }"
       description: 设置数据初始化时的排序字段和顺序规则
       group: 数据属性
