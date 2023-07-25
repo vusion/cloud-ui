@@ -17,7 +17,7 @@
     <u-time-picker-popper
         ref="popper"
         :min-unit="minUnit"
-        :time="time"
+        :time="value || time"
         :disabled="disabled"
         :readonly="readonly"
         :min-time="minTime"
@@ -68,6 +68,7 @@ export default {
     props: {
         minUnit: { type: String, default: 'second' },
         time: { type: String, default: '' },
+        value: { type: String, default: '' }, // 优先使用
         autofocus: [String, Boolean],
         disabled: [String, Boolean],
         readonly: [String, Boolean],
@@ -99,7 +100,7 @@ export default {
     },
     data() {
         return {
-            inputTime: this.time,
+            inputTime: this.value || this.time,
             placeholder: this.$t('selectTimeText'),
         };
     },
@@ -134,6 +135,7 @@ export default {
         },
         onUpdateTime(e) {
             // time 值的更新也由内部触发
+            this.$emit('update:value', e, this);
             this.$emit('update:time', e, this);
         },
         // blur 有很多种情况，这里放到 popper 内部统一处理

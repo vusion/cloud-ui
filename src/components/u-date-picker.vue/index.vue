@@ -14,7 +14,7 @@
     </u-input>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
         <div @click.stop>
-            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="calendarDate" :value="date" @select="select($event.date)"></u-calendar>
+            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="calendarDate" :value="value || date" @select="select($event.date)"></u-calendar>
         </div>
     </m-popper>
 </div>
@@ -56,7 +56,7 @@ export default {
             default: '',
         },
         date: [String, Number, Date],
-        value: [String, Number, Date],
+        value: [String, Number, Date], // 优先使用
         minDate: [String, Number, Date],
         maxDate: [String, Number, Date],
         picker: { type: String, default: 'date' },
@@ -91,7 +91,7 @@ export default {
         height: String,
     },
     data() {
-        const date = this.date || this.value;
+        const date = this.value ?? this.date;
         const showDate = this.format(date, this.getFormatString());
         return {
             showDate,
@@ -120,6 +120,7 @@ export default {
              * @property {number} date 改变后的日期 返回格式为日期对象
              */ const showDate = this.returnTime(newValue);
             const newDate = showDate ? new Date(this.transformDate(showDate)) : undefined;
+            this.$emit('update:value', this.toValue(newDate));
             this.$emit('update:date', this.toValue(newDate));
             this.$emit('change', { sender: this, date: newDate });
             this.$emit('input', this.toValue(newDate));
