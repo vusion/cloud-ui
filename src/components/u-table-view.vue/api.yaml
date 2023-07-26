@@ -746,17 +746,18 @@
     - name: click-row
       title: 点击
       description: 点击某一行时触发
-      schema:
-        $ref: "#/systemTypes/Current"
       params:
         - name: $event
           type: object
           description: 自定义事件对象
           schema:
-            $ref: "#/systemTypes/OperatorItemEvent"
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.item
           type: object
           description: 点击行相关对象
+        - name: $event.value
+          type: any
+          description: 点击行的值
         - name: $event.index
           type: number
           description: 点击行索引
