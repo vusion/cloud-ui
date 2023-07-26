@@ -1393,7 +1393,8 @@ export default {
             return sheetData;
         },
         page(number, size) {
-            if (!this.currentDataSource?.paging) return;
+            if (!this.currentDataSource?.paging)
+                return;
             if (size === undefined)
                 size = this.currentDataSource.paging.size;
             const paging = {
@@ -1516,7 +1517,8 @@ export default {
             }
         },
         onClickRow(e, item, rowIndex) {
-            this.$emit('click-row', { item, index: rowIndex });
+            const value = item && this.$at(item, this.valueField);
+            this.$emit('click-row', { item, value, index: rowIndex });
 
             if (this.selectable) {
                 this.select(item);
