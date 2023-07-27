@@ -19,7 +19,14 @@
             {{ placeholder }}
         </span>
         <div :class="$style.text" v-ellipsis-title>
-            <template v-if="selectedItem">
+            <template v-if="checkable">
+                <f-slot name="text" :vm="this">
+                    <span>
+                        {{ checkableValue }}
+                    </span>
+                </f-slot>
+            </template>
+            <template v-else-if="selectedItem">
                 <f-slot v-if="$scopedSlots.selected"
                     name="selected"
                     :vm="this"
@@ -47,13 +54,6 @@
                 <span v-else>
                     {{ $at(selectedItem, textField) || selectedItem.text }}
                 </span>
-            </template>
-            <template v-if="checkable">
-                <f-slot name="text" :vm="this">
-                    <span>
-                        {{ checkableValue }}
-                    </span>
-                </f-slot>
             </template>
             <u-input
               v-if="filterable"
@@ -221,12 +221,19 @@ export default {
             }
         },
         checkableValue() {
-            if (!this.checkable)
-                return '';
-            else if (this.value.length === 0){
+            if (!this.checkable || !this.value) {
                 return '';
             } else {
-                return this.value.join('、');
+                let textNode = [];
+                // 返现选项的字段从value转化为text
+                this.actualValue.map((item) => {
+                    if (this.$at(this.dataSourceObj, item)) {
+                        textNode.push(this.$at(this.dataSourceObj, item)?.text);
+                    } else {
+                        textNode.push(this.$at(this.dataSourceNodeList, item)?.text);
+                    }
+                });
+                return textNode.join('、');
             }
         }
     },
