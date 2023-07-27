@@ -253,8 +253,8 @@ export default {
         },
     },
     created() {
-        const startDateTime = this.toValue(this.startDateTime ? new Date(this.startDateTime.replace(/-/g, '/')) : '')
-        const endDateTime = this.toValue(this.endDateTime ? new Date(this.endDateTime.replace(/-/g, '/')) : '')
+        const startDateTime = this.toValue(this.startDateTime ? new Date(this.startDateTime.replace(/-/g, '/')) : '');
+        const endDateTime = this.toValue(this.endDateTime ? new Date(this.endDateTime.replace(/-/g, '/')) : '');
         this.$emit(
             'update',
             this.startDateTime && this.endDateTime ? [startDateTime, endDateTime] : '',

@@ -150,8 +150,8 @@ export default {
             this.$emit('change', { sender: this, endDate: newDate });
             this.$emit('input', this.showStartDate && newDate ? [
                 this.toValue(new Date(this.transformDate(this.showStartDate))),
-                this.toValue(newDate)
-            ]: '' );
+                this.toValue(newDate),
+            ] : '');
             this.calendarEndDate = newDate; // showDate改变时设置calendar里的值
         },
         minDate(newValue) {

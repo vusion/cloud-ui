@@ -106,7 +106,7 @@ describe('u-time-picker.vue', () => {
         // 校验事件参数
         expect(onChange.mock.calls[0][0]).toHaveProperty('startTime', '13:14:15');
         expect(onUpdateStartTime.mock.calls[0][0]).toBe('13:14:15');
-        expect(onInput.mock.calls[0][0]).toEqual(['13:14:15', '18:18:18'])
+        expect(onInput.mock.calls[0][0]).toEqual(['13:14:15', '18:18:18']);
 
         // 弹出右边选择框
         await wrapper.findAll('input').at(1).trigger('click');
@@ -158,7 +158,7 @@ describe('u-time-picker.vue', () => {
         // 校验事件参数
         expect(onChange.mock.calls[0][0]).toHaveProperty('startTime', '13:14');
         expect(onUpdateStartTime.mock.calls[0][0]).toBe('13:14');
-        expect(onInput.mock.calls[0][0]).toEqual(['13:14', '18:18'])
+        expect(onInput.mock.calls[0][0]).toEqual(['13:14', '18:18']);
 
         // 弹出右边选择框
         await wrapper.findAll('input').at(1).trigger('click');

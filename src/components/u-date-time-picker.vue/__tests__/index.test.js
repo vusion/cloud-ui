@@ -38,7 +38,7 @@ describe('u-date-time-picker.vue', () => {
         // 校验事件参数
         expect(onChange.mock.calls[0][0]).toHaveProperty('date', 1678875539000);
         expect(onUpdateValue.mock.calls[0][0]).toBe('2023-03-15 18:18:59');
-        console.log(onInput.mock.calls)
+        console.log(onInput.mock.calls);
         expect(onInput.mock.calls[0][0]).toBe('2023-03-15 18:18:59');
     });
 
