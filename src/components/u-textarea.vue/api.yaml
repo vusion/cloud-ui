@@ -22,7 +22,6 @@
       model: true
       description: 输入的值
       group: 数据属性
-      brifeDoc: ""
       docDescription: 当前多行输入组件，输入框内的本文内容
       tooltipLink: ""
     - name: placeholder
@@ -30,7 +29,6 @@
       type: string
       description: 为空时显示的占位符文本
       group: 主要属性
-      brifeDoc: ""
       docDescription: 输入框为空时的提示文本
       tooltipLink: ""
     - name: maxlength
@@ -44,7 +42,6 @@
           updateData:
             show-word-limit: false
       group: 主要属性
-      brifeDoc: ""
       docDescription: 输入框内可输入的最大字符数，超过时不支持输入
       tooltipLink: ""
     - name: show-word-limit
@@ -54,7 +51,6 @@
       dependency:
         - "!maxlength": ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 开启后，会在组件上显示当前输入字数以及最大字符数，当前输入字数超过最大字符数时，不支持输入。
       tooltipLink: ""
     - name: limit-position
@@ -69,7 +65,6 @@
       dependency:
         - show-word-limit: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: "**显示字数统计**开启后，支持选择字数统计位置：输入框内、输入框外。"
       tooltipLink: ""
     - name: autofocus
@@ -79,7 +74,6 @@
       description: 设置是否自动获取焦点
       designer-value: false
       group: 主要属性
-      brifeDoc: ""
       docDescription: 进入页面时，自动选中该输入框。
       tooltipLink: ""
     - name: clearable
@@ -88,7 +82,6 @@
       default: false
       description: 可点击清除按钮一键清除内容
       group: 交互属性
-      brifeDoc: ""
       docDescription: 是否可清空。开启并在输入框有内容时会显示清空按钮
       tooltipLink: ""
     - name: resize
@@ -106,7 +99,6 @@
       default: none
       description: 设置调整大小的方式
       group: 交互属性
-      brifeDoc: ""
       docDescription: 设置多行输入框是否可以调整大小。包括：不可调整，可调整，水平可调整，竖直可调整四种设置
       tooltipLink: ""
     - name: readonly
@@ -115,7 +107,6 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
-      brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入
       tooltipLink: ""
     - name: disabled
@@ -124,7 +115,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
     - name: size
@@ -144,7 +134,6 @@
       default: normal
       description: 设置多行输入框大小
       group: 样式属性
-      brifeDoc: ""
       docDescription: "- 设置多行输入框大小。支持正常，中型，大，巨大，占满五种尺寸。"
       tooltipLink: ""
     - name: autosize
@@ -153,7 +142,6 @@
       place: 不设置则根据输入内容自适应
       description: 可输入如{maxHeight:100,minHeight:50}，单位默认为px
       group: 样式属性
-      brifeDoc: ""
       docDescription: 可输入如{maxHeight:100,minHeight:50}，单位默认为px，不设置则根据输入内容自适应
       tooltipLink: ""
   slots:

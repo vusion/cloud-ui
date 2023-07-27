@@ -72,7 +72,6 @@
       type: string
       description: 需要复制的值
       group: 数据属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: disabled
@@ -81,7 +80,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
   slots:

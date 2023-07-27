@@ -29,7 +29,6 @@
       type: string
       description: 显示文本内容
       group: 主要属性
-      brifeDoc: ""
       docDescription: 显示的文本内容
       tooltipLink: ""
     - name: color
@@ -49,7 +48,6 @@
       default: default
       description: 设置主题颜色和按钮样式类型
       group: 主要属性
-      brifeDoc: ""
       docDescription: "- 支持定义按钮样式，包括主要按钮、次要按钮、普通按钮、危险操作按钮和次要危险操作按钮。"
       tooltipLink: ""
     - name: display
@@ -63,7 +61,6 @@
       default: inline
       description: 行内展示，或块级换行展示
       group: 主要属性
-      brifeDoc: ""
       docDescription: 控制展示方式，支持行内展示、块级展示（宽度会充满父元素）两种方式。
       tooltipLink: ""
     - name: icon
@@ -72,7 +69,6 @@
       default: ""
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持从图标库选择图标或上传自定义图标。
       tooltipLink: ""
     - name: linkType
@@ -88,7 +84,6 @@
       compType: linkTypeSelect
       bindHide: true
       group: 交互属性
-      brifeDoc: ""
       docDescription: 支持页面跳转、普通链接、下载链接。
       tooltipLink: ""
     - name: hrefAndTo
@@ -97,7 +92,6 @@
       description: ""
       compType: linkHrefInput
       group: 交互属性
-      brifeDoc: ""
       docDescription: 链接的详细地址。
       tooltipLink: ""
     - name: target
@@ -117,7 +111,6 @@
       default: _self
       description: 链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。
       group: 交互属性
-      brifeDoc: ""
       docDescription: 可选新窗口、父级窗口、当前窗口和顶级窗口，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。
       tooltipLink: ""
     - name: disabled
@@ -126,7 +119,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。
       tooltipLink: ""
     - name: loading
@@ -136,7 +128,6 @@
       description: 设置加载中状态的触发条件
       advanced: true
       group: 状态属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: dashed
@@ -145,7 +136,6 @@
       default: false
       description: 设置是否显示虚线边框
       group: 样式属性
-      brifeDoc: ""
       docDescription: 启用后，按钮边框变为虚线，默认关闭。
       tooltipLink: ""
     - name: size
@@ -167,7 +157,6 @@
       default: normal
       description: 设置按钮大小
       group: 样式属性
-      brifeDoc: ""
       docDescription: 按钮尺寸，支持设置巨大、大、中型、正常、小、迷你。
       tooltipLink: ""
     - name: shape
@@ -185,7 +174,6 @@
       default: default
       description: 设置按钮形状
       group: 样式属性
-      brifeDoc: ""
       docDescription: 支持定义按钮形状，包括默认、方形、圆角、圆形四种。
       tooltipLink: ""
   events:

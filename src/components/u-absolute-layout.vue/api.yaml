@@ -4,8 +4,6 @@
   icon: absolute-layout
   labels:
     - Layout
-  next: true
-  nested: true
   slots:
     - concept: Slot
       name: default

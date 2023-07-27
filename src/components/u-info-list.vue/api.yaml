@@ -10,7 +10,6 @@
       default: 3
       description: 整个详情列表的划分列数
       group: 主要属性
-      brifeDoc: ""
       docDescription: "- 设置列表信息展示的划分列数"
       tooltipLink: ""
     - name: show-head
@@ -19,7 +18,6 @@
       default: true
       description: 是否显示表格头部
       group: 主要属性
-      brifeDoc: ""
       docDescription: 开启时会显示表格头部
       tooltipLink: ""
     - name: label-size
@@ -37,7 +35,6 @@
       default: auto
       description: 设置详情列表所有列表项的标题宽度。
       group: 样式属性
-      brifeDoc: ""
       docDescription: 列表中所有列表项的标签大小
       tooltipLink: ""
   slots:
@@ -71,7 +68,6 @@
       type: string
       description: 列跨越的格数
       group: 主要属性
-      brifeDoc: ""
       docDescription: 当前列表项占的列数，为空默认取列表组的列数值，优先取列表项的值
       tooltipLink: ""
     - name: ellipsis
@@ -80,7 +76,6 @@
       default: false
       description: 文字过长是否省略显示。默认文字超出时会换行。
       group: 主要属性
-      brifeDoc: ""
       docDescription: 开启时该项文本过长会省略显示，默认不开启为换行显示
       tooltipLink: ""
     - name: label-size
@@ -98,7 +93,6 @@
       default: auto
       description: ""
       group: 样式属性
-      brifeDoc: ""
       docDescription: 当前列表项的标签大小，优先取列表项的值
       tooltipLink: ""
   slots:
@@ -124,7 +118,6 @@
       type: number
       description: 当前组范围内的划分列数
       group: 主要属性
-      brifeDoc: ""
       docDescription: 当前组信息展示划分的列数，为空默认取详情列表的值，若和列表列数不一致，优先取列表组的值。
       tooltipLink: ""
     - name: label-size
@@ -142,7 +135,6 @@
       default: auto
       description: 设置详情列表组所有列表项的标题宽度。
       group: 样式属性
-      brifeDoc: ""
       docDescription: 当前组列表项的标签大小，若和列表列数不一致，优先取列表组的值。
       tooltipLink: ""
   slots:

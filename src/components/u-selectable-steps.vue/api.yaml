@@ -39,7 +39,6 @@
       default: 0
       group: 数据属性
       description: 设置当前处于选中状态的步骤
-      brifeDoc: ""
       docDescription: 当前步骤数
       tooltipLink: ""
     - name: direction
@@ -53,7 +52,6 @@
       default: horizontal
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 步骤条的方向，支持水平或垂直
       tooltipLink: ""
     - name: readonly
@@ -62,7 +60,6 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
-      brifeDoc: ""
       docDescription: 是否只读，非只读的情况下可以选择
       tooltipLink: ""
     - name: disabled
@@ -71,7 +68,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: size
@@ -85,7 +81,6 @@
       default: normal
       description: ""
       group: 样式属性
-      brifeDoc: ""
       docDescription: 设置尺寸
       tooltipLink: ""
   slots:
@@ -221,7 +216,6 @@
       default: ""
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 在该步骤展示的图标
       tooltipLink: ""
     - name: readonly
@@ -230,7 +224,6 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
-      brifeDoc: ""
       docDescription: 是否只读，非只读的情况下可以选择
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/170.%E6%AD%A5%E9%AA%A4%E6%9D%A1.html
     - name: disabled
@@ -239,7 +232,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: 禁用该项
       tooltipLink: ""
   slots:

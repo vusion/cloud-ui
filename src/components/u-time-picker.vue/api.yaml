@@ -13,7 +13,6 @@
       default: ""
       description: 默认显示的时间值，格式如08:08:08
       group: 数据属性
-      brifeDoc: ""
       docDescription: 默认显示的日期值。
       tooltipLink: ""
     - name: minUnit
@@ -27,7 +26,6 @@
       default: second
       description: 最小时间单位
       group: 数据属性
-      brifeDoc: ""
       docDescription: 最小时间单位，支持秒或分
       tooltipLink: ""
     - name: min-time
@@ -36,7 +34,6 @@
       default: 00:00:00
       description: 最小可选的时间值，填写null则不限制，日期填写格式为“00:00:00”
       group: 数据属性
-      brifeDoc: ""
       docDescription: 支持输入的最小时间。
       tooltipLink: ""
     - name: max-time
@@ -45,7 +42,6 @@
       default: 23:59:59
       description: 最大可选的时间值，填写null则不限制，日期填写格式为“00:00:00”
       group: 数据属性
-      brifeDoc: ""
       docDescription: 支持输入的最大时间
       tooltipLink: ""
     - name: autofocus
@@ -55,7 +51,6 @@
       description: 设置是否自动获取焦点
       designer-value: false
       group: 主要属性
-      brifeDoc: ""
       docDescription: 是否自动获得焦点
       tooltipLink: ""
     - name: showRightNowButton
@@ -64,7 +59,6 @@
       default: true
       description: 点击可快捷选择当前时间
       group: 主要属性
-      brifeDoc: ""
       docDescription: 是否展示此刻按钮
       tooltipLink: ""
     - name: rightNowTitle
@@ -74,7 +68,6 @@
       description: ""
       clearable: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持自定义修改原此刻按钮名称
       tooltipLink: ""
     - name: showFooterButton
@@ -83,7 +76,6 @@
       default: true
       description: 控制弹出层的关闭和设置的生效与否
       group: 主要属性
-      brifeDoc: ""
       docDescription: 是否展示取消/确定按钮
       tooltipLink: ""
     - name: cancelTitle
@@ -93,7 +85,6 @@
       description: ""
       clearable: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持自定义修改原取消按钮名称
       tooltipLink: ""
     - name: okTitle
@@ -103,7 +94,6 @@
       description: 确定按钮的显示名称，如果为空则不显示
       clearable: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持自定义修改原确定按钮名称
       tooltipLink: ""
     - name: preIcon
@@ -116,7 +106,6 @@
       description: ""
       clearable: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持配置选择框前缀图标，仅支持时间图标
       tooltipLink: ""
     - name: suffixIcon
@@ -128,7 +117,6 @@
       description: ""
       clearable: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持配置选择框后缀图标，仅支持时间图标
       tooltipLink: ""
     - name: append-to
@@ -142,7 +130,6 @@
         - value: body
           title: 全局body
       group: 主要属性
-      brifeDoc: ""
       docDescription: 设置添加到哪个元素：引用元素下、全局body
       tooltipLink: ""
     - name: clearable
@@ -151,7 +138,6 @@
       default: true
       description: 可点击清除按钮一键清除内容
       group: 交互属性
-      brifeDoc: ""
       docDescription: 是否展示清除按钮
       tooltipLink: ""
     - name: readonly
@@ -160,7 +146,6 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: disabled
@@ -169,7 +154,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: visible
@@ -179,7 +163,6 @@
       description: 显示状态分为“True(打开)/False(关闭)”，默认为“打开”
       hidden: true
       group: 状态属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: width
@@ -203,7 +186,6 @@
       default: normal
       description: 设置时间选择输入框宽度大小
       group: 样式属性
-      brifeDoc: ""
       docDescription: 支持占满、巨大、大、中型、正常、小、迷你
       tooltipLink: ""
     - name: height
@@ -227,7 +209,6 @@
       default: normal
       description: 设置时间选择输入框高度大小
       group: 样式属性
-      brifeDoc: ""
       docDescription: 支持占满、巨大、大、中型、正常、小、迷你
       tooltipLink: ""
   events:

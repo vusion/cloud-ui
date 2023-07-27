@@ -11,7 +11,6 @@
       designer-value: "[{}, {}, {}]"
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
-      brifeDoc: ""
       docDescription: 表格展示的数据。数据源可以绑定变量或者逻辑。变量或逻辑的返回值可以是数组，也可以是对象。对象格式为{list:[], total:10}
       tooltipLink: ""
     - name: data-schema
@@ -20,7 +19,6 @@
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
-      brifeDoc: ""
       docDescription: 表格每一行的数据类型。该属性为展示属性，由数据源推导得到，无需填写
       tooltipLink: ""
     - name: extra-params
@@ -29,7 +27,6 @@
       description: 数据源除了DataSourceParams外还需要的参数
       group: 数据属性
       advanced: true
-      brifeDoc: ""
       docDescription: 当数据源绑定的是逻辑，逻辑的第一个输入参数无法满足要求时，可绑定该字段值，传入更多的参数值。数据类型为对象{key:value}格式。
       tooltipLink: ""
     - name: pageable
@@ -39,7 +36,6 @@
       description: ""
       group: 数据属性
       hidden: true
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: remote-paging
@@ -51,7 +47,6 @@
       dependency:
         - pageable: true
       hidden: true
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: pagination
@@ -59,7 +54,6 @@
       type: boolean
       description: 设置是否分页展示数据
       group: 数据属性
-      brifeDoc: ""
       docDescription: 是否展示分页组件，数据源调用接口是否加入分页参数。默认开启
       tooltipLink: ""
     - name: page-size
@@ -71,7 +65,6 @@
       group: 数据属性
       dependency:
         - pagination: true
-      brifeDoc: ""
       docDescription: 每页的数据条数。默认20条。在"分页"属性开启时有效
       tooltipLink: ""
     - name: show-sizer
@@ -82,7 +75,6 @@
       group: 数据属性
       dependency:
         - pagination: true
-      brifeDoc: ""
       docDescription: 分页组件处是否展示数据条数的选择列表。默认开启。在"分页"属性开启时有效
       tooltipLink: ""
     - name: page-size-options
@@ -96,7 +88,6 @@
       group: 数据属性
       dependency:
         - pagination: true
-      brifeDoc: ""
       docDescription: 分页组件处是否展示每页显示数据条数的选择列表，需设置数组，如[10,20,30,40,50]。在"分页"属性开启时有效。
       tooltipLink: ""
     - name: page-number
@@ -110,7 +101,6 @@
         $ref: "#/basicTypes/Integer"
       dependency:
         - pagination: true
-      brifeDoc: ""
       docDescription: 当前加载的表格页。默认1。在"分页"属性开启时有效
       tooltipLink: ""
     - name: show-total
@@ -121,7 +111,6 @@
       group: 数据属性
       dependency:
         - pagination: true
-      brifeDoc: ""
       docDescription: 分页组件处是否显示表格总数。默认关闭。在"分页"属性开启时有效
       tooltipLink: ""
     - name: show-jumper
@@ -132,7 +121,6 @@
       group: 数据属性
       dependency:
         - pagination: true
-      brifeDoc: ""
       docDescription: 分页组件处是否展示跳转到某一页的输入框。默认关闭。在"分页"属性开启时有效
       tooltipLink: ""
     - name: sorting
@@ -142,7 +130,6 @@
       default: "{ field: undefined, order: 'desc' }"
       description: 设置数据初始化时的排序字段和顺序规则
       group: 数据属性
-      brifeDoc: ""
       docDescription: 支持选择数据表格数据源中的某一条数据，配置默认排序规则，支持升序和降序
       tooltipLink: ""
     - name: remote-sorting
@@ -152,7 +139,6 @@
       description: ""
       group: 数据属性
       hidden: true
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: default-order
@@ -169,7 +155,6 @@
       dependency:
         - remote-sorting: true
       hidden: true
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: filtering
@@ -191,7 +176,6 @@
       type: string
       description: 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段
       group: 数据属性
-      brifeDoc: ""
       docDescription: 在表格开启了单选、多选操作、渲染树形数据中，指定数据唯一值的字段
       tooltipLink: ""
     - name: value
@@ -201,7 +185,6 @@
       model: true
       description: 用于标识单选选项的值
       group: 数据属性
-      brifeDoc: ""
       docDescription: 当表格设置了单选列，或开启了可选行，选中某一行时的值。该取值由值字段名决定。一般会是id等能唯一标识每一行数据的值
       tooltipLink: ""
     - name: values
@@ -210,7 +193,6 @@
       sync: true
       description: 用于标识多选选项的值
       group: 数据属性
-      brifeDoc: ""
       docDescription: 当表格设置了多选列，选择多个值后获得了值列表数组。该取值由值字段名决定
       tooltipLink: ""
     - name: tree-display
@@ -219,7 +201,6 @@
       default: false
       description: 以树形数据展示表格
       group: 数据属性
-      brifeDoc: ""
       docDescription: 表格是否以树型方式展示。默认关闭
       tooltipLink: ""
     - name: parent-field
@@ -229,7 +210,6 @@
       group: 数据属性
       dependency:
         - tree-display: true
-      brifeDoc: ""
       docDescription: 标识父节点字段名，用于标识表格行取哪个数据作为父级的判断，需同步配置“值字段名”。在"树行模式"属性开启时有效
       tooltipLink: ""
     - name: children-field
@@ -240,7 +220,6 @@
       group: 数据属性
       dependency:
         - tree-display: true
-      brifeDoc: ""
       docDescription: 标识子节点字段名，用于表格显示时取哪个数据展示子树。在"树行模式"属性开启时有效
       tooltipLink: ""
     - name: has-children-field
@@ -251,7 +230,6 @@
       group: 数据属性
       dependency:
         - tree-display: true
-      brifeDoc: ""
       docDescription: 表示当前行是否需要展示子节点的"展开/收起"图标。在"树形模式"属性开启时有效
       tooltipLink: ""
     - name: tree-check-type
@@ -271,7 +249,6 @@
       group: 数据属性
       dependency:
         - tree-display: true
-      brifeDoc: ""
       docDescription: 当选中父节点时，子节点是否相应选中等。在"树形模式"属性开启并且表格存在"多选列"时有效
       tooltipLink: ""
     - name: title
@@ -279,7 +256,6 @@
       type: string
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 表格上方的标题信息。默认为空
       tooltipLink: ""
     - name: show-head
@@ -288,7 +264,6 @@
       default: true
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 是否显示表格头。默认开启
       tooltipLink: ""
     - name: stick-head
@@ -297,7 +272,6 @@
       default: false
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 当页面滚动到顶时，表格头是否固定在头部，不随页面滚动。默认关闭
       tooltipLink: ""
     - name: stick-head-offset
@@ -306,7 +280,6 @@
       default: 0
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 与"表格头部吸顶"选项配合使用，表示表格头吸顶时与顶部的距离
       tooltipLink: ""
     - name: hover
@@ -316,7 +289,6 @@
       description: 表格行在悬浮时是否高亮显示
       group: 交互属性
       hidden: true
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: selectable
@@ -325,7 +297,6 @@
       default: false
       description: 设置是否可以单选行
       group: 交互属性
-      brifeDoc: ""
       docDescription: 表格行是否可点击选中，该取值由值字段名决定，一般会是id等能唯一标识每一行数据的值。默认关闭。
       tooltipLink: ""
     - name: cancelable
@@ -334,7 +305,6 @@
       default: false
       description: 设置是否可以取消选择
       group: 交互属性
-      brifeDoc: ""
       docDescription: 与"可选行"属性对应，表示选中的行再点击时是否可以取消选中。默认关闭。
       tooltipLink: ""
     - name: draggable
@@ -343,7 +313,6 @@
       default: false
       description: 设置是否可以拖拽行排序
       group: 交互属性
-      brifeDoc: ""
       docDescription: 表格行是否可拖拽放置。默认关闭
       tooltipLink: ""
     - name: accordion
@@ -352,7 +321,6 @@
       default: false
       description: 设置是否每次只展开一个
       group: 交互属性
-      brifeDoc: ""
       docDescription: 表示点击展开行时，其它已经展开的行是否收起。在表格存在"展开列"时有效
       tooltipLink: ""
     - name: resizable
@@ -361,7 +329,6 @@
       default: false
       description: 设置是否可以调整列宽
       group: 交互属性
-      brifeDoc: ""
       docDescription: 表格列之间是否出现调整样式，可以手动调整列宽
       tooltipLink: ""
     - name: resize-remaining
@@ -377,7 +344,6 @@
       default: average
       description: 设置调整列宽时如何处理剩余大小
       group: 交互属性
-      brifeDoc: ""
       docDescription: 表示调整列宽时其他列宽的处理方式。在"可调整列宽"属性开启时有效
       tooltipLink: ""
     - name: configurable
@@ -394,7 +360,6 @@
       default: true
       description: 设置初始时是否立即加载
       group: 状态属性
-      brifeDoc: ""
       docDescription: "- 是否在表格出现时立即加载数据，默认开启。"
       tooltipLink: ""
     - name: designer-mode
@@ -413,7 +378,6 @@
       description: 设置不同加载状态的展示内容
       bindHide: true
       group: 状态属性
-      brifeDoc: ""
       docDescription: 可通过切换该选项，设置不同状态时该组件的展示形式，支持配置
       tooltipLink: ""
     - name: loading-text
@@ -424,7 +388,6 @@
       group: 状态属性
       dependency:
         - designer-mode: loading
-      brifeDoc: ""
       docDescription: 当加载表格数据过程中的提示文字。默认“正在加载中...”。
       tooltipLink: ""
     - name: loading
@@ -435,7 +398,6 @@
       group: 状态属性
       dependency:
         - designer-mode: loading
-      brifeDoc: ""
       docDescription: 支持自定义状态的触发条件，未设置则默认为系统定义条件。
       tooltipLink: ""
     - name: error-text
@@ -446,7 +408,6 @@
       group: 状态属性
       dependency:
         - designer-mode: error
-      brifeDoc: ""
       docDescription: 加载失败的提示文字。默认"加载失败，请重试"。
       tooltipLink: ""
     - name: error
@@ -457,7 +418,6 @@
       group: 状态属性
       dependency:
         - designer-mode: error
-      brifeDoc: ""
       docDescription: 支持自定义状态的触发条件，未设置则默认为系统定义条件。
       tooltipLink: ""
     - name: empty-text
@@ -468,7 +428,6 @@
       group: 状态属性
       dependency:
         - designer-mode: empty
-      brifeDoc: ""
       docDescription: 当表格为空时的提示文字。默认"暂无数据"。
       tooltipLink: ""
     - name: readonly
@@ -477,7 +436,6 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
-      brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入
       tooltipLink: ""
     - name: disabled
@@ -486,7 +444,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
     - name: title-alignment
@@ -502,7 +459,6 @@
       default: center
       description: ""
       group: 样式属性
-      brifeDoc: ""
       docDescription: 表格上方的标题信息的对齐方式。默认"居中对齐"。
       tooltipLink: ""
     - name: boldHeader
@@ -511,7 +467,6 @@
       default: true
       description: ""
       group: 样式属性
-      brifeDoc: ""
       docDescription: 表格每一列的表头文字是否加粗。默认开启
       tooltipLink: ""
     - name: border
@@ -520,7 +475,6 @@
       default: false
       description: ""
       group: 样式属性
-      brifeDoc: ""
       docDescription: 表格是否展示边框。默认关闭
       tooltipLink: ""
     - name: line
@@ -529,7 +483,6 @@
       default: false
       description: 单元格之间是否显示分隔线条
       group: 样式属性
-      brifeDoc: ""
       docDescription: 表格每列之间是否展示分隔线条。默认关闭
       tooltipLink: ""
     - name: striped
@@ -538,7 +491,6 @@
       default: false
       description: 表格行是否按斑马线条纹显示
       group: 样式属性
-      brifeDoc: ""
       docDescription: 表格行是否按斑马线条纹显示。默认关闭
       tooltipLink: ""
     - name: default-column-width
@@ -546,7 +498,6 @@
       type: string | number
       description: 表格的默认列宽度，可设置为数字或百分比
       group: 样式属性
-      brifeDoc: ""
       docDescription: 表格每列的默认宽度。
       tooltipLink: ""
   slots:
@@ -1037,7 +988,6 @@
       type: string
       description: data 项中的字段
       group: 数据属性
-      brifeDoc: ""
       docDescription: 数据项中对应的字段名，如createdTime
       tooltipLink: ""
     - name: sortable
@@ -1046,7 +996,6 @@
       default: false
       description: 设置该列是否可以排序
       group: 数据属性
-      brifeDoc: ""
       docDescription: 开启后该列可排序，可设置默认顺序，升序或倒序
       tooltipLink: ""
     - name: default-order
@@ -1062,7 +1011,6 @@
       dependency:
         - sortable: true
       group: 数据属性
-      brifeDoc: ""
       docDescription: 该列首次点击时的排序顺序。与表格属性中的"默认排序顺序"相同
       tooltipLink: ""
     - name: type
@@ -1092,7 +1040,6 @@
       default: normal
       description: 支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序。选择编辑列需要先设置列字段。
       group: 数据属性
-      brifeDoc: ""
       docDescription: 可设置序号列、单选列、多选列、展开列或树型列
       tooltipLink: ""
     - name: auto-index
@@ -1103,7 +1050,6 @@
       dependency:
         - type: index
       group: 数据属性
-      brifeDoc: ""
       docDescription: 支持换页后，继续上一页的列序号进行编号
       tooltipLink: ""
     - name: start-index
@@ -1115,7 +1061,6 @@
         - type: index
           "!auto-index": true
       group: 数据属性
-      brifeDoc: ""
       docDescription: 当列类型为"序号列"时有效。默认值为1
       tooltipLink: ""
     - name: dblclickHandler
@@ -1124,7 +1069,6 @@
       description: 用于可编辑表格，双击表格列时的处理函数
       advanced: true
       group: 数据属性
-      brifeDoc: ""
       docDescription: 用于可编辑表格，双击表格列时的处理函数。在表格是"可编辑"的表格时有效
       tooltipLink: ""
     - name: title
@@ -1133,7 +1077,6 @@
       description: ""
       advanced: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: 表格上方的标题信息。默认为空
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: fixed
@@ -1142,7 +1085,6 @@
       default: false
       description: 该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。
       group: 主要属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: ellipsis
@@ -1151,7 +1093,6 @@
       default: false
       description: 文字过长是否省略显示。默认文字超出时会换行。
       group: 主要属性
-      brifeDoc: ""
       docDescription: 开启后，该列文本过长会省略显示，否则换行显示，默认关闭
       tooltipLink: ""
     - name: hidden
@@ -1160,7 +1101,6 @@
       default: false
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 开启后，当表格横向滚动条滚动时，该列会固定不会跟随滚动条滚动
       tooltipLink: ""
     - name: width
@@ -1168,7 +1108,6 @@
       type: string | number
       description: 设置列宽度，可设置为数字或百分比
       group: 样式属性
-      brifeDoc: ""
       docDescription: 指定列宽，可以是数字或百分比，如100，或10%。
       tooltipLink: ""
   slots:
@@ -1318,7 +1257,6 @@
       designer-value: "[{}, {}, {}]"
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
-      brifeDoc: ""
       docDescription: 表格展示的数据。数据源可以绑定变量或者逻辑。变量或逻辑的返回值可以是数组，也可以是对象。对象格式为{list:[], total:10}
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: data-schema
@@ -1327,7 +1265,6 @@
       compType: dataTypeSelect
       group: 数据属性
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
-      brifeDoc: ""
       docDescription: 表格每一行的数据类型。该属性为展示属性，由数据源推导得到，无需填写
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: value-field
@@ -1340,7 +1277,6 @@
         - "!data-source": null
       dependencyDisplay: disabled
       group: 数据属性
-      brifeDoc: ""
       docDescription: 在表格开启了单选、多选操作、渲染树形数据中，指定数据唯一值的字段
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: value
@@ -1350,7 +1286,6 @@
       model: true
       group: 数据属性
       description: ""
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: show-footer

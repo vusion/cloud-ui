@@ -43,7 +43,6 @@
       default: info
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 信息、成功、警告、错误
       tooltipLink: ""
     - name: showIcon
@@ -52,7 +51,6 @@
       default: true
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 是否展开图标
       tooltipLink: ""
     - name: closeable
@@ -61,7 +59,6 @@
       default: false
       description: 是否可手动关闭公告
       group: 交互属性
-      brifeDoc: ""
       docDescription: 是否显示关闭按钮
       tooltipLink: ""
     - name: bordered
@@ -70,7 +67,6 @@
       default: true
       description: ""
       group: 样式属性
-      brifeDoc: ""
       docDescription: 是否显示边框
       tooltipLink: ""
   events:

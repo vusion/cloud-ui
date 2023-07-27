@@ -19,7 +19,6 @@
       default: 0
       description: 进度条显示的进度百分比，1-100之间的数字
       group: 数据属性
-      brifeDoc: ""
       docDescription: 进度条显示的进度百分比，1-100之间的数字
       tooltipLink: ""
     - name: direction
@@ -33,7 +32,6 @@
           title: 竖向
       group: 主要属性
       description: ""
-      brifeDoc: ""
       docDescription: 横向、竖向
       tooltipLink: ""
     - name: size
@@ -51,7 +49,6 @@
       default: normal
       description: 进度条高度大小
       group: 样式属性
-      brifeDoc: ""
       docDescription: 支持小、正常、大、巨大
       tooltipLink: ""
   slots:

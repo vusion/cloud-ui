@@ -19,7 +19,6 @@
       description: ""
       compType: linkInput
       group: 主要属性
-      brifeDoc: ""
       docDescription: 图片链接，可以是来自网络的链接，也可以上传本地图片。
       tooltipLink: ""
     - name: fit
@@ -39,7 +38,6 @@
       default: contain
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 设置图片的显示方式，适应、适应（图片小于父元素时以原尺寸展示、原尺寸、拉伸、填充）
       tooltipLink: ""
     - name: circle
@@ -48,7 +46,6 @@
       default: false
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 是否使用圆形进行图片展示。
       tooltipLink: ""
     - name: horizontalCenter
@@ -64,7 +61,6 @@
       default: center
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 左对齐、右对齐、居中对齐
       tooltipLink: ""
     - name: verticalCenter
@@ -80,7 +76,6 @@
       default: center
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 顶部对齐、居中对齐、底部对齐
       tooltipLink: ""
     - name: preview
@@ -89,7 +84,6 @@
       default: false
       description: 是否支持点击放大全屏展示
       group: 交互属性
-      brifeDoc: ""
       docDescription: 是否支持点击放大全屏展示
       tooltipLink: ""
   slots: false

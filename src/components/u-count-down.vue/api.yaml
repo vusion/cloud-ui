@@ -11,7 +11,6 @@
       default: 60
       description: 设置定时时间
       group: 主要属性
-      brifeDoc: ""
       docDescription: 计时器的总时长，单位为秒。支持手动输入或是动态绑定。
       tooltipLink: ""
     - name: reverse
@@ -25,7 +24,6 @@
       default: positive
       description: 设置计时器计时方式
       group: 主要属性
-      brifeDoc: ""
       docDescription: 可选择正计时和倒计时
       tooltipLink: ""
     - name: autostart
@@ -34,7 +32,6 @@
       default: true
       description: 设置是否自动开始计时
       group: 主要属性
-      brifeDoc: ""
       docDescription: 默认自动开始计时，支持动态绑定布尔类型（Boolean）的变量
       tooltipLink: ""
   events:

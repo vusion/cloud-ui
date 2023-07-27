@@ -12,7 +12,6 @@
       model: true
       description: 默认显示的日期时间值，格式如2018-08-08 08:08:08
       group: 数据属性
-      brifeDoc: ""
       docDescription: 默认显示的日期时间值
       tooltipLink: ""
     - name: minDate
@@ -20,7 +19,6 @@
       type: string, number, Date
       description: 最小可选的日期时间值，填写null则不限制，日期填写格式为“yyyy-mm-dd  00:00:00”
       group: 数据属性
-      brifeDoc: ""
       docDescription: 支持输入的最小日期时间
       tooltipLink: ""
     - name: maxDate
@@ -28,7 +26,6 @@
       type: string, number, Date
       description: 最大可选的日期时间值，填写null则不限制，日期填写格式为“yyyy-mm-dd  00:00:00”
       group: 数据属性
-      brifeDoc: ""
       docDescription: 支持输入的最大日期时间
       tooltipLink: ""
     - name: yearDiff
@@ -37,7 +34,6 @@
       default: 20
       description: 最小可选年份值与当前年份值的差值
       group: 数据属性
-      brifeDoc: ""
       docDescription: 最小可选年份值为当前年减去此值
       tooltipLink: ""
     - name: yearAdd
@@ -46,7 +42,6 @@
       default: 20
       description: 最大可选年份值与当前年份值的差值
       group: 数据属性
-      brifeDoc: ""
       docDescription: 最大可选年份值为当前年加上此值
       tooltipLink: ""
     - name: placeholder
@@ -55,7 +50,6 @@
       default: 请选择时间
       description: 为空时显示的占位符文本
       group: 主要属性
-      brifeDoc: ""
       docDescription: 未选择状态下的提示文案
       tooltipLink: ""
     - name: autofocus
@@ -65,7 +59,6 @@
       description: 设置是否自动获取焦点
       designer-value: false
       group: 主要属性
-      brifeDoc: ""
       docDescription: 是否自动聚焦
       tooltipLink: ""
     - name: showRightNowButton
@@ -74,7 +67,6 @@
       default: true
       description: 点击可快捷选择当前时间
       group: 主要属性
-      brifeDoc: ""
       docDescription: 快捷选择当前时间
       tooltipLink: ""
     - name: rightNowTitle
@@ -84,7 +76,6 @@
       description: ""
       clearable: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持自定义修改原此刻按钮名称。
       tooltipLink: ""
     - name: showFooterButton
@@ -93,7 +84,6 @@
       default: true
       description: 控制弹出层的关闭和设置的生效与否
       group: 主要属性
-      brifeDoc: ""
       docDescription: 是否显示取消/确定按钮。
       tooltipLink: ""
     - name: cancelTitle
@@ -103,7 +93,6 @@
       description: 取消按钮的显示名称，如果为空则不显示
       clearable: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持自定义修改原取消按钮名称
       tooltipLink: ""
     - name: okTitle
@@ -113,7 +102,6 @@
       description: 确定按钮的显示名称，如果为空则不显示
       clearable: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持自定义修改原确定按钮名称
       tooltipLink: ""
     - name: converter
@@ -132,7 +120,6 @@
       description: ""
       clearable: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: "- SON、Unix 时间戳、 Date 对象、 YYYY-MM-DD HH:mm:ss"
       tooltipLink: ""
     - name: preIcon
@@ -145,7 +132,6 @@
       description: ""
       clearable: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: 选择并展示前缀图标
       tooltipLink: ""
     - name: suffixIcon
@@ -157,7 +143,6 @@
       description: ""
       clearable: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: 选择并展示后缀图标
       tooltipLink: ""
     - name: append-to
@@ -171,7 +156,6 @@
         - value: body
           title: 全局body
       group: 主要属性
-      brifeDoc: ""
       docDescription: 设置添加到哪个元素，引用元素下、全局body
       tooltipLink: ""
     - name: clearable
@@ -179,7 +163,6 @@
       type: boolean
       description: 可点击清除按钮一键清除内容
       group: 交互属性
-      brifeDoc: ""
       docDescription: 是否展示清除按钮
       tooltipLink: ""
     - name: opened
@@ -188,7 +171,6 @@
       default: false
       description: 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”
       group: 状态属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: disabled
@@ -197,7 +179,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: readonly
@@ -206,7 +187,6 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: width
@@ -230,7 +210,6 @@
       default: normal
       description: 设置日期时间选择输入框宽度大小
       group: 样式属性
-      brifeDoc: ""
       docDescription: 支持占满、巨大、大、中型、正常、小、迷你。
       tooltipLink: ""
     - name: height
@@ -254,7 +233,6 @@
       default: normal
       description: 设置日期时间选择输入框高度大小
       group: 样式属性
-      brifeDoc: ""
       docDescription: 支持占满、巨大、大、中型、正常、小、迷你。
       tooltipLink: ""
   events:

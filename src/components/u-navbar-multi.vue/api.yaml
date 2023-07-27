@@ -11,7 +11,6 @@
       default: true
       description: 是否根据 vue-router 来控制选择项
       group: 数据属性
-      brifeDoc: ""
       docDescription: 设置是否根据vue-router来控制选择哪一项，默认开启。开启后当前所在的导航栏项底部会有标识
       tooltipLink: ""
     - name: value
@@ -21,7 +20,6 @@
       model: true
       description: 当前选中的值
       group: 数据属性
-      brifeDoc: ""
       docDescription: 当前选择的值
       tooltipLink: ""
     - name: field
@@ -31,7 +29,6 @@
       description: 显示文本字段
       hidden: true
       group: 数据属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: readonly
@@ -40,7 +37,6 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
-      brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入
       tooltipLink: ""
     - name: disabled
@@ -49,7 +45,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
   events:
@@ -120,7 +115,6 @@
       type: any
       description: 用于标识此项的值
       group: 数据属性
-      brifeDoc: ""
       docDescription: 当前选择的值
       tooltipLink: ""
     - name: icon
@@ -129,7 +123,6 @@
       default: ""
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持从图标库选择图标或上传自定义图标
       tooltipLink: ""
     - name: linkType
@@ -145,7 +138,6 @@
       compType: linkTypeSelect
       bindHide: true
       group: 交互属性
-      brifeDoc: ""
       docDescription: 支持页面跳转、下载链接
       tooltipLink: ""
     - name: hrefAndTo
@@ -154,7 +146,6 @@
       description: ""
       compType: linkHrefInput
       group: 交互属性
-      brifeDoc: ""
       docDescription: 链接地址配置
       tooltipLink: ""
     - name: target
@@ -174,7 +165,6 @@
       default: _self
       description: 链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。
       group: 交互属性
-      brifeDoc: ""
       docDescription: 支持新窗口、当前窗口、父级窗口、顶级窗口四种方式，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。
       tooltipLink: ""
     - name: disabled
@@ -183,7 +173,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
   description: 导航栏的子项目
@@ -251,7 +240,6 @@
       default: bottom
       description: 弹出层的弹出方向
       group: 主要属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: trigger
@@ -271,7 +259,6 @@
       default: hover
       description: ""
       group: 交互属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: disabled
@@ -280,7 +267,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
   description: 导航栏下拉菜单

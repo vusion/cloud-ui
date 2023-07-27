@@ -23,7 +23,6 @@
       default: 标题
       description: 弹出框标题
       group: 主要属性
-      brifeDoc: ""
       docDescription: 弹出框的标题，显示在弹出框内容上方
       tooltipLink: ""
     - name: placement
@@ -57,7 +56,6 @@
       default: bottom-start
       description: 弹出层的弹出方向
       group: 主要属性
-      brifeDoc: ""
       docDescription: 设置弹出框的弹出方向
       tooltipLink: ""
     - name: hide-delay
@@ -66,7 +64,6 @@
       default: 200
       description: 当触发方式为'悬浮'时，提示内容消失延迟时间，单位是毫秒(ms)
       group: 主要属性
-      brifeDoc: ""
       docDescription: 当触发方式为悬浮时，弹出框内容消失的延迟时间，单位为ms
       tooltipLink: ""
     - name: follow-cursor
@@ -75,7 +72,6 @@
       default: false
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 控制弹出框弹出位置，开启后会以鼠标点击位置为基点弹出，关闭则为默认弹出位置
       tooltipLink: ""
     - name: display
@@ -89,7 +85,6 @@
       default: inline
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 控制展示方式，支持行内展示、块级展示（占据整行）
       tooltipLink: ""
     - name: ellipsis
@@ -98,7 +93,6 @@
       default: false
       description: 文字过长是否省略显示。
       group: 主要属性
-      brifeDoc: ""
       docDescription: 开启时该项文本过长会省略显示，默认不开启为换行显示
       tooltipLink: ""
     - name: trigger
@@ -118,7 +112,6 @@
       default: click
       description: 弹出框的触发方式
       group: 交互属性
-      brifeDoc: ""
       docDescription: |-
         支持配置弹出框弹出的触发方式，支持点击、悬浮、右击、双击、手动共5种方式。
         - 点击：左键单击弹出框触发组件。
@@ -134,7 +127,6 @@
       default: false
       description: 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”
       group: 状态属性
-      brifeDoc: ""
       docDescription: 控制弹出框的默认状态。开启时弹出框默认为弹出状态，关闭时弹出框默认为关闭状态
       tooltipLink: ""
     - name: disabled
@@ -143,7 +135,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
   slots:

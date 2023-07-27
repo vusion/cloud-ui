@@ -22,7 +22,6 @@
       default: normal
       description: 栅格行之间的间隔
       group: 样式属性
-      brifeDoc: ""
       docDescription: 支持修改栅格行之间的间隔，支持紧凑（-1）、无（0）、小（8）、正常（16）、大（32）共6种间隔模式。
       tooltipLink: ""
   slots:
@@ -70,7 +69,6 @@
       default: start
       group: 主要属性
       description: ""
-      brifeDoc: ""
       docDescription: 支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
     - name: alignment
@@ -102,7 +100,6 @@
       default: stretch
       group: 主要属性
       description: ""
-      brifeDoc: ""
       docDescription: 支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
       tooltipLink: ""
     - name: repeat
@@ -114,7 +111,6 @@
       min: 1
       max: 24
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持设置栅格行大小，默认为24。
       tooltipLink: ""
     - name: gap
@@ -136,7 +132,6 @@
       default: normal
       description: 栅格列之间的间隔
       group: 样式属性
-      brifeDoc: ""
       docDescription: 栅格列之间的间隔，支持无（0）、迷你（4）、小（8）、正常（16）、巨大（32）共6种间隔模式。
       tooltipLink: ""
   slots:
@@ -199,7 +194,6 @@
         - wrap
         - gap
       group: 主要属性
-      brifeDoc: ""
       docDescription: 内联布局：将当前元素修改为内联布局模式，各个内联布局模式的元素将默认排布在同一行中，若空间不足以排布下一个内联布局元素，则该元素将会换行。弹性布局：在弹性布局模式中，子元素可以在任何方向上排布，也可以“弹性伸缩”其尺寸，既可以增加尺寸以填满未使用的空间，也可以收缩尺寸以避免溢出父元素。
     - name: direction
       title: 主轴方向
@@ -223,7 +217,6 @@
         - mode: flex
       group: 主要属性
       description: ""
-      brifeDoc: ""
       docDescription: 横向：内部子元素进行横向排布，建议内部子元素使用行内布局。纵向：内部子元素进行纵向排布，建议内部子元素使用块级布局。
       tooltipLink: ""
     - name: justify
@@ -265,7 +258,6 @@
             gap: normal
       group: 主要属性
       description: ""
-      brifeDoc: ""
       docDescription: 主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度。
       tooltipLink: ""
     - name: alignment
@@ -300,7 +292,6 @@
           direction: horizontal
       group: 主要属性
       description: ""
-      brifeDoc: ""
       docDescription: 主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
     - name: alignment
@@ -331,7 +322,6 @@
           direction: vertical
       group: 主要属性
       description: ""
-      brifeDoc: ""
       docDescription: 主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
     - name: justify
@@ -373,7 +363,6 @@
             gap: normal
       group: 主要属性
       description: ""
-      brifeDoc: ""
       docDescription: 主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。 主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度。
       tooltipLink: ""
     - name: span
@@ -384,7 +373,6 @@
       description: 列占据栅格行的栅格数
       precision: 1e-14
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持设置当前栅格列占据的栅格数，不能超过当前栅格行栅格数。
       tooltipLink: ""
     - name: offset
@@ -395,7 +383,6 @@
       default: 0
       precision: 1e-14
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持设置栅格列偏移数，控制当前栅格列与其左侧栅格列的距离，处于当前栅格列右侧的栅格列也会同步偏移。
       tooltipLink: ""
     - name: pull
@@ -406,7 +393,6 @@
       default: 0
       precision: 1e-14
       group: 主要属性
-      brifeDoc: ""
       docDescription: 向左移动的栅格数，支持栅格互相重合。
       tooltipLink: ""
     - name: push
@@ -417,7 +403,6 @@
       default: 0
       precision: 1e-14
       group: 主要属性
-      brifeDoc: ""
       docDescription: 向右移动的栅格数，支持栅格互相重合。
       tooltipLink: ""
     - name: wrap
@@ -428,7 +413,6 @@
       dependency:
         - mode: flex
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持控制弹性布局模式下，子元素总宽度超过父级时是否换行展示，默认开启。
       tooltipLink: ""
     - name: gap
@@ -454,7 +438,6 @@
             - space-between
             - space-around
       group: 样式属性
-      brifeDoc: ""
       docDescription: 布局内各个组件之间的间隔，通常有收缩、无、小、正常、大，默认为正常。
       tooltipLink: ""
   slots:

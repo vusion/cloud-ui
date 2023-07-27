@@ -29,7 +29,6 @@
       sync: true
       description: 原数据列表
       group: 数据属性
-      brifeDoc: ""
       docDescription: 支持动态绑定集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       tooltipLink: ""
     - name: target
@@ -38,7 +37,6 @@
       sync: true
       description: 目标数据列表
       group: 数据属性
-      brifeDoc: ""
       docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑。
       tooltipLink: ""
     - name: text-field
@@ -47,7 +45,6 @@
       default: text
       description: 选项文本的字段名
       group: 数据属性
-      brifeDoc: ""
       docDescription: 集合的元素类型中，用于显示文本的属性名称，支持自定义变更。
       tooltipLink: ""
     - name: value-field
@@ -56,7 +53,6 @@
       default: value
       description: 选项值的字段名
       group: 数据属性
-      brifeDoc: ""
       docDescription: 集合的元素类型中，用于指定数据唯一值的字段，支持自定义变更
       tooltipLink: ""
     - name: filterable
@@ -65,7 +61,6 @@
       default: false
       description: 显示筛选（搜索框）
       group: 数据属性
-      brifeDoc: ""
       docDescription: 是否开启过滤输入框和过滤功能。默认关闭
       tooltipLink: ""
     - name: case-sensitive
@@ -76,7 +71,6 @@
       dependency:
         - filterable: true
       group: 数据属性
-      brifeDoc: ""
       docDescription: 搜索是否大小写敏感。默认关闭。在过滤属性开启后有效。
       tooltipLink: ""
     - name: clearable
@@ -87,7 +81,6 @@
       dependency:
         - filterable: true
       group: 数据属性
-      brifeDoc: ""
       docDescription: 过滤输入框是否开启清除按钮。默认开启。在过滤属性开启后有效
       tooltipLink: ""
     - name: show-head
@@ -96,7 +89,6 @@
       default: false
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 开启后会显示头部全选栏。默认开启
       tooltipLink: ""
     - name: source-title
@@ -105,7 +97,6 @@
       default: 列表
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: "- 左侧头部全选框右侧展示的文字。默认为“左列表”。"
       tooltipLink: ""
     - name: target-title
@@ -114,7 +105,6 @@
       default: 列表
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 右侧头部全选框右侧展示的文字。默认为“右列表”
       tooltipLink: ""
     - name: placeholder
@@ -125,7 +115,6 @@
       dependency:
         - filterable: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: 过滤输入框无内容时的提示信息，支持自定义编辑，默认为请选择。在过滤属性开启后有效
       tooltipLink: ""
     - name: readonly
@@ -134,7 +123,6 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
-      brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入
       tooltipLink: ""
     - name: disabled
@@ -143,7 +131,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
   slots:

@@ -11,7 +11,6 @@
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       designer-value: "[{}, {}, {}]"
       group: 数据属性
-      brifeDoc: ""
       docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑
       tooltipLink: ""
     - name: data-schema
@@ -20,7 +19,6 @@
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
-      brifeDoc: ""
       docDescription: 该属性为只读状态，当数据源动态绑定集合List\<T>后，会自动识别T的类型并进行展示
       tooltipLink: ""
     - name: text-field
@@ -35,7 +33,6 @@
       default: value
       description: 集合的元素类型中，用于标识选中值的属性
       group: 数据属性
-      brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识选中值的属性，支持自定义变更
       tooltipLink: ""
     - name: children-field
@@ -44,7 +41,6 @@
       default: children
       description: 集合的元素类型中，用于标识子节点的属性，默认为children
       group: 数据属性
-      brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识子级字段的的属性，支持自定义变更
       tooltipLink: ""
     - name: parent-field
@@ -53,7 +49,6 @@
       default: ""
       description: 集合的元素类型中，用于标识父节点的属性
       group: 数据属性
-      brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识父级字段的属性，支持自定义变更
       tooltipLink: ""
     - name: value
@@ -63,7 +58,6 @@
       model: true
       description: 选择后，所选中的值
       group: 数据属性
-      brifeDoc: ""
       docDescription: 当前选择的值
       tooltipLink: ""
     - name: check-controlled
@@ -72,7 +66,6 @@
       default: false
       description: 开启后父节点选择不会全选子节点，子节点选择不会联动父节点
       group: 交互属性
-      brifeDoc: ""
       docDescription: 开启后父节点选择不会全选子节点，子节点选择不会联动父节点
       tooltipLink: ""
     - name: checkable
@@ -81,7 +74,6 @@
       default: false
       description: 设置是否开启多选模式，显示多选框
       group: 交互属性
-      brifeDoc: ""
       docDescription: 开启后支持选中多项。默认关闭
       tooltipLink: ""
     - name: accordion
@@ -90,7 +82,6 @@
       default: false
       description: 设置是否每次只展开一个
       group: 交互属性
-      brifeDoc: ""
       docDescription: 开启后每次只能展开一个分组，其他已经展开的分组会关闭。默认关闭
       tooltipLink: ""
     - name: expand-trigger
@@ -104,7 +95,6 @@
       default: click
       description: 展开/折叠的触发方式
       group: 交互属性
-      brifeDoc: ""
       docDescription: 树展开/折叠的方式。可选择整行点击均可触发、点击小箭头时触发。默认整行点击均可触发
       tooltipLink: ""
     - name: readonly
@@ -113,7 +103,6 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
-      brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入
       tooltipLink: ""
     - name: disabled
@@ -122,7 +111,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
   slots:
@@ -379,7 +367,6 @@
       type: any
       description: 节点的值
       group: 数据属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: checked
@@ -388,7 +375,6 @@
       sync: true
       description: ""
       group: 交互属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: expanded
@@ -397,7 +383,6 @@
       sync: true
       description: 展开状态分为“True(展开)/False(折叠)”，默认为“展开”
       group: 状态属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: disabled
@@ -406,7 +391,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
   slots:

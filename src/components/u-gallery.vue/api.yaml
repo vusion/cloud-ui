@@ -16,7 +16,6 @@
         "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_5.png"}]'
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
-      brifeDoc: ""
       docDescription: 组件所展示数据的输入源，可以是逻辑、变量。格式可参见示例
       tooltipLink: ""
     - name: data-schema
@@ -36,7 +35,6 @@
       default: big
       description: 图片的显示模式，支持大图模式和缩略图模式。
       group: 主要属性
-      brifeDoc: ""
       docDescription: 图片的显示模式，支持大图模式和缩略图模式
       tooltipLink: ""
     - name: num
@@ -45,7 +43,6 @@
       default: 5
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 同时展示的图片数量
       tooltipLink: ""
     - name: arrow
@@ -54,7 +51,6 @@
       default: true
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 图片支持通过鼠标按住拖动或点击左右箭头的方式调整位置，关闭该选项后不显示左右箭头
       tooltipLink: ""
   slots: false

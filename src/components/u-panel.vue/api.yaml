@@ -27,7 +27,6 @@
       description: 面板项的标题
       advanced: true
       group: 主要属性
-      brifeDoc: ""
       docDescription: 面板组的标题
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/03.%E5%AE%B9%E5%99%A8/030.%E9%9D%A2%E6%9D%BF.html
     - name: bordered
@@ -36,7 +35,6 @@
       default: true
       description: 设置是否显示边框
       group: 样式属性
-      brifeDoc: ""
       docDescription: 支持配置面板边框的显示和隐藏，默认显示
       tooltipLink: ""
     - name: shadow
@@ -52,7 +50,6 @@
       default: always
       description: 阴影显示方式
       group: 样式属性
-      brifeDoc: ""
       docDescription: |-
         支持配置面板阴影状态，默认为一直显示。- 一直显示：常态显示面板阴影。
         - hover时显示：鼠标悬停在面板区域时显示面板阴影。
@@ -67,7 +64,6 @@
       type: string
       description: 面板项的标题
       group: 主要属性
-      brifeDoc: ""
       docDescription: 面板组的标题
       tooltipLink: ""
   description: 面板组

@@ -11,7 +11,6 @@
       designer-value: "[{}, {}, {}]"
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
-      brifeDoc: ""
       docDescription: 列表展示的数据。数据源可以绑定变量或者逻辑。变量或逻辑的返回值可以是数组，也可以是对象。对象格式为{list:[], total:10}
       tooltipLink: ""
     - name: data-schema
@@ -20,7 +19,6 @@
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
-      brifeDoc: ""
       docDescription: 列表每一行的数据类型。该属性为展示属性，由数据源推倒得到，无需填写。
       tooltipLink: ""
     - name: pageable
@@ -29,7 +27,6 @@
       default: false
       description: 设置是否分页展示数据
       group: 数据属性
-      brifeDoc: ""
       docDescription: 是否展示分页组件，数据源调用接口是否加入分页参数。默认开启
       tooltipLink: ""
     - name: page-size
@@ -38,7 +35,6 @@
       default: 50
       description: ""
       group: 数据属性
-      brifeDoc: ""
       docDescription: 每页的数据条数。默认50条。在"可分页"属性开启时有效
       tooltipLink: ""
     - name: page-number
@@ -50,7 +46,6 @@
       group: 数据属性
       schema:
         $ref: "#/basicTypes/Integer"
-      brifeDoc: ""
       docDescription: 当前加载的列表页。默认1。在"可分页"属性开启时有效
       tooltipLink: ""
     - name: page-size-options
@@ -62,7 +57,6 @@
         - 50
       description: 每页条数切换器的选项
       group: 数据属性
-      brifeDoc: ""
       docDescription: 每页显示数据条数的选择列表，需设置数组，如[10,20,30,40,50]。在"可分页"属性开启时有效
       tooltipLink: ""
     - name: show-total
@@ -71,7 +65,6 @@
       default: false
       description: ""
       group: 数据属性
-      brifeDoc: ""
       docDescription: 分页组件处是否显示列表总数。默认关闭。在"可分页"属性开启时有效
       tooltipLink: ""
     - name: show-sizer
@@ -80,7 +73,6 @@
       default: false
       description: 显示每页条数切换器
       group: 数据属性
-      brifeDoc: ""
       docDescription: 是否展示数据条数的选择列表。默认开启。在"可分页"属性开启时有效
       tooltipLink: ""
     - name: show-jumper
@@ -89,7 +81,6 @@
       default: false
       description: 显示页面跳转输入框
       group: 数据属性
-      brifeDoc: ""
       docDescription: 分页组件处是否展示跳转到某一页的输入框。默认关闭。在"可分页"属性开启时有效。
       tooltipLink: ""
     - name: filterable
@@ -98,7 +89,6 @@
       default: false
       description: 设置是否可以筛选，开启将会显示搜索框。
       group: 数据属性
-      brifeDoc: ""
       docDescription: 是否展示可筛选的输入框。默认关闭。
       tooltipLink: ""
     - name: remote-paging
@@ -107,7 +97,6 @@
       default: false
       description: 是否使用后端分页。
       group: 数据属性
-      brifeDoc: ""
       docDescription: 表示数据列表的分页由接口处理。分页参数传入后端接口，由后端接口返回相应的数据。默认开始。关闭后，如果"可分页"属性开启，分页将由列表组件处理，不会发送后端接口。
       tooltipLink: ""
     - name: remote-filtering
@@ -117,7 +106,6 @@
       description: 是否使用后端过滤
       advanced: true
       group: 数据属性
-      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: match-method
@@ -126,7 +114,6 @@
       default: includes
       description: 筛选时的匹配方法
       group: 数据属性
-      brifeDoc: ""
       docDescription: 筛选时的匹配方法。可写值"="、"=="、"eq"、"!="、"neq"、"<"，"lt"，"<="，"lte"，">"，"gt"，">="，"gte"，"includes"，"startsWith"，"endsWith"。也可传入处理函数。当"可筛选"属性开启时有效。
       tooltipLink: ""
     - name: case-sensitive
@@ -135,7 +122,6 @@
       default: false
       description: 设置是否区分大小写
       group: 数据属性
-      brifeDoc: ""
       docDescription: 表示筛选时是否大小写敏感。当"可筛选"属性开启时有效。
       tooltipLink: ""
     - name: placeholder
@@ -146,7 +132,6 @@
       group: 数据属性
       dependency:
         - filterable: true
-      brifeDoc: ""
       docDescription: 搜索框为空时提示文本，默认"请输入"。当"可筛选"属性开启时有效。
       tooltipLink: ""
     - name: value
@@ -156,7 +141,6 @@
       model: true
       description: 显示的值
       group: 数据属性
-      brifeDoc: ""
       docDescription: 在列表开启可多选时，指定数据唯一值的字段。
       tooltipLink: ""
     - name: text-field
@@ -166,7 +150,6 @@
       description: 当开启可多选时，显示的选项文本字段名
       group: 数据属性
       display: property-select
-      brifeDoc: ""
       docDescription: 当开启可多选时，显示的选项文本字段名。
       tooltipLink: ""
     - name: value-field
@@ -176,7 +159,6 @@
       description: 当开启可多选时，选项值的字段
       group: 数据属性
       display: property-select
-      brifeDoc: ""
       docDescription: 当开启可多选时，选项值的字段名。当"可多选"属性开启时有效。
       tooltipLink: ""
     - name: cancelable
@@ -185,7 +167,6 @@
       default: false
       description: 与"可多选"属性对应，表示选中的行再点击时是否可以取消选中。默认关闭。
       group: 数据属性
-      brifeDoc: ""
       docDescription: 与"可多选"属性对应，表示选中的行再点击时是否可以取消选中。默认关闭。
       tooltipLink: ""
     - name: multiple
@@ -194,7 +175,6 @@
       default: false
       description: 设置是否可以多选行
       group: 数据属性
-      brifeDoc: ""
       docDescription: 列表的行是否可选中。默认关闭。
       tooltipLink: ""
     - name: clearable
@@ -203,7 +183,6 @@
       default: false
       description: 可点击搜索框中的清除按钮一键清除内容
       group: 数据属性
-      brifeDoc: ""
       docDescription: 搜索框是否有清除按钮，默认关闭。当"可筛选"属性开启时有效。
       tooltipLink: ""
     - name: show-head
@@ -212,7 +191,6 @@
       default: false
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 是否显示列表头。默认关闭。
       tooltipLink: ""
     - name: title
@@ -221,7 +199,6 @@
       default: 列表
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 列表头部的标题信息。当"显示头部"属性开启时有效
       tooltipLink: ""
     - name: show-foot
@@ -230,7 +207,6 @@
       default: true
       description: ""
       group: 主要属性
-      brifeDoc: ""
       docDescription: 显示列表底部，包括分页组件。默认开启。
       tooltipLink: ""
     - name: repeat
@@ -239,7 +215,6 @@
       description: ""
       group: 主要属性
       title: 每行排列项数
-      brifeDoc: ""
       docDescription: 每行排列几项。默认为5
       tooltipLink: ""
     - name: initial-load
@@ -248,7 +223,6 @@
       default: true
       description: 设置初始时是否立即加载
       group: 状态属性
-      brifeDoc: ""
       docDescription: 是否在列表出现时立即加载数据，默认开启。
       tooltipLink: ""
     - name: designer-mode
@@ -277,7 +251,6 @@
       group: 状态属性
       dependency:
         - designer-mode: loading
-      brifeDoc: ""
       docDescription: 当数据正在加载时展示的文字，默认为"加载中..."。
       tooltipLink: ""
     - name: loading
@@ -296,7 +269,6 @@
       group: 状态属性
       dependency:
         - designer-mode: error
-      brifeDoc: ""
       docDescription: 加载失败的提示文字。默认"加载失败，请重试"
       tooltipLink: ""
     - name: error
@@ -307,7 +279,6 @@
       group: 状态属性
       dependency:
         - designer-mode: error
-      brifeDoc: ""
       docDescription: 控制表格加载失败的展示时机。默认关闭。
       tooltipLink: ""
     - name: empty-text
@@ -318,7 +289,6 @@
       group: 状态属性
       dependency:
         - designer-mode: empty
-      brifeDoc: ""
       docDescription: 当列表为空时的提示文字。默认"暂无数据"
       tooltipLink: ""
     - name: readonly
@@ -327,7 +297,6 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
-      brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入。
       tooltipLink: ""
     - name: disabled
@@ -336,7 +305,6 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
-      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。
       tooltipLink: ""
     - name: border
@@ -345,7 +313,6 @@
       default: true
       description: ""
       group: 样式属性
-      brifeDoc: ""
       docDescription: 列表是否展示边框。默认关闭。
       tooltipLink: ""
     - name: width
@@ -365,7 +332,6 @@
       default: auto
       description: 设置数据列表宽度大小
       group: 样式属性
-      brifeDoc: ""
       docDescription: 数据列表宽度。默认自适应。
       tooltipLink: ""
     - name: height
@@ -385,7 +351,6 @@
       default: normal
       description: 设置数据列表高度大小
       group: 样式属性
-      brifeDoc: ""
       docDescription: 数据列表高度。默认正常。
       tooltipLink: ""
   slots:

@@ -10,7 +10,6 @@
       type: array
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
-      brifeDoc: ""
       docDescription: 组件的数据源，配置内容为数据集对象或者返回数据集的逻辑。
       tooltipLink: ""
     - name: data-schema
@@ -19,7 +18,6 @@
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       compType: dataTypeComsItem
       group: 数据属性
-      brifeDoc: ""
       docDescription: IDE 根据配置的数据源动态计算返回内容的数据结构，用于动态配置项 current.item 的类型说明。
       tooltipLink: ""
     - name: colnum
@@ -28,7 +26,6 @@
       default: 5
       description: 为空时默认为5
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持定义每一行排列的项数，为空时会自适应宽度并自动换行。
       tooltipLink: ""
     - name: equalWidth
@@ -37,7 +34,6 @@
       default: true
       description: 设置是否均分宽度
       group: 样式属性
-      brifeDoc: ""
       docDescription: |-
         支持根据组件列表所占宽度自动均匀排布各项。
         - 开启：默认根据组件列表宽度自动计算每一项内容宽度，宽度为 100% / 每行项数。

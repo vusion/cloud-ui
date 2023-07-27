@@ -10,7 +10,6 @@
       type: string
       description: 显示文本内容
       group: 主要属性
-      brifeDoc: ""
       docDescription: 显示的文本内容
       tooltipLink: ""
     - name: color
@@ -34,7 +33,6 @@
       default: default
       description: 设置主题颜色样式
       group: 主要属性
-      brifeDoc: ""
       docDescription: 支持定义文本的颜色，支持默认、主要色、辅助色、成功色、警告色、错误色、禁用色
       tooltipLink: ""
     - name: display
@@ -48,7 +46,6 @@
       default: inline
       description: 行内展示，或块级换行展示
       group: 主要属性
-      brifeDoc: ""
       docDescription: 文本展示方式，支持行内展示或块级换行展示
       tooltipLink: ""
     - name: overflow
@@ -66,7 +63,6 @@
       default: normal
       description: 文本过长时省略显示
       group: 主要属性
-      brifeDoc: ""
       docDescription: 文本过长的处理方式，支持默认不处理、多余的文本省略、强制换行且英文自动添加换行符、始终不换行共四种隐藏处理方式，缺省情况为默认不处理
       tooltipLink: ""
     - name: size
@@ -86,7 +82,6 @@
       default: default
       description: 设置文本大小
       group: 样式属性
-      brifeDoc: ""
       docDescription: 文本框尺寸，支持小、正常、大、巨大
       tooltipLink: ""
   events:
