@@ -114,7 +114,7 @@ export default {
             }
             const { input } = this.$refs;
             let height = input.scrollHeight;
-            if (this.autosize !== undefined && this.autosize === true) {
+            if (this.autosize === true || this.isObject(this.autosize)) {
                 if (this.isObject(this.autosize || input.autosize)) {
                     const { maxHeight, minHeight } = this.autosize || input.autosize;
                     input.style.height = 'auto';
