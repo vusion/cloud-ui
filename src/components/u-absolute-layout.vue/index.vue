@@ -1,7 +1,7 @@
 <template>
-    <div :class="[$style.root, {[$style.empty]: isEmpty}]" v-on="$listeners" vusion-slot-name="default">
+    <div :class="[$style.root, {[$style.empty]: (!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']}]" v-on="$listeners" vusion-slot-name="default">
         <slot></slot>
-        <template v-if="isEmpty">
+        <template v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']">
             <div :class="$style.emptyTip">拖入组件放至任意位置</div>
         </template>
     </div>
@@ -11,11 +11,6 @@
 
 export default {
     name: 'u-absolute-layout',
-    computed: {
-        isEmpty() {
-            return !this.$slots.default && this.$env.VUE_APP_DESIGNER && !!this.$attrs['vusion-node-path'];
-        },
-    },
 };
 </script>
 
