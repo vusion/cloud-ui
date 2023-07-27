@@ -16,6 +16,8 @@
       brifeDoc: ""
       docDescription: 默认显示的日期值。
       tooltipLink: ""
+      dependency:
+        - '!range': true
     - name: minUnit
       title: 最小单位
       type: string
@@ -44,7 +46,7 @@
       group: 数据属性
       dependency:
         - range: true
-    - name: endDate
+    - name: endTime
       title: 结束值
       type: string
       sync: true

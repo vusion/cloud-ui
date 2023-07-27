@@ -7,6 +7,8 @@ describe('u-date-picker.vue', () => {
         const onToggle = jest.fn();
         const onUpdateStartDate = jest.fn();
         const onUpdateEndDate = jest.fn();
+        const onInput = jest.fn();
+        const onUpdate = jest.fn();
         const wrapper = mount(UDatePicker, {
             propsData: {
                 range: true,
@@ -20,11 +22,14 @@ describe('u-date-picker.vue', () => {
                 toggle: onToggle,
                 'update:startDate': onUpdateStartDate,
                 'update:endDate': onUpdateEndDate,
+                input: onInput,
+                update: onUpdate,
             },
         });
         // 输入框的值
         expect(wrapper.findAll('input').at(0).element.value).toBe('2023-03-10');
         expect(wrapper.findAll('input').at(1).element.value).toBe('2023-03-20');
+        expect(onUpdate.mock.calls[0][0]).toEqual(['2023-03-10', '2023-03-20']);
         // 弹出日历
         await wrapper.find('input').trigger('click');
         expect(onToggle.mock.calls[0][0]).toHaveProperty('opened', true);
@@ -42,6 +47,7 @@ describe('u-date-picker.vue', () => {
         expect(onChange.mock.calls[0][0]).toHaveProperty('startDate', new Date('2023-03-06 00:00:00'));
         expect(onChange.mock.calls[1][0]).toHaveProperty('endDate', new Date('2023-04-20 00:00:00'));
         expect(onToggle.mock.calls[1][0]).toHaveProperty('opened', false);
+        expect(onInput.mock.calls[0][0]).toEqual(['2023-03-06', '2023-04-20']);
     });
 
     it('month range picker', async () => {
@@ -49,6 +55,8 @@ describe('u-date-picker.vue', () => {
         const onToggle = jest.fn();
         const onUpdateStartDate = jest.fn();
         const onUpdateEndDate = jest.fn();
+        const onInput = jest.fn();
+        const onUpdate = jest.fn();
         const wrapper = mount(UDatePicker, {
             propsData: {
                 range: true,
@@ -62,11 +70,14 @@ describe('u-date-picker.vue', () => {
                 toggle: onToggle,
                 'update:startDate': onUpdateStartDate,
                 'update:endDate': onUpdateEndDate,
+                input: onInput,
+                update: onUpdate,
             },
         });
         // 输入框的值
         expect(wrapper.findAll('input').at(0).element.value).toBe('2021-06');
         expect(wrapper.findAll('input').at(1).element.value).toBe('2022-03');
+        expect(onUpdate.mock.calls[0][0]).toEqual(['2021-06-01', '2022-03-01']);
         // 弹出日历
         await wrapper.find('input').trigger('click');
         expect(onToggle.mock.calls[0][0]).toHaveProperty('opened', true);
@@ -84,6 +95,7 @@ describe('u-date-picker.vue', () => {
         expect(onChange.mock.calls[0][0]).toHaveProperty('startDate', new Date('2021-05-01 00:00:00'));
         expect(onChange.mock.calls[1][0]).toHaveProperty('endDate', new Date('2022-09-01 00:00:00'));
         expect(onToggle.mock.calls[1][0]).toHaveProperty('opened', false);
+        expect(onInput.mock.calls[0][0]).toEqual(['2021-05-01', '2022-09-01']);
     });
 
     it('quarter range picker', async () => {
@@ -91,6 +103,8 @@ describe('u-date-picker.vue', () => {
         const onToggle = jest.fn();
         const onUpdateStartDate = jest.fn();
         const onUpdateEndDate = jest.fn();
+        const onInput = jest.fn();
+        const onUpdate = jest.fn();
         const wrapper = mount(UDatePicker, {
             propsData: {
                 range: true,
@@ -104,11 +118,14 @@ describe('u-date-picker.vue', () => {
                 toggle: onToggle,
                 'update:startDate': onUpdateStartDate,
                 'update:endDate': onUpdateEndDate,
+                input: onInput,
+                update: onUpdate,
             },
         });
         // 输入框的值
         expect(wrapper.findAll('input').at(0).element.value).toBe('2021-Q2');
         expect(wrapper.findAll('input').at(1).element.value).toBe('2022-Q1');
+        expect(onUpdate.mock.calls[0][0]).toEqual(['2021-04-01', '2022-01-01']);
         // 弹出日历
         await wrapper.find('input').trigger('click');
         expect(onToggle.mock.calls[0][0]).toHaveProperty('opened', true);
@@ -126,6 +143,7 @@ describe('u-date-picker.vue', () => {
         expect(onChange.mock.calls[0][0]).toHaveProperty('startDate', new Date('2021-07-01 00:00:00'));
         expect(onChange.mock.calls[1][0]).toHaveProperty('endDate', new Date('2022-04-01 00:00:00'));
         expect(onToggle.mock.calls[1][0]).toHaveProperty('opened', false);
+        expect(onInput.mock.calls[0][0]).toEqual(['2021-07-01', '2022-04-01']);
     });
 
     it('year range picker', async () => {
@@ -133,6 +151,8 @@ describe('u-date-picker.vue', () => {
         const onToggle = jest.fn();
         const onUpdateStartDate = jest.fn();
         const onUpdateEndDate = jest.fn();
+        const onInput = jest.fn();
+        const onUpdate = jest.fn();
         const wrapper = mount(UDatePicker, {
             propsData: {
                 range: true,
@@ -146,11 +166,14 @@ describe('u-date-picker.vue', () => {
                 toggle: onToggle,
                 'update:startDate': onUpdateStartDate,
                 'update:endDate': onUpdateEndDate,
+                input: onInput,
+                update: onUpdate,
             },
         });
         // 输入框的值
         expect(wrapper.findAll('input').at(0).element.value).toBe('2011');
         expect(wrapper.findAll('input').at(1).element.value).toBe('2022');
+        expect(onUpdate.mock.calls[0][0]).toEqual(['2011-01-01', '2022-01-01']);
         // 弹出日历
         await wrapper.find('input').trigger('click');
         expect(onToggle.mock.calls[0][0]).toHaveProperty('opened', true);
@@ -168,5 +191,6 @@ describe('u-date-picker.vue', () => {
         expect(onChange.mock.calls[0][0]).toHaveProperty('startDate', new Date('2016-01-01 00:00:00'));
         expect(onChange.mock.calls[1][0]).toHaveProperty('endDate', new Date('2025-01-01 00:00:00'));
         expect(onToggle.mock.calls[1][0]).toHaveProperty('opened', false);
+        expect(onInput.mock.calls[0][0]).toEqual(['2016-01-01', '2025-01-01']);
     });
 });

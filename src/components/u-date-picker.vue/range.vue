@@ -137,7 +137,10 @@ export default {
             const newDate = showDate ? new Date(this.transformDate(showDate)) : undefined;
             this.$emit('update:startDate', this.toValue(newDate));
             this.$emit('change', { sender: this, startDate: newDate });
-            // this.$emit('input', this.toValue(newDate));
+            this.$emit('input', newDate && this.showEndDate ? [
+                this.toValue(newDate),
+                this.toValue(new Date(this.transformDate(this.showEndDate))),
+            ] : '');
             this.calendarStartDate = newDate; // showDate改变时设置calendar里的值
         },
         showEndDate(newValue) {
@@ -145,7 +148,10 @@ export default {
             const newDate = showDate ? new Date(this.transformDate(showDate)) : undefined;
             this.$emit('update:endDate', this.toValue(newDate));
             this.$emit('change', { sender: this, endDate: newDate });
-            // this.$emit('input', this.toValue(newDate));
+            this.$emit('input', this.showStartDate && newDate ? [
+                this.toValue(new Date(this.transformDate(this.showStartDate))),
+                this.toValue(newDate)
+            ]: '' );
             this.calendarEndDate = newDate; // showDate改变时设置calendar里的值
         },
         minDate(newValue) {
@@ -164,6 +170,13 @@ export default {
                     throw new DateRangeError(minDate, maxDate);
             }
         }
+        this.$emit(
+            'update',
+            this.showStartDate && this.showEndDate ? [
+                this.toValue(this.showStartDate ? new Date(this.transformDate(this.showStartDate)) : ''),
+                this.toValue(this.showEndDate ? new Date(this.transformDate(this.showEndDate)) : ''),
+            ] : '',
+        );
     },
     mounted() {
         // this.autofocus && this.$refs.input.focus();

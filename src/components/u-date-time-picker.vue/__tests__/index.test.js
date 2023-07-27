@@ -7,6 +7,8 @@ describe('u-date-time-picker.vue', () => {
     it('date time picker', async () => {
         const onChange = jest.fn();
         const onUpdateValue = jest.fn();
+        const onInput = jest.fn();
+        const onUpdate = jest.fn();
         const wrapper = mount(UDateTimePicker, {
             propsData: {
                 picker: 'date',
@@ -16,11 +18,14 @@ describe('u-date-time-picker.vue', () => {
             },
             listeners: {
                 change: onChange,
+                input: onInput,
+                update: onUpdate,
                 'update:date': onUpdateValue,
             },
         });
         // 输入框的值
         expect(wrapper.find('input').element.value).toBe('2023-03-10 18:18:59');
+        expect(onUpdate.mock.calls[0][0]).toBe('2023-03-10 18:18:59');
         // 弹出选择框
         await wrapper.find('input').trigger('click');
         // 打一个快照，因为自动化快照有点问题，这个组件需要手动打
@@ -33,10 +38,14 @@ describe('u-date-time-picker.vue', () => {
         // 校验事件参数
         expect(onChange.mock.calls[0][0]).toHaveProperty('date', 1678875539000);
         expect(onUpdateValue.mock.calls[0][0]).toBe('2023-03-15 18:18:59');
+        console.log(onInput.mock.calls)
+        expect(onInput.mock.calls[0][0]).toBe('2023-03-15 18:18:59');
     });
 
     it('date time range picker', async () => {
         const onChange = jest.fn();
+        const onInput = jest.fn();
+        const onUpdate = jest.fn();
         const onUpdateStartDate = jest.fn();
         const onUpdateEndDate = jest.fn();
         const wrapper = mount(UDateTimePicker, {
@@ -50,6 +59,8 @@ describe('u-date-time-picker.vue', () => {
             },
             listeners: {
                 change: onChange,
+                input: onInput,
+                update: onUpdate,
                 'update:startDate': onUpdateStartDate,
                 'update:endDate': onUpdateEndDate,
             },
@@ -57,6 +68,7 @@ describe('u-date-time-picker.vue', () => {
         // 输入框的值
         expect(wrapper.findAll('input').at(0).element.value).toBe('2023-03-10 00:00:00');
         expect(wrapper.findAll('input').at(1).element.value).toBe('2023-03-20 00:00:00');
+        expect(onUpdate.mock.calls[0][0]).toEqual(['2023-03-10 00:00:00', '2023-03-20 00:00:00']);
         // 弹出左边日历
         await wrapper.findAll('input').at(0).trigger('click');
         await sleep(100);
@@ -68,6 +80,7 @@ describe('u-date-time-picker.vue', () => {
         // 校验事件参数
         expect(onUpdateStartDate).toHaveBeenLastCalledWith('2023-03-15 00:00:00');
         expect(onChange.mock.calls[0][0]).toHaveProperty('startDate', 1678809600000);
+        expect(onInput.mock.calls[0][0]).toEqual(['2023-03-15 00:00:00', '2023-03-20 00:00:00']);
         // 弹出右边日历
         await wrapper.findAll('input').at(1).trigger('click');
         await sleep(100);
@@ -79,5 +92,6 @@ describe('u-date-time-picker.vue', () => {
         // 校验事件参数
         expect(onUpdateEndDate).toHaveBeenLastCalledWith('2023-03-25 00:00:00');
         expect(onChange.mock.calls[1][0]).toHaveProperty('endDate', 1679673600000);
+        expect(onInput.mock.calls[1][0]).toEqual(['2023-03-15 00:00:00', '2023-03-25 00:00:00']);
     });
 });
