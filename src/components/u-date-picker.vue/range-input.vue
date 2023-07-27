@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.root" :focus="focused">
+    <div :class="$style.root" :focus="focused" :color="color">
         <u-input
             :width="leftWidth"
             height="full"
@@ -12,7 +12,6 @@
             :readonly="readonly"
             :disabled="disabled"
             :placeholder="placeholder"
-            :color="color"
             @click.stop="onLeftClick"
             @focus="onFocus"
             @blur="onBlur"
@@ -36,7 +35,6 @@
             :disabled="disabled"
             :placeholder="placeholder"
             :clearable="clearable"
-            :color="color"
             @click.stop="onRightClick"
             @focus="onFocus"
             @blur="onBlur"
@@ -144,6 +142,10 @@ export default {
 .root[focus] {
     border-color: var(--input-border-color-focus);
     box-shadow: var(--input-box-shadow-focus);
+}
+
+.root[color="error"] {
+    border-color: var(--input-border-color-error);
 }
 
 .input {

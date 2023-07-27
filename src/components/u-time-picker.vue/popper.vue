@@ -431,9 +431,9 @@ export default {
         },
         emitValue() {
             const value = this.validShowTime ? this.validShowTime : undefined;
-            this.$emit('input', value, this);
             this.$emit('update:time', value, this);
             this.$emit('change', { sender: this, time: value, value }, this);
+            this.$emit('input', value, this);
         },
         /**
          * 输入框输入后，输入值的合法性处理

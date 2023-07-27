@@ -37,6 +37,7 @@
         @blur="onPopperBlur"
         @toggle="onPopperToggle"
         @input="onEmitInput"
+        @update="onEmitUpdate"
     ></u-time-picker-popper>
 </span>
 </template>
@@ -148,6 +149,9 @@ export default {
         onEmitInput(e) {
             // input 也由内部触发
             this.$emit('input', e, this);
+        },
+        onEmitUpdate(e) {
+            this.$emit('update', e);
         },
         clearValue() {
             this.$refs.popper && this.$refs.popper.clearValue();

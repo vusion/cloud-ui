@@ -38,6 +38,7 @@
         :ok-title="okTitle"
         :input-time.sync="startInputTime"
         @change="onStartTimeChange"
+        @input="onStartTimeInput"
         @update:time="onUpdateStartTime"
         @blur="onPopperBlur"
         @toggle="onPopperToggle"
@@ -60,6 +61,7 @@
         :ok-title="okTitle"
         :input-time.sync="endInputTime"
         @change="onEndTimeChange"
+        @input="onEndTimeInput"
         @update:time="onUpdateEndTime"
         @blur="onPopperBlur"
         @toggle="onPopperToggle"
@@ -141,6 +143,10 @@ export default {
             return this.startInputTime || this.minTime;
         },
     },
+    created() {
+        const value = this.startInputTime && this.endInputTime ? [this.startInputTime, this.endInputTime] : '';
+        this.$emit('update', value);
+    },
     methods: {
         callPopperMethod(methodName, ...args) {
             const refName = this.editTarget === 'start' ? 'startPopper' : 'endPopper';
@@ -183,6 +189,14 @@ export default {
         },
         onEndTimeChange(e) {
             this.$emit('change', { sender: this, endTime: e.value }, this);
+        },
+        onStartTimeInput(inputValue) {
+            const value = inputValue && this.endInputTime ? [inputValue, this.endInputTime] : '';
+            this.$emit('input', value, this);
+        },
+        onEndTimeInput(inputValue) {
+            const value = inputValue && this.startInputTime ? [this.startInputTime, inputValue] : '';
+            this.$emit('input', value, this);
         },
         onUpdateStartTime(value) {
             this.$emit('update:startTime', value);

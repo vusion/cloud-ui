@@ -229,14 +229,6 @@ export default {
         },
     },
     watch: {
-        date(newValue) {
-            this.dateTime = this.format(newValue, 'YYYY-MM-DD HH:mm:ss');
-            this.finalDateTime = this.dateTime;
-            this.$emit(
-                'update',
-                this.dateTime,
-            );
-        },
         startDate(newValue) {
             this.startDateTime = this.format(newValue, 'YYYY-MM-DD HH:mm:ss');
             this.finalStartDateTime = this.startDateTime;
@@ -261,19 +253,14 @@ export default {
         },
     },
     created() {
-        // vue中的watch的immediate的执行时间是比created生命周期函数执行时间还早 所以导致u-field无法捕获
-        // this.$emit(
-        //     'input',
-        //     this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
-        // );
+        const startDateTime = this.toValue(this.startDateTime ? new Date(this.startDateTime.replace(/-/g, '/')) : '');
+        const endDateTime = this.toValue(this.endDateTime ? new Date(this.endDateTime.replace(/-/g, '/')) : '');
         this.$emit(
-            'update:startDate',
-            this.toValue(this.startDateTime ? new Date(this.startDateTime.replace(/-/g, '/')) : ''),
+            'update',
+            this.startDateTime && this.endDateTime ? [startDateTime, endDateTime] : '',
         );
-        this.$emit(
-            'update:endDate',
-            this.toValue(this.endDateTime ? new Date(this.endDateTime.replace(/-/g, '/')) : ''),
-        );
+        this.$emit('update:startDate', startDateTime);
+        this.$emit('update:endDate', endDateTime);
     },
     mounted() {
         this.autofocus && this.$refs.input.focus();
@@ -540,6 +527,7 @@ export default {
                 startDate: this.finalStartDateTime ? new Date(this.finalStartDateTime.replace(/-/g, '/')).getTime() : undefined,
                 endDate: this.finalEndDateTime ? new Date(this.finalEndDateTime.replace(/-/g, '/')).getTime() : undefined,
             }); // 方便u-field组件捕获到其值
+            this.$emit('input', newStartDateTime && newEndDateTime ? [newStartDateTime, newEndDateTime] : '');
         },
         onPopperOpen() {
             if (!this.finalDateTime)
