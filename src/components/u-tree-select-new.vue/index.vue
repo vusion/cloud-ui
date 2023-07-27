@@ -19,7 +19,14 @@
             {{ placeholder }}
         </span>
         <div :class="$style.text" v-ellipsis-title>
-            <template v-if="selectedItem">
+            <template v-if="checkable">
+                <f-slot name="text" :vm="this">
+                    <span>
+                        {{ checkableValue }}
+                    </span>
+                </f-slot>
+            </template>
+            <template v-else-if="selectedItem">
                 <f-slot v-if="$scopedSlots.selected"
                     name="selected"
                     :vm="this"
