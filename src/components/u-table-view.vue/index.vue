@@ -1275,7 +1275,7 @@ export default {
                 const columns = this.visibleColumnVMs.length;
                 const sheetData = this.getSheetData(content, hasHeader, columns);
                 const sheetTitle = this.title || undefined;
-                const { exportExcel } = await import(/* webpackChunkName: 'xlsx' */ '../../utils/xlsx');
+                const { exportExcel } = require('../../utils/xlsx');
                 exportExcel(sheetData, 'Sheet1', filename, sheetTitle, columns, hasHeader);
                 // console.timeEnd('生成文件');
             } catch (err) {
