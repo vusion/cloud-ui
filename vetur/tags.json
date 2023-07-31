@@ -256,6 +256,10 @@
       "item"
     ]
   },
+  "u-absolute-layout": {
+    "attributes": [],
+    "description": "拖拽内部元素到任意位置"
+  },
   "u-actions": {
     "attributes": [
       "max-count",
