@@ -10,6 +10,7 @@
     - [工具提示](#工具提示)
     - [图形大小](#图形大小)
     - [禁用](#禁用)
+    - [自定义图标](#自定义图标)
 - [USteps API](#usteps-api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
@@ -110,6 +111,17 @@
 </u-steps>
 ```
 
+### 自定义图标
+
+```html
+<u-steps :value="2" :readonly="false">
+    <u-step title="Step1" icon="find">Content1</u-step>
+    <u-step title="Step2" icon="task-done">Content2</u-step>
+    <u-step title="Step3" icon="notice">Content3</u-step>
+</u-steps>
+```
+
+
 ## USteps API
 ### Props/Attrs
 
@@ -159,6 +171,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| icon | icon |  | `''` | 在该步骤展示的图标 |
 | title | string |  |  | 步骤名 |
 | disabled | boolean |  | `false` | 是否禁用此标签页 |
 

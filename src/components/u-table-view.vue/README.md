@@ -2233,13 +2233,14 @@ export default {
 | initial-load | boolean |  | `true` | 是否在初始时立即加载 |
 | pageable | boolean |  | `false` |  |
 | remote-paging | boolean |  | `false` | 是否使用后端分页 |
+| pagination | boolean |  |  | 是否使用分页功能加载更多 |
 | page-size.sync | number |  | `20` |  |
-| page-number.sync | number |  | `1` |  |
-| page-size-options | Array\<number\> |  | `[10, 20, 50]` | 分页大小的选项列表 |
+| show-sizer | boolean |  | `false` | 开启后显示分页大小切换器 |
+| page-size-options | Array\<number\> |  | `[10, 20, 50]` | 控制切换器有几个选项 |
+| page-number.sync | number |  | `1` | 默认展示在第几页 |
 | show-total | boolean |  | `false` |  |
-| show-sizer | boolean |  | `false` |  |
 | show-jumper | boolean |  | `false` |  |
-| sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 指数据初始化时的排序规则 |
+| sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 控制初始化排序字段和顺序 |
 | remote-sorting | boolean |  | `false` | 是否使用排序操作 |
 | default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 开启排序功能时，默认的排序规则 |
 | filtering.sync | object |  |  |  |
@@ -2273,8 +2274,9 @@ export default {
 | resizable | boolean |  | `false` | 是否可以调整列宽 |
 | resize-remaining | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'average'` | 调整列宽时如何处理剩余大小 |
 | tree-display | boolean |  | `false` | 以树形数据展示表格 |
-| children-field | string |  | `'children'` | 树形数据子节点字段名 |
-| has-children-field | string |  | `'hasChildren'` | 该字段指定行数据是否包含子节点数据 |
+| parent-field | string |  |  | 当数据源为平铺数据时自动生成树形数据的节点字段名，重要：值字段名需要一起配置 |
+| children-field | string |  | `'children'` | 树形数据子节点字段名，默认为children |
+| has-children-field | string |  | `'hasChildren'` | 该字段指定行数据是否包含子节点数据，默认为hasChildren |
 | tree-check-type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'up+down'` | 父子树节点是否关联选中 |
 
 ### Slots
@@ -2553,6 +2555,14 @@ Methods
 | order | string | `'tableView.params.order'` | 排序顺序，'asc' 或 'desc' |
 | excludeColumns | Array\<string\> | `[]` | 排除字段 |
 
+#### resetEdit(item)
+
+重制编辑列的编辑状态为非编辑态
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+| item | object |  | 行数据 |
+
 ## UTableViewColumn API
 ### Props/Attrs
 
@@ -2568,7 +2578,7 @@ Methods
 | filters | Array\<{ text: string, value: any }\> |  |  | 筛选项的参数 |
 | ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | hidden | boolean |  | `false` | 是否隐藏该列 |
-| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序 |
+| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序。选择编辑列需要先设置列字段。 |
 | auto-index | boolean |  | `false` | 换页后，继续上一页的列序号进行编号 |
 | start-index | number |  | `1` | 序号列的起始序号 |
 | dblclickHandler | Function |  |  | 用于可编辑表格，双击表格列时的处理函数 |

@@ -224,8 +224,8 @@ export default {
 | data-schema | schema |  |  | 选择器每一行的数据类型 |
 | text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
 | value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
-| children-field | string |  | `'children'` | 集合的元素类型中，用于标识子节点的属性 |
 | parent-field | string |  | `''` | 集合的元素类型中，用于标识父节点的属性 |
+| children-field | string |  | `'children'` | 集合的元素类型中，用于标识子节点的属性，默认为children |
 | value.sync, v-model | any |  |  | 选择后，所选中的值 |
 
 ### Slots

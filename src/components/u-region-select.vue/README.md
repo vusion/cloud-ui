@@ -7,6 +7,9 @@
     - [双向绑定](#双向绑定)
     - [Placeholder](#placeholder)
     - [仅显示什么区](#仅显示什么区)
+    - [过滤（可搜索）](#过滤可搜索)
+    - [转换为地区名格式](#转换为地区名格式)
+    - [转换为地区码格式](#转换为地区码格式)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -22,7 +25,7 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-region-select></u-region-select>
-    <u-region-select defaultValue="浙江 / 杭州 / 滨江区"></u-region-select>
+    <u-region-select defaultValue="浙江省 / 杭州市 / 滨江区"></u-region-select>
 </u-linear-layout>
 ```
 
@@ -59,6 +62,63 @@ export default {
 ``` html
 <u-region-select showFinalValue trigger="hover"></u-region-select>
 ```
+
+### 过滤（可搜索）
+
+设置filterable属性即可开启过滤功能,解锁手动输入,用于快速查找选项。
+
+``` html
+<u-region-select filterable trigger="hover"></u-region-select>
+```
+
+### 转换为地区名格式
+
+将值转换为地区名称。
+
+```vue
+<template>
+    <u-region-select v-model="address" converter="name" @change="onChange"></u-region-select>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            address: '浙江省/杭州市/滨江区',
+        };
+    },
+    methods: {
+        onChange({ value }) {
+            console.log(value)
+        }
+    }
+};
+</script>
+```
+
+### 转换为地区码格式
+
+将值转换为地区码。
+
+```vue
+<template>
+    <u-region-select v-model="address" converter="code" @change="onChange"></u-region-select>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            address: '330108',
+        };
+    },
+    methods: {
+        onChange(event) {
+            console.log(event)
+        }
+    }
+};
+</script>
+```
+
 ## API
 ### Props/Attrs
 
@@ -69,6 +129,7 @@ export default {
 | trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 触发方式 |
 | value.sync, v-model | any |  |  |  |
 | join | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `' / '` | 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值 |
+| converter | string | `[object Object]`<br/>`[object Object]` |  | 选择地区名称，返回：浙江省/杭州市/滨江区（不加空格）；选择地区码，返回：330108 |
 | field | string |  | `'text'` | 显示文本字段 |
 | filterable | boolean |  | `false` | 是否可以过滤（搜索），开启将会显示搜索框。 |
 | clearable | boolean |  | `false` | 开启并在输入框有内容时会显示清除按钮。 |

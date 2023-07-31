@@ -584,12 +584,16 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data | Array\<{ text, value }\> |  |  | 数据列表 |
+| data-source | Array\<{ text, value }\> |  |  | 数据列表 |
+| data-schema | schema |  |  | 集合类型每一元素的数据类型 |
+| field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
+| value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
+| children-field | string |  | `'children'` | 树形数据子节点字段名，默认为children |
+| parent-field | string |  |  | 当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置 |
+| value.sync, v-model | any |  |  |  |
 | placeholder | string |  | `'请选择'` | 搜索框为空时提示文本 |
 | trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 触发方式 |
-| value.sync, v-model | any |  |  |  |
 | join | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `' / '` | 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值 |
-| field | string |  | `'text'` | 显示文本字段 |
 | filterable | boolean |  | `false` | 是否可以过滤（搜索），开启将会显示搜索框。 |
 | clearable | boolean |  | `false` | 开启并在输入框有内容时会显示清除按钮。 |
 | showFinalValue | boolean |  | `false` | 定义是否显示完整的路径，ture时只显示最后一项 |

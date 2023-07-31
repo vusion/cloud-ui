@@ -490,12 +490,16 @@
   },
   "u-cascader": {
     "attributes": [
-      "data",
+      "data-source",
+      "data-schema",
+      "field",
+      "value-field",
+      "children-field",
+      "parent-field",
+      "value",
       "placeholder",
       "trigger",
-      "value",
       "join",
-      "field",
       "filterable",
       "clearable",
       "showFinalValue",
@@ -1638,6 +1642,7 @@
       "trigger",
       "value",
       "join",
+      "converter",
       "field",
       "filterable",
       "clearable",
@@ -1659,9 +1664,12 @@
       "data-schema",
       "text-field",
       "value-field",
+      "description",
       "description-field",
+      "icon-field",
       "cancelable",
       "multiple",
+      "show-render-footer",
       "tags-overflow",
       "converter",
       "placeholder",
@@ -1672,7 +1680,9 @@
       "initial-load",
       "pageable",
       "remote-paging",
+      "pagination",
       "page-size",
+      "sorting",
       "clearable",
       "filterable",
       "remote-filtering",
@@ -1732,6 +1742,7 @@
   },
   "u-selectable-step": {
     "attributes": [
+      "icon",
       "title",
       "desc",
       "disabled"
@@ -1830,6 +1841,7 @@
   },
   "u-step": {
     "attributes": [
+      "icon",
       "title",
       "disabled"
     ]
@@ -1851,11 +1863,12 @@
       "initial-load",
       "pageable",
       "remote-paging",
+      "pagination",
       "page-size",
-      "page-number",
-      "page-size-options",
-      "show-total",
       "show-sizer",
+      "page-size-options",
+      "page-number",
+      "show-total",
       "show-jumper",
       "sorting",
       "remote-sorting",
@@ -1891,6 +1904,7 @@
       "resizable",
       "resize-remaining",
       "tree-display",
+      "parent-field",
       "children-field",
       "has-children-field",
       "tree-check-type"
@@ -2135,8 +2149,8 @@
       "data-schema",
       "text-field",
       "value-field",
-      "children-field",
       "parent-field",
+      "children-field",
       "value"
     ],
     "description": "树选择器"
