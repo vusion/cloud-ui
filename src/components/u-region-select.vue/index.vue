@@ -44,7 +44,9 @@ export default {
     },
     async created() {
         if (!this.data.length) {
-            const currentData = await import(/* webpackChunkName: 'region' */ './region.json');
+            const currentData = require('./region');
+            // 这里加个异步，模拟之前的逻辑
+            await new Promise((resolve) => setTimeout(resolve, 0));
             this.currentData = currentData.default;
             // 保存一份给 converter 用
             this.regionDate = currentData.default;
