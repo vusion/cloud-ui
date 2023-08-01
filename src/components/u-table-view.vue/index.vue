@@ -529,12 +529,29 @@ export default {
         allChecked() {
             if (!this.currentData)
                 return;
-            // let checkedLength = 0;
-            // this.currentData.forEach((item) => {
-            //     if (item.checked)
-            //         checkedLength++;
-            // });
-            const checkedLength = this.currentValues.length;
+            let checkedLength = 0;
+
+            if (this.values === undefined) {
+                this.currentData.forEach((item) => {
+                    if (item.checked)
+                        checkedLength++;
+                });
+            } else {
+                if (this.valueField) {
+                    const hashSet = new Set();
+                    this.currentData.forEach((item) => {
+                        const id = this.$at(item, this.valueField);
+                        hashSet.add(id);
+                    });
+
+                    checkedLength = this.currentValues.filter((v) => hashSet.has(v)).length;
+                } else {
+                    checkedLength = this.currentValues.length;
+                }
+            }
+
+            // console.log('%c [ checkedLength ]-533', 'font-size:13px; background:pink; color:#bf2c9f;', checkedLength,this.values,this.currentValues);
+
             if (checkedLength === 0)
                 return false;
             else if (checkedLength === this.currentData.length)
