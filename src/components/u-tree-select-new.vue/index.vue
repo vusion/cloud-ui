@@ -4,7 +4,7 @@
         :readonly="readonly"
         :disabled="currentDisabled"
         :opened="popperOpened"
-        :clearable="clearable && !!currentText"
+        :clearable="clearable && (!!checkableValue || !!selectedItem)"
         :tabindex="readonly || currentDisabled ? '' : 0"
         @click="focus"
         @keydown.up.prevent="$refs.popper.currentOpened ? shift(-1) : open()"
@@ -58,7 +58,7 @@
               @input="onInput">
           </u-input>
         </div>
-        <span v-if="clearable && !!currentText"
+        <span v-if="clearable && (!!checkableValue || !!selectedItem)"
             :class="$style.clearable"
             @click="clear">
         </span>
@@ -91,8 +91,9 @@
                 :checkable="checkable"
                 :cancelable="cancelable"
                 :accordion="accordion"
+                :check-controlled="checkControlled"
                 :tree-select-tip="treeSelectTip"
-                :expand-trigger="expandTrigger"
+                :expand-trigger="!checkable ? 'click-expander': expandTrigger"
                 :initial-load="initialLoad"
                 :readonly="readonly"
                 :disabled="disabled"
@@ -103,7 +104,7 @@
                 @change="$emit('change', $event, this)"
                 @before-select="$emit('before-select', $event, this)"
                 @select="$emit('select', $event, this)"
-                @input="$emit('input', $event, this)"
+                @input="onUpdateValue"
                 @update:value="onUpdateValue"
                 @toggle="$emit('toggle', $event, this)"
                 @check="$emit('check', $event, this)"
@@ -121,13 +122,13 @@
 
 <script>
 import MField from '../m-field.vue';
-import UTreeViewNodeNew from '../u-tree-view-new.vue/node.vue';
+// import UTreeViewNodeNew from '../u-tree-view-new.vue/node.vue';
 import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-tree-select-new',
     childName: 'u-tree-view-node-new',
-    components: { UTreeViewNodeNew, SEmpty },
+    components: { SEmpty },
     mixins: [MField],
     props: {
         value: null,
@@ -209,6 +210,22 @@ export default {
                 return this.$at(this.dataSourceObj, this.actualValue);
             } else {
                 return this.$at(this.dataSourceNodeList, this.actualValue);
+            }
+        },
+        checkableValue() {
+            if (!this.checkable || !this.value) {
+                return '';
+            } else {
+                const textNode = [];
+                // 返现选项的字段从value转化为text
+                this.actualValue.forEach((item) => {
+                    if (this.$at(this.dataSourceObj, item)) {
+                        textNode.push(this.$at(this.dataSourceObj, item)?.text);
+                    } else {
+                        textNode.push(this.$at(this.dataSourceNodeList, item)?.text);
+                    }
+                });
+                return textNode.join('、');
             }
         },
     },
@@ -310,6 +327,7 @@ export default {
                         }
                         return item;
                     }
+                    return null;
                 }).filter((item) => !!item);
             }
         },
@@ -355,6 +373,12 @@ export default {
         onUpdateValue($event) {
             this.actualValue = $event;
             this.$emit('update:value', $event, this);
+            this.$emit('input', $event, this);
+            this.$nextTick(() => {
+                if (!!$event && !this.checkable) {
+                    this.close();
+                }
+            });
             if (this.filterable) {
                 this.filterText = '';
                 this.filtering = false;
@@ -486,8 +510,12 @@ export default {
             // this.fastLoad(false, true);
             this.open();
         },
-        onBlur() { },
-        onRootBlur() { },
+        onBlur() {
+            // Todo: onBlur
+        },
+        onRootBlur() {
+            // Todo: onRootBlur
+        },
         focus() {
             if (this.filterable)
                 this.$refs.input.focus();
@@ -513,6 +541,18 @@ export default {
         },
         onLoad() {
             this.$emit('load', undefined, this);
+        },
+        clear() {
+            const oldValue = this.actualValue;
+            let newValue;
+            if (this.checkable) {
+                newValue = [];
+            }
+            if (this.$emitPrevent('before-clear', { oldValue, value: newValue }, this)) {
+                return;
+            }
+            this.onUpdateValue(newValue);
+            this.$emit('clear', { oldValue, value: newValue }, this);
         },
     },
 };
@@ -567,6 +607,7 @@ export default {
 
 .clearable::before {
   display: block;
+  opacity: 0;
   position: absolute;
   right: 8px;
   top: 0;
@@ -578,6 +619,10 @@ export default {
   icon-font: url("../i-icon.vue/assets/close-solid.svg");
   cursor: var(--cursor-pointer);
   color: #a7afbb;
+}
+
+.root[clearable]:hover .clearable::before {
+  opacity: 1;
 }
 
 .root[filterable] {
