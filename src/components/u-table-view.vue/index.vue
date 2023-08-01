@@ -529,11 +529,12 @@ export default {
         allChecked() {
             if (!this.currentData)
                 return;
-            let checkedLength = 0;
-            this.currentData.forEach((item) => {
-                if (item.checked)
-                    checkedLength++;
-            });
+            // let checkedLength = 0;
+            // this.currentData.forEach((item) => {
+            //     if (item.checked)
+            //         checkedLength++;
+            // });
+            const checkedLength = this.currentValues.length;
             if (checkedLength === 0)
                 return false;
             else if (checkedLength === this.currentData.length)
