@@ -488,6 +488,7 @@ export default {
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
             configColumnVM: undefined,
             dynamicColumnVM: undefined,
+            slots: this.$slots,
         };
     },
     computed: {
@@ -719,6 +720,12 @@ export default {
             this.initialLoad && this.page(this.pageNumber);
         } else {
             this.initialLoad && this.load();
+        }
+    },
+    updated() {
+        if (this.$env.VUE_APP_DESIGNER && this.slots !== this.$slots && !this.data && !this.dataSource) {
+            this.slots = this.$slots;
+            this.$forceUpdate();
         }
     },
     mounted() {
