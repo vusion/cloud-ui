@@ -145,7 +145,7 @@
           type: UTreeView
           description: 发送事件实例
     - name: check
-      title: 选中取消后
+      title: 选中或取消后
       description: 选中/取消节点时触发
       params:
         - name: $event
