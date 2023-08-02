@@ -135,6 +135,33 @@
         - name: senderVM
           type: UTreeView
           description: 发送事件实例
+    - name: check
+      title: 选中或取消后
+      description: 选中/取消节点时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CheckedEvent"
+        - name: $event.checked
+          type: boolean
+          description: 选中/取消状态
+        - name: $event.oldChecked
+          type: boolean
+          description: 旧的选中/取消状态
+        - name: $event.values
+          type: Array
+          description: 所有选中节点的值
+        - name: $event.node
+          type: object
+          description: 节点相关对象
+        - name: $event.nodeVM
+          type: UTreeViewNode
+          description: 节点组件
+        - name: senderVM
+          type: UTreeView
+          description: 发送事件实例
     - name: before-load
       title: 加载前
       description: 加载前触发
@@ -161,6 +188,46 @@
         - name: senderVM
           type: UTableView
           description: 发送事件实例
+    - name: before-clear
+      title: 清空前
+      description: 清空前触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
+        - name: $event.value
+          type: any
+          description: 改变后的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止清空流程
+        - name: senderVM
+          type: UTreeView
+          description: 发送事件实例
+    - name: clear
+      title: 清空后
+      description: 清空时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
+        - name: $event.value
+          type: any
+          description: 改变后的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: senderVM
+          type: UTreeView
+          description: 发送事件实例
+
   methods:
     - name: reload
       description: 重新加载

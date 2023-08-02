@@ -545,14 +545,18 @@ export default {
         clear() {
             const oldValue = this.actualValue;
             let newValue;
+            const itemInfo = {
+                item: undefined,
+            };
             if (this.checkable) {
                 newValue = [];
+                itemInfo.items = [];
             }
-            if (this.$emitPrevent('before-clear', { oldValue, value: newValue }, this)) {
+            if (this.$emitPrevent('before-clear', { ...itemInfo, oldValue, value: newValue, selected: false }, this)) {
                 return;
             }
             this.onUpdateValue(newValue);
-            this.$emit('clear', { oldValue, value: newValue }, this);
+            this.$emit('clear', { ...itemInfo, oldValue, value: newValue }, this);
         },
     },
 };
