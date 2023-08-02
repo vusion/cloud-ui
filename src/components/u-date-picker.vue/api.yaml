@@ -5,6 +5,24 @@
   labels:
     - Selector
   attrs:
+    - name: picker
+      title: 日期格式
+      type: string
+      options:
+        - title: 日期
+          value: date
+        - title: 月份
+          value: month
+        - title: 季度
+          value: quarter
+        - title: 年份
+          value: year
+      default: date
+      description: 日期格式设置
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 日期选择弹出层里的日期展示格式，支持日期、月份、季度、年份4种模式。默认日期格式
+      tooltipLink: ""
     - name: range
       title: 区间选择
       type: boolean
@@ -137,24 +155,6 @@
       group: 主要属性
       brifeDoc: ""
       docDescription: 用于转换选中的日期格式，支持JSON、Unix 时间戳、Date对象、YYYY-MM-DD共4种模式。默认YYYY-MM-DD
-      tooltipLink: ""
-    - name: picker
-      title: 日期格式
-      type: string
-      options:
-        - title: 日期
-          value: date
-        - title: 月份
-          value: month
-        - title: 季度
-          value: quarter
-        - title: 年份
-          value: year
-      default: date
-      description: 日期格式设置
-      group: 主要属性
-      brifeDoc: ""
-      docDescription: 日期选择弹出层里的日期展示格式，支持日期、月份、季度、年份4种模式。默认日期格式
       tooltipLink: ""
     - name: preIcon
       title: 前缀图标

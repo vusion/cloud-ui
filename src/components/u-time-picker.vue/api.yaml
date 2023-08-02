@@ -5,6 +5,12 @@
   labels:
     - Selector
   attrs:
+    - name: range
+      title: 区间选择
+      type: boolean
+      default: false
+      description: 是否支持进行时间区间选择，关闭则为时间点选择
+      group: 数据属性
     - name: value
       title: 值
       type: string
@@ -32,12 +38,6 @@
       brifeDoc: ""
       docDescription: 最小时间单位，支持秒或分
       tooltipLink: ""
-    - name: range
-      title: 区间选择
-      type: boolean
-      default: false
-      description: 是否支持进行时间区间选择，关闭则为时间点选择
-      group: 数据属性
     - name: startTime
       title: 起始值
       type: string
