@@ -550,8 +550,6 @@ export default {
                 }
             }
 
-            // console.log('%c [ checkedLength ]-533', 'font-size:13px; background:pink; color:#bf2c9f;', checkedLength,this.values,this.currentValues);
-
             if (checkedLength === 0)
                 return false;
             else if (checkedLength === this.currentData.length)
