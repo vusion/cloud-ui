@@ -160,6 +160,20 @@ exports[`u-tree-select-new.vue Demo-异步加载 1`] = `
 </div>
 `;
 
+exports[`u-tree-select-new.vue Demo-异步加载 2`] = `
+<div class="root" tabindex="0">
+  <span class="baseline">b</span>
+  <span class="placeholder">
+    请选择
+  </span>
+  <div class="text">
+  </div>
+  <transition-stub class="popper" name="fade">
+    <div class="root" style="display: none;"></div>
+  </transition-stub>
+</div>
+`;
+
 exports[`u-tree-select-new.vue Demo-支持多选 1`] = `
 <div class="root" tabindex="0">
   <span class="baseline">b</span>
@@ -170,6 +184,37 @@ exports[`u-tree-select-new.vue Demo-支持多选 1`] = `
     <span>
 
     </span>
+  </div>
+  <transition-stub class="popper" name="fade">
+    <div class="root" style="display: none;"></div>
+  </transition-stub>
+</div>
+`;
+
+exports[`u-tree-select-new.vue Demo-支持清除 1`] = `
+<div class="root" tabindex="0">
+  <span class="baseline">b</span>
+  <span class="placeholder">
+    请选择
+  </span>
+  <div class="text">
+    <span>
+
+    </span>
+  </div>
+  <transition-stub class="popper" name="fade">
+    <div class="root" style="display: none;"></div>
+  </transition-stub>
+</div>
+`;
+
+exports[`u-tree-select-new.vue Demo-支持清除 2`] = `
+<div class="root" tabindex="0">
+  <span class="baseline">b</span>
+  <span class="placeholder">
+    请选择
+  </span>
+  <div class="text">
   </div>
   <transition-stub class="popper" name="fade">
     <div class="root" style="display: none;"></div>
