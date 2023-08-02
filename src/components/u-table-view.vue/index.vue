@@ -530,10 +530,26 @@ export default {
             if (!this.currentData)
                 return;
             let checkedLength = 0;
-            this.currentData.forEach((item) => {
-                if (item.checked)
-                    checkedLength++;
-            });
+
+            if (this.values === undefined) {
+                this.currentData.forEach((item) => {
+                    if (item.checked)
+                        checkedLength++;
+                });
+            } else {
+                if (this.valueField) {
+                    const hashSet = new Set();
+                    this.currentData.forEach((item) => {
+                        const id = this.$at(item, this.valueField);
+                        hashSet.add(id);
+                    });
+
+                    checkedLength = this.currentValues.filter((v) => hashSet.has(v)).length;
+                } else {
+                    checkedLength = this.currentValues.length;
+                }
+            }
+
             if (checkedLength === 0)
                 return false;
             else if (checkedLength === this.currentData.length)
