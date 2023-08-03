@@ -416,8 +416,11 @@ export default {
                     parentVM.checkRecursively(null, 'up');
             }
         },
-        check(checked) {
+        check(checked, fromInside = false) {
             const oldChecked = this.currentChecked;
+            if (checked === oldChecked) {
+                return;
+            }
 
             if (this.rootVM.checkControlled) {
                 this.checkControlled(checked);
@@ -435,8 +438,9 @@ export default {
                 },
                 this,
             );
-
-            this.rootVM.onCheck(this, checked, oldChecked);
+            if (!fromInside) {
+                this.rootVM.onCheck(this, checked, oldChecked);
+            }
         },
         renderSelectedVm() {
             if (!this.$parent || !this.$parent.$options.name === 'u-tree-view-new')
