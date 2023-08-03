@@ -236,7 +236,7 @@ export default {
                 this.currentValues = values;
                 this.walk((nodeVM) => {
                     if (values.includes(nodeVM.value))
-                        nodeVM.check(true);
+                        nodeVM.check(true, true);
                 });
             } else {
                 const values = [];
