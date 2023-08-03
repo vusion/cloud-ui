@@ -19,7 +19,7 @@
           value: year
       default: date
       description: 日期格式设置
-      group: 主要属性
+      group: 数据属性
       brifeDoc: ""
       docDescription: 日期选择弹出层里的日期展示格式，支持日期、月份、季度、年份4种模式。默认日期格式
       tooltipLink: ""

@@ -5,6 +5,20 @@
   labels:
     - Selector
   attrs:
+    - name: minUnit
+      title: 最小单位
+      type: string
+      options:
+        - value: second
+          title: 秒
+        - value: minute
+          title: 分
+      default: second
+      description: 最小时间单位
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 最小时间单位，支持秒或分
+      tooltipLink: ""
     - name: range
       title: 区间选择
       type: boolean
@@ -24,20 +38,6 @@
       tooltipLink: ""
       dependency:
         - '!range': true
-    - name: minUnit
-      title: 最小单位
-      type: string
-      options:
-        - value: second
-          title: 秒
-        - value: minute
-          title: 分
-      default: second
-      description: 最小时间单位
-      group: 数据属性
-      brifeDoc: ""
-      docDescription: 最小时间单位，支持秒或分
-      tooltipLink: ""
     - name: startTime
       title: 起始值
       type: string
