@@ -3486,6 +3486,9 @@
                         "type": "color",
                         "group": "多选状态",
                         "desc": "选择框下拉项的背景颜色（多选hover状态下）,如 #223325"
+                    },
+                    "--select-input-border-color-error": {
+                        "type": "input"
                     }
                 },
                 "preview": {

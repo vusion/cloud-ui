@@ -1135,6 +1135,7 @@
     "--select-icon-width": "14px",
     "--select-icon-height": "14px",
     "--select-icon-border-radius": "14px",
+    "--select-input-border-color-error": "var(--input-border-color-error)",
     "--rate-space": "6px",
     "--rate-size": "20px",
     "--rate-color": "#e5e5e5",
