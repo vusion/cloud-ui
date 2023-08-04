@@ -176,6 +176,10 @@ export default {
                 return 'YYYY-QQ';
             }
 
+            if (this.picker === 'week') {
+                return 'YYYY-WW';
+            }
+
             return 'YYYY-MM-DD';
         },
         toValue(date) {
@@ -316,6 +320,8 @@ export default {
                     return /^[1-9]\d{3}-(0[1-9]|1[0-2])$/.test(value);
                 case 'quarter':
                     return /^[1-9]\d{3}-(Q[1-4])$/.test(value);
+                case 'week':
+                    return /^[1-9]\d{3}-(W[0-5][0-9])$/.test(value);
                 default:
                     // date format
                     return /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/.test(value);

@@ -1,4 +1,5 @@
 import cloneDeep from 'lodash/cloneDeep';
+import { getISOWeek, getISOWeekYear, parseISO } from 'date-fns';
 
 export const format = function format(value, type) {
     if (!value)
@@ -22,6 +23,7 @@ export const format = function format(value, type) {
             }
             return fix(date.getDate());
         },
+        WW(date) { return `W${fix(getISOWeek(date))}`; },
         QQ(date) { return `Q${Math.ceil((date.getMonth() + 1) / 3)}`; },
         DD(date) { return fix(date.getDate()); },
         HH(date) { return fix(date.getHours()); },
@@ -35,7 +37,16 @@ export const format = function format(value, type) {
     value = new Date(value);
     if (value.toString() === 'Invalid Date')
         return;
-    return type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
+    const result = type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
+    // 根据 iOS 周历特殊处理，例如 2018-12-31 应该被解析为 2019-W01
+    if (type.includes('YYYY-WW')) {
+        const valueYear = value.getFullYear();
+        const isoYear = getISOWeekYear(value);
+        if (valueYear !== isoYear) {
+            return result.replace(valueYear, isoYear);
+        }
+    }
+    return result;
 };
 
 export const transformDate = function transformDate(date) {
@@ -48,6 +59,11 @@ export const transformDate = function transformDate(date) {
          */
         if (date.includes('Q')) {
             return new Date(date.replace(/Q1/, '1').replace(/Q2/, '4').replace(/Q3/, '7').replace(/Q4/, '10'));
+        }
+        if (date.includes('W')) {
+            // '2020-W02 8:00:00' to '2020-W02 08:00:00'
+            const newDate = date.replace(/(\d{4}-W\d{2}\s)(\d{1}:\d{2}:\d{2})/, '$10$2');
+            return parseISO(newDate);
         }
         date = date.replace(/-/g, '/');
         return new Date(date);

@@ -761,6 +761,318 @@ exports[`u-date-picker.vue Demo-只读和禁用 1`] = `
 </div>
 `;
 
+exports[`u-date-picker.vue Demo-周选择 1`] = `
+<div class="root">
+  <div class="input" height="full" prefix="calendar" width="full">
+    <span>b</span>
+    <span></span>
+    <span name="calendar">
+      <span class="lcp-iconv preIcon" slot="prefix">
+        <span class="iconwrap">
+          <svg aria-hidden="true" class="iconsvg">
+            <use xlink:href="#pc-calendar" />
+          </svg>
+        </span>
+        <div class="icontext" vusion-slot-name="default">
+        </div>
+      </span>
+    </span>
+    <input height="full" type="text" width="full">
+  </div>
+  <transition-stub class="popper" name="fade">
+    <div class="root" style="display: none;">
+      <div>
+        <div border="true" class="root" value="2018-08-01">
+          <div class="headCenter">
+            <span class="lcp-iconv hicon">
+              <span class="iconwrap">
+                <svg aria-hidden="true" class="iconsvg">
+                  <use xlink:href="#pc-d-left-arrow" />
+                </svg>
+              </span>
+              <div class="icontext" vusion-slot-name="default">
+              </div>
+            </span>
+            <span class="lcp-iconv hicon">
+              <span class="iconwrap">
+                <svg aria-hidden="true" class="iconsvg">
+                  <use xlink:href="#pc-left-arrow" />
+                </svg>
+              </span>
+              <div class="icontext" vusion-slot-name="default">
+              </div>
+            </span>
+            <div class="yearCenter">
+              <span>
+                <span class="showtext">2018 年 </span>
+                <transition-stub name="fade">
+                  <div class="root" style="display: none;">
+                    <div class="root">
+                      <div class="wrap">
+                        <div>
+                          <div class="yearList">
+                            <div border="true" class="root yearListInner" tabindex="0">
+                              <div style="display: none;">
+                                <span vusion-slot-name="title">列表</span>
+                                <div>
+                                </div>
+                              </div>
+                              <div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  2017</div>
+                                <div class="root yearitem" selected="selected" vusion-slot-name="item">
+                                  2018</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  2019</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  2020</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  2021</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  2022</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  2023</div>
+                              </div>
+                              <div style="display: none;">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="root" direction="horizontal">
+                        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+                      </div>
+                      <div class="root" direction="vertical">
+                        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+                      </div>
+                    </div>
+                  </div>
+                </transition-stub>
+              </span>
+              <span>
+                <span class="showtext">7 月</span>
+                <transition-stub name="fade">
+                  <div class="root" style="display: none;">
+                    <div class="root">
+                      <div class="wrap">
+                        <div>
+                          <div class="yearList">
+                            <div border="true" class="root yearListInner" tabindex="0">
+                              <div style="display: none;">
+                                <span vusion-slot-name="title">列表</span>
+                                <div>
+                                </div>
+                              </div>
+                              <div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  1 月</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  2 月</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  3 月</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  4 月</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  5 月</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  6 月</div>
+                                <div class="root yearitem" role="true" vusion-slot-name="item">
+                                  7 月</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  8 月</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  9 月</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  10 月</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  11 月</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  12 月</div>
+                              </div>
+                              <div style="display: none;">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="root" direction="horizontal">
+                        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+                      </div>
+                      <div class="root" direction="vertical">
+                        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+                      </div>
+                    </div>
+                  </div>
+                </transition-stub>
+              </span>
+            </div>
+            <span class="lcp-iconv hicon">
+              <span class="iconwrap">
+                <svg aria-hidden="true" class="iconsvg">
+                  <use xlink:href="#pc-right-arrow" />
+                </svg>
+              </span>
+              <div class="icontext" vusion-slot-name="default">
+              </div>
+            </span>
+            <span class="lcp-iconv hicon">
+              <span class="iconwrap">
+                <svg aria-hidden="true" class="iconsvg">
+                  <use xlink:href="#pc-d-right-arrow" />
+                </svg>
+              </span>
+              <div class="icontext" vusion-slot-name="default">
+              </div>
+            </span>
+          </div>
+          <div>
+          </div>
+          <div>
+            <div class="week">
+              <span class="dayitem" role="week">日</span>
+              <span class="dayitem">一</span>
+              <span class="dayitem">二</span>
+              <span class="dayitem">三</span>
+              <span class="dayitem">四</span>
+              <span class="dayitem">五</span>
+              <span class="dayitem" role="week">六</span>
+            </div>
+            <div class="day">
+              <span class="daywrap" role="muted" sel sindex="0">
+                <span class="item">24</span>
+              </span>
+              <span class="daywrap" role="muted" sel sindex="1">
+                <span class="item">25</span>
+              </span>
+              <span class="daywrap" role="muted" sel sindex="2">
+                <span class="item">26</span>
+              </span>
+              <span class="daywrap" role="muted" sel sindex="3">
+                <span class="item">27</span>
+              </span>
+              <span class="daywrap" role="muted" sel sindex="4">
+                <span class="item">28</span>
+              </span>
+              <span class="daywrap" role="muted" sel sindex="5">
+                <span class="item">29</span>
+              </span>
+              <span class="daywrap" role="muted" sel sindex="6">
+                <span class="item">30</span>
+              </span>
+              <span class="daywrap" role sel sindex="0">
+                <span class="item">01</span>
+              </span>
+              <span class="daywrap" role sel sindex="1">
+                <span class="item">02</span>
+              </span>
+              <span class="daywrap" role sel sindex="2">
+                <span class="item">03</span>
+              </span>
+              <span class="daywrap" role sel sindex="3">
+                <span class="item">04</span>
+              </span>
+              <span class="daywrap" role sel sindex="4">
+                <span class="item">05</span>
+              </span>
+              <span class="daywrap" role sel sindex="5">
+                <span class="item">06</span>
+              </span>
+              <span class="daywrap" role sel sindex="6">
+                <span class="item">07</span>
+              </span>
+              <span class="daywrap" role sel sindex="0">
+                <span class="item">08</span>
+              </span>
+              <span class="daywrap" role sel sindex="1">
+                <span class="item">09</span>
+              </span>
+              <span class="daywrap" role sel sindex="2">
+                <span class="item">10</span>
+              </span>
+              <span class="daywrap" role sel sindex="3">
+                <span class="item">11</span>
+              </span>
+              <span class="daywrap" role sel sindex="4">
+                <span class="item">12</span>
+              </span>
+              <span class="daywrap" role sel sindex="5">
+                <span class="item">13</span>
+              </span>
+              <span class="daywrap" role sel sindex="6">
+                <span class="item">14</span>
+              </span>
+              <span class="daywrap" role sel sindex="0">
+                <span class="item">15</span>
+              </span>
+              <span class="daywrap" role sel sindex="1">
+                <span class="item">16</span>
+              </span>
+              <span class="daywrap" role sel sindex="2">
+                <span class="item">17</span>
+              </span>
+              <span class="daywrap" role sel sindex="3">
+                <span class="item">18</span>
+              </span>
+              <span class="daywrap" role sel sindex="4">
+                <span class="item">19</span>
+              </span>
+              <span class="daywrap" role sel sindex="5">
+                <span class="item">20</span>
+              </span>
+              <span class="daywrap" role sel sindex="6">
+                <span class="item">21</span>
+              </span>
+              <span class="daywrap" role sel sindex="0">
+                <span class="item">22</span>
+              </span>
+              <span class="daywrap" role sel sindex="1">
+                <span class="item">23</span>
+              </span>
+              <span class="daywrap" role sel sindex="2">
+                <span class="item">24</span>
+              </span>
+              <span class="daywrap" role sel sindex="3">
+                <span class="item">25</span>
+              </span>
+              <span class="daywrap" role sel sindex="4">
+                <span class="item">26</span>
+              </span>
+              <span class="daywrap" role sel sindex="5">
+                <span class="item">27</span>
+              </span>
+              <span class="daywrap" role sel sindex="6">
+                <span class="item">28</span>
+              </span>
+              <span class="daywrap" role sel sindex="0">
+                <span class="item">29</span>
+              </span>
+              <span class="daywrap" role sel="sel" sindex="1">
+                <span class="item">30</span>
+              </span>
+              <span class="daywrap" role sel="sel" sindex="2">
+                <span class="item">31</span>
+              </span>
+              <span class="daywrap" role="muted" sel="sel" sindex="3">
+                <span class="item">01</span>
+              </span>
+              <span class="daywrap" role="muted" sel="sel" sindex="4">
+                <span class="item">02</span>
+              </span>
+              <span class="daywrap" role="muted" sel="sel" sindex="5">
+                <span class="item">03</span>
+              </span>
+              <span class="daywrap" role="muted" sel="sel" sindex="6">
+                <span class="item">04</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </transition-stub>
+</div>
+`;
+
 exports[`u-date-picker.vue Demo-基本用法 1`] = `
 <div>
   <div class="root">
