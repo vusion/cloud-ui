@@ -13,7 +13,7 @@
           <div :class="$style.holder"></div>
         </div>
         <date-table
-          selection-mode="range"
+          :selection-mode="selectionMode"
           :date="leftDate"
           :default-value="defaultValue"
           :min-date="minDate"
@@ -36,7 +36,7 @@
           </div>
         </div>
         <date-table
-          selection-mode="range"
+          :selection-mode="selectionMode"
           :date="rightDate"
           :default-value="defaultValue"
           :min-date="minDate"
@@ -86,6 +86,7 @@ export default {
         },
 
         disabledDate: '',
+        picker: { type: String, default: 'date' },
     },
 
     data() {
@@ -121,6 +122,9 @@ export default {
         };
     },
     computed: {
+        selectionMode() {
+            return this.picker === 'date' ? 'range' : 'week-range';
+        },
         leftLabel() {
             return this.leftDate.getFullYear() + ' ' + this.$t('year') + ' '
                 + this.monthTextList[this.leftDate.getMonth()] + ' ' + this.$t('month');

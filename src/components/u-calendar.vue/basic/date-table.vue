@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import { endOfWeek, startOfWeek } from 'date-fns';
 import {
     getFirstDayOfMonth,
     getDayCountOfMonth,
@@ -418,6 +419,21 @@ export default {
                     }
                     this.rangeState.selecting = false;
                 }
+            } else if (this.selectionMode === 'week-range') {
+                if (!this.rangeState.selecting) {
+                    const startDate = startOfWeek(newDate, { weekStartsOn: 1 });
+                    this.$emit('pick', { minDate: startDate, maxDate: null });
+                    this.rangeState.selecting = true;
+                } else {
+                    if (newDate >= this.minDate) {
+                        const endDate = endOfWeek(newDate, { weekStartsOn: 1 });
+                        this.$emit('pick', { minDate: this.minDate, maxDate: endDate });
+                    } else {
+                        const startDate = startOfWeek(newDate, { weekStartsOn: 1 });
+                        this.$emit('pick', { minDate: startDate, maxDate: this.minDate });
+                    }
+                    this.rangeState.selecting = false;
+                }
             } else if (this.selectionMode === 'day') {
                 this.$emit('pick', newDate);
             } else if (this.selectionMode === 'week') {
@@ -445,13 +461,12 @@ export default {
   user-select: none;
 }
 
-/* 启用周模式后，需要适配这里的样式 */
 /* .dateTable.isWeekMode .row:hover div {
-  background-color: var(--datepicker-inrange-background-color);
+  background-color: var(--calendar-item-background-inrange);
 }
 
 .dateTable.isWeekMode .row:hover td.available:hover {
-  color: var(--datepicker-font-color);
+  color: var(--calendar-item-color-hover);
 }
 
 .dateTable.isWeekMode .row:hover td:first-child div {
@@ -467,7 +482,7 @@ export default {
 }
 
 .dateTable.isWeekMode .row.current div {
-  background-color: var(--datepicker-inrange-background-color);
+  background-color: var(--calendar-item-background-inrange);
 } */
 
 .dateTable .week {

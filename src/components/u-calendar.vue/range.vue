@@ -1,7 +1,8 @@
 <template>
     <div :class="$style.root" :border="border">
         <date-range
-            v-if="picker === 'date'"
+            v-if="picker === 'date' || picker === 'week'"
+            :picker="picker"
             :value="value"
             :disabled-date="disabledDate"
             @pick="emitInput"
