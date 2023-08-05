@@ -114,7 +114,7 @@ export default {
     },
     computed: {
         currentTable() {
-            return pickerMap[this.picker]?.component || MonthTable;
+            return pickerMap[this.picker] && pickerMap[this.picker].component || MonthTable;
         },
 
         btnDisabled() {
@@ -197,7 +197,7 @@ export default {
         },
 
         calcDefaultValue(defaultValue) {
-            const next = pickerMap[this.picker]?.next || nextMonth;
+            const next = pickerMap[this.picker] && pickerMap[this.picker].next || nextMonth;
             if (Array.isArray(defaultValue)) {
                 return [new Date(defaultValue[0]), new Date(defaultValue[1])];
             } else if (defaultValue) {

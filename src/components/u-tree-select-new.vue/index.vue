@@ -228,9 +228,9 @@ export default {
                 // 返现选项的字段从value转化为text
                 this.actualValue.map((item) => {
                     if (this.$at(this.dataSourceObj, item)) {
-                        textNode.push(this.$at(this.dataSourceObj, item)?.text);
+                        textNode.push(this.$at(this.dataSourceObj, item) && this.$at(this.dataSourceObj, item).text);
                     } else {
-                        textNode.push(this.$at(this.dataSourceNodeList, item)?.text);
+                        textNode.push(this.$at(this.dataSourceNodeList, item) && this.$at(this.dataSourceNodeList, item).text);
                     }
                 });
                 return textNode.join('、');
