@@ -1709,7 +1709,7 @@ export default {
                     item.treeExpanded = item.treeExpanded || false;
                 }
                 if (parent) {
-                    this.$set(item, 'display', parent.expanded ? '' : 'none');
+                    this.$set(item, 'display', parent.treeExpanded ? '' : 'none');
                 }
                 if (!item.hasOwnProperty('loading')) {
                     this.$set(item, 'loading', false);
