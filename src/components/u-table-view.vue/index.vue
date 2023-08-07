@@ -135,7 +135,7 @@
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click.stop="toggleExpanded(item)"></span>
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: number2Pixel(20 * item.tableTreeItemLevel) }"></span>
-                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
+                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.treeExpanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- Normal text -->
@@ -184,7 +184,7 @@
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" :disabled="item.disabled" @click.stop="toggleExpanded(item)"></span>
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: number2Pixel(20 * item.tableTreeItemLevel) }"></span>
-                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
+                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.treeExpanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- type === 'dragHandler' -->
@@ -1658,6 +1658,7 @@ export default {
                 return;
             this.$set(item, 'expanded', expanded);
             this.$emit('toggle-expanded', { item, expanded }, this);
+            this.$forceUpdate();
             if (expanded && this.accordion) {
                 this.currentData.forEach((otherItem) => {
                     if (otherItem !== item && otherItem.expanded)
@@ -1676,6 +1677,7 @@ export default {
                 if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
                     this.$setAt(item, this.hasChildrenField, true);
                     item.expanded = item.expanded || false;
+                    item.treeExpanded = item.treeExpanded || false;
                 }
                 if (parent) {
                     this.$set(item, 'display', parent.expanded ? '' : 'none');
@@ -1694,10 +1696,10 @@ export default {
             if (item.loading)
                 return;
             if (expanded === undefined)
-                expanded = !item.expanded;
+                expanded = !item.treeExpanded;
             if (this.$emitPrevent('before-tree-toggle-expanded', { item, oldExpanded: !expanded, expanded }, this))
                 return;
-            this.$set(item, 'expanded', expanded);
+            this.$set(item, 'treeExpanded', expanded);
             this.$emit('tree-toggle-expanded', { item, expanded }, this);
             if (!this.$at(item, this.childrenField) && (typeof this.dataSource === 'function')) {
                 this.$set(item, 'loading', true);
@@ -1753,7 +1755,7 @@ export default {
                 this.currentData.forEach((itemData) => {
                     if (itemData.parentPointer !== undefined && itemData.parentPointer === parent) {
                         if (expanded) {
-                            if (parent.expanded) {
+                            if (parent.treeExpanded) {
                                 this.$set(itemData, 'display', '');
                             } else {
                                 this.$set(itemData, 'display', 'none');
