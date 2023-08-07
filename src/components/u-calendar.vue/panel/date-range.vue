@@ -57,6 +57,7 @@
 import { isDate, prevYear, nextYear, prevMonth, nextMonth, nextDate } from '../util';
 import i18n from '../i18n';
 import DateTable from '../basic/date-table';
+import { endOfWeek, startOfWeek } from 'date-fns';
 
 const calcDefaultValue = (defaultValue) => {
     if (Array.isArray(defaultValue)) {
@@ -169,6 +170,11 @@ export default {
                 } else if (Array.isArray(newVal)) {
                     this.minDate = isDate(newVal[0]) ? new Date(newVal[0]) : null;
                     this.maxDate = isDate(newVal[1]) ? new Date(newVal[1]) : null;
+                    // 这里如果是周，传入的时间可能在一周的中间，需要转换成周的开始和结束
+                    if (this.picker === 'week') {
+                        this.minDate = startOfWeek(this.minDate, { weekStartsOn: 1 });
+                        this.maxDate = endOfWeek(this.maxDate, { weekStartsOn: 1 });
+                    }
                     if (this.minDate) {
                         this.leftDate = this.minDate;
                         if (this.unlinkPanels && this.maxDate) {

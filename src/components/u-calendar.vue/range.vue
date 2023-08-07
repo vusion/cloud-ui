@@ -46,6 +46,7 @@ export default {
         disabledDate() {
             const timestampFnMap = {
                 date: getDateTimestamp,
+                week: getDateTimestamp,
                 month: getMonthTimestamp,
                 quarter: getQuarterTimestamp,
                 year: getYearTimestamp,

@@ -332,6 +332,11 @@ export default {
             minDate = getDateTimestamp(minDate);
             maxDate = getDateTimestamp(maxDate) || minDate;
             [minDate, maxDate] = [Math.min(minDate, maxDate), Math.max(minDate, maxDate)];
+            // 如果是周选择，标注整周
+            if (this.selectionMode === 'week-range') {
+                minDate = getDateTimestamp(startOfWeek(minDate, { weekStartsOn: 1 }));
+                maxDate = getDateTimestamp(endOfWeek(maxDate, { weekStartsOn: 1 }));
+            }
 
             const startDate = this.startDate;
             const rows = this.rows;

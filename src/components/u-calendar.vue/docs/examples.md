@@ -60,13 +60,13 @@
 </u-calendar-range>
 ```
 
-### 星期范围选择
+### 周范围选择
 
 ``` html
 <u-calendar-range
     picker="week"
     start-date="2023-03-10"
-    end-date="2023-03-20">
+    end-date="2023-03-21">
 </u-calendar-range>
 ```
 
