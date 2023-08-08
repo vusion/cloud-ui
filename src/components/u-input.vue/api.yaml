@@ -313,6 +313,20 @@
           description: 鼠标事件对象
           schema:
             $ref: "#/systemTypes/MouseEvent"
+    - name: keydown
+      title: 键盘按下
+      description: 键盘按键按下时触发
+      params:
+        - name: $event
+          type: object
+          description: 键盘按键事件对象
+    - name: keyup
+      title: 键盘松开
+      description: 键盘按键松开时触发
+      params:
+        - name: $event
+          type: object
+          description: 键盘按键事件对象
   methods:
     - name: focus
       description: 让输入框获取焦点。
