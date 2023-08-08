@@ -483,3 +483,11 @@ exports[`u-input.vue Demo-自定义样式 1`] = `
   </div>
 </div>
 `;
+
+exports[`u-input.vue Demo-键盘事件 1`] = `
+<div>
+  <span>b</span>
+  <span style="display: none;"></span>
+  <input type="text">
+</div>
+`;
