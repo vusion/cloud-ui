@@ -321,6 +321,14 @@
       brifeDoc: ""
       docDescription: 开启后支持通过文件存储源地址访问文件
       tooltipLink: ""
+    - name: lcapIsCompress
+      title: 启用压缩
+      type: boolean
+      description: 启用压缩后上传的文件按压缩规则进行压缩后上传，压缩规则可在自定义配置参数管理
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 启用压缩后上传的文件按压缩规则进行压缩后上传，压缩规则可在自定义配置参数管理
+      tooltipLink: ""
     - name: draggable
       title: 可拖拽
       type: boolean
