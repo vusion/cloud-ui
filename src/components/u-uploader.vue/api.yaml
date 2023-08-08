@@ -313,6 +313,14 @@
       brifeDoc: ""
       docDescription: 开启文件有效期开关后显示，可配置文件自动清理的时间
       tooltipLink: ""
+    - name: viaOriginURL
+      title: 源地址访问
+      type: boolean
+      description: 开启后支持通过文件存储源地址访问文件
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 开启后支持通过文件存储源地址访问文件
+      tooltipLink: ""
     - name: draggable
       title: 可拖拽
       type: boolean
