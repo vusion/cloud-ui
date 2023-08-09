@@ -13866,6 +13866,108 @@
                     "tooltipLink": ""
                 },
                 {
+                    "name": "advanced-formatter",
+                    "title": "高级格式化",
+                    "type": "{ enable: boolean, value: string }",
+                    "default": "{ enable: false, value: '' }",
+                    "description": "用来控制数字的展示格式",
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "decimal-places",
+                    "title": "小数位数",
+                    "type": "{ places: number, omit: boolean }",
+                    "default": "{ places: 0, omit: true }",
+                    "compose": [
+                        {
+                            "key": "places",
+                            "type": "number",
+                            "min": 0
+                        },
+                        {
+                            "key": "omit",
+                            "type": "switch",
+                            "suffix": "隐藏末尾0"
+                        }
+                    ],
+                    "description": "用来控制小数位数",
+                    "dependency": [
+                        {
+                            "advanced-formatter.enable": false
+                        }
+                    ],
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "thousandths",
+                    "title": "千位符",
+                    "type": "boolean",
+                    "default": false,
+                    "desciption": "是否显示千位符",
+                    "dependency": [
+                        {
+                            "advanced-formatter.enable": false
+                        }
+                    ],
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "percent-sign",
+                    "title": "百分号",
+                    "type": "boolean",
+                    "default": false,
+                    "desciption": "是否显示百分号",
+                    "dependency": [
+                        {
+                            "advanced-formatter.enable": false
+                        }
+                    ],
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "unit",
+                    "title": "单位",
+                    "type": "{ type: string, value: string }",
+                    "default": "{ type: 'prefix', value: '' }",
+                    "compose": [
+                        {
+                            "key": "type",
+                            "type": "select",
+                            "options": [
+                                {
+                                    "value": "prefix",
+                                    "title": "前缀"
+                                },
+                                {
+                                    "value": "suffix",
+                                    "title": "后缀"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "value",
+                            "type": "text"
+                        }
+                    ],
+                    "description": "输入框中显示的单位",
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
                     "name": "placeholder",
                     "title": "占位符",
                     "type": "string",
