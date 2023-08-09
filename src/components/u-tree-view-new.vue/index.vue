@@ -235,8 +235,11 @@ export default {
             if (values) {
                 this.currentValues = values;
                 this.walk((nodeVM) => {
-                    if (values.includes(nodeVM.value))
+                    if (values.includes(nodeVM.value)) {
                         nodeVM.check(true);
+                    } else {
+                        nodeVM.check(false);
+                    }
                 });
             } else {
                 const values = [];
@@ -250,6 +253,10 @@ export default {
                     }
                 });
                 this.currentValues = values;
+                if (values.length > 0) {
+                    // 在组件非受控的情况下，当默认有值选中时，上报初始值以便外层组件数据同步
+                    this.$emit('update:value', this.currentValues, this);
+                }
             }
         },
         select(nodeVM) {
