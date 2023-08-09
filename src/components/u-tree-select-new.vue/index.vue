@@ -60,7 +60,7 @@
         </div>
         <span v-if="clearable && (!!checkableValue || !!selectedItem)"
             :class="$style.clearable"
-            @click="clear">
+            @click.stop="clear">
         </span>
         <m-popper ref="popper"
             :class="$style.popper"
@@ -213,9 +213,9 @@ export default {
             }
         },
         checkableValue() {
-            if (!this.checkable || !this.value) {
+            if (!this.checkable) {
                 return '';
-            } else {
+            } else if (Array.isArray(this.actualValue)) {
                 const textNode = [];
                 // 返现选项的字段从value转化为text
                 this.actualValue.forEach((item) => {
@@ -226,6 +226,8 @@ export default {
                     }
                 });
                 return textNode.join('、');
+            } else {
+                return '';
             }
         },
     },
@@ -555,7 +557,12 @@ export default {
             if (this.$emitPrevent('before-clear', { ...itemInfo, oldValue, value: newValue, selected: false }, this)) {
                 return;
             }
-            this.onUpdateValue(newValue);
+            if (this.$refs.treeView) {
+                this.$refs.treeView.checkAll(false);
+            } else {
+                this.onUpdateValue(newValue);
+            }
+
             this.$emit('clear', { ...itemInfo, oldValue, value: newValue }, this);
         },
     },
