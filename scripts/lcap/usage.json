@@ -23578,7 +23578,7 @@
                     "name": "max-time",
                     "title": "最大时间值",
                     "type": "string",
-                    "default": 86399,
+                    "default": "23:59:59",
                     "description": "最大可选的时间值，填写null则不限制，日期填写格式为“00:00:00”",
                     "group": "数据属性",
                     "brifeDoc": "",
