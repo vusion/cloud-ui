@@ -34,6 +34,7 @@ export default {
         dblclickHandler: Function,
         filterMultiple: { type: Boolean, default: false },
         filterMax: Number,
+        colSpan: Number,
     },
     data() {
         const data = {

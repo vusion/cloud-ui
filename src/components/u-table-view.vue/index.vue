@@ -13,12 +13,13 @@
         <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
             <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
-                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth" />
                 </colgroup>
                 <thead>
                     <tr>
                         <th
                             v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                            v-if="columnVM.colSpan !== 0"
                             ref="th"
                             :class="[$style['head-title'], boldHeader ? $style.boldHeader : null]"
                             :key="columnIndex"
@@ -35,7 +36,8 @@
                             :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                             :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                             :shadow="(isLastLeftFixed(columnVM, columnIndex) && (!scrollXStart || $env.VUE_APP_DESIGNER)) || (isFirstRightFixed(columnVM, columnIndex) && (!scrollXEnd || $env.VUE_APP_DESIGNER))"
-                            :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden">
+                            :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden"
+                            :colspan="columnVM.colSpan">
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
                                 <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
@@ -89,7 +91,7 @@
             <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex || $env.VUE_APP_DESIGNER" :hide-scroll="!!tableMetaIndex">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
-                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth" />
                 </colgroup>
                 <tbody>
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
@@ -168,7 +170,10 @@
                                         :style="getStyle(columnIndex, columnVM)"
                                         :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                                         :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
-                                        :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
+                                        :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)"
+                                        v-if="getItemColSpan(item, columnIndex) !== 0 && getItemRowSpan(item, columnIndex) !== 0"
+                                        :colspan="getItemColSpan(item, columnIndex)"
+                                        :rowspan="getItemRowSpan(item, columnIndex)">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">
                                                 <template v-if="columnVM.autoIndex && usePagination && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
@@ -2301,6 +2306,22 @@ export default {
                 paginationHeight = paginationHeight + marginTop + marginBottom;
             }
             return paginationHeight;
+        },
+        getItemColSpan(item, index) {
+            if (Array.isArray(item.colSpan)) {
+                const config = item.colSpan.find((configItem) => configItem[0] === index);
+                if (config) {
+                    return config[1];
+                }
+            }
+        },
+        getItemRowSpan(item, index) {
+            if (Array.isArray(item.rowSpan)) {
+                const config = item.rowSpan.find((configItem) => configItem[0] === index);
+                if (config) {
+                    return config[1];
+                }
+            }
         },
     },
 };
