@@ -172,7 +172,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: 'reference',
+            default: 'body',
             validator: (value) => ['body', 'reference'].includes(value),
         },
         color: String,
