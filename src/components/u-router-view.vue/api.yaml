@@ -4,3 +4,9 @@
   labels:
     - Container
   description: 用于嵌入子页面的容器。
+  attrs:
+    - name: disableKeepAlive
+      title: 进入已打开页面时刷新
+      type: boolean
+      default: true
+      description: 重新进入已打开页面时，会刷新页面
