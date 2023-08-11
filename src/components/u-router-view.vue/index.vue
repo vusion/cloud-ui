@@ -1,8 +1,11 @@
 <template>
-<div :class="$style.fake" v-if="$env.VUE_APP_DESIGNER" :designer="$env.VUE_APP_DESIGNER && designer">
-    <router-view></router-view>
-</div>
-<router-view v-else></router-view>
+    <div :class="$style.fake" v-if="$env.VUE_APP_DESIGNER" :designer="$env.VUE_APP_DESIGNER && designer">
+        <router-view></router-view>
+    </div>
+    <router-view v-else-if="disableKeepAlive"></router-view>
+    <keep-alive v-else>
+        <router-view></router-view>
+    </keep-alive>
 </template>
 
 <script>
@@ -10,6 +13,7 @@ export default {
     name: 'u-router-view',
     props: {
         designer: { type: Boolean, default: true },
+        disableKeepAlive: { type: Boolean, default: true },
     },
 };
 </script>
