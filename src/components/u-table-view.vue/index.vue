@@ -1669,7 +1669,7 @@ export default {
         /**
          * 转换成平铺型数据
          */
-        processTreeData(data, level = 0, parent) {
+        processTreeData(data, level = 0, parent, ancestors = []) {
             let newData = [];
             for (const item of data) {
                 item.tableTreeItemLevel = level;
@@ -1680,17 +1680,27 @@ export default {
                     item.treeExpanded = item.treeExpanded || false;
                 }
                 if (parent) {
-                    this.$set(item, 'display', parent.treeExpanded ? '' : 'none');
+                    this.$set(item, 'display', needHidden(ancestors) ? 'none' : '');
                 }
                 if (!item.hasOwnProperty('loading')) {
                     this.$set(item, 'loading', false);
                 }
                 newData.push(item);
                 if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
-                    newData = newData.concat(this.processTreeData(this.$at(item, this.childrenField), level + 1, item));
+                    newData = newData.concat(this.processTreeData(this.$at(item, this.childrenField), level + 1, item, ancestors.concat(item)));
                 }
             }
             return newData;
+
+            // 只要任意祖先节点的treeExpanded为false,当前节点都不显示。
+            function needHidden(ancestors) {
+                for (const item of ancestors) {
+                    if (!item.treeExpanded) {
+                        return true;
+                    }
+                }
+                return false;
+            }
         },
         toggleTreeExpanded(item, expanded) {
             if (item.loading)
