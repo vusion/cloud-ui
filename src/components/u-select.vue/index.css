@@ -189,6 +189,10 @@
     right: 8px;
 }
 
+.root[color="inverse"] .input {
+    color: var(--select-color-inverse);
+}
+
 .root[clearable],
 .root[suffix],
 .root .input:not([multiple-tags])[filterable],
