@@ -512,8 +512,6 @@
           snippet: '<u-table-view-column><template #cell="current"></template><template
             #title><u-text
             text="表格列"></u-text></template></u-table-view-column>'
-      supportGenericComponents:
-        - u-table-view-column
     - concept: Slot
       name: loading
       title: 加载中内容
@@ -1115,27 +1113,6 @@
       name: cell
       plus-empty: true
       description: 对单元格的数据展示进行自定义
-      props:
-        - name: item
-          title: 当前项
-          type: object
-          description: 循环中的当前项
-        - name: value
-          title: 字段值
-          type: any
-          description: item 中 field 字段对应的值
-        - name: columnVM
-          title: 列实例
-          type: string
-          description: 该列组件实例
-        - name: rowIndex
-          title: 行索引
-          type: number
-          description: 行的索引
-        - name: columnIndex
-          title: 列索引
-          type: number
-          description: 列的索引
       slotProps:
         concept: Param
         name: current
@@ -1153,27 +1130,6 @@
       plus-empty: true
       plus-empty-tag: editcell-plus-empty
       description: 对单元格的编辑数据展示进行自定义
-      props:
-        - name: item
-          title: 当前项
-          type: object
-          description: 循环中的当前项
-        - name: value
-          title: 字段值
-          type: any
-          description: item 中 field 字段对应的值
-        - name: columnVM
-          title: 列实例
-          type: string
-          description: 该列组件实例
-        - name: rowIndex
-          title: 行索引
-          type: number
-          description: 行的索引
-        - name: columnIndex
-          title: 列索引
-          type: number
-          description: 列的索引
       slotProps:
         concept: Param
         name: current
@@ -1189,47 +1145,13 @@
     - concept: Slot
       name: title
       title: 标题
-      accept-type:
-        - text
-        - inline
       description: 对标题进行自定义
-      props:
-        - name: columnVM
-          title: 列实例
-          type: string
-          description: 该列组件实例
-        - name: columnIndex
-          title: 列索引
-          type: number
-          description: 列的索引
     - concept: Slot
       name: expand-content
       plus-empty: true
       plus-empty-tag: expand-content-plus-empty
       title: 展开列内容
-      accept-type: all
       description: 展开列的内容
-      props:
-        - name: item
-          title: 当前
-          type: object
-          description: 循环中的当前项
-        - name: value
-          title: 字段值
-          type: any
-          description: item 中 field 字段对应的值
-        - name: columnVM
-          title: 列实例
-          type: string
-          description: 展开列组件实例
-        - name: rowIndex
-          title: 行索引
-          type: number
-          description: 行的索引
-        - name: columnIndex
-          title: 展开列索引
-          type: number
-          description: 展开列的索引
       slotProps:
         concept: Param
         name: current
@@ -1298,7 +1220,6 @@
     - concept: Slot
       name: title
       title: 配置列展示title
-      accept-type: all
     - concept: Slot
       name: item
       description: 自定义选项的结构和样式
