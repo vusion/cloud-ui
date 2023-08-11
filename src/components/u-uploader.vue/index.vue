@@ -138,6 +138,8 @@ export default {
         cropperBoxHeight: { type: Number, default: 200 },
         cropperTitle: { type: String, default: '图片裁剪' },
         cropperPreviewShape: { type: String, default: 'circle' },
+        viaOriginURL: { type: Boolean, default: false },
+        lcapIsCompress: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -454,15 +456,22 @@ export default {
             }
             if (window.appInfo && window.appInfo.domainName)
                 headers.DomainName = window.appInfo.domainName;
-
             const url = this.$formatMicroFrontUrl ? this.$formatMicroFrontUrl(this.url) : this.url;
-            const xhr = ajax({
+            const formData = {
+                ...this.data,
+                lcapIsCompress: this.lcapIsCompress,
+                viaOriginURL: this.viaOriginURL,
+            };
+            const requestData = {
                 url,
                 headers,
                 withCredentials: this.withCredentials,
                 file,
-                data: this.data,
+                data: formData,
                 name: this.name,
+            };
+            const xhr = ajax({
+                ...requestData,
                 onProgress: (e) => {
                     const item = this.currentValue[index];
                     item.percent = e.percent;
