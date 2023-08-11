@@ -1,9 +1,12 @@
 import cloneDeep from 'lodash/cloneDeep';
 import { getISOWeek, getISOWeekYear, parseISO } from 'date-fns';
+import dayjs from './dayjs';
 
 export const format = function format(value, type) {
     if (!value)
         return;
+    type = type || 'YYYY-MM-DD HH:mm';
+
     const fix = (str) => {
         str = '' + (String(str) || '');
         return str.padStart(2, '0');
@@ -23,7 +26,7 @@ export const format = function format(value, type) {
             }
             return fix(date.getDate());
         },
-        WW(date) { return `W${fix(getISOWeek(date))}`; },
+        WWWW(date) { return `W${fix(getISOWeek(date))}`; },
         QQ(date) { return `Q${Math.ceil((date.getMonth() + 1) / 3)}`; },
         DD(date) { return fix(date.getDate()); },
         HH(date) { return fix(date.getHours()); },
@@ -31,7 +34,6 @@ export const format = function format(value, type) {
         ss(date) { return fix(date.getSeconds()); },
     };
     const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
-    type = type || 'YYYY-MM-DD HH:mm';
     if (typeof value === 'string' && !value.includes('T'))
         value = transformDate(value);
     value = new Date(value);
@@ -39,7 +41,7 @@ export const format = function format(value, type) {
         return;
     const result = type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
     // 根据 iOS 周历特殊处理，例如 2018-12-31 应该被解析为 2019-W01
-    if (type.includes('YYYY-WW')) {
+    if (type.includes('YYYY-WWWW')) {
         const valueYear = value.getFullYear();
         const isoYear = getISOWeekYear(value);
         if (valueYear !== isoYear) {

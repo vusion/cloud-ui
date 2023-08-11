@@ -64,3 +64,48 @@ export default {
     </u-form-item>
 </u-form>
 ```
+
+### 格式化
+
+``` vue
+<template>
+    <div>
+        <u-date-time-picker 
+            :advanced-format="{enable: true, value: 'YYYY年M月D日 HH时mm分ss秒'}"
+            :value.sync="date"
+            clearable></u-date-time-picker>
+        <u-date-time-picker
+            :advanced-format="{enable: true, value: 'YYYY年M月D日 HH时mm分'}"
+            range
+            :start-date.sync="startDate"
+            :end-date.sync="endDate"
+            @change="change"
+            @select="select"
+            @blur="blur">
+        </u-date-time-picker>
+    </div>
+
+</template>
+<script>
+export default {
+    data() {
+        return {
+            date: '2023-08-10',
+            startDate: '2022-03-10',
+            endDate: '2022-03-20',
+        };
+    },
+    methods: {
+        change(event) {
+            console.log('change', event);
+        },
+        select(event) {
+            console.log('select', event);
+        },
+        blur(event) {
+            console.log('blur', event);
+        },
+    },
+};
+</script>
+```

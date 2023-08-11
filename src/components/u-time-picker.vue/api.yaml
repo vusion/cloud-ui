@@ -66,11 +66,47 @@
     - name: max-time
       title: 最大时间值
       type: string
-      default: 23:59:59
+      default: "23:59:59"
       description: 最大可选的时间值，填写null则不限制，日期填写格式为“00:00:00”
       group: 数据属性
       brifeDoc: ""
       docDescription: 支持输入的最大时间
+      tooltipLink: ""
+    - name: advanced-format
+      title: 高级格式化
+      type: "{ enable: boolean, value: string }"
+      default: "{ enable: false, value: '' }"
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: show-formatter
+      title: 时间展示格式
+      type: string
+      options:
+        - value: HH:mm:ss
+          title: "12:09:09"
+          dependency:
+            - minUnit: second
+        - value: HH时mm分ss秒
+          title: 12时09分09秒
+          dependency:
+            - minUnit: second
+        - value: HH:mm
+          title: "12:09"
+          dependency:
+            - minUnit: minute
+        - value: HH时mm分
+          title: 12时09分
+          dependency:
+            - minUnit: minute
+      description: ""
+      dependency:
+        - advanced-format.enable: false
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
       tooltipLink: ""
     - name: autofocus
       title: 自动获取焦点

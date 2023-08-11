@@ -6,7 +6,7 @@
     - Selector
   attrs:
     - name: picker
-      title: 日期格式
+      title: 日期类型
       type: string
       options:
         - title: 日期
@@ -79,6 +79,7 @@
       default: 00:00:00
       description: 输入对应格式的字符串（8:00:00）即可
       group: 数据属性
+      advanced: true
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
@@ -104,6 +105,74 @@
       tooltipLink: ""
       dependency:
         - '!range': true
+    - name: advanced-format
+      title: 高级格式化
+      type: "{ enable: boolean, value: string }"
+      default: "{ enable: false, value: '' }"
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: show-formatter
+      title: 日期展示格式
+      type: string
+      options:
+        - value: YYYY年M月D日
+          title: 中国（2023年7月26日）
+          dependency:
+            - picker: date
+        - value: YYYY-MM-DD
+          title: ISO（2023-07-26）
+          dependency:
+            - picker: date
+        - value: M/D/YYYY
+          title: US（7/26/2023）
+          dependency:
+            - picker: date
+        - value: D/M/YYYY
+          title: EU（26/7/2023）
+          dependency:
+            - picker: date
+        - value: YYYY年M月
+          title: 中国（2023年7月）
+          dependency:
+            - picker: month
+        - value: YYYY-MM
+          title: ISO（2023-07）
+          dependency:
+            - picker: month
+        - value: M/YYYY
+          title: US/EU（7/2023）
+          dependency:
+            - picker: month
+        - value: YYYY年第Q季度
+          title: 2023年第3季度
+          dependency:
+            - picker: quarter
+        - value: YYYY年QQQ
+          title: 2023年Q3
+          dependency:
+            - picker: quarter
+        - value: YYYY-QQQ
+          title: 2023-Q3
+          dependency:
+            - picker: quarter
+        - value: YYYY年
+          title: 中国（2023年）
+          dependency:
+            - picker: year
+        - value: YYYY
+          title: ISO（2023）
+          dependency:
+            - picker: year
+      description: ""
+      dependency:
+        - advanced-format.enable: false
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: autofocus
       title: 自动获取焦点
       type: boolean
