@@ -7,7 +7,7 @@
   attrs:
     - name: minlength
       title: 最小长度
-      type: number
+      type: nasl.core.Integer
       description: ""
       advanced: true
     - name: spellcheck
@@ -51,7 +51,7 @@
       tooltipLink: ""
     - name: maxlength
       title: 最大字符数
-      type: number
+      type: nasl.core.Integer
       description: ""
       group: 主要属性
       docDescription: 限定输入文本最大长度。
@@ -67,7 +67,8 @@
       tooltipLink: ""
     - name: prefix
       title: 前缀图标
-      type: icon
+      type: string
+      setter: iconSelect
       description: ""
       default: ""
       clearable: true
@@ -76,7 +77,8 @@
       tooltipLink: ""
     - name: suffix
       title: 后缀图标
-      type: icon
+      type: string
+      setter: iconSelect
       description: ""
       default: ""
       clearable: true

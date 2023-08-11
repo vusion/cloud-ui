@@ -4,10 +4,11 @@
     - Form
   icon: checkboxes
   description: 多项中选择多个时使用
+  tsTypeParams: T, V, C extends string
   attrs:
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function
+      type: nasl.collection.List<T>
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       designer-value: "[{}, {}, {}]"
       group: 数据属性
@@ -15,7 +16,7 @@
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
@@ -23,15 +24,13 @@
       tooltipLink: ""
     - name: text-field
       title: 选项文本
-      type: string
-      default: text
+      type: "(item: T) => nasl.core.String"
       description: 集合的元素类型中，用于显示文本的属性名称
       group: 数据属性
       advanced: true
     - name: value-field
       title: 值字段
-      type: string
-      default: value
+      type: "(item: T) => V"
       description: 用于标识选中值的字段
       display: property-select
       group: 数据属性
@@ -39,7 +38,7 @@
       tooltipLink: ""
     - name: value
       title: 选中值
-      type: Array
+      type: nasl.collection.List<V>
       sync: true
       model: true
       default: []
@@ -66,6 +65,8 @@
       title: 转换器
       type: string
       options:
+        - value: ""
+          title: 无
         - value: join
           title: 以','连接
         - value: join:|
@@ -74,8 +75,6 @@
           title: 以';'连接
         - value: json
           title: json
-        - value: ""
-          title: 无
       default: ""
       description: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
       bindHide: true
@@ -104,7 +103,7 @@
       description: 切换选项时触发
       params:
         - name: $event
-          type: Array<string>
+          type: nasl.collection.List<V>
           description: 切换后的选中值
         - name: senderVM
           type: UCheckbox
@@ -160,7 +159,7 @@
       description: 加载后触发
       params:
         - name: $event
-          type: "null"
+          type: BaseEvent
           description: 无
         - name: senderVM
           type: UTableView
@@ -195,6 +194,7 @@
               typeName: T
 - name: u-checkbox
   title: 多选项
+  tsTypeParams: T, V
   attrs:
     - name: text
       title: 文本
@@ -203,7 +203,7 @@
       advanced: true
     - name: value
       title: 值
-      type: boolean, null
+      type: boolean | null
       sync: true
       model: true
       default: false
@@ -213,7 +213,7 @@
       tooltipLink: ""
     - name: label
       title: 选项值
-      type: any
+      type: V
       description: 用于标识选项的值
       group: 数据属性
       docDescription: ""

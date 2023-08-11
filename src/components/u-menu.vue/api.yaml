@@ -243,7 +243,7 @@
           schema:
             $ref: "#/systemTypes/NavigateEvent"
         - name: $event.to
-          type: string, Location
+          type: string | Location
           description: "`to`属性的值"
         - name: $event.replace
           type: boolean
@@ -268,7 +268,7 @@
           schema:
             $ref: "#/systemTypes/NavigateEvent"
         - name: $event.to
-          type: string, Location
+          type: string | Location
           description: "`to`属性的值"
         - name: $event.replace
           type: boolean

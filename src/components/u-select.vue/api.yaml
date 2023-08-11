@@ -4,17 +4,18 @@
   labels:
     - Selector
   description: 下拉选择器，支持单选、多选、搜索等功能
+  tsTypeParams: T, V, P extends boolean, M extends boolean, C extends string
   attrs:
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function | object | DataSource
+      type: "P extends true ? { list: nasl.collection.List<T>; total: nasl.core.Integer } : nasl.collection.List<T>"
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       group: 数据属性
       docDescription: 支持动态绑定集合类型变量（List<T>）或输出参数为集合类型的逻辑
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       compType: dataTypeSelect
       group: 数据属性
@@ -22,7 +23,7 @@
       tooltipLink: ""
     - name: value
       title: 选中值
-      type: any
+      type: "M extends true ? (C extends '' ? nasl.collection.List<V> : nasl.core.String) : V"
       sync: true
       model: true
       description: 当前选中的值
@@ -31,8 +32,7 @@
       tooltipLink: ""
     - name: text-field
       title: 文本字段
-      type: string
-      default: text
+      type: "(item: T) => nasl.core.String"
       description: 集合的元素类型中，用于显示文本的属性名称
       display: property-select
       group: 数据属性
@@ -40,8 +40,7 @@
       tooltipLink: ""
     - name: value-field
       title: 值字段
-      type: string
-      default: value
+      type: "(item: T) => V"
       description: 集合的元素类型中，用于标识选中值的属性
       display: property-select
       group: 数据属性
@@ -86,8 +85,10 @@
       tooltipLink: ""
     - name: sorting
       title: 初始化排序规则
-      type: "{ field: string, order: string, compare: Function }"
-      default: "{ field: undefined, order: 'desc' }"
+      type: "{ field: nasl.core.String, order: 'asc' | 'desc' }"
+      default:
+        field: null
+        order: desc
       description: 设置数据初始化时的排序字段和顺序规则
       group: 数据属性
       docDescription: ""
@@ -102,7 +103,7 @@
       tooltipLink: ""
     - name: description-field
       title: 辅助文本字段
-      type: string
+      type: "(item: T) => nasl.core.String"
       description: 集合的元素类型中，用于显示文本下方辅助描述的字段
       dependency:
         - description: true
@@ -112,7 +113,7 @@
       tooltipLink: ""
     - name: icon-field
       title: 图标展示字段
-      type: string
+      type: "(item: T) => nasl.core.String"
       description: 集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法
       display: property-select
       group: 数据属性
@@ -120,11 +121,11 @@
       tooltipLink: ""
     - name: selected-values-data
       title: 选中值完整数据
-      type: Array
-      description: 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}]
+      type: 'nasl.collection.List<{ text: nasl.core.String, value: V }>'
+      description: 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。
       group: 数据属性
       advanced: true
-      docDescription: 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}]
+      docDescription: 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。
       tooltipLink: ""
     - name: filterable
       title: 筛选
@@ -170,6 +171,8 @@
       title: 转换器
       type: string
       options:
+        - value: ""
+          title: 无
         - value: join
           title: 以','连接
         - value: join:|
@@ -178,6 +181,7 @@
           title: 以';'连接
         - value: json
           title: json
+      default: ""
       description: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。
       bindHide: true
       clearable: true
@@ -227,7 +231,7 @@
       title: 弹出层位置依据
       type: string
       default: reference
-      description: 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。
+      description: 设置弹出层依据哪个元素定位位置，可选值：`body`表示添加到 document.body，`reference`表示添加到参考元素中。
       options:
         - value: reference
           title: 引用元素下
@@ -389,18 +393,18 @@
       tooltipLink: ""
     - name: case-sensitive
       title: 大小写敏感
-      type: string | Function
+      type: string
       default: includes
       description: 过滤时大小写是否敏感
       advanced: true
-      group: 选择属性
+      group: 数据属性
     - name: auto-complete
       title: 自动补全
       type: boolean
       default: false
       description: 是否开启自动补充模式，用于增加列表中没有的项
       advanced: true
-      group: 选择属性
+      group: 数据属性
   slots:
     - concept: Slot
       name: default
@@ -657,7 +661,7 @@
       description: 添加项
       params:
         - name: item
-          type: object
+          type: T
           description: 当前添加的项
         - name: inFirst
           type: boolean
@@ -672,6 +676,7 @@
             valueType: boolean
 - name: u-select-item
   title: 选择项
+  tsTypeParams: T, V
   attrs:
     - name: text
       title: 选项文本
@@ -679,7 +684,7 @@
       description: 此项的显示值
     - name: value
       title: 值
-      type: any
+      type: V
       description: 此项的值。
       group: 数据属性
       docDescription: 此项的值
@@ -693,7 +698,7 @@
       tooltipLink: ""
     - name: item
       title: 相关对象
-      type: object
+      type: T
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发。
       group: 主要属性
       docDescription: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发

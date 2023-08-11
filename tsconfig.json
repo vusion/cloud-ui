@@ -18,14 +18,13 @@
             "esnext",
             "dom"
         ],
+        "types": ["nasl"],
         "paths": {
             "@/*": ["*"]
         }
     },
     "include": [
-        "scripts/**/*.ts"
-      ],
-    "exclude": [
-        "node_modules"
+        "./scripts/**/*.ts",
+        "./src/**/*.ts"
     ]
 }
