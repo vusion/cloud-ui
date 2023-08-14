@@ -43,7 +43,7 @@
       title: 精度
       type: number
       default: 1
-      description: 精度，表示数字要保留的最小单位，整数、小数均可
+      description: 限制数字输入要保留的最小精度单位，默认不限制精度，如需保留两位小数，则填入0.01
       group: 数据属性
       brifeDoc: ""
       docDescription: 限制数字要保留的最小单位，整数、小数均可，如需要保留两位小数，则填入0.01。
