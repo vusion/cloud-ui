@@ -6456,6 +6456,10 @@
     "type": "boolean",
     "description": "是否自动获取焦点"
   },
+  "u-router-view/disableKeepAlive": {
+    "type": "boolean",
+    "description": "重新进入已打开页面时，会刷新页面"
+  },
   "u-select/value": {
     "type": "any",
     "description": ""
