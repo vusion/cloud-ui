@@ -19,7 +19,7 @@
 
 #### Tag 方式
 
-``` vue
+```vue
 <template>
     <u-tree-select-new v-model="value" :data-source="load" text-field="title" value-field="title">
     </u-tree-select-new>
@@ -104,23 +104,37 @@ export default {
 
 #### 支持多选
 
-``` html { width: 30% }
-<u-tree-select-new value="节点 1" checkable valueField="text1" textField="text1" :data-source="[
-    { text1: '节点 1', children: [
-        { text1: '节点 1.1' },
-        { text1: '节点 1.2', children: [
-            { text1: '节点 1.2.1' },
-            { text1: '节点 1.2.2' },
+```vue { width: 30% }
+<template>
+    <u-tree-select-new  v-model="value" checkable valueField="text1" :checkControlled="false" textField="text1" :data-source="[
+    { text1: '节点 1', value1: '1', children: [
+        { text1: '节点 1.1' , value1: '1.1'},
+        { text1: '节点 1.2', value1: '1.2' ,children: [
+            { text1: '节点 1.2.1', value1: '1.2.1' },
+            { text1: '节点 1.2.2' , value1: '1.2.2' },
         ] },
-        { text1: '节点 1.3' },
-        { text1: '节点 1.4' },
+        { text1: '节点 1.3', value1: '1.3' },
+        { text1: '节点 1.4' , value1: '1.4'},
     ] },
-    { text1: '节点 2' },
-    { text1: '节点 3', children: [
-        { text1: '节点 3.1' },
-        { text1: '节点 3.2' },
+    { text1: '节点 2' ,value1: '2'},
+    { text1: '节点 3', value1: '3', children: [
+        { text1: '节点 3.1', value1: '3.1' },
+        { text1: '节点 3.2' , value1: '3.2'},
     ] },
 ]"></u-tree-select-new>
+</template>
+<script>
+    export default {
+        data() {
+            return {
+                value: [],
+            };
+        },
+        methods: {
+            
+        },
+    }
+</script>
 ```
 
 #### 一维Data
@@ -228,6 +242,7 @@ export default {
 | parent-field | string |  | `''` | 集合的元素类型中，用于标识父节点的属性 |
 | children-field | string |  | `'children'` | 集合的元素类型中，用于标识子节点的属性，默认为children |
 | value.sync, v-model | any |  |  | 选择后，所选中的值 |
+| checkable | boolean |  | `false` | 设置是否开启多选模式，显示多选框 |
 
 ### Slots
 
@@ -264,6 +279,20 @@ export default {
 | $event.oldNode | object | 旧的选择项相关对象 |
 | $event.nodeVM | UTreeViewNode | 选择项子组件 |
 | $event.oldVM | UTreeViewNode | 旧的选择项子组件 |
+| senderVM | UTreeView | 发送事件实例 |
+
+#### @check
+
+选中/取消节点时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.checked | boolean | 选中/取消状态 |
+| $event.oldChecked | boolean | 旧的选中/取消状态 |
+| $event.values | Array | 所有选中节点的值 |
+| $event.node | object | 节点相关对象 |
+| $event.nodeVM | UTreeViewNode | 节点组件 |
 | senderVM | UTreeView | 发送事件实例 |
 
 #### @before-load

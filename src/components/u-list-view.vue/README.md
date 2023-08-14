@@ -1394,7 +1394,7 @@ export default {
 | data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
 | pageable | boolean |  | `false` | 设置是否分页展示数据 |
 | page-size | number |  | `50` |  |
-| page-number.sync | number |  | `1` | 当前默认展示在第几页 |
+| page-number | number |  | `1` | 当前默认展示在第几页 |
 | page-size-options | Array\<number\> |  | `[10, 20, 50]` | 每页条数切换器的选项 |
 | show-total | boolean |  | `false` |  |
 | show-sizer | boolean |  | `false` | 显示每页条数切换器 |

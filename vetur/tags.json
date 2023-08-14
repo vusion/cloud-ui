@@ -256,6 +256,10 @@
       "item"
     ]
   },
+  "u-absolute-layout": {
+    "attributes": [],
+    "description": "拖拽内部元素到任意位置"
+  },
   "u-actions": {
     "attributes": [
       "max-count",
@@ -664,7 +668,11 @@
   },
   "u-date-picker": {
     "attributes": [
-      "date",
+      "picker",
+      "range",
+      "value",
+      "startDate",
+      "endDate",
       "minDate",
       "maxDate",
       "time",
@@ -674,7 +682,6 @@
       "placeholder",
       "alignment",
       "converter",
-      "picker",
       "preIcon",
       "suffixIcon",
       "append-to",
@@ -689,7 +696,10 @@
   },
   "u-date-time-picker": {
     "attributes": [
-      "date",
+      "range",
+      "value",
+      "startDate",
+      "endDate",
       "minDate",
       "maxDate",
       "yearDiff",
@@ -884,6 +894,7 @@
       "label-layout",
       "label-ellipsis",
       "required",
+      "required-position",
       "message",
       "description",
       "layout",
@@ -1660,7 +1671,9 @@
     "description": "该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。"
   },
   "u-router-view": {
-    "attributes": [],
+    "attributes": [
+      "disableKeepAlive"
+    ],
     "description": "用于嵌入子页面的容器。"
   },
   "u-select": {
@@ -1926,7 +1939,8 @@
     "description": "用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。",
     "subtags": [
       "u-table-view-column",
-      "u-table-view-column-config"
+      "u-table-view-column-config",
+      "u-table-view-column-dynamic"
     ]
   },
   "u-table-view-column": {
@@ -1956,6 +1970,19 @@
       "value-field",
       "value",
       "show-footer"
+    ]
+  },
+  "u-table-view-column-dynamic": {
+    "attributes": [
+      "data-source",
+      "data-schema",
+      "value-field",
+      "sortable",
+      "default-order",
+      "fixed",
+      "ellipsis",
+      "hidden",
+      "width"
     ]
   },
   "u-table": {
@@ -2062,8 +2089,11 @@
   },
   "u-time-picker": {
     "attributes": [
-      "time",
       "minUnit",
+      "range",
+      "value",
+      "startTime",
+      "endTime",
       "min-time",
       "max-time",
       "autofocus",
@@ -2175,7 +2205,8 @@
       "value-field",
       "parent-field",
       "children-field",
-      "value"
+      "value",
+      "checkable"
     ],
     "description": "树选择"
   },

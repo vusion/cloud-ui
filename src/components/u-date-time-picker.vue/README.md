@@ -12,6 +12,7 @@
     - [最大值和最小值](#最大值和最小值)
     - [自定义底部](#自定义底部)
     - [方法](#方法)
+    - [范围选择](#范围选择)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -117,12 +118,26 @@ export default {
 </script>
 ```
 
+### 范围选择
+
+``` html
+<u-date-time-picker
+    range
+    start-date="2023-03-10"
+    end-date="2023-03-20"
+    clearable>
+</u-date-time-picker>
+```
+
 ## API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| date.sync, v-model | string, number, Date |  |  | 默认显示的日期时间值，格式如2018-08-08 08:08:08 |
+| range | boolean |  | `false` | 是否支持进行日期时间区间选择，关闭则为日期时间点选择 |
+| value.sync, v-model | string, number, Date |  |  | 默认显示的日期时间值，格式如2018-08-08 08:08:08 |
+| startDate.sync | string,number,Date |  |  | 默认显示的起始日期时间值，格式如2018-08-08 08:08:08 |
+| endDate.sync | string,number,Date |  |  | 默认显示的结束日期时间值，格式如2018-08-08 08:08:08 |
 | minDate | string, number, Date |  |  | 最小可选的日期时间值，填写null则不限制，日期填写格式为“yyyy-mm-dd  00:00:00” |
 | maxDate | string, number, Date |  |  | 最大可选的日期时间值，填写null则不限制，日期填写格式为“yyyy-mm-dd  00:00:00” |
 | yearDiff | number |  | `20` | 最小可选年份值与当前年份值的差值 |
@@ -139,7 +154,7 @@ export default {
 | suffixIcon | string | `[object Object]` |  |  |
 | append-to | string | `[object Object]`<br/>`[object Object]` | `'body'` | 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。 |
 | clearable | boolean |  |  | 可点击清除按钮一键清除内容 |
-| opened | boolean |  | `false` | 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出” |
+| opened | boolean |  | `false` | 弹出状态分为“True(弹出)/False(关闭)”，默认为“关闭” |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 | readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置日期时间选择输入框宽度大小 |

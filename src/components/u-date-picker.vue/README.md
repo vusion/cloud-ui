@@ -12,6 +12,10 @@
     - [月份选择](#月份选择)
     - [季度选择](#季度选择)
     - [年份选择](#年份选择)
+    - [日期范围选择](#日期范围选择)
+    - [月份范围选择](#月份范围选择)
+    - [季度范围选择](#季度范围选择)
+    - [年度范围选择](#年度范围选择)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -191,12 +195,70 @@ export default {
 </script>
 ```
 
+### 日期范围选择
+
+``` html
+<u-date-picker
+    range
+    picker="date"
+    start-date="2023-03-10"
+    end-date="2023-03-20"
+    min-date="2023-02-01"
+    max-date="2023-05-02"
+    clearable>
+</u-date-picker>
+```
+
+### 月份范围选择
+
+``` html
+<u-date-picker
+    range
+    picker="month"
+    start-date="2021-06-10"
+    end-date="2022-03-20"
+    min-date="2021-02-01"
+    max-date="2022-05-02"
+    clearable>
+</u-date-picker>
+```
+
+### 季度范围选择
+
+``` html
+<u-date-picker
+    range
+    picker="quarter"
+    start-date="2021-06-10"
+    end-date="2022-03-20"
+    min-date="2020-12-01"
+    max-date="2022-09-02">
+</u-date-picker>
+```
+
+### 年度范围选择
+
+``` html
+<u-date-picker
+    range
+    picker="year"
+    start-date="2001-06-10"
+    end-date="2013-03-20"
+    min-date="2000-12-01"
+    max-date="2015-09-02">
+</u-date-picker>
+```
+
 ## API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| date.sync, v-model | string,number,Date |  |  | 默认显示的日期值，格式如2018-08-08 |
+| picker | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'date'` | 日期格式设置 |
+| range | boolean |  | `false` | 是否支持进行日期区间选择，关闭则为日期点选择 |
+| value.sync, v-model | string,number,Date |  |  | 默认显示的日期值，格式如2018-08-08 |
+| startDate.sync | string,number,Date |  |  | 默认显示的起始日期值，格式如2018-08-08 |
+| endDate.sync | string,number,Date |  |  | 默认显示的结束日期值，格式如2018-08-08 |
 | minDate | string,number,Date |  |  | 最小可选的日期值，默认为10年前，日期填写格式为“yyyy-mm-dd” |
 | maxDate | string,number,Date |  |  | 最大可选的日期值，默认为9年后，日期填写格式为“yyyy-mm-dd” |
 | time | string, number |  | `'00:00:00'` | 输入对应格式的字符串（8:00:00）即可 |
@@ -206,14 +268,13 @@ export default {
 | placeholder | string |  | `'请输入'` | 为空时显示的占位符文本 |
 | alignment | string | `[object Object]`<br/>`[object Object]` | `'left'` | 日历弹窗对齐方式 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'format'` | 转换器，用于转换时间结果 |
-| picker | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'date'` | 日期格式设置 |
 | preIcon | string | `[object Object]` | `'calendar'` |  |
 | suffixIcon | string | `[object Object]` |  |  |
 | append-to | string | `[object Object]`<br/>`[object Object]` | `'body'` | 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。 |
 | clearable | boolean |  |  | 可点击清除按钮一键清除内容 |
 | readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
-| opened | boolean |  | `false` | 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出” |
+| opened | boolean |  | `false` | 弹出状态分为“True(弹出)/False(关闭)”，默认为“关闭” |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置日期选择输入框宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置日期选择输入框高度大小 |
 

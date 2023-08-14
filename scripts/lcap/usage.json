@@ -4973,6 +4973,15 @@
                     "code": "<template>\n<u-router-view></u-router-view>\n</template>\n"
                 }
             ],
+            "attrs": [
+                {
+                    "name": "disableKeepAlive",
+                    "title": "进入已打开页面时刷新",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "重新进入已打开页面时，会刷新页面"
+                }
+            ],
             "children": []
         }
     },
@@ -23275,7 +23284,7 @@
                     "title": "弹出状态",
                     "type": "boolean",
                     "default": false,
-                    "description": "弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”",
+                    "description": "弹出状态分为“True(弹出)/False(关闭)”，默认为“关闭”",
                     "group": "状态属性",
                     "brifeDoc": "",
                     "docDescription": "开启时加载日期组件时，下拉框自动弹出，默认关闭",
@@ -24191,7 +24200,7 @@
                     "title": "弹出状态",
                     "type": "boolean",
                     "default": false,
-                    "description": "弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”",
+                    "description": "弹出状态分为“True(弹出)/False(关闭)”，默认为“关闭”",
                     "group": "状态属性",
                     "brifeDoc": "",
                     "docDescription": "",
