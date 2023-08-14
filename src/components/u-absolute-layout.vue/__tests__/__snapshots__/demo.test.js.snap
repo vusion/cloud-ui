@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-absolute-layout.vue Demo-基本用法 1`] = `
+<div>
+  <u-absolute-layout><a vusion-slot-name-edit="text" target="_self" tabindex="0" hovertype="underline" class="root">
+      <!----> Button</a></u-absolute-layout>
+</div>
+`;
+
+exports[`u-absolute-layout.vue Demo-自由布局 1`] = `
+<div>
+  <u-absolute-layout></u-absolute-layout>
+</div>
+`;
