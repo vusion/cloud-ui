@@ -20,6 +20,9 @@ export default {
     component: {
         UModalReal,
     },
+    props: {
+        placeholderInDesigner: String,
+    },
     data() {
         return {
             currentVisible: false,
@@ -45,7 +48,7 @@ export default {
         },
         getStyle() {
             const { staticStyle = {}, style = {} } = this.$vnode.data;
-            return {...staticStyle, ...style };
+            return { ...staticStyle, ...style };
         },
     },
     render(h) {
@@ -72,6 +75,7 @@ export default {
                 justifyContent: 'center',
                 display: 'flex',
                 cursor: 'pointer',
+                position: 'relative',
             },
         }, [
             h('u-modal-real', {
@@ -83,6 +87,12 @@ export default {
                 scopedSlots: this.$scopedSlots,
                 ref: 'modal',
             }, slots),
+            h('div', {
+                style: {
+                    position: 'absolute',
+                    left: 0,
+                },
+            }, [this.placeholderInDesigner]),
             h('div', {}, ['双击编辑弹窗']),
         ]);
     },
