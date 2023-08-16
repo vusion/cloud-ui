@@ -90,7 +90,7 @@
       description: ""
       docDescription: 支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
-    - name: alignment
+    - name: _alignment
       title: 纵轴对齐
       type: string
       display: capsules
@@ -119,7 +119,7 @@
       description: ""
       docDescription: 支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
-    - name: justify
+    - name: _justify
       title: 横轴对齐
       type: string
       display: capsules
@@ -343,7 +343,7 @@
       docDescription: 主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
         主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
-    - name: alignment
+    - name: _alignment
       title: 纵轴对齐
       type: string
       display: capsules
@@ -373,7 +373,7 @@
       description: ""
       docDescription: 主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
-    - name: justify
+    - name: _justify
       title: 横轴对齐
       type: string
       display: capsules

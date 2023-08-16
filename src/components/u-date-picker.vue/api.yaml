@@ -144,7 +144,7 @@
       title: 弹出层位置依据
       type: string
       default: body
-      description: 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。
+      description: 设置弹出层依据哪个元素定位位置，可选值：'body'表示添加到 document.body，'reference'表示添加到参考元素中。
       options:
         - value: reference
           title: 引用元素下

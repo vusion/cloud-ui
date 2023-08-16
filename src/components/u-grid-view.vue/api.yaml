@@ -2,12 +2,13 @@
   title: 数据网格
   icon: grid-view
   description: 用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。
+  tsTypeParams: T, V, P extends boolean, M extends boolean, C extends string
   labels:
     - Table
   attrs:
     - name: value
       title: 值
-      type: any
+      type: "M extends true ? (C extends '' ? nasl.collection.List<V> : nasl.core.String) : V"
       sync: true
       model: true
       default: null
@@ -15,21 +16,18 @@
       advanced: true
     - name: field
       title: 文本字段名
-      type: string
-      default: text
+      type: "(item: T) => nasl.core.String"
       description: 选项文本的字段名
       deprecated: true
       advanced: true
     - name: text-field
       title: 文本字段名
-      type: string
-      default: text
+      type: "(item: T) => nasl.core.String"
       description: 选项文本的字段名
       advanced: true
     - name: value-field
       title: 值字段名
-      type: string
-      default: value
+      type: "(item: T) => V"
       description: 选项值的字段名
       advanced: true
     - name: cancelable
@@ -52,7 +50,7 @@
       advanced: true
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function | object | DataSource
+      type: "P extends true ? { list: nasl.collection.List<T>; total: nasl.core.Integer } : nasl.collection.List<T>"
       designer-value: "[{}, {}, {}, {}, {}, {}, {}, {}]"
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
@@ -60,7 +58,7 @@
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
@@ -153,14 +151,14 @@
       tooltipLink: ""
     - name: match-method
       title: 匹配方法
-      type: string, Function
+      type: string
       default: includes
       description: 过滤时的匹配方法
       advanced: true
       group: 数据属性
     - name: case-sensitive
       title: 大小写敏感
-      type: string, Function
+      type: string
       default: includes
       description: 过滤时是否区分大小写
       advanced: true

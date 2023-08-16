@@ -116,11 +116,7 @@
       dependency:
         - direction: horizontal
         - mode: inline
-          direction: horizontal
-        - mode: inline
           direction: vertical
-        - mode: block
-          direction: horizontal
         - mode: block
           direction: vertical
       toggleupdate:
@@ -136,7 +132,7 @@
         主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布，其中平均分布仅在弹性布局模式下展示。
         主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度，其中占满容器宽度仅在弹性布局模式下展示。
       tooltipLink: ""
-    - name: alignment
+    - name: _alignment
       title: 纵轴对齐
       type: string
       display: capsules
@@ -204,7 +200,7 @@
         主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
         主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
-    - name: justify
+    - name: _justify
       title: 横轴对齐
       type: string
       display: capsules
@@ -277,7 +273,7 @@
       tooltipLink: ""
     - name: loadingIcon
       title: 加载中图标
-      type: icon
+      type: string
       default: loading
       description: 加载中状态显示的图标
       group: 状态属性

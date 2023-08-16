@@ -322,7 +322,7 @@
       advanced: true
     - name: span
       title: 占据数
-      type: string
+      type: number
       default: 1
       description: 列跨越的格数
       group: 主要属性
@@ -388,7 +388,7 @@
       tooltipLink: ""
     - name: rules
       title: 验证规则
-      type: string | Array
+      type: string
       description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
       compType: validationRulesSelect
       bindHide: true

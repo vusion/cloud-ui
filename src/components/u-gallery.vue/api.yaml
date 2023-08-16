@@ -4,23 +4,24 @@
   labels:
     - Display
   description: 画廊
+  tsTypeParams: T, V, M extends boolean
   attrs:
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function | object
-      default: '[{"url":
+      type: nasl.collection.List<T>
+      default: [{"url":
         "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_1.png"},{"url":
         "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_2.png"},{"url":
         "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_3.png"},{"url":
         "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_4.png"},{"url":
-        "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_5.png"}]'
+        "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_5.png"}]
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
       docDescription: 组件所展示数据的输入源，可以是逻辑、变量。格式可参见示例
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 集合类型每一元素的数据类型
       group: 数据属性
       compType: dataTypeSelect

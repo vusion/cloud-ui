@@ -168,7 +168,7 @@
       tooltipLink: ""
     - name: icon
       title: 图标
-      type: icon
+      type: string
       default: ""
       description: ""
       group: 主要属性

@@ -212,7 +212,7 @@
       description: 若不配置该属性时，会使用步骤条的当前步骤来自动指定状态；如果该属性与当前步骤指定的状态不匹配会覆盖自动匹配的状态
     - name: icon
       title: 图标
-      type: icon
+      type: string
       default: ""
       description: ""
       group: 主要属性

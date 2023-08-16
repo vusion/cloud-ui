@@ -7,7 +7,7 @@
   attrs:
     - name: name
       title: 图标
-      type: icon
+      type: string
       default: ""
       description: ""
       clearable: true

@@ -96,16 +96,16 @@
       title: 报错位置依据
       type: string
       default: reference
-      description: 设置报错信息依据哪个元素定位位置。可选值：`'body'`表示添加到
-        document.body，`'reference'`表示添加到参考元素中。当父级有overflow:hidden而又想展示出错信息，可以设置为body
+      description: 设置报错信息依据哪个元素定位位置。可选值：'body'表示添加到
+        document.body，'reference'表示添加到参考元素中。当父级有overflow:hidden而又想展示出错信息，可以设置为body
       options:
         - value: reference
           title: 引用元素下
         - value: body
           title: 全局body
       group: 主要属性
-      docDescription: 设置添加到哪个元素。可选值：`'body'`表示添加到
-        document.body，`'reference'`表示添加到参考元素中。当父级有overflow:hidden而又想展示出错信息，可以设置为body
+      docDescription: 设置添加到哪个元素。可选值：'body'表示添加到
+        document.body，'reference'表示添加到参考元素中。当父级有overflow:hidden而又想展示出错信息，可以设置为body
       tooltipLink: ""
     - name: placement
       title: 报错位置方向

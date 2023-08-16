@@ -11,7 +11,7 @@
       description: 鼠标 hover 在图标上展示文案
     - name: icon
       title: 图标
-      type: icon
+      type: string
       default: 通知
       description: ""
       group: 主要属性

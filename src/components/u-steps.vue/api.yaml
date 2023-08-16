@@ -81,7 +81,7 @@
   attrs:
     - name: icon
       title: 图标
-      type: icon
+      type: string
       default: ""
       description: "在该步骤展示的图标"
     - name: title

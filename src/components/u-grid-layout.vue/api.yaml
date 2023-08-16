@@ -218,7 +218,7 @@
       description: ""
       docDescription: 横向：内部子元素进行横向排布，建议内部子元素使用行内布局。纵向：内部子元素进行纵向排布，建议内部子元素使用块级布局。
       tooltipLink: ""
-    - name: justify
+    - name: _justify
       title: 横轴对齐
       type: string
       display: capsules
@@ -293,7 +293,7 @@
       description: ""
       docDescription: 主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
-    - name: alignment
+    - name: _alignment
       title: 纵轴对齐
       type: string
       display: capsules

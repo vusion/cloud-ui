@@ -7,7 +7,7 @@
   attrs:
     - name: formatter
       title: 格式化
-      type: string, object
+      type: string
       description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。
       advanced: true
     - name: value
@@ -23,7 +23,6 @@
     - name: min
       title: 最小值
       type: number
-      default: ""
       description: 最小可输入的值
       group: 数据属性
       docDescription: 限制输入数值的最小值。
@@ -31,7 +30,6 @@
     - name: max
       title: 最大值
       type: number
-      default: ""
       description: 最大可输入的值
       group: 数据属性
       docDescription: 限制输入数值的最大值。

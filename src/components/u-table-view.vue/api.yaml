@@ -4,10 +4,14 @@
   labels:
     - Table
   description: 用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。
+  tsTypeParams: T, V, P extends boolean, M extends boolean
   attrs:
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function | object | DataSource
+      type: "P extends true ? { list: nasl.collection.List<T>; total: nasl.core.Integer } : nasl.collection.List<T>"
+      readable: true
+      readableName: data
+      readableTitle: 数据
       designer-value: "[{}, {}, {}]"
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
@@ -15,7 +19,7 @@
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
@@ -125,9 +129,11 @@
       tooltipLink: ""
     - name: sorting
       title: 初始化排序规则
-      type: "{ field: string, order: string, compare: Function }"
+      type: "{ field: string, order: string }"
       sync: true
-      default: "{ field: undefined, order: 'desc' }"
+      default:
+        field: null
+        order: desc
       description: 设置数据初始化时的排序字段和顺序规则
       group: 数据属性
       docDescription: 支持选择数据表格数据源中的某一条数据，配置默认排序规则，支持升序和降序
@@ -173,14 +179,14 @@
       group: 数据属性
     - name: value-field
       title: 值字段
-      type: string
+      type: '(item: T) => V'
       description: 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段
       group: 数据属性
       docDescription: 在表格开启了单选、多选操作、渲染树形数据中，指定数据唯一值的字段
       tooltipLink: ""
     - name: value
       title: 单选值
-      type: any
+      type: T
       sync: true
       model: true
       description: 用于标识单选选项的值
@@ -189,7 +195,7 @@
       tooltipLink: ""
     - name: values
       title: 多选值
-      type: Array
+      type: nasl.collection.List<T>
       sync: true
       description: 用于标识多选选项的值
       group: 数据属性
@@ -205,7 +211,7 @@
       tooltipLink: ""
     - name: parent-field
       title: 父节点字段
-      type: string
+      type: '(item: T) => V'
       description: 当数据源为平铺数据时自动生成树形数据的节点字段名，重要：值字段名需要一起配置
       group: 数据属性
       dependency:
@@ -215,7 +221,7 @@
     - name: children-field
       title: 子节点字段
       type: string
-      default: children
+      default: '(item: T) => nasl.collection.List<T>'
       description: 树形数据子节点字段名，默认为children
       group: 数据属性
       dependency:
@@ -224,8 +230,7 @@
       tooltipLink: ""
     - name: has-children-field
       title: 包含子节点字段
-      type: string
-      default: hasChildren
+      type: '(item: T) => nasl.core.Boolean'
       description: 该字段指定行数据是否包含子节点数据，默认为hasChildren
       group: 数据属性
       dependency:
@@ -509,6 +514,7 @@
       support:
         - name: u-table-view-column
           title: 表格列
+          tsTypeArguments: T, V, P, M
           snippet: '<u-table-view-column><template #cell="current"></template><template
             #title><u-text
             text="表格列"></u-text></template></u-table-view-column>'
@@ -939,12 +945,12 @@
           type: string
           description: 导出文件名
           required: false
-          default: tableView.params.filename
+          defaultBak: tableView.params.filename
         - name: sort
           type: string
           description: 排序字段
           required: false
-          default: tableView.params.sort
+          defaultBak: tableView.params.sort
         - name: order
           type: string
           options:
@@ -952,9 +958,9 @@
               title: 升序
             - value: desc
               title: 降序
-          description: 排序顺序，'asc' 或 'desc'
+          description: 排序顺序
           required: false
-          default: tableView.params.order
+          defaultBak: tableView.params.order
         - name: excludeColumns
           type: Array<string>
           description: 排除字段
@@ -969,10 +975,11 @@
           required: false
 - name: u-table-view-column
   title: 表格列
+  tsTypeParams: T, V, P extends boolean, M extends boolean
   attrs:
     - name: formatter
       title: 格式器
-      type: string | object | Function | Formatter
+      type: string | object
       default: placeholder
       description: 格式器
       advanced: true
@@ -983,7 +990,7 @@
       advanced: true
     - name: field
       title: 值字段
-      type: string
+      type: '(item: T) => V'
       description: data 项中的字段
       group: 数据属性
       docDescription: 数据项中对应的字段名，如createdTime
@@ -1167,6 +1174,7 @@
   description: 表格列
 - name: u-table-view-column-config
   title: 表格配置列
+  tsTypeParams: T, V
   attrs:
     - name: text-field
       title: 文本字段
@@ -1175,7 +1183,7 @@
       advanced: true
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function | object | DataSource
+      type: nasl.collection.List<T>
       designer-value: "[{}, {}, {}]"
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
@@ -1183,7 +1191,7 @@
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       compType: dataTypeSelect
       group: 数据属性
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
@@ -1191,10 +1199,9 @@
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: value-field
       title: 值字段
-      type: string
+      type: '(item: T) => V'
       description: 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段
       display: property-select
-      default: value
       dependency:
         - "!data-source": null
       dependencyDisplay: disabled
@@ -1203,7 +1210,7 @@
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: value
       title: 值
-      type: any
+      type: V
       sync: true
       model: true
       group: 数据属性

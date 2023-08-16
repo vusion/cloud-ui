@@ -181,7 +181,7 @@
       description: 此项的值
     - name: icon
       title: 图标
-      type: icon
+      type: string
       default: ""
       description: 图标
     - name: disabled

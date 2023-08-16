@@ -9,6 +9,9 @@
     - name: data-source
       title: 数据源
       type: "P extends true ? { list: nasl.collection.List<T>; total: nasl.core.Integer } : nasl.collection.List<T>"
+      readable: true
+      readableName: data
+      readableTitle: 数据
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       group: 数据属性
       docDescription: 支持动态绑定集合类型变量（List<T>）或输出参数为集合类型的逻辑
@@ -24,6 +27,7 @@
     - name: value
       title: 选中值
       type: "M extends true ? (C extends '' ? nasl.collection.List<V> : nasl.core.String) : V"
+      readable: true
       sync: true
       model: true
       description: 当前选中的值
@@ -412,9 +416,11 @@
       support:
         - name: u-select-item
           title: 选项
+          tsTypeArguments: T, V
           snippet: <u-select-item><u-text text="选项"></u-text></u-select-item>
         - name: u-select-group
           title: 分组
+          tsTypeArguments: T, V
           snippet: '<u-select-group><template #title><u-text
             text="分组"></u-text></template><u-select-item><u-text
             text="选项"></u-text></u-select-item></u-select-group>'
@@ -757,6 +763,7 @@
   description: 选择项
 - name: u-select-group
   title: 选择分组
+  tsTypeParams: T, V
   attrs:
     - name: title
       title: 标题
@@ -773,6 +780,7 @@
       description: 插入`<u-select-item>`或`<u-select-divider>`子组件。
       support:
         - name: u-select-item
+          tsTypeArguments: T, V
           title: 选项
           snippet: <u-select-item><u-text text="选项"></u-text></u-select-item>
     - concept: Slot
