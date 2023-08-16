@@ -76,7 +76,6 @@ export default {
                 justifyContent: 'center',
                 display: 'flex',
                 cursor: 'pointer',
-                position: 'relative',
             },
         }, [
             h('u-drawer-real', {
@@ -88,13 +87,7 @@ export default {
                 scopedSlots: this.$scopedSlots,
                 ref: 'drawer',
             }, slots),
-            h('div', {
-                style: {
-                    position: 'absolute',
-                    left: 0,
-                },
-            }, [this.placeholderInDesigner]),
-            h('div', {}, ['双击编辑弹窗']),
+            h('div', {}, [this.placeholderInDesigner]),
         ]);
     },
 };
