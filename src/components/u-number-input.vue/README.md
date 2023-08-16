@@ -135,7 +135,7 @@ export default {
 | value.sync, v-model | number |  | `0` | 输入的值 |
 | min | number |  | `''` | 最小可输入的值 |
 | max | number |  | `''` | 最大可输入的值 |
-| precision | number |  | `1` | 精度，表示数字要保留的最小单位，整数、小数均可 |
+| precision | number |  | `1` | 限制数字输入要保留的最小精度单位，默认不限制精度，如需保留两位小数，则填入0.01 |
 | placeholder | string |  |  | 为空时显示的占位符文本 |
 | autofocus | boolean |  |  | 设置是否自动获取焦点 |
 | hide-buttons | boolean |  | `false` | 是否隐藏上下点击按钮 |
