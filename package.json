@@ -18,7 +18,7 @@
     "dev:dark": "vue-cli-service doc --port 9001 --theme dark",
     "copyimg": "node bin/copy-lcp-images ",
     "build": "vue-cli-service library-build --apply-theme --theme default,dark,seagreen",
-    "build:theme": "npm run check && npm run genThemeConfig && vue-cli-service library-build --dest dist-theme && npm run copyimg && node ./scripts/lcap",
+    "build:theme": "npm run genThemeConfig && vue-cli-service library-build --dest dist-theme && npm run copyimg && node ./scripts/lcap",
     "build:raw": "vue-cli-service library-build --vusion-mode raw --dest dist-raw",
     "build:docs": "vue-cli-service doc-build",
     "build:doc-entry": "cross-env VUE_CLI_SERVICE_CONFIG_PATH=$PWD/vue.config.doc-entry.js vue-cli-service build --output-path dist-doc-entry",
@@ -64,6 +64,7 @@
     "countup.js": "^1.9.3",
     "dayjs": "^1.10.7",
     "dompurify": "^2.0.15",
+    "file-saver": "^2.0.5",
     "fs-extra": "^9.0.1",
     "i-material-design.vue": "^5.1.0",
     "js-yaml": "^3.14.0",
@@ -75,7 +76,7 @@
     "swiper": "^7.4.1",
     "vue-cropper": "^0.5.8",
     "vusion-api": "^0.6.30",
-    "xlsx": "^0.17.3",
+    "xlsx": "^0.17.5",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
@@ -117,7 +118,8 @@
     "vue-router": "3.3.4",
     "vue-template-compiler": "2.6.12",
     "vusion": "^0.12.21",
-    "vusion-hooks": "^0.3.0"
+    "vusion-hooks": "^0.3.0",
+    "worker-loader": "^3.0.8"
   },
   "peerDependencies": {
     "@vusion/utils": "^0.4.9",

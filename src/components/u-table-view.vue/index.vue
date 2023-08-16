@@ -350,7 +350,8 @@ import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
 import UTableViewDropGhost from './drop-ghost.vue';
 import SEmpty from '../../components/s-empty.vue';
-
+import Worker from './download1.worker.js';
+console.log('Worker', Worker)
 export default {
     name: 'u-table-view',
     components: {
@@ -1280,9 +1281,9 @@ export default {
                 if (!this.currentDataSource._load) {
                     content = await this.getRenderResult(this.currentDataSource.data, excludeColumns, hasHeader);
                 } else {
-                    // console.time('加载数据');
                     let res = await this.currentDataSource._load({ page, size, filename, sort, order });
-                    // console.timeEnd('加载数据');
+                    let arr = new Array(1).fill(res.list[0])
+                    res.list = arr;
                     if (res instanceof Object) {
                         if (res.hasOwnProperty('list'))
                             res = res.list;
@@ -1297,15 +1298,40 @@ export default {
                         return;
                     }
 
+                    console.log('wybietest', res)
+                    console.time('加载数据');
                     content = await this.getRenderResult(res, excludeColumns, hasHeader);
+                    console.timeEnd('加载数据');
                 }
 
-                // console.time('生成文件');
+                console.time('生成文件');
                 const columns = this.visibleColumnVMs.length;
                 const sheetData = this.getSheetData(content, hasHeader, columns);
                 const sheetTitle = this.title || undefined;
-                const { exportExcel } = require('../../utils/xlsx');
-                exportExcel(sheetData, 'Sheet1', filename, sheetTitle, columns, hasHeader);
+                console.log('Worker', sheetData, sheetTitle)
+                const myWorker = new Worker();
+                myWorker.onmessage = (e) => {
+                    const type = e.data[0];
+                    switch(type) {
+                        case 'progress':
+                            counter.innerText = e.data[1];
+                            break;
+                        case 'json2sheet':
+                            info.innerHTML += (`<div>json 到 sheet时间：<span>${e.data[1]}ms</span></div>`)
+                            break;
+                        case 'writefile':
+                            info.innerHTML += (`<div>写入文件时间：<span>${e.data[1]}ms</span></div>`)
+                            document.getElementById('total').value = dataCount
+                            break;
+                        case 'downloadurl':
+                            window.saveAs(e.data[1], 'test.xlsx');
+                            info.innerHTML += (`<div>总时间：${Date.now() - time}ms</div>`)
+                            break;
+                    }
+                }
+                myWorker.postMessage(['start', sheetData, sheetTitle, filename]);
+                // const { exportExcel } = require('../../utils/xlsx');
+                // exportExcel(sheetData, 'Sheet1', filename, sheetTitle, columns, hasHeader);
                 // console.timeEnd('生成文件');
             } catch (err) {
                 console.error(err);
