@@ -103,6 +103,11 @@
       name: default
       description: 插入`<u-dropdown-item>`子组件。
       support:
+        - name: u-dropdown-group
+          title: 下拉菜单分组
+          snippet: '<u-dropdown-group><template #title><u-text
+            text="分组"></u-text></template><u-dropdown-item><u-text
+            text="侧边栏项"></u-text></u-dropdown-item></u-dropdown-group>'
         - name: u-dropdown-item
           title: 菜单项
           snippet: <u-dropdown-item><u-text text="选项一"></u-text></u-dropdown-item>
@@ -192,3 +197,56 @@
       description: 点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。
       params: []
   description: 下拉菜单项
+
+
+- name: u-dropdown-group
+  title: 下拉菜单分组
+  attrs:
+    - name: title
+      title: 标题
+      type: string
+      description: 显示的标题
+      advanced: true
+    - name: collapsible
+      title: 可折叠
+      type: boolean
+      default: false
+      description: 设置是否可以展开/折叠
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 设置分组是否可折叠
+      tooltipLink: ""
+    - name: expanded
+      title: 展开状态
+      type: boolean
+      sync: true
+      default: false
+      description: 展开状态分为“True(展开)/False(折叠)”，默认为“展开”
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 设置分组的展开折叠状态。在某些场景下需要预置分组的展开或者折叠状态
+      tooltipLink: ""
+    - name: disabled
+      title: 禁用展开/折叠
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止展开/折叠操作
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: ""
+  slots:
+    - concept: Slot
+      name: default
+      description: 插入`<u-dropdown-item>`子组件。
+      support:
+        - name: u-dropdown-group
+          title: 下拉菜单分组
+          snippet: '<u-dropdown-group><template #title><u-text
+            text="分组"></u-text></template><u-dropdown-item><u-text
+            text="侧边栏项"></u-text></u-dropdown-item></u-dropdown-group>'
+        - name: u-dropdown-item
+          title: 菜单项
+          snippet: <u-dropdown-item><u-text text="选项一"></u-text></u-dropdown-item>
+  description: 侧边栏分组
+

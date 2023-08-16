@@ -32,15 +32,17 @@
             :opened="opened"
             @update:opened="onUpdateOpened"
         >
-            <template v-if="currentDataSource && currentDataSource.data && Array.isArray(currentDataSource.data)">
-                <template v-for="(node, idx) in currentDataSource.data">
+            <template v-if="childrenNodes.length > 0">
+                <template v-for="(node, idx) in childrenNodes">
                     <u-dropdown-group
                         v-if="hasChildren(node)"
                         :key="$at2(node, valueField) || idx"
                         :node="node"
                         :disabled="node.target"
                         :collapsible="$at2(node, collapsibleField)"
-                        :title="$at2(node, textField)"></u-dropdown-group>
+                        :title="$at2(node, textField)"
+                        :inner-idx="idx"
+                        ></u-dropdown-group>
                     <u-dropdown-item
                         v-else
                         :key="`${$at2(node, valueField) || idx}`"
@@ -76,7 +78,7 @@ export default {
     mixins: [MSinglex, MGroupParent],
     props: {
         type: { type: String, default: 'text' },
-        router: { type: Boolean, default: true },
+        router: { type: Boolean, default: false },
         animation: { type: String, default: '1' },
         title: String,
         trigger: { type: String, default: 'click' },
@@ -93,7 +95,6 @@ export default {
             default: 'reference',
             validator: (value) => ['body', 'reference'].includes(value),
         },
-
 
         dataSource: [Array, Object, Function],
         isLeafField: { type: String, default: 'isLeaf' },
@@ -117,6 +118,14 @@ export default {
             loading: false,
         };
     },
+    computed: {
+        childrenNodes() {
+            if (this.currentDataSource && this.currentDataSource.data && Array.isArray(this.currentDataSource.data)) {
+                return this.currentDataSource.data;
+            }
+            return [];
+        },
+    },
     watch: {
         appendTo(appendTo) {
             this.setPopperWidth();
@@ -130,6 +139,7 @@ export default {
             this.handleData();
         },
     },
+
     created() {
         this.$on('select', ({ itemVM }) => this.router && itemVM.navigate());
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
@@ -266,7 +276,9 @@ export default {
         },
         load(params) {
             if (this.$emitPrevent('before-load', undefined, this)) return;
-            if (!this.currentDataSource.load) return;
+            if (!this.currentDataSource.load) {
+                return;
+            }
             this.loading = true;
             this.currentDataSource
                 .load(params)
