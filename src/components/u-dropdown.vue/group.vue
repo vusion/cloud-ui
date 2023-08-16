@@ -1,7 +1,9 @@
 <template>
-    <div :class="$style.root" ref="root" @click.stop="handleClick">
-        <div :class="$style.head">
-            <div :class="$style.title">
+    <div :class="$style.root" ref="root" @click.stop>
+        <div :class="$style.head" vusion-click-enabled>
+            <div
+                :class="$style.title"
+            >
                 <slot name="title">
                     {{ title }}
                 </slot>
@@ -19,7 +21,7 @@
             v-if="!loading"
             :class="$style.popper"
             :reference="$refs.root"
-            trigger="hover"
+            trigger="click"
             placement="right-start"
             :disabled="disabled"
             :append-to="rootVM.appendTo"
@@ -39,7 +41,9 @@
                         :node="childNode"
                         :disabled="childNode.target"
                         :collapsible="$at2(childNode, rootVM.collapsibleField)"
-                        :title="$at2(childNode, rootVM.textField)"></u-dropdown-group>
+                        :title="$at2(childNode, rootVM.textField)"
+                        :inner-idx="idx"
+                        ></u-dropdown-group>
                     <u-dropdown-item
                         v-else
                         :key="`${$at2(childNode, rootVM.valueField) || idx}`"
@@ -75,6 +79,7 @@ export default {
 
     props: {
         node: Object,
+        innerIdx: { type: Number, default: undefined },
     },
 
     data() {
@@ -86,8 +91,12 @@ export default {
 
     computed: {
         popperOffset() {
-            let isFirstItem = true;
-            if (this.parentVM.$slots.default) {
+            let isFirstItem = false;
+            if (this.innerIdx !== undefined) {
+                // 这是由childNodes动态渲染的
+                isFirstItem = this.innerIdx === 0;
+            } else if (Array.isArray(this.parentVM.childrenNodes) && this.parentVM.childrenNodes.length === 0 && this.parentVM.$slots.default) {
+                // 这是由tag模式静态指定
                 isFirstItem = this.parentVM.$slots.default.indexOf(this.$vnode) === 0;
             }
             return isFirstItem ? [-8, 4] : [4, 4];
@@ -113,7 +122,6 @@ export default {
             return this.rootVM.hasChildren(node || this.node);
         },
         toggle(expanded, mode) {
-            console.log('%c [ expanded, mode ]-116', 'font-size:13px; background:pink; color:#bf2c9f;', expanded, mode)
             if (this.disabled || this.parentVM.readonly || this.parentVM.disabled) {
                 return;
             }
@@ -122,9 +130,6 @@ export default {
                 expanded = !this.currentExpanded;
             }
             if (expanded === oldExpanded && !mode) {
-                return;
-            }
-            if (!(this.itemVMs.length || (this.node && !this.$at(this.node, this.rootVM.isLeafField) && this.rootVM.currentDataSource && this.rootVM.currentDataSource.load))) {
                 return;
             }
             let cancel = false;
@@ -172,9 +177,6 @@ export default {
         },
         reload() {
             this.load();
-        },
-        handleClick(...args) {
-            console.log('%c [ ...args ]-87', 'font-size:13px; background:pink; color:#bf2c9f;', ...args)
         },
     },
 };

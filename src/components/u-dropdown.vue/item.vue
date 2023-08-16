@@ -6,10 +6,11 @@
         :disabled="disabled || parentVM.disabled"
         :href="currentHref"
         :target="target"
-        @click="parentVM.router ? onClick($event) : select($event)"
+        @click="handleClick"
         v-on="listeners"
         v-ellipsis-title
-        vusion-slot-name="default">
+        vusion-slot-name="default"
+        vusion-click-enabled>
         <i-ico
             v-if="icon"
             :name="icon"
@@ -29,7 +30,14 @@ export default {
     name: 'u-dropdown-item',
     components: { SEmpty },
     extends: MSinglexItem,
+    groupName: 'u-dropdown-group',
     parentName: 'u-dropdown',
+    methods: {
+        handleClick($event) {
+            console.log('%c [ args ]-36', 'font-size:13px; background:pink; color:#bf2c9f;', $event)
+            this.parentVM.router ? this.onClick($event) : this.select($event) 
+        },
+    },
 };
 </script>
 
