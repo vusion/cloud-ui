@@ -128,7 +128,7 @@ export default {
     mounted() {
         // Must trigger `value` watcher at mounted hook.
         // If not, nodeVMs have not been pushed.
-        this.watchValue(this.value);
+        this.watchValue(this.value, true);
     },
     methods: {
         handleData() {
@@ -211,9 +211,9 @@ export default {
 
             return final;
         },
-        watchValue(value) {
+        watchValue(value, isMounted = false) {
             if (this.checkable) {
-                return this.watchValues(value);
+                return this.watchValues(value, isMounted);
             }
 
             if (this.selectedVM && this.selectedVM.value === value)
@@ -231,13 +231,13 @@ export default {
                 }
             }
         },
-        watchValues(values) {
+        watchValues(values, isMounted = false) {
             if (values) {
                 this.currentValues = values;
                 this.walk((nodeVM) => {
                     if (values.includes(nodeVM.value)) {
                         nodeVM.check(true);
-                    } else {
+                    } else if (isMounted) {
                         nodeVM.check(false);
                     }
                 });
