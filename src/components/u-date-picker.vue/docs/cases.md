@@ -94,14 +94,14 @@ export default {
         <u-date-picker
             :value.sync="date"
             picker="week"
-            :advanced-format="{ enable: false, value: 'YYYY年第Q季度' }"
+            :advanced-format="{ enable: true, value: 'GGGG年第W周' }"
             width="large"
             clearable
             @change="onChange"
             @slect="onSelect"
             @toggle="onToggle">
         </u-date-picker>
-    </div> 
+    </div>
 </template>
 <script>
 export default {

@@ -190,6 +190,7 @@ const expressions = {
         },
     ],
     YYYY: [match4, addInput('year')],
+    GGGG: [match4, addInput('year')],
     Z: zoneExpressions,
     ZZ: zoneExpressions,
 };
