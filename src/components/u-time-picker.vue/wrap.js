@@ -28,3 +28,8 @@ export default {
         });
     },
 };
+
+export const formatterOptions = {
+    second: ['HH:mm:ss', 'HH时mm分ss秒'],
+    minute: ['HH:mm', 'HH时mm分'],
+};

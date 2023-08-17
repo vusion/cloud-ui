@@ -14312,6 +14312,108 @@
                     "tooltipLink": ""
                 },
                 {
+                    "name": "advanced-format",
+                    "title": "高级格式化",
+                    "type": "{ enable: boolean, value: string }",
+                    "default": "{ enable: false, value: '' }",
+                    "description": "用来控制数字的展示格式",
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "decimal-places",
+                    "title": "小数位数",
+                    "type": "{ places: number, omit: boolean }",
+                    "default": "{ places: 0, omit: true }",
+                    "compose": [
+                        {
+                            "key": "places",
+                            "type": "number",
+                            "min": 0
+                        },
+                        {
+                            "key": "omit",
+                            "type": "switch",
+                            "suffix": "隐藏末尾0"
+                        }
+                    ],
+                    "description": "用来控制小数位数",
+                    "dependency": [
+                        {
+                            "advanced-format.enable": false
+                        }
+                    ],
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "thousandths",
+                    "title": "千位符",
+                    "type": "boolean",
+                    "default": false,
+                    "desciption": "是否显示千位符",
+                    "dependency": [
+                        {
+                            "advanced-format.enable": false
+                        }
+                    ],
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "percent-sign",
+                    "title": "百分号",
+                    "type": "boolean",
+                    "default": false,
+                    "desciption": "是否显示百分号",
+                    "dependency": [
+                        {
+                            "advanced-format.enable": false
+                        }
+                    ],
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "unit",
+                    "title": "单位",
+                    "type": "{ type: string, value: string }",
+                    "default": "{ type: 'prefix', value: '' }",
+                    "compose": [
+                        {
+                            "key": "type",
+                            "type": "select",
+                            "options": [
+                                {
+                                    "value": "prefix",
+                                    "title": "前缀"
+                                },
+                                {
+                                    "value": "suffix",
+                                    "title": "后缀"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "value",
+                            "type": "text"
+                        }
+                    ],
+                    "description": "输入框中显示的单位",
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
                     "name": "placeholder",
                     "title": "占位符",
                     "type": "string",
@@ -22967,12 +23069,16 @@
             "attrs": [
                 {
                     "name": "picker",
-                    "title": "日期格式",
+                    "title": "日期类型",
                     "type": "string",
                     "options": [
                         {
                             "title": "日期",
                             "value": "date"
+                        },
+                        {
+                            "title": "周",
+                            "value": "week"
                         },
                         {
                             "title": "月份",
@@ -23072,6 +23178,7 @@
                     "default": "00:00:00",
                     "description": "输入对应格式的字符串（8:00:00）即可",
                     "group": "数据属性",
+                    "advanced": true,
                     "brifeDoc": "",
                     "docDescription": "",
                     "tooltipLink": ""
@@ -23107,6 +23214,169 @@
                             "!range": true
                         }
                     ]
+                },
+                {
+                    "name": "advanced-format",
+                    "title": "高级格式化",
+                    "type": "{ enable: boolean, value: string }",
+                    "default": "{ enable: false, value: '' }",
+                    "description": "",
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "show-formatter",
+                    "title": "日期展示格式",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "YYYY年M月D日",
+                            "title": "中国（2023年7月26日）",
+                            "dependency": [
+                                {
+                                    "picker": "date"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "YYYY-MM-DD",
+                            "title": "ISO（2023-07-26）",
+                            "dependency": [
+                                {
+                                    "picker": "date"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "M/D/YYYY",
+                            "title": "US（7/26/2023）",
+                            "dependency": [
+                                {
+                                    "picker": "date"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "D/M/YYYY",
+                            "title": "EU（26/7/2023）",
+                            "dependency": [
+                                {
+                                    "picker": "date"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "GGGG-W周",
+                            "title": "2023-28周",
+                            "dependency": [
+                                {
+                                    "picker": "week"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "GGGG年第W周",
+                            "title": "2023年第28周",
+                            "dependency": [
+                                {
+                                    "picker": "week"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "GGGG-WWWW",
+                            "title": "2023-W28",
+                            "dependency": [
+                                {
+                                    "picker": "week"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "YYYY年M月",
+                            "title": "中国（2023年7月）",
+                            "dependency": [
+                                {
+                                    "picker": "month"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "YYYY-MM",
+                            "title": "ISO（2023-07）",
+                            "dependency": [
+                                {
+                                    "picker": "month"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "M/YYYY",
+                            "title": "US/EU（7/2023）",
+                            "dependency": [
+                                {
+                                    "picker": "month"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "YYYY年第Q季度",
+                            "title": "2023年第3季度",
+                            "dependency": [
+                                {
+                                    "picker": "quarter"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "YYYY年QQQ",
+                            "title": "2023年Q3",
+                            "dependency": [
+                                {
+                                    "picker": "quarter"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "YYYY-QQQ",
+                            "title": "2023-Q3",
+                            "dependency": [
+                                {
+                                    "picker": "quarter"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "YYYY年",
+                            "title": "中国（2023年）",
+                            "dependency": [
+                                {
+                                    "picker": "year"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "YYYY",
+                            "title": "ISO（2023）",
+                            "dependency": [
+                                {
+                                    "picker": "year"
+                                }
+                            ]
+                        }
+                    ],
+                    "description": "",
+                    "dependency": [
+                        {
+                            "advanced-format.enable": false
+                        }
+                    ],
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
                 },
                 {
                     "name": "autofocus",
@@ -23586,6 +23856,70 @@
                     "tooltipLink": ""
                 },
                 {
+                    "name": "advanced-format",
+                    "title": "高级格式化",
+                    "type": "{ enable: boolean, value: string }",
+                    "default": "{ enable: false, value: '' }",
+                    "description": "",
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "show-formatter",
+                    "title": "时间展示格式",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "HH:mm:ss",
+                            "title": "12:09:09",
+                            "dependency": [
+                                {
+                                    "minUnit": "second"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "HH时mm分ss秒",
+                            "title": "12时09分09秒",
+                            "dependency": [
+                                {
+                                    "minUnit": "second"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "HH:mm",
+                            "title": "12:09",
+                            "dependency": [
+                                {
+                                    "minUnit": "minute"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "HH时mm分",
+                            "title": "12时09分",
+                            "dependency": [
+                                {
+                                    "minUnit": "minute"
+                                }
+                            ]
+                        }
+                    ],
+                    "description": "",
+                    "dependency": [
+                        {
+                            "advanced-format.enable": false
+                        }
+                    ],
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
                     "name": "autofocus",
                     "title": "自动获取焦点",
                     "type": "boolean",
@@ -24008,6 +24342,77 @@
                             "!range": true
                         }
                     ]
+                },
+                {
+                    "name": "advanced-format",
+                    "title": "高级格式化",
+                    "type": "{ enable: boolean, value: string }",
+                    "default": "{ enable: false, value: '' }",
+                    "description": "",
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "show-date-formatter",
+                    "title": "日期展示格式",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "YYYY年M月D日",
+                            "title": "中国（2023年7月26日）"
+                        },
+                        {
+                            "value": "YYYY-MM-DD",
+                            "title": "ISO（2023-07-26）"
+                        },
+                        {
+                            "value": "M/D/YYYY",
+                            "title": "US（7/26/2023）"
+                        },
+                        {
+                            "value": "D/M/YYYY",
+                            "title": "EU（26/7/2023）"
+                        }
+                    ],
+                    "default": "YYYY-MM-DD",
+                    "description": "",
+                    "dependency": [
+                        {
+                            "advanced-format.enable": false
+                        }
+                    ],
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "show-time-formatter",
+                    "title": "时间展示格式",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "HH:mm:ss",
+                            "title": "12:09:09"
+                        },
+                        {
+                            "value": "HH时mm分ss秒",
+                            "title": "12时09分09秒"
+                        }
+                    ],
+                    "default": "HH:mm:ss",
+                    "description": "",
+                    "dependency": [
+                        {
+                            "advanced-format.enable": false
+                        }
+                    ],
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
                 },
                 {
                     "name": "placeholder",

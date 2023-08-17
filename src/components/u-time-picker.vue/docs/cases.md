@@ -67,3 +67,32 @@ export default {
     </u-form-item>
 </u-form>
 ```
+
+### 格式化
+
+``` vue
+<template>
+    <u-time-picker
+        range
+        :start-time.sync="starTime"
+        :end-time.sync="endTime"
+        @change="onChange"
+        :advanced-format="{ enable: true, value: 'HH时mm分ss秒' }">
+    </u-time-picker>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            starTime: '12:46:33',
+            endTime: '18:18:33',
+        };
+    },
+    methods: {
+        onChange(event) {
+            console.log(event);
+        },
+    },
+};
+</script>
+```

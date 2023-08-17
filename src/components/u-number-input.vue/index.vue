@@ -3,12 +3,19 @@
         :readonly="readonly" :disabled="disabled" :clearable="clearable"
         @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
         @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside"
-        :hideButtons="hideButtons" :color="formItemVM && formItemVM.color">
+        :hideButtons="hideButtons" :color="formItemVM && formItemVM.color" :prefix="!!showPrefix" :suffix="!!showSuffix">
         <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue >= max" role="up" v-repeat-click="increase"
             tabindex="0" @keydown.prevent></span>
         <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue <= min" role="down" v-repeat-click="decrease"
             tabindex="0" @keydown.prevent></span>
         <slot></slot>
+
+        <template #prefix>
+            <span v-if="showPrefix">{{ unit && unit.value }}</span>
+        </template>
+        <template #suffix>
+            <span v-if="showSuffix">{{ unit && unit.value }}</span>
+        </template>
     </u-input>
 </template>
 
@@ -35,12 +42,43 @@ export default {
         // 按钮呈现形式 tail ｜ bothEnds
         buttonDisplay: {
             type: String,
-            default: 'tail'
+            default: 'tail',
         },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         clearable: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
+
+        // 高级格式化
+        advancedFormat: {
+            type: Object,
+            default: () => ({
+                enable: false,
+                value: '',
+            }),
+        },
+        thousandths: {
+            type: Boolean,
+            default: false,
+        },
+        decimalPlaces: {
+            type: Object,
+            default: () => ({
+                places: 0,
+                omit: true,
+            }),
+        },
+        percentSign: {
+            type: Boolean,
+            default: false,
+        },
+        unit: {
+            type: Object,
+            default: () => ({
+                type: 'prefix',
+                value: '',
+            }),
+        },
     },
     data() {
         // 根据初始值计算 fix 精度
@@ -59,6 +97,46 @@ export default {
             data.currentFormatter = new NumberFormatter(this.formatter);
         else
             data.currentFormatter = noopFormatter; // 初始值需要在最小值和最大值范围之内
+
+        // advancedFormat最高权限
+        if (this.advancedFormat) {
+            let formatter = '';
+
+            if (this.advancedFormat.enable) {
+                formatter = this.advancedFormat.value;
+            } else {
+                formatter = '0';
+
+                // 千分位
+                if (this.thousandths) {
+                    formatter = `#,##0`;
+                }
+
+                // 小数位数
+                if (this.decimalPlaces && this.decimalPlaces.places > 0) {
+                    formatter += '.';
+
+                    const char = this.decimalPlaces.omit ? '#' : '0';
+                    for (let i = 0; i < this.decimalPlaces.places; i++) {
+                        formatter += char;
+                    }
+                }
+
+                // 单位
+                // if (this.unit && this.unit.value) {
+                //     if (this.unit.type === 'prefix') {
+                //         formatter = `${this.unit.value} ${formatter}`;
+                //     } else if (this.unit.type === 'suffix') {
+                //         formatter = `${formatter} ${this.unit.value}`;
+                //     }
+                // }
+            }
+
+            data.currentFormatter = new NumberFormatter(formatter, !this.advancedFormat.enable && {
+                percentSign: this.percentSign, // 百分比
+            });
+        }
+
         data.formattedValue = data.currentFormatter.format(data.currentValue);
 
         return data;
@@ -70,6 +148,12 @@ export default {
                 delete listeners[prop];
             });
             return listeners;
+        },
+        showPrefix() {
+            return this.unit && this.unit.type === 'prefix';
+        },
+        showSuffix() {
+            return this.unit && this.unit.type === 'suffix';
         },
     },
     watch: {
@@ -106,7 +190,6 @@ export default {
             value = Math.round(this.strip(value / precision)) * precision; // 最大最小约束
             value = Math.min(Math.max(this.min, value), this.max); // 保留小数位数
             value = +value.toFixed(precision < 1 ? -Math.floor(Math.log10(precision)) : 0);
-
             return value;
         },
         /**
@@ -115,7 +198,7 @@ export default {
          */
         computePrecision(value) {
             // 优先使用精度设置的值
-            if(this.precision !== 0 && this.step === 0)
+            if (this.precision !== 0 && this.step === 0)
                 return this.precision;
             // 没有精度的情况下，需要判断value和step的值
             if ((typeof value === 'string' && value.trim() === '') || value === null || value === undefined)
@@ -124,7 +207,7 @@ export default {
                 value = this.currentValue || this.defaultValue || 0;
             const arr = String(value).split('.');
             let precisionLength = arr[1] ? arr[1].length : 0;
-            if(this.precision === 0 && this.step !== 0) {
+            if (this.precision === 0 && this.step !== 0) {
                 const arr = String(this.step).split('.');
                 precisionLength = arr[1] && arr[1].length > precisionLength ? arr[1].length : precisionLength;
             }
@@ -219,13 +302,14 @@ export default {
         },
         onBlur(e) {
             const inputValue = this.$refs.input.currentValue;
+
             this.input(isNil(inputValue) ? inputValue : this.currentFormatter.parse(inputValue));
             if (this.preventBlur)
                 return (this.preventBlur = false);
             this.$emit('blur', e, this);
         },
-        handleClickOutside(){
-            if(this.hasFocus){
+        handleClickOutside() {
+            if (this.hasFocus) {
                 this.$emit('blur');
                 this.hasFocus = false;
             }
