@@ -1,9 +1,17 @@
 <template>
     <div :class="$style.root" ref="root" @click.stop>
-        <div :class="$style.head" vusion-click-enabled>
+        <div :class="$style.head" :selected="selected" vusion-click-enabled>
             <div
                 :class="$style.title"
+                vusion-slot-name="title"
+                vusion-slot-name-edit="title"
             >
+                <i-ico
+                    v-if="icon"
+                    :name="icon"
+                    :class="$style.singleicon"
+                    notext
+                ></i-ico>
                 <slot name="title">
                     {{ title }}
                 </slot>
@@ -21,7 +29,7 @@
             v-if="!loading"
             :class="$style.popper"
             :reference="$refs.root"
-            trigger="click"
+            :trigger="rootVM.trigger"
             placement="right-start"
             :disabled="disabled"
             :append-to="rootVM.appendTo"
@@ -30,18 +38,15 @@
             :offset="popperOffset"
             >
             <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true">
-                <!-- <div :class="$style.loading" v-if="loading">
-                    <u-spinner></u-spinner>
-                    <span :class="$style.loading_text">正在加载中...</span>
-                </div> -->
                 <template v-for="(childNode, idx) in childrenNodes">
                     <u-dropdown-group
                         v-if="hasChildren(childNode)"
                         :key="$at2(childNode, rootVM.valueField) || idx"
                         :node="childNode"
-                        :disabled="childNode.target"
+                        :disabled="childNode.disabled"
                         :collapsible="$at2(childNode, rootVM.collapsibleField)"
                         :title="$at2(childNode, rootVM.textField)"
+                        :icon="$at2(node, rootVM.iconField)"
                         :inner-idx="idx"
                         ></u-dropdown-group>
                     <u-dropdown-item
@@ -54,8 +59,9 @@
                         :icon="$at2(childNode, rootVM.iconField)"
                         :link-type="$at2(childNode, rootVM.linkTypeField)"
                         :href-and-to="$at2(childNode, rootVM.hrefAndToField)"
+                        :to="$at2(childNode, rootVM.toField)"
                         :target="$at2(childNode, rootVM.targetField)"
-                        :disabled="childNode.target"></u-dropdown-item>
+                        :disabled="childNode.disabled"></u-dropdown-item>
                 </template>
                 <slot></slot>
                 <div v-if="!$slots.default && !hasChildren(node) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']" vusion-empty-background="add-sub" style="padding: 20px 0"></div>
@@ -80,6 +86,7 @@ export default {
     props: {
         node: Object,
         innerIdx: { type: Number, default: undefined },
+        icon: String,
     },
 
     data() {
@@ -90,6 +97,9 @@ export default {
     },
 
     computed: {
+        selected() {
+            return this.itemVMs.some((item) => item.active);
+        },
         popperOffset() {
             let isFirstItem = false;
             if (this.innerIdx !== undefined) {
