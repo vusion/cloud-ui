@@ -17,7 +17,7 @@ module.exports = {
     "^.+\\.js$": "babel-jest"
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(@vusion|swiper|ssr-window|dom7)/)',
+    'node_modules/(?!(@vusion|swiper|ssr-window|dom7|dayjs)/)',
   ],
   moduleNameMapper: {
     "\\.(css|less)$": "<rootDir>/scripts/test/__mocks__/styleMock.js",
