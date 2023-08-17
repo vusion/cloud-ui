@@ -128,7 +128,7 @@ export default {
     mounted() {
         // Must trigger `value` watcher at mounted hook.
         // If not, nodeVMs have not been pushed.
-        this.watchValue(this.value);
+        this.watchValue(this.value, true);
     },
     methods: {
         handleData() {
@@ -211,9 +211,9 @@ export default {
 
             return final;
         },
-        watchValue(value) {
+        watchValue(value, isMounted = false) {
             if (this.checkable) {
-                return this.watchValues(value);
+                return this.watchValues(value, isMounted);
             }
 
             if (this.selectedVM && this.selectedVM.value === value)
@@ -231,12 +231,15 @@ export default {
                 }
             }
         },
-        watchValues(values) {
+        watchValues(values, isMounted = false) {
             if (values) {
                 this.currentValues = values;
                 this.walk((nodeVM) => {
-                    if (values.includes(nodeVM.value))
-                        nodeVM.check(true, true);
+                    if (values.includes(nodeVM.value)) {
+                        nodeVM.check(true);
+                    } else if (isMounted) {
+                        nodeVM.check(false);
+                    }
                 });
             } else {
                 const values = [];
@@ -250,6 +253,10 @@ export default {
                     }
                 });
                 this.currentValues = values;
+                if (values.length > 0) {
+                    // 在组件非受控的情况下，当默认有值选中时，上报初始值以便外层组件数据同步
+                    this.$emit('update:value', this.currentValues, this);
+                }
             }
         },
         select(nodeVM) {
