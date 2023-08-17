@@ -38,9 +38,10 @@
                         v-if="hasChildren(node)"
                         :key="$at2(node, valueField) || idx"
                         :node="node"
-                        :disabled="node.target"
+                        :disabled="node.disabled"
                         :collapsible="$at2(node, collapsibleField)"
                         :title="$at2(node, textField)"
+                        :icon="$at2(node, iconField)"
                         :inner-idx="idx"
                         ></u-dropdown-group>
                     <u-dropdown-item
@@ -53,6 +54,7 @@
                         :icon="$at2(node, iconField)"
                         :link-type="$at2(node, linkTypeField)"
                         :href-and-to="$at2(node, hrefAndToField)"
+                        :to="$at2(node, toField)"
                         :target="$at2(node, targetField)"
                         :disabled="node.disabled"></u-dropdown-item>
                 </template>
@@ -105,6 +107,7 @@ export default {
         replaceField: { type: String, default: 'replace' },
         exactField: { type: String, default: 'exact' },
         iconField: { type: String, default: 'icon' },
+        toField: { type: String, default: 'to' },
         linkTypeField: { type: String, default: 'linkType' },
         hrefAndToField: { type: String, default: 'hrefAndTo' },
         targetField: { type: String, default: 'target' },

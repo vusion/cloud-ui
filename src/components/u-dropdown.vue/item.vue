@@ -3,13 +3,14 @@
         :class="$style.root"
         :selected="parentVM.router ? active : isSelected"
         :readonly="parentVM.readonly"
-        :disabled="disabled || parentVM.disabled"
+        :disabled="disabled || parentVM.disabled || (groupVM && groupVM.disabled)"
         :href="currentHref"
         :target="target"
-        @click="handleClick"
+        @click="parentVM.router ? onClick($event) : select($event)"
         v-on="listeners"
         v-ellipsis-title
         vusion-slot-name="default"
+        vusion-slot-name-edit="text"
         vusion-click-enabled>
         <i-ico
             v-if="icon"
@@ -24,6 +25,7 @@
 
 <script>
 import { MSinglexItem } from '../m-singlex.vue';
+import ULink from '../u-link.vue';
 import SEmpty from '../s-empty.vue';
 
 export default {
@@ -33,9 +35,22 @@ export default {
     groupName: 'u-dropdown-group',
     parentName: 'u-dropdown',
     methods: {
-        handleClick($event) {
-            console.log('%c [ args ]-36', 'font-size:13px; background:pink; color:#bf2c9f;', $event)
-            this.parentVM.router ? this.onClick($event) : this.select($event) 
+        onClick(e) {
+            if (this.disabled || this.parentVM.readonly || this.parentVM.disabled)
+                return e.preventDefault();
+            ULink.methods.onClick.call(this, e);
+            if (this.parentVM.router) {
+                let cancel = false;
+                this.$emit('before-select', {
+                    value: this.value,
+                    item: this.item,
+                    itemVM: this,
+                    preventDefault: () => (cancel = true),
+                }, this);
+                if (cancel)
+                    return;
+                this.parentVM.select(this);
+            }
         },
     },
 };
