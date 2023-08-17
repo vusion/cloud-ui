@@ -1,9 +1,9 @@
 <template>
-    <u-input ref="input" :class="$style.root" :button-display="buttonDisplay" :value="formattedValue"
+    <u-input ref="input" :class="$style.root" :buttonDisplay="buttonDisplay" :value="formattedValue"
         :readonly="readonly" :disabled="disabled" :clearable="clearable"
         @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
         @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside"
-        :hide-buttons="hideButtons" :color="formItemVM && formItemVM.color" :prefix="!!showPrefix" :suffix="!!showSuffix">
+        :hideButtons="hideButtons" :color="formItemVM && formItemVM.color" :prefix="!!showPrefix" :suffix="!!showSuffix">
         <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue >= max" role="up" v-repeat-click="increase"
             tabindex="0" @keydown.prevent></span>
         <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue <= min" role="down" v-repeat-click="decrease"
