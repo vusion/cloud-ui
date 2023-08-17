@@ -31,7 +31,7 @@
                     v-if="hasChildren(childNode)"
                     :key="$at2(childNode, rootVM.valueField) || idx"
                     :node="childNode"
-                    :disabled="childNode.target"
+                    :disabled="childNode.disabled"
                     :collapsible="$at2(childNode, rootVM.collapsibleField)"
                     :title="$at2(childNode, rootVM.textField)"
                 ></u-sidebar-group>
@@ -44,8 +44,9 @@
                     :icon="$at2(childNode, rootVM.iconField)"
                     :link-type="$at2(childNode, rootVM.linkTypeField)"
                     :href-and-to="$at2(childNode, rootVM.hrefAndToField)"
+                    :to="$at2(childNode, rootVM.toField)"
                     :target="$at2(childNode, rootVM.targetField)"
-                    :disabled="childNode.target"
+                    :disabled="childNode.disabled"
                 ></u-sidebar-item>
             </template>
             <slot></slot>
