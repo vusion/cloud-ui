@@ -23077,6 +23077,10 @@
                             "value": "date"
                         },
                         {
+                            "title": "周",
+                            "value": "week"
+                        },
+                        {
                             "title": "月份",
                             "value": "month"
                         },
@@ -23260,6 +23264,33 @@
                             "dependency": [
                                 {
                                     "picker": "date"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "GGGG-W周",
+                            "title": "2023-28周",
+                            "dependency": [
+                                {
+                                    "picker": "week"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "GGGG年第W周",
+                            "title": "2023年第28周",
+                            "dependency": [
+                                {
+                                    "picker": "week"
+                                }
+                            ]
+                        },
+                        {
+                            "value": "GGGG-WWWW",
+                            "title": "2023-W28",
+                            "dependency": [
+                                {
+                                    "picker": "week"
                                 }
                             ]
                         },

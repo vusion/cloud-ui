@@ -11,6 +11,8 @@
       options:
         - title: 日期
           value: date
+        - title: 周
+          value: week
         - title: 月份
           value: month
         - title: 季度
@@ -134,6 +136,18 @@
           title: EU（26/7/2023）
           dependency:
             - picker: date
+        - value: GGGG-W周
+          title: 2023-28周
+          dependency:
+            - picker: week
+        - value: GGGG年第W周
+          title: 2023年第28周
+          dependency:
+            - picker: week
+        - value: GGGG-WWWW
+          title: 2023-W28
+          dependency:
+            - picker: week
         - value: YYYY年M月
           title: 中国（2023年7月）
           dependency:
