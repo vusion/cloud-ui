@@ -83,6 +83,24 @@ export default {
             // 所以这里需要再增加input emit
             this.$emit('input', this.currentValue, this);
         },
+        max(value, oldValue) {
+            // todo: 正常情况下，formattedValue应该设计为computed，目前在不影响的情况下，手动watch
+            if (value !== oldValue) {
+                // 根据传入的 value 调整 fix 精度
+                const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
+                const currentValue = (this.currentValue = this.fix(value, currentPrecision));
+                this.formattedValue = this.currentFormatter.format(currentValue);
+            }
+        },
+        min(value, oldValue) {
+            // todo: 正常情况下，formattedValue应该设计为computed，目前在不影响的情况下，手动watch
+            if (value !== oldValue) {
+                // 根据传入的 value 调整 fix 精度
+                const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
+                const currentValue = (this.currentValue = this.fix(value, currentPrecision));
+                this.formattedValue = this.currentFormatter.format(currentValue);
+            }
+        },
     },
     created() {
         const value = this.currentValue;
