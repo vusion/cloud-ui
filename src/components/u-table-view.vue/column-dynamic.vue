@@ -34,9 +34,6 @@ export default {
         this.$contact(this.$options.parentName, (parentVM) => {
             // 清除添加的
             this.clearVms(parentVM);
-            // 清除自己
-            parentVM.columnVMs.splice(parentVM.columnVMs.indexOf(this), 1);
-            this.parentVM = undefined;
             parentVM.dynamicColumnVM = undefined;
         });
     },
