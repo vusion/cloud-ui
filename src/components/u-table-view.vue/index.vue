@@ -137,7 +137,7 @@
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click.stop="toggleExpanded(item)"></span>
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: number2Pixel(20 * item.tableTreeItemLevel) }"></span>
-                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
+                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.treeExpanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- Normal text -->
@@ -186,7 +186,7 @@
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" :disabled="item.disabled" @click.stop="toggleExpanded(item)"></span>
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: number2Pixel(20 * item.tableTreeItemLevel) }"></span>
-                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
+                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.treeExpanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- type === 'dragHandler' -->
@@ -488,6 +488,7 @@ export default {
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
             configColumnVM: undefined,
             dynamicColumnVM: undefined,
+            slots: this.$slots,
         };
     },
     computed: {
@@ -530,10 +531,26 @@ export default {
             if (!this.currentData)
                 return;
             let checkedLength = 0;
-            this.currentData.forEach((item) => {
-                if (item.checked)
-                    checkedLength++;
-            });
+
+            if (this.values === undefined) {
+                this.currentData.forEach((item) => {
+                    if (item.checked)
+                        checkedLength++;
+                });
+            } else {
+                if (this.valueField) {
+                    const hashSet = new Set();
+                    this.currentData.forEach((item) => {
+                        const id = this.$at(item, this.valueField);
+                        hashSet.add(id);
+                    });
+
+                    checkedLength = this.currentValues.filter((v) => hashSet.has(v)).length;
+                } else {
+                    checkedLength = this.currentValues.length;
+                }
+            }
+
             if (checkedLength === 0)
                 return false;
             else if (checkedLength === this.currentData.length)
@@ -703,6 +720,12 @@ export default {
             this.initialLoad && this.page(this.pageNumber);
         } else {
             this.initialLoad && this.load();
+        }
+    },
+    updated() {
+        if (this.$env.VUE_APP_DESIGNER && this.slots !== this.$slots && !this.data && !this.dataSource) {
+            this.slots = this.$slots;
+            this.$forceUpdate();
         }
     },
     mounted() {
@@ -1281,7 +1304,7 @@ export default {
                 const columns = this.visibleColumnVMs.length;
                 const sheetData = this.getSheetData(content, hasHeader, columns);
                 const sheetTitle = this.title || undefined;
-                const { exportExcel } = await import(/* webpackChunkName: 'xlsx' */ '../../utils/xlsx');
+                const { exportExcel } = require('../../utils/xlsx');
                 exportExcel(sheetData, 'Sheet1', filename, sheetTitle, columns, hasHeader);
                 // console.timeEnd('生成文件');
             } catch (err) {
@@ -1393,7 +1416,8 @@ export default {
             return sheetData;
         },
         page(number, size) {
-            if (!this.currentDataSource?.paging) return;
+            if (!(this.currentDataSource && this.currentDataSource.paging))
+                return;
             if (size === undefined)
                 size = this.currentDataSource.paging.size;
             const paging = {
@@ -1685,6 +1709,7 @@ export default {
                 return;
             this.$set(item, 'expanded', expanded);
             this.$emit('toggle-expanded', { item, expanded }, this);
+            this.$forceUpdate();
             if (expanded && this.accordion) {
                 this.currentData.forEach((otherItem) => {
                     if (otherItem !== item && otherItem.expanded)
@@ -1695,7 +1720,7 @@ export default {
         /**
          * 转换成平铺型数据
          */
-        processTreeData(data, level = 0, parent) {
+        processTreeData(data, level = 0, parent, ancestors = []) {
             let newData = [];
             for (const item of data) {
                 item.tableTreeItemLevel = level;
@@ -1703,28 +1728,39 @@ export default {
                 if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
                     this.$setAt(item, this.hasChildrenField, true);
                     item.expanded = item.expanded || false;
+                    item.treeExpanded = item.treeExpanded || false;
                 }
                 if (parent) {
-                    this.$set(item, 'display', parent.expanded ? '' : 'none');
+                    this.$set(item, 'display', needHidden(ancestors) ? 'none' : '');
                 }
                 if (!item.hasOwnProperty('loading')) {
                     this.$set(item, 'loading', false);
                 }
                 newData.push(item);
                 if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
-                    newData = newData.concat(this.processTreeData(this.$at(item, this.childrenField), level + 1, item));
+                    newData = newData.concat(this.processTreeData(this.$at(item, this.childrenField), level + 1, item, ancestors.concat(item)));
                 }
             }
             return newData;
+
+            // 只要任意祖先节点的treeExpanded为false,当前节点都不显示。
+            function needHidden(ancestors) {
+                for (const item of ancestors) {
+                    if (!item.treeExpanded) {
+                        return true;
+                    }
+                }
+                return false;
+            }
         },
         toggleTreeExpanded(item, expanded) {
             if (item.loading)
                 return;
             if (expanded === undefined)
-                expanded = !item.expanded;
+                expanded = !item.treeExpanded;
             if (this.$emitPrevent('before-tree-toggle-expanded', { item, oldExpanded: !expanded, expanded }, this))
                 return;
-            this.$set(item, 'expanded', expanded);
+            this.$set(item, 'treeExpanded', expanded);
             this.$emit('tree-toggle-expanded', { item, expanded }, this);
             if (!this.$at(item, this.childrenField) && (typeof this.dataSource === 'function')) {
                 this.$set(item, 'loading', true);
@@ -1780,7 +1816,7 @@ export default {
                 this.currentData.forEach((itemData) => {
                     if (itemData.parentPointer !== undefined && itemData.parentPointer === parent) {
                         if (expanded) {
-                            if (parent.expanded) {
+                            if (parent.treeExpanded) {
                                 this.$set(itemData, 'display', '');
                             } else {
                                 this.$set(itemData, 'display', 'none');

@@ -91,7 +91,7 @@ export default {
         height: String,
     },
     data() {
-        const date = this.value ?? this.date;
+        const date = (this.value !== null && this.value !== undefined) ? this.value : this.date;
         const showDate = this.format(date, this.getFormatString());
         return {
             showDate,

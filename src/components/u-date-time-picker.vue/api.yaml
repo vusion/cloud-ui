@@ -214,7 +214,7 @@
       title: 弹出状态
       type: boolean
       default: false
-      description: 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”
+      description: 弹出状态分为“True(弹出)/False(关闭)”，默认为“关闭”
       group: 状态属性
       brifeDoc: ""
       docDescription: ""

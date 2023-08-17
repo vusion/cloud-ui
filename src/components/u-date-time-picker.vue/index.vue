@@ -125,13 +125,13 @@ export default {
     },
     data() {
         return {
-            dateTime: this.format(this.value ?? this.date, 'YYYY-MM-DD HH:mm:ss'), // popper选择以后的值
+            dateTime: this.format((this.value !== null && this.value !== undefined) ? this.value : this.date, 'YYYY-MM-DD HH:mm:ss'), // popper选择以后的值
             open: false,
             minTime: undefined,
             maxTime: undefined,
             currentMaxDate: this.getMaxDate(), // 可能会存在最大值小于最小值情况，组件需要内部处理让最大值和最小值一样
             popperplaceholder: this.$t('selectPopperDateText'),
-            finalDateTime: this.format(this.value ?? this.date, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
+            finalDateTime: this.format((this.value !== null && this.value !== undefined) ? this.value : this.date, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
             showDate: undefined, // popper里的日期输入框
             showTime: undefined, // popper里的时间输入框
         };

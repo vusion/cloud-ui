@@ -5,19 +5,6 @@
   labels:
     - Selector
   attrs:
-    - name: value
-      title: 值
-      type: string
-      sync: true
-      model: true
-      default: ""
-      description: 默认显示的时间值，格式如08:08:08
-      group: 数据属性
-      brifeDoc: ""
-      docDescription: 默认显示的日期值。
-      tooltipLink: ""
-      dependency:
-        - '!range': true
     - name: minUnit
       title: 最小单位
       type: string
@@ -38,6 +25,19 @@
       default: false
       description: 是否支持进行时间区间选择，关闭则为时间点选择
       group: 数据属性
+    - name: value
+      title: 值
+      type: string
+      sync: true
+      model: true
+      default: ""
+      description: 默认显示的时间值，格式如08:08:08
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 默认显示的日期值。
+      tooltipLink: ""
+      dependency:
+        - '!range': true
     - name: startTime
       title: 起始值
       type: string
@@ -57,7 +57,7 @@
     - name: min-time
       title: 最小时间值
       type: string
-      default: 00:00:00
+      default: "00:00:00"
       description: 最小可选的时间值，填写null则不限制，日期填写格式为“00:00:00”
       group: 数据属性
       brifeDoc: ""
@@ -66,7 +66,7 @@
     - name: max-time
       title: 最大时间值
       type: string
-      default: 23:59:59
+      default: "23:59:59"
       description: 最大可选的时间值，填写null则不限制，日期填写格式为“00:00:00”
       group: 数据属性
       brifeDoc: ""
