@@ -1,5 +1,4 @@
 import cloneDeep from 'lodash/cloneDeep';
-import { getISOWeek, getISOWeekYear, parseISO } from 'date-fns';
 import dayjs from './dayjs';
 
 export const format = function format(value, type) {
@@ -26,7 +25,7 @@ export const format = function format(value, type) {
             }
             return fix(date.getDate());
         },
-        WWWW(date) { return `W${fix(getISOWeek(date))}`; },
+        WWWW(date) { return `W${fix(dayjs(date).isoWeek())}`; },
         QQ(date) { return `Q${Math.ceil((date.getMonth() + 1) / 3)}`; },
         DD(date) { return fix(date.getDate()); },
         HH(date) { return fix(date.getHours()); },
@@ -43,7 +42,7 @@ export const format = function format(value, type) {
     // 根据 iOS 周历特殊处理，例如 2018-12-31 应该被解析为 2019-W01
     if (type.includes('YYYY-WWWW')) {
         const valueYear = value.getFullYear();
-        const isoYear = getISOWeekYear(value);
+        const isoYear = dayjs(value).isoWeekYear();
         if (valueYear !== isoYear) {
             return result.replace(valueYear, isoYear);
         }
@@ -63,9 +62,7 @@ export const transformDate = function transformDate(date) {
             return new Date(date.replace(/Q1/, '1').replace(/Q2/, '4').replace(/Q3/, '7').replace(/Q4/, '10'));
         }
         if (date.includes('W')) {
-            // '2020-W02 8:00:00' to '2020-W02 08:00:00'
-            const newDate = date.replace(/(\d{4}-W\d{2}\s)(\d{1}:\d{2}:\d{2})/, '$10$2');
-            return parseISO(newDate);
+            return dayjs(date, ['YYYY-WWWW', 'YYYY-WWWW H:mm:ss', 'YYYY-WWWW HH:mm:ss']).toDate();
         }
         date = date.replace(/-/g, '/');
         return new Date(date);

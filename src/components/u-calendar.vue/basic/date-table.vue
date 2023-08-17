@@ -34,7 +34,6 @@
 </template>
 
 <script>
-import { endOfWeek, startOfWeek } from 'date-fns';
 import {
     getFirstDayOfMonth,
     getDayCountOfMonth,
@@ -47,6 +46,7 @@ import {
     coerceTruthyValueToArray,
 } from '../util';
 import i18n from '../i18n';
+import dayjs from '../../../utils/dayjs';
 
 const WEEKS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -334,8 +334,8 @@ export default {
             [minDate, maxDate] = [Math.min(minDate, maxDate), Math.max(minDate, maxDate)];
             // 如果是周选择，标注整周
             if (this.selectionMode === 'week-range') {
-                minDate = getDateTimestamp(startOfWeek(minDate, { weekStartsOn: 1 }));
-                maxDate = getDateTimestamp(endOfWeek(maxDate, { weekStartsOn: 1 }));
+                minDate = getDateTimestamp(dayjs(minDate).startOf('isoWeek').toDate());
+                maxDate = getDateTimestamp(dayjs(maxDate).endOf('isoWeek').toDate());
             }
 
             const startDate = this.startDate;
@@ -426,15 +426,15 @@ export default {
                 }
             } else if (this.selectionMode === 'week-range') {
                 if (!this.rangeState.selecting) {
-                    const startDate = startOfWeek(newDate, { weekStartsOn: 1 });
+                    const startDate = dayjs(newDate).startOf('isoWeek').toDate();
                     this.$emit('pick', { minDate: startDate, maxDate: null });
                     this.rangeState.selecting = true;
                 } else {
                     if (newDate >= this.minDate) {
-                        const endDate = endOfWeek(newDate, { weekStartsOn: 1 });
+                        const endDate = dayjs(newDate).endOf('isoWeek').toDate();
                         this.$emit('pick', { minDate: this.minDate, maxDate: endDate });
                     } else {
-                        const startDate = startOfWeek(newDate, { weekStartsOn: 1 });
+                        const startDate = dayjs(newDate).startOf('isoWeek').toDate();
                         this.$emit('pick', { minDate: startDate, maxDate: this.minDate });
                     }
                     this.rangeState.selecting = false;

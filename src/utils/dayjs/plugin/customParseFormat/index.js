@@ -59,6 +59,8 @@ const addInput = function (property) {
             this.month = date.month() + 1;
             // 日
             this.day = date.date();
+            // 年，需要从 date 取，2019-W01 可能是 2018 年
+            this.year = date.year();
         } else {
             this[property] = +input;
         }
