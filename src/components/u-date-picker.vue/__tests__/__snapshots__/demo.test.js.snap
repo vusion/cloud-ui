@@ -8728,7 +8728,7 @@ exports[`u-date-picker.vue Demo-格式化 1`] = `
     </transition-stub>
   </div>
   <div class="root" width="large">
-    <div class="input" clearable="2023-W27" height="full" prefix="calendar" width="full">
+    <div class="input" clearable="2023年第27周" height="full" prefix="calendar" width="full">
       <span>b</span>
       <span></span>
       <span name="calendar">
