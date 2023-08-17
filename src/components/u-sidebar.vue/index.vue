@@ -20,6 +20,7 @@
                     :link-type="$at2(node, linkTypeField)"
                     :href-and-to="$at2(node, hrefAndToField)"
                     :target="$at2(node, targetField)"
+                    :to="$at2(node, toField)"
                     :disabled="node.target"
                 ></u-sidebar-item>
             </template>
@@ -47,6 +48,7 @@ export default {
         childrenField: { type: String, default: 'children' },
         textField: { type: String, default: 'text' },
         valueField: { type: String, default: 'value' },
+        toField: { type: String, default: 'to' },
         replaceField: { type: String, default: 'replace' },
         exactField: { type: String, default: 'exact' },
         iconField: { type: String, default: 'icon' },
@@ -162,7 +164,7 @@ export default {
 
             for (let i = 0; i < list.length; i += 1) {
                 const node = list[i];
-                if (this.$at(node,pField) && list[map[this.$at(node, pField)]]) {
+                if (this.$at(node, pField) && list[map[this.$at(node, pField)]]) {
                     this.$at(list[map[this.$at(node, pField)]], this.childrenField).push(node);
                 } else {
                     treeData.push(node);
