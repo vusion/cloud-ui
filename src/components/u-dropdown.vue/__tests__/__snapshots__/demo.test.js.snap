@@ -9,7 +9,7 @@ exports[`u-dropdown.vue Demo-append-to body 1`] = `
     </div>
     <transition-stub class="popper" name="fade" style="width: 0px;">
       <div class="root" style="display: none;">
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="lcp-iconv singleicon">
             <span class="iconwrap">
               <svg aria-hidden="true" class="iconsvg">
@@ -20,7 +20,7 @@ exports[`u-dropdown.vue Demo-append-to body 1`] = `
             </div>
           </span> item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="lcp-iconv singleicon">
             <span class="iconwrap">
               <svg aria-hidden="true" class="iconsvg">
@@ -31,7 +31,7 @@ exports[`u-dropdown.vue Demo-append-to body 1`] = `
             </div>
           </span> item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="lcp-iconv singleicon">
             <span class="iconwrap">
               <svg aria-hidden="true" class="iconsvg">
@@ -42,7 +42,7 @@ exports[`u-dropdown.vue Demo-append-to body 1`] = `
             </div>
           </span> item
         </a>
-        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default">
+        <a class="root" disabled="disabled" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="lcp-iconv singleicon">
             <span class="iconwrap">
               <svg aria-hidden="true" class="iconsvg">
@@ -69,13 +69,13 @@ exports[`u-dropdown.vue Demo-主要按钮样式 1`] = `
     </div>
     <transition-stub class="popper" name="fade">
       <div class="root" style="display: none;">
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="root" vusion-slot-name-edit="text">选项一</span>
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="root" vusion-slot-name-edit="text">选项二</span>
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="root" vusion-slot-name-edit="text">选项三</span>
         </a>
       </div>
@@ -93,7 +93,7 @@ exports[`u-dropdown.vue Demo-列表含图标样式 1`] = `
     </div>
     <transition-stub class="popper" name="fade">
       <div class="root" style="display: none;">
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="lcp-iconv singleicon">
             <span class="iconwrap">
               <svg aria-hidden="true" class="iconsvg">
@@ -105,7 +105,7 @@ exports[`u-dropdown.vue Demo-列表含图标样式 1`] = `
           </span>
           <span class="root" vusion-slot-name-edit="text">选项一</span>
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="lcp-iconv singleicon">
             <span class="iconwrap">
               <svg aria-hidden="true" class="iconsvg">
@@ -117,7 +117,7 @@ exports[`u-dropdown.vue Demo-列表含图标样式 1`] = `
           </span>
           <span class="root" vusion-slot-name-edit="text">选项二</span>
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="lcp-iconv singleicon">
             <span class="iconwrap">
               <svg aria-hidden="true" class="iconsvg">
@@ -144,16 +144,16 @@ exports[`u-dropdown.vue Demo-基本用法 1`] = `
     </div>
     <transition-stub class="popper" name="fade">
       <div class="root" style="display: none;">
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default">
+        <a class="root" disabled="disabled" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
       </div>
@@ -166,16 +166,16 @@ exports[`u-dropdown.vue Demo-基本用法 1`] = `
     </div>
     <transition-stub class="popper" name="fade">
       <div class="root" style="display: none;">
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default">
+        <a class="root" disabled="disabled" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
       </div>
@@ -188,16 +188,16 @@ exports[`u-dropdown.vue Demo-基本用法 1`] = `
     </div>
     <transition-stub class="popper" name="fade">
       <div class="root" style="display: none;">
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default">
+        <a class="root" disabled="disabled" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
       </div>
@@ -210,16 +210,16 @@ exports[`u-dropdown.vue Demo-基本用法 1`] = `
     </div>
     <transition-stub class="popper" name="fade">
       <div class="root" style="display: none;">
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default">
+        <a class="root" disabled="disabled" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
       </div>
@@ -240,16 +240,16 @@ exports[`u-dropdown.vue Demo-基本用法 1`] = `
     </div>
     <transition-stub class="popper" name="fade">
       <div class="root" style="display: none;">
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
-        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default">
+        <a class="root" disabled="disabled" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           item
         </a>
       </div>
@@ -267,13 +267,13 @@ exports[`u-dropdown.vue Demo-基础按钮样式 1`] = `
     </div>
     <transition-stub class="popper" name="fade">
       <div class="root" style="display: none;">
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="root" vusion-slot-name-edit="text">选项一</span>
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="root" vusion-slot-name-edit="text">选项二</span>
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="root" vusion-slot-name-edit="text">选项三</span>
         </a>
       </div>
@@ -299,13 +299,13 @@ exports[`u-dropdown.vue Demo-更多按钮样式 1`] = `
     </div>
     <transition-stub class="popper" name="fade">
       <div class="root" style="display: none;">
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="root" vusion-slot-name-edit="text">选项一</span>
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="root" vusion-slot-name-edit="text">选项二</span>
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="root" vusion-slot-name-edit="text">选项三</span>
         </a>
       </div>
@@ -364,7 +364,7 @@ exports[`u-dropdown.vue Demo-选项带图标 1`] = `
     </div>
     <transition-stub class="popper" name="fade">
       <div class="root" style="display: none;">
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="lcp-iconv singleicon">
             <span class="iconwrap">
               <svg aria-hidden="true" class="iconsvg">
@@ -375,7 +375,7 @@ exports[`u-dropdown.vue Demo-选项带图标 1`] = `
             </div>
           </span> item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="lcp-iconv singleicon">
             <span class="iconwrap">
               <svg aria-hidden="true" class="iconsvg">
@@ -386,7 +386,7 @@ exports[`u-dropdown.vue Demo-选项带图标 1`] = `
             </div>
           </span> item
         </a>
-        <a class="root" target="_self" vusion-slot-name="default">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="lcp-iconv singleicon">
             <span class="iconwrap">
               <svg aria-hidden="true" class="iconsvg">
@@ -397,7 +397,7 @@ exports[`u-dropdown.vue Demo-选项带图标 1`] = `
             </div>
           </span> item
         </a>
-        <a class="root" disabled="disabled" target="_self" vusion-slot-name="default">
+        <a class="root" disabled="disabled" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
           <span class="lcp-iconv singleicon">
             <span class="iconwrap">
               <svg aria-hidden="true" class="iconsvg">
