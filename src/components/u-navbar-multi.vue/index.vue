@@ -123,9 +123,9 @@ export default {
             if (this.$slots.default && this.$slots.default.length > 0) {
                 let temp = [];
                 this.$slots.default.forEach((wrapVnode) => {
-                    if (wrapVnode.tag.endsWith('u-multi-layout-item')) {
-                        temp = temp.concat(wrapVnode.componentOptions.children.filter((vnode) => vnode.tag.endsWith('u-navbar-item-multi')));
-                    } else if (wrapVnode.tag.endsWith('u-navbar-item-multi') || wrapVnode.tag.endsWith('u-navbar-group-multi')) {
+                    if (wrapVnode.tag && wrapVnode.tag.endsWith('u-multi-layout-item')) {
+                        temp = temp.concat(wrapVnode.componentOptions.children.filter((vnode) => vnode.tag && vnode.tag.endsWith('u-navbar-item-multi')));
+                    } else if (wrapVnode.tag && (wrapVnode.tag.endsWith('u-navbar-item-multi') || wrapVnode.tag.endsWith('u-navbar-group-multi'))) {
                         temp = [...temp, wrapVnode];
                     } else {
                         console.error(`[u-navbar-multi] 目前仅支持[u-multi-layout-item],[u-navbar-group-multi]和[u-navbar-item-multi]作为默认插槽的内容`);
