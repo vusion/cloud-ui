@@ -13,7 +13,7 @@
           <div :class="$style.holder"></div>
         </div>
         <date-table
-          selection-mode="range"
+          :selection-mode="selectionMode"
           :date="leftDate"
           :default-value="defaultValue"
           :min-date="minDate"
@@ -36,7 +36,7 @@
           </div>
         </div>
         <date-table
-          selection-mode="range"
+          :selection-mode="selectionMode"
           :date="rightDate"
           :default-value="defaultValue"
           :min-date="minDate"
@@ -57,6 +57,7 @@
 import { isDate, prevYear, nextYear, prevMonth, nextMonth, nextDate } from '../util';
 import i18n from '../i18n';
 import DateTable from '../basic/date-table';
+import dayjs from '../../../utils/dayjs';
 
 const calcDefaultValue = (defaultValue) => {
     if (Array.isArray(defaultValue)) {
@@ -86,6 +87,7 @@ export default {
         },
 
         disabledDate: '',
+        picker: { type: String, default: 'date' },
     },
 
     data() {
@@ -121,6 +123,9 @@ export default {
         };
     },
     computed: {
+        selectionMode() {
+            return this.picker === 'date' ? 'range' : 'week-range';
+        },
         leftLabel() {
             return this.leftDate.getFullYear() + ' ' + this.$t('year') + ' '
                 + this.monthTextList[this.leftDate.getMonth()] + ' ' + this.$t('month');
@@ -165,6 +170,15 @@ export default {
                 } else if (Array.isArray(newVal)) {
                     this.minDate = isDate(newVal[0]) ? new Date(newVal[0]) : null;
                     this.maxDate = isDate(newVal[1]) ? new Date(newVal[1]) : null;
+                    // 这里如果是周，传入的时间可能在一周的中间，需要转换成周的开始和结束
+                    if (this.picker === 'week') {
+                        if (isDate(this.minDate)) {
+                            this.minDate = dayjs(this.minDate).startOf('isoWeek').toDate();
+                        }
+                        if (isDate(this.maxDate)) {
+                            this.maxDate = dayjs(this.maxDate).endOf('isoWeek').toDate();
+                        }
+                    }
                     if (this.minDate) {
                         this.leftDate = this.minDate;
                         if (this.unlinkPanels && this.maxDate) {

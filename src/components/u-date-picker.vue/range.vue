@@ -6,8 +6,8 @@
         :autofocus="autofocus"
         :readonly="readonly"
         :disabled="disabled"
-        :left-value="showStartDate"
-        :right-value="showEndDate"
+        :left-value="genDisplayFormatText(showStartDate)"
+        :right-value="genDisplayFormatText(showEndDate)"
         :clearable="clearable" :placeholder="placeholder"
         @left-click="toggle(true)"
         @right-click="toggle(true)"
@@ -37,6 +37,9 @@
 </template>
 
 <script>
+import dayjs from '../../utils/dayjs';
+import DateFormatMixin from '../../mixins/date.format';
+import { formatterOptions } from './wrap';
 import { DateRangeError } from '../u-calendar.vue/error.js';
 import { clickOutside } from '../../directives';
 import { format, transformDate, ChangeDate } from '../../utils/date';
@@ -63,7 +66,7 @@ export default {
     i18n,
     components: { URangeInput },
     directives: { clickOutside },
-    mixins: [MField],
+    mixins: [MField, DateFormatMixin],
     props: {
         preIcon: {
             type: String,
@@ -123,6 +126,9 @@ export default {
                 return 'bottom-start';
             else if (this.alignment === 'right')
                 return 'bottom-end';
+        },
+        validShowFormatters() {
+            return formatterOptions[this.picker];
         },
     },
     watch: {
@@ -202,6 +208,10 @@ export default {
                 return 'YYYY-QQ';
             }
 
+            if (this.picker === 'week') {
+                return 'YYYY-WWWW';
+            }
+
             return 'YYYY-MM-DD';
         },
         toValue(date) {
@@ -267,22 +277,22 @@ export default {
                 rightValue = temp;
             }
             if (this.checkValid(leftValue)) {
-                let date = new Date(this.transformDate(leftValue));
+                let date = dayjs(leftValue, this.getDisplayFormatString()).toDate();
                 const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
                 date = isOutOfRange ? this.showStartDate : date;
                 const showDate = this.format(date, this.getFormatString());
                 this.showStartDate = showDate;
                 this.calendarStartDate = this.transformDate(showDate);
-                this.$refs.input.updateCurrentValue({ leftValue: this.showStartDate });
+                this.$refs.input.updateCurrentValue({ leftValue: this.genDisplayFormatText(this.showStartDate) });
             }
             if (this.checkValid(rightValue)) {
-                let date = new Date(this.transformDate(rightValue));
+                let date = dayjs(rightValue, this.getDisplayFormatString()).toDate();
                 const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
                 date = isOutOfRange ? this.showEndDate : date;
                 const showDate = this.format(date, this.getFormatString());
                 this.showEndDate = showDate;
                 this.calendarEndDate = this.transformDate(showDate);
-                this.$refs.input.updateCurrentValue({ rightValue: this.showEndDate });
+                this.$refs.input.updateCurrentValue({ rightValue: this.genDisplayFormatText(this.showEndDate) });
             }
         },
         /**
@@ -355,27 +365,30 @@ export default {
             this.$refs.popper && this.$refs.popper.toggle(value);
         },
         checkValid(value) {
-            switch (this.picker) {
-                case 'year':
-                    return /^[1-9]\d{3}$/.test(value);
-                case 'month':
-                    return /^[1-9]\d{3}-(0[1-9]|1[0-2])$/.test(value);
-                case 'quarter':
-                    return /^[1-9]\d{3}-(Q[1-4])$/.test(value);
-                default:
-                    // date format
-                    return /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/.test(value);
-            }
+            return dayjs(value, this.getDisplayFormatString(), true).isValid();
+            // switch (this.picker) {
+            //     case 'year':
+            //         return /^[1-9]\d{3}$/.test(value);
+            //     case 'month':
+            //         return /^[1-9]\d{3}-(0[1-9]|1[0-2])$/.test(value);
+            //     case 'quarter':
+            //         return /^[1-9]\d{3}-(Q[1-4])$/.test(value);
+            //     case 'week':
+            //         return /^[1-9]\d{3}-(W[0-5][0-9])$/.test(value);
+            //     default:
+            //         // date format
+            //         return /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/.test(value);
+            // }
         },
         onBlurInputValue({ leftValue, rightValue }) {
             // 当输入框输入的值不合法，需还原成上一次合法的值
             if (leftValue && !this.checkValid(leftValue)) {
                 this.showStartDate = this.format(this.calendarStartDate, this.getFormatString());
-                this.$refs.input.updateCurrentValue({ leftValue: this.showStartDate });
+                this.$refs.input.updateCurrentValue({ leftValue: this.genDisplayFormatText(this.showStartDate) });
             }
             if (rightValue && !this.checkValid(rightValue)) {
                 this.showEndDate = this.format(this.calendarEndDate, this.getFormatString());
-                this.$refs.input.updateCurrentValue({ rightValue: this.showEndDate });
+                this.$refs.input.updateCurrentValue({ rightValue: this.genDisplayFormatText(this.showEndDate) });
             }
         },
         onPopperClose(e) {

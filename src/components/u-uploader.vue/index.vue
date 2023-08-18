@@ -274,7 +274,8 @@ export default {
             this.uploadFiles(files);
         },
         checkSize(file) {
-            if (this.maxSize === Infinity)
+            // 可能出现传入为空字符串的情况
+            if (this.maxSize === Infinity || this.maxSize === '')
                 return true;
 
             let maxSize;

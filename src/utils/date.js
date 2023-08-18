@@ -1,8 +1,11 @@
 import cloneDeep from 'lodash/cloneDeep';
+import dayjs from './dayjs';
 
 export const format = function format(value, type) {
     if (!value)
         return;
+    type = type || 'YYYY-MM-DD HH:mm';
+
     const fix = (str) => {
         str = '' + (String(str) || '');
         return str.padStart(2, '0');
@@ -22,6 +25,7 @@ export const format = function format(value, type) {
             }
             return fix(date.getDate());
         },
+        WWWW(date) { return `W${fix(dayjs(date).isoWeek())}`; },
         QQ(date) { return `Q${Math.ceil((date.getMonth() + 1) / 3)}`; },
         DD(date) { return fix(date.getDate()); },
         HH(date) { return fix(date.getHours()); },
@@ -29,13 +33,21 @@ export const format = function format(value, type) {
         ss(date) { return fix(date.getSeconds()); },
     };
     const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
-    type = type || 'YYYY-MM-DD HH:mm';
     if (typeof value === 'string' && !value.includes('T'))
         value = transformDate(value);
     value = new Date(value);
     if (value.toString() === 'Invalid Date')
         return;
-    return type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
+    const result = type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
+    // 根据 iOS 周历特殊处理，例如 2018-12-31 应该被解析为 2019-W01
+    if (type.includes('YYYY-WWWW')) {
+        const valueYear = value.getFullYear();
+        const isoYear = dayjs(value).isoWeekYear();
+        if (valueYear !== isoYear) {
+            return result.replace(valueYear, isoYear);
+        }
+    }
+    return result;
 };
 
 export const transformDate = function transformDate(date) {
@@ -48,6 +60,9 @@ export const transformDate = function transformDate(date) {
          */
         if (date.includes('Q')) {
             return new Date(date.replace(/Q1/, '1').replace(/Q2/, '4').replace(/Q3/, '7').replace(/Q4/, '10'));
+        }
+        if (date.includes('W')) {
+            return dayjs(date, ['YYYY-WWWW', 'YYYY-WWWW H:mm:ss', 'YYYY-WWWW HH:mm:ss']).toDate();
         }
         date = date.replace(/-/g, '/');
         return new Date(date);

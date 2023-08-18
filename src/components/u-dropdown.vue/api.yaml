@@ -4,6 +4,112 @@
   labels:
     - Navigation
   attrs:
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function | object | DataSource
+      description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
+      designer-value: "[{}, {}, {}]"
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑
+      tooltipLink: ""
+    - name: text-field
+      title: 选项文本字段
+      type: string
+      default: text
+      description: 集合的元素类型中，用于显示文本的属性名称
+      group: 数据属性
+      dependency:
+        - "!data-source": null
+    - name: to-field
+      title: 跳转链接字段
+      type: string
+      default: to
+      description: 集合的元素类型中，用于跳转链接的属性名称
+      group: 数据属性
+      dependency:
+        - "!data-source": null
+    - name: icon-field
+      title: 图标属性字段
+      type: string
+      default: icon
+      description: 集合的元素类型中，用于图标的属性名称
+      group: 数据属性
+      dependency:
+        - "!data-source": null
+    - name: value-field
+      title: 值字段
+      type: string
+      default: value
+      description: 集合的元素类型中，用于标识选中值的属性
+      group: 数据属性
+      dependency:
+        - "!data-source": null
+      brifeDoc: ""
+      docDescription: 集合的元素类型中，用于标识选中值的属性，支持自定义变更
+      tooltipLink: ""
+    - name: children-field
+      title: 子级值字段
+      type: string
+      default: children
+      description: 集合的元素类型中，用于标识子节点的属性，默认为children
+      group: 数据属性
+      dependency:
+        - "!data-source": null
+      brifeDoc: ""
+      docDescription: 集合的元素类型中，用于标识子级字段的的属性，支持自定义变更
+      tooltipLink: ""
+    - name: parent-field
+      title: 父级值字段
+      type: string
+      default: ""
+      description: 集合的元素类型中，用于标识父节点的属性
+      group: 数据属性
+      dependency:
+        - "!data-source": null
+      brifeDoc: ""
+      docDescription: 集合的元素类型中，用于标识父级字段的属性，支持自定义变更
+      tooltipLink: ""
+    - name: replace-field
+      title: 替换字段
+      type: string
+      default: replace
+      description: 集合的元素类型中，用于`replace`的属性字段
+      group: 数据属性
+      dependency:
+        - "!data-source": null
+    - name: exact-field
+      title: 精确匹配字段
+      type: string
+      default: exact
+      description: 集合的元素类型中，用于`exact`的属性字段
+      group: 数据属性
+      dependency:
+        - "!data-source": null
+    - name: link-type-field
+      title: 链接类型字段
+      type: string
+      default: linkType
+      description: 集合的元素类型中，用于`linkType`的属性字段
+      group: 数据属性
+      dependency:
+        - "!data-source": null
+    - name: href-and-to-field
+      title: 链接地址字段
+      type: string
+      default: hrefAndTo
+      description: 集合的元素类型中，用于`hrefAndTo`的属性字段
+      group: 数据属性
+      dependency:
+        - "!data-source": null
+    - name: target-field
+      title: 链接打开方式字段
+      type: string
+      default: target
+      description: 集合的元素类型中，用于`target`的属性字段
+      group: 数据属性
+      dependency:
+        - "!data-source": null
     - name: trigger
       title: 触发方式
       type: string
@@ -101,11 +207,16 @@
   slots:
     - concept: Slot
       name: default
-      description: 插入`<u-dropdown-item>`子组件。
+      description: 插入`<u-dropdown>`子组件。
       support:
+        - name: u-dropdown-group
+          title: 下拉菜单分组
+          snippet: '<u-dropdown-group><template #title><u-text
+            text="下拉菜单分组"></u-text></template><u-dropdown-item><u-text
+            text="菜单项"></u-text></u-dropdown-item></u-dropdown-group>'
         - name: u-dropdown-item
           title: 菜单项
-          snippet: <u-dropdown-item><u-text text="选项一"></u-text></u-dropdown-item>
+          snippet: <u-dropdown-item><u-text text="菜单项"></u-text></u-dropdown-item>
   description: 下拉菜单
 - name: u-dropdown-item
   title: 下拉菜单项
@@ -192,3 +303,37 @@
       description: 点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。
       params: []
   description: 下拉菜单项
+
+
+- name: u-dropdown-group
+  title: 下拉菜单分组
+  attrs:
+    - name: title
+      title: 标题
+      type: string
+      description: 显示的标题
+      advanced: true
+    - name: disabled
+      title: 禁用展开/折叠
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止展开/折叠操作
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: ""
+  slots:
+    - concept: Slot
+      name: default
+      description: 插入`<u-dropdown>`子组件。
+      support:
+        - name: u-dropdown-group
+          title: 下拉菜单分组
+          snippet: '<u-dropdown-group><template #title><u-text
+            text="下拉菜单分组"></u-text></template><u-dropdown-item><u-text
+            text="菜单项"></u-text></u-dropdown-item></u-dropdown-group>'
+        - name: u-dropdown-item
+          title: 菜单项
+          snippet: <u-dropdown-item><u-text text="菜单项"></u-text></u-dropdown-item>
+  description: 侧边栏分组
+

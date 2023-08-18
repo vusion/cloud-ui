@@ -21,6 +21,29 @@
 </u-calendar-range>
 ```
 
+### 周范围最大最小值
+
+``` html
+<u-calendar-range
+    picker="week"
+    start-date="2023-03-10"
+    end-date="2023-03-20"
+    min-date="2023-03-02"
+    max-date="2023-03-30">
+</u-calendar-range>
+```
+
+### 周范围全部禁用
+
+``` html
+<u-calendar-range
+    picker="week"
+    start-date="2023-03-10"
+    end-date="2023-03-20"
+    disabled>
+</u-calendar-range>
+```
+
 ### 月份范围最大最小值
 
 ``` html
