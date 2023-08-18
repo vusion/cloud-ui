@@ -10,25 +10,243 @@
             vusion-node-tag="u-multi-layout"
         >
             <slot name="left"></slot>
-            <slot></slot>
+            <u-multi-layout-item align-items="center">
+                <template v-if="childrenNodes.length > 0">
+                    <template v-for="(node, idx) in childrenNodes">
+                        <u-navbar-group-multi
+                            v-if="hasChildren(node)"
+                            :key="$at2(node, valueField) || idx"
+                            :node="node"
+                            :disabled="node.disabled"
+                            :collapsible="$at2(node, collapsibleField)"
+                            :title="$at2(node, textField)"
+                            :icon="$at2(node, iconField)"
+                            :inner-idx="idx"
+                            ></u-navbar-group-multi>
+                        <u-navbar-item-multi
+                            v-else
+                            :key="`${$at2(node, valueField) || idx}`"
+                            :text="$at2(node, textField)"
+                            :replace="$at2(node, replaceField)"
+                            :exact="$at2(node, exactField)"
+                            :value="$at2(node, valueField)"
+                            :icon="$at2(node, iconField)"
+                            :link-type="$at2(node, linkTypeField)"
+                            :href-and-to="$at2(node, hrefAndToField)"
+                            :to="$at2(node, toField)"
+                            :target="$at2(node, targetField)"
+                            :disabled="node.disabled"></u-navbar-item-multi>
+                    </template>
+                </template>
+                <f-render v-for="(vnode, idx) in slotItems" :vnode="vnode" :key="idx"></f-render>
+            </u-multi-layout-item>
             <slot name="right"></slot>
         </u-multi-layout>
     </div>
 </template>
 
 <script>
+import { MGroupParent } from '../m-group.vue';
 import { MSinglex } from '../m-singlex.vue';
 
 export default {
     name: 'u-navbar-multi',
     childName: 'u-navbar-item-multi',
-    extends: MSinglex,
+    mixins: [MSinglex, MGroupParent],
     props: {
         router: { type: Boolean, default: true },
         animation: { type: String, default: '1' },
+        trigger: { type: String, default: 'click' },
+
+        dataSource: [Array, Object, Function],
+        isLeafField: { type: String, default: 'isLeaf' },
+        parentField: { type: String, default: '' },
+        childrenField: { type: String, default: 'children' },
+        textField: { type: String, default: 'text' },
+        valueField: { type: String, default: 'value' },
+        replaceField: { type: String, default: 'replace' },
+        exactField: { type: String, default: 'exact' },
+        iconField: { type: String, default: 'icon' },
+        toField: { type: String, default: 'to' },
+        linkTypeField: { type: String, default: 'linkType' },
+        hrefAndToField: { type: String, default: 'hrefAndTo' },
+        targetField: { type: String, default: 'target' },
+        initialLoad: { type: Boolean, default: true },
+        collapsibleField: { type: String, default: 'collapsible' },
+    },
+    data() {
+        return {
+            currentDataSource: undefined,
+            loading: false,
+            slotItems: [],
+            defaultSlots: undefined,
+        };
+    },
+    computed: {
+        childrenNodes() {
+            if (this.currentDataSource && this.currentDataSource.data && Array.isArray(this.currentDataSource.data)) {
+                return this.currentDataSource.data;
+            }
+            return [];
+        },
+    },
+    watch: {
+        data(data) {
+            this.handleData();
+        },
+        dataSource(dataSource, oldDataSource) {
+            // if (typeof dataSource === 'function' && String(dataSource) === String(oldDataSource))
+            //     return;
+            this.handleData();
+        },
     },
     created() {
         this.$on('select', ({ itemVM }) => this.router && itemVM.navigate());
+        this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+        if (this.currentDataSource && this.currentDataSource.load && this.initialLoad) {
+            this.load();
+        }
+    },
+    mounted() {
+        // console.log(this.$slots.default);
+        this.collectSlotItems();
+    },
+    updated() {
+        this.collectSlotItems();
+    },
+    methods: {
+        collectSlotItems() {
+            if (this.defaultSlots === this.$slots.default) {
+                return;
+            }
+            this.defaultSlots = this.$slots.default;
+            if (this.$slots.default && this.$slots.default.length > 0) {
+                let temp = [];
+                this.$slots.default.forEach((wrapVnode) => {
+                    if (wrapVnode.tag.endsWith('u-multi-layout-item')) {
+                        temp = temp.concat(wrapVnode.componentOptions.children.filter((vnode) => vnode.tag.endsWith('u-navbar-item-multi')));
+                    } else if (wrapVnode.tag.endsWith('u-navbar-item-multi') || wrapVnode.tag.endsWith('u-navbar-group-multi')) {
+                        temp = [...temp, wrapVnode];
+                    } else {
+                        console.error(`[u-navbar-multi] 目前仅支持[u-multi-layout-item],[u-navbar-group-multi]和[u-navbar-item-multi]作为默认插槽的内容`);
+                    }
+                });
+                this.slotItems = temp;
+                this.$forceUpdate();
+                return;
+            }
+            this.slotItems = [];
+        },
+
+        hasChildren(node) {
+            // 异步加载时使用isLeaf判断叶节点
+            if (this.currentDataSource && this.currentDataSource.load && node && !this.$at(node, this.isLeafField)) {
+                return true;
+            }
+            const children = this.$at(node, this.childrenField);
+            return Array.isArray(children) && children.length > 0;
+        },
+        handleData() {
+            this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+        },
+        normalizeDataSource(dataSource) {
+            const final = {
+                data: [],
+                load: undefined,
+            };
+
+            const self = this;
+
+            if (Array.isArray(dataSource)) {
+                if (this.parentField) {
+                    const temp = JSON.parse(JSON.stringify(dataSource));
+                    final.data = this.list2tree(temp, this.valueField, this.parentField);
+                } else {
+                    final.data = JSON.parse(JSON.stringify(dataSource));
+                }
+            } else if (typeof dataSource === 'function') {
+                final.load = createLoad(dataSource);
+            } else if (typeof dataSource === 'object') {
+                const data = dataSource.data || dataSource.list;
+
+                if (this.parentField) {
+                    const temp = JSON.parse(JSON.stringify(data));
+                    final.data = this.list2tree(temp, this.valueField, this.parentField);
+                } else {
+                    final.data = JSON.parse(JSON.stringify(data));
+                }
+                final.load = dataSource.load && createLoad(dataSource.load);
+            }
+
+            return final;
+
+            function createLoad(rawLoad) {
+                return async (params = {}) => {
+                    const result = await rawLoad(params);
+                    if (result) {
+                        if (self.parentField) {
+                            let list;
+                            if (Array.isArray(result)) {
+                                list = result;
+                            } else {
+                                list = result.list;
+                            }
+                            const temp = JSON.parse(JSON.stringify(list));
+                            final.data = self.list2tree(temp, self.valueField, self.parentField);
+                        } else if (params.node) {
+                            const containParentNode = result.find((item) => self.$at(item, self.valueField) === params.nodeVM.title); // 非根非叶节点只会是USidebarGroup
+                            if (!containParentNode) {
+                                self.$setAt(params.node, params.childrenField, result);
+                            }
+                        } else {
+                            final.data = result;
+                        }
+                    }
+
+                    if (params.node && !self.$at(params.node, params.nodeVM.currentChildrenField)) {
+                        self.$setAt(params.node, self.isLeafField, true);
+                    }
+                };
+            }
+        },
+
+        list2tree(list, idField, pField) {
+            const [map, treeData] = [{}, {}];
+
+            for (let i = 0; i < list.length; i += 1) {
+                map[this.$at(list[i], idField)] = i;
+                this.$setAt(list[i], this.childrenField, []);
+            }
+
+            for (let i = 0; i < list.length; i += 1) {
+                const node = list[i];
+                if (this.$at(node, pField) && list[map[this.$at(node, pField)]]) {
+                    this.$at(list[map[this.$at(node, pField)]], this.childrenField).push(node);
+                } else {
+                    treeData.push(node);
+                }
+            }
+            return treeData;
+        },
+        load(params) {
+            if (this.$emitPrevent('before-load', undefined, this)) {
+                return;
+            }
+            if (!this.currentDataSource.load) {
+                return;
+            }
+            this.loading = true;
+            this.currentDataSource
+                .load(params)
+                .then(() => {
+                    this.loading = false;
+                    this.$emit('load', undefined, this);
+                })
+                .catch(() => (this.loading = false));
+        },
+        reload() {
+            this.load();
+        },
     },
 };
 </script>
