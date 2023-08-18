@@ -9,10 +9,8 @@
             <u-text text="应用名称" size="large" style="color: white; --custom-start: auto; vertical-align: middle;"></u-text>
         </u-multi-layout-item>
     </template>
-    <u-multi-layout-item align-items="center">
-        <u-navbar-item-multi><u-text>导航项1</u-text></u-navbar-item-multi>
-        <u-navbar-item-multi><u-text>导航项2</u-text></u-navbar-item-multi>
-    </u-multi-layout-item>
+    <u-navbar-item-multi><u-text>导航项1</u-text></u-navbar-item-multi>
+    <u-navbar-item-multi><u-text>导航项2</u-text></u-navbar-item-multi>
     <template #right>
         <u-multi-layout-item align-items="center" justify="end">
             <u-dropdown style="margin-right: 10px; color: inherit">
