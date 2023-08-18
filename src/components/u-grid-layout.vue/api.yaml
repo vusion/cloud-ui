@@ -410,7 +410,8 @@
       display: number
       default: 1
       description: 列占据栅格行的栅格数
-      precision: 1
+      precision: 1e-14
+      step: 1
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持设置当前栅格列占据的栅格数，不能超过当前栅格行栅格数。
@@ -421,7 +422,8 @@
       display: number
       description: 列偏移的栅格数
       default: 0
-      precision: 1
+      precision: 1e-14
+      step: 1
       group: 主要属性
       brifeDoc: ""
       docDescription: 支持设置栅格列偏移数，控制当前栅格列与其左侧栅格列的距离，处于当前栅格列右侧的栅格列也会同步偏移。
@@ -432,7 +434,8 @@
       display: number
       description: 列向左移动的栅格数
       default: 0
-      precision: 1
+      precision: 1e-14
+      step: 1
       group: 主要属性
       brifeDoc: ""
       docDescription: 向左移动的栅格数，支持栅格互相重合。
@@ -443,7 +446,8 @@
       display: number
       description: 列向右移动的栅格数
       default: 0
-      precision: 1
+      precision: 1e-14
+      step: 1
       group: 主要属性
       brifeDoc: ""
       docDescription: 向右移动的栅格数，支持栅格互相重合。
