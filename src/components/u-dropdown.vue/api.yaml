@@ -212,7 +212,7 @@
         - name: u-dropdown-group
           title: 下拉菜单分组
           snippet: '<u-dropdown-group><template #title><u-text
-            text="下拉菜单分组"></u-text></template><u-dropdown-item><u-text
+            text="菜单分组"></u-text></template><u-dropdown-item><u-text
             text="菜单项"></u-text></u-dropdown-item></u-dropdown-group>'
         - name: u-dropdown-item
           title: 菜单项
@@ -330,7 +330,7 @@
         - name: u-dropdown-group
           title: 下拉菜单分组
           snippet: '<u-dropdown-group><template #title><u-text
-            text="下拉菜单分组"></u-text></template><u-dropdown-item><u-text
+            text="菜单分组"></u-text></template><u-dropdown-item><u-text
             text="菜单项"></u-text></u-dropdown-item></u-dropdown-group>'
         - name: u-dropdown-item
           title: 菜单项
