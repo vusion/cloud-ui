@@ -57,7 +57,7 @@ exports[`u-navbar-multi.vue Demo-导航栏 1`] = `
           </div>
           <transition-stub class="popper" name="fade">
             <div class="root" style="display: none;">
-              <a class="root" target="_self" vusion-slot-name="default">
+              <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
                 安全退出
               </a>
             </div>
