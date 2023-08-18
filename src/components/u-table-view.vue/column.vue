@@ -73,6 +73,9 @@ export default {
     created() {
         !this.parentVM
             && this.$contact(this.$options.parentName, (parentVM) => {
+                if (this.$parent.$options.name === 'u-table-view-column-group') {
+                    return
+                }
                 this.parentVM = parentVM;
                 let slotVms = parentVM.$slots.default || [];
                 slotVms = slotVms.filter((vm) => !!vm.tag);
