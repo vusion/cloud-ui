@@ -172,8 +172,12 @@ export default {
                     this.maxDate = isDate(newVal[1]) ? new Date(newVal[1]) : null;
                     // 这里如果是周，传入的时间可能在一周的中间，需要转换成周的开始和结束
                     if (this.picker === 'week') {
-                        this.minDate = dayjs(this.minDate).startOf('isoWeek').toDate();
-                        this.maxDate = dayjs(this.maxDate).endOf('isoWeek').toDate();
+                        if (isDate(this.minDate)) {
+                            this.minDate = dayjs(this.minDate).startOf('isoWeek').toDate();
+                        }
+                        if (isDate(this.maxDate)) {
+                            this.maxDate = dayjs(this.maxDate).endOf('isoWeek').toDate();
+                        }
                     }
                     if (this.minDate) {
                         this.leftDate = this.minDate;
