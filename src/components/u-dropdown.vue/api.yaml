@@ -207,16 +207,16 @@
   slots:
     - concept: Slot
       name: default
-      description: 插入`<u-dropdown-item>`子组件。
+      description: 插入`<u-dropdown>`子组件。
       support:
         - name: u-dropdown-group
           title: 下拉菜单分组
           snippet: '<u-dropdown-group><template #title><u-text
-            text="分组"></u-text></template><u-dropdown-item><u-text
-            text="侧边栏项"></u-text></u-dropdown-item></u-dropdown-group>'
+            text="下拉菜单分组"></u-text></template><u-dropdown-item><u-text
+            text="菜单项"></u-text></u-dropdown-item></u-dropdown-group>'
         - name: u-dropdown-item
           title: 菜单项
-          snippet: <u-dropdown-item><u-text text="选项一"></u-text></u-dropdown-item>
+          snippet: <u-dropdown-item><u-text text="菜单项"></u-text></u-dropdown-item>
   description: 下拉菜单
 - name: u-dropdown-item
   title: 下拉菜单项
@@ -325,15 +325,15 @@
   slots:
     - concept: Slot
       name: default
-      description: 插入`<u-dropdown-item>`子组件。
+      description: 插入`<u-dropdown>`子组件。
       support:
         - name: u-dropdown-group
           title: 下拉菜单分组
           snippet: '<u-dropdown-group><template #title><u-text
-            text="分组"></u-text></template><u-dropdown-item><u-text
-            text="侧边栏项"></u-text></u-dropdown-item></u-dropdown-group>'
+            text="下拉菜单分组"></u-text></template><u-dropdown-item><u-text
+            text="菜单项"></u-text></u-dropdown-item></u-dropdown-group>'
         - name: u-dropdown-item
           title: 菜单项
-          snippet: <u-dropdown-item><u-text text="选项一"></u-text></u-dropdown-item>
+          snippet: <u-dropdown-item><u-text text="菜单项"></u-text></u-dropdown-item>
   description: 侧边栏分组
 
