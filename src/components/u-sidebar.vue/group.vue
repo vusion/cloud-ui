@@ -200,6 +200,9 @@ export default {
     position: relative;
     border-bottom: var(--sidebar-group-head-border-bottom-width) solid var(--sidebar-group-head-border-bottom-color);
 }
+.title{
+    padding-right: 32px;
+}
 
 .head:hover {
     color: var(--sidebar-group-head-color-hover);
@@ -210,11 +213,13 @@ export default {
     content: "";
     position: absolute;
     top: 0;
+    left: 0;
     bottom: 0;
     /* width: var(--sidebar-group-padding-left); */
     color: var(--sidebar-group-head-color-hover);
     background-color: var(--sidebar-group-head-background-hover);
-    transform: translateX(calc(-100% - var(--sidebar-group-head-padding-left)));
+    /* transform: translateX(calc(-100% - var(--sidebar-group-head-padding-left))); */
+    transform: translateX(-100%);
 }
 
 /* 当前仅支持7层嵌套的情况，7+的情况大致会很少出现 */

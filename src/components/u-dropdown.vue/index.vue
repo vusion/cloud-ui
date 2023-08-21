@@ -231,19 +231,17 @@ export default {
 
             function createLoad(rawLoad) {
                 return async (params = {}) => {
-                    const result = await rawLoad(params);
+                    let result = await rawLoad(params);
+                    if (!Array.isArray(result)) {
+                        result = result.list;
+                    }
                     if (result) {
                         if (self.parentField) {
-                            let list;
-                            if (Array.isArray(result)) {
-                                list = result;
-                            } else {
-                                list = result.list;
-                            }
-                            const temp = JSON.parse(JSON.stringify(list));
+                            const temp = JSON.parse(JSON.stringify(result));
                             final.data = self.list2tree(temp, self.valueField, self.parentField);
                         } else if (params.node) {
-                            const containParentNode = result.find((item) => self.$at(item, self.valueField) === params.nodeVM.title); // 非根非叶节点只会是USidebarGroup
+                            const containParentNode = result.find((item) =>
+                                self.$at(item, self.valueField) === params.nodeVM.title); // 非根非叶节点只会是USidebarGroup
                             if (!containParentNode) {
                                 self.$setAt(params.node, params.childrenField, result);
                             }
