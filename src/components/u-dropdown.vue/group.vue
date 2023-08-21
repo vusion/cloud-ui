@@ -200,7 +200,7 @@ export default {
     z-index: 1;
     cursor: var(--cursor-pointer);
     line-height: 32px;
-    padding: 0 12px;
+    padding: 0 32px 0 12px;
     font-size: 14px;
     color: var(--color-base);
     text-align: left;
@@ -237,6 +237,10 @@ export default {
     justify-content: space-between;
     align-items: center;
     cursor: var(--cursor-pointer);
+}
+
+.title{
+    flex: 1;
 }
 .head svg{
     font-size: 16px;
