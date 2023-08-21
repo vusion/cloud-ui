@@ -14,6 +14,17 @@
       brifeDoc: ""
       docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑
       tooltipLink: ""
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
+      group: 数据属性
+      compType: dataTypeSelect
+      brifeDoc: ""
+      docDescription: 该属性为只读状态，当数据源动态绑定集合List<T>后，会自动识别T的类型并进行展示
+      tooltipLink: ""
+      dependency:
+        - "!data-source": null
     - name: text-field
       title: 选项文本字段
       type: string
@@ -71,35 +82,11 @@
       brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识父级字段的属性，支持自定义变更
       tooltipLink: ""
-    - name: replace-field
-      title: 替换字段
-      type: string
-      default: replace
-      description: 集合的元素类型中，用于`replace`的属性字段
-      group: 数据属性
-      dependency:
-        - "!data-source": null
-    - name: exact-field
-      title: 精确匹配字段
-      type: string
-      default: exact
-      description: 集合的元素类型中，用于`exact`的属性字段
-      group: 数据属性
-      dependency:
-        - "!data-source": null
     - name: link-type-field
       title: 链接类型字段
       type: string
       default: linkType
       description: 集合的元素类型中，用于`linkType`的属性字段
-      group: 数据属性
-      dependency:
-        - "!data-source": null
-    - name: href-and-to-field
-      title: 链接地址字段
-      type: string
-      default: hrefAndTo
-      description: 集合的元素类型中，用于`hrefAndTo`的属性字段
       group: 数据属性
       dependency:
         - "!data-source": null
