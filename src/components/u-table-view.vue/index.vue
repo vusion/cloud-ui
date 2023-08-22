@@ -90,8 +90,8 @@
                 </colgroup>
                 <tbody>
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
-                        <template v-for="(item, rowIndex) in currentData" :key="rowIndex">
-                            <tr :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
+                        <template v-for="(item, rowIndex) in currentData">
+                            <tr :key="rowIndex" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
                             :draggable="rowDraggable?rowDraggable:undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
