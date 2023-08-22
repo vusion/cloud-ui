@@ -1294,11 +1294,7 @@ export default {
                 } else {
                     let num = Math.ceil(size / 10000);
                     for(let i = 0; i < num; i++) {
-                      let realSize = size;
-                      if(size > 10000) {
-                        realSize = (i === num - 1 && (size % 10000)) ? (size % 10000) : 10000;
-                      }
-                      let res = await this.currentDataSource._load({ page: page + i, size : realSize, filename, sort, order });
+                      let res = await this.currentDataSource._load({ page: page + i, size: size > 10000 ? 10000 : size, filename, sort, order });
                       if (res instanceof Object) {
                         if (res.hasOwnProperty('list'))
                             res = res.list;
@@ -1311,6 +1307,9 @@ export default {
                         if (!(res instanceof Array)) {
                             this.$toast.show('数据格式不是数组');
                             return;
+                        }
+                        if(size > 10000 && i === num - 1 && size % 10000) {
+                            res = res.slice(0, size % 10000)
                         }
                         content = await this.getRenderResult(res, excludeColumns, hasHeader);
                         const columns = this.visibleColumnVMs.length;
