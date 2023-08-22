@@ -13,7 +13,7 @@
         <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
             <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
-                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"/>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
                 <thead>
                     <tr>
@@ -86,7 +86,7 @@
             <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex || $env.VUE_APP_DESIGNER" :hide-scroll="!!tableMetaIndex">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
-                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"/>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col
                 </colgroup>
                 <tbody>
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
@@ -1127,7 +1127,7 @@ export default {
         onTableScroll(e) {
             this.scrollXStart = e.target.scrollLeft === 0;
             this.scrollXEnd = e.target.scrollLeft >= e.target.scrollWidth - e.target.clientWidth;
-            this.stickingHead;
+            this.stickingHead && this.syncHeadScroll();
         },
         syncBodyScroll(scrollTop, target) {
             if (!this.useStickyFixed) {
@@ -1141,6 +1141,9 @@ export default {
                     && this.$refs.body[2] !== target
                     && (this.$refs.body[2].scrollTop = scrollTop);
             }
+        },
+        syncHeadScroll() {
+            // this.$refs.head[0].scrollLeft = this.$refs.head[0].parentElement.scrollLeft;
         },
         onBodyScroll(e) {
             this.syncBodyScroll(e.target.scrollTop, e.target); // this.throttledVirtualScroll(e);
@@ -1165,6 +1168,7 @@ export default {
             this.stickingHead = rect.top < parentRect.top && bodyRect.bottom > parentRect.top;
             this.stickingHeadTop = parentRect.top;
             this.stickingHeadHeight = headHeight;
+            this.syncHeadScroll();
         },
         onScrollView(data) {
             this.hasScroll = true;
@@ -1230,6 +1234,7 @@ export default {
         reload() {
             this.currentDataSource.clearLocalData();
             this.load();
+            console.log('table reload');
             if (this.dynamicColumnVM) {
                 this.dynamicColumnVM.reload();
             }
@@ -2642,6 +2647,7 @@ export default {
     font-size: var(--table-view-head-item-size);
     color: var(--table-view-head-item-color);
 }
+.column-field {}
 .tree_expander {
     display: inline-block;
     width: var(--table-view-tree-expander-size);
@@ -2694,6 +2700,7 @@ export default {
     align-items: center;
     width: auto;
 }
+.indent {}
 .trmask {
     position: relative;
 }
