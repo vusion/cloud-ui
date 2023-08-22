@@ -300,6 +300,25 @@
       type: string
       description: 显示的标题
       advanced: true
+    - name: collapsible
+      title: 可折叠
+      type: boolean
+      default: false
+      description: 设置是否可以展开/折叠
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 设置分组是否可折叠
+      tooltipLink: ""
+    - name: expanded
+      title: 展开状态
+      type: boolean
+      sync: true
+      default: false
+      description: 展开状态分为“True(展开)/False(折叠)”，默认为“展开”
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 设置分组的展开折叠状态。在某些场景下需要预置分组的展开或者折叠状态
+      tooltipLink: ""
     - name: disabled
       title: 禁用展开/折叠
       type: boolean

@@ -11,8 +11,7 @@
         <s-empty
             v-if="(!$slots.default)
             && !text
-            && $env.VUE_APP_DESIGNER
-            && !!$attrs['vusion-node-path']">
+            && $env.VUE_APP_DESIGNER">
         </s-empty>
     </a>
 </template>
