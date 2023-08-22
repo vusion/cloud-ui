@@ -4,7 +4,7 @@ exports[`u-sidebar.vue Demo-分组 1`] = `
 <div>
   <nav class="root">
     <div class="root">
-      <div class="head">
+      <div class="head" data-group-nested-level="0">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           <span class="root" vusion-slot-name-edit="text">导航一</span>
         </div>
@@ -19,7 +19,7 @@ exports[`u-sidebar.vue Demo-分组 1`] = `
       </transition-stub>
     </div>
     <div class="root">
-      <div class="head">
+      <div class="head" data-group-nested-level="0">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           <span class="root" vusion-slot-name-edit="text">导航二</span>
         </div>
@@ -41,7 +41,7 @@ exports[`u-sidebar.vue Demo-分组 2`] = `
 <div>
   <nav class="root">
     <div class="root">
-      <div class="head" title="导航一">
+      <div class="head" data-group-nested-level="0" title="导航一">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           导航一
         </div>
@@ -56,7 +56,7 @@ exports[`u-sidebar.vue Demo-分组 2`] = `
       </transition-stub>
     </div>
     <div class="root">
-      <div class="head" title="导航二">
+      <div class="head" data-group-nested-level="0" title="导航二">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           导航二
         </div>
@@ -118,7 +118,7 @@ exports[`u-sidebar.vue Demo-手风琴模式 1`] = `
 <div>
   <nav class="root">
     <div class="root">
-      <div class="head">
+      <div class="head" data-group-nested-level="0">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           <span class="root" vusion-slot-name-edit="text">导航一</span>
         </div>
@@ -134,7 +134,7 @@ exports[`u-sidebar.vue Demo-手风琴模式 1`] = `
       </transition-stub>
     </div>
     <div class="root">
-      <div class="head">
+      <div class="head" data-group-nested-level="0">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           <span class="root" vusion-slot-name-edit="text">导航二</span>
         </div>
@@ -150,7 +150,7 @@ exports[`u-sidebar.vue Demo-手风琴模式 1`] = `
       </transition-stub>
     </div>
     <div class="root">
-      <div class="head">
+      <div class="head" data-group-nested-level="0">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           <span class="root" vusion-slot-name-edit="text">导航三</span>
         </div>
@@ -173,7 +173,7 @@ exports[`u-sidebar.vue Demo-手风琴模式 2`] = `
 <div>
   <nav class="root">
     <div class="root">
-      <div class="head" title="导航一">
+      <div class="head" data-group-nested-level="0" title="导航一">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           导航一
         </div>
@@ -189,7 +189,7 @@ exports[`u-sidebar.vue Demo-手风琴模式 2`] = `
       </transition-stub>
     </div>
     <div class="root">
-      <div class="head" title="导航二">
+      <div class="head" data-group-nested-level="0" title="导航二">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           导航二
         </div>
@@ -205,7 +205,7 @@ exports[`u-sidebar.vue Demo-手风琴模式 2`] = `
       </transition-stub>
     </div>
     <div class="root">
-      <div class="head" title="导航三">
+      <div class="head" data-group-nested-level="0" title="导航三">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           导航三
         </div>
@@ -228,7 +228,7 @@ exports[`u-sidebar.vue Demo-折叠功能 1`] = `
 <div>
   <nav class="root">
     <div class="root">
-      <div class="head">
+      <div class="head" data-group-nested-level="0">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           <span class="root" vusion-slot-name-edit="text">导航一</span>
         </div>
@@ -244,7 +244,7 @@ exports[`u-sidebar.vue Demo-折叠功能 1`] = `
       </transition-stub>
     </div>
     <div class="root" disabled="disabled">
-      <div class="head">
+      <div class="head" data-group-nested-level="0">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           <span class="root" vusion-slot-name-edit="text">导航二</span>
         </div>
@@ -267,7 +267,7 @@ exports[`u-sidebar.vue Demo-折叠功能 2`] = `
 <div>
   <nav class="root">
     <div class="root">
-      <div class="head" title="导航一">
+      <div class="head" data-group-nested-level="0" title="导航一">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           导航一
         </div>
@@ -283,7 +283,7 @@ exports[`u-sidebar.vue Demo-折叠功能 2`] = `
       </transition-stub>
     </div>
     <div class="root" disabled="disabled">
-      <div class="head" title="导航二">
+      <div class="head" data-group-nested-level="0" title="导航二">
         <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
           导航二
         </div>

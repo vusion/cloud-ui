@@ -76,3 +76,51 @@ export default {
     </u-form-item>
 </u-form>
 ```
+
+### 格式化
+``` vue
+<template>
+    <div>
+        <u-date-picker
+            :value.sync="date"
+            picker="date"
+            show-formatter="YYYY年M月"
+            width="large"
+            clearable
+            @change="onChange"
+            @slect="onSelect"
+            @toggle="onToggle">
+        </u-date-picker>
+        <u-date-picker
+            :value.sync="date"
+            picker="week"
+            :advanced-format="{ enable: true, value: 'GGGG年第W周' }"
+            width="large"
+            clearable
+            @change="onChange"
+            @slect="onSelect"
+            @toggle="onToggle">
+        </u-date-picker>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            date: '2023-07-07'
+        }
+    },
+    methods: {
+        onChange($event) {
+            console.log('onChange', $event);
+        },
+        onSelect($event) {
+            console.log('onSelect',$event);
+        },
+        onToggle($event) {
+            console.log('onToggle',$event);
+        },
+    },
+};
+</script>
+```

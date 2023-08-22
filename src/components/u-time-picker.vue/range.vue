@@ -2,8 +2,8 @@
 <span :class="$style.root" :width="width" :height="height">
     <u-range-input
         :class="$style.input"
-        :left-value="startInputTime"
-        :right-value="endInputTime"
+        :left-value="genDisplayFormatText(startInputTime)"
+        :right-value="genDisplayFormatText(endInputTime)"
         :autofocus="autofocus"
         :disabled="!!readonly || disabled"
         ref="input"
@@ -70,6 +70,9 @@
 </template>
 
 <script>
+import dayjs from '../../utils/dayjs';
+import DateFormatMixin from '../../mixins/date.format';
+import { formatterOptions } from './wrap';
 import i18n from './i18n';
 import MField from '../m-field.vue';
 import UTimePickerPopper from './popper.vue';
@@ -93,7 +96,7 @@ export default {
     name: 'u-time-range-picker',
     i18n,
     components: { URangeInput, UTimePickerPopper },
-    mixins: [MField],
+    mixins: [MField, DateFormatMixin],
     props: {
         minUnit: { type: String, default: 'second' },
         startTime: { type: String, default: '' },
@@ -142,12 +145,60 @@ export default {
         minEndTime() {
             return this.startInputTime || this.minTime;
         },
+        validShowFormatters() {
+            return formatterOptions[this.minUnit];
+        },
     },
     created() {
         const value = this.startInputTime && this.endInputTime ? [this.startInputTime, this.endInputTime] : '';
         this.$emit('update', value);
     },
     methods: {
+        getFormatString() {
+            if (this.minUnit === 'second') {
+                return 'HH:mm:ss';
+            }
+
+            if (this.minUnit === 'minute') {
+                return 'HH:mm';
+            }
+
+            return 'HH:mm:ss';
+        },
+        getDisplayFormatString() {
+            let formatter;
+
+            if (this.advancedFormat && this.advancedFormat.enable && this.advancedFormat.value) { // 高级格式化开启
+                formatter = this.advancedFormat.value;
+            } else if (this.validShowFormatters.includes(this.showFormatter)) { // 配置的展示格式满足
+                formatter = this.showFormatter;
+            }
+
+            if (formatter) {
+                return formatter;
+            }
+
+            return this.getFormatString();
+        },
+        genDisplayFormatText(value) {
+            if (!value)
+                return value;
+
+            let text = value;
+            try {
+                const formatter = this.getDisplayFormatString();
+                if (formatter && formatter !== this.getFormatString()) {
+                    // 拼凑出今天日期
+                    const today = dayjs().format('YYYY-MM-DD');
+                    const time = new Date(`${today} ${value}`);
+                    text = dayjs(time).format(formatter);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+
+            return text;
+        },
         callPopperMethod(methodName, ...args) {
             const refName = this.editTarget === 'start' ? 'startPopper' : 'endPopper';
             if (this.$refs[refName] && this.$refs[refName][methodName]) {
@@ -176,8 +227,8 @@ export default {
             this.callPopperMethod('onBlurInputValue', value);
             this.$nextTick(() => {
                 this.$refs.input.updateCurrentValue({
-                    leftValue: this.startInputTime,
-                    rightValue: this.endInputTime,
+                    leftValue: this.genDisplayFormatText(this.startInputTime),
+                    rightValue: this.genDisplayFormatText(this.endInputTime),
                 });
             });
         },

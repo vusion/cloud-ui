@@ -1,3 +1,20 @@
+<template>
+    <a :class="$style.root"
+        :selected="parentVM.router ? active : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
+        :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
+        v-ellipsis-title
+        vusion-slot-name-edit="text"
+        vusion-slot-name="default">
+        <i-ico v-if="icon" :name="icon" :class="$style.singleicon" notext></i-ico>
+        <slot>{{ text }}</slot>
+        <s-empty
+            v-if="(!$slots.default)
+            && !text
+            && $env.VUE_APP_DESIGNER">
+        </s-empty>
+    </a>
+</template>
+
 <script>
 import { MSinglexItem } from '../m-singlex.vue';
 import ULink from '../u-link.vue';
@@ -30,7 +47,7 @@ export default {
                 this.$nextTick(() => this.$el.scrollIntoView(false));
         },
         onClick(e) {
-            if (this.disabled || this.parentVM.readonly || this.parentVM.disabled)
+            if (this.disabled || this.parentVM.readonly || this.parentVM.disabled || this.groupVM.disabled)
                 return e.preventDefault();
             ULink.methods.onClick.call(this, e);
             if (this.parentVM.router) {

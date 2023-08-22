@@ -194,8 +194,18 @@ export default {
     display: block;
 }
 
-.root[mode="flex"] { display: flex; text-align: inherit; flex-wrap: wrap }
-.root[mode="flex"][nowrap] {flex-wrap: nowrap}
+.root[mode="flex"] { display: flex; text-align: inherit; flex-wrap: wrap; align-content: flex-start; }
+/* 与主轴同向用 flex，否则用 align-self */
+.root[mode="flex"][direction="horizontal"] > [width-stretch="true"],
+.root[mode="flex"][direction="vertical"] > [height-stretch="true"] { flex: 1 0 0; }
+.root[mode="flex"][direction="vertical"] > [width-stretch="true"],
+.root[mode="flex"][direction="horizontal"] > [height-stretch="true"] { align-self: stretch; }
+/* width-stretch 强制 width 为 unset */
+.root[mode="flex"] > [width-stretch="true"] { width: unset !important; }
+/* height-stretch 强制 height 为 unset */
+.root[mode="flex"] > [height-stretch="true"] { height: unset !important; }
+
+.root[mode="flex"][nowrap] {flex-wrap: nowrap; align-content: stretch;}
 
 .root[mode="flex"][direction="vertical"] { flex-direction: column; }
 

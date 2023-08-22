@@ -3,13 +3,15 @@
         :class="$style.root"
         :selected="parentVM.router ? active : isSelected"
         :readonly="parentVM.readonly"
-        :disabled="disabled || parentVM.disabled"
+        :disabled="disabled || parentVM.disabled || (groupVM && groupVM.disabled)"
         :href="currentHref"
         :target="target"
         @click="parentVM.router ? onClick($event) : select($event)"
         v-on="listeners"
         v-ellipsis-title
-        vusion-slot-name="default">
+        vusion-slot-name="default"
+        vusion-slot-name-edit="text"
+        vusion-click-enabled>
         <i-ico
             v-if="icon"
             :name="icon"
@@ -17,19 +19,40 @@
             notext
         ></i-ico>
         <slot>{{ text }}</slot>
-        <s-empty v-if="!text && (!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
+        <s-empty v-if="!text && (!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
     </a>
 </template>
 
 <script>
 import { MSinglexItem } from '../m-singlex.vue';
+import ULink from '../u-link.vue';
 import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-dropdown-item',
     components: { SEmpty },
     extends: MSinglexItem,
+    groupName: 'u-dropdown-group',
     parentName: 'u-dropdown',
+    methods: {
+        onClick(e) {
+            if (this.disabled || this.parentVM.readonly || this.parentVM.disabled)
+                return e.preventDefault();
+            ULink.methods.onClick.call(this, e);
+            if (this.parentVM.router) {
+                let cancel = false;
+                this.$emit('before-select', {
+                    value: this.value,
+                    item: this.item,
+                    itemVM: this,
+                    preventDefault: () => (cancel = true),
+                }, this);
+                if (cancel)
+                    return;
+                this.parentVM.select(this);
+            }
+        },
+    },
 };
 </script>
 

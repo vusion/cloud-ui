@@ -48,3 +48,9 @@
     <u-text display="block" overflow="nowrap" style="width: 200px; background: var(--background-color-base);" text="围绕应用和微服务打造的一站式 PaaS 平台，帮助用户快速实现易接入、易运维的微服务解决方案。"></u-text>
 </u-linear-layout>
 ```
+
+### 换行与空格
+
+``` html
+<u-text :text="`line1  第一行\nline2  第二行\n   开头带空格 with space`"></u-text>
+```

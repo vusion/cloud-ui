@@ -7,8 +7,18 @@
          v-on="$listeners">
         <template v-if="ready && src || isEmpty">
             <img :src="convertedSrc" :style="imageStyle" v-bind="$attrs" @click="onClick">
-            <u-lightbox v-if="preview" :visible.sync="visible" closeButton>
-                <u-lightbox-item title="图片预览"><img :src="convertedSrc" /></u-lightbox-item>
+            <u-lightbox v-if="preview" :visible.sync="visible" close-button>
+                <u-lightbox-item title="图片预览">
+                    <img :src="convertedSrc"/>
+                </u-lightbox-item>
+            </u-lightbox>
+        </template>
+        <template v-else-if="placeholderReady && convertedPlaceholderSrc || placeholderIsEmpty">
+            <img :src="convertedPlaceholderSrc" :style="imageStyle" v-bind="$attrs" @click="onClick" hsj="hsj">
+            <u-lightbox v-if="preview" :visible.sync="visible" close-button>
+                <u-lightbox-item title="图片预览">
+                    <img :src="convertedPlaceholderSrc"/>
+                </u-lightbox-item>
             </u-lightbox>
         </template>
         <template v-else>
@@ -25,6 +35,14 @@ export default {
             type: String,
             default: '',
             required: true,
+        },
+        placeholderSrc: {
+            type: String,
+        },
+        loadingType: {
+            type: String,
+            default: 'loading',
+            validator: (value) => ['loading', 'placeholder', 'none'].includes(value),
         },
         fit: {
             type: String,
@@ -71,11 +89,18 @@ export default {
     },
     data() {
         return {
+            // for src
             ready: false,
+            loadImgTimer: undefined,
+            isEmpty: false,
+
+            // for placeholderSrc
+            placeholderReady: false,
+            placeholderLoadingTimer: false,
+            placeholderIsEmpty: false,
+
             imageWidth: 0,
             imageHeight: 0,
-            isEmpty: false,
-            loadImgTimer: undefined,
             visible: false,
         };
     },
@@ -86,6 +111,22 @@ export default {
                 res = this.convertSrcFn(this.src);
             } else {
                 res = this.src;
+            }
+
+            if (this.$formatMicroFrontUrl)
+                res = this.$formatMicroFrontUrl(res);
+
+            return res;
+        },
+        convertedPlaceholderSrc() {
+            if (this.loadingType !== 'placeholder') {
+                return '';
+            }
+            let res;
+            if (typeof this.convertSrcFn === 'function') {
+                res = this.convertSrcFn(this.placeholderSrc);
+            } else {
+                res = this.placeholderSrc;
             }
 
             if (this.$formatMicroFrontUrl)
@@ -116,37 +157,105 @@ export default {
         src() {
             this.loadImage();
         },
+        placeholderSrc() {
+            this.loadPlaceholderImage();
+        },
         // convertSrcFn变化重新加载图片
         convertSrcFn() {
+            this.loadPlaceholderImage();
             this.loadImage();
         },
     },
     mounted() {
         this.loadImage();
+        this.loadPlaceholderImage();
     },
     methods: {
         loadImage() {
             this.ready = false;
             this.isEmpty = false;
-            // 10s后图片仍未加载出来，变成裂开的状态
-            clearTimeout(this.loadImgTimer);
-            this.loadImgTimer = setTimeout(() => this.isEmpty = true, 10000);
+
+            if (this.loadImgTimer) {
+                this.loadImgTimer();
+                this.loadImgTimer = null;
+            }
+            const [promise, cancel] = this.load(
+                this.convertedSrc,
+                () => {
+                    // 10s后图片仍未加载出来，变成裂开的状态
+                    this.isEmpty = true;
+                },
+                10000, // 10s
+            );
+
+            promise.then(
+                (img) => {
+                    this.$emit('load', this);
+                    this.ready = true;
+                    this.imageWidth = img.width;
+                    this.imageHeight = img.height;
+                },
+                () => {
+                    this.ready = true;
+                },
+            );
+
+            this.loadImgTimer = cancel;
+        },
+        loadPlaceholderImage() {
+            if (this.ready) {
+                // 正常的图片已经成功加载，不需要加载占位图片
+                return;
+            }
+            this.placeholderReady = false;
+            this.placeholderIsEmpty = false;
+
+            if (this.placeholderLoadingTimer) {
+                this.placeholderLoadingTimer();
+                this.placeholderLoadingTimer = null;
+            }
+            const [promise, cancel] = this.load(
+                this.convertedPlaceholderSrc,
+                () => {
+                    // 10s后图片仍未加载出来，变成裂开的状态
+                    this.placeholderIsEmpty = true;
+                },
+                10000, // 10s
+            );
+
+            promise.then(
+                (img) => {
+                    // this.$emit('load', this);
+                    this.placeholderReady = true;
+                    this.imageWidth = img.width;
+                    this.imageHeight = img.height;
+                },
+                () => {
+                    this.placeholderReady = true;
+                },
+            );
+
+            this.placeholderLoadingTimer = cancel;
+        },
+        load(src, onTimeout, delay = 10000) {
             const img = new Image();
-            const that = this;
-            img.onload = function () {
-                that.$emit('load', that);
-                that.ready = true;
-                img.onload = undefined;
-                img.onerror = undefined;
-                that.imageWidth = img.width;
-                that.imageHeight = img.height;
-            };
-            img.onerror = function (img) {
-                that.ready = true;
-                img.onload = undefined;
-                img.onerror = undefined;
-            };
-            img.src = this.convertedSrc;
+            const timer = setTimeout(onTimeout, delay);
+            return [
+                new Promise((res, rej) => {
+                    img.onload = () => {
+                        res(img);
+                        img.onload = undefined;
+                        img.onerror = undefined;
+                    };
+                    img.onerror = (e) => {
+                        rej(e);
+                        img.onload = undefined;
+                        img.onerror = undefined;
+                    };
+                    img.src = src;
+                }),
+                () => clearTimeout(timer),
+            ];
         },
         onClick() {
             if (!(this.$env && this.$env.VUE_APP_DESIGNER) && this.preview) {

@@ -14,7 +14,9 @@ export default {
 </script>
 
 <style module>
-.root {}
+.root {
+    white-space: pre-wrap;
+}
 
 .root[size="small"] {
     font-size: var(--text-font-size-small);

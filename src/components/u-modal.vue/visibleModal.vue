@@ -20,6 +20,9 @@ export default {
     component: {
         UModalReal,
     },
+    props: {
+        placeholderInDesigner: String,
+    },
     data() {
         return {
             currentVisible: false,
@@ -45,7 +48,7 @@ export default {
         },
         getStyle() {
             const { staticStyle = {}, style = {} } = this.$vnode.data;
-            return {...staticStyle, ...style };
+            return { ...staticStyle, ...style };
         },
     },
     render(h) {
@@ -83,7 +86,7 @@ export default {
                 scopedSlots: this.$scopedSlots,
                 ref: 'modal',
             }, slots),
-            h('div', {}, ['双击编辑弹窗']),
+            h('div', {}, [this.placeholderInDesigner]),
         ]);
     },
 };

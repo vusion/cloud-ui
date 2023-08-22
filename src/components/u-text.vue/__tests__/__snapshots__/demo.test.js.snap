@@ -31,6 +31,14 @@ exports[`u-text.vue Demo-成功文本 1`] = `
 </div>
 `;
 
+exports[`u-text.vue Demo-换行与空格 1`] = `
+<div>
+  <span class="root" vusion-slot-name-edit="text">line1 第一行
+    line2 第二行
+    开头带空格 with space</span>
+</div>
+`;
+
 exports[`u-text.vue Demo-文本过长 1`] = `
 <div>
   <div class="root" direction="vertical" type vusion-slot-name="default">

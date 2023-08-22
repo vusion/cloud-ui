@@ -383,7 +383,7 @@
       docDescription: ""
       tooltipLink: ""
     - name: checked
-      title: 可选中/取消
+      title: 默认选中 
       type: boolean
       sync: true
       description: ""

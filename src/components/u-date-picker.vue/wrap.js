@@ -28,3 +28,11 @@ export default {
         });
     },
 };
+
+export const formatterOptions = {
+    date: ['YYYY年M月D日', 'YYYY-MM-DD', 'M/D/YYYY', 'D/M/YYYY'],
+    month: ['YYYY年M月', 'YYYY-MM', 'M/YYYY'],
+    quarter: ['YYYY年第Q季度', 'YYYY年QQ', 'YYYY-QQ'],
+    year: ['YYYY年', 'YYYY'],
+    week: ['GGGG-W周', 'GGGG年第W周', 'GGGG-WWWW'],
+};

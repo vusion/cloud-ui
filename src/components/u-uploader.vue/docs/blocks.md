@@ -4,7 +4,7 @@
 
 ``` html
 <u-uploader display="inline"
-    url="/upload" url-field="result"
+    url="/upload" url-field="filePath"
     :limit="999"
     max-size="50MB"
     converter="json">
@@ -19,7 +19,7 @@
 ``` html
 <u-uploader list-type="card"
     accept=".png,.jpg,.jpeg,.gif,.bmp"
-    url="/upload" url-field="result"
+    url="/upload" url-field="filePath"
     :limit="999"
     max-size="50MB"
     converter="json">
@@ -31,7 +31,7 @@
 ``` html
 <u-uploader multiple list-type="image"
     accept=".png,.jpg,.jpeg,.gif,.bmp"
-    url="/upload" url-field="result"
+    url="/upload" url-field="filePath"
     :limit="999"
     max-size="50MB"
     converter="json">
