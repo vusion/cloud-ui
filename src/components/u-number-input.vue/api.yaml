@@ -330,6 +330,8 @@
         - name: $event
           type: object
           description: 键盘按键事件对象
+          schema:
+            $ref: "#/systemTypes/KeyboardEvent"
   aria:
     - key: ↑
       description: 按`step`量增加值

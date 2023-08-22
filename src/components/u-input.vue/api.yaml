@@ -329,6 +329,8 @@
         - name: $event
           type: object
           description: 键盘按键事件对象
+          schema:
+            $ref: "#/systemTypes/KeyboardEvent"
   methods:
     - name: focus
       description: 让输入框获取焦点。
