@@ -243,3 +243,13 @@ exports[`u-number-input.vue Demo-精度与间隔 3`] = `
   </div>
 </div>
 `;
+
+exports[`u-number-input.vue Demo-键盘事件 1`] = `
+<div buttondisplay="tail" class="root">
+  <span>b</span>
+  <span style="display: none;"></span>
+  <input buttondisplay="tail" type="text">
+  <span class="button" role="up" tabindex="0"></span>
+  <span class="button" role="down" tabindex="0"></span>
+</div>
+`;

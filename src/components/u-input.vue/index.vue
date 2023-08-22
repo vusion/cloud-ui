@@ -18,7 +18,9 @@
     <!-- <i-ico v-else-if="prefix" notext :name="prefix" :class="$style.prefix" @click="$emit('click-prefix', $event, this)"></i-ico> -->
     <input ref="input" :class="$style.input" v-bind="$attrs" :type="curType" :value="currentValue"
         v-focus="autofocus" :readonly="readonly" :disabled="disabled"
-        @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" @keyup="onKeyup" v-on="listeners"
+        @input="onInput" @focus="onFocus" @blur="onBlur"
+        @keypress="onKeypress" @keydown="onKeydown" @keyup="onKeyup"
+        v-on="listeners"
         @compositionstart="onCompositionStart"
         @compositionend="onCompositionEnd"
         @keydown.enter="onEnter"
@@ -99,6 +101,7 @@ export default {
                 'blur',
                 'update:value',
                 'keyup',
+                'keydown',
             ].forEach((prop) => {
                 delete listeners[prop];
             });
@@ -161,6 +164,9 @@ export default {
                 this.formItemVM.color = 'error';
                 this.formItemVM.currentMessage = this.maxlengthMessage;
             }
+        },
+        onKeydown(e) {
+            this.$emit('keydown', e, this);
         },
         onKeyup(e) {
             this.$emit('keyup', e, this);
