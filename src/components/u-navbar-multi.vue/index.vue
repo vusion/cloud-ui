@@ -24,6 +24,7 @@
                             ></u-navbar-group-multi>
                         <u-navbar-item-multi
                             v-else
+                            :class="$env.VUE_APP_DESIGNER ? $style.mask:''"
                             :key="`${$at2(node, valueField) || idx}`"
                             :text="$at2(node, textField)"
                             :replace="$at2(node, replaceField)"
@@ -122,9 +123,11 @@ export default {
             if (this.$slots.default && this.$slots.default.length > 0) {
                 let temp = [];
                 this.$slots.default.forEach((wrapVnode) => {
-                    if (wrapVnode.tag && wrapVnode.tag.endsWith('u-multi-layout-item')) {
-                        temp = temp.concat(wrapVnode.componentOptions.children.filter((vnode) => vnode.tag && vnode.tag.endsWith('u-navbar-item-multi')));
-                    } else if (wrapVnode.tag && (wrapVnode.tag.endsWith('u-navbar-item-multi') || wrapVnode.tag.endsWith('u-navbar-group-multi'))) {
+                    if (wrapVnode.componentOptions && wrapVnode.componentOptions.tag && wrapVnode.componentOptions.tag === 'u-multi-layout-item') {
+                        if (Array.isArray(wrapVnode.componentOptions.children)) {
+                            temp = temp.concat(wrapVnode.componentOptions.children.filter((vnode) => vnode.componentOptions && vnode.componentOptions.tag && vnode.componentOptions.tag === 'u-navbar-item-multi'));
+                        }
+                    } else if (wrapVnode.componentOptions && wrapVnode.componentOptions.tag && (wrapVnode.componentOptions.tag === 'u-navbar-item-multi' || wrapVnode.componentOptions.tag === 'u-navbar-group-multi')) {
                         temp = [...temp, wrapVnode];
                     } else {
                         console.error(`[u-navbar-multi] 目前仅支持[u-multi-layout-item],[u-navbar-group-multi]和[u-navbar-item-multi]作为默认插槽的内容`);
@@ -451,5 +454,20 @@ export default {
 .root [class^="u-dropdown__"][type=text],
 .root [class^="u-dropdown__"][type=text]:not([disabled]):hover {
     color: inherit;
+}
+
+.mask [class^="s-empty"]{
+    position: relative;
+}
+.mask [class^="s-empty"]::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.8);
+    z-index: 999;
 }
 </style>
