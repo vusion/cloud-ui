@@ -3,17 +3,18 @@
   icon: timeline
   labels:
     - Display
+  tsTypeParams: T
   attrs:
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function | object | DataSource
+      type: nasl.collection.List<T>
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
       docDescription: 时间线的数据源。
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect

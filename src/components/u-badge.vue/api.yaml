@@ -13,14 +13,14 @@
       advanced: true
     - name: value
       title: 值
-      type: number | string
+      type: nasl.core.Integer
       description: 用于标识的值
       group: 数据属性
       docDescription: 当前提醒消息的条数。
       tooltipLink: ""
     - name: max
       title: 最大值
-      type: number
+      type: nasl.core.Integer
       description: 最大值，超过最大值会显示为“最大值+”的形式，当最大值是数字类型时生效
       default: 99
       group: 数据属性

@@ -12,7 +12,7 @@
       description: 是否根据 vue-router 来控制选择项
     - name: value
       title: 值
-      type: any
+      type: string
       sync: true
       model: true
       description: 当前选择的值
@@ -184,6 +184,7 @@
       type: string
       default: ""
       description: 图标
+      setter: iconSelect
     - name: disabled
       title: 禁用
       type: boolean
@@ -191,7 +192,7 @@
       description: 禁用此项
     - name: item
       title: 相关对象
-      type: object
+      type: any
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
       advanced: true
     - name: linkType
@@ -229,7 +230,7 @@
       description: 链接跳转方式
     - name: to
       title: 路由链接
-      type: string | Location
+      type: string
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
       advanced: true
     - name: replace

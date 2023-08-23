@@ -4,6 +4,7 @@
   description: 动态播放内部内容
   labels:
     - Display
+  tsTypeParams: T
   attrs:
     - name: loop
       title: 循环播放
@@ -24,7 +25,7 @@
       advanced: true
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function
+      type: nasl.collection.List<T>
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       designer-value: "[{}]"
       group: 数据属性
@@ -32,7 +33,7 @@
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect

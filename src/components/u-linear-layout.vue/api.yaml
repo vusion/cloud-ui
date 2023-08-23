@@ -132,7 +132,7 @@
         主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布，其中平均分布仅在弹性布局模式下展示。
         主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度，其中占满容器宽度仅在弹性布局模式下展示。
       tooltipLink: ""
-    - name: _alignment
+    - name: alignment
       title: 纵轴对齐
       type: string
       display: capsules
@@ -168,7 +168,7 @@
         主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
         主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
-    - name: alignment
+    - name: _alignment
       title: 纵轴对齐
       type: string
       display: capsules
@@ -279,6 +279,7 @@
       group: 状态属性
       docDescription: 支持从图标库选择图标或上传自定义图标。
       tooltipLink: ""
+      setter: iconSelect
     - name: loadingIconRotate
       title: 加载中图标旋转
       type: boolean

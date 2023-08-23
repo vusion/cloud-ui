@@ -86,10 +86,6 @@
     - name: $listeners
       kind: trigger
       description: 监听所有`<span>`元素的事件。
-      params:
-        - name: $event
-          type: trigger
-          description: 自定义事件对象
     - name: before-remove
       description: 删除前触发
       title: 删除前触发

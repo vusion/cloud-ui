@@ -7,7 +7,7 @@
   attrs:
     - name: value
       title: 选中值
-      type: any
+      type: string
       sync: true
       model: true
       description: 当前选中的值
@@ -93,14 +93,14 @@
       tooltipLink: ""
     - name: value
       title: 值
-      type: any
+      type: string
       description: 集合的元素类型中，用于标识选中值的属性
       group: 数据属性
       docDescription: 集合的元素类型中，用于标识选中值的属性
       tooltipLink: ""
     - name: item
       title: 相关对象
-      type: object
+      type: any
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
       hidden: true
       group: 主要属性

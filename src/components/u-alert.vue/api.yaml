@@ -73,10 +73,6 @@
     - name: close
       title: 关闭时
       description: 关闭时触发
-      params:
-        - name: senderVM
-          type: UAlter
-          description: 发送事件实例
   slots:
     - concept: Slot
       name: default

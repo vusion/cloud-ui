@@ -8,16 +8,14 @@
     - name: convertSrcFn
       title: 图片地址转换器
       type: Function
-      default: (src) => {  try { const tempSrc = JSON.parse(src); const tempItem =
-        tempSrc[0]; return tempItem.url; } catch (e) { return src;}}
       description: 将传入的src转换为符合要求的字符串
       advanced: true
     - name: src
       title: 地址
-      type: image
+      type: string
       default: ""
       description: ""
-      compType: linkInput
+      setter: imageSelect
       group: 主要属性
       docDescription: 图片链接，可以是来自网络的链接，也可以上传本地图片。
       tooltipLink: ""

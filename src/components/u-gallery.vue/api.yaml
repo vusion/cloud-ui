@@ -4,7 +4,7 @@
   labels:
     - Display
   description: 画廊
-  tsTypeParams: T, V, M extends boolean
+  tsTypeParams: T
   attrs:
     - name: data-source
       title: 数据源
@@ -40,7 +40,7 @@
       tooltipLink: ""
     - name: num
       title: 显示图片数
-      type: number
+      type: nasl.core.Integer
       default: 5
       description: ""
       group: 主要属性
