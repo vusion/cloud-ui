@@ -288,12 +288,9 @@ exports[`u-form.vue Demo-Header 外观 1`] = `
                 <span class="scale">100Mbps</span>
               </div>
             </div>
-            <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+            <div buttondisplay="tail" class="root input" hidebuttons="true">
               <span>b</span>
               <span style="display: none;"></span>
-              <span name="true">
-                <span></span>
-              </span>
               <input buttondisplay="tail" hidebuttons="true" type="text">
             </div>
             <span>Mbps</span>
@@ -517,12 +514,9 @@ exports[`u-form.vue Demo-分组 1`] = `
                       <span class="scale">100Mbps</span>
                     </div>
                   </div>
-                  <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+                  <div buttondisplay="tail" class="root input" hidebuttons="true">
                     <span>b</span>
                     <span style="display: none;"></span>
-                    <span name="true">
-                      <span></span>
-                    </span>
                     <input buttondisplay="tail" hidebuttons="true" type="text">
                   </div>
                   <span>Mbps</span>
@@ -751,12 +745,9 @@ exports[`u-form.vue Demo-分组 Collapsible 1`] = `
                       <span class="scale">100Mbps</span>
                     </div>
                   </div>
-                  <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+                  <div buttondisplay="tail" class="root input" hidebuttons="true">
                     <span>b</span>
                     <span style="display: none;"></span>
-                    <span name="true">
-                      <span></span>
-                    </span>
                     <input buttondisplay="tail" hidebuttons="true" type="text">
                   </div>
                   <span>Mbps</span>
@@ -1183,12 +1174,9 @@ exports[`u-form.vue Demo-基本用法 1`] = `
                 <span class="scale">100Mbps</span>
               </div>
             </div>
-            <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+            <div buttondisplay="tail" class="root input" hidebuttons="true">
               <span>b</span>
               <span style="display: none;"></span>
-              <span name="true">
-                <span></span>
-              </span>
               <input buttondisplay="tail" hidebuttons="true" type="text">
             </div>
             <span>Mbps</span>
@@ -1600,12 +1588,9 @@ exports[`u-form.vue Demo-数据收集与提交 1`] = `
               <span class="scale">100Mbps</span>
             </div>
           </div>
-          <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+          <div buttondisplay="tail" class="root input" hidebuttons="true">
             <span>b</span>
             <span style="display: none;"></span>
-            <span name="true">
-              <span></span>
-            </span>
             <input buttondisplay="tail" hidebuttons="true" type="text">
           </div>
           <span>Mbps</span>
@@ -2348,12 +2333,9 @@ exports[`u-form.vue Demo-表单验证 1`] = `
               <span class="scale">100Mbps</span>
             </div>
           </div>
-          <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+          <div buttondisplay="tail" class="root input" hidebuttons="true">
             <span>b</span>
             <span style="display: none;"></span>
-            <span name="true">
-              <span></span>
-            </span>
             <input buttondisplay="tail" hidebuttons="true" type="text">
           </div>
           <span>Mbps</span>
