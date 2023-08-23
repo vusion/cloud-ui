@@ -6,13 +6,16 @@
     z-index: 1;
     overflow: visible;
     padding: var(--menu-item-padding);
-    padding-right: var(--menu-item-size);
     color: var(--menu-item-color);
     white-space: nowrap;
 }
 
 .root:hover {
     background: var(--menu-background-hover);
+}
+
+.root {
+    padding-right: var(--menu-item-size);
 }
 
 .root[readonly] {

@@ -38,7 +38,6 @@ export default {
     /* margin-right: -1px; */
     padding: var(--capsules-capsule-padding-x) var(--capsules-capsule-padding-y);
     border: 1px solid var(--capsules-capsule-border-color);
-    border-left-color: transparent;
     background: var(--capsules-capsule-background);
     color: var(--capsules-capsule-color);
     cursor: var(--capsules-capsule-cursor);
@@ -54,6 +53,10 @@ export default {
 .root:last-child {
     border-top-right-radius: var(--border-radius-base);
     border-bottom-right-radius: var(--border-radius-base);
+}
+
+.root {
+    border-left-color: transparent;
 }
 
 .root:not([selected], [readonly], [disabled]):hover {
