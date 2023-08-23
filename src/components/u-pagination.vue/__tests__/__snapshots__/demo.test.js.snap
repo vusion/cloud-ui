@@ -91,10 +91,10 @@ exports[`u-pagination.vue Demo-全部配置 1`] = `
         <i class="item" role="next"></i>
       </a>
       <span class="jumper-wrap">跳至
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true">
+        <div button-display="tail" class="root jumper" hide-buttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <input buttondisplay="tail" hidebuttons="true" type="text">
+          <input button-display="tail" hide-buttons="true" type="text">
         </div>
         页
       </span>
@@ -141,10 +141,10 @@ exports[`u-pagination.vue Demo-全部配置 2`] = `
         <i class="item" role="next"></i>
       </a>
       <span class="jumper-wrap">跳至
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true">
+        <div button-display="tail" class="root jumper" hide-buttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <input buttondisplay="tail" hidebuttons="true" type="text">
+          <input button-display="tail" hide-buttons="true" type="text">
         </div>
         页
       </span>
@@ -183,10 +183,10 @@ exports[`u-pagination.vue Demo-全部配置 2`] = `
         <i class="item" role="next"></i>
       </a>
       <span class="jumper-wrap">跳至
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true">
+        <div button-display="tail" class="root jumper" hide-buttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <input buttondisplay="tail" hidebuttons="true" type="text">
+          <input button-display="tail" hide-buttons="true" type="text">
         </div>
         页
       </span>
@@ -249,10 +249,10 @@ exports[`u-pagination.vue Demo-只读和禁用 1`] = `
         <i class="item" role="next"></i>
       </a>
       <span class="jumper-wrap">跳至
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true" readonly="readonly">
+        <div button-display="tail" class="root jumper" hide-buttons="true" readonly="readonly">
           <span>b</span>
           <span style="display: none;"></span>
-          <input buttondisplay="tail" hidebuttons="true" readonly="readonly" type="text">
+          <input button-display="tail" hide-buttons="true" readonly="readonly" type="text">
         </div>
         页
       </span>
@@ -308,10 +308,10 @@ exports[`u-pagination.vue Demo-只读和禁用 1`] = `
         <i class="item" role="next"></i>
       </a>
       <span class="jumper-wrap">跳至
-        <div buttondisplay="tail" class="root jumper" disabled="disabled" hidebuttons="true">
+        <div button-display="tail" class="root jumper" disabled="disabled" hide-buttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <input buttondisplay="tail" disabled="disabled" hidebuttons="true" type="text">
+          <input button-display="tail" disabled="disabled" hide-buttons="true" type="text">
         </div>
         页
       </span>
@@ -424,10 +424,10 @@ exports[`u-pagination.vue Demo-小尺寸 1`] = `
         <i class="item" role="next"></i>
       </a>
       <span class="jumper-wrap">跳至
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true">
+        <div button-display="tail" class="root jumper" hide-buttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <input buttondisplay="tail" hidebuttons="true" type="text">
+          <input button-display="tail" hide-buttons="true" type="text">
         </div>
         页
       </span>
@@ -496,10 +496,10 @@ exports[`u-pagination.vue Demo-简洁版 1`] = `
   <nav class="root" simple="true" size="normal">
     <a class="item" disabled="disabled" role="prev"></a>
     <div class="jumper-wrap">
-      <div buttondisplay="tail" class="root jumper" hidebuttons="true">
+      <div button-display="tail" class="root jumper" hide-buttons="true">
         <span>b</span>
         <span style="display: none;"></span>
-        <input buttondisplay="tail" hidebuttons="true" type="text">
+        <input button-display="tail" hide-buttons="true" type="text">
       </div> / 11
     </div>
     <a class="item" role="next"></a>
@@ -513,10 +513,10 @@ exports[`u-pagination.vue Demo-简洁版 2`] = `
     <nav class="root" simple="true" size="normal">
       <a class="item" disabled="disabled" role="prev"></a>
       <div class="jumper-wrap">
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true">
+        <div button-display="tail" class="root jumper" hide-buttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <input buttondisplay="tail" hidebuttons="true" type="text">
+          <input button-display="tail" hide-buttons="true" type="text">
         </div> / 11
       </div>
       <a class="item" role="next"></a>
@@ -524,10 +524,10 @@ exports[`u-pagination.vue Demo-简洁版 2`] = `
     <nav class="root" readonly="readonly" simple="true" size="normal">
       <a class="item" disabled="disabled" role="prev"></a>
       <div class="jumper-wrap">
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true" readonly="readonly">
+        <div button-display="tail" class="root jumper" hide-buttons="true" readonly="readonly">
           <span>b</span>
           <span style="display: none;"></span>
-          <input buttondisplay="tail" hidebuttons="true" readonly="readonly" type="text">
+          <input button-display="tail" hide-buttons="true" readonly="readonly" type="text">
         </div> / 11
       </div>
       <a class="item" role="next"></a>
@@ -535,10 +535,10 @@ exports[`u-pagination.vue Demo-简洁版 2`] = `
     <nav class="root" disabled="disabled" simple="true" size="normal">
       <a class="item" disabled="disabled" role="prev"></a>
       <div class="jumper-wrap">
-        <div buttondisplay="tail" class="root jumper" disabled="disabled" hidebuttons="true">
+        <div button-display="tail" class="root jumper" disabled="disabled" hide-buttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <input buttondisplay="tail" disabled="disabled" hidebuttons="true" type="text">
+          <input button-display="tail" disabled="disabled" hide-buttons="true" type="text">
         </div> / 11
       </div>
       <a class="item" role="next"></a>

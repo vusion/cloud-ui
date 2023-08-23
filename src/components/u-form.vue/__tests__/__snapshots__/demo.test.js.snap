@@ -288,10 +288,10 @@ exports[`u-form.vue Demo-Header 外观 1`] = `
                 <span class="scale">100Mbps</span>
               </div>
             </div>
-            <div buttondisplay="tail" class="root input" hidebuttons="true">
+            <div button-display="tail" class="root input" hide-buttons="true">
               <span>b</span>
               <span style="display: none;"></span>
-              <input buttondisplay="tail" hidebuttons="true" type="text">
+              <input button-display="tail" hide-buttons="true" type="text">
             </div>
             <span>Mbps</span>
           </div>
@@ -514,10 +514,10 @@ exports[`u-form.vue Demo-分组 1`] = `
                       <span class="scale">100Mbps</span>
                     </div>
                   </div>
-                  <div buttondisplay="tail" class="root input" hidebuttons="true">
+                  <div button-display="tail" class="root input" hide-buttons="true">
                     <span>b</span>
                     <span style="display: none;"></span>
-                    <input buttondisplay="tail" hidebuttons="true" type="text">
+                    <input button-display="tail" hide-buttons="true" type="text">
                   </div>
                   <span>Mbps</span>
                 </div>
@@ -745,10 +745,10 @@ exports[`u-form.vue Demo-分组 Collapsible 1`] = `
                       <span class="scale">100Mbps</span>
                     </div>
                   </div>
-                  <div buttondisplay="tail" class="root input" hidebuttons="true">
+                  <div button-display="tail" class="root input" hide-buttons="true">
                     <span>b</span>
                     <span style="display: none;"></span>
-                    <input buttondisplay="tail" hidebuttons="true" type="text">
+                    <input button-display="tail" hide-buttons="true" type="text">
                   </div>
                   <span>Mbps</span>
                 </div>
@@ -1174,10 +1174,10 @@ exports[`u-form.vue Demo-基本用法 1`] = `
                 <span class="scale">100Mbps</span>
               </div>
             </div>
-            <div buttondisplay="tail" class="root input" hidebuttons="true">
+            <div button-display="tail" class="root input" hide-buttons="true">
               <span>b</span>
               <span style="display: none;"></span>
-              <input buttondisplay="tail" hidebuttons="true" type="text">
+              <input button-display="tail" hide-buttons="true" type="text">
             </div>
             <span>Mbps</span>
           </div>
@@ -1588,10 +1588,10 @@ exports[`u-form.vue Demo-数据收集与提交 1`] = `
               <span class="scale">100Mbps</span>
             </div>
           </div>
-          <div buttondisplay="tail" class="root input" hidebuttons="true">
+          <div button-display="tail" class="root input" hide-buttons="true">
             <span>b</span>
             <span style="display: none;"></span>
-            <input buttondisplay="tail" hidebuttons="true" type="text">
+            <input button-display="tail" hide-buttons="true" type="text">
           </div>
           <span>Mbps</span>
         </div>
@@ -2333,10 +2333,10 @@ exports[`u-form.vue Demo-表单验证 1`] = `
               <span class="scale">100Mbps</span>
             </div>
           </div>
-          <div buttondisplay="tail" class="root input" hidebuttons="true">
+          <div button-display="tail" class="root input" hide-buttons="true">
             <span>b</span>
             <span style="display: none;"></span>
-            <input buttondisplay="tail" hidebuttons="true" type="text">
+            <input button-display="tail" hide-buttons="true" type="text">
           </div>
           <span>Mbps</span>
         </div>
