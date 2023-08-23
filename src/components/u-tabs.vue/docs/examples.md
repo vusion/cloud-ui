@@ -30,7 +30,7 @@
 <script>
 export default {
     data() {
-        return { 
+        return {
             value: 1,
             tabList: [{
                 title: '标签页 1',
@@ -47,7 +47,7 @@ export default {
                 value: '3',
                 contentUrl: '/components/u-tabs#默认显示和可关闭',
                 closable: true,
-            }] 
+            }]
         };
     },
     methods: {
@@ -77,7 +77,7 @@ export default {
 </u-tabs>
 ```
 
-### 默认显示和可关闭 
+### 默认显示和可关闭
 
 ``` html
 <u-tabs appear="square">
@@ -138,6 +138,23 @@ export default {
 </u-tabs>
 ```
 
+#### 竖线分割
+
+``` html
+<u-linear-layout>
+    <u-tabs appear="split">
+        <u-tab title="模板">模板内容</u-tab>
+        <u-tab title="样式">样式内容</u-tab>
+        <u-tab title="逻辑">逻辑内容</u-tab>
+    </u-tabs>
+    <u-tabs appear="split" size="mini" closable>
+        <u-tab title="模板">模板内容</u-tab>
+        <u-tab title="样式">样式内容</u-tab>
+        <u-tab title="逻辑">逻辑内容</u-tab>
+    </u-tabs>
+</u-linear-layout>
+```
+
 ### 禁用状态
 
 ``` html
@@ -181,9 +198,9 @@ export default {
         for (let i = 0; i < 20; i++)
             list.push('标签页 ' + (i + 1));
 
-        return { 
+        return {
             value: '标签页 7',
-            list 
+            list
         };
     },
     methods: {

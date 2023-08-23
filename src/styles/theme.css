@@ -1446,6 +1446,7 @@
     --tabs-font-size: var(--font-size-base); /* @desc tab项字体大小,如 1px */ /* @prefix tabs */
     --tabs-item-line-background: var(--brand-primary); /* @type color */ /* @desc tab选中项线条背景色（线条导航方式）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["line"] } */ /* @depParentAttrs { "appear": ["line"] } */
     --tabs-item-background-text: none; /* @type color */ /* @desc tab项背景色（文本模式, 未选中部分）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["text"] } */ /* @depParentAttrs { "appear": ["text"] } */
+    --tabs-item-background-split: none; /* @type color */ /* @desc tab项背景色（竖线分隔模式, 未选中部分）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["split"] } */ /* @depParentAttrs { "appear": ["split"] } */
     --tabs-item-background-capsule: none; /* @type color */ /* @desc tab项背景色（胶囊模式, 未选中部分）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["capsule"] } */ /* @depParentAttrs { "appear": ["capsule"] } */
     --tabs-item-background-hover: transparent; /* @type color */ /* @desc tab项背景色（hover状态, 胶囊模式和底线模式不生效）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": [null] } */ /* @depParentAttrs { "appear": [null] } */
     --tabs-item-background-selected: var(--background-color-default); /* @type color */ /* @desc tab项背景色（选中部分, 胶囊模式和底线模式不生效）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": [null] } */ /* @depParentAttrs { "appear": [null] } */
@@ -1455,10 +1456,15 @@
     --tabs-item-color-selected: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（未选中部分, hover状态, 文本模式和文本模式生效）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": [null] } */ /* @depParentAttrs { "appear": [null] } */
     --tabs-item-color-selected-capsule: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（胶囊模式, 选中部分）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["capsule"] } */ /* @depParentAttrs { "appear": ["capsule"] } */
     --tabs-item-color-disabled: #999; /* @type color */ /* @desc tab禁用项文字颜色,如 #223325 */ /* @prefix tabs */
+    --tabs-item-split-line-color: #CDCFD7; /* @type color */ /* @desc tab项分隔线颜色（竖线分隔模式, 未选中部分）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["split"] } */ /* @depParentAttrs { "appear": ["split"] } */
+    --tabs-item-split-line-height: 12px; /* @desc tab项分隔线高度（竖线分隔模式, 未选中部分）,如 1px */ /* @prefix tabs */ /* @depAttrs { "appear": ["split"] } */ /* @depParentAttrs { "appear": ["split"] } */
     --tabs-item-border-color-selected: var(--border-color-light); /* @type color */ /* @desc tab项边框颜色（选中部分, 默认模式和圆角模式生效）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": [null] } */ /* @depParentAttrs { "appear": [null] } */
     --tabs-item-border-color-selected-capsule: var(--brand-primary); /* @type color */ /* @desc tab项边框颜色（选中部分, 胶囊模式）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["capsule"] } */ /* @depParentAttrs { "appear": ["capsule"] } */
     --tabs-item-border-radius-round: 5px; /* @desc tab项边框圆角（选中部分, 圆角模式）,如 1px */ /* @prefix tabs */
     --tabs-body-space: var(--space-base); /* @desc 组件的tab项和内容区之间的间距,如 1px */ /* @prefix tabs */
+    --tabs-item-close-margin-left: var(--space-small); /* @desc tab项关闭按钮左侧间距,如 1px */ /* @prefix tabs */
+    --tabs-item-close-color: var(--color-light); /* @type color */ /* @desc tab项关闭按钮颜色,如 #223325 */ /* @prefix tabs */
+    --tabs-item-close-hover-color: var(--color-base); /* @type color */ /* @desc tab项关闭按钮悬停颜色,如 #223325 */ /* @prefix tabs */
 
     --tabs-item-background-disabled: transparent; /* @hidden */
     --tabs-item-height-small: 30px; /* @hidden */
