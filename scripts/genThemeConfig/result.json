@@ -4037,6 +4037,21 @@
                             ]
                         }
                     },
+                    "--tabs-item-background-split": {
+                        "type": "color",
+                        "desc": "tab项背景色（竖线分隔模式, 未选中部分）,如 #223325",
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                "split"
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                "split"
+                            ]
+                        }
+                    },
                     "--tabs-item-background-capsule": {
                         "type": "color",
                         "desc": "tab项背景色（胶囊模式, 未选中部分）,如 #223325",
@@ -4142,6 +4157,36 @@
                         "desc": "tab禁用项文字颜色,如 #223325",
                         "prefix": "tabs"
                     },
+                    "--tabs-item-split-line-color": {
+                        "type": "color",
+                        "desc": "tab项分隔线颜色（竖线分隔模式, 未选中部分）,如 #223325",
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                "split"
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                "split"
+                            ]
+                        }
+                    },
+                    "--tabs-item-split-line-height": {
+                        "type": "input",
+                        "desc": "tab项分隔线高度（竖线分隔模式, 未选中部分）,如 1px",
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                "split"
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                "split"
+                            ]
+                        }
+                    },
                     "--tabs-item-border-color-selected": {
                         "type": "color",
                         "desc": "tab项边框颜色（选中部分, 默认模式和圆角模式生效）,如 #223325",
@@ -4180,6 +4225,21 @@
                     "--tabs-body-space": {
                         "type": "input",
                         "desc": "组件的tab项和内容区之间的间距,如 1px",
+                        "prefix": "tabs"
+                    },
+                    "--tabs-item-close-margin-left": {
+                        "type": "input",
+                        "desc": "tab项关闭按钮左侧间距,如 1px",
+                        "prefix": "tabs"
+                    },
+                    "--tabs-item-close-color": {
+                        "type": "color",
+                        "desc": "tab项关闭按钮颜色,如 #223325",
+                        "prefix": "tabs"
+                    },
+                    "--tabs-item-close-hover-color": {
+                        "type": "color",
+                        "desc": "tab项关闭按钮悬停颜色,如 #223325",
                         "prefix": "tabs"
                     }
                 },

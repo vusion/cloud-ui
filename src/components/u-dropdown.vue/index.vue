@@ -46,6 +46,7 @@
                         ></u-dropdown-group>
                     <u-dropdown-item
                         v-else
+                        :class="$env.VUE_APP_DESIGNER ? $style.mask:''"
                         :key="`${$at2(node, valueField) || idx}`"
                         :text="$at2(node, textField)"
                         :replace="$at2(node, replaceField)"
@@ -479,5 +480,20 @@ export default {
     min-width: 120px;
     visibility: hidden;
     position: absolute;
+}
+
+.mask {
+    position: relative;
+}
+.mask::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.8);
+    z-index: 999;
 }
 </style>

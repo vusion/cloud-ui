@@ -7,7 +7,10 @@
     width: var(--select-width);
     height: var(--select-height);
     line-height: calc(var(--select-height) - var(--select-border-width) * 2);
-    padding: 0 calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x)) 0 var(--select-padding-x);
+    padding-top: 0;
+    padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x));
+    padding-bottom: 0;
+    padding-left: var(--select-padding-x);
     background: var(--select-background);
     border: var(--select-border-width) solid var(--select-border-color);
     color: var(--select-color);

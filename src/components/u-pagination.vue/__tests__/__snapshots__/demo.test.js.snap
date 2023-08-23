@@ -91,12 +91,9 @@ exports[`u-pagination.vue Demo-全部配置 1`] = `
         <i class="item" role="next"></i>
       </a>
       <span class="jumper-wrap">跳至
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root jumper" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
         页
@@ -144,12 +141,9 @@ exports[`u-pagination.vue Demo-全部配置 2`] = `
         <i class="item" role="next"></i>
       </a>
       <span class="jumper-wrap">跳至
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root jumper" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
         页
@@ -189,12 +183,9 @@ exports[`u-pagination.vue Demo-全部配置 2`] = `
         <i class="item" role="next"></i>
       </a>
       <span class="jumper-wrap">跳至
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root jumper" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
         页
@@ -258,12 +249,9 @@ exports[`u-pagination.vue Demo-只读和禁用 1`] = `
         <i class="item" role="next"></i>
       </a>
       <span class="jumper-wrap">跳至
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true" prefix="true" readonly="readonly">
+        <div buttondisplay="tail" class="root jumper" hidebuttons="true" readonly="readonly">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" readonly="readonly" type="text">
         </div>
         页
@@ -320,12 +308,9 @@ exports[`u-pagination.vue Demo-只读和禁用 1`] = `
         <i class="item" role="next"></i>
       </a>
       <span class="jumper-wrap">跳至
-        <div buttondisplay="tail" class="root jumper" disabled="disabled" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root jumper" disabled="disabled" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" disabled="disabled" hidebuttons="true" type="text">
         </div>
         页
@@ -439,12 +424,9 @@ exports[`u-pagination.vue Demo-小尺寸 1`] = `
         <i class="item" role="next"></i>
       </a>
       <span class="jumper-wrap">跳至
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root jumper" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
         页
@@ -514,12 +496,9 @@ exports[`u-pagination.vue Demo-简洁版 1`] = `
   <nav class="root" simple="true" size="normal">
     <a class="item" disabled="disabled" role="prev"></a>
     <div class="jumper-wrap">
-      <div buttondisplay="tail" class="root jumper" hidebuttons="true" prefix="true">
+      <div buttondisplay="tail" class="root jumper" hidebuttons="true">
         <span>b</span>
         <span style="display: none;"></span>
-        <span name="true">
-          <span></span>
-        </span>
         <input buttondisplay="tail" hidebuttons="true" type="text">
       </div> / 11
     </div>
@@ -534,12 +513,9 @@ exports[`u-pagination.vue Demo-简洁版 2`] = `
     <nav class="root" simple="true" size="normal">
       <a class="item" disabled="disabled" role="prev"></a>
       <div class="jumper-wrap">
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root jumper" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div> / 11
       </div>
@@ -548,12 +524,9 @@ exports[`u-pagination.vue Demo-简洁版 2`] = `
     <nav class="root" readonly="readonly" simple="true" size="normal">
       <a class="item" disabled="disabled" role="prev"></a>
       <div class="jumper-wrap">
-        <div buttondisplay="tail" class="root jumper" hidebuttons="true" prefix="true" readonly="readonly">
+        <div buttondisplay="tail" class="root jumper" hidebuttons="true" readonly="readonly">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" readonly="readonly" type="text">
         </div> / 11
       </div>
@@ -562,12 +535,9 @@ exports[`u-pagination.vue Demo-简洁版 2`] = `
     <nav class="root" disabled="disabled" simple="true" size="normal">
       <a class="item" disabled="disabled" role="prev"></a>
       <div class="jumper-wrap">
-        <div buttondisplay="tail" class="root jumper" disabled="disabled" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root jumper" disabled="disabled" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" disabled="disabled" hidebuttons="true" type="text">
         </div> / 11
       </div>
