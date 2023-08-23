@@ -152,6 +152,32 @@
     color: var(--tabs-item-color-selected);
 }
 
+.root[appear="split"] > .head .item {
+    background: var(--tabs-item-background-split);
+}
+
+.root[appear="split"] > .head .item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: var(--tabs-item-split-line-color);
+    width: 1px;
+    height: var(--tabs-item-split-line-height);
+}
+
+.root[appear="split"] > .head .item:hover {
+    background: var(--tabs-item-background-hover);
+    color: var(--tabs-item-color-hover);
+}
+
+.root[appear="split"] > .head .item[selected] {
+    background: var(--tabs-item-background-selected);
+    color: var(--tabs-item-color-selected);
+}
+
 .root[appear="capsule"] > .head .item {
     background: var(--tabs-item-background-capsule);
     margin-right: -1px;
@@ -269,13 +295,12 @@
 }
 
 .close {
-    position: absolute;
-    right: 10px;
-    color: var(--color-light);
+    margin-left: var(--tabs-item-close-margin-left);
+    color: var(--tabs-item-close-color);
 }
 
 .close:hover {
-    color: var(--color-base);
+    color: var(--tabs-item-close-hover-color);
 }
 
 .close::before {
