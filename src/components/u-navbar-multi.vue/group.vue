@@ -21,7 +21,8 @@
             :disabled="disabled"
             :reference="$refs.root"
             append-to="reference"
-            :opened="currentExpanded"
+            :opened="($env.VUE_APP_DESIGNER && collapsible === false ) ? false :currentExpanded"
+            @before-open="$event=>collapsible === false && $event.preventDefault()"
             @update:opened="toggle($event)"
             :offset="popperOffset">
             <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true">
