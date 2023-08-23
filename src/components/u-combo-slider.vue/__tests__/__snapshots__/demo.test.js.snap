@@ -53,12 +53,9 @@ exports[`u-combo-slider.vue Demo-只读和禁用 1`] = `
             <span class="scale">100</span>
           </div>
         </div>
-        <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true" readonly="readonly">
+        <div buttondisplay="tail" class="root input" hidebuttons="true" readonly="readonly">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" readonly="readonly" type="text">
         </div>
         <span></span>
@@ -85,12 +82,9 @@ exports[`u-combo-slider.vue Demo-只读和禁用 1`] = `
             <span class="scale">100</span>
           </div>
         </div>
-        <div buttondisplay="tail" class="root input" disabled="disabled" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root input" disabled="disabled" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" disabled="disabled" hidebuttons="true" type="text">
         </div>
         <span></span>
@@ -124,12 +118,9 @@ exports[`u-combo-slider.vue Demo-同步时机 1`] = `
             <span class="scale">100</span>
           </div>
         </div>
-        <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
         <span></span>
@@ -156,12 +147,9 @@ exports[`u-combo-slider.vue Demo-同步时机 1`] = `
             <span class="scale">100</span>
           </div>
         </div>
-        <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
         <span></span>
@@ -193,12 +181,9 @@ exports[`u-combo-slider.vue Demo-基本用法 1`] = `
         <span class="scale">100</span>
       </div>
     </div>
-    <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+    <div buttondisplay="tail" class="root input" hidebuttons="true">
       <span>b</span>
       <span style="display: none;"></span>
-      <span name="true">
-        <span></span>
-      </span>
       <input buttondisplay="tail" hidebuttons="true" type="text">
     </div>
     <span></span>
@@ -228,12 +213,9 @@ exports[`u-combo-slider.vue Demo-基本用法 2`] = `
         <span class="scale">100</span>
       </div>
     </div>
-    <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+    <div buttondisplay="tail" class="root input" hidebuttons="true">
       <span>b</span>
       <span style="display: none;"></span>
-      <span name="true">
-        <span></span>
-      </span>
       <input buttondisplay="tail" hidebuttons="true" type="text">
     </div>
     <span></span>
@@ -264,12 +246,9 @@ exports[`u-combo-slider.vue Demo-提示 1`] = `
           <span class="scale">100GB</span>
         </div>
       </div>
-      <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+      <div buttondisplay="tail" class="root input" hidebuttons="true">
         <span>b</span>
         <span style="display: none;"></span>
-        <span name="true">
-          <span></span>
-        </span>
         <input buttondisplay="tail" hidebuttons="true" type="text">
       </div>
       <span>GB</span>
@@ -305,12 +284,9 @@ exports[`u-combo-slider.vue Demo-提示 1`] = `
           <span class="scale">100GB</span>
         </div>
       </div>
-      <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+      <div buttondisplay="tail" class="root input" hidebuttons="true">
         <span>b</span>
         <span style="display: none;"></span>
-        <span name="true">
-          <span></span>
-        </span>
         <input buttondisplay="tail" hidebuttons="true" type="text">
       </div>
       <span>GB</span>
@@ -349,12 +325,9 @@ exports[`u-combo-slider.vue Demo-显示tooltip 1`] = `
         <span class="scale">100</span>
       </div>
     </div>
-    <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+    <div buttondisplay="tail" class="root input" hidebuttons="true">
       <span>b</span>
       <span style="display: none;"></span>
-      <span name="true">
-        <span></span>
-      </span>
       <input buttondisplay="tail" hidebuttons="true" type="text">
     </div>
     <span></span>
@@ -384,12 +357,9 @@ exports[`u-combo-slider.vue Demo-显示输入框button 1`] = `
         <span class="scale">100</span>
       </div>
     </div>
-    <div buttondisplay="tail" class="root input" prefix="true">
+    <div buttondisplay="tail" class="root input">
       <span>b</span>
       <span style="display: none;"></span>
-      <span name="true">
-        <span></span>
-      </span>
       <input buttondisplay="tail" type="text">
       <span class="button" role="up" tabindex="0"></span>
       <span class="button" disabled="disabled" role="down" tabindex="0"></span>
@@ -421,12 +391,9 @@ exports[`u-combo-slider.vue Demo-最大值和最小值 1`] = `
         <span class="scale">90GB</span>
       </div>
     </div>
-    <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+    <div buttondisplay="tail" class="root input" hidebuttons="true">
       <span>b</span>
       <span style="display: none;"></span>
-      <span name="true">
-        <span></span>
-      </span>
       <input buttondisplay="tail" hidebuttons="true" type="text">
     </div>
     <span>GB</span>
@@ -458,12 +425,9 @@ exports[`u-combo-slider.vue Demo-格式化 1`] = `
             <span class="scale">100</span>
           </div>
         </div>
-        <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
         <span></span>
@@ -490,12 +454,9 @@ exports[`u-combo-slider.vue Demo-格式化 1`] = `
             <span class="scale">100</span>
           </div>
         </div>
-        <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
         <span></span>
@@ -529,12 +490,9 @@ exports[`u-combo-slider.vue Demo-精度与间隔 1`] = `
             <span class="scale">100</span>
           </div>
         </div>
-        <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
         <span></span>
@@ -561,12 +519,9 @@ exports[`u-combo-slider.vue Demo-精度与间隔 1`] = `
             <span class="scale">100</span>
           </div>
         </div>
-        <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
         <span></span>
@@ -593,12 +548,9 @@ exports[`u-combo-slider.vue Demo-精度与间隔 1`] = `
             <span class="scale">100</span>
           </div>
         </div>
-        <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
         <span></span>
@@ -634,12 +586,9 @@ exports[`u-combo-slider.vue Demo-范围 1`] = `
             <span class="scale">100</span>
           </div>
         </div>
-        <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
         <span></span>
@@ -667,12 +616,9 @@ exports[`u-combo-slider.vue Demo-范围 1`] = `
             <span class="scale">100</span>
           </div>
         </div>
-        <div buttondisplay="tail" class="root input" hidebuttons="true" prefix="true">
+        <div buttondisplay="tail" class="root input" hidebuttons="true">
           <span>b</span>
           <span style="display: none;"></span>
-          <span name="true">
-            <span></span>
-          </span>
           <input buttondisplay="tail" hidebuttons="true" type="text">
         </div>
         <span></span>
