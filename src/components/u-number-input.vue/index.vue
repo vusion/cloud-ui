@@ -150,10 +150,10 @@ export default {
             return listeners;
         },
         showPrefix() {
-            return this.unit && this.unit.type === 'prefix';
+            return this.unit && this.unit.type === 'prefix' && !!this.unit.value;
         },
         showSuffix() {
-            return this.unit && this.unit.type === 'suffix';
+            return this.unit && this.unit.type === 'suffix' && !!this.unit.value;
         },
     },
     watch: {

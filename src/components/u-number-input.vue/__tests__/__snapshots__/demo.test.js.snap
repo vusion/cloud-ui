@@ -58,29 +58,37 @@ exports[`u-number-input.vue Demo-基本用法 1`] = `
 `;
 
 exports[`u-number-input.vue Demo-基本用法 2`] = `
-<div>
-  <div class="root" direction="horizontal" type vusion-slot-name="default">
-    <div buttondisplay="tail" class="root">
-      <span>b</span>
-      <span style="display: none;"></span>
-      <input buttondisplay="tail" type="text">
-      <span class="button" role="up" tabindex="0"></span>
-      <span class="button" role="down" tabindex="0"></span>
-    </div>
-    <div buttondisplay="tail" class="root">
-      <span>b</span>
-      <span style="display: none;"></span>
-      <input buttondisplay="tail" type="text">
-      <span class="button" role="up" tabindex="0"></span>
-      <span class="button" role="down" tabindex="0"></span>
-    </div>
-    <div buttondisplay="tail" class="root">
-      <span>b</span>
-      <span style="display: none;"></span>
-      <input buttondisplay="tail" type="text">
-      <span class="button" role="up" tabindex="0"></span>
-      <span class="button" role="down" tabindex="0"></span>
-    </div>
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div buttondisplay="tail" class="root">
+    <span>b</span>
+    <span style="display: none;"></span>
+    <input buttondisplay="tail" type="text">
+    <span class="button" role="up" tabindex="0"></span>
+    <span class="button" role="down" tabindex="0"></span>
+  </div>
+  <div buttondisplay="tail" class="root">
+    <span>b</span>
+    <span style="display: none;"></span>
+    <input buttondisplay="tail" type="text">
+    <span class="button" role="up" tabindex="0"></span>
+    <span class="button" role="down" tabindex="0"></span>
+  </div>
+  <div buttondisplay="tail" class="root">
+    <span>b</span>
+    <span style="display: none;"></span>
+    <input buttondisplay="tail" type="text">
+    <span class="button" role="up" tabindex="0"></span>
+    <span class="button" role="down" tabindex="0"></span>
+  </div>
+  <div advanced-formatter="[object Object]" buttondisplay="tail" class="root" prefix="true">
+    <span>b</span>
+    <span style="display: none;"></span>
+    <span name="true">
+      <span>$</span>
+    </span>
+    <input advanced-formatter="[object Object]" buttondisplay="tail" type="text">
+    <span class="button" role="up" tabindex="0"></span>
+    <span class="button" role="down" tabindex="0"></span>
   </div>
 </div>
 `;
