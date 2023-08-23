@@ -1,4 +1,4 @@
-importScripts('https://cdn.sheetjs.com/xlsx-0.17.2/package/dist/xlsx.full.min.js');
+import XLSX from'./xlsx.full.min.js';
 
 function s2ab(s) {
     const buf = new ArrayBuffer(s.length);
@@ -32,7 +32,7 @@ const readableStream = new ReadableStream({
 
 
 onmessage = (e) => {
-    const { excelData, titles, isEnd, isStart } = e.data;
+    const { excelData, titles, isEnd, isStart, size } = e.data;
     let newData = generateData(excelData, titles);
     if (isStart) {
         newData = '[' + newData.substring(1);
@@ -46,6 +46,41 @@ onmessage = (e) => {
             .then((response) => response.json())
             .then((json) => {
                 const ws = XLSX.utils.json_to_sheet(json, titles);
+                if(size <= 60000) {
+                    Object.keys(ws).forEach((item) => {
+                        const cell = ws[item];
+                        const dateRegx = /^\d{4}-\d{2}-\d{2}$/;
+                        const percentRegx = /^\d+(\.\d+)?%$/ ;
+                        const excludeNumberRegx = /^0\d+$/;
+                        const value = cell.v;
+                        let template;
+                        if (cell.t === 's' && value !=='%' && percentRegx.test(value)) {
+                            // 根据小数位数转化为'0.00%'格式，比如一位小数就是'0.0%'
+                            if (value.indexOf('.') > -1) {
+                                const percentLength = value.split('.')[1].length;
+                                template = '0.'+new Array(percentLength-1).fill(0).join('')+'%';
+                            } else {
+                                template = '0%'
+                            }
+                            cell.z = template;
+                            cell.t = 'n';
+                            cell.v = Number(value.substring(0, value.length - 1)) / 100;
+                        } else if (!isNaN(Number(value)) && value.length <= 15) {
+                            // 0开头的数字字符串，比如'001234'，不会被转化为数字
+                            if (excludeNumberRegx.test(value)) return;
+                            if (value.indexOf('.') > -1) {
+                                const percentLength = value.split('.')[1].length ;
+                                template = '0.'+new Array(percentLength).fill(0).join('');
+                            } else {
+                                template = '0'
+                            }
+                            cell.z = template;
+                            cell.t = 'n';
+                        } else if (dateRegx.test(value)) {
+                            cell.t = 'd';
+                        }
+                    });
+                }
                 const wb = XLSX.utils.book_new();
                 XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
                 const str = XLSX.write(wb, {

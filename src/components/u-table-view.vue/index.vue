@@ -1280,9 +1280,9 @@ export default {
             downloadWorker.onmessage = (e) => {
                 saveAs(e.data, `${filename}.xlsx`);
                 downloadWorker.terminate();
+                this.downloadVisible = false;
                 document.removeEventListener('click', fn, true);
                 document.removeEventListener('keydown', fn, true);
-                this.downloadVisible = false;
             }
             try {
                 const hasHeader = !!this.$el.querySelector('[position=static] thead tr');
@@ -1293,8 +1293,9 @@ export default {
                     downloadWorker.postMessage({
                         excelData: sheetData,
                         titles: content[0],
-                        isEnd: i === num - 1,
-                        isStart: i === 0
+                        isEnd: true,
+                        isStart: true,
+                        size
                     });
                 } else {
                     let num = Math.ceil(size / 10000);
@@ -1323,15 +1324,14 @@ export default {
                             excelData: sheetData,
                             titles: content[0],
                             isEnd: i === num - 1,
-                            isStart: i === 0
+                            isStart: i === 0,
+                            size
                         });
                     }
                 }
                 this.downloadVisible = true;
             } catch (err) {
                 console.error(err);
-                document.removeEventListener('click', fn, true);
-                document.removeEventListener('keydown', fn, true);
             }
         },
         async getRenderResult(arr = [], excludeColumns = [], hasHeader = true) {
@@ -2280,6 +2280,7 @@ export default {
     min-height: var(--table-view-editable-td-min-height);
     height: 1px;
 }
+
 .editablewrap{
     display: table;
     width: 100%;
