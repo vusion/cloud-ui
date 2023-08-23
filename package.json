@@ -64,6 +64,7 @@
     "countup.js": "^1.9.3",
     "dayjs": "^1.10.7",
     "dompurify": "^2.0.15",
+    "file-saver": "^2.0.5",
     "fs-extra": "^9.0.1",
     "i-material-design.vue": "^5.1.0",
     "js-yaml": "^3.14.0",
@@ -75,7 +76,7 @@
     "swiper": "^7.4.1",
     "vue-cropper": "^0.5.8",
     "vusion-api": "^0.6.30",
-    "xlsx": "^0.17.3",
+    "xlsx": "^0.17.5",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
