@@ -171,7 +171,6 @@ export default {
     padding: var(--carousel-nav-item-padding);
     margin-right: 4px;
     background: var(--carousel-nav-item-background);
-    background-clip: content-box;
 }
 
 .nav-item:hover {
@@ -181,6 +180,10 @@ export default {
 .nav-item[selected] {
     width: 20px;
     background: var(--carousel-nav-item-background-hover);
+}
+
+.nav-item {
+    background-clip: content-box;
 }
 
 .button {

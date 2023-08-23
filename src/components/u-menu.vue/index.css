@@ -6,7 +6,9 @@
     padding: var(--menu-padding-y) 0;
     min-width: var(--menu-min-width);
     background: var(--menu-background);
-    border: var(--menu-border-width) solid var(--menu-border-color);
+    border-width: var(--menu-border-width);
+    border-style: solid;
+    border-color: var(--menu-border-color);
     border-radius: var(--menu-border-radius);
     box-shadow: var(--menu-box-shadow);
 }

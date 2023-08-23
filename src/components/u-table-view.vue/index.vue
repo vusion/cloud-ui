@@ -2707,7 +2707,6 @@ export default {
     width: var(--table-view-tree-expander-loading-size);
     height: var(--table-view-tree-expander-loading-size);
     border: var(--table-view-tree-expander-loading-border-width) solid currentColor;
-    border-top-color: transparent;
     border-radius: var(--table-view-tree-expander-loading-size);
     animation: rotate var(--spinner-animation-duration) ease-in-out var(--spinner-animation-delay) infinite;
 }
@@ -2718,6 +2717,10 @@ export default {
     display: inline-flex;
     align-items: center;
     width: auto;
+}
+
+.tree_expander[loading]::before {
+    border-top-color: transparent;
 }
 
 .indent {}

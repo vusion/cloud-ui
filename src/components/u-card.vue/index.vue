@@ -108,8 +108,7 @@ export default {
 
 .head {
     position: relative;
-    padding: var(--card-head-padding-y) var(--card-head-padding-x);
-    padding-bottom: 0;
+    padding: var(--card-head-padding-y) var(--card-head-padding-x) 0 var(--card-head-padding-x);
 }
 
 .title {
