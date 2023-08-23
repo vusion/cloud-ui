@@ -76,8 +76,7 @@ export default {
 
 .head {
     position: relative;
-    padding: var(--panel-head-padding-y) var(--panel-head-padding-x);
-    padding-bottom: 0;
+    padding: var(--panel-head-padding-y) var(--panel-head-padding-x) 0 var(--panel-head-padding-x);
 }
 
 .title {

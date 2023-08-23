@@ -14,7 +14,7 @@ module.exports = {
   ],
   transform: {
     ".*\\.(vue)$": "@vue/vue2-jest",
-    "^.+\\.js$": "babel-jest"
+    "^.+\\.js$": "babel-jest",
   },
   transformIgnorePatterns: [
     'node_modules/(?!(@vusion|swiper|ssr-window|dom7|dayjs)/)',
@@ -25,6 +25,7 @@ module.exports = {
       '<rootDir>/scripts/test/__mocks__/fileMock.js',
     "themeCSS": "<rootDir>/scripts/test/__mocks__/styleMock.js",
     "swiper/swiper-bundle.esm.js": "<rootDir>/node_modules/swiper/swiper-bundle.esm.js",
+    '\\.worker\\.js$': '<rootDir>/scripts/test/__mocks__/fileMock.js'
   },
   snapshotSerializers: ["jest-serializer-vue-tjw"],
   setupFiles: ['<rootDir>/scripts/test/jest.setup.js'],
