@@ -171,6 +171,15 @@ export default {
 .root[justify="space-between"]::after { display: block; content: ''; clear: both; }
 
 .root[mode="flex"] { display: flex; text-align: inherit; }
+/* 与主轴同向用 flex，否则用 align-self */
+.root[mode="flex"][direction="horizontal"] > [width-stretch="true"],
+.root[mode="flex"][direction="vertical"] > [height-stretch="true"] { flex: 1 0 0; }
+.root[mode="flex"][direction="vertical"] > [width-stretch="true"],
+.root[mode="flex"][direction="horizontal"] > [height-stretch="true"] { align-self: stretch; }
+/* width-stretch 强制 width 为 unset */
+.root[mode="flex"] > [width-stretch="true"] { width: unset !important; }
+/* height-stretch 强制 height 为 unset */
+.root[mode="flex"] > [height-stretch="true"] { height: unset !important; }
 
 .root[mode="flex"][direction="vertical"] { flex-direction: column; }
 
@@ -181,9 +190,10 @@ export default {
 .root[mode="flex"][justify="space-between"]::after { display: none; }
 .root[mode="flex"][justify="space-around"] { justify-content: space-around; }
 
-.root[mode="flex"][alignment="start"] { align-items: flex-start; }
-.root[mode="flex"][alignment="center"] { align-items: center; }
-.root[mode="flex"][alignment="end"] { align-items: flex-end; }
-.root[mode="flex"][alignment="baseline"] { align-items: baseline; }
-.root[mode="flex"][alignment="stretch"] { align-items: stretch; }
+.root[mode="flex"][alignment="start"] { align-items: flex-start; align-content: flex-start; }
+.root[mode="flex"][alignment="center"] { align-items: center; align-content: center; }
+.root[mode="flex"][alignment="end"] { align-items: flex-end; align-content: flex-end; }
+.root[mode="flex"][alignment="baseline"] { align-items: baseline; align-content: baseline; }
+.root[mode="flex"][alignment="stretch"] { align-items: stretch; align-content: stretch; }
+
 </style>
