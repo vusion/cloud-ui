@@ -6,6 +6,7 @@ module.exports = {
         config.entryPoints.clear();
         config.entry('index')
             .add(require.resolve('vue-cli-plugin-vusion/scenes/doc/views/docEntry.js'));
+
         config.output.filename('[name].js')
             .library('doc-entry')
             .libraryTarget('window');
