@@ -60,6 +60,9 @@
                                 @click="sortTrigger === 'icon' && ($event.stopPropagation(), onClickSort(columnVM))"></span>
                             <!-- Filterable -->
                             <span v-if="columnVM.filters" :class="$style['filter-wrap']" :active="isFilterActive(columnVM.field)">
+                                <!-- <u-table-view-filters :value="getFiltersValue(columnVM.field)" @select="onSelectFilters(columnVM.field, $event)">
+                                    <u-table-view-filter v-for="filter in columnVM.filters" :key="filter.value" :value="filter.value">{{ filter.text }}</u-table-view-filter>
+                                </u-table-view-filters> -->
                                 <u-table-view-filters-popper
                                     :value="getFiltersValue(columnVM.field)"
                                     :data="columnVM.filters"
@@ -333,9 +336,6 @@
     <div v-if="draggable" :class="$style.dragGhost">
         <div :class="$style.trdragGhost" ref="trDragGhost"></div>
     </div>
-    <u-modal :visible.sync="downloadVisible" title="excel导出" :show-head="false" :show-foot="false">
-        Excel数据组装中，请稍后...
-    </u-modal>
 </div>
 </template>
 
@@ -347,18 +347,15 @@ import { format } from '../../utils/date';
 import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
-import UModal from '../u-modal.vue'
 import i18n from './i18n';
 import UTableViewDropGhost from './drop-ghost.vue';
 import SEmpty from '../../components/s-empty.vue';
-import { saveAs } from 'file-saver';
-import Worker from './download.worker.js';
+
 export default {
     name: 'u-table-view',
     components: {
         UTableViewDropGhost,
         SEmpty,
-        UModal,
     },
     mixins: [MEmitter],
     i18n,
@@ -419,6 +416,7 @@ export default {
             type: String,
             default: '',
         },
+        // formatter: { type: [String, Function], default: 'text' },
         /* Selection Props */
         valueField: String,
         value: null,
@@ -457,7 +455,6 @@ export default {
     },
     data() {
         return {
-            downloadVisible: false,
             columnVMs: [],
             tableWidth: undefined,
             bodyHeight: undefined, // currentData: this.data && Array.from(this.data),
@@ -1261,8 +1258,8 @@ export default {
                 this.$toast.show('页数page必须大于0');
                 return;
             }
-            if (!(typeof size === 'number' && size > 0 && size <= 1000000)) {
-                this.$toast.show('数据条数size必须在1-1000000之间');
+            if (!(typeof size === 'number' && size > 0 && size <= 200000)) {
+                this.$toast.show('数据条数size必须在1-200000之间');
                 return;
             }
             const fn = (event) => {
@@ -1276,63 +1273,49 @@ export default {
                 filename = document.title.split(' ').shift() || 'Export';
                 filename += format(new Date(), '_YYYYMMDD_HHmmss');
             }
-            const downloadWorker = new Worker();
-            downloadWorker.onmessage = (e) => {
-                saveAs(e.data, `${filename}.xlsx`);
-                downloadWorker.terminate();
-                this.downloadVisible = false;
-                document.removeEventListener('click', fn, true);
-                document.removeEventListener('keydown', fn, true);
-            }
             try {
                 const hasHeader = !!this.$el.querySelector('[position=static] thead tr');
+
                 let content = [];
                 if (!this.currentDataSource._load) {
                     content = await this.getRenderResult(this.currentDataSource.data, excludeColumns, hasHeader);
-                    const sheetData = this.getSheetData(content, hasHeader, columns);
-                    downloadWorker.postMessage({
-                        excelData: sheetData,
-                        titles: content[0],
-                        isEnd: true,
-                        isStart: true,
-                        size
-                    });
                 } else {
-                    let num = Math.ceil(size / 10000);
-                    for(let i = 0; i < num; i++) {
-                      let res = await this.currentDataSource._load({ page: page + i, size: size > 10000 ? 10000 : size, filename, sort, order });
-                      if (res instanceof Object) {
+                    // console.time('加载数据');
+                    let res = await this.currentDataSource._load({ page, size, filename, sort, order });
+                    // console.timeEnd('加载数据');
+                    if (res instanceof Object) {
                         if (res.hasOwnProperty('list'))
                             res = res.list;
                         else if (res.hasOwnProperty('content'))
                             res = res.content;
                         else if (res.hasOwnProperty('data'))
                             res = res.data;
-                        }
-
-                        if (!(res instanceof Array)) {
-                            this.$toast.show('数据格式不是数组');
-                            return;
-                        }
-                        if(size > 10000 && i === num - 1 && size % 10000) {
-                            res = res.slice(0, size % 10000)
-                        }
-                        content = await this.getRenderResult(res, excludeColumns, hasHeader);
-                        const columns = this.visibleColumnVMs.length;
-                        const sheetData = this.getSheetData(content, hasHeader, columns);
-                        downloadWorker.postMessage({
-                            excelData: sheetData,
-                            titles: content[0],
-                            isEnd: i === num - 1,
-                            isStart: i === 0,
-                            size
-                        });
                     }
+
+                    if (!(res instanceof Array)) {
+                        this.$toast.show('数据格式不是数组');
+                        return;
+                    }
+
+                    content = await this.getRenderResult(res, excludeColumns, hasHeader);
                 }
-                this.downloadVisible = true;
+
+                // console.time('生成文件');
+                const columns = this.visibleColumnVMs.length;
+                const sheetData = this.getSheetData(content, hasHeader, columns);
+                const sheetTitle = this.title || undefined;
+                const { exportExcel } = require('../../utils/xlsx');
+                exportExcel(sheetData, 'Sheet1', filename, sheetTitle, columns, hasHeader);
+                // console.timeEnd('生成文件');
             } catch (err) {
                 console.error(err);
             }
+
+            await new Promise((res) => {
+                setTimeout(res);
+            });
+            document.removeEventListener('click', fn, true);
+            document.removeEventListener('keydown', fn, true);
         },
         async getRenderResult(arr = [], excludeColumns = [], hasHeader = true) {
             if (arr.length === 0) {
@@ -1340,11 +1323,12 @@ export default {
                     return [];
 
                 let res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
-                res[1] = res[0].map(() => '');
+                res[1] = res[0].map((item) => '');
                 res = this.removeExcludeColumns(res, excludeColumns);
                 return res;
             }
 
+            // console.time('渲染数据');
             const startIndexes = [];
             for (let i = 0; i < this.visibleColumnVMs.length; i++) {
                 const vm = this.visibleColumnVMs[i];
@@ -1353,6 +1337,7 @@ export default {
             }
 
             let res = [];
+            // this.currentDataSource.paging.size 会受可分页选项影响，直接改成pageSize
             const page = this.pageSize;
             for (let i = 0; i < arr.length; i += page) {
                 this.exportData = arr.slice(i, i + page);
@@ -1387,10 +1372,15 @@ export default {
             }
 
             res = this.removeExcludeColumns(res, excludeColumns);
+
+            // console.timeEnd('渲染数据');
+
+            // console.time('复原表格');
             this.exportData = undefined;
             await new Promise((res) => {
                 this.$once('hook:updated', res);
             });
+            // console.timeEnd('复原表格');
 
             return res;
         },
@@ -1471,6 +1461,7 @@ export default {
             this.$emit('update:sorting', sorting, this);
         },
         onSelectFilters(field, $event) {
+            // const filtering = $event.value || $event.value === 0 ? { [field]: $event.value } : undefined;
             const filtering = { [field]: $event.value };
             this.filter(filtering);
         },
@@ -1478,6 +1469,11 @@ export default {
             const filtering = this.currentDataSource && this.currentDataSource.filtering;
             if (!filtering)
                 return undefined;
+            // const filterField = Object.keys(filtering)[0];
+            // if (filterField !== field)
+            //     return undefined;
+            // else
+            //     return this.$at(filtering, field);
             return this.$at(filtering, field);
         },
         isFilterActive(field) {
@@ -1586,6 +1582,12 @@ export default {
             if (item.checked === checked && !isContinue)
                 return;
             const oldValues = this.values ? Array.from(this.values) : this.values; // Emit a `before-` event with preventDefault()
+            // if (this.$emitPrevent('before-check', {
+            //     oldValues,
+            //     checked,
+            //     item,
+            // }, this))
+            //     return;
             // Assign and sync `checked`
             item.checked = checked;
             if (this.treeDisplay) {
@@ -1985,7 +1987,7 @@ export default {
         /**
          * 拖拽结束状态处理
          */
-        onDragEnd() {
+        onDragEnd(e) {
             if (!this.subTreeLoading)
                 this.clearDragState();
             this.$emit('dragend');
@@ -1993,7 +1995,7 @@ export default {
         /**
          * 拖拽放置
          */
-        onDrop() {
+        onDrop(e) {
             if (this.dragState
                 && this.dragState.dragging
                 && this.dragState.sourcePath !== this.dragState.targetPath
@@ -2078,7 +2080,7 @@ export default {
                                     },
                                 });
                                 this.clearDragState();
-                            }).catch(() => {
+                            }).catch((err) => {
                                 this.subTreeLoading = false;
                                 this.clearDragState();
                             });
@@ -2133,6 +2135,18 @@ export default {
         onRootDragover(e) {
             e.preventDefault();
         },
+        /**
+         * 查找数据在数组的哪个位置
+         */
+        // findItem(list, parentNode, func) {
+        //     list.forEach((item, index) => {
+        //         func(item, index, list, parentNode);
+        //         const childList = item && this.$at(item, this.childrenField);
+        //         if (!childList)
+        //             return;
+        //         this.findItem(childList, item, func);
+        //     });
+        // },
         findItem(list, parentNode, func) {
             let tempList = list;
             if (parentNode) {
@@ -2280,7 +2294,6 @@ export default {
     min-height: var(--table-view-editable-td-min-height);
     height: 1px;
 }
-
 .editablewrap{
     display: table;
     width: 100%;
@@ -2589,6 +2602,8 @@ export default {
     height: var(--table-view-expander-size);
     line-height: var(--table-view-expander-size);
     vertical-align: -2px;
+    /* text-align: center;
+    transform: rotate(-180deg); */
     position: relative;
     background-color: var(--table-view-expander-background);
     cursor: pointer;
@@ -2641,6 +2656,7 @@ export default {
 }
 
 .expand-td {
+    /* transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out; */
     background-color: var(--table-view-expand-td-background);
 }
 
@@ -2648,7 +2664,9 @@ export default {
     font-size: var(--table-view-head-item-size);
     color: var(--table-view-head-item-color);
 }
+
 .column-field {}
+
 .tree_expander {
     display: inline-block;
     width: var(--table-view-tree-expander-size);
@@ -2706,6 +2724,7 @@ export default {
 }
 
 .indent {}
+
 .trmask {
     position: relative;
 }
