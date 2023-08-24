@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :width="width" :height="height">
-    <u-input :class="$style.input" width="full" height="full" :value="finalDateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
+    <u-input :class="$style.input" width="full" height="full" :value="genDisplayFormatText(finalDateTime)" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
         :clearable="clearable" :placeholder="placeholder"
         @click.stop="toggle(true)"
         @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
@@ -54,6 +54,10 @@
 </template>
 
 <script>
+import dayjs from '../../utils/dayjs';
+import DateFormatMixin from '../../mixins/date.format';
+// import { formatterOptions as dateFormatterOptions } from '../u-date-picker.vue/wrap';
+// import { formatterOptions as timeFormatterOptions } from '../u-time-picker.vue/wrap';
 import { format, transformDate } from '../../utils/date';
 import MField from '../m-field.vue';
 import i18n from './i18n';
@@ -74,7 +78,7 @@ import i18n from './i18n';
 export default {
     name: 'u-date-time-picker',
     i18n,
-    mixins: [MField],
+    mixins: [MField, DateFormatMixin],
     props: {
         preIcon: {
             type: String,
@@ -96,6 +100,7 @@ export default {
         minDate: [String, Number, Date],
         maxDate: [String, Number, Date],
         date: [String, Number, Date],
+        value: [String, Number, Date], // 优先使用
         yearDiff: { type: [String, Number], default: 20 },
         yearAdd: { type: [String, Number], default: 20 },
         converter: { type: String, default: 'json' },
@@ -121,16 +126,24 @@ export default {
         cancelTitle: { type: String, default: '' },
         okTitle: { type: String, default: '' },
 
+        showDateFormatter: {
+            type: String,
+            default: 'YYYY-MM-DD',
+        },
+        showTimeFormatter: {
+            type: String,
+            default: 'HH:mm:ss',
+        },
     },
     data() {
         return {
-            dateTime: this.format(this.date, 'YYYY-MM-DD HH:mm:ss'), // popper选择以后的值
+            dateTime: this.format((this.value !== null && this.value !== undefined) ? this.value : this.date, 'YYYY-MM-DD HH:mm:ss'), // popper选择以后的值
             open: false,
             minTime: undefined,
             maxTime: undefined,
             currentMaxDate: this.getMaxDate(), // 可能会存在最大值小于最小值情况，组件需要内部处理让最大值和最小值一样
             popperplaceholder: this.$t('selectPopperDateText'),
-            finalDateTime: this.format(this.date, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
+            finalDateTime: this.format((this.value !== null && this.value !== undefined) ? this.value : this.date, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
             showDate: undefined, // popper里的日期输入框
             showTime: undefined, // popper里的时间输入框
         };
@@ -170,6 +183,14 @@ export default {
     },
     watch: {
         date(newValue) {
+            this.dateTime = this.format(newValue, 'YYYY-MM-DD HH:mm:ss');
+            this.finalDateTime = this.dateTime;
+            this.$emit(
+                'update',
+                this.dateTime,
+            );
+        },
+        value(newValue) {
             this.dateTime = this.format(newValue, 'YYYY-MM-DD HH:mm:ss');
             this.finalDateTime = this.dateTime;
             this.$emit(
@@ -227,12 +248,49 @@ export default {
             this.toggle(this.opened);
     },
     methods: {
+        getFormatString() {
+            return 'YYYY-MM-DD HH:mm:ss';
+        },
+        getDisplayFormatString() {
+            let formatter;
+
+            if (this.advancedFormat && this.advancedFormat.enable && this.advancedFormat.value) { // 高级格式化开启
+                formatter = this.advancedFormat.value;
+            } else if (this.showDateFormatter || this.showTimeFormatter) { // 配置的展示格式满足
+                formatter = `${this.showDateFormatter} ${this.showTimeFormatter}`;
+            }
+
+            if (formatter) {
+                return formatter;
+            }
+
+            return this.getFormatString();
+        },
+        genDisplayFormatText(value) {
+            if (!value)
+                return value;
+
+            let text = value;
+            try {
+                const formatter = this.getDisplayFormatString();
+                if (formatter && formatter !== this.getFormatString()) {
+                    // 先将showDate转成Date对象
+                    const date = dayjs(value, this.getDisplayFormatString()).toDate();
+                    text = dayjs(date).format(formatter);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+
+            return text;
+        },
         clearValue() {
             this.finalDateTime = undefined;
         },
         toValue(date) {
             if (!date)
                 return date;
+
             if (this.converter === 'format')
                 return this.format(date, 'YYYY-MM-DD HH:mm:ss'); // value 的真实格式
             else if (this.converter === 'json')
@@ -337,17 +395,17 @@ export default {
                 return;
             }
             if (this.checkValid(value)) {
-                let date = new Date((value));
+                let date = dayjs(value, this.getDisplayFormatString()).toDate();
                 const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
                 date = isOutOfRange ? this.finalDateTime : date;
                 this.finalDateTime = this.format(date, 'YYYY-MM-DD HH:mm:ss');
-                this.$refs.input.updateCurrentValue(this.finalDateTime);
+                this.$refs.input.updateCurrentValue(this.genDisplayFormatText(this.finalDateTime));
                 this.emitValue();
             }
         },
         onBlurInputValue(value) {
             if (!this.checkValid(value)) {
-                this.$refs.input.updateCurrentValue(this.finalDateTime);
+                this.$refs.input.updateCurrentValue(this.genDisplayFormatText(this.finalDateTime));
             }
         },
         updateDate(value) {
@@ -432,6 +490,7 @@ export default {
         },
         emitValue() {
             const newDateTime = this.finalDateTime ? this.toValue(new Date(this.finalDateTime.replace(/-/g, '/'))) : undefined;
+            this.$emit('update:value', newDateTime);
             this.$emit('update:date', newDateTime);
             /**
              * @event change 日期时间改变时触发
@@ -472,8 +531,10 @@ export default {
             this.outRangeDateTime(this.showDate, this.showTime);
         },
         checkValid(value) {
-            const reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])\s+(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d$/;
-            return reg.test(value);
+            return dayjs(value, this.getDisplayFormatString(), true).isValid();
+
+            // const reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])\s+(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d$/;
+            // return reg.test(value);
         },
         checkDate(value) {
             const reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;

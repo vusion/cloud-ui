@@ -1,26 +1,40 @@
 <template>
 <div :class="$style.root" :width="width" :height="height">
-    <u-input :class="$style.input" width="full" height="full" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
-        :clearable="clearable" :placeholder="placeholder"
+    <u-input
+        ref="input"
+        :class="$style.input"
+        width="full"
+        height="full"
+        :value="genDisplayFormatText(showDate)"
+        :autofocus="autofocus"
+        :readonly="readonly"
+        :disabled="disabled"
+        :clearable="clearable"
+        :placeholder="placeholder"
+        :prefix="preIcon ? preIcon : undefined"
+        :suffix="suffixIcon ? suffixIcon : undefined"
+        :color="formItemVM && formItemVM.color"
         @click.stop="toggle(true)"
-        @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
+        @update:value="onInput($event)"
+        @focus="onFocus"
+        @blur="onBlur"
         @blur:value="onBlurInputValue($event)"
-        @clear="clearValue"
-        :prefix="preIcon?preIcon:undefined"
-        :suffix="suffixIcon?suffixIcon:undefined"
-        :color="formItemVM && formItemVM.color">
+        @clear="clearValue">
         <template #prefix><i-ico v-if="preIcon" :name="preIcon" :class="[$style.preIcon]" notext slot="prefix"></i-ico></template>
         <template #suffix><i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.suffixIcon]" notext></i-ico></template>
     </u-input>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
         <div @click.stop>
-            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="calendarDate" :value="date" @select="select($event.date)"></u-calendar>
+            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="calendarDate" :value="value || date" @select="select($event.date)"></u-calendar>
         </div>
     </m-popper>
 </div>
 </template>
 
 <script>
+import dayjs from '../../utils/dayjs';
+import DateFormatMixin from '../../mixins/date.format';
+import { formatterOptions } from './wrap';
 import { DateRangeError } from '../u-calendar.vue/error.js';
 import { clickOutside } from '../../directives';
 import { format, transformDate, ChangeDate } from '../../utils/date';
@@ -45,7 +59,7 @@ export default {
     name: 'u-date-picker',
     i18n,
     directives: { clickOutside },
-    mixins: [MField],
+    mixins: [MField, DateFormatMixin],
     props: {
         preIcon: {
             type: String,
@@ -56,7 +70,7 @@ export default {
             default: '',
         },
         date: [String, Number, Date],
-        value: [String, Number, Date],
+        value: [String, Number, Date], // 优先使用
         minDate: [String, Number, Date],
         maxDate: [String, Number, Date],
         picker: { type: String, default: 'date' },
@@ -91,7 +105,7 @@ export default {
         height: String,
     },
     data() {
-        const date = this.date || this.value;
+        const date = (this.value !== null && this.value !== undefined) ? this.value : this.date;
         const showDate = this.format(date, this.getFormatString());
         return {
             showDate,
@@ -104,6 +118,9 @@ export default {
                 return 'bottom-start';
             else if (this.alignment === 'right')
                 return 'bottom-end';
+        },
+        validShowFormatters() {
+            return formatterOptions[this.picker];
         },
     },
     watch: {
@@ -118,8 +135,10 @@ export default {
              * @event change 日期改变时触发
              * @property {object} sender 事件发送对象
              * @property {number} date 改变后的日期 返回格式为日期对象
-             */ const showDate = this.returnTime(newValue);
+             */
+            const showDate = this.returnTime(newValue);
             const newDate = showDate ? new Date(this.transformDate(showDate)) : undefined;
+            this.$emit('update:value', this.toValue(newDate));
             this.$emit('update:date', this.toValue(newDate));
             this.$emit('change', { sender: this, date: newDate });
             this.$emit('input', this.toValue(newDate));
@@ -173,6 +192,11 @@ export default {
 
             if (this.picker === 'quarter') {
                 return 'YYYY-QQ';
+            }
+
+            if (this.picker === 'week') {
+                // 2023-W09
+                return 'YYYY-WWWW';
             }
 
             return 'YYYY-MM-DD';
@@ -229,14 +253,16 @@ export default {
                 this.showDate = undefined;
                 return;
             }
+
             if (this.checkValid(value)) {
-                let date = new Date(this.transformDate(value));
+                let date = dayjs(value, this.getDisplayFormatString()).toDate();
                 const isOutOfRange = this.isOutOfRange(date); // 超出范围还原成上一次值
                 date = isOutOfRange ? this.showDate : date;
                 const showDate = this.format(date, this.getFormatString());
                 this.showDate = showDate;
                 this.calendarDate = showDate;
-                this.$refs.input.updateCurrentValue(this.showDate);
+
+                this.$refs.input.updateCurrentValue(this.genDisplayFormatText(this.showDate));
             }
         },
         /**
@@ -308,14 +334,27 @@ export default {
             this.$refs.popper && this.$refs.popper.toggle(value);
         },
         checkValid(value) {
-            const reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
-            return reg.test(value);
+            return dayjs(value, this.getDisplayFormatString(), true).isValid();
+
+            // switch (this.picker) {
+            //     case 'year':
+            //         return /^[1-9]\d{3}$/.test(value);
+            //     case 'month':
+            //         return /^[1-9]\d{3}-(0[1-9]|1[0-2])$/.test(value);
+            //     case 'quarter':
+            //         return /^[1-9]\d{3}-(Q[1-4])$/.test(value);
+            //     case 'week':
+            //         return /^[1-9]\d{3}-(W[0-5][0-9])$/.test(value);
+            //     default:
+            //         // date format
+            //         return /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/.test(value);
+            // }
         },
         onBlurInputValue(value) {
             // 当输入框输入的值不合法，需还原成上一次合法的值
             if (value && !this.checkValid(value)) {
                 this.showDate = this.format(this.calendarDate, this.getFormatString());
-                this.$refs.input.updateCurrentValue(this.showDate);
+                this.$refs.input.updateCurrentValue(this.genDisplayFormatText(this.showDate));
             }
         },
         onPopperClose(e) {

@@ -740,6 +740,7 @@
     --timepicker-input-padding-x-huge: var(--input-padding-x-huge); /* @desc Huge时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["huge"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
     --timepicker-input-height-huge: var(--input-height-huge); /* @desc Huge时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["huge"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["height"] */
     --timepicker-input-padding-x-full: var(--input-padding-x-full); /* @desc Full时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["full"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --timepicker-range-input-width: var(--input-width-medium); /* @desc 时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["width"] */
 
     --timepicker-bacground-selected: var(--brand-primary-light); /* @hidden */
     --timepicker-color-selected: white; /* @hidden */
@@ -1746,6 +1747,9 @@
     --calendar-item-border-color: transparent; /* @type color */ /* @desc 日历面板日期边框颜色,如：#223325 */
     --calendar-item-background: var(--calendar-background); /* @type color */ /* @desc 日历面板日期背景颜色,如：#223325 */
 
+    --calendar-item-background-inrange: rgba(51, 126, 255, 0.1); /* @type color */ /* @desc 日历选中范围背景色,如：#223325 */
+    --calendar-range-inner-border-color: var(--border-color-base); /* @type color */ /* @desc 日历范围选择内部分割线颜色,如：#223325 */
+
     --calendar-item-color-hover: #333; /* @type color */ /* @desc 日历面板日期字体颜色（hover状态）,如：#223325 */
     --calendar-item-border-color-hover: var(--calendar-item-border-color); /* @type color */ /* @desc 日历面板日期边框颜色（选中状态）,如：#223325 */
     --calendar-item-background-hover: var(--background-color-hover);  /* @type color */ /* @desc 日历面板日期背景颜色（选中状态）,如：#223325 */
@@ -1765,6 +1769,7 @@
     --calendar-item-week-color: #F24957; /* @type color */ /* @desc 日历面板week字体颜色,如：#223325 */
 
     --calendar-width: 300px; /* @hidden */
+    --calendar-range-width: 600px; /* @hidden */
     --calendar-padding: 15px; /* @hidden */
 
     --calendar-icon-color: var(--gray-dark); /* @type color */ /* @desc 日历面板icon字体颜色,如：#223325 */
@@ -1792,6 +1797,7 @@
     --datepicker-popper-border-radius: var(--border-radius-base); /* hidden */
 
     --datepicker-input-width: var(--input-width); /* @desc 日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
+    --datepicker-range-input-width: var(--input-width-medium); /* @desc 日期选择器范围输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
     --datepicker-input-height: var(--input-height); /* @desc 日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["height"] */
     --datepicker-input-padding-x: var(--input-padding-x); /* @desc 日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
     --datepicker-input-width-mini: var(--input-width-mini); /* @desc Mini日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["mini"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
@@ -1833,6 +1839,7 @@
     --datetime-input-background: var(--input-background); /* @type color */ /* @desc 日期时间选择器输入框背景颜色,如：#223325 */ /* @prefix datetime-input */
 
     --datetime-input-width: var(--input-width); /* @desc 日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */
+    --datetime-range-input-width: var(--input-width-large); /* @desc 日期时间范围选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */
     --datetime-input-height: var(--input-height); /* @desc 日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["height"] */
     --datetime-input-padding-x: var(--input-padding-x); /* @desc 日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
     --datetime-input-width-mini: var(--input-width-mini); /* @desc Mini日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["mini"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */

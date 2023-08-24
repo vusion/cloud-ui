@@ -1,8 +1,8 @@
 <template>
 <div :class="$style.root" :disabled="disabled" :border="border">
     <div :class="$style.headCenter" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
-        <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!this.getYearPrev()" @click="handleYearPrev()"></i-ico>
-        <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!this.getMonthPrev()" @click="handleMonthPrev()"></i-ico>
+        <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!getYearPrev()" @click="handleYearPrev()"></i-ico>
+        <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!getMonthPrev()" @click="handleMonthPrev()"></i-ico>
         <div :class="$style.yearCenter">
             <span>
                 <span :class="$style.showtext" :active="yearvisible">{{ showYear }} {{ $t('year') }} </span>
@@ -24,34 +24,34 @@
                         <f-scroll-view @click.stop>
                             <div :class="$style.yearList" @click.stop>
                                 <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="monthSelect($event, '' ,false)">
-                                    <u-list-view-item :class="$style.yearitem" v-for="(month, mindex) in monthCol" :key="mindex" :value="month.value" :disabled="month.disabled" :role="month.value === showMonth" >{{ month.value }} {{ $t('month') }}</u-list-view-item>
+                                    <u-list-view-item :class="$style.yearitem" v-for="(month, mindex) in monthCol" :key="mindex" :value="month.value" :disabled="month.disabled" :role="month.value === showMonth">{{ month.value }} {{ $t('month') }}</u-list-view-item>
                                 </u-list-view>
                             </div>
                         </f-scroll-view>
                     </m-popper>
                 </span>
         </div>
-        <i-ico :class="$style.hicon" name="right-arrow" notext :disabled="!this.getMonthNext()" @click="handleMonthNext()"></i-ico>
-        <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!this.getYearNext()" @click="handleYearNext()"></i-ico>
+        <i-ico :class="$style.hicon" name="right-arrow" notext :disabled="!getMonthNext()" @click="handleMonthNext()"></i-ico>
+        <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!getYearNext()" @click="handleYearNext()"></i-ico>
     </div>
     <div :class="$style.headCenter" v-if="(picker === 'month' || picker === 'quarter') && currentMode === ''">
-        <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!this.getYearPrev()" @click="handleYearPrev()"></i-ico>
+        <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!getYearPrev()" @click="handleYearPrev()"></i-ico>
         <div :class="$style.yearCenter">
-            <span @click="handlerMode" >{{ showYear }}{{ $t('year') }}</span>
+            <span @click="handlerMode">{{ showYear }}{{ $t('year') }}</span>
         </div>
-        <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!this.getYearNext()" @click="handleYearNext()"></i-ico>
+        <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!getYearNext()" @click="handleYearNext()"></i-ico>
     </div>
     <div v-if="picker === 'year' || currentMode === 'year'" :class="$style.content" type="year">
         <year-page
             :date="showDate"
-            :minDate="minDate"
-            :maxDate="maxDate" 
-            :yearDiff="yearDiff"
-            :yearAdd="yearAdd"
-            @ok="handlerOk" 
-            :showYear="showYear" 
+            :min-date="minDate"
+            :max-date="maxDate"
+            :year-diff="yearDiff"
+            :year-add="yearAdd"
+            @ok="handlerOk"
+            :show-year="showYear"
             :picker="picker"
-            :pageSize="yearPageSize" 
+            :page-size="yearPageSize"
             @select="yearSelect($event)"
         >
         </year-page>
@@ -59,11 +59,11 @@
      <div v-if="currentMode === ''">
         <div v-if="picker === 'quarter'" :class="$style.content" type="quarter">
                 <ul :class="$style.quarterBox">
-                    <li v-for="(quarter, mindex) in quarterCol" 
+                    <li v-for="(quarter, mindex) in quarterCol"
                         :key="mindex"
                         :class="[$style.boxItem, $style.quarterItem]"
-                        :role="quarter.value === showMonth" 
-                        :disabled="quarter.disabled" 
+                        :role="quarter.value === showMonth"
+                        :disabled="quarter.disabled"
                         @click.stop="monthSelect(quarter, mindex)">
                         <div :class="$style.sitem">{{ $t('quarter') }}{{ quarterTextList[quarter.flag - 1] }}</div>
                     </li>
@@ -71,10 +71,10 @@
             </div>
         <div v-if="picker === 'month'" :class="$style.content" type="month">
                 <ul :class="$style.monthBox">
-                    <li v-for="(month, mindex) in monthCol" 
+                    <li v-for="(month, mindex) in monthCol"
                         :key="mindex"
                         :class="$style.boxItem"
-                        :role="month.value === showMonth" 
+                        :role="month.value === showMonth"
                         :disabled="month.disabled"
                         @click.stop="monthSelect(month, mindex)"
                         :sindex="mindex%3">
@@ -86,13 +86,13 @@
     <div :class="$style.content" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
         <div :class="$style.week"><span :class="$style.dayitem" role="week">{{ $t('Sunday') }}</span><span :class="$style.dayitem">{{ $t('Monday') }}</span><span :class="$style.dayitem">{{ $t('Tuesday') }}</span><span :class="$style.dayitem">{{ $t('Wednesday') }}</span><span :class="$style.dayitem">{{ $t('Thursday') }}</span><span :class="$style.dayitem">{{ $t('Friday') }}</span><span :class="$style.dayitem" role="week">{{ $t('Saturday') }}</span></div>
         <div :class="$style.day">
-            <span v-for="(day, index) in days_" 
+            <span v-for="(day, index) in days_"
                 :key="index"
-                :class="$style.daywrap" 
-                :sel="getSel(day) ? 'sel' : ''" 
+                :class="$style.daywrap"
+                :sel="getSel(day) ? 'sel' : ''"
                 :today="isCurrentDay(day)"
-                :disabled="!!isOutOfRange(day)" 
-                :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" 
+                :disabled="!!isOutOfRange(day)"
+                :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''"
                 @click.stop="select(day)"
                 :sindex="index%7">
                 <span :class="$style.item">{{ day | format('dd') }}</span>
@@ -257,23 +257,23 @@ export default {
         showYear(newValue) {
             this.monthCol = this.getMonthCol(newValue + '');
             this.quarterCol = this.getQuarterCol(newValue + '');
-        }, 
+        },
     },
     created() {
         this.update();
     },
     methods: {
         getYearPrev() {
-            let yearmin = this.getRangeYear(this.minDate);
+            const yearmin = this.getRangeYear(this.minDate);
             return !yearmin || this.showYear > yearmin;
         },
         getYearNext() {
-            let yearmax = this.getRangeYear(this.maxDate);
+            const yearmax = this.getRangeYear(this.maxDate);
             return !yearmax || this.showYear < yearmax;
         },
         handleYearPrev() {
             // let minDate = null;
-           
+
             // if (this.minDate) {
             //     minDate = this.transformDate(this.minDate).getFullYear();
             //     if (minDate >= this.showYear) {
@@ -289,9 +289,9 @@ export default {
             // date.setHours(0, 0, 0, 0);
             // this.selectedDate = date;
 
-            if(!this.getYearPrev())
+            if (!this.getYearPrev())
                 return;
-            let date = this.showDate;
+            const date = this.showDate;
             date.setYear(this.showYear - 1);
             this.updateFlag = true;
             this.showDate = new Date(date);
@@ -304,7 +304,7 @@ export default {
             //         return;
             //     }
             // }
-            
+
             // this.showYear = this.showYear + 1;
             // 设置为最早的时间
             // const date = this.showDate;
@@ -313,42 +313,42 @@ export default {
             // date.setHours(0, 0, 0, 0);
             // this.selectedDate = date;
 
-            if(!this.getYearNext())
+            if (!this.getYearNext())
                 return;
-            let date = this.showDate;
+            const date = this.showDate;
             date.setYear(this.showYear + 1);
             this.updateFlag = true;
             this.showDate = new Date(date);
         },
-        getMonthPrev(){
+        getMonthPrev() {
             return !this.minDate || this.minDate && this.getTime(this.showDate) > this.getTime(this.minDate);
         },
-        getMonthNext(){
+        getMonthNext() {
             return !this.maxDate || this.maxDate && this.getTime(this.showDate) < this.getTime(this.maxDate);
         },
-        handleMonthPrev(){
-            if(!this.getMonthPrev())
+        handleMonthPrev() {
+            if (!this.getMonthPrev())
                 return;
-            let date = this.showDate;
+            const date = this.showDate;
             date.setMonth(date.getMonth() - 1);
             this.updateFlag = true;
             this.showDate = new Date(date);
         },
-        handleMonthNext(){
-            if(!this.getMonthNext())
+        handleMonthNext() {
+            if (!this.getMonthNext())
                 return;
-            let date = this.showDate;
+            const date = this.showDate;
             date.setMonth(date.getMonth() + 1);
             this.updateFlag = true;
             this.showDate = new Date(date);
         },
         handlerMode() {
             // 切换到年份选择模式
-           this.currentMode = 'year';
+            this.currentMode = 'year';
         },
         handlerOk({ start, limit }) {
             this.currentYearList = this.getYearCol().splice(start, limit);
-        }, 
+        },
         getSel(day) {
             // 日选择
             if (this.picker === 'date') {
@@ -356,12 +356,12 @@ export default {
             }
             // 周选择，当前所在周都为高亮，并且 this.day 记录为这周的第一天
             if (this.picker === 'week') {
-                let weekDiff = this.selectedDate.getDay() -1;
+                const weekDiff = this.selectedDate.getDay() - 1;
                 // 选择的当前周的第一天
                 const tmpTime = this.selectedDate - weekDiff * MS_OF_DAY;
                 const tmp = new Date(tmpTime);
                 const thisWeek = [
-                    tmp.toDateString(), 
+                    tmp.toDateString(),
                     new Date(tmpTime + 1 * MS_OF_DAY).toDateString(),
                     new Date(tmpTime + 2 * MS_OF_DAY).toDateString(),
                     new Date(tmpTime + 3 * MS_OF_DAY).toDateString(),
@@ -392,7 +392,7 @@ export default {
                 // 选择年份后模式设置为普通模式
                 this.currentMode = '';
             }
-            if(isEmit !== false)
+            if (isEmit !== false)
                 this.$emit('select', { sender: this, date });
         },
         monthSelect(month, flag, isEmit) {
@@ -424,7 +424,7 @@ export default {
             }
             // 根据选择面板的当前年份，确认季度列表的样式
             const currentYear = date.getFullYear();
-            const quartercol = []; 
+            const quartercol = [];
             for (let i = 1; i <= 4; i++) {
                 // 季度是间隔三个月
                 const currentMonth = (i - 1) * 3 + 1;
@@ -436,7 +436,7 @@ export default {
                 } else {
                     obj.disabled = false;
                 }
-                    
+
                 quartercol.push(obj);
             }
             return quartercol;
@@ -494,7 +494,7 @@ export default {
                     const maxFormat = maxYear + '/' + (maxMonth + 1);
                     maxDate = new Date(maxFormat).getTime();
                 }
-            } 
+            }
 
             const currentYear = date.getFullYear();
             const monthcol = [];
@@ -516,7 +516,7 @@ export default {
          * @method update() 日期改变后更新日历
          * @private
          * @return {void}
-         */ 
+         */
         update() {
             this.days_ = [];
             this.showDate = this.transformDate(this.showDate);
@@ -597,7 +597,7 @@ date.setDate(0);
          * @public
          * @param  {Date=null} date 选择的日期
          * @return {void}
-         */ 
+         */
         select(date) {
             if (this.readonly || this.disabled || this.isOutOfRange(date))
                 return;
@@ -617,7 +617,7 @@ date.setDate(0);
          * @public
          * @param {Date} date 待测的日期
          * @return {boolean|Date} date 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
-         */ 
+         */
         isOutOfRange(date) {
             let minDate = ChangeDate(this.transformDate(this.minDate), this.picker);
             let maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker); // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
@@ -637,7 +637,7 @@ date.setDate(0);
             return date.toString() !== 'Invalid Date';
         },
         getTime(value) {
-            if(this.isValidDate(value)){
+            if (this.isValidDate(value)) {
                 const date = new Date(value);
                 date.setDate(1);
                 date.setHours(0, 0, 0, 0);
@@ -645,11 +645,11 @@ date.setDate(0);
             }
         },
         getRangeYear(value) {
-            if(this.isValidDate(value)){
+            if (this.isValidDate(value)) {
                 const date = new Date(value);
                 return date.getFullYear();
             }
-        }
+        },
     },
 };
 </script>
@@ -693,9 +693,9 @@ date.setDate(0);
     border-radius: var(--calendar-border-radius);
     position: relative;
 }
-.daywrap[role][disabled] .item, 
-.daywrap[role][disabled]:hover .item, 
-.daywrap[disabled] .item, 
+.daywrap[role][disabled] .item,
+.daywrap[role][disabled]:hover .item,
+.daywrap[disabled] .item,
 .daywrap[disabled]:hover .item {
     cursor: var(--cursor-not-allowed);
     background-color: var(--calendar-item-background-disabled);
@@ -905,9 +905,9 @@ date.setDate(0);
     background-color: var(--brand-primary);
 } */
 
-.boxItem[role][disabled] .sitem , 
-.boxItem[role][disabled]:hover .sitem , 
-.boxItem[disabled] .sitem , 
+.boxItem[role][disabled] .sitem ,
+.boxItem[role][disabled]:hover .sitem ,
+.boxItem[disabled] .sitem ,
 .boxItem[disabled]:hover .sitem {
     cursor: var(--cursor-not-allowed);
     background-color: var(--calendar-item-background-disabled);
