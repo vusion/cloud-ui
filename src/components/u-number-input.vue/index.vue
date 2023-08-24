@@ -327,11 +327,11 @@ export default {
     border-radius: var(--number-input-border-radius);
     color: var(--number-input-color);
 }
-.root:not([hideButtons="true"]) {
+.root:not([hide-buttons="true"]) {
     padding-right: 28px;
 }
 
-.root[buttonDisplay="bothEnds"]  {
+.root[button-display="bothEnds"]:not([hide-buttons="true"])  {
     text-align: center;
     padding: 0 calc(var(--number-input-both-ends-button-width) + 12px);
 }
@@ -352,7 +352,7 @@ export default {
     text-align: center;
 }
 
-.root[buttonDisplay="tail"] .button {
+.root[button-display="tail"] .button {
     height: var(--number-input-button-height);
     line-height: var(--number-input-button-height);
     right: 0;
@@ -361,7 +361,7 @@ export default {
     background: var(--number-input-button-background);
 }
 
-.root[buttonDisplay="bothEnds"] .button {
+.root[button-display="bothEnds"] .button {
     width: var(--number-input-both-ends-button-width);
     height: var(--number-input-both-ends-button-height);
     line-height: var(--number-input-both-ends-button-height);
@@ -369,84 +369,84 @@ export default {
     top: 0;
 }
 
-.root[buttonDisplay="tail"] .button:hover {
+.root[button-display="tail"] .button:hover {
     background: var(--number-input-button-background-hover);
 }
 
-.root[buttonDisplay="bothEnds"] .button:hover {
+.root[button-display="bothEnds"] .button:hover {
     background: var(--number-input-button-both-ends-background-hover);
 }
 
-.root[buttonDisplay="tail"] .button:focus {
+.root[button-display="tail"] .button:focus {
     background: var(--number-input-button-background-focus);
     outline: var(--number-input-button-outline);
 }
 
-.root[buttonDisplay="bothEnds"] .button:focus {
+.root[button-display="bothEnds"] .button:focus {
     background: var(--number-input-button-both-ends-background-focus);
     outline: var(--number-input-button-both-ends-outline);
 }
 
-.root[buttonDisplay="tail"] .button:active {
+.root[button-display="tail"] .button:active {
     background: var(--number-input-button-background-active);
 }
 
-.root[buttonDisplay="bothEnds"] .button:active {
+.root[button-display="bothEnds"] .button:active {
     background: var(--number-input-button-both-ends-background-active);
 }
 
-.root[buttonDisplay="tail"] .button[role="up"] {
+.root[button-display="tail"] .button[role="up"] {
     top: 0;
     border-bottom: 1px solid var(--number-input-border-color);
     border-top-right-radius: var(--number-input-button-border-radius);
 }
 
-.root[buttonDisplay="tail"] .button[role="down"] {
+.root[button-display="tail"] .button[role="down"] {
     bottom: 0;
     border-bottom-right-radius: var(--number-input-button-border-radius);
 }
 
-.root[buttonDisplay="tail"] .button[role="up"] {
+.root[button-display="tail"] .button[role="up"] {
     border-bottom: 1px solid var(--number-input-border-color);
     border-top-right-radius: var(--number-input-button-border-radius);
 }
 
-.root[buttonDisplay="tail"] .button[role="down"] {
+.root[button-display="tail"] .button[role="down"] {
     bottom: 0;
     border-bottom-right-radius: var(--number-input-button-border-radius);
 }
 
-.root[buttonDisplay="tail"] .button[role="up"]::before {
+.root[button-display="tail"] .button[role="up"]::before {
     icon-font: url("../i-icon.vue/icons/keyboard-arrow-up.svg");
 }
 
-.root[buttonDisplay="tail"] .button[role="down"]::before {
+.root[button-display="tail"] .button[role="down"]::before {
     icon-font: url("../i-icon.vue/icons/keyboard-arrow-down.svg");
 }
 
-.root[buttonDisplay="bothEnds"] .button[role="up"] {
+.root[button-display="bothEnds"] .button[role="up"] {
     right: 0;
     border-left: 1px solid var(--number-input-border-color);
     border-top-right-radius: var(--number-input-button-border-radius);
     border-bottom-right-radius: var(--number-input-button-border-radius);
 }
 
-.root[buttonDisplay="bothEnds"] .button[role="down"] {
+.root[button-display="bothEnds"] .button[role="down"] {
     left: 0;
     border-right: 1px solid var(--number-input-border-color);
     border-top-left-radius: var(--number-input-button-border-radius);
     border-bottom-left-radius: var(--number-input-button-border-radius);
 }
 
-.root[buttonDisplay="bothEnds"] .button::before {
+.root[button-display="bothEnds"] .button::before {
     font-family: var(--font-family-zh-CN);
 }
 
-.root[buttonDisplay="bothEnds"] .button[role="up"]::before {
+.root[button-display="bothEnds"] .button[role="up"]::before {
     content: "+";
 }
 
-.root[buttonDisplay="bothEnds"] .button[role="down"]::before {
+.root[button-display="bothEnds"] .button[role="down"]::before {
     content: '-';
 }
 
@@ -456,8 +456,8 @@ export default {
     font-size: 16px;
 }
 
-.root[buttonDisplay="tail"] .button:hover, 
-.root[buttonDisplay="bothEnds"] .button:hover {
+.root[button-display="tail"] .button:hover,
+.root[button-display="bothEnds"] .button:hover {
     color: var(--number-input-button-color-hover);
 }
 
@@ -477,11 +477,11 @@ export default {
     border-color: var(--number-input-border-color-disabled);
 }
 
-.root[disabled][buttonDisplay="tail"] .button {
+.root[disabled][button-display="tail"] .button {
     background: var(--number-input-button-background-disabled);
 }
 
-.root[disabled][buttonDisplay="bothEnds"] .button {
+.root[disabled][button-display="bothEnds"] .button {
     background: var(--number-input-button-both-ends-background-disabled);
 }
 
@@ -507,9 +507,9 @@ export default {
 .root[readonly] .button:hover {
     color: var(--number-input-button-color);
 }
-.root[readonly][buttonDisplay="bothEnds"] .button:focus,
-.root[readonly][buttonDisplay="bothEnds"] .button:hover,
-.root[readonly][buttonDisplay="bothEnds"] .button:active {
+.root[readonly][button-display="bothEnds"] .button:focus,
+.root[readonly][button-display="bothEnds"] .button:hover,
+.root[readonly][button-display="bothEnds"] .button:active {
     background: var(--number-input-button-background);
 }
 
@@ -532,14 +532,62 @@ export default {
     bottom: 0;
 }
 
-.root:not([hideButtons="true"]),
-.root:not([hideButtons="true"])[clearable] input {
+/* normal */
+.root[prefix] input {
+    padding-left: 24px;
+}
+.root[prefix][clearable]:hover input,
+.root[prefix][clearable][focus] input {
+    padding-right: 24px !important;
+}
+.root[suffix] input {
+    padding-right: 24px;
+}
+.root[suffix][clearable]:hover input,
+.root[suffix][clearable][focus] input {
+    padding-right: 48px !important;
+}
+/* tail */
+.root[button-display="tail"]:not([hide-buttons="true"]) input {
+    padding-right: var(--input-suffix-padding-right);
+}
+.root[button-display="tail"]:not([hide-buttons="true"])[prefix][clearable]:hover input,
+.root[button-display="tail"]:not([hide-buttons="true"])[prefix][clearable][focuse] input {
+    padding-right: calc(var(--input-suffix-padding-right) + 24px) !important;
+}
+.root[button-display="tail"]:not([hide-buttons="true"])[suffix] input {
     padding-right: calc(var(--input-suffix-padding-right) + 24px);
 }
-.root:not([hideButtons="true"])[clearable] [class^="u-input_suffix__"] {
-    right: 30px;
+.root[button-display="tail"]:not([hide-buttons="true"])[suffix][clearable]:hover input,
+.root[button-display="tail"]:not([hide-buttons="true"])[suffix][clearable][focus] input {
+    padding-right: calc(var(--input-suffix-padding-right) + 48px) !important;
 }
-.root[buttonDisplay="bothEnds"][clearable] [class^="u-input_suffix__"] {
-    right: 36px;
+.root[button-display="tail"]:not([hide-buttons="true"]) [class^="u-input_suffix__"] {
+    right: var(--input-suffix-padding-right);
+}
+
+/* bothEnds */
+.root[button-display="bothEnds"]:not([hide-buttons="true"]) input {
+    padding: 0 var(--number-input-both-ends-button-width);
+}
+.root[button-display="bothEnds"]:not([hide-buttons="true"])[prefix] input {
+    padding-left: calc(var(--number-input-both-ends-button-width) + 24px);
+}
+.root[button-display="bothEnds"]:not([hide-buttons="true"])[prefix][clearable]:hover input,
+.root[button-display="bothEnds"]:not([hide-buttons="true"])[prefix][clearable][focuse] input {
+    padding-right: calc(var(--number-input-both-ends-button-width) + 24px) !important;
+}
+.root[button-display="bothEnds"]:not([hide-buttons="true"])[suffix] input {
+    padding-right: calc(var(--number-input-both-ends-button-width) + 24px);
+}
+.root[button-display="bothEnds"]:not([hide-buttons="true"])[suffix][clearable]:hover input,
+.root[button-display="bothEnds"]:not([hide-buttons="true"])[suffix][clearable][focus] input {
+    padding-right: calc(var(--number-input-both-ends-button-width) + 48px) !important;
+}
+.root[button-display="bothEnds"]:not([hide-buttons="true"]) [class^="u-input_prefix__"] {
+    left: var(--number-input-both-ends-button-width);
+}
+.root[button-display="bothEnds"]:not([hide-buttons="true"]) [class^="u-input_suffix__"] {
+    right: var(--number-input-both-ends-button-width);
 }
 </style>
