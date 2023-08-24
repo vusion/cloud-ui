@@ -113,9 +113,22 @@
       sync: true
       model: true
       description: 当前选中的值
+      dependency:
+        - router: false
       group: 数据属性
       brifeDoc: ""
       docDescription: 当前选择的值
+      tooltipLink: ""
+    - name: router
+      title: 使用路由
+      type: boolean
+      default: true
+      description: 是否根据 vue-router 来控制选择哪一项
+      toggleclear:
+        - value
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 设置是否根据vue-router来控制选择哪一项。
       tooltipLink: ""
     - name: field
       title: 字段
