@@ -25,7 +25,7 @@
       default: false
       description: 是否支持进行时间区间选择，关闭则为时间点选择
       group: 数据属性
-    - name: value
+    - name: time
       title: 值
       type: string
       sync: true
