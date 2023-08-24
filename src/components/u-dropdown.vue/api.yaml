@@ -182,6 +182,15 @@
       brifeDoc: ""
       docDescription: 设置弹出层在html里的位置，支持引用元素下、全局body设置。当把下拉菜单放入某个组件，而组件overflow是hidden的时候，需要设置为全局body
       tooltipLink: ""
+    - name: router
+      title: 使用路由
+      type: boolean
+      default: true
+      description: 是否使用 vue-router 
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 设置使用vue-router。
+      tooltipLink: ""
     - name: disabled
       title: 禁用
       type: boolean
