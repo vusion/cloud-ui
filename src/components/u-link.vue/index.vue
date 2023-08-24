@@ -52,6 +52,8 @@ export default {
                 res = encodeUrl(this.href);
             if (this.destination !== undefined)
                 res = encodeUrl(this.destination);
+            else if (this.parentVM && !this.parentVM.router && typeof this.to === 'string' && (this.to.startsWith('http') || this.to.startsWith('https') || this.to.startsWith('www.')))
+                res = encodeUrl(this.to);
             else if (this.$router && this.to !== undefined)
                 res = encodeUrl(this.$router.resolve(this.to, this.$route, this.append).href);
 
@@ -110,21 +112,22 @@ export default {
                 // 使用浏览器的一些快捷键时，走原生
                 // @TODO: 考虑使用快捷键抛出事件，阻止流程的需求
                 let to;
-                if (this.destination) {
-                    const beforeHashUrl = this.destination && this.destination.slice(0, this.destination.indexOf('#'));
-                    if (this.destination.startsWith('http')) {
-                        location.href = encodeUrl(this.destination);
+                const destination = this.destination || this.to;
+                if (destination) {
+                    const beforeHashUrl = destination && destination.slice(0, destination.indexOf('#'));
+                    if (destination.startsWith('http')) {
+                        location.href = encodeUrl(destination);
                         return;
                     // 处理同页面锚点跳转
-                    } else if (this.destination.indexOf('#') !== -1 && beforeHashUrl.indexOf(location.pathname) !== -1) {
-                        const hash = this.destination.slice(this.destination.indexOf('#')) && this.destination.slice(this.destination.indexOf('#')).replace('#', '');
+                    } else if (destination.indexOf('#') !== -1 && beforeHashUrl.indexOf(location.pathname) !== -1) {
+                        const hash = destination.slice(destination.indexOf('#')) && destination.slice(destination.indexOf('#')).replace('#', '');
                         if (document.getElementById(hash)) {
                             document.getElementById(hash).scrollIntoView();
                             // this.$router.push(this.destination);
                         }
                         return;
                     }
-                    to = this.destination;
+                    to = destination;
                 }
                 if (e.ctrlKey || e.shiftKey || e.metaKey || e.altKey)
                     return;
