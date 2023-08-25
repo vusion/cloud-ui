@@ -35,6 +35,7 @@ export default {
         filterMultiple: { type: Boolean, default: false },
         filterMax: Number,
         colSpan: Number,
+        autoRowSpan: { type: Boolean, default: false },
     },
     data() {
         const data = {

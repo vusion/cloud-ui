@@ -171,9 +171,9 @@
                                         :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                                         :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                                         :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)"
-                                        v-if="getItemColSpan(item, columnIndex) !== 0 && getItemRowSpan(item, columnIndex) !== 0"
-                                        :colspan="getItemColSpan(item, columnIndex)"
-                                        :rowspan="getItemRowSpan(item, columnIndex)">
+                                        v-if="getItemColSpan(item, rowIndex, columnIndex) !== 0 && getItemRowSpan(item, rowIndex, columnIndex) !== 0"
+                                        :colspan="getItemColSpan(item, rowIndex, columnIndex)"
+                                        :rowspan="getItemRowSpan(item, rowIndex, columnIndex)">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">
                                                 <template v-if="columnVM.autoIndex && usePagination && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
@@ -494,6 +494,8 @@ export default {
             configColumnVM: undefined,
             dynamicColumnVM: undefined,
             slots: this.$slots,
+            autoColSpan: [], // 用于记录自动的的列合并
+            autoRowSpan: [], // 用于记录自动的的行合并
         };
     },
     computed: {
@@ -603,6 +605,7 @@ export default {
         currentData(currentData) {
             this.watchValue(this.value);
             this.watchValues(this.values);
+            this.autoMergetRow(currentData);
         },
         loading(loading) {
             if (this.$env.VUE_APP_DESIGNER && this.designerMode !== 'success')
@@ -2307,20 +2310,52 @@ export default {
             }
             return paginationHeight;
         },
-        getItemColSpan(item, index) {
+        autoMergetRow(currentData) {
+            this.visibleColumnVMs && this.visibleColumnVMs.forEach((columnVM) => {
+                if (columnVM.autoRowSpan && columnVM.field && Array.isArray(currentData)) {
+                    let count = 0
+                    for (let i = currentData.length - 1; i >= 0; i--) {
+                        const item = currentData[i];
+                        const itemValue = this.$at(item, columnVM.field)
+                        if (itemValue === currentData[i - 1]) {
+                            // TODO: 处理自动合并
+                        }
+                    }
+                }
+            })
+        },
+        getItemColSpan(item, rowIndex, columnIndex) {
             if (Array.isArray(item.colSpan)) {
-                const config = item.colSpan.find((configItem) => configItem[0] === index);
+                const config = item.colSpan.find((configItem) => configItem[0] === columnIndex);
                 if (config) {
+                    for (let i = 1; i < config[1]; i++) {
+                        if (!this.autoColSpan[rowIndex]) {
+                            this.autoColSpan[rowIndex] = [];
+                        }
+                        this.autoColSpan[rowIndex][columnIndex + i] = 0;
+                    }
                     return config[1];
                 }
             }
+            if (this.autoColSpan[rowIndex] && this.autoColSpan[rowIndex][columnIndex ] !== undefined) {
+                return this.autoColSpan[rowIndex][columnIndex];
+            }
         },
-        getItemRowSpan(item, index) {
+        getItemRowSpan(item, rowIndex, columnIndex) {
             if (Array.isArray(item.rowSpan)) {
-                const config = item.rowSpan.find((configItem) => configItem[0] === index);
+                const config = item.rowSpan.find((configItem) => configItem[0] === columnIndex);
                 if (config) {
+                    for (let i = 1; i < config[1]; i++) {
+                        if (!this.autoRowSpan[rowIndex + i]) {
+                            this.autoRowSpan[rowIndex + i] = [];
+                        }
+                        this.autoRowSpan[rowIndex + i][columnIndex] = 0;
+                    }
                     return config[1];
                 }
+            }
+            if (this.autoRowSpan[rowIndex] && this.autoRowSpan[rowIndex][columnIndex ] !== undefined) {
+                return this.autoRowSpan[rowIndex][columnIndex];
             }
         },
     },
