@@ -20,6 +20,9 @@ export default {
     component: {
         UDrawerReal,
     },
+    props: {
+        placeholderInDesigner: String,
+    },
     data() {
         return {
             currentVisible: false,
@@ -83,7 +86,7 @@ export default {
                 scopedSlots: this.$scopedSlots,
                 ref: 'drawer',
             }, slots),
-            h('div', {}, ['双击编辑抽屉']),
+            h('div', {}, [this.placeholderInDesigner]),
         ]);
     },
 };

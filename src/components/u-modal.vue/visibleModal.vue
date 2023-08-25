@@ -20,6 +20,9 @@ export default {
     component: {
         UModalReal,
     },
+    props: {
+        placeholderInDesigner: String,
+    },
     data() {
         return {
             currentVisible: false,
@@ -83,7 +86,7 @@ export default {
                 scopedSlots: this.$scopedSlots,
                 ref: 'modal',
             }, slots),
-            h('div', {}, ['双击编辑弹窗']),
+            h('div', {}, [this.placeholderInDesigner]),
         ]);
     },
 };
