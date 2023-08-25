@@ -164,11 +164,11 @@
           title: 2023年第3季度
           dependency:
             - picker: quarter
-        - value: YYYY年QQQ
+        - value: YYYY年QQ
           title: 2023年Q3
           dependency:
             - picker: quarter
-        - value: YYYY-QQQ
+        - value: YYYY-QQ
           title: 2023-Q3
           dependency:
             - picker: quarter
