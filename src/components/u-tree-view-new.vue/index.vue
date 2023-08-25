@@ -193,7 +193,7 @@ export default {
                     const temp = JSON.parse(JSON.stringify(dataSource));
                     final.data = this.list2tree(temp, this.valueField, this.parentField);
                 } else {
-                    final.data = dataSource;
+                    final.data = JSON.parse(JSON.stringify(dataSource)); // 数据深拷贝
                 }
             else if (typeof dataSource === 'function') {
                 final.load = createLoad(dataSource);
@@ -236,9 +236,9 @@ export default {
                 this.currentValues = values;
                 this.walk((nodeVM) => {
                     if (values.includes(nodeVM.value)) {
-                        nodeVM.check(true);
+                        nodeVM.check(true, true);
                     } else if (isMounted) {
-                        nodeVM.check(false);
+                        nodeVM.check(false, true);
                     }
                 });
             } else {

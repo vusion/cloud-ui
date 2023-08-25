@@ -1,6 +1,6 @@
 <template>
     <div :class="$style.root"
-        :color="color"
+        :color="color || formItemVM && formItemVM.color"
         :readonly="readonly"
         :disabled="currentDisabled"
         :opened="popperOpened"
@@ -14,7 +14,7 @@
         @blur="onRootBlur">
         <!-- 用于基线对齐 -->
         <span :class="$style.baseline">b</span>
-        <span v-if="!filterText && !selectedItem"
+        <span v-if="(!filterText && !selectedItem && !checkable) || (checkable && !checkableValue)"
             :class="$style.placeholder">
             {{ placeholder }}
         </span>
@@ -151,6 +151,7 @@ export default {
         moreChildrenFields: Array,
         excludeFields: { type: Array, default: () => [] },
         checkable: { type: Boolean, default: false },
+        checkControlled: { type: Boolean, default: false },
         cancelable: { type: Boolean, default: false },
         accordion: { type: Boolean, default: false },
         expandTrigger: { type: String, default: 'click' },
@@ -171,7 +172,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: 'reference',
+            default: 'body',
             validator: (value) => ['body', 'reference'].includes(value),
         },
         color: String,
@@ -227,9 +228,9 @@ export default {
                 // 返现选项的字段从value转化为text
                 this.actualValue.forEach((item) => {
                     if (this.$at(this.dataSourceObj, item)) {
-                        textNode.push(this.$at(this.dataSourceObj, item)?.text);
+                        textNode.push(this.$at(this.dataSourceObj, item) && this.$at(this.dataSourceObj, item).text);
                     } else {
-                        textNode.push(this.$at(this.dataSourceNodeList, item)?.text);
+                        textNode.push(this.$at(this.dataSourceNodeList, item) && this.$at(this.dataSourceNodeList, item).text);
                     }
                 });
                 return textNode.join('、');
@@ -924,6 +925,10 @@ export default {
 }
 .root[size^="full"] {
   height: 100%;
+}
+
+.root[color="error"] {
+    border-color: var(--select-input-border-color-error);
 }
 
 .root[color="inverse"] {
