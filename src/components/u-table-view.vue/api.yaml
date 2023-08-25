@@ -744,7 +744,7 @@
           type: UTableView
           description: 发送事件实例
     - name: click-row
-      title: 点击
+      title: 点击行
       description: 点击某一行时触发
       schema:
         $ref: "#/systemTypes/Current"
