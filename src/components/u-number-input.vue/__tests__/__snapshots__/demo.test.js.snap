@@ -281,13 +281,13 @@ exports[`u-number-input.vue Demo-基本用法 2`] = `
     <span class="button" role="up" tabindex="0"></span>
     <span class="button" role="down" tabindex="0"></span>
   </div>
-  <div button-display="tail" class="root" prefix="true">
+  <div advanced-formatter="[object Object]" button-display="tail" class="root" prefix="true">
     <span>b</span>
     <span style="display: none;"></span>
     <span name="true">
       <span>$</span>
     </span>
-    <input button-display="tail" type="text">
+    <input advanced-formatter="[object Object]" button-display="tail" type="text">
     <span class="button" role="up" tabindex="0"></span>
     <span class="button" role="down" tabindex="0"></span>
   </div>
