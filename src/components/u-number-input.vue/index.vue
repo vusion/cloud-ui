@@ -50,7 +50,7 @@ export default {
         autofocus: { type: Boolean, default: false },
 
         // 高级格式化
-        advancedFormatter: {
+        advancedFormat: {
             type: Object,
             default: () => ({
                 enable: false,
@@ -98,12 +98,12 @@ export default {
         else
             data.currentFormatter = noopFormatter; // 初始值需要在最小值和最大值范围之内
 
-        // advancedFormatter最高权限
-        if (this.advancedFormatter) {
+        // advancedFormat最高权限
+        if (this.advancedFormat) {
             let formatter = '';
 
-            if (this.advancedFormatter.enable) {
-                formatter = this.advancedFormatter.value;
+            if (this.advancedFormat.enable) {
+                formatter = this.advancedFormat.value;
             } else {
                 formatter = '0';
 
@@ -132,7 +132,7 @@ export default {
                 // }
             }
 
-            data.currentFormatter = new NumberFormatter(formatter, !this.advancedFormatter.enable && {
+            data.currentFormatter = new NumberFormatter(formatter, !this.advancedFormat.enable && {
                 percentSign: this.percentSign, // 百分比
             });
         }

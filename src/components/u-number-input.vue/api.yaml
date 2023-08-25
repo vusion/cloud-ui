@@ -48,7 +48,7 @@
       brifeDoc: ""
       docDescription: 限制数字要保留的最小单位，整数、小数均可，如需要保留两位小数，则填入0.01。
       tooltipLink: ""
-    - name: advanced-formatter
+    - name: advanced-format
       title: 高级格式化
       type: "{ enable: boolean, value: string }"
       default: "{ enable: false, value: '' }"
@@ -70,7 +70,7 @@
           suffix: 隐藏末尾0
       description: 用来控制小数位数
       dependency:
-        - advanced-formatter.enable: false
+        - advanced-format.enable: false
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
@@ -81,7 +81,7 @@
       default: false
       desciption: 是否显示千位符
       dependency:
-        - advanced-formatter.enable: false
+        - advanced-format.enable: false
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
@@ -92,7 +92,7 @@
       default: false
       desciption: 是否显示百分号
       dependency:
-        - advanced-formatter.enable: false
+        - advanced-format.enable: false
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
