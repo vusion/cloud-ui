@@ -11,7 +11,7 @@
       default: false
       description: 是否支持进行日期时间区间选择，关闭则为日期时间点选择
       group: 数据属性
-    - name: value
+    - name: date
       title: 值
       type: string, number, Date
       sync: true
