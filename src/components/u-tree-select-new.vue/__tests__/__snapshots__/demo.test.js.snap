@@ -161,18 +161,19 @@ exports[`u-tree-select-new.vue Demo-异步加载 1`] = `
 `;
 
 exports[`u-tree-select-new.vue Demo-支持多选 1`] = `
-<div>
-  <div class="root" tabindex="0">
-    <span class="baseline">b</span>
-    <div class="text">
-      <span>
-        节点 1
-      </span>
-    </div>
-    <transition-stub class="popper" name="fade">
-      <div class="root" style="display: none;"></div>
-    </transition-stub>
+<div class="root" tabindex="0">
+  <span class="baseline">b</span>
+  <span class="placeholder">
+    请选择
+  </span>
+  <div class="text">
+    <span>
+
+    </span>
   </div>
+  <transition-stub class="popper" name="fade">
+    <div class="root" style="display: none;"></div>
+  </transition-stub>
 </div>
 `;
 
@@ -216,7 +217,7 @@ exports[`u-tree-select-new.vue Demo-表单验证 1`] = `
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
-        <div class="root" tabindex="0">
+        <div class="root" color tabindex="0">
           <span class="baseline">b</span>
           <span class="placeholder">
             请选择
@@ -237,7 +238,7 @@ exports[`u-tree-select-new.vue Demo-表单验证 1`] = `
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
-        <div class="root" tabindex="0">
+        <div class="root" color tabindex="0">
           <span class="baseline">b</span>
           <span class="placeholder">
             请选择
@@ -258,7 +259,7 @@ exports[`u-tree-select-new.vue Demo-表单验证 1`] = `
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
-        <div class="root" tabindex="0">
+        <div class="root" color tabindex="0">
           <span class="baseline">b</span>
           <span class="placeholder">
             请选择
