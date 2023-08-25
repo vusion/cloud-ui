@@ -492,7 +492,7 @@ export default {
                     }
                     item.response = res;
                     item.showProgress = false;
-
+                    item.name = this.handleFileName(item.url);
                     // 一次上传多个文件，返回数据是数组，需要处理
                     if (res[this.urlField]) {
                         const url = res[this.urlField];
@@ -501,7 +501,7 @@ export default {
                             url.forEach((urlTemp, urlIndex) => {
                                 const urlItem = {
                                     status: 'success',
-                                    name: file[urlIndex].name,
+                                    name: this.handleFileName(urlTemp),
                                     size: file[urlIndex].size,
                                     showProgress: false,
                                     url: urlTemp,
@@ -668,6 +668,10 @@ export default {
                     return c.substring(name.length, c.length);
             }
             return '';
+        },
+        // 展示时使用接口返回路径对应的文件名
+        handleFileName(url) {
+            return url.match(/\/([^/]+)$/)?.[1] ?? null;
         },
     },
 };
