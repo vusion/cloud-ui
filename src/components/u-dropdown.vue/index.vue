@@ -190,7 +190,7 @@ export default {
 
         hasChildren(node) {
             // 异步加载时使用isLeaf判断叶节点
-            if (this.currentDataSource && this.currentDataSource.load && node) {
+            if (this.currentDataSource && this.currentDataSource.load && node && !this.$at(node, this.childrenField)) {
                 const isLeafValue = this.$at(node, this.isLeafField);
                 return isLeafValue === false;
             }
