@@ -4,10 +4,11 @@
   labels:
     - Table
   description: 用于展示大量结构化数据。支持日历结构展示。
+  tsTypeParams: T
   attrs:
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function | object
+      type: nasl.collection.List<T>
       designer-value: "[{}]"
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
@@ -15,7 +16,7 @@
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
@@ -41,7 +42,7 @@
       tooltipLink: ""
     - name: value
       title: 选中值
-      type: Date | string | number
+      type: nasl.core.Date
       sync: true
       model: true
       default: TODAY
@@ -51,14 +52,14 @@
       tooltipLink: ""
     - name: min-date
       title: 最小日期值
-      type: Date | string | number
+      type: nasl.core.Date
       description: 最小可选的日期值，默认为10年前，日期填写格式为“yyyy-mm-dd”
       group: 数据属性
       docDescription: 控制日历展示的日期范围，默认 10 年前。
       tooltipLink: ""
     - name: max-date
       title: 最大日期值
-      type: Date | string | number
+      type: nasl.core.Date
       description: 最大可选的日期值，默认为9年后，日期填写格式为“yyyy-mm-dd”
       group: 数据属性
       docDescription: 控制日历展示的日期范围，默认 9 年后。

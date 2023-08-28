@@ -38,7 +38,7 @@
       advanced: true
     - name: multiple
       title: 可多选
-      type: boolean
+      type: M
       default: false
       description: ""
       advanced: true

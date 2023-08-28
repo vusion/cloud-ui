@@ -150,7 +150,6 @@
     - name: text-field
       title: 文本字段
       type: "(item: T) => nasl.core.String"
-      default: text
       description: 当开启可多选时，显示的选项文本字段名
       group: 数据属性
       display: property-select
@@ -174,7 +173,7 @@
       tooltipLink: ""
     - name: multiple
       title: 可多选
-      type: boolean
+      type: M
       default: false
       description: 设置是否可以多选行
       group: 数据属性
