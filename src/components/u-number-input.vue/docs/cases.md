@@ -107,3 +107,24 @@ export default {
 };
 </script>
 ```
+
+### 高级格式化
+``` vue
+<template>
+<div>
+    <div>展示保留2位小数，值保留3位</div>
+    <u-number-input v-model="value" placeholder="请输入" formatter="0.00" :decimalLength="3"></u-number-input>
+    <div>{{value}}</div>
+</div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: 1
+        }
+    }
+}
+</script>
+```

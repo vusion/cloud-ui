@@ -25,6 +25,11 @@ export class NumberFormatter extends Formatter {
 
         value = value.toFixed(fixed).padStart(fixed ? fill + 1 + fixed : fill, '0');
 
+        // 是否小数隐藏末尾0
+        if (fixed > 0 && /#$/.test(parts[1])) {
+            value = parseFloat(value);
+        }
+
         if (comma)
             value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 

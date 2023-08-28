@@ -48,6 +48,16 @@
       brifeDoc: ""
       docDescription: 限制数字要保留的最小单位，整数、小数均可，如需要保留两位小数，则填入0.01。
       tooltipLink: ""
+      advanced: true
+    - name: decimal-length
+      title: 精度
+      type: number
+      default: 0
+      description: 限制值要保留的小数位数。默认0，不保留小数位
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 限制值要保留的小数位数。默认0，不保留小数位
+      tooltipLink: ""
     - name: advanced-format
       title: 高级格式化
       type: "{ enable: boolean, value: string }"

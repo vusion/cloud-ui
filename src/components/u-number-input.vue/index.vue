@@ -36,7 +36,10 @@ export default {
         min: { type: Number, default: -Infinity },
         max: { type: Number, default: Infinity },
         step: { type: Number, default: 1, validator: (step) => step >= 0 },
+        // 默认优先使用小数位数（废弃⚠️）
         precision: { type: Number, default: 1, validator: (precision) => precision >= 0 },
+        // 小数位数
+        decimalLength: { type: Number, default: 0, validator: (value) => value >= 0 },
         formatter: { type: [String, Object] },
         hideButtons: { type: Boolean, default: false },
         // 按钮呈现形式 tail ｜ bothEnds
@@ -100,13 +103,11 @@ export default {
 
         // advancedFormat最高权限
         if (this.advancedFormat) {
-            let formatter = '';
+            let formatter = this.formatter;
 
             if (this.advancedFormat.enable) {
                 formatter = this.advancedFormat.value;
             } else {
-                formatter = '0';
-
                 // 千分位
                 if (this.thousandths) {
                     formatter = `#,##0`;
@@ -180,16 +181,30 @@ export default {
             return +parseFloat(num).toPrecision(precision);
         },
         fix(value, precision = this.currentPrecision) {
+            return this.toFixed(value);
+
             // 为空时使用默认值
             if ((typeof value === 'string' && value.trim() === '') || value === null || value === undefined)
                 return value = this.defaultValue !== undefined ? this.defaultValue : '';
             else if (isNaN(value))
                 value = this.currentValue || this.defaultValue || 0;
-            
+
             value = +value; // 精度约束
             value = Math.round(this.strip(value / precision)) * precision; // 最大最小约束
             value = Math.min(Math.max(this.min, value), this.max); // 保留小数位数
             value = +value.toFixed(precision < 1 ? -Math.floor(Math.log10(precision)) : 0);
+            return value;
+        },
+        // 值保留小数位
+        toFixed(value) {
+            // 为空时使用默认值
+            if ((typeof value === 'string' && value.trim() === '') || value === null || value === undefined)
+                return value = this.defaultValue !== undefined ? this.defaultValue : '';
+            else if (isNaN(value))
+                value = this.currentValue || this.defaultValue || 0;
+
+            value = parseFloat(+value.toFixed(this.decimalLength));
+
             return value;
         },
         /**
@@ -238,7 +253,6 @@ export default {
             const oldValue = this.currentValue;
             this.currentValue = value;
             const formattedValue = (this.formattedValue = this.currentFormatter.format(value));
-
             this.$refs.input.currentValue = formattedValue;
 
             this.$emit('input', value, this);
@@ -461,7 +475,7 @@ export default {
     color: var(--number-input-button-color-hover);
 }
 
-.root .button[disabled]:hover, 
+.root .button[disabled]:hover,
 .root[disabled] .button:hover {
      color: var(--number-input-button-color-disabled);
 }
