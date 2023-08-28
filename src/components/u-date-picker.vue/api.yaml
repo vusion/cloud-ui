@@ -7,7 +7,7 @@
   attrs:
     - name: date
       title: 值
-      type: string,number,Date
+      type: string | number | Date
       sync: true
       model: true
       description: 默认显示的日期值，格式如2018-08-08
@@ -16,21 +16,21 @@
       tooltipLink: ""
     - name: minDate
       title: 最小日期值
-      type: string,number,Date
+      type: string | number | Date
       description: 最小可选的日期值，默认为10年前，日期填写格式为“yyyy-mm-dd”
       group: 数据属性
       docDescription: 设置日期范围，支持输入的最小日期
       tooltipLink: ""
     - name: maxDate
       title: 最大日期值
-      type: string,number,Date
+      type: string | number | Date
       description: 最大可选的日期值，默认为9年后，日期填写格式为“yyyy-mm-dd”
       group: 数据属性
       docDescription: 设置日期范围，支持输入的最大日期
       tooltipLink: ""
     - name: time
       title: 时间格式
-      type: string, number
+      type: string | number
       default: 00:00:00
       description: 输入对应格式的字符串（8:00:00）即可
       group: 数据属性

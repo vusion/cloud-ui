@@ -9,7 +9,7 @@
       title: 弹出层偏移
       type: string
       default: "0"
-      description: 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`
+      description: 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是'px'
       advanced: true
     - name: merge-borders
       title: 合并边框

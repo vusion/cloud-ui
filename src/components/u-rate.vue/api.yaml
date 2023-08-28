@@ -33,7 +33,7 @@
       tooltipLink: ""
     - name: texts
       title: 辅助文本
-      type: Array
+      type: Array<string>
       default:
         - 极差
         - 失望
@@ -54,7 +54,7 @@
       tooltipLink: ""
     - name: tooltips
       title: 提示信息
-      type: Array
+      type: Array<string>
       default:
         - 极差
         - 失望

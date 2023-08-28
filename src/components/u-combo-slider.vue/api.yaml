@@ -12,7 +12,7 @@
       advanced: true
     - name: value
       title: 滑块值
-      type: number, Array<number>
+      type: number | Array<number>
       sync: true
       model: true
       default: 0
@@ -54,7 +54,7 @@
       tooltipLink: ""
     - name: range
       title: 范围
-      type: Array
+      type: Array<number>
       default: []
       description: 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值
       group: 数据属性
@@ -62,7 +62,7 @@
       tooltipLink: ""
     - name: formatter
       title: 格式化
-      type: string, object
+      type: string | object
       description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象
       advanced: true
       group: 数据属性

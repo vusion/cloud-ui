@@ -7,7 +7,7 @@
   attrs:
     - name: match-method
       title: 过滤匹配方法
-      type: string, Function
+      type: string | Function
       default: includes
       description: 过滤时的匹配方法
       advanced: true

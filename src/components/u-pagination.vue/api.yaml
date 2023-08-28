@@ -56,7 +56,7 @@
       tooltipLink: ""
     - name: page-size-options
       title: 每页条数选项
-      type: Array
+      type: Array<number>
       default:
         - 10
         - 20

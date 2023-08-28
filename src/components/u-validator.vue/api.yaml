@@ -37,7 +37,7 @@
       tooltipLink: ""
     - name: rules
       title: 规则
-      type: string | Array
+      type: string | Array<any>
       description: 简写格式为字符串类型，完整格式或混合格式为数组类型
       compType: validationRulesSelect
       bindHide: true
@@ -54,9 +54,9 @@
     - name: muted
       title: 静默
       type: string
-      description: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
+      description: 验证时是否静默。可选值：'message'表示只静默消息提示，'all'同时静默消息提示和红框提示
       group: 主要属性
-      docDescription: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
+      docDescription: 验证时是否静默。可选值：'message'表示只静默消息提示，'all'同时静默消息提示和红框提示
       tooltipLink: ""
     - name: ignore-validation
       title: 忽略验证
@@ -85,12 +85,12 @@
       title: 手动验证
       type: boolean
       default: false
-      description: 是否采取手动验证。如果为`true`，则 UValidator
-        将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证。
+      description: 是否采取手动验证。如果为'true'，则 UValidator
+        将不会在监听到子组件的'input'、'change'和'blur'事件后进行相应的验证。
       group: 主要属性
       docDescription: |-
-        是否采取手动验证。如果为`true`，则验证器。
-            将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证
+        是否采取手动验证。如果为'true'，则验证器。
+            将不会在监听到子组件的'input'、'change'和'blur'事件后进行相应的验证
       tooltipLink: ""
     - name: append-to
       title: 报错位置依据
