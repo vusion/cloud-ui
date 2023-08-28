@@ -53,10 +53,10 @@
       title: 精度
       type: number
       default: 0
-      description: 控制数据存储时小数点后保留几位。例如：精度为2，则数据存储时小数点后保留2位。
+      description: 限制值要保留的小数位数。默认0，不保留小数位
       group: 数据属性
       brifeDoc: ""
-      docDescription: 控制数据存储时小数点后保留几位。例如：精度为2，则数据存储时小数点后保留2位。
+      docDescription: 限制值要保留的小数位数。默认0，不保留小数位
       tooltipLink: ""
     - name: advanced-format
       title: 高级格式化

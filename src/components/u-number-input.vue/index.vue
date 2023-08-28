@@ -103,12 +103,11 @@ export default {
 
         // advancedFormat最高权限
         if (this.advancedFormat) {
-            let formatter;
+            let formatter = this.formatter;
 
             if (this.advancedFormat.enable) {
                 formatter = this.advancedFormat.value;
             } else {
-                formatter = '0';
                 // 千分位
                 if (this.thousandths) {
                     formatter = `#,##0`;
@@ -222,24 +221,7 @@ export default {
             else if (isNaN(value))
                 value = this.currentValue || this.defaultValue || 0;
 
-            value = Math.min(Math.max(this.min, value), this.max);
-            // 兼容之前precision
-            let decimalLength = 0;
-            try {
-                // 判断precision是不是带小数
-                if (!Number.isInteger(this.precision)) {
-                    // 取出小数位数
-                    const numStr = this.precision.toString();
-                    const decimalIndex = numStr.indexOf('.');
-                    if (decimalIndex !== -1) {
-                        decimalLength = numStr.slice(decimalIndex + 1).length;
-                    }
-                }
-            } catch (error) {
-                console.log(error);
-            }
-
-            value = parseFloat(+value.toFixed(Math.floor(this.decimalLength || decimalLength)));
+            value = parseFloat(+value.toFixed(this.decimalLength));
 
             return value;
         },

@@ -30,6 +30,11 @@ export class NumberFormatter extends Formatter {
             value = parseFloat(value) + ''; // 转字符串
         }
 
+        // 是否小数隐藏末尾0
+        if (fixed > 0 && /#$/.test(parts[1])) {
+            value = parseFloat(value);
+        }
+
         if (comma)
             value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
