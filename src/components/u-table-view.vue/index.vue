@@ -605,7 +605,6 @@ export default {
         currentData(currentData) {
             this.watchValue(this.value);
             this.watchValues(this.values);
-            this.autoMergetRow(currentData);
         },
         loading(loading) {
             if (this.$env.VUE_APP_DESIGNER && this.designerMode !== 'success')
@@ -1535,6 +1534,7 @@ export default {
             this.$watch(() => this.currentData, (currentData) => {
                 if (currentData) {
                     this.processData(currentData);
+                    this.autoMergeRow(currentData);
                 }
             }, {
                 immediate: true,
@@ -2310,15 +2310,25 @@ export default {
             }
             return paginationHeight;
         },
-        autoMergetRow(currentData) {
-            this.visibleColumnVMs && this.visibleColumnVMs.forEach((columnVM) => {
+        autoMergeRow(currentData) {
+            this.visibleColumnVMs && this.visibleColumnVMs.forEach((columnVM, columnIndex) => {
                 if (columnVM.autoRowSpan && columnVM.field && Array.isArray(currentData)) {
                     let count = 0
                     for (let i = currentData.length - 1; i >= 0; i--) {
                         const item = currentData[i];
                         const itemValue = this.$at(item, columnVM.field)
-                        if (itemValue === currentData[i - 1]) {
-                            // TODO: 处理自动合并
+                        if (itemValue === this.$at(currentData[i - 1], columnVM.field)) {
+                            if (!this.autoRowSpan[i]) {
+                                this.autoRowSpan[i] = [];
+                            }
+                            this.autoRowSpan[i][columnIndex] = 0;
+                            count++
+                        } else if (count) {
+                            if (!this.autoRowSpan[i]) {
+                                this.autoRowSpan[i] = [];
+                            }
+                            this.autoRowSpan[i][columnIndex] = count + 1;
+                            count = 0
                         }
                     }
                 }
