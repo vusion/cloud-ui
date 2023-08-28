@@ -52,7 +52,6 @@
     - name: decimal-length
       title: 精度
       type: number
-      default: 0
       description: 控制数据存储时小数点后保留几位。例如：精度为2，则数据存储时小数点后保留2位。
       group: 数据属性
       brifeDoc: ""
@@ -71,7 +70,7 @@
     - name: decimal-places
       title: 小数位数
       type: "{ places: number, omit: boolean }"
-      default: "{ places: 0, omit: false }"
+      default: "{ places: '', omit: true }"
       compose:
         - key: places 
           type: number
