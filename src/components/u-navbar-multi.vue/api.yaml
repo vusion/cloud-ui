@@ -5,6 +5,26 @@
     - Navigation
   description: 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
   attrs:
+    - name: has-data-source
+      title: 数据源配置
+      type: boolean
+      sync: false
+      model: false
+      bindHide: true
+      default: false
+      group: 数据属性
+      brifeDoc: ""
+      tooltipLink: ""
+      toggleclear:
+        - data-source
+        - data-schema
+        - text-field
+        - to-field
+        - icon-field
+        - value-field
+        - parent-field
+        - link-type-field 
+        - target-field
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object | DataSource
@@ -14,6 +34,8 @@
       brifeDoc: ""
       docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑
       tooltipLink: ""
+      dependency:
+        - "has-data-source": true
     - name: data-schema
       title: 数据类型
       type: schema
@@ -24,31 +46,15 @@
       docDescription: 该属性为只读状态，当数据源动态绑定集合List<T>后，会自动识别T的类型并进行展示
       tooltipLink: ""
       dependency:
-        - "!data-source": null
+        - "has-data-source": true
     - name: text-field
-      title: 选项文本字段
+      title: 文本字段
       type: string
       default: text
       description: 集合的元素类型中，用于显示文本的属性名称
       group: 数据属性
       dependency:
-        - "!data-source": null
-    - name: to-field
-      title: 跳转链接字段
-      type: string
-      default: to
-      description: 集合的元素类型中，用于跳转链接的属性名称
-      group: 数据属性
-      dependency:
-        - "!data-source": null
-    - name: icon-field
-      title: 图标属性字段
-      type: string
-      default: icon
-      description: 集合的元素类型中，用于图标的属性名称
-      group: 数据属性
-      dependency:
-        - "!data-source": null
+        - "has-data-source": true
     - name: value-field
       title: 值字段
       type: string
@@ -56,21 +62,26 @@
       description: 集合的元素类型中，用于标识选中值的属性
       group: 数据属性
       dependency:
-        - "!data-source": null
+        - "has-data-source": true
       brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识选中值的属性，支持自定义变更
       tooltipLink: ""
-    - name: children-field
-      title: 子级值字段
+    - name: icon-field
+      title: 图标属性字段
       type: string
-      default: children
-      description: 集合的元素类型中，用于标识子节点的属性，默认为children
+      default: icon
+      description: 集合的元素类型中，用于图标的属性名称
       group: 数据属性
       dependency:
-        - "!data-source": null
-      brifeDoc: ""
-      docDescription: 集合的元素类型中，用于标识子级字段的的属性，支持自定义变更
-      tooltipLink: ""
+        - "has-data-source": true
+    - name: to-field
+      title: 跳转链接字段
+      type: string
+      default: to
+      description: 集合的元素类型中，用于跳转链接的属性名称
+      group: 数据属性
+      dependency:
+        - "has-data-source": true
     - name: parent-field
       title: 父级值字段
       type: string
@@ -78,7 +89,7 @@
       description: 集合的元素类型中，用于标识父节点的属性
       group: 数据属性
       dependency:
-        - "!data-source": null
+        - "has-data-source": true
       brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识父级字段的属性，支持自定义变更
       tooltipLink: ""
@@ -89,7 +100,7 @@
       description: 集合的元素类型中，用于`linkType`的属性字段
       group: 数据属性
       dependency:
-        - "!data-source": null
+        - "has-data-source": true
     - name: target-field
       title: 链接打开方式字段
       type: string
@@ -97,7 +108,7 @@
       description: 集合的元素类型中，用于`target`的属性字段
       group: 数据属性
       dependency:
-        - "!data-source": null
+        - "has-data-source": true
     - name: router
       title: 使用路由
       type: boolean
