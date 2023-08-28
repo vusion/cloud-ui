@@ -205,7 +205,23 @@ export default {
                 value = this.currentValue || this.defaultValue || 0;
 
             value = Math.min(Math.max(this.min, value), this.max);
-            value = parseFloat(+value.toFixed(Math.floor(this.decimalLength)));
+            // 兼容之前precision
+            let decimalLength = 0;
+            try {
+                // 判断precision是不是带小数
+                if (!Number.isInteger(this.precision)) {
+                    // 取出小数位数
+                    const numStr = this.precision.toString();
+                    const decimalIndex = numStr.indexOf('.');
+                    if (decimalIndex !== -1) {
+                        decimalLength = numStr.slice(decimalIndex + 1).length;
+                    }
+                }
+            } catch (error) {
+                console.log(error);
+            }
+
+            value = parseFloat(+value.toFixed(Math.floor(this.decimalLength || decimalLength)));
 
             return value;
         },
