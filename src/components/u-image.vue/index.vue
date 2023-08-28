@@ -21,7 +21,7 @@
                 </u-lightbox-item>
             </u-lightbox>
         </template>
-        <template v-else>
+        <template v-else-if="loadingType !== 'none'">
             <u-loading size="small" :class="$style.loading"></u-loading>
         </template>
     </div>
