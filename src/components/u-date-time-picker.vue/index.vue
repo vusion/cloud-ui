@@ -57,7 +57,7 @@
 import dayjs from '../../utils/dayjs';
 import DateFormatMixin from '../../mixins/date.format';
 // import { formatterOptions as dateFormatterOptions } from '../u-date-picker.vue/wrap';
-// import { formatterOptions as timeFormatterOptions } from '../u-time-picker.vue/wrap';
+import { formatterOptions as timeFormatterOptions } from '../u-time-picker.vue/wrap';
 import { format, transformDate } from '../../utils/date';
 import MField from '../m-field.vue';
 import i18n from './i18n';
@@ -134,6 +134,7 @@ export default {
             type: String,
             default: 'HH:mm:ss',
         },
+        minUnit: { type: String, default: 'second' },
     },
     data() {
         return {
@@ -179,6 +180,9 @@ export default {
             else if (this.alignment === 'right')
                 return 'bottom-end';
             return '';
+        },
+        validShowTimeFormatters() {
+            return timeFormatterOptions[this.minUnit];
         },
     },
     watch: {
@@ -257,7 +261,13 @@ export default {
             if (this.advancedFormat && this.advancedFormat.enable && this.advancedFormat.value) { // 高级格式化开启
                 formatter = this.advancedFormat.value;
             } else if (this.showDateFormatter || this.showTimeFormatter) { // 配置的展示格式满足
-                formatter = `${this.showDateFormatter} ${this.showTimeFormatter}`;
+                formatter = `${this.showDateFormatter} `;
+
+                if (this.validShowTimeFormatters.includes(this.showTimeFormatter)) {
+                    formatter += this.showTimeFormatter;
+                } else {
+                    formatter += this.validShowTimeFormatters[0];
+                }
             }
 
             if (formatter) {
@@ -272,11 +282,11 @@ export default {
 
             let text = value;
             try {
-                const formatter = this.getDisplayFormatString();
-                if (formatter && formatter !== this.getFormatString()) {
-                    // 先将showDate转成Date对象
-                    const date = dayjs(value, this.getDisplayFormatString()).toDate();
-                    text = dayjs(date).format(formatter);
+                const showFormatter = this.getDisplayFormatString();
+                const valueFormatter = this.getFormatString();
+
+                if (showFormatter && showFormatter !== valueFormatter) {
+                    text = dayjs(value, valueFormatter).format(showFormatter);
                 }
             } catch (error) {
                 console.log(error);

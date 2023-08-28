@@ -116,6 +116,7 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+      bindHide: true
     - name: show-formatter
       title: 日期展示格式
       type: string
