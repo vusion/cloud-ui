@@ -5073,6 +5073,20 @@
                             "width"
                         ]
                     },
+                    "--datepicker-range-input-width": {
+                        "type": "input",
+                        "desc": "日期选择器范围输入框宽度,如：1px",
+                        "depAttrs": {
+                            "width": [
+                                "normal",
+                                null
+                            ]
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
                     "--datepicker-input-height": {
                         "type": "input",
                         "desc": "日期选择器输入框高度,如：1px",
@@ -5371,6 +5385,20 @@
                     "--datetime-input-width": {
                         "type": "input",
                         "desc": "日期时间选择器输入框宽度,如：1px",
+                        "depAttrs": {
+                            "width": [
+                                "normal",
+                                null
+                            ]
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--datetime-range-input-width": {
+                        "type": "input",
+                        "desc": "日期时间范围选择器输入框宽度,如：1px",
                         "depAttrs": {
                             "width": [
                                 "normal",
@@ -5937,6 +5965,20 @@
                         "depStaticStyles": [
                             "padding-left",
                             "padding-right"
+                        ]
+                    },
+                    "--timepicker-range-input-width": {
+                        "type": "input",
+                        "desc": "时间选择框输入框宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "normal",
+                                null
+                            ]
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "width"
                         ]
                     }
                 },

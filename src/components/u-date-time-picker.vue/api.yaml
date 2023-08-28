@@ -121,14 +121,20 @@
       brifeDoc: ""
       docDescription: 最小时间单位，支持秒或分
       tooltipLink: ""
+      dependency:
+        - advanced-format.enable: false
     - name: show-time-formatter
       title: 时间展示格式
       type: string
       options:
         - value: HH:mm:ss
           title: "12:09:09"
+          dependency:
+            - minUnit: second
         - value: HH时mm分ss秒
           title: 12时09分09秒
+          dependency:
+            - minUnit: second
         - value: HH:mm
           title: "12:09"
           dependency:
