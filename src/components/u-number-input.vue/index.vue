@@ -39,7 +39,7 @@ export default {
         // 默认优先使用小数位数（废弃⚠️）
         precision: { type: Number, default: 1, validator: (precision) => precision >= 0 },
         // 小数位数
-        decimalLength: { type: Number, default: 0, validator: (value) => value >= 0 },
+        decimalLength: { type: Number, validator: (value) => value >= 0 },
         formatter: { type: [String, Object] },
         hideButtons: { type: Boolean, default: false },
         // 按钮呈现形式 tail ｜ bothEnds
@@ -67,7 +67,7 @@ export default {
         decimalPlaces: {
             type: Object,
             default: () => ({
-                places: 0,
+                places: '',
                 omit: false,
             }),
         },
@@ -107,7 +107,7 @@ export default {
 
             if (this.advancedFormat.enable) {
                 formatter = this.advancedFormat.value;
-            } else {
+            } else if (this.thousandths || this.percentSign || this.decimalPlaces.places !== '') {
                 formatter = '0';
                 // 千分位
                 if (this.thousandths) {
@@ -122,6 +122,11 @@ export default {
                     for (let i = 0; i < this.decimalPlaces.places; i++) {
                         formatter += char;
                     }
+                } else {
+                    formatter += '.';
+                    for (let i = 0; i < 17; i++) {
+                        formatter += '#';
+                    }
                 }
 
                 // 单位
@@ -134,9 +139,11 @@ export default {
                 // }
             }
 
-            data.currentFormatter = new NumberFormatter(formatter, !this.advancedFormat.enable && {
-                percentSign: this.percentSign, // 百分比
-            });
+            if (formatter) {
+                data.currentFormatter = new NumberFormatter(formatter, !this.advancedFormat.enable && {
+                    percentSign: this.percentSign, // 百分比
+                });
+            }
         }
 
         data.formattedValue = data.currentFormatter.format(data.currentValue);
@@ -223,23 +230,28 @@ export default {
                 value = this.currentValue || this.defaultValue || 0;
 
             value = Math.min(Math.max(this.min, value), this.max);
-            // 兼容之前precision
-            let decimalLength = 0;
-            try {
-                // 判断precision是不是带小数
-                if (!Number.isInteger(this.precision)) {
-                    // 取出小数位数
-                    const numStr = this.precision.toString();
-                    const decimalIndex = numStr.indexOf('.');
-                    if (decimalIndex !== -1) {
-                        decimalLength = numStr.slice(decimalIndex + 1).length;
-                    }
-                }
-            } catch (error) {
-                console.log(error);
-            }
 
-            value = parseFloat(+value.toFixed(Math.floor(this.decimalLength || decimalLength)));
+            // 配置了新的精度
+            if (this.decimalLength >= 0) {
+                value = parseFloat(+value.toFixed(Math.floor(this.decimalLength)));
+            } else if (this.precision > 0) {
+                let decimalLength = 0;
+                try {
+                    // 判断precision是不是带小数
+                    if (!Number.isInteger(this.precision)) {
+                        // 取出小数位数
+                        const numStr = this.precision.toString();
+                        const decimalIndex = numStr.indexOf('.');
+                        if (decimalIndex !== -1) {
+                            decimalLength = numStr.slice(decimalIndex + 1).length;
+                        }
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+
+                value = parseFloat(+value.toFixed(Math.floor(decimalLength)));
+            }
 
             return value;
         },
