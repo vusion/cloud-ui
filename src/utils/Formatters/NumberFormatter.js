@@ -44,6 +44,10 @@ export class NumberFormatter extends Formatter {
     }
 
     parse(value, pattern) {
+        if (!pattern) {
+            return value;
+        }
+
         pattern = pattern || this.pattern;
 
         let number = (String(value).match(/-?([0-9.,]+)/) || ['0'])[0];
