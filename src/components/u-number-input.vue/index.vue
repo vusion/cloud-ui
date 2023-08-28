@@ -107,7 +107,7 @@ export default {
 
             if (this.advancedFormat.enable) {
                 formatter = this.advancedFormat.value;
-            } else if (this.thousandths || this.percentSign || this.decimalPlaces.places !== '') {
+            } else if (this.thousandths || this.percentSign || this.decimalPlaces.places >= 0) {
                 formatter = '0';
                 // 千分位
                 if (this.thousandths) {
@@ -122,7 +122,7 @@ export default {
                     for (let i = 0; i < this.decimalPlaces.places; i++) {
                         formatter += char;
                     }
-                } else {
+                } else if (this.decimalPlaces && this.decimalPlaces.places === '') {
                     formatter += '.';
                     for (let i = 0; i < 17; i++) {
                         formatter += '#';
