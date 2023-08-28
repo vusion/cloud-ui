@@ -186,12 +186,14 @@ export default {
 
             let text = value;
             try {
-                const formatter = this.getDisplayFormatString();
-                if (formatter && formatter !== this.getFormatString()) {
+                const showFormatter = this.getDisplayFormatString();
+                const valueFormatter = this.getFormatString();
+
+                if (showFormatter && showFormatter !== valueFormatter) {
                     // 拼凑出今天日期
                     const today = dayjs().format('YYYY-MM-DD');
                     const time = new Date(`${today} ${value}`);
-                    text = dayjs(time).format(formatter);
+                    text = dayjs(time).format(showFormatter);
                 }
             } catch (error) {
                 console.log(error);

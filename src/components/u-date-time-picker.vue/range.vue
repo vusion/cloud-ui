@@ -317,11 +317,11 @@ export default {
 
             let text = value;
             try {
-                const formatter = this.getDisplayFormatString();
-                if (formatter && formatter !== this.getFormatString()) {
-                    // 先将showDate转成Date对象
-                    const date = dayjs(value, this.getDisplayFormatString()).toDate();
-                    text = dayjs(date).format(formatter);
+                const showFormatter = this.getDisplayFormatString();
+                const valueFormatter = this.getFormatString();
+
+                if (showFormatter && showFormatter !== valueFormatter) {
+                    text = dayjs(value, valueFormatter).format(showFormatter);
                 }
             } catch (error) {
                 console.log(error);

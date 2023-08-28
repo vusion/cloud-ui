@@ -46,7 +46,7 @@ export class NumberFormatter extends Formatter {
     parse(value, pattern) {
         pattern = pattern || this.pattern;
 
-        let number = (String(value).match(/[0-9.,]+/) || ['0'])[0];
+        let number = (String(value).match(/-?([0-9.,]+)/) || ['0'])[0];
 
         number = +number.replace(/,/g, '');
 
