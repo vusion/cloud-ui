@@ -112,9 +112,15 @@ export default {
 ``` vue
 <template>
 <div>
-    <div>展示保留2位小数，值保留3位</div>
-    <u-number-input v-model="value" placeholder="请输入" formatter="0.00" :decimalLength="3"></u-number-input>
-    <div>{{value}}</div>
+    <div>展示保留3位小数 不省略0；值保留2位小数</div>
+    <u-number-input 
+        v-model="value" 
+        placeholder="请输入" 
+        :decimal-places="{ places:3, omit:false }" 
+        :thousandths="false" 
+        :percent-sign="true"
+        :decimalLength="2"></u-number-input>
+    <div>值： {{value}}</div>
 </div>
 </template>
 
