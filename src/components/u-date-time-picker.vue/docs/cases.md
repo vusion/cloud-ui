@@ -71,8 +71,11 @@ export default {
 <template>
     <div>
         <u-date-time-picker 
-            :advanced-format="{enable: true, value: 'YYYY年M月D日 HH时mm分ss秒'}"
+            :advanced-format="{enable: false, value: 'YYYY年M月D日 HH时mm分ss秒'}"
             :value.sync="date"
+            show-date-formatter="M/D/YYYY"
+            minUnit="second"
+            show-time-formatter="HH时mm分ss秒"
             clearable></u-date-time-picker>
         <u-date-time-picker
             :advanced-format="{enable: true, value: 'YYYY年M月D日 HH时mm分'}"
@@ -90,7 +93,7 @@ export default {
 export default {
     data() {
         return {
-            date: '2023-08-10',
+            date: undefined,
             startDate: '2022-03-10',
             endDate: '2022-03-20',
         };

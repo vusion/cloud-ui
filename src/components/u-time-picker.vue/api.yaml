@@ -81,6 +81,7 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+      bindHide: true
     - name: show-formatter
       title: 时间展示格式
       type: string

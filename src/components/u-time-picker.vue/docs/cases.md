@@ -72,6 +72,12 @@ export default {
 
 ``` vue
 <template>
+<div>
+    <u-time-picker
+        :time.sync="time"
+        @change="onChange"
+        :advanced-format="{ enable: true, value: 'HH时mm分ss秒' }">
+    </u-time-picker>
     <u-time-picker
         range
         :start-time.sync="starTime"
@@ -79,11 +85,14 @@ export default {
         @change="onChange"
         :advanced-format="{ enable: true, value: 'HH时mm分ss秒' }">
     </u-time-picker>
+</div>
+
 </template>
 <script>
 export default {
     data() {
         return {
+            time: undefined,
             starTime: '12:46:33',
             endTime: '18:18:33',
         };
