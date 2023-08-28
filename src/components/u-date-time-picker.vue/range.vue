@@ -64,7 +64,7 @@
 import dayjs from '../../utils/dayjs';
 import DateFormatMixin from '../../mixins/date.format';
 // import { formatterOptions as dateFormatterOptions } from '../u-date-picker.vue/wrap';
-// import { formatterOptions as timeFormatterOptions } from '../u-time-picker.vue/wrap';
+import { formatterOptions as timeFormatterOptions } from '../u-time-picker.vue/wrap';
 import { format, transformDate } from '../../utils/date';
 import MField from '../m-field.vue';
 import URangeInput from '../u-date-picker.vue/range-input.vue';
@@ -142,6 +142,7 @@ export default {
             type: String,
             default: 'HH:mm:ss',
         },
+        minUnit: { type: String, default: 'second' },
     },
     data() {
         return {
@@ -241,6 +242,9 @@ export default {
         dateKey() {
             return this.editTarget === 'end' ? 'endDate' : 'startDate';
         },
+        validShowTimeFormatters() {
+            return timeFormatterOptions[this.minUnit];
+        },
     },
     watch: {
         startDate(newValue) {
@@ -292,7 +296,13 @@ export default {
             if (this.advancedFormat && this.advancedFormat.enable && this.advancedFormat.value) { // 高级格式化开启
                 formatter = this.advancedFormat.value;
             } else if (this.showDateFormatter || this.showTimeFormatter) { // 配置的展示格式满足
-                formatter = `${this.showDateFormatter} ${this.showTimeFormatter}`;
+                formatter = `${this.showDateFormatter} `;
+
+                if (this.validShowTimeFormatters.includes(this.showTimeFormatter)) {
+                    formatter += this.showTimeFormatter;
+                } else {
+                    formatter += this.validShowTimeFormatters[0];
+                }
             }
 
             if (formatter) {

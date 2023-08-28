@@ -67,6 +67,7 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+      bindHide: true
     - name: decimal-places
       title: 小数位数
       type: "{ places: number, omit: boolean }"
