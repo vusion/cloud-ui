@@ -200,6 +200,10 @@ export default {
     transition: all var(--transition-duration-base);
 }
 
+.root[vusion-empty-background][has-data-source="true"] {
+    background: var(--sidebar-background);
+}
+
 .root[size="small"] .group_head {
     height: var(--sidebar-item-height-small);
     line-height: var(--sidebar-item-height-small);

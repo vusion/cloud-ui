@@ -349,6 +349,10 @@ export default {
     transform: translateY(-10px);
 }
 
+.root[vusion-empty-background][has-data-source="true"] {
+    background: var(--navbar-background);
+}
+
 .root[animation="2"] .item:hover::after {
     height: 3px;
     opacity: 1;
