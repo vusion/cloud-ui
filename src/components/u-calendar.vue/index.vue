@@ -94,8 +94,12 @@
                 :disabled="!!isOutOfRange(day)"
                 :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''"
                 @click.stop="select(day)"
-                :sindex="index%7">
-                <span :class="$style.item">{{ day | format('dd') }}</span>
+                :sindex="index%7"
+                @mouseenter="onDayMouseEnter(day)"
+                @mouseleave="onDayMouseLeave(day)">
+                <span
+                    :hovered="isWeekHover(day)"
+                    :class="$style.item">{{ day | format('dd') }}</span>
             </span>
         </div>
         <slot></slot>
@@ -181,6 +185,7 @@ export default {
                 this.$t('December'),
             ],
             currentDay: this.transformDate(new Date()),
+            hoveredWeek: [],
         };
     },
     computed: {
@@ -356,7 +361,8 @@ export default {
             }
             // 周选择，当前所在周都为高亮，并且 this.day 记录为这周的第一天
             if (this.picker === 'week') {
-                const weekDiff = this.selectedDate.getDay() - 1;
+                const dayOfWeek = this.selectedDate.getDay();
+                const weekDiff = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
                 // 选择的当前周的第一天
                 const tmpTime = this.selectedDate - weekDiff * MS_OF_DAY;
                 const tmp = new Date(tmpTime);
@@ -650,6 +656,35 @@ date.setDate(0);
                 return date.getFullYear();
             }
         },
+        onDayMouseEnter(day) {
+             // 周选择，当前所在周 hover 都为高亮
+            if (this.picker === 'week') {
+                const dayOfWeek = day.getDay();
+                const weekDiff = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
+                // 选择的当前周的第一天
+                const tmpTime = day - weekDiff * MS_OF_DAY;
+                const tmp = new Date(tmpTime);
+                this.hoveredWeek = [
+                    tmp.toDateString(),
+                    new Date(tmpTime + 1 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 2 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 3 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 4 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 5 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 6 * MS_OF_DAY).toDateString(),
+                ];
+            }
+        },
+        onDayMouseLeave() {
+            if (this.picker === 'week') {
+                this.hoveredWeek = [];
+            }
+        },
+        isWeekHover(day) {
+            if (this.picker === 'week') {
+                return this.hoveredWeek.includes(day.toDateString());
+            }
+        },
     },
 };
 </script>
@@ -752,7 +787,7 @@ date.setDate(0);
     color: var(--calendar-item-week-color);;
 }
 
-.item:hover {
+.item:hover, .item[hovered="true"] {
     background: var(--calendar-item-background-hover);
     color: var(--calendar-item-color-hover);
     border-color: var(--calendar-item-border-color-hover);
