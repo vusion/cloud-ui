@@ -4,17 +4,18 @@
   labels:
     - Selector
   description: 一次选择多个相关联的项
+  tsTypeParams: T, V
   attrs:
     - name: data-source
       title: 数据源
-      type: Array<{ text, value }>
+      type: nasl.collection.List<T>
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
       docDescription: 数据列表，支持直接放置多层的数据源也支持通过单层的数据和`父节点字段名`或`子节点字段名`构建树形
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       compType: dataTypeSelect
       group: 数据属性
@@ -22,8 +23,7 @@
       tooltipLink: ""
     - name: field
       title: 文本字段
-      type: string
-      default: text
+      type: "(item: T) => nasl.core.String"
       description: 集合的元素类型中，用于显示文本的属性名称
       display: property-select
       group: 数据属性
@@ -31,8 +31,7 @@
       tooltipLink: ""
     - name: value-field
       title: 值字段
-      type: string
-      default: value
+      type: "(item: T) => V"
       description: 集合的元素类型中，用于标识选中值的属性
       display: property-select
       group: 数据属性
@@ -67,7 +66,7 @@
       tooltipLink: ""
     - name: value
       title: 值
-      type: any
+      type: V
       sync: true
       model: true
       description: ""
@@ -203,7 +202,7 @@
       default: " / "
       description: 将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值
       advanced: true
-      group: 选择属性
+      group: 数据属性
   events:
     - name: input
       title: 输入时

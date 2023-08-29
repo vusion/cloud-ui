@@ -4,6 +4,7 @@
   labels:
     - Selector
   description: 选项卡切换组件，常用于平级区域大块内容的收纳和展现。
+  tsTypeParams: T, V
   attrs:
     - name: show-scroll-buttons
       title: 显示滚动按钮
@@ -20,7 +21,7 @@
       advanced: true
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function | Object
+      type: nasl.collection.List<T>
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       designer-value: "[{}, {}, {}]"
       group: 数据属性
@@ -28,7 +29,7 @@
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
@@ -36,8 +37,7 @@
       tooltipLink: ""
     - name: title-field
       title: 标签项标题
-      type: string
-      default: title
+      type: "(item: T) => nasl.core.String"
       description: 数据源集合的元素，用于显示标签标题的属性
       group: 数据属性
       advanced: true
@@ -45,8 +45,7 @@
       tooltipLink: ""
     - name: value-field
       title: 标签项标题值字段
-      type: string
-      default: value
+      type: "(item: T) => nasl.core.String"
       description: 数据源集合的元素，用于标识标签值的属性
       group: 数据属性
       display: property-select
@@ -54,8 +53,7 @@
       tooltipLink: ""
     - name: url-field
       title: 标签项内容值字段
-      type: string
-      default: url
+      type: "(item: T) => V"
       description: 数据源集合的元素，用于标识当前打开的标签项
       group: 数据属性
       display: property-select
@@ -63,7 +61,7 @@
       docDescription: 数据源集合的元素，用于标识当前打开的标签项
     - name: value
       title: 值
-      type: any
+      type: V
       sync: true
       model: true
       description: 指当前打开标签的标签项
@@ -153,6 +151,7 @@
       empty-background: add-sub
       support:
         - name: u-tab
+          tsTypeArguments: V
           title: 子选项
           snippet: '<u-tab><template #title><u-text
             text="标签页"></u-text></template>内容</u-tab>'
@@ -343,6 +342,7 @@
           description: 发送事件实例
 - name: u-tab
   title: 标签页
+  tsTypeParams: V
   attrs:
     - name: title
       title: 标题
@@ -399,7 +399,7 @@
       advanced: true
     - name: value
       title: 值
-      type: any
+      type: V
       description: ""
       group: 数据属性
       docDescription: 标签页的值。

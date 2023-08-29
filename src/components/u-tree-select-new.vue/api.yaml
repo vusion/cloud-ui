@@ -4,10 +4,11 @@
   icon: tree-view
   labels:
     - Selector
+  tsTypeParams: T, V, M extends boolean
   attrs:
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function | object | DataSource
+      type: nasl.collection.List<T>
       designer-value: "[{}, {}, {}]"
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       group: 数据属性
@@ -15,7 +16,7 @@
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
@@ -23,14 +24,12 @@
       tooltipLink: ""
     - name: text-field
       title: 文本字段
-      type: string
-      default: text
+      type: "(item: T) => nasl.core.String"
       group: 数据属性
       description: 集合的元素类型中，用于显示文本的属性名称
     - name: value-field
       title: 值字段
-      type: string
-      default: value
+      type: "(item: T) => V"
       description: 集合的元素类型中，用于标识选中值的属性
       group: 数据属性
       docDescription: 集合的元素类型中，用于标识选中值的属性
@@ -53,7 +52,7 @@
       tooltipLink: ""
     - name: value
       title: 选中值
-      type: any
+      type: V
       sync: true
       model: true
       description: 选择后，所选中的值
@@ -65,7 +64,8 @@
       name: default
       description: 插入`<u-tree-view-node-new>`子组件
       support:
-        - name: u-tree-view-node
+        - name: u-tree-view-node-new
+          tsTypeArguments: V
           title: 子节点
           snippet: "<u-tree-view-node-new><template
             #item>选项</template></u-tree-view-node-new>"

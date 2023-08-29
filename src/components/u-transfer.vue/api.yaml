@@ -4,10 +4,11 @@
     - Selector
   title: 穿梭框
   description: 双栏穿梭选择框，常用于将多个项目从一边移动到另一边。
+  tsTypeParams: T, V
   attrs:
     - name: match-method
       title: 过滤匹配方法
-      type: string | Function
+      type: string
       default: includes
       description: 过滤时的匹配方法
       advanced: true
@@ -25,7 +26,7 @@
       advanced: true
     - name: source
       title: 原始数据
-      type: Array<{ text, value }>
+      type: nasl.collection.List<T>
       sync: true
       description: 原数据列表
       group: 数据属性
@@ -33,7 +34,7 @@
       tooltipLink: ""
     - name: target
       title: 目标数据
-      type: Array<{ text, value }>
+      type: nasl.collection.List<T>
       sync: true
       description: 目标数据列表
       group: 数据属性
@@ -41,16 +42,14 @@
       tooltipLink: ""
     - name: text-field
       title: 文本字段
-      type: string
-      default: text
+      type: "(item: T) => nasl.core.String"
       description: 选项文本的字段名
       group: 数据属性
       docDescription: 集合的元素类型中，用于显示文本的属性名称，支持自定义变更。
       tooltipLink: ""
     - name: value-field
       title: 值字段
-      type: string
-      default: value
+      type: "(item: T) => V"
       description: 选项值的字段名
       group: 数据属性
       docDescription: 集合的元素类型中，用于指定数据唯一值的字段，支持自定义变更

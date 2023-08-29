@@ -4,10 +4,11 @@
     - Form
   icon: radios
   description: 多项中选择一个时使用
+  tsTypeParams: T, V
   attrs:
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function
+      type: nasl.collection.List<T>
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       designer-value: "[{}, {}, {}]"
       group: 数据属性
@@ -15,7 +16,7 @@
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
@@ -23,15 +24,13 @@
       tooltipLink: ""
     - name: text-field
       title: 选项文本
-      type: string
-      default: text
+      type: "(item: T) => nasl.core.String"
       description: 集合的元素类型中，用于显示文本的属性名称
       group: 数据属性
       advanced: true
     - name: value-field
       title: 选项值字段
-      type: string
-      default: value
+      type: "(item: T) => V"
       description: 集合的元素类型中，用于标识选中值的字段
       display: property-select
       group: 数据属性
@@ -39,7 +38,7 @@
       tooltipLink: ""
     - name: value
       title: 选中值
-      type: any
+      type: V
       sync: true
       model: true
       description: 当前选中的值
@@ -69,6 +68,7 @@
       empty-background: add-sub
       support:
         - name: u-radio
+          tsTypeArguments: V
           title: 单选项
           snippet: <u-radio><template slot="item">节点</template></u-radio>
     - concept: Slot
@@ -196,6 +196,7 @@
       params: []
 - name: u-radio
   title: 单选项
+  tsTypeParams: V
   attrs:
     - name: text
       title: 文本
@@ -204,7 +205,7 @@
       advanced: true
     - name: label
       title: 选项值
-      type: any
+      type: V
       description: 用于标识选项的值
       group: 数据属性
       docDescription: 单选框返还的选项值

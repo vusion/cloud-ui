@@ -4,30 +4,29 @@
   labels:
     - Selector
   description: 当操作需要分步骤时使用
+  tsTypeParams: T
   attrs:
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function | Object
+      type: nasl.collection.List<T>
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       designer-value: "[{}, {}, {}]"
       group: 数据属性
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 集合类型每一元素的数据类型
       group: 数据属性
       compType: dataTypeSelect
     - name: title-field
       title: 标签项标题
-      type: string
-      default: title
+      type: "(item: T) => nasl.core.String"
       description: 数据源集合的元素，用于显示步骤标题的属性
       group: 数据属性
       advanced: true
     - name: desc-field
       title: 描述项标题
-      type: string
-      default: desc
+      type: "(item: T) => nasl.core.String"
       description: 数据源集合的元素，用于显示步骤描述的属性
       group: 数据属性
       advanced: true
