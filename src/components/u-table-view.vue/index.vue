@@ -493,6 +493,7 @@ export default {
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
             configColumnVM: undefined,
             dynamicColumnVM: undefined,
+            columnGroupVMs: [],
             slots: this.$slots,
             autoColSpan: [], // 用于记录自动的的列合并
             autoRowSpan: [], // 用于记录自动的的行合并
