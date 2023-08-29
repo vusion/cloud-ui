@@ -554,24 +554,30 @@ export default {
         },
         clear() {
             const oldValue = this.actualValue;
-            let newValue;
             const itemInfo = {
-                item: undefined,
+                oldValue,
+                value: undefined,
+                valid: true,
             };
-            if (this.checkable) {
-                newValue = [];
-                itemInfo.items = [];
+            if (this.$refs.treeView && this.$refs.treeView.selectedVM && this.$refs.treeView.selectedVM.$options.propsData) {
+                itemInfo.label = this.$refs.treeView.selectedVM.$options.propsData.text;
             }
-            if (this.$emitPrevent('before-clear', { ...itemInfo, oldValue, value: newValue, selected: false }, this)) {
+            if (this.checkable) {
+                itemInfo.value = [];
+                itemInfo.values = [];
+                itemInfo.oldValue = [...oldValue];
+                itemInfo.oldValues = [...oldValue];
+            }
+            if (this.$emitPrevent('before-clear', { ...itemInfo }, this)) {
                 return;
             }
             if (this.$refs.treeView) {
                 this.$refs.treeView.checkAll(false);
             } else {
-                this.onUpdateValue(newValue);
+                this.onUpdateValue(itemInfo.value);
             }
 
-            this.$emit('clear', { ...itemInfo, oldValue, value: newValue }, this);
+            this.$emit('clear', { ...itemInfo }, this);
         },
     },
 };
