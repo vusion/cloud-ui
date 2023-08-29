@@ -57,16 +57,6 @@
       brifeDoc: ""
       docDescription: 限制值要保留的小数位数。默认0，不保留小数位
       tooltipLink: ""
-    - name: advanced-format
-      title: 高级格式化
-      type: "{ enable: boolean, value: string }"
-      default: "{ enable: false, value: '' }"
-      description: 用来控制数字的展示格式
-      group: 主要属性
-      brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
-      bindHide: true
     - name: decimal-places
       title: 小数位数
       type: "{ places: number, omit: boolean }"
@@ -126,6 +116,16 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+    - name: advanced-format
+      title: 高级格式化
+      type: "{ enable: boolean, value: string }"
+      default: "{ enable: false, value: '' }"
+      description: 用来控制数字的展示格式
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+      bindHide: true
     - name: placeholder
       title: 占位符
       type: string
