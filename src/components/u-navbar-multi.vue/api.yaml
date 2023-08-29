@@ -93,22 +93,6 @@
       brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识父级字段的属性，支持自定义变更
       tooltipLink: ""
-    - name: link-type-field
-      title: 链接类型字段
-      type: string
-      default: linkType
-      description: 集合的元素类型中，用于`linkType`的属性字段
-      group: 数据属性
-      dependency:
-        - "has-data-source": true
-    - name: target-field
-      title: 链接打开方式字段
-      type: string
-      default: target
-      description: 集合的元素类型中，用于`target`的属性字段
-      group: 数据属性
-      dependency:
-        - "has-data-source": true
     - name: router
       title: 使用路由
       type: boolean
