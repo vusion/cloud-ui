@@ -41,6 +41,14 @@ export default {
         regionDate() {
             this.syncValue(this.value);
         },
+        async 'currentDataSource.data'(value, oldValue) {
+            if (this.data.length) return
+            const currentData = require('./region');
+            await new Promise((resolve) => setTimeout(resolve, 0));
+            this.currentData = currentData.default;
+            this.allMergeText = this.getMergeText(this.currentData);
+            this.getSubComponents();
+        },
     },
     async created() {
         if (!this.data.length) {
