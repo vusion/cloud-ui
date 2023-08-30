@@ -22,6 +22,8 @@ export default {
             parentVM: undefined,
             startIndex: undefined,
             endIndex: undefined,
+            colSpan: 1,
+            isGroup: true,
         };
     },
     mounted() {
@@ -35,6 +37,7 @@ export default {
                 if (!slots.length) return;
                 // 在 children 里找到 slots 对应的 vm
                 const children = this.$children.filter((vm) => ~(slots.indexOf(vm.$vnode)));
+                children.forEach(child => child.__isUnderGroup = true)
                 if (~index) {
                     for (let i = 0; i < slots.length; i++) {
                         parentVM.columnVMs.splice(index + i, 0, children[i]);
@@ -46,7 +49,8 @@ export default {
                     this.endIndex = parentVM.columnVMs.length + children.length - 1;
                     parentVM.columnVMs.concat(children);
                 }
-                this.parentVM.columnGroupVMs.push(this);
+                this.colSpan = this.endIndex - this.startIndex + 1
+                this.$set(this.parentVM.columnGroupVMs, this.startIndex, this)
             });
     },
     destroyed() {

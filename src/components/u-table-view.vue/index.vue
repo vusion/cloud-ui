@@ -15,10 +15,10 @@
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth" />
                 </colgroup>
-                <thead>
-                    <tr>
+                <thead :grouped="hasGroupedColumn">
+                    <tr v-for="(headTr, trIndex) in tableHeadTrArr">
+                        <template v-for="(columnVM, columnIndex) in headTr">
                         <th
-                            v-for="(columnVM, columnIndex) in visibleColumnVMs"
                             v-if="columnVM.colSpan !== 0"
                             ref="th"
                             :class="[$style['head-title'], boldHeader ? $style.boldHeader : null]"
@@ -37,7 +37,8 @@
                             :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                             :shadow="(isLastLeftFixed(columnVM, columnIndex) && (!scrollXStart || $env.VUE_APP_DESIGNER)) || (isFirstRightFixed(columnVM, columnIndex) && (!scrollXEnd || $env.VUE_APP_DESIGNER))"
                             :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden"
-                            :colspan="columnVM.colSpan">
+                            :colspan="columnVM.colSpan"
+                            :rowspan="hasGroupedColumn && trIndex === 0 && !columnVM.isGroup ? 2 : 1">
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
                                 <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
@@ -74,13 +75,14 @@
                                 </u-table-view-filters-popper>
                             </span>
                             <!-- Resizable -->
-                            <f-dragger v-if="resizable && columnIndex !== visibleColumnVMs.length - 1" axis="horizontal"
+                            <f-dragger v-if="resizable && columnIndex !== headTr.length - 1" axis="horizontal"
                                 @dragstart="onResizerDragStart($event, columnVM)"
                                 @drag="onResizerDrag($event, columnVM, columnIndex)"
                                 @dragend="onResizerDragEnd($event, columnVM, columnIndex)">
                                 <div :class="$style.resizer" @click.stop></div>
                             </f-dragger>
                         </th>
+                        </template>
                     </tr>
                 </thead>
             </u-table>
@@ -493,7 +495,7 @@ export default {
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
             configColumnVM: undefined,
             dynamicColumnVM: undefined,
-            columnGroupVMs: [],
+            columnGroupVMs: {},
             slots: this.$slots,
             autoColSpan: [], // 用于记录自动的的列合并
             autoRowSpan: [], // 用于记录自动的的行合并
@@ -587,6 +589,25 @@ export default {
 
             return !!this.pagination;
         },
+        hasGroupedColumn() {
+            return !!Object.keys(this.columnGroupVMs).length
+        },
+        tableHeadTrArr() {
+            if (!this.hasGroupedColumn) {
+                return [this.visibleColumnVMs]
+            } else {
+                const result = [[]]
+                this.visibleColumnVMs.forEach((columnVM, index) => {
+                    if (!columnVM.__isUnderGroup) {
+                        result[0].push(columnVM)
+                    } else if (this.columnGroupVMs[index]) {
+                        result[0].push(this.columnGroupVMs[index])
+                    }
+                })
+                result[1] = this.visibleColumnVMs.filter(columnVM => columnVM.__isUnderGroup)
+                return result
+            }
+        }
     },
     watch: {
         data(data) {
