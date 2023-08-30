@@ -159,10 +159,15 @@ const VueDataSource = Vue.extend({
             if (!this.remoteSorting && sorting && sorting.field) {
                 const field = sorting.field;
                 const orderSign = sorting.order === 'asc' ? 1 : -1;
-                if (sorting.compare)
-                    arrangedData.sort((item1, item2) => sorting.compare(item1[field], item2[field], orderSign));
-                else
-                    arrangedData.sort((item1, item2) => this.defaultCompare(item1[field], item2[field], orderSign));
+                if (sorting.compare) {
+                    arrangedData.sort((item1, item2) =>
+                        sorting.compare(this.$at(item1, field), this.$at(item2, field), orderSign),
+                    );
+                } else {
+                    arrangedData.sort((item1, item2) =>
+                        this.defaultCompare(this.$at(item1, field), this.$at(item2, field), orderSign),
+                    );
+                }
             }
 
             this.arrangedData = arrangedData;
