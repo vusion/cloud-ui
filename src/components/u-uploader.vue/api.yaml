@@ -276,10 +276,10 @@
     - name: check-file
       title: 文件校验
       type: Function
-      description: 文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息
+      description: 文件校验函数，可自定义校验规则，如文件名称包含特殊字符等，返回string类型的出错信息
       group: 主要属性
       brifeDoc: ""
-      docDescription: 文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息
+      docDescription: 文件校验函数，可自定义校验规则，如文件名称包含特殊字符等，返回string类型的出错信息
       tooltipLink: ""
     - name: access
       title: 文件访问策略
