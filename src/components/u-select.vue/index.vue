@@ -258,7 +258,7 @@ export default {
     },
     watch: {
         filterText(filterText) {
-            this.inputWidth = filterText.length * 12 + 20;
+            this.inputWidth = (filterText || '').length * 12 + 20;
         },
         opened(opened) {
             if (opened === this.popperOpened)
