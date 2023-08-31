@@ -563,9 +563,19 @@
           snippet: '<u-table-view-column-dynamic><template #cell="current"></template><template
             #title="current"><u-text
             text="表格动态列"></u-text></template></u-table-view-column-dynamic>'
+        - name: u-table-view-column-group
+          title: 表格列分组
+          snippet: '<u-table-view-column-group>
+              <template #title><u-text text="表格列分组"></u-text></template>
+              <u-table-view-column>
+                <template #cell="current"></template>
+                <template #title><u-text text="表格列"></u-text></template>
+              </u-table-view-column>
+            </u-table-view-column-group>'
       supportGenericComponents:
         - u-table-view-column
         - u-table-view-column-dynamic
+        - u-table-view-column-group
     - concept: Slot
       name: loading
       title: 加载中内容
@@ -1191,6 +1201,16 @@
       brifeDoc: ""
       docDescription: 指定列宽，可以是数字或百分比，如100，或10%。
       tooltipLink: ""
+    - name: colSpan
+      title: 合并列数
+      type: number
+      group: 样式属性
+      min: 0
+    - name: autoRowSpan
+      title: 自动合并相同数据
+      type: boolean
+      default: false
+      group: 样式属性
   slots:
     - concept: Slot
       name: cell
@@ -1558,4 +1578,43 @@
             - concept: TypeAnnotation
               typeKind: typeParam
               typeName: T1
+- name: u-table-view-column-group
+  title: 表格列分组
+  attrs:
+    - name: title
+      title: 表格标题
+      type: string
+      description: ""
+      advanced: true
+      group: 主要属性
+  slots:
+    - concept: Slot
+      name: default
+      title: 默认
+      description: 在表格中插入`<u-table-view-column>`子组件
+      empty-background: drag-entity-here
+      support:
+        - name: u-table-view-column
+          title: 表格列
+          snippet: '<u-table-view-column><template #cell="current"></template><template
+            #title><u-text
+            text="表格列"></u-text></template></u-table-view-column>'
+      supportGenericComponents:
+        - u-table-view-column
+    - concept: Slot
+      name: title
+      title: 标题
+      accept-type:
+        - text
+        - inline
+      description: 对标题进行自定义
+      props:
+        - name: columnVM
+          title: 列实例
+          type: string
+          description: 该列组件实例
+        - name: columnIndex
+          title: 列索引
+          type: number
+          description: 列的索引
 

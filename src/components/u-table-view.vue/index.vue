@@ -38,7 +38,7 @@
                             :shadow="(isLastLeftFixed(columnVM, columnIndex) && (!scrollXStart || $env.VUE_APP_DESIGNER)) || (isFirstRightFixed(columnVM, columnIndex) && (!scrollXEnd || $env.VUE_APP_DESIGNER))"
                             :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden"
                             :colspan="columnVM.colSpan"
-                            :rowspan="hasGroupedColumn && trIndex === 0 && !columnVM.isGroup ? 2 : 1">
+                            :rowspan="hasGroupedColumn && trIndex === 0 && !columnVM.isGroup ? 2 : undefined">
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
                                 <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
@@ -523,7 +523,7 @@ export default {
             if (this.$env.VUE_APP_DESIGNER) {
                 return this.columnVMs;
             }
-            return this.columnVMs.filter((columnVM) => !columnVM.currentHidden);
+            return this.columnVMs.filter((columnVM) => columnVM && !columnVM.currentHidden);
         },
         expanderColumnVM() {
             return this.columnVMs.find((columnVM) => columnVM.type === 'expander');
