@@ -24,7 +24,23 @@ export default {
             endIndex: undefined,
             colSpan: 1,
             isGroup: true,
+            // 记录动态列的 uid 和对应的长度
+            dynamicColumnLengthMap: {},
         };
+    },
+    computed: {
+        dynamicColumnLength() {
+            let count = 0
+            Object.keys(this.dynamicColumnLengthMap).forEach(key => {
+                count += this.dynamicColumnLengthMap[key]
+            })
+            return count
+        }
+    },
+    watch: {
+        dynamicColumnLength(value) {
+            this.colSpan = this.endIndex - this.startIndex + 1 + value
+        }
     },
     mounted() {
         !this.parentVM
@@ -37,27 +53,25 @@ export default {
                 if (!slots.length) return;
                 // 在 children 里找到 slots 对应的 vm
                 const children = this.$children.filter((vm) => ~(slots.indexOf(vm.$vnode)));
-                children.forEach(child => child.__isUnderGroup = true)
+                // 标记为在分组下
+                children.forEach(child => child.isUnderGroup = true)
                 if (~index) {
-                    for (let i = 0; i < slots.length; i++) {
-                        parentVM.columnVMs.splice(index + i, 0, children[i]);
-                    }
                     this.startIndex = index;
                     this.endIndex = index + slots.length - 1;
                 } else {
                     this.startIndex = parentVM.columnVMs.length;
                     this.endIndex = parentVM.columnVMs.length + children.length - 1;
-                    parentVM.columnVMs.concat(children);
                 }
-                this.colSpan = this.endIndex - this.startIndex + 1
-                this.$set(this.parentVM.columnGroupVMs, this.startIndex, this)
+                // 计算出列合并的值
+                this.colSpan = this.endIndex - this.startIndex + 1 + this.dynamicColumnLength
+                this.$set(parentVM.columnGroupVMs, this.startIndex, this)
             });
     },
     destroyed() {
-        // this.$contact(this.$options.parentName, (parentVM) => {
-        //     parentVM.columnVMs.splice(parentVM.columnVMs.indexOf(this), 1);
-        //     this.parentVM = undefined;
-        // });
+        this.$contact(this.$options.parentName, (parentVM) => {
+            this.parentVM = undefined;
+            this.$delete(parentVM.columnGroupVMs, this.startIndex)
+        });
     },
 };
 </script>

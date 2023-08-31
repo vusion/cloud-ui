@@ -41,6 +41,7 @@ export default {
         addVms() {
             this.$contact(this.$options.parentName, (parentVM) => {
                 parentVM.dynamicColumnVM = this;
+                const isUnderGroup = this.$parent.$options.name === 'u-table-view-column-group'
                 const currentIndex = parentVM.columnVMs.findIndex((vm) => vm === this);
                 const vms = this.currentDataSource.data.map((item) => ({
                     ...this,
@@ -48,6 +49,7 @@ export default {
                     columnItem: item,
                     field: this.$at(item, this.valueField),
                     dynamicId: this._uid,
+                    isUnderGroup
                 }));
                 if (vms.length === 0) return;
                 // this是初始加载的组件，需要保留作为后续查找依据
@@ -58,6 +60,9 @@ export default {
                 vms.forEach((vm, index) => {
                     parentVM.columnVMs.splice(currentIndex + 1 + index, 0, vm);
                 });
+                if (isUnderGroup) {
+                    this.$set(this.$parent.dynamicColumnLengthMap, this._uid, vms.length)
+                }
             });
         },
         clearVms(parentVM) {

@@ -597,14 +597,21 @@ export default {
                 return [this.visibleColumnVMs]
             } else {
                 const result = [[]]
+                let dynamicOffset = 0
                 this.visibleColumnVMs.forEach((columnVM, index) => {
-                    if (!columnVM.__isUnderGroup) {
+                    if (!columnVM.isUnderGroup) {
                         result[0].push(columnVM)
-                    } else if (this.columnGroupVMs[index]) {
-                        result[0].push(this.columnGroupVMs[index])
+                        // 统计出到当前 index 有多少个动态列（第一个动态性不计入，因为 vm 里已经占位）
+                        if (columnVM.$options.name === 'u-table-view-column-dynamic' && index > 0
+                            && this.visibleColumnVMs[index - 1].$options.name === 'u-table-view-column-dynamic') {
+                            dynamicOffset++
+                        }
+                    } else if (this.columnGroupVMs[index - dynamicOffset]) {
+                        // 这里需要减去动态列带来的过多位移
+                        result[0].push(this.columnGroupVMs[index - dynamicOffset])
                     }
                 })
-                result[1] = this.visibleColumnVMs.filter(columnVM => columnVM.__isUnderGroup)
+                result[1] = this.visibleColumnVMs.filter(columnVM => columnVM.isUnderGroup)
                 return result
             }
         }
