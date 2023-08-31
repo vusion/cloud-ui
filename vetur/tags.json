@@ -664,17 +664,22 @@
   },
   "u-date-picker": {
     "attributes": [
+      "picker",
+      "range",
       "date",
+      "startDate",
+      "endDate",
       "minDate",
       "maxDate",
       "time",
       "yearDiff",
       "yearAdd",
+      "show-formatter",
+      "advanced-format",
       "autofocus",
       "placeholder",
       "alignment",
       "converter",
-      "picker",
       "preIcon",
       "suffixIcon",
       "append-to",
@@ -689,11 +694,18 @@
   },
   "u-date-time-picker": {
     "attributes": [
+      "minUnit",
+      "range",
       "date",
+      "startDate",
+      "endDate",
       "minDate",
       "maxDate",
       "yearDiff",
       "yearAdd",
+      "show-date-formatter",
+      "show-time-formatter",
+      "advanced-format",
       "placeholder",
       "autofocus",
       "showRightNowButton",
@@ -757,15 +769,26 @@
   },
   "u-dropdown": {
     "attributes": [
+      "has-data-source",
+      "data-source",
+      "data-schema",
+      "text-field",
+      "value-field",
+      "icon-field",
+      "to-field",
+      "parent-field",
       "trigger",
       "type",
       "placement",
       "append-to",
+      "router",
+      "value",
       "disabled"
     ],
     "description": "下拉菜单",
     "subtags": [
-      "u-dropdown-item"
+      "u-dropdown-item",
+      "u-dropdown-group"
     ]
   },
   "u-dropdown-item": {
@@ -779,6 +802,15 @@
       "disabled"
     ],
     "description": "下拉菜单项"
+  },
+  "u-dropdown-group": {
+    "attributes": [
+      "title",
+      "collapsible",
+      "expanded",
+      "disabled"
+    ],
+    "description": "侧边栏分组"
   },
   "u-dynamic-cards": {
     "attributes": [
@@ -1040,7 +1072,9 @@
       "circle",
       "horizontalCenter",
       "verticalCenter",
-      "preview"
+      "preview",
+      "loading-type",
+      "placeholder-src"
     ],
     "description": "可以用来展示一张图片，支持设置图片地址。"
   },
@@ -1323,6 +1357,14 @@
   },
   "u-navbar-multi": {
     "attributes": [
+      "has-data-source",
+      "data-source",
+      "data-schema",
+      "text-field",
+      "value-field",
+      "icon-field",
+      "to-field",
+      "parent-field",
       "router",
       "value",
       "field",
@@ -1341,7 +1383,8 @@
       "u-navbar-select-multi",
       "u-navbar-select-group-multi",
       "u-navbar-select-item-multi",
-      "u-navbar-select-divider-multi"
+      "u-navbar-select-divider-multi",
+      "u-navbar-group-multi"
     ]
   },
   "u-navbar-item-multi": {
@@ -1403,6 +1446,15 @@
   "u-navbar-select-divider-multi": {
     "attributes": [],
     "description": "导航选择分割线"
+  },
+  "u-navbar-group-multi": {
+    "attributes": [
+      "title",
+      "collapsible",
+      "expanded",
+      "disabled"
+    ],
+    "description": "导航栏分组"
   },
   "u-navbar": {
     "attributes": [
@@ -1504,6 +1556,12 @@
       "min",
       "max",
       "precision",
+      "decimal-length",
+      "decimal-places",
+      "thousandths",
+      "percent-sign",
+      "unit",
+      "advanced-format",
       "placeholder",
       "autofocus",
       "hide-buttons",
@@ -1660,7 +1718,9 @@
     "description": "该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。"
   },
   "u-router-view": {
-    "attributes": [],
+    "attributes": [
+      "disableKeepAlive"
+    ],
     "description": "用于嵌入子页面的容器。"
   },
   "u-select": {
@@ -1763,8 +1823,16 @@
   },
   "u-sidebar": {
     "attributes": [
-      "value",
+      "has-data-source",
+      "data-source",
+      "data-schema",
+      "text-field",
+      "value-field",
+      "icon-field",
+      "to-field",
+      "parent-field",
       "router",
+      "value",
       "collapsible",
       "accordion",
       "expand-trigger",
@@ -2062,10 +2130,15 @@
   },
   "u-time-picker": {
     "attributes": [
-      "time",
       "minUnit",
+      "range",
+      "time",
+      "startTime",
+      "endTime",
       "min-time",
       "max-time",
+      "show-formatter",
+      "advanced-format",
       "autofocus",
       "showRightNowButton",
       "rightNowTitle",
@@ -2175,7 +2248,9 @@
       "value-field",
       "parent-field",
       "children-field",
-      "value"
+      "value",
+      "checkable",
+      "clearable"
     ],
     "description": "树选择"
   },
@@ -2285,6 +2360,7 @@
       "access",
       "ttl",
       "ttlValue",
+      "lcapIsCompress",
       "draggable",
       "readonly",
       "disabled"

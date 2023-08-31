@@ -421,6 +421,7 @@ export default {
 | access | string | `[object Object]`<br/>`[object Object]` |  |  |
 | ttl | boolean |  |  | 是否开启文件有效期控制 |
 | ttlValue | number |  |  | 文件上传后的有效期天数 |
+| lcapIsCompress | boolean |  |  | 启用压缩后上传的文件按压缩规则进行压缩后上传，压缩规则可在自定义配置参数管理 |
 | draggable | boolean |  | `false` |  |
 | readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |

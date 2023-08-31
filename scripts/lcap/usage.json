@@ -2438,6 +2438,29 @@
             ],
             "attrs": [
                 {
+                    "name": "has-data-source",
+                    "title": "数据源配置",
+                    "type": "boolean",
+                    "sync": false,
+                    "model": false,
+                    "bindHide": true,
+                    "default": false,
+                    "group": "数据属性",
+                    "brifeDoc": "",
+                    "tooltipLink": "",
+                    "toggleclear": [
+                        "data-source",
+                        "data-schema",
+                        "text-field",
+                        "to-field",
+                        "icon-field",
+                        "value-field",
+                        "parent-field",
+                        "link-type-field",
+                        "target-field"
+                    ]
+                },
+                {
                     "name": "data-source",
                     "title": "数据源",
                     "type": "Array<Item> | Function | object | DataSource",
@@ -2446,7 +2469,12 @@
                     "group": "数据属性",
                     "brifeDoc": "",
                     "docDescription": "支持动态绑定集合类型变量（List\\<T>）或输出参数为集合类型的逻辑",
-                    "tooltipLink": ""
+                    "tooltipLink": "",
+                    "dependency": [
+                        {
+                            "has-data-source": true
+                        }
+                    ]
                 },
                 {
                     "name": "data-schema",
@@ -2460,46 +2488,20 @@
                     "tooltipLink": "",
                     "dependency": [
                         {
-                            "!data-source": null
+                            "has-data-source": true
                         }
                     ]
                 },
                 {
                     "name": "text-field",
-                    "title": "选项文本字段",
+                    "title": "文本字段",
                     "type": "string",
                     "default": "text",
                     "description": "集合的元素类型中，用于显示文本的属性名称",
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "!data-source": null
-                        }
-                    ]
-                },
-                {
-                    "name": "to-field",
-                    "title": "跳转链接字段",
-                    "type": "string",
-                    "default": "to",
-                    "description": "集合的元素类型中，用于跳转链接的属性名称",
-                    "group": "数据属性",
-                    "dependency": [
-                        {
-                            "!data-source": null
-                        }
-                    ]
-                },
-                {
-                    "name": "icon-field",
-                    "title": "图标属性字段",
-                    "type": "string",
-                    "default": "icon",
-                    "description": "集合的元素类型中，用于图标的属性名称",
-                    "group": "数据属性",
-                    "dependency": [
-                        {
-                            "!data-source": null
+                            "has-data-source": true
                         }
                     ]
                 },
@@ -2512,7 +2514,7 @@
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "!data-source": null
+                            "has-data-source": true
                         }
                     ],
                     "brifeDoc": "",
@@ -2520,20 +2522,30 @@
                     "tooltipLink": ""
                 },
                 {
-                    "name": "children-field",
-                    "title": "子级值字段",
+                    "name": "icon-field",
+                    "title": "图标属性字段",
                     "type": "string",
-                    "default": "children",
-                    "description": "集合的元素类型中，用于标识子节点的属性，默认为children",
+                    "default": "icon",
+                    "description": "集合的元素类型中，用于图标的属性名称",
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "!data-source": null
+                            "has-data-source": true
                         }
-                    ],
-                    "brifeDoc": "",
-                    "docDescription": "集合的元素类型中，用于标识子级字段的的属性，支持自定义变更",
-                    "tooltipLink": ""
+                    ]
+                },
+                {
+                    "name": "to-field",
+                    "title": "跳转链接字段",
+                    "type": "string",
+                    "default": "to",
+                    "description": "集合的元素类型中，用于跳转链接的属性名称",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "has-data-source": true
+                        }
+                    ]
                 },
                 {
                     "name": "parent-field",
@@ -2544,7 +2556,7 @@
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "!data-source": null
+                            "has-data-source": true
                         }
                     ],
                     "brifeDoc": "",
@@ -2552,30 +2564,18 @@
                     "tooltipLink": ""
                 },
                 {
-                    "name": "link-type-field",
-                    "title": "链接类型字段",
-                    "type": "string",
-                    "default": "linkType",
-                    "description": "集合的元素类型中，用于`linkType`的属性字段",
+                    "name": "router",
+                    "title": "使用路由",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "是否根据 vue-router 来控制选择哪一项",
+                    "toggleclear": [
+                        "value"
+                    ],
                     "group": "数据属性",
-                    "dependency": [
-                        {
-                            "!data-source": null
-                        }
-                    ]
-                },
-                {
-                    "name": "target-field",
-                    "title": "链接打开方式字段",
-                    "type": "string",
-                    "default": "target",
-                    "description": "集合的元素类型中，用于`target`的属性字段",
-                    "group": "数据属性",
-                    "dependency": [
-                        {
-                            "!data-source": null
-                        }
-                    ]
+                    "brifeDoc": "",
+                    "docDescription": "设置是否根据vue-router来控制选择哪一项，默认关闭。开启后当前所在的侧边栏项底部会有标识，",
+                    "tooltipLink": ""
                 },
                 {
                     "name": "value",
@@ -2592,20 +2592,6 @@
                     "group": "数据属性",
                     "brifeDoc": "",
                     "docDescription": "当前选择的值，值仅在不适用路由下支持编辑",
-                    "tooltipLink": ""
-                },
-                {
-                    "name": "router",
-                    "title": "使用路由",
-                    "type": "boolean",
-                    "default": true,
-                    "description": "是否根据 vue-router 来控制选择哪一项",
-                    "toggleclear": [
-                        "value"
-                    ],
-                    "group": "数据属性",
-                    "brifeDoc": "",
-                    "docDescription": "设置是否根据vue-router来控制选择哪一项，默认关闭。开启后当前所在的侧边栏项底部会有标识，",
                     "tooltipLink": ""
                 },
                 {
@@ -3067,6 +3053,29 @@
             ],
             "attrs": [
                 {
+                    "name": "has-data-source",
+                    "title": "数据源配置",
+                    "type": "boolean",
+                    "sync": false,
+                    "model": false,
+                    "bindHide": true,
+                    "default": false,
+                    "group": "数据属性",
+                    "brifeDoc": "",
+                    "tooltipLink": "",
+                    "toggleclear": [
+                        "data-source",
+                        "data-schema",
+                        "text-field",
+                        "to-field",
+                        "icon-field",
+                        "value-field",
+                        "parent-field",
+                        "link-type-field",
+                        "target-field"
+                    ]
+                },
+                {
                     "name": "data-source",
                     "title": "数据源",
                     "type": "Array<Item> | Function | object | DataSource",
@@ -3075,7 +3084,12 @@
                     "group": "数据属性",
                     "brifeDoc": "",
                     "docDescription": "支持动态绑定集合类型变量（List\\<T>）或输出参数为集合类型的逻辑",
-                    "tooltipLink": ""
+                    "tooltipLink": "",
+                    "dependency": [
+                        {
+                            "has-data-source": true
+                        }
+                    ]
                 },
                 {
                     "name": "data-schema",
@@ -3089,46 +3103,20 @@
                     "tooltipLink": "",
                     "dependency": [
                         {
-                            "!data-source": null
+                            "has-data-source": true
                         }
                     ]
                 },
                 {
                     "name": "text-field",
-                    "title": "选项文本字段",
+                    "title": "文本字段",
                     "type": "string",
                     "default": "text",
                     "description": "集合的元素类型中，用于显示文本的属性名称",
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "!data-source": null
-                        }
-                    ]
-                },
-                {
-                    "name": "to-field",
-                    "title": "跳转链接字段",
-                    "type": "string",
-                    "default": "to",
-                    "description": "集合的元素类型中，用于跳转链接的属性名称",
-                    "group": "数据属性",
-                    "dependency": [
-                        {
-                            "!data-source": null
-                        }
-                    ]
-                },
-                {
-                    "name": "icon-field",
-                    "title": "图标属性字段",
-                    "type": "string",
-                    "default": "icon",
-                    "description": "集合的元素类型中，用于图标的属性名称",
-                    "group": "数据属性",
-                    "dependency": [
-                        {
-                            "!data-source": null
+                            "has-data-source": true
                         }
                     ]
                 },
@@ -3141,7 +3129,7 @@
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "!data-source": null
+                            "has-data-source": true
                         }
                     ],
                     "brifeDoc": "",
@@ -3149,20 +3137,30 @@
                     "tooltipLink": ""
                 },
                 {
-                    "name": "children-field",
-                    "title": "子级值字段",
+                    "name": "icon-field",
+                    "title": "图标属性字段",
                     "type": "string",
-                    "default": "children",
-                    "description": "集合的元素类型中，用于标识子节点的属性，默认为children",
+                    "default": "icon",
+                    "description": "集合的元素类型中，用于图标的属性名称",
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "!data-source": null
+                            "has-data-source": true
                         }
-                    ],
-                    "brifeDoc": "",
-                    "docDescription": "集合的元素类型中，用于标识子级字段的的属性，支持自定义变更",
-                    "tooltipLink": ""
+                    ]
+                },
+                {
+                    "name": "to-field",
+                    "title": "跳转链接字段",
+                    "type": "string",
+                    "default": "to",
+                    "description": "集合的元素类型中，用于跳转链接的属性名称",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "has-data-source": true
+                        }
+                    ]
                 },
                 {
                     "name": "parent-field",
@@ -3173,38 +3171,12 @@
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "!data-source": null
+                            "has-data-source": true
                         }
                     ],
                     "brifeDoc": "",
                     "docDescription": "集合的元素类型中，用于标识父级字段的属性，支持自定义变更",
                     "tooltipLink": ""
-                },
-                {
-                    "name": "link-type-field",
-                    "title": "链接类型字段",
-                    "type": "string",
-                    "default": "linkType",
-                    "description": "集合的元素类型中，用于`linkType`的属性字段",
-                    "group": "数据属性",
-                    "dependency": [
-                        {
-                            "!data-source": null
-                        }
-                    ]
-                },
-                {
-                    "name": "target-field",
-                    "title": "链接打开方式字段",
-                    "type": "string",
-                    "default": "target",
-                    "description": "集合的元素类型中，用于`target`的属性字段",
-                    "group": "数据属性",
-                    "dependency": [
-                        {
-                            "!data-source": null
-                        }
-                    ]
                 },
                 {
                     "name": "router",
@@ -4475,6 +4447,29 @@
             ],
             "attrs": [
                 {
+                    "name": "has-data-source",
+                    "title": "数据源配置",
+                    "type": "boolean",
+                    "sync": false,
+                    "model": false,
+                    "bindHide": true,
+                    "default": false,
+                    "group": "数据属性",
+                    "brifeDoc": "",
+                    "tooltipLink": "",
+                    "toggleclear": [
+                        "data-source",
+                        "data-schema",
+                        "text-field",
+                        "to-field",
+                        "icon-field",
+                        "value-field",
+                        "parent-field",
+                        "link-type-field",
+                        "target-field"
+                    ]
+                },
+                {
                     "name": "data-source",
                     "title": "数据源",
                     "type": "Array<Item> | Function | object | DataSource",
@@ -4483,7 +4478,12 @@
                     "group": "数据属性",
                     "brifeDoc": "",
                     "docDescription": "支持动态绑定集合类型变量（List\\<T>）或输出参数为集合类型的逻辑",
-                    "tooltipLink": ""
+                    "tooltipLink": "",
+                    "dependency": [
+                        {
+                            "has-data-source": true
+                        }
+                    ]
                 },
                 {
                     "name": "data-schema",
@@ -4497,46 +4497,20 @@
                     "tooltipLink": "",
                     "dependency": [
                         {
-                            "!data-source": null
+                            "has-data-source": true
                         }
                     ]
                 },
                 {
                     "name": "text-field",
-                    "title": "选项文本字段",
+                    "title": "文本字段",
                     "type": "string",
                     "default": "text",
                     "description": "集合的元素类型中，用于显示文本的属性名称",
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "!data-source": null
-                        }
-                    ]
-                },
-                {
-                    "name": "to-field",
-                    "title": "跳转链接字段",
-                    "type": "string",
-                    "default": "to",
-                    "description": "集合的元素类型中，用于跳转链接的属性名称",
-                    "group": "数据属性",
-                    "dependency": [
-                        {
-                            "!data-source": null
-                        }
-                    ]
-                },
-                {
-                    "name": "icon-field",
-                    "title": "图标属性字段",
-                    "type": "string",
-                    "default": "icon",
-                    "description": "集合的元素类型中，用于图标的属性名称",
-                    "group": "数据属性",
-                    "dependency": [
-                        {
-                            "!data-source": null
+                            "has-data-source": true
                         }
                     ]
                 },
@@ -4549,7 +4523,7 @@
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "!data-source": null
+                            "has-data-source": true
                         }
                     ],
                     "brifeDoc": "",
@@ -4557,20 +4531,30 @@
                     "tooltipLink": ""
                 },
                 {
-                    "name": "children-field",
-                    "title": "子级值字段",
+                    "name": "icon-field",
+                    "title": "图标属性字段",
                     "type": "string",
-                    "default": "children",
-                    "description": "集合的元素类型中，用于标识子节点的属性，默认为children",
+                    "default": "icon",
+                    "description": "集合的元素类型中，用于图标的属性名称",
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "!data-source": null
+                            "has-data-source": true
                         }
-                    ],
-                    "brifeDoc": "",
-                    "docDescription": "集合的元素类型中，用于标识子级字段的的属性，支持自定义变更",
-                    "tooltipLink": ""
+                    ]
+                },
+                {
+                    "name": "to-field",
+                    "title": "跳转链接字段",
+                    "type": "string",
+                    "default": "to",
+                    "description": "集合的元素类型中，用于跳转链接的属性名称",
+                    "group": "数据属性",
+                    "dependency": [
+                        {
+                            "has-data-source": true
+                        }
+                    ]
                 },
                 {
                     "name": "parent-field",
@@ -4581,38 +4565,12 @@
                     "group": "数据属性",
                     "dependency": [
                         {
-                            "!data-source": null
+                            "has-data-source": true
                         }
                     ],
                     "brifeDoc": "",
                     "docDescription": "集合的元素类型中，用于标识父级字段的属性，支持自定义变更",
                     "tooltipLink": ""
-                },
-                {
-                    "name": "link-type-field",
-                    "title": "链接类型字段",
-                    "type": "string",
-                    "default": "linkType",
-                    "description": "集合的元素类型中，用于`linkType`的属性字段",
-                    "group": "数据属性",
-                    "dependency": [
-                        {
-                            "!data-source": null
-                        }
-                    ]
-                },
-                {
-                    "name": "target-field",
-                    "title": "链接打开方式字段",
-                    "type": "string",
-                    "default": "target",
-                    "description": "集合的元素类型中，用于`target`的属性字段",
-                    "group": "数据属性",
-                    "dependency": [
-                        {
-                            "!data-source": null
-                        }
-                    ]
                 },
                 {
                     "name": "trigger",
@@ -4768,6 +4726,23 @@
                     "group": "数据属性",
                     "brifeDoc": "",
                     "docDescription": "设置使用vue-router。",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "value",
+                    "title": "选中值",
+                    "type": "any",
+                    "sync": true,
+                    "model": true,
+                    "description": "当前选中的值",
+                    "dependency": [
+                        {
+                            "router": false
+                        }
+                    ],
+                    "group": "数据属性",
+                    "brifeDoc": "",
+                    "docDescription": "当前选择的值，值仅在不适用路由下支持编辑",
                     "tooltipLink": ""
                 },
                 {
@@ -14549,18 +14524,6 @@
                     "tooltipLink": ""
                 },
                 {
-                    "name": "advanced-format",
-                    "title": "高级格式化",
-                    "type": "{ enable: boolean, value: string }",
-                    "default": "{ enable: false, value: '' }",
-                    "description": "用来控制数字的展示格式",
-                    "group": "主要属性",
-                    "brifeDoc": "",
-                    "docDescription": "",
-                    "tooltipLink": "",
-                    "bindHide": true
-                },
-                {
                     "name": "decimal-places",
                     "title": "小数位数",
                     "type": "{ places: number, omit: boolean }",
@@ -14650,6 +14613,18 @@
                     "brifeDoc": "",
                     "docDescription": "",
                     "tooltipLink": ""
+                },
+                {
+                    "name": "advanced-format",
+                    "title": "高级格式化",
+                    "type": "{ enable: boolean, value: string }",
+                    "default": "{ enable: false, value: '' }",
+                    "description": "用来控制数字的展示格式",
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": "",
+                    "bindHide": true
                 },
                 {
                     "name": "placeholder",
@@ -23498,18 +23473,6 @@
                     ]
                 },
                 {
-                    "name": "advanced-format",
-                    "title": "高级格式化",
-                    "type": "{ enable: boolean, value: string }",
-                    "default": "{ enable: false, value: '' }",
-                    "description": "",
-                    "group": "主要属性",
-                    "brifeDoc": "",
-                    "docDescription": "",
-                    "tooltipLink": "",
-                    "bindHide": true
-                },
-                {
                     "name": "show-formatter",
                     "title": "日期展示格式",
                     "type": "string",
@@ -23660,6 +23623,18 @@
                     "brifeDoc": "",
                     "docDescription": "",
                     "tooltipLink": ""
+                },
+                {
+                    "name": "advanced-format",
+                    "title": "高级格式化",
+                    "type": "{ enable: boolean, value: string }",
+                    "default": "{ enable: false, value: '' }",
+                    "description": "",
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": "",
+                    "bindHide": true
                 },
                 {
                     "name": "autofocus",
@@ -24139,18 +24114,6 @@
                     "tooltipLink": ""
                 },
                 {
-                    "name": "advanced-format",
-                    "title": "高级格式化",
-                    "type": "{ enable: boolean, value: string }",
-                    "default": "{ enable: false, value: '' }",
-                    "description": "",
-                    "group": "主要属性",
-                    "brifeDoc": "",
-                    "docDescription": "",
-                    "tooltipLink": "",
-                    "bindHide": true
-                },
-                {
                     "name": "show-formatter",
                     "title": "时间展示格式",
                     "type": "string",
@@ -24202,6 +24165,18 @@
                     "brifeDoc": "",
                     "docDescription": "",
                     "tooltipLink": ""
+                },
+                {
+                    "name": "advanced-format",
+                    "title": "高级格式化",
+                    "type": "{ enable: boolean, value: string }",
+                    "default": "{ enable: false, value: '' }",
+                    "description": "",
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": "",
+                    "bindHide": true
                 },
                 {
                     "name": "autofocus",
@@ -24525,6 +24500,32 @@
             ],
             "attrs": [
                 {
+                    "name": "minUnit",
+                    "title": "最小单位",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "second",
+                            "title": "秒"
+                        },
+                        {
+                            "value": "minute",
+                            "title": "分"
+                        }
+                    ],
+                    "default": "second",
+                    "description": "最小时间单位",
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "最小时间单位，支持秒或分",
+                    "tooltipLink": "",
+                    "dependency": [
+                        {
+                            "advanced-format.enable": false
+                        }
+                    ]
+                },
+                {
                     "name": "range",
                     "title": "区间选择",
                     "type": "boolean",
@@ -24628,18 +24629,6 @@
                     ]
                 },
                 {
-                    "name": "advanced-format",
-                    "title": "高级格式化",
-                    "type": "{ enable: boolean, value: string }",
-                    "default": "{ enable: false, value: '' }",
-                    "description": "",
-                    "group": "主要属性",
-                    "brifeDoc": "",
-                    "docDescription": "",
-                    "tooltipLink": "",
-                    "bindHide": true
-                },
-                {
                     "name": "show-date-formatter",
                     "title": "日期展示格式",
                     "type": "string",
@@ -24672,32 +24661,6 @@
                     "brifeDoc": "",
                     "docDescription": "",
                     "tooltipLink": ""
-                },
-                {
-                    "name": "minUnit",
-                    "title": "最小单位",
-                    "type": "string",
-                    "options": [
-                        {
-                            "value": "second",
-                            "title": "秒"
-                        },
-                        {
-                            "value": "minute",
-                            "title": "分"
-                        }
-                    ],
-                    "default": "second",
-                    "description": "最小时间单位",
-                    "group": "主要属性",
-                    "brifeDoc": "",
-                    "docDescription": "最小时间单位，支持秒或分",
-                    "tooltipLink": "",
-                    "dependency": [
-                        {
-                            "advanced-format.enable": false
-                        }
-                    ]
                 },
                 {
                     "name": "show-time-formatter",
@@ -24752,6 +24715,18 @@
                     "brifeDoc": "",
                     "docDescription": "",
                     "tooltipLink": ""
+                },
+                {
+                    "name": "advanced-format",
+                    "title": "高级格式化",
+                    "type": "{ enable: boolean, value: string }",
+                    "default": "{ enable: false, value: '' }",
+                    "description": "",
+                    "group": "主要属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": "",
+                    "bindHide": true
                 },
                 {
                     "name": "placeholder",
@@ -25451,7 +25426,7 @@
                             "type": "object",
                             "description": "自定义事件对象",
                             "schema": {
-                                "$ref": "#/systemTypes/EventTarget"
+                                "$ref": "#/systemTypes/ChangeEvent"
                             }
                         },
                         {
@@ -25486,7 +25461,7 @@
                             "type": "object",
                             "description": "自定义事件对象",
                             "schema": {
-                                "$ref": "#/systemTypes/EventTarget"
+                                "$ref": "#/systemTypes/ChangeEvent"
                             }
                         },
                         {

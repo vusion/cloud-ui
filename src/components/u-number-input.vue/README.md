@@ -136,6 +136,12 @@ export default {
 | min | number |  | `''` | 最小可输入的值 |
 | max | number |  | `''` | 最大可输入的值 |
 | precision | number |  | `1` | 限制数字输入要保留的最小精度单位，默认不限制精度，如需保留两位小数，则填入0.01 |
+| decimal-length | number |  |  | 控制数据存储时小数点后保留几位。例如：精度为2，则数据存储时小数点后保留2位。 |
+| decimal-places | { places: number, omit: boolean } |  | `'{ places: '', omit: true }'` | 控制数据展示时小数点后保留几位，仅影响展示，不影响数据实际存储的值。例如：小数位数为2，则数据展示时小数点后保留2位。 |
+| thousandths | boolean |  | `false` | undefined |
+| percent-sign | boolean |  | `false` | undefined |
+| unit | { type: string, value: string } |  | `'{ type: 'prefix', value: '' }'` | 输入框中显示的单位 |
+| advanced-format | { enable: boolean, value: string } |  | `'{ enable: false, value: '' }'` | 用来控制数字的展示格式 |
 | placeholder | string |  |  | 为空时显示的占位符文本 |
 | autofocus | boolean |  |  | 设置是否自动获取焦点 |
 | hide-buttons | boolean |  | `false` | 是否隐藏上下点击按钮 |
@@ -205,6 +211,22 @@ export default {
 | ----- | ---- | ----------- |
 | $event | string | 原生事件对象 |
 | senderVM | UNumberInput | 发送事件实例 |
+
+#### @keydown
+
+键盘按键按下时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 键盘按键事件对象 |
+
+#### @keyup
+
+键盘按键松开时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 键盘按键事件对象 |
 
 ### ARIA and Keyboard
 
