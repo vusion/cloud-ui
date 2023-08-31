@@ -201,7 +201,7 @@ export default {
 .root[mode="flex"]:not([direction]) > [width-stretch="true"],
 .root[mode="flex"][direction="vertical"] > [height-stretch="true"] { flex: 1 0 0; }
 .root[mode="flex"][direction="vertical"] > [width-stretch="true"],
-.root[mode="flex"]:not([direction]) > [height-stretch="true"]
+.root[mode="flex"]:not([direction]) > [height-stretch="true"],
 .root[mode="flex"][direction="horizontal"] > [height-stretch="true"] { align-self: stretch; }
 /* width-stretch 强制 width 为 unset */
 .root[mode="flex"] > [width-stretch="true"] { width: unset !important; }
