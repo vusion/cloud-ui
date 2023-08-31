@@ -671,7 +671,8 @@ export default {
         },
         // 展示时使用接口返回路径对应的文件名
         handleFileName(url) {
-            return url.match(/\/([^/]+)$/)?.[1] ?? null;
+            const match = url.match(/\/([^/]+)$/);
+            return match ? match[1] : null;
         },
     },
 };
