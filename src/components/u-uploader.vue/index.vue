@@ -489,7 +489,9 @@ export default {
                     }
                     item.response = res;
                     item.showProgress = false;
-                    item.name = this.handleFileName(item.url);
+                    if (item.url) {
+                        item.name = this.handleFileName(item.url);
+                    }
                     // 一次上传多个文件，返回数据是数组，需要处理
                     if (res[this.urlField]) {
                         const url = res[this.urlField];
@@ -498,7 +500,7 @@ export default {
                             url.forEach((urlTemp, urlIndex) => {
                                 const urlItem = {
                                     status: 'success',
-                                    name: this.handleFileName(urlTemp),
+                                    name: urlTemp ? this.handleFileName(urlTemp) : file[urlIndex].name,
                                     size: file[urlIndex].size,
                                     showProgress: false,
                                     url: urlTemp,
