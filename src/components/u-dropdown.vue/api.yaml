@@ -180,7 +180,7 @@
     - name: router
       title: 使用路由
       type: boolean
-      default: false
+      default: true
       description: 是否使用 vue-router 
       group: 数据属性
       brifeDoc: ""
