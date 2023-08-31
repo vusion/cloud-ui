@@ -81,7 +81,7 @@ export default {
     mixins: [MSinglex, MGroupParent],
     props: {
         type: { type: String, default: 'text' },
-        router: { type: Boolean, default: false },
+        router: { type: Boolean, default: true },
         animation: { type: String, default: '1' },
         title: String,
         trigger: { type: String, default: 'click' },
