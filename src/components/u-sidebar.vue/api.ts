@@ -1,0 +1,363 @@
+/// <reference types="nasl" />
+
+namespace nasl.ui {
+    @Component({
+        title: '侧边栏',
+        icon: 'sidebar',
+        description: '通常用于页面左侧的导航栏。',
+    })
+    export class USidebar extends VueComponent {
+
+
+        @Method({
+            title: 'undefined',
+            description: '展开/折叠所有分组',
+        })
+        toggleAll(
+            @Param({
+                title: 'undefined',
+                description: '展开/折叠',
+            })
+            expanded: nasl.core.Boolean,
+        ): void {}
+        constructor(options?: Partial<USidebarOptions>) { super(); }
+    }
+
+    export class USidebarOptions {
+        @Prop<USidebarOptions, 'value'>({
+            group: '数据属性',
+            title: '选中值',
+            description: '当前选中的值',
+            syncMode: 'both',
+            docDescription: '当前选择的值，值仅在不适用路由下支持编辑',
+            if: _ => _.router === false,
+        })
+        value: nasl.core.String;
+
+        @Prop<USidebarOptions, 'router'>({
+            group: '数据属性',
+            title: '使用路由',
+            description: '是否根据 vue-router 来控制选择哪一项',
+            docDescription: '设置是否根据vue-router来控制选择哪一项，默认关闭。开启后当前所在的侧边栏项底部会有标识，',
+            onToggle: [
+                { clear: ['value'] }
+            ],
+        })
+        router: nasl.core.Boolean = true;
+
+        @Prop({
+            group: '交互属性',
+            title: '可折叠',
+            description: '设置是否可以展开/折叠',
+            docDescription: '设置分组是否可折叠。',
+        })
+        collapsible: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '交互属性',
+            title: '手风琴模式',
+            description: '设置是否每次只展开一个',
+            docDescription: ' 开启后每次仅会展开一个分组。',
+        })
+        accordion: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '交互属性',
+            title: '展开触发方式',
+            description: '展开/折叠操作的触发方式',
+            docDescription: '支持整行点击均可触发和仅点击小箭头时触发两种方式',
+            setter: {
+                type: 'enumSelect',
+                titles: ['整行点击均可触发', '仅点击小箭头时触发'],
+            },
+        })
+        expandTrigger: 'click' | 'click-expander' = 'click';
+
+        @Prop({
+            group: '状态属性',
+            title: '只读',
+            description: '正常显示，但禁止选择/输入',
+            docDescription: '正常显示，但禁止选择或输入',
+        })
+        readonly: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '状态属性',
+            title: '禁用',
+            description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+        })
+        disabled: nasl.core.Boolean = false;
+
+        @Event({
+            title: '选择后',
+            description: '选择某一项后触发。',
+        })
+        onSelect: (event: nasl.ui.ChangeItemEvent) => void;
+
+        @Slot({
+            title: 'undefined',
+            description: '插入`<u-sidebar-item>`、`<u-sidebar-divider>`或`<u-sidebar-group>`子组件。',
+            snippets: [
+                {
+                    title: '侧边栏分组',
+                    code: '<u-sidebar-group><template #title><u-text text="分组"></u-text></template><u-sidebar-item><u-text text="侧边栏项"></u-text></u-sidebar-item></u-sidebar-group>',
+                },
+                {
+                    title: '侧边栏项',
+                    code: '<u-sidebar-item><u-text text="侧边栏项"></u-text></u-sidebar-item>',
+                },
+                {
+                    title: '分隔线',
+                    code: '<u-sidebar-divider></u-sidebar-divider>',
+                },
+            ],
+        })
+        slotDefault: () => Array<USidebarGroup | USidebarItem | USidebarDivider>;
+    }
+
+    @Component({
+        title: '侧边栏项',
+        description: '侧边栏项',
+    })
+    export class USidebarItem extends VueComponent {
+
+        constructor(options?: Partial<USidebarItemOptions>) { super(); }
+    }
+
+    export class USidebarItemOptions {
+        @Prop({
+            title: '文本',
+            description: '文本内容',
+        })
+        private text: nasl.core.String;
+
+        @Prop({
+            title: '相关对象',
+            description: '相关对象。当选择此项时，抛出的事件会传递该对象，便于开发',
+        })
+        private item: nasl.core.Any;
+
+        @Prop({
+            title: '路由链接',
+            description: '需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。',
+        })
+        private to: nasl.core.String;
+
+        @Prop({
+            title: '替换',
+            description: '需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。',
+        })
+        private replace: nasl.core.Boolean = false;
+
+        @Prop({
+            title: '精确匹配',
+            description: '需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。',
+        })
+        private exact: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '数据属性',
+            title: '值',
+            description: '用于标识此项的值',
+            docDescription: '用于标识此项的值',
+        })
+        value: nasl.core.String;
+
+        @Prop({
+            group: '主要属性',
+            title: '图标',
+            docDescription: '支持从图标库选择图标或上传自定义图标',
+            setter: {
+                type: 'iconSelect',
+            },
+        })
+        icon: nasl.core.String = '';
+
+        @Prop({
+            group: '交互属性',
+            title: '链接类型',
+            docDescription: '支持页面跳转、普通链接、下载链接',
+            bindHide: true,
+            setter: {
+                type: 'enumSelect',
+                titles: ['页面跳转', '下载链接'],
+            },
+        })
+        linkType: 'destination' | 'download' = 'destination';
+
+        @Prop({
+            group: '交互属性',
+            title: '链接地址',
+            docDescription: '链接的详细地址',
+        })
+        hrefAndTo: nasl.core.String;
+
+        @Prop({
+            group: '交互属性',
+            title: '链接打开方式',
+            description: '链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。',
+            docDescription: '支持新窗口、当前窗口、父级窗口、顶级窗口四种方式，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口',
+            setter: {
+                type: 'enumSelect',
+                titles: ['新窗口', '当前窗口', '父级窗口', '顶级窗口'],
+            },
+        })
+        target: '_blank' | '_self' | '_parent' | '_top' = '_self';
+
+        @Prop({
+            group: '状态属性',
+            title: '禁用',
+            description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+        })
+        disabled: nasl.core.Boolean = false;
+
+        @Event({
+            title: '点击',
+            description: '在元素上按下并释放任意鼠标按钮时触发。',
+        })
+        onClick: () => void;
+
+        @Event({
+            title: '双击',
+            description: '在元素上双击鼠标按钮时触发。',
+        })
+        onDblclick: () => void;
+
+        @Event({
+            title: '右键点击',
+            description: '在右键菜单显示前触发。',
+        })
+        onContextmenu: () => void;
+
+        @Event({
+            title: '鼠标按下',
+            description: '在元素上按下任意鼠标按钮时触发。',
+        })
+        onMousedown: () => void;
+
+        @Event({
+            title: '鼠标释放',
+            description: '在元素上释放任意鼠标按钮时触发。',
+        })
+        onMouseup: () => void;
+
+        @Event({
+            title: '鼠标移入',
+            description: '鼠标移入元素时触发。',
+        })
+        onMouseenter: () => void;
+
+        @Event({
+            title: '鼠标移出',
+            description: '鼠标移出元素时触发。',
+        })
+        onMouseleave: () => void;
+
+        @Event({
+            title: '获得焦点',
+            description: '获得焦点时触发。',
+        })
+        onFocus: () => void;
+
+        @Event({
+            title: '失去焦点',
+            description: '失去焦点时触发。',
+        })
+        onBlur: () => void;
+
+        @Event({
+            title: '切换路由后',
+            description: '使用 router 相关属性切换路由后触发',
+        })
+        private onNavigate: (event: nasl.ui.NavigateEvent) => void;
+    }
+
+    @Component({
+        title: '侧边栏分组',
+        description: '侧边栏分组',
+    })
+    export class USidebarGroup extends VueComponent {
+
+        constructor(options?: Partial<USidebarGroupOptions>) { super(); }
+    }
+
+    export class USidebarGroupOptions {
+        @Prop({
+            title: '标题',
+            description: '显示的标题',
+        })
+        private title: nasl.core.String;
+
+        @Prop({
+            group: '交互属性',
+            title: '可折叠',
+            description: '设置是否可以展开/折叠',
+            docDescription: '设置分组是否可折叠',
+        })
+        collapsible: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '状态属性',
+            title: '展开状态',
+            description: '展开状态分为“True(展开)/False(折叠)”，默认为“展开”',
+            syncMode: 'onlySync',
+            docDescription: '设置分组的展开折叠状态。在某些场景下需要预置分组的展开或者折叠状态',
+        })
+        expanded: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '状态属性',
+            title: '禁用展开/折叠',
+            description: '置灰显示，且禁止展开/折叠操作',
+            docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+        })
+        disabled: nasl.core.Boolean = false;
+
+        @Slot({
+            title: 'undefined',
+            description: '插入`<u-sidebar-item>`或`<u-sidebar-divider>`子组件。',
+            snippets: [
+                {
+                    title: '侧边栏分组',
+                    code: '<u-sidebar-group><template #title><u-text text="分组"></u-text></template><u-sidebar-item><u-text text="侧边栏项"></u-text></u-sidebar-item></u-sidebar-group>',
+                },
+                {
+                    title: '侧边栏项',
+                    code: '<u-sidebar-item><u-text text="侧边栏项"></u-text></u-sidebar-item>',
+                },
+                {
+                    title: '分隔线',
+                    code: '<u-sidebar-divider></u-sidebar-divider>',
+                },
+            ],
+        })
+        slotDefault: () => Array<USidebarGroup | USidebarItem | USidebarDivider>;
+
+        @Slot({
+            title: 'undefined',
+            description: '自定义标题文本。',
+        })
+        slotTitle: () => Array<VueComponent>;
+
+        @Slot({
+            title: 'undefined',
+            description: '在右侧可以附加内容。',
+        })
+        slotExtra: () => Array<VueComponent>;
+    }
+
+    @Component({
+        title: '侧边栏分隔线',
+        description: '侧边栏分隔线',
+    })
+    export class USidebarDivider extends VueComponent {
+
+        constructor(options?: Partial<USidebarDividerOptions>) { super(); }
+    }
+
+    export class USidebarDividerOptions {
+
+    }
+}

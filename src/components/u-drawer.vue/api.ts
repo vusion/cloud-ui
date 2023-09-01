@@ -1,0 +1,102 @@
+/// <reference types="nasl" />
+
+namespace nasl.ui {
+    @Component({
+        title: '抽屉',
+        icon: 'drawer',
+        description: '抽屉',
+    })
+    export class UDrawer extends VueComponent {
+
+
+        @Method({
+            title: 'undefined',
+            description: '打开抽屉',
+        })
+        open(): void {}
+
+        @Method({
+            title: 'undefined',
+            description: '关闭抽屉',
+        })
+        close(): void {}
+        constructor(options?: Partial<UDrawerOptions>) { super(); }
+    }
+
+    export class UDrawerOptions {
+        @Prop({
+            group: '主要属性',
+            title: '抽屉位置',
+            description: '抽屉弹出的位置',
+            docDescription: '支持选择抽屉的显示位置，支持左、右两个位置',
+            setter: {
+                type: 'enumSelect',
+                titles: ['左', '右'],
+            },
+        })
+        placement: 'left' | 'right' = 'right';
+
+        @Prop({
+            group: '主要属性',
+            title: '显示顶部栏',
+            docDescription: '控制抽屉顶部栏的开启和关闭',
+        })
+        showHead: nasl.core.Boolean = true;
+
+        @Prop({
+            group: '主要属性',
+            title: '显示底部栏',
+            docDescription: '控制抽屉底部栏的开启和关闭',
+        })
+        showFoot: nasl.core.Boolean = true;
+
+        @Prop({
+            group: '交互属性',
+            title: '点击遮罩关闭',
+            description: '点击遮罩关闭抽屉',
+            docDescription: `控制抽屉打开时，点击遮罩区域的作用，默认开启。
+- 开启：点击遮罩区域则自动关闭抽屉。
+- 关闭：点击遮罩区域无实际作用`,
+        })
+        maskClosable: nasl.core.Boolean = true;
+
+        @Prop({
+            group: '状态属性',
+            title: '显示状态',
+            description: '显示状态分为“True(打开)/False(关闭)”，默认为“打开”',
+            syncMode: 'onlySync',
+            docDescription: '控制抽屉是否进入页面时自动显示。开启表示自动显示，关闭表示不自动显示',
+        })
+        visible: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '样式属性',
+            title: '尺寸',
+            description: '抽屉的尺寸',
+            docDescription: '支持配置抽屉的宽度，支持小、正常、大三个尺寸',
+            setter: {
+                type: 'enumSelect',
+                titles: ['小', '正常', '大'],
+            },
+        })
+        size: 'small' | 'normal' | 'large' = 'normal';
+
+        @Event({
+            title: '打开时',
+            description: '打开抽屉时触发',
+        })
+        onOpen: (senderVM: UDrawer) => void;
+
+        @Event({
+            title: '关闭前',
+            description: '关闭抽屉前触发',
+        })
+        onBeforeClose: (ok: boolean) => void;
+
+        @Event({
+            title: '关闭时',
+            description: '关闭抽屉时触发',
+        })
+        onClose: (ok: boolean) => void;
+    }
+}

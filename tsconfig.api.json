@@ -17,7 +17,7 @@
         "baseUrl": ".",
         "declaration": true,
         "emitDeclarationOnly": true,
-        "outFile": "../../low-code-fe/packages/nasl/sandbox/stdlib/nasl.ui.de.ts",
+        "outFile": "../../low-code-fe/packages/nasl/sandbox/stdlib/nasl.ui.pc.ts",
         "lib": [
             "esnext",
             "dom"
@@ -28,10 +28,6 @@
         }
     },
     "include": [                
-        "./src/components/u-form.vue/api.ts",
-        "./src/components/u-button.vue/api.ts",
-        "./src/components/u-input.vue/api.ts",
-        "./src/components/u-checkboxes.vue/api.ts",
-        "./src/components/u-select.vue/api.ts",
+        "./src/components/*/api.ts",
     ]
 }
