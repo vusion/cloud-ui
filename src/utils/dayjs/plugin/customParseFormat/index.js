@@ -35,15 +35,19 @@ const addInput = function (property) {
             input = +input.replace('Q', '');
             switch (input) {
                 case '1':
+                case 1:
                     this.month = 1;
                     break;
                 case '2':
+                case 2:
                     this.month = 4;
                     break;
                 case '3':
+                case 3:
                     this.month = 7;
                     break;
                 case '4':
+                case 4:
                     this.month = 10;
                     break;
                 default:

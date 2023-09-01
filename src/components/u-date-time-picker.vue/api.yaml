@@ -5,6 +5,22 @@
   labels:
     - Selector
   attrs:
+    - name: minUnit
+      title: 最小单位
+      type: string
+      options:
+        - value: second
+          title: 秒
+        - value: minute
+          title: 分
+      default: second
+      description: 最小时间单位
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 最小时间单位，支持秒或分
+      tooltipLink: ""
+      dependency:
+        - advanced-format.enable: false
     - name: range
       title: 区间选择
       type: boolean
@@ -77,15 +93,6 @@
       tooltipLink: ""
       dependency:
         - '!range': true
-    - name: advanced-format
-      title: 高级格式化
-      type: "{ enable: boolean, value: string }"
-      default: "{ enable: false, value: '' }"
-      description: ""
-      group: 主要属性
-      brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
     - name: show-date-formatter
       title: 日期展示格式
       type: string
@@ -112,8 +119,20 @@
       options:
         - value: HH:mm:ss
           title: "12:09:09"
+          dependency:
+            - minUnit: second
         - value: HH时mm分ss秒
           title: 12时09分09秒
+          dependency:
+            - minUnit: second
+        - value: HH:mm
+          title: "12:09"
+          dependency:
+            - minUnit: minute
+        - value: HH时mm分
+          title: 12时09分
+          dependency:
+            - minUnit: minute
       default: HH:mm:ss
       description: ""
       dependency:
@@ -122,6 +141,16 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+    - name: advanced-format
+      title: 高级格式化
+      type: "{ enable: boolean, value: string }"
+      default: "{ enable: false, value: '' }"
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+      bindHide: true
     - name: placeholder
       title: 占位符
       type: string

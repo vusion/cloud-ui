@@ -44,9 +44,11 @@ export default {
 
             let text = value;
             try {
-                const formatter = this.getDisplayFormatString();
-                if (formatter && formatter !== this.getFormatString()) {
-                    text = dayjs(value, this.getFormatString()).format(formatter);
+                const valueFormatter = this.getFormatString();
+                const displayFormatter = this.getDisplayFormatString();
+
+                if (displayFormatter && displayFormatter !== valueFormatter) {
+                    text = dayjs(value, valueFormatter).format(displayFormatter);
                 }
             } catch (error) {
                 console.log(error);

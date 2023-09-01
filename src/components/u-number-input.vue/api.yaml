@@ -48,19 +48,19 @@
       brifeDoc: ""
       docDescription: 限制数字要保留的最小单位，整数、小数均可，如需要保留两位小数，则填入0.01。
       tooltipLink: ""
-    - name: advanced-format
-      title: 高级格式化
-      type: "{ enable: boolean, value: string }"
-      default: "{ enable: false, value: '' }"
-      description: 用来控制数字的展示格式
-      group: 主要属性
+      advanced: true
+    - name: decimal-length
+      title: 精度
+      type: number
+      description: 控制数据存储时小数点后保留几位。例如：精度为2，则数据存储时小数点后保留2位。
+      group: 数据属性
       brifeDoc: ""
-      docDescription: ""
+      docDescription: 限制值要保留的小数位数。默认0，不保留小数位
       tooltipLink: ""
     - name: decimal-places
       title: 小数位数
       type: "{ places: number, omit: boolean }"
-      default: "{ places: 0, omit: true }"
+      default: "{ places: '', omit: true }"
       compose:
         - key: places 
           type: number
@@ -68,7 +68,7 @@
         - key: omit 
           type: switch
           suffix: 隐藏末尾0
-      description: 用来控制小数位数
+      description: 控制数据展示时小数点后保留几位，仅影响展示，不影响数据实际存储的值。例如：小数位数为2，则数据展示时小数点后保留2位。
       dependency:
         - advanced-format.enable: false
       group: 主要属性
@@ -116,6 +116,16 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+    - name: advanced-format
+      title: 高级格式化
+      type: "{ enable: boolean, value: string }"
+      default: "{ enable: false, value: '' }"
+      description: 用来控制数字的展示格式
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+      bindHide: true
     - name: placeholder
       title: 占位符
       type: string

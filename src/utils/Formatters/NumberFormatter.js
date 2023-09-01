@@ -9,6 +9,7 @@ export class NumberFormatter extends Formatter {
 
     format(value, pattern) {
         pattern = pattern || this.pattern;
+
         if (typeof value !== 'number')
             return pattern.replace(/[0#.,]+/, value);
 
@@ -24,21 +25,32 @@ export class NumberFormatter extends Formatter {
         }
 
         value = value.toFixed(fixed).padStart(fixed ? fill + 1 + fixed : fill, '0');
+        // 是否小数隐藏末尾0
+        if (fixed > 0 && /#$/.test(parts[1])) {
+            value = parseFloat(value) + ''; // 转字符串
+        }
 
         if (comma)
             value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
+        // 百分号
         if (this.options.percentSign) {
             value += '%';
         }
 
-        return pattern.replace(/[0#.,]+/, value);
+        value = pattern.replace(/[0#.,]+/, value);
+
+        return value;
     }
 
     parse(value, pattern) {
+        if (!pattern) {
+            return value;
+        }
+
         pattern = pattern || this.pattern;
 
-        let number = (String(value).match(/[0-9.,]+/) || ['0'])[0];
+        let number = (String(value).match(/-?([0-9.,]+)/) || ['0'])[0];
 
         number = +number.replace(/,/g, '');
 

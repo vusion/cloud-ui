@@ -72,15 +72,6 @@
       brifeDoc: ""
       docDescription: 支持输入的最大时间
       tooltipLink: ""
-    - name: advanced-format
-      title: 高级格式化
-      type: "{ enable: boolean, value: string }"
-      default: "{ enable: false, value: '' }"
-      description: ""
-      group: 主要属性
-      brifeDoc: ""
-      docDescription: ""
-      tooltipLink: ""
     - name: show-formatter
       title: 时间展示格式
       type: string
@@ -108,6 +99,16 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+    - name: advanced-format
+      title: 高级格式化
+      type: "{ enable: boolean, value: string }"
+      default: "{ enable: false, value: '' }"
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+      bindHide: true
     - name: autofocus
       title: 自动获取焦点
       type: boolean

@@ -82,9 +82,9 @@ export default {
 <template>
     <div>
         <u-date-picker
-            :value.sync="date"
-            picker="date"
-            show-formatter="YYYY年M月"
+            :value.sync="quarter"
+            picker="quarter"
+            show-formatter="YYYY年QQ"
             width="large"
             clearable
             @change="onChange"
@@ -107,7 +107,8 @@ export default {
 export default {
     data() {
         return {
-            date: '2023-07-07'
+            date: '2023-07-07',
+            quarter: '2023-07-07'
         }
     },
     methods: {
