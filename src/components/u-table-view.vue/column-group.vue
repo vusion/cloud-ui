@@ -8,7 +8,6 @@
 </template>
 <script>
 import MEmitter from '../m-emitter.vue';
-import { Formatter, parseFormatters, placeholderFormatter } from '../../utils/Formatters';
 
 export default {
     name: 'u-table-view-column-group',
@@ -55,7 +54,7 @@ export default {
     destroyed() {
         this.$contact(this.$options.parentName, (parentVM) => {
             this.parentVM = undefined;
-            this.$delete(parentVM.columnGroupVMs, this.startIndex)
+            this.deleteColumnVMs(parentVM, this.startIndex, this.colSpan)
         });
     },
     methods: {
@@ -63,21 +62,25 @@ export default {
             let slotVms = parentVM.$slots.default || [];
             slotVms = slotVms.filter((vm) => !!vm.tag);
             const index = slotVms.indexOf(this.$vnode);
-            const slots = this.$slots.default
+            const slots = this.$slots.default.filter((vm) => !!vm.tag);
             if (!slots.length) return;
+            // 如果现在的之前的值和现在计算出来的不一样，需要删掉之前的，重新设置
+            if (~index && this.startIndex !== undefined && this.startIndex !== index) {
+                this.deleteColumnVMs(parentVM, this.startIndex, slots.length)
+                this.startIndex = index
+            }
             // 在 children 里找到 slots 对应的 vm
             const children = this.$children.filter((vm) => {
                 // 不是 default slot 并且不在 columnVMs 里
                return ~slots.indexOf(vm.$vnode) && !~parentVM.columnVMs.indexOf(vm)
             });
-            if (!children.length) return
             // 标记为在分组下
             children.forEach(child => child.isUnderGroup = true)
             if (~index) {
                 for (let i = 0; i < children.length; i++) {
                     parentVM.columnVMs.splice(index + i, 0, children[i]);
                 }
-                this.startIndex = index;
+                this.startIndex = index
                 this.endIndex = index + slots.length - 1;
             } else {
                 this.startIndex = parentVM.columnVMs.length;
@@ -87,7 +90,10 @@ export default {
             // 计算出列合并的值
             this.colSpan = this.endIndex - this.startIndex + 1 + this.dynamicColumnLength
             this.$set(parentVM.columnGroupVMs, this.startIndex, this)
-
+        },
+        deleteColumnVMs(parentVM, index, childrenLength) {
+            parentVM.columnVMs.splice(index, childrenLength);
+            this.$delete(parentVM.columnGroupVMs, this.startIndex)
         }
     }
 };

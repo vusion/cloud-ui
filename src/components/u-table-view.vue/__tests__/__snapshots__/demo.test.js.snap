@@ -24464,11 +24464,11 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
       <div class="head" style="top: 0px;">
         <table class="root head-table" line="true">
           <colgroup>
-            <col width="8%">
-            <col width="20%">
-            <col width="20%">
-            <col width="20%">
-            <col width="20%">
+            <col width="0">
+            <col width="0">
+            <col width="0">
+            <col width="0">
+            <col width="0">
             <col>
           </colgroup>
           <thead grouped="true">
@@ -24521,17 +24521,131 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
             <div>
               <table class="root" line="true">
                 <colgroup>
-                  <col width="8%">
-                  <col width="20%">
-                  <col width="20%">
-                  <col width="20%">
-                  <col width="20%">
+                  <col width="0">
+                  <col width="0">
+                  <col width="0">
+                  <col width="0">
+                  <col width="0">
                   <col>
                 </colgroup>
                 <tbody>
-                  <tr>
-                    <td class="center" colspan="6" vusion-slot-name="loading">
-                      <div class="root spinner"></div> 正在加载中...
+                  <tr class="row">
+                    <td class="cell">
+                      <span>
+                        <label class="root" tabindex="0">
+                          <span class="box" status="false"></span>
+                          <span vusion-slot-name="item"> </span>
+                        </label>
+                      </span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">张三</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">18612917895</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span>
+                        <label class="root" tabindex="0">
+                          <span class="box" status="false"></span>
+                          <span vusion-slot-name="item"> </span>
+                        </label>
+                      </span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">小明</span>
+                    </td>
+                    <td class="cell" colspan="2">
+                      <span class="column-field" vusion-slot-name="cell">13727160283</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span>
+                        <label class="root" tabindex="0">
+                          <span class="box" status="false"></span>
+                          <span vusion-slot-name="item"> </span>
+                        </label>
+                      </span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">李四</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">18897127809</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span>
+                        <label class="root" disabled="disabled" tabindex="0">
+                          <span class="box" disabled="disabled" status="false"></span>
+                          <span vusion-slot-name="item"> </span>
+                        </label>
+                      </span>
+                    </td>
+                    <td class="cell" rowspan="2">
+                      <span class="column-field" vusion-slot-name="cell">李华</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">18749261214</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span>
+                        <label class="root" tabindex="0">
+                          <span class="box" status="false"></span>
+                          <span vusion-slot-name="item"> </span>
+                        </label>
+                      </span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">13579340020</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
                     </td>
                   </tr>
                 </tbody>
