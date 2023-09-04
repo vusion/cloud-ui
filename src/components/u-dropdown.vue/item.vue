@@ -36,7 +36,7 @@ export default {
     parentName: 'u-dropdown',
     methods: {
         onClick(e) {
-            if (this.disabled || this.parentVM.readonly || this.parentVM.disabled)
+            if (this.disabled || this.parentVM.readonly || this.parentVM.disabled || (this.groupVM && this.groupVM.disabled))
                 return e.preventDefault();
             ULink.methods.onClick.call(this, e);
             if (this.parentVM.router) {
