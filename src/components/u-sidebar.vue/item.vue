@@ -47,7 +47,7 @@ export default {
                 this.$nextTick(() => this.$el.scrollIntoView(false));
         },
         onClick(e) {
-            if (this.disabled || this.parentVM.readonly || this.parentVM.disabled || this.groupVM.disabled)
+            if (this.disabled || this.parentVM.readonly || this.parentVM.disabled || (this.groupVM && this.groupVM.disabled))
                 return e.preventDefault();
             ULink.methods.onClick.call(this, e);
             if (this.parentVM.router) {
