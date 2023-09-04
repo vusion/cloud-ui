@@ -169,12 +169,14 @@ export default {
         value(value, oldValue) {
             // 根据传入的 value 调整 fix 精度
             const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
+            const _oldValue = this.currentValue;
             const currentValue = (this.currentValue = this.fix(value, currentPrecision));
             this.formattedValue = this.currentFormatter.format(currentValue);
             this.$emit('update', this.currentValue, this);
             // 当点击了form的创建按钮等调用了validate方法，fieldTouched值会变为true，不会走update validate
             // 所以这里需要再增加input emit
             this.$emit('input', this.currentValue, this);
+            this.$emit('change', { value: this.currentValue, oldValue: _oldValue, formattedValue: this.formattedValue, valid: this.isValid(this.currentValue) }, this);
         },
         max(value, oldValue) {
             // todo: 正常情况下，formattedValue应该设计为computed，目前在不影响的情况下，手动watch
