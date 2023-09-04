@@ -5,7 +5,7 @@
         :subBackground="rootVM.subBackground"
         :disabled="currentDisabled"
         :tabindex="disabled || rootVM.readonly || rootVM.disabled ? '' : 0"
-        @click="select(), rootVM.expandTrigger === 'click' && toggle()"
+        @click="select($event), rootVM.expandTrigger === 'click' && toggle()"
         @dblclick="onDblclick($event)"
         @contextmenu="onRightClick($event)"
         @keyup.enter="select()"
@@ -284,7 +284,7 @@ export default {
     },
 
     methods: {
-        select() {
+        select($event) {
             if (this.currentDisabled || this.rootVM.readonly)
                 return;
 
@@ -298,7 +298,7 @@ export default {
             if (cancel)
                 return;
 
-            this.rootVM.select(this);
+            this.rootVM.select(this, $event);
         },
         onDblclick(e) {
             this.rootVM.$emit('node-dblclick', {

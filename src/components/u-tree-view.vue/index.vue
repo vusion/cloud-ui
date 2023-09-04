@@ -250,7 +250,7 @@ export default {
                 this.currentValues = values;
             }
         },
-        select(nodeVM) {
+        select(nodeVM, event) {
             if (this.readonly || this.disabled)
                 return;
             const oldValue = this.value;
@@ -290,6 +290,7 @@ export default {
                     oldVM,
                 },
                 this,
+                event
             );
         },
         selectAndReveal(value, options) {
@@ -423,7 +424,7 @@ export default {
                     childrenField: this.childrenField,
                     hidden: this.filterText ? this.$at(node, 'hiddenByFilter') : this.$at(node, this.hiddenField),
                     node,
-                    parent, 
+                    parent,
                     draggable: node.draggable,
                 };
                 propsData._collapsedParentCount = _collapsedParentCount;
