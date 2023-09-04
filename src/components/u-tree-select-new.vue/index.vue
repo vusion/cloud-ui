@@ -181,7 +181,7 @@ export default {
             default: 30,
         },
         filterFields: { type: Array, default: () => ['text'] },
-        ifExpanded: { type: Boolean, default: true },
+        ifExpanded: { type: Boolean, default: false },
     },
     data() {
         return {
