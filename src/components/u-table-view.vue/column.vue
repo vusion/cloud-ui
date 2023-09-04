@@ -34,6 +34,8 @@ export default {
         dblclickHandler: Function,
         filterMultiple: { type: Boolean, default: false },
         filterMax: Number,
+        colSpan: Number,
+        autoRowSpan: { type: Boolean, default: false },
     },
     data() {
         const data = {
@@ -43,6 +45,7 @@ export default {
             computedWidth: this.width === undefined ? undefined : this.width + '',
             currentFormatter: undefined,
             currentHidden: this.hidden,
+            isUnderGroup: false,
         };
         if (typeof this.formatter === 'object')
             data.currentFormatter = this.formatter;
@@ -70,8 +73,8 @@ export default {
         },
     },
     created() {
-        !this.parentVM
-            && this.$contact(this.$options.parentName, (parentVM) => {
+        this.$parent.$options.name !== 'u-table-view-column-group' &&
+            !this.parentVM && this.$contact(this.$options.parentName, (parentVM) => {
                 this.parentVM = parentVM;
                 let slotVms = parentVM.$slots.default || [];
                 slotVms = slotVms.filter((vm) => !!vm.tag);

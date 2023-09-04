@@ -130,6 +130,14 @@ export default {
 .root[line] th, .root[line] thead tr {
     border-bottom: none;
 }
+.root[line] thead[grouped] tr:not(:first-child) th {
+    /* 下、左 */
+    box-shadow: inset 0 -1px 0 var(--table-view-border-color), inset 1px 0 0 var(--table-view-border-color);
+}
+.root[line] thead[grouped] tr:not(:first-child) th:last-child {
+    /* 右、下、左 */
+    box-shadow: inset -1px 0 0 var(--table-view-border-color), inset 0 -1px 0 var(--table-view-border-color), inset 1px 0 0 var(--table-view-border-color);
+}
 
 /* 下一个大版本放开 */
 .root[striped] thead tr {

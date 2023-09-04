@@ -25,8 +25,8 @@ export default {
         const data = [];
         for (let i = 0; i < 75; i++) {
             const item = Object.assign({}, baseData[i % 5]);
-            item.name += '-' + (Math.random() * 20 >> 0);
-            item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+            item.name += '-' + i;
+            item.phone = String(+item.phone + i);
             item.createdTime += i * 1000 * 3600 * 24;
             item.loginTime += i * 1000 * 3600 * 24;
             data.push(item);
@@ -92,8 +92,8 @@ export default {
         const data = [];
         for (let i = 0; i < 75; i++) {
             const item = Object.assign({}, baseData[i % 5]);
-            item.name += '-' + (Math.random() * 20 >> 0);
-            item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+            item.name += '-' + i;
+            item.phone = String(+item.phone + i);
             item.createdTime += i * 1000 * 3600 * 24;
             item.loginTime += i * 1000 * 3600 * 24;
             data.push(item);
@@ -130,8 +130,8 @@ const baseData = [
 const remoteData = [];
 for (let i = 0; i < 75; i++) {
     const item = Object.assign({}, baseData[i % 5]);
-    item.name += '-' + (Math.random() * 20 >> 0);
-    item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+    item.name += '-' + i;
+    item.phone = String(+item.phone + i);
     item.createdTime += i * 1000 * 3600 * 24;
     item.loginTime += i * 1000 * 3600 * 24;
     remoteData.push(item);
@@ -193,8 +193,8 @@ export default {
         const data = [];
         for (let i = 0; i < 75; i++) {
             const item = Object.assign({}, baseData[i % 5]);
-            item.name += '-' + (Math.random() * 20 >> 0);
-            item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+            item.name += '-' + i;
+            item.phone = String(+item.phone + i);
             item.createdTime += i * 1000 * 3600 * 24;
             item.loginTime += i * 1000 * 3600 * 24;
             data.push(item);
@@ -238,8 +238,8 @@ const baseData = [
 const remoteData = [];
 for (let i = 0; i < 75; i++) {
     const item = Object.assign({}, baseData[i % 5]);
-    item.name += '-' + (Math.random() * 20 >> 0);
-    item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+    item.name += '-' + i;
+    item.phone = String(+item.phone + i);
     item.createdTime += i * 1000 * 3600 * 24;
     item.loginTime += i * 1000 * 3600 * 24;
     remoteData.push(item);
@@ -614,8 +614,8 @@ const baseData = [
 const remoteData = [];
 for (let i = 0; i < 75; i++) {
     const item = Object.assign({}, baseData[i % 5]);
-    item.name += '-' + (Math.random() * 20 >> 0);
-    item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+    item.name += '-' + i;
+    item.phone = String(+item.phone + i);
     item.createdTime += i * 1000 * 3600 * 24;
     item.loginTime += i * 1000 * 3600 * 24;
     remoteData.push(item);
@@ -729,8 +729,8 @@ export default {
         const data = [];
         for (let i = 0; i < 75; i++) {
             const item = Object.assign({}, baseData[i % 5]);
-            item.name += '-' + (Math.random() * 20 >> 0);
-            item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+            item.name += '-' + i;
+            item.phone = String(+item.phone + i);
             item.createdTime += i * 1000 * 3600 * 24;
             item.loginTime += i * 1000 * 3600 * 24;
             data.push(item);
@@ -766,8 +766,8 @@ const baseData = [
 const remoteData = [];
 for (let i = 0; i < 15; i++) {
     const item = Object.assign({}, baseData[i % 5]);
-    item.name += '-' + (Math.random() * 20 >> 0);
-    item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+    item.name += '-' + i;
+    item.phone = String(+item.phone + i);
     item.createdTime += i * 1000 * 3600 * 24;
     item.loginTime += i * 1000 * 3600 * 24;
     remoteData.push(item);
@@ -963,8 +963,8 @@ export default {
         const data = [];
         for (let i = 0; i < 75; i++) {
             const item = Object.assign({}, baseData[i % 5]);
-            item.name += '-' + (Math.random() * 20 >> 0);
-            item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+            item.name += '-' + i;
+            item.phone = String(+item.phone + i);
             item.createdTime += i * 1000 * 3600 * 24;
             item.loginTime += i * 1000 * 3600 * 24;
             data.push(item);
@@ -1016,8 +1016,8 @@ export default {
             const data = [];
             for (let i = 0; i < 75; i++) {
                 const item = Object.assign({}, baseData[i % 5]);
-                item.name += '-' + (Math.random() * 20 >> 0);
-                item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+                item.name += '-' + i;
+                item.phone = String(+item.phone + i);
                 item.createdTime += i * 1000 * 3600 * 24;
                 item.loginTime += i * 1000 * 3600 * 24;
                 data.push(item);
@@ -1067,8 +1067,8 @@ const mockService = {
             const result = [];
             for (let i = 0; i < 75; i++) {
                 const item = Object.assign({}, baseData[i % 5]);
-                item.name += '-' + (Math.random() * 20 >> 0);
-                item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+                item.name += '-' + i;
+                item.phone = String(+item.phone + i);
                 item.createdTime += i * 1000 * 3600 * 24;
                 item.loginTime += i * 1000 * 3600 * 24;
                 result.push(item);
@@ -1141,8 +1141,8 @@ const mockData = (() => {
     const result = [];
     for (let i = 0; i < 75; i++) {
         const item = Object.assign({}, baseData[i % 5]);
-        item.name += '-' + (Math.random() * 20 >> 0);
-        item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
+        item.name += '-' + i;
+        item.phone = String(+item.phone + i);
         item.createdTime += i * 1000 * 3600 * 24;
         item.loginTime += i * 1000 * 3600 * 24;
         result.push(item);
@@ -1640,6 +1640,315 @@ export default {
                 }, 500);
             });
         }
+    }
+};
+</script>
+```
+
+
+### 动态列
+
+``` vue
+<template>
+<u-linear-layout direction="vertical" gap="small">
+    <u-text>from data</u-text>
+    <u-linear-layout>
+        <u-table-view striped :data-source="data">
+            <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
+            <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
+            <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+            <u-table-view-column-dynamic :data-source="list">
+                <div slot="title" slot-scope="{ columnItem }">
+                    <u-text>{{ columnItem.name }}</u-text>
+                </div>
+                <div slot="cell" slot-scope="{ item, columnItem }">
+                    <u-text>{{ item.name }} {{ columnItem.name }}</u-text>
+                </div>
+            </u-table-view-column-dynamic>
+            <u-table-view-column title="地址" field="address"></u-table-view-column>
+            <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+        </u-table-view>
+    </u-linear-layout>
+    <u-linear-layout direction="vertical" gap="small">
+        <u-linear-layout><u-button @click="onRefresh">刷新</u-button></u-linear-layout>
+        <u-linear-layout>
+            <u-table-view striped :data-source="load" ref="tableview">
+                <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
+                <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
+                <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+                <u-table-view-column-dynamic :data-source="loadSubList">
+                    <div slot="title" slot-scope="{ columnItem }">
+                        <u-text>{{ columnItem.name }}</u-text>
+                    </div>
+                    <div slot="cell" slot-scope="{ item, columnItem }">
+                        <u-text>{{ item.name }} {{ columnItem.name }}</u-text>
+                    </div>
+                </u-table-view-column-dynamic>
+                <u-table-view-column title="地址" field="address"></u-table-view-column>
+                <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+            </u-table-view>
+        </u-linear-layout>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-text>from load()</u-text>
+        <u-table-view striped :data-source="load">
+            <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
+            <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
+            <u-table-view-column-dynamic :data-source="list">
+                <div slot="title" slot-scope="{ columnItem }">
+                    <u-text>{{ columnItem.name }}</u-text>
+                </div>
+                <div slot="cell" slot-scope="{ item, columnItem }">
+                    <u-text>{{ item.name }} {{ columnItem.name }}</u-text>
+                </div>
+            </u-table-view-column-dynamic>
+            <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+            <u-table-view-column-dynamic :data-source="loadSubList">
+                <div slot="title" slot-scope="{ columnItem }">
+                    <u-text>{{ columnItem.name }}</u-text>
+                </div>
+                <div slot="cell" slot-scope="{ item, columnItem }">
+                    <u-text>{{ item.name }} {{ columnItem.name }}</u-text>
+                </div>
+            </u-table-view-column-dynamic>
+            <u-table-view-column title="地址" field="address"></u-table-view-column>
+            <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+        </u-table-view>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-text>fixed</u-text>
+        <u-table-view striped :data-source="data" defaultColumnWidth="200">
+            <u-table-view-column type="checkbox" title="选择"></u-table-view-column>
+            <u-table-view-column title="用户名" field="name"></u-table-view-column>
+            <u-table-view-column title="手机号码" field="phone"></u-table-view-column>
+            <u-table-view-column title="地址" field="address"  width="150px" fixed></u-table-view-column>
+            <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date"  width="150px" fixed></u-table-view-column>
+            <u-table-view-column-dynamic :data-source="list" width="150px" fixed>
+                <div slot="title" slot-scope="{ columnItem }">
+                    <u-text>{{ columnItem.name }}</u-text>
+                </div>
+                <div slot="cell" slot-scope="{ item, columnItem }">
+                    <u-text>{{ item.name }} {{ columnItem.name }}</u-text>
+                </div>
+            </u-table-view-column-dynamic>
+        </u-table-view>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-text>sortable</u-text>
+        <u-table-view striped :data-source="load1" pagination>
+            <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
+            <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
+            <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+            <u-table-view-column-dynamic :data-source="list" sortable>
+                <template #title="current">
+                    <u-text>{{ current.columnItem.name }}</u-text>
+                </template>
+                <template #cell="current">
+                    <u-text>{{ current.item.name }} {{ current.columnItem.name }}</u-text>
+                </template>
+            </u-table-view-column-dynamic>
+            <u-table-view-column title="地址" field="address"></u-table-view-column>
+            <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+        </u-table-view>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-text>hidden</u-text>
+        <u-table-view striped :data-source="data">
+            <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
+            <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
+            <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+            <u-table-view-column-dynamic :data-source="list" hidden>
+                <template #title="current">
+                    <u-text>{{ current.columnItem.name }}</u-text>
+                </template>
+                <template #cell="current">
+                    <u-text>{{ current.item.name }} {{ current.columnItem.name }}</u-text>
+                </template>
+            </u-table-view-column-dynamic>
+        </u-table-view>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-text>ellipsis</u-text>
+        <u-table-view striped :data-source="data">
+            <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
+            <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
+            <u-table-view-column title="手机号码" field="phone" width="50%"></u-table-view-column>
+            <u-table-view-column-dynamic :data-source="list" width="100" ellipsis>
+                <template #title="current">
+                    <u-text>{{ current.columnItem.name }}</u-text>
+                </template>
+                <template #cell="current">
+                    <u-text>{{ current.item.address }}</u-text>
+                </template>
+            </u-table-view-column-dynamic>
+        </u-table-view>
+    </u-linear-layout>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            data: [
+                { id: '07cdcb8ed5e94cec', name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
+                { id: '5cd49be8f65c4738', name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
+                { id: 'f799a0467c494601', name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+                { id: '40e8ca488a1c4bce', disabled: true, name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+                { id: '150823cc351642b6', name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+            ],
+            list: [{name: '一月份', value: 'column1'}, {name: '二月份', value: 'column2'}],
+            count: 0,
+        };
+    },
+    methods: {
+        load() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(this.data.slice(0));
+                }, 500);
+            });
+        },
+        load1({page, sort, order}) {
+            console.log('load1', sort, order);
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve({
+                        list:  [{ id: '07cdcb8ed5e94cec', name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
+                            { id: '5cd49be8f65c4738', name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
+                            { id: 'f799a0467c494601', name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+                            { id: '40e8ca488a1c4bce', disabled: true, name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+                            { id: '150823cc351642b6', name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 }],
+                        total: 5,
+                    });
+                }, 500);
+            });
+        },
+        loadSubList() {
+            console.log('loadSubList');
+            this.count = this.count + 1;
+            const data = [{name: `一月份${this.count}`, columnName:'one'}, {name: `二月份${this.count}`, columnName:'tow'}];
+            if(this.count === 3) {
+                data.push({name: `三月份${this.count}`, columnName:'three'});
+            }
+            if(this.count === 5) {
+                data.push({name: `三月份${this.count}`, columnName:'three'});
+                data.push({name: `四月份${this.count+1}`, columnName:'four'});
+            }
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(data);
+                }, 500);
+            });
+        },
+        onRefresh() {
+            this.$refs.tableview.reload();
+        },
+    }
+};
+</script>
+```
+
+### 行列与表头合并
+
+``` vue
+<template>
+<u-linear-layout direction="vertical">
+    <u-text>静态列</u-text>
+    <u-table-view line :data-source="data">
+        <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
+        <u-table-view-column-group title="用户信息">
+            <u-table-view-column title="用户名" field="name" width="20%" :auto-row-span="true"></u-table-view-column>
+            <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+        </u-table-view-column-group>
+        <u-table-view-column title="创建日期与登录日期表头合并" :col-span="2" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+        <u-table-view-column :col-span="0" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+        <u-table-view-column title="地址" field="address"></u-table-view-column>
+    </u-table-view>
+    <u-text>动态列</u-text>
+    <u-table-view striped :data-source="data">
+        <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
+        <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
+        <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+        <u-table-view-column-group title="分组">
+            <u-table-view-column-dynamic :data-source="list">
+                <div slot="title" slot-scope="{ columnItem }">
+                    <u-text>{{ columnItem.name }}</u-text>
+                </div>
+                <div slot="cell" slot-scope="{ item, columnItem }">
+                    <u-text>{{ item.name }} {{ columnItem.name }}</u-text>
+                </div>
+            </u-table-view-column-dynamic>
+        </u-table-view-column-group>
+        <u-table-view-column title="地址" field="address"></u-table-view-column>
+        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+    </u-table-view>
+    <u-text>动态列加载</u-text>
+    <u-table-view striped :data-source="load">
+        <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
+        <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
+        <u-table-view-column-dynamic :data-source="list">
+            <div slot="title" slot-scope="{ columnItem }">
+                <u-text>{{ columnItem.name }}</u-text>
+            </div>
+            <div slot="cell" slot-scope="{ item, columnItem }">
+                <u-text>{{ item.name }} {{ columnItem.name }}</u-text>
+            </div>
+        </u-table-view-column-dynamic>
+        <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+        <u-table-view-column-group title="分组">
+            <u-table-view-column-dynamic :data-source="loadSubList">
+                <div slot="title" slot-scope="{ columnItem }">
+                    <u-text>{{ columnItem.name }}</u-text>
+                </div>
+                <div slot="cell" slot-scope="{ item, columnItem }">
+                    <u-text>{{ item.name }} {{ columnItem.name }}</u-text>
+                </div>
+            </u-table-view-column-dynamic>
+        </u-table-view-column-group>
+        <u-table-view-column title="地址" field="address"></u-table-view-column>
+        <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+    </u-table-view>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            data: [
+                { id: '07cdcb8ed5e94cec', name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
+                { id: '5cd49be8f65c4738', colSpan: [[2, 2]], name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
+                { id: 'f799a0467c494601', name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+                { id: '40e8ca488a1c4bce', disabled: true, rowSpan: [[1, 2]], name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+                { id: '150823cc351642b6', name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+            ],
+            list: [{name: '一月份', value: 'column1'}, {name: '二月份', value: 'column2'}],
+            count: 0,
+        };
+    },
+    methods: {
+        load() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(this.data.slice(0));
+                }, 500);
+            });
+        },
+        loadSubList() {
+            this.count = this.count + 1;
+            const data = [{name: `一月份${this.count}`, columnName:'one'}, {name: `二月份${this.count}`, columnName:'tow'}];
+            if(this.count === 3) {
+                data.push({name: `三月份${this.count}`, columnName:'three'});
+            }
+            if(this.count === 5) {
+                data.push({name: `三月份${this.count}`, columnName:'three'});
+                data.push({name: `四月份${this.count+1}`, columnName:'four'});
+            }
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(data);
+                }, 500);
+            });
+        },
     }
 };
 </script>

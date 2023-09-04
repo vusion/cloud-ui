@@ -13,12 +13,13 @@
         <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
             <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
-                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth" />
                 </colgroup>
-                <thead>
-                    <tr>
+                <thead :grouped="hasGroupedColumn">
+                    <tr v-for="(headTr, trIndex) in tableHeadTrArr">
+                        <template v-for="(columnVM, columnIndex) in headTr">
                         <th
-                            v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                            v-if="columnVM.colSpan !== 0"
                             ref="th"
                             :class="[$style['head-title'], boldHeader ? $style.boldHeader : null]"
                             :key="columnIndex"
@@ -35,7 +36,9 @@
                             :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                             :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                             :shadow="(isLastLeftFixed(columnVM, columnIndex) && (!scrollXStart || $env.VUE_APP_DESIGNER)) || (isFirstRightFixed(columnVM, columnIndex) && (!scrollXEnd || $env.VUE_APP_DESIGNER))"
-                            :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden">
+                            :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden"
+                            :colspan="columnVM.colSpan"
+                            :rowspan="hasGroupedColumn && trIndex === 0 && !columnVM.isGroup ? 2 : undefined">
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
                                 <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
@@ -43,7 +46,7 @@
                             <!-- Normal title -->
                             <template>
                                 <span vusion-slot-name="title" vusion-slot-name-edit="title" :class="$style['column-title']">
-                                    <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">
+                                    <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex, columnItem: columnVM.columnItem }">
                                         {{ columnVM.title }}
                                         <s-empty
                                             v-if="!(columnVM.$slots && columnVM.$slots.title)
@@ -72,13 +75,14 @@
                                 </u-table-view-filters-popper>
                             </span>
                             <!-- Resizable -->
-                            <f-dragger v-if="resizable && columnIndex !== visibleColumnVMs.length - 1" axis="horizontal"
+                            <f-dragger v-if="resizable && columnIndex !== headTr.length - 1" axis="horizontal"
                                 @dragstart="onResizerDragStart($event, columnVM)"
                                 @drag="onResizerDrag($event, columnVM, columnIndex)"
                                 @dragend="onResizerDragEnd($event, columnVM, columnIndex)">
                                 <div :class="$style.resizer" @click.stop></div>
                             </f-dragger>
                         </th>
+                        </template>
                     </tr>
                 </thead>
             </u-table>
@@ -89,17 +93,18 @@
             <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex || $env.VUE_APP_DESIGNER" :hide-scroll="!!tableMetaIndex">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
-                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth" />
                 </colgroup>
                 <tbody>
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
-                            <tr :key="rowIndex" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }"
+                            <tr :key="rowIndex" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
                             :draggable="rowDraggable?rowDraggable:undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
                             @dragstart="onDragStart($event, item, rowIndex)"
-                            @dragover="onDragOver($event, item, rowIndex)">
+                            @dragover="onDragOver($event, item, rowIndex)"
+                            @click="onClickRow($event, item, rowIndex)">
                                 <template v-if="$env.VUE_APP_DESIGNER">
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'" v-ellipsis-title
                                         vusion-slot-name="cell"
@@ -136,11 +141,11 @@
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click.stop="toggleExpanded(item)"></span>
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: number2Pixel(20 * item.tableTreeItemLevel) }"></span>
-                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
+                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.treeExpanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- Normal text -->
-                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                             </f-slot>
                                             <!-- type === 'dragHandler' -->
@@ -167,7 +172,10 @@
                                         :style="getStyle(columnIndex, columnVM)"
                                         :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                                         :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
-                                        :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
+                                        :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)"
+                                        v-if="getItemColSpan(item, rowIndex, columnIndex) !== 0 && getItemRowSpan(item, rowIndex, columnIndex) !== 0"
+                                        :colspan="getItemColSpan(item, rowIndex, columnIndex)"
+                                        :rowspan="getItemRowSpan(item, rowIndex, columnIndex)">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">
                                                 <template v-if="columnVM.autoIndex && usePagination && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
@@ -185,7 +193,7 @@
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" :disabled="item.disabled" @click.stop="toggleExpanded(item)"></span>
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: number2Pixel(20 * item.tableTreeItemLevel) }"></span>
-                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
+                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.treeExpanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- type === 'dragHandler' -->
@@ -205,7 +213,7 @@
                                                             </f-slot>
                                                         </template>
                                                         <template v-else>
-                                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
                                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                             </f-slot>
                                                         </template>
@@ -213,7 +221,7 @@
                                                 </div>
                                             </template>
                                             <template v-else>
-                                                <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
                                                     <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                 </f-slot>
                                             </template>
@@ -486,6 +494,11 @@ export default {
             handlerDraggable: false,
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
             configColumnVM: undefined,
+            dynamicColumnVM: undefined,
+            columnGroupVMs: {},
+            slots: this.$slots,
+            autoColSpan: [], // 用于记录自动的的列合并
+            autoRowSpan: [], // 用于记录自动的的行合并
         };
     },
     computed: {
@@ -510,7 +523,7 @@ export default {
             if (this.$env.VUE_APP_DESIGNER) {
                 return this.columnVMs;
             }
-            return this.columnVMs.filter((columnVM) => !columnVM.currentHidden);
+            return this.columnVMs.filter((columnVM) => columnVM && !columnVM.currentHidden);
         },
         expanderColumnVM() {
             return this.columnVMs.find((columnVM) => columnVM.type === 'expander');
@@ -576,6 +589,32 @@ export default {
 
             return !!this.pagination;
         },
+        hasGroupedColumn() {
+            return !!Object.keys(this.columnGroupVMs).length
+        },
+        tableHeadTrArr() {
+            if (!this.hasGroupedColumn) {
+                return [this.visibleColumnVMs]
+            } else {
+                const result = [[]]
+                let dynamicOffset = 0
+                this.visibleColumnVMs.forEach((columnVM, index) => {
+                    if (!columnVM.isUnderGroup) {
+                        result[0].push(columnVM)
+                        // 统计出到当前 index 有多少个动态列（第一个动态性不计入，因为 vm 里已经占位）
+                        if (columnVM.$options.name === 'u-table-view-column-dynamic' && index > 0
+                            && this.visibleColumnVMs[index - 1].$options.name === 'u-table-view-column-dynamic') {
+                            dynamicOffset++
+                        }
+                    } else if (this.columnGroupVMs[index - dynamicOffset]) {
+                        // 这里需要减去动态列带来的过多位移
+                        result[0].push(this.columnGroupVMs[index - dynamicOffset])
+                    }
+                })
+                result[1] = this.visibleColumnVMs.filter(columnVM => columnVM.isUnderGroup)
+                return result
+            }
+        }
     },
     watch: {
         data(data) {
@@ -717,6 +756,36 @@ export default {
             this.initialLoad && this.page(this.pageNumber);
         } else {
             this.initialLoad && this.load();
+        }
+    },
+    updated() {
+        if (this.$env.VUE_APP_DESIGNER && this.slots !== this.$slots && !this.data && !this.dataSource) {
+            this.slots = this.$slots;
+            this.$forceUpdate();
+        }
+        if (this.$env.VUE_APP_DESIGNER) {
+            // fix：在IDE里更换动态列的位置，页面编辑器的展示没有更改。
+            // 有动态列并且顺序不对，重新赋值
+            // 进不了columnVms的watch，只能放update里
+            const columnVMs = this.columnVMs;
+            const hasDynamic = columnVMs.find((columnVM) => columnVM.$vnode.tag && columnVM.$vnode.tag.endsWith('u-table-view-column-dynamic'));
+            if (hasDynamic) {
+                const vnodes = this.$slots.default || [];
+                if (vnodes.length === columnVMs.length) {
+                    let shouldSort = false;
+                    columnVMs.forEach((columnVM, index) => {
+                        if (columnVM.$vnode !== vnodes[index]) {
+                            shouldSort = true;
+                        }
+                    });
+                    if (shouldSort)
+                        columnVMs.sort((a, b) => {
+                            const aIndex = vnodes.indexOf(a.$vnode);
+                            const bIndex = vnodes.indexOf(b.$vnode);
+                            return aIndex - bIndex;
+                        });
+                }
+            }
         }
     },
     mounted() {
@@ -1222,6 +1291,10 @@ export default {
         reload() {
             this.currentDataSource.clearLocalData();
             this.load();
+            console.log('table reload');
+            if (this.dynamicColumnVM) {
+                this.dynamicColumnVM.reload();
+            }
         },
         getFields() {
             return this.visibleColumnVMs
@@ -1403,6 +1476,8 @@ export default {
             return sheetData;
         },
         page(number, size) {
+            if (!(this.currentDataSource && this.currentDataSource.paging))
+                return;
             if (size === undefined)
                 size = this.currentDataSource.paging.size;
             const paging = {
@@ -1488,6 +1563,7 @@ export default {
             this.$watch(() => this.currentData, (currentData) => {
                 if (currentData) {
                     this.processData(currentData);
+                    this.autoMergeRow(currentData);
                 }
             }, {
                 immediate: true,
@@ -1522,6 +1598,13 @@ export default {
                         this.checkedItems[label] = item;
                     }
                 });
+            }
+        },
+        onClickRow(e, item, rowIndex) {
+            this.$emit('click-row', { item, index: rowIndex });
+
+            if (this.selectable) {
+                this.select(item);
             }
         },
         select(item, cancelable) {
@@ -1687,6 +1770,7 @@ export default {
                 return;
             this.$set(item, 'expanded', expanded);
             this.$emit('toggle-expanded', { item, expanded }, this);
+            this.$forceUpdate();
             if (expanded && this.accordion) {
                 this.currentData.forEach((otherItem) => {
                     if (otherItem !== item && otherItem.expanded)
@@ -1697,7 +1781,7 @@ export default {
         /**
          * 转换成平铺型数据
          */
-        processTreeData(data, level = 0, parent) {
+        processTreeData(data, level = 0, parent, ancestors = []) {
             let newData = [];
             for (const item of data) {
                 item.tableTreeItemLevel = level;
@@ -1705,28 +1789,39 @@ export default {
                 if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
                     this.$setAt(item, this.hasChildrenField, true);
                     item.expanded = item.expanded || false;
+                    item.treeExpanded = item.treeExpanded || false;
                 }
                 if (parent) {
-                    this.$set(item, 'display', parent.expanded ? '' : 'none');
+                    this.$set(item, 'display', needHidden(ancestors) ? 'none' : '');
                 }
                 if (!item.hasOwnProperty('loading')) {
                     this.$set(item, 'loading', false);
                 }
                 newData.push(item);
                 if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
-                    newData = newData.concat(this.processTreeData(this.$at(item, this.childrenField), level + 1, item));
+                    newData = newData.concat(this.processTreeData(this.$at(item, this.childrenField), level + 1, item, ancestors.concat(item)));
                 }
             }
             return newData;
+
+            // 只要任意祖先节点的treeExpanded为false,当前节点都不显示。
+            function needHidden(ancestors) {
+                for (const item of ancestors) {
+                    if (!item.treeExpanded) {
+                        return true;
+                    }
+                }
+                return false;
+            }
         },
         toggleTreeExpanded(item, expanded) {
             if (item.loading)
                 return;
             if (expanded === undefined)
-                expanded = !item.expanded;
+                expanded = !item.treeExpanded;
             if (this.$emitPrevent('before-tree-toggle-expanded', { item, oldExpanded: !expanded, expanded }, this))
                 return;
-            this.$set(item, 'expanded', expanded);
+            this.$set(item, 'treeExpanded', expanded);
             this.$emit('tree-toggle-expanded', { item, expanded }, this);
             if (!this.$at(item, this.childrenField) && (typeof this.dataSource === 'function')) {
                 this.$set(item, 'loading', true);
@@ -1782,7 +1877,7 @@ export default {
                 this.currentData.forEach((itemData) => {
                     if (itemData.parentPointer !== undefined && itemData.parentPointer === parent) {
                         if (expanded) {
-                            if (parent.expanded) {
+                            if (parent.treeExpanded) {
                                 this.$set(itemData, 'display', '');
                             } else {
                                 this.$set(itemData, 'display', 'none');
@@ -2244,6 +2339,64 @@ export default {
             }
             return paginationHeight;
         },
+        autoMergeRow(currentData) {
+            this.visibleColumnVMs && this.visibleColumnVMs.forEach((columnVM, columnIndex) => {
+                if (columnVM.autoRowSpan && columnVM.field && Array.isArray(currentData)) {
+                    let count = 0
+                    for (let i = currentData.length - 1; i >= 0; i--) {
+                        const item = currentData[i];
+                        const itemValue = this.$at(item, columnVM.field)
+                        if (itemValue === this.$at(currentData[i - 1], columnVM.field)) {
+                            if (!this.autoRowSpan[i]) {
+                                this.autoRowSpan[i] = [];
+                            }
+                            this.autoRowSpan[i][columnIndex] = 0;
+                            count++
+                        } else if (count) {
+                            if (!this.autoRowSpan[i]) {
+                                this.autoRowSpan[i] = [];
+                            }
+                            this.autoRowSpan[i][columnIndex] = count + 1;
+                            count = 0
+                        }
+                    }
+                }
+            })
+        },
+        getItemColSpan(item, rowIndex, columnIndex) {
+            if (Array.isArray(item.colSpan)) {
+                const config = item.colSpan.find((configItem) => configItem[0] === columnIndex);
+                if (config) {
+                    for (let i = 1; i < config[1]; i++) {
+                        if (!this.autoColSpan[rowIndex]) {
+                            this.autoColSpan[rowIndex] = [];
+                        }
+                        this.autoColSpan[rowIndex][columnIndex + i] = 0;
+                    }
+                    return config[1];
+                }
+            }
+            if (this.autoColSpan[rowIndex] && this.autoColSpan[rowIndex][columnIndex ] !== undefined) {
+                return this.autoColSpan[rowIndex][columnIndex];
+            }
+        },
+        getItemRowSpan(item, rowIndex, columnIndex) {
+            if (Array.isArray(item.rowSpan)) {
+                const config = item.rowSpan.find((configItem) => configItem[0] === columnIndex);
+                if (config) {
+                    for (let i = 1; i < config[1]; i++) {
+                        if (!this.autoRowSpan[rowIndex + i]) {
+                            this.autoRowSpan[rowIndex + i] = [];
+                        }
+                        this.autoRowSpan[rowIndex + i][columnIndex] = 0;
+                    }
+                    return config[1];
+                }
+            }
+            if (this.autoRowSpan[rowIndex] && this.autoRowSpan[rowIndex][columnIndex ] !== undefined) {
+                return this.autoRowSpan[rowIndex][columnIndex];
+            }
+        },
     },
 };
 </script>
@@ -2673,7 +2826,6 @@ export default {
     width: var(--table-view-tree-expander-loading-size);
     height: var(--table-view-tree-expander-loading-size);
     border: var(--table-view-tree-expander-loading-border-width) solid currentColor;
-    border-top-color: transparent;
     border-radius: var(--table-view-tree-expander-loading-size);
     animation: rotate var(--spinner-animation-duration) ease-in-out var(--spinner-animation-delay) infinite;
 }
@@ -2684,6 +2836,10 @@ export default {
     display: inline-flex;
     align-items: center;
     width: auto;
+}
+
+.tree_expander[loading]::before {
+    border-top-color: transparent;
 }
 
 .indent {}
