@@ -232,15 +232,6 @@
       brifeDoc: ""
       docDescription: 显示列表底部，包括分页组件。默认开启。
       tooltipLink: ""
-    - name: repeat
-      type: number
-      default: 5
-      description: ""
-      group: 主要属性
-      title: 每行排列项数
-      brifeDoc: ""
-      docDescription: 每行排列几项。默认为5
-      tooltipLink: ""
     - name: initial-load
       type: boolean
       title: 初始即加载
