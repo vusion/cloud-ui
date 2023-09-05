@@ -8,7 +8,7 @@
 
 ```vue
 <template>
-    <u-calendar-view :data="data" :value.sync="value">
+    <u-calendar-view :data="data" :value.sync="value" @change="onChange" @select="onSelect">
         <template #default="scope">
             <p v-if="scope.item.apple">苹果: {{scope.item.apple}}</p>
             <p v-if="scope.item.orange">橘子: {{scope.item.orange}}</p>
@@ -39,7 +39,14 @@ export default{
             console.log('oldVal', oldVal);
         },
     },
-    methods: {},
+    methods: {
+        onChange(val) {
+            console.log('onChange', val);
+        },
+        onSelect(val) {
+            console.log('onSelect', val);
+        },
+    },
 };
 </script>
 ```

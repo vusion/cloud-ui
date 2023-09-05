@@ -29,7 +29,7 @@
                     :key="cell.__key__"
                     :type="cell.__type__"
                     :disabled="cell.disabled"
-                    :selected="cell.__key__ === selectedDateKey"
+                    :selected="isSelected(cell)"
                     :current="cell.__key__ === currentKey"
                     :class="$style.td"
                     @click="onSelectDate(cell)"
@@ -82,6 +82,7 @@ export default {
                 this.$t('Saturday'),
                 this.$t('Sunday'),
             ],
+            currentCell: null,
         };
     },
     computed: {
@@ -132,6 +133,14 @@ export default {
             return rows;
         },
     },
+    watch: {
+        currentCell(value, oldValue) {
+            // 第一次更改不触发，点击相同 cell 也不触发
+            if (oldValue !== null && value.__key__ !== oldValue.__key__) {
+                this.$emit('change', { ...value, value: value.__key__, oldValue: oldValue.__key__ });
+            }
+        }
+    },
     methods: {
         onSelectDate(cell) {
             const { __type__, __key__, disabled } = cell;
@@ -139,9 +148,6 @@ export default {
                 return;
 
             this.$emit('select', { ...cell, value: __key__, oldValue: this.selectedDateKey });
-            if (__key__ !== this.selectedDateKey) {
-                this.$emit('change', { ...cell, value: __key__, oldValue: this.selectedDateKey });
-            }
             const selectedDate = dayjs(__key__, DefaultFormatType);
             if (__type__ !== 'current') {
                 this.$emit('update:month', selectedDate.month());
@@ -181,6 +187,14 @@ export default {
                 return {};
             return { ...validData[0], list: validData };
         },
+        isSelected(cell) {
+            // 判断是否是当前的 cell，并且保存下来
+            if (cell.__key__ === this.selectedDateKey) {
+                this.currentCell = cell;
+                return true
+            }
+            return false
+        }
     },
 };
 </script>
