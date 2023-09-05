@@ -18,7 +18,7 @@
     "dev:dark": "vue-cli-service doc --port 9001 --theme dark",
     "copyimg": "node bin/copy-lcp-images ",
     "build": "vue-cli-service library-build --apply-theme --theme default,dark,seagreen",
-    "build:theme": "npm run check && npm run genThemeConfig && vue-cli-service library-build --dest dist-theme && npm run copyimg && node ./scripts/lcap",
+    "build:theme": "npm run genThemeConfig && vue-cli-service library-build --dest dist-theme && npm run copyimg && node ./scripts/lcap",
     "build:raw": "vue-cli-service library-build --vusion-mode raw --dest dist-raw",
     "build:docs": "vue-cli-service doc-build",
     "build:doc-entry": "cross-env VUE_CLI_SERVICE_CONFIG_PATH=$PWD/vue.config.doc-entry.js vue-cli-service build --output-path dist-doc-entry",
@@ -75,6 +75,7 @@
     "resize-observer-polyfill": "^1.5.1",
     "swiper": "^7.4.1",
     "vue-cropper": "^0.5.8",
+    "vue-server-renderer": "^2.7.14",
     "vusion-api": "^0.6.30",
     "xlsx": "^0.17.5",
     "yargs": "^16.2.0"

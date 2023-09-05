@@ -1,7 +1,7 @@
 import XLSX from'xlsx';
 import Vue from 'vue/dist/vue.esm.js';
 import render from 'vue-server-renderer';
-const renderer = render.createRenderer();
+const renderer = rende.createRenderer();
 console.log('vue-wybie-test', Vue, renderer)
 
 function s2ab(s) {

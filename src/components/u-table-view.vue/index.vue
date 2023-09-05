@@ -1246,36 +1246,36 @@ export default {
                 .join(',');
         },
         async exportExcel(page = 1, size = 2000, filename, sort, order, excludeColumns = []) {
-            if (this.currentDataSource.sorting && this.currentDataSource.sorting.field) {
-                const { sorting } = this.currentDataSource;
-                sort = sort || sorting.field;
-                order = order || sorting.order;
-            }
-            if (typeof page !== 'number') {
-                page = 1;
-            }
-            if (typeof size !== 'number') {
-                size = 2000;
-            }
-            if (!(typeof page === 'number' && page > 0)) {
-                this.$toast.show('页数page必须大于0');
-                return;
-            }
-            if (!(typeof size === 'number' && size > 0 && size <= 1000000)) {
-                this.$toast.show('数据条数size必须在1-1000000之间');
-                return;
-            }
-            const fn = (event) => {
-                event.stopPropagation();
-                event.preventDefault();
-            };
-            document.addEventListener('click', fn, true);
-            document.addEventListener('keydown', fn, true);
-            // 空值和boolean值时到处默认文件名
-            if (!filename || filename === true) {
-                filename = document.title.split(' ').shift() || 'Export';
-                filename += format(new Date(), '_YYYYMMDD_HHmmss');
-            }
+            // if (this.currentDataSource.sorting && this.currentDataSource.sorting.field) {
+            //     const { sorting } = this.currentDataSource;
+            //     sort = sort || sorting.field;
+            //     order = order || sorting.order;
+            // }
+            // if (typeof page !== 'number') {
+            //     page = 1;
+            // }
+            // if (typeof size !== 'number') {
+            //     size = 2000;
+            // }
+            // if (!(typeof page === 'number' && page > 0)) {
+            //     this.$toast.show('页数page必须大于0');
+            //     return;
+            // }
+            // if (!(typeof size === 'number' && size > 0 && size <= 1000000)) {
+            //     this.$toast.show('数据条数size必须在1-1000000之间');
+            //     return;
+            // }
+            // const fn = (event) => {
+            //     event.stopPropagation();
+            //     event.preventDefault();
+            // };
+            // document.addEventListener('click', fn, true);
+            // document.addEventListener('keydown', fn, true);
+            // // 空值和boolean值时到处默认文件名
+            // if (!filename || filename === true) {
+            //     filename = document.title.split(' ').shift() || 'Export';
+            //     filename += format(new Date(), '_YYYYMMDD_HHmmss');
+            // }
             const downloadWorker = new Worker();
             downloadWorker.onmessage = (e) => {
                 saveAs(e.data, `${filename}.xlsx`);
@@ -1284,55 +1284,62 @@ export default {
                 document.removeEventListener('click', fn, true);
                 document.removeEventListener('keydown', fn, true);
             }
-            try {
-                const hasHeader = !!this.$el.querySelector('[position=static] thead tr');
-                let content = [];
-                if (!this.currentDataSource._load) {
-                    content = await this.getRenderResult(this.currentDataSource.data, excludeColumns, hasHeader);
-                    const sheetData = this.getSheetData(content, hasHeader, columns);
-                    downloadWorker.postMessage({
-                        excelData: sheetData,
-                        titles: content[0],
-                        isEnd: true,
-                        isStart: true,
-                        size
-                    });
-                } else {
-                    let num = Math.ceil(size / 10000);
-                    for(let i = 0; i < num; i++) {
-                      let res = await this.currentDataSource._load({ page: page + i, size: size > 10000 ? 10000 : size, filename, sort, order });
-                      if (res instanceof Object) {
-                        if (res.hasOwnProperty('list'))
-                            res = res.list;
-                        else if (res.hasOwnProperty('content'))
-                            res = res.content;
-                        else if (res.hasOwnProperty('data'))
-                            res = res.data;
-                        }
-
-                        if (!(res instanceof Array)) {
-                            this.$toast.show('数据格式不是数组');
-                            return;
-                        }
-                        if(size > 10000 && i === num - 1 && size % 10000) {
-                            res = res.slice(0, size % 10000)
-                        }
-                        content = await this.getRenderResult(res, excludeColumns, hasHeader);
-                        const columns = this.visibleColumnVMs.length;
-                        const sheetData = this.getSheetData(content, hasHeader, columns);
-                        downloadWorker.postMessage({
-                            excelData: sheetData,
-                            titles: content[0],
-                            isEnd: i === num - 1,
-                            isStart: i === 0,
-                            size
+            downloadWorker.postMessage({
+                            excelData: [],
+                            titles: 123,
+                            isEnd: 1,
+                            isStart: 1,
+                            size: 1
                         });
-                    }
-                }
-                this.downloadVisible = true;
-            } catch (err) {
-                console.error(err);
-            }
+            // try {
+            //     const hasHeader = !!this.$el.querySelector('[position=static] thead tr');
+            //     let content = [];
+            //     if (!this.currentDataSource._load) {
+            //         content = await this.getRenderResult(this.currentDataSource.data, excludeColumns, hasHeader);
+            //         const sheetData = this.getSheetData(content, hasHeader, columns);
+            //         downloadWorker.postMessage({
+            //             excelData: sheetData,
+            //             titles: content[0],
+            //             isEnd: true,
+            //             isStart: true,
+            //             size
+            //         });
+            //     } else {
+            //         let num = Math.ceil(size / 10000);
+            //         for(let i = 0; i < num; i++) {
+            //           let res = await this.currentDataSource._load({ page: page + i, size: size > 10000 ? 10000 : size, filename, sort, order });
+            //           if (res instanceof Object) {
+            //             if (res.hasOwnProperty('list'))
+            //                 res = res.list;
+            //             else if (res.hasOwnProperty('content'))
+            //                 res = res.content;
+            //             else if (res.hasOwnProperty('data'))
+            //                 res = res.data;
+            //             }
+
+            //             if (!(res instanceof Array)) {
+            //                 this.$toast.show('数据格式不是数组');
+            //                 return;
+            //             }
+            //             if(size > 10000 && i === num - 1 && size % 10000) {
+            //                 res = res.slice(0, size % 10000)
+            //             }
+            //             content = await this.getRenderResult(res, excludeColumns, hasHeader);
+            //             const columns = this.visibleColumnVMs.length;
+            //             const sheetData = this.getSheetData(content, hasHeader, columns);
+            //             downloadWorker.postMessage({
+            //                 excelData: sheetData,
+            //                 titles: content[0],
+            //                 isEnd: i === num - 1,
+            //                 isStart: i === 0,
+            //                 size
+            //             });
+            //         }
+            //     }
+            //     this.downloadVisible = true;
+            // } catch (err) {
+            //     console.error(err);
+            // }
         },
         async getRenderResult(arr = [], excludeColumns = [], hasHeader = true) {
             if (arr.length === 0) {
