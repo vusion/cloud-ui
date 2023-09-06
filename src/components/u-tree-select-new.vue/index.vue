@@ -172,7 +172,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: 'body',
+            default: 'reference', // readme: 为了支持插槽拖入，必须作为UTreeSelectNew的子元素。
             validator: (value) => ['body', 'reference'].includes(value),
         },
         color: String,
