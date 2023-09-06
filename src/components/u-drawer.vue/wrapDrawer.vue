@@ -114,7 +114,7 @@ export const UDrawer = {
             let title = this.$props.title;
 
             if (this.$scopedSlots && this.$scopedSlots.title) {
-                const firstTextvnode = this.$scopedSlots.title().find((vnode) => vnode && vnode.componentOptions.tag === 'u-text');
+                const firstTextvnode = this.$scopedSlots.title().find((vnode) => vnode && vnode.componentOptions && vnode.componentOptions.tag === 'u-text');
                 if (firstTextvnode && firstTextvnode.componentOptions.propsData.text) {
                     title = firstTextvnode.componentOptions.propsData.text;
                 }

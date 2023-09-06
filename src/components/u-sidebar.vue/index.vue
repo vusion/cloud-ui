@@ -6,7 +6,7 @@
                     v-if="hasChildren(node)"
                     :key="$at2(node, valueField) || idx"
                     :node="node"
-                    :disabled="node.target"
+                    :disabled="node.disabled"
                     :collapsible="$at2(node, collapsibleField)"
                     :title="$at2(node, textField)"
                 ></u-sidebar-group>
@@ -22,7 +22,7 @@
                     :href-and-to="$at2(node, hrefAndToField)"
                     :target="$at2(node, targetField)"
                     :to="$at2(node, toField)"
-                    :disabled="node.target"
+                    :disabled="node.disabled"
                 ></u-sidebar-item>
             </template>
         </template>

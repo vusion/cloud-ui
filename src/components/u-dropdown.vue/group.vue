@@ -32,7 +32,7 @@
             :trigger="rootVM.trigger"
             placement="right-start"
             :disabled="disabled"
-            :append-to="rootVM.appendTo"
+            append-to="reference"
             :opened="($env.VUE_APP_DESIGNER && collapsible === false ) ? false :currentExpanded"
             @before-open="$event=>collapsible === false && $event.preventDefault()"
             @update:opened="toggle($event)"
