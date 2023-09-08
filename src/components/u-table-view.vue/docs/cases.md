@@ -1860,6 +1860,10 @@ export default {
             <u-table-view-column title="用户名" field="name" width="20%" :auto-row-span="true"></u-table-view-column>
             <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
         </u-table-view-column-group>
+        <u-table-view-column-group title="用户信息2">
+            <u-table-view-column title="用户名2" field="name" width="20%" :auto-row-span="true"></u-table-view-column>
+            <u-table-view-column title="手机号码2" field="phone" width="20%"></u-table-view-column>
+        </u-table-view-column-group>
         <u-table-view-column title="创建日期与登录日期表头合并" :col-span="2" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
         <u-table-view-column :col-span="0" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
         <u-table-view-column title="地址" field="address"></u-table-view-column>

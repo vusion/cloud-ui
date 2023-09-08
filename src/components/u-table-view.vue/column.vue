@@ -87,10 +87,11 @@ export default {
             });
     },
     destroyed() {
-        this.$contact(this.$options.parentName, (parentVM) => {
-            parentVM.columnVMs.splice(parentVM.columnVMs.indexOf(this), 1);
-            this.parentVM = undefined;
-        });
+        this.$parent.$options.name !== 'u-table-view-column-group' &&
+            this.$contact(this.$options.parentName, (parentVM) => {
+                parentVM.columnVMs.splice(parentVM.columnVMs.indexOf(this), 1);
+                this.parentVM = undefined;
+            });
     },
 };
 </script>

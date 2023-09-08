@@ -67,7 +67,16 @@ export default {
         },
         clearVms(parentVM) {
             parentVM.columnVMs = parentVM.columnVMs.filter((vm) => !vm.dynamicId || vm.dynamicId !== this._uid);
+            if (this.$parent.$options.name === 'u-table-view-column-group') {
+                this.$delete(this.$parent.dynamicColumnLengthMap, this._uid)
+            }
         },
     },
 };
+/**
+ * TODO: 动态列和表头分组一起使用的问题：
+ * 1. 第一次加载时，动态列直接插入到 columnVMs，不经过 group，可能会错位
+ * 2. 动态列更新后，重新插入也会错位
+ * 3. group 重新删除再渲染，会丢失动态列的内容
+ */
 </script>
