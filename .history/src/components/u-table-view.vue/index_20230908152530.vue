@@ -2689,7 +2689,7 @@ export default {
 .indent {}
 
 .trmask {
-    position: absolute;
+    position: relative;
 }
 .trmask::after {
     content: '';
