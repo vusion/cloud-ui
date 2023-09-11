@@ -671,6 +671,11 @@ export default {
     text-overflow: ellipsis;
 }
 
+/* readme: 当前的item slot插槽在编辑态的实现有一点问题，这里通过屏蔽u-text更新的方式暂时回归旧的表现 */
+.text [class^='u-text']{
+    white-space: unset;
+}
+
 .item:hover {
     background: var(--tree-view-node-background-active);
 }

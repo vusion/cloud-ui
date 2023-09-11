@@ -205,6 +205,7 @@ export default {
                     values.forEach((item, index) => {
                         currentValue[index] = currentValue[index] || {};
                         currentValue[index].url = values[index];
+                        currentValue[index].name = this.handleFileName(values[index]);
                     });
                     return currentValue;
                 } catch (err) {

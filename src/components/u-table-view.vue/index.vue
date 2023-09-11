@@ -94,7 +94,7 @@
                 <tbody>
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
-                            <tr :key="rowIndex" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
+                            <tr :key="keyMap.getKey(item)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
                             :draggable="rowDraggable?rowDraggable:undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
@@ -344,6 +344,7 @@ import DataSource from '../../utils/DataSource';
 import DataSourceNew from '../../utils/DataSource/new';
 import { addResizeListener, removeResizeListener, findScrollParent, getRect } from '../../utils/dom';
 import { format } from '../../utils/date';
+import KeyMap from '../../utils/keyMap'
 import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
@@ -489,6 +490,7 @@ export default {
             configColumnVM: undefined,
             dynamicColumnVM: undefined,
             slots: this.$slots,
+            keyMap: new KeyMap(),
         };
     },
     computed: {
@@ -2546,7 +2548,7 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.cell[ellipsis] > div {
+.cell[ellipsis] > div, .cell[ellipsis] span {
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;

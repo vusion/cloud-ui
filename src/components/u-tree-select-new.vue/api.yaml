@@ -84,6 +84,20 @@
       brifeDoc: ""
       docDescription: 开启后支持清除按钮。默认关闭
       tooltipLink: ""
+    - name: append-to
+      title: 弹出层位置依据
+      type: string
+      default: reference
+      description: 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。
+      options:
+        - value: reference
+          title: 引用元素下
+        - value: body
+          title: 全局body
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 设置弹出层在html里的位置，支持引用元素下、全局body设置。当把当前组件放入某个组件，而组件overflow是hidden的时候，需要设置为全局body
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

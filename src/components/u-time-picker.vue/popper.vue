@@ -159,23 +159,31 @@ export default {
         second() {
             return this.minUnit === 'second' ? (this.showTime && this.showTime.split(':')[2] / 1) : 0;
         },
+        finalMinTime() {
+            // 可能传入的是空字符串，需要重新设置为默认值
+            return this.minTime || '00:00:00';
+        },
+        finalMaxTime() {
+            // 可能传入的是空字符串，需要重新设置为默认值
+            return this.maxTime || '23:59:59';
+        },
         sphourmin() {
-            return this.minTime.split(':')[0] / 1;
+            return this.finalMinTime.split(':')[0] / 1;
         },
         sphourmax() {
-            return this.maxTime.split(':')[0] / 1;
+            return this.finalMaxTime.split(':')[0] / 1;
         },
         spminutemin() {
-            return this.minTime.split(':')[1] / 1;
+            return this.finalMinTime.split(':')[1] / 1;
         },
         spminutemax() {
-            return this.maxTime.split(':')[1] / 1;
+            return this.finalMaxTime.split(':')[1] / 1;
         },
         spsecondmin() {
-            return this.minTime.split(':')[2] / 1;
+            return this.finalMinTime.split(':')[2] / 1;
         },
         spsecondmax() {
-            return this.maxTime.split(':')[2] / 1;
+            return this.finalMaxTime.split(':')[2] / 1;
         },
         confirmDisabled() {
             return !!this.isOutOfRange(this.showTime);
@@ -260,8 +268,8 @@ export default {
          * @return {boolean|Time} time 如果没有超出时间范围，则返回false；如果超出时间范围，则返回范围边界的时间
          */
         isOutOfRange(time) {
-            const minTime = this.minTime;
-            const maxTime = this.maxTime; // minTime && time < minTime && minTime，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的时间
+            const minTime = this.finalMinTime;
+            const maxTime = this.finalMaxTime; // minTime && time < minTime && minTime，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的时间
             if (minTime > maxTime)
                 return time;
 
