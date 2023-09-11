@@ -610,6 +610,12 @@ export default {
                             dynamicOffset++
                         }
                     }
+                    if (columnVM.colSpan > 1) {
+                        // 如果当前列有合并，那么后面的列自动覆盖不显示
+                        for (let i = index + 1; i < index + columnVM.colSpan && i < this.visibleColumnVMs.length; i++) {
+                            this.visibleColumnVMs[i].colSpan = 0;
+                        }
+                    }
                 })
                 result[1] = this.visibleColumnVMs.filter(columnVM => columnVM.isUnderGroup)
                 return result
@@ -2358,6 +2364,9 @@ export default {
                             }
                             this.autoRowSpan[i][columnIndex] = count + 1;
                             count = 0
+                        } else if (this.autoRowSpan[i] && this.autoRowSpan[i][columnIndex] !== undefined) {
+                            // 如果后面数据变成不相同，之前的合并结果要清除掉
+                            this.autoRowSpan[i][columnIndex] = undefined;
                         }
                     }
                 }
