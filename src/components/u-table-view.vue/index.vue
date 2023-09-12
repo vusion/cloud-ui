@@ -453,6 +453,7 @@ export default {
         parentField: { type: String },
         configurable: { type: Boolean, default: false }, // 是否配置显隐列
     },
+    tag: 'u-table-view',
     data() {
         return {
             columnVMs: [],
@@ -724,7 +725,6 @@ export default {
         }
     },
     updated() {
-        console.log('visibleColumnVMs', this.visibleColumnVMs)
         if (this.$env.VUE_APP_DESIGNER && this.slots !== this.$slots && !this.data && !this.dataSource) {
             this.slots = this.$slots;
             this.$forceUpdate();
@@ -888,7 +888,7 @@ export default {
                     options.remotePaging = false;
                     options.remoteSorting = options.remotePaging;
                 }
-                return new Constructor(options);
+                return new Constructor({...options, tag: 'u-table-view'});
             } else if (dataSource instanceof Function) {
                 options.load = function load(params, extraParams) {
                     const result = dataSource(params, extraParams);
@@ -1268,7 +1268,6 @@ export default {
         reload() {
             this.currentDataSource.clearLocalData();
             this.load();
-            console.log('table reload');
             if (this.dynamicColumnVM) {
                 this.dynamicColumnVM.reload();
             }

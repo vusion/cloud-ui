@@ -200,7 +200,7 @@ const VueDataSource = Vue.extend({
             }
 
             let arrangedData = Array.from(data);
-            if(this.isSimpleArray(arrangedData)) {
+            if(this.isSimpleArray(arrangedData) && this.tag === "u-table-view") {
                 arrangedData = arrangedData.map(item => ({'simple': item}))
             }
             const filtering = this.filtering;

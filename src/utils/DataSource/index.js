@@ -147,8 +147,7 @@ const VueDataSource = Vue.extend({
     methods: {
         arrange() {
             let arrangedData = Array.from(this.data);
-            console.log('arrangedData', arrangedData)
-            if(this.isSimpleArray(arrangedData)) {
+            if(this.isSimpleArray(arrangedData) && this.tag === "u-table-view") {
                 arrangedData = arrangedData.map(item => ({'simple': item}))
             }
             if (this.remotePaging)
@@ -297,7 +296,6 @@ const VueDataSource = Vue.extend({
             const extraParams = this._getExtraParams();
 
             return this._load(params, extraParams).then((result) => {
-                console.log('result', result)
                 this.initialLoaded = true;
                 // 支持 JDL
                 if (result instanceof Object) {

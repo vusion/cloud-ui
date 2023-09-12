@@ -22,13 +22,13 @@
             <component :is="ChildComponent"
                 v-for="(item, index) in virtualList"
                 v-if="item"
-                :key="$at(item, valueField)"
-                :value="$at(item, valueField)"
+                :key="$at(item, valueField) || item"
+                :value="$at(item, valueField) || item"
                 :disabled="item.disabled || disabled"
                 :ellipsis-title="ellipsisTitle"
                 :item="item"
                 :index="index">
-                <slot name="item" :item="item" :index="index" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled" vusion-slot-name="item" :ellipsis-title="ellipsisTitle">{{ $at(item, field || textField) }}<s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty></slot>
+                <slot name="item" :item="item" :index="index" :text="$at(item, field || textField) || item" :value="$at(item, valueField) || item" :disabled="item.disabled || disabled" vusion-slot-name="item" :ellipsis-title="ellipsisTitle">{{ $at(item, field || textField) || item }}<s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty></slot>
             </component>
         </div>
         <div :class="$style.status" status="loading" v-if="currentLoading" vusion-slot-name="loading">
@@ -317,6 +317,17 @@ export default {
         });
     },
     methods: {
+        isSimpleArray(arr) {
+            if (!Array.isArray(arr)) {
+              return false; // 如果不是数组类型，则不满足条件，直接返回 false
+            }
+            return arr.every(function(item) {
+              return typeof item !== 'object'; // 使用 typeof 判断是否为简单数据类型
+            });
+        },
+        getRealItem(item, field) {
+            return this.isSimpleArray(field) ? item.simple : item
+        },
         handleData() {
             // @TODO: undefined or null
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
