@@ -141,7 +141,7 @@
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- Normal text -->
-                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
+                                            <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, columnVM.field), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                             </f-slot>
                                             <!-- type === 'dragHandler' -->
@@ -150,7 +150,7 @@
                                             </span>
                                         </div>
                                         <div v-if="columnVM.type === 'editable'" vusion-slot-name="editcell" :plus-empty="columnVM.$attrs['editcell-plus-empty']" style="margin-top:10px">
-                                            <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                            <f-slot name="editcell" :vm="columnVM" :props="{ item: getRealItem(item, columnVM.field), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                             </f-slot>
                                         </div>
                                     </td>
@@ -201,12 +201,12 @@
                                                     :editing="item.editing === columnVM.field">
                                                     <div>
                                                         <template v-if="item.editing === columnVM.field">
-                                                            <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                            <f-slot name="editcell" :vm="columnVM" :props="{ item: getRealItem(item, columnVM.field), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                                                 <span v-if="columnVM.field" vusion-slot-name="editcell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                             </f-slot>
                                                         </template>
                                                         <template v-else>
-                                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
+                                                            <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, columnVM.field), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
                                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                             </f-slot>
                                                         </template>
@@ -214,11 +214,10 @@
                                                 </div>
                                             </template>
                                             <template v-else>
-                                                <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
+                                                <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, columnVM.field), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
                                                     <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                 </f-slot>
                                             </template>
-
                                     </td>
                                 </template>
                             </tr>
@@ -725,6 +724,7 @@ export default {
         }
     },
     updated() {
+        console.log('visibleColumnVMs', this.visibleColumnVMs)
         if (this.$env.VUE_APP_DESIGNER && this.slots !== this.$slots && !this.data && !this.dataSource) {
             this.slots = this.$slots;
             this.$forceUpdate();
@@ -777,6 +777,17 @@ export default {
         this.clearTimeout();
     },
     methods: {
+        isSimpleArray(arr) {
+            if (!Array.isArray(arr)) {
+              return false; // 如果不是数组类型，则不满足条件，直接返回 false
+            }
+            return arr.every(function(item) {
+              return typeof item !== 'object'; // 使用 typeof 判断是否为简单数据类型
+            });
+        },
+        getRealItem(item, field) {
+            return this.isSimpleArray(field) ? item.simple : item
+        },
         typeCheck(type) {
             return ['index', 'radio', 'checkbox', 'expander'].includes(type);
         },
