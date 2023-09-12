@@ -1394,7 +1394,7 @@ export default {
 | data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
 | pageable | boolean |  | `false` | 设置是否分页展示数据 |
 | page-size | number |  | `50` |  |
-| page-number.sync | number |  | `1` | 当前默认展示在第几页 |
+| page-number | number |  | `1` | 当前默认展示在第几页 |
 | page-size-options | Array\<number\> |  | `[10, 20, 50]` | 每页条数切换器的选项 |
 | show-total | boolean |  | `false` |  |
 | show-sizer | boolean |  | `false` | 显示每页条数切换器 |
@@ -1414,7 +1414,6 @@ export default {
 | show-head | boolean |  | `false` |  |
 | title | string |  | `'列表'` |  |
 | show-foot | boolean |  | `true` |  |
-| repeat | number |  | `5` |  |
 | initial-load | boolean |  | `true` | 设置初始时是否立即加载 |
 | designer-mode | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'success'` | 设置不同加载状态的展示内容 |
 | loading-text | string |  | `'加载中...'` | 加载中状态显示的文案 |

@@ -13,13 +13,14 @@
 - [UGridLayout API](#ugridlayout-api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
+    - [Events](#events)
 - [UGridLayoutRow API](#ugridlayoutrow-api)
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
 - [UGridLayoutColumn API](#ugridlayoutcolumn-api)
     - [Props/Attrs](#propsattrs-3)
     - [Slots](#slots-3)
-    - [Events](#events)
+    - [Events](#events-2)
 
 **Layout**
 
@@ -315,6 +316,22 @@
 #### (default)
 
 插入`<u-grid-layout-row>`或`<u-grid-layout-column>`子组件。
+
+### Events
+
+#### @scroll
+
+滚动时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 滚动事件对象 |
+| $event.scrollHeight | any | 滚动内容高度 |
+| $event.scrollWidth | any | 滚动内容宽度 |
+| $event.scrollTop | any | 滚动内容距离顶部高度 |
+| $event.scrollLeft | any | 滚动内容距离左侧宽度 |
+| $event.clientHeight | any | 可视区域高度 |
+| $event.clientWidth | any | 可视区域宽度 |
 
 ## UGridLayoutRow API
 ### Props/Attrs
