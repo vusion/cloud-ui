@@ -38,6 +38,9 @@
     - [Props/Attrs](#propsattrs-3)
     - [Slots](#slots-3)
     - [Events](#events-2)
+- [UTableViewColumnDynamic API](#utableviewcolumndynamic-api)
+    - [Props/Attrs](#propsattrs-4)
+    - [Slots](#slots-4)
 
 **Table**
 
@@ -2017,7 +2020,7 @@ export default {
         getList() {
             return [
                 { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
-                { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, expanded:true, children:[
+                { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, treeExpanded:true, children:[
                     { name: '张三11', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
                     { name: '张三12', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000,children:[
                     { name: '张三121', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
@@ -2127,7 +2130,7 @@ export default {
         getList() {
             return [
                 { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
-                { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, expanded:true, children:[
+                { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, treeExpanded:true, children:[
                     { name: '张三11', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
                     { name: '张三12', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000,children:[
                     { name: '张三121', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
@@ -2234,13 +2237,13 @@ export default {
 | pageable | boolean |  | `false` |  |
 | remote-paging | boolean |  | `false` |  |
 | pagination | boolean |  |  | 设置是否分页展示数据 |
-| page-size.sync | number |  | `20` |  |
+| page-size | number |  | `20` |  |
 | show-sizer | boolean |  | `false` | 显示每页条数切换器 |
 | page-size-options | Array\<number\> |  | `[10, 20, 50]` | 每页条数切换器的选项 |
-| page-number.sync | number |  | `1` | 当前默认展示在第几页 |
+| page-number | number |  | `1` | 当前默认展示在第几页 |
 | show-total | boolean |  | `false` |  |
 | show-jumper | boolean |  | `false` | 显示页面跳转输入框 |
-| sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 设置数据初始化时的排序字段和顺序规则 |
+| sorting | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 设置数据初始化时的排序字段和顺序规则 |
 | remote-sorting | boolean |  | `false` |  |
 | default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` |  |
 | filtering.sync | object |  |  |  |
@@ -2394,6 +2397,16 @@ export default {
 | ----- | ---- | ----------- |
 | $event | object | 筛选参数对象 |
 | senderVM | UTableView | 发送事件实例 |
+
+#### @click-row
+
+点击某一行时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.item | object | 点击行相关对象 |
+| $event.index | number | 点击行索引 |
 
 #### @before-select
 
@@ -2665,4 +2678,29 @@ Methods
 | $event.itemVM | USelectItem | 选择项子组件 |
 | $event.oldVM | USelectItem | 旧的选择项子组件 |
 | senderVM | USelect | 发送事件实例 |
+
+## UTableViewColumnDynamic API
+### Props/Attrs
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
+| value-field | string |  | `'value'` | 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段 |
+| sortable | boolean |  | `false` | 设置该列是否可以排序 |
+| default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 该列首次点击时的排序顺序 |
+| fixed | boolean |  | `false` | 该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。 |
+| ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
+| hidden | boolean |  | `false` |  |
+| width | string \| number |  |  | 设置列宽度，可设置为数字或百分比 |
+
+### Slots
+
+#### title
+
+
+
+#### cell
+
+自定义选项的结构和样式
 

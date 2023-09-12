@@ -1994,7 +1994,8 @@
     "description": "用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。",
     "subtags": [
       "u-table-view-column",
-      "u-table-view-column-config"
+      "u-table-view-column-config",
+      "u-table-view-column-dynamic"
     ]
   },
   "u-table-view-column": {
@@ -2024,6 +2025,19 @@
       "value-field",
       "value",
       "show-footer"
+    ]
+  },
+  "u-table-view-column-dynamic": {
+    "attributes": [
+      "data-source",
+      "data-schema",
+      "value-field",
+      "sortable",
+      "default-order",
+      "fixed",
+      "ellipsis",
+      "hidden",
+      "width"
     ]
   },
   "u-table": {

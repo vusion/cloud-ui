@@ -8013,6 +8013,52 @@
     "type": "boolean",
     "description": "控制弹出层的确定/取消按钮是否展示"
   },
+  "u-table-view-column-dynamic/data-source": {
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑"
+  },
+  "u-table-view-column-dynamic/data-schema": {
+    "type": "schema",
+    "description": "数据源返回的数据结构的类型，自动识别类型进行展示说明"
+  },
+  "u-table-view-column-dynamic/value-field": {
+    "type": "string",
+    "description": "在单选、多选操作、渲染树形数据中，指定数据唯一值的字段"
+  },
+  "u-table-view-column-dynamic/sortable": {
+    "type": "boolean",
+    "description": "设置该列是否可以排序"
+  },
+  "u-table-view-column-dynamic/default-order": {
+    "type": "string",
+    "options": [
+      {
+        "value": "asc",
+        "title": "升序"
+      },
+      {
+        "value": "desc",
+        "title": "倒序"
+      }
+    ],
+    "description": "该列首次点击时的排序顺序"
+  },
+  "u-table-view-column-dynamic/fixed": {
+    "type": "boolean",
+    "description": "该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。"
+  },
+  "u-table-view-column-dynamic/ellipsis": {
+    "type": "boolean",
+    "description": "文字过长是否省略显示。默认文字超出时会换行。"
+  },
+  "u-table-view-column-dynamic/hidden": {
+    "type": "boolean",
+    "description": ""
+  },
+  "u-table-view-column-dynamic/width": {
+    "type": "string | number",
+    "description": "设置列宽度，可设置为数字或百分比"
+  },
   "u-tablets/value": {
     "type": "any",
     "description": "当前选择的值"
