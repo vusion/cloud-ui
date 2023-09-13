@@ -30,7 +30,7 @@
         <template v-if="listType !== 'card'">
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
                 <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
-                <a :class="$style.link" :href="item.url" target="_blank">{{ item.name }}</a>
+                <a :class="$style.link" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name }}</a>
                 <!-- <span v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></span> -->
                 <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
                 <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
@@ -44,8 +44,8 @@
                     <div :class="$style.buttons">
                         <span v-if="!readonly && !disabled" :class="$style.button" role="remove" @click.stop="remove(index)"></span>
                         <span :class="$style.button" role="preview" @click.stop="onPreview(item, index)"></span>
-                        <a v-if="downLoadFilename" :class="$style.button" @click.stop :href="item.url" target="_blank" role="download" :download="downLoadFilename"></a>
-                        <a v-else :class="$style.button" :href="item.url" @click.stop target="_blank" role="download"></a>
+                        <a v-if="downLoadFilename" :class="$style.button" @click.stop :href="encodeUrl(item.url)" target="_blank" role="download" :download="downLoadFilename"></a>
+                        <a v-else :class="$style.button" :href="encodeUrl(item.url)" @click.stop target="_blank" download role="download"></a>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
         </template>
     </div>
     <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
-        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url || item"></u-lightbox-item>
+        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="encodeURI(item.url || item)"></u-lightbox-item>
     </u-lightbox>
     <cropper
         v-if="openCropper"
@@ -186,6 +186,9 @@ export default {
         },
     },
     methods: {
+        encodeUrl(url) {
+            return encodeURI(url)
+        },
         fromValue(value) {
             if (this.converter === 'json')
                 try {
@@ -227,7 +230,7 @@ export default {
             return value.map((x) => (x.url || '')).join(',');
         },
         getUrl(item) {
-            return item.thumb || item.url || item;
+            return this.encodeUrl(item.thumb || item.url || item);
         },
         select() {
             if (this.readonly || this.disabled || this.sending)
