@@ -30,7 +30,7 @@
         <template v-if="listType !== 'card'">
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
                 <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
-                <a :class="$style.link" :href="item.url" target="_blank">{{ item.name }}</a>
+                <a :class="$style.link" :href="enCodeUrl(item.url)" target="_blank">{{ item.name }}</a>
                 <!-- <span v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></span> -->
                 <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
                 <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
@@ -186,6 +186,9 @@ export default {
         },
     },
     methods: {
+        enCodeUrl(url) {
+            return encodeURI(url)
+        },
         fromValue(value) {
             if (this.converter === 'json')
                 try {
