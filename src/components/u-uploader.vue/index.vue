@@ -230,7 +230,7 @@ export default {
             return value.map((x) => (x.url || '')).join(',');
         },
         getUrl(item) {
-            return item.thumb || item.url || item;
+            return this.encodeUrl(item.thumb || item.url || item);
         },
         select() {
             if (this.readonly || this.disabled || this.sending)
