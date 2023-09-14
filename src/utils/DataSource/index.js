@@ -147,7 +147,9 @@ const VueDataSource = Vue.extend({
     methods: {
         arrange() {
             let arrangedData = Array.from(this.data);
-
+            if(this.isSimpleArray(arrangedData) && this.tag === "u-table-view") {
+                arrangedData = arrangedData.map(item => ({'simple': item}))
+            }
             if (this.remotePaging)
                 return this.arrangedData = arrangedData;
 
@@ -229,6 +231,14 @@ const VueDataSource = Vue.extend({
         slice(offset, newOffset) {
             return this.arrangedData.slice(offset, newOffset);
         },
+        isSimpleArray(arr) {
+            if (!Array.isArray(arr)) {
+              return false; // 如果不是数组类型，则不满足条件，直接返回 false
+            }
+            return arr.every(function(item) {
+              return typeof item !== 'object'; // 使用 typeof 判断是否为简单数据类型
+            });
+          },
         // _load(params)
         load(offset, limit, newPageNumber) {
             if (offset === undefined)
@@ -287,7 +297,6 @@ const VueDataSource = Vue.extend({
 
             return this._load(params, extraParams).then((result) => {
                 this.initialLoaded = true;
-
                 // 支持 JDL
                 if (result instanceof Object) {
                     if (result.hasOwnProperty('list') && result.hasOwnProperty('total')) {
