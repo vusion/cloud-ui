@@ -470,7 +470,7 @@ export default {
                 url,
                 headers,
                 withCredentials: this.withCredentials,
-                file,
+                file: new File([file], file.name.replace(/[#\+]/g, ""), {type: file.type}),
                 data: formData,
                 name: this.name,
             };
