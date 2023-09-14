@@ -453,7 +453,6 @@ export default {
         parentField: { type: String },
         configurable: { type: Boolean, default: false }, // 是否配置显隐列
     },
-    tag: 'u-table-view',
     data() {
         return {
             columnVMs: [],
