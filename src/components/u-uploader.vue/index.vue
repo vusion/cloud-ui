@@ -661,6 +661,11 @@ export default {
             }
             return '';
         },
+
+        handleFileName(url) {
+            const match = url.match(/\/([^/]+)$/);
+            return match ? match[1] : null;
+        },
     },
 };
 </script>
