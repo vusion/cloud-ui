@@ -494,7 +494,7 @@ export default {
             handlerDraggable: false,
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
             configColumnVM: undefined,
-            dynamicColumnVM: undefined,
+            dynamicColumnVMs: [],
             columnGroupVMs: {},
             slots: this.$slots,
             autoColSpan: [], // 用于记录自动的的列合并
@@ -604,9 +604,9 @@ export default {
                         result[0].push(this.columnGroupVMs[index - dynamicOffset])
                     } else if (!columnVM.isUnderGroup) {
                         result[0].push(columnVM)
-                        // 统计出到当前 index 有多少个动态列（第一个动态性不计入，因为 vm 里已经占位）
-                        if (columnVM.$options.name === 'u-table-view-column-dynamic' && index > 0
-                            && this.visibleColumnVMs[index - 1].$options.name === 'u-table-view-column-dynamic') {
+                        // 统计出到当前 index 有多少个动态列（第一个动态列不计入，因为 vm 里已经占位，
+                        // 目前每一个动态列的第一个 vm 都没有 dynamicId，所以可以通过这个来判断）
+                        if (columnVM.$options.name === 'u-table-view-column-dynamic' && columnVM.dynamicId) {
                             dynamicOffset++
                         }
                     }
@@ -769,30 +769,30 @@ export default {
             this.slots = this.$slots;
             this.$forceUpdate();
         }
-        if (this.$env.VUE_APP_DESIGNER) {
-            // fix：在IDE里更换动态列的位置，页面编辑器的展示没有更改。
-            // 有动态列并且顺序不对，重新赋值
-            // 进不了columnVms的watch，只能放update里
-            const columnVMs = this.columnVMs;
-            const hasDynamic = columnVMs.find((columnVM) => columnVM.$vnode.tag && columnVM.$vnode.tag.endsWith('u-table-view-column-dynamic'));
-            if (hasDynamic) {
-                const vnodes = this.$slots.default || [];
-                if (vnodes.length === columnVMs.length) {
-                    let shouldSort = false;
-                    columnVMs.forEach((columnVM, index) => {
-                        if (columnVM.$vnode !== vnodes[index]) {
-                            shouldSort = true;
-                        }
-                    });
-                    if (shouldSort)
-                        columnVMs.sort((a, b) => {
-                            const aIndex = vnodes.indexOf(a.$vnode);
-                            const bIndex = vnodes.indexOf(b.$vnode);
-                            return aIndex - bIndex;
-                        });
-                }
-            }
-        }
+        // if (this.$env.VUE_APP_DESIGNER) {
+        //     // fix：在IDE里更换动态列的位置，页面编辑器的展示没有更改。
+        //     // 有动态列并且顺序不对，重新赋值
+        //     // 进不了columnVms的watch，只能放update里
+        //     const columnVMs = this.columnVMs;
+        //     const hasDynamic = columnVMs.find((columnVM) => columnVM.$vnode.tag && columnVM.$vnode.tag.endsWith('u-table-view-column-dynamic'));
+        //     if (hasDynamic) {
+        //         const vnodes = this.$slots.default || [];
+        //         if (vnodes.length === columnVMs.length) {
+        //             let shouldSort = false;
+        //             columnVMs.forEach((columnVM, index) => {
+        //                 if (columnVM.$vnode !== vnodes[index]) {
+        //                     shouldSort = true;
+        //                 }
+        //             });
+        //             if (shouldSort)
+        //                 columnVMs.sort((a, b) => {
+        //                     const aIndex = vnodes.indexOf(a.$vnode);
+        //                     const bIndex = vnodes.indexOf(b.$vnode);
+        //                     return aIndex - bIndex;
+        //                 });
+        //         }
+        //     }
+        // }
     },
     mounted() {
         if (this.data)
@@ -1298,8 +1298,8 @@ export default {
             this.currentDataSource.clearLocalData();
             this.load();
             console.log('table reload');
-            if (this.dynamicColumnVM) {
-                this.dynamicColumnVM.reload();
+            if (this.dynamicColumnVMs.length) {
+                this.dynamicColumnVMs.forEach(vm => vm.reload());
             }
         },
         getFields() {

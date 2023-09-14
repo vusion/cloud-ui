@@ -34,13 +34,16 @@ export default {
         this.$contact(this.$options.parentName, (parentVM) => {
             // 清除添加的
             this.clearVms(parentVM);
-            parentVM.dynamicColumnVM = undefined;
+            const index = parentVM.dynamicColumnVMs.findIndex(item => item === this);
+            if (index > -1) {
+                parentVM.dynamicColumnVMs.splice(index, 1);
+            }
         });
     },
     methods: {
         addVms() {
             this.$contact(this.$options.parentName, (parentVM) => {
-                parentVM.dynamicColumnVM = this;
+                parentVM.dynamicColumnVMs.push(this);
                 const isUnderGroup = this.$parent.$options.name === 'u-table-view-column-group'
                 const currentIndex = parentVM.columnVMs.findIndex((vm) => vm === this);
                 const vms = this.currentDataSource.data.map((item) => ({
