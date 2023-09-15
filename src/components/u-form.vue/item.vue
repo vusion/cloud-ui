@@ -158,6 +158,7 @@ export default {
     color: var(--form-item-label-color);
     text-align: right;
     position: relative;
+    max-width: 100%;
 }
 
 /* .label {
@@ -174,6 +175,9 @@ export default {
 .label .text {
     position: relative;
     display: inline-block;
+    max-width: 100%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 .label[required] .text::after {
