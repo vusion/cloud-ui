@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" v-show="!hidden">
     <div :class="$style.item" :selected="selected" :style="{ paddingLeft: level * expanderWidth + paddingLeft + 'px' }"
-        :readonly="rootVM.readonly" :readonly-mode="rootVM.readonlyMode"
+        :readonly="currentReadOnly" :readonly-mode="rootVM.readonlyMode"
         :subBackground="rootVM.subBackground"
         :disabled="currentDisabled"
         :tabindex="disabled || rootVM.readonly || rootVM.disabled ? '' : 0"
@@ -26,7 +26,7 @@
             :style="{ width : expanderWidth? expanderWidth + 'px':'' }"
             :dragover="expanderDragover"></div>
         <div :class="$style.text" :style="{ marginLeft : expanderWidth? expanderWidth + 'px':'' }" :draggable="draggable || rootVM.draggable">
-            <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
+            <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" :readonly="currentReadOnly" @check="check($event.value)" @click.native.stop></u-checkbox>
             <span vusion-slot-name="item">
                 <slot name="item" :vm="currentTextSlotVM" :item="{
                     data: node && $at(node, currentChildrenField),
@@ -35,6 +35,7 @@
                     expanded: currentExpanded,
                     checked: currentChecked,
                     disabled: currentDisabled,
+                    readonly: currentReadOnly,
                     item: node,
                     __nodeKey: nodeKey,
                     nodeVM: this,
@@ -115,6 +116,7 @@ export default {
         expanded: { type: Boolean, default: false },
         checked: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        readonly: { type: Boolean, default: false },
         hidden: { type: Boolean, default: false },
         childrenField: String,
         moreChildrenFields: Array,
@@ -150,6 +152,13 @@ export default {
                 this.disabled
                 || this.rootVM.disabled
                 || (this.parentVM && this.parentVM.currentDisabled)
+            );
+        },
+        currentReadOnly() {
+            return (
+                this.readonly
+                || this.rootVM.readonly
+                || (this.parentVM && this.parentVM.currentReadOnly)
             );
         },
         currentChildrenField() {
@@ -257,7 +266,7 @@ export default {
 
     methods: {
         select() {
-            if (this.currentDisabled || this.rootVM.readonly)
+            if (this.currentDisabled || this.currentReadOnly)
                 return;
 
             let cancel = false;
@@ -392,7 +401,7 @@ export default {
             // down
             if (direction.includes('down')) {
                 this.nodeVMs.forEach((nodeVM) => {
-                    !nodeVM.currentDisabled
+                    !nodeVM.currentDisabled && !nodeVM.currentReadOnly
                         && nodeVM.checkRecursively(checked, 'down');
                 });
             }
@@ -417,6 +426,9 @@ export default {
             }
         },
         check(checked, fromInside = false) {
+            if (this.currentReadOnly) {
+                return;
+            }
             const oldChecked = this.currentChecked;
             if (checked === oldChecked) {
                 return;
