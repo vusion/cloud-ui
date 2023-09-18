@@ -191,10 +191,16 @@
 
 .prefix {
     left: 8px;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .suffix {
     right: 8px;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .root[color="inverse"] .input {
