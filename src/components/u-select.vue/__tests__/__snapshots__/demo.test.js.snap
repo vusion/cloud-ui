@@ -1040,7 +1040,7 @@ exports[`u-select.vue Demo-data-source 数组 1`] = `
 `;
 
 exports[`u-select.vue Demo-prefix, suffix 1`] = `
-<div class="root" readonly="readonly" suffix="search" tabindex>
+<div class="root" end="true" readonly="readonly" suffix="search" tabindex>
   <span>b</span>
   <span>前端过滤</span>
   <div style="direction: ltr;" tags-overflow="collapse">
@@ -2408,7 +2408,7 @@ exports[`u-select.vue Demo-前缀方式 1`] = `
         </div>
       </transition-stub>
     </div>
-    <div class="root" suffix="search" tabindex="0">
+    <div class="root" end="true" suffix="search" tabindex="0">
       <span>b</span>
       <span>设置占位符</span>
       <div style="direction: ltr;" tags-overflow="collapse">
