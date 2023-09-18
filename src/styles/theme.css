@@ -302,56 +302,59 @@
     --card-title-font-size: 18px;
     --card-title-font-weight: bold;
 
-    /* @component u-navbar @hidden */
-    --navbar-height: 60px;
-    --navbar-space-x: 40px;
-    --navbar-background: #333333;
-    --navbar-background-inverse: var(--brand-primary);
-    --navbar-color: white;
-    --navbar-item-space: 30px;
-    --navbar-item-padding: 0 10px;
-    --navbar-item-font-size: var(--font-size-large);
-    --navbar-item-background: transparent;
-    --navbar-item-background-hover: transparent;
-    --navbar-item-background-selected: transparent;
-    --navbar-item-color: white;
-    --navbar-item-color-hover: white;
-    --navbar-item-color-selected: white;
-    --navbar-item-color-disabled: var(--brand-disabled);
-    --navbar-item-color-inverse: white;
-    --navbar-item-line-transition-duration: 0.5s;
-    --navbar-item-line-background: currentColor;
-    --navbar-item-line-height: 3px;
-    --navbar-divider-width: var(--border-width-base);
-    --navbar-divider-height: 20px;
-    --navbar-divider-background: #ddd;
-    --navbar-dropdown-padding: 0 30px 0 10px;
-    --navbar-dropdown-icon-font-size: 18px;
-    --navbar-dropdown-popper-line-height: var(--line-height-base);
-    --navbar-dropdown-popper-font-size: var(--font-size-base);
-    --navbar-dropdown-popper-padding: 8px 0;
-    --navbar-dropdown-popper-background: var(--navbar-menu-item-background);
-    --navbar-dropdown-color-disabled: var(--brand-disabled);
-    --navbar-menu-item-padding: 7px 18px;
-    --navbar-menu-item-background: #232d3e;
-    --navbar-menu-item-background-hover: #141d2b;
-    --navbar-menu-item-color: inherit;
-    --navbar-menu-item-color-hover: inherit;
-    --navbar-menu-border-color: #232d3e;
-    --navbar-menu-divider-background: var(--list-view-divider-background);
-    --navbar-menu-box-shadow: 0 0 6px rgba(47, 53, 58, 0.3);
-    --navbar-select-width: 90px;
-    --navbar-select-padding-left: 10px;
-    --navbar-select-padding-right: 30px;
-    --navbar-select-hover-background: none;
-    --navbar-select-focused-background: none;
-    --navbar-select-item-padding: 2px 18px;
-    --navbar-select-item-color: white;
-    --navbar-select-item-background: #232d3e;
-    --navbar-select-item-background-hover: #141d2b;
-    --navbar-select-item-background-selected: white;
-    --navbar-select-divider-background: var(--list-view-divider-background);
-    --navbar-select-box-shadow: 0 0 6px rgba(47, 53, 58, 0.3);
+    /* @component u-navbar-multi */
+    --navbar-height: 60px;/* @desc 导航栏高度 */
+    --navbar-space-x: 40px;/* @hidden */
+    --navbar-background: #333333;/* @type color */ /* @desc 导航栏背景颜色 */
+    --navbar-background-inverse: var(--brand-primary);/* @hidden */
+    --navbar-color: white;/* @type color */ /* @desc 导航栏字体颜色 */
+    --navbar-item-space: 30px;/* @hidden */
+    --navbar-item-padding: 0 10px;/* @hidden */
+    --navbar-item-font-size: var(--font-size-large);/* @hidden */
+    --navbar-item-background: transparent;/* @hidden */
+    --navbar-item-background-hover: transparent;/* @hidden */
+    --navbar-item-background-selected: transparent;/* @hidden */
+    --navbar-item-color: white;/* @type color */ /* @desc 导航栏菜单项字体颜色 */
+    --navbar-item-color-hover: white;/* @type color */ /* @desc 导航栏菜单项悬浮字体颜色 */
+    --navbar-item-color-selected: white;/* @type color */ /* @desc 导航栏菜单选中字体颜色 */
+    --navbar-item-color-disabled: var(--brand-disabled);/* @hidden */
+    --navbar-group-color: white;/* @type color */ /* @desc 导航栏分组字体颜色 */
+    --navbar-group-color-hover: white;/* @type color */ /* @desc 导航栏分组悬浮字体颜色 */
+
+    --navbar-item-color-inverse: white;/* @hidden */
+    --navbar-item-line-transition-duration: 0.5s;/* @hidden */
+    --navbar-item-line-background: currentColor;/* @type color */ /* @desc 导航栏菜单项高亮线条颜色 */
+    --navbar-item-line-height: 3px;/* @hidden */
+    --navbar-divider-width: var(--border-width-base);/* @hidden */
+    --navbar-divider-height: 20px;/* @hidden */
+    --navbar-divider-background: #ddd;/* @type color */ /* @desc 导航栏分隔线颜色 */
+    --navbar-dropdown-padding: 0 30px 0 10px;/* @hidden */
+    --navbar-dropdown-icon-font-size: 18px;/* @hidden */
+    --navbar-dropdown-popper-line-height: var(--line-height-base);/* @hidden */
+    --navbar-dropdown-popper-font-size: var(--font-size-base);/* @hidden */
+    --navbar-dropdown-popper-padding: 8px 0;/* @hidden */
+    --navbar-dropdown-popper-background: var(--navbar-menu-item-background);/* @hidden */
+    --navbar-dropdown-color-disabled: var(--brand-disabled);/* @hidden */
+    --navbar-menu-item-padding: 7px 18px;/* @hidden */
+    --navbar-menu-item-background: #232d3e;/* @hidden */
+    --navbar-menu-item-background-hover: #141d2b;/* @hidden */
+    --navbar-menu-item-color: inherit;/* @hidden */
+    --navbar-menu-item-color-hover: inherit;/* @hidden */
+    --navbar-menu-border-color: #232d3e;/* @hidden */
+    --navbar-menu-divider-background: var(--list-view-divider-background);/* @hidden */
+    --navbar-menu-box-shadow: 0 0 6px rgba(47, 53, 58, 0.3);/* @hidden */
+    --navbar-select-width: 90px;/* @hidden */
+    --navbar-select-padding-left: 10px;/* @hidden */
+    --navbar-select-padding-right: 30px;/* @hidden */
+    --navbar-select-hover-background: none;/* @hidden */
+    --navbar-select-focused-background: none;/* @hidden */
+    --navbar-select-item-padding: 2px 18px;/* @hidden */
+    --navbar-select-item-color: white;/* @hidden */
+    --navbar-select-item-background: #232d3e;/* @hidden */
+    --navbar-select-item-background-hover: #141d2b;/* @hidden */
+    --navbar-select-item-background-selected: white;/* @hidden */
+    --navbar-select-divider-background: var(--list-view-divider-background);/* @hidden */
+    --navbar-select-box-shadow: 0 0 6px rgba(47, 53, 58, 0.3);/* @hidden */
 
     /* @component u-sidebar */
     --sidebar-background: #ffffff; /* @desc 侧边栏背景色,如：#223325 */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-group,u-sidebar-divider */ /* @depStaticStyles { "u-sidebar": ["background-color"] } */

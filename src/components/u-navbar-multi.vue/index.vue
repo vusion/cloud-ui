@@ -130,7 +130,7 @@ export default {
                     } else if (wrapVnode.componentOptions && wrapVnode.componentOptions.tag && (wrapVnode.componentOptions.tag === 'u-navbar-item-multi' || wrapVnode.componentOptions.tag === 'u-navbar-group-multi')) {
                         temp = [...temp, wrapVnode];
                     } else {
-                        console.log(`[u-navbar-multi] 目前仅支持[u-multi-layout-item],[u-navbar-group-multi]和[u-navbar-item-multi]作为默认插槽的内容`);
+                        temp = [...temp, wrapVnode];
                     }
                 });
                 this.slotItems = temp;
@@ -263,6 +263,9 @@ export default {
     background: var(--navbar-background);
     white-space: nowrap;
     color: var(--navbar-color);
+
+    /* 旧应用中存在UDropdown在UNavbarMulti里面的情况,这里为了使得UDropdown的主题设置生效，不可以直接覆盖UDropdown的样式 */
+    --dropdown-color-text: var(--navbar-color);
 }
 
 .left {
@@ -456,10 +459,10 @@ export default {
     opacity: 0;
 }
 
-.root [class^="u-dropdown__"][type=text],
+/* .root [class^="u-dropdown__"][type=text],
 .root [class^="u-dropdown__"][type=text]:not([disabled]):hover {
     color: inherit;
-}
+} */
 
 .mask [class^="s-empty"]{
     position: relative;

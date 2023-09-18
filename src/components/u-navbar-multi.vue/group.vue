@@ -201,7 +201,10 @@ export default {
     border: none;
     padding: var(--navbar-dropdown-padding);
     font-size: var(--navbar-item-font-size);
-    color: var(--navbar-color);
+    color: var(--navbar-group-color);
+}
+.root:hover{
+    color: var(--navbar-group-color-hover);
 }
 
 .root:not(:last-child) {
@@ -227,7 +230,7 @@ export default {
     position: absolute;
     height: auto;
     line-height: var(--navbar-height);
-    color: var(--navbar-color);
+    color: currentColor;
     font-size: 14px;
     right: 6px;
     top: 0;
