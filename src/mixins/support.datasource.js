@@ -19,15 +19,16 @@ export default {
     },
     created() {
         this.handleData();
-        if (this.currentDataSource && this.currentDataSource.load)
+        if (this.currentDataSource && this.currentDataSource.load) {
             this.load();
+        }
     },
     methods: {
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource, this.multiple);
         },
         normalizeDataSource(dataSource, multiple) {
-            const final = {
+            const final = this.currentDataSource || {
                 data: [],
                 load: undefined,
             };
