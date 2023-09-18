@@ -220,7 +220,7 @@
       docDescription: 表格是否以树型方式展示。默认关闭
       tooltipLink: ""
     - name: parent-field
-      title: 父节点字段
+      title: 父级值字段
       type: string
       description: 当数据源为平铺数据时自动生成树形数据的节点字段名，重要：值字段名需要一起配置
       group: 数据属性
@@ -230,7 +230,8 @@
       docDescription: 标识父节点字段名，用于标识表格行取哪个数据作为父级的判断，需同步配置“值字段名”。在"树行模式"属性开启时有效
       tooltipLink: ""
     - name: children-field
-      title: 子节点字段
+      title: 子级值字段
+      advanced: true
       type: string
       default: children
       description: 树形数据子节点字段名，默认为children
@@ -241,7 +242,8 @@
       docDescription: 标识子节点字段名，用于表格显示时取哪个数据展示子树。在"树行模式"属性开启时有效
       tooltipLink: ""
     - name: has-children-field
-      title: 包含子节点字段
+      title: 包含子级值字段
+      advanced: true
       type: string
       default: hasChildren
       description: 该字段指定行数据是否包含子节点数据，默认为hasChildren
