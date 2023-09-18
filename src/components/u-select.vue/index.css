@@ -66,6 +66,9 @@
     cursor: var(--cursor-pointer);
     color: var(--select-icon-color);
 }
+.root[end] .clearable::before {
+    right: 24px;
+}
 .clearable:hover::before {
     color: var(--select-icon-color-hover);
 }
@@ -175,7 +178,9 @@
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-
+.root .input[filterable] {
+    padding-left: 24px;
+}
 .prefix, .suffix {
     display: block;
     position: absolute;
