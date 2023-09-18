@@ -39,6 +39,7 @@
       docDescription: 集合的元素类型中，用于标识选中值的属性，支持自定义变更
       tooltipLink: ""
     - name: children-field
+      advanced: true
       title: 子级值字段
       type: string
       default: children

@@ -39,7 +39,7 @@
       docDescription: 集合的元素类型中，用于标识选中值的属性
       tooltipLink: ""
     - name: parent-field
-      title: 父节点字段
+      title: 父级值字段
       type: string
       default: ""
       description: 集合的元素类型中，用于标识父节点的属性
@@ -48,7 +48,8 @@
       docDescription: 集合的元素类型中，用于标识父节点的属性
       tooltipLink: ""
     - name: children-field
-      title: 子节点字段
+      title: 子级值字段
+      advanced: true
       type: string
       default: children
       description: 集合的元素类型中，用于标识子节点的属性，默认为children
