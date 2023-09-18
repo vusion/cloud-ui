@@ -71,7 +71,7 @@
             :total-items="currentDataSource.total" :page="currentDataSource.paging ? currentDataSource.paging.number : pageNumber"
             :page-size="currentDataSource.paging ? currentDataSource.paging.size : pageSize" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
             :side="1" :around="3"
-            @change="page($event.page)" @change-page-size="page(currentDataSource.paging.number, $event.pageSize)">
+            @change="page($event.page)" @change-page-size="page(currentDataSource.paging ? currentDataSource.paging.number : pageNumber, $event.pageSize)">
         </u-pagination>
     </div>
 </div>
@@ -195,9 +195,6 @@ export default {
                 const paging = {};
                 paging.size = this.pageSize === '' ? 50 : this.pageSize;
                 paging.number = this.pageNumber;
-                console.log(
-                    'this.pageable', paging
-                )
                 return paging;
             } else
                 return undefined;
