@@ -622,7 +622,7 @@ export default {
 
 ``` vue
 <template>
-<u-table-view :data-source="load" pageable :page-size="10">
+<u-table-view :data-source="load" pageable :page-size="3000" draggable>
     <u-table-view-column title="用户名" field="name" width="15%"></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
     <u-table-view-column title="地址" field="address"></u-table-view-column>
@@ -643,7 +643,7 @@ const mockData = (() => {
     ];
 
     const result = [];
-    for (let i = 0; i < 75; i++) {
+    for (let i = 0; i < 3175; i++) {
         const item = Object.assign({}, baseData[i % 5]);
         item.name += '-' + (Math.random() * 20 >> 0);
         item.phone = String(+item.phone + (Math.random() * 10 >> 0) * Math.pow(10, Math.random() * 8 >> 0));
@@ -2107,7 +2107,7 @@ export default {
 <template>
     <u-linear-layout direction="vertical">
         <u-button color="primary" @click="() => $refs.tableView.exportExcel()">导出 Excel</u-button>
-        <u-table-view ref="tableView" pageable :remote-paging="true" :data-source="load" title="表格标题">
+        <u-table-view ref="tableView" pageable :remote-paging="true" :data-source="load" title="表格标题" draggable>
             <u-table-view-column type="index" width="60" title="序号"></u-table-view-column>
             <u-table-view-column title="创建时间">
                 <template #cell="scope">

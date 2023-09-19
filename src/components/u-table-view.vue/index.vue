@@ -357,6 +357,7 @@ import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
 import UTableViewDropGhost from './drop-ghost.vue';
 import SEmpty from '../../components/s-empty.vue';
+import throttle from 'lodash/throttle';
 
 export default {
     name: 'u-table-view',
@@ -763,6 +764,10 @@ export default {
         } else {
             this.initialLoad && this.load();
         }
+        this.throttledDragover = throttle(this.handleDragOver, 300, {
+            leading: false,
+            trailing: true,
+        });
     },
     updated() {
         if (this.$env.VUE_APP_DESIGNER && this.slots !== this.$slots && !this.data && !this.dataSource) {
@@ -1966,6 +1971,7 @@ export default {
             this.$emit('dragstart', {
                 source: this.dragState.sourceData,
             });
+            this.parentElRect = this.$refs.root.getBoundingClientRect();
         },
         /**
          * 拖拽经过行
@@ -1977,7 +1983,10 @@ export default {
             if (item.draggoverDisabled) {
                 return;
             }
-            // 查找到tr行
+            this.throttledDragover(e, item, rowIndex);
+        },
+        handleDragOver(e, item, rowIndex) {
+            const time1 = new Date().getTime();
             const target = this.getTrEl(e);
             const trRect = target.getBoundingClientRect();
             // 让展示线缩进
@@ -2032,9 +2041,11 @@ export default {
             if (!this.dropData
                 || JSON.stringify(this.dropData.dragoverElRect) !== JSON.stringify(trRect)
                 || this.dropData.position !== position) {
+                const time2 = new Date().getTime();
+                console.log('changeTime', (time2-time1)/1000);
                 this.dropData = {
                     dragoverElRect: trRect,
-                    parentElRect: this.$refs.root.getBoundingClientRect(),
+                    parentElRect: this.parentElRect,
                     position,
                     left,
                 };
@@ -2058,6 +2069,7 @@ export default {
             if (!this.subTreeLoading)
                 this.clearDragState();
             this.$emit('dragend');
+            this.throttledDragover.cancel();
         },
         /**
          * 拖拽放置
