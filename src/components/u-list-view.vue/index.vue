@@ -68,10 +68,10 @@
     <div v-show="showFoot && (pageable === true || pageable === 'pagination')" :class="$style.foot">
         <slot name="foot"></slot>
         <u-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
-            :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
-            :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
+            :total-items="currentDataSource.total" :page="currentDataSource.paging ? currentDataSource.paging.number : pageNumber"
+            :page-size="currentDataSource.paging ? currentDataSource.paging.size : pageSize" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
             :side="1" :around="3"
-            @change="page($event.page)" @change-page-size="page(currentDataSource.paging.number, $event.pageSize)">
+            @change="page($event.page)" @change-page-size="page(currentDataSource.paging ? currentDataSource.paging.number : pageNumber, $event.pageSize)">
         </u-pagination>
     </div>
 </div>
@@ -194,7 +194,7 @@ export default {
             if (this.pageable) {
                 const paging = {};
                 paging.size = this.pageSize === '' ? 50 : this.pageSize;
-                paging.number = paging.number || 1;
+                paging.number = this.pageNumber;
                 return paging;
             } else
                 return undefined;
@@ -239,9 +239,9 @@ export default {
         error(error) {
             this.currentError = error;
         },
-        // paging(paging) {
-        //     this.page()
-        // },
+        pageable() {
+            this.$forceUpdate();
+        },
         itemVMs: {
             override: true,
             handler(itemVMs, oldVMs) {
@@ -302,6 +302,7 @@ export default {
 
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+    
         if (this.currentDataSource && this.initialLoad) {
             if (this.pageNumber && (typeof this.pagination === 'undefined' ? this.pageable : this.pagination)) {
                 this.page(this.pageNumber);
@@ -548,12 +549,12 @@ export default {
         },
         page(number, size) {
             if (size === undefined)
-                size = this.currentDataSource.paging.size;
+                size = this.currentDataSource?.paging?.size;
             const paging = {
                 size,
-                oldSize: this.currentDataSource.paging.size,
+                oldSize: this.currentDataSource?.paging?.size,
                 number,
-                oldNumber: this.currentDataSource.paging.number,
+                oldNumber: this.currentDataSource?.paging?.number,
             };
             if (this.$emitPrevent('before-page', paging, this))
                 return;
