@@ -145,6 +145,7 @@ export default {
     overflow: hidden;
     width: var(--carousel-width);
     height: var(--carousel-height);
+    min-width: 350px;
 }
 
 .body {
