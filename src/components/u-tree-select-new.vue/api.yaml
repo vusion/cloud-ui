@@ -76,6 +76,11 @@
       brifeDoc: ""
       docDescription: 开启后支持选中多项。默认关闭
       tooltipLink: ""
+    - name: placeholder
+      title: 占位符
+      type: string
+      default: 请选择
+      description: 为空时显示的占位符文本
     - name: clearable
       title: 可清除
       type: boolean

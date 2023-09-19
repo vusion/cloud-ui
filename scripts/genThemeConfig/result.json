@@ -24,7 +24,7 @@
                 "type": [],
                 "cssProperty": {},
                 "preview": {
-                    "template": " <div style=\"height:100%;background: #F7F8FA;\">\n        <u-text :class=\"[$style.areaTitle, $style.base]\">视觉风格预览</u-text><br>\n        <div>\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 16px 0;\">顶部导航</div>\n            <u-navbar style=\"margin-bottom: 16px;\">\n                <u-navbar-item slot=\"left\">应用名称</u-navbar-item>\n                <u-navbar-item>菜单项 1</u-navbar-item>\n                <u-navbar-item>菜单项 2</u-navbar-item>\n            </u-navbar>\n        </div>\n        <div>\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 16px 0;\">侧边导航</div>\n            <u-sidebar value=\"1\" :router=\"false\">\n                <u-sidebar-item value=\"1\">菜单项 1</u-sidebar-item>\n                <u-sidebar-item value=\"2\">菜单项 2</u-sidebar-item>\n                <u-sidebar-item value=\"3\">菜单项 3</u-sidebar-item>\n            </u-sidebar>\n        </div>\n        <div :class=\"$style.table\">\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 0 0 16px;\">表单</div>\n            <u-form layout=\"inline\" label-size=\"auto\" style=\"background:white;padding: 8px;\">\n                <u-grid-layout>\n                    <u-grid-layout-row :repeat=\"1\">\n                        <u-grid-layout-column>\n                            <div style=\"height: 36px;line-height:36px;background: var(--background-color-base);text-indent: 15px;\">标题</div>\n                        </u-grid-layout-column>\n                    </u-grid-layout-row>\n                </u-grid-layout>\n                <u-grid-layout gap=\"normal none\">\n                    <u-grid-layout-row :repeat=\"2\">\n                        <u-grid-layout-column style=\"padding-right: 12px;\">\n                            <u-form-item label=\"名称\" style=\"margin-bottom: var(--space-base);width: 100%;\">\n                                <u-input maxlength=\"20\" placeholder=\"请输入\" style=\"border-radius: var(--border-radius-base);border-color: var(--border-color-base);\"></u-input>\n                            </u-form-item>\n                        </u-grid-layout-column>\n                        <u-grid-layout-column style=\"padding-left: 12px;\">\n                            <u-form-item label=\"名称\" style=\"margin-bottom: var(--space-base);width: 100%;\">\n                                <u-input maxlength=\"20\" placeholder=\"请输入\" style=\"border-radius: var(--border-radius-base);border-color: var(--border-color-base);\"></u-input>\n                            </u-form-item>\n                        </u-grid-layout-column>\n                    </u-grid-layout-row>\n                </u-grid-layout>\n            </u-form>\n        </div>\n    </div>",
+                    "template": " <div style=\"height:100%;background: #F7F8FA;\">\n        <u-text :class=\"[$style.areaTitle, $style.base]\">视觉风格预览</u-text><br>\n        <div>\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 16px 0;\">顶部导航</div>\n            <u-navbar-multi style=\"margin-bottom: 16px;\">\n                <u-text text=\"应用名称\" size=\"large\" slot=\"left\" style=\"margin-left:18px;\"></u-text>\n                      <u-navbar-item-multi>菜单项 1</u-navbar-item-multi>\n  <u-navbar-divider-multi></u-navbar-divider-multi>\n   <u-navbar-group-multi> \n <u-text slot=\"title\" text=\"导航栏分组\"></u-text> \n <u-navbar-item-multi> \n <u-text text=\"导航栏项\"></u-text> \n </u-navbar-item-multi> \n </u-navbar-group-multi> \n      </u-navbar-multi>\n        </div>\n        <div>\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 16px 0;\">侧边导航</div>\n            <u-sidebar value=\"1\" :router=\"false\">\n                <u-sidebar-item value=\"1\">菜单项 1</u-sidebar-item>\n                <u-sidebar-item value=\"2\">菜单项 2</u-sidebar-item>\n                <u-sidebar-item value=\"3\">菜单项 3</u-sidebar-item>\n            </u-sidebar>\n        </div>\n        <div :class=\"$style.table\">\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 0 0 16px;\">表单</div>\n            <u-form layout=\"inline\" label-size=\"auto\" style=\"background:white;padding: 8px;\">\n                <u-grid-layout style=\"width:100%\">\n                    <u-grid-layout-row  :repeat=\"1\">\n                        <u-grid-layout-column>\n                            <div style=\"height: 36px;line-height:36px;background: var(--background-color-base);text-indent: 15px;\">标题</div>\n                        </u-grid-layout-column>\n                    </u-grid-layout-row>\n                </u-grid-layout>\n                <u-grid-layout gap=\"normal none\">\n                    <u-grid-layout-row :repeat=\"2\">\n                        <u-grid-layout-column style=\"padding-right: 12px;\">\n                            <u-form-item label-layout=\"block\" label=\"名称\" style=\"margin-bottom: var(--space-base);width: 100%;\">\n                                <u-input maxlength=\"20\" placeholder=\"请输入\" style=\"border-radius: var(--border-radius-base);border-color: var(--border-color-base);\"></u-input>\n                            </u-form-item>\n                        </u-grid-layout-column>\n                        <u-grid-layout-column style=\"padding-left: 12px;\">\n                            <u-form-item label-layout=\"block\" label=\"名称\" style=\"margin-bottom: var(--space-base);width: 100%;\">\n                                <u-input maxlength=\"20\" placeholder=\"请输入\" style=\"border-radius: var(--border-radius-base);border-color: var(--border-color-base);\"></u-input>\n                            </u-form-item>\n                        </u-grid-layout-column>\n                    </u-grid-layout-row>\n                </u-grid-layout>\n            </u-form>\n        </div>\n    </div>",
                     "style": ".base {\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n}\n\n.areaTitle {\n    width: 108px;\n    height: 18px;\n    font-size: 18px;\n    line-height: 18px;\n    color: #333333;\n}\n\n.sectionTitle {\n    width: 320px;\n    height: 24px;\n    font-size: 14px;\n    line-height: 24px;\n    color: #666666;\n}\n\n.table {\n    margin-top: 16px;\n}\n\n.table [class^=\"u-form_item_label\"] {\n    padding-right: 12px !important;\n    height: 14px;\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n    font-size: 14px;\n    line-height: 14px;\n    color: #999999;\n}\n\n.table [class^=\"u-form_item_field__\"] {\n    width: calc(100% - 40px);\n}"
                 }
             },
@@ -6608,6 +6608,63 @@
                 },
                 "preview": {
                     "template": "<u-alert type=\"info\"><template #title><u-text text=\"公告内容\"></u-text></template></u-alert>"
+                }
+            },
+            {
+                "id": 56,
+                "name": "u-navbar-multi",
+                "title": "导航栏",
+                "toPosition": "navbar-multi",
+                "children": [
+                    "u-navbar-item-multi",
+                    "u-navbar-group-multi",
+                    "u-navbar-divider-multi"
+                ],
+                "type": [],
+                "cssProperty": {
+                    "--navbar-height": {
+                        "type": "input",
+                        "desc": "导航栏高度"
+                    },
+                    "--navbar-background": {
+                        "type": "color",
+                        "desc": "导航栏背景颜色"
+                    },
+                    "--navbar-color": {
+                        "type": "color",
+                        "desc": "导航栏字体颜色"
+                    },
+                    "--navbar-item-color": {
+                        "type": "color",
+                        "desc": "导航栏菜单项字体颜色"
+                    },
+                    "--navbar-item-color-hover": {
+                        "type": "color",
+                        "desc": "导航栏菜单项悬浮字体颜色"
+                    },
+                    "--navbar-item-color-selected": {
+                        "type": "color",
+                        "desc": "导航栏菜单选中字体颜色"
+                    },
+                    "--navbar-group-color": {
+                        "type": "color",
+                        "desc": "导航栏分组字体颜色"
+                    },
+                    "--navbar-group-color-hover": {
+                        "type": "color",
+                        "desc": "导航栏分组悬浮字体颜色"
+                    },
+                    "--navbar-item-line-background": {
+                        "type": "color",
+                        "desc": "导航栏菜单项高亮线条颜色"
+                    },
+                    "--navbar-divider-background": {
+                        "type": "color",
+                        "desc": "导航栏分隔线颜色"
+                    }
+                },
+                "preview": {
+                    "template": "<u-navbar-multi style=\"margin-bottom: 16px;\">\n                <u-text text=\"应用名称\" size=\"large\" slot=\"left\" style=\"margin-left:18px;\"></u-text>\n                      <u-navbar-item-multi>菜单项 1</u-navbar-item-multi>\n  <u-navbar-divider-multi></u-navbar-divider-multi>\n   <u-navbar-group-multi> \n <u-text slot=\"title\" text=\"导航栏分组\"></u-text> \n <u-navbar-item-multi> \n <u-text text=\"导航栏项\"></u-text> \n </u-navbar-item-multi> \n </u-navbar-group-multi> \n      </u-navbar-multi>"
                 }
             }
         ]
