@@ -515,6 +515,7 @@
       tooltipLink: ""
     - name: border
       title: 显示边框
+      advanced: true
       type: boolean
       default: false
       description: ""
