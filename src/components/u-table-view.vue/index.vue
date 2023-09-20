@@ -350,6 +350,7 @@ import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
 import UTableViewDropGhost from './drop-ghost.vue';
 import SEmpty from '../../components/s-empty.vue';
+import throttle from 'lodash/throttle';
 
 export default {
     name: 'u-table-view',
@@ -721,6 +722,10 @@ export default {
         } else {
             this.initialLoad && this.load();
         }
+        this.throttledDragover = throttle(this.handleDragOver, 50, {
+            leading: false,
+            trailing: true,
+        });
     },
     updated() {
         if (this.$env.VUE_APP_DESIGNER && this.slots !== this.$slots && !this.data && !this.dataSource) {
@@ -1923,6 +1928,7 @@ export default {
             this.$emit('dragstart', {
                 source: this.dragState.sourceData,
             });
+            this.currentDragoverItem = null;
         },
         /**
          * 拖拽经过行
@@ -1934,6 +1940,18 @@ export default {
             if (item.draggoverDisabled) {
                 return;
             }
+            this.currentDragoverItem = item;
+            // 快速移动的时候不要计算
+            this.dragoverTimer = setTimeout(() => {
+                if (this.currentDragoverItem === item) {
+                    this.throttledDragover(e, item, rowIndex);
+                } else {
+                    clearTimeout(this.dragoverTimer);
+                    this.throttledDragover.cancel();
+                }
+            }, 200);
+        },
+        handleDragOver(e, item, rowIndex) {
             // 查找到tr行
             const target = this.getTrEl(e);
             const trRect = target.getBoundingClientRect();
@@ -1972,8 +1990,10 @@ export default {
                 // 在下部
                 position = 'insertAfter';
                 let level = (item.tableTreeItemLevel || 0);
-                if (item.expanded && item.children.length) {
-                    level = level + 1;
+                if (item.expanded) {
+                    const childList = this.$at(item, this.childrenField);
+                    if (childList && childList.length)
+                        level = level + 1;
                 }
                 left = level ? indentElRect.left - trRect.left : 0;
                 placeholderWith = level ? placeholderWith : 0;
@@ -1986,9 +2006,9 @@ export default {
             }
 
             // 如果一直更新会卡顿，这里设置有不一样的时候才更新
-            if (!this.dropData
+            if (!!this.currentDragoverItem && (!this.dropData
                 || JSON.stringify(this.dropData.dragoverElRect) !== JSON.stringify(trRect)
-                || this.dropData.position !== position) {
+                || this.dropData.position !== position)) {
                 this.dropData = {
                     dragoverElRect: trRect,
                     parentElRect: this.$refs.root.getBoundingClientRect(),
@@ -2015,6 +2035,8 @@ export default {
             if (!this.subTreeLoading)
                 this.clearDragState();
             this.$emit('dragend');
+            clearTimeout(this.dragoverTimer);
+            this.currentDragoverItem = null;
         },
         /**
          * 拖拽放置
@@ -2113,7 +2135,7 @@ export default {
                             if (!this.$at(parentNode, this.hasChildrenField) && !this.$at(parentNode, this.childrenField)) {
                                 this.setAtWithoutSync(parentNode, this.childrenField, []);
                             }
-                            parentNode.expanded = true;
+                            this.toggleTreeExpanded(parentNode, true);
                             const children = this.$at(parentNode, this.childrenField) || [];
                             children.push(this.dragState.source);
                             targetPath = children.length - 1;
