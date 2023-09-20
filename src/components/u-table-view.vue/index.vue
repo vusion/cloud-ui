@@ -764,7 +764,7 @@ export default {
         } else {
             this.initialLoad && this.load();
         }
-        this.throttledDragover = throttle(this.handleDragOver1, 800, {
+        this.throttledDragover = throttle(this.handleDragOver, 50, {
             leading: false,
             trailing: true,
         });
@@ -1972,7 +1972,7 @@ export default {
                 source: this.dragState.sourceData,
             });
             this.parentElRect = this.$refs.root.getBoundingClientRect();
-            this.draggingItem = null;
+            this.currentDraggingItem = null;
         },
         /**
          * 拖拽经过行
@@ -1984,20 +1984,16 @@ export default {
             if (item.draggoverDisabled) {
                 return;
             }
-            this.draggingItem = item;
-            // console.log('overdrag11', this.draggingItem.name);
-            this.throttledDragover(e, item, rowIndex);
-            // console.log('over', item.name);
-            // clearTimeout(this.aaa);
-            // this.aaa = setTimeout((item) => {
-            //     this.handleDragOver(e, item, rowIndex);
-            // }, 100);
-        },
-        handleDragOver1(e, item, rowIndex) {
-            console.log('overdrag', this.draggingItem.name, item.name);
-            if (this.draggingItem === item) {
-                this.handleDragOver(e, item, rowIndex);
-            }
+            this.currentDraggingItem = item;
+            // 快速移动的时候不要计算
+            this.dragoverTimer = setTimeout(() => {
+                if (this.currentDraggingItem === item) {
+                    this.throttledDragover(e, item, rowIndex);
+                } else {
+                    clearTimeout(this.dragoverTimer);
+                    this.throttledDragover.cancel();
+                }
+            }, 200);
         },
         handleDragOver(e, item, rowIndex) {
             const time1 = new Date().getTime();
@@ -2052,9 +2048,9 @@ export default {
             }
 
             // 如果一直更新会卡顿，这里设置有不一样的时候才更新
-            if (!this.dropData
+            if (!!this.currentDraggingItem && (!this.dropData
                 || JSON.stringify(this.dropData.dragoverElRect) !== JSON.stringify(trRect)
-                || this.dropData.position !== position) {
+                || this.dropData.position !== position)) {
                 const time2 = new Date().getTime();
                 console.log('changeTime', (time2-time1)/1000);
                 this.dropData = {
@@ -2083,7 +2079,8 @@ export default {
             if (!this.subTreeLoading)
                 this.clearDragState();
             this.$emit('dragend');
-            this.throttledDragover.cancel();
+            clearTimeout(this.dragoverTimer);
+            this.currentDraggingItem = null;
         },
         /**
          * 拖拽放置
