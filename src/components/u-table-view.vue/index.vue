@@ -13,12 +13,13 @@
         <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
             <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
-                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth" />
                 </colgroup>
-                <thead>
-                    <tr>
+                <thead :grouped="hasGroupedColumn">
+                    <tr v-for="(headTr, trIndex) in tableHeadTrArr">
+                        <template v-for="(columnVM, columnIndex) in headTr">
                         <th
-                            v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                            v-if="columnVM.colSpan !== 0"
                             ref="th"
                             :class="[$style['head-title'], boldHeader ? $style.boldHeader : null]"
                             :key="columnIndex"
@@ -35,7 +36,9 @@
                             :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                             :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
                             :shadow="(isLastLeftFixed(columnVM, columnIndex) && (!scrollXStart || $env.VUE_APP_DESIGNER)) || (isFirstRightFixed(columnVM, columnIndex) && (!scrollXEnd || $env.VUE_APP_DESIGNER))"
-                            :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden">
+                            :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden"
+                            :colspan="columnVM.colSpan"
+                            :rowspan="hasGroupedColumn && trIndex === 0 && !columnVM.isGroup ? 2 : undefined">
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
                                 <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
@@ -72,13 +75,14 @@
                                 </u-table-view-filters-popper>
                             </span>
                             <!-- Resizable -->
-                            <f-dragger v-if="resizable && columnIndex !== visibleColumnVMs.length - 1" axis="horizontal"
+                            <f-dragger v-if="resizable && columnIndex !== headTr.length - 1" axis="horizontal"
                                 @dragstart="onResizerDragStart($event, columnVM)"
                                 @drag="onResizerDrag($event, columnVM, columnIndex)"
                                 @dragend="onResizerDragEnd($event, columnVM, columnIndex)">
                                 <div :class="$style.resizer" @click.stop></div>
                             </f-dragger>
                         </th>
+                        </template>
                     </tr>
                 </thead>
             </u-table>
@@ -89,7 +93,7 @@
             <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex || $env.VUE_APP_DESIGNER" :hide-scroll="!!tableMetaIndex">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
-                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth" />
                 </colgroup>
                 <tbody>
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
@@ -168,7 +172,10 @@
                                         :style="getStyle(columnIndex, columnVM)"
                                         :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
                                         :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
-                                        :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
+                                        :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)"
+                                        v-if="getItemColSpan(item, rowIndex, columnIndex) !== 0 && getItemRowSpan(item, rowIndex, columnIndex) !== 0"
+                                        :colspan="getItemColSpan(item, rowIndex, columnIndex)"
+                                        :rowspan="getItemRowSpan(item, rowIndex, columnIndex)">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">
                                                 <template v-if="columnVM.autoIndex && usePagination && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
@@ -487,8 +494,11 @@ export default {
             handlerDraggable: false,
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
             configColumnVM: undefined,
-            dynamicColumnVM: undefined,
+            dynamicColumnVMs: [],
+            columnGroupVMs: {},
             slots: this.$slots,
+            autoColSpan: [], // 用于记录自动的的列合并
+            autoRowSpan: [], // 用于记录自动的的行合并
         };
     },
     computed: {
@@ -513,7 +523,7 @@ export default {
             if (this.$env.VUE_APP_DESIGNER) {
                 return this.columnVMs;
             }
-            return this.columnVMs.filter((columnVM) => !columnVM.currentHidden);
+            return this.columnVMs.filter((columnVM) => columnVM && !columnVM.currentHidden);
         },
         expanderColumnVM() {
             return this.columnVMs.find((columnVM) => columnVM.type === 'expander');
@@ -579,6 +589,38 @@ export default {
 
             return !!this.pagination;
         },
+        hasGroupedColumn() {
+            return !!Object.keys(this.columnGroupVMs).length
+        },
+        tableHeadTrArr() {
+            if (!this.hasGroupedColumn) {
+                return [this.visibleColumnVMs]
+            } else {
+                const result = [[]]
+                let dynamicOffset = 0
+                this.visibleColumnVMs.forEach((columnVM, index) => {
+                    if (this.columnGroupVMs[index - dynamicOffset]) {
+                        // 这里需要减去动态列带来的过多位移
+                        result[0].push(this.columnGroupVMs[index - dynamicOffset])
+                    } else if (!columnVM.isUnderGroup) {
+                        result[0].push(columnVM)
+                        // 统计出到当前 index 有多少个动态列（第一个动态列不计入，因为 vm 里已经占位，
+                        // 目前每一个动态列的第一个 vm 都没有 dynamicId，所以可以通过这个来判断）
+                        if (columnVM.$options.name === 'u-table-view-column-dynamic' && columnVM.dynamicId) {
+                            dynamicOffset++
+                        }
+                    }
+                    if (columnVM.colSpan > 1) {
+                        // 如果当前列有合并，那么后面的列自动覆盖不显示
+                        for (let i = index + 1; i < index + columnVM.colSpan && i < this.visibleColumnVMs.length; i++) {
+                            this.visibleColumnVMs[i].colSpan = 0;
+                        }
+                    }
+                })
+                result[1] = this.visibleColumnVMs.filter(columnVM => columnVM.isUnderGroup)
+                return result
+            }
+        }
     },
     watch: {
         data(data) {
@@ -727,30 +769,30 @@ export default {
             this.slots = this.$slots;
             this.$forceUpdate();
         }
-        if (this.$env.VUE_APP_DESIGNER) {
-            // fix：在IDE里更换动态列的位置，页面编辑器的展示没有更改。
-            // 有动态列并且顺序不对，重新赋值
-            // 进不了columnVms的watch，只能放update里
-            const columnVMs = this.columnVMs;
-            const hasDynamic = columnVMs.find((columnVM) => columnVM.$vnode.tag && columnVM.$vnode.tag.endsWith('u-table-view-column-dynamic'));
-            if (hasDynamic) {
-                const vnodes = this.$slots.default || [];
-                if (vnodes.length === columnVMs.length) {
-                    let shouldSort = false;
-                    columnVMs.forEach((columnVM, index) => {
-                        if (columnVM.$vnode !== vnodes[index]) {
-                            shouldSort = true;
-                        }
-                    });
-                    if (shouldSort)
-                        columnVMs.sort((a, b) => {
-                            const aIndex = vnodes.indexOf(a.$vnode);
-                            const bIndex = vnodes.indexOf(b.$vnode);
-                            return aIndex - bIndex;
-                        });
-                }
-            }
-        }
+        // if (this.$env.VUE_APP_DESIGNER) {
+        //     // fix：在IDE里更换动态列的位置，页面编辑器的展示没有更改。
+        //     // 有动态列并且顺序不对，重新赋值
+        //     // 进不了columnVms的watch，只能放update里
+        //     const columnVMs = this.columnVMs;
+        //     const hasDynamic = columnVMs.find((columnVM) => columnVM.$vnode.tag && columnVM.$vnode.tag.endsWith('u-table-view-column-dynamic'));
+        //     if (hasDynamic) {
+        //         const vnodes = this.$slots.default || [];
+        //         if (vnodes.length === columnVMs.length) {
+        //             let shouldSort = false;
+        //             columnVMs.forEach((columnVM, index) => {
+        //                 if (columnVM.$vnode !== vnodes[index]) {
+        //                     shouldSort = true;
+        //                 }
+        //             });
+        //             if (shouldSort)
+        //                 columnVMs.sort((a, b) => {
+        //                     const aIndex = vnodes.indexOf(a.$vnode);
+        //                     const bIndex = vnodes.indexOf(b.$vnode);
+        //                     return aIndex - bIndex;
+        //                 });
+        //         }
+        //     }
+        // }
     },
     mounted() {
         if (this.data)
@@ -1256,8 +1298,8 @@ export default {
             this.currentDataSource.clearLocalData();
             this.load();
             console.log('table reload');
-            if (this.dynamicColumnVM) {
-                this.dynamicColumnVM.reload();
+            if (this.dynamicColumnVMs.length) {
+                this.dynamicColumnVMs.forEach(vm => vm.reload());
             }
         },
         getFields() {
@@ -1527,6 +1569,7 @@ export default {
             this.$watch(() => this.currentData, (currentData) => {
                 if (currentData) {
                     this.processData(currentData);
+                    this.autoMergeRow(currentData);
                 }
             }, {
                 immediate: true,
@@ -2302,6 +2345,67 @@ export default {
             }
             return paginationHeight;
         },
+        autoMergeRow(currentData) {
+            this.visibleColumnVMs && this.visibleColumnVMs.forEach((columnVM, columnIndex) => {
+                if (columnVM.autoRowSpan && columnVM.field && Array.isArray(currentData)) {
+                    let count = 0
+                    for (let i = currentData.length - 1; i >= 0; i--) {
+                        const item = currentData[i];
+                        const itemValue = this.$at(item, columnVM.field)
+                        if (itemValue === this.$at(currentData[i - 1], columnVM.field)) {
+                            if (!this.autoRowSpan[i]) {
+                                this.autoRowSpan[i] = [];
+                            }
+                            this.autoRowSpan[i][columnIndex] = 0;
+                            count++
+                        } else if (count) {
+                            if (!this.autoRowSpan[i]) {
+                                this.autoRowSpan[i] = [];
+                            }
+                            this.autoRowSpan[i][columnIndex] = count + 1;
+                            count = 0
+                        } else if (this.autoRowSpan[i] && this.autoRowSpan[i][columnIndex] !== undefined) {
+                            // 如果后面数据变成不相同，之前的合并结果要清除掉
+                            this.autoRowSpan[i][columnIndex] = undefined;
+                        }
+                    }
+                }
+            })
+        },
+        getItemColSpan(item, rowIndex, columnIndex) {
+            if (Array.isArray(item.colSpan)) {
+                const config = item.colSpan.find((configItem) => configItem[0] === columnIndex);
+                if (config) {
+                    for (let i = 1; i < config[1]; i++) {
+                        if (!this.autoColSpan[rowIndex]) {
+                            this.autoColSpan[rowIndex] = [];
+                        }
+                        this.autoColSpan[rowIndex][columnIndex + i] = 0;
+                    }
+                    return config[1];
+                }
+            }
+            if (this.autoColSpan[rowIndex] && this.autoColSpan[rowIndex][columnIndex ] !== undefined) {
+                return this.autoColSpan[rowIndex][columnIndex];
+            }
+        },
+        getItemRowSpan(item, rowIndex, columnIndex) {
+            if (Array.isArray(item.rowSpan)) {
+                const config = item.rowSpan.find((configItem) => configItem[0] === columnIndex);
+                if (config) {
+                    for (let i = 1; i < config[1]; i++) {
+                        if (!this.autoRowSpan[rowIndex + i]) {
+                            this.autoRowSpan[rowIndex + i] = [];
+                        }
+                        this.autoRowSpan[rowIndex + i][columnIndex] = 0;
+                    }
+                    return config[1];
+                }
+            }
+            if (this.autoRowSpan[rowIndex] && this.autoRowSpan[rowIndex][columnIndex ] !== undefined) {
+                return this.autoRowSpan[rowIndex][columnIndex];
+            }
+        },
     },
 };
 </script>
@@ -2546,7 +2650,7 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.cell[ellipsis] > div, .cell[ellipsis] span {
+.cell[ellipsis] > div {
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
