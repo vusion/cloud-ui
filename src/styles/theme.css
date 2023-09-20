@@ -321,13 +321,15 @@
     --navbar-group-color: white;/* @type color */ /* @desc 导航栏分组字体颜色 */
     --navbar-group-color-hover: white;/* @type color */ /* @desc 导航栏分组悬浮字体颜色 */
 
+    --navbar-divider-line-background: transparent;/* @type color */ /* @desc 导航栏菜单项分隔线颜色 */
+
     --navbar-item-color-inverse: white;/* @hidden */
     --navbar-item-line-transition-duration: 0.5s;/* @hidden */
     --navbar-item-line-background: currentColor;/* @type color */ /* @desc 导航栏菜单项高亮线条颜色 */
     --navbar-item-line-height: 3px;/* @hidden */
     --navbar-divider-width: var(--border-width-base);/* @hidden */
     --navbar-divider-height: 20px;/* @hidden */
-    --navbar-divider-background: #ddd;/* @type color */ /* @desc 导航栏分隔线颜色 */
+    --navbar-divider-background: #ddd;/* @type color */ /* @desc 导航栏分隔组件颜色 */
     --navbar-dropdown-padding: 0 30px 0 10px;/* @hidden */
     --navbar-dropdown-icon-font-size: 18px;/* @hidden */
     --navbar-dropdown-popper-line-height: var(--line-height-base);/* @hidden */
