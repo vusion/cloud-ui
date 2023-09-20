@@ -764,7 +764,7 @@ export default {
         } else {
             this.initialLoad && this.load();
         }
-        this.throttledDragover = throttle(this.handleDragOver, 300, {
+        this.throttledDragover = throttle(this.handleDragOver1, 800, {
             leading: false,
             trailing: true,
         });
@@ -1972,6 +1972,7 @@ export default {
                 source: this.dragState.sourceData,
             });
             this.parentElRect = this.$refs.root.getBoundingClientRect();
+            this.draggingItem = null;
         },
         /**
          * 拖拽经过行
@@ -1983,7 +1984,20 @@ export default {
             if (item.draggoverDisabled) {
                 return;
             }
+            this.draggingItem = item;
+            // console.log('overdrag11', this.draggingItem.name);
             this.throttledDragover(e, item, rowIndex);
+            // console.log('over', item.name);
+            // clearTimeout(this.aaa);
+            // this.aaa = setTimeout((item) => {
+            //     this.handleDragOver(e, item, rowIndex);
+            // }, 100);
+        },
+        handleDragOver1(e, item, rowIndex) {
+            console.log('overdrag', this.draggingItem.name, item.name);
+            if (this.draggingItem === item) {
+                this.handleDragOver(e, item, rowIndex);
+            }
         },
         handleDragOver(e, item, rowIndex) {
             const time1 = new Date().getTime();
