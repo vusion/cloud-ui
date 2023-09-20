@@ -122,13 +122,12 @@ export default {
             this.defaultSlots = this.$slots.default;
             if (this.$slots.default && this.$slots.default.length > 0) {
                 let temp = [];
+                // readme: 为了兼容老版本的各种用法，现在仅去除第一层所有的u-multi-layout.
                 this.$slots.default.forEach((wrapVnode) => {
                     if (wrapVnode.componentOptions && wrapVnode.componentOptions.tag && wrapVnode.componentOptions.tag === 'u-multi-layout-item') {
                         if (Array.isArray(wrapVnode.componentOptions.children)) {
-                            temp = temp.concat(wrapVnode.componentOptions.children.filter((vnode) => vnode.componentOptions && vnode.componentOptions.tag && vnode.componentOptions.tag === 'u-navbar-item-multi'));
+                            temp = temp.concat(wrapVnode.componentOptions.children);
                         }
-                    } else if (wrapVnode.componentOptions && wrapVnode.componentOptions.tag && (wrapVnode.componentOptions.tag === 'u-navbar-item-multi' || wrapVnode.componentOptions.tag === 'u-navbar-group-multi')) {
-                        temp = [...temp, wrapVnode];
                     } else {
                         temp = [...temp, wrapVnode];
                     }
@@ -262,10 +261,22 @@ export default {
     justify-content: space-between; */
     background: var(--navbar-background);
     white-space: nowrap;
+    position: relative;
     color: var(--navbar-color);
 
     /* 旧应用中存在UDropdown在UNavbarMulti里面的情况,这里为了使得UDropdown的主题设置生效，不可以直接覆盖UDropdown的样式 */
     --dropdown-color-text: var(--navbar-color);
+}
+
+.root::after{
+    content: ' ';
+    position: absolute;
+    height: 1px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateY(50%);
+    background: var(--navbar-divider-line-background);
 }
 
 .left {
@@ -352,7 +363,7 @@ export default {
     transform: translateY(-10px);
 }
 
-.root[vusion-empty-background][has-data-source="true"] {
+.root[vusion-empty-background]{
     background: var(--navbar-background);
 }
 
