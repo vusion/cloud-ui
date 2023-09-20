@@ -20,18 +20,6 @@
       description: 选项文本的字段名
       deprecated: true
       advanced: true
-    - name: text-field
-      title: 文本字段名
-      type: string
-      default: text
-      description: 选项文本的字段名
-      advanced: true
-    - name: value-field
-      title: 值字段名
-      type: string
-      default: value
-      description: 选项值的字段名
-      advanced: true
     - name: cancelable
       title: 可取消
       type: boolean
@@ -68,6 +56,20 @@
       brifeDoc: ""
       docDescription: IDE 根据配置的数据源动态计算返回内容的数据结构，用于动态配置项 current.item 的类型说明。
       tooltipLink: ""
+    - name: text-field
+      title: 文本字段名
+      type: string
+      default: text
+      group: 数据属性
+      description: 选项文本的字段名
+      display: property-select
+    - name: value-field
+      title: 值字段名
+      type: string
+      default: value
+      group: 数据属性
+      description: 选项值的字段名
+      display: property-select
     - name: pageable
       title: 分页
       type: boolean
