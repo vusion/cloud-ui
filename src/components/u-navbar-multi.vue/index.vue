@@ -274,7 +274,7 @@ export default {
     height: 1px;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 1px;
     transform: translateY(50%);
     background: var(--navbar-divider-line-background);
 }
