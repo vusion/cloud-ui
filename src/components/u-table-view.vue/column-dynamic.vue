@@ -52,6 +52,7 @@ export default {
                     columnItem: item,
                     field: this.$at(item, this.valueField),
                     dynamicId: this._uid,
+                    colSpan: 1, // 列合并还原为默认值
                     isUnderGroup
                 }));
                 if (vms.length === 0) return;

@@ -65,15 +65,13 @@ export default {
     methods: {
         updateColumnVMs(parentVM) {
             let slotVms = parentVM.$slots.default || [];
-            slotVms = slotVms.filter((vm) => !!vm.tag);
+            slotVms = slotVms.filter((vm) => !!vm.tag && !(vm.componentOptions.tag === 'u-table-view-column-group'
+                && vm.child && !vm.child.$slots.default));
             const index = slotVms.indexOf(this.$vnode);
+            // 如果没有子节点，这个可能是空的
+            if (!this.$slots.default) return;
             const slots = this.$slots.default.filter((vm) => !!vm.tag);
             if (!slots.length) return;
-            // 如果现在的之前的值和现在计算出来的不一样，需要删掉之前的，重新设置
-            // if (~index && this.startIndex !== undefined && this.startIndex !== index) {
-            //     this.deleteColumnVMs(parentVM, this.startIndex, slots.length)
-            //     this.startIndex = index
-            // }
             // 在 children 里找到 slots 对应的 vm
             const children = this.$children.filter((vm) => {
                 // 不是 default slot 并且不在 columnVMs 里
