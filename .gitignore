@@ -18,6 +18,7 @@ yarn.lock
 .vscode
 .metals
 .idea/
+.history/
 
 coverage
 # 自动生成的 demo 用例

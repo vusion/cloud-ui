@@ -11,7 +11,7 @@ exports[`u-uploader.vue Demo-一次性上传多文件 1`] = `
     <div class="item">
       <div class="thumb">
       </div>
-      <a class="link" href="https://static-vusion.163yun.com/assets/breakfast.png" target="_blank">breakfast.png</a>
+      <a class="link" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank">breakfast.png</a>
       <span class="lcp-iconv remove">
         <span class="iconwrap">
           <svg aria-hidden="true" class="iconsvg">
@@ -25,7 +25,7 @@ exports[`u-uploader.vue Demo-一次性上传多文件 1`] = `
     <div class="item">
       <div class="thumb">
       </div>
-      <a class="link" href="https://static-vusion.163yun.com/assets/salad.png" target="_blank">salad.png</a>
+      <a class="link" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank">salad.png</a>
       <span class="lcp-iconv remove">
         <span class="iconwrap">
           <svg aria-hidden="true" class="iconsvg">
@@ -101,7 +101,7 @@ exports[`u-uploader.vue Demo-单文件只读 1`] = `
             <div class="buttons">
               <span class="button" role="remove"></span>
               <span class="button" role="preview"></span>
-              <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+              <a class="button" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
             </div>
           </div>
         </div>
@@ -119,7 +119,7 @@ exports[`u-uploader.vue Demo-单文件只读 1`] = `
             <div class="buttons">
               <span class="button" role="remove"></span>
               <span class="button" role="preview"></span>
-              <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+              <a class="button" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@ exports[`u-uploader.vue Demo-单文件只读 1`] = `
             <div class="buttons">
               <span class="button" role="remove"></span>
               <span class="button" role="preview"></span>
-              <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+              <a class="button" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
             </div>
           </div>
         </div>
@@ -152,7 +152,7 @@ exports[`u-uploader.vue Demo-卡片列表 1`] = `
         <div class="buttons">
           <span class="button" role="remove"></span>
           <span class="button" role="preview"></span>
-          <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+          <a class="button" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
         </div>
       </div>
     </div>
@@ -164,7 +164,7 @@ exports[`u-uploader.vue Demo-卡片列表 1`] = `
         <div class="buttons">
           <span class="button" role="remove"></span>
           <span class="button" role="preview"></span>
-          <a class="button" href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank"></a>
+          <a class="button" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank"></a>
         </div>
       </div>
     </div>
@@ -187,7 +187,7 @@ exports[`u-uploader.vue Demo-只读 1`] = `
       <div class="mask" multiple="multiple">
         <div class="buttons">
           <span class="button" role="preview"></span>
-          <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+          <a class="button" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
         </div>
       </div>
     </div>
@@ -198,7 +198,7 @@ exports[`u-uploader.vue Demo-只读 1`] = `
       <div class="mask" multiple="multiple">
         <div class="buttons">
           <span class="button" role="preview"></span>
-          <a class="button" href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank"></a>
+          <a class="button" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank"></a>
         </div>
       </div>
     </div>
@@ -218,7 +218,7 @@ exports[`u-uploader.vue Demo-图片列表 1`] = `
       <div class="thumb">
         <img class="img" src="https://static-vusion.163yun.com/assets/breakfast.png">
       </div>
-      <a class="link" href="https://static-vusion.163yun.com/assets/breakfast.png" target="_blank">breakfast.png</a>
+      <a class="link" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank">breakfast.png</a>
       <span class="lcp-iconv remove">
         <span class="iconwrap">
           <svg aria-hidden="true" class="iconsvg">
@@ -233,7 +233,7 @@ exports[`u-uploader.vue Demo-图片列表 1`] = `
       <div class="thumb">
         <img class="img" src="https://static-vusion.163yun.com/assets/salad.png">
       </div>
-      <a class="link" href="https://static-vusion.163yun.com/assets/salad.png" target="_blank">salad.png</a>
+      <a class="link" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank">salad.png</a>
       <span class="lcp-iconv remove">
         <span class="iconwrap">
           <svg aria-hidden="true" class="iconsvg">
@@ -259,7 +259,7 @@ exports[`u-uploader.vue Demo-图片列表simple 1`] = `
         <div class="buttons">
           <span class="button" role="remove"></span>
           <span class="button" role="preview"></span>
-          <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+          <a class="button" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
         </div>
       </div>
     </div>
@@ -271,7 +271,7 @@ exports[`u-uploader.vue Demo-图片列表simple 1`] = `
         <div class="buttons">
           <span class="button" role="remove"></span>
           <span class="button" role="preview"></span>
-          <a class="button" href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank"></a>
+          <a class="button" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank"></a>
         </div>
       </div>
     </div>
@@ -355,7 +355,7 @@ exports[`u-uploader.vue Demo-多文件上传 1`] = `
     <div class="item">
       <div class="thumb">
       </div>
-      <a class="link" href="https://static-vusion.163yun.com/assets/breakfast.png" target="_blank">breakfast.png</a>
+      <a class="link" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank">breakfast.png</a>
       <span class="lcp-iconv remove">
         <span class="iconwrap">
           <svg aria-hidden="true" class="iconsvg">
@@ -369,7 +369,7 @@ exports[`u-uploader.vue Demo-多文件上传 1`] = `
     <div class="item">
       <div class="thumb">
       </div>
-      <a class="link" href="https://static-vusion.163yun.com/assets/salad.png" target="_blank">salad.png</a>
+      <a class="link" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank">salad.png</a>
       <span class="lcp-iconv remove">
         <span class="iconwrap">
           <svg aria-hidden="true" class="iconsvg">
@@ -395,7 +395,7 @@ exports[`u-uploader.vue Demo-多文件上传simple 1`] = `
         <div class="buttons">
           <span class="button" role="remove"></span>
           <span class="button" role="preview"></span>
-          <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+          <a class="button" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
         </div>
       </div>
     </div>
@@ -407,7 +407,7 @@ exports[`u-uploader.vue Demo-多文件上传simple 1`] = `
         <div class="buttons">
           <span class="button" role="remove"></span>
           <span class="button" role="preview"></span>
-          <a class="button" href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank"></a>
+          <a class="button" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank"></a>
         </div>
       </div>
     </div>
@@ -466,7 +466,7 @@ exports[`u-uploader.vue Demo-检查文件格式等 1`] = `
         <div class="buttons">
           <span class="button" role="remove"></span>
           <span class="button" role="preview"></span>
-          <a class="button" href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
+          <a class="button" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank"></a>
         </div>
       </div>
     </div>
@@ -478,7 +478,7 @@ exports[`u-uploader.vue Demo-检查文件格式等 1`] = `
         <div class="buttons">
           <span class="button" role="remove"></span>
           <span class="button" role="preview"></span>
-          <a class="button" href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank"></a>
+          <a class="button" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank"></a>
         </div>
       </div>
     </div>
