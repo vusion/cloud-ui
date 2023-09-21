@@ -77,7 +77,8 @@ export default {
             !this.parentVM && this.$contact(this.$options.parentName, (parentVM) => {
                 this.parentVM = parentVM;
                 let slotVms = parentVM.$slots.default || [];
-                slotVms = slotVms.filter((vm) => !!vm.tag);
+                slotVms = slotVms.filter((vm) => !!vm.tag && !(vm.componentOptions.tag === 'u-table-view-column-group'
+                    && vm.child && !vm.child.$slots.default));
                 const index = slotVms.indexOf(this.$vnode);
                 if (~index)
                     parentVM.columnVMs.splice(index, 0, this);
