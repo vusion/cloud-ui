@@ -204,7 +204,7 @@ export default {
                         return noFinished && this.currentValue || [];
                     }
                     const values = value.split(',');
-                    const currentValue = this.currentValue || [];
+                    const currentValue = this.currentValue ? [...this.currentValue] : [];
                     values.forEach((item, index) => {
                         currentValue[index] = currentValue[index] || {};
                         currentValue[index].url = values[index];
