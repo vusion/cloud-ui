@@ -598,6 +598,9 @@ export default {
             } else {
                 const result = [[]]
                 let dynamicOffset = 0
+                // 重置被自动合并的列
+                this.visibleColumnVMs.filter(column => column.colSpan === 0)
+                    .forEach(column => column.colSpan = 1)
                 this.visibleColumnVMs.forEach((columnVM, index) => {
                     if (!columnVM.isUnderGroup) {
                         result[0].push(columnVM)
