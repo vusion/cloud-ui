@@ -388,10 +388,6 @@
         - name: $event.clientWidth
           type: any
           description: 可视区域宽度
-    - name: $listeners
-      kind: trigger
-      description: 监听所有事件。
-      params: []
   methods:
     - name: openLoading
       title: 打开加载中
