@@ -772,30 +772,6 @@ export default {
             this.slots = this.$slots;
             this.$forceUpdate();
         }
-        // if (this.$env.VUE_APP_DESIGNER) {
-        //     // fix：在IDE里更换动态列的位置，页面编辑器的展示没有更改。
-        //     // 有动态列并且顺序不对，重新赋值
-        //     // 进不了columnVms的watch，只能放update里
-        //     const columnVMs = this.columnVMs;
-        //     const hasDynamic = columnVMs.find((columnVM) => columnVM.$vnode.tag && columnVM.$vnode.tag.endsWith('u-table-view-column-dynamic'));
-        //     if (hasDynamic) {
-        //         const vnodes = this.$slots.default || [];
-        //         if (vnodes.length === columnVMs.length) {
-        //             let shouldSort = false;
-        //             columnVMs.forEach((columnVM, index) => {
-        //                 if (columnVM.$vnode !== vnodes[index]) {
-        //                     shouldSort = true;
-        //                 }
-        //             });
-        //             if (shouldSort)
-        //                 columnVMs.sort((a, b) => {
-        //                     const aIndex = vnodes.indexOf(a.$vnode);
-        //                     const bIndex = vnodes.indexOf(b.$vnode);
-        //                     return aIndex - bIndex;
-        //                 });
-        //         }
-        //     }
-        // }
     },
     mounted() {
         if (this.data)
