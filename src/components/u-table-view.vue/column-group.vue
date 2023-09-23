@@ -45,9 +45,7 @@ export default {
     },
     updated() {
         this.deleteColumnVMs(this.parentVM, this.startIndex, this.colSpan)
-        // this.$nextTick(() => {
-            this.updateColumnVMs(this.parentVM)
-        // })
+        this.updateColumnVMs(this.parentVM)
     },
     mounted() {
         !this.parentVM
