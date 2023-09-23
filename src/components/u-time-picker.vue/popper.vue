@@ -138,6 +138,7 @@ export default {
             showTime: validTime,
             validShowTime: this.getUnitFormatTime(this.time),
             lastValidShowTime: this.getUnitFormatTime(this.time),
+            lastChangedValue: this.getUnitFormatTime(this.time),
             hoverItem: {
                 hours: {},
                 minutes: {},
@@ -437,10 +438,16 @@ export default {
         getHoverStatus(type, item) {
             return this.hoverItem[type] && this.hoverItem[type].value === item.value && !this.isScrolling;
         },
+        emitChange(value) {
+            if (this.lastChangedValue === value)
+                return;
+            this.$emit('change', { sender: this, time: value, value }, this);
+            this.lastChangedValue = value;
+        },
         emitValue() {
             const value = this.validShowTime ? this.validShowTime : undefined;
             this.$emit('update:time', value, this);
-            this.$emit('change', { sender: this, time: value, value }, this);
+            this.emitChange(value);
             this.$emit('input', value, this);
         },
         /**
