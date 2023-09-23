@@ -798,7 +798,6 @@ export default {
         // }
     },
     mounted() {
-        console.log('tableview mounted')
         if (this.data)
             this.processData(this.data);
 
@@ -1573,6 +1572,9 @@ export default {
             this.$watch(() => this.currentData, (currentData) => {
                 if (currentData) {
                     this.processData(currentData);
+                    // 处理自动合并逻辑前恢复默认值
+                    this.autoRowSpan = [];
+                    this.autoColSpan = [];
                     this.autoMergeRow(currentData);
                 }
             }, {
@@ -2349,7 +2351,9 @@ export default {
             }
             return paginationHeight;
         },
-        autoMergeRow(currentData) {
+        autoMergeRow(currentData = this.currentData) {
+            // 这里要再重置一下，因为表格列也会调用这个方法
+            this.autoRowSpan = [];
             this.visibleColumnVMs && this.visibleColumnVMs.forEach((columnVM, columnIndex) => {
                 if (columnVM.autoRowSpan && columnVM.field && Array.isArray(currentData)) {
                     let count = 0
@@ -2368,13 +2372,11 @@ export default {
                             }
                             this.autoRowSpan[i][columnIndex] = count + 1;
                             count = 0
-                        } else if (this.autoRowSpan[i] && this.autoRowSpan[i][columnIndex] !== undefined) {
-                            // 如果后面数据变成不相同，之前的合并结果要清除掉
-                            this.autoRowSpan[i][columnIndex] = undefined;
                         }
                     }
                 }
             })
+            this.$forceUpdate();
         },
         getItemColSpan(item, rowIndex, columnIndex) {
             if (Array.isArray(item.colSpan)) {

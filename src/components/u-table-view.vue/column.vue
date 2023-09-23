@@ -71,6 +71,11 @@ export default {
         hidden(value) {
             this.currentHidden = value;
         },
+        autoRowSpan() {
+            this.$nextTick(() => {
+                this.parentVM && this.parentVM.autoMergeRow()
+            })
+        }
     },
     created() {
         this.$parent.$options.name !== 'u-table-view-column-group' &&
