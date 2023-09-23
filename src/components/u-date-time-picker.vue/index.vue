@@ -244,6 +244,7 @@ export default {
             'update',
             this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
         );
+        this.lastChangedValue = this.finalDateTime ? new Date(this.finalDateTime.replace(/-/g, '/')).getTime() : undefined
     },
     mounted() {
         this.autofocus && this.$refs.input.focus();
@@ -498,6 +499,12 @@ export default {
             this.finalDateTime = this.dateTime;
             this.emitValue();
         },
+        emitChange(value) {
+            if (this.lastChangedValue === value)
+                return;
+            this.$emit('change', { sender: this, date: value });
+            this.lastChangedValue = value;
+        },
         emitValue() {
             const newDateTime = this.finalDateTime ? this.toValue(new Date(this.finalDateTime.replace(/-/g, '/'))) : undefined;
             this.$emit('update:value', newDateTime);
@@ -507,10 +514,7 @@ export default {
              * @property {object} sender 事件发送对象
              * @property {object} date 改变后的日期时间
              */
-            this.$emit('change', {
-                sender: this,
-                date: this.finalDateTime ? new Date(this.finalDateTime.replace(/-/g, '/')).getTime() : undefined,
-            }); // 方便u-field组件捕获到其值
+            this.emitChange(this.finalDateTime ? new Date(this.finalDateTime.replace(/-/g, '/')).getTime() : undefined); // 方便u-field组件捕获到其值
             this.$emit('input', newDateTime);
         },
         onPopperOpen() {
