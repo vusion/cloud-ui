@@ -133,8 +133,9 @@ export default {
                 expanded = !this.currentExpanded;
             if (expanded === oldExpanded && !mode)
                 return;
-            if (!(this.itemVMs.length
-                || (this.node && !this.$at(this.node, this.rootVM.isLeafField) && this.rootVM.currentDataSource && this.rootVM.currentDataSource.load)))
+            const hasChildren = this.itemVMs.length > 0 || this.groupVMs.length > 0;
+            const hasRemoteChildren = this.node && !this.$at(this.node, this.rootVM.isLeafField) && this.rootVM.currentDataSource && this.rootVM.currentDataSource.load;
+            if (!hasChildren && !hasRemoteChildren)
                 return;
             let cancel = false;
             this.$emit('before-toggle', {
