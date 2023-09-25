@@ -43,10 +43,6 @@ export default {
             this.colSpan = this.endIndex - this.startIndex + 1 + value
         }
     },
-    updated() {
-        this.deleteColumnVMs(this.parentVM, this.startIndex, this.colSpan)
-        this.updateColumnVMs(this.parentVM)
-    },
     mounted() {
         !this.parentVM
             && this.$contact(this.$options.parentName, (parentVM) => {
