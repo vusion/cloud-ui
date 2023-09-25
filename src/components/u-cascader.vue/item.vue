@@ -88,6 +88,9 @@ export default {
             this.ensureFocusedInView();
         },
         ensureFocusedInView() {
+            if (!this.$refs[this.umenuIndex]) {
+                return;
+            }
             const focusedEl = this.$refs[this.umenuIndex][0].$el;
             let parentEl = focusedEl.parentElement;
             parentEl = findScrollParent(focusedEl);

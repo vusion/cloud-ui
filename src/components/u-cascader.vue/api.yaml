@@ -82,6 +82,18 @@
       brifeDoc: ""
       docDescription: 选择器的值
       tooltipLink: ""
+    - name: useArrayLikeValue
+      title: 绑定值使用值字段
+      default: false
+      model: false
+      bindHide: true
+      sync: false
+      type: boolean
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 是否使用数组类型的value
+      tooltipLink: ""
     - name: filterable
       title: 筛选
       type: boolean
