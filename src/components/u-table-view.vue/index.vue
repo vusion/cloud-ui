@@ -95,7 +95,7 @@
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
                             <tr :key="rowIndex" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }"
-                            :draggable="rowDraggable?rowDraggable:undefined"
+                            :draggable="rowDraggable && item.draggable || undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
                             @dragstart="onDragStart($event, item, rowIndex)"
@@ -145,7 +145,7 @@
                                             </f-slot>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable?handlerDraggable:undefined"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable && item.draggable || undefined" :disabled="!(handlerDraggable && item.draggable)"></i-ico>
                                             </span>
                                         </div>
                                         <div v-if="columnVM.type === 'editable'" vusion-slot-name="editcell" :plus-empty="columnVM.$attrs['editcell-plus-empty']" style="margin-top:10px">
@@ -190,7 +190,7 @@
                                             </template>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable?handlerDraggable:undefined"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable && item.draggable || undefined" :disabled="!(handlerDraggable && item.draggable)"></i-ico>
                                             </span>
                                             <!-- Normal text -->
                                             <template v-if="columnVM.type === 'editable'">
@@ -349,6 +349,7 @@ import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
 import UTableViewDropGhost from './drop-ghost.vue';
 import SEmpty from '../../components/s-empty.vue';
+import throttle from 'lodash/throttle';
 
 export default {
     name: 'u-table-view',
@@ -451,6 +452,8 @@ export default {
         pagination: { type: Boolean, default: undefined },
         parentField: { type: String },
         configurable: { type: Boolean, default: false }, // 是否配置显隐列
+        canDragableHandler: Function,
+        canDropinHandler: Function,
     },
     data() {
         return {
@@ -702,6 +705,10 @@ export default {
         } else {
             this.initialLoad && this.load();
         }
+        this.throttledDragover = throttle(this.handleDragOver, 50, {
+            leading: false,
+            trailing: true,
+        });
     },
     mounted() {
         if (this.data)
@@ -769,6 +776,11 @@ export default {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('editing'))
                         this.$set(item, 'editing', '');
+                });
+            }
+            if (this.draggable) {
+                data.forEach((item) => {
+                    this.canDraggable(item);
                 });
             }
             return data;
@@ -1842,13 +1854,18 @@ export default {
             // 该节点下的所有子节点不要响应dragover
             this.currentData.forEach((citem) => {
                 citem.draggoverDisabled = this.isSubNode(citem, item);
-                citem.disabledDrop = this.treeDisplay ? citem.disabled || citem.dropDisabled : true;
+                if (this.treeDisplay) {
+                    this.canDropin(citem);
+                } else {
+                    citem.disabledDrop = true;
+                }
             });
             // 本身不要线
             item.draggoverDisabled = true;
             this.$emit('dragstart', {
                 source: this.dragState.sourceData,
             });
+            this.currentDragoverItem = null;
         },
         /**
          * 拖拽经过行
@@ -1860,6 +1877,18 @@ export default {
             if (item.draggoverDisabled) {
                 return;
             }
+            this.currentDragoverItem = item;
+            // 快速移动的时候不要计算
+            this.dragoverTimer = setTimeout(() => {
+                if (this.currentDragoverItem === item) {
+                    this.throttledDragover(e, item, rowIndex);
+                } else {
+                    clearTimeout(this.dragoverTimer);
+                    this.throttledDragover.cancel();
+                }
+            }, 200);
+        },
+        handleDragOver(e, item, rowIndex) {
             // 查找到tr行
             const target = this.getTrEl(e);
             const trRect = target.getBoundingClientRect();
@@ -1898,8 +1927,10 @@ export default {
                 // 在下部
                 position = 'insertAfter';
                 let level = (item.tableTreeItemLevel || 0);
-                if (item.expanded && item.children.length) {
-                    level = level + 1;
+                if (item.expanded) {
+                    const childList = this.$at(item, this.childrenField);
+                    if (childList && childList.length)
+                        level = level + 1;
                 }
                 left = level ? indentElRect.left - trRect.left : 0;
                 placeholderWith = level ? placeholderWith : 0;
@@ -1912,9 +1943,9 @@ export default {
             }
 
             // 如果一直更新会卡顿，这里设置有不一样的时候才更新
-            if (!this.dropData
+            if (!!this.currentDragoverItem && (!this.dropData
                 || JSON.stringify(this.dropData.dragoverElRect) !== JSON.stringify(trRect)
-                || this.dropData.position !== position) {
+                || this.dropData.position !== position)) {
                 this.dropData = {
                     dragoverElRect: trRect,
                     parentElRect: this.$refs.root.getBoundingClientRect(),
@@ -1941,6 +1972,8 @@ export default {
             if (!this.subTreeLoading)
                 this.clearDragState();
             this.$emit('dragend');
+            clearTimeout(this.dragoverTimer);
+            this.currentDragoverItem = null;
         },
         /**
          * 拖拽放置
@@ -2039,7 +2072,7 @@ export default {
                             if (!this.$at(parentNode, this.hasChildrenField) && !this.$at(parentNode, this.childrenField)) {
                                 this.setAtWithoutSync(parentNode, this.childrenField, []);
                             }
-                            parentNode.expanded = true;
+                            this.toggleTreeExpanded(parentNode, true);
                             const children = this.$at(parentNode, this.childrenField) || [];
                             children.push(this.dragState.source);
                             targetPath = children.length - 1;
@@ -2227,6 +2260,25 @@ export default {
                 paginationHeight = paginationHeight + marginTop + marginBottom;
             }
             return paginationHeight;
+        },
+        /**
+         * IDE 里生成的事async函数，所以需要await处理
+         */
+        async canDraggable(item) {
+            if (this.canDragableHandler && (this.canDragableHandler instanceof Promise || typeof this.canDragableHandler === 'function')) {
+                const canDraggableResult = await this.canDragableHandler(item);
+                this.$set(item, 'draggable', canDraggableResult);
+            } else {
+                this.$set(item, 'draggable', true);
+            }
+        },
+        async canDropin(item) {
+            if (this.canDropinHandler && (this.canDropinHandler instanceof Promise || typeof this.canDropinHandler === 'function')) {
+                const canDropinResult = await this.canDropinHandler(item);
+                item.disabledDrop = item.disabledDrop || !canDropinResult;
+            } else {
+                item.disabledDrop = item.disabled;
+            }
         },
     },
 };
@@ -2543,6 +2595,10 @@ export default {
 }
 .dragHandler {
     cursor: var(--table-view-drag-cursor);
+}
+.dragHandler[disabled] {
+    cursor: var(--table-view-drag-cursor-disabled);
+    color: var(--table-view-drag-color-disabled);
 }
 
 .expander {

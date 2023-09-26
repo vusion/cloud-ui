@@ -346,6 +346,31 @@
       brifeDoc: ""
       docDescription: 表格行是否可拖拽放置。默认关闭
       tooltipLink: ""
+      toggleclear:
+        - can-dropin-handler
+        - can-dragable-handler
+    - name: can-dragable-handler
+      title: 可拖拽节点
+      type: Function
+      description: 设置表格行是否可拖拽起来。类型为函数
+      bindOpen: true
+      group: 交互属性
+      dependency:
+        - draggable: true
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: can-dropin-handler
+      title: 可放置节点
+      type: Function
+      description: 设置表格行是否可拖拽放入。类型为函数
+      bindOpen: true
+      group: 交互属性
+      dependency:
+        - draggable: true
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: accordion
       title: 手风琴模式
       type: boolean
