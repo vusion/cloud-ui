@@ -28,10 +28,18 @@ export default {
             this.currentDataSource = this.normalizeDataSource(this.dataSource, this.multiple);
         },
         normalizeDataSource(dataSource, multiple) {
-            const final = this.currentDataSource || {
-                data: [],
-                load: undefined,
-            };
+            let final;
+            if (dataSource === undefined) {
+                final = {
+                    data: [],
+                    load: undefined,
+                };
+            } else {
+                final = this.currentDataSource || {
+                    data: [],
+                    load: undefined,
+                };
+            }
 
             function createLoad(rawLoad) {
                 return async function (params = {}) {
