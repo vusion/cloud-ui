@@ -83,11 +83,12 @@
       docDescription: 选择器的值
       tooltipLink: ""
     - name: useArrayLikeValue
-      title: 使用数组类型
+      title: 绑定值使用值字段
       default: false
+      model: false
+      bindHide: true
+      sync: false
       type: boolean
-      sync: true
-      model: true
       description: ""
       group: 数据属性
       brifeDoc: ""
