@@ -53,7 +53,7 @@ export default {
     mixins: [MField, SupportDataSource, treeDataSource],
     props: {
         data: { type: Array, default: () => [] },
-        value: { type: String, default: '' },
+        value: { type: [String, Array], default: '' },
         placeholder: { type: String, default: '请选择' },
         field: { type: String, default: 'text' },
         trigger: { type: String, default: 'click' },
@@ -67,13 +67,20 @@ export default {
         lazyLoad: { type: Function, default: () => {} },
         autofocus: { type: Boolean, default: false },
         opened: { type: Boolean, default: false },
+
+        // fixme：理论上使用converter属性会更好一点,但其他converter有其它的作用
+        useArrayLikeValue: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
-            currentValue: this.value,
+            currentValue: this.useArrayLikeValue && Array.isArray(this.value) ? '正在加载' : this.value,
             currentData: [], // 动态加载时的数据
             lastValueString: '',
-            lastValueArray: [],
+            lastValueArray: [], // 当前属性存储文本字段的内容, UCascader有被其它组件mixin，故这里不修改变量名
+            lastRealValueArray: this.useArrayLikeValue && Array.isArray(this.value) ? JSON.parse(JSON.stringify(this.value)) : [], // 当前属性存储值字段的内容
             allMergeText: [], // 过滤时的搜索内容
             selectSubIdnex: 0, // 点击pre组件时候，取消after组件的选中状态
             subComponents: [], // mpopper真正内容的数据
@@ -86,14 +93,32 @@ export default {
         currentValue(value) {
             // 在 u-region-select 组件中有 converter，需要组件自己触发事件
             if (!this.converter) {
-                this.$emit('update:value', value);
-                this.$emit('change', { sender: this, value });
-                this.$emit('input', value, this);
+                if (this.useArrayLikeValue) {
+                    const value = JSON.parse(JSON.stringify(this.lastRealValueArray));
+                    this.$emit('update:value', value);
+                    this.$emit('change', { sender: this, value });
+                    this.$emit('input', value, this);
+                } else {
+                    this.$emit('update:value', value);
+                    this.$emit('change', { sender: this, value });
+                    this.$emit('input', value, this);
+                }
             }
         },
+
         value(value) {
             if (!this.converter) {
-                this.currentValue = value;
+                if (this.useArrayLikeValue && Array.isArray(value)) {
+                    this.updateFromArrayLikeValue(JSON.parse(JSON.stringify(value)));
+                    if (!this.showFinalValue)
+                        this.currentValue = this.lastValueString;
+                    else
+                        this.currentValue = this.lastValueString.split(this.join).slice(-1)[0];
+                    // filterable，需要强制更新下
+                    this.$refs.input.updateCurrentValue(this.currentValue);
+                } else {
+                    this.currentValue = value;
+                }
             }
         },
         opened(value) {
@@ -112,6 +137,15 @@ export default {
             this.currentData = data;
             this.allMergeText = this.getMergeText(this.currentData);
             this.getSubComponents();
+            if (this.useArrayLikeValue) {
+                this.updateFromArrayLikeValue(this.lastRealValueArray);
+                if (!this.showFinalValue)
+                    this.currentValue = this.lastValueString;
+                else
+                    this.currentValue = this.lastValueString.split(this.join).slice(-1)[0];
+                // filterable，需要强制更新下
+                this.$refs.input.updateCurrentValue(this.currentValue);
+            }
         },
     },
     created() {
@@ -119,11 +153,11 @@ export default {
             this.currentDataSource = this.normalizeDataSource(this.data);
         }
         // this.currentValue = this.value; // 这里会引起currentValue change，emit事件导致validator执行
-        this.lastValueString = this.value;
+        this.lastValueString = this.useArrayLikeValue && Array.isArray(this.value) ? '正在加载' : this.value;
         if (this.lazy)
             this.triggerLazyLoad();
         // validator
-        this.$emit('update', this.currentValue);
+        this.$emit('update', this.useArrayLikeValue ? this.lastRealValueArray : this.currentValue);
     },
     mounted() {
         // 输入框是readonly时，autofocus不起作用，需要这样进行focus
@@ -142,24 +176,69 @@ export default {
             if (selectNode.children)
                 this.subComponents.push(selectNode.children);
             // 判断是否是动态加载
-            else if ('leaf' in selectNode && !selectNode.leaf && !('loading' in selectNode))
+            else if ('leaf' in selectNode && !selectNode.leaf && !('loading' in selectNode)) {
                 this.triggerLazyLoad(selectNode);
-
-            this.lastValueArray.splice(subIndex);
-            this.lastValueArray.push(this.$at(selectNode, this.field));
+            }
+            if (Array.isArray(selectNode.index)) {
+                this.lastRealValueArray = [];
+                this.lastValueArray = [];
+                selectNode.index.reduce((nodes, i) => {
+                    const node = nodes[i];
+                    if (!node) {
+                        return [];
+                    }
+                    this.lastValueArray.push(this.$at(node, this.field));
+                    this.lastRealValueArray.push(this.$at(node, this.valueField));
+                    return node.children || [];
+                }, this.currentData || []);
+            } else {
+                this.lastValueArray.splice(subIndex);
+                this.lastRealValueArray.splice(subIndex);
+                this.lastValueArray.push(this.$at(selectNode, this.field));
+                this.lastRealValueArray.push(this.$at(selectNode, this.valueField));
+            }
         },
         selectEnd() {
             this.lastValueString = this.lastValueArray.join(this.join);
             this.close();
-
-            this.$emit('select', {
-                           value: this.lastValueString,
-                           values: this.lastValueArray,
-                           items: this.subComponents,
-                       },
-                       this,
-            );
+            if (this.useArrayLikeValue) {
+                this.$emit('select', {
+                    value: this.lastRealValueArray,
+                    values: this.lastRealValueArray,
+                    items: this.subComponents,
+                }, this);
+            } else {
+                this.$emit('select', {
+                    value: this.lastValueString,
+                    values: this.lastValueArray,
+                    items: this.subComponents,
+                }, this);
+            }
         },
+
+        updateFromArrayLikeValue(values) {
+            const temp = [this.currentData];
+            this.lastRealValueArray = values;
+            this.lastValueArray = [];
+            this.selectMenuIndexs = [];
+            this.lastRealValueArray.forEach((inputvalue, currentref) => {
+                const sub = (temp[currentref] || []).find((item, index) => {
+                    if (this.$at(item, this.valueField) === inputvalue) {
+                        this.selectMenuIndexs.push(index);
+                        this.lastValueArray.push(this.$at(item, this.field));
+                        return true;
+                    }
+                    return false;
+                });
+                if (sub) {
+                    const children = this.$at(sub, this.childrenField);
+                    if (children)
+                        temp.push(children);
+                }
+            });
+            this.lastValueString = this.lastValueArray.join(this.join);
+        },
+
         // 返回每个属性合并后的value和它们所在嵌套数组的位置
         getMergeText(data) {
             const combinedText = [];
@@ -196,23 +275,41 @@ export default {
             this.lastValueArray = [];
             this.selectMenuIndexs = [];
             if (this.currentValue) {
-                const inputValues = this.lastValueString.split(this.join);
+                if (!this.useArrayLikeValue) {
+                    const inputValues = this.lastValueString.split(this.join);
 
-                inputValues.forEach((inputvalue, currentref) => {
-                    this.lastValueArray.push(inputvalue);
-                    const sub = (this.subComponents[currentref] || []).find((item, index) => {
-                        if (this.$at(item, this.field) === inputvalue) {
-                            this.selectMenuIndexs.push(index);
-                            return true;
+                    inputValues.forEach((inputvalue, currentref) => {
+                        this.lastValueArray.push(inputvalue);
+                        const sub = (this.subComponents[currentref] || []).find((item, index) => {
+                            if (this.$at(item, this.field) === inputvalue) {
+                                this.selectMenuIndexs.push(index);
+                                return true;
+                            }
+                            return false;
+                        });
+                        if (sub) {
+                            const children = this.$at(sub, this.childrenField);
+                            if (children)
+                                this.subComponents.push(children);
                         }
-                        return false;
                     });
-                    if (sub) {
-                        const children = this.$at(sub, this.childrenField);
-                        if (children)
-                            this.subComponents.push(children);
-                    }
-                });
+                } else {
+                    this.lastRealValueArray.forEach((inputvalue, currentref) => {
+                        const sub = (this.subComponents[currentref] || []).find((item, index) => {
+                            if (this.$at(item, this.valueField) === inputvalue) {
+                                this.selectMenuIndexs.push(index);
+                                this.lastValueArray.push(this.$at(item, this.field));
+                                return true;
+                            }
+                            return false;
+                        });
+                        if (sub) {
+                            const children = this.$at(sub, this.childrenField);
+                            if (children)
+                                this.subComponents.push(children);
+                        }
+                    });
+                }
             }
             // open时，光标设置已选中的last ucascaderitem
             this.selectSubIdnex = this.lastValueArray.length ? this.lastValueArray.length - 1 : 0;
@@ -276,8 +373,10 @@ export default {
             const refVM = this.$refs[this.selectSubIdnex][0];
             if (!refVM)
                 return;
-            if (!this.currentValue)
+            if (!this.currentValue) {
                 this.lastValueString = '';
+                this.lastRealValueArray = [];
+            }
             refVM.keyboardShift(0, true);
             this.close();
         },
@@ -294,6 +393,7 @@ export default {
         clear(...args) {
             this.currentValue = '';
             this.lastValueString = '';
+            this.lastRealValueArray = [];
             this.selectSubIdnex = -1;
             this.close();
 
