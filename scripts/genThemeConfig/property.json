@@ -707,6 +707,8 @@
     "--table-view-subrow-background-dragging": "rgba(237, 237, 237, 0.5)",
     "--table-view-row-background-dragging": "#e5e5e5",
     "--table-view-drag-cursor": "move",
+    "--table-view-drag-cursor-disabled": "not-allowed",
+    "--table-view-drag-color-disabled": "#ccc",
     "--table-view-head-background": "#f7f8fa",
     "--table-view-head-title-sortable-hover": "#eef2f8",
     "--table-view-sort-color-hover": "#aaa",
