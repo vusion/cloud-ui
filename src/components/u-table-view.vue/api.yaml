@@ -352,7 +352,7 @@
     - name: can-dragable-handler
       title: 可拖拽节点
       type: Function
-      description: 设置表格行是否可拖拽起来。类型为函数
+      description: 设置表格行是否可拖拽起来。绑定逻辑
       bindOpen: true
       group: 交互属性
       dependency:
@@ -363,7 +363,7 @@
     - name: can-dropin-handler
       title: 可放置节点
       type: Function
-      description: 设置表格行是否可拖拽放入。类型为函数
+      description: 设置表格行是否可拖拽放入。绑定逻辑
       bindOpen: true
       group: 交互属性
       dependency:
