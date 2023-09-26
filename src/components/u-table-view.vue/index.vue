@@ -688,6 +688,7 @@ export default {
         values(values) {
             this.$nextTick(() => {
                 this.watchValues(values);
+                this.$forceUpdate();
             });
         },
         currentValues(values, oldValues) {

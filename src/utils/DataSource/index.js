@@ -134,6 +134,13 @@ const VueDataSource = Vue.extend({
                 return this.arrangedData;
         },
     },
+    watch: {
+        data() {
+            if (!this.remote || !this._load) {
+                this.arrange();
+            }
+        },
+    },
     // paging, sorting, filtering 暂不用 watch
     created() {
         this.remote = !!this._load;
