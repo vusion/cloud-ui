@@ -29,7 +29,19 @@
                 :ellipsis-title="ellipsisTitle"
                 :item="item"
                 :index="index">
-                <slot name="item" :item="item" :index="index" :text="$at(item, field || textField) || item" :value="$at(item, valueField) || item" :disabled="item.disabled || disabled" vusion-slot-name="item" :ellipsis-title="ellipsisTitle"><span v-if="!$env.VUE_APP_DESIGNER">{{ $at(item, field || textField) || item }}</span><s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty></slot>
+                <slot 
+                name="item" 
+                :item="item" 
+                :index="index" 
+                :text="$at(item, field || textField) || item" 
+                :value="$at(item, valueField) || item" 
+                :disabled="item.disabled || disabled" 
+                vusion-slot-name="item" 
+                :ellipsis-title="ellipsisTitle">
+                {{ isPrimitive(item) ? item : $at(item, field || textField) }}
+                <s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']">
+                </s-empty>
+            </slot>
             </component>
         </div>
         <div :class="$style.status" status="loading" v-if="currentLoading" vusion-slot-name="loading">
@@ -319,6 +331,9 @@ export default {
         });
     },
     methods: {
+        isPrimitive(value) {
+            return typeof value !== "object" || value === null;
+        },
         isSimpleArray(arr) {
             if (!Array.isArray(arr)) {
               return false; // 如果不是数组类型，则不满足条件，直接返回 false
