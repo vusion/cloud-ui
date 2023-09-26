@@ -1964,8 +1964,7 @@ export default {
             <u-table-view-expander
                 :item="current.item"
                 @toggle="current.toggle"
-                expand-icon="decrease"
-                collapse-icon="add-new">
+                expand-icon="decrease">
             </u-table-view-expander>
         </template>
         <div slot="expand-content" slot-scope="{ item }">

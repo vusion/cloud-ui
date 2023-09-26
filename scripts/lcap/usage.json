@@ -11588,7 +11588,7 @@
                     "title": "展开列图标",
                     "attrs": [
                         {
-                            "name": "open-icon",
+                            "name": "expand-icon",
                             "title": "展开时图标",
                             "type": "icon",
                             "description": "展开时图标",
@@ -11597,7 +11597,7 @@
                             "tooltipLink": ""
                         },
                         {
-                            "name": "close-icon",
+                            "name": "collapse-icon",
                             "title": "关闭时图标",
                             "type": "icon",
                             "description": "关闭时图标",

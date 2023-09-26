@@ -1,5 +1,5 @@
 <template>
-  <span
+  <div
     :class="$style.expander"
     :expanded="item.expanded"
     :disabled="item.disabled"
@@ -16,7 +16,7 @@
         :name="collapseIcon"
         :class="$style.icon"
         :expanded="false"
-        notext
+        icotype="only"
     ></i-ico>
     <!-- 展开时 -->
     <i-ico
@@ -24,7 +24,7 @@
         :name="expandIcon"
         :class="$style.icon"
         :expanded="true"
-        notext
+        icotype="only"
     ></i-ico>
 
     <!-- 横线 -->
@@ -35,7 +35,7 @@
     <span
       v-show="showAfter"
       :class="$style.after"></span>
-  </span>
+</div>
 </template>
 
 <script>
@@ -101,9 +101,9 @@ export default {
 <style module>
 .expander {
     user-select: none;
-    display: inline-block;
-    width: var(--table-view-expander-size);
-    height: var(--table-view-expander-size);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     cursor: pointer;
 }
@@ -114,6 +114,9 @@ export default {
     background-color: var(--table-view-expander-background);
     border: 1px solid var(--table-view-expander-border-color);
     border-radius: var(--table-view-expander-border-radius);
+
+    width: var(--table-view-expander-size);
+    height: var(--table-view-expander-size);
 }
 
 .expander[show-span]:hover{
