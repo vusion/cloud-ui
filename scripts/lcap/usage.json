@@ -10964,16 +10964,6 @@
                             "tooltipLink": ""
                         },
                         {
-                            "name": "width",
-                            "title": "列宽度",
-                            "type": "string | number",
-                            "description": "设置列宽度，可设置为数字或百分比",
-                            "group": "样式属性",
-                            "brifeDoc": "",
-                            "docDescription": "指定列宽，可以是数字或百分比，如100，或10%。",
-                            "tooltipLink": ""
-                        },
-                        {
                             "name": "expander-position",
                             "title": "展开列图标位置",
                             "type": "string",
@@ -10997,6 +10987,16 @@
                             "group": "样式属性",
                             "brifeDoc": "",
                             "docDescription": "展开列图标的位置。默认\"左侧\"。",
+                            "tooltipLink": ""
+                        },
+                        {
+                            "name": "width",
+                            "title": "列宽度",
+                            "type": "string | number",
+                            "description": "设置列宽度，可设置为数字或百分比",
+                            "group": "样式属性",
+                            "brifeDoc": "",
+                            "docDescription": "指定列宽，可以是数字或百分比，如100，或10%。",
                             "tooltipLink": ""
                         }
                     ],
@@ -11588,8 +11588,8 @@
                     "title": "展开列图标",
                     "attrs": [
                         {
-                            "name": "expand-icon",
-                            "title": "展开图标",
+                            "name": "open-icon",
+                            "title": "展开时图标",
                             "type": "icon",
                             "description": "展开时图标",
                             "brifeDoc": "",
@@ -11597,8 +11597,8 @@
                             "tooltipLink": ""
                         },
                         {
-                            "name": "collapse-icon",
-                            "title": "关闭图标",
+                            "name": "close-icon",
+                            "title": "关闭时图标",
                             "type": "icon",
                             "description": "关闭时图标",
                             "brifeDoc": "",

@@ -4,6 +4,7 @@
     :expanded="item.expanded"
     :disabled="item.disabled"
     @click.stop="toggle"
+    :show-span="!showIcon"
 
     :vusion-disabled-move="true"
     :vusion-disabled-cut="true"
@@ -48,6 +49,15 @@ export default {
     computed: {
         expanded() {
             return this.item.expanded;
+        },
+        showIcon() {
+            if (this.expanded && this.expandIcon) {
+                return true;
+            }
+            if (!this.expanded && this.collapseIcon) {
+                return true;
+            }
+            return false;
         },
         showBefore() {
             if (this.collapseIcon && this.expandIcon) {
@@ -94,18 +104,19 @@ export default {
     display: inline-block;
     width: var(--table-view-expander-size);
     height: var(--table-view-expander-size);
+    position: relative;
+    cursor: pointer;
+}
+
+.expander[show-span] {
     line-height: var(--table-view-expander-size);
     vertical-align: -2px;
-    /* text-align: center;
-    transform: rotate(-180deg); */
-    position: relative;
     background-color: var(--table-view-expander-background);
-    cursor: pointer;
-
     border: 1px solid var(--table-view-expander-border-color);
     border-radius: var(--table-view-expander-border-radius);
 }
-.expander:hover{
+
+.expander[show-span]:hover{
     background-color: var(--table-view-expander-background-hover);
     border-color: var(--table-view-expander-border-color-hover);
 }
