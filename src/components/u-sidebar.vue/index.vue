@@ -76,7 +76,7 @@ export default {
         },
     },
     created() {
-        this.$on('select', ({ itemVM }) => this.router && itemVM.navigate());
+        this.$on('select', ({ itemVM }, fromLinkClick = false) => !fromLinkClick && this.router && itemVM.navigate());
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
             this.load();

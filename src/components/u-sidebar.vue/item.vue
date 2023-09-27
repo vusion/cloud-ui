@@ -60,7 +60,7 @@ export default {
                 }, this);
                 if (cancel)
                     return;
-                this.parentVM.select(this);
+                this.parentVM.select(this, true);
             }
         },
     },
