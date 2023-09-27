@@ -1,5 +1,6 @@
 <template>
-    <a :class="$style.root"
+    <a
+        :class="[$style.root, parentVM.collapse && !isInSidebar ? $style.popRoot : $style.normalRoot]"
         :selected="parentVM.router ? active : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
         :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
         v-ellipsis-title
@@ -25,6 +26,11 @@ export default {
     parentName: 'u-sidebar',
     groupName: 'u-sidebar-group',
     extends: MSinglexItem,
+    computed: {
+        isInSidebar() {
+            return this.groupVM.$options.name !== this.$options.groupName;
+        },
+    },
     watch: {
         active(active) {
             this.watchActive(active);
@@ -71,9 +77,6 @@ export default {
 .root {
     display: block;
     cursor: var(--cursor-pointer);
-    height: var(--sidebar-item-height);
-    line-height: var(--sidebar-item-height);
-    padding-left: var(--sidebar-item-padding-left);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -82,6 +85,14 @@ export default {
     transition: all var(--transition-duration-base);
     border-bottom: var(--sidebar-item-border-bottom-width) solid var(--sidebar-item-border-bottom-color);
 
+}
+
+.normalRoot {
+    height: var(--sidebar-item-height);
+    line-height: var(--sidebar-item-height);
+    padding-left: var(--sidebar-item-padding-left);
+    background: var(--sidebar-item-background);
+    border-bottom: var(--sidebar-item-border-bottom-width) solid var(--sidebar-item-border-bottom-color);
 }
 
 .root:hover {

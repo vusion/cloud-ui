@@ -9,6 +9,7 @@
                     :disabled="node.disabled"
                     :collapsible="$at2(node, collapsibleField)"
                     :title="$at2(node, textField)"
+                    :icon="$at2(node, iconField)"
                 ></u-sidebar-group>
                 <u-sidebar-item v-else
                     :class="$env.VUE_APP_DESIGNER ? $style.mask:''"
@@ -40,7 +41,7 @@ export default {
     childName: 'u-sidebar-item',
     mixins: [MSinglex, MGroupParent],
     props: {
-        collapse: { type: Boolean, default: false },
+        collapse: { type: Boolean, default: false }, // 当前用作整个侧边栏的折叠效果。
         router: { type: Boolean, default: true },
         particular: { type: Boolean, default: false },
         dataSource: [Array, Object, Function],
@@ -63,6 +64,7 @@ export default {
     data() {
         return {
             currentDataSource: undefined,
+            currentCollapse: this.collapse,
         };
     },
     watch: {

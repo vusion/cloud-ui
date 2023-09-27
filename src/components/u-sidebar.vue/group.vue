@@ -1,7 +1,13 @@
 <template>
-<div :class="$style.root" :disabled="disabled">
-    <div :class="$style.head" :selected="selected" @click="rootVM.expandTrigger === 'click' && toggle()" :title="title" :data-group-nested-level="currentGroupNestedLevel">
+<div :class="[$style.root, rootVM.collapse && !isInSidebar ? $style.popRoot : $style.normalRoot]" :disabled="disabled">
+    <div :class="$style.head" :selected="selected" @click="rootVM.expandTrigger === 'click' && !rootVM.collapse && toggle()" :title="title" :data-group-nested-level="currentGroupNestedLevel">
         <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
+            <i-ico
+                v-if="icon"
+                :name="icon"
+                :class="$style.singleicon"
+                notext
+            ></i-ico>
             <slot name="title">
                 {{ title }}
                 <s-empty
@@ -13,15 +19,55 @@
             </slot>
         </div>
         <u-loading v-if="loading" :class="$style.loading" size="small"></u-loading>
-        <span v-else-if="currentCollapsible && !rootVM.collapse" :class="$style.expander"
+        <span v-else-if="currentCollapsible && !(rootVM.collapse && isInSidebar)" :class="$style.expander"
             :expanded="currentExpanded"
-            @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
+            @click="rootVM.expandTrigger === 'click-expander' && !rootVM.collapse && ($event.stopPropagation(), toggle())"
         ></span>
         <span :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></span>
     </div>
-    <m-popper :class="$style.popper" reference="$parent" v-if="rootVM.collapse" placement="right-start">
+    <m-popper
+        v-if="rootVM.collapse"
+        :class="$style.popper"
+        :reference="$refs.root"
+        :trigger="rootVM.trigger"
+        placement="right-start"
+        :disabled="disabled"
+        :append-to="isInSidebar ? 'body': 'reference'"
+        :opened="($env.VUE_APP_DESIGNER && collapsible === false ) ? false :currentExpanded"
+        @before-open="$event=>collapsible === false && $event.preventDefault()"
+        @update:opened="toggle($event)"
+    >
         <div :class="$style.body">
+            <template v-for="(childNode,idx) in childrenNodes">
+                <u-sidebar-group
+                    v-if="hasChildren(childNode)"
+                    :key="$at2(childNode, rootVM.valueField) || idx"
+                    :node="childNode"
+                    :disabled="childNode.disabled"
+                    :collapsible="$at2(childNode, rootVM.collapsibleField)"
+                    :title="$at2(childNode, rootVM.textField)"
+                    :icon="$at2(childNode, rootVM.iconField)"
+                ></u-sidebar-group>
+                <u-sidebar-item v-else
+                    :key="`${$at2(childNode, rootVM.valueField) || idx}`"
+                    :text="$at2(childNode, rootVM.textField)"
+                    :replace="$at2(childNode, rootVM.replaceField)"
+                    :exact="$at2(childNode, rootVM.exactField)"
+                    :value="$at2(childNode, rootVM.valueField)"
+                    :icon="$at2(childNode, rootVM.iconField)"
+                    :link-type="$at2(childNode, rootVM.linkTypeField)"
+                    :href-and-to="$at2(childNode, rootVM.hrefAndToField)"
+                    :to="$at2(childNode, rootVM.toField)"
+                    :target="$at2(childNode, rootVM.targetField)"
+                    :disabled="childNode.disabled"
+                ></u-sidebar-item>
+            </template>
             <slot></slot>
+            <div
+                v-if="(!$slots.default)&& !hasChildren && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"
+                vusion-empty-background="add-sub"
+                style="padding: 20px 0;">
+            </div>
         </div>
     </m-popper>
     <f-collapse-transition v-else>
@@ -88,6 +134,7 @@ export default {
 
     props: {
         node: Object,
+        icon: String,
     },
 
     data() {
@@ -107,6 +154,10 @@ export default {
                 return [];
             }
             return this.$at(this.node, this.rootVM.childrenField) || [];
+        },
+
+        isInSidebar() {
+            return this.parentVM.$options.name === this.$options.parentName;
         },
     },
 
@@ -189,28 +240,53 @@ export default {
     padding-left: var(--sidebar-group-padding-left);
 }
 
+.popRoot{
+    display: block;
+    position: relative;
+    z-index: 1;
+    line-height: 32px;
+    padding: 0 32px 0 12px;
+    font-size: 14px;
+}
+
 .head {
     display: block;
     cursor: var(--cursor-pointer);
     font-weight: var(--sidebar-group-head-font-weight);
     color: var(--sidebar-group-head-color);
-    padding-left: var(--sidebar-group-head-padding-left);
-    height: var(--sidebar-group-head-height);
-    line-height: var(--sidebar-group-head-height);
     transition: color 0.2s;
-    position: relative;
     border-bottom: var(--sidebar-group-head-border-bottom-width) solid var(--sidebar-group-head-border-bottom-color);
 }
-.title{
+
+.normalRoot .head {
+    padding-left: var(--sidebar-group-head-padding-left);
+    height: var(--sidebar-group-head-height);
+    position: relative;
+    line-height: var(--sidebar-group-head-height);
+}
+.popperRoot .head{
+    display: flex;
+    align-items: center;
+}
+
+.normalRoot .title{
     padding-right: 32px;
 }
 
+.normalRoot .title{
+    flex: 1;
+}
+
+.popRoot:hover .head,
 .head:hover {
     color: var(--sidebar-group-head-color-hover);
+}
+
+.normalRoot .head:hover{
     background-color: var(--sidebar-group-head-background-hover);
 }
 
-.head[data-group-nested-level]:hover::before{
+.normalRoot .head[data-group-nested-level]:hover::before{
     content: "";
     position: absolute;
     top: 0;
@@ -224,25 +300,25 @@ export default {
 }
 
 /* 当前仅支持7层嵌套的情况，7+的情况大致会很少出现 */
-.head[data-group-nested-level="1"]:hover::before{
+.normalRoot .head[data-group-nested-level="1"]:hover::before{
     width: calc(1*var(--sidebar-group-padding-left));
 }
-.head[data-group-nested-level="2"]:hover::before{
+.normalRoot .head[data-group-nested-level="2"]:hover::before{
     width: calc(2*var(--sidebar-group-padding-left));
 }
-.head[data-group-nested-level="3"]:hover::before{
+.normalRoot .head[data-group-nested-level="3"]:hover::before{
     width: calc(3*var(--sidebar-group-padding-left));
 }
-.head[data-group-nested-level="4"]:hover::before{
+.normalRoot .head[data-group-nested-level="4"]:hover::before{
     width: calc(4*var(--sidebar-group-padding-left));
 }
-.head[data-group-nested-level="5"]:hover::before{
+.normalRoot .head[data-group-nested-level="5"]:hover::before{
     width: calc(5*var(--sidebar-group-padding-left));
 }
-.head[data-group-nested-level="6"]:hover::before{
+.normalRoot .head[data-group-nested-level="6"]:hover::before{
     width: calc(6*var(--sidebar-group-padding-left));
 }
-.head[data-group-nested-level="7"]:hover::before{
+.normalRoot .head[data-group-nested-level="7"]:hover::before{
     width: calc(7*var(--sidebar-group-padding-left));
 }
 
@@ -251,7 +327,7 @@ export default {
 }
 
 /* @TODO: replace by icon-font */
-.head:hover::after {
+.normalRoot .head:hover::after {
     border-left-color: white;
 }
 
@@ -278,10 +354,17 @@ export default {
     right: 0;
     top: 0;
     z-index: 1;
+    text-align: center;
+}
+
+.normalRoot .expander{
     width: var(--sidebar-group-head-height);
     height: var(--sidebar-group-head-height);
     line-height: var(--sidebar-group-head-height);
-    text-align: center;
+}
+
+.popRoot .expander{
+    transform: translateX(-100%);
 }
 
 .expander::after {
@@ -292,7 +375,7 @@ export default {
 }
 
 /* @TODO: replace by icon-font */
-.expander[expanded]::after {
+.normalRoot .expander[expanded]::after {
     transform: rotate(90deg);
 }
 
@@ -305,9 +388,17 @@ export default {
 }
 
 .popper {
-    margin-left: var(--sidebar-group-popper-margin-left);
-    width: var(--sidebar-width);
+    /* margin-left: var(--sidebar-group-popper-margin-left); */
+    /* width: var(--sidebar-width); */
     background: var(--sidebar-background);
+    min-width: 120px;
+    line-height: var(--navbar-dropdown-popper-line-height);
+    font-size: var(--navbar-dropdown-popper-font-size);
+    padding: 8px 0px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    background: #fff;
 }
 
 .body {}

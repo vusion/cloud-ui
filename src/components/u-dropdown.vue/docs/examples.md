@@ -5,7 +5,9 @@
     <template #title="scope">
         <u-text text="下拉菜单"></u-text>
     </template>
-    <u-dropdown-item text="item"></u-dropdown-item>
+<u-dropdown-group><template #title><u-text
+            text="菜单分组"></u-text></template><u-dropdown-item><u-text
+            text="菜单项"></u-text></u-dropdown-item></u-dropdown-group>
     <u-dropdown-item text="item"></u-dropdown-item>
     <u-dropdown-item text="item"></u-dropdown-item>
     <u-dropdown-item disabled text="item"></u-dropdown-item>
