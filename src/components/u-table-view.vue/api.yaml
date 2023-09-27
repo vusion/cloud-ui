@@ -1206,7 +1206,7 @@
       type: number
       group: 样式属性
       min: 1
-      precision: 1
+      precision: 0
     - name: autoRowSpan
       title: 自动合并相同数据
       type: boolean
