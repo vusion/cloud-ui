@@ -149,8 +149,10 @@ export default {
             startDateTime: this.format(this.startDate, 'YYYY-MM-DD HH:mm:ss'), // popper选择以后的值
             endDateTime: this.format(this.endDate, 'YYYY-MM-DD HH:mm:ss'), // popper选择以后的值
             open: false,
-            minTime: undefined,
-            maxTime: undefined,
+            startMinTime: undefined,
+            startMaxTime: undefined,
+            endMinTime: undefined,
+            endMaxTime: undefined,
             currentMaxDate: this.getMaxDate(), // 可能会存在最大值小于最小值情况，组件需要内部处理让最大值和最小值一样
             popperplaceholder: this.$t('selectPopperDateText'),
             finalStartDateTime: this.format(this.startDate, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
@@ -224,6 +226,32 @@ export default {
                 this.showDate = this.format(newDateTime, 'YYYY-MM-DD');
                 this.showTime = this.format(newDateTime, 'HH:mm:ss');
             },
+        },
+        minTime: {
+            get() {
+                return this.editTarget === 'end' ? this.endMinTime : this.startMinTime;
+            },
+            set(value) {
+                // 基于当前编辑目标，设置对应的值
+                if (this.editTarget === 'end') {
+                    this.endMinTime = value;
+                } else {
+                    this.startMinTime = value;
+                }
+            }
+        },
+        maxTime: {
+            get() {
+                return this.editTarget === 'end' ? this.endMaxTime : this.startMaxTime;
+            },
+            set(value) {
+                // 基于当前编辑目标，设置对应的值
+                if (this.editTarget === 'end') {
+                    this.endMaxTime = value;
+                } else {
+                    this.startMaxTime = value;
+                }
+            }
         },
         finalDateTime: {
             get() {
@@ -493,6 +521,26 @@ export default {
                 || (maxDate && date > maxDate && maxDate)
             );
         },
+        beforeToggle(open = true) {
+            if (open) {
+                // 这里需要在打开选择框之前重新计算一下，不然时间范围可能不对
+                const datetime = this.format(this.dateTime, 'YYYY-MM-DD');
+                if (
+                    datetime === this.minCalendarDate
+                    && datetime === this.maxCalendarDate
+                ) {
+                    this.minTime = this.spMinTime;
+                    this.maxTime = this.spMaxTime;
+                } else if (datetime === this.minCalendarDate)
+                    this.minTime = this.spMinTime;
+                else if (datetime === this.maxCalendarDate)
+                    this.maxTime = this.spMaxTime;
+                else {
+                    this.minTime = undefined;
+                    this.maxTime = undefined;
+                }
+            }
+        },
         toggle(open) {
             if (this.editTarget === 'end') {
                 this.toggleRight(open);
@@ -506,8 +554,10 @@ export default {
                 // 如果已经打开了右侧的，则关闭右侧的面板
                 if (this.editTarget === 'end' && open)
                     popper.toggle(!open);
-                if (open)
+                if (open) {
                     this.editTarget = 'start';
+                    this.beforeToggle()
+                }
                 // 下一个时序触发，等待事件完成
                 this.$nextTick(() => {
                     popper.toggle(open);
@@ -520,8 +570,10 @@ export default {
                 // 如果已经打开了左侧的，则关闭左侧的面板
                 if (this.editTarget === 'start' && open)
                     popper.toggle(!open);
-                if (open)
+                if (open) {
                     this.editTarget = 'end';
+                    this.beforeToggle()
+                }
                 // 下一个时序触发，等待事件完成
                 this.$nextTick(() => {
                     popper.toggle(open);
