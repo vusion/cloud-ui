@@ -1,41 +1,43 @@
 <template>
-<div :class="[$style.root, rootVM.collapse && !isInSidebar ? $style.popRoot : $style.normalRoot]" :disabled="disabled">
-    <div :class="$style.head" :selected="selected" @click="rootVM.expandTrigger === 'click' && !rootVM.collapse && toggle()" :title="title" :data-group-nested-level="currentGroupNestedLevel">
+<div :class="[$style.root, rootVM.currentCollapse && !isInSidebar ? $style.popRoot : $style.normalRoot]" :disabled="disabled" :mini="onlyIcon" ref="root">
+    <div :class="$style.head" :selected="selected" @click="rootVM.expandTrigger === 'click' && !rootVM.currentCollapse && toggle()" :title="title" :data-group-nested-level="currentGroupNestedLevel">
+        <i-ico
+            v-if="onlyIcon||icon"
+            :name="icon || 'success'"
+            :class="$style.singleicon"
+            notext
+        ></i-ico>
+        <span v-else :class="$style.singleicon" style="width: 16px"></span>
         <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
-            <i-ico
-                v-if="icon"
-                :name="icon"
-                :class="$style.singleicon"
-                notext
-            ></i-ico>
-            <slot name="title">
+            <slot name="title" v-if="!hiddenText">
                 {{ title }}
                 <s-empty
                     v-if="!$slots.title
                         && !title
+                        && !hiddenText
                         && $env.VUE_APP_DESIGNER
                         && !!$attrs['vusion-node-path']">
                 </s-empty>
             </slot>
         </div>
-        <u-loading v-if="loading" :class="$style.loading" size="small"></u-loading>
-        <span v-else-if="currentCollapsible && !(rootVM.collapse && isInSidebar)" :class="$style.expander"
+        <u-loading v-if="!hiddenText && loading" :class="$style.loading" size="small"></u-loading>
+        <span v-else-if="!hiddenText &&currentCollapsible && !(rootVM.currentCollapse && isInSidebar)" :class="$style.expander"
             :expanded="currentExpanded"
-            @click="rootVM.expandTrigger === 'click-expander' && !rootVM.collapse && ($event.stopPropagation(), toggle())"
+            @click="rootVM.expandTrigger === 'click-expander' && !rootVM.currentCollapse && ($event.stopPropagation(), toggle())"
         ></span>
-        <span :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></span>
+        <span v-if="!hiddenText" :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></span>
     </div>
     <m-popper
-        v-if="rootVM.collapse"
+        v-if="rootVM.currentCollapse"
         :class="$style.popper"
         :reference="$refs.root"
         :trigger="rootVM.trigger"
         placement="right-start"
         :disabled="disabled"
         :append-to="isInSidebar ? 'body': 'reference'"
-        :opened="($env.VUE_APP_DESIGNER && collapsible === false ) ? false :currentExpanded"
         @before-open="$event=>collapsible === false && $event.preventDefault()"
         @update:opened="toggle($event)"
+        :offset="popperOffset"
     >
         <div :class="$style.body">
             <template v-for="(childNode,idx) in childrenNodes">
@@ -70,8 +72,8 @@
             </div>
         </div>
     </m-popper>
-    <f-collapse-transition v-else>
-        <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true">
+    <f-collapse-transition>
+        <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true" v-if="!rootVM.currentCollapse">
             <template v-for="(childNode,idx) in childrenNodes">
                 <u-sidebar-group
                     v-if="hasChildren(childNode)"
@@ -145,6 +147,18 @@ export default {
     },
 
     computed: {
+        popperOffset() {
+            let isFirstItem = false;
+            if (this.innerIdx !== undefined) {
+                // 这是由childNodes动态渲染的
+                isFirstItem = this.innerIdx === 0;
+            } else if (Array.isArray(this.parentVM.childrenNodes) && this.parentVM.childrenNodes.length === 0 && this.parentVM.$slots.default) {
+                // 这是由tag模式静态指定
+                isFirstItem = this.parentVM.$slots.default.indexOf(this.$vnode) === 0;
+                // console.log('%c [ this.parentVM.$slots.default.indexOf(this.$vnode) ]-158', 'font-size:13px; background:pink; color:#bf2c9f;', this.parentVM.$slots.default.indexOf(this.$vnode))
+            }
+            return isFirstItem ? [-8, 4] : [4, 4];
+        },
         selected() {
             return this.itemVMs.some((item) => item.active);
         },
@@ -158,6 +172,13 @@ export default {
 
         isInSidebar() {
             return this.parentVM.$options.name === this.$options.parentName;
+        },
+
+        onlyIcon() {
+            return this.isInSidebar && this.rootVM.currentCollapse;
+        },
+        hiddenText() {
+            return this.isInSidebar && this.rootVM.currentCollapse && this.rootVM.isTransitionEnd;
         },
     },
 
@@ -240,6 +261,10 @@ export default {
     padding-left: var(--sidebar-group-padding-left);
 }
 
+.root[mini]{
+    padding-left: 0;
+}
+
 .popRoot{
     display: block;
     position: relative;
@@ -250,7 +275,7 @@ export default {
 }
 
 .head {
-    display: block;
+    display: flex;
     cursor: var(--cursor-pointer);
     font-weight: var(--sidebar-group-head-font-weight);
     color: var(--sidebar-group-head-color);
@@ -269,8 +294,36 @@ export default {
     align-items: center;
 }
 
+.normalRoot[mini] .singleicon {
+    margin-left: -8px;
+}
+
+.normalRoot .singleicon {
+    margin-left: -18px;
+}
+
+.root .singleicon {
+    margin-right: 8px;
+}
+
+.root .singleicon {
+    font-size: var(--sidebar-item-icon-font-size);
+    color: var(--sidebar-item-icon-color);
+}
+
+.root:hover .singleicon {
+    color: var(--sidebar-item-icon-color-hover);
+}
+.root[selected] .singleicon {
+    color: var(--sidebar-item-icon-color-selected);
+}
+
 .normalRoot .title{
     padding-right: 32px;
+}
+
+.normalRoot[mini] .title{
+    padding-right: 0;
 }
 
 .normalRoot .title{

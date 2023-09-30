@@ -1,33 +1,43 @@
 <template>
-    <nav :class="$style.root" :readonly="readonly" :disabled="disabled">
-        <template v-if="currentDataSource&&currentDataSource.data&&Array.isArray(currentDataSource.data)">
-            <template v-for="(node,idx) in currentDataSource.data">
-                <u-sidebar-group
-                    v-if="hasChildren(node)"
-                    :key="$at2(node, valueField) || idx"
-                    :node="node"
-                    :disabled="node.disabled"
-                    :collapsible="$at2(node, collapsibleField)"
-                    :title="$at2(node, textField)"
-                    :icon="$at2(node, iconField)"
-                ></u-sidebar-group>
-                <u-sidebar-item v-else
-                    :class="$env.VUE_APP_DESIGNER ? $style.mask:''"
-                    :key="`${$at2(node, valueField) || idx}`"
-                    :text="$at2(node, textField)"
-                    :replace="$at2(node, replaceField)"
-                    :exact="$at2(node, exactField)"
-                    :value="$at2(node, valueField)"
-                    :icon="$at2(node, iconField)"
-                    :link-type="$at2(node, linkTypeField)"
-                    :href-and-to="$at2(node, hrefAndToField)"
-                    :target="$at2(node, targetField)"
-                    :to="$at2(node, toField)"
-                    :disabled="node.disabled"
-                ></u-sidebar-item>
+    <nav :class="$style.root" :readonly="readonly" :disabled="disabled" :style="dynamicStyle" @transitionend="handleTranstitionEnd">
+        <f-scroll-view :class="$style.content">
+            <template v-if="currentDataSource&&currentDataSource.data&&Array.isArray(currentDataSource.data)">
+                <template v-for="(node,idx) in currentDataSource.data">
+                    <u-sidebar-group
+                        v-if="hasChildren(node)"
+                        :key="$at2(node, valueField) || idx"
+                        :node="node"
+                        :disabled="node.disabled"
+                        :collapsible="$at2(node, collapsibleField)"
+                        :title="$at2(node, textField)"
+                        :icon="$at2(node, iconField)"
+                    ></u-sidebar-group>
+                    <u-sidebar-item v-else
+                        :class="$env.VUE_APP_DESIGNER ? $style.mask:''"
+                        :key="`${$at2(node, valueField) || idx}`"
+                        :text="$at2(node, textField)"
+                        :replace="$at2(node, replaceField)"
+                        :exact="$at2(node, exactField)"
+                        :value="$at2(node, valueField)"
+                        :icon="$at2(node, iconField)"
+                        :link-type="$at2(node, linkTypeField)"
+                        :href-and-to="$at2(node, hrefAndToField)"
+                        :target="$at2(node, targetField)"
+                        :to="$at2(node, toField)"
+                        :disabled="node.disabled"
+                    ></u-sidebar-item>
+                </template>
             </template>
-        </template>
-        <slot></slot>
+            <slot></slot>
+        </f-scroll-view>
+        <div vusion-slot-name="bottom" :class="$style.bottom" @click="toggleCollapse">
+            <i-ico
+                name="success"
+                :class="$style.singleicon"
+                notext
+            ></i-ico>
+            <u-text>展开</u-text>
+        </div>
     </nav>
 </template>
 
@@ -60,11 +70,18 @@ export default {
         initialLoad: { type: Boolean, default: true },
         collapsibleField: { type: String, default: 'collapsible' },
     },
-
+    computed: {
+        dynamicStyle() {
+            return Object.assign({}, this.currentWidth !== null && { width: `${this.currentWidth}px` }, !this.isDragging && { transition: 'width 500ms' });
+        },
+    },
     data() {
         return {
             currentDataSource: undefined,
             currentCollapse: this.collapse,
+            currentWidth: null,
+            isTransitionEnd: true,
+            isDragging: false,
         };
     },
     watch: {
@@ -84,6 +101,14 @@ export default {
             this.load();
     },
     methods: {
+        handleTranstitionEnd() {
+            this.isTransitionEnd = true;
+        },
+        toggleCollapse() {
+            this.currentCollapse = !this.currentCollapse;
+            this.currentWidth = this.currentWidth ? null : 48;
+            this.isTransitionEnd = false;
+        },
         hasChildren(node) {
             // 异步加载时使用isLeaf判断叶节点
             if (this.currentDataSource && this.currentDataSource.load && node && !this.$at(node, this.childrenField)) {
@@ -200,6 +225,16 @@ export default {
     height: 100%;
     overflow: auto;
     transition: all var(--transition-duration-base);
+}
+
+.content{
+    height: calc(100% - var(--sidebar-group-head-height));
+}
+
+.bottom{
+    height: var(--sidebar-group-head-height);
+    display: flex;
+    align-items: center;
 }
 
 .root[vusion-empty-background][has-data-source="true"] {
