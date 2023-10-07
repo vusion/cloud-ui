@@ -454,6 +454,8 @@ export default {
         configurable: { type: Boolean, default: false }, // 是否配置显隐列
         canDragableHandler: Function,
         canDropinHandler: Function,
+        acrossTableDrag: { type: Boolean, default: false }, // 是否跨表格拖拽
+        dropPlaceInOrder: { type: Boolean, default: true }, // 是否可以放置到表格行的位置
     },
     data() {
         return {
@@ -749,8 +751,8 @@ export default {
             // 拖拽设置
             const dragHandler = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'dragHandler');
             if (!this.$env.VUE_APP_DESIGNER) {
-                this.rowDraggable = this.draggable && !dragHandler;
-                this.handlerDraggable = this.draggable && dragHandler;
+                this.rowDraggable = (this.draggable || this.acrossTableDrag) && !dragHandler;
+                this.handlerDraggable = (this.draggable || this.acrossTableDrag) && dragHandler;
             }
             if (selectable) {
                 data.forEach((item) => {
@@ -778,7 +780,7 @@ export default {
                         this.$set(item, 'editing', '');
                 });
             }
-            if (this.draggable) {
+            if (this.draggable || this.acrossTableDrag) {
                 data.forEach((item) => {
                     this.canDraggable(item);
                 });
@@ -1866,27 +1868,41 @@ export default {
                 source: this.dragState.sourceData,
             });
             this.currentDragoverItem = null;
+            if (this.acrossTableDrag) {
+                const dragStartData = {
+                    source: item,
+                    sourcePath: rowIndex, // 这里需要是表格中的具体行值，用于drop的时候判断
+                    sourceData: {
+                        item,
+                        level: item.tableTreeItemLevel,
+                        index: this.findItemIndex(item),
+                    },
+                };
+                e.dataTransfer.setData('application/json', JSON.stringify(dragStartData));
+            }
         },
         /**
          * 拖拽经过行
          */
         onDragOver(e, item, rowIndex) {
             e.preventDefault();
-            if (!this.dragState.dragging)
+            if (!this.dragState.dragging && !this.acrossTableDrag)
                 return;
             if (item.draggoverDisabled) {
                 return;
             }
-            this.currentDragoverItem = item;
-            // 快速移动的时候不要计算
-            this.dragoverTimer = setTimeout(() => {
-                if (this.currentDragoverItem === item) {
-                    this.throttledDragover(e, item, rowIndex);
-                } else {
-                    clearTimeout(this.dragoverTimer);
-                    this.throttledDragover.cancel();
-                }
-            }, 200);
+            if (this.draggable) {
+                this.currentDragoverItem = item;
+                // 快速移动的时候不要计算
+                this.dragoverTimer = setTimeout(() => {
+                    if (this.currentDragoverItem === item) {
+                        this.throttledDragover(e, item, rowIndex);
+                    } else {
+                        clearTimeout(this.dragoverTimer);
+                        this.throttledDragover.cancel();
+                    }
+                }, 200);
+            }
         },
         handleDragOver(e, item, rowIndex) {
             // 查找到tr行
@@ -1910,6 +1926,8 @@ export default {
                 if (treeExpanderEl) {
                     placeholderWith = treeExpanderEl.offsetWidth;
                 }
+            } else {
+                item.disabledDrop = true;
             }
 
             const disabledDrop = item.disabledDrop || item.draggoverDisabled;
@@ -1979,7 +1997,21 @@ export default {
          * 拖拽放置
          */
         onDrop(e) {
-            if (this.dragState
+            if (this.acrossTableDrag) {
+                const dragStartData = JSON.parse(e.dataTransfer.getData('application/json') || '{}');
+                ['disabledDrop', 'draggoverDisabled'].forEach((key) => {
+                    delete dragStartData.sourceData.item[key];
+                    delete this.dragState.targetData.item[key];
+                });
+                this.$emit('drop', {
+                    source: dragStartData.sourceData,
+                    target: this.dragState.targetData,
+                    position: this.dropData.position,
+                });
+                this.clearDragState();
+                clearTimeout(this.dragoverTimer);
+                this.currentDragoverItem = null;
+            } else if (this.dragState
                 && this.dragState.dragging
                 && this.dragState.sourcePath !== this.dragState.targetPath
                 && this.dropData) {
@@ -2113,6 +2145,8 @@ export default {
                     },
                 });
                 this.clearDragState();
+                clearTimeout(this.dragoverTimer);
+                this.currentDragoverItem = null;
             }
         },
         onRootDragover(e) {
