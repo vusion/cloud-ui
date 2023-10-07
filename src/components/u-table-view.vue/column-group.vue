@@ -27,6 +27,8 @@ export default {
             dynamicColumnLengthMap: {},
             // 在此之前的分组偏移量，会影响 columnVMs 的 index
             prevGroupOffset: 0,
+            // 在 slot 里的 index
+            indexInSlot: -1,
         };
     },
     computed: {
@@ -74,11 +76,12 @@ export default {
             // 标记为在分组下
             children.forEach(child => child.isUnderGroup = true)
             if (~index) {
+                this.indexInSlot = index
                 // 这里需要找出当前 index 之前有几个分组，然后加上偏移量，否则会出现错位
                 Object.keys(parentVM.columnGroupVMs).forEach(key => {
-                    if (key < index) {
-                        const currentOffset = parentVM.columnGroupVMs[key].colSpan - 1 >= 0
-                            ? parentVM.columnGroupVMs[key].colSpan - 1 : 0
+                    const item = parentVM.columnGroupVMs[key]
+                    if (item.indexInSlot < index) {
+                        const currentOffset = item.colSpan - 1 >= 0 ? item.colSpan - 1 : 0
                         this.prevGroupOffset += currentOffset
                     }
                 })
