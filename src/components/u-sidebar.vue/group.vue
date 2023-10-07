@@ -1,13 +1,12 @@
 <template>
-<div :class="[$style.root, rootVM.currentCollapse && !isInSidebar ? $style.popRoot : $style.normalRoot]" :disabled="disabled" :mini="onlyIcon" ref="root">
-    <div :class="$style.head" :selected="selected" @click="rootVM.expandTrigger === 'click' && !rootVM.currentCollapse && toggle()" :title="title" :data-group-nested-level="currentGroupNestedLevel">
+<div :class="[$style.root, rootVM.currentCollapse && !isInSidebar ? $style.popRoot : $style.normalRoot]" :disabled="disabled" :mini="miniMode" ref="root" :noIcon="!icon">
+    <div :class="$style.head" :selected="selected" @click="rootVM.expandTrigger === 'click' && !rootVM.currentCollapse && toggle()" :title="title" :data-group-nested-level="currentGroupNestedLevel" :vusion-click-enabled="rootVM.currentCollapse">
         <i-ico
-            v-if="onlyIcon||icon"
-            :name="icon || 'success'"
+            v-if="icon"
+            :name="icon"
             :class="$style.singleicon"
             notext
         ></i-ico>
-        <span v-else :class="$style.singleicon" style="width: 16px"></span>
         <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
             <slot name="title" v-if="!hiddenText">
                 {{ title }}
@@ -21,7 +20,7 @@
             </slot>
         </div>
         <u-loading v-if="!hiddenText && loading" :class="$style.loading" size="small"></u-loading>
-        <span v-else-if="!hiddenText &&currentCollapsible && !(rootVM.currentCollapse && isInSidebar)" :class="$style.expander"
+        <span v-else-if="!hiddenText &&currentCollapsible" :class="$style.expander"
             :expanded="currentExpanded"
             @click="rootVM.expandTrigger === 'click-expander' && !rootVM.currentCollapse && ($event.stopPropagation(), toggle())"
         ></span>
@@ -40,6 +39,16 @@
         :offset="popperOffset"
     >
         <div :class="$style.body">
+            <u-sidebar-item
+                :text="title"
+                disabled
+                style="color: #999999;"
+                >
+                <template #title>
+                    <slot name="title">
+                    </slot>
+                </template>
+            </u-sidebar-item>
             <template v-for="(childNode,idx) in childrenNodes">
                 <u-sidebar-group
                     v-if="hasChildren(childNode)"
@@ -174,11 +183,11 @@ export default {
             return this.parentVM.$options.name === this.$options.parentName;
         },
 
-        onlyIcon() {
+        miniMode() {
             return this.isInSidebar && this.rootVM.currentCollapse;
         },
         hiddenText() {
-            return this.isInSidebar && this.rootVM.currentCollapse && this.rootVM.isTransitionEnd;
+            return this.isInSidebar && this.rootVM.currentCollapse && this.rootVM.isTransitionEnd && !!this.icon;
         },
     },
 
@@ -258,7 +267,6 @@ export default {
 <style module>
 .root {
     position: relative;
-    padding-left: var(--sidebar-group-padding-left);
 }
 
 .root[mini]{
@@ -289,17 +297,26 @@ export default {
     position: relative;
     line-height: var(--sidebar-group-head-height);
 }
+
+.normalRoot[mini][noIcon] .head{
+    padding-left: calc(var(--sidebar-item-padding-left) - 12px);
+}
+
+.normalRoot[mini] .head{
+    padding-right: 16px;
+}
+
 .popperRoot .head{
     display: flex;
     align-items: center;
 }
 
 .normalRoot[mini] .singleicon {
-    margin-left: -8px;
+    margin-left: -12px;
 }
 
 .normalRoot .singleicon {
-    margin-left: -18px;
+    margin-left: -24px;
 }
 
 .root .singleicon {
@@ -416,6 +433,14 @@ export default {
     line-height: var(--sidebar-group-head-height);
 }
 
+.normalRoot[mini] .expander{
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .popRoot .expander{
     transform: translateX(-100%);
 }
@@ -430,6 +455,14 @@ export default {
 /* @TODO: replace by icon-font */
 .normalRoot .expander[expanded]::after {
     transform: rotate(90deg);
+}
+
+.normalRoot[mini] .expander::after {
+    transform: rotate(90deg);
+}
+
+.normalRoot[mini] .expander[expanded]::after {
+    transform: rotate(270deg);
 }
 
 .root[disabled] {
@@ -454,7 +487,9 @@ export default {
     background: #fff;
 }
 
-.body {}
+.body {
+    padding-left: var(--sidebar-group-padding-left);
+}
 .title {
     overflow: hidden;
     white-space: nowrap;

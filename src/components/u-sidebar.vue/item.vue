@@ -3,14 +3,17 @@
         :class="[$style.root, parentVM.currentCollapse && !isInSidebar ? $style.popRoot : $style.normalRoot]"
         :selected="parentVM.router ? active : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
         :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
-        :v-ellipsis-title="false"
+        v-ellipsis-title
         vusion-slot-name-edit="text"
         vusion-slot-name="default"
-        :mini="onlyIcon"
+        :mini="miniMode"
+        :noIcon="!icon"
+        ref="root"
         >
-        <i-ico v-if="onlyIcon || icon" :name="icon || 'success'" :class="$style.singleicon" notext></i-ico>
-        <span v-else :class="$style.singleicon" style="width:16px"></span>
-        <slot v-if="!hiddenText">{{ text }}</slot>
+        <i-ico v-if="icon" :name="icon" :class="$style.singleicon" notext></i-ico>
+        <span v-show="!hiddenText">
+            <slot>{{ text }}</slot>
+        </span>
         <s-empty
             v-if="(!$slots.default)
             && !text
@@ -18,13 +21,13 @@
             && $env.VUE_APP_DESIGNER">
         </s-empty>
         <m-popper
-            v-if="parentVM.currentCollapse"
+            v-if="isInSidebar && parentVM.currentCollapse && !parentVM.isDragging"
             :class="$style.popper"
             :reference="$refs.root"
             trigger="hover"
             placement="right-start"
             :disabled="disabled"
-            :append-to="isInSidebar ? 'body': 'reference'"
+            append-to="body"
         >
             <div>
                 <slot>{{ text }}</slot>
@@ -47,11 +50,11 @@ export default {
         isInSidebar() {
             return !(this.groupVM && this.groupVM.$options.name === this.$options.groupName);
         },
-        onlyIcon() {
+        miniMode() {
             return this.isInSidebar && this.parentVM.currentCollapse;
         },
         hiddenText() {
-            return this.isInSidebar && this.parentVM.currentCollapse && this.parentVM.isTransitionEnd;
+            return this.isInSidebar && this.parentVM.currentCollapse && this.parentVM.isTransitionEnd && !!this.icon;
         },
     },
     watch: {
@@ -118,8 +121,8 @@ export default {
     border-bottom: var(--sidebar-item-border-bottom-width) solid var(--sidebar-item-border-bottom-color);
 }
 
-.normalRoot[mini]{
-    /* padding-left: 44px; */
+.normalRoot[mini][noIcon] {
+    padding-left: calc(var(--sidebar-item-padding-left) - 12px);
 }
 
 .popRoot{
@@ -146,6 +149,10 @@ export default {
     border-right: var(--sidebar-item-border-right-width) solid var(--sidebar-item-border-right-color);
 }
 
+.root[mini][selected] {
+    border-right: unset;
+}
+
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
     background: var(--sidebar-item-background-disabled);
@@ -156,8 +163,11 @@ export default {
     background: var(--sidebar-item-background-selected-disabled);
 }
 .normalRoot .singleicon {
-    margin-left: -18px;
-    margin-right: 8px;
+    margin-left: -24px;
+}
+
+.normalRoot[mini] .singleicon {
+    margin-left: -12px;
 }
 
 .root .singleicon {

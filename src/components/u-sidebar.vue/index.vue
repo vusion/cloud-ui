@@ -30,13 +30,22 @@
             </template>
             <slot></slot>
         </f-scroll-view>
-        <div vusion-slot-name="bottom" :class="$style.bottom" @click="toggleCollapse">
+        <div
+            v-if="enableCollapse"
+            :class="$style.resizer"
+            @mousedown="handleResizerMouseDown">
+        </div>
+        <div :class="$style.bottom" :expanded="!currentCollapse" v-if="enableCollapse">
+          <div :class="$style.expanderIcon" @click="toggleCollapse" vusion-click-enabled>
             <i-ico
-                name="success"
-                :class="$style.singleicon"
-                notext
-            ></i-ico>
-            <u-text>展开</u-text>
+                :name="currentCollapse ? expandIcon : foldIcon"
+                icotype="only"
+            >
+            </i-ico>
+            <u-tooltip hide-delay="500ms" placement="right">
+              {{ currentCollapse ? '展开' : '收起' }}
+            </u-tooltip>
+          </div>
         </div>
     </nav>
 </template>
@@ -51,6 +60,7 @@ export default {
     childName: 'u-sidebar-item',
     mixins: [MSinglex, MGroupParent],
     props: {
+        enableCollapse: { type: Boolean, default: false },
         collapse: { type: Boolean, default: false }, // 当前用作整个侧边栏的折叠效果。
         router: { type: Boolean, default: true },
         particular: { type: Boolean, default: false },
@@ -69,20 +79,40 @@ export default {
         targetField: { type: String, default: 'target' },
         initialLoad: { type: Boolean, default: true },
         collapsibleField: { type: String, default: 'collapsible' },
-    },
-    computed: {
-        dynamicStyle() {
-            return Object.assign({}, this.currentWidth !== null && { width: `${this.currentWidth}px` }, !this.isDragging && { transition: 'width 500ms' });
-        },
+        minWidth: { type: Number, default: 56 },
+
+        expandIcon: { type: String, default: 'expand' },
+        foldIcon: { type: String, default: 'fold' },
     },
     data() {
         return {
             currentDataSource: undefined,
-            currentCollapse: this.collapse,
-            currentWidth: null,
+            currentCollapse: this.enableCollapse ? this.collapse : false,
+            currentWidth: this.enableCollapse && this.collapse ? this.minWidth : null,
             isTransitionEnd: true,
             isDragging: false,
         };
+    },
+    computed: {
+        dynamicStyle() {
+            // return Object.assign({}, this.currentWidth !== null && { width: `${this.currentWidth}px` }, !this.isDragging && { transition: 'width 500ms' });
+            return Object.assign(
+                {
+                    'min-width': `${this.minWidth}px`,
+                },
+                this.currentWidth && {
+                    width: `${this.currentWidth}px`,
+                },
+                !this.isDragging ? {
+                    transition: 'width 200ms',
+                } : {
+                    '--transition-duration-base': '0',
+                    '--transition-duration-fast': '0',
+                    '--transition-duration-slow': '0',
+                    '--transition-duration-slower': '0',
+                },
+            );
+        },
     },
     watch: {
         data(data) {
@@ -93,6 +123,25 @@ export default {
             //     return;
             this.handleData();
         },
+        collapse(nV, oldV) {
+            if (nV === oldV || this.currentCollapse === nV) {
+                return;
+            }
+            this.currentWidth = !nV ? null : this.minWidth;
+            this.currentCollapse = nV;
+            this.isTransitionEnd = false;
+        },
+        enableCollapse(nV) {
+            if (nV) {
+                this.currentWidth = !this.collapse ? null : this.minWidth;
+                this.currentCollapse = this.collapse;
+                this.isTransitionEnd = false;
+            } else {
+                this.currentWidth = null;
+                this.currentCollapse = false;
+                this.isTransitionEnd = true;
+            }
+        },
     },
     created() {
         this.$on('select', ({ itemVM }, fromLinkClick = false) => !fromLinkClick && this.router && itemVM.navigate());
@@ -101,12 +150,16 @@ export default {
             this.load();
     },
     methods: {
+        updateCollapse(nV) {
+            this.$emit('update:collapse', nV, this);
+            this.currentCollapse = nV;
+        },
         handleTranstitionEnd() {
             this.isTransitionEnd = true;
         },
         toggleCollapse() {
-            this.currentCollapse = !this.currentCollapse;
-            this.currentWidth = this.currentWidth ? null : 48;
+            this.currentWidth = this.currentCollapse ? null : this.minWidth;
+            this.updateCollapse(!this.currentCollapse);
             this.isTransitionEnd = false;
         },
         hasChildren(node) {
@@ -212,6 +265,40 @@ export default {
         reload() {
             this.load();
         },
+
+        handleResizerMouseDown(event) {
+            if (!this.enableCollapse) {
+                return;
+            }
+            const srcX = event.pageX;
+            if (!this.$el) {
+                return;
+            }
+            const offsetWidth = this.$el.offsetWidth;
+            const changeWidthFunc = (e) => {
+                if (!this.$el) {
+                    return;
+                }
+                const diffX = Math.round(srcX - e.pageX);
+                this.currentWidth = this.getProperlyWidth(offsetWidth - diffX);
+                if (this.currentWidth <= this.minWidth * 1.1) {
+                    this.updateCollapse(true);
+                } else {
+                    this.updateCollapse(false);
+                }
+            };
+            this.isDragging = true;
+            document.addEventListener('mousemove', changeWidthFunc);
+            document.addEventListener('mouseup', () => {
+                this.isDragging = false;
+                document.removeEventListener('mousemove', changeWidthFunc);
+            });
+        },
+
+        getProperlyWidth(w) {
+            const properlyWidth = Math.max(this.minWidth, w);
+            return properlyWidth;
+        },
     },
 };
 </script>
@@ -225,16 +312,63 @@ export default {
     height: 100%;
     overflow: auto;
     transition: all var(--transition-duration-base);
+    position: relative;
+}
+
+.root::-webkit-scrollbar{
+  width: 0;
+  height: 0;
 }
 
 .content{
-    height: calc(100% - var(--sidebar-group-head-height));
+    height: calc(100% - 56px);
+}
+
+.resizer{
+  width: 8px;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  transform: translateX(50%);
+  cursor: col-resize;
+  user-select: none;
+  background-color: transparent;
 }
 
 .bottom{
-    height: var(--sidebar-group-head-height);
+    height: 56px;
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.bottom[expanded] {
+  justify-content: flex-end;
+}
+
+.bottom::before{
+  content: '';
+  position: absolute;
+  height: 1px;
+  left: 8px;
+  right: 8px;
+  top: 0;
+  transform: translateY(-50%);
+  background: #E5E5E5;
+}
+
+.expanderIcon{
+    cursor: pointer;
+    font-size: 24px;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+}
+
+.expanderIcon svg{
+  font-size: 24px;
 }
 
 .root[vusion-empty-background][has-data-source="true"] {
