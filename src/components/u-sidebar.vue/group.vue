@@ -1,88 +1,31 @@
 <template>
-<div :class="[$style.root, rootVM.currentCollapse && !isInSidebar ? $style.popRoot : $style.normalRoot]" :disabled="disabled" :mini="miniMode" ref="root" :noIcon="!icon">
-    <div :class="$style.head" :selected="selected" @click="rootVM.expandTrigger === 'click' && !rootVM.currentCollapse && toggle()" :title="title" :data-group-nested-level="currentGroupNestedLevel" :vusion-click-enabled="rootVM.currentCollapse">
-        <i-ico
-            v-if="icon"
-            :name="icon"
-            :class="$style.singleicon"
-            notext
-        ></i-ico>
+<div :class="$style.root" :disabled="disabled">
+    <div :class="$style.head" :selected="selected" @click="rootVM.expandTrigger === 'click' && toggle()" :title="title" :data-group-nested-level="currentGroupNestedLevel">
         <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
-            <slot name="title" v-if="!hiddenText">
+            <slot name="title">
                 {{ title }}
                 <s-empty
                     v-if="!$slots.title
                         && !title
-                        && !hiddenText
                         && $env.VUE_APP_DESIGNER
                         && !!$attrs['vusion-node-path']">
                 </s-empty>
             </slot>
         </div>
-        <u-loading v-if="!hiddenText && loading" :class="$style.loading" size="small"></u-loading>
-        <span v-else-if="!hiddenText &&currentCollapsible" :class="$style.expander"
+        <u-loading v-if="loading" :class="$style.loading" size="small"></u-loading>
+        <span v-else-if="currentCollapsible && !rootVM.collapse" :class="$style.expander"
             :expanded="currentExpanded"
-            @click="rootVM.expandTrigger === 'click-expander' && !rootVM.currentCollapse && ($event.stopPropagation(), toggle())"
+            @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
         ></span>
-        <span v-if="!hiddenText" :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></span>
+        <span :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></span>
     </div>
-    <m-popper
-        v-if="rootVM.currentCollapse"
-        :class="$style.popper"
-        :reference="$refs.root"
-        :trigger="rootVM.trigger"
-        placement="right-start"
-        :disabled="disabled"
-        :append-to="isInSidebar ? 'body': 'reference'"
-        @before-open="$event=>collapsible === false && $event.preventDefault()"
-        @update:opened="toggle($event)"
-        :offset="popperOffset"
-    >
+    <m-popper :class="$style.popper" reference="$parent" v-if="rootVM.collapse" placement="right-start">
         <div :class="$style.body">
-            <u-sidebar-item
-                :text="title"
-                disabled
-                style="color: #999999;"
-                >
-                <template #title>
-                    <slot name="title">
-                    </slot>
-                </template>
-            </u-sidebar-item>
-            <template v-for="(childNode,idx) in childrenNodes">
-                <u-sidebar-group
-                    v-if="hasChildren(childNode)"
-                    :key="$at2(childNode, rootVM.valueField) || idx"
-                    :node="childNode"
-                    :disabled="childNode.disabled"
-                    :collapsible="$at2(childNode, rootVM.collapsibleField)"
-                    :title="$at2(childNode, rootVM.textField)"
-                    :icon="$at2(childNode, rootVM.iconField)"
-                ></u-sidebar-group>
-                <u-sidebar-item v-else
-                    :key="`${$at2(childNode, rootVM.valueField) || idx}`"
-                    :text="$at2(childNode, rootVM.textField)"
-                    :replace="$at2(childNode, rootVM.replaceField)"
-                    :exact="$at2(childNode, rootVM.exactField)"
-                    :value="$at2(childNode, rootVM.valueField)"
-                    :icon="$at2(childNode, rootVM.iconField)"
-                    :link-type="$at2(childNode, rootVM.linkTypeField)"
-                    :href-and-to="$at2(childNode, rootVM.hrefAndToField)"
-                    :to="$at2(childNode, rootVM.toField)"
-                    :target="$at2(childNode, rootVM.targetField)"
-                    :disabled="childNode.disabled"
-                ></u-sidebar-item>
-            </template>
             <slot></slot>
-            <div
-                v-if="(!$slots.default)&& !hasChildren && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"
-                vusion-empty-background="add-sub"
-                style="padding: 20px 0;">
-            </div>
         </div>
     </m-popper>
-    <f-collapse-transition>
-        <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true" v-if="!rootVM.currentCollapse">
+    <f-collapse-transition v-else>
+        <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true">
             <template v-for="(childNode,idx) in childrenNodes">
                 <u-sidebar-group
                     v-if="hasChildren(childNode)"
@@ -145,7 +88,6 @@ export default {
 
     props: {
         node: Object,
-        icon: String,
     },
 
     data() {
@@ -156,18 +98,6 @@ export default {
     },
 
     computed: {
-        popperOffset() {
-            let isFirstItem = false;
-            if (this.innerIdx !== undefined) {
-                // 这是由childNodes动态渲染的
-                isFirstItem = this.innerIdx === 0;
-            } else if (Array.isArray(this.parentVM.childrenNodes) && this.parentVM.childrenNodes.length === 0 && this.parentVM.$slots.default) {
-                // 这是由tag模式静态指定
-                isFirstItem = this.parentVM.$slots.default.indexOf(this.$vnode) === 0;
-                // console.log('%c [ this.parentVM.$slots.default.indexOf(this.$vnode) ]-158', 'font-size:13px; background:pink; color:#bf2c9f;', this.parentVM.$slots.default.indexOf(this.$vnode))
-            }
-            return isFirstItem ? [-8, 4] : [4, 4];
-        },
         selected() {
             return this.itemVMs.some((item) => item.active);
         },
@@ -177,17 +107,6 @@ export default {
                 return [];
             }
             return this.$at(this.node, this.rootVM.childrenField) || [];
-        },
-
-        isInSidebar() {
-            return this.parentVM.$options.name === this.$options.parentName;
-        },
-
-        miniMode() {
-            return this.isInSidebar && this.rootVM.currentCollapse;
-        },
-        hiddenText() {
-            return this.isInSidebar && this.rootVM.currentCollapse && this.rootVM.isTransitionEnd && !!this.icon;
         },
     },
 
@@ -267,96 +186,31 @@ export default {
 <style module>
 .root {
     position: relative;
-}
-
-.root[mini]{
-    padding-left: 0;
-}
-
-.popRoot{
-    display: block;
-    position: relative;
-    z-index: 1;
-    line-height: 32px;
-    padding: 0 32px 0 12px;
-    font-size: 14px;
+    padding-left: var(--sidebar-group-padding-left);
 }
 
 .head {
-    display: flex;
+    display: block;
     cursor: var(--cursor-pointer);
     font-weight: var(--sidebar-group-head-font-weight);
     color: var(--sidebar-group-head-color);
-    transition: color 0.2s;
-    border-bottom: var(--sidebar-group-head-border-bottom-width) solid var(--sidebar-group-head-border-bottom-color);
-}
-
-.normalRoot .head {
     padding-left: var(--sidebar-group-head-padding-left);
     height: var(--sidebar-group-head-height);
-    position: relative;
     line-height: var(--sidebar-group-head-height);
+    transition: color 0.2s;
+    position: relative;
+    border-bottom: var(--sidebar-group-head-border-bottom-width) solid var(--sidebar-group-head-border-bottom-color);
 }
-
-.normalRoot[mini][noIcon] .head{
-    padding-left: calc(var(--sidebar-item-padding-left) - 12px);
-}
-
-.normalRoot[mini] .head{
-    padding-right: 16px;
-}
-
-.popperRoot .head{
-    display: flex;
-    align-items: center;
-}
-
-.normalRoot[mini] .singleicon {
-    margin-left: -12px;
-}
-
-.normalRoot .singleicon {
-    margin-left: -24px;
-}
-
-.root .singleicon {
-    margin-right: 8px;
-}
-
-.root .singleicon {
-    font-size: var(--sidebar-item-icon-font-size);
-    color: var(--sidebar-item-icon-color);
-}
-
-.root:hover .singleicon {
-    color: var(--sidebar-item-icon-color-hover);
-}
-.root[selected] .singleicon {
-    color: var(--sidebar-item-icon-color-selected);
-}
-
-.normalRoot .title{
+.title{
     padding-right: 32px;
 }
 
-.normalRoot[mini] .title{
-    padding-right: 0;
-}
-
-.normalRoot .title{
-    flex: 1;
-}
-
-.popRoot:hover .head,
 .head:hover {
     color: var(--sidebar-group-head-color-hover);
-}
-
-.normalRoot .head:hover{
     background-color: var(--sidebar-group-head-background-hover);
 }
 
-.normalRoot .head[data-group-nested-level]:hover::before{
+.head[data-group-nested-level]:hover::before{
     content: "";
     position: absolute;
     top: 0;
@@ -370,25 +224,25 @@ export default {
 }
 
 /* 当前仅支持7层嵌套的情况，7+的情况大致会很少出现 */
-.normalRoot .head[data-group-nested-level="1"]:hover::before{
+.head[data-group-nested-level="1"]:hover::before{
     width: calc(1*var(--sidebar-group-padding-left));
 }
-.normalRoot .head[data-group-nested-level="2"]:hover::before{
+.head[data-group-nested-level="2"]:hover::before{
     width: calc(2*var(--sidebar-group-padding-left));
 }
-.normalRoot .head[data-group-nested-level="3"]:hover::before{
+.head[data-group-nested-level="3"]:hover::before{
     width: calc(3*var(--sidebar-group-padding-left));
 }
-.normalRoot .head[data-group-nested-level="4"]:hover::before{
+.head[data-group-nested-level="4"]:hover::before{
     width: calc(4*var(--sidebar-group-padding-left));
 }
-.normalRoot .head[data-group-nested-level="5"]:hover::before{
+.head[data-group-nested-level="5"]:hover::before{
     width: calc(5*var(--sidebar-group-padding-left));
 }
-.normalRoot .head[data-group-nested-level="6"]:hover::before{
+.head[data-group-nested-level="6"]:hover::before{
     width: calc(6*var(--sidebar-group-padding-left));
 }
-.normalRoot .head[data-group-nested-level="7"]:hover::before{
+.head[data-group-nested-level="7"]:hover::before{
     width: calc(7*var(--sidebar-group-padding-left));
 }
 
@@ -397,7 +251,7 @@ export default {
 }
 
 /* @TODO: replace by icon-font */
-.normalRoot .head:hover::after {
+.head:hover::after {
     border-left-color: white;
 }
 
@@ -424,25 +278,10 @@ export default {
     right: 0;
     top: 0;
     z-index: 1;
-    text-align: center;
-}
-
-.normalRoot .expander{
     width: var(--sidebar-group-head-height);
     height: var(--sidebar-group-head-height);
     line-height: var(--sidebar-group-head-height);
-}
-
-.normalRoot[mini] .expander{
-    width: 16px;
-    height: 16px;
-    line-height: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.popRoot .expander{
-    transform: translateX(-100%);
+    text-align: center;
 }
 
 .expander::after {
@@ -453,16 +292,8 @@ export default {
 }
 
 /* @TODO: replace by icon-font */
-.normalRoot .expander[expanded]::after {
+.expander[expanded]::after {
     transform: rotate(90deg);
-}
-
-.normalRoot[mini] .expander::after {
-    transform: rotate(90deg);
-}
-
-.normalRoot[mini] .expander[expanded]::after {
-    transform: rotate(270deg);
 }
 
 .root[disabled] {
@@ -474,22 +305,12 @@ export default {
 }
 
 .popper {
-    /* margin-left: var(--sidebar-group-popper-margin-left); */
-    /* width: var(--sidebar-width); */
+    margin-left: var(--sidebar-group-popper-margin-left);
+    width: var(--sidebar-width);
     background: var(--sidebar-background);
-    min-width: 120px;
-    line-height: var(--navbar-dropdown-popper-line-height);
-    font-size: var(--navbar-dropdown-popper-font-size);
-    padding: 8px 0px;
-    border: 1px solid #e5e5e5;
-    border-radius: 4px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    background: #fff;
 }
 
-.body {
-    padding-left: var(--sidebar-group-padding-left);
-}
+.body {}
 .title {
     overflow: hidden;
     white-space: nowrap;

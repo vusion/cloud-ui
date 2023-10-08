@@ -1,38 +1,17 @@
 <template>
-    <a
-        :class="[$style.root, parentVM.currentCollapse && !isInSidebar ? $style.popRoot : $style.normalRoot]"
+    <a :class="$style.root"
         :selected="parentVM.router ? active : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
         :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
         v-ellipsis-title
         vusion-slot-name-edit="text"
-        vusion-slot-name="default"
-        :mini="miniMode"
-        :noIcon="!icon"
-        ref="root"
-        >
+        vusion-slot-name="default">
         <i-ico v-if="icon" :name="icon" :class="$style.singleicon" notext></i-ico>
-        <span v-show="!hiddenText">
-            <slot>{{ text }}</slot>
-        </span>
+        <slot>{{ text }}</slot>
         <s-empty
             v-if="(!$slots.default)
             && !text
-            && !hiddenText
             && $env.VUE_APP_DESIGNER">
         </s-empty>
-        <m-popper
-            v-if="isInSidebar && parentVM.currentCollapse && !parentVM.isDragging"
-            :class="$style.popper"
-            :reference="$refs.root"
-            trigger="hover"
-            placement="right-start"
-            :disabled="disabled"
-            append-to="body"
-        >
-            <div>
-                <slot>{{ text }}</slot>
-            </div>
-        </m-popper>
     </a>
 </template>
 
@@ -46,17 +25,6 @@ export default {
     parentName: 'u-sidebar',
     groupName: 'u-sidebar-group',
     extends: MSinglexItem,
-    computed: {
-        isInSidebar() {
-            return !(this.groupVM && this.groupVM.$options.name === this.$options.groupName);
-        },
-        miniMode() {
-            return this.isInSidebar && this.parentVM.currentCollapse;
-        },
-        hiddenText() {
-            return this.isInSidebar && this.parentVM.currentCollapse && this.parentVM.isTransitionEnd && !!this.icon;
-        },
-    },
     watch: {
         active(active) {
             this.watchActive(active);
@@ -103,6 +71,9 @@ export default {
 .root {
     display: block;
     cursor: var(--cursor-pointer);
+    height: var(--sidebar-item-height);
+    line-height: var(--sidebar-item-height);
+    padding-left: var(--sidebar-item-padding-left);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -111,27 +82,6 @@ export default {
     transition: all var(--transition-duration-base);
     border-bottom: var(--sidebar-item-border-bottom-width) solid var(--sidebar-item-border-bottom-color);
 
-}
-
-.normalRoot {
-    height: var(--sidebar-item-height);
-    line-height: var(--sidebar-item-height);
-    padding-left: var(--sidebar-item-padding-left);
-    background: var(--sidebar-item-background);
-    border-bottom: var(--sidebar-item-border-bottom-width) solid var(--sidebar-item-border-bottom-color);
-}
-
-.normalRoot[mini][noIcon] {
-    padding-left: calc(var(--sidebar-item-padding-left) - 12px);
-}
-
-.popRoot{
-    display: block;
-    position: relative;
-    z-index: 1;
-    line-height: 32px;
-    padding: 0 12px;
-    font-size: 14px;
 }
 
 .root:hover {
@@ -149,10 +99,6 @@ export default {
     border-right: var(--sidebar-item-border-right-width) solid var(--sidebar-item-border-right-color);
 }
 
-.root[mini][selected] {
-    border-right: unset;
-}
-
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
     background: var(--sidebar-item-background-disabled);
@@ -162,17 +108,12 @@ export default {
 .root[selected][disabled] {
     background: var(--sidebar-item-background-selected-disabled);
 }
-.normalRoot .singleicon {
+.root [class^="i-ico_lcp-iconv"] {
     margin-left: -24px;
-}
-
-.normalRoot[mini] .singleicon {
-    margin-left: -12px;
+    margin-right: 8px;
 }
 
 .root .singleicon {
-    display: inline-block;
-    margin-right: 8px;
     font-size: var(--sidebar-item-icon-font-size);
     color: var(--sidebar-item-icon-color);
 }
@@ -183,20 +124,4 @@ export default {
 .root[selected] .singleicon {
     color: var(--sidebar-item-icon-color-selected);
 }
-
-.popper {
-    /* margin-left: var(--sidebar-group-popper-margin-left); */
-    /* width: var(--sidebar-width); */
-    background: var(--sidebar-background);
-    min-width: 120px;
-    line-height: var(--navbar-dropdown-popper-line-height);
-    font-size: var(--navbar-dropdown-popper-font-size);
-    padding: 8px 0px;
-    border: 1px solid #e5e5e5;
-    border-radius: 4px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    background: #fff;
-    padding: 8px;
-}
-
 </style>
