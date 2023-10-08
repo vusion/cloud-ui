@@ -209,6 +209,8 @@
       brifeDoc: ""
       docDescription: 开启后选择文件后会自动上传，默认开启
       tooltipLink: ""
+      advanced: true
+      hidden: true
     - name: show-file-list
       title: 显示文件列表
       type: boolean
