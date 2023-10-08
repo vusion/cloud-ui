@@ -2,7 +2,9 @@
 <div :class="$style.root" ref="root" :border="border"
     @dragend="onDragEnd($event)"
     @drop="onDrop($event)"
-    @dragover="onRootDragover($event)">
+    @dragover="onRootDragover($event)"
+    @dragleave="onRootDragleave($event)"
+    @dragenter="onRootDragenter($event)">
     <div v-if="title" :class="$style.title" ref="title" :style="{ textAlign: titleAlignment }" vusion-slot-name="title" vusion-slot-name-edit="title">
         <slot name="title">{{ title }}</slot>
     </div>
@@ -321,7 +323,7 @@
         @change="page($event.page)" @change-page-size="page(1, $event.pageSize)">
     </u-pagination>
     <div><slot></slot></div>
-    <div v-if="draggable" ref="dragGhost" :class="$style.dragGhost" :designer="$env.VUE_APP_DESIGNER">
+    <div v-if="draggable || acrossTableDrag" ref="dragGhost" :class="$style.dragGhost" :designer="$env.VUE_APP_DESIGNER">
         <u-text color="secondary" :class="$style.text" v-if="$env.VUE_APP_DESIGNER">拖拽缩略图配置区域</u-text>
         <slot name="dragGhost" :item="dragState.source"></slot>
         <div vusion-slot-name="dragGhost" v-if="$env.VUE_APP_DESIGNER">
@@ -455,7 +457,6 @@ export default {
         canDragableHandler: Function,
         canDropinHandler: Function,
         acrossTableDrag: { type: Boolean, default: false }, // 是否跨表格拖拽
-        dropPlaceInOrder: { type: Boolean, default: true }, // 是否可以放置到表格行的位置
     },
     data() {
         return {
@@ -733,6 +734,7 @@ export default {
             this.scrollParentEl && this.scrollParentEl.removeEventListener('scroll', this.onScrollParentScroll);
         }
         this.clearTimeout();
+        this.enterTarget = null;
     },
     methods: {
         typeCheck(type) {
@@ -1219,6 +1221,7 @@ export default {
         },
         reload() {
             this.currentDataSource.clearLocalData();
+            this.clearDragState();
             this.load();
         },
         getFields() {
@@ -1886,11 +1889,13 @@ export default {
          */
         onDragOver(e, item, rowIndex) {
             e.preventDefault();
+            // 表格内部或者跨表格可拖拽，其他屏蔽
             if (!this.dragState.dragging && !this.acrossTableDrag)
                 return;
             if (item.draggoverDisabled) {
                 return;
             }
+            // 行之间可以放
             if (this.draggable) {
                 this.currentDragoverItem = item;
                 // 快速移动的时候不要计算
@@ -1902,6 +1907,17 @@ export default {
                         this.throttledDragover.cancel();
                     }
                 }, 200);
+            } else if (this.acrossTableDrag) {
+                // 只能放入整个表格，并且是拖拽节点所在表格外的其他表格展示放置样式，拖拽节点所在的表格不展示放置样式
+                // this.dragState.sourcePath === undefined，表示是拖拽节点所在表格外的其他表格，因为其他表格没有响应dragstart事件，所以sourcePath为undefined
+                if (!this.dropData && this.dragState.sourcePath === undefined) {
+                    this.dropData = {
+                        dragoverElRect: this.$refs.body[0].getBoundingClientRect(),
+                        parentElRect: this.$refs.root.getBoundingClientRect(),
+                        position: 'append',
+                        left: 0,
+                    };
+                }
             }
         },
         handleDragOver(e, item, rowIndex) {
@@ -1990,27 +2006,43 @@ export default {
             if (!this.subTreeLoading)
                 this.clearDragState();
             this.$emit('dragend');
-            clearTimeout(this.dragoverTimer);
-            this.currentDragoverItem = null;
+            this.cleartDragoverTimer();
+            // item里添加的辅助拖拽字段需要删除，不然跨表格拖拽时会影响下一次的拖拽
+            this.clearDragItemData();
         },
         /**
          * 拖拽放置
          */
         onDrop(e) {
-            if (this.acrossTableDrag) {
+            // 跨表格与表格内拖拽的drop处理区分开来
+            if (this.acrossTableDrag && this.dropData) {
                 const dragStartData = JSON.parse(e.dataTransfer.getData('application/json') || '{}');
                 ['disabledDrop', 'draggoverDisabled'].forEach((key) => {
-                    delete dragStartData.sourceData.item[key];
-                    delete this.dragState.targetData.item[key];
+                    if (dragStartData.sourceData && dragStartData.sourceData.item) {
+                        delete dragStartData.sourceData.item[key];
+                    }
+                    if (dragStartData.targetData && dragStartData.targetData.item) {
+                        delete this.dragState.targetData.item[key];
+                    }
                 });
-                this.$emit('drop', {
-                    source: dragStartData.sourceData,
-                    target: this.dragState.targetData,
-                    position: this.dropData.position,
-                });
-                this.clearDragState();
-                clearTimeout(this.dragoverTimer);
-                this.currentDragoverItem = null;
+                // 如果当前表格内部没有开启拖拽，那么放置到当前表格不应该有drop事件
+                if (!this.draggable && this.dragState.sourcePath === undefined) {
+                    this.$emit('drop', {
+                        source: dragStartData.sourceData,
+                        target: this.dragState.targetData,
+                        position: this.dropData && this.dropData.position || 'append',
+                        finalSource: null,
+                    });
+                } else if (this.draggable) {
+                    // 表格内拖拽，sourcePath和targetPath不一样的时候才emit事件
+                    const inTheSameTable = this.dragState.sourcePath !== undefined;
+                    this.$emit('drop', {
+                        source: dragStartData.sourceData,
+                        target: this.dragState.targetData,
+                        position: this.dropData && this.dropData.position || 'append',
+                        finalSource: inTheSameTable ? dragStartData.sourceData : null,
+                    });
+                }
             } else if (this.dragState
                 && this.dragState.dragging
                 && this.dragState.sourcePath !== this.dragState.targetPath
@@ -2144,13 +2176,29 @@ export default {
                         targetList: dropList,
                     },
                 });
-                this.clearDragState();
-                clearTimeout(this.dragoverTimer);
-                this.currentDragoverItem = null;
             }
+            this.clearDragState();
+            this.cleartDragoverTimer();
+            this.clearDragItemData();
         },
         onRootDragover(e) {
             e.preventDefault();
+        },
+        /**
+         * 拖拽离开，每个tr都会触发该事件，所以需要判断是否是真正的离开
+         * 结合dragleave和dragenter来判断
+         */
+        onRootDragleave(e) {
+            if (this.enterTarget === e.target) {
+                e.stopPropagation();
+                e.preventDefault();
+                this.dropData = undefined;
+                this.cleartDragoverTimer();
+                this.enterTarget = null;
+            }
+        },
+        onRootDragenter(e) {
+            this.enterTarget = e.target;
         },
         /**
          * 查找数据在数组的哪个位置
@@ -2191,6 +2239,23 @@ export default {
             };
             this.$nextTick(() => {
                 this.preventDatasourceWatch = false;
+            });
+            this.enterTarget = null;
+        },
+        /**
+         * 清除拖拽计时器
+         */
+        cleartDragoverTimer() {
+            clearTimeout(this.dragoverTimer);
+            this.currentDragoverItem = null;
+        },
+        /**
+         * 清除拖拽item的辅助数据，draggoverDisabled、disabledDrop
+         */
+        clearDragItemData() {
+            this.currentData.forEach((item) => {
+                delete item.draggoverDisabled;
+                delete item.disabledDrop;
             });
         },
         isSubNode(item, sourceNode) {
