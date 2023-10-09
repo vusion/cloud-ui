@@ -125,8 +125,8 @@
       tooltipLink: ""
     - name: test
       title: test
-      type: Array
-      default: "[]"
+      type: Object
+      default: {}
       description: 当前文件列表
       group: 主要属性
       brifeDoc: ""
