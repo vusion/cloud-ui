@@ -175,7 +175,9 @@
                                         :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)"
                                         v-if="getItemColSpan(item, rowIndex, columnIndex) !== 0 && getItemRowSpan(item, rowIndex, columnIndex) !== 0"
                                         :colspan="getItemColSpan(item, rowIndex, columnIndex)"
-                                        :rowspan="getItemRowSpan(item, rowIndex, columnIndex)">
+                                        :rowspan="getItemRowSpan(item, rowIndex, columnIndex)"
+                                        :disabled="item.disabled || disabled"
+                                        >
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">
                                                 <template v-if="columnVM.autoIndex && usePagination && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
