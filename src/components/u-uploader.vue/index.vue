@@ -29,11 +29,19 @@
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
         <template v-if="listType !== 'card'">
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
-                <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
-                <a :class="$style.link" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name }}</a>
-                <!-- <span v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></span> -->
-                <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
-                <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+                <div :class="$style.textContainer" v-if="listType === 'text'">
+                    <i-ico name="file-pdf"></i-ico>
+                    <a :class="$style.textLink" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name }}</a>
+                    <i-ico name="download"></i-ico>
+                    <i-ico name="remove" v-if="!readonly && !disabled" @click="remove(index)"></i-ico>
+                    <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+                </div>
+                <div v-else>
+                    <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
+                    <a :class="$style.link" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name }}</a>
+                    <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
+                    <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+                </div>
             </div>
         </template>
         <template v-else>
@@ -140,6 +148,8 @@ export default {
         cropperPreviewShape: { type: String, default: 'circle' },
         viaOriginURL: { type: Boolean, default: false },
         lcapIsCompress: { type: Boolean, default: false },
+        fileType: { type: String, default: 'default' },
+        test: { type: Array, default: () => [] },
     },
     data() {
         return {
@@ -164,6 +174,9 @@ export default {
             },
         };
     },
+    mounted() {
+        console.log('vue实例', this)
+    },
     computed: {
         uploadEnable() {
             return this.multiple ? this.currentValue.length < this.limit : this.currentValue.length === 0;
@@ -184,6 +197,15 @@ export default {
                 }, this);
             },
         },
+        fileType: {
+            handler(attrs) {
+                if(this.$env.VUE_APP_DESIGNER) {
+                    if (!this.$attrs.test) this.$attrs.test = []
+                    this.$attrs.test.push(attrs);
+                    console.log('vue实例', this)
+                }
+            },
+        }
     },
     methods: {
         encodeUrl(url) {
@@ -745,11 +767,9 @@ export default {
     /* min-width: 400px; */
 }
 
-.list[list-type="text"] .thumb::before {
-    icon-font: url('./assets/attachment.svg');
-    float: left;
-    margin-right: 8px;
-    color: var(--uploader-item-icon-color);
+.list[list-type="text"]  .item{
+    display: inline-block;
+    width: fit-content;
 }
 
 .list[list-type="image"] .item {
@@ -782,6 +802,18 @@ export default {
     white-space: nowrap;
     display: inline-block;
     vertical-align: middle;
+}
+.text-link {
+    color: var(--uploader-link-color);
+    cursor: var(--cursor-pointer);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+}
+.text-container {
+    width: fit-content;
 }
 
 .list[list-type="image"] .link {
