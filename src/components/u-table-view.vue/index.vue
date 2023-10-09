@@ -807,7 +807,7 @@ export default {
             });
         },
         getRealItem(item, rowIndex) {
-            return this.isSimpleArray(this.currentDataSource.data) ? this.currentDataSource.arrangedData[rowIndex]?.simple : item
+            return this.isSimpleArray(this.currentDataSource.data) ? (this.currentDataSource.arrangedData[rowIndex] && this.currentDataSource.arrangedData[rowIndex].simple) : item
         },
         typeCheck(type) {
             return ['index', 'radio', 'checkbox', 'expander'].includes(type);
