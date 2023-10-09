@@ -135,7 +135,7 @@
                                             </span>
                                             <!-- type === 'checkbox' -->
                                             <span v-if="columnVM.type === 'checkbox'">
-                                                <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled" @check="check(item, $event.value)"></u-checkbox>
+                                                <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled || disabled" @check="check(item, $event.value)"></u-checkbox>
                                             </span>
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click.stop="toggleExpanded(item)"></span>
@@ -175,7 +175,9 @@
                                         :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)"
                                         v-if="getItemColSpan(item, rowIndex, columnIndex) !== 0 && getItemRowSpan(item, rowIndex, columnIndex) !== 0"
                                         :colspan="getItemColSpan(item, rowIndex, columnIndex)"
-                                        :rowspan="getItemRowSpan(item, rowIndex, columnIndex)">
+                                        :rowspan="getItemRowSpan(item, rowIndex, columnIndex)"
+                                        :disabled="item.disabled || disabled"
+                                        >
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">
                                                 <template v-if="columnVM.autoIndex && usePagination && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
@@ -187,7 +189,7 @@
                                             </span>
                                             <!-- type === 'checkbox' -->
                                             <span v-if="columnVM.type === 'checkbox'">
-                                                <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled" @check="check(item, $event.value)"></u-checkbox>
+                                                <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled || disabled" @check="check(item, $event.value)"></u-checkbox>
                                             </span>
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" :disabled="item.disabled" @click.stop="toggleExpanded(item)"></span>
