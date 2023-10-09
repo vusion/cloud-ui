@@ -361,7 +361,6 @@ export default {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
             let result;
             if (this.highPrecision) {
-                // decimal 默认精度20位所以 现在不生效了
                 result = new Decimal(this.currentValue.toString()).add(new Decimal(step.toString()));
             } else {
                 result = +this.currentValue + (step - 0);
