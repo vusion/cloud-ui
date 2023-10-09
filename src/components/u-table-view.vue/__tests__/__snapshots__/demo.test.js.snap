@@ -4199,7 +4199,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span>
                           <label class="root" disabled="disabled" tabindex="0">
                             <span class="box" disabled="disabled" status="false"></span>
@@ -4207,26 +4207,26 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                           </label>
                         </span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">李华</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">18749261214</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李华 一月份</span>
                         </div>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李华 二月份</span>
                         </div>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                       </td>
                     </tr>
@@ -4714,7 +4714,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span>
                           <label class="root" disabled="disabled" tabindex="0">
                             <span class="box" disabled="disabled" status="false"></span>
@@ -4722,24 +4722,24 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                           </label>
                         </span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">李华</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">18749261214</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 1;">
+                      <td class="cell" disabled="disabled" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 1;">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 300px; z-index: 1;">
+                      <td class="cell" disabled="disabled" style="position: sticky; right: 300px; z-index: 1;">
                         <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 150px; z-index: 1;">
+                      <td class="cell" disabled="disabled" style="position: sticky; right: 150px; z-index: 1;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李华 一月份</span>
                         </div>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" disabled="disabled" style="position: sticky; right: 0px; z-index: 1;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李华 二月份</span>
                         </div>
@@ -5056,7 +5056,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span>
                           <label class="root" disabled="disabled" tabindex="0">
                             <span class="box" disabled="disabled" status="false"></span>
@@ -5064,10 +5064,10 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                           </label>
                         </span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">李华</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">18749261214</span>
                       </td>
                     </tr>
@@ -5246,7 +5246,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span>
                           <label class="root" disabled="disabled" tabindex="0">
                             <span class="box" disabled="disabled" status="false"></span>
@@ -5254,16 +5254,16 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                           </label>
                         </span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">李华</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">18749261214</span>
                       </td>
-                      <td class="cell" ellipsis="true">
+                      <td class="cell" disabled="disabled" ellipsis="true">
                         <span class="root" vusion-slot-name-edit="text">浙江省杭州市滨江区长河路590号东忠科技园</span>
                       </td>
-                      <td class="cell" ellipsis="true">
+                      <td class="cell" disabled="disabled" ellipsis="true">
                         <span class="root" vusion-slot-name-edit="text">浙江省杭州市滨江区长河路590号东忠科技园</span>
                       </td>
                     </tr>
@@ -8134,7 +8134,7 @@ exports[`u-table-view.vue Demo-多选列 1`] = `
                   </td>
                 </tr>
                 <tr class="row">
-                  <td class="cell">
+                  <td class="cell" disabled="disabled">
                     <span>
                       <label class="root" disabled="disabled" tabindex="0">
                         <span class="box" disabled="disabled" status="false"></span>
@@ -8142,16 +8142,16 @@ exports[`u-table-view.vue Demo-多选列 1`] = `
                       </label>
                     </span>
                   </td>
-                  <td class="cell">
+                  <td class="cell" disabled="disabled">
                     <span class="column-field" vusion-slot-name="cell">李华</span>
                   </td>
-                  <td class="cell">
+                  <td class="cell" disabled="disabled">
                     <span class="column-field" vusion-slot-name="cell">18749261214</span>
                   </td>
-                  <td class="cell">
+                  <td class="cell" disabled="disabled">
                     <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                   </td>
-                  <td class="cell">
+                  <td class="cell" disabled="disabled">
                     <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                   </td>
                 </tr>
@@ -24655,7 +24655,7 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell">
+                    <td class="cell" disabled="disabled">
                       <span>
                         <label class="root" disabled="disabled" tabindex="0">
                           <span class="box" disabled="disabled" status="false"></span>
@@ -24663,28 +24663,28 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
                         </label>
                       </span>
                     </td>
-                    <td class="cell" rowspan="2">
+                    <td class="cell" disabled="disabled" rowspan="2">
                       <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                     </td>
-                    <td class="cell" rowspan="2">
+                    <td class="cell" disabled="disabled" rowspan="2">
                       <span class="column-field" vusion-slot-name="cell">李华</span>
                     </td>
-                    <td class="cell">
+                    <td class="cell" disabled="disabled">
                       <span class="column-field" vusion-slot-name="cell">18749261214</span>
                     </td>
-                    <td class="cell" rowspan="2">
+                    <td class="cell" disabled="disabled" rowspan="2">
                       <span class="column-field" vusion-slot-name="cell">李华</span>
                     </td>
-                    <td class="cell">
+                    <td class="cell" disabled="disabled">
                       <span class="column-field" vusion-slot-name="cell">18749261214</span>
                     </td>
-                    <td class="cell">
+                    <td class="cell" disabled="disabled">
                       <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                     </td>
-                    <td class="cell">
+                    <td class="cell" disabled="disabled">
                       <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                     </td>
-                    <td class="cell">
+                    <td class="cell" disabled="disabled">
                       <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                     </td>
                   </tr>
