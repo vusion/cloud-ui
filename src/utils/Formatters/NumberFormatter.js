@@ -1,10 +1,12 @@
 import Formatter from './Formatter';
+import { Decimal } from 'decimal.js';
 
 export class NumberFormatter extends Formatter {
     constructor(pattern = '0', options) {
         super();
         this.pattern = pattern;
         this.options = options || {};
+        this.isDecimal = options && options.isDecimal || false;
     }
 
     format(value, pattern) {
@@ -23,8 +25,11 @@ export class NumberFormatter extends Formatter {
         if (this.options.percentSign) {
             value = value * 100;
         }
-
-        value = value.toFixed(fixed).padStart(fixed ? fill + 1 + fixed : fill, '0');
+        if (this.isDecimal) {
+            value = new Decimal(value).toFixed(fixed).toString().padStart(fixed ? fill + 1 + fixed : fill, '0');
+        } else {
+            value = value.toFixed(fixed).padStart(fixed ? fill + 1 + fixed : fill, '0');
+        }
         // 是否小数隐藏末尾0
         if (fixed > 0 && /#$/.test(parts[1])) {
             value = parseFloat(value) + ''; // 转字符串

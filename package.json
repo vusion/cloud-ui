@@ -1,5 +1,5 @@
 {
-  "name": "cloud-ui.vusion",
+  "name": "cloud-ui.vusion-jlh",
   "description": "Vusion Cloud UI",
   "version": "0.18.2",
   "author": "Forrest <rainforest92@126.com>",
@@ -58,6 +58,7 @@
     "cloud-ui"
   ],
   "dependencies": {
+    "decimal.js": "^10.4.2",
     "@popperjs/core": "^2.10.2",
     "@vusion/utils": "0.4.11",
     "@vusion/validator": "^0.4.7",
