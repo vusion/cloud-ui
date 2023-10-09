@@ -30,9 +30,9 @@
         <template v-if="listType !== 'card'">
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
                 <div :class="$style.textContainer" v-if="listType === 'text'">
-                    <i-ico name="file-pdf"></i-ico>
-                    <a :class="$style.textLink" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name }}</a>
-                    <i-ico name="download"></i-ico>
+                    <i-ico :name="fileTypeIcon(item)"></i-ico>
+                    <span :class="$style.fileText">{{ item.name }}</span>
+                    <a :href="encodeUrl(item.url)" target="_blank" download role="download"><i-ico :name="downloadIcon"></i-ico></a>
                     <i-ico name="remove" v-if="!readonly && !disabled" @click="remove(index)"></i-ico>
                     <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                 </div>
@@ -149,7 +149,8 @@ export default {
         viaOriginURL: { type: Boolean, default: false },
         lcapIsCompress: { type: Boolean, default: false },
         fileType: { type: String, default: 'default' },
-        test: { type: Array, default: () => [] },
+        iconMap: { type: Object, default: () => ({}) },
+        downloadIcon: { type: String, default: 'download' },
     },
     data() {
         return {
@@ -197,17 +198,12 @@ export default {
                 }, this);
             },
         },
-        fileType: {
-            handler(attrs) {
-                if(this.$env.VUE_APP_DESIGNER) {
-                    if (!this.$attrs.test) this.$attrs.test = []
-                    this.$attrs.test.push(attrs);
-                    console.log('vue实例', this)
-                }
-            },
-        }
     },
     methods: {
+        fileTypeIcon(item) {
+            const iconInfo = Object.entries(this.iconMap).find(([type]) => type.includes(item.name.split('.').pop()));
+            return !!iconInfo ? iconInfo[1] : 'file-default'
+        },
         encodeUrl(url) {
             return encodeURI(url)
         },
@@ -803,9 +799,7 @@ export default {
     display: inline-block;
     vertical-align: middle;
 }
-.text-link {
-    color: var(--uploader-link-color);
-    cursor: var(--cursor-pointer);
+.file-text {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

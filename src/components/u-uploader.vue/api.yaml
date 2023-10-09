@@ -123,15 +123,9 @@
       brifeDoc: ""
       docDescription: 是否展示文件图标
       tooltipLink: ""
-    - name: test
-      title: test
+    - name: icon-map
       type: Object
       default: {}
-      description: 当前文件列表
-      group: 主要属性
-      brifeDoc: ""
-      docDescription: 当前的文件列表
-      tooltipLink: ""
       advanced: true
       hidden: true
     - name: file-type
@@ -141,7 +135,7 @@
         - title: 文档
           value: doc
         - title: 图片
-          value: image
+          value: jpg|jpeg|png|bmp|gif|tiff|tif|webp|svg|psd|raw
         - title: PDF
           value: pdf
         - title: 表格
