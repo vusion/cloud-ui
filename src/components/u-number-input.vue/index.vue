@@ -24,6 +24,7 @@ import MField from '../m-field.vue';
 import { repeatClick, clickOutside } from '../../directives';
 import { noopFormatter, NumberFormatter } from '../../utils/Formatters';
 const isNil = (value) => (typeof value === 'string' && value.trim() === '') || value === null || value === undefined;
+import { Decimal } from 'decimal.js';
 
 export default {
     name: 'u-number-input',
@@ -75,6 +76,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        highPrecision: {
+            type: Boolean,
+            default: false,
+        },
         unit: {
             type: Object,
             default: () => ({
@@ -97,7 +102,7 @@ export default {
         if (this.formatter instanceof Object)
             data.currentFormatter = this.formatter;
         else if (typeof this.formatter === 'string')
-            data.currentFormatter = new NumberFormatter(this.formatter);
+            data.currentFormatter = new NumberFormatter(this.formatter, { isDecimal: this.highPrecision });
         else
             data.currentFormatter = noopFormatter; // 初始值需要在最小值和最大值范围之内
 
@@ -140,14 +145,14 @@ export default {
             }
 
             if (formatter) {
-                data.currentFormatter = new NumberFormatter(formatter, !this.advancedFormat.enable && {
-                    percentSign: this.percentSign, // 百分比
-                });
+                const option = { isDecimal: this.highPrecision };
+                if (!this.advancedFormat.enable) {
+                    option.percentSign = this.percentSign; // 百分比
+                }
+                data.currentFormatter = new NumberFormatter(formatter, option);
             }
         }
-
         data.formattedValue = data.currentFormatter.format(data.currentValue);
-
         return data;
     },
     computed: {
@@ -203,6 +208,9 @@ export default {
         this.$emit('update', value, this);
     },
     mounted() {
+        if (this.highPrecision && this.decimalLength) {
+            Decimal.set({ precision: this.decimalLength + 1 });
+        }
         this.autofocus && this.$refs.input.focus();
     },
     methods: {
@@ -232,11 +240,19 @@ export default {
             else if (isNaN(value))
                 value = this.currentValue || this.defaultValue || 0;
 
-            value = Math.min(Math.max(this.min, value), this.max);
+            if (this.highPrecision) {
+                value = Decimal.min(Decimal.max(this.min, value), this.max).toString();
+            } else {
+                value = Math.min(Math.max(this.min, value), this.max);
+            }
 
             // 配置了新的精度
             if (this.decimalLength >= 0) {
-                value = parseFloat(+value.toFixed(Math.floor(this.decimalLength)));
+                if (this.highPrecision) {
+                    value = new Decimal(value).toFixed(Math.floor(this.decimalLength)).toString();
+                } else {
+                    value = parseFloat(+value.toFixed(Math.floor(this.decimalLength)));
+                }
             } else if (this.precision > 0) {
                 let decimalLength = 0;
                 try {
@@ -252,8 +268,11 @@ export default {
                 } catch (error) {
                     console.log(error);
                 }
-
-                value = parseFloat(+value.toFixed(Math.floor(decimalLength)));
+                if (this.highPrecision) {
+                    value = new Decimal(value).toFixed(Decimal.floor(decimalLength)).toString();
+                } else {
+                    value = parseFloat(+value.toFixed(Math.floor(decimalLength)));
+                }
             }
 
             return value;
@@ -339,12 +358,25 @@ export default {
         },
         increase() {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
-            this.adjust(+this.currentValue + (step - 0));
+            let result;
+            if (this.highPrecision) {
+                // decimal 默认精度20位所以 现在不生效了
+                result = new Decimal(this.currentValue.toString()).add(new Decimal(step.toString()));
+            } else {
+                result = +this.currentValue + (step - 0);
+            }
+            this.adjust(result.toString());
             this.preventBlur = true;
         },
         decrease() {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : +this.step;
-            this.adjust(+this.currentValue - step);
+            let result;
+            if (this.highPrecision) {
+                result = new Decimal(this.currentValue.toString()).minus(new Decimal(step.toString()));
+            } else {
+                result = +this.currentValue - step;
+            }
+            this.adjust(result.toString());
             this.preventBlur = true;
         },
         onInput(rawValue) {
