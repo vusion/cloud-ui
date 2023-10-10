@@ -30,11 +30,14 @@
         <template v-if="listType !== 'card'">
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
                 <div :class="$style.textContainer" v-if="listType === 'text'">
-                    <i-ico :name="fileTypeIcon(item)"></i-ico>
-                    <span :class="$style.fileText">{{ item.name }}</span>
-                    <a :href="encodeUrl(item.url)" target="_blank" download role="download"><i-ico :name="downloadIcon"></i-ico></a>
-                    <i-ico name="remove" v-if="!readonly && !disabled" @click="remove(index)"></i-ico>
-                    <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+                        <span v-for="flag in fileListFlags" :key="flag">
+                            <component v-if="flag !== 'download-icon' && isShowFileListItem(flag)" :style="fileListStyleInfos[flag]" :is="fileListComponentFlagMap[flag].is" v-bind="fileListComponentFlagMap[flag].getProps(item)" />
+                            <a  v-else-if="downloadIconSwitcher" :style="fileListStyleInfos['download-icon']" :href="encodeUrl(item.url)" target="_blank" download role="download">
+                                <i-ico :name="downloadIcon" icotype="only"></i-ico>
+                            </a> 
+                        </span>
+                    <i-ico name="remove" :class="$style.remove" v-if="!readonly && !disabled && !$env.VUE_APP_DESIGNER" @click="remove(index)"></i-ico>
+                    <u-linear-progress v-if="item.showProgress && !$env.VUE_APP_DESIGNER" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                 </div>
                 <div v-else>
                     <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
@@ -69,6 +72,9 @@
                 </f-scroll-view>
             </div>
         </template>
+        <span v-show="$env.VUE_APP_DESIGNER && listType === 'text'"  vusion-slot-name="file-list">   
+            <slot name="file-list" ref="file-list"></slot>
+        </span>
     </div>
     <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
         <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="encodeURI(item.url || item)"></u-lightbox-item>
@@ -151,6 +157,9 @@ export default {
         fileType: { type: String, default: 'default' },
         iconMap: { type: Object, default: () => ({}) },
         downloadIcon: { type: String, default: 'download' },
+        fileIconSwitcher: { type: Boolean, default: true },
+        downloadIconSwitcher: { type: Boolean, default: true },
+        fileSize: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -173,15 +182,64 @@ export default {
                 title: this.cropperTitle,
                 previewShape: this.cropperPreviewShape,
             },
+            fileListStyleInfos: {'file-icon': {}, 'file-name': {}, 'download-icon': {}, 'file-size': {}},
+            fileListFlags: [],
         };
     },
     mounted() {
-        console.log('vue实例', this)
+        if(!this.$env.VUE_APP_DESIGNER) {
+            const fileListVms = this.$slots['file-list'].filter(item => item.data && item.data.attrs && item.data.attrs.flag);
+            fileListVms.forEach(vm => {
+                this.$set(this.fileListStyleInfos, [vm.data.attrs.flag], vm.data.staticStyle);
+             })
+            this.fileListFlags = fileListVms.map(item => item.data.attrs.flag);
+        }
+    },
+    updated() {
+        console.log('currentValue', this.currentValue)
     },
     computed: {
         uploadEnable() {
             return this.multiple ? this.currentValue.length < this.limit : this.currentValue.length === 0;
         },
+        fileListComponentFlagMap() {
+            return {
+                'file-icon': {
+                    is: 'i-ico', 
+                    getProps: (item) => {
+                        return {
+                            name: this.fileTypeIcon(item),
+                            icotype:"only"
+                        }
+                    }
+                }, 
+                'file-name': {
+                    is: 'u-text', 
+                    getProps: (item) => {
+                        return {
+                            text: item.name
+                        }
+                    }
+                }, 
+                'file-size': {
+                    is: 'u-text', 
+                    getProps: (item) => {
+                        return {
+                            text: this.displayFileSize(item.size)
+                        }
+                    }
+                }, 
+                'download-icon': {
+                    is: 'i-ico', 
+                    getProps: (item) => {
+                        return {
+                            name: this.fileTypeIcon(item),
+                            icotype:"only"
+                        }
+                    }
+                }
+            }
+        }
     },
     watch: {
         value(value) {
@@ -198,8 +256,61 @@ export default {
                 }, this);
             },
         },
+        fileIconSwitcher: {
+            handler(switcher) {
+                if(this.$env.VUE_APP_DESIGNER) {
+                    this.$nextTick(() => {
+                        this.$children.find(vm => vm.$attrs.flag === 'file-icon').$el.style.display = switcher ? 'inline-block' : 'none';
+                    })
+                }
+            },
+            immediate: true,
+        },
+        downloadIconSwitcher: {
+            handler(switcher) {
+                console.log('switcher', switcher)
+                if(this.$env.VUE_APP_DESIGNER) {
+                    this.$nextTick(() => {
+                        this.$children.find(vm => vm.$attrs.flag === 'download-icon').$el.style.display = switcher ? 'inline-block' : 'none';
+                    })
+                }
+            },
+            immediate: true,
+        },
+        fileSize: {
+            handler(switcher) {
+                if(this.$env.VUE_APP_DESIGNER) {
+                    this.$nextTick(() => {
+                        this.$children.find(vm => vm.$attrs.flag === 'file-size').$el.style.display = switcher ? 'inline-block' : 'none'
+                    })
+                }
+            },
+            immediate: true,
+        }
     },
     methods: {
+        displayFileSize(fileSizeInBytes) {
+            const ONE_MB = 1024 * 1024;
+            if (fileSizeInBytes < ONE_MB) {
+                // 文件大小小于1MB，展示为KB
+                const fileSizeInKB = Math.round(fileSizeInBytes / 1024);
+                return `${fileSizeInKB} KB`;
+            } else {
+                // 文件大小大于等于1MB，展示为MB
+                const fileSizeInMB = (fileSizeInBytes / ONE_MB).toFixed(2);
+                return `${fileSizeInMB} MB`;
+            }
+        },
+        isShowFileListItem(flag) {
+            if(flag !== 'file-name') {
+                const map = {
+                    'file-icon': 'fileIconSwitcher',
+                    'file-size': 'fileSize',
+                }
+                return this[map[flag]];
+            }
+            return true
+        },
         fileTypeIcon(item) {
             const iconInfo = Object.entries(this.iconMap).find(([type]) => type.includes(item.name.split('.').pop()));
             return !!iconInfo ? iconInfo[1] : 'file-default'
@@ -484,7 +595,6 @@ export default {
                 lcapIsCompress: this.lcapIsCompress,
                 viaOriginURL: this.viaOriginURL,
             };
-            console.log('this.withCredentials', this.withCredentials, Array.isArray(file))
             const requestData = {
                 url,
                 headers,
@@ -806,8 +916,13 @@ export default {
     display: inline-block;
     vertical-align: middle;
 }
-.text-container {
+.textContainer {
     width: fit-content;
+    display: flex;
+    align-items: center;
+}
+.textContainer .remove{
+    margin-top: 0px;
 }
 
 .list[list-type="image"] .link {
@@ -1024,5 +1139,4 @@ export default {
 .cardwrap .errwrap {
     max-width: var(--uploader-error-box-max-width);
 }
-
 </style>

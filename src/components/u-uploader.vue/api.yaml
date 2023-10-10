@@ -120,6 +120,7 @@
       type: boolean
       description: 是否展示文件图标
       group: 主要属性
+      default: true
       brifeDoc: ""
       docDescription: 是否展示文件图标
       tooltipLink: ""
@@ -148,7 +149,6 @@
           value: zip
         - title: CSV
           value: csv
-      default: doc
       description: ""
       group: 主要属性
       brifeDoc: ""
@@ -157,7 +157,7 @@
       dependencyDisplay: file-icon-switcher
     - name: file-icon
       title: 文件图标
-      type: icon
+      type: file-icon
       description: ""
       group: 主要属性
       brifeDoc: ""
@@ -167,6 +167,7 @@
     - name: download-icon-switcher
       title: 下载图标
       type: boolean
+      default: true
       description: 是否展示下载图标
       group: 主要属性
       brifeDoc: ""
@@ -174,7 +175,7 @@
       tooltipLink: ""
     - name: download-icon
       title: 下载图标
-      type: icon
+      type: file-icon
       default: download
       description: ""
       group: 主要属性
@@ -187,6 +188,7 @@
       type: boolean
       description: 是否展示文件大小，单位小于1MB则展示KB，大于1MB则展示MB。
       group: 主要属性
+      default: true
       brifeDoc: ""
       docDescription: 是否展示文件大小
       tooltipLink: ""
@@ -437,6 +439,10 @@
     - concept: Slot
       name: default
       description: 插入文本 或 HTML。
+    - concept: Slot
+      name: file-list
+      title: 文件列表
+      description: 文件列表。
   events:
     - name: before-upload
       title: 上传前
