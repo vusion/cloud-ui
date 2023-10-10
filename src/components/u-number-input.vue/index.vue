@@ -32,7 +32,7 @@ export default {
     mixins: [MField],
     props: {
         // String 类型是为了验证抛出
-        value: [Number, String],
+        value: [Number, String, Object],
         defaultValue: [String, Number],
         min: { type: Number, default: -Infinity },
         max: { type: Number, default: Infinity },
