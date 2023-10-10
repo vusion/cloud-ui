@@ -41,7 +41,7 @@
                             :rowspan="hasGroupedColumn && trIndex === 0 && !columnVM.isGroup ? 2 : undefined">
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
-                                <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
+                                <u-checkbox :value="allChecked" @check="checkAll($event.value)" :disabled="disabled"></u-checkbox>
                             </span>
                             <!-- Normal title -->
                             <template>
