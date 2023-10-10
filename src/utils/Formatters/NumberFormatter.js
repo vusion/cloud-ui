@@ -26,7 +26,7 @@ export class NumberFormatter extends Formatter {
             value = value * 100;
         }
         if (this.isDecimal) {
-            value = new Decimal(value).toFixed(fixed).toString().padStart(fixed ? fill + 1 + fixed : fill, '0');
+            value = new Decimal(String(value)).toFixed(fixed).toString().padStart(fixed ? fill + 1 + fixed : fill, '0');
         } else {
             value = value.toFixed(fixed).padStart(fixed ? fill + 1 + fixed : fill, '0');
         }

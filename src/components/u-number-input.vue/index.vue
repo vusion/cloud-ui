@@ -91,6 +91,9 @@ export default {
     data() {
         // 根据初始值计算 fix 精度
         const currentPrecision = this.getCurrentPrecision(this.value);
+        if (typeof this.value === 'object') {
+            this.value = this.value + '';
+        }
         const data = {
             // 当前使用的精度，当 precision 为 0 时，使用动态精度
             currentPrecision,
@@ -152,7 +155,9 @@ export default {
                 data.currentFormatter = new NumberFormatter(formatter, option);
             }
         }
+
         data.formattedValue = data.currentFormatter.format(data.currentValue);
+        console.log(' data.formattedValue: ', data.formattedValue);
         return data;
     },
     computed: {
@@ -243,7 +248,10 @@ export default {
                 value = this.currentValue || this.defaultValue || 0;
 
             if (this.highPrecision) {
-                value = Decimal.min(Decimal.max(this.min, value), this.max).toString();
+                // if (typeof value === 'object') {
+                //     value = value + '';
+                // }
+                value = Decimal.min(Decimal.max(this.min, new Decimal(value)), this.max).toString();
             } else {
                 value = Math.min(Math.max(this.min, value), this.max);
             }
@@ -251,7 +259,7 @@ export default {
             // 配置了新的精度
             if (this.decimalLength >= 0) {
                 if (this.highPrecision) {
-                    value = new Decimal(value).toFixed(Math.floor(this.decimalLength)).toString();
+                    value = new Decimal(String(value)).toFixed(Math.floor(this.decimalLength)).toString();
                 } else {
                     value = parseFloat(+value.toFixed(Math.floor(this.decimalLength)));
                 }
@@ -271,7 +279,7 @@ export default {
                     console.log(error);
                 }
                 if (this.highPrecision) {
-                    value = new Decimal(value).toFixed(Decimal.floor(decimalLength)).toString();
+                    value = new Decimal(String(value)).toFixed(Decimal.floor(decimalLength)).toString();
                 } else {
                     value = parseFloat(+value.toFixed(Math.floor(decimalLength)));
                 }
@@ -361,7 +369,7 @@ export default {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
             let result;
             if (this.highPrecision) {
-                result = new Decimal(this.currentValue.toString()).add(new Decimal(step.toString()));
+                result = new Decimal(String(this.currentValue)).add(new Decimal(String(step)));
             } else {
                 result = +this.currentValue + (step - 0);
             }
