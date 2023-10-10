@@ -19,7 +19,8 @@ exports[`u-validator.vue Demo-blur 后从绑定变量更新 1`] = `
     <span color="error" style="display: none;">false</span>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    change</a>
+    change
+  </a>
 </div>
 `;
 

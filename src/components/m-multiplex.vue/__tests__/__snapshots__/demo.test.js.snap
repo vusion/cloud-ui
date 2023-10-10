@@ -194,6 +194,7 @@ exports[`m-multiplex.vue Demo-更新列表 1`] = `
     <div class="root" vusion-slot-name="text">沙发</div>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    更新列表</a>
+    更新列表
+  </a>
 </div>
 `;
