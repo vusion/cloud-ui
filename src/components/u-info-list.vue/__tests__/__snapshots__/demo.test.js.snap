@@ -711,7 +711,8 @@ exports[`u-info-list.vue Demo-额外插槽 1`] = `
         </div>
         <div class="extra" vusion-slot-name="extra">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            设置</a>
+            设置
+          </a>
         </div>
       </div>
       <div class="body" vusion-slot-name="default">
@@ -755,7 +756,8 @@ exports[`u-info-list.vue Demo-额外插槽 2`] = `
         </div>
         <div class="extra" vusion-slot-name="extra">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            设置</a>
+            设置
+          </a>
         </div>
       </div>
       <div class="body" vusion-slot-name="default">

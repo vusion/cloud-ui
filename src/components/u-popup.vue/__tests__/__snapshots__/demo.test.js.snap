@@ -75,7 +75,7 @@ exports[`u-popup.vue Demo-基本用法 2`] = `
             </div>
           </div>
           <div class="body" vusion-slot-name="default">
-            <span>使用 <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text"> slot</a> 可以添加一些复杂功能</span>
+            <span>使用 <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text"> slot </a> 可以添加一些复杂功能</span>
           </div>
         </div>
       </transition-stub>

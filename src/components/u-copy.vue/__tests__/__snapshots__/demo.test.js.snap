@@ -5,7 +5,8 @@ exports[`u-copy.vue Demo-toast 1`] = `
   <div class="root">
     <div vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        复制</a>
+        复制
+      </a>
     </div>
     <transition-stub name="fade-fast">
       <div arraw-size="normal" class="root" style="display: none;">
@@ -22,7 +23,8 @@ exports[`u-copy.vue Demo-toast 1`] = `
 exports[`u-copy.vue Demo-toast 2`] = `
 <div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    复制</a>
+    复制
+  </a>
 </div>
 `;
 
@@ -32,7 +34,8 @@ exports[`u-copy.vue Demo-toast 提示 1`] = `
     <div class="root">
       <div vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          500毫秒</a>
+          500毫秒
+        </a>
       </div>
       <transition-stub name="fade-fast">
         <div arraw-size="normal" class="root" style="display: none;">
@@ -46,7 +49,8 @@ exports[`u-copy.vue Demo-toast 提示 1`] = `
     <div class="root">
       <div vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          2秒</a>
+          2秒
+        </a>
       </div>
       <transition-stub name="fade-fast">
         <div arraw-size="normal" class="root" style="display: none;">
@@ -60,7 +64,8 @@ exports[`u-copy.vue Demo-toast 提示 1`] = `
     <div class="root">
       <div vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          4秒</a>
+          4秒
+        </a>
       </div>
       <transition-stub name="fade-fast">
         <div arraw-size="normal" class="root" style="display: none;">
@@ -80,7 +85,8 @@ exports[`u-copy.vue Demo-tooltip (默认) 1`] = `
   <div class="root">
     <div vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        复制</a>
+        复制
+      </a>
     </div>
     <transition-stub name="fade-fast">
       <div arraw-size="normal" class="root" style="display: none;">
@@ -108,7 +114,8 @@ exports[`u-copy.vue Demo-tooltip 弹框 1`] = `
     <div class="root">
       <div vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          500毫秒</a>
+          500毫秒
+        </a>
       </div>
       <transition-stub name="fade-fast">
         <div arraw-size="normal" class="root" style="display: none;">
@@ -130,7 +137,8 @@ exports[`u-copy.vue Demo-tooltip 弹框 1`] = `
     <div class="root">
       <div vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          2秒</a>
+          2秒
+        </a>
       </div>
       <transition-stub name="fade-fast">
         <div arraw-size="normal" class="root" style="display: none;">
@@ -152,7 +160,8 @@ exports[`u-copy.vue Demo-tooltip 弹框 1`] = `
     <div class="root">
       <div vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          4秒</a>
+          4秒
+        </a>
       </div>
       <transition-stub name="fade-fast">
         <div arraw-size="normal" class="root" style="display: none;">
@@ -180,7 +189,8 @@ exports[`u-copy.vue Demo-不提示 1`] = `
   <div class="root">
     <div vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        复制</a>
+        复制
+      </a>
     </div>
     <transition-stub name="fade-fast">
       <div arraw-size="normal" class="root" style="display: none;">
@@ -199,7 +209,8 @@ exports[`u-copy.vue Demo-基本用法 1`] = `
   <div class="root">
     <div vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        复制</a>
+        复制
+      </a>
     </div>
     <transition-stub name="fade-fast">
       <div arraw-size="normal" class="root" style="display: none;">
@@ -221,7 +232,8 @@ exports[`u-copy.vue Demo-基本用法 1`] = `
   <div class="root">
     <div vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        复制密钥</a>
+        复制密钥
+      </a>
     </div>
     <transition-stub name="fade-fast">
       <div arraw-size="normal" class="root" style="display: none;">
@@ -248,7 +260,8 @@ exports[`u-copy.vue Demo-复制链接 1`] = `
   <div class="root">
     <div vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        复制</a>
+        复制
+      </a>
     </div>
     <transition-stub name="fade-fast">
       <div arraw-size="normal" class="root" style="display: none;">
@@ -275,35 +288,47 @@ exports[`u-copy.vue Demo-指令形式 1`] = `
   <div class="root" direction="vertical" style="min-width: 300px; max-width: 550px;" type vusion-slot-name="default">
     <div class="root" direction="horizontal" gap="small" justify="center" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        上左</a>
+        上左
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        上边</a>
+        上边
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        上右</a>
+        上右
+      </a>
     </div>
     <div class="root" direction="vertical" justify="center" style="width: 150px; float: left;" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        左上</a>
+        左上
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        左边</a>
+        左边
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        左下</a>
+        左下
+      </a>
     </div>
     <div class="root" direction="vertical" justify="center" style="width: 150px; float: right;" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        右上</a>
+        右上
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        右边</a>
+        右边
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        右下</a>
+        右下
+      </a>
     </div>
     <div class="root" direction="horizontal" gap="small" justify="center" style="clear: both;" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        下左</a>
+        下左
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        下边</a>
+        下边
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        下右</a>
+        下右
+      </a>
     </div>
   </div>
 </div>
@@ -312,14 +337,16 @@ exports[`u-copy.vue Demo-指令形式 1`] = `
 exports[`u-copy.vue Demo-指令形式 2`] = `
 <div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    复制</a>
+    复制
+  </a>
 </div>
 `;
 
 exports[`u-copy.vue Demo-指令形式 3`] = `
 <div>
   <a class="root" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-    复制</a>
+    复制
+  </a>
 </div>
 `;
 
@@ -330,7 +357,8 @@ exports[`u-copy.vue Demo-提示位置 1`] = `
       <div class="root">
         <div vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            上左</a>
+            上左
+          </a>
         </div>
         <transition-stub name="fade-fast">
           <div arraw-size="normal" class="root" style="display: none;">
@@ -352,7 +380,8 @@ exports[`u-copy.vue Demo-提示位置 1`] = `
       <div class="root">
         <div vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            上边</a>
+            上边
+          </a>
         </div>
         <transition-stub name="fade-fast">
           <div arraw-size="normal" class="root" style="display: none;">
@@ -374,7 +403,8 @@ exports[`u-copy.vue Demo-提示位置 1`] = `
       <div class="root">
         <div vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            上右</a>
+            上右
+          </a>
         </div>
         <transition-stub name="fade-fast">
           <div arraw-size="normal" class="root" style="display: none;">
@@ -398,7 +428,8 @@ exports[`u-copy.vue Demo-提示位置 1`] = `
       <div class="root">
         <div vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            左上</a>
+            左上
+          </a>
         </div>
         <transition-stub name="fade-fast">
           <div arraw-size="normal" class="root" style="display: none;">
@@ -420,7 +451,8 @@ exports[`u-copy.vue Demo-提示位置 1`] = `
       <div class="root">
         <div vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            左边</a>
+            左边
+          </a>
         </div>
         <transition-stub name="fade-fast">
           <div arraw-size="normal" class="root" style="display: none;">
@@ -442,7 +474,8 @@ exports[`u-copy.vue Demo-提示位置 1`] = `
       <div class="root">
         <div vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            左下</a>
+            左下
+          </a>
         </div>
         <transition-stub name="fade-fast">
           <div arraw-size="normal" class="root" style="display: none;">
@@ -466,7 +499,8 @@ exports[`u-copy.vue Demo-提示位置 1`] = `
       <div class="root">
         <div vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            右上</a>
+            右上
+          </a>
         </div>
         <transition-stub name="fade-fast">
           <div arraw-size="normal" class="root" style="display: none;">
@@ -488,7 +522,8 @@ exports[`u-copy.vue Demo-提示位置 1`] = `
       <div class="root">
         <div vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            右边</a>
+            右边
+          </a>
         </div>
         <transition-stub name="fade-fast">
           <div arraw-size="normal" class="root" style="display: none;">
@@ -510,7 +545,8 @@ exports[`u-copy.vue Demo-提示位置 1`] = `
       <div class="root">
         <div vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            右下</a>
+            右下
+          </a>
         </div>
         <transition-stub name="fade-fast">
           <div arraw-size="normal" class="root" style="display: none;">
@@ -534,7 +570,8 @@ exports[`u-copy.vue Demo-提示位置 1`] = `
       <div class="root">
         <div vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            下左</a>
+            下左
+          </a>
         </div>
         <transition-stub name="fade-fast">
           <div arraw-size="normal" class="root" style="display: none;">
@@ -556,7 +593,8 @@ exports[`u-copy.vue Demo-提示位置 1`] = `
       <div class="root">
         <div vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            下边</a>
+            下边
+          </a>
         </div>
         <transition-stub name="fade-fast">
           <div arraw-size="normal" class="root" style="display: none;">
@@ -578,7 +616,8 @@ exports[`u-copy.vue Demo-提示位置 1`] = `
       <div class="root">
         <div vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            下右</a>
+            下右
+          </a>
         </div>
         <transition-stub name="fade-fast">
           <div arraw-size="normal" class="root" style="display: none;">
@@ -607,7 +646,8 @@ exports[`u-copy.vue Demo-提示内容 1`] = `
   <div class="root">
     <div vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        复制</a>
+        复制
+      </a>
     </div>
     <transition-stub name="fade-fast">
       <div arraw-size="normal" class="root" style="display: none;">
@@ -635,7 +675,8 @@ exports[`u-copy.vue Demo-禁用状态 1`] = `
     <div class="root">
       <div vusion-slot-name="default">
         <a class="root" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-          复制</a>
+          复制
+        </a>
       </div>
       <transition-stub name="fade-fast">
         <div arraw-size="normal" class="root" style="display: none;">
@@ -657,7 +698,8 @@ exports[`u-copy.vue Demo-禁用状态 1`] = `
     <div class="root">
       <div vusion-slot-name="default">
         <a class="root" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-          复制</a>
+          复制
+        </a>
       </div>
       <transition-stub name="fade-fast">
         <div arraw-size="normal" class="root" style="display: none;">
@@ -685,7 +727,8 @@ exports[`u-copy.vue Demo-触发元素 1`] = `
   <div class="root">
     <div vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        复制</a>
+        复制
+      </a>
     </div>
     <transition-stub name="fade-fast">
       <div arraw-size="normal" class="root" style="display: none;">
@@ -710,6 +753,7 @@ exports[`u-copy.vue Demo-触发元素 1`] = `
 exports[`u-copy.vue Demo-触发元素 2`] = `
 <div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    复制</a>
+    复制
+  </a>
 </div>
 `;
