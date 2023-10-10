@@ -192,7 +192,8 @@ exports[`u-carousel.vue Demo-数据源 1`] = `
     <div class="button" findname="realpostion" role="next" vusion-index="-1"></div>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    click reload</a>
+    click reload
+  </a>
 </div>
 `;
 

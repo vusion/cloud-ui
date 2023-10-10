@@ -831,7 +831,8 @@ exports[`u-cascader.vue Demo-数据源开启搜索 1`] = `
       <span style="display: none;"></span>
     </div>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      click reload</a>
+      click reload
+    </a>
   </div>
 </div>
 `;

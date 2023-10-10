@@ -83,7 +83,8 @@ exports[`u-form-table.vue Demo-动态按钮 1`] = `
       <tr>
         <td colspan="4">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            添加项</a>
+            添加项
+          </a>
         </td>
       </tr>
     </tbody>

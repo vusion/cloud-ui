@@ -39,11 +39,14 @@ exports[`u-selectable-steps.vue Demo-动态数据渲染 1`] = `
     <div class="body"></div>
   </div>
   <a class="root" hovertype="underline" size="small" slot="extra" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    add step</a>
+    add step
+  </a>
   <a class="root" hovertype="underline" size="small" slot="extra" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    value+1</a>
+    value+1
+  </a>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    reload</a>
+    reload
+  </a>
 </div>
 `;
 

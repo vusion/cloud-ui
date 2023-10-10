@@ -72,11 +72,14 @@ exports[`u-countup.vue Demo-方法 1`] = `
             </span>
           </span>
           <a class="root" color="primary" hovertype="underline" style="vertical-align: bottom;" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            开启渐变</a>
+            开启渐变
+          </a>
           <a class="root" hovertype="underline" style="vertical-align: bottom;" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            重置</a>
+            重置
+          </a>
           <a class="root" hovertype="underline" style="vertical-align: bottom;" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            暂停</a>
+            暂停
+          </a>
         </div>
       </div>
     </div>
@@ -119,7 +122,8 @@ exports[`u-countup.vue Demo-渐变结束回调函数 1`] = `
     </span>
   </span>
   <a class="root" color="primary" hovertype="underline" style="vertical-align: bottom;" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    autoStart</a>
+    autoStart
+  </a>
 </div>
 `;
 

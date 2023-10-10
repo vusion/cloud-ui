@@ -699,7 +699,8 @@ exports[`u-transfer.vue Demo-加载更多 1`] = `
         </div>
         <div>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            加载更多</a>
+            加载更多
+          </a>
         </div>
       </div>
       <div style="display: none;">
@@ -2758,7 +2759,8 @@ exports[`u-transfer.vue Demo-添加 loading 1`] = `
 <div class="root" direction="vertical" gap="small" type vusion-slot-name="default">
   <div>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      加载</a>
+      加载
+    </a>
   </div>
   <div class="root">
     <div border="true" class="root listView" tabindex="0">
