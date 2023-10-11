@@ -7989,6 +7989,12 @@
     "type": "string | number",
     "description": "设置列宽度，可设置为数字或百分比"
   },
+  "u-table-view-column/colSpan": {
+    "type": "number"
+  },
+  "u-table-view-column/autoRowSpan": {
+    "type": "boolean"
+  },
   "u-table-view-column-config/text-field": {
     "type": "string",
     "description": "配置列的下拉弹窗里，指定数据展示的字段"
@@ -8058,6 +8064,10 @@
   "u-table-view-column-dynamic/width": {
     "type": "string | number",
     "description": "设置列宽度，可设置为数字或百分比"
+  },
+  "u-table-view-column-group/title": {
+    "type": "string",
+    "description": ""
   },
   "u-tablets/value": {
     "type": "any",

@@ -1995,7 +1995,8 @@
     "subtags": [
       "u-table-view-column",
       "u-table-view-column-config",
-      "u-table-view-column-dynamic"
+      "u-table-view-column-dynamic",
+      "u-table-view-column-group"
     ]
   },
   "u-table-view-column": {
@@ -2013,7 +2014,9 @@
       "fixed",
       "ellipsis",
       "hidden",
-      "width"
+      "width",
+      "colSpan",
+      "autoRowSpan"
     ],
     "description": "表格列"
   },
@@ -2038,6 +2041,11 @@
       "ellipsis",
       "hidden",
       "width"
+    ]
+  },
+  "u-table-view-column-group": {
+    "attributes": [
+      "title"
     ]
   },
   "u-table": {
