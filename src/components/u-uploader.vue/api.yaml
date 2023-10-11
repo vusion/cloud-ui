@@ -132,6 +132,7 @@
     - name: file-type
       title: 文件类型
       type: string
+      default: doc
       options:
         - title: 文档
           value: doc
@@ -154,7 +155,6 @@
       brifeDoc: ""
       docDescription: 列表的展示类型，支持使用文本、图片和卡片
       tooltipLink: ""
-      dependencyDisplay: file-icon-switcher
     - name: file-icon
       title: 文件图标
       type: file-icon
@@ -163,7 +163,6 @@
       brifeDoc: ""
       docDescription: "支持从图标库选择图标或上传自定义图标。"
       tooltipLink: ""
-      dependencyDisplay: file-icon-switcher
     - name: download-icon-switcher
       title: 下载图标
       type: boolean
@@ -182,7 +181,6 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
-      dependencyDisplay: download-icon-switcher
     - name: file-size
       title: 文件大小
       type: boolean
