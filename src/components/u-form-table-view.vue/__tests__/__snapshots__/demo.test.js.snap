@@ -339,25 +339,25 @@ exports[`u-form-table-view.vue Demo-基本用法 1`] = `
         <tr class="root">
           <td>
             <div display="block" vusion-slot-name="default">
-              <div>Cannot read property 'item' of undefined</div>
+              <div>Cannot read properties of undefined (reading 'item')</div>
               <span color="error" style="display: none;">false</span>
             </div>
           </td>
           <td>
             <div display="block" vusion-slot-name="default">
-              <div>Cannot read property 'item' of undefined</div>
+              <div>Cannot read properties of undefined (reading 'item')</div>
               <span color="error" style="display: none;">false</span>
             </div>
           </td>
           <td>
             <div display="block" vusion-slot-name="default">
-              <div>Cannot read property 'item' of undefined</div>
+              <div>Cannot read properties of undefined (reading 'item')</div>
               <span color="error" style="display: none;">false</span>
             </div>
           </td>
           <td>
             <div display="block" vusion-slot-name="default">
-              <div>Cannot read property 'item' of undefined</div>
+              <div>Cannot read properties of undefined (reading 'item')</div>
               <span color="error" style="display: none;">false</span>
             </div>
           </td>
@@ -367,25 +367,25 @@ exports[`u-form-table-view.vue Demo-基本用法 1`] = `
         <tr class="root">
           <td>
             <div display="block" vusion-slot-name="default">
-              <div>Cannot read property 'item' of undefined</div>
+              <div>Cannot read properties of undefined (reading 'item')</div>
               <span color="error" style="display: none;">false</span>
             </div>
           </td>
           <td>
             <div display="block" vusion-slot-name="default">
-              <div>Cannot read property 'item' of undefined</div>
+              <div>Cannot read properties of undefined (reading 'item')</div>
               <span color="error" style="display: none;">false</span>
             </div>
           </td>
           <td>
             <div display="block" vusion-slot-name="default">
-              <div>Cannot read property 'item' of undefined</div>
+              <div>Cannot read properties of undefined (reading 'item')</div>
               <span color="error" style="display: none;">false</span>
             </div>
           </td>
           <td>
             <div display="block" vusion-slot-name="default">
-              <div>Cannot read property 'item' of undefined</div>
+              <div>Cannot read properties of undefined (reading 'item')</div>
               <span color="error" style="display: none;">false</span>
             </div>
           </td>
