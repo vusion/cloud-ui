@@ -32,7 +32,7 @@
                 <div :class="$style.textContainer" v-if="listType === 'text'">
                         <span v-for="flag in fileListFlags" :key="flag">
                             <component v-if="flag !== 'download-icon' && isShowFileListItem(flag)" :style="fileListStyleInfos[flag]" :is="fileListComponentFlagMap[flag].is" v-bind="fileListComponentFlagMap[flag].getProps(item)" />
-                            <a  v-else-if="downloadIconSwitcher" :style="fileListStyleInfos['download-icon']" :href="encodeUrl(item.url)" target="_blank" download role="download">
+                            <a  v-else-if="downloadIconSwitcher && isShowFileListItem(flag)" :style="fileListStyleInfos['download-icon']" :href="encodeUrl(item.url)" target="_blank" download role="download">
                                 <i-ico :name="downloadIcon" icotype="only"></i-ico>
                             </a> 
                         </span>
@@ -217,7 +217,8 @@ export default {
                     is: 'u-text', 
                     getProps: (item) => {
                         return {
-                            text: item.name
+                            text: item.name,
+                            title: item.name,
                         }
                     }
                 }, 
@@ -306,6 +307,7 @@ export default {
                 const map = {
                     'file-icon': 'fileIconSwitcher',
                     'file-size': 'fileSize',
+                    'download-icon': 'downloadIconSwitcher',
                 }
                 return this[map[flag]];
             }
@@ -874,7 +876,6 @@ export default {
 }
 
 .list[list-type="text"]  .item{
-    display: inline-block;
     width: fit-content;
 }
 

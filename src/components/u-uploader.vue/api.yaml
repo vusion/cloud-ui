@@ -132,10 +132,10 @@
     - name: file-type
       title: 文件类型
       type: string
-      default: doc
+      default: doc|docx
       options:
         - title: 文档
-          value: doc
+          value: doc|docx
         - title: 图片
           value: jpg|jpeg|png|bmp|gif|tiff|tif|webp|svg|psd|raw
         - title: PDF
@@ -143,9 +143,9 @@
         - title: 表格
           value: xlsx
         - title: 文本
-          value: text
+          value: txt
         - title: 幻灯片
-          value: ppt
+          value: ppt|pptx
         - title: 压缩包
           value: zip
         - title: CSV
@@ -174,7 +174,7 @@
       tooltipLink: ""
     - name: download-icon
       title: 下载图标
-      type: file-icon
+      type: icon
       default: download
       description: ""
       group: 主要属性
