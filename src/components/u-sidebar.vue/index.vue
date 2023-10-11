@@ -1,5 +1,5 @@
 <template>
-    <nav :class="$style.root" :readonly="readonly" :disabled="disabled" :style="dynamicStyle" @transitionend="handleTranstitionEnd">
+    <nav :class="$style.root" :readonly="readonly" :disabled="disabled" :style="dynamicStyle" @transitionend="handleTranstitionEnd" :collapse="currentCollapse">
         <f-scroll-view :class="$style.content">
             <template v-if="currentDataSource&&currentDataSource.data&&Array.isArray(currentDataSource.data)">
                 <template v-for="(node,idx) in currentDataSource.data">
@@ -312,6 +312,12 @@ export default {
     overflow: auto;
     transition: all var(--transition-duration-base);
     position: relative;
+}
+
+.root[collapse] [class^=u-text]{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .root::-webkit-scrollbar{
