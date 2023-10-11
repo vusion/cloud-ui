@@ -187,7 +187,7 @@ export default {
         };
     },
     mounted() {
-        if(!this.$env.VUE_APP_DESIGNER) {
+        if(!this.$env.VUE_APP_DESIGNER && this.$slots['file-list'] && this.listType === 'text') {
             const fileListVms = this.$slots['file-list'].filter(item => item.data && item.data.attrs && item.data.attrs.flag);
             fileListVms.forEach(vm => {
                 this.$set(this.fileListStyleInfos, [vm.data.attrs.flag], vm.data.staticStyle);
@@ -809,6 +809,7 @@ export default {
         // 展示时使用接口返回路径对应的文件名
         handleFileName(url) {
             const match = url.match(/\/([^/]+)$/);
+            console.log('match', match)
             return match ? match[1] : null;
         },
     },
