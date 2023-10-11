@@ -21,9 +21,11 @@ exports[`u-modal.vue Demo-Static 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
               <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -57,9 +59,11 @@ exports[`u-modal.vue Demo-图标、小标题与描述 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
               <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -85,9 +89,11 @@ exports[`u-modal.vue Demo-图标、小标题与描述 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
               <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -113,9 +119,11 @@ exports[`u-modal.vue Demo-图标、小标题与描述 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
               <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -131,7 +139,8 @@ exports[`u-modal.vue Demo-基本用法 2`] = `
 <div>
   <div class="root" direction="horizontal" type vusion-slot-name="default">
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Modal</a>
+      Modal
+    </a>
   </div>
 </div>
 `;
@@ -142,7 +151,8 @@ exports[`u-modal.vue Demo-基本用法 4`] = `
 <div>
   <div class="root" direction="horizontal" type vusion-slot-name="default">
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Modal</a>
+      Modal
+    </a>
   </div>
 </div>
 `;
@@ -170,9 +180,11 @@ exports[`u-modal.vue Demo-大小扩展 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
               <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -200,9 +212,11 @@ exports[`u-modal.vue Demo-大小扩展 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
               <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -230,9 +244,11 @@ exports[`u-modal.vue Demo-大小扩展 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
               <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -260,9 +276,11 @@ exports[`u-modal.vue Demo-大小扩展 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
               <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -290,9 +308,11 @@ exports[`u-modal.vue Demo-大小扩展 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
               <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -305,11 +325,14 @@ exports[`u-modal.vue Demo-大小扩展 1`] = `
 exports[`u-modal.vue Demo-快捷方式 1`] = `
 <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    Alert</a>
+    Alert
+  </a>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    Confirm</a>
+    Confirm
+  </a>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    Custom</a>
+    Custom
+  </a>
 </div>
 `;
 
@@ -334,9 +357,11 @@ exports[`u-modal.vue Demo-改变主要按钮 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -367,9 +392,11 @@ exports[`u-modal.vue Demo-标题与内容 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
               <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -400,9 +427,11 @@ exports[`u-modal.vue Demo-点击遮罩关闭 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
               <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -433,9 +462,11 @@ exports[`u-modal.vue Demo-禁用按钮 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div class="root" direction="horizontal" gap="small" justify="end" type vusion-slot-name="default">
               <a class="root" color hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -466,7 +497,8 @@ exports[`u-modal.vue Demo-自定义 1`] = `
           <div child-cut-disabled="true" class="foot" vusion-slot-name="foot">
             <div>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                关闭</a>
+                关闭
+              </a>
             </div>
           </div>
         </div>

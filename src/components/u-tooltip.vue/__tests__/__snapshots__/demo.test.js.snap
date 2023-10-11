@@ -20,14 +20,17 @@ exports[`u-tooltip.vue Demo-基本用法 2`] = `
         <div arraw-size="normal" class="root" style="display: none;">
           <div class="arrow" data-popper-arrow></div>
           <div class="body" size="normal">直接插入<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-              文本</a>或<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-              HTML</a>
+              文本
+            </a>或<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+              HTML
+            </a>
           </div>
         </div>
       </transition-stub>
     </a>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      指令</a>
+      指令
+    </a>
   </div>
 </div>
 `;
@@ -171,13 +174,17 @@ exports[`u-tooltip.vue Demo-指令形式 1`] = `
 <div>
   <div class="root" direction="horizontal" type vusion-slot-name="default">
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      hover（默认）</a>
+      hover（默认）
+    </a>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      click</a>
+      click
+    </a>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      right-click</a>
+      right-click
+    </a>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      double-click</a>
+      double-click
+    </a>
   </div>
 </div>
 `;
@@ -187,35 +194,47 @@ exports[`u-tooltip.vue Demo-指令形式 2`] = `
   <div class="root" direction="vertical" style="min-width: 300px; max-width: 550px;" type vusion-slot-name="default">
     <div class="root" direction="horizontal" gap="small" justify="center" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        上左</a>
+        上左
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        上边</a>
+        上边
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        上右</a>
+        上右
+      </a>
     </div>
     <div class="root" direction="vertical" justify="center" style="width: 150px; float: left;" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        左上</a>
+        左上
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        左边</a>
+        左边
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        左下</a>
+        左下
+      </a>
     </div>
     <div class="root" direction="vertical" justify="center" style="width: 150px; float: right;" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        右上</a>
+        右上
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        右边</a>
+        右边
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        右下</a>
+        右下
+      </a>
     </div>
     <div class="root" direction="horizontal" gap="small" justify="center" style="clear: both;" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        下左</a>
+        下左
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        下边</a>
+        下边
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        下右</a>
+        下右
+      </a>
     </div>
   </div>
 </div>
@@ -224,13 +243,17 @@ exports[`u-tooltip.vue Demo-指令形式 2`] = `
 exports[`u-tooltip.vue Demo-指令形式 3`] = `
 <div class="root" direction="horizontal" type vusion-slot-name="default">
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    small</a>
+    small
+  </a>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    normal</a>
+    normal
+  </a>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    large</a>
+    large
+  </a>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    auto</a>
+    auto
+  </a>
 </div>
 `;
 

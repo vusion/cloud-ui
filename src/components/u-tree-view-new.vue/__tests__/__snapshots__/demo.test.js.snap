@@ -1804,7 +1804,8 @@ exports[`u-tree-view-new.vue Demo-实例 2`] = `
             <span class="root" vusion-slot-name-edit="text">DEV-AdminRole</span>
             <span class="root" vusion-slot-name-edit="text">普通文本</span>
             <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-              确定</a>
+              确定
+            </a>
           </span>
         </div>
       </div>
@@ -1816,7 +1817,8 @@ exports[`u-tree-view-new.vue Demo-实例 2`] = `
                 <span class="root" vusion-slot-name-edit="text">DEV-AdminRole</span>
                 <span class="root" vusion-slot-name-edit="text">普通文本</span>
                 <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                  确定</a>
+                  确定
+                </a>
               </span>
             </div>
           </div>
@@ -1829,7 +1831,8 @@ exports[`u-tree-view-new.vue Demo-实例 2`] = `
                 <span class="root" vusion-slot-name-edit="text">test</span>
                 <span class="root" vusion-slot-name-edit="text">普通文本</span>
                 <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                  确定</a>
+                  确定
+                </a>
               </span>
             </div>
           </div>
@@ -1844,7 +1847,8 @@ exports[`u-tree-view-new.vue Demo-实例 2`] = `
             <span class="root" vusion-slot-name-edit="text">test</span>
             <span class="root" vusion-slot-name-edit="text">普通文本</span>
             <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-              确定</a>
+              确定
+            </a>
           </span>
         </div>
       </div>
@@ -2395,13 +2399,17 @@ exports[`u-tree-view-new.vue Demo-统一操作 1`] = `
   </div>
   <div class="root" direction="horizontal" type vusion-slot-name="default">
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      全部选中</a>
+      全部选中
+    </a>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      全部取消</a>
+      全部取消
+    </a>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      全部展开</a>
+      全部展开
+    </a>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      全部收起</a>
+      全部收起
+    </a>
   </div>
 </div>
 `;
@@ -2713,9 +2721,11 @@ exports[`u-tree-view-new.vue Demo-遍历和查找 1`] = `
   </div>
   <div class="root" direction="horizontal" type vusion-slot-name="default">
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      遍历所有节点</a>
+      遍历所有节点
+    </a>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      查找末尾为\`4\`的节点</a>
+      查找末尾为\`4\`的节点
+    </a>
   </div>
 </div>
 `;

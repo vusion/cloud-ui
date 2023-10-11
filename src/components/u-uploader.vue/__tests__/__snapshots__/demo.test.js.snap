@@ -5,7 +5,8 @@ exports[`u-uploader.vue Demo-一次性上传多文件 1`] = `
   <div class="select" vusion-slot-name="default">
     <input class="file" multiple="multiple" name="file" type="file">
     <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Upload</a>
+      Upload
+    </a>
   </div>
   <div class="list" list-type="text">
     <div class="item">
@@ -235,7 +236,8 @@ exports[`u-uploader.vue Demo-图片列表 1`] = `
   <div class="select" vusion-slot-name="default">
     <input accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp" class="file" multiple="multiple" name="file" type="file">
     <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Upload</a>
+      Upload
+    </a>
   </div>
   <div class="list" list-type="image">
     <div class="item">
@@ -335,7 +337,8 @@ exports[`u-uploader.vue Demo-基本用法 1`] = `
   <div class="select" vusion-slot-name="default">
     <input class="file" name="file" type="file">
     <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Upload</a>
+      Upload
+    </a>
   </div>
   <div class="list" list-type="text">
     <span style="display: none;" vusion-slot-name="file-list"></span>
@@ -385,7 +388,8 @@ exports[`u-uploader.vue Demo-多文件上传 1`] = `
   <div class="select" vusion-slot-name="default">
     <input class="file" multiple="multiple" name="file" type="file">
     <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Upload</a>
+      Upload
+    </a>
   </div>
   <div class="list" list-type="text">
     <div class="item">
@@ -473,7 +477,8 @@ exports[`u-uploader.vue Demo-开启图片编辑(只支持单文件上传) 1`] = 
     <div class="select" vusion-slot-name="default">
       <input class="file" name="file" type="file">
       <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Upload</a>
+        Upload
+      </a>
     </div>
     <div class="root"></div>
   </div>
@@ -536,7 +541,8 @@ exports[`u-uploader.vue Demo-相同的文件 1`] = `
   <div class="select" vusion-slot-name="default">
     <input class="file" name="file" type="file">
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      upload</a>
+      upload
+    </a>
   </div>
   <div class="list" list-type="text">
     <span style="display: none;" vusion-slot-name="file-list"></span>
@@ -550,7 +556,8 @@ exports[`u-uploader.vue Demo-禁用状态 1`] = `
     <div class="select" vusion-slot-name="default">
       <input class="file" disabled="disabled" name="file" type="file">
       <a class="root" color="primary" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-        Upload</a>
+        Upload
+      </a>
     </div>
     <div class="list" list-type="text">
       <span style="display: none;" vusion-slot-name="file-list"></span>

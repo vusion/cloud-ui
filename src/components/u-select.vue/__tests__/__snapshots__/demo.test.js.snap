@@ -15,7 +15,8 @@ exports[`u-select.vue Demo-Data 方式 1`] = `
     </transition-stub>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    切换</a>
+    切换
+  </a>
 </div>
 `;
 
@@ -119,7 +120,8 @@ exports[`u-select.vue Demo-Tag 方式 1`] = `
     </transition-stub>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    切换</a>
+    切换
+  </a>
 </div>
 `;
 
@@ -4619,7 +4621,8 @@ exports[`u-select.vue Demo-数据源 1`] = `
     </transition-stub>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    重新加载</a>
+    重新加载
+  </a>
 </div>
 `;
 
@@ -4711,7 +4714,8 @@ exports[`u-select.vue Demo-清除缓存 1`] = `
     </transition-stub>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    重新加载</a>
+    重新加载
+  </a>
 </div>
 `;
 
@@ -4951,7 +4955,8 @@ exports[`u-select.vue Demo-自定义可扩展下拉项 2`] = `
       <div vusion-slot-name="renderFooter">
         <div style="padding: 6px 0px; text-align: center;">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            Click Me</a>
+            Click Me
+          </a>
         </div>
       </div>
     </div>

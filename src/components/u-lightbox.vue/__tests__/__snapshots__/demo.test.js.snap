@@ -4,7 +4,8 @@ exports[`u-lightbox.vue Demo-灯箱包含单个元素 1`] = `
 <div>
   <div class="root" direction="horizontal" type vusion-slot-name="default">
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Open Lightbox</a>
+      Open Lightbox
+    </a>
   </div>
 </div>
 `;

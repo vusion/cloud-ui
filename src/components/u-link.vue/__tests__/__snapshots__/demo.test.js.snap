@@ -3,112 +3,133 @@
 exports[`u-link.vue Demo-危险链接 1`] = `
 <div>
   <a class="root" color="danger" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    危险链接</a>
+    危险链接
+  </a>
 </div>
 `;
 
 exports[`u-link.vue Demo-块级展示 1`] = `
 <div>
   <a class="root" color="secondary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    行内链接</a>与周围其他文字保持在同一行。
+    行内链接
+  </a>与周围其他文字保持在同一行。
   <a class="root" color="secondary" display="block" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    块级链接</a>宽度充满整行。
+    块级链接
+  </a>宽度充满整行。
 </div>
 `;
 
 exports[`u-link.vue Demo-基本用法 1`] = `
 <div>
   <a class="root" hovertype="underline" href="https://vusion.github.io" tabindex="0" target="_blank" vusion-slot-name-edit="text">
-    普通链接</a>&nbsp;
+    普通链接
+  </a>&nbsp;
   <a class="root" hovertype="underline" href="#/components/u-button" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    路由链接</a>
+    路由链接
+  </a>
 </div>
 `;
 
 exports[`u-link.vue Demo-成功链接 1`] = `
 <div>
   <a class="root" color="success" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    成功链接</a>
+    成功链接
+  </a>
 </div>
 `;
 
 exports[`u-link.vue Demo-按钮自动加载 1`] = `
 <a class="root" color="primary" hovertype="underline" href tabindex="0" target="_self" vusion-slot-name-edit="text">
-  按钮</a>
+  按钮
+</a>
 `;
 
 exports[`u-link.vue Demo-普通链接 1`] = `
 <div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    普通链接</a>
+    普通链接
+  </a>
 </div>
 `;
 
 exports[`u-link.vue Demo-禁用状态 1`] = `
 <div>
   <a class="root" disabled="disabled" hovertype="underline" href="https://vusion.github.io" tabindex="-1" target="_blank" vusion-slot-name-edit="text">
-    禁用链接</a>
+    禁用链接
+  </a>
 </div>
 `;
 
 exports[`u-link.vue Demo-禁用链接 1`] = `
 <div>
   <a class="root" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-    禁用链接</a>
+    禁用链接
+  </a>
 </div>
 `;
 
 exports[`u-link.vue Demo-警告链接 1`] = `
 <div>
   <a class="root" color="warning" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    警告链接</a>
+    警告链接
+  </a>
 </div>
 `;
 
 exports[`u-link.vue Demo-设置颜色 1`] = `
 <div>
   <a class="root" hovertype="underline" href="#" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    默认颜色</a>&nbsp;
+    默认颜色
+  </a>&nbsp;
   <a class="root" color="light" hovertype="underline" href="#" tabindex="0" target="_self" vusion-slot-name-edit="text">
     <transition-stub name="fade-fast">
       <div arraw-size="normal" class="root" style="display: none;">
         <div class="arrow" data-popper-arrow></div>
         <div class="body" size="normal">
           <a class="root" color="light" hovertype="underline" href="#" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            浅色链接</a>一般用于深色背景
+            浅色链接
+          </a>一般用于深色背景
         </div>
       </div>
     </transition-stub>
   </a>&nbsp;
   <a class="root" color="success" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    成功链接</a>&nbsp;
+    成功链接
+  </a>&nbsp;
   <a class="root" color="warning" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    警告链接</a>&nbsp;
+    警告链接
+  </a>&nbsp;
   <a class="root" color="danger" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    危险链接</a>&nbsp;
+    危险链接
+  </a>&nbsp;
 </div>
 `;
 
 exports[`u-link.vue Demo-鼠标悬停状态为颜色变化 1`] = `
 <div>
   <a class="root" hovertype="color" href="#" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    默认颜色</a>&nbsp;
+    默认颜色
+  </a>&nbsp;
   <a class="root" color="light" hovertype="color" href="#" tabindex="0" target="_self" vusion-slot-name-edit="text">
     <transition-stub name="fade-fast">
       <div arraw-size="normal" class="root" style="display: none;">
         <div class="arrow" data-popper-arrow></div>
         <div class="body" size="normal">
           <a class="root" color="light" hovertype="underline" href="#" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            浅色链接</a>一般用于深色背景
+            浅色链接
+          </a>一般用于深色背景
         </div>
       </div>
     </transition-stub>
   </a>&nbsp;
   <a class="root" color="success" hovertype="color" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    成功链接</a>&nbsp;
+    成功链接
+  </a>&nbsp;
   <a class="root" color="warning" hovertype="color" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    警告链接</a>&nbsp;
+    警告链接
+  </a>&nbsp;
   <a class="root" color="danger" hovertype="color" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    危险链接</a>&nbsp;
+    危险链接
+  </a>&nbsp;
 </div>
 `;

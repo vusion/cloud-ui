@@ -95,7 +95,8 @@ exports[`u-form.vue Demo-Bubble 1`] = `
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
         <a class="root" color="primary" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-          提交</a>
+          提交
+        </a>
       </div>
     </div>
   </div>
@@ -321,7 +322,8 @@ exports[`u-form.vue Demo-Header 外观 1`] = `
         <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
         <div class="wrap" vusion-slot-name="default">
           <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            立即创建</a>
+            立即创建
+          </a>
         </div>
       </div>
     </div>
@@ -550,7 +552,8 @@ exports[`u-form.vue Demo-分组 1`] = `
         <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
         <div class="wrap" vusion-slot-name="default">
           <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            立即创建</a>
+            立即创建
+          </a>
         </div>
       </div>
     </div>
@@ -781,7 +784,8 @@ exports[`u-form.vue Demo-分组 Collapsible 1`] = `
         <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
         <div class="wrap" vusion-slot-name="default">
           <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            立即创建</a>
+            立即创建
+          </a>
         </div>
       </div>
     </div>
@@ -1005,7 +1009,8 @@ exports[`u-form.vue Demo-基本 1`] = `
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
         <a class="root" color="primary" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-          提交</a>
+          提交
+        </a>
       </div>
     </div>
   </div>
@@ -1207,7 +1212,8 @@ exports[`u-form.vue Demo-基本用法 1`] = `
         <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
         <div class="wrap" vusion-slot-name="default">
           <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            立即创建</a>
+            立即创建
+          </a>
         </div>
       </div>
     </div>
@@ -1269,7 +1275,8 @@ exports[`u-form.vue Demo-基础表单 1`] = `
         <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
         <div class="wrap" vusion-slot-name="default">
           <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            立即创建</a>
+            立即创建
+          </a>
         </div>
       </div>
     </div>
@@ -1621,7 +1628,8 @@ exports[`u-form.vue Demo-数据收集与提交 1`] = `
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
         <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          立即创建</a>
+          立即创建
+        </a>
       </div>
     </div>
   </div>
@@ -1668,7 +1676,8 @@ exports[`u-form.vue Demo-数据转换 1`] = `
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
         <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          立即创建</a>
+          立即创建
+        </a>
       </div>
     </div>
   </div>
@@ -1783,7 +1792,8 @@ exports[`u-form.vue Demo-栅格布局 1`] = `
         <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
         <div class="wrap" vusion-slot-name="default">
           <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            查询</a>
+            查询
+          </a>
         </div>
       </div>
     </div>
@@ -1846,7 +1856,8 @@ exports[`u-form.vue Demo-标签块级布局 1`] = `
               <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
               <div class="wrap" vusion-slot-name="default">
                 <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                  查询</a>
+                  查询
+                </a>
               </div>
             </div>
           </div>
@@ -1970,7 +1981,8 @@ exports[`u-form.vue Demo-标签块级布局 1`] = `
               <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
               <div class="wrap" vusion-slot-name="default">
                 <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                  查询</a>
+                  查询
+                </a>
               </div>
             </div>
           </div>
@@ -2049,7 +2061,8 @@ exports[`u-form.vue Demo-行内 1`] = `
         <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
         <div class="wrap" vusion-slot-name="default">
           <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            查询</a>
+            查询
+          </a>
         </div>
       </div>
     </div>
@@ -2085,7 +2098,8 @@ exports[`u-form.vue Demo-行内表单 1`] = `
         <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
         <div class="wrap" vusion-slot-name="default">
           <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            查 询</a>
+            查 询
+          </a>
         </div>
       </div>
     </div>
@@ -2148,7 +2162,8 @@ exports[`u-form.vue Demo-表单逻辑 1`] = `
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
         <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          提交</a>
+          提交
+        </a>
       </div>
     </div>
   </div>
@@ -2180,7 +2195,8 @@ exports[`u-form.vue Demo-表单项必填标记位置 1`] = `
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
         <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          提交</a>
+          提交
+        </a>
       </div>
     </div>
   </div>
@@ -2366,7 +2382,8 @@ exports[`u-form.vue Demo-表单验证 1`] = `
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
         <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          立即创建</a>
+          立即创建
+        </a>
       </div>
     </div>
   </div>

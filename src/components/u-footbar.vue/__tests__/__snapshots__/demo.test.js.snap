@@ -207,9 +207,11 @@ exports[`u-footbar.vue Demo-与列表一起使用 1`] = `
     <div class="body" position="static" vusion-slot-name="default">
       <div class="root" direction="horizontal" type vusion-slot-name="default">
         <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          删除</a>
+          删除
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          重启</a>
+          重启
+        </a>
       </div>
     </div>
   </div>
@@ -222,9 +224,11 @@ exports[`u-footbar.vue Demo-基本用法 1`] = `
     <div class="body" position="fixed" vusion-slot-name="default">
       <div class="root" direction="horizontal" type vusion-slot-name="default">
         <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          切换底部</a>
+          切换底部
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          取消</a>
+          取消
+        </a>
       </div>
     </div>
   </div>
@@ -236,9 +240,11 @@ exports[`u-footbar.vue Demo-基本用法 2`] = `
   <div class="body" position="fixed" vusion-slot-name="default">
     <div class="root" direction="horizontal" type vusion-slot-name="default">
       <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        切换底部</a>
+        切换底部
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        取消</a>
+        取消
+      </a>
     </div>
   </div>
 </div>

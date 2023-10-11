@@ -20,8 +20,10 @@ exports[`u-table.vue Demo-单行颜色 1`] = `
         <td>2018-05-28 21:52:11</td>
         <td>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            详情</a>&nbsp;<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            设置</a>
+            详情
+          </a>&nbsp;<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            设置
+          </a>
         </td>
       </tr>
       <tr color="normal">
@@ -31,8 +33,10 @@ exports[`u-table.vue Demo-单行颜色 1`] = `
         <td>2019-03-12 22:24:36</td>
         <td>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            详情</a>&nbsp;<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            设置</a>
+            详情
+          </a>&nbsp;<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            设置
+          </a>
         </td>
       </tr>
       <tr color="dark">
@@ -42,8 +46,10 @@ exports[`u-table.vue Demo-单行颜色 1`] = `
         <td>2019-05-18 15:45:30</td>
         <td>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            详情</a>&nbsp;<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            设置</a>
+            详情
+          </a>&nbsp;<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            设置
+          </a>
         </td>
       </tr>
       <tr color="primary">
@@ -53,8 +59,10 @@ exports[`u-table.vue Demo-单行颜色 1`] = `
         <td>2018-12-10 15:48:01</td>
         <td>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            详情</a>&nbsp;<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            设置</a>
+            详情
+          </a>&nbsp;<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            设置
+          </a>
         </td>
       </tr>
       <tr color="error">
@@ -64,8 +72,10 @@ exports[`u-table.vue Demo-单行颜色 1`] = `
         <td>2018-07-16 01:32:06</td>
         <td>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            详情</a>&nbsp;<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            设置</a>
+            详情
+          </a>&nbsp;<a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+            设置
+          </a>
         </td>
       </tr>
     </tbody>

@@ -260,7 +260,7 @@ export default {
         },
 
         list2tree(list, idField, pField) {
-            const [map, treeData] = [{}, {}];
+            const [map, treeData] = [{}, []];
 
             for (let i = 0; i < list.length; i += 1) {
                 map[this.$at(list[i], idField)] = i;

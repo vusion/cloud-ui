@@ -14,31 +14,36 @@ exports[`u-list-components.vue Demo-基本用法 2`] = `
       <div class="u-for-com-item" style="width: 20%;" vusion-slot-name="default">
         <div class="root" direction="horizontal" type vusion-disabled-copy vusion-disabled-cut vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            Button</a>
+            Button
+          </a>
         </div>
       </div>
       <div class="u-for-com-item" style="width: 20%;" vusion-slot-name="default">
         <div class="root" direction="horizontal" type vusion-disabled-copy vusion-disabled-cut vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            Button</a>
+            Button
+          </a>
         </div>
       </div>
       <div class="u-for-com-item" style="width: 20%;" vusion-slot-name="default">
         <div class="root" direction="horizontal" type vusion-disabled-copy vusion-disabled-cut vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            Button</a>
+            Button
+          </a>
         </div>
       </div>
       <div class="u-for-com-item" style="width: 20%;" vusion-slot-name="default">
         <div class="root" direction="horizontal" type vusion-disabled-copy vusion-disabled-cut vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            Button</a>
+            Button
+          </a>
         </div>
       </div>
       <div class="u-for-com-item" style="width: 20%;" vusion-slot-name="default">
         <div class="root" direction="horizontal" type vusion-disabled-copy vusion-disabled-cut vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            Button</a>
+            Button
+          </a>
         </div>
       </div>
     </div>

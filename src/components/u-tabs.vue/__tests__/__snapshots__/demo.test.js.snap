@@ -737,9 +737,11 @@ exports[`u-tabs.vue Demo-动态数据渲染 1`] = `
     </div>
   </div>
   <a class="root" hovertype="underline" size="small" slot="extra" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    value+1</a>
+    value+1
+  </a>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    click reload</a>
+    click reload
+  </a>
 </div>
 `;
 
@@ -778,7 +780,8 @@ exports[`u-tabs.vue Demo-动态数据渲染 2`] = `
     </div>
   </div>
   <a class="root" hovertype="underline" size="small" slot="extra" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    value+1</a>
+    value+1
+  </a>
 </div>
 `;
 
@@ -1297,7 +1300,7 @@ exports[`u-tabs.vue Demo-标签页较多的情形 1`] = `
 <div appear="square" class="root" item-width="auto" size="normal">
   <div>
     <span vusion-slot-name="extra">
-      <a class="root" hovertype="underline" size="small" tabindex="0" target="_self" vusion-slot-name-edit="text"> 添加</a>
+      <a class="root" hovertype="underline" size="small" tabindex="0" target="_self" vusion-slot-name-edit="text"> 添加 </a>
     </span>
     <nav>
       <span></span>
@@ -1492,7 +1495,8 @@ exports[`u-tabs.vue Demo-添加 1`] = `
     </div>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    添加</a>
+    添加
+  </a>
 </div>
 `;
 

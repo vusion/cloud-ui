@@ -75,8 +75,8 @@ export default {
     display: none;
 }
 
-.sidebar[class] {
-    padding: 36px 0;
+.sidebar[class] [class^="f-scroll-view_wrap"] {
+    padding: 36px 0 0 0;
 }
 
 .checkbox[class] {
