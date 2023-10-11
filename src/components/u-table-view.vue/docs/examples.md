@@ -2236,9 +2236,14 @@ export default {
                 this.list2.splice(event.source.index, 1);
                 this.list2.splice(event.target.index, 0, event.source.item);
             } else {
-                const insertIndex = event.position === 'insertBefore' ? event.target.index : event.target.index + 1;
-                this.list2.splice(insertIndex, 0, event.source.item);
-                this.list1.splice(event.source.index, 1);
+                if (event.position === 'append') {
+                    this.list2.push(event.source.item);
+                    this.list1.splice(event.source.index, 1);
+                } else {
+                    const insertIndex = event.position === 'insertBefore' ? event.target.index : event.target.index + 1;
+                    this.list2.splice(insertIndex, 0, event.source.item);
+                    this.list1.splice(event.source.index, 1);
+                }
             }
         }
     },

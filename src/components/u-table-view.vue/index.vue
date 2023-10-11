@@ -334,7 +334,7 @@
             </s-empty>
         </div>
     </div>
-    <div v-if="draggable" :class="$style.dragGhost">
+    <div v-if="draggable || acrossTableDrag" :class="$style.dragGhost">
         <div :class="$style.trdragGhost" ref="trDragGhost"></div>
     </div>
 </div>
@@ -2035,12 +2035,16 @@ export default {
                     });
                 } else if (this.draggable) {
                     // 表格内拖拽，sourcePath和targetPath不一样的时候才emit事件
-                    const inTheSameTable = this.dragState.sourcePath !== undefined;
+                    // 当元素被移除的时候可能不会触发dragend，结合判断数据是否在table里
+                    const inTable = this.valueField ? dragStartData.sourceData && dragStartData.sourceData.item && !!this.currentData.find((titem) => this.$at(titem, this.valueField) === this.$at(dragStartData.sourceData.item, this.valueField)) : true;
+                    const inTheSameTable = this.dragState.sourcePath !== undefined && inTable;
+                    const finalSource = Object.assign({}, dragStartData.sourceData);
+                    finalSource.index = this.dragState.targetPath;
                     this.$emit('drop', {
                         source: dragStartData.sourceData,
                         target: this.dragState.targetData,
                         position: this.dropData && this.dropData.position || 'append',
-                        finalSource: inTheSameTable ? dragStartData.sourceData : null,
+                        finalSource: inTheSameTable ? finalSource : null,
                     });
                 }
             } else if (this.dragState
@@ -2183,6 +2187,19 @@ export default {
         },
         onRootDragover(e) {
             e.preventDefault();
+            // 当表格为空时，没有行的dragover事件，所以需要在这里处理
+            if (this.currentData.length === 0) {
+                if (!this.acrossTableDrag)
+                    return;
+                if (this.draggable || this.acrossTableDrag) {
+                    this.dropData = {
+                        dragoverElRect: this.$refs.body[0].getBoundingClientRect(),
+                        parentElRect: this.$refs.root.getBoundingClientRect(),
+                        position: 'append',
+                        left: 0,
+                    };
+                }
+            }
         },
         /**
          * 拖拽离开，每个tr都会触发该事件，所以需要判断是否是真正的离开
