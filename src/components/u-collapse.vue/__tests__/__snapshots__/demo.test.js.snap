@@ -10,7 +10,7 @@ exports[`u-collapse.vue Demo-使用插槽 1`] = `
         </span>
         <span class="expander"></span>
         <span class="extra" vusion-slot-name="extra">
-          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text"> 设置</a>
+          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text"> 设置 </a>
         </span>
       </div>
       <transition-stub>
@@ -372,7 +372,7 @@ exports[`u-collapse.vue Demo-简洁模式 1`] = `
         </span>
         <span class="expander"></span>
         <span class="extra" vusion-slot-name="extra">
-          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text"> 设置</a>
+          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text"> 设置 </a>
         </span>
       </div>
       <transition-stub>
@@ -579,7 +579,7 @@ exports[`u-collapse.vue Demo-额外插槽 1`] = `
         </span>
         <span class="expander"></span>
         <span class="extra" vusion-slot-name="extra">
-          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text"> 设置</a>
+          <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text"> 设置 </a>
         </span>
       </div>
       <transition-stub>

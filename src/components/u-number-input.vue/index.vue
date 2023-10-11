@@ -168,6 +168,9 @@ export default {
     watch: {
         value(value, oldValue) {
             // 根据传入的 value 调整 fix 精度
+            if (value === this.currentValue) {
+                return;
+            }
             const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
             const _oldValue = this.currentValue;
             const currentValue = (this.currentValue = this.fix(value, currentPrecision));
@@ -176,7 +179,6 @@ export default {
             // 当点击了form的创建按钮等调用了validate方法，fieldTouched值会变为true，不会走update validate
             // 所以这里需要再增加input emit
             this.$emit('input', this.currentValue, this);
-            console.log('watch value 执行一次change');
             this.$emit('change', { value: this.currentValue, oldValue: _oldValue, formattedValue: this.formattedValue, valid: this.isValid(this.currentValue) }, this);
         },
         max(value, oldValue) {
@@ -309,8 +311,7 @@ export default {
             this.$emit('input', value, this);
             this.$emit('update', value, this);
             this.$emit('update:value', value, this);
-            console.log('input触发 执行一次change');
-            // this.$emit('change', { value, oldValue, formattedValue, valid: this.isValid(value) }, this);
+            this.$emit('change', { value, oldValue, formattedValue, valid: this.isValid(value) }, this);
         },
         /**
          * 按上下按钮发送 adjust 事件

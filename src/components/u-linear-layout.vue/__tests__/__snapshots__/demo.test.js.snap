@@ -16,43 +16,58 @@ exports[`u-linear-layout.vue Demo-主轴分布方式 1`] = `
   <div class="root" direction="vertical" type vusion-slot-name="default">
     <div class="root" direction="horizontal" justify="start" type="flex" vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
     </div>
     <div class="root" direction="horizontal" justify="center" type="flex" vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
     </div>
     <div class="root" direction="horizontal" justify="end" type="flex" vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
     </div>
     <div class="root" direction="horizontal" justify="space-between" type="flex" vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
     </div>
     <div class="root" direction="horizontal" justify="space-around" type="flex" vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
     </div>
   </div>
 </div>
@@ -102,9 +117,11 @@ exports[`u-linear-layout.vue Demo-基本用法 1`] = `
   <div class="root" direction="horizontal" style="height: 200px; border: 1px solid #aaa; padding: 20px; margin: 20px;" type vusion-slot-name="default">
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    打开加载</a>
+    打开加载
+  </a>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    关闭加载</a>
+    关闭加载
+  </a>
 </div>
 `;
 
@@ -125,21 +142,27 @@ exports[`u-linear-layout.vue Demo-展示方式与布局方式 1`] = `
     <div class="root" direction="horizontal" type vusion-slot-name="default">
       <div class="root" direction="horizontal" display="inline" type vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
       </div>
       <span><code>&lt;u-linear-layout&gt;</code>本身为<code>&lt;block&gt;</code>类型，修改<code>display</code>可以拥有行内的特性。</span>
     </div>
     <div class="root" direction="vertical" layout="block" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <span>这个<code>&lt;u-linear-layout&gt;</code>中的元素本来都是行内元素，添加<code>layout</code>属性后可全部变成块级元素。</span>
     </div>
   </div>
@@ -150,11 +173,14 @@ exports[`u-linear-layout.vue Demo-方向 1`] = `
 <div>
   <div class="root" direction="horizontal" type="root" vusion-slot-name="default">
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Button</a>
+      Button
+    </a>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Button</a>
+      Button
+    </a>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Button</a>
+      Button
+    </a>
   </div>
   <p></p>
   <div class="root" direction="vertical" type vusion-slot-name="default">
@@ -188,33 +214,44 @@ exports[`u-linear-layout.vue Demo-水平分布方式 1`] = `
   <div class="root" direction="vertical" type vusion-slot-name="default">
     <div class="root" direction="horizontal" justify="start" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
     </div>
     <div class="root" direction="horizontal" justify="center" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
     </div>
     <div class="root" direction="horizontal" justify="end" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
     </div>
     <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
     </div>
   </div>
 </div>
@@ -225,17 +262,22 @@ exports[`u-linear-layout.vue Demo-水平分布方式 2`] = `
   <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
     <div class="root" direction="horizontal" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
     </div>
     <div class="root" direction="horizontal" gap="shrink" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Button</a>
+        Button
+      </a>
     </div>
   </div>
 </div>
@@ -421,25 +463,35 @@ exports[`u-linear-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div></div>
       </div>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        3</a>
+        3
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        3</a>
+        3
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        3</a>
+        3
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        3</a>
+        3
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        3</a>
+        3
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        3</a>
+        3
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        3</a>
+        3
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        3</a>
+        3
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        3</a>
+        3
+      </a>
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        3</a>
+        3
+      </a>
     </div>
   </div>
 </div>
@@ -463,45 +515,60 @@ exports[`u-linear-layout.vue Demo-间距 1`] = `
     <div class="root" direction="horizontal" type vusion-slot-name="default">
       <div class="root" direction="horizontal" display="inline" gap="small" type vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
       </div>
       <div class="root" direction="horizontal" display="inline" gap="none" type vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
       </div>
       <div class="root" direction="horizontal" display="inline" gap="shrink" type vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
       </div>
     </div>
     <div class="root" direction="vertical" gap="large" type vusion-slot-name="default">
       <div class="root" direction="horizontal" gap="normal" type vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
       </div>
       <div class="root" direction="horizontal" gap="large" type vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          Button</a>
+          Button
+        </a>
       </div>
     </div>
   </div>

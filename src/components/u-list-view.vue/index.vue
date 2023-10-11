@@ -553,12 +553,12 @@ export default {
         },
         page(number, size) {
             if (size === undefined)
-                size = this.currentDataSource?.paging?.size;
+                size = this.currentDataSource && this.currentDataSource.paging && this.currentDataSource.paging.size;
             const paging = {
                 size,
-                oldSize: this.currentDataSource?.paging?.size,
+                oldSize: this.currentDataSource && this.currentDataSource.paging && this.currentDataSource.paging.size,
                 number,
-                oldNumber: this.currentDataSource?.paging?.number,
+                oldNumber: this.currentDataSource && this.currentDataSource.paging && this.currentDataSource.paging.number,
             };
             if (this.$emitPrevent('before-page', paging, this))
                 return;

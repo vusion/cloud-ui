@@ -10,16 +10,19 @@ exports[`u-dynamic-cards.vue Demo-Mini 自定义 1`] = `
       <div class="textWrap">
         <span class="error" style="display: none;">false</span>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          展开</a>
+          展开
+        </a>
       </div>
     </div>
     <div>
       <div class="actions">
         <div class="root" direction="horizontal" type vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            删除</a>
+            删除
+          </a>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            收起</a>
+            收起
+          </a>
         </div>
       </div>
       <div class="root" direction="horizontal" type vusion-slot-name="default">
@@ -66,16 +69,19 @@ exports[`u-dynamic-cards.vue Demo-Mini 自定义 1`] = `
       <div class="textWrap">
         <span class="error" style="display: none;">false</span>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          展开</a>
+          展开
+        </a>
       </div>
     </div>
     <div style="display: none;">
       <div class="actions">
         <div class="root" direction="horizontal" type vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            删除</a>
+            删除
+          </a>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            收起</a>
+            收起
+          </a>
         </div>
       </div>
       <div class="root" direction="horizontal" type vusion-slot-name="default">
@@ -115,7 +121,8 @@ exports[`u-dynamic-cards.vue Demo-Mini 自定义 1`] = `
     </div>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    添加</a>
+    添加
+  </a>
 </div>
 `;
 
@@ -127,16 +134,19 @@ exports[`u-dynamic-cards.vue Demo-基本用法 1`] = `
       <div class="textWrap">
         <span class="error" style="display: none;">false</span>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          展开</a>
+          展开
+        </a>
       </div>
     </div>
     <div>
       <div class="actions">
         <div class="root" direction="horizontal" type vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            删除</a>
+            删除
+          </a>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            收起</a>
+            收起
+          </a>
         </div>
       </div>
       <div class="root" direction="horizontal" type vusion-slot-name="default">
@@ -181,16 +191,19 @@ exports[`u-dynamic-cards.vue Demo-基本用法 1`] = `
       <div class="textWrap">
         <span class="error" style="display: none;">false</span>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          展开</a>
+          展开
+        </a>
       </div>
     </div>
     <div style="display: none;">
       <div class="actions">
         <div class="root" direction="horizontal" type vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            删除</a>
+            删除
+          </a>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            收起</a>
+            收起
+          </a>
         </div>
       </div>
       <div class="root" direction="horizontal" type vusion-slot-name="default">
@@ -230,7 +243,8 @@ exports[`u-dynamic-cards.vue Demo-基本用法 1`] = `
     </div>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    添加</a>
+    添加
+  </a>
 </div>
 `;
 
@@ -242,16 +256,19 @@ exports[`u-dynamic-cards.vue Demo-表单验证 1`] = `
       <div class="textWrap">
         <span class="error" style="display: none;"></span>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          展开</a>
+          展开
+        </a>
       </div>
     </div>
     <div>
       <div class="actions">
         <div class="root" direction="horizontal" type vusion-slot-name="default">
           <a class="root" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-            删除</a>
+            删除
+          </a>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            收起</a>
+            收起
+          </a>
         </div>
       </div>
       <div vusion-slot-name="default">
@@ -293,7 +310,8 @@ exports[`u-dynamic-cards.vue Demo-表单验证 1`] = `
     </div>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    添加</a>
+    添加
+  </a>
 </div>
 `;
 
@@ -305,16 +323,19 @@ exports[`u-dynamic-cards.vue Demo-表单验证 2`] = `
       <div class="textWrap">
         <span class="error" style="display: none;"></span>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          展开</a>
+          展开
+        </a>
       </div>
     </div>
     <div>
       <div class="actions">
         <div class="root" direction="horizontal" type vusion-slot-name="default">
           <a class="root" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-            删除</a>
+            删除
+          </a>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            收起</a>
+            收起
+          </a>
         </div>
       </div>
       <div class="root" direction="vertical" gap="small">
@@ -403,12 +424,14 @@ exports[`u-dynamic-cards.vue Demo-表单验证 2`] = `
           </tbody>
         </table>
         <a class="root add-button" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          添加</a>
+          添加
+        </a>
       </div>
     </div>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    添加</a>
+    添加
+  </a>
 </div>
 `;
 
@@ -420,16 +443,19 @@ exports[`u-dynamic-cards.vue Demo-限制数量 1`] = `
       <div class="textWrap">
         <span class="error" style="display: none;">false</span>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          展开</a>
+          展开
+        </a>
       </div>
     </div>
     <div>
       <div class="actions">
         <div class="root" direction="horizontal" type vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            删除</a>
+            删除
+          </a>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            收起</a>
+            收起
+          </a>
         </div>
       </div>
       <div class="root" direction="horizontal" type vusion-slot-name="default">
@@ -474,16 +500,19 @@ exports[`u-dynamic-cards.vue Demo-限制数量 1`] = `
       <div class="textWrap">
         <span class="error" style="display: none;">false</span>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          展开</a>
+          展开
+        </a>
       </div>
     </div>
     <div style="display: none;">
       <div class="actions">
         <div class="root" direction="horizontal" type vusion-slot-name="default">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            删除</a>
+            删除
+          </a>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            收起</a>
+            收起
+          </a>
         </div>
       </div>
       <div class="root" direction="horizontal" type vusion-slot-name="default">
@@ -523,6 +552,7 @@ exports[`u-dynamic-cards.vue Demo-限制数量 1`] = `
     </div>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    添加</a>
+    添加
+  </a>
 </div>
 `;

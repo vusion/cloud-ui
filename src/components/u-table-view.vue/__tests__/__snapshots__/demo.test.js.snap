@@ -541,7 +541,8 @@ exports[`u-table-view.vue Demo-data-source 数组 1`] = `
 exports[`u-table-view.vue Demo-loading 的问题 1`] = `
 <div class="root" direction="vertical" gap="small" type vusion-slot-name="default">
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    加载</a>
+    加载
+  </a>
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
@@ -1764,7 +1765,8 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
 exports[`u-table-view.vue Demo-v-if 1`] = `
 <div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    展开/收起</a>
+    展开/收起
+  </a>
   <div>
   </div>
 </div>
@@ -1773,7 +1775,8 @@ exports[`u-table-view.vue Demo-v-if 1`] = `
 exports[`u-table-view.vue Demo-v-show 1`] = `
 <div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    展开/收起</a>
+    展开/收起
+  </a>
   <div>
     <div class="root" style="max-height: 300px; display: none;">
       <div class="table" position="static">
@@ -2746,7 +2749,8 @@ exports[`u-table-view.vue Demo-列插槽 1`] = `
                   <tr class="row">
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        张三</a>
+                        张三
+                      </a>
                     </td>
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">18612917895</span>
@@ -2761,7 +2765,8 @@ exports[`u-table-view.vue Demo-列插槽 1`] = `
                   <tr class="row">
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        小明</a>
+                        小明
+                      </a>
                     </td>
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">13727160283</span>
@@ -2776,7 +2781,8 @@ exports[`u-table-view.vue Demo-列插槽 1`] = `
                   <tr class="row">
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        李四</a>
+                        李四
+                      </a>
                     </td>
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">18897127809</span>
@@ -2791,7 +2797,8 @@ exports[`u-table-view.vue Demo-列插槽 1`] = `
                   <tr class="row">
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        李华</a>
+                        李华
+                      </a>
                     </td>
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">18749261214</span>
@@ -2806,7 +2813,8 @@ exports[`u-table-view.vue Demo-列插槽 1`] = `
                   <tr class="row">
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        王五</a>
+                        王五
+                      </a>
                     </td>
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">13579340020</span>
@@ -3169,7 +3177,8 @@ exports[`u-table-view.vue Demo-前端排序 1`] = `
 exports[`u-table-view.vue Demo-前端排序不需要 sorting 也能保持状态 1`] = `
 <div class="root" direction="vertical" gap="small" type vusion-slot-name="default">
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    加载</a>
+    加载
+  </a>
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
@@ -3507,9 +3516,11 @@ exports[`u-table-view.vue Demo-前端过滤（筛选）- 筛选项可多选 1`] 
                     </div>
                     <div class="root footer" direction="horizontal" justify="space-between" type vusion-slot-name="default">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        重置</a>
+                        重置
+                      </a>
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        确定</a>
+                        确定
+                      </a>
                     </div>
                   </div>
                 </transition-stub></span>
@@ -3562,9 +3573,11 @@ exports[`u-table-view.vue Demo-前端过滤（筛选）- 筛选项可多选 1`] 
                     </div>
                     <div class="root footer" direction="horizontal" justify="space-between" type vusion-slot-name="default">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        重置</a>
+                        重置
+                      </a>
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        确定</a>
+                        确定
+                      </a>
                     </div>
                   </div>
                 </transition-stub>
@@ -4199,7 +4212,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span>
                           <label class="root" disabled="disabled" tabindex="0">
                             <span class="box" disabled="disabled" status="false"></span>
@@ -4207,26 +4220,26 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                           </label>
                         </span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">李华</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">18749261214</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李华 一月份</span>
                         </div>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李华 二月份</span>
                         </div>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                       </td>
                     </tr>
@@ -4298,7 +4311,8 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
   <div class="root" direction="vertical" gap="small" type vusion-slot-name="default">
     <div class="root" direction="horizontal" type vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        刷新</a>
+        刷新
+      </a>
     </div>
     <div class="root" direction="horizontal" type vusion-slot-name="default">
       <div class="root">
@@ -4714,7 +4728,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span>
                           <label class="root" disabled="disabled" tabindex="0">
                             <span class="box" disabled="disabled" status="false"></span>
@@ -4722,24 +4736,24 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                           </label>
                         </span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">李华</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">18749261214</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 1;">
+                      <td class="cell" disabled="disabled" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 1;">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 300px; z-index: 1;">
+                      <td class="cell" disabled="disabled" style="position: sticky; right: 300px; z-index: 1;">
                         <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 150px; z-index: 1;">
+                      <td class="cell" disabled="disabled" style="position: sticky; right: 150px; z-index: 1;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李华 一月份</span>
                         </div>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" disabled="disabled" style="position: sticky; right: 0px; z-index: 1;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李华 二月份</span>
                         </div>
@@ -5056,7 +5070,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span>
                           <label class="root" disabled="disabled" tabindex="0">
                             <span class="box" disabled="disabled" status="false"></span>
@@ -5064,10 +5078,10 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                           </label>
                         </span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">李华</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">18749261214</span>
                       </td>
                     </tr>
@@ -5246,7 +5260,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span>
                           <label class="root" disabled="disabled" tabindex="0">
                             <span class="box" disabled="disabled" status="false"></span>
@@ -5254,16 +5268,16 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                           </label>
                         </span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">李华</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">18749261214</span>
                       </td>
-                      <td class="cell" ellipsis="true">
+                      <td class="cell" disabled="disabled" ellipsis="true">
                         <span class="root" vusion-slot-name-edit="text">浙江省杭州市滨江区长河路590号东忠科技园</span>
                       </td>
-                      <td class="cell" ellipsis="true">
+                      <td class="cell" disabled="disabled" ellipsis="true">
                         <span class="root" vusion-slot-name-edit="text">浙江省杭州市滨江区长河路590号东忠科技园</span>
                       </td>
                     </tr>
@@ -6696,9 +6710,11 @@ exports[`u-table-view.vue Demo-后端过滤（筛选）- 筛选项可多选 1`] 
                     </div>
                     <div class="root footer" direction="horizontal" justify="space-between" type vusion-slot-name="default">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        重置</a>
+                        重置
+                      </a>
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        确定</a>
+                        确定
+                      </a>
                     </div>
                   </div>
                 </transition-stub></span>
@@ -7297,9 +7313,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7326,9 +7344,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7355,9 +7375,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7384,9 +7406,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7413,9 +7437,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7442,9 +7468,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7471,9 +7499,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7500,9 +7530,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7529,9 +7561,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7558,9 +7592,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                   </tbody>
@@ -7699,9 +7735,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7728,9 +7766,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7757,9 +7797,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7786,9 +7828,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7815,9 +7859,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7844,9 +7890,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7873,9 +7921,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7902,9 +7952,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7931,9 +7983,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                     <tr class="row">
@@ -7960,9 +8014,11 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                       <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          详情</a>&nbsp;
+                          详情
+                        </a>&nbsp;
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          设置</a>
+                          设置
+                        </a>
                       </td>
                     </tr>
                   </tbody>
@@ -8134,7 +8190,7 @@ exports[`u-table-view.vue Demo-多选列 1`] = `
                   </td>
                 </tr>
                 <tr class="row">
-                  <td class="cell">
+                  <td class="cell" disabled="disabled">
                     <span>
                       <label class="root" disabled="disabled" tabindex="0">
                         <span class="box" disabled="disabled" status="false"></span>
@@ -8142,16 +8198,16 @@ exports[`u-table-view.vue Demo-多选列 1`] = `
                       </label>
                     </span>
                   </td>
-                  <td class="cell">
+                  <td class="cell" disabled="disabled">
                     <span class="column-field" vusion-slot-name="cell">李华</span>
                   </td>
-                  <td class="cell">
+                  <td class="cell" disabled="disabled">
                     <span class="column-field" vusion-slot-name="cell">18749261214</span>
                   </td>
-                  <td class="cell">
+                  <td class="cell" disabled="disabled">
                     <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                   </td>
-                  <td class="cell">
+                  <td class="cell" disabled="disabled">
                     <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                   </td>
                 </tr>
@@ -8620,7 +8676,8 @@ exports[`u-table-view.vue Demo-多选的问题 1`] = `
 exports[`u-table-view.vue Demo-导出 Excel 1`] = `
 <div class="root" direction="vertical" type vusion-slot-name="default">
   <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    导出 Excel</a>
+    导出 Excel
+  </a>
   <div class="root">
     <div class="title" style="text-align: center;" vusion-slot-name="title" vusion-slot-name-edit="title">表格标题</div>
     <div class="table" position="static">
@@ -8735,9 +8792,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -9164,9 +9223,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -9593,9 +9654,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -10022,9 +10085,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -10451,9 +10516,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -10880,9 +10947,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -11309,9 +11378,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -11738,9 +11809,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -12167,9 +12240,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -12596,9 +12671,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -13025,9 +13102,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -13454,9 +13533,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -13883,9 +13964,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -14312,9 +14395,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -14741,9 +14826,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -15170,9 +15257,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -15599,9 +15688,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -16028,9 +16119,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -16457,9 +16550,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -16886,9 +16981,11 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                     <td class="cell">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          修改</a>
+                          修改
+                        </a>
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                          删除</a>
+                          删除
+                        </a>
                       </div>
                     </td>
                     <td class="cell">
@@ -19235,7 +19332,8 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
       </div>
     </div>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      点击切换数据源</a>
+      点击切换数据源
+    </a>
   </div>
   <div class="root" direction="horizontal" type vusion-slot-name="default">
     <div class="root" style="max-height: 300px;">
@@ -19288,9 +19386,11 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
               </div>
               <div class="root footer" direction="horizontal" justify="space-between" type vusion-slot-name="default">
                 <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                  确定</a>
+                  确定
+                </a>
                 <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                  取消</a>
+                  取消
+                </a>
               </div>
             </div>
           </transition-stub>
@@ -19522,9 +19622,11 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
               </div>
               <div class="root footer" direction="horizontal" justify="space-between" type vusion-slot-name="default">
                 <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                  确定</a>
+                  确定
+                </a>
                 <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                  取消</a>
+                  取消
+                </a>
               </div>
             </div>
           </transition-stub>
@@ -19719,9 +19821,11 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
               </div>
               <div class="root footer" direction="horizontal" justify="space-between" type vusion-slot-name="default">
                 <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                  确定</a>
+                  确定
+                </a>
                 <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                  取消</a>
+                  取消
+                </a>
               </div>
             </div>
           </transition-stub>
@@ -20695,7 +20799,8 @@ exports[`u-table-view.vue Demo-树型展示 1`] = `
     </div>
   </div>
   <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    添加子数据</a>
+    添加子数据
+  </a>
 </div>
 `;
 
@@ -21299,9 +21404,11 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -21328,9 +21435,11 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -21357,9 +21466,11 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -21386,9 +21497,11 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -21415,9 +21528,11 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -21444,9 +21559,11 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -21473,9 +21590,11 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -21502,9 +21621,11 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -21531,9 +21652,11 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -21560,9 +21683,11 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                 </tbody>
@@ -21646,7 +21771,8 @@ exports[`u-table-view.vue Demo-步骤条中使用 1`] = `
       Content1
       <div class="root" direction="horizontal" type vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          下一步</a>
+          下一步
+        </a>
       </div>
     </div>
     <div style="display: none;" vusion-slot-name="default">
@@ -21853,18 +21979,22 @@ exports[`u-table-view.vue Demo-步骤条中使用 1`] = `
       </div>
       <div class="root" direction="horizontal" type vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          上一步</a>
+          上一步
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          下一步</a>
+          下一步
+        </a>
       </div>
     </div>
     <div style="display: none;" vusion-slot-name="default">
       Content3
       <div class="root" direction="horizontal" type vusion-slot-name="default">
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          上一步</a>
+          上一步
+        </a>
         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          创建</a>
+          创建
+        </a>
       </div>
     </div>
   </div>
@@ -22749,7 +22879,8 @@ exports[`u-table-view.vue Demo-省略显示 1`] = `
 exports[`u-table-view.vue Demo-空表格显示数据异常 1`] = `
 <div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    添加</a>
+    添加
+  </a>
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
@@ -22869,7 +23000,8 @@ exports[`u-table-view.vue Demo-空表格显示数据异常 1`] = `
 exports[`u-table-view.vue Demo-空表格添加数据不会 reload 1`] = `
 <div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    添加</a>
+    添加
+  </a>
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
@@ -23862,9 +23994,11 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
                       <div>
                         <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                            编辑</a>
+                            编辑
+                          </a>
                           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                            删除</a>
+                            删除
+                          </a>
                         </div>
                       </div>
                     </td>
@@ -23892,9 +24026,11 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
                       <div>
                         <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                            编辑</a>
+                            编辑
+                          </a>
                           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                            删除</a>
+                            删除
+                          </a>
                         </div>
                       </div>
                     </td>
@@ -23922,9 +24058,11 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
                       <div>
                         <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                            编辑</a>
+                            编辑
+                          </a>
                           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                            删除</a>
+                            删除
+                          </a>
                         </div>
                       </div>
                     </td>
@@ -23962,7 +24100,8 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
   <div class="root" direction="horizontal" justify="end" type vusion-slot-name="default">
     <div style="width: 120px;">
       <a class="root" color="primary" hovertype="underline" size="small" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        添加数据</a>
+        添加数据
+      </a>
     </div>
   </div>
 </div>
@@ -24048,9 +24187,11 @@ exports[`u-table-view.vue Demo-编辑行 2`] = `
                       <div>
                         <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                            编辑</a>
+                            编辑
+                          </a>
                           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                            删除</a>
+                            删除
+                          </a>
                         </div>
                       </div>
                     </td>
@@ -24078,9 +24219,11 @@ exports[`u-table-view.vue Demo-编辑行 2`] = `
                       <div>
                         <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                            编辑</a>
+                            编辑
+                          </a>
                           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                            删除</a>
+                            删除
+                          </a>
                         </div>
                       </div>
                     </td>
@@ -24108,9 +24251,11 @@ exports[`u-table-view.vue Demo-编辑行 2`] = `
                       <div>
                         <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                            编辑</a>
+                            编辑
+                          </a>
                           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                            删除</a>
+                            删除
+                          </a>
                         </div>
                       </div>
                     </td>
@@ -24148,7 +24293,8 @@ exports[`u-table-view.vue Demo-编辑行 2`] = `
   <div class="root" direction="horizontal" justify="end" type vusion-slot-name="default">
     <div style="width: 120px;">
       <a class="root" color="primary" hovertype="underline" size="small" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        添加数据</a>
+        添加数据
+      </a>
     </div>
   </div>
 </div>
@@ -24244,7 +24390,8 @@ exports[`u-table-view.vue Demo-编辑行-new 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        删除</a>
+                        删除
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -24273,7 +24420,8 @@ exports[`u-table-view.vue Demo-编辑行-new 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        删除</a>
+                        删除
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -24302,7 +24450,8 @@ exports[`u-table-view.vue Demo-编辑行-new 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        删除</a>
+                        删除
+                      </a>
                     </td>
                   </tr>
                 </tbody>
@@ -24655,7 +24804,7 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell">
+                    <td class="cell" disabled="disabled">
                       <span>
                         <label class="root" disabled="disabled" tabindex="0">
                           <span class="box" disabled="disabled" status="false"></span>
@@ -24663,28 +24812,28 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
                         </label>
                       </span>
                     </td>
-                    <td class="cell" rowspan="2">
+                    <td class="cell" disabled="disabled" rowspan="2">
                       <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                     </td>
-                    <td class="cell" rowspan="2">
+                    <td class="cell" disabled="disabled" rowspan="2">
                       <span class="column-field" vusion-slot-name="cell">李华</span>
                     </td>
-                    <td class="cell">
+                    <td class="cell" disabled="disabled">
                       <span class="column-field" vusion-slot-name="cell">18749261214</span>
                     </td>
-                    <td class="cell" rowspan="2">
+                    <td class="cell" disabled="disabled" rowspan="2">
                       <span class="column-field" vusion-slot-name="cell">李华</span>
                     </td>
-                    <td class="cell">
+                    <td class="cell" disabled="disabled">
                       <span class="column-field" vusion-slot-name="cell">18749261214</span>
                     </td>
-                    <td class="cell">
+                    <td class="cell" disabled="disabled">
                       <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                     </td>
-                    <td class="cell">
+                    <td class="cell" disabled="disabled">
                       <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                     </td>
-                    <td class="cell">
+                    <td class="cell" disabled="disabled">
                       <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                     </td>
                   </tr>
@@ -24993,9 +25142,11 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                     <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25022,9 +25173,11 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                     <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25051,9 +25204,11 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                     <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25080,9 +25235,11 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                     <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25109,9 +25266,11 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                     <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25138,9 +25297,11 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                     <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25167,9 +25328,11 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                     <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25196,9 +25359,11 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                     <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25225,9 +25390,11 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                     <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25254,9 +25421,11 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                     <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                 </tbody>
@@ -25400,9 +25569,11 @@ exports[`u-table-view.vue Demo-表头吸顶 2`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25429,9 +25600,11 @@ exports[`u-table-view.vue Demo-表头吸顶 2`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25458,9 +25631,11 @@ exports[`u-table-view.vue Demo-表头吸顶 2`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25487,9 +25662,11 @@ exports[`u-table-view.vue Demo-表头吸顶 2`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25516,9 +25693,11 @@ exports[`u-table-view.vue Demo-表头吸顶 2`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25545,9 +25724,11 @@ exports[`u-table-view.vue Demo-表头吸顶 2`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25574,9 +25755,11 @@ exports[`u-table-view.vue Demo-表头吸顶 2`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25603,9 +25786,11 @@ exports[`u-table-view.vue Demo-表头吸顶 2`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25632,9 +25817,11 @@ exports[`u-table-view.vue Demo-表头吸顶 2`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -25661,9 +25848,11 @@ exports[`u-table-view.vue Demo-表头吸顶 2`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                 </tbody>
@@ -27463,9 +27652,11 @@ exports[`u-table-view.vue Demo-隐藏部分列 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -27486,9 +27677,11 @@ exports[`u-table-view.vue Demo-隐藏部分列 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -27509,9 +27702,11 @@ exports[`u-table-view.vue Demo-隐藏部分列 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -27532,9 +27727,11 @@ exports[`u-table-view.vue Demo-隐藏部分列 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -27555,9 +27752,11 @@ exports[`u-table-view.vue Demo-隐藏部分列 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -27578,9 +27777,11 @@ exports[`u-table-view.vue Demo-隐藏部分列 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -27601,9 +27802,11 @@ exports[`u-table-view.vue Demo-隐藏部分列 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -27624,9 +27827,11 @@ exports[`u-table-view.vue Demo-隐藏部分列 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -27647,9 +27852,11 @@ exports[`u-table-view.vue Demo-隐藏部分列 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                   <tr class="row">
@@ -27670,9 +27877,11 @@ exports[`u-table-view.vue Demo-隐藏部分列 1`] = `
                     </td>
                     <td class="cell">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        详情</a>&nbsp;
+                        详情
+                      </a>&nbsp;
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                        设置</a>
+                        设置
+                      </a>
                     </td>
                   </tr>
                 </tbody>

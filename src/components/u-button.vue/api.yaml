@@ -75,6 +75,16 @@
       brifeDoc: ""
       docDescription: 支持从图标库选择图标或上传自定义图标。
       tooltipLink: ""
+    - name: icon-position
+      title: 图标位置
+      type: string
+      options:
+        - value: left
+          title: 左
+        - value: right
+          title: 右
+      default: left
+      description: 设置图标居左或居右显示
     - name: linkType
       title: 链接类型
       type: string

@@ -10,12 +10,15 @@
 
 ### 折叠功能
 
-``` html
-<u-sidebar collapsible>
-    <u-sidebar-group title="导航一" expanded>
+``` html {width: 30%}
+<u-sidebar collapsible collapse>
+    <u-sidebar-group title="导航一">
         <u-sidebar-item text="选项一"></u-sidebar-item>
+            <u-sidebar-group title="导航二">
+                <u-sidebar-item text="选项一"></u-sidebar-item>
+            </u-sidebar-group>
     </u-sidebar-group>
-    <u-sidebar-group title="导航二" expanded disabled>
+    <u-sidebar-group title="导航二">
         <u-sidebar-item text="选项一"></u-sidebar-item>
     </u-sidebar-group>
 </u-sidebar>
