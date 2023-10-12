@@ -80,9 +80,6 @@ export default {
                     return undefined;
             }
             const hrefR = currentHref();
-            // @ts-ignore：没办法
-            // if (props.target !== '_self')
-            //   return;
 
             if (hrefR === undefined) {
                 let to;
@@ -96,17 +93,14 @@ export default {
                 const currentTo = to || props.to;
                 if (currentTo === undefined)
                     return;
-                // eslint-disable-next-line prefer-const
-                let cancel = false;
-                if (cancel)
-                    return;
                 const $router = parent && parent.$router;
                 const $route = parent && parent.$route;
-                const { location } = $router.resolve(
+                const { location, href } = $router.resolve(
                     currentTo,
                     $route,
                     props.append,
                 );
+                if(props.target === '_blank' && href) return window.open(href);
                 props.replace ? $router.replace(location) : $router.push(location);
             } else {
                 // eslint-disable-next-line no-inner-declarations
