@@ -136,7 +136,7 @@ const VueDataSource = Vue.extend({
     },
     watch: {
         data() {
-            if (!this.remote || !this._load) {
+            if (!this.rawTreeDisplayOnlyForNotice && (!this.remote || !this._load)) {
                 this.arrange();
             }
         },
