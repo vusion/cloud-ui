@@ -1678,7 +1678,10 @@
     --toast-background-color: rgba(48, 48, 48, 0.8);
 
     /* @component u-modal */
-    --modal-dialog-width: 400px; /* @desc 弹窗的宽度,如 1px */
+    --modal-dialog-width: 400px; /* @desc 弹窗的宽度,如 1px */ /* @depAttrs {"size": ["normal", null]} */
+    --modal-dialog-width-small: 300px; /* @desc 弹窗的宽度,如 1px */ /* @depAttrs {"size": ["small"]} */
+    --modal-dialog-width-large: 600px; /* @desc 弹窗的宽度,如 1px */ /* @depAttrs {"size": ["large"]} */
+    --modal-dialog-width-huge: 800px; /* @desc 弹窗的宽度,如 1px */ /* @depAttrs {"size": ["huge"]} */
     --modal-dialog-border-radius: var(--border-radius-base); /* @desc 弹窗圆角,如 1px */
     --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); /* @desc 弹窗阴影效果,如 1px */
     --modal-title-font-size: var(--font-size-large); /* @desc 弹窗标题的字号,如 1px */
@@ -1693,9 +1696,6 @@
     --modal-head-padding: 13px 24px; /* @hidden */
     --modal-static-padding: var(--space-base); /* @hidden */
     --modal-title-font-weight: normal; /* @hidden */
-    --modal-dialog-width-small: 300px; /* @hidden */
-    --modal-dialog-width-large: 600px; /* @hidden */
-    --modal-dialog-width-huge: 800px; /* @hidden */
     --modal-dialog-background: white;  /* @hidden */
     --modal-dialog-background-image: none; /* @hidden */
     --modal-dialog-background-color: var(--modal-dialog-background); /* @hidden */
