@@ -97,7 +97,7 @@
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
                             <tr :key="rowIndex" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }"
-                            :draggable="rowDraggable && item.draggable || undefined"
+                            :draggable="(draggable || acrossTableDrag) && rowDraggable && item.draggable || undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
                             @dragstart="onDragStart($event, item, rowIndex)"
@@ -147,7 +147,7 @@
                                             </f-slot>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable && item.draggable || undefined" :disabled="!(handlerDraggable && item.draggable)"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="(draggable || acrossTableDrag) && handlerDraggable && item.draggable || undefined" :disabled="!((draggable || acrossTableDrag) && handlerDraggable && item.draggable)"></i-ico>
                                             </span>
                                         </div>
                                         <div v-if="columnVM.type === 'editable'" vusion-slot-name="editcell" :plus-empty="columnVM.$attrs['editcell-plus-empty']" style="margin-top:10px">
@@ -192,7 +192,7 @@
                                             </template>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable && item.draggable || undefined" :disabled="!(handlerDraggable && item.draggable)"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="(draggable || acrossTableDrag) && handlerDraggable && item.draggable || undefined" :disabled="!((draggable || acrossTableDrag) && handlerDraggable && item.draggable)"></i-ico>
                                             </span>
                                             <!-- Normal text -->
                                             <template v-if="columnVM.type === 'editable'">
@@ -2714,13 +2714,13 @@ export default {
         inset 0px -1px 0px 0px var(--table-view-row-selected-border-color),
         inset -1px 0px 0px 0px var(--table-view-row-selected-border-color);
 }
-.row[draggable] {
+.row[draggable="true"] {
     cursor: var(--table-view-drag-cursor);
 }
-.row[dragging] td {
+.row[dragging="true"] td {
     background: var(--table-view-row-background-dragging);
 }
-.row[dragging][subrow] td {
+.row[dragging="true"][subrow] td {
     background: var(--table-view-subrow-background-dragging);
 }
 .dragHandler {
