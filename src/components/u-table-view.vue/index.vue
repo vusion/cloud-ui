@@ -1843,7 +1843,12 @@ export default {
         /**
          * 拖拽开始
          */
-        onDragStart(e, item, rowIndex) {
+        async onDragStart(e, item, rowIndex) {
+            // 当不可拖拽节点里的文字双击选中时再拖拽，会触发dragstart事件，这里需要屏蔽
+            await this.canDraggable(item);
+            if (item.draggable === false) {
+                return;
+            }
             e.dataTransfer.setDragImage(this.getDragImage(e), 0, 0);
             this.dragState = {
                 dragging: true,
@@ -1882,6 +1887,9 @@ export default {
                     },
                 };
                 e.dataTransfer.setData('application/json', JSON.stringify(dragStartData));
+                // 当不可拖拽节点里的文字双击选中时再拖拽，会触发dragstart事件，dragover的时候也会响应
+                // 这里增加信息，dragover的时候可以处理是否响应
+                e.dataTransfer.setData('info/acrosstabledrag', '');
             }
         },
         /**
@@ -1894,6 +1902,12 @@ export default {
                 return;
             if (item.draggoverDisabled) {
                 return;
+            }
+            if (this.acrossTableDrag) {
+                const types = (e.dataTransfer && e.dataTransfer.types) || [];
+                const isAcrossTableDrag = types.find((type) => type === 'info/acrosstabledrag');
+                if (!isAcrossTableDrag)
+                    return;
             }
             // 行之间可以放
             if (this.draggable) {
