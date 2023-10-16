@@ -7330,6 +7330,10 @@
     "type": "boolean",
     "description": "设置是否可以拖拽行排序"
   },
+  "u-table-view/acrossTableDrag": {
+    "type": "boolean",
+    "description": "设置多个表格间是否可以拖拽放置"
+  },
   "u-table-view/can-dragable-handler": {
     "type": "Function",
     "description": "设置表格行是否可拖拽起来。绑定逻辑"

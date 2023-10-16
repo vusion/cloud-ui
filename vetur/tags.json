@@ -1904,6 +1904,7 @@
       "selectable",
       "cancelable",
       "draggable",
+      "acrossTableDrag",
       "can-dragable-handler",
       "can-dropin-handler",
       "accordion",
