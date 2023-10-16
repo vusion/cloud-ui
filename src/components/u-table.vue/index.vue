@@ -50,11 +50,13 @@ export default {
 
 .root thead tr {
     background-color: var(--table-view-head-background);
-    border-bottom: 1px solid var(--table-view-border-color);
     background-clip: padding-box;
 }
 .root[color="light"] thead tr {
     background-color: var(--table-view-head-background-light);
+}
+.root thead tr th {
+    border-bottom: 1px solid var(--table-view-border-color);
 }
 
 .root thead th {
@@ -71,7 +73,7 @@ export default {
     border-top: none;
 }
 
-.root tbody > tr:last-child {
+.root tbody > tr:last-child td {
     border-bottom: 1px solid var(--table-view-border-color);
 }
 
@@ -176,5 +178,9 @@ export default {
 }
 .root tbody > tr[color="error"] td{
     background: var(--table-row-background-error);
+}
+.root[sticky-fixed="true"] {
+    border-collapse: separate;
+    border-spacing: 0;
 }
 </style>
