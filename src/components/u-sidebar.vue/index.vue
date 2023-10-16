@@ -158,6 +158,13 @@ export default {
         if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
             this.load();
     },
+    mounted() {
+        if (this.enableCollapse && this.collapse && this.$el) {
+            this.$nextTick(() => {
+                this.$el.style.width = `${this.currentWidth}px`;
+            });
+        }
+    },
     methods: {
         updateCollapse(nV) {
             this.$emit('update:collapse', nV, this);
