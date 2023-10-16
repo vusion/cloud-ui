@@ -1147,6 +1147,7 @@ exports[`u-calendar-view.vue Demo-数据日历，reload方法 1`] = `
               <div class="date">
                 5
                 <div class="column" vusion-slot-name="default">
+                  <p>橘子: 8</p>
                 </div>
               </div>
             </td>
@@ -1226,6 +1227,7 @@ exports[`u-calendar-view.vue Demo-数据日历，reload方法 1`] = `
               <div class="date">
                 16
                 <div class="column" vusion-slot-name="default">
+                  <p>苹果: 1</p>
                 </div>
               </div>
             </td>
@@ -1335,6 +1337,8 @@ exports[`u-calendar-view.vue Demo-数据日历，reload方法 1`] = `
               <div class="date">
                 31
                 <div class="column" vusion-slot-name="default">
+                  <p>苹果: 3</p>
+                  <p>橘子: 2</p>
                 </div>
               </div>
             </td>

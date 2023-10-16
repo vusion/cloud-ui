@@ -5134,9 +5134,9 @@ exports[`u-select.vue Demo-选中值是下一页数据的选中处理 1`] = `
 
 exports[`u-select.vue Demo-选项初始值 1`] = `
 <div class="root" direction="horizontal" type vusion-slot-name="default">
-  <div class="root" tabindex="0">
+  <div class="root" clearable="true" tabindex="0">
     <span>b</span>
-    <span>前端过滤</span>
+    <span style="display: none;">前端过滤</span>
     <div style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
@@ -5144,10 +5144,160 @@ exports[`u-select.vue Demo-选项初始值 1`] = `
         <input filterable="true" type="text">
       </div>
     </div>
+    <span></span>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
         <div>
-          <div>暂无数据</div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Alabama
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Alaska
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Arizona
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Arkansas
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            California
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Colorado
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Connecticut
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Delaware
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Florida
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Georgia
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Hawaii
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Idaho
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Illinois
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Indiana
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Iowa
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Kansas
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Kentucky
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Louisiana
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Maine
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Maryland
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Massachusetts
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Michigan
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Minnesota
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Mississippi
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Missouri
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Montana
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Nebraska
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Nevada
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            New hampshire
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            New jersey
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            New mexico
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            New york
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            North carolina
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            North dakota
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Ohio
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Oklahoma
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Oregon
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Pennsylvania
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Rhode island
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            South carolina
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            South dakota
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Tennessee
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Texas
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Utah
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Vermont
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Virginia
+          </div>
+          <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+            Washington
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            West virginia
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Wisconsin
+          </div>
+          <div class="root" style="direction: ltr;" vusion-slot-name="default">
+            Wyoming
+          </div>
         </div>
       </div>
     </transition-stub>
