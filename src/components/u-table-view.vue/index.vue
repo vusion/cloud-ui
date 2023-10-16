@@ -137,8 +137,27 @@
                                             <span v-if="columnVM.type === 'checkbox'">
                                                 <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled || disabled" @check="check(item, $event.value)"></u-checkbox>
                                             </span>
-                                            <!-- type === 'expander' -->
-                                            <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click.stop="toggleExpanded(item)"></span>
+
+                                            <!-- type === 'expander' left -->
+                                            <f-slot
+                                                v-if="columnVM.type === 'expander' && columnVM.expanderPosition === 'left'"
+                                                name="expander"
+                                                :vm="columnVM"
+                                                :props="{
+                                                    item: getRealItem(item, rowIndex),
+                                                    value: $at(item, columnVM.field),
+                                                    columnVM,
+                                                    rowIndex,
+                                                    columnIndex,
+                                                    index: rowIndex,
+                                                    columnItem: columnVM.columnItem,
+                                                }">
+                                                <u-table-view-expander
+                                                    :item="getRealItem(item, rowIndex)"
+                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex))">
+                                                </u-table-view-expander>
+                                            </f-slot>
+
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: number2Pixel(20 * item.tableTreeItemLevel) }"></span>
                                                 <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.treeExpanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
@@ -152,6 +171,26 @@
                                             <span v-if="columnVM.type === 'dragHandler'">
                                                 <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable?handlerDraggable:undefined"></i-ico>
                                             </span>
+
+                                            <!-- type === 'expander' right -->
+                                            <f-slot
+                                                v-if="columnVM.type === 'expander' && columnVM.expanderPosition === 'right'"
+                                                name="expander"
+                                                :vm="columnVM"
+                                                :props="{
+                                                    item: getRealItem(item, rowIndex),
+                                                    value: $at(item, columnVM.field),
+                                                    columnVM,
+                                                    rowIndex,
+                                                    columnIndex,
+                                                    index: rowIndex,
+                                                    columnItem: columnVM.columnItem,
+                                                }">
+                                                <u-table-view-expander
+                                                    :item="getRealItem(item, rowIndex)"
+                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex))">
+                                                </u-table-view-expander>
+                                            </f-slot>
                                         </div>
                                         <div v-if="columnVM.type === 'editable'" vusion-slot-name="editcell" :plus-empty="columnVM.$attrs['editcell-plus-empty']" style="margin-top:10px">
                                             <f-slot name="editcell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
@@ -191,8 +230,26 @@
                                             <span v-if="columnVM.type === 'checkbox'">
                                                 <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled || disabled" @check="check(item, $event.value)"></u-checkbox>
                                             </span>
-                                            <!-- type === 'expander' -->
-                                            <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" :disabled="item.disabled" @click.stop="toggleExpanded(item)"></span>
+                                            <!-- type === 'expander' left -->
+                                            <f-slot
+                                                v-if="columnVM.type === 'expander' && columnVM.expanderPosition === 'left'"
+                                                name="expander"
+                                                :vm="columnVM"
+                                                :props="{
+                                                    item: getRealItem(item, rowIndex),
+                                                    value: $at(item, columnVM.field),
+                                                    columnVM,
+                                                    rowIndex,
+                                                    columnIndex,
+                                                    index: rowIndex,
+                                                    columnItem: columnVM.columnItem,
+                                                    toggle: () => toggleExpanded(getRealItem(item, rowIndex))
+                                                }">
+                                                <u-table-view-expander
+                                                    :item="getRealItem(item, rowIndex)"
+                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex))">
+                                                </u-table-view-expander>
+                                            </f-slot>
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: number2Pixel(20 * item.tableTreeItemLevel) }"></span>
                                                 <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.treeExpanded" @click.stop="toggleTreeExpanded(item)" :loading="item.loading"></span>
@@ -227,6 +284,27 @@
                                                     <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                 </f-slot>
                                             </template>
+
+                                            <!-- type === 'expander' right -->
+                                            <f-slot
+                                                v-if="columnVM.type === 'expander' && columnVM.expanderPosition === 'right'"
+                                                name="expander"
+                                                :vm="columnVM"
+                                                :props="{
+                                                    item: getRealItem(item, rowIndex),
+                                                    value: $at(item, columnVM.field),
+                                                    columnVM,
+                                                    rowIndex,
+                                                    columnIndex,
+                                                    index: rowIndex,
+                                                    columnItem: columnVM.columnItem,
+                                                    toggle: () => toggleExpanded(getRealItem(item, rowIndex))
+                                                }">
+                                                <u-table-view-expander
+                                                    :item="getRealItem(item, rowIndex)"
+                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex))">
+                                                </u-table-view-expander>
+                                            </f-slot>
                                     </td>
                                 </template>
                             </tr>
@@ -352,7 +430,7 @@ import DataSource from '../../utils/DataSource';
 import DataSourceNew from '../../utils/DataSource/new';
 import { addResizeListener, removeResizeListener, findScrollParent, getRect } from '../../utils/dom';
 import { format } from '../../utils/date';
-import KeyMap from '../../utils/keyMap'
+import KeyMap from '../../utils/keyMap';
 import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
@@ -803,17 +881,22 @@ export default {
     methods: {
         isSimpleArray(arr) {
             if (!Array.isArray(arr)) {
-              return false; // 如果不是数组类型，则不满足条件，直接返回 false
+                return false; // 如果不是数组类型，则不满足条件，直接返回 false
             }
-            return arr.every(function(item) {
-              return typeof item !== 'object'; // 使用 typeof 判断是否为简单数据类型
-            });
+            return arr.every((item) =>
+                typeof item !== 'object', // 使用 typeof 判断是否为简单数据类型
+            );
         },
         getRealItem(item, rowIndex) {
             return this.isSimpleArray(this.currentDataSource.data) ? (this.currentDataSource.arrangedData[rowIndex] && this.currentDataSource.arrangedData[rowIndex].simple) : item
         },
         typeCheck(type) {
-            return ['index', 'radio', 'checkbox', 'expander'].includes(type);
+            return [
+                'index',
+                'radio',
+                'checkbox',
+                'expander',
+            ].includes(type);
         },
         clearTimeout() {
             if (this.timer) {
@@ -912,7 +995,7 @@ export default {
                     options.remotePaging = false;
                     options.remoteSorting = options.remotePaging;
                 }
-                return new Constructor({...options, tag: 'u-table-view'});
+                return new Constructor({ ...options, tag: 'u-table-view' });
             } else if (dataSource instanceof Function) {
                 options.load = function load(params, extraParams) {
                     const result = dataSource(params, extraParams);
@@ -929,7 +1012,7 @@ export default {
                     options.remotePaging = (this.treeDisplay && this.parentField) ? false : !!this.pagination;
                     options.remoteSorting = !!options.remotePaging;
                 }
-                return new Constructor({...options, tag: 'u-table-view'});
+                return new Constructor({ ...options, tag: 'u-table-view' });
             } else if (dataSource instanceof Object) {
                 if (dataSource.hasOwnProperty('list') && Array.isArray(dataSource.list))
                     return new DataSource(Object.assign(options, dataSource, {
@@ -2719,66 +2802,6 @@ export default {
 }
 .dragHandler {
     cursor: var(--table-view-drag-cursor);
-}
-
-.expander {
-    user-select: none;
-    display: inline-block;
-    width: var(--table-view-expander-size);
-    height: var(--table-view-expander-size);
-    line-height: var(--table-view-expander-size);
-    vertical-align: -2px;
-    /* text-align: center;
-    transform: rotate(-180deg); */
-    position: relative;
-    background-color: var(--table-view-expander-background);
-    cursor: pointer;
-    border: 1px solid var(--table-view-expander-border-color);
-    border-radius: var(--table-view-expander-border-radius);
-}
-.expander:hover{
-    background-color: var(--table-view-expander-background-hover);
-    border-color: var(--table-view-expander-border-color-hover);
-}
-.expander::before,
-.expander::after {
-    position: absolute;
-    background: currentcolor;
-    content: "";
-    background: var(--table-view-expander-color);
-    transition: transform .2s ease-out;
-}
-.expander:hover::before,
-.expander:hover::after{
-    background: var(--table-view-expander-color-hover);
-}
-
-.expander::before {
-    top: 6px;
-    right: 3px;
-    left: 3px;
-    height: 2px;
-    transform: rotate(-180deg);
-}
-.expander::after {
-    top: 3px;
-    bottom: 3px;
-    left: 6px;
-    width: 2px;
-    transform: rotate(0deg);
-}
-
-.expander[expanded]::after {
-   transform: rotate(90deg);
-}
-.expander[disabled] {
-    border: 1px solid var(--table-view-expander-border-color-disabled);
-    background: var(--table-view-expander-background-disabled);
-    cursor: not-allowed;
-}
-.expander[disabled]::before,
-.expander[disabled]::after{
-    background: var(--table-view-expander-color-disabled);
 }
 
 .expand-td {

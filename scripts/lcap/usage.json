@@ -3253,7 +3253,7 @@
             "Navigation"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.18.0/src/components/u-navbar-multi.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"导航栏\",\"description\":\"\",\"code\":\"<template>\\n<u-navbar-multi>\\n    <template #left>\\n        <u-multi-layout-item align-items=\\\"center\\\" style=\\\"width: 200px;\\\">\\n            <u-image fit=\\\"cover\\\" src=\\\"/assets/lcap-logo-light.svg\\\"\\n                    style=\\\"width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;\\\"></u-image>\\n            <u-text text=\\\"应用名称\\\" size=\\\"large\\\" style=\\\"color: white; --custom-start: auto; vertical-align: middle;\\\"></u-text>\\n        </u-multi-layout-item>\\n    </template>\\n    <u-navbar-item-multi><u-text>导航项1</u-text></u-navbar-item-multi>\\n    <u-navbar-item-multi><u-text>导航项2</u-text></u-navbar-item-multi>\\n    <template #right>\\n        <u-multi-layout-item align-items=\\\"center\\\" justify=\\\"end\\\">\\n            <u-dropdown style=\\\"margin-right: 10px; color: inherit\\\">\\n                <template #title>\\n                    <u-linear-layout gap=\\\"small\\\" v-if=\\\"$global.userInfo\\\">\\n                        <u-image fit=\\\"cover\\\" src=\\\"/assets/avatar-default.svg\\\" style=\\\"width: 36px; height: 36px; vertical-align: middle;\\\"></u-image>\\n                        <span style=\\\"display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;\\\">\\n                            <u-text :text=\\\"$global.userInfo.UserName\\\"></u-text>\\n                        </span>\\n                    </u-linear-layout>\\n                </template>\\n                <template #default>\\n                        <u-dropdown-item><u-text>安全退出</u-text></u-dropdown-item>\\n                </template>\\n            </u-dropdown>\\n        </u-multi-layout-item>\\n    </template>\\n</u-navbar-multi>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"导航栏\",\"description\":\"\",\"code\":\"<template>\\n<u-navbar-multi>\\n    <template #left>\\n        <u-multi-layout-item align-items=\\\"center\\\" style=\\\"width: 200px;\\\">\\n            <u-image fit=\\\"cover\\\" src=\\\"/assets/lcap-logo-light.svg\\\"\\n                    style=\\\"width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;\\\"></u-image>\\n            <u-text text=\\\"应用名称\\\" size=\\\"large\\\" style=\\\"--custom-start: auto; vertical-align: middle;\\\"></u-text>\\n        </u-multi-layout-item>\\n    </template>\\n    <u-navbar-item-multi><u-text>导航项1</u-text></u-navbar-item-multi>\\n    <u-navbar-item-multi><u-text>导航项2</u-text></u-navbar-item-multi>\\n    <template #right>\\n        <u-multi-layout-item align-items=\\\"center\\\" justify=\\\"end\\\">\\n            <u-dropdown style=\\\"margin-right: 10px;\\\">\\n                <template #title>\\n                    <u-linear-layout gap=\\\"small\\\" v-if=\\\"$global.userInfo\\\">\\n                        <u-image fit=\\\"cover\\\" src=\\\"/assets/avatar-default.svg\\\" style=\\\"width: 36px; height: 36px; vertical-align: middle;\\\"></u-image>\\n                        <span style=\\\"display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px;\\\">\\n                            <u-text :text=\\\"$global.userInfo.UserName\\\"></u-text>\\n                        </span>\\n                    </u-linear-layout>\\n                </template>\\n                <template #default>\\n                        <u-dropdown-item><u-text>安全退出</u-text></u-dropdown-item>\\n                </template>\\n            </u-dropdown>\\n        </u-multi-layout-item>\\n    </template>\\n</u-navbar-multi>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-navbar-multi",
             "title": "导航栏",
@@ -3265,7 +3265,7 @@
                 {
                     "title": "导航栏",
                     "description": "",
-                    "code": "<template>\n<u-navbar-multi>\n    <template #left>\n        <u-multi-layout-item align-items=\"center\" style=\"width: 200px;\">\n            <u-image fit=\"cover\" src=\"/assets/lcap-logo-light.svg\"\n                    style=\"width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;\"></u-image>\n            <u-text text=\"应用名称\" size=\"large\" style=\"color: white; --custom-start: auto; vertical-align: middle;\"></u-text>\n        </u-multi-layout-item>\n    </template>\n    <u-navbar-item-multi><u-text>导航项1</u-text></u-navbar-item-multi>\n    <u-navbar-item-multi><u-text>导航项2</u-text></u-navbar-item-multi>\n    <template #right>\n        <u-multi-layout-item align-items=\"center\" justify=\"end\">\n            <u-dropdown style=\"margin-right: 10px; color: inherit\">\n                <template #title>\n                    <u-linear-layout gap=\"small\" v-if=\"$global.userInfo\">\n                        <u-image fit=\"cover\" src=\"/assets/avatar-default.svg\" style=\"width: 36px; height: 36px; vertical-align: middle;\"></u-image>\n                        <span style=\"display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;\">\n                            <u-text :text=\"$global.userInfo.UserName\"></u-text>\n                        </span>\n                    </u-linear-layout>\n                </template>\n                <template #default>\n                        <u-dropdown-item><u-text>安全退出</u-text></u-dropdown-item>\n                </template>\n            </u-dropdown>\n        </u-multi-layout-item>\n    </template>\n</u-navbar-multi>\n</template>\n"
+                    "code": "<template>\n<u-navbar-multi>\n    <template #left>\n        <u-multi-layout-item align-items=\"center\" style=\"width: 200px;\">\n            <u-image fit=\"cover\" src=\"/assets/lcap-logo-light.svg\"\n                    style=\"width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;\"></u-image>\n            <u-text text=\"应用名称\" size=\"large\" style=\"--custom-start: auto; vertical-align: middle;\"></u-text>\n        </u-multi-layout-item>\n    </template>\n    <u-navbar-item-multi><u-text>导航项1</u-text></u-navbar-item-multi>\n    <u-navbar-item-multi><u-text>导航项2</u-text></u-navbar-item-multi>\n    <template #right>\n        <u-multi-layout-item align-items=\"center\" justify=\"end\">\n            <u-dropdown style=\"margin-right: 10px;\">\n                <template #title>\n                    <u-linear-layout gap=\"small\" v-if=\"$global.userInfo\">\n                        <u-image fit=\"cover\" src=\"/assets/avatar-default.svg\" style=\"width: 36px; height: 36px; vertical-align: middle;\"></u-image>\n                        <span style=\"display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px;\">\n                            <u-text :text=\"$global.userInfo.UserName\"></u-text>\n                        </span>\n                    </u-linear-layout>\n                </template>\n                <template #default>\n                        <u-dropdown-item><u-text>安全退出</u-text></u-dropdown-item>\n                </template>\n            </u-dropdown>\n        </u-multi-layout-item>\n    </template>\n</u-navbar-multi>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -3476,6 +3476,11 @@
                             "name": "u-navbar-item-multi",
                             "title": "导航栏项",
                             "snippet": "<u-navbar-item-multi><u-text text=\"导航栏项\"></u-text></u-navbar-item-multi>"
+                        },
+                        {
+                            "name": "u-navbar-divider-multi",
+                            "title": "分隔线",
+                            "snippet": "<u-navbar-divider-multi></u-navbar-divider-multi>"
                         }
                     ]
                 }
@@ -9505,7 +9510,7 @@
                 },
                 {
                     "name": "parent-field",
-                    "title": "父节点字段",
+                    "title": "父级值字段",
                     "type": "string",
                     "description": "当数据源为平铺数据时自动生成树形数据的节点字段名，重要：值字段名需要一起配置",
                     "group": "数据属性",
@@ -9520,7 +9525,8 @@
                 },
                 {
                     "name": "children-field",
-                    "title": "子节点字段",
+                    "title": "子级值字段",
+                    "advanced": true,
                     "type": "string",
                     "default": "children",
                     "description": "树形数据子节点字段名，默认为children",
@@ -9536,7 +9542,8 @@
                 },
                 {
                     "name": "has-children-field",
-                    "title": "包含子节点字段",
+                    "title": "包含子级值字段",
+                    "advanced": true,
                     "type": "string",
                     "default": "hasChildren",
                     "description": "该字段指定行数据是否包含子节点数据，默认为hasChildren",
@@ -9911,6 +9918,7 @@
                 {
                     "name": "border",
                     "title": "显示边框",
+                    "advanced": true,
                     "type": "boolean",
                     "default": false,
                     "description": "",
@@ -10956,6 +10964,32 @@
                             "tooltipLink": ""
                         },
                         {
+                            "name": "expander-position",
+                            "title": "展开列图标位置",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "left",
+                                    "title": "左侧"
+                                },
+                                {
+                                    "value": "right",
+                                    "title": "右侧"
+                                }
+                            ],
+                            "default": "left",
+                            "description": "展开列图标的位置",
+                            "dependency": [
+                                {
+                                    "type": "expander"
+                                }
+                            ],
+                            "group": "样式属性",
+                            "brifeDoc": "",
+                            "docDescription": "展开列图标的位置。默认\"左侧\"。",
+                            "tooltipLink": ""
+                        },
+                        {
                             "name": "width",
                             "title": "列宽度",
                             "type": "string | number",
@@ -11140,6 +11174,61 @@
                                     "title": "展开列索引",
                                     "type": "number",
                                     "description": "展开列的索引"
+                                }
+                            ],
+                            "slotProps": {
+                                "concept": "Param",
+                                "name": "current",
+                                "typeAnnotation": {
+                                    "concept": "TypeAnnotation",
+                                    "typeKind": "generic",
+                                    "typeNamespace": "nasl.ui",
+                                    "typeName": "Current",
+                                    "typeArguments": [
+                                        {
+                                            "concept": "TypeAnnotation",
+                                            "typeKind": "typeParam",
+                                            "typeName": "T"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "concept": "Slot",
+                            "name": "expander",
+                            "plus-empty": true,
+                            "description": "展开列图标",
+                            "props": [
+                                {
+                                    "name": "item",
+                                    "title": "当前项",
+                                    "type": "object",
+                                    "description": "循环中的当前项"
+                                },
+                                {
+                                    "name": "value",
+                                    "title": "字段值",
+                                    "type": "any",
+                                    "description": "item 中 field 字段对应的值"
+                                },
+                                {
+                                    "name": "columnVM",
+                                    "title": "列实例",
+                                    "type": "string",
+                                    "description": "该列组件实例"
+                                },
+                                {
+                                    "name": "rowIndex",
+                                    "title": "行索引",
+                                    "type": "number",
+                                    "description": "行的索引"
+                                },
+                                {
+                                    "name": "columnIndex",
+                                    "title": "列索引",
+                                    "type": "number",
+                                    "description": "列的索引"
                                 }
                             ],
                             "slotProps": {
@@ -11491,6 +11580,30 @@
                                     ]
                                 }
                             }
+                        }
+                    ]
+                },
+                {
+                    "name": "u-table-view-expander",
+                    "title": "展开列图标",
+                    "attrs": [
+                        {
+                            "name": "expand-icon",
+                            "title": "展开时图标",
+                            "type": "icon",
+                            "description": "展开时图标",
+                            "brifeDoc": "",
+                            "docDescription": "",
+                            "tooltipLink": ""
+                        },
+                        {
+                            "name": "collapse-icon",
+                            "title": "关闭时图标",
+                            "type": "icon",
+                            "description": "关闭时图标",
+                            "brifeDoc": "",
+                            "docDescription": "",
+                            "tooltipLink": ""
                         }
                     ]
                 }
@@ -12310,22 +12423,6 @@
                     "advanced": true
                 },
                 {
-                    "name": "text-field",
-                    "title": "文本字段名",
-                    "type": "string",
-                    "default": "text",
-                    "description": "选项文本的字段名",
-                    "advanced": true
-                },
-                {
-                    "name": "value-field",
-                    "title": "值字段名",
-                    "type": "string",
-                    "default": "value",
-                    "description": "选项值的字段名",
-                    "advanced": true
-                },
-                {
                     "name": "cancelable",
                     "title": "可取消",
                     "type": "boolean",
@@ -12370,6 +12467,24 @@
                     "brifeDoc": "",
                     "docDescription": "IDE 根据配置的数据源动态计算返回内容的数据结构，用于动态配置项 current.item 的类型说明。",
                     "tooltipLink": ""
+                },
+                {
+                    "name": "text-field",
+                    "title": "文本字段名",
+                    "type": "string",
+                    "default": "text",
+                    "group": "数据属性",
+                    "description": "选项文本的字段名",
+                    "display": "property-select"
+                },
+                {
+                    "name": "value-field",
+                    "title": "值字段名",
+                    "type": "string",
+                    "default": "value",
+                    "group": "数据属性",
+                    "description": "选项值的字段名",
+                    "display": "property-select"
                 },
                 {
                     "name": "pageable",
@@ -21794,7 +21909,8 @@
                 },
                 {
                     "name": "children-field",
-                    "title": "子级节点字段",
+                    "title": "子级值字段",
+                    "advanced": true,
                     "type": "string",
                     "default": "children",
                     "description": "树形数据子节点字段名，默认为children",
@@ -21815,7 +21931,7 @@
                 },
                 {
                     "name": "parent-field",
-                    "title": "父级节点字段",
+                    "title": "父级值字段",
                     "type": "string",
                     "description": "当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置",
                     "display": "property-select",
@@ -22658,6 +22774,7 @@
                 },
                 {
                     "name": "children-field",
+                    "advanced": true,
                     "title": "子级值字段",
                     "type": "string",
                     "default": "children",
@@ -25600,7 +25717,7 @@
                 },
                 {
                     "name": "parent-field",
-                    "title": "父节点字段",
+                    "title": "父级值字段",
                     "type": "string",
                     "default": "",
                     "description": "集合的元素类型中，用于标识父节点的属性",
@@ -25611,7 +25728,8 @@
                 },
                 {
                     "name": "children-field",
-                    "title": "子节点字段",
+                    "title": "子级值字段",
+                    "advanced": true,
                     "type": "string",
                     "default": "children",
                     "description": "集合的元素类型中，用于标识子节点的属性，默认为children",
@@ -25642,6 +25760,13 @@
                     "brifeDoc": "",
                     "docDescription": "开启后支持选中多项。默认关闭",
                     "tooltipLink": ""
+                },
+                {
+                    "name": "placeholder",
+                    "title": "占位符",
+                    "type": "string",
+                    "default": "请选择",
+                    "description": "为空时显示的占位符文本"
                 },
                 {
                     "name": "clearable",
