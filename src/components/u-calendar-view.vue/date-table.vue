@@ -103,7 +103,7 @@ export default {
             const datesLength = 42;
             const { firstDayOfWeek, selectedDate } = this;
             // #date 日期，#day 星期几，参考 day.js API
-            const firstDateOfMonth = selectedDate.clone().date(1);
+            const firstDateOfMonth = selectedDate.clone().date(1).startOf('day');
             const firstDayOfMonth = firstDateOfMonth.day();
             const prevMonthDateLength = firstDayOfMonth >= firstDayOfWeek ? firstDayOfMonth - firstDayOfWeek : firstDayOfMonth + 7 - firstDayOfWeek;
             const dates = [];
