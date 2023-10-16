@@ -9,7 +9,10 @@ exports[`u-uploader.vue Demo-一次性上传多文件 1`] = `
   </div>
   <div class="list" list-type="text">
     <div class="item">
-      <div class="textContainer">
+      <div>
+        <div class="thumb">
+        </div>
+        <a class="link" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank">breakfast.png</a>
         <span class="lcp-iconv remove">
           <span class="iconwrap">
             <svg aria-hidden="true" class="iconsvg">
@@ -22,7 +25,10 @@ exports[`u-uploader.vue Demo-一次性上传多文件 1`] = `
       </div>
     </div>
     <div class="item">
-      <div class="textContainer">
+      <div>
+        <div class="thumb">
+        </div>
+        <a class="link" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank">salad.png</a>
         <span class="lcp-iconv remove">
           <span class="iconwrap">
             <svg aria-hidden="true" class="iconsvg">
@@ -389,7 +395,10 @@ exports[`u-uploader.vue Demo-多文件上传 1`] = `
   </div>
   <div class="list" list-type="text">
     <div class="item">
-      <div class="textContainer">
+      <div>
+        <div class="thumb">
+        </div>
+        <a class="link" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank">breakfast.png</a>
         <span class="lcp-iconv remove">
           <span class="iconwrap">
             <svg aria-hidden="true" class="iconsvg">
@@ -402,7 +411,10 @@ exports[`u-uploader.vue Demo-多文件上传 1`] = `
       </div>
     </div>
     <div class="item">
-      <div class="textContainer">
+      <div>
+        <div class="thumb">
+        </div>
+        <a class="link" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank">salad.png</a>
         <span class="lcp-iconv remove">
           <span class="iconwrap">
             <svg aria-hidden="true" class="iconsvg">

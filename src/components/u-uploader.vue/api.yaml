@@ -124,6 +124,8 @@
       brifeDoc: ""
       docDescription: 是否展示文件图标
       tooltipLink: ""
+      dependency:
+      - list-type: text
     - name: icon-map
       type: Object
       default: {}
@@ -155,6 +157,9 @@
       brifeDoc: ""
       docDescription: 列表的展示类型，支持使用文本、图片和卡片
       tooltipLink: ""
+      dependency:
+      - file-icon-switcher: true
+        list-type: text
     - name: file-icon
       title: 文件图标
       type: file-icon
@@ -163,6 +168,9 @@
       brifeDoc: ""
       docDescription: "支持从图标库选择图标或上传自定义图标。"
       tooltipLink: ""
+      dependency:
+      - file-icon-switcher: true
+        list-type: text
     - name: download-icon-switcher
       title: 下载图标
       type: boolean
@@ -172,6 +180,8 @@
       brifeDoc: ""
       docDescription: 是否展示下载图标
       tooltipLink: ""
+      dependency:
+      - list-type: text
     - name: download-icon
       title: 下载图标
       type: icon
@@ -181,6 +191,9 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+      dependency:
+      - download-icon-switcher: true
+        list-type: text
     - name: file-size
       title: 文件大小
       type: boolean
@@ -190,6 +203,8 @@
       brifeDoc: ""
       docDescription: 是否展示文件大小
       tooltipLink: ""
+      dependency:
+      - list-type: text
     - name: headers
       title: 请求 headers
       type: Object

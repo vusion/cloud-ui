@@ -29,7 +29,7 @@
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
         <template v-if="listType !== 'card'">
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
-                <div :class="$style.textContainer" v-if="listType === 'text'">
+                <div :class="$style.textContainer" v-if="listType === 'text' && $slots['file-list']">
                         <span v-for="flag in fileListFlags" :key="flag">
                             <component v-if="flag !== 'download-icon' && isShowFileListItem(flag)" :style="fileListStyleInfos[flag]" :is="fileListComponentFlagMap[flag].is" v-bind="fileListComponentFlagMap[flag].getProps(item)" />
                             <a  v-else-if="downloadIconSwitcher && isShowFileListItem(flag)" :style="fileListStyleInfos['download-icon']" :href="encodeUrl(item.url)" target="_blank" download role="download">
@@ -194,9 +194,6 @@ export default {
             this.fileListFlags = fileListVms.map(item => item.data.attrs.flag);
         }
     },
-    updated() {
-        console.log('currentValue', this.currentValue)
-    },
     computed: {
         uploadEnable() {
             return this.multiple ? this.currentValue.length < this.limit : this.currentValue.length === 0;
@@ -258,32 +255,32 @@ export default {
         },
         fileIconSwitcher: {
             handler(switcher) {
-                if(this.$env.VUE_APP_DESIGNER) {
-                    this.$nextTick(() => {
+                this.$nextTick(() => {
+                    if(this.$env.VUE_APP_DESIGNER && this.$children.some(vm => vm.$attrs.flag === 'file-icon')) {
                         this.$children.find(vm => vm.$attrs.flag === 'file-icon').$el.style.display = switcher ? 'inline-block' : 'none';
-                    })
-                }
+                    }
+                })
             },
             immediate: true,
         },
         downloadIconSwitcher: {
             handler(switcher) {
-                console.log('switcher', switcher)
-                if(this.$env.VUE_APP_DESIGNER) {
-                    this.$nextTick(() => {
+                this.$nextTick(() => {
+                    if(this.$env.VUE_APP_DESIGNER && this.$children.some(vm => vm.$attrs.flag === 'download-icon')) {
                         this.$children.find(vm => vm.$attrs.flag === 'download-icon').$el.style.display = switcher ? 'inline-block' : 'none';
-                    })
-                }
+                   
+                    }
+                })
             },
             immediate: true,
         },
         fileSize: {
             handler(switcher) {
-                if(this.$env.VUE_APP_DESIGNER) {
-                    this.$nextTick(() => {
-                        this.$children.find(vm => vm.$attrs.flag === 'file-size').$el.style.display = switcher ? 'inline-block' : 'none'
-                    })
-                }
+                this.$nextTick(() => {
+                    if(this.$env.VUE_APP_DESIGNER && this.$children.some(vm => vm.$attrs.flag === 'file-size')) {
+                        this.$children.find(vm => vm.$attrs.flag === 'file-size').$el.style.display = switcher ? 'inline-block' : 'none';
+                    }
+                })
             },
             immediate: true,
         }
@@ -314,7 +311,7 @@ export default {
         },
         fileTypeIcon(item) {
             const iconInfo = Object.entries(this.iconMap).find(([type]) => type.includes(item.name.split('.').pop()));
-            return !!iconInfo ? iconInfo[1] : 'file-default'
+            return !!iconInfo ? (iconInfo[1] || 'file-default') : 'file-default'
         },
         encodeUrl(url) {
             return encodeURI(url)
@@ -374,7 +371,6 @@ export default {
             const fileEl = e.target;
 
             let files = fileEl.files;
-            // console.log(files);
             if (!files && fileEl.value) { // 老版浏览器不支持 files
                 const arr = fileEl.value.split(/[\\/]/g);
                 files = [{
