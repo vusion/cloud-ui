@@ -871,7 +871,6 @@
     --table-view-subrow-background-dragging:  rgba(237, 237, 237, 0.5);/* @type color */ /* @desc 表格被拖拽行子树背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-row-background-dragging: #e5e5e5;/* @type color */ /* @desc 表格被拖拽行背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-drag-cursor: move;/* @desc 拖拽鼠标样式 */ /* @excludeElTags td,th */
-
     --table-view-head-background: #f7f8fa; /* @hidden */
     --table-view-head-title-sortable-hover: #eef2f8; /* @hidden */
     --table-view-sort-color-hover: #aaa; /* @hidden */
@@ -898,26 +897,29 @@
     --table-view-sort-color: #ccc; /* @hidden */
     --table-view-sort-color-active: var(--brand-primary); /* @hidden */
     --table-view-sort-size: 1em; /* @hidden */
-    --table-view-expander-size: 16px; /* @hidden */
     --table-view-row-selected-background: #f5f5f5; /* @hidden */
     --table-view-pagination-space: var(--space-base); /* @hidden */
     --table-view-tree-expander-loading-size: 10px; /* @hidden */
     --table-view-tree-expander-loading-border-width: 1px; /* @hidden */
     --table-view-tree-expander-margin: 6px; /* @hidden */
-    --table-view-expander-border-radius: 4px; /* @hidden */
-    --table-view-expander-background: #f5f5f5; /* @hidden */
-    --table-view-expander-background-hover: #e5e5e5; /* @hidden */
-    --table-view-expander-background-disabled: #f5f5f5; /* @hidden */
-    --table-view-expander-color: #999; /* @hidden */
-    --table-view-expander-color-hover: #333; /* @hidden */
-    --table-view-expander-color-disabled: #ccc; /* @hidden */
-    --table-view-expander-border-color: var(--table-view-expander-background); /* @hidden */
-    --table-view-expander-border-color-hover: var(--table-view-expander-background-hover); /* @hidden */
-    --table-view-expander-border-color-disabled: #e5e5e5; /* @hidden */
     --table-view-expand-td-background: #F7F8FA; /* @hidden */
     --table-view-editable-td-min-height: 34px; /* @hidden */
     --table-view-overflow-x: auto; /* @hidden */
     --table-view-drop-ghost-disabled-border-color: var(--brand-error);/* @hidden */
+
+    /* @component u-table-view-expander */
+    --table-view-expander-size: 16px; /* @hidden */
+    --table-view-expander-background: #f5f5f5; /* @hidden */
+    --table-view-expander-border-color: var(--table-view-expander-background); /* @hidden */
+    --table-view-expander-border-radius: 4px; /* @hidden */
+    --table-view-expander-background-hover: #e5e5e5; /* @hidden */
+    --table-view-expander-border-color-hover: var(--table-view-expander-background-hover); /* @hidden */
+    --table-view-expander-color: #999; /* @hidden */
+    --table-view-expander-color-hover: #333; /* @hidden */
+    --table-view-expander-color-disabled: #ccc; /* @hidden */
+    --table-view-expander-border-color-disabled: #e5e5e5; /* @hidden */
+    --table-view-expander-background-disabled: #f5f5f5; /* @hidden */
+
 
     /* @component u-list-view @hidden */
     --list-view-width: var(--width-medium);

@@ -36,6 +36,7 @@ export default {
         filterMax: Number,
         colSpan: Number,
         autoRowSpan: { type: Boolean, default: false },
+        expanderPosition: { type: String, default: 'left' },
     },
     data() {
         const data = {

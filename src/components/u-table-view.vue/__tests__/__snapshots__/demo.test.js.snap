@@ -17698,7 +17698,10 @@ exports[`u-table-view.vue Demo-展开列 1`] = `
               <tbody>
                 <tr class="row">
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                   <td class="cell">
                     <span class="column-field" vusion-slot-name="cell">张三</span>
@@ -17715,7 +17718,10 @@ exports[`u-table-view.vue Demo-展开列 1`] = `
                 </tr>
                 <tr class="row">
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                   <td class="cell">
                     <span class="column-field" vusion-slot-name="cell">小明</span>
@@ -17732,7 +17738,10 @@ exports[`u-table-view.vue Demo-展开列 1`] = `
                 </tr>
                 <tr class="row">
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                   <td class="cell">
                     <span class="column-field" vusion-slot-name="cell">李四</span>
@@ -17749,7 +17758,10 @@ exports[`u-table-view.vue Demo-展开列 1`] = `
                 </tr>
                 <tr class="row">
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                   <td class="cell">
                     <span class="column-field" vusion-slot-name="cell">李华</span>
@@ -17766,7 +17778,10 @@ exports[`u-table-view.vue Demo-展开列 1`] = `
                 </tr>
                 <tr class="row">
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                   <td class="cell">
                     <span class="column-field" vusion-slot-name="cell">王五</span>
@@ -17883,7 +17898,10 @@ exports[`u-table-view.vue Demo-展开列 2`] = `
                     <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                 </tr>
                 <tr class="row">
@@ -17900,7 +17918,10 @@ exports[`u-table-view.vue Demo-展开列 2`] = `
                     <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                 </tr>
                 <tr class="row">
@@ -17917,7 +17938,10 @@ exports[`u-table-view.vue Demo-展开列 2`] = `
                     <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                 </tr>
                 <tr class="row">
@@ -17934,7 +17958,10 @@ exports[`u-table-view.vue Demo-展开列 2`] = `
                     <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                 </tr>
                 <tr class="row">
@@ -17951,7 +17978,10 @@ exports[`u-table-view.vue Demo-展开列 2`] = `
                     <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -18056,7 +18086,10 @@ exports[`u-table-view.vue Demo-展开列 3`] = `
                     <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                 </tr>
                 <tr class="row">
@@ -18073,7 +18106,10 @@ exports[`u-table-view.vue Demo-展开列 3`] = `
                     <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                 </tr>
                 <tr class="row">
@@ -18090,7 +18126,10 @@ exports[`u-table-view.vue Demo-展开列 3`] = `
                     <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                 </tr>
                 <tr class="row">
@@ -18107,7 +18146,10 @@ exports[`u-table-view.vue Demo-展开列 3`] = `
                     <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                 </tr>
                 <tr class="row">
@@ -18124,7 +18166,10 @@ exports[`u-table-view.vue Demo-展开列 3`] = `
                     <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -22255,7 +22300,10 @@ exports[`u-table-view.vue Demo-特殊列与普通功能共用 1`] = `
                     <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                     <span>张三</span>
                   </td>
                 </tr>
@@ -22279,7 +22327,10 @@ exports[`u-table-view.vue Demo-特殊列与普通功能共用 1`] = `
                     <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                     <span>小明</span>
                   </td>
                 </tr>
@@ -22303,7 +22354,10 @@ exports[`u-table-view.vue Demo-特殊列与普通功能共用 1`] = `
                     <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                     <span>李四</span>
                   </td>
                 </tr>
@@ -22327,7 +22381,10 @@ exports[`u-table-view.vue Demo-特殊列与普通功能共用 1`] = `
                     <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                     <span>李华</span>
                   </td>
                 </tr>
@@ -22351,7 +22408,10 @@ exports[`u-table-view.vue Demo-特殊列与普通功能共用 1`] = `
                     <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
                   </td>
                   <td class="cell">
-                    <span class="expander"></span>
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
                     <span>王五</span>
                   </td>
                 </tr>
@@ -24593,6 +24653,194 @@ exports[`u-table-view.vue Demo-翻页器功能 1`] = `
     </a>
   </nav>
   <div>
+    <div style="display: none;">
+    </div>
+    <div style="display: none;">
+    </div>
+    <div style="display: none;">
+    </div>
+    <div style="display: none;">
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-table-view.vue Demo-自定义展开列图标 1`] = `
+<div class="root">
+  <div class="table" position="static">
+    <div class="head" style="top: 0px;">
+      <table class="root head-table">
+        <colgroup>
+          <col width="0">
+          <col width="0">
+          <col width="0">
+          <col>
+          <col width="0">
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="head-title boldHeader">
+              <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                展开
+              </span>
+            </th>
+            <th class="head-title boldHeader">
+              <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                用户名
+              </span>
+            </th>
+            <th class="head-title boldHeader">
+              <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                手机号码
+              </span>
+            </th>
+            <th class="head-title boldHeader">
+              <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                地址
+              </span>
+            </th>
+            <th class="head-title boldHeader">
+              <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                最近登录时间
+              </span>
+            </th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="body" sticky-fixed="true">
+      <div class="root scrollcview">
+        <div class="wrap">
+          <div>
+            <table class="root">
+              <colgroup>
+                <col width="0">
+                <col width="0">
+                <col width="0">
+                <col>
+                <col width="0">
+              </colgroup>
+              <tbody>
+                <tr class="row">
+                  <td class="cell">
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">张三</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">18612917895</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="cell">
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">小明</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">13727160283</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="cell">
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">李四</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">18897127809</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="cell">
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">李华</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">18749261214</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="cell">
+                    <div class="expander" show-span="true" vusion-disabled-copy="true" vusion-disabled-cut="true" vusion-disabled-move="true">
+                      <span class="before"></span>
+                      <span class="after"></span>
+                    </div>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">王五</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">13579340020</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="root" direction="horizontal">
+          <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+        </div>
+        <div class="root" direction="vertical">
+          <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" style="display: none;">
+    <div class="line" style="display: none;"></div>
+    <div class="mask" style="display: none;"></div>
+  </div>
+  <div>
+    <div style="display: none;">
+    </div>
     <div style="display: none;">
     </div>
     <div style="display: none;">

@@ -1196,6 +1196,22 @@
       brifeDoc: ""
       docDescription: 开启后，当表格横向滚动条滚动时，该列会固定不会跟随滚动条滚动
       tooltipLink: ""
+    - name: expander-position
+      title: 展开列图标位置
+      type: string
+      options:
+        - value: left
+          title: 左侧
+        - value: right
+          title: 右侧
+      default: left
+      description: 展开列图标的位置
+      dependency:
+        - type: expander
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 展开列图标的位置。默认"左侧"。
+      tooltipLink: ""
     - name: width
       title: 列宽度
       type: string | number
@@ -1335,6 +1351,43 @@
           title: 展开列索引
           type: number
           description: 展开列的索引
+      slotProps:
+        concept: Param
+        name: current
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: Current
+          typeArguments:
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
+    - concept: Slot
+      name: expander
+      plus-empty: true
+      description: 展开列图标
+      props:
+        - name: item
+          title: 当前项
+          type: object
+          description: 循环中的当前项
+        - name: value
+          title: 字段值
+          type: any
+          description: item 中 field 字段对应的值
+        - name: columnVM
+          title: 列实例
+          type: string
+          description: 该列组件实例
+        - name: rowIndex
+          title: 行索引
+          type: number
+          description: 行的索引
+        - name: columnIndex
+          title: 列索引
+          type: number
+          description: 列的索引
       slotProps:
         concept: Param
         name: current
@@ -1622,3 +1675,20 @@
           type: number
           description: 列的索引
 
+- name: u-table-view-expander
+  title: 展开列图标
+  attrs:
+    - name: expand-icon
+      title: 展开时图标
+      type: icon
+      description: 展开时图标
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: collapse-icon
+      title: 关闭时图标
+      type: icon
+      description: 关闭时图标
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
