@@ -42,7 +42,7 @@
                 icotype="only"
             >
             </i-ico>
-            <u-tooltip hide-delay="500ms" placement="right">
+            <u-tooltip :hide-delay="500" placement="right">
               {{ currentCollapse ? '展开' : '收起' }}
             </u-tooltip>
           </div>
@@ -100,9 +100,6 @@ export default {
                 {
                     'min-width': `${this.minWidth}px`,
                 },
-                this.currentWidth && {
-                    width: `${this.currentWidth}px`,
-                },
                 !this.isDragging ? {
                     transition: 'width 200ms',
                 } : {
@@ -117,6 +114,18 @@ export default {
     watch: {
         data(data) {
             this.handleData();
+        },
+        currentWidth(v) {
+            if (v && this.$el) {
+                this.$nextTick(() => {
+                    this.$el.style.width = `${v}px`;
+                });
+            }
+        },
+        isDragging() {
+            this.$nextTick(() => {
+                this.$el.style.width = `${this.currentWidth}px`;
+            });
         },
         dataSource(dataSource, oldDataSource) {
             // if (typeof dataSource === 'function' && String(dataSource) === String(oldDataSource))
@@ -148,6 +157,13 @@ export default {
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
             this.load();
+    },
+    mounted() {
+        if (this.enableCollapse && this.collapse && this.$el) {
+            this.$nextTick(() => {
+                this.$el.style.width = `${this.currentWidth}px`;
+            });
+        }
     },
     methods: {
         updateCollapse(nV) {

@@ -518,6 +518,7 @@ export default {
             let data = this.currentDataSource ? this.currentDataSource.viewData.filter((item) => !!item) : this.currentDataSource;
 
             if (this.treeDisplay && data) {
+                this.currentDataSource.rawTreeDisplayOnlyForNotice = true;
                 data = this.processTreeData(data);
             }
             return data;

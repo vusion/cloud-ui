@@ -805,6 +805,7 @@ export default {
         // 展示时使用接口返回路径对应的文件名
         handleFileName(url) {
             const match = url.match(/\/([^/]+)$/);
+            console.log('match', match)
             return match ? match[1] : null;
         },
     },
