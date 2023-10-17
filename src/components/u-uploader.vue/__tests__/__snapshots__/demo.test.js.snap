@@ -95,7 +95,24 @@ exports[`u-uploader.vue Demo-单文件卡片 1`] = `
           <input accept=".png,.jpg,.jpeg,.gif,.bmp" class="file" name="file" type="file">
         </div>
       </div>
-      <span style="display: none;" vusion-slot-name="file-list"></span>
+      <span style="display: none;" vusion-slot-name="file-list">
+        <span class="lcp-iconv" flag="file-icon" style="margin: 0px 8px 0px 0px;">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-file-default" />
+            </svg>
+          </span>
+        </span>
+        <span class="root" flag="file-name" style="margin: 0px 8px 0px 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inherit;" vusion-slot-name-edit="text">文件名称</span>
+        <span class="root" flag="file-size" style="margin: 0px 8px 0px 0px;" vusion-slot-name-edit="text">文件大小</span>
+        <span class="lcp-iconv" flag="download-icon" style="margin: 0px 8px 0px 0px;">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-download" />
+            </svg>
+          </span>
+        </span>
+      </span>
     </div>
   </div>
 </div>
@@ -380,7 +397,24 @@ exports[`u-uploader.vue Demo-多图片按钮 1`] = `
       </a>
     </div>
     <div class="list" list-type="image">
-      <span style="display: none;" vusion-slot-name="file-list"></span>
+      <span style="display: none;" vusion-slot-name="file-list">
+        <span class="lcp-iconv" flag="file-icon" style="margin: 0px 8px 0px 0px;">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-file-default" />
+            </svg>
+          </span>
+        </span>
+        <span class="root" flag="file-name" style="margin: 0px 8px 0px 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inherit;" vusion-slot-name-edit="text">文件名称</span>
+        <span class="root" flag="file-size" style="margin: 0px 8px 0px 0px;" vusion-slot-name-edit="text">文件大小</span>
+        <span class="lcp-iconv" flag="download-icon" style="margin: 0px 8px 0px 0px;">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-download" />
+            </svg>
+          </span>
+        </span>
+      </span>
     </div>
   </div>
 </div>
