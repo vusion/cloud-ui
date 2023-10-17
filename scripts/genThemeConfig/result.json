@@ -6670,6 +6670,30 @@
                 "preview": {
                     "template": "<u-navbar-multi style=\"margin-bottom: 16px;\">\n                <u-text text=\"应用名称\" size=\"large\" slot=\"left\" style=\"margin-left:18px;\"></u-text>\n                      <u-navbar-item-multi>菜单项 1</u-navbar-item-multi>\n  <u-navbar-divider-multi></u-navbar-divider-multi>\n   <u-navbar-group-multi> \n <u-text slot=\"title\" text=\"导航栏分组\"></u-text> \n <u-navbar-item-multi> \n <u-text text=\"导航栏项\"></u-text> \n </u-navbar-item-multi> \n </u-navbar-group-multi> \n      </u-navbar-multi>"
                 }
+            },
+            {
+                "id": 57,
+                "name": "u-toast",
+                "title": "弹出消息",
+                "toPosition": "toast",
+                "type": [],
+                "preview": {
+                    "template": "<u-toast text=\"弹出消息\" :duration=\"2000\" :single=\"true\"></u-toast>"
+                },
+                "cssProperty": {
+                    "--toast-item-color": {
+                        "type": "color",
+                        "desc": "弹出消息的字体颜色"
+                    },
+                    "--toast-background-color": {
+                        "type": "color",
+                        "desc": "弹出消息的背景色"
+                    },
+                    "--toast-item-custom-icon-color": {
+                        "type": "color",
+                        "desc": "弹出消息的自定义图标颜色"
+                    }
+                }
             }
         ]
     },
