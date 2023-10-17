@@ -1,6 +1,7 @@
 - name: u-toast
   icon: toast
-  title: 吐司提示
+  title: 弹出消息
+  description: 弹出消息
   labels:
     - Feedback
   attrs:
@@ -24,6 +25,7 @@
           title: 静态
       default: top-center
       description: 显示的位置
+      advanced: true
     - name: duration
       title: 停留时间
       type: number
@@ -38,93 +40,38 @@
     - name: text
       title: 提示内容
       type: string
-      default: ""
+      default: 弹出消息
       description: 默认提示内容
     - name: color
-      title: 颜色
+      title: 消息类型
       type: string
       options:
         - value: info
-          title: 信息提示
+          title: 信息
         - value: success
-          title: 成功信息提示
+          title: 成功
         - value: warning
-          title: 警告信息提示
+          title: 警告
         - value: error
-          title: 错误信息提示
-      default: default
-      description: 提示的颜色
+          title: 错误
+      description: 提示的类型
     - name: closable
       title: 关闭提示
       type: boolean
       default: false
       description: 是否可以关闭提示
+      advanced: true
   events:
     - name: open
       title: 弹出后事件
       description: 弹出提示时触发
-      params:
-        - name: $event
-          type: object
-          description: 自定义事件对象
-          schema:
-            $ref: "#/systemTypes/DurationEvent"
-        - name: $event.text
-          type: string
-          description: 提示的内容
-        - name: $event.color
-          type: string
-          description: 提示的颜色
-        - name: $event.duration
-          type: number
-          description: 提示停留的时间
-        - name: senderVM
-          type: UToast
-          description: 发送事件实例
-    - name: before-close
-      title: 关闭前
-      description: 关闭提示前触发
-      advanced: true
-      params:
-        - name: $event
-          type: object
-          description: 自定义事件对象
-          schema:
-            $ref: "#/systemTypes/DurationEvent"
-        - name: $event.text
-          type: string
-          description: 提示的内容
-        - name: $event.color
-          type: string
-          description: 提示的颜色
-        - name: $event.duration
-          type: number
-          description: 提示停留的时间
-        - name: $event.preventDefault
-          type: Function
-          description: 阻止关闭流程
-        - name: senderVM
-          type: UToast
-          description: 发送事件实例
+      params: []
     - name: close
       title: 关闭后
       description: 关闭提示时触发
-      params:
-        - name: $event
-          type: object
-          description: 自定义事件对象
-          schema:
-            $ref: "#/systemTypes/DurationEvent"
-        - name: $event.text
-          type: string
-          description: 提示的内容
-        - name: $event.color
-          type: string
-          description: 提示的颜色
-        - name: $event.duration
-          type: number
-          description: 提示停留的时间
-        - name: senderVM
-          type: UToast
-          description: 发送事件实例
-  description: 吐司提示
+      params: []
+  methods:
+  - name: openToast
+    description: 打开轻提示
+  - name: closeToast
+    description: 关闭轻提示

@@ -313,7 +313,7 @@
     "--sidebar-item-icon-color-selected": "var(--sidebar-item-icon-color)",
     "--sidebar-group-padding-left": "10px",
     "--sidebar-group-head-height": "52px",
-    "--sidebar-group-head-padding-left": "20px",
+    "--sidebar-group-head-padding-left": "30px",
     "--sidebar-group-head-font-weight": "var(--font-weight-bold)",
     "--sidebar-group-head-color": "#333333",
     "--sidebar-group-head-color-hover": "var(--brand-primary)",

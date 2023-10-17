@@ -1,20 +1,21 @@
 <template>
-<transition-group tag="div" :class="$style.root" :position="position"
-    move-class="animate__move"
-    enter-active-class="animate__animated animate__fadeInUpSmall"
-    leave-active-class="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active">
-    <div v-for="item in items" :key="item.timestamp" :class="$style['item-wrap']">
-        <div :class="$style.item" :color="item.color" :position="position">
-            <slot :item="item">{{ item.text }}</slot>
-            <a :class="$style.close" v-if="closable" @click="close(item)"></a>
+<div
+    v-show="designerVisible"
+    :class="$style.root">
+    <div :class="$style.overlay" v-show="designerVisible"></div>
+    <div :class="$style['item-wrap']" :position="position">
+        <div :class="$style.item" :color="color">
+            <slot name="inject"></slot>
+            <slot>{{ text }}</slot>
+            <a :class="$style.close" v-if="closable" @click="closeAll()"></a>
         </div>
     </div>
-</transition-group>
+</div>
 </template>
 
 <script>
 export default {
-    name: 'u-toast',
+    name: 'u-toast-desiger',
     props: {
         position: { type: String, default: 'top-center' },
         single: { type: Boolean, default: false },
@@ -25,7 +26,12 @@ export default {
         closable: { type: Boolean, default: false },
     },
     data() {
-        return { items: [], itemsQueue: new Map() };
+        return {
+            items: [],
+            itemsQueue: new Map(),
+
+            designerVisible: false,
+        };
     },
     watch: {
         text(newValue, oldValue) {
@@ -39,12 +45,20 @@ export default {
         },
     },
     mounted() {
+        if (this.$env.VUE_APP_DESIGNER) {
+            return;
+        }
+
         if (this.position !== 'static') {
             const container = window.LcapMicro && window.LcapMicro.appendTo ? window.LcapMicro.appendTo : document.body;
             container.appendChild(this.$el);
         }
     },
     destroyed() {
+        if (this.$env.VUE_APP_DESIGNER) {
+            return;
+        }
+
         if (this.position !== 'static') {
             const container = window.LcapMicro && window.LcapMicro.appendTo ? window.LcapMicro.appendTo : document.body;
             container.removeChild(this.$el);
@@ -113,28 +127,6 @@ export default {
         error(text, duration) {
             this.show(text, duration, 'error');
         },
-
-        openToast() {
-            this.show(this.text, this.duration, this.color);
-        },
-        closeToast() {
-            this.closeAll();
-        },
-    },
-    install(Vue, id) {
-        const Ctor = Vue.component(id);
-        if (!Ctor)
-            return;
-        const toast = (Vue.prototype.$toast = this.toast = new Ctor());
-        const METHODS = [
-            'show',
-            'closeAll',
-            'success',
-            'warning',
-            'info',
-            'error',
-        ];
-        METHODS.forEach((method) => (this[method] = toast[method].bind(toast)));
     },
 };
 </script>
@@ -142,49 +134,69 @@ export default {
 <style module>
 .root {
     position: fixed;
-    z-index: var(--z-index-toast);
-    top: var(--toast-top);
-    left: var(--toast-margin);
-    pointer-events: none;
-}
-
-.root[position='top-center'], .root[position='bottom-center'] {
-    margin: 0 auto;
-    width: 0;
-    left: 0;
+    top: 0;
     right: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: var(--z-index-toast);
+    /* pointer-events: none; */
 }
 
-.root[position='bottom-center'], .root[position='bottom-left'], .root[position='bottom-right'] {
-    top: auto;
-    bottom: var(--toast-margin);
-}
-
-.root[position='top-right'], .root[position='bottom-right'] {
-    text-align: right;
-    left: auto;
-    right: var(--toast-margin);
-}
-
-.root[position='top-left'], .root[position='bottom-left'] {
-    text-align: left;
-    left: var(--toast-margin);
-    right: auto;
-}
-
-.root[position='top-left'], .root[position='top-center'], .root[position='top-right'] {
-    top: var(--toast-top);
-    bottom: auto;
-}
-
-.root[position="static"] {
-    position: static;
-    width: auto;
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
 }
 
 .item-wrap {
-    display: block;
-    width: 2000px;
+    position: absolute;
+    z-index: 1;
+}
+
+.item-wrap[position='top-center'] {
+    top: var(--toast-top);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.item-wrap[position='top-left'] {
+    top: var(--toast-top);
+    left: var(--toast-margin);
+    text-align: left;
+}
+
+.item-wrap[position='top-right'] {
+    top: var(--toast-top);
+    right: var(--toast-margin);
+    text-align: right;
+}
+
+.item-wrap[position='bottom-center'] {
+    left: 50%;
+    bottom: var(--toast-margin);
+    transform: translateX(-50%);
+}
+
+.item-wrap[position='bottom-left'] {
+    left: var(--toast-margin);
+    bottom: var(--toast-margin);
+    text-align: left;
+}
+
+.item-wrap[position='bottom-right'] {
+    right: var(--toast-margin);
+    bottom: var(--toast-margin);
+    text-align: right;
+}
+
+.item-wrap[position="static"] {
+    position: static;
+    width: auto;
 }
 
 .leave {
@@ -192,6 +204,7 @@ export default {
 }
 
 .item {
+    position: relative;
     display: inline-block;
     pointer-events: all;
     max-width: var(--toast-max-width);
@@ -201,10 +214,6 @@ export default {
     color: var(--toast-item-color);
     border-radius: var(--toast-item-border-radius);
     text-align: var(--toast-item-icon-text-align);
-}
-
-.item[position='top-center'], .item[position='bottom-center'] {
-    transform: translateX(-50%);
 }
 
 .close {
