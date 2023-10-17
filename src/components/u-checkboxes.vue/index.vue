@@ -3,12 +3,14 @@
     <u-loading v-if="loading" size="small"></u-loading>
     <template v-else>
       <u-checkbox
+        v-if="checkAll"
         text="全选"
         label="check-all"
         :value="all"
         :disabled="disabled"
         :readonly="readonly"
         :designer="$env.VUE_APP_DESIGNER"
+        :style="{display: checkAllDisplay}"
       >
       </u-checkbox>
       <u-checkbox
