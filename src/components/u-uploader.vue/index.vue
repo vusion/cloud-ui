@@ -222,7 +222,7 @@ export default {
                     is: 'u-text', 
                     getProps: (item) => {
                         return {
-                            text: this.displayFileSize(item.size)
+                            text: item.size ? this.displayFileSize(item.size) : ''
                         }
                     }
                 }, 
