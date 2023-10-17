@@ -1678,6 +1678,7 @@
     --toast-item-icon-color-warning: var(--brand-warning); /* @hidden */
     --toast-item-icon-color-error: var(--brand-error); /* @hidden */
     --toast-background-color: rgba(48, 48, 48, 0.8); /* @type color */ /* @desc 弹出消息的背景色 */
+    --toast-item-custom-icon-color: white; /* @type color */ /* @desc 弹出消息的自定义图标颜色 */
 
     /* @component u-modal */
     --modal-dialog-width: 400px; /* @desc 弹窗的宽度,如 1px */

@@ -46,15 +46,21 @@
       title: 消息类型
       type: string
       options:
-        - value: info
-          title: 信息
         - value: success
           title: 成功
         - value: warning
           title: 警告
         - value: error
           title: 错误
+        - value: custom
+          title: 自定义
+      default: custom
       description: 提示的类型
+    - name: custom-icon
+      title: 自定义图标
+      type: icon
+      dependency:
+        - color: custom
     - name: closable
       title: 关闭提示
       type: boolean

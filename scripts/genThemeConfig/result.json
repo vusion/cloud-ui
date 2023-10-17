@@ -6688,6 +6688,10 @@
                     "--toast-background-color": {
                         "type": "color",
                         "desc": "弹出消息的背景色"
+                    },
+                    "--toast-item-custom-icon-color": {
+                        "type": "color",
+                        "desc": "弹出消息的自定义图标颜色"
                     }
                 }
             }

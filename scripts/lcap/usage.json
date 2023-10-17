@@ -27435,7 +27435,7 @@
             "Feedback"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.19.0/src/components/u-toast.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.19.0/src/components/u-toast.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-toast text=\\\"弹出消息\\\" :duration=\\\"2000\\\" :single=\\\"true\\\"></u-toast>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-toast text=\\\"弹出消息\\\" :duration=\\\"2000\\\" :single=\\\"true\\\" color=\\\"custom\\\"></u-toast>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-toast",
             "title": "弹出消息",
@@ -27447,7 +27447,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-toast text=\"弹出消息\" :duration=\"2000\" :single=\"true\"></u-toast>\n</template>\n"
+                    "code": "<template>\n<u-toast text=\"弹出消息\" :duration=\"2000\" :single=\"true\" color=\"custom\"></u-toast>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -27517,10 +27517,6 @@
                     "type": "string",
                     "options": [
                         {
-                            "value": "info",
-                            "title": "信息"
-                        },
-                        {
                             "value": "success",
                             "title": "成功"
                         },
@@ -27531,9 +27527,24 @@
                         {
                             "value": "error",
                             "title": "错误"
+                        },
+                        {
+                            "value": "custom",
+                            "title": "自定义"
                         }
                     ],
+                    "default": "custom",
                     "description": "提示的类型"
+                },
+                {
+                    "name": "custom-icon",
+                    "title": "自定义图标",
+                    "type": "icon",
+                    "dependency": [
+                        {
+                            "color": "custom"
+                        }
+                    ]
                 },
                 {
                     "name": "closable",

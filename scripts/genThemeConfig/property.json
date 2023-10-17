@@ -1407,6 +1407,7 @@
     "--toast-item-icon-color-warning": "var(--brand-warning)",
     "--toast-item-icon-color-error": "var(--brand-error)",
     "--toast-background-color": "rgba(48, 48, 48, 0.8)",
+    "--toast-item-custom-icon-color": "white",
     "--modal-dialog-width": "400px",
     "--modal-dialog-border-radius": "var(--border-radius-base)",
     "--modal-dialog-box-shadow": "0 0 3px rgba(0, 0, 0, 0.3)",

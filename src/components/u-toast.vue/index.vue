@@ -4,7 +4,15 @@
     enter-active-class="animate__animated animate__fadeInUpSmall"
     leave-active-class="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active">
     <div v-for="item in items" :key="item.timestamp" :class="$style['item-wrap']">
-        <div :class="$style.item" :color="item.color" :position="position">
+        <div v-if="item.color === 'custom'" :class="$style.item" :position="position">
+            <div v-if="customIcon" :class="$style.customIcon">
+                <i-ico :name="customIcon"></i-ico>
+            </div>
+
+            <slot :item="item">{{ item.text }}</slot>
+            <a :class="$style.close" v-if="closable" @click="close(item)"></a>
+        </div>
+        <div v-else :class="$style.item" :color="item.color" :position="position">
             <slot :item="item">{{ item.text }}</slot>
             <a :class="$style.close" v-if="closable" @click="close(item)"></a>
         </div>
@@ -23,6 +31,8 @@ export default {
         color: { type: String },
         text: String,
         closable: { type: Boolean, default: false },
+
+        customIcon: { type: String },
     },
     data() {
         return { items: [], itemsQueue: new Map() };
@@ -254,5 +264,11 @@ export default {
     position: absolute;
     top: var(--toast-item-icon-top);
     left: 16px;
+}
+
+.customIcon {
+    display: inline-block;
+    margin-right: var(--toast-item-icon-margin-right);
+    color: var(--toast-item-custom-icon-color);;
 }
 </style>

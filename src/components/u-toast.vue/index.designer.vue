@@ -3,8 +3,16 @@
     v-show="designerVisible"
     :class="$style.root">
     <div :class="$style.overlay" v-show="designerVisible"></div>
-    <div :class="$style['item-wrap']" :position="position">
-        <div :class="$style.item" :color="color">
+    <div :class="[$style['item-wrap'], 'real-element-for-designer']" :position="position">
+        <div v-if="color === 'custom'" :class="$style.item">
+            <slot name="inject"></slot>
+            <div v-if="customIcon" :class="$style.customIcon">
+                <i-ico :name="customIcon"></i-ico>
+            </div>
+            <slot>{{ text }}</slot>
+            <a :class="$style.close" v-if="closable" @click="close(item)"></a>
+        </div>
+        <div v-else :class="$style.item" :color="color">
             <slot name="inject"></slot>
             <slot>{{ text }}</slot>
             <a :class="$style.close" v-if="closable" @click="closeAll()"></a>
@@ -24,6 +32,7 @@ export default {
         color: { type: String },
         text: String,
         closable: { type: Boolean, default: false },
+        customIcon: { type: String },
     },
     data() {
         return {
@@ -150,7 +159,7 @@ export default {
     z-index: 1;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,.7);
+    /* background-color: rgba(0,0,0,.7); */
 }
 
 .item-wrap {
@@ -208,7 +217,6 @@ export default {
     display: inline-block;
     pointer-events: all;
     max-width: var(--toast-max-width);
-    margin-bottom: var(--toast-item-space);
     padding: var(--toast-item-padding);
     background: var(--toast-background-color);
     color: var(--toast-item-color);
@@ -256,6 +264,7 @@ export default {
     /* background: #dd4b39;
     color: white; */
 }
+
 .item[color][class][class] {
     padding: 9px 16px 9px 40px;
 }
@@ -263,5 +272,11 @@ export default {
     position: absolute;
     top: var(--toast-item-icon-top);
     left: 16px;
+}
+
+.customIcon {
+    display: inline-block;
+    margin-right: var(--toast-item-icon-margin-right);
+    color: var(--toast-item-custom-icon-color);
 }
 </style>
