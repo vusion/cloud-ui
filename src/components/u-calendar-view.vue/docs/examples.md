@@ -20,24 +20,24 @@ export default{
     data() {
         return {
             data: [{
-                startTime: '2021-10-05',
+                startTime: '2023-10-05',
                 orange: 8,
             }, {
-                startTime: '2021-10-16',
+                startTime: '2023-10-16',
                 apple: 1,
             }, {
-                startTime: '2021-10-31',
+                startTime: '2023-10-31',
                 apple: 3,
                 orange: 2,
             }],
-            value: '2021-10-01',
+            value: '2023-10-01',
         };
     },
     watch: {
-        value(val, oldVal) {
-            console.log('val', val);
-            console.log('oldVal', oldVal);
-        },
+        // value(val, oldVal) {
+        //     console.log('val', val);
+        //     console.log('oldVal', oldVal);
+        // },
     },
     methods: {
         onChange(val) {
