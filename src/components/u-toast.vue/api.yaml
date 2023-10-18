@@ -52,6 +52,8 @@
           title: 警告
         - value: error
           title: 错误
+        - value: loading
+          title: 加载中
         - value: custom
           title: 自定义
       default: custom
