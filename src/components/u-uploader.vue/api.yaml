@@ -115,6 +115,81 @@
       brifeDoc: ""
       docDescription: 请求返回的URL字段名
       tooltipLink: ""
+    - name: file-icon-switcher
+      title: 文件图标
+      type: boolean
+      description: 是否展示文件图标
+      group: 主要属性
+      default: true
+      brifeDoc: ""
+      docDescription: 是否展示文件图标
+      tooltipLink: ""
+    - name: icon-map
+      type: Object
+      default: {}
+      advanced: true
+      hidden: true
+    - name: file-type
+      title: 文件类型
+      type: string
+      default: doc|docx
+      options:
+        - title: 文档
+          value: doc|docx
+        - title: 图片
+          value: jpg|jpeg|png|bmp|gif|tiff|tif|webp|svg|psd|raw
+        - title: PDF
+          value: pdf
+        - title: 表格
+          value: xlsx
+        - title: 文本
+          value: txt
+        - title: 幻灯片
+          value: ppt|pptx
+        - title: 压缩包
+          value: zip
+        - title: CSV
+          value: csv
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 列表的展示类型，支持使用文本、图片和卡片
+      tooltipLink: ""
+    - name: file-icon
+      title: 文件图标
+      type: file-icon
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: "支持从图标库选择图标或上传自定义图标。"
+      tooltipLink: ""
+    - name: download-icon-switcher
+      title: 下载图标
+      type: boolean
+      default: true
+      description: 是否展示下载图标
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 是否展示下载图标
+      tooltipLink: ""
+    - name: download-icon
+      title: 下载图标
+      type: icon
+      default: download
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: file-size
+      title: 文件大小
+      type: boolean
+      description: 是否展示文件大小，单位小于1MB则展示KB，大于1MB则展示MB。
+      group: 主要属性
+      default: true
+      brifeDoc: ""
+      docDescription: 是否展示文件大小
+      tooltipLink: ""
     - name: headers
       title: 请求 headers
       type: Object
@@ -209,6 +284,8 @@
       brifeDoc: ""
       docDescription: 开启后选择文件后会自动上传，默认开启
       tooltipLink: ""
+      advanced: true
+      hidden: true
     - name: show-file-list
       title: 显示文件列表
       type: boolean
@@ -352,6 +429,10 @@
     - concept: Slot
       name: default
       description: 插入文本 或 HTML。
+    - concept: Slot
+      name: file-list
+      title: 文件列表
+      description: 文件列表。
   events:
     - name: before-upload
       title: 上传前

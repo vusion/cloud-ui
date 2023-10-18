@@ -9,33 +9,32 @@ exports[`u-uploader.vue Demo-一次性上传多文件 1`] = `
   </div>
   <div class="list" list-type="text">
     <div class="item">
-      <div class="thumb">
-      </div>
-      <a class="link" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank">breakfast.png</a>
-      <span class="lcp-iconv remove">
-        <span class="iconwrap">
-          <svg aria-hidden="true" class="iconsvg">
-            <use xlink:href="#pc-remove" />
-          </svg>
+      <div class="textContainer">
+        <span class="lcp-iconv remove">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-remove" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
         </span>
-        <div class="icontext" vusion-slot-name="default">
-        </div>
-      </span>
+      </div>
     </div>
     <div class="item">
-      <div class="thumb">
-      </div>
-      <a class="link" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank">salad.png</a>
-      <span class="lcp-iconv remove">
-        <span class="iconwrap">
-          <svg aria-hidden="true" class="iconsvg">
-            <use xlink:href="#pc-remove" />
-          </svg>
+      <div class="textContainer">
+        <span class="lcp-iconv remove">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-remove" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
         </span>
-        <div class="icontext" vusion-slot-name="default">
-        </div>
-      </span>
+      </div>
     </div>
+    <span style="display: none;" vusion-slot-name="file-list"></span>
   </div>
 </div>
 `;
@@ -57,7 +56,26 @@ exports[`u-uploader.vue Demo-单个文件按钮 1`] = `
         </span> 上传
       </a>
     </div>
-    <div class="list" list-type="text"></div>
+    <div class="list" list-type="text">
+      <span style="display: none;" vusion-slot-name="file-list">
+        <span class="lcp-iconv" flag="file-icon" style="margin: 0px 8px 0px 0px;">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-file-default" />
+            </svg>
+          </span>
+        </span>
+        <span class="root" flag="file-name" style="margin: 0px 8px 0px 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inherit;" vusion-slot-name-edit="text">文件名称</span>
+        <span class="root" flag="file-size" style="margin: 0px 8px 0px 0px;" vusion-slot-name-edit="text">文件大小</span>
+        <span class="lcp-iconv" flag="download-icon" style="margin: 0px 8px 0px 0px;">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-download" />
+            </svg>
+          </span>
+        </span>
+      </span>
+    </div>
   </div>
 </div>
 `;
@@ -71,6 +89,7 @@ exports[`u-uploader.vue Demo-单文件卡片 1`] = `
           <input accept=".png,.jpg,.jpeg,.gif,.bmp" class="file" name="file" type="file">
         </div>
       </div>
+      <span style="display: none;" vusion-slot-name="file-list"></span>
     </div>
   </div>
 </div>
@@ -84,6 +103,7 @@ exports[`u-uploader.vue Demo-单文件卡片 2`] = `
         <input accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp" class="file" name="file" type="file">
       </div>
     </div>
+    <span style="display: none;" vusion-slot-name="file-list"></span>
   </div>
 </div>
 `;
@@ -105,6 +125,7 @@ exports[`u-uploader.vue Demo-单文件只读 1`] = `
             </div>
           </div>
         </div>
+        <span style="display: none;" vusion-slot-name="file-list"></span>
       </div>
     </div>
   </div>
@@ -135,6 +156,7 @@ exports[`u-uploader.vue Demo-单文件只读 1`] = `
             </div>
           </div>
         </div>
+        <span style="display: none;" vusion-slot-name="file-list"></span>
       </div>
     </div>
   </div>
@@ -173,6 +195,7 @@ exports[`u-uploader.vue Demo-卡片列表 1`] = `
         <input accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp" class="file" multiple="multiple" name="file" type="file">
       </div>
     </div>
+    <span style="display: none;" vusion-slot-name="file-list"></span>
   </div>
 </div>
 `;
@@ -202,6 +225,7 @@ exports[`u-uploader.vue Demo-只读 1`] = `
         </div>
       </div>
     </div>
+    <span style="display: none;" vusion-slot-name="file-list"></span>
   </div>
 </div>
 `;
@@ -215,35 +239,40 @@ exports[`u-uploader.vue Demo-图片列表 1`] = `
   </div>
   <div class="list" list-type="image">
     <div class="item">
-      <div class="thumb">
-        <img class="img" src="https://static-vusion.163yun.com/assets/breakfast.png">
-      </div>
-      <a class="link" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank">breakfast.png</a>
-      <span class="lcp-iconv remove">
-        <span class="iconwrap">
-          <svg aria-hidden="true" class="iconsvg">
-            <use xlink:href="#pc-remove" />
-          </svg>
-        </span>
-        <div class="icontext" vusion-slot-name="default">
+      <div>
+        <div class="thumb">
+          <img class="img" src="https://static-vusion.163yun.com/assets/breakfast.png">
         </div>
-      </span>
+        <a class="link" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank">breakfast.png</a>
+        <span class="lcp-iconv remove">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-remove" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
+        </span>
+      </div>
     </div>
     <div class="item">
-      <div class="thumb">
-        <img class="img" src="https://static-vusion.163yun.com/assets/salad.png">
-      </div>
-      <a class="link" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank">salad.png</a>
-      <span class="lcp-iconv remove">
-        <span class="iconwrap">
-          <svg aria-hidden="true" class="iconsvg">
-            <use xlink:href="#pc-remove" />
-          </svg>
-        </span>
-        <div class="icontext" vusion-slot-name="default">
+      <div>
+        <div class="thumb">
+          <img class="img" src="https://static-vusion.163yun.com/assets/salad.png">
         </div>
-      </span>
+        <a class="link" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank">salad.png</a>
+        <span class="lcp-iconv remove">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-remove" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
+        </span>
+      </div>
     </div>
+    <span style="display: none;" vusion-slot-name="file-list"></span>
   </div>
 </div>
 `;
@@ -280,6 +309,7 @@ exports[`u-uploader.vue Demo-图片列表simple 1`] = `
         <input accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp" class="file" multiple="multiple" name="file" type="file">
       </div>
     </div>
+    <span style="display: none;" vusion-slot-name="file-list"></span>
   </div>
 </div>
 `;
@@ -293,6 +323,7 @@ exports[`u-uploader.vue Demo-图片编辑器自定义(只支持单文件上传) 
           <input class="file" name="file" type="file">
         </div>
       </div>
+      <span style="display: none;" vusion-slot-name="file-list"></span>
     </div>
     <div class="root"></div>
   </div>
@@ -306,7 +337,9 @@ exports[`u-uploader.vue Demo-基本用法 1`] = `
     <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
       Upload</a>
   </div>
-  <div class="list" list-type="text"></div>
+  <div class="list" list-type="text">
+    <span style="display: none;" vusion-slot-name="file-list"></span>
+  </div>
 </div>
 `;
 
@@ -318,6 +351,7 @@ exports[`u-uploader.vue Demo-基本用法simple 1`] = `
         <input class="file" name="file" type="file">
       </div>
     </div>
+    <span style="display: none;" vusion-slot-name="file-list"></span>
   </div>
 </div>
 `;
@@ -339,7 +373,9 @@ exports[`u-uploader.vue Demo-多图片按钮 1`] = `
         </span> 上传
       </a>
     </div>
-    <div class="list" list-type="image"></div>
+    <div class="list" list-type="image">
+      <span style="display: none;" vusion-slot-name="file-list"></span>
+    </div>
   </div>
 </div>
 `;
@@ -353,33 +389,32 @@ exports[`u-uploader.vue Demo-多文件上传 1`] = `
   </div>
   <div class="list" list-type="text">
     <div class="item">
-      <div class="thumb">
-      </div>
-      <a class="link" download href="https://static-vusion.163yun.com/assets/breakfast.png" role="download" target="_blank">breakfast.png</a>
-      <span class="lcp-iconv remove">
-        <span class="iconwrap">
-          <svg aria-hidden="true" class="iconsvg">
-            <use xlink:href="#pc-remove" />
-          </svg>
+      <div class="textContainer">
+        <span class="lcp-iconv remove">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-remove" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
         </span>
-        <div class="icontext" vusion-slot-name="default">
-        </div>
-      </span>
+      </div>
     </div>
     <div class="item">
-      <div class="thumb">
-      </div>
-      <a class="link" download href="https://static-vusion.163yun.com/assets/salad.png" role="download" target="_blank">salad.png</a>
-      <span class="lcp-iconv remove">
-        <span class="iconwrap">
-          <svg aria-hidden="true" class="iconsvg">
-            <use xlink:href="#pc-remove" />
-          </svg>
+      <div class="textContainer">
+        <span class="lcp-iconv remove">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-remove" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
         </span>
-        <div class="icontext" vusion-slot-name="default">
-        </div>
-      </span>
+      </div>
     </div>
+    <span style="display: none;" vusion-slot-name="file-list"></span>
   </div>
 </div>
 `;
@@ -416,6 +451,7 @@ exports[`u-uploader.vue Demo-多文件上传simple 1`] = `
         <input class="file" multiple="multiple" name="file" type="file">
       </div>
     </div>
+    <span style="display: none;" vusion-slot-name="file-list"></span>
   </div>
 </div>
 `;
@@ -429,6 +465,7 @@ exports[`u-uploader.vue Demo-开启图片编辑(只支持单文件上传) 1`] = 
           <input class="file" name="file" type="file">
         </div>
       </div>
+      <span style="display: none;" vusion-slot-name="file-list"></span>
     </div>
     <div class="root"></div>
   </div>
@@ -451,7 +488,9 @@ exports[`u-uploader.vue Demo-拖拽和粘贴上传 1`] = `
       <div class="dragDescription" vusion-slot-name="dragDescription">点击/拖动/粘贴文件到这里</div>
     </div>
   </div>
-  <div class="list" list-type="text"></div>
+  <div class="list" list-type="text">
+    <span style="display: none;" vusion-slot-name="file-list"></span>
+  </div>
 </div>
 `;
 
@@ -487,6 +526,7 @@ exports[`u-uploader.vue Demo-检查文件格式等 1`] = `
         <input class="file" multiple="multiple" name="file" type="file">
       </div>
     </div>
+    <span style="display: none;" vusion-slot-name="file-list"></span>
   </div>
 </div>
 `;
@@ -498,7 +538,9 @@ exports[`u-uploader.vue Demo-相同的文件 1`] = `
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
       upload</a>
   </div>
-  <div class="list" list-type="text"></div>
+  <div class="list" list-type="text">
+    <span style="display: none;" vusion-slot-name="file-list"></span>
+  </div>
 </div>
 `;
 
@@ -510,7 +552,9 @@ exports[`u-uploader.vue Demo-禁用状态 1`] = `
       <a class="root" color="primary" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
         Upload</a>
     </div>
-    <div class="list" list-type="text"></div>
+    <div class="list" list-type="text">
+      <span style="display: none;" vusion-slot-name="file-list"></span>
+    </div>
   </div>
 </div>
 `;
