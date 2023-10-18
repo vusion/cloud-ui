@@ -165,6 +165,13 @@ export default {
             });
         }
     },
+    updated() {
+        if (this.enableCollapse && this.collapse && this.$el && this.currentWidth) {
+            this.$nextTick(() => {
+                this.$el.style.width = `${this.currentWidth}px`;
+            });
+        }
+    },
     methods: {
         updateCollapse(nV) {
             this.$emit('update:collapse', nV, this);
