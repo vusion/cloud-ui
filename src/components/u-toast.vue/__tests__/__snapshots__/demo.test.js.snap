@@ -34,7 +34,10 @@ exports[`u-toast.vue Demo-可关闭 1`] = `
 </div>
 `;
 
-exports[`u-toast.vue Demo-基本用法 1`] = `<div></div>`;
+exports[`u-toast.vue Demo-基本用法 1`] = `
+<div>
+</div>
+`;
 
 exports[`u-toast.vue Demo-基本用法 2`] = `
 <div>
