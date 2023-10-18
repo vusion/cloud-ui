@@ -5,38 +5,6 @@
   labels:
     - Feedback
   attrs:
-    - name: position
-      title: 位置
-      type: string
-      options:
-        - value: top-center
-          title: 上中
-        - value: top-left
-          title: 上左
-        - value: top-right
-          title: 上右
-        - value: bottom-center
-          title: 下中
-        - value: bottom-left
-          title: 下左
-        - value: bottom-right
-          title: 下右
-        - value: static
-          title: 静态
-      default: top-center
-      description: 显示的位置
-      advanced: true
-    - name: duration
-      title: 停留时间
-      type: number
-      default: 2000
-      description: 自动关闭的延时，单位毫秒。设为 0 时不自动关闭
-    - name: single
-      title: 合并
-      type: boolean
-      default: false
-      description: 多个提示会合并为一个
-      advanced: true
     - name: text
       title: 提示内容
       type: string
@@ -63,6 +31,38 @@
       type: icon
       dependency:
         - color: custom
+    - name: duration
+      title: 停留时间
+      type: number
+      default: 2000
+      description: 自动关闭的延时，单位毫秒。设为 0 时不自动关闭
+    - name: position
+      title: 位置
+      type: string
+      options:
+        - value: top-center
+          title: 上中
+        - value: top-left
+          title: 上左
+        - value: top-right
+          title: 上右
+        - value: bottom-center
+          title: 下中
+        - value: bottom-left
+          title: 下左
+        - value: bottom-right
+          title: 下右
+        - value: static
+          title: 静态
+      default: top-center
+      description: 显示的位置
+      advanced: true
+    - name: single
+      title: 合并
+      type: boolean
+      default: false
+      description: 多个提示会合并为一个
+      advanced: true
     - name: closable
       title: 关闭提示
       type: boolean
