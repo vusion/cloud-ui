@@ -18244,7 +18244,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.19.0/src/components/u-uploader.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.19.0/src/components/u-uploader.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.19.0/src/components/u-uploader.vue/screenshots/2.png",
-        "blocks": "[{\"title\":\"单个文件按钮\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader display=\\\"inline\\\"\\n    url=\\\"/upload\\\" url-field=\\\"filePath\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n    <template #file-list>\\n        <i-ico style=\\\"margin: 0px 8px 0px 0px;\\\" flag=\\\"file-icon\\\" name=\\\"file-default\\\" icotype=\\\"only\\\"></i-ico>\\n        <u-text style=\\\"margin: 0px 8px 0px 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inherit;\\\" flag=\\\"file-name\\\" text=\\\"文件名称\\\"></u-text>\\n        <u-text style=\\\"margin: 0px 8px 0px 0px;\\\" flag=\\\"file-size\\\" text=\\\"文件大小\\\"></u-text>\\n        <i-ico style=\\\"margin: 0px 8px 0px 0px;\\\" flag=\\\"download-icon\\\" name=\\\"download\\\" icotype=\\\"only\\\"></i-ico>\\n    </template>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\".png,.jpg,.jpeg,.gif,.bmp\\\"\\n    url=\\\"/upload\\\" url-field=\\\"filePath\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多图片按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\".png,.jpg,.jpeg,.gif,.bmp\\\"\\n    url=\\\"/upload\\\" url-field=\\\"filePath\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n</u-uploader>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"单个文件按钮\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader display=\\\"inline\\\"\\n    url=\\\"/upload\\\" url-field=\\\"filePath\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n    <template #file-list>\\n        <i-ico style=\\\"margin: 0px 8px 0px 0px;\\\" flag=\\\"file-icon\\\" name=\\\"file-default\\\" icotype=\\\"only\\\"></i-ico>\\n        <u-text style=\\\"margin: 0px 8px 0px 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inherit;\\\" flag=\\\"file-name\\\" text=\\\"文件名称\\\"></u-text>\\n        <u-text style=\\\"margin: 0px 8px 0px 0px;\\\" flag=\\\"file-size\\\" text=\\\"文件大小\\\"></u-text>\\n        <i-ico style=\\\"margin: 0px 8px 0px 0px;\\\" flag=\\\"download-icon\\\" name=\\\"download\\\" icotype=\\\"only\\\"></i-ico>\\n    </template>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\".png,.jpg,.jpeg,.gif,.bmp\\\"\\n    url=\\\"/upload\\\" url-field=\\\"filePath\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <template #file-list>\\n        <i-ico style=\\\"margin: 0px 8px 0px 0px;\\\" flag=\\\"file-icon\\\" name=\\\"file-default\\\" icotype=\\\"only\\\"></i-ico>\\n        <u-text style=\\\"margin: 0px 8px 0px 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inherit;\\\" flag=\\\"file-name\\\" text=\\\"文件名称\\\"></u-text>\\n        <u-text style=\\\"margin: 0px 8px 0px 0px;\\\" flag=\\\"file-size\\\" text=\\\"文件大小\\\"></u-text>\\n        <i-ico style=\\\"margin: 0px 8px 0px 0px;\\\" flag=\\\"download-icon\\\" name=\\\"download\\\" icotype=\\\"only\\\"></i-ico>\\n    </template>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多图片按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\".png,.jpg,.jpeg,.gif,.bmp\\\"\\n    url=\\\"/upload\\\" url-field=\\\"filePath\\\"\\n    :limit=\\\"999\\\"\\n    max-size=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\" icon=\\\"upload\\\">上传</u-button>\\n    <template #file-list>\\n        <i-ico style=\\\"margin: 0px 8px 0px 0px;\\\" flag=\\\"file-icon\\\" name=\\\"file-default\\\" icotype=\\\"only\\\"></i-ico>\\n        <u-text style=\\\"margin: 0px 8px 0px 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inherit;\\\" flag=\\\"file-name\\\" text=\\\"文件名称\\\"></u-text>\\n        <u-text style=\\\"margin: 0px 8px 0px 0px;\\\" flag=\\\"file-size\\\" text=\\\"文件大小\\\"></u-text>\\n        <i-ico style=\\\"margin: 0px 8px 0px 0px;\\\" flag=\\\"download-icon\\\" name=\\\"download\\\" icotype=\\\"only\\\"></i-ico>\\n    </template>\\n</u-uploader>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-uploader",
             "title": "文件上传",
@@ -18261,12 +18261,12 @@
                 {
                     "title": "单文件卡片",
                     "description": "不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\n",
-                    "code": "<template>\n<u-uploader list-type=\"card\"\n    accept=\".png,.jpg,.jpeg,.gif,.bmp\"\n    url=\"/upload\" url-field=\"filePath\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader list-type=\"card\"\n    accept=\".png,.jpg,.jpeg,.gif,.bmp\"\n    url=\"/upload\" url-field=\"filePath\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n    <template #file-list>\n        <i-ico style=\"margin: 0px 8px 0px 0px;\" flag=\"file-icon\" name=\"file-default\" icotype=\"only\"></i-ico>\n        <u-text style=\"margin: 0px 8px 0px 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inherit;\" flag=\"file-name\" text=\"文件名称\"></u-text>\n        <u-text style=\"margin: 0px 8px 0px 0px;\" flag=\"file-size\" text=\"文件大小\"></u-text>\n        <i-ico style=\"margin: 0px 8px 0px 0px;\" flag=\"download-icon\" name=\"download\" icotype=\"only\"></i-ico>\n    </template>\n</u-uploader>\n</template>\n"
                 },
                 {
                     "title": "多图片按钮",
                     "description": "",
-                    "code": "<template>\n<u-uploader multiple list-type=\"image\"\n    accept=\".png,.jpg,.jpeg,.gif,.bmp\"\n    url=\"/upload\" url-field=\"filePath\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\" icon=\"upload\">上传</u-button>\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader multiple list-type=\"image\"\n    accept=\".png,.jpg,.jpeg,.gif,.bmp\"\n    url=\"/upload\" url-field=\"filePath\"\n    :limit=\"999\"\n    max-size=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\" icon=\"upload\">上传</u-button>\n    <template #file-list>\n        <i-ico style=\"margin: 0px 8px 0px 0px;\" flag=\"file-icon\" name=\"file-default\" icotype=\"only\"></i-ico>\n        <u-text style=\"margin: 0px 8px 0px 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inherit;\" flag=\"file-name\" text=\"文件名称\"></u-text>\n        <u-text style=\"margin: 0px 8px 0px 0px;\" flag=\"file-size\" text=\"文件大小\"></u-text>\n        <i-ico style=\"margin: 0px 8px 0px 0px;\" flag=\"download-icon\" name=\"download\" icotype=\"only\"></i-ico>\n    </template>\n</u-uploader>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -27452,59 +27452,6 @@
             ],
             "attrs": [
                 {
-                    "name": "position",
-                    "title": "位置",
-                    "type": "string",
-                    "options": [
-                        {
-                            "value": "top-center",
-                            "title": "上中"
-                        },
-                        {
-                            "value": "top-left",
-                            "title": "上左"
-                        },
-                        {
-                            "value": "top-right",
-                            "title": "上右"
-                        },
-                        {
-                            "value": "bottom-center",
-                            "title": "下中"
-                        },
-                        {
-                            "value": "bottom-left",
-                            "title": "下左"
-                        },
-                        {
-                            "value": "bottom-right",
-                            "title": "下右"
-                        },
-                        {
-                            "value": "static",
-                            "title": "静态"
-                        }
-                    ],
-                    "default": "top-center",
-                    "description": "显示的位置",
-                    "advanced": true
-                },
-                {
-                    "name": "duration",
-                    "title": "停留时间",
-                    "type": "number",
-                    "default": 2000,
-                    "description": "自动关闭的延时，单位毫秒。设为 0 时不自动关闭"
-                },
-                {
-                    "name": "single",
-                    "title": "合并",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "多个提示会合并为一个",
-                    "advanced": true
-                },
-                {
                     "name": "text",
                     "title": "提示内容",
                     "type": "string",
@@ -27551,6 +27498,59 @@
                     ]
                 },
                 {
+                    "name": "duration",
+                    "title": "停留时间",
+                    "type": "number",
+                    "default": 2000,
+                    "description": "自动关闭的延时，单位毫秒。设为 0 时不自动关闭"
+                },
+                {
+                    "name": "position",
+                    "title": "位置",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "top-center",
+                            "title": "上中"
+                        },
+                        {
+                            "value": "top-left",
+                            "title": "上左"
+                        },
+                        {
+                            "value": "top-right",
+                            "title": "上右"
+                        },
+                        {
+                            "value": "bottom-center",
+                            "title": "下中"
+                        },
+                        {
+                            "value": "bottom-left",
+                            "title": "下左"
+                        },
+                        {
+                            "value": "bottom-right",
+                            "title": "下右"
+                        },
+                        {
+                            "value": "static",
+                            "title": "静态"
+                        }
+                    ],
+                    "default": "top-center",
+                    "description": "显示的位置",
+                    "advanced": true
+                },
+                {
+                    "name": "single",
+                    "title": "合并",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "多个提示会合并为一个",
+                    "advanced": true
+                },
+                {
                     "name": "closable",
                     "title": "关闭提示",
                     "type": "boolean",
@@ -27561,11 +27561,11 @@
             ],
             "methods": [
                 {
-                    "name": "openToast",
+                    "name": "open",
                     "description": "打开轻提示"
                 },
                 {
-                    "name": "closeToast",
+                    "name": "close",
                     "description": "关闭轻提示"
                 }
             ],
