@@ -27333,7 +27333,7 @@
         }
     },
     {
-        "symbol": "u-toast",
+        "symbol": "u-toast-single",
         "name": "弹出消息",
         "icon": "toast",
         "depDescription": {},
@@ -27341,20 +27341,20 @@
         "labels": [
             "Feedback"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.19.0/src/components/u-toast.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.19.0/src/components/u-toast.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-toast text=\\\"弹出消息\\\" :duration=\\\"2000\\\" :single=\\\"true\\\" color=\\\"custom\\\"></u-toast>\\n</template>\\n\"}]",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.19.0/src/components/u-toast-single.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.19.0/src/components/u-toast-single.vue/screenshots/1.png",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-toast-single text=\\\"弹出消息\\\" :duration=\\\"2000\\\" color=\\\"custom\\\"></u-toast-single>\\n</template>\\n\"}]",
         "jsonSchema": {
-            "name": "u-toast",
+            "name": "u-toast-single",
             "title": "弹出消息",
             "description": "弹出消息",
             "category": "Feedback",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.19.0/src/components/u-toast.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.19.0/src/components/u-toast.vue/screenshots/1.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.19.0/src/components/u-toast-single.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.19.0/src/components/u-toast-single.vue/screenshots/1.png",
             "drawings": "",
             "blocks": [
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-toast text=\"弹出消息\" :duration=\"2000\" :single=\"true\" color=\"custom\"></u-toast>\n</template>\n"
+                    "code": "<template>\n<u-toast-single text=\"弹出消息\" :duration=\"2000\" color=\"custom\"></u-toast-single>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -27401,7 +27401,7 @@
                     "title": "停留时间",
                     "type": "number",
                     "default": 2000,
-                    "description": "提示停留的时间。`0`表示常驻。"
+                    "description": "自动关闭的延时，单位毫秒。设为 0 时不自动关闭"
                 },
                 {
                     "name": "single",
@@ -27434,6 +27434,10 @@
                         {
                             "value": "error",
                             "title": "错误"
+                        },
+                        {
+                            "value": "loading",
+                            "title": "加载中"
                         },
                         {
                             "value": "custom",
