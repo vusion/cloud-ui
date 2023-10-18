@@ -23,6 +23,7 @@
             v-else-if="hasChildren || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load && !rootVM.parentField)"
             :expand-trigger="rootVM.expandTrigger" :expanded="currentExpanded"
             @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
+            :check-controlled="rootVM.checkControlled"
             :style="{ width : expanderWidth? expanderWidth + 'px':'' }"
             :dragover="expanderDragover"></div>
         <div :class="$style.text" :style="{ marginLeft : expanderWidth? expanderWidth + 'px':'' }" :draggable="draggable || rootVM.draggable">
@@ -57,7 +58,7 @@
                 :value="$at2(subNode, rootVM.valueField)"
                 :expanded="rootVM.filterText ? $at(subNode, 'expandedByFilter') : $at(subNode, rootVM.expandedField)"
                 :checked.sync="subNode.checked"
-                :disabled="subNode.disabled"
+                :disabled="$at2(subNode, rootVM.disabledField)"
                 :hidden="rootVM.filterText ? $at(subNode, 'hiddenByFilter') : $at(subNode, rootVM.hiddenField)"
                 :node="subNode"
                 :nodeKey="`${nodeKey}-${subNodeIndex}`"
@@ -79,7 +80,7 @@
                     :value="$at2(subNode, rootVM.valueField)"
                     :expanded="rootVM.filterText ? $at(subNode, 'expandedByFilter') : $at(subNode, rootVM.expandedField)"
                     :checked.sync="subNode.checked"
-                    :disabled="subNode.disabled"
+                    :disabled="$at2(subNode, rootVM.disabledField)"
                     :hidden="rootVM.filterText ? $at(subNode, 'hiddenByFilter') : $at(subNode, rootVM.hiddenField)"
                     :node="subNode"
                     :nodeKey="`${nodeKey}-${subNodeIndex}`"
@@ -151,7 +152,7 @@ export default {
             return (
                 this.disabled
                 || this.rootVM.disabled
-                || (this.parentVM && this.parentVM.currentDisabled)
+                || (!this.rootVM.checkControlled && this.parentVM && this.parentVM.currentDisabled)
             );
         },
         currentReadOnly() {
@@ -316,7 +317,7 @@ export default {
             this.toggle();
         },
         toggle(expanded) {
-            if (this.currentDisabled)
+            if (this.currentDisabled && !this.rootVM.checkControlled)
                 return;
             if (!(this.hasChildren
                 || this.nodeVMs.length
@@ -656,6 +657,10 @@ export default {
 }
 
 .expander[expand-trigger="click-expander"] {
+    cursor: pointer;
+}
+
+.expander[check-controlled] {
     cursor: pointer;
 }
 

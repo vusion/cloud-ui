@@ -8,7 +8,7 @@
             :value="$at2(node, valueField)"
             :expanded="$at(node, expandedField)"
             :checked.sync="node.checked"
-            :disabled="node.disabled"
+            :disabled="$at2(node, disabledField)"
             :children-field="childrenField"
             :hidden="filterText ? $at(node, 'hiddenByFilter') : $at(node, hiddenField)"
             :node="node"
@@ -53,6 +53,7 @@ export default {
         expandedField: { type: String, default: 'expanded' },
         isLeafField: { type: String, default: 'isLeaf' },
         childrenField: { type: String, default: 'children' },
+        disabledField: { type: String, default: 'disabled' },
         parentField: { type: String, default: '' },
         treeSelectTip: { type: String, default: '请绑定数据源或插入树形视图节点' },
         moreChildrenFields: Array,
