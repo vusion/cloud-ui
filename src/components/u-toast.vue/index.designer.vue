@@ -9,12 +9,12 @@
             <div v-if="customIcon" :class="$style.customIcon">
                 <i-ico :name="customIcon"></i-ico>
             </div>
-            <slot>{{ text }}</slot>
+            {{ text }}
             <a :class="$style.close" v-if="closable" @click="close(item)"></a>
         </div>
         <div v-else :class="$style.item" :color="color">
             <slot name="inject"></slot>
-            <slot>{{ text }}</slot>
+            {{ text }}
             <a :class="$style.close" v-if="closable" @click="closeAll()"></a>
         </div>
     </div>
