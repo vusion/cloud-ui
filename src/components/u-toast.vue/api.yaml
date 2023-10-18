@@ -1,4 +1,4 @@
-- name: u-toast
+- name: u-toast-single
   icon: toast
   title: 弹出消息
   description: 弹出消息
@@ -30,7 +30,7 @@
       title: 停留时间
       type: number
       default: 2000
-      description: 提示停留的时间。`0`表示常驻。
+      description: 自动关闭的延时，单位毫秒。设为 0 时不自动关闭
     - name: single
       title: 合并
       type: boolean
