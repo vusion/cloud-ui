@@ -98,6 +98,9 @@ exports[`u-toast.vue Demo-设置颜色 1`] = `
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
     自定义图标
   </a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    自定义图标
+  </a>
 </div>
 `;
 
