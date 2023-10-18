@@ -1594,7 +1594,7 @@ exports[`u-tree-view-new.vue Demo-多选 3`] = `
 <div class="root" values="1,1.2,1.2.1,1.2.2">
   <div class="root">
     <div class="item" style="padding-left: 0px;" tabindex="0">
-      <div class="expander" expand-trigger="click" expanded="true" style="width: 30px;"></div>
+      <div check-controlled="true" class="expander" expand-trigger="click" expanded="true" style="width: 30px;"></div>
       <div class="text" draggable="false" style="margin-left: 30px;">
         <label class="root" tabindex="0">
           <span class="box" status="false"></span>
@@ -1619,7 +1619,7 @@ exports[`u-tree-view-new.vue Demo-多选 3`] = `
       </div>
       <div class="root">
         <div class="item" style="padding-left: 30px;" tabindex="0">
-          <div class="expander" expand-trigger="click" expanded="true" style="width: 30px;"></div>
+          <div check-controlled="true" class="expander" expand-trigger="click" expanded="true" style="width: 30px;"></div>
           <div class="text" draggable="false" style="margin-left: 30px;">
             <label class="root" tabindex="0">
               <span class="box" status="false"></span>
