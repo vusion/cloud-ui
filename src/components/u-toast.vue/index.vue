@@ -5,8 +5,8 @@
     leave-active-class="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active">
     <div v-for="item in items" :key="item.timestamp" :class="$style['item-wrap']">
         <div v-if="item.color === 'custom'" :class="$style.item" :position="position">
-            <div v-if="customIcon" :class="$style.customIcon">
-                <i-ico :name="customIcon"></i-ico>
+            <div v-if="item.customIcon" :class="$style.customIcon">
+                <i-ico :name="item.customIcon"></i-ico>
             </div>
 
             <slot :item="item">{{ item.text }}</slot>
@@ -35,7 +35,12 @@ export default {
         customIcon: { type: String },
     },
     data() {
-        return { items: [], itemsQueue: new Map() };
+        return {
+            items: [],
+            itemsQueue: new Map(),
+
+            events: new Map(),
+        };
     },
     watch: {
         text(newValue, oldValue) {
@@ -87,6 +92,11 @@ export default {
                 }, item.duration);
             }
             this.$emit('open', item, this);
+            // 获取到当前key
+            const event = this.events.get(item.key);
+            if (event && event.onShow) {
+                event.onShow(item);
+            }
         },
         close(item) {
             const index = this.items.indexOf(item);
@@ -103,6 +113,11 @@ export default {
                 return;
             this.items.splice(index, 1);
             this.$emit('close', item, this);
+
+            const event = this.events.get(item.key);
+            if (event && event.onHide) {
+                event.onHide(item);
+            }
         },
         /**
          * @method closeAll() 关闭所有消息
@@ -124,11 +139,30 @@ export default {
             this.show(text, duration, 'error');
         },
 
-        openToast() {
-            this.show(this.text, this.duration, this.color);
+        openToast(config) {
+            const { key, text, color, duration, customIcon, onShow, onHide } = config;
+
+            if (!this.$el)
+                this.$mount(document.createElement('div')); // Vue 加载完成后，触发某一事件后，先执行methods，再执行watch方法，会导致标签显示异常
+            this.$nextTick(() => {
+                this.events.set(key, {
+                    onShow,
+                    onHide,
+                });
+
+                this.open({
+                    key,
+                    text,
+                    color,
+                    duration,
+                    customIcon,
+                    timestamp: +new Date(),
+                });
+            });
         },
-        closeToast() {
-            this.closeAll();
+        closeToast(key) {
+            const target = this.items.find((item) => item.key === key);
+            this.close(target);
         },
     },
     install(Vue, id) {
