@@ -79,7 +79,7 @@
       description: 关闭提示时触发
       params: []
   methods:
-  - name: openToast
+  - name: open
     description: 打开轻提示
-  - name: closeToast
+  - name: close
     description: 关闭轻提示
