@@ -3,7 +3,7 @@
     move-class="animate__move"
     enter-active-class="animate__animated animate__fadeInUpSmall"
     leave-active-class="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active">
-    <div v-for="item in items" :key="item.timestamp" :class="$style['item-wrap']">
+    <div v-for="item in items" :key="item.timestamp" :class="$style['item-wrap']" :style="item.staticStyle || {}">
         <div v-if="item.color === 'custom'" :class="$style.item" :position="position">
             <div v-if="item.customIcon" :class="$style.customIcon">
                 <i-ico :name="item.customIcon"></i-ico>
@@ -140,7 +140,7 @@ export default {
         },
 
         openToast(config) {
-            const { key, text, color, duration, customIcon, onShow, onHide } = config;
+            const { key, text, color, duration, customIcon, onShow, onHide, staticStyle } = config;
 
             if (!this.$el)
                 this.$mount(document.createElement('div')); // Vue 加载完成后，触发某一事件后，先执行methods，再执行watch方法，会导致标签显示异常
@@ -157,6 +157,8 @@ export default {
                     duration,
                     customIcon,
                     timestamp: +new Date(),
+
+                    staticStyle,
                 });
             });
         },
