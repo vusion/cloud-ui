@@ -9,7 +9,6 @@
         :value="all"
         :disabled="disabled"
         :readonly="readonly"
-        :designer="$env.VUE_APP_DESIGNER"
         :style="{display: checkAllDisplay}"
       >
       </u-checkbox>
