@@ -6678,20 +6678,24 @@
                 "toPosition": "toast",
                 "type": [],
                 "preview": {
-                    "template": "<u-toast text=\"弹出消息\" :duration=\"2000\" :single=\"true\"></u-toast>"
+                    "template": "<u-button @click=\"onOpen\">弹出消息</u-button>",
+                    "script": "export default {\n    data() {\n        return {\n     };\n    },\n    methods: {\n        onOpen() {\n            this.$toast.show(\"弹出消息\");\n        },\n    },\n};"
                 },
                 "cssProperty": {
                     "--toast-item-color": {
                         "type": "color",
-                        "desc": "弹出消息的字体颜色"
+                        "desc": "弹出消息的字体颜色",
+                        "prefix": "toast"
                     },
                     "--toast-background-color": {
                         "type": "color",
-                        "desc": "弹出消息的背景色"
+                        "desc": "弹出消息的背景色",
+                        "prefix": "toast"
                     },
                     "--toast-item-custom-icon-color": {
                         "type": "color",
-                        "desc": "弹出消息的自定义图标颜色"
+                        "desc": "弹出消息的自定义图标颜色",
+                        "prefix": "toast"
                     }
                 }
             }
