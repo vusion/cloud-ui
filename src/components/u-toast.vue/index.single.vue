@@ -23,6 +23,8 @@ export default {
     },
     methods: {
         open() {
+            const staticStyle = this.$vnode.data.staticStyle;
+
             this.$toast.openToast({
                 key: this.key,
                 text: this.text,
@@ -35,10 +37,25 @@ export default {
                 onHide: () => {
                     this.$emit('close');
                 },
+
+                staticStyle: this.filterCSSVarInStyle(staticStyle),
             });
         },
         close() {
             this.$toast.closeToast(this.key);
+        },
+        filterCSSVarInStyle(staticStyle) {
+            const style = {};
+            for (const key in staticStyle) {
+                if (Object.prototype.hasOwnProperty.call(staticStyle, key)) {
+                    if (/^--/.test(key)) {
+                        const value = staticStyle[key];
+                        style[key] = value;
+                    }
+                }
+            }
+
+            return style;
         },
     },
 
