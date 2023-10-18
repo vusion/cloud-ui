@@ -237,7 +237,7 @@ export default {
 }
 
 .item::before {
-    background: radial-gradient(circle, #fff 45%, transparent 45%);
+    /* background: radial-gradient(circle, #fff 45%, transparent 45%); */
     font-size: var(--toast-item-icon-font-size);
     vertical-align: var(--toast-item-icon-vertical-align);
     margin-right: var(--toast-item-icon-margin-right);
@@ -263,6 +263,24 @@ export default {
     color: var(--toast-item-icon-color-error);
     /* background: #dd4b39;
     color: white; */
+}
+
+.item[color="loading"]::before {
+    icon-font: url(./assets/loading.svg);
+    color: var(--toast-item-icon-color-info);
+    /* background: #dd4b39;
+    color: white; */
+
+    animation: circle 1s linear 0s infinite both;
+}
+
+@keyframes circle {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .item[color][class][class] {
