@@ -2,7 +2,9 @@
 <div :class="$style.root" ref="root" :border="border"
     @dragend="onDragEnd($event)"
     @drop="onDrop($event)"
-    @dragover="onRootDragover($event)">
+    @dragover="onRootDragover($event)"
+    @dragleave="onRootDragleave($event)"
+    @dragenter="onRootDragenter($event)">
     <div v-if="title" :class="$style.title" ref="title" :style="{ textAlign: titleAlignment }" vusion-slot-name="title" vusion-slot-name-edit="title">
         <slot name="title">{{ title }}</slot>
     </div>
@@ -99,7 +101,7 @@
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
                             <tr :key="keyMap.getKey(item)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
-                            :draggable="rowDraggable?rowDraggable:undefined"
+                            :draggable="(draggable || acrossTableDrag) && rowDraggable && item.draggable || undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
                             @dragstart="onDragStart($event, item, rowIndex)"
@@ -169,7 +171,7 @@
                                             </f-slot>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable?handlerDraggable:undefined"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="(draggable || acrossTableDrag) && handlerDraggable && item.draggable || undefined" :disabled="!((draggable || acrossTableDrag) && handlerDraggable && item.draggable)"></i-ico>
                                             </span>
 
                                             <!-- type === 'expander' right -->
@@ -257,7 +259,7 @@
                                             </template>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable?handlerDraggable:undefined"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="(draggable || acrossTableDrag) && handlerDraggable && item.draggable || undefined" :disabled="!((draggable || acrossTableDrag) && handlerDraggable && item.draggable)"></i-ico>
                                             </span>
                                             <!-- Normal text -->
                                             <template v-if="columnVM.type === 'editable'">
@@ -408,7 +410,7 @@
         @change="page($event.page)" @change-page-size="page(1, $event.pageSize)">
     </u-pagination>
     <div><slot></slot></div>
-    <div v-if="draggable" ref="dragGhost" :class="$style.dragGhost" :designer="$env.VUE_APP_DESIGNER">
+    <div v-if="draggable || acrossTableDrag" ref="dragGhost" :class="$style.dragGhost" :designer="$env.VUE_APP_DESIGNER">
         <u-text color="secondary" :class="$style.text" v-if="$env.VUE_APP_DESIGNER">拖拽缩略图配置区域</u-text>
         <slot name="dragGhost" :item="dragState.source"></slot>
         <div vusion-slot-name="dragGhost" v-if="$env.VUE_APP_DESIGNER">
@@ -419,7 +421,7 @@
             </s-empty>
         </div>
     </div>
-    <div v-if="draggable" :class="$style.dragGhost">
+    <div v-if="draggable || acrossTableDrag" :class="$style.dragGhost">
         <div :class="$style.trdragGhost" ref="trDragGhost"></div>
     </div>
 </div>
@@ -437,6 +439,7 @@ import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
 import UTableViewDropGhost from './drop-ghost.vue';
 import SEmpty from '../../components/s-empty.vue';
+import throttle from 'lodash/throttle';
 
 export default {
     name: 'u-table-view',
@@ -539,6 +542,9 @@ export default {
         pagination: { type: Boolean, default: undefined },
         parentField: { type: String },
         configurable: { type: Boolean, default: false }, // 是否配置显隐列
+        canDragableHandler: Function,
+        canDropinHandler: Function,
+        acrossTableDrag: { type: Boolean, default: false }, // 是否跨表格拖拽
     },
     data() {
         return {
@@ -849,6 +855,10 @@ export default {
         } else {
             this.initialLoad && this.load();
         }
+        this.throttledDragover = throttle(this.handleDragOver, 50, {
+            leading: false,
+            trailing: true,
+        });
     },
     updated() {
         if (this.$env.VUE_APP_DESIGNER && this.slots !== this.$slots && !this.data && !this.dataSource) {
@@ -877,6 +887,7 @@ export default {
             this.scrollParentEl && this.scrollParentEl.removeEventListener('scroll', this.onScrollParentScroll);
         }
         this.clearTimeout();
+        this.enterTarget = null;
     },
     methods: {
         isSimpleArray(arr) {
@@ -911,8 +922,8 @@ export default {
             // 拖拽设置
             const dragHandler = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'dragHandler');
             if (!this.$env.VUE_APP_DESIGNER) {
-                this.rowDraggable = this.draggable && !dragHandler;
-                this.handlerDraggable = this.draggable && dragHandler;
+                this.rowDraggable = (this.draggable || this.acrossTableDrag) && !dragHandler;
+                this.handlerDraggable = (this.draggable || this.acrossTableDrag) && dragHandler;
             }
             if (selectable) {
                 data.forEach((item) => {
@@ -938,6 +949,11 @@ export default {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('editing'))
                         this.$set(item, 'editing', '');
+                });
+            }
+            if (this.draggable || this.acrossTableDrag) {
+                data.forEach((item) => {
+                    this.canDraggable(item);
                 });
             }
             return data;
@@ -1374,6 +1390,7 @@ export default {
         },
         reload() {
             this.currentDataSource.clearLocalData();
+            this.clearDragState();
             this.load();
             console.log('table reload');
             if (this.dynamicColumnVMs.length) {
@@ -2024,7 +2041,12 @@ export default {
         /**
          * 拖拽开始
          */
-        onDragStart(e, item, rowIndex) {
+        async onDragStart(e, item, rowIndex) {
+            // 当不可拖拽节点里的文字双击选中时再拖拽，会触发dragstart事件，这里需要屏蔽
+            await this.canDraggable(item);
+            if (item.draggable === false) {
+                return;
+            }
             e.dataTransfer.setDragImage(this.getDragImage(e), 0, 0);
             this.dragState = {
                 dragging: true,
@@ -2040,24 +2062,77 @@ export default {
             // 该节点下的所有子节点不要响应dragover
             this.currentData.forEach((citem) => {
                 citem.draggoverDisabled = this.isSubNode(citem, item);
-                citem.disabledDrop = this.treeDisplay ? citem.disabled || citem.dropDisabled : true;
+                if (this.treeDisplay) {
+                    this.canDropin(citem);
+                } else {
+                    citem.disabledDrop = true;
+                }
             });
             // 本身不要线
             item.draggoverDisabled = true;
             this.$emit('dragstart', {
                 source: this.dragState.sourceData,
             });
+            this.currentDragoverItem = null;
+            if (this.acrossTableDrag) {
+                const dragStartData = {
+                    source: item,
+                    sourcePath: rowIndex, // 这里需要是表格中的具体行值，用于drop的时候判断
+                    sourceData: {
+                        item,
+                        level: item.tableTreeItemLevel,
+                        index: this.findItemIndex(item),
+                    },
+                };
+                e.dataTransfer.setData('application/json', JSON.stringify(dragStartData));
+                // 当不可拖拽节点里的文字双击选中时再拖拽，会触发dragstart事件，dragover的时候也会响应
+                // 这里增加信息，dragover的时候可以处理是否响应
+                e.dataTransfer.setData('info/acrosstabledrag', '');
+            }
         },
         /**
          * 拖拽经过行
          */
         onDragOver(e, item, rowIndex) {
             e.preventDefault();
-            if (!this.dragState.dragging)
+            // 表格内部或者跨表格可拖拽，其他屏蔽
+            if (!this.dragState.dragging && !this.acrossTableDrag)
                 return;
             if (item.draggoverDisabled) {
                 return;
             }
+            if (this.acrossTableDrag) {
+                const types = (e.dataTransfer && e.dataTransfer.types) || [];
+                const isAcrossTableDrag = types.find((type) => type === 'info/acrosstabledrag');
+                if (!isAcrossTableDrag)
+                    return;
+            }
+            // 行之间可以放
+            if (this.draggable) {
+                this.currentDragoverItem = item;
+                // 快速移动的时候不要计算
+                this.dragoverTimer = setTimeout(() => {
+                    if (this.currentDragoverItem === item) {
+                        this.throttledDragover(e, item, rowIndex);
+                    } else {
+                        clearTimeout(this.dragoverTimer);
+                        this.throttledDragover.cancel();
+                    }
+                }, 200);
+            } else if (this.acrossTableDrag) {
+                // 只能放入整个表格，并且是拖拽节点所在表格外的其他表格展示放置样式，拖拽节点所在的表格不展示放置样式
+                // this.dragState.sourcePath === undefined，表示是拖拽节点所在表格外的其他表格，因为其他表格没有响应dragstart事件，所以sourcePath为undefined
+                if (!this.dropData && this.dragState.sourcePath === undefined) {
+                    this.dropData = {
+                        dragoverElRect: this.$refs.body[0].getBoundingClientRect(),
+                        parentElRect: this.$refs.root.getBoundingClientRect(),
+                        position: 'append',
+                        left: 0,
+                    };
+                }
+            }
+        },
+        handleDragOver(e, item, rowIndex) {
             // 查找到tr行
             const target = this.getTrEl(e);
             const trRect = target.getBoundingClientRect();
@@ -2079,6 +2154,8 @@ export default {
                 if (treeExpanderEl) {
                     placeholderWith = treeExpanderEl.offsetWidth;
                 }
+            } else {
+                item.disabledDrop = true;
             }
 
             const disabledDrop = item.disabledDrop || item.draggoverDisabled;
@@ -2096,8 +2173,10 @@ export default {
                 // 在下部
                 position = 'insertAfter';
                 let level = (item.tableTreeItemLevel || 0);
-                if (item.expanded && item.children.length) {
-                    level = level + 1;
+                if (item.expanded) {
+                    const childList = this.$at(item, this.childrenField);
+                    if (childList && childList.length)
+                        level = level + 1;
                 }
                 left = level ? indentElRect.left - trRect.left : 0;
                 placeholderWith = level ? placeholderWith : 0;
@@ -2110,9 +2189,9 @@ export default {
             }
 
             // 如果一直更新会卡顿，这里设置有不一样的时候才更新
-            if (!this.dropData
+            if (!!this.currentDragoverItem && (!this.dropData
                 || JSON.stringify(this.dropData.dragoverElRect) !== JSON.stringify(trRect)
-                || this.dropData.position !== position) {
+                || this.dropData.position !== position)) {
                 this.dropData = {
                     dragoverElRect: trRect,
                     parentElRect: this.$refs.root.getBoundingClientRect(),
@@ -2139,12 +2218,48 @@ export default {
             if (!this.subTreeLoading)
                 this.clearDragState();
             this.$emit('dragend');
+            this.cleartDragoverTimer();
+            // item里添加的辅助拖拽字段需要删除，不然跨表格拖拽时会影响下一次的拖拽
+            this.clearDragItemData();
         },
         /**
          * 拖拽放置
          */
         onDrop(e) {
-            if (this.dragState
+            // 跨表格与表格内拖拽的drop处理区分开来
+            if (this.acrossTableDrag && this.dropData) {
+                const dragStartData = JSON.parse(e.dataTransfer.getData('application/json') || '{}');
+                ['disabledDrop', 'draggoverDisabled'].forEach((key) => {
+                    if (dragStartData.sourceData && dragStartData.sourceData.item) {
+                        delete dragStartData.sourceData.item[key];
+                    }
+                    if (dragStartData.targetData && dragStartData.targetData.item) {
+                        delete this.dragState.targetData.item[key];
+                    }
+                });
+                // 如果当前表格内部没有开启拖拽，那么放置到当前表格不应该有drop事件
+                if (!this.draggable && this.dragState.sourcePath === undefined) {
+                    this.$emit('drop', {
+                        source: dragStartData.sourceData,
+                        target: this.dragState.targetData,
+                        position: this.dropData && this.dropData.position || 'append',
+                        finalSource: null,
+                    });
+                } else if (this.draggable) {
+                    // 表格内拖拽，sourcePath和targetPath不一样的时候才emit事件
+                    // 当元素被移除的时候可能不会触发dragend，结合判断数据是否在table里
+                    const inTable = this.valueField ? dragStartData.sourceData && dragStartData.sourceData.item && !!this.currentData.find((titem) => this.$at(titem, this.valueField) === this.$at(dragStartData.sourceData.item, this.valueField)) : true;
+                    const inTheSameTable = this.dragState.sourcePath !== undefined && inTable;
+                    const finalSource = Object.assign({}, dragStartData.sourceData);
+                    finalSource.index = this.dragState.targetPath;
+                    this.$emit('drop', {
+                        source: dragStartData.sourceData,
+                        target: this.dragState.targetData,
+                        position: this.dropData && this.dropData.position || 'append',
+                        finalSource: inTheSameTable ? finalSource : null,
+                    });
+                }
+            } else if (this.dragState
                 && this.dragState.dragging
                 && this.dragState.sourcePath !== this.dragState.targetPath
                 && this.dropData) {
@@ -2237,7 +2352,7 @@ export default {
                             if (!this.$at(parentNode, this.hasChildrenField) && !this.$at(parentNode, this.childrenField)) {
                                 this.setAtWithoutSync(parentNode, this.childrenField, []);
                             }
-                            parentNode.expanded = true;
+                            this.toggleTreeExpanded(parentNode, true);
                             const children = this.$at(parentNode, this.childrenField) || [];
                             children.push(this.dragState.source);
                             targetPath = children.length - 1;
@@ -2277,11 +2392,42 @@ export default {
                         targetList: dropList,
                     },
                 });
-                this.clearDragState();
             }
+            this.clearDragState();
+            this.cleartDragoverTimer();
+            this.clearDragItemData();
         },
         onRootDragover(e) {
             e.preventDefault();
+            // 当表格为空时，没有行的dragover事件，所以需要在这里处理
+            if (this.currentData.length === 0) {
+                if (!this.acrossTableDrag)
+                    return;
+                if (this.draggable || this.acrossTableDrag) {
+                    this.dropData = {
+                        dragoverElRect: this.$refs.body[0].getBoundingClientRect(),
+                        parentElRect: this.$refs.root.getBoundingClientRect(),
+                        position: 'append',
+                        left: 0,
+                    };
+                }
+            }
+        },
+        /**
+         * 拖拽离开，每个tr都会触发该事件，所以需要判断是否是真正的离开
+         * 结合dragleave和dragenter来判断
+         */
+        onRootDragleave(e) {
+            if (this.enterTarget === e.target) {
+                e.stopPropagation();
+                e.preventDefault();
+                this.dropData = undefined;
+                this.cleartDragoverTimer();
+                this.enterTarget = null;
+            }
+        },
+        onRootDragenter(e) {
+            this.enterTarget = e.target;
         },
         /**
          * 查找数据在数组的哪个位置
@@ -2322,6 +2468,23 @@ export default {
             };
             this.$nextTick(() => {
                 this.preventDatasourceWatch = false;
+            });
+            this.enterTarget = null;
+        },
+        /**
+         * 清除拖拽计时器
+         */
+        cleartDragoverTimer() {
+            clearTimeout(this.dragoverTimer);
+            this.currentDragoverItem = null;
+        },
+        /**
+         * 清除拖拽item的辅助数据，draggoverDisabled、disabledDrop
+         */
+        clearDragItemData() {
+            this.currentData.forEach((item) => {
+                delete item.draggoverDisabled;
+                delete item.disabledDrop;
             });
         },
         isSubNode(item, sourceNode) {
@@ -2485,6 +2648,25 @@ export default {
             }
             if (this.autoRowSpan[rowIndex] && this.autoRowSpan[rowIndex][columnIndex ] !== undefined) {
                 return this.autoRowSpan[rowIndex][columnIndex];
+            }
+        },
+        /**
+         * IDE 里生成的事async函数，所以需要await处理
+         */
+        async canDraggable(item) {
+            if (this.canDragableHandler && (this.canDragableHandler instanceof Promise || typeof this.canDragableHandler === 'function')) {
+                const canDraggableResult = await this.canDragableHandler(item);
+                this.$set(item, 'draggable', canDraggableResult);
+            } else {
+                this.$set(item, 'draggable', true);
+            }
+        },
+        async canDropin(item) {
+            if (this.canDropinHandler && (this.canDropinHandler instanceof Promise || typeof this.canDropinHandler === 'function')) {
+                const canDropinResult = await this.canDropinHandler(item);
+                item.disabledDrop = item.disabledDrop || !canDropinResult;
+            } else {
+                item.disabledDrop = item.disabled;
             }
         },
     },
@@ -2791,17 +2973,21 @@ export default {
         inset 0px -1px 0px 0px var(--table-view-row-selected-border-color),
         inset -1px 0px 0px 0px var(--table-view-row-selected-border-color);
 }
-.row[draggable] {
+.row[draggable="true"] {
     cursor: var(--table-view-drag-cursor);
 }
-.row[dragging] td {
+.row[dragging="true"] td {
     background: var(--table-view-row-background-dragging);
 }
-.row[dragging][subrow] td {
+.row[dragging="true"][subrow] td {
     background: var(--table-view-subrow-background-dragging);
 }
 .dragHandler {
     cursor: var(--table-view-drag-cursor);
+}
+.dragHandler[disabled] {
+    cursor: var(--table-view-drag-cursor-disabled);
+    color: var(--table-view-drag-color-disabled);
 }
 
 .expand-td {

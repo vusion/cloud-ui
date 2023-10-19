@@ -3945,6 +3945,22 @@
                             "td",
                             "th"
                         ]
+                    },
+                    "--table-view-drag-cursor-disabled": {
+                        "type": "input",
+                        "desc": "拖拽鼠标样式（禁用状态）",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
+                    },
+                    "--table-view-drag-color-disabled": {
+                        "type": "input",
+                        "desc": "拖拽图标颜色（禁用状态）",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
                     }
                 },
                 "preview": {
