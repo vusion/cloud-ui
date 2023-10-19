@@ -379,43 +379,27 @@ exports[`u-sidebar.vue Demo-折叠功能 2`] = `
               <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
                 导航一
               </div>
-              <span class="expander"></span>
+              <span class="expander" expanded="true"></span>
               <span class="extra" vusion-slot-name="extra"></span>
             </div>
             <transition-stub>
-              <div class="body" style="display: none;" vusion-slot-name="default">
+              <div class="body" vusion-slot-name="default">
                 <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
                   <span>选项一</span>
                 </a>
-                <div class="root normalRoot" noicon="true">
-                  <div class="head" data-group-nested-level="1" title="导航二">
-                    <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-                      导航二
-                    </div>
-                    <span class="expander"></span>
-                    <span class="extra" vusion-slot-name="extra"></span>
-                  </div>
-                  <transition-stub>
-                    <div class="body" style="display: none;" vusion-slot-name="default">
-                      <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-                        <span>选项一</span>
-                      </a>
-                    </div>
-                  </transition-stub>
-                </div>
               </div>
             </transition-stub>
           </div>
-          <div class="root normalRoot" noicon="true">
+          <div class="root normalRoot" disabled="disabled" noicon="true">
             <div class="head" data-group-nested-level="0" title="导航二">
               <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
                 导航二
               </div>
-              <span class="expander"></span>
+              <span class="expander" expanded="true"></span>
               <span class="extra" vusion-slot-name="extra"></span>
             </div>
             <transition-stub>
-              <div class="body" style="display: none;" vusion-slot-name="default">
+              <div class="body" vusion-slot-name="default">
                 <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
                   <span>选项一</span>
                 </a>
