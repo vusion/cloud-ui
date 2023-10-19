@@ -2730,7 +2730,7 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.cell[ellipsis] > div, .cell[ellipsis] span {
+.cell[ellipsis] > div {
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
