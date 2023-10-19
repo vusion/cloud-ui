@@ -4,13 +4,15 @@
     <template v-else>
       <u-checkbox
         v-if="checkAll"
-        text="全选"
         label="check-all"
         :value="all"
         :disabled="disabled"
         :readonly="readonly"
         :style="{display: checkAllDisplay}"
       >
+        <slot name="check-all">
+          <u-text text='全选'></u-text>
+        </slot>
       </u-checkbox>
       <u-checkbox
         v-for="(node, index) in currentDataSource.data"

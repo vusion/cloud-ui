@@ -214,6 +214,13 @@
           title: 多选项
           snippet: <u-checkbox><template slot="item">节点</template></u-checkbox>
     - concept: Slot
+      name: check-all
+      description: 全选/反选
+      support:
+        - name: u-text
+          title: 全选/反选文本
+          snippet: <u-text text='全选'></u-text>
+    - concept: Slot
       name: item
       description: 自定义选项的结构和样式
       slotProps:
