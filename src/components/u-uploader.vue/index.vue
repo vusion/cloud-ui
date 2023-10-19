@@ -155,7 +155,7 @@ export default {
         viaOriginURL: { type: Boolean, default: false },
         lcapIsCompress: { type: Boolean, default: false },
         fileType: { type: String, default: 'default' },
-        iconMap: { type: Object, default: () => ({}) },
+        iconMap: { type: Object, default: () => ({'doc|docx': 'file-doc', 'jpg|jpeg|png|bmp|gif|tiff|tif|webp|svg|psd|raw': 'file-jpg', 'pdf': 'file-pdf', 'xlsx': 'file-xlxs', 'txt': 'file-txt', 'ppt|pptx': 'file-ppt', 'zip': 'file-zip', 'csv': 'file-csv'}) },
         downloadIcon: { type: String, default: 'download' },
         fileIconSwitcher: { type: Boolean, default: true },
         downloadIconSwitcher: { type: Boolean, default: true },

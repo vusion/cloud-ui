@@ -128,7 +128,7 @@
       - list-type: text
     - name: icon-map
       type: Object
-      default: {}
+      default: {'doc|docx': 'file-doc', 'jpg|jpeg|png|bmp|gif|tiff|tif|webp|svg|psd|raw': 'file-jpg', 'pdf': 'file-pdf', 'xlsx': 'file-xlxs', 'txt': 'file-txt', 'ppt|pptx': 'file-ppt', 'zip': 'file-zip', 'csv': 'file-csv'}
       advanced: true
       hidden: true
     - name: file-type
