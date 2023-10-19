@@ -8,6 +8,22 @@ exports[`u-validator.vue Demo- 1`] = `
 </div>
 `;
 
+exports[`u-validator.vue Demo-blur 后从绑定变量更新 1`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div placement="bottom" vusion-slot-name="default">
+    <div color>
+      <span>b</span>
+      <span style="display: none;"></span>
+      <input type="text">
+    </div>
+    <span color="error" style="display: none;">false</span>
+  </div>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    change
+  </a>
+</div>
+`;
+
 exports[`u-validator.vue Demo-动态验证 1`] = `
 <div class="root" layout="block">
   <div class="root" distance label-size="normal">

@@ -497,6 +497,18 @@ exports[`u-linear-layout.vue Demo-测试多种布局属性影响 1`] = `
 </div>
 `;
 
+exports[`u-linear-layout.vue Demo-测试滚动事件 1`] = `
+<div>
+  <div class="root" direction="vertical" style="height: 300px; overflow: scroll;" type vusion-slot-name="default">
+    <div alignment="start" class="root" direction="horizontal" type="flex" vusion-slot-name="default">
+      <div class="root" style="height: 500px;">Block</div>
+      <div class="root" size="normal auto">Block</div>
+      <div class="root" size="large auto">Block</div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`u-linear-layout.vue Demo-间距 1`] = `
 <div>
   <div class="root" direction="vertical" type vusion-slot-name="default">

@@ -36,9 +36,6 @@ exports[`u-toast.vue Demo-可关闭 1`] = `
 
 exports[`u-toast.vue Demo-基本用法 1`] = `
 <div>
-  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    组件
-  </a>
 </div>
 `;
 
@@ -63,15 +60,6 @@ exports[`u-toast.vue Demo-嵌入文档流 1`] = `
       Static
     </a>
   </p>
-  <transition-group-stub class="root" enteractiveclass="animate__animated animate__fadeInUpSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active" moveclass="animate__move" position="static" tag="div"></transition-group-stub>
-</div>
-`;
-
-exports[`u-toast.vue Demo-嵌入文档流可关闭 1`] = `
-<div>
-  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    Static
-  </a>
   <transition-group-stub class="root" enteractiveclass="animate__animated animate__fadeInUpSmall" leaveactiveclass="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active" moveclass="animate__move" position="static" tag="div"></transition-group-stub>
 </div>
 `;
@@ -106,6 +94,12 @@ exports[`u-toast.vue Demo-设置颜色 1`] = `
   </a>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
     短文本
+  </a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    自定义图标
+  </a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    自定义图标
   </a>
 </div>
 `;

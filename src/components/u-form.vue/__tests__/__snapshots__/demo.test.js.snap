@@ -2170,6 +2170,39 @@ exports[`u-form.vue Demo-表单逻辑 1`] = `
 </div>
 `;
 
+exports[`u-form.vue Demo-表单项必填标记位置 1`] = `
+<div class="root" layout="block">
+  <div class="root" distance label-size="normal">
+    <label class="label" position="left" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">用户名 </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <div color maxlength="12">
+          <span>b</span>
+          <span>4~12个字符</span>
+          <input maxlength="12" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" distance label-size="normal">
+    <label class="label" position="right" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label"> </span>
+    </label>
+    <div class="field">
+      <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
+      <div class="wrap" vusion-slot-name="default">
+        <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+          提交
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`u-form.vue Demo-表单验证 1`] = `
 <div class="root" gap="large" layout="block">
   <div class="root" distance label-size="normal">
