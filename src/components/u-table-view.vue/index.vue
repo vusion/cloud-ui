@@ -640,7 +640,10 @@ export default {
 
             this.handleData();
         },
-        currentData(currentData) {
+        currentData(currentData, oldCurrentData) {
+            if (currentData !== oldCurrentData) {
+                this.selectedItem = undefined;
+            }
             this.watchValue(this.value);
             this.watchValues(this.values);
         },
