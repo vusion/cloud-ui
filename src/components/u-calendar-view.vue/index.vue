@@ -79,7 +79,7 @@ export default {
         value: {
             type: [Date, String, Number, Array],
             default() {
-                return new Date();
+                return dayjs();
             },
         },
         minDate: [Date, String, Number],
@@ -301,7 +301,7 @@ export default {
                     if (maxDay.isBefore(selectedDate) || minDay.isAfter(selectedDate)) {
                         this.year = minYear;
                         this.month = minMonth;
-                        this.selectedDates = [this.selectedDate];
+                        this.selectedDates = [minDay.clone().startOf('day')];
                     }
                 }
                 this.showToday = !maxDay.isBefore(date) && !minDay.isAfter(date);
