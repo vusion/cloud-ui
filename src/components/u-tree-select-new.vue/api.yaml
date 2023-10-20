@@ -91,10 +91,10 @@
       docDescription: 开启后父节点选择不会全选子节点，子节点选择不会联动父节点
       tooltipLink: ""
     - name: disabled-field
-      title: 可选择节点
+      title:  不可选择字段 
       type: string
       display: property-select
-      default: ""
+      default: "disabled"
       description: 集合的元素类型中，用于标识节点的disabled属性
       group: 交互属性
       brifeDoc: ""
