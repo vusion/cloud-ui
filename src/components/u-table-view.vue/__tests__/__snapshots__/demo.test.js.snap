@@ -5,7 +5,7 @@ exports[`u-table-view.vue Demo-average 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" line="true" striped="true">
+        <table class="root head-table" line="true" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -45,7 +45,7 @@ exports[`u-table-view.vue Demo-average 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" line="true" striped="true">
+              <table class="root" line="true" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -158,7 +158,7 @@ exports[`u-table-view.vue Demo-data-source Error 的情况 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -195,7 +195,7 @@ exports[`u-table-view.vue Demo-data-source Error 的情况 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -242,7 +242,7 @@ exports[`u-table-view.vue Demo-data-source 函数 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -279,7 +279,7 @@ exports[`u-table-view.vue Demo-data-source 函数 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -392,7 +392,7 @@ exports[`u-table-view.vue Demo-data-source 数组 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -429,7 +429,7 @@ exports[`u-table-view.vue Demo-data-source 数组 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -546,7 +546,7 @@ exports[`u-table-view.vue Demo-loading 的问题 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" striped="true">
+        <table class="root head-table" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -583,7 +583,7 @@ exports[`u-table-view.vue Demo-loading 的问题 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" striped="true">
+              <table class="root" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -663,7 +663,7 @@ exports[`u-table-view.vue Demo-none 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" line="true" striped="true">
+        <table class="root head-table" line="true" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -703,7 +703,7 @@ exports[`u-table-view.vue Demo-none 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" line="true" striped="true">
+              <table class="root" line="true" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -817,7 +817,7 @@ exports[`u-table-view.vue Demo-sequence 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" line="true" striped="true">
+        <table class="root head-table" line="true" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -857,7 +857,7 @@ exports[`u-table-view.vue Demo-sequence 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" line="true" striped="true">
+              <table class="root" line="true" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -997,7 +997,7 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
             <div class="root">
               <div class="table" position="static">
                 <div class="head" style="top: 0px;">
-                  <table class="root head-table" striped="true">
+                  <table class="root head-table" sticky-fixed="true" striped="true">
                     <colgroup>
                       <col width="0">
                       <col width="0">
@@ -1034,7 +1034,7 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
                   <div class="root scrollcview">
                     <div class="wrap">
                       <div>
-                        <table class="root" striped="true">
+                        <table class="root" sticky-fixed="true" striped="true">
                           <colgroup>
                             <col width="0">
                             <col width="0">
@@ -1186,7 +1186,7 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
             <div class="root">
               <div class="table" position="static">
                 <div class="head" style="top: 0px;">
-                  <table class="root head-table" striped="true">
+                  <table class="root head-table" sticky-fixed="true" striped="true">
                     <colgroup>
                       <col width="0">
                       <col width="0">
@@ -1223,7 +1223,7 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
                   <div class="root scrollcview">
                     <div class="wrap">
                       <div>
-                        <table class="root" striped="true">
+                        <table class="root" sticky-fixed="true" striped="true">
                           <colgroup>
                             <col width="0">
                             <col width="0">
@@ -1381,7 +1381,7 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
             <div class="root">
               <div class="table" position="static">
                 <div class="head" style="top: 0px;">
-                  <table class="root head-table" striped="true">
+                  <table class="root head-table" sticky-fixed="true" striped="true">
                     <colgroup>
                       <col width="0">
                       <col width="0">
@@ -1418,7 +1418,7 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
                   <div class="root scrollcview">
                     <div class="wrap">
                       <div>
-                        <table class="root" striped="true">
+                        <table class="root" sticky-fixed="true" striped="true">
                           <colgroup>
                             <col width="0">
                             <col width="0">
@@ -1570,7 +1570,7 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
             <div class="root">
               <div class="table" position="static">
                 <div class="head" style="top: 0px;">
-                  <table class="root head-table" striped="true">
+                  <table class="root head-table" sticky-fixed="true" striped="true">
                     <colgroup>
                       <col width="0">
                       <col width="0">
@@ -1607,7 +1607,7 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
                   <div class="root scrollcview">
                     <div class="wrap">
                       <div>
-                        <table class="root" striped="true">
+                        <table class="root" sticky-fixed="true" striped="true">
                           <colgroup>
                             <col width="0">
                             <col width="0">
@@ -1781,7 +1781,7 @@ exports[`u-table-view.vue Demo-v-show 1`] = `
     <div class="root" style="max-height: 300px; display: none;">
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" striped="true" style="width: 0px;">
+          <table class="root head-table" sticky-fixed="true" striped="true" style="width: 0px;">
             <colgroup>
               <col>
               <col>
@@ -1818,7 +1818,7 @@ exports[`u-table-view.vue Demo-v-show 1`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" striped="true" style="width: 0px;">
+                <table class="root" sticky-fixed="true" striped="true" style="width: 0px;">
                   <colgroup>
                     <col>
                     <col>
@@ -2002,7 +2002,7 @@ exports[`u-table-view.vue Demo-value-field 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -2051,7 +2051,7 @@ exports[`u-table-view.vue Demo-value-field 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -2249,7 +2249,7 @@ exports[`u-table-view.vue Demo-两个表格拖拽 1`] = `
       <div class="root">
         <div class="table" position="static">
           <div class="head" style="top: 0px;">
-            <table class="root head-table" style="width: 130px;">
+            <table class="root head-table" sticky-fixed="true" style="width: 130px;">
               <colgroup>
                 <col width="30">
                 <col width="0">
@@ -2298,7 +2298,7 @@ exports[`u-table-view.vue Demo-两个表格拖拽 1`] = `
             <div class="root scrollcview">
               <div class="wrap">
                 <div>
-                  <table class="root" style="width: 130px;">
+                  <table class="root" sticky-fixed="true" style="width: 130px;">
                     <colgroup>
                       <col width="30">
                       <col width="0">
@@ -2480,7 +2480,7 @@ exports[`u-table-view.vue Demo-两个表格拖拽 1`] = `
       <div class="root">
         <div class="table" position="static">
           <div class="head" style="top: 0px;">
-            <table class="root head-table">
+            <table class="root head-table" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -2517,7 +2517,7 @@ exports[`u-table-view.vue Demo-两个表格拖拽 1`] = `
             <div class="root scrollcview">
               <div class="wrap">
                 <div>
-                  <table class="root">
+                  <table class="root" sticky-fixed="true">
                     <colgroup>
                       <col width="0">
                       <col width="0">
@@ -2655,7 +2655,7 @@ exports[`u-table-view.vue Demo-两个表格拖拽 2`] = `
       <div class="root">
         <div class="table" position="static">
           <div class="head" style="top: 0px;">
-            <table class="root head-table" style="width: 130px;">
+            <table class="root head-table" sticky-fixed="true" style="width: 130px;">
               <colgroup>
                 <col width="30">
                 <col width="0">
@@ -2704,7 +2704,7 @@ exports[`u-table-view.vue Demo-两个表格拖拽 2`] = `
             <div class="root scrollcview">
               <div class="wrap">
                 <div>
-                  <table class="root" style="width: 130px;">
+                  <table class="root" sticky-fixed="true" style="width: 130px;">
                     <colgroup>
                       <col width="30">
                       <col width="0">
@@ -2886,7 +2886,7 @@ exports[`u-table-view.vue Demo-两个表格拖拽 2`] = `
       <div class="root">
         <div class="table" position="static">
           <div class="head" style="top: 0px;">
-            <table class="root head-table">
+            <table class="root head-table" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -2923,7 +2923,7 @@ exports[`u-table-view.vue Demo-两个表格拖拽 2`] = `
             <div class="root scrollcview">
               <div class="wrap">
                 <div>
-                  <table class="root">
+                  <table class="root" sticky-fixed="true">
                     <colgroup>
                       <col width="0">
                       <col width="0">
@@ -3061,7 +3061,7 @@ exports[`u-table-view.vue Demo-两个表格拖拽 3`] = `
       <div class="root">
         <div class="table" position="static">
           <div class="head" style="top: 0px;">
-            <table class="root head-table" style="width: 130px;">
+            <table class="root head-table" sticky-fixed="true" style="width: 130px;">
               <colgroup>
                 <col width="30">
                 <col width="0">
@@ -3104,7 +3104,7 @@ exports[`u-table-view.vue Demo-两个表格拖拽 3`] = `
             <div class="root scrollcview">
               <div class="wrap">
                 <div>
-                  <table class="root" style="width: 130px;">
+                  <table class="root" sticky-fixed="true" style="width: 130px;">
                     <colgroup>
                       <col width="30">
                       <col width="0">
@@ -3361,7 +3361,7 @@ exports[`u-table-view.vue Demo-两个表格拖拽 3`] = `
       <div class="root">
         <div class="table" position="static">
           <div class="head" style="top: 0px;">
-            <table class="root head-table">
+            <table class="root head-table" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -3392,7 +3392,7 @@ exports[`u-table-view.vue Demo-两个表格拖拽 3`] = `
             <div class="root scrollcview">
               <div class="wrap">
                 <div>
-                  <table class="root">
+                  <table class="root" sticky-fixed="true">
                     <colgroup>
                       <col width="0">
                       <col width="0">
@@ -3507,7 +3507,7 @@ exports[`u-table-view.vue Demo-全部百分比 1`] = `
   <div class="root" style="max-height: 300px;">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" striped="true" style="width: 0px;">
+        <table class="root head-table" sticky-fixed="true" striped="true" style="width: 0px;">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -3562,7 +3562,7 @@ exports[`u-table-view.vue Demo-全部百分比 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" striped="true" style="width: 0px;">
+              <table class="root" sticky-fixed="true" striped="true" style="width: 0px;">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -3844,7 +3844,7 @@ exports[`u-table-view.vue Demo-切换时分页调整不回来，分页报错 1`]
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -3881,7 +3881,7 @@ exports[`u-table-view.vue Demo-切换时分页调整不回来，分页报错 1`]
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -3961,7 +3961,7 @@ exports[`u-table-view.vue Demo-列插槽 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -3998,7 +3998,7 @@ exports[`u-table-view.vue Demo-列插槽 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -4121,7 +4121,7 @@ exports[`u-table-view.vue Demo-刚开始为空的情况 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -4158,7 +4158,7 @@ exports[`u-table-view.vue Demo-刚开始为空的情况 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -4205,7 +4205,7 @@ exports[`u-table-view.vue Demo-前端分页 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -4242,7 +4242,7 @@ exports[`u-table-view.vue Demo-前端分页 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -4320,7 +4320,7 @@ exports[`u-table-view.vue Demo-前端排序 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -4360,7 +4360,7 @@ exports[`u-table-view.vue Demo-前端排序 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -4442,7 +4442,7 @@ exports[`u-table-view.vue Demo-前端排序不需要 sorting 也能保持状态 
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -4482,7 +4482,7 @@ exports[`u-table-view.vue Demo-前端排序不需要 sorting 也能保持状态 
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -4563,7 +4563,7 @@ exports[`u-table-view.vue Demo-前端过滤（筛选） 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -4628,7 +4628,7 @@ exports[`u-table-view.vue Demo-前端过滤（筛选） 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -4706,7 +4706,7 @@ exports[`u-table-view.vue Demo-前端过滤（筛选）- 筛选项可多选 1`] 
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -4857,7 +4857,7 @@ exports[`u-table-view.vue Demo-前端过滤（筛选）- 筛选项可多选 1`] 
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -4936,7 +4936,7 @@ exports[`u-table-view.vue Demo-加载中 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -4973,7 +4973,7 @@ exports[`u-table-view.vue Demo-加载中 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -5022,7 +5022,7 @@ exports[`u-table-view.vue Demo-加载中 2`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -5059,7 +5059,7 @@ exports[`u-table-view.vue Demo-加载中 2`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -5108,7 +5108,7 @@ exports[`u-table-view.vue Demo-加载错误 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -5145,7 +5145,7 @@ exports[`u-table-view.vue Demo-加载错误 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -5194,7 +5194,7 @@ exports[`u-table-view.vue Demo-加载错误 2`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -5231,7 +5231,7 @@ exports[`u-table-view.vue Demo-加载错误 2`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -5299,7 +5299,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
     <div class="root">
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" striped="true">
+          <table class="root head-table" sticky-fixed="true" striped="true">
             <colgroup>
               <col width="0">
               <col width="0">
@@ -5364,7 +5364,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" striped="true">
+                <table class="root" sticky-fixed="true" striped="true">
                   <colgroup>
                     <col width="0">
                     <col width="0">
@@ -5578,7 +5578,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
       <div class="root">
         <div class="table" position="static">
           <div class="head" style="top: 0px;">
-            <table class="root head-table" striped="true">
+            <table class="root head-table" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -5633,7 +5633,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
             <div class="root scrollcview">
               <div class="wrap">
                 <div>
-                  <table class="root" striped="true">
+                  <table class="root" sticky-fixed="true" striped="true">
                     <colgroup>
                       <col width="0">
                       <col width="0">
@@ -5687,7 +5687,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
     <div class="root">
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" striped="true">
+          <table class="root head-table" sticky-fixed="true" striped="true">
             <colgroup>
               <col width="0">
               <col width="0">
@@ -5758,7 +5758,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" striped="true">
+                <table class="root" sticky-fixed="true" striped="true">
                   <colgroup>
                     <col width="0">
                     <col width="0">
@@ -5815,7 +5815,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
     <div class="root">
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" striped="true">
+          <table class="root head-table" sticky-fixed="true" striped="true">
             <colgroup>
               <col width="200">
               <col width="200">
@@ -5848,24 +5848,24 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                     手机号码
                   </span>
                 </th>
-                <th class="head-title boldHeader" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 1;">
+                <th class="head-title boldHeader" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     地址
                   </span>
                 </th>
-                <th class="head-title boldHeader" style="position: sticky; right: 300px; z-index: 1;">
+                <th class="head-title boldHeader" style="position: sticky; right: 300px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     最近登录时间
                   </span>
                 </th>
-                <th class="head-title boldHeader" style="position: sticky; right: 150px; z-index: 1;">
+                <th class="head-title boldHeader" style="position: sticky; right: 150px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     <div>
                       <span class="root" vusion-slot-name-edit="text">一月份</span>
                     </div>
                   </span>
                 </th>
-                <th class="head-title boldHeader" colspan="1" style="position: sticky; right: 0px; z-index: 1;">
+                <th class="head-title boldHeader" colspan="1" style="position: sticky; right: 0px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     <div>
                       <span class="root" vusion-slot-name-edit="text">二月份</span>
@@ -5880,7 +5880,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" striped="true">
+                <table class="root" sticky-fixed="true" striped="true">
                   <colgroup>
                     <col width="200">
                     <col width="200">
@@ -5906,18 +5906,18 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">18612917895</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 300px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 300px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 150px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 150px; z-index: 99;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">张三 一月份</span>
                         </div>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">张三 二月份</span>
                         </div>
@@ -5938,18 +5938,18 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">13727160283</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 300px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 300px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 150px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 150px; z-index: 99;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">小明 一月份</span>
                         </div>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">小明 二月份</span>
                         </div>
@@ -5970,18 +5970,18 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">18897127809</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 300px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 300px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 150px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 150px; z-index: 99;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李四 一月份</span>
                         </div>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李四 二月份</span>
                         </div>
@@ -6002,18 +6002,18 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       <td class="cell" disabled="disabled">
                         <span class="column-field" vusion-slot-name="cell">18749261214</span>
                       </td>
-                      <td class="cell" disabled="disabled" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 1;">
+                      <td class="cell" disabled="disabled" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                       </td>
-                      <td class="cell" disabled="disabled" style="position: sticky; right: 300px; z-index: 1;">
+                      <td class="cell" disabled="disabled" style="position: sticky; right: 300px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                       </td>
-                      <td class="cell" disabled="disabled" style="position: sticky; right: 150px; z-index: 1;">
+                      <td class="cell" disabled="disabled" style="position: sticky; right: 150px; z-index: 99;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李华 一月份</span>
                         </div>
                       </td>
-                      <td class="cell" disabled="disabled" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" disabled="disabled" style="position: sticky; right: 0px; z-index: 99;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李华 二月份</span>
                         </div>
@@ -6034,18 +6034,18 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">13579340020</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 450px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 300px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 300px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 150px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 150px; z-index: 99;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">王五 一月份</span>
                         </div>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">王五 二月份</span>
                         </div>
@@ -6089,7 +6089,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
     <div class="root">
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" striped="true">
+          <table class="root head-table" sticky-fixed="true" striped="true">
             <colgroup>
               <col width="0">
               <col width="0">
@@ -6152,7 +6152,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" striped="true">
+                <table class="root" sticky-fixed="true" striped="true">
                   <colgroup>
                     <col width="0">
                     <col width="0">
@@ -6237,7 +6237,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
     <div class="root">
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" striped="true" style="width: 0px;">
+          <table class="root head-table" sticky-fixed="true" striped="true" style="width: 0px;">
             <colgroup>
               <col width="0">
               <col width="0">
@@ -6274,7 +6274,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" striped="true" style="width: 0px;">
+                <table class="root" sticky-fixed="true" striped="true" style="width: 0px;">
                   <colgroup>
                     <col width="0">
                     <col width="0">
@@ -6395,7 +6395,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
     <div class="root">
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" striped="true" style="width: 200px;">
+          <table class="root head-table" sticky-fixed="true" striped="true" style="width: 200px;">
             <colgroup>
               <col width="0">
               <col width="0">
@@ -6444,7 +6444,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" striped="true" style="width: 200px;">
+                <table class="root" sticky-fixed="true" striped="true" style="width: 200px;">
                   <colgroup>
                     <col width="0">
                     <col width="0">
@@ -6600,7 +6600,7 @@ exports[`u-table-view.vue Demo-单行省略显示 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" line="true" striped="true">
+        <table class="root head-table" line="true" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -6637,7 +6637,7 @@ exports[`u-table-view.vue Demo-单行省略显示 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" line="true" striped="true">
+              <table class="root" line="true" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -6751,7 +6751,7 @@ exports[`u-table-view.vue Demo-单行颜色 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -6788,7 +6788,7 @@ exports[`u-table-view.vue Demo-单行颜色 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -6902,7 +6902,7 @@ exports[`u-table-view.vue Demo-单选列 1`] = `
   <div class="root" hover>
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" striped="true">
+        <table class="root head-table" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -6945,7 +6945,7 @@ exports[`u-table-view.vue Demo-单选列 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" striped="true">
+              <table class="root" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -7076,7 +7076,7 @@ exports[`u-table-view.vue Demo-单选列 2`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -7119,7 +7119,7 @@ exports[`u-table-view.vue Demo-单选列 2`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -7274,7 +7274,7 @@ exports[`u-table-view.vue Demo-后端分页 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -7311,7 +7311,7 @@ exports[`u-table-view.vue Demo-后端分页 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -7389,7 +7389,7 @@ exports[`u-table-view.vue Demo-后端排序 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -7441,7 +7441,7 @@ exports[`u-table-view.vue Demo-后端排序 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -7522,7 +7522,7 @@ exports[`u-table-view.vue Demo-后端排序 2`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -7562,7 +7562,7 @@ exports[`u-table-view.vue Demo-后端排序 2`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -7640,7 +7640,7 @@ exports[`u-table-view.vue Demo-后端排序，前端分页 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -7680,7 +7680,7 @@ exports[`u-table-view.vue Demo-后端排序，前端分页 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -7758,7 +7758,7 @@ exports[`u-table-view.vue Demo-后端过滤（筛选） 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -7823,7 +7823,7 @@ exports[`u-table-view.vue Demo-后端过滤（筛选） 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -7901,7 +7901,7 @@ exports[`u-table-view.vue Demo-后端过滤（筛选）- 筛选项可多选 1`] 
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -7993,7 +7993,7 @@ exports[`u-table-view.vue Demo-后端过滤（筛选）- 筛选项可多选 1`] 
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -8071,7 +8071,7 @@ exports[`u-table-view.vue Demo-后端过滤，前端分页 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -8136,7 +8136,7 @@ exports[`u-table-view.vue Demo-后端过滤，前端分页 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -8215,7 +8215,7 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
   <div class="root" style="max-height: 300px;">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" striped="true" style="width: 400px;">
+        <table class="root head-table" sticky-fixed="true" striped="true" style="width: 400px;">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -8225,12 +8225,12 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
           </colgroup>
           <thead>
             <tr>
-              <th class="head-title boldHeader" style="position: sticky; left: 0px; z-index: 1;">
+              <th class="head-title boldHeader" style="position: sticky; left: 0px; z-index: 99;">
                 <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                   序号
                 </span>
               </th>
-              <th class="head-title boldHeader" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 1;">
+              <th class="head-title boldHeader" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 99;">
                 <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                   姓名
                 </span>
@@ -8245,7 +8245,7 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
                   城市
                 </span>
               </th>
-              <th class="head-title boldHeader" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+              <th class="head-title boldHeader" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                 <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                   出生日期
                 </span>
@@ -8258,7 +8258,7 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" striped="true" style="width: 400px;">
+              <table class="root" sticky-fixed="true" striped="true" style="width: 400px;">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -8268,10 +8268,10 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
                 </colgroup>
                 <tbody>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">1</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">张三</span>
                     </td>
                     <td class="cell">
@@ -8280,15 +8280,15 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">杭州市</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">19910528</span>
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">2</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">小明</span>
                     </td>
                     <td class="cell">
@@ -8297,15 +8297,15 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">杭州市</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">19920914</span>
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">3</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">李四</span>
                     </td>
                     <td class="cell">
@@ -8314,15 +8314,15 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">杭州市</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">19900228</span>
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">4</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">李华</span>
                     </td>
                     <td class="cell">
@@ -8331,15 +8331,15 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">杭州市</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">19891210</span>
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">5</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">王五</span>
                     </td>
                     <td class="cell">
@@ -8348,15 +8348,15 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">杭州市</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">19930716</span>
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">1</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">张三</span>
                     </td>
                     <td class="cell">
@@ -8365,15 +8365,15 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">杭州市</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">19910528</span>
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">2</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">小明</span>
                     </td>
                     <td class="cell">
@@ -8382,15 +8382,15 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">杭州市</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">19920914</span>
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">3</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">李四</span>
                     </td>
                     <td class="cell">
@@ -8399,15 +8399,15 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">杭州市</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">19900228</span>
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">4</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">李华</span>
                     </td>
                     <td class="cell">
@@ -8416,15 +8416,15 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">杭州市</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">19891210</span>
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">5</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">王五</span>
                     </td>
                     <td class="cell">
@@ -8433,7 +8433,7 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">杭州市</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">19930716</span>
                     </td>
                   </tr>
@@ -8476,7 +8476,7 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
     <div class="root" style="max-height: 300px;">
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" style="width: 1000px;">
+          <table class="root head-table" sticky-fixed="true" style="width: 1000px;">
             <colgroup>
               <col width="50">
               <col width="70">
@@ -8489,12 +8489,12 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
             </colgroup>
             <thead>
               <tr>
-                <th class="head-title boldHeader" style="position: sticky; left: 0px; z-index: 1;">
+                <th class="head-title boldHeader" style="position: sticky; left: 0px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     序号
                   </span>
                 </th>
-                <th class="head-title boldHeader" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                <th class="head-title boldHeader" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     用户名
                   </span>
@@ -8514,17 +8514,17 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                     地址
                   </span>
                 </th>
-                <th class="head-title boldHeader" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                <th class="head-title boldHeader" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     创建时间
                   </span>
                 </th>
-                <th class="head-title boldHeader" style="position: sticky; right: 120px; z-index: 1;">
+                <th class="head-title boldHeader" style="position: sticky; right: 120px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     最近登录时间
                   </span>
                 </th>
-                <th class="head-title boldHeader" style="position: sticky; right: 0px; z-index: 1;">
+                <th class="head-title boldHeader" style="position: sticky; right: 0px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     操作
                   </span>
@@ -8537,7 +8537,7 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" style="width: 1000px;">
+                <table class="root" sticky-fixed="true" style="width: 1000px;">
                   <colgroup>
                     <col width="50">
                     <col width="70">
@@ -8550,10 +8550,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                   </colgroup>
                   <tbody>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>1</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">张三</span>
                       </td>
                       <td class="cell">
@@ -8565,13 +8565,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2016-05-28 15:52:11</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -8581,10 +8581,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>2</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">小明</span>
                       </td>
                       <td class="cell">
@@ -8596,13 +8596,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-03-12 22:24:36</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -8612,10 +8612,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>3</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">李四</span>
                       </td>
                       <td class="cell">
@@ -8627,13 +8627,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2017-05-11 15:45:30</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -8643,10 +8643,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>4</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">李华</span>
                       </td>
                       <td class="cell">
@@ -8658,13 +8658,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2016-10-10 12:32:01</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -8674,10 +8674,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>5</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">王五</span>
                       </td>
                       <td class="cell">
@@ -8689,13 +8689,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2016-07-16 04:32:06</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -8705,10 +8705,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>6</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">张三</span>
                       </td>
                       <td class="cell">
@@ -8720,13 +8720,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2016-05-28 15:52:11</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -8736,10 +8736,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>7</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">小明</span>
                       </td>
                       <td class="cell">
@@ -8751,13 +8751,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-03-12 22:24:36</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -8767,10 +8767,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>8</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">李四</span>
                       </td>
                       <td class="cell">
@@ -8782,13 +8782,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2017-05-11 15:45:30</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -8798,10 +8798,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>9</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">李华</span>
                       </td>
                       <td class="cell">
@@ -8813,13 +8813,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2016-10-10 12:32:01</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -8829,10 +8829,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>10</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">王五</span>
                       </td>
                       <td class="cell">
@@ -8844,13 +8844,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2016-07-16 04:32:06</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -8898,7 +8898,7 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
     <div class="root" style="max-height: 300px;">
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" line="true" style="width: 1000px;">
+          <table class="root head-table" line="true" sticky-fixed="true" style="width: 1000px;">
             <colgroup>
               <col width="50">
               <col width="70">
@@ -8911,12 +8911,12 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
             </colgroup>
             <thead>
               <tr>
-                <th class="head-title boldHeader" style="position: sticky; left: 0px; z-index: 1;">
+                <th class="head-title boldHeader" style="position: sticky; left: 0px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     序号
                   </span>
                 </th>
-                <th class="head-title boldHeader" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                <th class="head-title boldHeader" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     用户名
                   </span>
@@ -8936,17 +8936,17 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                     地址
                   </span>
                 </th>
-                <th class="head-title boldHeader" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                <th class="head-title boldHeader" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     创建时间
                   </span>
                 </th>
-                <th class="head-title boldHeader" style="position: sticky; right: 120px; z-index: 1;">
+                <th class="head-title boldHeader" style="position: sticky; right: 120px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     最近登录时间
                   </span>
                 </th>
-                <th class="head-title boldHeader" style="position: sticky; right: 0px; z-index: 1;">
+                <th class="head-title boldHeader" style="position: sticky; right: 0px; z-index: 99;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     操作
                   </span>
@@ -8959,7 +8959,7 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" line="true" style="width: 1000px;">
+                <table class="root" line="true" sticky-fixed="true" style="width: 1000px;">
                   <colgroup>
                     <col width="50">
                     <col width="70">
@@ -8972,10 +8972,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                   </colgroup>
                   <tbody>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>1</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">张三</span>
                       </td>
                       <td class="cell">
@@ -8987,13 +8987,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2016-05-28 15:52:11</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -9003,10 +9003,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>2</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">小明</span>
                       </td>
                       <td class="cell">
@@ -9018,13 +9018,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-03-12 22:24:36</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -9034,10 +9034,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>3</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">李四</span>
                       </td>
                       <td class="cell">
@@ -9049,13 +9049,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2017-05-11 15:45:30</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -9065,10 +9065,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>4</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">李华</span>
                       </td>
                       <td class="cell">
@@ -9080,13 +9080,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2016-10-10 12:32:01</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -9096,10 +9096,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>5</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">王五</span>
                       </td>
                       <td class="cell">
@@ -9111,13 +9111,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2016-07-16 04:32:06</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -9127,10 +9127,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>6</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">张三</span>
                       </td>
                       <td class="cell">
@@ -9142,13 +9142,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2016-05-28 15:52:11</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -9158,10 +9158,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>7</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">小明</span>
                       </td>
                       <td class="cell">
@@ -9173,13 +9173,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-03-12 22:24:36</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -9189,10 +9189,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>8</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">李四</span>
                       </td>
                       <td class="cell">
@@ -9204,13 +9204,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2017-05-11 15:45:30</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -9220,10 +9220,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>9</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">李华</span>
                       </td>
                       <td class="cell">
@@ -9235,13 +9235,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2016-10-10 12:32:01</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -9251,10 +9251,10 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       </td>
                     </tr>
                     <tr class="row">
-                      <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                         <span>10</span>
                       </td>
-                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                      <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">王五</span>
                       </td>
                       <td class="cell">
@@ -9266,13 +9266,13 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                       <td class="cell">
                         <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
                       </td>
-                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" first-right-fixed="true" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2016-07-16 04:32:06</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 120px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 120px; z-index: 99;">
                         <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
                       </td>
-                      <td class="cell" style="position: sticky; right: 0px; z-index: 1;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99;">
                         <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                           详情
                         </a>&nbsp;
@@ -9325,7 +9325,7 @@ exports[`u-table-view.vue Demo-多选列 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -9374,7 +9374,7 @@ exports[`u-table-view.vue Demo-多选列 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -9529,7 +9529,7 @@ exports[`u-table-view.vue Demo-多选列 2`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -9578,7 +9578,7 @@ exports[`u-table-view.vue Demo-多选列 2`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -9733,7 +9733,7 @@ exports[`u-table-view.vue Demo-多选的问题 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -9782,7 +9782,7 @@ exports[`u-table-view.vue Demo-多选的问题 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -9942,7 +9942,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
     <div class="title" style="text-align: center;" vusion-slot-name="title" vusion-slot-name-edit="title">表格标题</div>
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" style="width: 660px;">
+        <table class="root head-table" sticky-fixed="true" style="width: 660px;">
           <colgroup>
             <col width="60">
             <col width="100">
@@ -9997,7 +9997,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" style="width: 660px;">
+              <table class="root" sticky-fixed="true" style="width: 660px;">
                 <colgroup>
                   <col width="60">
                   <col width="100">
@@ -18700,7 +18700,7 @@ exports[`u-table-view.vue Demo-局部报错 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -18749,7 +18749,7 @@ exports[`u-table-view.vue Demo-局部报错 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -18904,7 +18904,7 @@ exports[`u-table-view.vue Demo-展开列 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -18947,7 +18947,7 @@ exports[`u-table-view.vue Demo-展开列 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -19092,7 +19092,7 @@ exports[`u-table-view.vue Demo-展开列 2`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -19135,7 +19135,7 @@ exports[`u-table-view.vue Demo-展开列 2`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -19280,7 +19280,7 @@ exports[`u-table-view.vue Demo-展开列 3`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -19323,7 +19323,7 @@ exports[`u-table-view.vue Demo-展开列 3`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -19469,7 +19469,7 @@ exports[`u-table-view.vue Demo-序号列 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" striped="true">
+        <table class="root head-table" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -19512,7 +19512,7 @@ exports[`u-table-view.vue Demo-序号列 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" striped="true">
+              <table class="root" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -19643,7 +19643,7 @@ exports[`u-table-view.vue Demo-手动加载更多 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -19680,7 +19680,7 @@ exports[`u-table-view.vue Demo-手动加载更多 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -19727,7 +19727,7 @@ exports[`u-table-view.vue Demo-排序+调整列宽 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -19795,7 +19795,7 @@ exports[`u-table-view.vue Demo-排序+调整列宽 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -20009,7 +20009,7 @@ exports[`u-table-view.vue Demo-数据后来加载过来时，高度应当重新�
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -20058,7 +20058,7 @@ exports[`u-table-view.vue Demo-数据后来加载过来时，高度应当重新�
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -20143,7 +20143,7 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
       </div>
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" striped="true" style="width: 0px;">
+          <table class="root head-table" sticky-fixed="true" striped="true" style="width: 0px;">
             <colgroup>
               <col>
               <col>
@@ -20180,7 +20180,7 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" striped="true" style="width: 0px;">
+                <table class="root" sticky-fixed="true" striped="true" style="width: 0px;">
                   <colgroup>
                     <col>
                     <col>
@@ -20423,7 +20423,7 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
       </div>
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" striped="true" style="width: 0px;">
+          <table class="root head-table" sticky-fixed="true" striped="true" style="width: 0px;">
             <colgroup>
               <col>
               <col>
@@ -20460,7 +20460,7 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" striped="true" style="width: 0px;">
+                <table class="root" sticky-fixed="true" striped="true" style="width: 0px;">
                   <colgroup>
                     <col>
                     <col>
@@ -20703,7 +20703,7 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
       </div>
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" striped="true" style="width: 0px;">
+          <table class="root head-table" sticky-fixed="true" striped="true" style="width: 0px;">
             <colgroup>
               <col>
               <col>
@@ -20734,7 +20734,7 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" striped="true" style="width: 0px;">
+                <table class="root" sticky-fixed="true" striped="true" style="width: 0px;">
                   <colgroup>
                     <col>
                     <col>
@@ -20939,7 +20939,7 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
       </div>
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" striped="true" style="width: 0px;">
+          <table class="root head-table" sticky-fixed="true" striped="true" style="width: 0px;">
             <colgroup>
               <col>
               <col>
@@ -20964,7 +20964,7 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" striped="true" style="width: 0px;">
+                <table class="root" sticky-fixed="true" striped="true" style="width: 0px;">
                   <colgroup>
                     <col>
                     <col>
@@ -21138,7 +21138,7 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
       </div>
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" striped="true" style="width: 0px;">
+          <table class="root head-table" sticky-fixed="true" striped="true" style="width: 0px;">
             <colgroup>
               <col>
               <col>
@@ -21175,7 +21175,7 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" striped="true" style="width: 0px;">
+                <table class="root" sticky-fixed="true" striped="true" style="width: 0px;">
                   <colgroup>
                     <col>
                     <col>
@@ -21402,7 +21402,7 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
       </div>
       <div class="table" position="static">
         <div class="head" style="top: 0px;">
-          <table class="root head-table" striped="true" style="width: 0px;">
+          <table class="root head-table" sticky-fixed="true" striped="true" style="width: 0px;">
             <colgroup>
               <col>
               <col>
@@ -21427,7 +21427,7 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
           <div class="root scrollcview">
             <div class="wrap">
               <div>
-                <table class="root" striped="true" style="width: 0px;">
+                <table class="root" sticky-fixed="true" striped="true" style="width: 0px;">
                   <colgroup>
                     <col>
                     <col>
@@ -21550,7 +21550,7 @@ exports[`u-table-view.vue Demo-普通数据表格 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" style="width: 0px;">
+        <table class="root head-table" sticky-fixed="true" style="width: 0px;">
           <colgroup></colgroup>
           <thead>
             <tr></tr>
@@ -21561,7 +21561,7 @@ exports[`u-table-view.vue Demo-普通数据表格 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" style="width: 0px;">
+              <table class="root" sticky-fixed="true" style="width: 0px;">
                 <colgroup></colgroup>
                 <tbody>
                   <tr>
@@ -21596,7 +21596,7 @@ exports[`u-table-view.vue Demo-条纹展示 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" striped="true">
+        <table class="root head-table" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -21633,7 +21633,7 @@ exports[`u-table-view.vue Demo-条纹展示 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" striped="true">
+              <table class="root" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -21775,7 +21775,7 @@ exports[`u-table-view.vue Demo-树型展示 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" style="width: 130px;">
+        <table class="root head-table" sticky-fixed="true" style="width: 130px;">
           <colgroup>
             <col width="30">
             <col width="0">
@@ -21824,7 +21824,7 @@ exports[`u-table-view.vue Demo-树型展示 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" style="width: 130px;">
+              <table class="root" sticky-fixed="true" style="width: 130px;">
                 <colgroup>
                   <col width="30">
                   <col width="0">
@@ -22113,7 +22113,7 @@ exports[`u-table-view.vue Demo-树型展示 2`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" style="width: 130px;">
+      <table class="root head-table" sticky-fixed="true" style="width: 130px;">
         <colgroup>
           <col width="30">
           <col width="0">
@@ -22162,7 +22162,7 @@ exports[`u-table-view.vue Demo-树型展示 2`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" style="width: 130px;">
+            <table class="root" sticky-fixed="true" style="width: 130px;">
               <colgroup>
                 <col width="30">
                 <col width="0">
@@ -22212,7 +22212,7 @@ exports[`u-table-view.vue Demo-树型展示，点击选中 1`] = `
 <div checkable class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" style="width: 130px;">
+      <table class="root head-table" sticky-fixed="true" style="width: 130px;">
         <colgroup>
           <col width="30">
           <col width="0">
@@ -22261,7 +22261,7 @@ exports[`u-table-view.vue Demo-树型展示，点击选中 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" style="width: 130px;">
+            <table class="root" sticky-fixed="true" style="width: 130px;">
               <colgroup>
                 <col width="30">
                 <col width="0">
@@ -22312,7 +22312,7 @@ exports[`u-table-view.vue Demo-格式器 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -22349,7 +22349,7 @@ exports[`u-table-view.vue Demo-格式器 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -22462,7 +22462,7 @@ exports[`u-table-view.vue Demo-格式器 2`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -22499,7 +22499,7 @@ exports[`u-table-view.vue Demo-格式器 2`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -22612,7 +22612,7 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
   <div class="root" style="max-height: 300px;">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" style="width: 1000px;">
+        <table class="root head-table" sticky-fixed="true" style="width: 1000px;">
           <colgroup>
             <col width="50">
             <col width="70">
@@ -22673,7 +22673,7 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" style="width: 1000px;">
+              <table class="root" sticky-fixed="true" style="width: 1000px;">
                 <colgroup>
                   <col width="50">
                   <col width="70">
@@ -23084,7 +23084,7 @@ exports[`u-table-view.vue Demo-步骤条中使用 1`] = `
       <div class="root">
         <div class="table" position="static">
           <div class="head" style="top: 0px;">
-            <table class="root head-table" striped="true">
+            <table class="root head-table" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -23133,7 +23133,7 @@ exports[`u-table-view.vue Demo-步骤条中使用 1`] = `
             <div class="root scrollcview">
               <div class="wrap">
                 <div>
-                  <table class="root" striped="true">
+                  <table class="root" sticky-fixed="true" striped="true">
                     <colgroup>
                       <col width="0">
                       <col width="0">
@@ -23311,7 +23311,7 @@ exports[`u-table-view.vue Demo-没有数据 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -23348,7 +23348,7 @@ exports[`u-table-view.vue Demo-没有数据 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -23398,7 +23398,7 @@ exports[`u-table-view.vue Demo-滚动加载更多 1`] = `
 <div class="root" style="height: 300px;">
   <div class="table" position="static" style="height: 0px;">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -23435,7 +23435,7 @@ exports[`u-table-view.vue Demo-滚动加载更多 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -23482,7 +23482,7 @@ exports[`u-table-view.vue Demo-特殊列与普通功能共用 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -23531,7 +23531,7 @@ exports[`u-table-view.vue Demo-特殊列与普通功能共用 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -23712,7 +23712,7 @@ exports[`u-table-view.vue Demo-百分比与数字结合，横向滚动 1`] = `
   <div class="root" style="max-height: 300px;">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" striped="true" style="width: 1000px;">
+        <table class="root head-table" sticky-fixed="true" striped="true" style="width: 1000px;">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -23767,7 +23767,7 @@ exports[`u-table-view.vue Demo-百分比与数字结合，横向滚动 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" striped="true" style="width: 1000px;">
+              <table class="root" sticky-fixed="true" striped="true" style="width: 1000px;">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -24050,7 +24050,7 @@ exports[`u-table-view.vue Demo-省略显示 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" line="horizontal" striped="true">
+        <table class="root head-table" line="horizontal" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -24087,7 +24087,7 @@ exports[`u-table-view.vue Demo-省略显示 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" line="horizontal" striped="true">
+              <table class="root" line="horizontal" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -24204,7 +24204,7 @@ exports[`u-table-view.vue Demo-空表格显示数据异常 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" striped="true">
+        <table class="root head-table" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -24241,7 +24241,7 @@ exports[`u-table-view.vue Demo-空表格显示数据异常 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" striped="true">
+              <table class="root" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -24325,7 +24325,7 @@ exports[`u-table-view.vue Demo-空表格添加数据不会 reload 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" striped="true">
+        <table class="root head-table" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -24362,7 +24362,7 @@ exports[`u-table-view.vue Demo-空表格添加数据不会 reload 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" striped="true">
+              <table class="root" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -24442,7 +24442,7 @@ exports[`u-table-view.vue Demo-纯前端过滤 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -24507,7 +24507,7 @@ exports[`u-table-view.vue Demo-纯前端过滤 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -24721,7 +24721,7 @@ exports[`u-table-view.vue Demo-纯数组前端分页 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -24758,7 +24758,7 @@ exports[`u-table-view.vue Demo-纯数组前端分页 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -24978,7 +24978,7 @@ exports[`u-table-view.vue Demo-纯数组前端排序 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -25018,7 +25018,7 @@ exports[`u-table-view.vue Demo-纯数组前端排序 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -25239,7 +25239,7 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" style="width: 220px;">
+        <table class="root head-table" sticky-fixed="true" style="width: 220px;">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -25282,7 +25282,7 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" style="width: 220px;">
+              <table class="root" sticky-fixed="true" style="width: 220px;">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -25432,7 +25432,7 @@ exports[`u-table-view.vue Demo-编辑行 2`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" style="width: 220px;">
+        <table class="root head-table" sticky-fixed="true" style="width: 220px;">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -25475,7 +25475,7 @@ exports[`u-table-view.vue Demo-编辑行 2`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" style="width: 220px;">
+              <table class="root" sticky-fixed="true" style="width: 220px;">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -25625,7 +25625,7 @@ exports[`u-table-view.vue Demo-编辑行-new 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col>
             <col>
@@ -25636,12 +25636,12 @@ exports[`u-table-view.vue Demo-编辑行-new 1`] = `
           </colgroup>
           <thead>
             <tr>
-              <th class="head-title boldHeader" style="position: sticky; left: 0px; z-index: 1;">
+              <th class="head-title boldHeader" style="position: sticky; left: 0px; z-index: 99;">
                 <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                   用户名
                 </span>
               </th>
-              <th class="head-title boldHeader" last-left-fixed="true" style="position: sticky; z-index: 1;">
+              <th class="head-title boldHeader" last-left-fixed="true" style="position: sticky; z-index: 99;">
                 <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                   最近登录时间
                 </span>
@@ -25674,7 +25674,7 @@ exports[`u-table-view.vue Demo-编辑行-new 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col>
                   <col>
@@ -25685,14 +25685,14 @@ exports[`u-table-view.vue Demo-编辑行-new 1`] = `
                 </colgroup>
                 <tbody>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <div class="editablewrap" style="width: 100%;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">张三</span>
                         </div>
                       </div>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
                     </td>
                     <td class="cell">
@@ -25715,14 +25715,14 @@ exports[`u-table-view.vue Demo-编辑行-new 1`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <div class="editablewrap" style="width: 100%;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">小明</span>
                         </div>
                       </div>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
                     </td>
                     <td class="cell">
@@ -25745,14 +25745,14 @@ exports[`u-table-view.vue Demo-编辑行-new 1`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <div class="editablewrap" style="width: 100%;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李四</span>
                         </div>
                       </div>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
                     </td>
                     <td class="cell">
@@ -25813,7 +25813,7 @@ exports[`u-table-view.vue Demo-翻页器功能 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -25850,7 +25850,7 @@ exports[`u-table-view.vue Demo-翻页器功能 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -25929,7 +25929,7 @@ exports[`u-table-view.vue Demo-自定义展开列图标 1`] = `
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table">
+      <table class="root head-table" sticky-fixed="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -25972,7 +25972,7 @@ exports[`u-table-view.vue Demo-自定义展开列图标 1`] = `
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root">
+            <table class="root" sticky-fixed="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -26119,7 +26119,7 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" line="true">
+        <table class="root head-table" line="true" sticky-fixed="true">
           <colgroup>
             <col>
             <col>
@@ -26199,7 +26199,7 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" line="true">
+              <table class="root" line="true" sticky-fixed="true">
                 <colgroup>
                   <col>
                   <col>
@@ -26423,7 +26423,7 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" striped="true">
+        <table class="root head-table" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -26491,7 +26491,7 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" striped="true">
+              <table class="root" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -26553,7 +26553,7 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
   <div class="root" style="max-height: 300px;">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" style="width: 1000px;">
+        <table class="root head-table" sticky-fixed="true" style="width: 1000px;">
           <colgroup>
             <col width="50">
             <col width="70">
@@ -26566,12 +26566,12 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
           </colgroup>
           <thead>
             <tr>
-              <th class="head-title boldHeader" style="position: sticky; left: 0px; z-index: 1;">
+              <th class="head-title boldHeader" style="position: sticky; left: 0px; z-index: 99;">
                 <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                   序号
                 </span>
               </th>
-              <th class="head-title boldHeader" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+              <th class="head-title boldHeader" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                 <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                   用户名
                 </span>
@@ -26601,7 +26601,7 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                   最近登录时间
                 </span>
               </th>
-              <th class="head-title boldHeader" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+              <th class="head-title boldHeader" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                 <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                   操作
                 </span>
@@ -26614,7 +26614,7 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" style="width: 1000px;">
+              <table class="root" sticky-fixed="true" style="width: 1000px;">
                 <colgroup>
                   <col width="50">
                   <col width="70">
@@ -26627,10 +26627,10 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                 </colgroup>
                 <tbody>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span>1</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">张三</span>
                     </td>
                     <td class="cell">
@@ -26648,7 +26648,7 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                         详情
                       </a>&nbsp;
@@ -26658,10 +26658,10 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span>2</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">小明</span>
                     </td>
                     <td class="cell">
@@ -26679,7 +26679,7 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                         详情
                       </a>&nbsp;
@@ -26689,10 +26689,10 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span>3</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">李四</span>
                     </td>
                     <td class="cell">
@@ -26710,7 +26710,7 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                         详情
                       </a>&nbsp;
@@ -26720,10 +26720,10 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span>4</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">李华</span>
                     </td>
                     <td class="cell">
@@ -26741,7 +26741,7 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                         详情
                       </a>&nbsp;
@@ -26751,10 +26751,10 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span>5</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">王五</span>
                     </td>
                     <td class="cell">
@@ -26772,7 +26772,7 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                         详情
                       </a>&nbsp;
@@ -26782,10 +26782,10 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span>6</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">张三</span>
                     </td>
                     <td class="cell">
@@ -26803,7 +26803,7 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                         详情
                       </a>&nbsp;
@@ -26813,10 +26813,10 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span>7</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">小明</span>
                     </td>
                     <td class="cell">
@@ -26834,7 +26834,7 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                         详情
                       </a>&nbsp;
@@ -26844,10 +26844,10 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span>8</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">李四</span>
                     </td>
                     <td class="cell">
@@ -26865,7 +26865,7 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                         详情
                       </a>&nbsp;
@@ -26875,10 +26875,10 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span>9</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">李华</span>
                     </td>
                     <td class="cell">
@@ -26896,7 +26896,7 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                         详情
                       </a>&nbsp;
@@ -26906,10 +26906,10 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" style="position: sticky; left: 0px; z-index: 1;">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99;">
                       <span>10</span>
                     </td>
-                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 1;">
+                    <td class="cell" last-left-fixed="true" style="position: sticky; left: 50px; z-index: 99;">
                       <span class="column-field" vusion-slot-name="cell">王五</span>
                     </td>
                     <td class="cell">
@@ -26927,7 +26927,7 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
                     </td>
-                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 1;">
+                    <td class="cell" first-right-fixed="true" style="position: sticky; right: 0px; z-index: 99;">
                       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
                         详情
                       </a>&nbsp;
@@ -26980,7 +26980,7 @@ exports[`u-table-view.vue Demo-表头吸顶 2`] = `
   <div class="root" style="max-height: 300px;">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" style="width: 1000px;">
+        <table class="root head-table" sticky-fixed="true" style="width: 1000px;">
           <colgroup>
             <col width="50">
             <col width="70">
@@ -27041,7 +27041,7 @@ exports[`u-table-view.vue Demo-表头吸顶 2`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" style="width: 1000px;">
+              <table class="root" sticky-fixed="true" style="width: 1000px;">
                 <colgroup>
                   <col width="50">
                   <col width="70">
@@ -27407,7 +27407,7 @@ exports[`u-table-view.vue Demo-表头吸顶 3`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -27444,7 +27444,7 @@ exports[`u-table-view.vue Demo-表头吸顶 3`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -27628,7 +27628,7 @@ exports[`u-table-view.vue Demo-表头固定 1`] = `
   <div class="root" style="max-height: 300px;">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -27665,7 +27665,7 @@ exports[`u-table-view.vue Demo-表头固定 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -27849,7 +27849,7 @@ exports[`u-table-view.vue Demo-表格线条 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" line="true">
+        <table class="root head-table" line="true" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -27886,7 +27886,7 @@ exports[`u-table-view.vue Demo-表格线条 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" line="true">
+              <table class="root" line="true" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -28000,7 +28000,7 @@ exports[`u-table-view.vue Demo-表格行拖拽 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -28037,7 +28037,7 @@ exports[`u-table-view.vue Demo-表格行拖拽 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -28156,7 +28156,7 @@ exports[`u-table-view.vue Demo-表格行拖拽 2`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" style="width: 160px;">
+        <table class="root head-table" sticky-fixed="true" style="width: 160px;">
           <colgroup>
             <col width="30">
             <col width="30">
@@ -28211,7 +28211,7 @@ exports[`u-table-view.vue Demo-表格行拖拽 2`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" style="width: 160px;">
+              <table class="root" sticky-fixed="true" style="width: 160px;">
                 <colgroup>
                   <col width="30">
                   <col width="30">
@@ -28637,7 +28637,7 @@ exports[`u-table-view.vue Demo-表格行拖拽 3`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" style="width: 160px;">
+        <table class="root head-table" sticky-fixed="true" style="width: 160px;">
           <colgroup>
             <col width="30">
             <col width="30">
@@ -28692,7 +28692,7 @@ exports[`u-table-view.vue Demo-表格行拖拽 3`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" style="width: 160px;">
+              <table class="root" sticky-fixed="true" style="width: 160px;">
                 <colgroup>
                   <col width="30">
                   <col width="30">
@@ -29113,7 +29113,7 @@ exports[`u-table-view.vue Demo-表格行拖拽 3`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -29150,7 +29150,7 @@ exports[`u-table-view.vue Demo-表格行拖拽 3`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -29284,7 +29284,7 @@ exports[`u-table-view.vue Demo-表格颜色 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" color="light">
+        <table class="root head-table" color="light" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -29321,7 +29321,7 @@ exports[`u-table-view.vue Demo-表格颜色 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -29434,7 +29434,7 @@ exports[`u-table-view.vue Demo-过滤下拉菜单不应该嵌在表格内部 1`]
 <div class="root">
   <div class="table" position="static">
     <div class="head" style="top: 0px;">
-      <table class="root head-table" striped="true">
+      <table class="root head-table" sticky-fixed="true" striped="true">
         <colgroup>
           <col width="0">
           <col width="0">
@@ -29499,7 +29499,7 @@ exports[`u-table-view.vue Demo-过滤下拉菜单不应该嵌在表格内部 1`]
       <div class="root scrollcview">
         <div class="wrap">
           <div>
-            <table class="root" striped="true">
+            <table class="root" sticky-fixed="true" striped="true">
               <colgroup>
                 <col width="0">
                 <col width="0">
@@ -29590,7 +29590,7 @@ exports[`u-table-view.vue Demo-隐藏头部 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -29730,7 +29730,7 @@ exports[`u-table-view.vue Demo-隐藏部分列 1`] = `
   <div class="root" style="max-height: 300px;">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" style="width: 800px;">
+        <table class="root head-table" sticky-fixed="true" style="width: 800px;">
           <colgroup>
             <col width="50">
             <col width="70">
@@ -29779,7 +29779,7 @@ exports[`u-table-view.vue Demo-隐藏部分列 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" style="width: 800px;">
+              <table class="root" sticky-fixed="true" style="width: 800px;">
                 <colgroup>
                   <col width="50">
                   <col width="70">
@@ -30083,7 +30083,7 @@ exports[`u-table-view.vue Demo-默认多行显示 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" line="horizontal" striped="true">
+        <table class="root head-table" line="horizontal" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -30120,7 +30120,7 @@ exports[`u-table-view.vue Demo-默认多行显示 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" line="horizontal" striped="true">
+              <table class="root" line="horizontal" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -30234,7 +30234,7 @@ exports[`u-table-view.vue Demo-默认多行显示 2`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" line="true" striped="true">
+        <table class="root head-table" line="true" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -30271,7 +30271,7 @@ exports[`u-table-view.vue Demo-默认多行显示 2`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" line="true" striped="true">
+              <table class="root" line="true" sticky-fixed="true" striped="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">

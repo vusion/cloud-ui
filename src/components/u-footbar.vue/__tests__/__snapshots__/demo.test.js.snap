@@ -5,7 +5,7 @@ exports[`u-footbar.vue Demo-与列表一起使用 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -54,7 +54,7 @@ exports[`u-footbar.vue Demo-与列表一起使用 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">

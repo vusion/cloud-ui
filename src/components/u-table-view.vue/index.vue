@@ -13,7 +13,7 @@
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
         <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
-            <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
+            <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :sticky-fixed="useStickyFixed" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth" />
                 </colgroup>
@@ -93,7 +93,7 @@
         <div :class="$style.body" ref="body" :style="{ height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll"
             :sticky-fixed="useStickyFixed">
             <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex || $env.VUE_APP_DESIGNER" :hide-scroll="!!tableMetaIndex">
-            <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
+            <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped" :sticky-fixed="useStickyFixed" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth" />
                 </colgroup>
@@ -2008,13 +2008,16 @@ export default {
             const style = Object.assign({}, columnVM.$vnode.data && columnVM.$vnode.data.style);
             const staticStyle = Object.assign({}, columnVM.$vnode.data && columnVM.$vnode.data.staticStyle);
             if (this.useStickyFixed) {
+                const elZIndex = +this.$el.style.zIndex;
+                // --z-index-layout: 100, 可能用于导航栏fixed，不能大于它
+                const zIndex = elZIndex > 99 ? elZIndex : 99;
                 if (this.fixedLeftList && this.fixedLeftList.length) {
                     const leftData = this.fixedLeftList[index];
                     if (leftData !== undefined && columnVM === leftData.columnVM) {
                         return Object.assign(staticStyle, style, {
                             position: 'sticky',
                             left: leftData.left + 'px',
-                            zIndex: 1,
+                            zIndex,
                         });
                     }
                 }
@@ -2025,7 +2028,7 @@ export default {
                         return Object.assign(staticStyle, style, {
                             position: 'sticky',
                             right: rightData.right + 'px',
-                            zIndex: 1,
+                            zIndex,
                         });
                     }
                 }

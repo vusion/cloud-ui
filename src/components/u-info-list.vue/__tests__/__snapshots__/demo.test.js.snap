@@ -161,7 +161,7 @@ exports[`u-info-list.vue Demo-与表格结合 1`] = `
         <div class="root">
           <div class="table" position="static">
             <div class="head" style="top: 0px;">
-              <table class="root head-table" color="light">
+              <table class="root head-table" color="light" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -198,7 +198,7 @@ exports[`u-info-list.vue Demo-与表格结合 1`] = `
               <div class="root scrollcview">
                 <div class="wrap">
                   <div>
-                    <table class="root">
+                    <table class="root" sticky-fixed="true">
                       <colgroup>
                         <col width="0">
                         <col width="0">
