@@ -61,7 +61,7 @@ export default {
     mixins: [MSinglex, MGroupParent],
     props: {
         enableCollapse: { type: Boolean, default: false },
-        collapse: { type: Boolean, default: false }, // 当前用作整个侧边栏的折叠效果。
+        // collapse: { type: Boolean, default: false }, // 当前用作整个侧边栏的折叠效果。
         router: { type: Boolean, default: true },
         particular: { type: Boolean, default: false },
         dataSource: [Array, Object, Function],
@@ -80,20 +80,23 @@ export default {
         initialLoad: { type: Boolean, default: true },
         collapsibleField: { type: String, default: 'collapsible' },
         minWidth: { type: Number, default: 56 },
-
+        collapseMode: { type: String, default: 'expand', validator: (value) => /^(expand|fold)$/.test(value) },
         expandIcon: { type: String, default: 'expand' },
         foldIcon: { type: String, default: 'fold' },
     },
     data() {
         return {
             currentDataSource: undefined,
-            currentCollapse: this.enableCollapse ? this.collapse : false,
-            currentWidth: this.enableCollapse && this.collapse ? this.minWidth : null,
+            currentCollapse: this.enableCollapse ? this.collapseMode === 'fold' : false,
+            currentWidth: this.enableCollapse && this.collapseMode === 'fold' ? this.minWidth : null,
             isTransitionEnd: true,
             isDragging: false,
         };
     },
     computed: {
+        collapse() {
+            return this.collapseMode === 'fold';
+        },
         dynamicStyle() {
             // return Object.assign({}, this.currentWidth !== null && { width: `${this.currentWidth}px` }, !this.isDragging && { transition: 'width 500ms' });
             return Object.assign(
@@ -174,7 +177,7 @@ export default {
     },
     methods: {
         updateCollapse(nV) {
-            this.$emit('update:collapse', nV, this);
+            this.$emit('update:collapseMode', nV ? 'fold' : 'expand', this);
             this.currentCollapse = nV;
         },
         handleTranstitionEnd() {
