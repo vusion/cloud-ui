@@ -93,10 +93,11 @@
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
-                <tbody>
+                <tbody ref="virtual">
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
-                        <template v-for="(item, rowIndex) in currentData">
-                            <tr :key="keyMap.getKey(item)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
+                        <template v-for="(item, rowIndex) in virtualList">
+                            <tr :key="keyMap.getKey(item)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item"
+                            v-if="item.display !== 'none'"
                             :draggable="(draggable || acrossTableDrag) && rowDraggable && item.draggable || undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
@@ -354,6 +355,7 @@ import i18n from './i18n';
 import UTableViewDropGhost from './drop-ghost.vue';
 import SEmpty from '../../components/s-empty.vue';
 import throttle from 'lodash/throttle';
+import FVirtualList from '../f-virtual-list.vue';
 
 export default {
     name: 'u-table-view',
@@ -361,7 +363,7 @@ export default {
         UTableViewDropGhost,
         SEmpty,
     },
-    mixins: [MEmitter],
+    mixins: [MEmitter, FVirtualList],
     i18n,
     props: {
         boldHeader: {
@@ -459,6 +461,10 @@ export default {
         canDragableHandler: Function,
         canDropinHandler: Function,
         acrossTableDrag: { type: Boolean, default: false }, // 是否跨表格拖拽
+        virtual: { type: Boolean, default: false },
+        // @inherit: virtualCount: { type: Number, default: 60 },
+        // @inherit: throttle: { type: Number, default: 60 },
+        listKey: { type: String, default: 'currentData' },
     },
     data() {
         return {
@@ -705,6 +711,12 @@ export default {
             if (this.configColumnVM) {
                 this.configColumnVM.handleColumnsData();
             }
+        },
+        virtualTop() {
+            this.$refs.scrollView[0].$refs.resize.style.paddingTop = this.virtualTop + 'px';
+        },
+        virtualBottom() {
+            this.$refs.scrollView[0].$refs.resize.style.paddingBottom = this.virtualBottom + 'px';
         },
     },
     created() {
@@ -1214,6 +1226,8 @@ export default {
             if (!this.useStickyFixed) {
                 this.syncScrollViewScroll(data.scrollTop, data.target);
             }
+            if (this.virtual)
+                this.throttledVirtualScroll(data);
             if (this.$refs.scrollView[0].$refs.wrap === data.target) {
                 this.$refs.head[0].scrollLeft = data.scrollLeft;
                 this.scrollXStart = data.scrollLeft === 0;
@@ -1838,6 +1852,9 @@ export default {
             } else {
                 this.updateTreeExpanded(item, expanded);
             }
+            if (this.virtual) {
+                this.throttledVirtualScroll({ target: this.$refs.scrollView[0].$refs.wrap });
+            }
         },
         /**
          * 递归处理children情况
@@ -1870,6 +1887,7 @@ export default {
                     }
                 });
             });
+            expandNode.expanded = expanded;
             this.$forceUpdate(); // 有loading的情况下，forceUpdate才会更新
         },
         onSetEditing(item, columnVM) {
