@@ -627,6 +627,11 @@ export default {
 
 .sub {}
 
+/* readme: 当前的item slot插槽在编辑态的实现有一点问题，这里通过屏蔽u-text更新的方式暂时回归旧的表现 */
+.text [class^='u-text']{
+    white-space: unset;
+}
+
 .expander {
     position: absolute;
     z-index: 1;
