@@ -50,11 +50,8 @@ export default {
     watch: {
         value: {
             handler(value) {
-            if(this.label === 'check-all') {
-                console.log('value => vlue', value)
-                }
-            this.currentValue = value;
-             },
+                this.currentValue = value;
+            },
             immediate: true
         },
         currentValue(value, oldValue) {
@@ -72,7 +69,6 @@ export default {
             this.$emit('blur', e);
         },
         check() {
-            console.log('this.label', this.label)
             if (this.readonly || this.disabled)
                 return;
             const oldValue = this.currentValue;
