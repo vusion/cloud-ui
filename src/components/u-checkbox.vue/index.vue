@@ -24,7 +24,7 @@ export default {
     },
     mixins: [MChild, MField],
     props: {
-        value: { type: [String, Boolean], default: false },
+        value: { type: [String, Boolean, null], default: false },
         label: null,
         text: String,
         readonly: { type: Boolean, default: false },
@@ -48,8 +48,14 @@ export default {
         },
     },
     watch: {
-        value(value) {
+        value: {
+            handler(value) {
+            if(this.label === 'check-all') {
+                console.log('value => vlue', value)
+                }
             this.currentValue = value;
+             },
+            immediate: true
         },
         currentValue(value, oldValue) {
             this.$emit('change', { value, oldValue });
@@ -66,6 +72,7 @@ export default {
             this.$emit('blur', e);
         },
         check() {
+            console.log('this.label', this.label)
             if (this.readonly || this.disabled)
                 return;
             const oldValue = this.currentValue;
