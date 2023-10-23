@@ -104,7 +104,8 @@
                             :subrow="!!item.tableTreeItemLevel"
                             @dragstart="onDragStart($event, item, rowIndex)"
                             @dragover="onDragOver($event, item, rowIndex)"
-                            @click="onClickRow($event, item, rowIndex)">
+                            @click="onClickRow($event, item, rowIndex)"
+                            @dblclick="onDblclickRow($event, item, rowIndex)">
                                 <template v-if="$env.VUE_APP_DESIGNER">
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'" v-ellipsis-title
                                         vusion-slot-name="cell"
@@ -202,7 +203,7 @@
                                             </span>
                                             <!-- Normal text -->
                                             <template v-if="columnVM.type === 'editable'">
-                                                <div @dblclick="onSetEditing(item, columnVM)" :class="$style.editablewrap"
+                                                <div @dblclick.stop="onSetEditing(item, columnVM)" :class="$style.editablewrap"
                                                     :ellipsis="columnVM.ellipsis"
                                                     :style="{width:getEditablewrapWidth(item, columnIndex, treeColumnIndex)}"
                                                     :editing="item.editing === columnVM.field">
@@ -2390,6 +2391,9 @@ export default {
             if (this.autoRowSpan[rowIndex] && this.autoRowSpan[rowIndex][columnIndex ] !== undefined) {
                 return this.autoRowSpan[rowIndex][columnIndex];
             }
+        },
+        onDblclickRow(e, item, rowIndex) {
+            this.$emit('dblclick-row', { item, index: rowIndex });
         },
     },
 };
