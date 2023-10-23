@@ -76,6 +76,7 @@ export default {
         VueCropper
     },
     data() {
+        const vm = this;
         return {
             isPreview: false,
             previewImg: '', // 预览图片地址
