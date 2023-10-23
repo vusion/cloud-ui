@@ -133,6 +133,8 @@ export default {
     methods: {
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+            if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
+                this.load();
         },
         list2tree(list, idField, pField) {
             const [map, treeData] = [{}, []];
