@@ -672,40 +672,42 @@ export default {
             return !!this.pagination;
         },
         hasGroupedColumn() {
-            return !!Object.keys(this.columnGroupVMs).length
+            return !!Object.keys(this.columnGroupVMs).length;
         },
         tableHeadTrArr() {
+            // 重置被自动合并的列
+            this.visibleColumnVMs.filter((column) => column.colSpan === 0)
+                .forEach((column) => column.colSpan = 1);
+            this.visibleColumnVMs.forEach((columnVM, index) => {
+                if (columnVM.colSpan > 1) {
+                    // 如果当前列有合并，那么后面的列自动覆盖不显示
+                    for (let i = index + 1; i < index + columnVM.colSpan && i < this.visibleColumnVMs.length; i++) {
+                        this.visibleColumnVMs[i].colSpan = 0;
+                    }
+                }
+            });
             if (!this.hasGroupedColumn) {
-                return [this.visibleColumnVMs]
+                return [this.visibleColumnVMs];
             } else {
-                const result = [[]]
-                let dynamicOffset = 0
-                // 重置被自动合并的列
-                this.visibleColumnVMs.filter(column => column.colSpan === 0)
-                    .forEach(column => column.colSpan = 1)
+                const result = [[]];
+                let dynamicOffset = 0;
                 this.visibleColumnVMs.forEach((columnVM, index) => {
                     if (!columnVM.isUnderGroup) {
-                        result[0].push(columnVM)
+                        result[0].push(columnVM);
                         // 统计出到当前 index 有多少个动态列（第一个动态列不计入，因为 vm 里已经占位，
                         // 目前每一个动态列的第一个 vm 都没有 dynamicId，所以可以通过这个来判断）
                         if (columnVM.$options.name === 'u-table-view-column-dynamic' && columnVM.dynamicId) {
-                            dynamicOffset++
+                            dynamicOffset++;
                         }
                     } else if (this.columnGroupVMs[index - dynamicOffset]) {
                         // 这里需要减去动态列带来的过多位移
-                        result[0].push(this.columnGroupVMs[index - dynamicOffset])
+                        result[0].push(this.columnGroupVMs[index - dynamicOffset]);
                     }
-                    if (columnVM.colSpan > 1) {
-                        // 如果当前列有合并，那么后面的列自动覆盖不显示
-                        for (let i = index + 1; i < index + columnVM.colSpan && i < this.visibleColumnVMs.length; i++) {
-                            this.visibleColumnVMs[i].colSpan = 0;
-                        }
-                    }
-                })
-                result[1] = this.visibleColumnVMs.filter(columnVM => columnVM.isUnderGroup)
-                return result
+                });
+                result[1] = this.visibleColumnVMs.filter((columnVM) => columnVM.isUnderGroup);
+                return result;
             }
-        }
+        },
     },
     watch: {
         data(data) {
