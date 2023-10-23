@@ -371,9 +371,11 @@ export default {
                 __type__: 'prev',
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
             });
-            this.$emit('select', cell, this);
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         onNextMonth() {
             const oldValue = this.selectedDate.format(DefaultFormatType);
@@ -386,9 +388,11 @@ export default {
                 __type__: 'next',
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
             });
-            this.$emit('select', cell, this);
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         onToday() {
             if (this.selectedDate.isSame(this.date))
@@ -404,9 +408,11 @@ export default {
                 __type__,
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
             });
-            this.$emit('select', cell, this);
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         /**
          * Advance
@@ -433,9 +439,11 @@ export default {
                 __type__,
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
             });
-            this.$emit('select', cell, this);
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         onSelectMonth(value) {
             if (this.month === value) {
@@ -458,9 +466,11 @@ export default {
                 __type__,
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
             });
-            this.$emit('select', cell, this);
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         /**
          * DataSource
