@@ -793,6 +793,23 @@
         - name: $event.index
           type: number
           description: 点击行索引
+    - name: dblclick-row
+      title: 双击行
+      description: 双击某一行时触发
+      schema:
+        $ref: "#/systemTypes/Current"
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/OperatorItemEvent"
+        - name: $event.item
+          type: object
+          description: 双击行相关对象
+        - name: $event.index
+          type: number
+          description: 双击行索引
     - name: before-select
       title: 选择前
       description: 选择某一项前触发
