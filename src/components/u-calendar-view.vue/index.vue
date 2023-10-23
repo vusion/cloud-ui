@@ -372,8 +372,8 @@ export default {
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
             });
-            this.$emit('select', cell, this);
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         onNextMonth() {
             const oldValue = this.selectedDate.format(DefaultFormatType);
@@ -387,8 +387,8 @@ export default {
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
             });
-            this.$emit('select', cell, this);
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         onToday() {
             if (this.selectedDate.isSame(this.date))
@@ -405,8 +405,8 @@ export default {
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
             });
-            this.$emit('select', cell, this);
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         /**
          * Advance
@@ -434,8 +434,8 @@ export default {
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
             });
-            this.$emit('select', cell, this);
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         onSelectMonth(value) {
             if (this.month === value) {
@@ -459,8 +459,8 @@ export default {
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
             });
-            this.$emit('select', cell, this);
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         /**
          * DataSource
