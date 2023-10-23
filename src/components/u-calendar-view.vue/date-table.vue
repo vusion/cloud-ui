@@ -200,7 +200,7 @@ export default {
                 this.$emit('update:selectedDates', { dates: newSelectedDates, cell });
             }
 
-            this.$emit('select', { ...cell, value: __key__, oldValue: this.selectedDateKey });
+            this.$emit('select', { ...cell, value: __key__, oldValue: this.selectedDateKey, monthOfStart: cell.Date.startOf('month'), monthOfEnd: cell.Date.endOf('month') });
             this.selectedDateKey = __key__;
         },
         isSelected(cell) {

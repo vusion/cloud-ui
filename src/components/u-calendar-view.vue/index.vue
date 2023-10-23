@@ -371,6 +371,8 @@ export default {
                 __type__: 'prev',
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
             });
             this.updateSelectedDates(dates, cell, true);
             this.$emit('select', cell, this);
@@ -386,6 +388,8 @@ export default {
                 __type__: 'next',
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
             });
             this.updateSelectedDates(dates, cell, true);
             this.$emit('select', cell, this);
@@ -404,6 +408,8 @@ export default {
                 __type__,
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
             });
             this.updateSelectedDates(dates, cell, true);
             this.$emit('select', cell, this);
@@ -433,6 +439,8 @@ export default {
                 __type__,
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
             });
             this.updateSelectedDates(dates, cell, true);
             this.$emit('select', cell, this);
@@ -458,6 +466,8 @@ export default {
                 __type__,
                 value: newSelectedDate.format(DefaultFormatType),
                 oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
             });
             this.updateSelectedDates(dates, cell, true);
             this.$emit('select', cell, this);
