@@ -893,7 +893,10 @@ export default {
             );
         },
         getRealItem(item, rowIndex) {
-            return this.isSimpleArray(this.currentDataSource.data) ? (this.currentDataSource.arrangedData[rowIndex] && this.currentDataSource.arrangedData[rowIndex].simple) : item
+            const data = this.isSimpleArray(this.currentDataSource.data) ? (this.currentDataSource.arrangedData[rowIndex] && this.currentDataSource.arrangedData[rowIndex].simple) : item;
+            // 给u-table-view-expander用
+            data.toggle = () => this.toggleExpanded(data);
+            return data;
         },
         typeCheck(type) {
             return [
