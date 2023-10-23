@@ -1,5 +1,6 @@
 <template>
 <div :class="$style.root">
+    {{ option.fixedNumber }}
     <u-modal :title="this.cropConfig.title || '图片裁剪'" :visible="visible" size="auto" :maskClose="false" :mode=false :class="$style.cropperModal">
         <div :class="$style.cropperWrapper">
             <div :class="$style.cropper" style="text-align:center">
@@ -90,10 +91,10 @@ export default {
                 autoCrop: true, // 是否默认生成截图框
                 canMoveBox: true, // 截图框能否拖动
                 autoCropWidth: this.cropConfig.boxWidth || 200, // 默认生成截图框宽度
-                autoCropHeight: this.cropConfig.boxHeight || 200, // 默认生成截图框高度
-                fixedBox: this.cropConfig.fixed || false, // 固定截图框大小 不允许改变
-                fixed: true, // 是否开启截图框宽高固定比例
-                fixedNumber: [1, 1], // 截图框的宽高比例
+                autoCropHeight: this.cropConfig.boxHeight || this.cropConfig.boxWidth, // 默认生成截图框高度
+                fixedBox: this.cropConfig.fixed, // 固定截图框大小 不允许改变
+                fixed:  this.cropConfig.previewShape !== 'rect', // 是否开启截图框宽高固定比例
+                fixedNumber: false, // [1, this.cropConfig.boxHeight / this.cropConfig.boxWidth], // 截图框的宽高比例
                 full: true, // 是否输出原图比例的截图
                 original: false, // 上传图片按照原始比例渲染
                 centerBox: false, // 截图框是否被限制在图片里面
