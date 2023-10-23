@@ -271,6 +271,8 @@
       title: 图片裁剪框预览形状
       type: string
       options:
+        - title: 矩形
+          value: rect
         - title: 正方形
           value: square
         - title: 圆形
