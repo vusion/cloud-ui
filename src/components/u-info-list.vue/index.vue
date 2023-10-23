@@ -40,5 +40,6 @@ export default {
 </script>
 
 <style module>
-.root {}
+/* 避免受嵌套的父级组件影响 */
+.root { white-space: normal; }
 </style>
