@@ -76,7 +76,7 @@
     - name: show-sizer
       title: 显示每页条数
       type: boolean
-      default: false
+      default: true
       description: 显示每页条数切换器
       group: 数据属性
       dependency:
@@ -95,6 +95,7 @@
       group: 数据属性
       dependency:
         - pagination: true
+          show-sizer: true
       brifeDoc: ""
       docDescription: 分页组件处是否展示每页显示数据条数的选择列表，需设置数组，如[10,20,30,40,50]。在"分页"属性开启时有效。
       tooltipLink: ""
