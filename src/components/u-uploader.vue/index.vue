@@ -149,7 +149,7 @@ export default {
         openCropper: { type: Boolean, default: false },
         fixedCropper: { type: Boolean, default: false },
         cropperBoxWidth: { type: Number, default: 200 },
-        cropperBoxHeight: { type: Number, default: 200 },
+        cropperBoxHeight: { type: Number, default: 0 },
         cropperTitle: { type: String, default: '图片裁剪' },
         cropperPreviewShape: { type: String, default: 'circle' },
         viaOriginURL: { type: Boolean, default: false },

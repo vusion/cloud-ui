@@ -261,12 +261,14 @@
     - name: cropperBoxHeight
       title: 图片裁剪框高度
       type: number
-      default: 200
+      default: 0
       description: ""
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+      dependency:
+      - cropperPreviewShape: rect
     - name: cropperPreviewShape
       title: 图片裁剪框预览形状
       type: string
@@ -283,6 +285,17 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+      toggleupdate:
+        - value: rect
+          updateData:
+            cropperBoxHeight: 200
+        - value: circle
+          updateData:
+            cropperBoxHeight: 0
+        - value: square
+          updateData:
+            cropperBoxHeight: 0
+      wrap: false
     - name: cropperTitle
       title: 图片裁剪框标题
       type: string
