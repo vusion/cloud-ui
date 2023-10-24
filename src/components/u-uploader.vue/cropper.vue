@@ -203,66 +203,72 @@ export default {
     finish() {
       // 获取截图的 blob 数据
       this.$refs.cropper.getCropBlob((blob) => {
-        if (this.cropConfig.previewShape === "circle") {
-          this.convertImageToBlob(blob).then((circularBlob) => {
-            // 处理转换后的圆形图片 blob 对象
-            this.previewImg = URL.createObjectURL(new Blob([circularBlob]));
-            console.log("this.previewImg", this.previewImg);
-            this.$emit("uploadFiles", {
-              data: this.previewImg,
-              name: this.cropFileName,
-              blob: circularBlob,
-            });
-          });
-        } else {
-            this.previewImg = URL.createObjectURL(new Blob([blob]));
+        this.previewImg = URL.createObjectURL(new Blob([blob]));
             this.$emit("uploadFiles", {
               data: this.previewImg,
               name: this.cropFileName,
               blob,
             });
-        }
+        // if (this.cropConfig.previewShape === "circle") {
+        //   this.convertImageToBlob(blob).then((circularBlob) => {
+        //     // 处理转换后的圆形图片 blob 对象
+        //     this.previewImg = URL.createObjectURL(new Blob([circularBlob]));
+        //     console.log("this.previewImg", this.previewImg);
+        //     this.$emit("uploadFiles", {
+        //       data: this.previewImg,
+        //       name: this.cropFileName,
+        //       blob: circularBlob,
+        //     });
+        //   });
+        // } else {
+        //     this.previewImg = URL.createObjectURL(new Blob([blob]));
+        //     this.$emit("uploadFiles", {
+        //       data: this.previewImg,
+        //       name: this.cropFileName,
+        //       blob,
+        //     });
+        // }
       });
       this.isPreview = true;
       this.option.img = "";
       this.visible = false;
     },
-    convertImageToBlob(imageBlob) {
-      return new Promise((resolve, reject) => {
-        const image = new Image();
+    // convertImageToBlob(imageBlob) {
+    //   return new Promise((resolve, reject) => {
+    //     const image = new Image();
 
-        image.onload = function() {
-          const canvas = document.createElement("canvas");
-          const context = canvas.getContext("2d");
+    //     image.onload = function() {
+    //       const canvas = document.createElement("canvas");
+    //       const context = canvas.getContext("2d");
 
-          canvas.width = image.width;
-          canvas.height = image.height;
+    //       canvas.width = image.width;
+    //       canvas.height = image.height;
 
-          context.beginPath();
-          context.arc(
-            image.width / 2,
-            image.height / 2,
-            Math.min(image.width, image.height) / 2,
-            0,
-            Math.PI * 2,
-            true
-          );
-          context.closePath();
-          context.clip();
+    //       context.beginPath();
+    //       context.arc(
+    //         image.width / 2,
+    //         image.height / 2,
+    //         Math.min(image.width, image.height) / 2,
+    //         0,
+    //         Math.PI * 2,
+    //         true
+    //       );
+    //       context.closePath();
+    //       context.clip();
 
-          context.drawImage(image, 0, 0, image.width, image.height);
+    //       context.drawImage(image, 0, 0, image.width, image.height);
 
-          canvas.toBlob((blob) => {
-            resolve(blob);
-          }, "image/png");
-        };
-        image.onerror = function(e) {
-          reject(e);
-        };
+    //       canvas.toBlob((blob) => {
+    //         resolve(blob);
+    //       }, "image/png");
+    //     };
+    //     image.onerror = function(e) {
+    //       reject(e);
+    //     };
 
-        image.src = URL.createObjectURL(imageBlob);
-      });
-    },
+    //     image.src = URL.createObjectURL(imageBlob);
+    //   });
+    // },
     realTime(data) {
       const previews = data;
       const h = 0.5;
