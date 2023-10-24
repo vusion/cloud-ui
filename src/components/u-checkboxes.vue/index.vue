@@ -1,162 +1,244 @@
 <template>
-<div :class="$style.root">
+  <div :class="$style.root">
     <u-loading v-if="loading" size="small"></u-loading>
     <template v-else>
-        <u-checkbox
-            v-for="(node, index) in currentDataSource.data"
-            :key="index"
-            :text="$at2(node, textField)"
-            :label="$at2(node, valueField)"
-            :disabled="node.disabled"
-            :readonly="node.readonly"
-            :designer="$env.VUE_APP_DESIGNER"
-            :node="node"
-        >
-            <template #item="item">
-                <slot name="item" v-bind="item" :index="index">
-                    {{ $at2(node, textField) }}
-                </slot>
-            </template>
-        </u-checkbox>
+      <u-checkbox
+        v-if="checkAll"
+        label="check-all"
+        :value="all"
+        :disabled="disabled"
+        :readonly="readonly"
+        :style="{ display: checkAllDisplay }"
+      >
+        <slot name="check-all">
+          <u-text text="全选"></u-text>
+        </slot>
+      </u-checkbox>
+      <u-checkbox
+        v-for="(node, index) in currentDataSource.data"
+        :key="index"
+        :text="$at2(node, textField)"
+        :label="$at2(node, valueField)"
+        :disabled="node.disabled"
+        :readonly="node.readonly"
+        :designer="$env.VUE_APP_DESIGNER"
+        :node="node"
+      >
+        <template #item="item">
+          <slot name="item" v-bind="item" :index="index">
+            {{ $at2(node, textField) }}
+          </slot>
+        </template>
+      </u-checkbox>
     </template>
     <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
-        <span :class="$style.loadContent">{{ treeSelectTip }}</span>
+      <span :class="$style.loadContent">{{ treeSelectTip }}</span>
     </template>
     <slot></slot>
-</div>
+  </div>
 </template>
 
 <script>
-import { MParent } from '../m-parent.vue';
-import MField from '../m-field.vue';
-import MConverter from '../m-converter.vue';
-import SupportDataSource from '../../mixins/support.datasource';
-import UCheckbox from '../u-checkbox.vue';
+import { MParent } from "../m-parent.vue";
+import MField from "../m-field.vue";
+import MConverter from "../m-converter.vue";
+import SupportDataSource from "../../mixins/support.datasource";
+import UCheckbox from "../u-checkbox.vue";
 
 export default {
-    name: 'u-checkboxes',
-    childName: 'u-checkbox',
-    components: {
-        UCheckbox,
+  name: "u-checkboxes",
+  childName: "u-checkbox",
+  components: {
+    UCheckbox,
+  },
+  mixins: [MParent, MField, MConverter, SupportDataSource],
+  props: {
+    value: [Array, String],
+    min: { type: Number, default: 0 },
+    max: { type: Number, default: Infinity },
+    readonly: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
+    checkAll: { type: Boolean, default: false },
+    checkAllDisplay: { type: String, default: "inline" },
+  },
+  data() {
+    return {
+      currentValue: null,
+      itemVMs: [],
+      all: false,
+    };
+  },
+  watch: {
+    value(value) {
+      this.watchValue(value);
     },
-    mixins: [MParent, MField, MConverter, SupportDataSource],
-    props: {
-        value: [Array, String],
-        min: { type: Number, default: 0 },
-        max: { type: Number, default: Infinity },
-        readonly: { type: Boolean, default: false },
-        disabled: { type: Boolean, default: false },
+    currentValue(value, oldValue) {
+      if (this.converter) {
+        value = this.currentConverter.get(value);
+        oldValue = this.currentConverter.get(oldValue);
+      }
+      this.$emit("change", { value, oldValue });
     },
-    data() {
-        return { currentValue: this.value, itemVMs: [] };
+    itemVMs() {
+      this.watchValue(this.value);
+      // 不开启全选就直接return
+      if (!this.checkAll) return;
+      if (this.isCheckAll) {
+        this.all = true;
+        // 这里不能这样判断：this.currentValue.length === 0，这里子项全部为false不代表currentValue.length === 0
+      } else if (
+        !this.currentValue.some((item) =>
+          this.itemVMsExcludesCheckAll.some((vm) => vm.label === item)
+        )
+      ) {
+        this.all = false;
+      } else {
+        // 半选兜底
+        this.all = null;
+      }
     },
-    watch: {
-        value(value) {
-            this.watchValue(value);
-        },
-        currentValue(value, oldValue) {
-            if (this.converter) {
-                value = this.currentConverter.get(value);
-                oldValue = this.currentConverter.get(oldValue);
-            }
-            this.$emit('change', { value, oldValue });
-        },
-        itemVMs() {
-            this.watchValue(this.value);
-        },
+  },
+  computed: {
+    // 除了全选checkbox以外的子实例
+    itemVMsExcludesCheckAll() {
+      return this.itemVMs.filter((vm) => vm.label !== "check-all");
     },
-    mounted() {
-        // 修复bug：多选组，多选项值设为true，如果不操作拿不到值 http://projectmanage.netease-official.lcap.163yun.com/dashboard/DebtDetail?id=2577483154345216
-        this.initSyncValue(this.value);
-        this.watchValue(this.currentValue);
+    // 是否被全选
+    isCheckAll() {
+      // 这样判断是为了兼容用户传入的value要比静态设置的子项数目多的场景
+      return this.itemVMsExcludesCheckAll.every((vm) =>
+        this.currentValue.includes(vm.label)
+      );
     },
-    methods: {
-        watchValue(value) {
-            if (value) {
-                if (this.converter)
-                    value = this.currentConverter.set(value);
-                this.currentValue = value;
-                this.itemVMs.forEach(
-                    (itemVM) =>
-                        (itemVM.currentValue = value.includes(itemVM.label)),
-                );
-            } else {
-                const value = [];
-                this.itemVMs.forEach(
-                    (itemVM) => itemVM.currentValue && value.push(itemVM.label),
-                );
-                this.currentValue = value;
-            }
-        },
-        canCheck($event) {
-            if (this.readonly || this.disabled)
-                return false;
-            const value = $event.value;
-            const label = $event.itemVM.label;
-            if (value && !this.currentValue.includes(label)) {
-                const length = this.currentValue.length + 1;
-                return length <= this.max;
-            } else if (!value && this.currentValue.includes(label)) {
-                const length = this.currentValue.length - 1;
-                return length >= this.min;
-            }
-        },
-        onCheck($event) {
-            const value = $event.value;
-            const label = $event.itemVM.label;
-            if (value && !this.currentValue.includes(label))
-                this.currentValue.push(label);
-            else if (!value && this.currentValue.includes(label))
-                this.currentValue.splice(this.currentValue.indexOf(label), 1);
-            let currentValue = this.currentValue;
-            if (this.converter)
-                currentValue = this.currentConverter.get(currentValue);
-            this.$emit('input', currentValue);
-            this.$emit('update:value', currentValue);
-            this.$emit('check', {
-                value: currentValue,
-                itemVM: $event.itemVM,
-            });
-        },
-        exceedMax() {
-            return Array.isArray(this.currentValue) && this.currentValue.length >= this.max;
-        },
-        initSyncValue(value) {
-            if (value === '' || (Array.isArray(value) && !value.length)) {
-                const values = [];
-                this.itemVMs.forEach(
-                    (itemVM) => itemVM.currentValue && values.push(itemVM.label),
-                );
-                this.currentValue = values;
-                let currentValue = values;
-                if (this.converter)
-                    currentValue = this.currentConverter.get(currentValue);
+  },
+  mounted() {
+    // 修复bug：多选组，多选项值设为true，如果不操作拿不到值
+    this.initSyncValue(this.value);
+    this.watchValue(this.currentValue);
+  },
+  methods: {
+    watchValue(value) {
+      if (value) {
+        if (this.converter) value = this.currentConverter.set(value);
+        this.currentValue = value;
+        this.itemVMs.forEach((itemVM) => {
+          itemVM.currentValue = value.includes(itemVM.label);
+        });
+      } else {
+        const value = [];
+        this.itemVMs.forEach(
+          (itemVM) => itemVM.currentValue && value.push(itemVM.label)
+        );
+        this.currentValue = value;
+      }
+    },
+    canCheck($event) {
+      if (this.readonly || this.disabled) return false;
+      const value = $event.value;
+      const label = $event.itemVM.label;
+      if (label === "check-all") return true;
+      if (value && !this.currentValue.includes(label)) {
+        const length = this.currentValue.length + 1;
+        return length <= this.max;
+      } else if (!value && this.currentValue.includes(label)) {
+        const length = this.currentValue.length - 1;
+        return length >= this.min;
+      }
+      return true;
+    },
+    toggleCheckAll(all) {
+      this.all = all;
+      if (all) {
+        this.itemVMsExcludesCheckAll.forEach((vm) => {
+          if (!this.currentValue.includes(vm.label)) {
+            this.currentValue.push(vm.label);
+          }
+        });
+      } else {
+        this.itemVMsExcludesCheckAll.forEach(({ label }) => {
+          const index = this.currentValue.indexOf(label);
+          if (index === -1) return;
+          this.currentValue.splice(index, 1);
+        });
+      }
+    },
+    togglePrimaryCheckBox(value, label) {
+      if (value && !this.currentValue.includes(label)) {
+        this.currentValue.push(label);
+      } else if (!value && this.currentValue.includes(label)) {
+        this.currentValue.splice(this.currentValue.indexOf(label), 1);
+      }
+      // 先给默认值兜底，下一帧更新成正确的数据，保证全选状态的正确性
+      this.all = false;
+      this.$nextTick(() => {
+        this.all = this.itemVMsExcludesCheckAll.some((vm) => vm.currentValue)
+          ? null
+          : false;
+        if (this.isCheckAll) {
+          this.all = true;
+        }
+      });
+    },
+    onCheck($event) {
+      const value = $event.value;
+      const label = $event.itemVM.label;
+      if (label !== "check-all") {
+        this.togglePrimaryCheckBox(value, label);
+      } else {
+        this.toggleCheckAll(value);
+      }
 
-                // 有可能使用方在使用组件的时候，初始双向绑定的value值是空的，等接口返回后去设置value值。有些在使用该组件的时候会监听input方法，这里抛出事件后会导致使用方的值变空
-                // 所有如果得到的值和value值一样（可能都是空），就不抛出事件
-                if (JSON.stringify(currentValue) !== JSON.stringify(value)) {
-                    console.log('input emit');
-                    this.$emit('input', currentValue);
-                    this.$emit('update:value', currentValue);
-                }
-            }
-        },
+      let currentValue = this.currentValue;
+      if (this.converter) {
+        currentValue = this.currentConverter.get(currentValue);
+      }
+      this.$emit("input", currentValue);
+      this.$emit("update:value", currentValue);
+      this.$emit("check", {
+        value: currentValue,
+        itemVM: $event.itemVM,
+      });
     },
+    exceedMax() {
+      return (
+        Array.isArray(this.currentValue) && this.currentValue.length >= this.max
+      );
+    },
+    initSyncValue(value) {
+      if (value === "" || (Array.isArray(value) && !value.length)) {
+        const values = [];
+        this.itemVMs.forEach(
+          (itemVM) => itemVM.currentValue && values.push(itemVM.label)
+        );
+        this.currentValue = values;
+        let currentValue = values;
+        if (this.converter)
+          currentValue = this.currentConverter.get(currentValue);
+
+        // 有可能使用方在使用组件的时候，初始双向绑定的value值是空的，等接口返回后去设置value值。有些在使用该组件的时候会监听input方法，这里抛出事件后会导致使用方的值变空
+        // 所有如果得到的值和value值一样（可能都是空），就不抛出事件
+        if (JSON.stringify(currentValue) !== JSON.stringify(value)) {
+          this.$emit("input", currentValue);
+          this.$emit("update:value", currentValue);
+        }
+      }
+    },
+  },
 };
 </script>
 
 <style module>
-.root {}
+.root {
+}
 
 .root > *:not(:last-child) {
-    margin-right: var(--checkbox-space-x);
+  margin-right: var(--checkbox-space-x);
 }
 
 .root .loadContent {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
-
 </style>

@@ -206,7 +206,7 @@ export default {
                     getProps: (item) => {
                         return {
                             name: this.fileTypeIcon(item),
-                            icotype:"only"
+                            icotype: "only"
                         }
                     }
                 }, 
@@ -232,7 +232,7 @@ export default {
                     getProps: (item) => {
                         return {
                             name: this.fileTypeIcon(item),
-                            icotype:"only"
+                            icotype: "only"
                         }
                     }
                 }

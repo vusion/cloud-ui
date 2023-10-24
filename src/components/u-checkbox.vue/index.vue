@@ -24,7 +24,7 @@ export default {
     },
     mixins: [MChild, MField],
     props: {
-        value: { type: [String, Boolean], default: false },
+        value: { type: [String, Boolean, null], default: false },
         label: null,
         text: String,
         readonly: { type: Boolean, default: false },
@@ -48,8 +48,11 @@ export default {
         },
     },
     watch: {
-        value(value) {
-            this.currentValue = value;
+        value: {
+            handler(value) {
+                this.currentValue = value;
+            },
+            immediate: true
         },
         currentValue(value, oldValue) {
             this.$emit('change', { value, oldValue });
