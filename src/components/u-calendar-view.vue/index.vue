@@ -104,7 +104,14 @@ export default {
     data() {
         const date = dayjs().hour(0).minute(0).second(0).millisecond(0);
 
-        const value = Array.isArray(this.value) && this.value.length > 0 ? [...this.value] : [this.value];
+        let value = this.value;
+        if (Array.isArray(this.value) && this.value.length > 0) {
+            value = [...this.value];
+        } else if (Array.isArray(this.value)) {
+            value = [dayjs()];
+        } else {
+            value = [this.value];
+        }
         const selectedDates = Array.from(new Set(value.map((v) => getDay(v).format(DefaultFormatType)))).sort().map((v) => dayjs(v, DefaultFormatType).startOf('day'));
         const selectedDatesSnapshot = value.join(',');
         const selectedDate = selectedDates[0];
