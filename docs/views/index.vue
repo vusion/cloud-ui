@@ -2,22 +2,24 @@
 <div :class="[$style.root, message.singleton ? 'singleton' : '']">
     <header :class="$style.head" v-if="!message.singleton">
         <div :class="$style.wrap">
-            <u-navbar>
-                <s-logo slot="left">{{ logo }}</s-logo>
-                <u-navbar-item v-for="item in navbar" :key="item.text" :to="item.to" :href="item.href" :target="item.target">{{ item.text }}</u-navbar-item>
-                <div slot="right" style="margin-right: 10px;">
-                    <u-navbar-select style="vertical-align: top;" value="0.10.x"
+            <u-navbar style="background: #FFFFFF;">
+                <div slot="left" @click="routeJumpToHome" :class="$style.cursor">
+                    <img :src="logSrc" style="height: 24px; margin-left: 40px; margin-top: 18px">
+                </div>
+                <div slot="right" style="margin-right: 46px;">
+                    <u-navbar-item v-for="item in navbar" :key="item.text" :to="item.to" :href="item.href" :target="item.target">{{ item.text }}</u-navbar-item>
+                    <!-- <u-navbar-select style="vertical-align: top;" value="0.10.x"
                         @select="onSelectVersion">
                         <u-navbar-select-item value="0.10.x">0.10.x</u-navbar-select-item>
                         <u-navbar-select-item value="0.4.x">0.4.x</u-navbar-select-item>
-                        <u-navbar-select-item value="0.3.x">0.3.x</u-navbar-select-item>
-                    </u-navbar-select>
+                        <u-navbar-select-item value="0.3.x">0.3.x</u-navbar-select-item>h
+                    </u-navbar-select> -->
                     <!-- <u-navbar-select v-model="theme" @select="onSelectTheme" style="width: 120px;">
                         <u-navbar-select-item value="default"><div :class="$style.color"></div>Default</u-navbar-select-item>
                         <u-navbar-select-item value="dark"><div :class="$style.color" color="dark"></div>Dark</u-navbar-select-item>
                         <u-navbar-select-item value="seagreen"><div :class="$style.color" color="seagreen"></div>SeaGreen</u-navbar-select-item>
                     </u-navbar-select> -->
-                    <u-navbar-item :href="github" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
+                    <u-navbar-item :href="github" target="_blank"><i-icon name="github" style="font-size: 20px;"></i-icon></u-navbar-item>
                 </div>
             </u-navbar>
         </div>
@@ -41,7 +43,11 @@ export default {
             navbar: this.$docs.navbar,
             github: this.$docs.github,
             theme: (process.env.NODE_ENV === 'development' ? this.$docs.theme : window.theme) || 'default',
+            logSrc: require('@/assets/home/logo.svg'),
         };
+    },
+    created() {
+        if (this.$route.path !== '/home') this.$router.replace('/home');
     },
     watch: {
         'message.route'(route) {
@@ -78,6 +84,10 @@ export default {
             else if ($event.value)
                 window.location = base + '/cloud-ui@' + $event.value + '/';
         },
+        routeJumpToHome() {
+            if (this.$route.path === '/home') return;
+            this.$router.push('/home');
+        }
     },
 };
 </script>
@@ -99,6 +109,26 @@ export default {
     background: white;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
     z-index: var(--z-index-layout);
+}
+
+.head [class^="u-navbar_item__"],
+.head [class^="u-navbar_select__"],
+.head [class^="u-navbar__"] [class^="u-navbar_item__"][selected],
+.head [class^="u-navbar__"] [class^="u-navbar_item__"]:hover {
+    color: #555555;
+}
+
+.head [class^="u-navbar__"] [class^="u-navbar_item__"]:hover::after,
+.head [class^="u-navbar__"] [class^="u-navbar_item__"][selected]::after {
+    color: #0027FE;
+}
+
+.head [class^="u-navbar__"] [class^="u-navbar_item__"] {
+    padding: 0;
+}
+
+.head [class^="u-navbar__"] [class^="u-navbar_item__"]:not(:last-child) {
+    margin-right: 40px;
 }
 
 :global(.singleton) .head {
@@ -135,5 +165,9 @@ export default {
 
 .color[color="seagreen"] {
     background: #2cb78e;
+}
+
+.cursor {
+    cursor: pointer;
 }
 </style>

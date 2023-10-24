@@ -6,7 +6,7 @@ module.exports = {
     name: 'cloud-ui',
     CamelName: 'CloudUI',
     docs: {
-        title: 'PC 端组件库 - 网易轻舟·低代码',
+        title: 'CodeWave.Design - 组件库',
         logo: 'PC 端组件库',
         github: 'https://github.com/vusion/cloud-ui',
         package: pkg,
@@ -18,6 +18,7 @@ module.exports = {
         ],
         components: [
             { group: '指南', name: 'quickstart', alias: '快速开始', path: './docs/views/guide/quickstart.md' },
+            { group: '指南', name: 'designprinciples', alias: '设计原则', path: './docs/views/guide/design-principles.vue' },
             { group: '指南', name: 'pattern', alias: '设计模式', path: './docs/views/guide/pattern.md' },
             { group: '指南', name: 'changelog', alias: '更新日志', href: 'https://github.com/vusion/cloud-ui/releases', target: '_blank' },
             { group: '指南', name: 'theme', alias: '主题', path: 'library/styles/theme.md' },
