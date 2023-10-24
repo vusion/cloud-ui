@@ -13,7 +13,7 @@
         <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
             <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
-                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth" />
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth">
                 </colgroup>
                 <thead :grouped="hasGroupedColumn">
                     <tr v-for="(headTr, trIndex) in tableHeadTrArr">
@@ -93,7 +93,7 @@
             <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex || $env.VUE_APP_DESIGNER" :hide-scroll="!!tableMetaIndex">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
-                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth" />
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth">
                 </colgroup>
                 <tbody>
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
@@ -281,7 +281,9 @@
                                             </template>
                                             <template v-else>
                                                 <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
-                                                    <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                    <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">
+                                                        {{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}
+                                                    </span>
                                                 </f-slot>
                                             </template>
 
@@ -1385,7 +1387,7 @@ export default {
             this.load();
             console.log('table reload');
             if (this.dynamicColumnVMs.length) {
-                this.dynamicColumnVMs.forEach(vm => vm.reload());
+                this.dynamicColumnVMs.forEach((vm) => vm.reload());
             }
         },
         getFields() {
@@ -2439,26 +2441,26 @@ export default {
             this.autoRowSpan = [];
             this.visibleColumnVMs && this.visibleColumnVMs.forEach((columnVM, columnIndex) => {
                 if (columnVM.autoRowSpan && columnVM.field && Array.isArray(currentData)) {
-                    let count = 0
+                    let count = 0;
                     for (let i = currentData.length - 1; i >= 0; i--) {
                         const item = currentData[i];
-                        const itemValue = this.$at(item, columnVM.field)
+                        const itemValue = this.$at(item, columnVM.field);
                         if (itemValue === this.$at(currentData[i - 1], columnVM.field)) {
                             if (!this.autoRowSpan[i]) {
                                 this.autoRowSpan[i] = [];
                             }
                             this.autoRowSpan[i][columnIndex] = 0;
-                            count++
+                            count++;
                         } else if (count) {
                             if (!this.autoRowSpan[i]) {
                                 this.autoRowSpan[i] = [];
                             }
                             this.autoRowSpan[i][columnIndex] = count + 1;
-                            count = 0
+                            count = 0;
                         }
                     }
                 }
-            })
+            });
             this.$forceUpdate();
         },
         getItemColSpan(item, rowIndex, columnIndex) {
@@ -2474,7 +2476,7 @@ export default {
                     return config[1];
                 }
             }
-            if (this.autoColSpan[rowIndex] && this.autoColSpan[rowIndex][columnIndex ] !== undefined) {
+            if (this.autoColSpan[rowIndex] && this.autoColSpan[rowIndex][columnIndex] !== undefined) {
                 return this.autoColSpan[rowIndex][columnIndex];
             }
         },
@@ -2491,7 +2493,7 @@ export default {
                     return config[1];
                 }
             }
-            if (this.autoRowSpan[rowIndex] && this.autoRowSpan[rowIndex][columnIndex ] !== undefined) {
+            if (this.autoRowSpan[rowIndex] && this.autoRowSpan[rowIndex][columnIndex] !== undefined) {
                 return this.autoRowSpan[rowIndex][columnIndex];
             }
         },

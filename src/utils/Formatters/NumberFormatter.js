@@ -52,11 +52,18 @@ export class NumberFormatter extends Formatter {
         pattern = pattern || this.pattern;
 
         let number = (String(value).match(/-?([0-9.,]+)/) || ['0'])[0];
-
-        number = +number.replace(/,/g, '');
+        if (this.isDecimal) {
+            number = number.replace(/,/g, '');
+        } else {
+            number = +number.replace(/,/g, '');
+        }
 
         if (this.options.percentSign && /%$/.test(value)) {
-            number = number / 100;
+            if (this.isDecimal) {
+                number = new Decimal(String(number)).div(100).toString();
+            } else {
+                number = number / 100;
+            }
         }
 
         return number;

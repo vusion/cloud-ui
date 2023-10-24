@@ -23,8 +23,9 @@
 import MField from '../m-field.vue';
 import { repeatClick, clickOutside } from '../../directives';
 import { noopFormatter, NumberFormatter } from '../../utils/Formatters';
-const isNil = (value) => (typeof value === 'string' && value.trim() === '') || value === null || value === undefined;
 import { Decimal } from 'decimal.js';
+
+const isNil = (value) => (typeof value === 'string' && value.trim() === '') || value === null || value === undefined;
 
 export default {
     name: 'u-number-input',
@@ -94,7 +95,13 @@ export default {
         if (typeof this.value === 'object') {
             this.value = this.value + '';
         }
+        let CoDecimal;
+
+        if (this.highPrecision && this?.decimalLength > -1) {
+            CoDecimal = this.getCloneDecimal();
+        }
         const data = {
+            Decimal: CoDecimal,
             // 当前使用的精度，当 precision 为 0 时，使用动态精度
             currentPrecision,
             currentValue: this.fix(this.value, currentPrecision), // 格式化后的 value，与`<input>`中的实际值保持一致
@@ -215,12 +222,20 @@ export default {
         this.$emit('update', value, this);
     },
     mounted() {
-        if (this.highPrecision && this.decimalLength) {
-            Decimal.set({ precision: this.decimalLength + 1 });
-        }
         this.autofocus && this.$refs.input.focus();
     },
     methods: {
+        getCloneDecimal() {
+            let CoDecimal;
+            if (this?.decimalLength === 0) {
+                // 平台long类型 最大精度20
+                CoDecimal = Decimal.clone({ precision: 20 });
+            } else {
+                const rounding = this.decimalLength + 1;
+                CoDecimal = Decimal.clone({ precision: rounding * 2, rounding });
+            }
+            return CoDecimal;
+        },
         strip(num, precision = 17) {
             return +parseFloat(num).toPrecision(precision);
         },
@@ -251,7 +266,10 @@ export default {
                 // if (typeof value === 'object') {
                 //     value = value + '';
                 // }
-                value = Decimal.min(Decimal.max(this.min, new Decimal(value)), this.max).toString();
+                if (!this.Decimal && this?.decimalLength > -1) {
+                    this.Decimal = this.getCloneDecimal();
+                }
+                value = this.Decimal.min(this.Decimal.max(this.min, new this.Decimal(value)), this.max).toString();
             } else {
                 value = Math.min(Math.max(this.min, value), this.max);
             }
@@ -259,7 +277,7 @@ export default {
             // 配置了新的精度
             if (this.decimalLength >= 0) {
                 if (this.highPrecision) {
-                    value = new Decimal(String(value)).toFixed(Math.floor(this.decimalLength)).toString();
+                    value = new this.Decimal(String(value)).toFixed(Math.floor(this.decimalLength)).toString();
                 } else {
                     value = parseFloat(+value.toFixed(Math.floor(this.decimalLength)));
                 }
@@ -279,7 +297,7 @@ export default {
                     console.log(error);
                 }
                 if (this.highPrecision) {
-                    value = new Decimal(String(value)).toFixed(Decimal.floor(decimalLength)).toString();
+                    value = new this.Decimal(String(value)).toFixed(this.Decimal.floor(decimalLength)).toString();
                 } else {
                     value = parseFloat(+value.toFixed(Math.floor(decimalLength)));
                 }
@@ -369,7 +387,7 @@ export default {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
             let result;
             if (this.highPrecision) {
-                result = new Decimal(String(this.currentValue)).add(new Decimal(String(step)));
+                result = new this.Decimal(String(this.currentValue)).add(new this.Decimal(String(step)));
             } else {
                 result = +this.currentValue + (step - 0);
             }
@@ -380,7 +398,7 @@ export default {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : +this.step;
             let result;
             if (this.highPrecision) {
-                result = new Decimal(this.currentValue.toString()).minus(new Decimal(step.toString()));
+                result = new this.Decimal(this.currentValue.toString()).minus(new this.Decimal(step.toString()));
             } else {
                 result = +this.currentValue - step;
             }
