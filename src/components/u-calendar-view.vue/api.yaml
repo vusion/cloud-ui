@@ -119,7 +119,7 @@
       title: 可多选
       type: boolean
       default: false
-      description: 是否可以多选
+      description: 开启可多选后，可通过ctrl/command+鼠标多选
       group: 交互属性
   slots:
     - concept: Slot
