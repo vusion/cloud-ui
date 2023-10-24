@@ -1,3 +1,47 @@
+<template>
+    <div :class="$style.root"
+        :selected="allChecked === true"
+        :partial-selected="allChecked === null"
+        :focused="isFocused"
+        :readonly="parentVM.readonly"
+        :disabled="parentVM.disabled"
+        @mouseenter="hover"
+        :style="{ direction: parentVM.ellipsisDirection }"
+        @click="select"
+        isShowMultipleIcon
+        v-ellipsis-title>
+        全选
+    </div>
+</template>
+<script>
+
+export default {
+    name: 'u-select-item-all-check',
+    props: {
+        allChecked: [Boolean, null],
+        checkAll: Function,
+        parentVM: Object,
+    },
+    computed: {
+        isFocused() {
+            return this.parentVM && this.parentVM.focusedVM === this;
+        },
+        currentText() {
+            return this.text || this.$slots.default[0] && this.$slots.default[0].text;
+        },
+    },
+    methods: {
+        hover() {
+            this.parentVM && (this.parentVM.focusedVM = this);
+        },
+        select() {
+            this.checkAll(this.allChecked !== true);
+        },
+    },
+};
+</script>
+
+<style module>
 .root {
     cursor: var(--cursor-pointer);
     padding: var(--list-view-item-padding);
@@ -8,10 +52,12 @@
     line-height: 32px;
     color: var(--select-popper-item-color);
     background: var(--select-popper-item-background);
+}
+
+.root {
     padding-top: 0;
     padding-bottom: 0;
 }
-
 
 .root[readonly] {
     cursor: default !important;
@@ -33,7 +79,6 @@
     color: var(--select-popper-item-color-hover);
     background: var(--select-popper-item-background-hover);
 }
-
 
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
@@ -59,8 +104,8 @@
 
 .root[isShowMultipleIcon]::before {
     content: "";
-    display: inline-block;
     box-sizing: border-box;
+    display: inline-block;
     width: 18px;
     height: 18px;
     border: var(--select-multiple-border-color);
@@ -83,6 +128,19 @@
     icon-font: url('../i-icon.vue/icons/select-dark.svg');
 }
 
+.root[isShowMultipleIcon][partial-selected]:after {
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    left: 21px;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    content: '';
+    background: var(--select-multiple-partial-icon-color);
+    border-radius: 2px;
+}
 
 .flag {
     position: absolute;
@@ -110,3 +168,4 @@
 .root[selected] .desc {
     color: var(--select-popper-item-description-selected-color);
 }
+</style>
