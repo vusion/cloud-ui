@@ -960,6 +960,20 @@
     "type": "icon",
     "description": ""
   },
+  "u-button/icon-position": {
+    "type": "string",
+    "options": [
+      {
+        "value": "left",
+        "title": "左"
+      },
+      {
+        "value": "right",
+        "title": "右"
+      }
+    ],
+    "description": "设置图标居左或居右显示"
+  },
   "u-button/linkType": {
     "type": "string",
     "options": [
@@ -1426,6 +1440,10 @@
   },
   "u-cascader/value": {
     "type": "any",
+    "description": ""
+  },
+  "u-cascader/useArrayLikeValue": {
+    "type": "boolean",
     "description": ""
   },
   "u-cascader/filterable": {
@@ -2121,9 +2139,47 @@
     "type": "boolean",
     "description": "置灰显示，且禁止任何交互（焦点、点击、选择、输入等）"
   },
-  "u-date-picker/date": {
+  "u-date-picker/picker": {
+    "type": "string",
+    "options": [
+      {
+        "title": "日期",
+        "value": "date"
+      },
+      {
+        "title": "周",
+        "value": "week"
+      },
+      {
+        "title": "月份",
+        "value": "month"
+      },
+      {
+        "title": "季度",
+        "value": "quarter"
+      },
+      {
+        "title": "年份",
+        "value": "year"
+      }
+    ],
+    "description": "日期格式设置"
+  },
+  "u-date-picker/range": {
+    "type": "boolean",
+    "description": "是否支持进行日期区间选择，关闭则为日期点选择"
+  },
+  "u-date-picker/value": {
     "type": "string,number,Date",
     "description": "默认显示的日期值，格式如2018-08-08"
+  },
+  "u-date-picker/startDate": {
+    "type": "string,number,Date",
+    "description": "默认显示的起始日期值，格式如2018-08-08"
+  },
+  "u-date-picker/endDate": {
+    "type": "string,number,Date",
+    "description": "默认显示的结束日期值，格式如2018-08-08"
   },
   "u-date-picker/minDate": {
     "type": "string,number,Date",
@@ -2144,6 +2200,151 @@
   "u-date-picker/yearAdd": {
     "type": "number",
     "description": "最大可选年份值与当前年份值的差值"
+  },
+  "u-date-picker/show-formatter": {
+    "type": "string",
+    "options": [
+      {
+        "value": "YYYY年M月D日",
+        "title": "中国（2023年7月26日）",
+        "dependency": [
+          {
+            "picker": "date"
+          }
+        ]
+      },
+      {
+        "value": "YYYY-MM-DD",
+        "title": "ISO（2023-07-26）",
+        "dependency": [
+          {
+            "picker": "date"
+          }
+        ]
+      },
+      {
+        "value": "M/D/YYYY",
+        "title": "US（7/26/2023）",
+        "dependency": [
+          {
+            "picker": "date"
+          }
+        ]
+      },
+      {
+        "value": "D/M/YYYY",
+        "title": "EU（26/7/2023）",
+        "dependency": [
+          {
+            "picker": "date"
+          }
+        ]
+      },
+      {
+        "value": "GGGG-W周",
+        "title": "2023-28周",
+        "dependency": [
+          {
+            "picker": "week"
+          }
+        ]
+      },
+      {
+        "value": "GGGG年第W周",
+        "title": "2023年第28周",
+        "dependency": [
+          {
+            "picker": "week"
+          }
+        ]
+      },
+      {
+        "value": "GGGG-WWWW",
+        "title": "2023-W28",
+        "dependency": [
+          {
+            "picker": "week"
+          }
+        ]
+      },
+      {
+        "value": "YYYY年M月",
+        "title": "中国（2023年7月）",
+        "dependency": [
+          {
+            "picker": "month"
+          }
+        ]
+      },
+      {
+        "value": "YYYY-MM",
+        "title": "ISO（2023-07）",
+        "dependency": [
+          {
+            "picker": "month"
+          }
+        ]
+      },
+      {
+        "value": "M/YYYY",
+        "title": "US/EU（7/2023）",
+        "dependency": [
+          {
+            "picker": "month"
+          }
+        ]
+      },
+      {
+        "value": "YYYY年第Q季度",
+        "title": "2023年第3季度",
+        "dependency": [
+          {
+            "picker": "quarter"
+          }
+        ]
+      },
+      {
+        "value": "YYYY年QQ",
+        "title": "2023年Q3",
+        "dependency": [
+          {
+            "picker": "quarter"
+          }
+        ]
+      },
+      {
+        "value": "YYYY-QQ",
+        "title": "2023-Q3",
+        "dependency": [
+          {
+            "picker": "quarter"
+          }
+        ]
+      },
+      {
+        "value": "YYYY年",
+        "title": "中国（2023年）",
+        "dependency": [
+          {
+            "picker": "year"
+          }
+        ]
+      },
+      {
+        "value": "YYYY",
+        "title": "ISO（2023）",
+        "dependency": [
+          {
+            "picker": "year"
+          }
+        ]
+      }
+    ],
+    "description": ""
+  },
+  "u-date-picker/advanced-format": {
+    "type": "{ enable: boolean, value: string }",
+    "description": ""
   },
   "u-date-picker/autofocus": {
     "type": "boolean",
@@ -2188,28 +2389,6 @@
       }
     ],
     "description": "转换器，用于转换时间结果"
-  },
-  "u-date-picker/picker": {
-    "type": "string",
-    "options": [
-      {
-        "title": "日期",
-        "value": "date"
-      },
-      {
-        "title": "月份",
-        "value": "month"
-      },
-      {
-        "title": "季度",
-        "value": "quarter"
-      },
-      {
-        "title": "年份",
-        "value": "year"
-      }
-    ],
-    "description": "日期格式设置"
   },
   "u-date-picker/preIcon": {
     "type": "string",
@@ -2259,7 +2438,7 @@
   },
   "u-date-picker/opened": {
     "type": "boolean",
-    "description": "弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”"
+    "description": "弹出状态分为“True(弹出)/False(关闭)”，默认为“关闭”"
   },
   "u-date-picker/width": {
     "type": "string",
@@ -2329,9 +2508,35 @@
     ],
     "description": "设置日期选择输入框高度大小"
   },
-  "u-date-time-picker/date": {
+  "u-date-time-picker/minUnit": {
+    "type": "string",
+    "options": [
+      {
+        "value": "second",
+        "title": "秒"
+      },
+      {
+        "value": "minute",
+        "title": "分"
+      }
+    ],
+    "description": "最小时间单位"
+  },
+  "u-date-time-picker/range": {
+    "type": "boolean",
+    "description": "是否支持进行日期时间区间选择，关闭则为日期时间点选择"
+  },
+  "u-date-time-picker/value": {
     "type": "string, number, Date",
     "description": "默认显示的日期时间值，格式如2018-08-08 08:08:08"
+  },
+  "u-date-time-picker/startDate": {
+    "type": "string,number,Date",
+    "description": "默认显示的起始日期时间值，格式如2018-08-08 08:08:08"
+  },
+  "u-date-time-picker/endDate": {
+    "type": "string,number,Date",
+    "description": "默认显示的结束日期时间值，格式如2018-08-08 08:08:08"
   },
   "u-date-time-picker/minDate": {
     "type": "string, number, Date",
@@ -2348,6 +2553,74 @@
   "u-date-time-picker/yearAdd": {
     "type": "number",
     "description": "最大可选年份值与当前年份值的差值"
+  },
+  "u-date-time-picker/show-date-formatter": {
+    "type": "string",
+    "options": [
+      {
+        "value": "YYYY年M月D日",
+        "title": "中国（2023年7月26日）"
+      },
+      {
+        "value": "YYYY-MM-DD",
+        "title": "ISO（2023-07-26）"
+      },
+      {
+        "value": "M/D/YYYY",
+        "title": "US（7/26/2023）"
+      },
+      {
+        "value": "D/M/YYYY",
+        "title": "EU（26/7/2023）"
+      }
+    ],
+    "description": ""
+  },
+  "u-date-time-picker/show-time-formatter": {
+    "type": "string",
+    "options": [
+      {
+        "value": "HH:mm:ss",
+        "title": "12:09:09",
+        "dependency": [
+          {
+            "minUnit": "second"
+          }
+        ]
+      },
+      {
+        "value": "HH时mm分ss秒",
+        "title": "12时09分09秒",
+        "dependency": [
+          {
+            "minUnit": "second"
+          }
+        ]
+      },
+      {
+        "value": "HH:mm",
+        "title": "12:09",
+        "dependency": [
+          {
+            "minUnit": "minute"
+          }
+        ]
+      },
+      {
+        "value": "HH时mm分",
+        "title": "12时09分",
+        "dependency": [
+          {
+            "minUnit": "minute"
+          }
+        ]
+      }
+    ],
+    "description": ""
+  },
+  "u-date-time-picker/advanced-format": {
+    "type": "{ enable: boolean, value: string }",
+    "description": ""
   },
   "u-date-time-picker/placeholder": {
     "type": "string",
@@ -2439,7 +2712,7 @@
   },
   "u-date-time-picker/opened": {
     "type": "boolean",
-    "description": "弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”"
+    "description": "弹出状态分为“True(弹出)/False(关闭)”，默认为“关闭”"
   },
   "u-date-time-picker/disabled": {
     "type": "boolean",
@@ -2651,6 +2924,37 @@
     ],
     "description": "抽屉的尺寸"
   },
+  "u-dropdown/has-data-source": {
+    "type": "boolean"
+  },
+  "u-dropdown/data-source": {
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。"
+  },
+  "u-dropdown/data-schema": {
+    "type": "schema",
+    "description": "数据源返回的数据结构的类型，自动识别类型进行展示说明"
+  },
+  "u-dropdown/text-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-dropdown/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
+  "u-dropdown/icon-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于图标的属性名称"
+  },
+  "u-dropdown/to-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于跳转链接的属性名称"
+  },
+  "u-dropdown/parent-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识父节点的属性"
+  },
   "u-dropdown/trigger": {
     "type": "string",
     "options": [
@@ -2771,6 +3075,14 @@
     ],
     "description": "设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。"
   },
+  "u-dropdown/router": {
+    "type": "boolean",
+    "description": "是否使用 vue-router"
+  },
+  "u-dropdown/value": {
+    "type": "any",
+    "description": "当前选中的值"
+  },
   "u-dropdown/disabled": {
     "type": "boolean",
     "description": "置灰显示，且禁止任何交互（焦点、点击、选择、输入等）"
@@ -2832,6 +3144,22 @@
   "u-dropdown-item/disabled": {
     "type": "boolean",
     "description": "置灰显示，且禁止任何交互（焦点、点击、选择、输入等）"
+  },
+  "u-dropdown-group/title": {
+    "type": "string",
+    "description": "显示的标题"
+  },
+  "u-dropdown-group/collapsible": {
+    "type": "boolean",
+    "description": "设置是否可以展开/折叠"
+  },
+  "u-dropdown-group/expanded": {
+    "type": "boolean",
+    "description": "展开状态分为“True(展开)/False(折叠)”，默认为“展开”"
+  },
+  "u-dropdown-group/disabled": {
+    "type": "boolean",
+    "description": "置灰显示，且禁止展开/折叠操作"
   },
   "u-dynamic-cards/data": {
     "type": "Array",
@@ -3208,6 +3536,19 @@
   "u-form-item/required": {
     "type": "boolean",
     "description": "是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。"
+  },
+  "u-form-item/required-position": {
+    "type": "string",
+    "options": [
+      {
+        "value": "left",
+        "title": "文本左侧"
+      },
+      {
+        "value": "right",
+        "title": "文本右侧"
+      }
+    ]
   },
   "u-form-item/message": {
     "type": "string",
@@ -3664,14 +4005,6 @@
     "type": "string",
     "description": "选项文本的字段名"
   },
-  "u-grid-view/text-field": {
-    "type": "string",
-    "description": "选项文本的字段名"
-  },
-  "u-grid-view/value-field": {
-    "type": "string",
-    "description": "选项值的字段名"
-  },
   "u-grid-view/cancelable": {
     "type": "boolean",
     "description": ""
@@ -3691,6 +4024,14 @@
   "u-grid-view/data-schema": {
     "type": "schema",
     "description": "数据源返回的数据结构的类型，自动识别类型进行展示说明"
+  },
+  "u-grid-view/text-field": {
+    "type": "string",
+    "description": "选项文本的字段名"
+  },
+  "u-grid-view/value-field": {
+    "type": "string",
+    "description": "选项值的字段名"
   },
   "u-grid-view/pageable": {
     "type": "boolean",
@@ -4095,6 +4436,26 @@
   "u-image/preview": {
     "type": "boolean",
     "description": "是否支持点击放大全屏展示"
+  },
+  "u-image/loading-type": {
+    "type": "string",
+    "options": [
+      {
+        "value": "loading",
+        "title": "Loading"
+      },
+      {
+        "value": "none",
+        "title": "不显示加载状态"
+      },
+      {
+        "value": "placeholder",
+        "title": "自定义默认图"
+      }
+    ]
+  },
+  "u-image/placeholder-src": {
+    "type": "string"
   },
   "u-info-list/repeat": {
     "type": "number",
@@ -4925,10 +5286,6 @@
     "type": "boolean",
     "description": ""
   },
-  "u-list-view/repeat": {
-    "type": "number",
-    "description": ""
-  },
   "u-list-view/initial-load": {
     "type": "boolean",
     "description": "设置初始时是否立即加载"
@@ -5515,6 +5872,37 @@
     ],
     "description": "内容块间隙大小"
   },
+  "u-navbar-multi/has-data-source": {
+    "type": "boolean"
+  },
+  "u-navbar-multi/data-source": {
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。"
+  },
+  "u-navbar-multi/data-schema": {
+    "type": "schema",
+    "description": "数据源返回的数据结构的类型，自动识别类型进行展示说明"
+  },
+  "u-navbar-multi/text-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-navbar-multi/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
+  "u-navbar-multi/icon-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于图标的属性名称"
+  },
+  "u-navbar-multi/to-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于跳转链接的属性名称"
+  },
+  "u-navbar-multi/parent-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识父节点的属性"
+  },
   "u-navbar-multi/router": {
     "type": "boolean",
     "description": "是否根据 vue-router 来控制选择项"
@@ -5692,6 +6080,22 @@
   "u-navbar-dropdown-multi/disabled": {
     "type": "boolean",
     "description": "置灰显示，且禁止任何交互（焦点、点击、选择、输入等）"
+  },
+  "u-navbar-group-multi/title": {
+    "type": "string",
+    "description": "显示的标题"
+  },
+  "u-navbar-group-multi/collapsible": {
+    "type": "boolean",
+    "description": "设置是否可以展开/折叠"
+  },
+  "u-navbar-group-multi/expanded": {
+    "type": "boolean",
+    "description": "展开状态分为“True(展开)/False(折叠)”，默认为“展开”"
+  },
+  "u-navbar-group-multi/disabled": {
+    "type": "boolean",
+    "description": "置灰显示，且禁止展开/折叠操作"
   },
   "u-navbar/router": {
     "type": "boolean",
@@ -5908,7 +6312,29 @@
   },
   "u-number-input/precision": {
     "type": "number",
-    "description": "精度，表示数字要保留的最小单位，整数、小数均可"
+    "description": "限制数字输入要保留的最小精度单位，默认不限制精度，如需保留两位小数，则填入0.01"
+  },
+  "u-number-input/decimal-length": {
+    "type": "number",
+    "description": "控制数据存储时小数点后保留几位。例如：精度为2，则数据存储时小数点后保留2位。"
+  },
+  "u-number-input/decimal-places": {
+    "type": "{ places: number, omit: boolean }",
+    "description": "控制数据展示时小数点后保留几位，仅影响展示，不影响数据实际存储的值。例如：小数位数为2，则数据展示时小数点后保留2位。"
+  },
+  "u-number-input/thousandths": {
+    "type": "boolean"
+  },
+  "u-number-input/percent-sign": {
+    "type": "boolean"
+  },
+  "u-number-input/unit": {
+    "type": "{ type: string, value: string }",
+    "description": "输入框中显示的单位"
+  },
+  "u-number-input/advanced-format": {
+    "type": "{ enable: boolean, value: string }",
+    "description": "用来控制数字的展示格式"
   },
   "u-number-input/placeholder": {
     "type": "string",
@@ -6532,6 +6958,10 @@
     "type": "boolean",
     "description": "弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”"
   },
+  "u-router-view/disableKeepAlive": {
+    "type": "boolean",
+    "description": "重新进入已打开页面时，会刷新页面"
+  },
   "u-select/data-source": {
     "type": "Array<Item> | Function | object | DataSource",
     "description": "展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。"
@@ -6942,17 +7372,48 @@
     "type": "boolean",
     "description": "置灰显示，且禁止任何交互（焦点、点击、选择、输入等）"
   },
-  "u-sidebar/value": {
-    "type": "any",
-    "description": "当前选中的值"
+  "u-sidebar/has-data-source": {
+    "type": "boolean"
+  },
+  "u-sidebar/data-source": {
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。"
+  },
+  "u-sidebar/data-schema": {
+    "type": "schema",
+    "description": "数据源返回的数据结构的类型，自动识别类型进行展示说明"
+  },
+  "u-sidebar/text-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于显示文本的属性名称"
+  },
+  "u-sidebar/value-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识选中值的属性"
+  },
+  "u-sidebar/icon-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于图标的属性名称"
+  },
+  "u-sidebar/to-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于跳转链接的属性名称"
+  },
+  "u-sidebar/parent-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识父节点的属性"
   },
   "u-sidebar/router": {
     "type": "boolean",
     "description": "是否根据 vue-router 来控制选择哪一项"
   },
+  "u-sidebar/value": {
+    "type": "any",
+    "description": "当前选中的值"
+  },
   "u-sidebar/collapsible": {
     "type": "boolean",
-    "description": "设置是否可以展开/折叠"
+    "description": "设置菜单项是否可以展开/折叠"
   },
   "u-sidebar/accordion": {
     "type": "boolean",
@@ -6971,6 +7432,22 @@
       }
     ],
     "description": "展开/折叠操作的触发方式"
+  },
+  "u-sidebar/enable-collapse": {
+    "type": "boolean",
+    "description": "设置侧边栏是否可以展开/折叠"
+  },
+  "u-sidebar/collapse": {
+    "type": "boolean",
+    "description": "侧边栏是否折叠"
+  },
+  "u-sidebar/expand-icon": {
+    "type": "icon",
+    "description": "侧边栏展开图标"
+  },
+  "u-sidebar/fold-icon": {
+    "type": "icon",
+    "description": "侧边栏折叠图标"
   },
   "u-sidebar/readonly": {
     "type": "boolean",
@@ -7555,6 +8032,12 @@
     "type": "string | number",
     "description": "设置列宽度，可设置为数字或百分比"
   },
+  "u-table-view-column/colSpan": {
+    "type": "number"
+  },
+  "u-table-view-column/autoRowSpan": {
+    "type": "boolean"
+  },
   "u-table-view-column-config/text-field": {
     "type": "string",
     "description": "配置列的下拉弹窗里，指定数据展示的字段"
@@ -7578,6 +8061,56 @@
   "u-table-view-column-config/show-footer": {
     "type": "boolean",
     "description": "控制弹出层的确定/取消按钮是否展示"
+  },
+  "u-table-view-column-dynamic/data-source": {
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑"
+  },
+  "u-table-view-column-dynamic/data-schema": {
+    "type": "schema",
+    "description": "数据源返回的数据结构的类型，自动识别类型进行展示说明"
+  },
+  "u-table-view-column-dynamic/value-field": {
+    "type": "string",
+    "description": "在单选、多选操作、渲染树形数据中，指定数据唯一值的字段"
+  },
+  "u-table-view-column-dynamic/sortable": {
+    "type": "boolean",
+    "description": "设置该列是否可以排序"
+  },
+  "u-table-view-column-dynamic/default-order": {
+    "type": "string",
+    "options": [
+      {
+        "value": "asc",
+        "title": "升序"
+      },
+      {
+        "value": "desc",
+        "title": "倒序"
+      }
+    ],
+    "description": "该列首次点击时的排序顺序"
+  },
+  "u-table-view-column-dynamic/fixed": {
+    "type": "boolean",
+    "description": "该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。"
+  },
+  "u-table-view-column-dynamic/ellipsis": {
+    "type": "boolean",
+    "description": "文字过长是否省略显示。默认文字超出时会换行。"
+  },
+  "u-table-view-column-dynamic/hidden": {
+    "type": "boolean",
+    "description": ""
+  },
+  "u-table-view-column-dynamic/width": {
+    "type": "string | number",
+    "description": "设置列宽度，可设置为数字或百分比"
+  },
+  "u-table-view-column-group/title": {
+    "type": "string",
+    "description": ""
   },
   "u-tablets/value": {
     "type": "any",
@@ -7703,6 +8236,10 @@
       {
         "value": "capsule",
         "title": "胶囊"
+      },
+      {
+        "value": "split",
+        "title": "竖线分隔"
       }
     ],
     "description": ""
@@ -8025,10 +8562,6 @@
     "type": "boolean, object",
     "description": "可输入如{maxHeight:100,minHeight:50}，单位默认为px"
   },
-  "u-time-picker/time": {
-    "type": "string",
-    "description": "默认显示的时间值，格式如08:08:08"
-  },
   "u-time-picker/minUnit": {
     "type": "string",
     "options": [
@@ -8043,6 +8576,22 @@
     ],
     "description": "最小时间单位"
   },
+  "u-time-picker/range": {
+    "type": "boolean",
+    "description": "是否支持进行时间区间选择，关闭则为时间点选择"
+  },
+  "u-time-picker/value": {
+    "type": "string",
+    "description": "默认显示的时间值，格式如08:08:08"
+  },
+  "u-time-picker/startTime": {
+    "type": "string",
+    "description": "默认显示的起始时间值，格式如08:08:08"
+  },
+  "u-time-picker/endTime": {
+    "type": "string",
+    "description": "默认显示的结束时间值，格式如08:08:08"
+  },
   "u-time-picker/min-time": {
     "type": "string",
     "description": "最小可选的时间值，填写null则不限制，日期填写格式为“00:00:00”"
@@ -8050,6 +8599,52 @@
   "u-time-picker/max-time": {
     "type": "string",
     "description": "最大可选的时间值，填写null则不限制，日期填写格式为“00:00:00”"
+  },
+  "u-time-picker/show-formatter": {
+    "type": "string",
+    "options": [
+      {
+        "value": "HH:mm:ss",
+        "title": "12:09:09",
+        "dependency": [
+          {
+            "minUnit": "second"
+          }
+        ]
+      },
+      {
+        "value": "HH时mm分ss秒",
+        "title": "12时09分09秒",
+        "dependency": [
+          {
+            "minUnit": "second"
+          }
+        ]
+      },
+      {
+        "value": "HH:mm",
+        "title": "12:09",
+        "dependency": [
+          {
+            "minUnit": "minute"
+          }
+        ]
+      },
+      {
+        "value": "HH时mm分",
+        "title": "12时09分",
+        "dependency": [
+          {
+            "minUnit": "minute"
+          }
+        ]
+      }
+    ],
+    "description": ""
+  },
+  "u-time-picker/advanced-format": {
+    "type": "{ enable: boolean, value: string }",
+    "description": ""
   },
   "u-time-picker/autofocus": {
     "type": "boolean",
@@ -8241,7 +8836,44 @@
     "type": "string",
     "description": "指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值"
   },
-  "u-toast/position": {
+  "u-toast-single/text": {
+    "type": "string",
+    "description": "默认提示内容"
+  },
+  "u-toast-single/color": {
+    "type": "string",
+    "options": [
+      {
+        "value": "success",
+        "title": "成功"
+      },
+      {
+        "value": "warning",
+        "title": "警告"
+      },
+      {
+        "value": "error",
+        "title": "错误"
+      },
+      {
+        "value": "loading",
+        "title": "加载中"
+      },
+      {
+        "value": "custom",
+        "title": "自定义"
+      }
+    ],
+    "description": "提示的类型"
+  },
+  "u-toast-single/custom-icon": {
+    "type": "icon"
+  },
+  "u-toast-single/duration": {
+    "type": "number",
+    "description": "自动关闭的延时，单位毫秒。设为 0 时不自动关闭"
+  },
+  "u-toast-single/position": {
     "type": "string",
     "options": [
       {
@@ -8275,41 +8907,11 @@
     ],
     "description": "显示的位置"
   },
-  "u-toast/duration": {
-    "type": "number",
-    "description": "提示停留的时间。`0`表示常驻。"
-  },
-  "u-toast/single": {
+  "u-toast-single/single": {
     "type": "boolean",
     "description": "多个提示会合并为一个"
   },
-  "u-toast/text": {
-    "type": "string",
-    "description": "默认提示内容"
-  },
-  "u-toast/color": {
-    "type": "string",
-    "options": [
-      {
-        "value": "info",
-        "title": "信息提示"
-      },
-      {
-        "value": "success",
-        "title": "成功信息提示"
-      },
-      {
-        "value": "warning",
-        "title": "警告信息提示"
-      },
-      {
-        "value": "error",
-        "title": "错误信息提示"
-      }
-    ],
-    "description": "提示的颜色"
-  },
-  "u-toast/closable": {
+  "u-toast-single/closable": {
     "type": "boolean",
     "description": "是否可以关闭提示"
   },
@@ -8589,6 +9191,32 @@
     "type": "any",
     "description": "选择后，所选中的值"
   },
+  "u-tree-select-new/checkable": {
+    "type": "boolean",
+    "description": "设置是否开启多选模式，显示多选框"
+  },
+  "u-tree-select-new/placeholder": {
+    "type": "string",
+    "description": "为空时显示的占位符文本"
+  },
+  "u-tree-select-new/clearable": {
+    "type": "boolean",
+    "description": "设置是否开启可清除模式"
+  },
+  "u-tree-select-new/append-to": {
+    "type": "string",
+    "options": [
+      {
+        "value": "reference",
+        "title": "引用元素下"
+      },
+      {
+        "value": "body",
+        "title": "全局body"
+      }
+    ],
+    "description": "设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。"
+  },
   "u-tree-select/data": {
     "type": "Array<{ text, value }>",
     "description": "集合类型变量或者输出参数为集合类型的逻辑"
@@ -8835,6 +9463,67 @@
     "type": "string",
     "description": "请求返回的 URL 字段名"
   },
+  "u-uploader/file-icon-switcher": {
+    "type": "boolean",
+    "description": "是否展示文件图标"
+  },
+  "u-uploader/icon-map": {
+    "type": "Object"
+  },
+  "u-uploader/file-type": {
+    "type": "string",
+    "options": [
+      {
+        "title": "文档",
+        "value": "doc|docx"
+      },
+      {
+        "title": "图片",
+        "value": "jpg|jpeg|png|bmp|gif|tiff|tif|webp|svg|psd|raw"
+      },
+      {
+        "title": "PDF",
+        "value": "pdf"
+      },
+      {
+        "title": "表格",
+        "value": "xlsx"
+      },
+      {
+        "title": "文本",
+        "value": "txt"
+      },
+      {
+        "title": "幻灯片",
+        "value": "ppt|pptx"
+      },
+      {
+        "title": "压缩包",
+        "value": "zip"
+      },
+      {
+        "title": "CSV",
+        "value": "csv"
+      }
+    ],
+    "description": ""
+  },
+  "u-uploader/file-icon": {
+    "type": "file-icon",
+    "description": ""
+  },
+  "u-uploader/download-icon-switcher": {
+    "type": "boolean",
+    "description": "是否展示下载图标"
+  },
+  "u-uploader/download-icon": {
+    "type": "icon",
+    "description": ""
+  },
+  "u-uploader/file-size": {
+    "type": "boolean",
+    "description": "是否展示文件大小，单位小于1MB则展示KB，大于1MB则展示MB。"
+  },
   "u-uploader/headers": {
     "type": "Object",
     "description": ""
@@ -8931,7 +9620,7 @@
   },
   "u-uploader/check-file": {
     "type": "Function",
-    "description": "文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息"
+    "description": "文件校验函数，可自定义校验规则，如文件名称包含特殊字符等，返回string类型的出错信息"
   },
   "u-uploader/access": {
     "type": "string",
@@ -8954,6 +9643,14 @@
   "u-uploader/ttlValue": {
     "type": "number",
     "description": "文件上传后的有效期天数"
+  },
+  "u-uploader/viaOriginURL": {
+    "type": "boolean",
+    "description": "开启后支持通过文件存储源地址访问文件"
+  },
+  "u-uploader/lcapIsCompress": {
+    "type": "boolean",
+    "description": "启用压缩后上传的文件按压缩规则进行压缩后上传，压缩规则可在自定义配置参数管理"
   },
   "u-uploader/draggable": {
     "type": "boolean",

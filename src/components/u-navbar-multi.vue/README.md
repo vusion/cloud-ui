@@ -6,6 +6,7 @@
     - [导航栏](#导航栏)
 - [UNavbarMulti API](#unavbarmulti-api)
     - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
     - [Events](#events)
 - [UNavbarItemMulti API](#unavbaritemmulti-api)
     - [Props/Attrs](#propsattrs-2)
@@ -30,6 +31,9 @@
 
 - [UNavbarSelectDividerMulti API](#unavbarselectdividermulti-api)
 
+- [UNavbarGroupMulti API](#unavbargroupmulti-api)
+    - [Props/Attrs](#propsattrs-4)
+    - [Slots](#slots-2)
 
 **Navigation**
 
@@ -76,11 +80,25 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| has-data-source | boolean |  | `false` | undefined |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
+| text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
+| value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
+| icon-field | string |  | `'icon'` | 集合的元素类型中，用于图标的属性名称 |
+| to-field | string |  | `'to'` | 集合的元素类型中，用于跳转链接的属性名称 |
+| parent-field | string |  | `''` | 集合的元素类型中，用于标识父节点的属性 |
 | router | boolean |  | `true` | 是否根据 vue-router 来控制选择项 |
 | value.sync, v-model | any |  |  | 当前选中的值 |
 | field | string |  | `'text'` | 显示文本字段 |
 | readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+
+### Slots
+
+#### (default)
+
+插入`<u-navbar-multi>`子组件。
 
 ### Events
 
@@ -173,3 +191,19 @@
 ## UNavbarSelectDividerMulti API
 
 暂无
+## UNavbarGroupMulti API
+### Props/Attrs
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| title | string |  |  | 显示的标题 |
+| collapsible | boolean |  | `false` | 设置是否可以展开/折叠 |
+| expanded.sync | boolean |  | `false` | 展开状态分为“True(展开)/False(折叠)”，默认为“展开” |
+| disabled | boolean |  | `false` | 置灰显示，且禁止展开/折叠操作 |
+
+### Slots
+
+#### (default)
+
+插入`<u-navbar-multi>`子组件。
+
