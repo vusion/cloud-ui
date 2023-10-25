@@ -76,6 +76,7 @@
         @toggle="$emit('toggle', $event, this)"
         @click.stop @scroll.stop="onScroll" @mousedown.stop>
         <div :class="$style.wrap" ref="popperwrap">
+            <u-select-item-all-check v-if="hasAllCheckItem && multiple" :all-checked="allChecked" :parent-v-m="this" :check-all="checkAll"></u-select-item-all-check>
             <slot></slot>
             <template v-if="currentData">
                 <div :class="$style.status" key="empty" v-if="!currentData.length && !currentLoading && showEmptyText">
@@ -133,10 +134,12 @@ import { ellipsisTitle } from '../../directives';
 import i18n from './i18n';
 import DataSource from '../../utils/DataSource';
 import DataSourceNew from '../../utils/DataSource/new';
+import AllCheck from './allCheck.vue';
 
 export default {
     name: 'u-select',
     component: {
+        'u-select-item-all-check': AllCheck,
     },
     childName: 'u-select-item',
     groupName: 'u-select-group',
@@ -200,6 +203,7 @@ export default {
         description: { type: Boolean, default: false },
         showRenderFooter: { type: Boolean, default: false }, // 可扩展下拉项
         iconField: String,
+        hasAllCheckItem: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -255,6 +259,27 @@ export default {
             }
 
             return !!this.pagination;
+        },
+        allChecked() {
+            // readme:copy from u-list-view/index, changed some behavior for u-select function;
+            let checkedLength = 0;
+            let disabledUnCheckedItemCount = 0;
+            this.itemVMs.forEach((itemVM) => {
+                if (itemVM.currentSelected)
+                    checkedLength++;
+                else if (itemVM.disabled || itemVM.readonly)
+                    disabledUnCheckedItemCount++;
+            });
+
+            if (!this.hasAllCheckItem) {
+                disabledUnCheckedItemCount = 0;
+            }
+            if (checkedLength === 0)
+                return false;
+            else if ((checkedLength + disabledUnCheckedItemCount) === this.itemVMs.length)
+                return true;
+            else
+                return null;
         },
     },
     watch: {
