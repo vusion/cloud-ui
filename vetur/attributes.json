@@ -1428,6 +1428,10 @@
     "type": "any",
     "description": ""
   },
+  "u-cascader/useArrayLikeValue": {
+    "type": "boolean",
+    "description": ""
+  },
   "u-cascader/filterable": {
     "type": "boolean",
     "description": "设置是否可以筛选，开启将会显示搜索框。"
@@ -7759,6 +7763,18 @@
   "u-table-view/draggable": {
     "type": "boolean",
     "description": "设置是否可以拖拽行排序"
+  },
+  "u-table-view/acrossTableDrag": {
+    "type": "boolean",
+    "description": "设置多个表格间是否可以拖拽放置"
+  },
+  "u-table-view/can-dragable-handler": {
+    "type": "Function",
+    "description": "设置表格行是否可拖拽起来。绑定逻辑"
+  },
+  "u-table-view/can-dropin-handler": {
+    "type": "Function",
+    "description": "设置表格行是否可拖拽放入。绑定逻辑"
   },
   "u-table-view/accordion": {
     "type": "boolean",

@@ -866,6 +866,8 @@
     --table-view-subrow-background-dragging:  rgba(237, 237, 237, 0.5);/* @type color */ /* @desc 表格被拖拽行子树背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-row-background-dragging: #e5e5e5;/* @type color */ /* @desc 表格被拖拽行背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-drag-cursor: move;/* @desc 拖拽鼠标样式 */ /* @excludeElTags td,th */
+    --table-view-drag-cursor-disabled: not-allowed; /* @desc 拖拽鼠标样式（禁用状态） */ /* @excludeElTags td,th */
+    --table-view-drag-color-disabled: #ccc; /* @desc 拖拽图标颜色（禁用状态） */ /* @excludeElTags td,th */
 
     --table-view-head-background: #f7f8fa; /* @hidden */
     --table-view-head-title-sortable-hover: #eef2f8; /* @hidden */

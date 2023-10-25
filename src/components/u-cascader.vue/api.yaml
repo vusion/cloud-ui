@@ -43,7 +43,8 @@
       docDescription: 集合的元素类型中，用于标识选中值的属性
       tooltipLink: ""
     - name: children-field
-      title: 子级节点字段
+      title: 子级值字段
+      advanced: true
       type: string
       default: children
       description: 树形数据子节点字段名，默认为children
@@ -58,7 +59,7 @@
       docDescription: 树形数据子节点字段名，默认为children
       tooltipLink: ""
     - name: parent-field
-      title: 父级节点字段
+      title: 父级值字段
       type: string
       description: 当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置
       display: property-select
@@ -80,6 +81,18 @@
       group: 数据属性
       brifeDoc: ""
       docDescription: 选择器的值
+      tooltipLink: ""
+    - name: useArrayLikeValue
+      title: 绑定值使用值字段
+      default: false
+      model: false
+      bindHide: true
+      sync: false
+      type: boolean
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 是否使用数组类型的value
       tooltipLink: ""
     - name: filterable
       title: 筛选
