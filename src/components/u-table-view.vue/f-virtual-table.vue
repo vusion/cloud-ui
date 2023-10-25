@@ -1,27 +1,11 @@
-<template>
-    <component :is="tagName" :class="$style.root" @scroll="onScroll" v-on="$listeners">
-        <div ref="virtual" :class="$style.virtual" :style="{ paddingTop: virtualTop + 'px', paddingBottom: virtualBottom + 'px' }">
-            <f-render :vnode="virtualSlot"></f-render>
-        </div>
-    </component>
-</template>
-
 <script>
-import throttle from 'lodash/throttle';
+import FVirtualList from '../f-virtual-list.vue';
 
 export default {
-    name: 'f-virtual-list',
-    props: {
-        list: Array,
-        itemHeight: Number,
-        virtual: { type: Boolean, default: true },
-        virtualCount: { type: Number, default: 60 },
-        throttle: { type: Number, default: 60 },
-        tagName: { type: String, default: 'div' },
-        listKey: { type: String, default: 'list' },
-    },
+    name: 'f-virtual-table',
+    extends: FVirtualList,
     data() {
-        return { virtualIndex: 0, virtualTop: 0, virtualBottom: 0 };
+        return { virtualIndex: 0, virtualTop: 0, virtualBottom: 0, currentVirtualCount: this.virtualCount };
     },
     computed: {
         virtualList() {
@@ -33,7 +17,7 @@ export default {
                     list
                     && list.slice(
                         this.virtualIndex,
-                        this.virtualIndex + this.virtualCount,
+                        this.virtualIndex + this.currentVirtualCount,
                     )
                 );
         },
@@ -48,38 +32,23 @@ export default {
                     this.$slots.default
                     && this.$slots.default.slice(
                         this.virtualIndex,
-                        this.virtualIndex + this.virtualCount,
+                        this.virtualIndex + this.currentVirtualCount,
                     )
                 );
         },
     },
-    created() {
-        this.throttledVirtualScroll = throttle(
-            this.handleVirtualScroll,
-            this.throttle,
-            { leading: true, trailing: true },
-        );
-    },
     methods: {
-        /**
-         * 监听列表容器的滚动事件
-         * 一般用于重写
-         * @override
-         * @param {*} e - 滚动事件对象
-         */ onScroll(e) {
-            if (!this.virtual)
-return;
-            this.throttledVirtualScroll(e);
-            this.$emit('scroll', e, this);
-        },
         handleVirtualScroll(e) {
             if (!this.virtual)
-return;
+                return;
             const listEl = e.target;
-            const virtualEl = this.$refs.virtual;
+            let virtualEl = this.$refs.virtual;
+            if (Array.isArray(virtualEl)) {
+                virtualEl = virtualEl[0];
+            }
             const list = this[this.listKey];
             if (!virtualEl || !list)
-return; // 缓存当前可见 DOM 节点的高度
+                return; // 缓存当前可见 DOM 节点的高度
             if (this.itemHeight === undefined) {
                 const children = Array.from(virtualEl.children);
                 children.forEach((childEl, index) => {
@@ -93,14 +62,16 @@ return; // 缓存当前可见 DOM 节点的高度
                 });
             }
             const getHeight = (item) => {
-                if (this.itemHeight !== undefined)
-return this.itemHeight;
+                if (item.display === 'none')
+                    return 0;
+                else if (this.itemHeight !== undefined)
+                    return this.itemHeight;
                 else if (item.height !== undefined)
-return item.height;
+                    return item.height;
                 else if (item._cacheHeight !== undefined)
                     return item._cacheHeight;
                 else
-return 0;
+                    return 0;
             };
             const scrollTop = listEl.scrollTop;
             let accHeight = 0;
@@ -108,30 +79,38 @@ return 0;
             let currentIndex = 0;
             for (currentIndex = 0; currentIndex < list.length; currentIndex++) {
                 const item = list[currentIndex];
-                accHeight += getHeight(item);
                 if (accHeight > scrollTop)
-break;
+                    break;
+                accHeight += getHeight(item);
             }
             virtualIndex = Math.max(
                 0,
-                currentIndex - Math.floor(this.virtualCount / 2),
+                currentIndex - Math.floor(this.currentVirtualCount / 2),
             ); // eslint-disable-next-line yoda
+            // table 树形展示里不能这么处理，暂时注释掉
             // 该方法容易出现白屏。有截流了问题不大。
-            if (
-                this.virtualCount / 3 <= currentIndex - this.virtualIndex
-                && currentIndex - this.virtualIndex < (this.virtualCount * 2) / 3
-            )
-                return;
+            // if (
+            //     this.currentVirtualCount / 3 <= currentIndex - this.virtualIndex
+            //     && currentIndex - this.virtualIndex < (this.currentVirtualCount * 2) / 3
+            // )
+            //     return;
             let virtualTop = 0;
             let virtualBottom = 0;
+            let noDisplayCount = 0;
             for (let i = 0; i < list.length; i++) {
                 const item = list[i];
                 if (i < virtualIndex) {
                     virtualTop += getHeight(item);
-                } else if (i >= virtualIndex + this.virtualCount) {
+                } else if (i >= virtualIndex + this.currentVirtualCount) {
                     virtualBottom += getHeight(item);
                 }
+                if (i > virtualIndex && i <= virtualIndex + this.currentVirtualCount) {
+                    if (item.display === 'none') {
+                        noDisplayCount++;
+                    }
+                }
             }
+            this.currentVirtualCount = this.virtualCount + noDisplayCount;
             this.virtualIndex = virtualIndex;
             this.virtualTop = virtualTop;
             this.virtualBottom = virtualBottom; // Vue 应该是对渲染做了优化，为了减少在高频滚动时出现白屏的问题，需要强制更新
@@ -141,7 +120,7 @@ break;
                     'virtual-scroll',
                     {
                         virtualIndex,
-                        virtualCount: this.virtualCount,
+                        virtualCount: this.currentVirtualCount,
                         virtualTop,
                         virtualBottom,
                     },
@@ -152,9 +131,3 @@ break;
     },
 };
 </script>
-
-<style module>
-.root {
-    overflow: auto;
-}
-</style>

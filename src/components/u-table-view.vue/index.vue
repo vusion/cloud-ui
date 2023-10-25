@@ -347,7 +347,7 @@ import DataSource from '../../utils/DataSource';
 import DataSourceNew from '../../utils/DataSource/new';
 import { addResizeListener, removeResizeListener, findScrollParent, getRect } from '../../utils/dom';
 import { format } from '../../utils/date';
-import KeyMap from '../../utils/keyMap'
+import KeyMap from '../../utils/keyMap';
 import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
@@ -355,7 +355,7 @@ import i18n from './i18n';
 import UTableViewDropGhost from './drop-ghost.vue';
 import SEmpty from '../../components/s-empty.vue';
 import throttle from 'lodash/throttle';
-import FVirtualList from '../f-virtual-list.vue';
+import FVirtualTable from './f-virtual-table.vue';
 
 export default {
     name: 'u-table-view',
@@ -363,7 +363,7 @@ export default {
         UTableViewDropGhost,
         SEmpty,
     },
-    mixins: [MEmitter, FVirtualList],
+    mixins: [MEmitter, FVirtualTable],
     i18n,
     props: {
         boldHeader: {
