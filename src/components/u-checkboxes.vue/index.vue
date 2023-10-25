@@ -121,13 +121,16 @@ export default {
       if (value) {
         if (this.converter) value = this.currentConverter.set(value);
         this.currentValue = value;
-        this.itemVMs.forEach((itemVM) => {
+        this.itemVMsExcludesCheckAll.forEach((itemVM) => {
           itemVM.currentValue = value.includes(itemVM.label);
         });
       } else {
         const value = [];
-        this.itemVMs.forEach(
-          (itemVM) => itemVM.currentValue && value.push(itemVM.label)
+        this.itemVMsExcludesCheckAll.forEach(
+          (itemVM) => {
+            itemVM.currentValue = value.includes(itemVM.label);
+            // itemVM.currentValue && value.push(itemVM.label);
+          }
         );
         this.currentValue = value;
       }
