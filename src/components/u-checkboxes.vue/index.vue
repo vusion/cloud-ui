@@ -11,7 +11,7 @@
         :style="{ display: checkAllDisplay }"
       >
         <slot name="check-all">
-          <u-text text="全选"></u-text>
+          <u-text :text="checkAllText"></u-text>
         </slot>
       </u-checkbox>
       <u-checkbox
@@ -60,6 +60,7 @@ export default {
     disabled: { type: Boolean, default: false },
     checkAll: { type: Boolean, default: false },
     checkAllDisplay: { type: String, default: "inline" },
+    checkAllText: { type: String, default: "全选" },
   },
   data() {
     return {
