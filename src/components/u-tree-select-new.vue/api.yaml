@@ -49,7 +49,6 @@
       tooltipLink: ""
     - name: children-field
       title: 子级值字段
-      advanced: true
       type: string
       default: children
       description: 集合的元素类型中，用于标识子节点的属性，默认为children
@@ -81,6 +80,25 @@
       type: string
       default: 请选择
       description: 为空时显示的占位符文本
+    - name: check-controlled
+      title: 父子节点独立选择
+      type: boolean
+      default: false
+      description: 开启后父节点选择不会全选子节点，子节点选择不会联动父节点
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 开启后父节点选择不会全选子节点，子节点选择不会联动父节点
+      tooltipLink: ""
+    - name: disabled-field
+      title:  不可选择字段 
+      type: string
+      display: property-select
+      default: "disabled"
+      description: 集合的元素类型中，用于标识节点的disabled属性
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 集合的元素类型中，用于标识父级字段的属性，支持自定义变更
+      tooltipLink: ""
     - name: clearable
       title: 可清除
       type: boolean

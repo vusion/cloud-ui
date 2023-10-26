@@ -115,6 +115,12 @@
       brifeDoc: ""
       docDescription: 0～7 (周一～周日) 数字配置，自定义每行从周几开始展示，默认 1，**当开启展示周数时固定周一开始**。
       tooltipLink: ""
+    - name: multiple
+      title: 可多选
+      type: boolean
+      default: false
+      description: 开启可多选后，可通过ctrl/command+鼠标多选
+      group: 交互属性
   slots:
     - concept: Slot
       name: default

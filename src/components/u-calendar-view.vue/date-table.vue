@@ -28,11 +28,11 @@
                     v-for="(cell, j) in row"
                     :key="cell.__key__"
                     :type="cell.__type__"
-                    :disabled="cell.disabled"
+                    :disabled="cell.disabled || (multiple && isModKeyPressed && cell.__type__ !=='current') "
                     :selected="isSelected(cell)"
                     :current="cell.__key__ === currentKey"
                     :class="$style.td"
-                    @click="onSelectDate(cell)"
+                    @click="onSelectDate($event, cell)"
                 >
                     <div :class="$style.date">
                         {{ cell.date }}
@@ -60,7 +60,7 @@ export default {
     name: 'date-table',
     i18n,
     props: {
-        selectedDate: Object,
+        selectedDates: Array,
         current: Object,
         minDay: Object,
         maxDay: Object,
@@ -70,6 +70,8 @@ export default {
         data: Array,
         startKey: String,
         endKey: String,
+        getCommonAttrs: Function,
+        multiple: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -82,7 +84,9 @@ export default {
                 this.$t('Saturday'),
                 this.$t('Sunday'),
             ],
-            currentCell: null,
+            selectedDateKey: this.selectedDates.length > 0 ? this.selectedDates[0].format(DefaultFormatType) : undefined,
+            releaseKeyListeners: null,
+            isModKeyPressed: false,
         };
     },
     computed: {
@@ -93,17 +97,20 @@ export default {
             else
                 return weekDayTexts.slice(firstDayOfWeek - 1).concat(weekDayTexts.slice(0, firstDayOfWeek - 1));
         },
-        selectedDateKey() {
-            return this.selectedDate.format(DefaultFormatType);
+        selectedDateKeyMap() {
+            return this.selectedDates.reduce((acc, date) => ({
+                ...acc,
+                [date.format(DefaultFormatType)]: true,
+            }), {});
         },
         currentKey() {
             return this.current.format(DefaultFormatType);
         },
         rows() {
             const datesLength = 42;
-            const { firstDayOfWeek, selectedDate } = this;
+            const { firstDayOfWeek, selectedDates } = this;
             // #date 日期，#day 星期几，参考 day.js API
-            const firstDateOfMonth = selectedDate.clone().date(1);
+            const firstDateOfMonth = selectedDates[0].clone().date(1).startOf('day');
             const firstDayOfMonth = firstDateOfMonth.day();
             const prevMonthDateLength = firstDayOfMonth >= firstDayOfWeek ? firstDayOfMonth - firstDayOfWeek : firstDayOfMonth + 7 - firstDayOfWeek;
             const dates = [];
@@ -133,68 +140,83 @@ export default {
             return rows;
         },
     },
-    watch: {
-        currentCell(value, oldValue) {
-            // 第一次更改不触发，点击相同 cell 也不触发
-            if (oldValue !== null && value.__key__ !== oldValue.__key__) {
-                this.$emit('change', { ...value, value: value.__key__, oldValue: oldValue.__key__ });
+
+    mounted() {
+        const onKeyDownHandler = (e) => {
+            if (this.hasModKey(e)) {
+                this.isModKeyPressed = true;
             }
+        };
+        const onKeyUpHandler = (e) => {
+            if (this.hasModKey(e)) {
+                this.isModKeyPressed = false;
+            }
+        };
+        window.addEventListener('keydown', onKeyDownHandler);
+        window.addEventListener('keyup', onKeyUpHandler);
+        this.releaseKeyListeners = () => {
+            window.removeEventListener('keydown', onKeyDownHandler);
+            window.removeEventListener('keyup', onKeyUpHandler);
+        };
+    },
+    destroyed() {
+        if (this.releaseKeyListeners) {
+            this.releaseKeyListeners();
         }
     },
     methods: {
-        onSelectDate(cell) {
+        onSelectDate(event, cell) {
             const { __type__, __key__, disabled } = cell;
-            if (disabled)
+            if (disabled || (this.multiple && this.hasModKey(event) && __type__ !== 'current')) {
                 return;
-
-            this.$emit('select', { ...cell, value: __key__, oldValue: this.selectedDateKey });
-            const selectedDate = dayjs(__key__, DefaultFormatType);
-            if (__type__ !== 'current') {
-                this.$emit('update:month', selectedDate.month());
-                this.$emit('update:year', selectedDate.year());
             }
-            this.$emit('update:selectedDate', selectedDate);
-        },
-        getCommonAttrs(date, extra) {
-            return {
-                Date: date,
-                date: date.date(),
-                week: date.week(),
-                timestamp: date.valueOf(),
-                disabled: date.isBefore(this.minDay) || date.isAfter(this.maxDay),
-                __key__: date.format(DefaultFormatType),
-                ...extra,
-                ...this.getData(date),
-            };
-        },
-        getData(date) {
-            const { data, startKey, endKey } = this;
-            if (!data || !data.length)
-                return {};
-            const validData = data.filter((item) => {
-                const startTime = get(item, startKey, null);
-                const endTime = get(item, endKey, null);
-                const startDate = getDay(startTime, null);
-                const endDate = getDay(endTime, null);
-                if (!startDate)
-                    return false;
-                if (endDate) {
-                    return date.isSameOrBefore(endDate) && date.isSameOrAfter(startDate);
+
+            const selectedDate = dayjs(__key__, DefaultFormatType);
+            if (!this.multiple || !this.hasModKey(event)) {
+                if (selectedDate.isSame(this.selectedDates[0])) {
+                    return;
                 }
-                return date.format(DefaultFormatType) === startDate.format(DefaultFormatType);
-            });
-            if (!validData.length)
-                return {};
-            return { ...validData[0], list: validData };
+                if (__type__ !== 'current') {
+                    this.$emit('update:month', selectedDate.month());
+                    this.$emit('update:year', selectedDate.year());
+                }
+                this.$emit('update:selectedDates', { dates: [selectedDate], cell });
+            } else {
+                let newSelectedDates = this.selectedDates;
+                const idx = this.selectedDates.findIndex((d) => d.isSame(selectedDate));
+                if (~idx && this.selectedDates.length === 1) {
+                    return;
+                }
+                if (~idx) {
+                    newSelectedDates = newSelectedDates.slice(0, idx).concat(newSelectedDates.slice(idx + 1));
+                } else {
+                    newSelectedDates = newSelectedDates.concat(selectedDate).sort((lhs, rhs) => {
+                        if (lhs.isSame(rhs)) {
+                            return 0;
+                        }
+                        return lhs.isBefore(rhs) ? -1 : 1;
+                    });
+                }
+                this.$emit('update:selectedDates', { dates: newSelectedDates, cell });
+            }
+
+            this.$emit('select', { ...cell, value: __key__, oldValue: this.selectedDateKey, monthOfStart: cell.Date.startOf('month'), monthOfEnd: cell.Date.endOf('month') });
+            this.selectedDateKey = __key__;
         },
         isSelected(cell) {
             // 判断是否是当前的 cell，并且保存下来
-            if (cell.__key__ === this.selectedDateKey) {
-                this.currentCell = cell;
-                return true
+            if (this.selectedDateKeyMap[cell.__key__] === true) {
+                // this.currentCell = cell;
+                return true;
             }
-            return false
-        }
+            return false;
+        },
+        hasModKey(event) {
+            if (event.type === 'keyup') {
+                return event.keyCode === 91 || event.keyCode === 17;
+            }
+            return event.metaKey || event.ctrlKey;
+        },
     },
 };
 </script>

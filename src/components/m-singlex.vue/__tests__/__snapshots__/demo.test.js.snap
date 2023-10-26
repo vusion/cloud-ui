@@ -287,7 +287,8 @@ exports[`m-singlex.vue Demo-同步顺序 1`] = `
   </nav>
   <span>value: toothbrush</span>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    更新列表</a>
+    更新列表
+  </a>
 </div>
 `;
 
@@ -356,7 +357,8 @@ exports[`m-singlex.vue Demo-更新列表 1`] = `
   </nav>
   <span>value: toothbrush</span>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    更新列表</a>
+    更新列表
+  </a>
 </div>
 `;
 

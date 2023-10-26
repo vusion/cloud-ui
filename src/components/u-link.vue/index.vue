@@ -7,8 +7,9 @@
     :loading="loading || $attrs.loading"
     :hoverType="hoverType"
     @click="onClick" v-on="listeners">
-    <i-ico v-if="icon" :name="icon" notext></i-ico>
+    <i-ico v-if="icon && iconPosition=== 'left'" :name="icon" notext></i-ico>
     <slot>{{ text }}</slot>
+    <i-ico v-if="icon && iconPosition=== 'right'" :name="icon" notext></i-ico>
 </a>
 </template>
 
@@ -35,6 +36,7 @@ export default {
         destination: String,
         hoverType: { type: String, default: 'underline' },
         link: [String, Function],
+        iconPosition: { type: String, default: 'left', validator: (value) => ['left', 'right'].includes(value) },
     },
     data() {
         return {

@@ -15,7 +15,8 @@ exports[`u-select.vue Demo-Data 方式 1`] = `
     </transition-stub>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    切换</a>
+    切换
+  </a>
 </div>
 `;
 
@@ -119,7 +120,8 @@ exports[`u-select.vue Demo-Tag 方式 1`] = `
     </transition-stub>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    切换</a>
+    切换
+  </a>
 </div>
 `;
 
@@ -129,31 +131,31 @@ exports[`u-select.vue Demo-Tags 展示icon 1`] = `
     <span>b</span>
     <span style="display: none;">过多时省略</span>
     <div style="direction: ltr;" tags-overflow="hidden">
-      <span>
+      <span style="display: none; vertical-align: middle;">
         <span class>
           <img src="https://t7.baidu.com/it/u=1831997705,836992814&amp;fm=193&amp;f=GIF">
           C
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none;">
         <span class> C#
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none;">
         <span class> C++
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none;">
         <span class>
           <img src="http://ceph.lcap.hatest.163yun.com/lcap-test-static/icon/p1.jpg">
           Java
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none; vertical-align: middle;">
         <span class> Go
         </span>
         <span></span>
@@ -210,7 +212,7 @@ exports[`u-select.vue Demo-Tags 展示icon 1`] = `
     <span>b</span>
     <span style="display: none;">过多时收缩</span>
     <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>
           <img src="https://t7.baidu.com/it/u=1831997705,836992814&amp;fm=193&amp;f=GIF">C
         </span>
@@ -230,12 +232,12 @@ exports[`u-select.vue Demo-Tags 展示icon 1`] = `
         </span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>Go</span>
         <span></span>
       </span>
-      <span>
-        <span>+5</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+5...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -375,7 +377,7 @@ exports[`u-select.vue Demo-Tags 风格 1`] = `
     <span>b</span>
     <span style="display: none;">过多时省略</span>
     <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>沙发</span>
         <span></span>
       </span>
@@ -383,12 +385,12 @@ exports[`u-select.vue Demo-Tags 风格 1`] = `
         <span class>坚果</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>毛巾</span>
         <span></span>
       </span>
-      <span>
-        <span>+3</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+3...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -417,7 +419,7 @@ exports[`u-select.vue Demo-Tags 风格 1`] = `
     <span>b</span>
     <span style="display: none;">过多时收缩</span>
     <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>沙发</span>
         <span></span>
       </span>
@@ -425,12 +427,12 @@ exports[`u-select.vue Demo-Tags 风格 1`] = `
         <span class>坚果</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>毛巾</span>
         <span></span>
       </span>
-      <span>
-        <span>+3</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+3...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -553,27 +555,27 @@ exports[`u-select.vue Demo-Tags 风格 3`] = `
     <span>b</span>
     <span style="display: none;">过多时省略</span>
     <div style="direction: ltr;" tags-overflow="hidden">
-      <span>
+      <span style="display: none; vertical-align: middle;">
         <span class> C
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none;">
         <span class> C#
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none;">
         <span class> C++
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none;">
         <span class> Java
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none; vertical-align: middle;">
         <span class> Go
         </span>
         <span></span>
@@ -617,7 +619,7 @@ exports[`u-select.vue Demo-Tags 风格 3`] = `
     <span>b</span>
     <span style="display: none;">过多时收缩</span>
     <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>C</span>
         <span></span>
       </span>
@@ -633,12 +635,12 @@ exports[`u-select.vue Demo-Tags 风格 3`] = `
         <span class>Java</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>Go</span>
         <span></span>
       </span>
-      <span>
-        <span>+5</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+5...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -2188,16 +2190,16 @@ exports[`u-select.vue Demo-前端过滤（搜索） 1`] = `
     <span>b</span>
     <span style="display: none;">前端过滤（多选）</span>
     <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>C</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>C++</span>
         <span></span>
       </span>
-      <span>
-        <span>+2</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+2...</span>
       </span>
       <div filterable="true" multiple-tags="true" style="width: 20px;">
         <span>b</span>
@@ -3453,16 +3455,16 @@ exports[`u-select.vue Demo-双向绑定 3`] = `
     <span>b</span>
     <span style="display: none;">请选择</span>
     <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>坚果</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>毛巾</span>
         <span></span>
       </span>
-      <span>
-        <span>+2</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+2...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -3491,16 +3493,16 @@ exports[`u-select.vue Demo-双向绑定 3`] = `
     <span>b</span>
     <span style="display: none;">请选择</span>
     <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>坚果</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>毛巾</span>
         <span></span>
       </span>
-      <span>
-        <span>+2</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+2...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -3679,7 +3681,7 @@ exports[`u-select.vue Demo-可以重复 1`] = `
   <span>b</span>
   <span style="display: none;">请选择</span>
   <div style="direction: ltr;" tags-overflow="collapse">
-    <span style="display: none;">
+    <span style="display: none; vertical-align: middle;">
       <span class>C</span>
       <span></span>
     </span>
@@ -3687,12 +3689,12 @@ exports[`u-select.vue Demo-可以重复 1`] = `
       <span class>C#</span>
       <span></span>
     </span>
-    <span style="display: none;">
+    <span style="display: none; vertical-align: middle;">
       <span class>C++</span>
       <span></span>
     </span>
-    <span>
-      <span>+3</span>
+    <span style="vertical-align: middle; padding-right: 6px;">
+      <span>+3...</span>
     </span>
   </div>
   <transition-stub name="fade" style="width: 100%;">
@@ -4090,16 +4092,16 @@ exports[`u-select.vue Demo-多项选择 1`] = `
   <span>b</span>
   <span style="display: none;">请选择</span>
   <div style="direction: ltr;" tags-overflow="collapse">
-    <span style="display: none;">
+    <span style="display: none; vertical-align: middle;">
       <span class>C</span>
       <span></span>
     </span>
-    <span style="display: none;">
+    <span style="display: none; vertical-align: middle;">
       <span class>C++</span>
       <span></span>
     </span>
-    <span>
-      <span>+2</span>
+    <span style="vertical-align: middle; padding-right: 6px;">
+      <span>+2...</span>
     </span>
   </div>
   <transition-stub name="fade" style="width: 100%;">
@@ -4228,16 +4230,16 @@ exports[`u-select.vue Demo-多项选择 4`] = `
     <span>b</span>
     <span style="display: none;">请选择</span>
     <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>Java</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>Node.js</span>
         <span></span>
       </span>
-      <span>
-        <span>+2</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+2...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -4295,7 +4297,7 @@ exports[`u-select.vue Demo-对齐和清空问题 1`] = `
     <span>b</span>
     <span style="display: none;">过多时省略</span>
     <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>沙发</span>
         <span></span>
       </span>
@@ -4303,12 +4305,12 @@ exports[`u-select.vue Demo-对齐和清空问题 1`] = `
         <span class>坚果</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>毛巾</span>
         <span></span>
       </span>
-      <span>
-        <span>+3</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+3...</span>
       </span>
     </div>
     <span></span>
@@ -4338,7 +4340,7 @@ exports[`u-select.vue Demo-对齐和清空问题 1`] = `
     <span>b</span>
     <span style="display: none;">过多时收缩</span>
     <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>沙发</span>
         <span></span>
       </span>
@@ -4346,12 +4348,12 @@ exports[`u-select.vue Demo-对齐和清空问题 1`] = `
         <span class>坚果</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>毛巾</span>
         <span></span>
       </span>
-      <span>
-        <span>+3</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+3...</span>
       </span>
     </div>
     <span></span>
@@ -4619,7 +4621,8 @@ exports[`u-select.vue Demo-数据源 1`] = `
     </transition-stub>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    重新加载</a>
+    重新加载
+  </a>
 </div>
 `;
 
@@ -4711,7 +4714,8 @@ exports[`u-select.vue Demo-清除缓存 1`] = `
     </transition-stub>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    重新加载</a>
+    重新加载
+  </a>
 </div>
 `;
 
@@ -4951,7 +4955,8 @@ exports[`u-select.vue Demo-自定义可扩展下拉项 2`] = `
       <div vusion-slot-name="renderFooter">
         <div style="padding: 6px 0px; text-align: center;">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            Click Me</a>
+            Click Me
+          </a>
         </div>
       </div>
     </div>

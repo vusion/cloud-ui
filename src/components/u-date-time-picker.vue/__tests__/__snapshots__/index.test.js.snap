@@ -532,9 +532,11 @@ exports[`u-date-time-picker.vue date time picker 1`] = `
                 <div class="foot" simple="true">
                   <div class="root" direction="horizontal" justify="end" type vusion-slot-name="default">
                     <a class="root textbtn" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                      取 消</a>
+                      取 消
+                    </a>
                     <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                      确 定</a>
+                      确 定
+                    </a>
                   </div>
                 </div>
               </div>
@@ -898,13 +900,16 @@ exports[`u-date-time-picker.vue date time picker 1`] = `
           <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
             <div class="root ctimewrap" direction="horizontal" type vusion-slot-name="default">
               <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                此刻</a>
+                此刻
+              </a>
             </div>
             <div class="root btnwrap" direction="horizontal" type vusion-slot-name="default">
               <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -1456,9 +1461,11 @@ exports[`u-date-time-picker.vue date time range picker 1`] = `
                 <div class="foot" simple="true">
                   <div class="root" direction="horizontal" justify="end" type vusion-slot-name="default">
                     <a class="root textbtn" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                      取 消</a>
+                      取 消
+                    </a>
                     <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                      确 定</a>
+                      确 定
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1822,13 +1829,16 @@ exports[`u-date-time-picker.vue date time range picker 1`] = `
           <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
             <div class="root ctimewrap" direction="horizontal" type vusion-slot-name="default">
               <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                此刻</a>
+                此刻
+              </a>
             </div>
             <div class="root btnwrap" direction="horizontal" type vusion-slot-name="default">
               <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>
@@ -2380,9 +2390,11 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
                 <div class="foot" simple="true">
                   <div class="root" direction="horizontal" justify="end" type vusion-slot-name="default">
                     <a class="root textbtn" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                      取 消</a>
+                      取 消
+                    </a>
                     <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                      确 定</a>
+                      确 定
+                    </a>
                   </div>
                 </div>
               </div>
@@ -2746,13 +2758,16 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
           <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
             <div class="root ctimewrap" direction="horizontal" type vusion-slot-name="default">
               <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                此刻</a>
+                此刻
+              </a>
             </div>
             <div class="root btnwrap" direction="horizontal" type vusion-slot-name="default">
               <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                取 消</a>
+                取 消
+              </a>
               <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-                确 定</a>
+                确 定
+              </a>
             </div>
           </div>
         </div>

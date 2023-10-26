@@ -3,14 +3,16 @@
 exports[`u-button.vue Demo-主要按钮 1`] = `
 <div>
   <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    确 定</a>
+    确 定
+  </a>
 </div>
 `;
 
 exports[`u-button.vue Demo-加载中 1`] = `
 <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
   <a class="root" color="primary" hovertype="underline" loading tabindex="0" target="_self" vusion-slot-name-edit="text">
-    创建实例</a>
+    创建实例
+  </a>
   <a class="root" color="primary" disabled="disabled" hovertype="underline" loading tabindex="-1" target="_self" vusion-slot-name-edit="text">
     <span class="lcp-iconv">
       <span class="iconwrap">
@@ -118,13 +120,17 @@ exports[`u-button.vue Demo-块级展示 1`] = `
 <div>
   <div class="root" direction="vertical" gap="small" type vusion-slot-name="default">
     <a class="root" display="block" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Default</a>
+      Default
+    </a>
     <a class="root" color="primary" display="block" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Primary</a>
+      Primary
+    </a>
     <a class="root" dashed display="block" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Dashed</a>
+      Dashed
+    </a>
     <a class="root" color="danger" display="block" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Danger</a>
+      Danger
+    </a>
   </div>
 </div>
 `;
@@ -133,33 +139,40 @@ exports[`u-button.vue Demo-基本用法 1`] = `
 <div>
   <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
     <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Primary</a>
+      Primary
+    </a>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Default</a>
+      Default
+    </a>
     <a class="root" dashed hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Dashed</a>
+      Dashed
+    </a>
     <a class="root" color="danger" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Danger</a>
+      Danger
+    </a>
   </div>
 </div>
 `;
 
 exports[`u-button.vue Demo-按钮自动加载 1`] = `
 <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-  链接</a>
+  链接
+</a>
 `;
 
 exports[`u-button.vue Demo-普通按钮 1`] = `
 <div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    确 定</a>
+    确 定
+  </a>
 </div>
 `;
 
 exports[`u-button.vue Demo-次要按钮 1`] = `
 <div>
   <a class="root" color="primary_secondary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    确 定</a>
+    确 定
+  </a>
 </div>
 `;
 
@@ -167,13 +180,17 @@ exports[`u-button.vue Demo-禁用状态 1`] = `
 <div>
   <div class="root" direction="horizontal" type vusion-slot-name="default">
     <a class="root" color="primary" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-      Primary</a>
+      Primary
+    </a>
     <a class="root" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-      Default</a>
+      Default
+    </a>
     <a class="root" dashed disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-      Dashed</a>
+      Dashed
+    </a>
     <a class="root" color="danger" disabled="disabled" hovertype="underline" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-      Danger</a>
+      Danger
+    </a>
   </div>
 </div>
 `;
@@ -183,9 +200,11 @@ exports[`u-button.vue Demo-设置尺寸 1`] = `
   <div class="root" direction="vertical" type vusion-slot-name="default">
     <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
       <a class="root" color="primary" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Primary</a>
+        Primary
+      </a>
       <a class="root" color="primary" hovertype="underline" shape="round" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Round</a>
+        Round
+      </a>
       <a class="root" hovertype="underline" shape="square" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
         <span class="lcp-iconv">
           <span class="iconwrap">
@@ -211,9 +230,11 @@ exports[`u-button.vue Demo-设置尺寸 1`] = `
     </div>
     <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
       <a class="root" color="primary" hovertype="underline" size="small" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Primary</a>
+        Primary
+      </a>
       <a class="root" color="primary" hovertype="underline" shape="round" size="small" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Round</a>
+        Round
+      </a>
       <a class="root" hovertype="underline" shape="square" size="small" tabindex="0" target="_self" vusion-slot-name-edit="text">
         <span class="lcp-iconv">
           <span class="iconwrap">
@@ -239,9 +260,11 @@ exports[`u-button.vue Demo-设置尺寸 1`] = `
     </div>
     <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
       <a class="root" color="primary" hovertype="underline" size="normal" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Primary</a>
+        Primary
+      </a>
       <a class="root" color="primary" hovertype="underline" shape="round" size="normal" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Round</a>
+        Round
+      </a>
       <a class="root" hovertype="underline" shape="square" size="normal" tabindex="0" target="_self" vusion-slot-name-edit="text">
         <span class="lcp-iconv">
           <span class="iconwrap">
@@ -267,9 +290,11 @@ exports[`u-button.vue Demo-设置尺寸 1`] = `
     </div>
     <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
       <a class="root" color="primary" hovertype="underline" size="large" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Primary</a>
+        Primary
+      </a>
       <a class="root" color="primary" hovertype="underline" shape="round" size="large" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        Round</a>
+        Round
+      </a>
       <a class="root" hovertype="underline" shape="square" size="large" tabindex="0" target="_self" vusion-slot-name-edit="text">
         <span class="lcp-iconv">
           <span class="iconwrap">
@@ -301,9 +326,11 @@ exports[`u-button.vue Demo-设置形状 1`] = `
 <div>
   <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
     <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Primary</a>
+      Primary
+    </a>
     <a class="root" color="primary" hovertype="underline" shape="round" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Round</a>
+      Round
+    </a>
     <a class="root" color="primary" hovertype="underline" shape="square" tabindex="0" target="_self" vusion-slot-name-edit="text">
       <span class="lcp-iconv">
         <span class="iconwrap">
@@ -327,9 +354,11 @@ exports[`u-button.vue Demo-设置形状 1`] = `
       </span>
     </a>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Default</a>
+      Default
+    </a>
     <a class="root" hovertype="underline" shape="round" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      Round</a>
+      Round
+    </a>
     <a class="root" hovertype="underline" shape="square" tabindex="0" target="_self" vusion-slot-name-edit="text">
       <span class="lcp-iconv">
         <span class="iconwrap">
@@ -360,11 +389,14 @@ exports[`u-button.vue Demo-链接 1`] = `
 <div>
   <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
     <a class="root" color="primary" hovertype="underline" href="https://vusion.github.io" tabindex="0" target="_blank" vusion-slot-name-edit="text">
-      打开新窗口</a>
+      打开新窗口
+    </a>
     <a class="root" hovertype="underline" href="#/cloud-ui/components/u-link" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      路由跳转</a>
+      路由跳转
+    </a>
     <a class="root" color="primary" disabled="disabled" hovertype="underline" href="https://vusion.github.io" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-      禁用链接</a>
+      禁用链接
+    </a>
   </div>
 </div>
 `;

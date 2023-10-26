@@ -6,11 +6,14 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
     <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
         <a class="root" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          上个月</a>
+          上个月
+        </a>
         <a class="root" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          今天</a>
+          今天
+        </a>
         <a class="root" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          下个月</a>
+          下个月
+        </a>
       </div>
       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
         <div class="root" size="mini" tabindex="0">
@@ -467,11 +470,14 @@ exports[`u-calendar-view.vue Demo-数据日历 1`] = `
   <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
     <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
       <a class="root" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        上个月</a>
+        上个月
+      </a>
       <a class="root" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        今天</a>
+        今天
+      </a>
       <a class="root" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        下个月</a>
+        下个月
+      </a>
     </div>
     <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
       <div class="root" size="mini" tabindex="0">
@@ -932,11 +938,14 @@ exports[`u-calendar-view.vue Demo-数据日历，reload方法 1`] = `
     <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
         <a class="root" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          上个月</a>
+          上个月
+        </a>
         <a class="root" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          今天</a>
+          今天
+        </a>
         <a class="root" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          下个月</a>
+          下个月
+        </a>
       </div>
       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
         <div class="root" size="mini" tabindex="0">
@@ -1386,7 +1395,8 @@ exports[`u-calendar-view.vue Demo-数据日历，reload方法 1`] = `
     </div>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    重新加载</a>
+    重新加载
+  </a>
 </div>
 `;
 
@@ -1396,11 +1406,14 @@ exports[`u-calendar-view.vue Demo-普通模式 1`] = `
     <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
         <a class="root" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          上个月</a>
+          上个月
+        </a>
         <a class="root" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          今天</a>
+          今天
+        </a>
         <a class="root" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          下个月</a>
+          下个月
+        </a>
       </div>
       <span class="title">2022 年 2 月</span>
     </div>
@@ -1735,9 +1748,11 @@ exports[`u-calendar-view.vue Demo-最大值最小值 1`] = `
     <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
         <a class="root" disabled="disabled" hovertype="underline" size="mini" tabindex="-1" target="_self" vusion-slot-name-edit="text">
-          上个月</a>
+          上个月
+        </a>
         <a class="root" hovertype="underline" size="mini" tabindex="0" target="_self" vusion-slot-name-edit="text">
-          下个月</a>
+          下个月
+        </a>
       </div>
       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
         <div class="root" size="mini" tabindex="0">
