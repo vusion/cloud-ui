@@ -232,7 +232,6 @@
       tooltipLink: ""
     - name: children-field
       title: 子级值字段
-      advanced: true
       type: string
       default: children
       description: 树形数据子节点字段名，默认为children
@@ -244,7 +243,6 @@
       tooltipLink: ""
     - name: has-children-field
       title: 包含子级值字段
-      advanced: true
       type: string
       default: hasChildren
       description: 该字段指定行数据是否包含子节点数据，默认为hasChildren

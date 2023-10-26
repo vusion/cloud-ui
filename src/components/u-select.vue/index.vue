@@ -34,7 +34,7 @@
         <span v-else-if="multipleAppearance === 'text'">{{ currentText }}</span>
         <template v-else-if="multipleAppearance === 'tags'">
             <template v-if="tagsOverflow === 'hidden' || tagsOverflow === 'visible'">
-                <span :class="$style.tag" v-for="(itemVM, index) in selectedVMs" :key="duplicated ? itemVM.value + '_' + index : itemVM.value">
+                <span :class="$style.tag" v-for="(itemVM, index) in selectedVMs" :key="duplicated ? itemVM.value + '_' + index : itemVM.value" :ref="`item_${index}`">
                     <span :class="[$style['tag-text'], iconField?$style.iconwrap:'']">
                         <img :class="$style.icon" v-if="itemVM.icon" :src="itemVM.icon">
                         {{ itemVM.currentText }}
@@ -47,8 +47,8 @@
                     <span :class="[$style['tag-text'], iconField?$style.iconwrap:'']"><img :class="$style.icon" v-if="itemVM.icon" :src="itemVM.icon">{{ itemVM.currentText }}</span>
                     <span :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
                 </span>
-                <span :class="$style.tag" v-if="selectedVMs.length - collapseCounter >= 1 && selectedVMs.length !== 1">
-                    <span :class="$style['tag-text']">+{{ selectedVMs.length - collapseCounter }}</span>
+                <span :class="$style.tag" v-if="selectedVMs.length - collapseCounter >= 1 && selectedVMs.length !== 1" :style="{ 'vertical-align': 'middle', 'padding-right': '6px' }">
+                    <span :class="$style['tag-text']">+{{ selectedVMs.length - collapseCounter }}...</span>
                 </span>
             </template>
         </template>
@@ -323,18 +323,20 @@ export default {
             const popperVM = this.$refs.popper;
             popperVM && popperVM.currentOpened && popperVM.scheduleUpdate();
             // 计算折叠时，最多能展示几个标签
-            if (this.tagsOverflow === 'collapse') {
+            if (this.tagsOverflow === 'collapse' || this.tagsOverflow === 'hidden') {
                 this.$nextTick(() => {
                     this.collapseCounter = 0;
-                    const collapseTagWidth = 30;
-                    const marginWidth = 3;
+                    const collapseTagWidth = this.tagsOverflow === 'collapse' ? 34 : 0;
+                    const marginWidth = 4;
                     let lastAddElementWidth = 0;
+                    const inputElWidth = this.inputWidth || 0;
                     // 预留出"+N"的标签宽度
-                    let inputWidth = this.$refs.inputOuter.offsetWidth - collapseTagWidth;
+                    let inputWidth = this.$refs.inputOuter.offsetWidth - inputElWidth - collapseTagWidth;
                     // 先计算前N-1个元素长度是否超出输入框
                     for (let i = 0; i < this.selectedVMs.length - 1; i++) {
                         if (this.$refs[`item_${i}`]) {
                             this.$refs[`item_${i}`][0].style.display = 'inline-block';
+                            this.$refs[`item_${i}`][0].style['vertical-align'] = 'middle';
                             const itemWidth = this.$refs[`item_${i}`][0].offsetWidth + marginWidth;
                             if (inputWidth - itemWidth < 0) {
                                 break;
@@ -348,6 +350,7 @@ export default {
                         const lastItem = this.$refs[`item_${this.selectedVMs.length - 1}`];
                         if (lastItem) {
                             lastItem[0].style.display = 'inline-block';
+                            lastItem[0].style['vertical-align'] = 'middle';
                             lastAddElementWidth = lastItem[0].offsetWidth;
                         }
                         if (inputWidth > 0 && inputWidth - lastAddElementWidth > 0) {
