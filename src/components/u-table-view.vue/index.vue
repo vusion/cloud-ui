@@ -904,7 +904,11 @@ export default {
         getRealItem(item, rowIndex) {
             const data = this.isSimpleArray(this.currentDataSource.data) ? (this.currentDataSource.arrangedData[rowIndex] && this.currentDataSource.arrangedData[rowIndex].simple) : item;
             // 给u-table-view-expander用
-            data.toggle = () => this.toggleExpanded(data);
+            try {
+                data.toggle = () => this.toggleExpanded(data);
+            } catch (error) {
+                console.warning('当前data不是一个对象');
+            }
             return data;
         },
         typeCheck(type) {
