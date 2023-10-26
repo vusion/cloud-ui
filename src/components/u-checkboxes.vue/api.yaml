@@ -60,6 +60,14 @@
       toggleclear:
         - min
         - max
+    - name: check-all-text
+      title: 全选展示内容
+      type: string
+      default: 全选
+      description: 全选功能展示的文案内容
+      group: 主要属性
+      dependency:
+        - check-all: true
     - name: check-all-display
       title: 展示方式
       type: string
