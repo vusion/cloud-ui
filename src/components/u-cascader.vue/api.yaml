@@ -44,7 +44,6 @@
       tooltipLink: ""
     - name: children-field
       title: 子级值字段
-      advanced: true
       type: string
       default: children
       description: 树形数据子节点字段名，默认为children
