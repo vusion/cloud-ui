@@ -3487,6 +3487,26 @@
                         "group": "多选状态",
                         "desc": "选择框下拉项的背景颜色（多选hover状态下）,如 #223325"
                     },
+                    "--select-multiple-background-color": {
+                        "type": "color",
+                        "group": "多选状态",
+                        "desc": "选择项checkbox的背景颜色"
+                    },
+                    "--select-multiple-icon-color": {
+                        "type": "color",
+                        "group": "多选状态",
+                        "desc": "选择项checkbox的选中图标颜色"
+                    },
+                    "--select-multiple-partial-icon-color": {
+                        "type": "color",
+                        "group": "多选状态",
+                        "desc": "选择项checkbox的半选择图标颜色"
+                    },
+                    "--select-multiple-border-color": {
+                        "type": "input",
+                        "group": "弹出层",
+                        "desc": "选择项checkbox的边框"
+                    },
                     "--select-input-border-color-error": {
                         "type": "input"
                     }
@@ -6712,6 +6732,133 @@
                         "type": "color",
                         "desc": "弹出消息的自定义图标颜色",
                         "prefix": "toast"
+                    }
+                }
+            },
+            {
+                "id": 58,
+                "name": "u-capsules",
+                "title": "胶囊",
+                "toPosition": "capsules",
+                "type": [],
+                "preview": {
+                    "template": "<u-capsules>\n        <u-capsule value=\"1\" disabled>胶囊项</u-capsule>\n        <u-capsule value=\"2\" flag>胶囊项</u-capsule>\n        <u-capsule value=\"3\" label=\"label\">胶囊项</u-capsule>\n      </u-capsules>"
+                },
+                "cssProperty": {
+                    "--capsules-capsule-font-size": {
+                        "type": "input",
+                        "desc": "胶囊字体大小",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-padding-x": {
+                        "type": "input",
+                        "desc": "胶囊水平内边距",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-padding-y": {
+                        "type": "input",
+                        "desc": "胶囊垂直内边距",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-background": {
+                        "type": "color",
+                        "desc": "胶囊背景色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-background-selected": {
+                        "type": "color",
+                        "desc": "胶囊选中项背景色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-background-selected-hover": {
+                        "type": "color",
+                        "desc": "胶囊选中项hover背景色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-background-selected-disabled": {
+                        "type": "color",
+                        "desc": "胶囊选中项禁用背景色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-background-disabled": {
+                        "type": "color",
+                        "desc": "胶囊禁用背景色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-color": {
+                        "type": "color",
+                        "desc": "胶囊字体颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-color-hover": {
+                        "type": "color",
+                        "desc": "胶囊hover字体颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-color-selected": {
+                        "type": "color",
+                        "desc": "胶囊选中项字体颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-color-disabled": {
+                        "type": "color",
+                        "desc": "胶囊禁用字体颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-color-selected-disabled": {
+                        "type": "color",
+                        "desc": "胶囊选中项禁用字体颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-cursor": {
+                        "type": "input",
+                        "desc": "胶囊鼠标样式",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-cursor-disabled": {
+                        "type": "input",
+                        "desc": "胶囊禁用鼠标样式",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-border-color": {
+                        "type": "color",
+                        "desc": "胶囊边框颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-border-color-hover": {
+                        "type": "color",
+                        "desc": "胶囊hover边框颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-border-color-selected": {
+                        "type": "color",
+                        "desc": "胶囊选中项边框颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-border-color-selected-hover": {
+                        "type": "color",
+                        "desc": "胶囊选中项hover边框颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-border-color-selected-disabled": {
+                        "type": "color",
+                        "desc": "胶囊选中项禁用边框颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-flag-border-color": {
+                        "type": "color",
+                        "desc": "胶囊标记边框颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-label-background": {
+                        "type": "color",
+                        "desc": "胶囊标签背景色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-label-color": {
+                        "type": "color",
+                        "desc": "胶囊标签字体颜色",
+                        "prefix": "capsules-capsule"
                     }
                 }
             }
