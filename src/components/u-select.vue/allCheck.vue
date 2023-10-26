@@ -10,7 +10,7 @@
         @click="select"
         isShowMultipleIcon
         v-ellipsis-title>
-        全选
+        <slot>全选</slot>
     </div>
 </template>
 <script>

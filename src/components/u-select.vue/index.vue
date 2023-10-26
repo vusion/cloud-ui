@@ -76,7 +76,7 @@
         @toggle="$emit('toggle', $event, this)"
         @click.stop @scroll.stop="onScroll" @mousedown.stop>
         <div :class="$style.wrap" ref="popperwrap">
-            <u-select-item-all-check v-if="hasAllCheckItem && multiple" :all-checked="allChecked" :parent-v-m="this" :check-all="checkAll"></u-select-item-all-check>
+            <u-select-item-all-check v-if="hasAllCheckItem && multiple" :all-checked="allChecked" :parent-v-m="this" :check-all="checkAll">{{ allCheckItemText }}</u-select-item-all-check>
             <slot></slot>
             <template v-if="currentData">
                 <div :class="$style.status" key="empty" v-if="!currentData.length && !currentLoading && showEmptyText">
@@ -204,6 +204,7 @@ export default {
         showRenderFooter: { type: Boolean, default: false }, // 可扩展下拉项
         iconField: String,
         hasAllCheckItem: { type: Boolean, default: false },
+        allCheckItemText: { type: String, default: '全选' },
     },
     data() {
         return {
