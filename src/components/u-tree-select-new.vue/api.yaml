@@ -49,7 +49,6 @@
       tooltipLink: ""
     - name: children-field
       title: 子级值字段
-      advanced: true
       type: string
       default: children
       description: 集合的元素类型中，用于标识子节点的属性，默认为children
