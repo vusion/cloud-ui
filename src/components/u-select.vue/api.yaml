@@ -192,6 +192,16 @@
       group: 主要属性
       docDescription: 是否存在可以控制选项的全选/反选
       tooltipLink: ""
+    - name: allCheckItemText
+      title: 全选展示内容
+      type: string
+      default: 全选
+      description: 是否存在可以控制选项的全选/反选
+      group: 主要属性
+      docDescription: 是否存在可以控制选项的全选/反选
+      tooltipLink: ""
+      dependency:
+        - hasAllCheckItem: true
     - name: converter
       title: 转换器
       type: string
