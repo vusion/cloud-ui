@@ -18701,27 +18701,18 @@
                     "name": "cropperBoxHeight",
                     "title": "图片裁剪框高度",
                     "type": "number",
-                    "default": 0,
+                    "default": 200,
                     "description": "",
                     "group": "主要属性",
                     "brifeDoc": "",
                     "docDescription": "",
-                    "tooltipLink": "",
-                    "dependency": [
-                        {
-                            "cropperPreviewShape": "rect"
-                        }
-                    ]
+                    "tooltipLink": ""
                 },
                 {
                     "name": "cropperPreviewShape",
                     "title": "图片裁剪框预览形状",
                     "type": "string",
                     "options": [
-                        {
-                            "title": "矩形",
-                            "value": "rect"
-                        },
                         {
                             "title": "正方形",
                             "value": "square"
@@ -18736,28 +18727,7 @@
                     "group": "主要属性",
                     "brifeDoc": "",
                     "docDescription": "",
-                    "tooltipLink": "",
-                    "toggleupdate": [
-                        {
-                            "value": "rect",
-                            "updateData": {
-                                "cropperBoxHeight": 200
-                            }
-                        },
-                        {
-                            "value": "circle",
-                            "updateData": {
-                                "cropperBoxHeight": 0
-                            }
-                        },
-                        {
-                            "value": "square",
-                            "updateData": {
-                                "cropperBoxHeight": 0
-                            }
-                        }
-                    ],
-                    "wrap": false
+                    "tooltipLink": ""
                 },
                 {
                     "name": "cropperTitle",
