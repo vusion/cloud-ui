@@ -188,9 +188,13 @@ export default {
             if (value === this.currentValue) {
                 return;
             }
-            const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
+            let curValue = value;
+            if (typeof value === 'object') {
+                curValue = value + '';
+            }
+            const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(curValue));
             const _oldValue = this.currentValue;
-            const currentValue = (this.currentValue = this.fix(value, currentPrecision));
+            const currentValue = (this.currentValue = this.fix(curValue, currentPrecision));
             this.formattedValue = this.currentFormatter.format(currentValue);
             this.$emit('update', this.currentValue, this);
             // 当点击了form的创建按钮等调用了validate方法，fieldTouched值会变为true，不会走update validate
