@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# UToast 吐司提示
+# UToastSingle 弹出消息
 
 - [示例](#示例)
     - [基本用法](#基本用法)
@@ -14,10 +14,11 @@
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
+    - [Methods](#methods)
 
 **Feedback**
 
-吐司提示
+弹出消息
 
 ## 示例
 ### 基本用法
@@ -168,11 +169,12 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| text | string |  | `'弹出消息'` | 默认提示内容 |
+| color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'custom'` | 提示的类型 |
+| custom-icon | icon |  |  | undefined |
+| duration | number |  | `2000` | 自动关闭的延时，单位毫秒。设为 0 时不自动关闭 |
 | position | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'top-center'` | 显示的位置 |
-| duration | number |  | `2000` | 提示停留的时间。`0`表示常驻。 |
 | single | boolean |  | `false` | 多个提示会合并为一个 |
-| text | string |  | `''` | 默认提示内容 |
-| color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 提示的颜色 |
 | closable | boolean |  | `false` | 是否可以关闭提示 |
 
 ### Events
@@ -183,24 +185,6 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | object | 自定义事件对象 |
-| $event.text | string | 提示的内容 |
-| $event.color | string | 提示的颜色 |
-| $event.duration | number | 提示停留的时间 |
-| senderVM | UToast | 发送事件实例 |
-
-#### @before-close
-
-关闭提示前触发
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event | object | 自定义事件对象 |
-| $event.text | string | 提示的内容 |
-| $event.color | string | 提示的颜色 |
-| $event.duration | number | 提示停留的时间 |
-| $event.preventDefault | Function | 阻止关闭流程 |
-| senderVM | UToast | 发送事件实例 |
 
 #### @close
 
@@ -208,9 +192,14 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | object | 自定义事件对象 |
-| $event.text | string | 提示的内容 |
-| $event.color | string | 提示的颜色 |
-| $event.duration | number | 提示停留的时间 |
-| senderVM | UToast | 发送事件实例 |
+
+Methods
+
+#### open()
+
+打开轻提示
+
+#### close()
+
+关闭轻提示
 
