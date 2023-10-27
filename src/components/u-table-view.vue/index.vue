@@ -101,7 +101,7 @@
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
                             <tr :key="rowIndex" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
-                            :draggable="(draggable || acrossTableDrag) && rowDraggable && item.draggable || undefined"
+                            :draggable="rowDraggable && item.draggable || undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
                             @dragstart="onDragStart($event, item, rowIndex)"
@@ -153,7 +153,7 @@
                                             </f-slot>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="(draggable || acrossTableDrag) && handlerDraggable && item.draggable || undefined" :disabled="!((draggable || acrossTableDrag) && handlerDraggable && item.draggable)"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable && item.draggable || undefined" :disabled="!(handlerDraggable && item.draggable)"></i-ico>
                                             </span>
                                         </div>
                                         <div v-if="columnVM.type === 'editable'" vusion-slot-name="editcell" :plus-empty="columnVM.$attrs['editcell-plus-empty']" style="margin-top:10px">
@@ -201,7 +201,7 @@
                                             </template>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="(draggable || acrossTableDrag) && handlerDraggable && item.draggable || undefined" :disabled="!((draggable || acrossTableDrag) && handlerDraggable && item.draggable)"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable && item.draggable || undefined" :disabled="!(handlerDraggable && item.draggable)"></i-ico>
                                             </span>
                                             <!-- Normal text -->
                                             <template v-if="columnVM.type === 'editable'">
@@ -753,6 +753,12 @@ export default {
                 this.configColumnVM.handleColumnsData();
             }
         },
+        draggable() {
+            this.processTableDraggable(true);
+        },
+        acrossTableDrag() {
+            this.processTableDraggable(true);
+        },
     },
     created() {
         // 自动补充 pageSizeOptions
@@ -825,11 +831,7 @@ export default {
             const expandable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'expander');
             const editable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'editable');
             // 拖拽设置
-            const dragHandler = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'dragHandler');
-            if (!this.$env.VUE_APP_DESIGNER) {
-                this.rowDraggable = (this.draggable || this.acrossTableDrag) && !dragHandler;
-                this.handlerDraggable = (this.draggable || this.acrossTableDrag) && dragHandler;
-            }
+            this.processTableDraggable();
             if (selectable) {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('disabled'))
@@ -2576,6 +2578,21 @@ export default {
         },
         onDblclickRow(e, item, rowIndex) {
             this.$emit('dblclick-row', { item, index: rowIndex });
+        },
+        processTableDraggable(needProcessData) {
+            // 拖拽设置
+            const dragHandler = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'dragHandler');
+            if (!this.$env.VUE_APP_DESIGNER) {
+                this.rowDraggable = (this.draggable || this.acrossTableDrag) && !dragHandler;
+                this.handlerDraggable = (this.draggable || this.acrossTableDrag) && dragHandler;
+            }
+            if (needProcessData) {
+                if (this.draggable || this.acrossTableDrag) {
+                    this.currentData.forEach((item) => {
+                        this.canDraggable(item);
+                    });
+                }
+            }
         },
     },
 };
