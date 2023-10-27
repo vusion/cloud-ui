@@ -314,6 +314,7 @@
                     </tr>
                 </tbody>
             </u-table>
+            <div ref="virtualPlaceholder"></div>
             </f-scroll-view>
         </div>
     </div>
@@ -713,10 +714,11 @@ export default {
             }
         },
         virtualTop() {
-            this.$refs.scrollView[0].$refs.resize.style.paddingTop = this.virtualTop + 'px';
+            this.$refs.virtualPlaceholder[0].style.height = this.virtualTop + this.virtualBottom + 'px';
+            this.$refs.bodyTable[0].$el.style.transform = `translateY(${this.virtualTop}px)`;
         },
         virtualBottom() {
-            this.$refs.scrollView[0].$refs.resize.style.paddingBottom = this.virtualBottom + 'px';
+            this.$refs.virtualPlaceholder[0].style.height = this.virtualTop + this.virtualBottom + 'px';
         },
     },
     created() {
