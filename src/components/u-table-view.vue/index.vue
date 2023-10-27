@@ -1925,6 +1925,7 @@ export default {
                             position: 'sticky',
                             left: leftData.left + 'px',
                             zIndex,
+                            overflow: 'hidden',
                         });
                     }
                 }
@@ -1936,6 +1937,7 @@ export default {
                             position: 'sticky',
                             right: rightData.right + 'px',
                             zIndex,
+                            overflow: 'hidden',
                         });
                     }
                 }
