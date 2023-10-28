@@ -594,7 +594,7 @@ export default {
                 url,
                 headers,
                 withCredentials: this.withCredentials,
-                file: new File([file], file.name.replace(/[#\+]/g, ""), {type: file.type}),
+                file: Array.isArray(file) ? file.map(item => (new File([item], item.name.replace(/[#\+]/g, ""), {type: item.type}))) : new File([file], file.name.replace(/[#\+]/g, ""), {type: file.type}),  
                 data: formData,
                 name: this.name,
             };
