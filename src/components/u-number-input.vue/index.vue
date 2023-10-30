@@ -236,7 +236,7 @@ export default {
                 CoDecimal = Decimal.clone({ precision: 20 });
             } else {
                 const rounding = this.decimalLength + 1;
-                CoDecimal = Decimal.clone({ precision: rounding * 2, rounding });
+                CoDecimal = Decimal.clone({ precision: rounding * 2 });
             }
             return CoDecimal;
         },
