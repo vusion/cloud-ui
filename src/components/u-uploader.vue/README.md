@@ -417,10 +417,12 @@ export default {
 | description | string |  |  | 辅助说明的文本信息，如上传的数量、大小等，在上传组件下方展示。 |
 | showErrorMessage | boolean |  | `true` | 设置是否展示上传时的出错信息，如超出数量、大小 |
 | dragDescription | string |  | `'点击/拖动/粘贴文件到这里'` | 辅助说明的文本信息 |
-| check-file | Function |  |  | 文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息 |
+| check-file | Function |  |  | 文件校验函数，可自定义校验规则，如文件名称包含特殊字符等，返回string类型的出错信息 |
 | access | string | `[object Object]`<br/>`[object Object]` |  |  |
 | ttl | boolean |  |  | 是否开启文件有效期控制 |
 | ttlValue | number |  |  | 文件上传后的有效期天数 |
+| viaOriginURL | boolean |  |  | 开启后支持通过文件存储源地址访问文件 |
+| lcapIsCompress | boolean |  |  | 启用压缩后上传的文件按压缩规则进行压缩后上传，压缩规则可在自定义配置参数管理 |
 | draggable | boolean |  | `false` |  |
 | readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
