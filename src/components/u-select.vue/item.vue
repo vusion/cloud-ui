@@ -53,7 +53,10 @@ export default {
             return this.parentVM && this.parentVM.focusedVM === this;
         },
         currentText() {
-            return this.text || this.$slots.default[0] && this.$slots.default[0].text;
+            return this.text || this.$slots.default[0]
+                && this.$slots.default[0].componentOptions
+                && this.$slots.default[0].componentOptions.propsData
+                && this.$slots.default[0].componentOptions.propsData.text;
         },
     },
     mounted() {
