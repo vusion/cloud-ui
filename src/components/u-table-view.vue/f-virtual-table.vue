@@ -4,37 +4,24 @@ import FVirtualList from '../f-virtual-list.vue';
 export default {
     name: 'f-virtual-table',
     extends: FVirtualList,
-    data() {
-        return { virtualIndex: 0, virtualTop: 0, virtualBottom: 0, currentVirtualCount: this.virtualCount };
-    },
     computed: {
         virtualList() {
             const list = this[this.listKey];
             if (!this.virtual)
                 return list;
-            else
-                return (
-                    list
-                    && list.slice(
-                        this.virtualIndex,
-                        this.virtualIndex + this.currentVirtualCount,
-                    )
-                );
-        },
-        virtualSlot() {
-            // 给该 computed 添加一个依赖 list
-            // eslint-disable-next-line no-unused-vars
-            const list = this[this.listKey];
-            if (!this.virtual)
-                return this.$slots.default;
-            else
-                return (
-                    this.$slots.default
-                    && this.$slots.default.slice(
-                        this.virtualIndex,
-                        this.virtualIndex + this.currentVirtualCount,
-                    )
-                );
+            else {
+                let count = 0;
+                for (let i = this.virtualIndex; i < list.length; i++) {
+                    const item = list[i];
+                    if (item.display !== 'none') {
+                        count++;
+                    }
+                    if (count >= this.virtualCount || i === list.length - 1) {
+                        return list.slice(this.virtualIndex, i + 1);
+                    }
+                }
+                return [];
+            }
         },
     },
     methods: {
@@ -47,6 +34,7 @@ export default {
                 virtualEl = virtualEl[0];
             }
             const list = this[this.listKey];
+            const showList = (list || []).filter((item) => item.display !== 'none');
             if (!virtualEl || !list)
                 return; // 缓存当前可见 DOM 节点的高度
             if (this.itemHeight === undefined) {
@@ -85,13 +73,13 @@ export default {
             }
             virtualIndex = Math.max(
                 0,
-                currentIndex - Math.floor(this.currentVirtualCount / 2),
+                currentIndex - Math.floor(this.virtualCount / 2),
             ); // eslint-disable-next-line yoda
             // table 树形展示里不能这么处理，暂时注释掉
             // 该方法容易出现白屏。有截流了问题不大。
             // if (
-            //     this.currentVirtualCount / 3 <= currentIndex - this.virtualIndex
-            //     && currentIndex - this.virtualIndex < (this.currentVirtualCount * 2) / 3
+            //     this.virtualCount / 3 <= currentIndex - this.virtualIndex
+            //     && currentIndex - this.virtualIndex < (this.virtualCount * 2) / 3
             // )
             //     return;
             let virtualTop = 0;
@@ -101,16 +89,15 @@ export default {
                 const item = list[i];
                 if (i < virtualIndex) {
                     virtualTop += getHeight(item);
-                } else if (i >= virtualIndex + this.currentVirtualCount) {
+                } else if (i >= virtualIndex + this.virtualCount) {
                     virtualBottom += getHeight(item);
                 }
-                if (i > virtualIndex && i <= virtualIndex + this.currentVirtualCount) {
+                if (i > virtualIndex && i <= virtualIndex + this.virtualCount) {
                     if (item.display === 'none') {
                         noDisplayCount++;
                     }
                 }
             }
-            this.currentVirtualCount = this.virtualCount + noDisplayCount;
             this.virtualIndex = virtualIndex;
             this.virtualTop = virtualTop;
             this.virtualBottom = virtualBottom; // Vue 应该是对渲染做了优化，为了减少在高频滚动时出现白屏的问题，需要强制更新
@@ -120,7 +107,7 @@ export default {
                     'virtual-scroll',
                     {
                         virtualIndex,
-                        virtualCount: this.currentVirtualCount,
+                        virtualCount: this.virtualCount,
                         virtualTop,
                         virtualBottom,
                     },

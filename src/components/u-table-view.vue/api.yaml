@@ -439,7 +439,6 @@
     - name: item-height
       title: 每行高度
       type: number
-      default: 42
       description: 与虚拟滚动配合使用，表示每一行的高度。请确保行里的数据不要换行
       group: 状态属性
       brifeDoc: ""

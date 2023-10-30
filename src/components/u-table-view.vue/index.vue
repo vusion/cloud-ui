@@ -2452,6 +2452,7 @@ export default {
                 const tableElCrt = tableEl.cloneNode(true);
                 const tbody = tableElCrt.getElementsByTagName('tbody')[0];
                 tbody.innerHTML = '';
+                tableElCrt.style.transform = 'none';
                 tbody.appendChild(crt);
                 this.$refs.trDragGhost.innerHTML = '';
                 this.$refs.trDragGhost.appendChild(tableElCrt);
