@@ -54,9 +54,10 @@ export default {
         },
         currentText() {
             return this.text || this.$slots.default[0]
-                && this.$slots.default[0].componentOptions
-                && this.$slots.default[0].componentOptions.propsData
-                && this.$slots.default[0].componentOptions.propsData.text;
+                && (this.$slots.default[0].text // raw html text
+                    || this.$slots.default[0].componentOptions
+                    && this.$slots.default[0].componentOptions.propsData
+                    && this.$slots.default[0].componentOptions.propsData.text); // u-text
         },
     },
     mounted() {
