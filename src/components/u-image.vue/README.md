@@ -124,6 +124,8 @@ export default {
 | horizontalCenter | string | `'左对齐'` ()<br/>`'居中对齐'` ()<br/>`'右对齐'` () | `'center'` |  |
 | verticalCenter | string | `'顶部对齐'` ()<br/>`'居中对齐'` ()<br/>`'底部对齐'` () | `'center'` |  |
 | preview | boolean |  | `false` | 是否支持点击放大全屏展示 |
+| loading-type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'loading'` | undefined |
+| placeholder-src | string |  | `'https://static-vusion.nos-eastchina1.126.net/h5-template/lietu.png'` | undefined |
 
 ### Events
 

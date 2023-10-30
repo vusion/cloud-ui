@@ -208,6 +208,9 @@ export default {
 | text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
 | value-field | string |  | `'value'` | 用于标识选中值的字段 |
 | value.sync, v-model | Array |  | `[]` | 当前选中的值 |
+| check-all | boolean |  | `false` | 是否进行全选 |
+| check-all-text | string |  | `'全选'` | 全选功能展示的文案内容 |
+| check-all-display | string | `[object Object]`<br/>`[object Object]` | `false` | 选择展开方式 |
 | min | number |  | `0` | 可以勾选多选框的最小数量 |
 | max | number |  |  | 可以勾选多选框的最大数量 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `''` | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式 |
@@ -219,6 +222,10 @@ export default {
 #### (default)
 
 插入`<checkbox>`子组件。
+
+#### check-all
+
+全选/反选
 
 #### item
 

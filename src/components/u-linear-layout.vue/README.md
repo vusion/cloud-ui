@@ -250,6 +250,17 @@ export default {
     </u-linear-layout>
 </u-linear-layout>
 ```
+#### 测试滚动事件
+
+```html
+<u-linear-layout direction="vertical" style="height: 300px; overflow: scroll">
+    <u-linear-layout type="flex" alignment="start">
+        <u-block style="height: 500px">Block</u-block>
+        <u-block size="normal auto">Block</u-block>
+        <u-block size="large auto">Block</u-block>
+    </u-linear-layout>
+</u-linear-layout>
+```
 
 ## API
 ### Props/Attrs
@@ -279,12 +290,47 @@ export default {
 
 ### Events
 
-#### @$listeners
+#### @click
 
-监听所有事件。
+在元素上按下并释放任意鼠标按钮时触发。
+
+#### @dblclick
+
+在元素上双击鼠标按钮时触发。
+
+#### @contextmenu
+
+在右键菜单显示前触发。
+
+#### @mousedown
+
+在元素上按下任意鼠标按钮时触发。
+
+#### @mouseup
+
+在元素上释放任意鼠标按钮时触发。
+
+#### @mouseenter
+
+鼠标移入元素时触发。
+
+#### @mouseleave
+
+鼠标移出元素时触发。
+
+#### @scroll
+
+滚动时触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 滚动事件对象 |
+| $event.scrollHeight | any | 滚动内容高度 |
+| $event.scrollWidth | any | 滚动内容宽度 |
+| $event.scrollTop | any | 滚动内容距离顶部高度 |
+| $event.scrollLeft | any | 滚动内容距离左侧宽度 |
+| $event.clientHeight | any | 可视区域高度 |
+| $event.clientWidth | any | 可视区域宽度 |
 
 Methods
 
