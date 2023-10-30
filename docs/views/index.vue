@@ -47,7 +47,7 @@ export default {
         };
     },
     created() {
-        if (this.$route.path !== '/home') this.$router.replace('/home');
+        if (this.$route.path === '/components/quickstart' && history.length === 1) this.$router.replace('/home');
     },
     watch: {
         'message.route'(route) {
