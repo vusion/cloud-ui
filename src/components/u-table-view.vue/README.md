@@ -23,6 +23,7 @@
     - [编辑行-new](#编辑行-new)
     - [树型展示](#树型展示)
     - [表格行拖拽](#表格行拖拽)
+    - [两个表格拖拽](#两个表格拖拽)
     - [导出 Excel](#导出-excel)
 - [常见问题](#常见问题)
 
@@ -38,6 +39,9 @@
     - [Props/Attrs](#propsattrs-3)
     - [Slots](#slots-3)
     - [Events](#events-2)
+- [UTableViewColumnDynamic API](#utableviewcolumndynamic-api)
+    - [Props/Attrs](#propsattrs-4)
+    - [Slots](#slots-4)
 
 **Table**
 
@@ -2017,7 +2021,7 @@ export default {
         getList() {
             return [
                 { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
-                { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, expanded:true, children:[
+                { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, treeExpanded:true, children:[
                     { name: '张三11', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
                     { name: '张三12', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000,children:[
                     { name: '张三121', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
@@ -2127,7 +2131,7 @@ export default {
         getList() {
             return [
                 { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
-                { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, expanded:true, children:[
+                { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, treeExpanded:true, children:[
                     { name: '张三11', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
                     { name: '张三12', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000,children:[
                     { name: '张三121', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
@@ -2140,6 +2144,342 @@ export default {
                 { name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
             ]
         }
+    },
+};
+</script>
+```
+
+树型表格-设置不可拖拽节点、不可放入节点
+
+``` vue
+<template>
+<u-linear-layout direction="vertical">
+<u-table-view :data-source="list" tree-display :draggable="true" value-field="name" :can-dragable-handler="canDrag" :can-dropin-handler="canDropin">
+    <u-table-view-column type="dragHandler" width="30"></u-table-view-column>
+    <u-table-view-column type="checkbox" width="30"></u-table-view-column>
+    <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
+    <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+    <u-table-view-column title="地址" field="address"></u-table-view-column>
+    <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+    <template #dragGhost="{item}">
+        <div style="padding:15px;background:white;border:1px solid #ddd; width:100px;">{{item && item.name}}</div>
+    </template>
+</u-table-view>
+<u-table-view :data-source="list" :draggable="true" value-field="name" :can-dragable-handler="canDrag">
+    <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
+    <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+    <u-table-view-column title="地址" field="address"></u-table-view-column>
+    <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+    <template #dragGhost="{item}">
+        <div style="padding:15px;background:white;border:1px solid #ddd; width:100px;">{{item && item.name}}</div>
+    </template>
+</u-table-view>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data(){
+        return {
+            list: this.getList(),
+        }
+    },
+    methods: {
+        getList() {
+            return [
+                { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, treeExpanded:true, children:[
+                    { name: '张三11', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                    { name: '张三12', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000,children:[
+                    { name: '张三121', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                    { name: '张三122', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                ]},
+                ]},
+                { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 , dropDisabled:true},
+                { name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+                { name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+                { name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+            ]
+        },
+        canDrag(item) {
+            return item && item.name !== '李四'
+        },
+        canDropin(item) {
+            return item && item.name !== '王五'
+        }
+    },
+};
+</script>
+```
+
+### 两个表格拖拽
+
+表格内部&表格间可拖拽
+
+``` vue
+<template>
+<u-grid-layout>
+    <u-grid-layout-row>
+        <u-grid-layout-column :span="6">
+            <u-table-view :data-source="list1" :draggable="true" value-field="name" :can-dragable-handler="canDrag" across-table-drag @drop="onDrop1" ref="tableview1">
+                <u-table-view-column type="checkbox" width="30"></u-table-view-column>
+                <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
+                <u-table-view-column title="手机号码" field="phone" width="20%" ellipsis></u-table-view-column>
+                <u-table-view-column title="地址" field="address" ellipsis></u-table-view-column>
+                <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column ellipsis>
+                <template #dragGhost="{item}">
+                    <div style="padding:15px;background:white;border:1px solid #ddd; width:100px;">{{item && item.name}}</div>
+                </template>
+            </u-table-view>
+        </u-grid-layout-column>
+        <u-grid-layout-column :span="6">
+            <u-table-view :data-source="list2" :draggable="true" value-field="name" :can-dragable-handler="canDrag"  across-table-drag @drop="onDrop2" ref="tableview2">
+                <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
+                <u-table-view-column title="手机号码" field="phone" width="20%" ellipsis></u-table-view-column>
+                <u-table-view-column title="地址" field="address" ellipsis></u-table-view-column>
+                <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column ellipsis>
+                <template #dragGhost="{item}">
+                    <div style="padding:15px;background:white;border:1px solid #ddd; width:100px;">{{item && item.name}}</div>
+                </template>
+            </u-table-view>
+        </u-grid-layout-column>
+    </u-grid-layout-row>
+</u-grid-layout>
+</template>
+<script>
+export default {
+    data(){
+        return {
+            list1: this.getList(1),
+            list2: this.getList(2),
+            dragStartNode1: undefined,
+            dragStartNode2: undefined,
+        }
+    },
+    methods: {
+        getList(index) {
+            return [
+                { name: '张三' + index, phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                { name: '张三dd' + index, phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                { name: '小明' + index, phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 , dropDisabled:true},
+                { name: '李四' + index, phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+                { name: '李华' + index, phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+                { name: '王五' + index, phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+            ]
+        },
+        canDrag(item) {
+            return item && item.name !== '李四1'
+        },
+        onDrop1(event) {
+            console.log('onDrop1', event);
+            if(event.finalSource) {
+                this.list1.splice(event.source.index, 1);
+                this.list1.splice(event.target.index, 0, event.source.item);
+            } else {
+                const insertIndex = event.position === 'insertBefore' ? event.target.index : event.target.index + 1;
+                this.list1.splice(insertIndex, 0, event.source.item);
+                this.list2.splice(event.source.index, 1);
+            }
+        },
+        onDrop2(event) {
+            console.log('onDrop2', event);
+            if(event.finalSource) {
+                this.list2.splice(event.source.index, 1);
+                this.list2.splice(event.target.index, 0, event.source.item);
+            } else {
+                if (event.position === 'append') {
+                    this.list2.push(event.source.item);
+                    this.list1.splice(event.source.index, 1);
+                } else {
+                    const insertIndex = event.position === 'insertBefore' ? event.target.index : event.target.index + 1;
+                    this.list2.splice(insertIndex, 0, event.source.item);
+                    this.list1.splice(event.source.index, 1);
+                }
+            }
+        }
+    },
+};
+</script>
+```
+
+表格间可拖拽
+
+``` vue
+<template>
+<u-grid-layout>
+    <u-grid-layout-row>
+        <u-grid-layout-column :span="6">
+            <u-table-view :data-source="load1" value-field="name" :can-dragable-handler="canDrag" across-table-drag @drop="onDrop1" ref="tableview1">
+                <u-table-view-column type="checkbox" width="30"></u-table-view-column>
+                <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
+                <u-table-view-column title="手机号码" field="phone" width="20%" ellipsis></u-table-view-column>
+                <u-table-view-column title="地址" field="address" ellipsis></u-table-view-column>
+                <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column ellipsis>
+                <template #dragGhost="{item}">
+                    <div style="padding:15px;background:white;border:1px solid #ddd; width:100px;">{{item && item.name}}</div>
+                </template>
+            </u-table-view>
+        </u-grid-layout-column>
+        <u-grid-layout-column :span="6">
+            <u-table-view :data-source="load2" value-field="name" :can-dragable-handler="canDrag"  across-table-drag @drop="onDrop2" ref="tableview2">
+                <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
+                <u-table-view-column title="手机号码" field="phone" width="20%" ellipsis></u-table-view-column>
+                <u-table-view-column title="地址" field="address" ellipsis></u-table-view-column>
+                <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column ellipsis>
+                <template #dragGhost="{item}">
+                    <div style="padding:15px;background:white;border:1px solid #ddd; width:100px;">{{item && item.name}}</div>
+                </template>
+            </u-table-view>
+        </u-grid-layout-column>
+    </u-grid-layout-row>
+</u-grid-layout>
+</template>
+<script>
+const list1 = [
+    { name: '张三1', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+    { name: '张三dd1', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+    { name: '小明1', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 , dropDisabled:true},
+    { name: '李四1', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+    { name: '李华1', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+    { name: '王五1', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+];
+const list2 = [
+    { name: '张三2', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+    { name: '张三dd2', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+    { name: '小明2', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 , dropDisabled:true},
+    { name: '李四2', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+    { name: '李华2', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+    { name: '王五2', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+];
+export default {
+    data(){
+        return {
+        }
+    },
+    methods: {
+        load1() {
+            return list1;
+        },
+        load2() {
+            return list2;
+        },
+        canDrag(item) {
+            return item && item.name !== '李四'
+        },
+        onDrop1(event) {
+            console.log('onDrop1', event);
+            list1.unshift(event.source.item);
+            this.$refs.tableview1.reload();
+            const deleteIndex = list2.find((item)=>item.name === event.source.item.name);
+            list2.splice(deleteIndex, 1);
+            this.$refs.tableview2.reload();
+        },
+        onDrop2(event) {
+            console.log('drop2', event);
+            list2.unshift(event.source.item);
+            this.$refs.tableview2.reload();
+            const deleteIndex = list1.find((item)=>item.name === event.source.item.name);
+            list1.splice(deleteIndex, 1);
+            this.$refs.tableview1.reload();
+        }
+    },
+};
+</script>
+```
+
+树型表格间拖拽
+
+``` vue
+<template>
+<u-grid-layout>
+    <u-grid-layout-row>
+        <u-grid-layout-column :span="6">
+            <u-table-view :data-source="load1" tree-display :draggable="true" value-field="name" :can-dragable-handler="canDrag" across-table-drag @drop="onDrop1" ref="tableview1">
+                <u-table-view-column type="checkbox" width="30"></u-table-view-column>
+                <u-table-view-column title="用户名" field="name" width="40%"></u-table-view-column>
+                <u-table-view-column title="手机号码" field="phone" width="20%" ellipsis></u-table-view-column>
+                <u-table-view-column title="地址" field="address" ellipsis></u-table-view-column>
+                <template #dragGhost="{item}">
+                    <div style="padding:15px;background:white;border:1px solid #ddd; width:100px;">{{item && item.name}}</div>
+                </template>
+            </u-table-view>
+        </u-grid-layout-column>
+        <u-grid-layout-column :span="6">
+            <u-table-view :data-source="load2" :draggable="true" value-field="name" :can-dragable-handler="canDrag"  across-table-drag @drop="onDrop2" ref="tableview2">
+                <u-table-view-column title="用户名" field="name" width="40%"></u-table-view-column>
+                <u-table-view-column title="手机号码" field="phone" width="20%" ellipsis></u-table-view-column>
+                <u-table-view-column title="地址" field="address" ellipsis></u-table-view-column>
+                <template #dragGhost="{item}">
+                    <div style="padding:15px;background:white;border:1px solid #ddd; width:100px;">{{item && item.name}}</div>
+                </template>
+            </u-table-view>
+        </u-grid-layout-column>
+    </u-grid-layout-row>
+</u-grid-layout>
+</template>
+<script>
+const treeList = [
+    { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+    { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, treeExpanded:true, children:[
+        { name: '张三11', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+        { name: '张三12', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000,children:[
+        { name: '张三121', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+        { name: '张三122', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+    ]},
+    ]},
+    { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 , dropDisabled:true},
+    { name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+    { name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+    { name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+];
+const list2 = [
+    { name: '张三2', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+    { name: '张三dd2', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+    { name: '小明2', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 , dropDisabled:true},
+    { name: '李四2', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+    { name: '李华2', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+    { name: '王五2', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+];
+export default {
+    data(){
+        return {
+        }
+    },
+    methods: {
+        load1() {
+            return treeList;
+        },
+        load2() {
+            return list2;
+        },
+        canDrag(item) {
+            return item && item.name !== '李四'
+        },
+        onDrop1(event) {
+            console.log('onDrop1', event);
+            if(event.finalSource) {
+                
+            } else {
+                if(!event.target.parent) {
+                    const item = treeList[event.target.index];
+                    if(event.position === 'append') {
+                        item.children = item.children || [];
+                        item.children.push(event.source.item);
+                        item.expanded = true;
+                        this.$refs.tableview1.reload();
+                    } else {
+                        const insertIndex = event.position === 'insertBefore' ? event.target.index : event.target.index + 1;
+                        treeList.splice(insertIndex, 0, event.source.item);
+                        this.$refs.tableview1.reload();
+                    }
+                }
+                const deleteIndex = list2.find((item)=>item.name === event.source.item.name);
+                list2.splice(deleteIndex, 1);
+                this.$refs.tableview2.reload();
+            }
+        },
+        onDrop2(event) {
+            console.log('onDrop2', event);
+        },
     },
 };
 </script>
@@ -2234,13 +2574,13 @@ export default {
 | pageable | boolean |  | `false` |  |
 | remote-paging | boolean |  | `false` |  |
 | pagination | boolean |  |  | 设置是否分页展示数据 |
-| page-size.sync | number |  | `20` |  |
+| page-size | number |  | `20` |  |
 | show-sizer | boolean |  | `false` | 显示每页条数切换器 |
 | page-size-options | Array\<number\> |  | `[10, 20, 50]` | 每页条数切换器的选项 |
-| page-number.sync | number |  | `1` | 当前默认展示在第几页 |
+| page-number | number |  | `1` | 当前默认展示在第几页 |
 | show-total | boolean |  | `false` |  |
 | show-jumper | boolean |  | `false` | 显示页面跳转输入框 |
-| sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 设置数据初始化时的排序字段和顺序规则 |
+| sorting | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 设置数据初始化时的排序字段和顺序规则 |
 | remote-sorting | boolean |  | `false` |  |
 | default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` |  |
 | filtering.sync | object |  |  |  |
@@ -2261,6 +2601,9 @@ export default {
 | selectable | boolean |  | `false` | 设置是否可以单选行 |
 | cancelable | boolean |  | `false` | 设置是否可以取消选择 |
 | draggable | boolean |  | `false` | 设置是否可以拖拽行排序 |
+| acrossTableDrag | boolean |  | `false` | 设置多个表格间是否可以拖拽放置 |
+| can-dragable-handler | Function |  |  | 设置表格行是否可拖拽起来。绑定逻辑 |
+| can-dropin-handler | Function |  |  | 设置表格行是否可拖拽放入。绑定逻辑 |
 | accordion | boolean |  | `false` | 设置是否每次只展开一个 |
 | resizable | boolean |  | `false` | 设置是否可以调整列宽 |
 | resize-remaining | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'average'` | 设置调整列宽时如何处理剩余大小 |
@@ -2394,6 +2737,16 @@ export default {
 | ----- | ---- | ----------- |
 | $event | object | 筛选参数对象 |
 | senderVM | UTableView | 发送事件实例 |
+
+#### @click-row
+
+点击某一行时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.item | object | 点击行相关对象 |
+| $event.index | number | 点击行索引 |
 
 #### @before-select
 
@@ -2665,4 +3018,29 @@ Methods
 | $event.itemVM | USelectItem | 选择项子组件 |
 | $event.oldVM | USelectItem | 旧的选择项子组件 |
 | senderVM | USelect | 发送事件实例 |
+
+## UTableViewColumnDynamic API
+### Props/Attrs
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
+| value-field | string |  | `'value'` | 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段 |
+| sortable | boolean |  | `false` | 设置该列是否可以排序 |
+| default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 该列首次点击时的排序顺序 |
+| fixed | boolean |  | `false` | 该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。 |
+| ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
+| hidden | boolean |  | `false` |  |
+| width | string \| number |  |  | 设置列宽度，可设置为数字或百分比 |
+
+### Slots
+
+#### title
+
+
+
+#### cell
+
+自定义选项的结构和样式
 

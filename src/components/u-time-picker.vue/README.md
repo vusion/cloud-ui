@@ -10,6 +10,8 @@
     - [日期范围](#日期范围)
     - [日期最小单位](#日期最小单位)
     - [方法](#方法)
+    - [范围选择](#范围选择)
+    - [范围选择分钟](#范围选择分钟)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -101,15 +103,45 @@ export default {
 </script>
 ```
 
+### 范围选择
+
+``` html
+<u-time-picker
+    range
+    startTime="12:46:33"
+    endTime="18:18:33"
+    min-time="12:30:00"
+    max-time="21:45:15">
+</u-time-picker>
+```
+
+### 范围选择分钟
+
+``` html
+<u-time-picker
+    range
+    startTime="12:46"
+    endTime="18:18"
+    min-time="12:30:00"
+    max-time="21:45:15"
+    min-unit="minute">
+</u-time-picker>
+```
+
 ## API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| time.sync, v-model | string |  | `''` | 默认显示的时间值，格式如08:08:08 |
 | minUnit | string | `[object Object]`<br/>`[object Object]` | `'second'` | 最小时间单位 |
+| range | boolean |  | `false` | 是否支持进行时间区间选择，关闭则为时间点选择 |
+| value.sync, v-model | string |  | `''` | 默认显示的时间值，格式如08:08:08 |
+| startTime.sync | string |  |  | 默认显示的起始时间值，格式如08:08:08 |
+| endTime.sync | string |  |  | 默认显示的结束时间值，格式如08:08:08 |
 | min-time | string |  | `'00:00:00'` | 最小可选的时间值，填写null则不限制，日期填写格式为“00:00:00” |
 | max-time | string |  | `'23:59:59'` | 最大可选的时间值，填写null则不限制，日期填写格式为“00:00:00” |
+| show-formatter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  |  |
+| advanced-format | { enable: boolean, value: string } |  | `'{ enable: false, value: '' }'` |  |
 | autofocus | boolean |  | `false` | 设置是否自动获取焦点 |
 | showRightNowButton | boolean |  | `true` | 点击可快捷选择当前时间 |
 | rightNowTitle | string |  | `''` |  |

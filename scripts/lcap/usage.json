@@ -9746,13 +9746,62 @@
                 },
                 {
                     "name": "draggable",
-                    "title": "可拖拽",
+                    "title": "表格内可拖拽",
                     "type": "boolean",
                     "default": false,
                     "description": "设置是否可以拖拽行排序",
                     "group": "交互属性",
                     "brifeDoc": "",
                     "docDescription": "表格行是否可拖拽放置。默认关闭",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "acrossTableDrag",
+                    "title": "表格间可拖拽",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "设置多个表格间是否可以拖拽放置",
+                    "group": "交互属性",
+                    "brifeDoc": "",
+                    "docDescription": "表格间是否可拖拽放置。默认关闭",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "can-dragable-handler",
+                    "title": "可拖拽节点",
+                    "type": "Function",
+                    "description": "设置表格行是否可拖拽起来。绑定逻辑",
+                    "bindOpen": true,
+                    "group": "交互属性",
+                    "dependency": [
+                        {
+                            "draggable": true
+                        },
+                        {
+                            "acrossTableDrag": true
+                        }
+                    ],
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "can-dropin-handler",
+                    "title": "可放置节点",
+                    "type": "Function",
+                    "description": "设置表格行是否可拖拽放入。绑定逻辑",
+                    "bindOpen": true,
+                    "group": "交互属性",
+                    "dependency": [
+                        {
+                            "draggable": true
+                        },
+                        {
+                            "acrossTableDrag": true
+                        }
+                    ],
+                    "brifeDoc": "",
+                    "docDescription": "",
                     "tooltipLink": ""
                 },
                 {
@@ -10473,6 +10522,34 @@
                             "name": "$event.index",
                             "type": "number",
                             "description": "点击行索引"
+                        }
+                    ]
+                },
+                {
+                    "name": "dblclick-row",
+                    "title": "双击行",
+                    "description": "双击某一行时触发",
+                    "schema": {
+                        "$ref": "#/systemTypes/Current"
+                    },
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/OperatorItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "双击行相关对象"
+                        },
+                        {
+                            "name": "$event.index",
+                            "type": "number",
+                            "description": "双击行索引"
                         }
                     ]
                 },

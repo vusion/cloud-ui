@@ -256,6 +256,10 @@
       "item"
     ]
   },
+  "u-absolute-layout": {
+    "attributes": [],
+    "description": "拖拽内部元素到任意位置"
+  },
   "u-actions": {
     "attributes": [
       "max-count",
@@ -497,6 +501,7 @@
       "children-field",
       "parent-field",
       "value",
+      "useArrayLikeValue",
       "filterable",
       "placeholder",
       "showFinalValue",
@@ -664,17 +669,22 @@
   },
   "u-date-picker": {
     "attributes": [
-      "date",
+      "picker",
+      "range",
+      "value",
+      "startDate",
+      "endDate",
       "minDate",
       "maxDate",
       "time",
       "yearDiff",
       "yearAdd",
+      "show-formatter",
+      "advanced-format",
       "autofocus",
       "placeholder",
       "alignment",
       "converter",
-      "picker",
       "preIcon",
       "suffixIcon",
       "append-to",
@@ -689,11 +699,18 @@
   },
   "u-date-time-picker": {
     "attributes": [
-      "date",
+      "minUnit",
+      "range",
+      "value",
+      "startDate",
+      "endDate",
       "minDate",
       "maxDate",
       "yearDiff",
       "yearAdd",
+      "show-date-formatter",
+      "show-time-formatter",
+      "advanced-format",
       "placeholder",
       "autofocus",
       "showRightNowButton",
@@ -757,15 +774,26 @@
   },
   "u-dropdown": {
     "attributes": [
+      "has-data-source",
+      "data-source",
+      "data-schema",
+      "text-field",
+      "value-field",
+      "icon-field",
+      "to-field",
+      "parent-field",
       "trigger",
       "type",
       "placement",
       "append-to",
+      "router",
+      "value",
       "disabled"
     ],
     "description": "下拉菜单",
     "subtags": [
-      "u-dropdown-item"
+      "u-dropdown-item",
+      "u-dropdown-group"
     ]
   },
   "u-dropdown-item": {
@@ -779,6 +807,15 @@
       "disabled"
     ],
     "description": "下拉菜单项"
+  },
+  "u-dropdown-group": {
+    "attributes": [
+      "title",
+      "collapsible",
+      "expanded",
+      "disabled"
+    ],
+    "description": "侧边栏分组"
   },
   "u-dynamic-cards": {
     "attributes": [
@@ -884,6 +921,7 @@
       "label-layout",
       "label-ellipsis",
       "required",
+      "required-position",
       "message",
       "description",
       "layout",
@@ -1040,7 +1078,9 @@
       "circle",
       "horizontalCenter",
       "verticalCenter",
-      "preview"
+      "preview",
+      "loading-type",
+      "placeholder-src"
     ],
     "description": "可以用来展示一张图片，支持设置图片地址。"
   },
@@ -1201,7 +1241,6 @@
       "show-head",
       "title",
       "show-foot",
-      "repeat",
       "initial-load",
       "designer-mode",
       "loading-text",
@@ -1323,6 +1362,14 @@
   },
   "u-navbar-multi": {
     "attributes": [
+      "has-data-source",
+      "data-source",
+      "data-schema",
+      "text-field",
+      "value-field",
+      "icon-field",
+      "to-field",
+      "parent-field",
       "router",
       "value",
       "field",
@@ -1341,7 +1388,8 @@
       "u-navbar-select-multi",
       "u-navbar-select-group-multi",
       "u-navbar-select-item-multi",
-      "u-navbar-select-divider-multi"
+      "u-navbar-select-divider-multi",
+      "u-navbar-group-multi"
     ]
   },
   "u-navbar-item-multi": {
@@ -1403,6 +1451,15 @@
   "u-navbar-select-divider-multi": {
     "attributes": [],
     "description": "导航选择分割线"
+  },
+  "u-navbar-group-multi": {
+    "attributes": [
+      "title",
+      "collapsible",
+      "expanded",
+      "disabled"
+    ],
+    "description": "导航栏分组"
   },
   "u-navbar": {
     "attributes": [
@@ -1504,6 +1561,12 @@
       "min",
       "max",
       "precision",
+      "decimal-length",
+      "decimal-places",
+      "thousandths",
+      "percent-sign",
+      "unit",
+      "advanced-format",
       "placeholder",
       "autofocus",
       "hide-buttons",
@@ -1660,7 +1723,9 @@
     "description": "该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。"
   },
   "u-router-view": {
-    "attributes": [],
+    "attributes": [
+      "disableKeepAlive"
+    ],
     "description": "用于嵌入子页面的容器。"
   },
   "u-select": {
@@ -1763,8 +1828,16 @@
   },
   "u-sidebar": {
     "attributes": [
-      "value",
+      "has-data-source",
+      "data-source",
+      "data-schema",
+      "text-field",
+      "value-field",
+      "icon-field",
+      "to-field",
+      "parent-field",
       "router",
+      "value",
       "collapsible",
       "accordion",
       "expand-trigger",
@@ -1903,6 +1976,9 @@
       "selectable",
       "cancelable",
       "draggable",
+      "acrossTableDrag",
+      "can-dragable-handler",
+      "can-dropin-handler",
       "accordion",
       "resizable",
       "resize-remaining",
@@ -1926,7 +2002,8 @@
     "description": "用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。",
     "subtags": [
       "u-table-view-column",
-      "u-table-view-column-config"
+      "u-table-view-column-config",
+      "u-table-view-column-dynamic"
     ]
   },
   "u-table-view-column": {
@@ -1956,6 +2033,19 @@
       "value-field",
       "value",
       "show-footer"
+    ]
+  },
+  "u-table-view-column-dynamic": {
+    "attributes": [
+      "data-source",
+      "data-schema",
+      "value-field",
+      "sortable",
+      "default-order",
+      "fixed",
+      "ellipsis",
+      "hidden",
+      "width"
     ]
   },
   "u-table": {
@@ -2062,10 +2152,15 @@
   },
   "u-time-picker": {
     "attributes": [
-      "time",
       "minUnit",
+      "range",
+      "value",
+      "startTime",
+      "endTime",
       "min-time",
       "max-time",
+      "show-formatter",
+      "advanced-format",
       "autofocus",
       "showRightNowButton",
       "rightNowTitle",
@@ -2175,7 +2270,10 @@
       "value-field",
       "parent-field",
       "children-field",
-      "value"
+      "value",
+      "checkable",
+      "clearable",
+      "append-to"
     ],
     "description": "树选择"
   },
@@ -2285,6 +2383,8 @@
       "access",
       "ttl",
       "ttlValue",
+      "viaOriginURL",
+      "lcapIsCompress",
       "draggable",
       "readonly",
       "disabled"

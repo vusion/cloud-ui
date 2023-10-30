@@ -591,6 +591,7 @@ export default {
 | children-field | string |  | `'children'` | 树形数据子节点字段名，默认为children |
 | parent-field | string |  |  | 当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置 |
 | value.sync, v-model | any |  |  |  |
+| useArrayLikeValue | boolean |  | `false` |  |
 | filterable | boolean |  | `false` | 设置是否可以筛选，开启将会显示搜索框。 |
 | placeholder | string |  | `'请选择'` | 为空时显示的占位符文本 |
 | showFinalValue | boolean |  | `false` | 定义是否显示完整的路径，ture时只显示最后一项 |
