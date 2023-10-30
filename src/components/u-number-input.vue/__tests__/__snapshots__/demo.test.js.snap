@@ -463,6 +463,19 @@ exports[`u-number-input.vue Demo-键盘事件 1`] = `
 </div>
 `;
 
+exports[`u-number-input.vue Demo-高精度 1`] = `
+<div>
+  <div button-display="tail" class="root" placeholder="请输入">
+    <span>b</span>
+    <span></span>
+    <input button-display="tail" type="text">
+    <span class="button" role="up" tabindex="0"></span>
+    <span class="button" role="down" tabindex="0"></span>
+  </div>
+  <div>值： 2.100</div>
+</div>
+`;
+
 exports[`u-number-input.vue Demo-高级格式化 1`] = `
 <div>
   <div>展示保留3位小数 不省略0；值保留2位小数</div>
