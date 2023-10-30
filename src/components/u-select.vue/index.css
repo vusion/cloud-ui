@@ -117,8 +117,8 @@
     display: block;
     float: left;
     width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
     white-space: nowrap;
     line-height: inherit;
 }
@@ -133,21 +133,33 @@
 }
 
 .tag {
+    position: relative;
     display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    vertical-align: middle;
+    max-width: 50%;
+
     padding: var(--select-tag-padding);
+    padding-right: 22px;
     font-size: var(--font-size-small);
     line-height: var(--select-tag-line-height);
-    vertical-align: 1px;
+    /* vertical-align: 1px; */
     background: var(--select-tag-background);
     border-radius: var(--select-tag-border-radius);
 }
 
-.tag:not(:last-child) {
+.tag:not(:last-of-type) {
     margin-right: var(--select-tag-margin-x);
 }
 
 .tag-remove {
-    margin-left: var(--select-tag-margin-x);
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    /* margin-left: var(--select-tag-margin-x); */
     color: var(--select-tag-remove-color);
 }
 

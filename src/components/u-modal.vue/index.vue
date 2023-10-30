@@ -1,8 +1,9 @@
 <template>
 <transition v-if="(currentVisible || animationVisible)"
     enter-active-class="animate__animated animate__fadeIn"
-    leave-active-class="animate__animated animate__fadeOut animate__fast">
-    <div :class="$style.root" :static="this.static" @click="handleClose" :functional-modal="functionalModal">
+    leave-active-class="animate__animated animate__fadeOut animate__fast"
+    >
+    <div :class="$style.root" :static="this.static" @click="handleClose" :functional-modal="functionalModal" :style="$env.VUE_APP_DESIGNER ? {zIndex: 7020} : {}">
         <transition
             enter-active-class="animate__animated animate__fadeInDownSmall"
             leave-active-class="animate__animated animate__fadeOutUpSmall animate__fast">
@@ -231,10 +232,12 @@ export default UModal;
 <style module>
 .root {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: 0!important;
+    right: 0!important;
+    bottom: 0!important;
+    left: 0!important;
+    width: unset!important;
+    height: unset!important;
     z-index: var(--z-index-modal);
     -webkit-overflow-scrolling: touch;
     touch-action: cross-slide-y pinch-zoom double-tap-zoom;

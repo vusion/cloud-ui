@@ -25,7 +25,7 @@
     </u-linear-layout>
     <div :class="$style.body">
         <date-table
-            :selected-date.sync="selectedDate"
+            :selected-dates="selectedDates"
             :year.sync="year"
             :month.sync="month"
             :current="date"
@@ -37,8 +37,10 @@
             :data="tableData"
             :start-key="startKey"
             :end-key="endKey"
+            :get-common-attrs="getCommonAttrs"
+            @update:selectedDates="updateSelectedDates($event.dates,$event.cell,true)"
             @select="$emit('select', $event, this)"
-            @change="onChange"
+            :multiple="multiple"
         >
             <template #default="scope">
                 <slot :item="scope.item" :__nodeKey="`${scope.item.rowIndex}-${scope.item.cellIndex}`"></slot>
@@ -60,9 +62,10 @@ import dayjs from 'dayjs';
 import i18n from './i18n';
 import DateTable from './date-table.vue';
 import './initDayjs';
-import { getDay } from './utils';
+import { DefaultFormatType, getDay } from './utils';
 import SEmpty from '../../components/s-empty.vue';
 import MEmitter from '../m-emitter.vue';
+import get from 'lodash/get';
 
 export default {
     name: 'u-calendar-view',
@@ -74,9 +77,9 @@ export default {
     mixins: [MEmitter],
     props: {
         value: {
-            type: [Date, String, Number],
+            type: [Date, String, Number, Array],
             default() {
-                return new Date();
+                return dayjs();
             },
         },
         minDate: [Date, String, Number],
@@ -96,14 +99,23 @@ export default {
         showBasic: { type: Boolean, default: true },
         showAdvance: { type: Boolean, default: true },
         firstDayOfWeek: { type: Number, default: 1 },
+        multiple: { type: Boolean, default: false },
     },
     data() {
-        const date = dayjs();
-        const selectedDate = getDay(this.value)
-            .hour(0)
-            .minute(0)
-            .second(0)
-            .millisecond(0);
+        const date = dayjs().hour(0).minute(0).second(0).millisecond(0);
+
+        let value = this.value;
+        if (Array.isArray(this.value) && this.value.length > 0) {
+            value = [...this.value];
+        } else if (Array.isArray(this.value)) {
+            value = [dayjs()];
+        } else {
+            value = [this.value];
+        }
+        const selectedDates = Array.from(new Set(value.map((v) => getDay(v).format(DefaultFormatType)))).sort().map((v) => dayjs(v, DefaultFormatType).startOf('day'));
+        const selectedDatesSnapshot = value.join(',');
+        const selectedDate = selectedDates[0];
+
         const fullMonths = [];
         const monthTexts = [
             this.$t('January'),
@@ -128,7 +140,8 @@ export default {
         return {
             dataFromDataSource: [],
             date,
-            selectedDate,
+            selectedDates, // 这个数组必须始终保证有序（从小到大），唯一（unique），其值表示每一天的开始。
+            selectedDatesSnapshot,
             year: selectedDate.year(),
             month: selectedDate.month(), // 月份从 0 开始
             years: [],
@@ -144,6 +157,9 @@ export default {
         };
     },
     computed: {
+        selectedDate() {
+            return this.selectedDates[0];
+        },
         months() {
             const { minDay, maxDay, minYear, maxYear, minMonths, maxMonths, year, fullMonths } = this;
             if (!minDay || !maxDay)
@@ -220,19 +236,80 @@ export default {
             },
             immediate: true,
         },
+        value(newValue) {
+            const value = (Array.isArray(newValue) && newValue.length > 0 ? [...newValue] : [newValue]).sort();
+            const snapshot = value.join(',');
+            if (this.selectedDatesSnapshot === snapshot) {
+                return;
+            }
+            this.selectedDates = Array.from(new Set(value.sort())).map((v) => getDay(v).hour(0).minute(0).second(0).millisecond(0));
+            this.selectedDatesSnapshot = snapshot;
+            this.getConfigs();
+        },
     },
     methods: {
+        updateSelectedDates(dates, cell, skipEqualCheck = false) {
+            if (!skipEqualCheck) {
+                let idx = 0;
+                while (this.selectedDates[idx] && dates[idx]) {
+                    if (!this.selectedDates[idx].isSame(dates[idx])) {
+                        break;
+                    }
+                    ++idx;
+                }
+                if (this.selectedDates.length === dates.length && dates.length === idx) {
+                    return;
+                }
+            }
+            this.selectedDates = dates;
+            const selectedDateStrs = dates.map((d) => d.format(DefaultFormatType));
+            this.selectedDatesSnapshot = selectedDateStrs.join(',');
+            if (this.multiple) {
+                this.$emit('change', dates.map((date) => this.getCommonAttrs(date, { __type__: 'current' })), this);
+                this.$emit('input:value', selectedDateStrs);
+                this.$emit('update:value', selectedDateStrs);
+            } else {
+                this.$emit('change', cell, this);
+                this.$emit('input:value', selectedDateStrs[0]);
+                this.$emit('update:value', selectedDateStrs[0]);
+            }
+        },
         getConfigs() {
-            const { minDay, maxDay, date, selectedDate, minYear, minMonth } = this;
-            if (!minDay || !maxDay)
+            const { minDay, maxDay, date, selectedDate, minYear, minMonth, maxYear, maxMonth } = this;
+            if (!minDay || !maxDay) {
                 return;
+            }
 
             if (minDay.isSameOrBefore(maxDay)) {
-                // 当前日期不在配置日期范围内，重新赋值成最小日期
-                if (maxDay.isBefore(selectedDate) || minDay.isAfter(selectedDate)) {
-                    this.selectedDate = minDay.clone();
-                    this.year = minYear;
-                    this.month = minMonth;
+                if (this.multiple) {
+                    const maxDayStartOfDay = maxDay.startOf('day');
+                    const uniqueDateSet = new Set(
+                        this.selectedDates.map((d, idx) => {
+                            if (minDay.isSameOrAfter(d)) {
+                                if (idx === 0) {
+                                    this.year = minYear;
+                                    this.month = minMonth;
+                                }
+                                return minDay;
+                            }
+                            if (maxDayStartOfDay.isSameOrBefore(d)) {
+                                if (idx === 0) {
+                                    this.year = maxYear;
+                                    this.month = maxMonth;
+                                }
+                                return maxDayStartOfDay;
+                            }
+                            return d;
+                        }),
+                    );
+                    this.selectedDates = Array.from(uniqueDateSet).map((v) => v.clone());
+                } else {
+                    // 当前日期不在配置日期范围内，重新赋值成最小日期
+                    if (maxDay.isBefore(selectedDate) || minDay.isAfter(selectedDate)) {
+                        this.year = minYear;
+                        this.month = minMonth;
+                        this.selectedDates = [minDay.clone().startOf('day')];
+                    }
                 }
                 this.showToday = !maxDay.isBefore(date) && !minDay.isAfter(date);
 
@@ -291,57 +368,116 @@ export default {
          * Basic
          */
         onPrevMonth() {
+            const oldValue = this.selectedDate.format(DefaultFormatType);
             const newSelectedDate = this.selectedDate.subtract(1, 'month');
-            this.selectedDate = newSelectedDate;
-            this.year = newSelectedDate.year();
-            this.month = newSelectedDate.month();
+            const dates = this.getRangeSelectedDates(this.selectedDates.map((v) => v.subtract(1, 'month')), newSelectedDate.startOf('month'), newSelectedDate.endOf('month').startOf('day'));
+            this.year = dates[0].year();
+            this.month = dates[0].month();
+            const date = dates[0];
+            const cell = this.getCommonAttrs(date, {
+                __type__: 'prev',
+                value: newSelectedDate.format(DefaultFormatType),
+                oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
+            });
+            this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         onNextMonth() {
+            const oldValue = this.selectedDate.format(DefaultFormatType);
             const newSelectedDate = this.selectedDate.add(1, 'month');
-            this.selectedDate = newSelectedDate;
-            this.year = newSelectedDate.year();
-            this.month = newSelectedDate.month();
+            const dates = this.getRangeSelectedDates(this.selectedDates.map((v) => v.add(1, 'month')), newSelectedDate.startOf('month'), newSelectedDate.endOf('month').startOf('day'));
+            this.year = dates[0].year();
+            this.month = dates[0].month();
+            const date = dates[0];
+            const cell = this.getCommonAttrs(date, {
+                __type__: 'next',
+                value: newSelectedDate.format(DefaultFormatType),
+                oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
+            });
+            this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         onToday() {
             if (this.selectedDate.isSame(this.date))
                 return;
+            const oldValue = this.selectedDate.format(DefaultFormatType);
+            const __type__ = this.date.isBefore(this.selectedDate) ? 'prev' : 'next';
             const newSelectedDate = this.date.clone();
-            this.selectedDate = newSelectedDate;
+            const dates = [newSelectedDate];
             this.year = newSelectedDate.year();
             this.month = newSelectedDate.month();
+            const date = dates[0];
+            const cell = this.getCommonAttrs(date, {
+                __type__,
+                value: newSelectedDate.format(DefaultFormatType),
+                oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
+            });
+            this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         /**
          * Advance
          */
         onSelectYear(value) {
+            if (this.year === value) {
+                return;
+            }
+            const oldValue = this.selectedDate.format(DefaultFormatType);
             const { minMonth, maxMonth, selectedDate, minDay, maxDay } = this;
             let newSelectedDate = selectedDate.clone().year(value);
+            const __type__ = newSelectedDate.isBefore(this.selectedDate) ? 'prev' : 'next';
             if (newSelectedDate.isBefore(minDay)) {
                 this.month = minMonth;
                 newSelectedDate = minDay.clone();
             } else if (newSelectedDate.isAfter(maxDay)) {
                 this.month = maxMonth;
-                newSelectedDate = maxDay.clone();
+                newSelectedDate = maxDay.clone().startOf('day');
             }
-            this.selectedDate = newSelectedDate;
             this.year = value;
+            const dates = this.getRangeSelectedDates(this.selectedDates.map((v) => v.year(value)), newSelectedDate.startOf('month'), newSelectedDate.endOf('month').startOf('day'));
+            const date = dates[0];
+            const cell = this.getCommonAttrs(date, {
+                __type__,
+                value: newSelectedDate.format(DefaultFormatType),
+                oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
+            });
+            this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         onSelectMonth(value) {
+            if (this.month === value) {
+                return;
+            }
+            const oldValue = this.selectedDate.format(DefaultFormatType);
             const { selectedDate, minDay, maxDay } = this;
             let newSelectedDate = selectedDate.clone().month(value);
+            const __type__ = newSelectedDate.isBefore(this.selectedDate) ? 'prev' : 'next';
             if (newSelectedDate.isBefore(minDay)) {
                 newSelectedDate = minDay.clone();
             } else if (newSelectedDate.isAfter(maxDay)) {
-                newSelectedDate = maxDay.clone();
+                newSelectedDate = maxDay.clone().startOf('day');
             }
-            this.selectedDate = newSelectedDate;
+
             this.month = value;
-        },
-        onChange(cell) {
-            const { __key__ } = cell;
-            this.$emit('change', cell, this);
-            this.$emit('input:value', __key__);
-            this.$emit('update:value', __key__);
+            const dates = this.getRangeSelectedDates(this.selectedDates.map((v) => v.month(value)), newSelectedDate.startOf('month'), newSelectedDate.endOf('month').startOf('day'));
+            const date = dates[0];
+            const cell = this.getCommonAttrs(date, {
+                __type__,
+                value: newSelectedDate.format(DefaultFormatType),
+                oldValue,
+                monthOfStart: date.startOf('month'),
+                monthOfEnd: date.endOf('month'),
+            });
+            this.updateSelectedDates(dates, cell, true);
+            this.$emit('select', cell, this);
         },
         /**
          * DataSource
@@ -369,11 +505,76 @@ export default {
             }
             return [];
         },
+        getRangeSelectedDates(sortedDates, _start, _end) {
+            let start = _start;
+            let end = _end;
+            if (this.minDay.isAfter(_start)) {
+                start = this.minDay;
+            }
+            const maxDayStartOfDay = this.maxDay.startOf('day');
+            if (maxDayStartOfDay.isBefore(_end)) {
+                end = maxDayStartOfDay;
+            }
+            if (this.multiple) {
+                let changed = false;
+                const uniqueDateSet = new Set(
+                    sortedDates.map((d) => {
+                        if (start.isSameOrAfter(d)) {
+                            changed = true;
+                            return start;
+                        } else if (end.isSameOrBefore(d)) {
+                            changed = true;
+                            return end;
+                        }
+                        return d;
+                    }),
+                );
+                return changed ? Array.from(uniqueDateSet).map((v) => v.clone().startOf('day')) : sortedDates;
+            } else {
+                // 当前日期不在配置日期范围内，重新赋值成最小日期
+                if (end.isBefore(sortedDates[0]) || start.isAfter(sortedDates[0])) {
+                    return [start.startOf('day')];
+                }
+            }
+            return sortedDates;
+        },
         async load() {
             this.dataFromDataSource = await this.handleDataSource(this.dataSource);
         },
         async reload() {
             this.dataFromDataSource = await this.handleDataSource(this.dataSource);
+        },
+        getCommonAttrs(date, extra) {
+            return {
+                Date: date,
+                date: date.date(),
+                week: date.week(),
+                timestamp: date.valueOf(),
+                disabled: date.isBefore(this.minDay) || date.isAfter(this.maxDay),
+                __key__: date.format(DefaultFormatType),
+                ...extra,
+                ...this.getData(date),
+            };
+        },
+        getData(date) {
+            const { tableData, startKey, endKey } = this;
+            if (!tableData || !tableData.length)
+                return {};
+            const validData = tableData.filter((item) => {
+                const startTime = get(item, startKey, null);
+                const endTime = get(item, endKey, null);
+                const startDate = getDay(startTime, null);
+                const endDate = getDay(endTime, null);
+                if (!startDate)
+                    return false;
+                if (endDate) {
+                    return date.isSameOrBefore(endDate) && date.isSameOrAfter(startDate);
+                }
+                return date.format(DefaultFormatType) === startDate.format(DefaultFormatType);
+            });
+            if (!validData.length)
+                return {};
+            return { ...validData[0], list: validData };
         },
     },
 };

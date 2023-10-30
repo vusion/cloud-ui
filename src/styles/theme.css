@@ -1317,11 +1317,13 @@
     --select-padding-x-large: 10px; /* @hidden */
     --select-padding-x-huge: 10px; /* @hidden */
     --select-padding-x-full: 10px; /* @hidden */
-    --select-multiple-background-color: white; /* @hidden */
+    --select-multiple-background-color: white; /* @type color */ /* @group 多选状态 */ /* @desc 选择项checkbox的背景颜色 */
+    --select-multiple-icon-color: #517cff; /* @type color */ /* @group 多选状态 */ /* @desc 选择项checkbox的选中图标颜色 */
+    --select-multiple-partial-icon-color: #517cff; /* @type color */ /* @group 多选状态 */ /* @desc 选择项checkbox的半选择图标颜色 */
     --select-border-color-hover: var(--brand-primary); /* @hidden */
     --select-border-color-inverse: var(--border-color-base-inverse); /* @hidden */
     --select-border-color-disabled: var(--brand-disabled); /* @hidden */
-    --select-multiple-border-color: var(--border-width-base) solid var(--border-color-darker); /* @hidden */
+    --select-multiple-border-color: var(--border-width-base) solid var(--border-color-darker); /* @group 弹出层 */ /* @desc 选择项checkbox的边框 */
     --select-color-inverse: var(--color-base-inverse); /* @hidden */
     --select-color-disabled: var(--brand-disabled-dark); /* @hidden */
     --select-popper-min-width: 300px; /* @hidden */
@@ -1875,29 +1877,29 @@
     --datetime-popper-border-radius: var(--border-radius-base); /* @desc 日期时间选择器选择框圆角,如：1px */ /* @prefix datetime */
 
     /* @component u-capsules */
-    --capsules-capsule-font-size: var(--font-size-base);
-    --capsules-capsule-padding-x: 4px;
-    --capsules-capsule-padding-y: 20px;
-    --capsules-capsule-background: var(--color-white);
-    --capsules-capsule-background-selected: var(--brand-primary);
-    --capsules-capsule-background-selected-hover: var(--brand-primary-light);
-    --capsules-capsule-background-selected-disabled: var(--brand-primary-disabled);
-    --capsules-capsule-background-disabled: var(--background-color-disabled);
-    --capsules-capsule-color: var(--color-base);
-    --capsules-capsule-color-hover: var(--brand-primary);
-    --capsules-capsule-color-selected: var(--color-white);
-    --capsules-capsule-color-disabled: var(--gray-base);
-    --capsules-capsule-color-selected-disabled: var(--color-white);
-    --capsules-capsule-cursor: var(--cursor-pointer);
-    --capsules-capsule-cursor-disabled: var(--cursor-not-allowed);
-    --capsules-capsule-border-color: var(--border-color-base);
-    --capsules-capsule-border-color-hover: var(--brand-primary);
-    --capsules-capsule-border-color-selected: var(--brand-primary);
-    --capsules-capsule-border-color-selected-hover: var(--brand-primary-light);
-    --capsules-capsule-border-color-selected-disabled: var(--brand-primary-disabled);
-    --capsules-capsule-flag-border-color: var(--brand-danger);
-    --capsules-capsule-label-background: var(--brand-error);
-    --capsules-capsule-label-color: var(--color-white);
+    --capsules-capsule-font-size: var(--font-size-base); /* @desc 胶囊字体大小 */ /* @prefix capsules-capsule */
+    --capsules-capsule-padding-x: 4px; /* @desc 胶囊水平内边距 */ /* @prefix capsules-capsule */
+    --capsules-capsule-padding-y: 20px; /* @desc 胶囊垂直内边距 */ /* @prefix capsules-capsule */
+    --capsules-capsule-background: var(--color-white); /* @type color */ /* @desc 胶囊背景色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-background-selected: var(--brand-primary); /* @type color */ /* @desc 胶囊选中项背景色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-background-selected-hover: var(--brand-primary-light); /* @type color */ /* @desc 胶囊选中项hover背景色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-background-selected-disabled: var(--brand-primary-disabled); /* @type color */ /* @desc 胶囊选中项禁用背景色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-background-disabled: var(--background-color-disabled); /* @type color */ /* @desc 胶囊禁用背景色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-color: var(--color-base); /* @type color */ /* @desc 胶囊字体颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-color-hover: var(--brand-primary); /* @type color */ /* @desc 胶囊hover字体颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-color-selected: var(--color-white); /* @type color */ /* @desc 胶囊选中项字体颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-color-disabled: var(--gray-base); /* @type color */ /* @desc 胶囊禁用字体颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-color-selected-disabled: var(--color-white); /* @type color */ /* @desc 胶囊选中项禁用字体颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-cursor: var(--cursor-pointer); /* @desc 胶囊鼠标样式 */ /* @prefix capsules-capsule */
+    --capsules-capsule-cursor-disabled: var(--cursor-not-allowed); /* @desc 胶囊禁用鼠标样式 */ /* @prefix capsules-capsule */
+    --capsules-capsule-border-color: var(--border-color-base); /* @type color */ /* @desc 胶囊边框颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-border-color-hover: var(--brand-primary); /* @type color */ /* @desc 胶囊hover边框颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-border-color-selected: var(--brand-primary); /* @type color */ /* @desc 胶囊选中项边框颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-border-color-selected-hover: var(--brand-primary-light); /* @type color */ /* @desc 胶囊选中项hover边框颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-border-color-selected-disabled: var(--brand-primary-disabled); /* @type color */ /* @desc 胶囊选中项禁用边框颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-flag-border-color: var(--brand-danger); /* @type color */ /* @desc 胶囊标记边框颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-label-background: var(--brand-error); /* @type color */ /* @desc 胶囊标签背景色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-label-color: var(--color-white); /* @type color */ /* @desc 胶囊标签字体颜色 */ /* @prefix capsules-capsule */
 
 
 

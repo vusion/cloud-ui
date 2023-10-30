@@ -51,6 +51,36 @@
       brifeDoc: ""
       docDescription: 多选组的选中项，返还结构为List\<T>。
       tooltipLink: ""
+    - name: check-all
+      title: 全选控制
+      type: boolean
+      default: false
+      description: 是否进行全选
+      group: 主要属性
+      toggleclear:
+        - min
+        - max
+    - name: check-all-text
+      title: 全选展示内容
+      type: string
+      default: 全选
+      description: 全选功能展示的文案内容
+      group: 主要属性
+      dependency:
+        - check-all: true
+    - name: check-all-display
+      title: 展示方式
+      type: string
+      default: false
+      description: 选择展开方式
+      group: 主要属性
+      options:
+        - value: inline
+          title: 同行展示
+        - value: block
+          title: 分行展示
+      dependency:
+        - check-all: true
     - name: min
       title: 最小选中数
       type: number
@@ -60,6 +90,8 @@
       brifeDoc: ""
       docDescription: 多选组可以勾选多选框的最小数量。
       tooltipLink: ""
+      dependency:
+        - check-all: false
     - name: max
       title: 最大选中数
       type: number
@@ -68,6 +100,8 @@
       brifeDoc: ""
       docDescription: 多选组可以勾选多选框的最大数量。
       tooltipLink: ""
+      dependency:
+        - check-all: false
     - name: converter
       title: 转换器
       type: string
@@ -187,6 +221,13 @@
         - name: u-checkbox
           title: 多选项
           snippet: <u-checkbox><template slot="item">节点</template></u-checkbox>
+    - concept: Slot
+      name: check-all
+      description: 全选/反选
+      support:
+        - name: u-text
+          title: 全选/反选文本
+          snippet: <u-text text='全选'></u-text>
     - concept: Slot
       name: item
       description: 自定义选项的结构和样式
