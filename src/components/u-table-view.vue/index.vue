@@ -1953,6 +1953,9 @@ export default {
             if (item.draggable === false) {
                 return;
             }
+            if (this.virtual) {
+                rowIndex = this.getActualRowIndex(item);
+            }
             e.dataTransfer.setDragImage(this.getDragImage(e), 0, 0);
             this.dragState = {
                 dragging: true,
@@ -2012,6 +2015,9 @@ export default {
                 const isAcrossTableDrag = types.find((type) => type === 'info/acrosstabledrag');
                 if (!isAcrossTableDrag)
                     return;
+            }
+            if (this.virtual) {
+                rowIndex = this.getActualRowIndex(item);
             }
             // 行之间可以放
             if (this.draggable) {
@@ -2105,6 +2111,9 @@ export default {
                     left,
                 };
                 this.dragState.target = item;
+                if (this.virtual) {
+                    rowIndex = this.getActualRowIndex(item);
+                }
                 this.dragState.targetPath = rowIndex; // 这里需要是表格中的具体行值，用于drop的时候判断
                 this.dragState.targetData = {
                     item,
@@ -2132,6 +2141,7 @@ export default {
          * 拖拽放置
          */
         onDrop(e) {
+            console.log('onDrop');
             // 跨表格与表格内拖拽的drop处理区分开来
             if (this.acrossTableDrag && this.dropData) {
                 const dragStartData = JSON.parse(e.dataTransfer.getData('application/json') || '{}');
@@ -2532,6 +2542,10 @@ export default {
                     });
                 }
             }
+        },
+        getActualRowIndex(item) {
+            const list = this.currentData;
+            return list.findIndex((litem) => litem === item);
         },
     },
 };
