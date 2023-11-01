@@ -95,6 +95,9 @@ export default {
         if (typeof this.value === 'object') {
             this.value = this.value + '';
         }
+        if (this.value === null || this.value === 'null') {
+            this.value = undefined;
+        }
         let CoDecimal;
 
         if (this.highPrecision && this?.decimalLength > -1) {
@@ -164,7 +167,6 @@ export default {
         }
 
         data.formattedValue = data.currentFormatter.format(data.currentValue);
-        console.log(' data.formattedValue: ', data.formattedValue);
         return data;
     },
     computed: {
@@ -191,6 +193,9 @@ export default {
             let curValue = value;
             if (typeof value === 'object') {
                 curValue = value + '';
+            }
+            if (this.value === null || this.value === 'null') {
+                curValue = undefined;
             }
             const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(curValue));
             const _oldValue = this.currentValue;
