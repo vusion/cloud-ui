@@ -159,7 +159,7 @@ export default {
         color: String,
         expanderWidth: {
             type: Number,
-            default: 30
+            default: 30,
         },
         filterFields: { type: Array, default: () => ['text'] },
         ifExpanded: { type: Boolean, default: true },
