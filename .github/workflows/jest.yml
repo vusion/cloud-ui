@@ -8,10 +8,12 @@ on:
     branches: [ "master", "release/*", "test" ]
     paths:
       - '!**.yaml'
+      - '!**.yml'
   pull_request:
     branches: [ "*" ]
     paths:
       - '!**.yaml'
+      - '!**.yml'
 
 
 jobs:
