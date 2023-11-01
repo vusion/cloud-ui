@@ -20,14 +20,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      if: contains(github.event.head_commit.added, '!**.{yaml,yml}') || contains(github.event.head_commit.modified, '!**.{yaml,yml}') || contains(github.event.head_commit.removed, '!**.{yaml,yml}')
+    - name: Get changed files
+      id: files
+      run: |
+        git fetch origin ${{ github.event.pull_request.head.sha }}
+        git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} > changed_files.txt
+        changed_count=$(cat changed_files.txt | grep -E "\.(vue|js|md)$" | wc -l | awk '{print $1}')
+        echo $changed_count
+        echo "::set-output name=changed::$([ $changed_count -gt 0 ] && echo "true" || echo "false")"
+    - run: echo "${{ toJson(steps.files.outputs.changed) }}"
     - name: Use Node.js ${{ matrix.node-version }}
-      if: contains(github.event.head_commit.added, '!**.{yaml,yml}') || contains(github.event.head_commit.modified, '!**.{yaml,yml}') || contains(github.event.head_commit.removed, '!**.{yaml,yml}')
+      if:  ${{ steps.files.outputs.changed == 'true' }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - if: contains(github.event.head_commit.added, '!**.{yaml,yml}') || contains(github.event.head_commit.modified, '!**.{yaml,yml}') || contains(github.event.head_commit.removed, '!**.{yaml,yml}')
+    - if: ${{ steps.files.outputs.changed == 'true' }}
       run: npm ci
-    - if: contains(github.event.head_commit.added, '!**.{yaml,yml}') || contains(github.event.head_commit.modified, '!**.{yaml,yml}') || contains(github.event.head_commit.removed, '!**.{yaml,yml}')
+    - if: ${{ steps.files.outputs.changed == 'true' }}
       run: npm test
