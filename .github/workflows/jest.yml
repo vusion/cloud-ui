@@ -19,7 +19,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - run: echo "${{ github.event.head_commit.modified }}"
+    - run: echo "${{ toJson(github.event.head_commit) }}"
     - uses: actions/checkout@v3
     - run: echo "${{ github.event.head_commit.modified }}"
     - name: Use Node.js ${{ matrix.node-version }}
