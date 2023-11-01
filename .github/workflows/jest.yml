@@ -20,14 +20,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      if: contains(github.event.head_commit.added, '!**.{yaml,yml}') || contains(github.event.head_commit.modified, '!**.{yaml,yml}') || contains(github.event.head_commit.removed, '!**.{yaml,yml}')
+      if: contains(github.event.head_commit.modified, '!**.{yaml,yml}')
     - name: Use Node.js ${{ matrix.node-version }}
-      if: contains(github.event.head_commit.added, '!**.{yaml,yml}') || contains(github.event.head_commit.modified, '!**.{yaml,yml}') || contains(github.event.head_commit.removed, '!**.{yaml,yml}')
+      if: contains(github.event.head_commit.modified, '!**.{yaml,yml}')
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - if: contains(github.event.head_commit.added, '!**.{yaml,yml}') || contains(github.event.head_commit.modified, '!**.{yaml,yml}') || contains(github.event.head_commit.removed, '!**.{yaml,yml}')
+    - if: contains(github.event.head_commit.modified, '!**.{yaml,yml}')
       run: npm ci
-    - if: contains(github.event.head_commit.added, '!**.{yaml,yml}') || contains(github.event.head_commit.modified, '!**.{yaml,yml}') || contains(github.event.head_commit.removed, '!**.{yaml,yml}')
+    - if: contains(github.event.head_commit.modified, '!**.{yaml,yml}')
       run: npm test
