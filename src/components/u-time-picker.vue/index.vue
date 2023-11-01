@@ -1,5 +1,5 @@
 <template>
-<span :class="$style.root" :width="width" :height="height">
+<span v-if="!preview" :class="$style.root" :width="width" :height="height">
     <u-input :class="$style.input" width="full" height="full" :value="genDisplayFormatText(inputTime)" :autofocus="autofocus" :disabled="!!readonly || disabled"
         ref="input"
         :clearable="clearable" :placeholder="placeholder"
@@ -40,6 +40,7 @@
         @update="onEmitUpdate"
     ></u-time-picker-popper>
 </span>
+<u-preview v-else :text="value"></u-preview>
 </template>
 
 <script>
@@ -49,6 +50,7 @@ import { formatterOptions } from './wrap';
 import i18n from './i18n';
 import MField from '../m-field.vue';
 import UTimePickerPopper from './popper.vue';
+import UPreview from '../u-text.vue';
 
 /**
  * @class TimePicker
@@ -67,7 +69,7 @@ import UTimePickerPopper from './popper.vue';
 export default {
     name: 'u-time-picker',
     i18n,
-    components: { UTimePickerPopper },
+    components: { UTimePickerPopper , UPreview },
     mixins: [MField, DateFormatMixin],
     props: {
         minUnit: { type: String, default: 'second' },
@@ -75,6 +77,7 @@ export default {
         value: { type: String, default: '' }, // 优先使用
         autofocus: [String, Boolean],
         disabled: [String, Boolean],
+        preview: { type: Boolean, default: false },
         readonly: [String, Boolean],
         minTime: { type: String, default: '00:00:00' },
         maxTime: { type: String, default: '23:59:59' },

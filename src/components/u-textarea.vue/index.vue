@@ -1,5 +1,6 @@
 <template>
     <div
+        v-if="!preview"
         :class="$style.root"
         :readonly="readonly"
         :disabled="disabled"
@@ -35,6 +36,7 @@
         </f-dragger>
         <span v-if="showWordLimit && maxlength" :class="limitPosition === 'inside' ? $style.limit : $style.limitOut">{{ limit }}/{{ maxlength }}</span>
     </div>
+    <u-preview v-else :text="value"></u-preview>
 </template>
 
 <script>
@@ -59,6 +61,7 @@ export default {
             validator: (value) => ['none', 'horizontal', 'vertical', 'both'].includes(value),
         },
         initHeight: { type: String, default: '' },
+
     },
     data() {
         return { startWidth: 0, startHeight: 0, width: '', height: this.initHeight, canAuto: true };

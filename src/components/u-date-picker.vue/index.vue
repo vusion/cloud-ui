@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :width="width" :height="height">
+<div v-if="!preview" :class="$style.root" :width="width" :height="height">
     <u-input
         ref="input"
         :class="$style.input"
@@ -29,6 +29,7 @@
         </div>
     </m-popper>
 </div>
+<u-preview v-else :text="value"></u-preview>
 </template>
 
 <script>
@@ -40,6 +41,7 @@ import { clickOutside } from '../../directives';
 import { format, transformDate, ChangeDate } from '../../utils/date';
 import MField from '../m-field.vue';
 import i18n from './i18n';
+import UPreview from '../u-text.vue';
 const MS_OF_DAY = 24 * 3600 * 1000;
 
 /**
@@ -60,6 +62,9 @@ export default {
     i18n,
     directives: { clickOutside },
     mixins: [MField, DateFormatMixin],
+    component: {
+        UPreview
+    },
     props: {
         preIcon: {
             type: String,
@@ -75,6 +80,7 @@ export default {
         maxDate: [String, Number, Date],
         picker: { type: String, default: 'date' },
         disabled: { type: Boolean, default: false },
+        preview: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
         placeholder: {

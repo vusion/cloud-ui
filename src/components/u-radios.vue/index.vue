@@ -1,28 +1,31 @@
 <template>
-<div :class="$style.root">
-    <u-loading v-if="loading" size="small"></u-loading>
-    <template v-else>
-        <u-radio
-            v-for="(node, index) in currentDataSource.data"
-            :key="index"
-            :text="$at2(node, textField)"
-            :label="$at2(node, valueField)"
-            :disabled="node.disabled"
-            :readonly="node.readonly"
-            :designer="$env.VUE_APP_DESIGNER"
-            :node="node"
-        >
-            <template #item="item">
-                <slot name="item" v-bind="item" :index="index">
-                    {{ $at2(node, textField) }}
-                </slot>
-            </template>
-        </u-radio>
-    </template>
-    <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
-        <span :class="$style.loadContent">{{ treeSelectTip }}</span>
-    </template>
-    <slot></slot>
+<div>
+    <div v-show="!preview" :class="$style.root">
+        <u-loading v-if="loading" size="small"></u-loading>
+        <template v-else>
+            <u-radio
+                v-for="(node, index) in currentDataSource.data"
+                :key="index"
+                :text="$at2(node, textField)"
+                :label="$at2(node, valueField)"
+                :disabled="node.disabled"
+                :readonly="node.readonly"
+                :designer="$env.VUE_APP_DESIGNER"
+                :node="node"
+            >
+                <template #item="item">
+                    <slot name="item" v-bind="item" :index="index">
+                        {{ $at2(node, textField) }}
+                    </slot>
+                </template>
+            </u-radio>
+        </template>
+        <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
+            <span :class="$style.loadContent">{{ treeSelectTip }}</span>
+        </template>
+        <slot></slot>
+    </div>
+    <u-preview v-if="preview" :text="currentText"></u-preview>
 </div>
 </template>
 
@@ -31,23 +34,27 @@ import { MParent } from '../m-parent.vue';
 import MField from '../m-field.vue';
 import URadio from './radio.vue';
 import SupportDataSource from '../../mixins/support.datasource.js';
+import UPreview from '../u-text.vue';
 
 export default {
     name: 'u-radios',
     childName: 'u-radio',
     components: {
         URadio,
+        UPreview,
     },
     mixins: [MParent, MField, SupportDataSource],
     props: {
         value: null,
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        preview: { type: Boolean, default: false },
     },
     data() {
         return {
             // inherit: itemVMs: [],
             selectedVM: undefined,
+            currentText: '',
         };
     },
     watch: {
@@ -65,6 +72,8 @@ export default {
                 },
                 this,
             );
+
+            this.currentText = selectedVM?.$slots?.item?.[0].componentOptions.propsData.text;
         },
         itemVMs() {
             this.selectedVM = undefined;

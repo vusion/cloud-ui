@@ -1,5 +1,5 @@
 <template>
-    <u-input ref="input" :class="$style.root" :button-display="buttonDisplay" :value="formattedValue"
+    <u-input v-if="!preview" ref="input" :class="$style.root" :button-display="buttonDisplay" :value="formattedValue"
         :readonly="readonly" :disabled="disabled" :clearable="clearable"
         @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
         @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside"
@@ -17,16 +17,21 @@
             <span v-if="showSuffix">{{ unit && unit.value }}</span>
         </template>
     </u-input>
+    <u-preview v-else :text="value"></u-preview>
 </template>
 
 <script>
 import MField from '../m-field.vue';
 import { repeatClick, clickOutside } from '../../directives';
 import { noopFormatter, NumberFormatter } from '../../utils/Formatters';
+import UPreview from '../u-text.vue';
 const isNil = (value) => (typeof value === 'string' && value.trim() === '') || value === null || value === undefined;
 
 export default {
     name: 'u-number-input',
+    component: {
+        UPreview
+    },
     directives: { repeatClick, clickOutside },
     mixins: [MField],
     props: {
@@ -49,6 +54,7 @@ export default {
         },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        preview: { type: Boolean, default: false },
         clearable: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
 

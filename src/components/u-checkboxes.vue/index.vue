@@ -1,28 +1,31 @@
 <template>
-<div :class="$style.root">
-    <u-loading v-if="loading" size="small"></u-loading>
-    <template v-else>
-        <u-checkbox
-            v-for="(node, index) in currentDataSource.data"
-            :key="index"
-            :text="$at2(node, textField)"
-            :label="$at2(node, valueField)"
-            :disabled="node.disabled"
-            :readonly="node.readonly"
-            :designer="$env.VUE_APP_DESIGNER"
-            :node="node"
-        >
-            <template #item="item">
-                <slot name="item" v-bind="item" :index="index">
-                    {{ $at2(node, textField) }}
-                </slot>
-            </template>
-        </u-checkbox>
-    </template>
-    <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
-        <span :class="$style.loadContent">{{ treeSelectTip }}</span>
-    </template>
-    <slot></slot>
+<div>
+    <div v-show="!preview" :class="$style.root">
+        <u-loading v-if="loading" size="small"></u-loading>
+        <template v-else>
+            <u-checkbox
+                v-for="(node, index) in currentDataSource.data"
+                :key="index"
+                :text="$at2(node, textField)"
+                :label="$at2(node, valueField)"
+                :disabled="node.disabled"
+                :readonly="node.readonly"
+                :designer="$env.VUE_APP_DESIGNER"
+                :node="node"
+            >
+                <template #item="item">
+                    <slot name="item" v-bind="item" :index="index">
+                        {{ $at2(node, textField) }}
+                    </slot>
+                </template>
+            </u-checkbox>
+        </template>
+        <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
+            <span :class="$style.loadContent">{{ treeSelectTip }}</span>
+        </template>
+        <slot></slot>
+    </div>
+    <u-preview v-if="preview" :text="currentText"></u-preview>
 </div>
 </template>
 
@@ -32,12 +35,14 @@ import MField from '../m-field.vue';
 import MConverter from '../m-converter.vue';
 import SupportDataSource from '../../mixins/support.datasource';
 import UCheckbox from '../u-checkbox.vue';
+import UPreview from '../u-text.vue';
 
 export default {
     name: 'u-checkboxes',
     childName: 'u-checkbox',
     components: {
         UCheckbox,
+        UPreview,
     },
     mixins: [MParent, MField, MConverter, SupportDataSource],
     props: {
@@ -46,9 +51,10 @@ export default {
         max: { type: Number, default: Infinity },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        preview: { type: Boolean, default: false },
     },
     data() {
-        return { currentValue: this.value, itemVMs: [] };
+        return { currentValue: this.value, itemVMs: [], currentText : '' };
     },
     watch: {
         value(value) {
@@ -61,8 +67,15 @@ export default {
             }
             this.$emit('change', { value, oldValue });
         },
-        itemVMs() {
+        itemVMs(itemVMs) {
             this.watchValue(this.value);
+            let texts = [];
+            itemVMs.forEach(it => {
+                if (it?.status == 'true') {
+                    texts.push(it.$slots.item?.[0].componentOptions.propsData.text);
+                }
+            });
+            this.currentText = texts.join(',');
         },
     },
     mounted() {

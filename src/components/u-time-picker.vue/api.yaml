@@ -233,6 +233,12 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+    - name: preview
+      title: 预览
+      type: boolean
+      default: false
+      description: 显示预览态
+      group: 状态属性
     - name: visible
       title: 显示状态
       type: boolean
