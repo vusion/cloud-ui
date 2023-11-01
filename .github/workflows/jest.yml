@@ -20,14 +20,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      if: contains(github.event.head_commit.modified, '!**.{yaml,yml}')
+      if: contains(github.event.head_commit.modified, '**.{js,vue,md}')
     - name: Use Node.js ${{ matrix.node-version }}
-      if: contains(github.event.head_commit.modified, '!**.{yaml,yml}')
+      if: contains(github.event.head_commit.modified, '**.{js,vue,md}')
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - if: contains(github.event.head_commit.modified, '!**.{yaml,yml}')
+    - if: contains(github.event.head_commit.modified, '**.{js,vue,md}')
       run: npm ci
-    - if: contains(github.event.head_commit.modified, '!**.{yaml,yml}')
+    - if: contains(github.event.head_commit.modified, '**.{js,vue,md}')
       run: npm test
