@@ -319,7 +319,7 @@
     - name: collapsible
       title: 可折叠
       type: boolean
-      default: false
+      default: true
       description: 设置是否可以展开/折叠
       group: 交互属性
       brifeDoc: ""
