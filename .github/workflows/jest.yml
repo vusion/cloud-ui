@@ -19,8 +19,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+    - run: echo "${{ github.event.head_commit.modified }}"
     - uses: actions/checkout@v3
-      if: contains(github.event.head_commit.modified, '**.{js,vue,md}')
+    - run: echo "${{ github.event.head_commit.modified }}"
     - name: Use Node.js ${{ matrix.node-version }}
       if: contains(github.event.head_commit.modified, '**.{js,vue,md}')
       uses: actions/setup-node@v3
