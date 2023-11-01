@@ -24,8 +24,11 @@ jobs:
       id: files
       run: |
         git fetch origin ${{ github.event.pull_request.head.sha }}
-        git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | tr '\r' '\n' | xargs -d '\n' echo "::set-output name=files::"
-    - run: echo "${{ toJson(steps.files.outputs.files) }}"
+        git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} > changed_files.txt
+        changed_files=$(cat changed_files.txt  | jq -R . | jq -s .)
+        echo $changed_files
+        echo "::set-output name=changed::$(contains($changed_files, '**.{js,vue,md}'))"
+    - run: echo "${{ toJson(steps.files.outputs.changed) }}"
     - name: Use Node.js ${{ matrix.node-version }}
       if: contains(github.event.head_commit.modified, '**.{js,vue,md}')
       uses: actions/setup-node@v3
