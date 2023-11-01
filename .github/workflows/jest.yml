@@ -30,12 +30,12 @@ jobs:
         echo "::set-output name=changed::$([ $changed_count -gt 0 ] && echo "true" || echo "false")"
     - run: echo "${{ toJson(steps.files.outputs.changed) }}"
     - name: Use Node.js ${{ matrix.node-version }}
-      if:  ${{ steps.files.outputs.changed == true }}
+      if:  ${{ steps.files.outputs.changed == 'true' }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - if: ${{ steps.files.outputs.changed == true }}
+    - if: ${{ steps.files.outputs.changed == 'true' }}
       run: npm ci
-    - if: ${{ steps.files.outputs.changed == true }}
+    - if: ${{ steps.files.outputs.changed == 'true' }}
       run: npm test
