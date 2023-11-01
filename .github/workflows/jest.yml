@@ -20,6 +20,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      if: contains(github.event.head_commit.added, '!**.{ymal,yml}') || contains(github.event.head_commit.modified, '!**.{ymal,yml}') || contains(github.event.head_commit.removed, '!**.{ymal,yml}')
     - name: Use Node.js ${{ matrix.node-version }}
       if: contains(github.event.head_commit.added, '!**.{ymal,yml}') || contains(github.event.head_commit.modified, '!**.{ymal,yml}') || contains(github.event.head_commit.removed, '!**.{ymal,yml}')
       uses: actions/setup-node@v3
