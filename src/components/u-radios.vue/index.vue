@@ -54,7 +54,7 @@ export default {
         return {
             // inherit: itemVMs: [],
             selectedVM: undefined,
-            currentText: '',
+            currentText: null,
         };
     },
     watch: {
@@ -73,7 +73,7 @@ export default {
                 this,
             );
 
-            this.currentText = this.value ? selectedVM?.$slots?.item?.[0].componentOptions.propsData.text : this.value;
+            this.currentText = selectedVM?.$slots?.item?.[0].componentOptions.propsData.text;
         },
         itemVMs() {
             this.selectedVM = undefined;
