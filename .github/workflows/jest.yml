@@ -6,8 +6,13 @@ name: Jest Test CI
 on:
   push:
     branches: [ "master", "release/*", "test" ]
+    paths:
+      - '!**.yaml'
   pull_request:
     branches: [ "*" ]
+    paths:
+      - '!**.yaml'
+
 
 jobs:
   test:
