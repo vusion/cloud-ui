@@ -73,7 +73,7 @@ export default {
                 this,
             );
 
-            this.currentText = selectedVM?.$slots?.item?.[0].componentOptions.propsData.text;
+            this.currentText = this.value ? selectedVM?.$slots?.item?.[0].componentOptions.propsData.text : this.value;
         },
         itemVMs() {
             this.selectedVM = undefined;
