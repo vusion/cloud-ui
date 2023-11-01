@@ -6,19 +6,12 @@ name: Jest Test CI
 on:
   push:
     branches: [ "master", "release/*", "test" ]
-    paths:
-      - '!**.yaml'
-      - '!**.yml'
   pull_request:
     branches: [ "*" ]
-    paths:
-      - '!**.yaml'
-      - '!**.yml'
-
 
 jobs:
   test:
-
+    if: contains(github.event.head_commit.added, '!**.{ymal,yml}') || contains(github.event.head_commit.modified, '!**.{ymal,yml}') || contains(github.event.head_commit.removed, '!**.{ymal,yml}')
     runs-on: ubuntu-latest
 
     strategy:
