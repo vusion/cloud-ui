@@ -898,7 +898,7 @@ export default {
             try {
                 data.toggle = () => this.toggleExpanded(data);
             } catch (error) {
-                console.warning('当前data不是一个对象');
+                console.warn('当前data不是一个对象');
             }
             return data;
         },
