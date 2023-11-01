@@ -11,7 +11,6 @@ on:
 
 jobs:
   test:
-    if: contains(github.event.head_commit.added, '!**.{ymal,yml}') || contains(github.event.head_commit.modified, '!**.{ymal,yml}') || contains(github.event.head_commit.removed, '!**.{ymal,yml}')
     runs-on: ubuntu-latest
 
     strategy:
@@ -26,5 +25,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm test
+    - if: contains(github.event.head_commit.added, '!**.{ymal,yml}') || contains(github.event.head_commit.modified, '!**.{ymal,yml}') || contains(github.event.head_commit.removed, '!**.{ymal,yml}')
+      run: npm ci
+    - if: contains(github.event.head_commit.added, '!**.{ymal,yml}') || contains(github.event.head_commit.modified, '!**.{ymal,yml}') || contains(github.event.head_commit.removed, '!**.{ymal,yml}')
+      run: npm test
