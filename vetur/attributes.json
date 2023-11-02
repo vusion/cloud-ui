@@ -7847,6 +7847,18 @@
     "type": "boolean",
     "description": "设置是否可以拖拽行排序"
   },
+  "u-table-view/acrossTableDrag": {
+    "type": "boolean",
+    "description": "设置多个表格间是否可以拖拽放置"
+  },
+  "u-table-view/can-dragable-handler": {
+    "type": "Function",
+    "description": "设置表格行是否可拖拽起来。绑定逻辑"
+  },
+  "u-table-view/can-dropin-handler": {
+    "type": "Function",
+    "description": "设置表格行是否可拖拽放入。绑定逻辑"
+  },
   "u-table-view/accordion": {
     "type": "boolean",
     "description": "设置是否每次只展开一个"
@@ -8166,6 +8178,7 @@
     "type": "string | number",
     "description": "设置列宽度，可设置为数字或百分比"
   },
+<<<<<<< HEAD
   "u-table-view-column-group/title": {
     "type": "string",
     "description": ""
@@ -8178,6 +8191,8 @@
     "type": "icon",
     "description": "关闭时图标"
   },
+=======
+>>>>>>> test-ide-v3.3.3
   "u-tablets/value": {
     "type": "any",
     "description": "当前选择的值"

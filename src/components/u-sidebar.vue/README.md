@@ -97,7 +97,7 @@
 | parent-field | string |  | `''` | 集合的元素类型中，用于标识父节点的属性 |
 | router | boolean |  | `true` | 是否根据 vue-router 来控制选择哪一项 |
 | value.sync, v-model | any |  |  | 当前选中的值 |
-| collapsible | boolean |  | `false` | 设置菜单项是否可以展开/折叠 |
+| collapsible | boolean |  | `false` | 设置是否可以展开/折叠 |
 | accordion | boolean |  | `false` | 设置是否每次只展开一个 |
 | expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠操作的触发方式 |
 | enable-collapse | boolean |  | `false` | 设置侧边栏是否可以展开/折叠 |

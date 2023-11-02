@@ -698,7 +698,10 @@ export default {
             this.preventBlur = true;
             if (this.multiple) {
                 const oldValue = this.value;
-                const value = [];
+                let value = [];
+                if (this.converter) {
+                    value = this.currentConverter.get(value);
+                }
                 if (
                     this.$emitPrevent('before-clear', { oldValue, value }, this)
                 )
@@ -714,7 +717,10 @@ export default {
                 this.$emit('clear', { oldValue, value }, this);
             } else {
                 const oldValue = this.value;
-                const value = undefined;
+                let value;
+                if (this.converter) {
+                    value = this.currentConverter.get(value);
+                }
                 if (
                     this.$emitPrevent('before-clear', { oldValue, value }, this)
                 )
