@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import i18nMixin from '../../mixins/i18n.js';
+import i18nMixin from '../../mixins/i18n';
 export default {
     name: 'u-range-input',
     mixins: [i18nMixin('u-date-picker')],
