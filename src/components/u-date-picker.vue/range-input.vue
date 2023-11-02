@@ -52,8 +52,10 @@
 </template>
 
 <script>
+import i18nMixin from '../../mixins/i18n.js';
 export default {
     name: 'u-range-input',
+    mixins: [i18nMixin('u-date-picker')],
     props: {
         leftValue: { type: String },
         rightValue: { type: String },
@@ -72,7 +74,7 @@ export default {
         placeholder: {
             type: String,
             default() {
-                return this.$t('selectDateText');
+                return this.$tt('selectDateText');
             },
         },
         clearable: { type: Boolean, default: false },
