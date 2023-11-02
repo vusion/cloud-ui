@@ -39,5 +39,5 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
-          name: 'cloud-ui.vusion@${{ env.VERSION#v }}'
+          name: 'cloud-ui.vusion@${{ env.VERSION$"v" }}'
           path: temp
