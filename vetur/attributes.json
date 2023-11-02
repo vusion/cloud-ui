@@ -8178,7 +8178,6 @@
     "type": "string | number",
     "description": "设置列宽度，可设置为数字或百分比"
   },
-<<<<<<< HEAD
   "u-table-view-column-group/title": {
     "type": "string",
     "description": ""
@@ -8191,8 +8190,6 @@
     "type": "icon",
     "description": "关闭时图标"
   },
-=======
->>>>>>> test-ide-v3.3.3
   "u-tablets/value": {
     "type": "any",
     "description": "当前选择的值"

@@ -2064,7 +2064,6 @@
       "width"
     ]
   },
-<<<<<<< HEAD
   "u-table-view-column-group": {
     "attributes": [
       "title"
@@ -2076,8 +2075,6 @@
       "collapse-icon"
     ]
   },
-=======
->>>>>>> test-ide-v3.3.3
   "u-table": {
     "attributes": []
   },
@@ -2303,12 +2300,9 @@
       "children-field",
       "value",
       "checkable",
-<<<<<<< HEAD
       "placeholder",
       "check-controlled",
       "disabled-field",
-=======
->>>>>>> test-ide-v3.3.3
       "clearable",
       "append-to"
     ],
