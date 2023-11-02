@@ -101,10 +101,10 @@
                             :draggable="rowDraggable && item.draggable || undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
-                            @dragstart="onDragStart($event, item, rowIndex)"
-                            @dragover="onDragOver($event, item, rowIndex)"
-                            @click="onClickRow($event, item, rowIndex)"
-                            @dblclick="onDblclickRow($event, item, rowIndex)">
+                            @dragstart="onDragStart($event, item, rowIndex + virtualIndex)"
+                            @dragover="onDragOver($event, item, rowIndex + virtualIndex)"
+                            @click="onClickRow($event, item, rowIndex + virtualIndex)"
+                            @dblclick="onDblclickRow($event, item, rowIndex + virtualIndex)">
                                 <template v-if="$env.VUE_APP_DESIGNER">
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'" v-ellipsis-title
                                         vusion-slot-name="cell"
@@ -175,8 +175,8 @@
                                         :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">
-                                                <template v-if="columnVM.autoIndex && usePagination && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
-                                                <template v-else>{{ (columnVM.startIndex - 0) + rowIndex }}</template>
+                                                <template v-if="columnVM.autoIndex && usePagination && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex + virtualIndex }}</template>
+                                                <template v-else>{{ (columnVM.startIndex - 0) + rowIndex + virtualIndex }}</template>
                                             </span>
                                             <!-- type === 'radio' -->
                                             <span v-if="columnVM.type === 'radio'">
@@ -205,12 +205,12 @@
                                                     :editing="item.editing === columnVM.field">
                                                     <div>
                                                         <template v-if="item.editing === columnVM.field">
-                                                            <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                            <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex: rowIndex + virtualIndex, columnIndex, index: rowIndex + virtualIndex }">
                                                                 <span v-if="columnVM.field" vusion-slot-name="editcell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                             </f-slot>
                                                         </template>
                                                         <template v-else>
-                                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
+                                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex: rowIndex + virtualIndex, columnIndex, index: rowIndex + virtualIndex, columnItem: columnVM.columnItem }">
                                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                             </f-slot>
                                                         </template>
@@ -218,7 +218,7 @@
                                                 </div>
                                             </template>
                                             <template v-else>
-                                                <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
+                                                <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex: rowIndex + virtualIndex, columnIndex, index: rowIndex + virtualIndex, columnItem: columnVM.columnItem }">
                                                     <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                 </f-slot>
                                             </template>
@@ -248,7 +248,7 @@
                                 <tr :class="$style['expand-content']" v-if="expanderColumnVM && item.expanded">
                                     <f-collapse-transition>
                                         <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded">
-                                            <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
+                                            <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex: rowIndex + virtualIndex, index: rowIndex + virtualIndex }"></f-slot>
                                         </td>
                                     </f-collapse-transition>
                                 </tr>
@@ -1953,9 +1953,6 @@ export default {
             if (item.draggable === false) {
                 return;
             }
-            if (this.virtual) {
-                rowIndex = this.getActualRowIndex(item);
-            }
             e.dataTransfer.setDragImage(this.getDragImage(e), 0, 0);
             this.dragState = {
                 dragging: true,
@@ -2015,9 +2012,6 @@ export default {
                 const isAcrossTableDrag = types.find((type) => type === 'info/acrosstabledrag');
                 if (!isAcrossTableDrag)
                     return;
-            }
-            if (this.virtual) {
-                rowIndex = this.getActualRowIndex(item);
             }
             // 行之间可以放
             if (this.draggable) {
@@ -2111,9 +2105,6 @@ export default {
                     left,
                 };
                 this.dragState.target = item;
-                if (this.virtual) {
-                    rowIndex = this.getActualRowIndex(item);
-                }
                 this.dragState.targetPath = rowIndex; // 这里需要是表格中的具体行值，用于drop的时候判断
                 this.dragState.targetData = {
                     item,
@@ -2141,7 +2132,6 @@ export default {
          * 拖拽放置
          */
         onDrop(e) {
-            console.log('onDrop');
             // 跨表格与表格内拖拽的drop处理区分开来
             if (this.acrossTableDrag && this.dropData) {
                 const dragStartData = JSON.parse(e.dataTransfer.getData('application/json') || '{}');
@@ -2542,10 +2532,6 @@ export default {
                     });
                 }
             }
-        },
-        getActualRowIndex(item) {
-            const list = this.currentData;
-            return list.findIndex((litem) => litem === item);
         },
     },
 };
