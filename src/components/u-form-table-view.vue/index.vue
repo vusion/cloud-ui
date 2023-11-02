@@ -61,7 +61,7 @@
             </u-form-table-view-row>
         </tbody>
     </u-form-table>
-    <u-form-table-add-button :class="$style['add-button']" v-if="showAddButton && dynamic" @click="add()" :disabled="currentData.length >= maxCount">{{ $t('add') }}</u-form-table-add-button>
+    <u-form-table-add-button :class="$style['add-button']" v-if="showAddButton && dynamic" @click="add()" :disabled="currentData.length >= maxCount">{{ $tt('add') }}</u-form-table-add-button>
     <slot></slot>
 </div>
 </template>
@@ -70,11 +70,12 @@
 import i18n from './i18n';
 import MDynamic from '../m-dynamic.vue';
 import UValidator from '../u-validator.vue';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-form-table-view',
-    i18n,
-    mixins: [MDynamic, UValidator],
+    // i18n,
+    mixins: [MDynamic, UValidator, i18nMixin('u-form-table-view')],
     props: {
         border: { type: Boolean, default: false },
         dynamic: { type: Boolean, default: false },

@@ -58,6 +58,7 @@ import { isDate, prevYear, nextYear, prevMonth, nextMonth, nextDate } from '../u
 import i18n from '../i18n';
 import DateTable from '../basic/date-table';
 import dayjs from '../../../utils/dayjs';
+import i18nMixin from '../../../mixins/i18n';
 
 const calcDefaultValue = (defaultValue) => {
     if (Array.isArray(defaultValue)) {
@@ -70,8 +71,8 @@ const calcDefaultValue = (defaultValue) => {
 };
 
 export default {
-    i18n,
-
+    // i18n,
+    mixins: [i18nMixin('u-calendar')],
     components: { DateTable },
     props: {
         visible: { type: Boolean, default: true },
@@ -107,18 +108,18 @@ export default {
             format: '',
             unlinkPanels: false,
             monthTextList: [
-                this.$t('January'),
-                this.$t('February'),
-                this.$t('March'),
-                this.$t('April'),
-                this.$t('May'),
-                this.$t('June'),
-                this.$t('July'),
-                this.$t('August'),
-                this.$t('September'),
-                this.$t('October'),
-                this.$t('November'),
-                this.$t('December'),
+                this.$tt('January'),
+                this.$tt('February'),
+                this.$tt('March'),
+                this.$tt('April'),
+                this.$tt('May'),
+                this.$tt('June'),
+                this.$tt('July'),
+                this.$tt('August'),
+                this.$tt('September'),
+                this.$tt('October'),
+                this.$tt('November'),
+                this.$tt('December'),
             ],
         };
     },
@@ -127,13 +128,13 @@ export default {
             return this.picker === 'date' ? 'range' : 'week-range';
         },
         leftLabel() {
-            return this.leftDate.getFullYear() + ' ' + this.$t('year') + ' '
-                + this.monthTextList[this.leftDate.getMonth()] + ' ' + this.$t('month');
+            return this.leftDate.getFullYear() + ' ' + this.$tt('year') + ' '
+                + this.monthTextList[this.leftDate.getMonth()] + ' ' + this.$tt('month');
         },
 
         rightLabel() {
-            return this.rightDate.getFullYear() + ' ' + this.$t('year') + ' '
-                + this.monthTextList[this.rightDate.getMonth()] + ' ' + this.$t('month');
+            return this.rightDate.getFullYear() + ' ' + this.$tt('year') + ' '
+                + this.monthTextList[this.rightDate.getMonth()] + ' ' + this.$tt('month');
         },
 
         leftYear() {

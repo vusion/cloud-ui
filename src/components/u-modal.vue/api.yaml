@@ -180,3 +180,16 @@
     - name: close
       description: 关闭弹窗
   description: 弹窗
+  i18n:
+    zh-CN:
+      uModal_dialog: '提示'
+      uModal_ok: '确 定'
+      uModal_cancel: '取 消'
+    en-US:
+      uModal_dialog: 'Dialog'
+      uModal_ok: 'OK'
+      uModal_cancel: 'Cancel'
+    ja:
+      uModal_dialog: 'ダイアログ'
+      uModal_ok: 'わかった'
+      uModal_cancel: 'キャンセル'

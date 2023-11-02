@@ -53,6 +53,14 @@
         - name: u-action
           title: 操作项子组件
           snippet: <u-action>操作</u-action>
+  i18n:
+    zh-CN:
+      uActions_more: '更多'
+    en-US:
+      uActions_more: 'More'
+    ja:
+      uActions_more: 'もっと'
+
 - name: u-action
   title: 单个操作项
   attrs:

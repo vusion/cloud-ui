@@ -373,12 +373,12 @@
                     </tr>
                     <tr key="loadMore" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
-                            <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
+                            <u-link @click="load(true)">{{ $tt('loadMore') }}</u-link>
                         </td>
                     </tr>
                     <tr key="noMore" v-else-if="((pageable === 'auto-more' && hasScroll) || pageable === 'load-more') && !currentDataSource.hasMore() && (currentData && currentData.length)">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
-                            {{ $t('noMore') }}
+                            {{ $tt('noMore') }}
                         </td>
                     </tr>
                     <tr key="empty" v-else-if="!currentData.length || currentEmpty">
@@ -440,6 +440,7 @@ import i18n from './i18n';
 import UTableViewDropGhost from './drop-ghost.vue';
 import SEmpty from '../../components/s-empty.vue';
 import throttle from 'lodash/throttle';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-table-view',
@@ -447,8 +448,8 @@ export default {
         UTableViewDropGhost,
         SEmpty,
     },
-    mixins: [MEmitter],
-    i18n,
+    mixins: [MEmitter, i18nMixin('u-table-view')],
+    // i18n,
     props: {
         boldHeader: {
             type: Boolean,
@@ -486,20 +487,20 @@ export default {
         loadingText: {
             type: String,
             default() {
-                return this.$t('loading');
+                return this.$tt('loading');
             },
         },
         error: Boolean,
         errorText: {
             type: String,
             default() {
-                return this.$t('error');
+                return this.$tt('error');
             },
         },
         emptyText: {
             type: String,
             default() {
-                return this.$t('empty');
+                return this.$tt('empty');
             },
         },
         errorImage: {

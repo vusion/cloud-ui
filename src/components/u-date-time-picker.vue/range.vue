@@ -46,11 +46,11 @@
             <div :class="$style.footer" v-if="showFooterButton || showRightNowButton">
                 <u-linear-layout justify="space-between">
                     <u-linear-layout :class="$style.ctimewrap">
-                        <u-link @click="setDateNow()" v-if="showRightNowButton" :readonly="readonly" :disabled="disabled || disabledNow">{{ rightNowTitle || $t('now') }}</u-link>
+                        <u-link @click="setDateNow()" v-if="showRightNowButton" :readonly="readonly" :disabled="disabled || disabledNow">{{ rightNowTitle || $tt('now') }}</u-link>
                     </u-linear-layout>
                     <u-linear-layout :class="$style.btnwrap" v-if="showFooterButton">
-                        <u-button @click="onCancel">{{ cancelTitle || $t('cancel') }}</u-button>
-                        <u-button @click="onConfirm" color="primary" :readonly="readonly" :disabled="disabled">{{ okTitle || $t('submit') }}</u-button>
+                        <u-button @click="onCancel">{{ cancelTitle || $tt('cancel') }}</u-button>
+                        <u-button @click="onConfirm" color="primary" :readonly="readonly" :disabled="disabled">{{ okTitle || $tt('submit') }}</u-button>
                     </u-linear-layout>
                 </u-linear-layout>
             </div>
@@ -69,6 +69,7 @@ import { format, transformDate } from '../../utils/date';
 import MField from '../m-field.vue';
 import URangeInput from '../u-date-picker.vue/range-input.vue';
 import i18n from './i18n';
+import i18nMixin from '../../mixins/i18n';
 /**
  * @class DateTimePicker
  * @extend Dropdown
@@ -85,9 +86,9 @@ import i18n from './i18n';
 
 export default {
     name: 'u-date-time-range-picker',
-    i18n,
+    // i18n,
     components: { URangeInput },
-    mixins: [MField, DateFormatMixin],
+    mixins: [MField, DateFormatMixin, i18nMixin('u-date-time-picker')],
     props: {
         preIcon: {
             type: String,
@@ -98,7 +99,7 @@ export default {
         placeholder: {
             type: String,
             default() {
-                return this.$t('selectTimeText');
+                return this.$tt('selectTimeText');
             },
         },
         readonly: { type: Boolean, default: false },
@@ -154,7 +155,7 @@ export default {
             endMinTime: undefined,
             endMaxTime: undefined,
             currentMaxDate: this.getMaxDate(), // 可能会存在最大值小于最小值情况，组件需要内部处理让最大值和最小值一样
-            popperplaceholder: this.$t('selectPopperDateText'),
+            popperplaceholder: this.$tt('selectPopperDateText'),
             finalStartDateTime: this.format(this.startDate, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
             finalEndDateTime: this.format(this.endDate, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
             showDate: undefined, // popper里的日期输入框
@@ -238,7 +239,7 @@ export default {
                 } else {
                     this.startMinTime = value;
                 }
-            }
+            },
         },
         maxTime: {
             get() {
@@ -251,7 +252,7 @@ export default {
                 } else {
                     this.startMaxTime = value;
                 }
-            }
+            },
         },
         finalDateTime: {
             get() {
@@ -556,7 +557,7 @@ export default {
                     popper.toggle(!open);
                 if (open) {
                     this.editTarget = 'start';
-                    this.beforeToggle()
+                    this.beforeToggle();
                 }
                 // 下一个时序触发，等待事件完成
                 this.$nextTick(() => {
@@ -572,7 +573,7 @@ export default {
                     popper.toggle(!open);
                 if (open) {
                     this.editTarget = 'end';
-                    this.beforeToggle()
+                    this.beforeToggle();
                 }
                 // 下一个时序触发，等待事件完成
                 this.$nextTick(() => {

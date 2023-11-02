@@ -9,14 +9,14 @@
             <!-- 错误提示 -->
             <span v-show="firstError" :class="$style.error">{{ firstError }}</span>
             <!-- 展开操作 -->
-            <u-link @click="expand()">{{ $t('expand') }}</u-link>
+            <u-link @click="expand()">{{ $tt('expand') }}</u-link>
         </div>
     </div>
     <div v-show="expanded">
         <div :class="$style.actions">
             <u-linear-layout>
-                <u-link :disabled="disableRemove" @click="remove()">{{ $t('remove') }}</u-link>
-                <u-link @click="collapse()">{{ $t('collapse') }}</u-link>
+                <u-link :disabled="disableRemove" @click="remove()">{{ $tt('remove') }}</u-link>
+                <u-link @click="collapse()">{{ $tt('collapse') }}</u-link>
             </u-linear-layout>
         </div>
         <slot :item="item" :index="index"></slot>
@@ -27,11 +27,12 @@
 <script>
 import UValidator from '../u-validator.vue';
 import i18n from './i18n';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-dynamic-card',
-    mixins: [UValidator],
-    i18n,
+    mixins: [UValidator, i18nMixin('u-dynamic-card')],
+    // i18n,
     props: { item: Object, index: Number, disableRemove: Boolean },
     data() {
         return { parentVM: undefined };

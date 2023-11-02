@@ -5,7 +5,7 @@
         <i-ico :class="$style.hicon" name="left-arrow" notext :disabled="!getMonthPrev()" @click="handleMonthPrev()"></i-ico>
         <div :class="$style.yearCenter">
             <span>
-                <span :class="$style.showtext" :active="yearvisible">{{ showYear }} {{ $t('year') }} </span>
+                <span :class="$style.showtext" :active="yearvisible">{{ showYear }} {{ $tt('year') }} </span>
                 <m-popper trigger="click" placement="bottom" :opened.sync="yearvisible" append-to="reference"
                     @click.stop @mousedown.stop>
                     <f-scroll-view @click.stop>
@@ -18,13 +18,13 @@
                 </m-popper>
             </span>
             <span>
-                <span :class="$style.showtext" :active="monthvisible">{{ monthTextList[showMonth - 1] }} {{ $t('month') }}</span>
+                <span :class="$style.showtext" :active="monthvisible">{{ monthTextList[showMonth - 1] }} {{ $tt('month') }}</span>
                     <m-popper trigger="click" placement="bottom" :opened.sync="monthvisible" append-to="reference"
                         @click.stop @mousedown.stop>
                         <f-scroll-view @click.stop>
                             <div :class="$style.yearList" @click.stop>
                                 <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="monthSelect($event, '' ,false)">
-                                    <u-list-view-item :class="$style.yearitem" v-for="(month, mindex) in monthCol" :key="mindex" :value="month.value" :disabled="month.disabled" :role="month.value === showMonth">{{ month.value }} {{ $t('month') }}</u-list-view-item>
+                                    <u-list-view-item :class="$style.yearitem" v-for="(month, mindex) in monthCol" :key="mindex" :value="month.value" :disabled="month.disabled" :role="month.value === showMonth">{{ month.value }} {{ $tt('month') }}</u-list-view-item>
                                 </u-list-view>
                             </div>
                         </f-scroll-view>
@@ -37,7 +37,7 @@
     <div :class="$style.headCenter" v-if="(picker === 'month' || picker === 'quarter') && currentMode === ''">
         <i-ico :class="$style.hicon" name="d-left-arrow" notext :disabled="!getYearPrev()" @click="handleYearPrev()"></i-ico>
         <div :class="$style.yearCenter">
-            <span @click="handlerMode">{{ showYear }}{{ $t('year') }}</span>
+            <span @click="handlerMode">{{ showYear }}{{ $tt('year') }}</span>
         </div>
         <i-ico :class="$style.hicon" name="d-right-arrow" notext :disabled="!getYearNext()" @click="handleYearNext()"></i-ico>
     </div>
@@ -65,7 +65,7 @@
                         :role="quarter.value === showMonth"
                         :disabled="quarter.disabled"
                         @click.stop="monthSelect(quarter, mindex)">
-                        <div :class="$style.sitem">{{ $t('quarter') }}{{ quarterTextList[quarter.flag - 1] }}</div>
+                        <div :class="$style.sitem">{{ $tt('quarter') }}{{ quarterTextList[quarter.flag - 1] }}</div>
                     </li>
                 </ul>
             </div>
@@ -78,13 +78,13 @@
                         :disabled="month.disabled"
                         @click.stop="monthSelect(month, mindex)"
                         :sindex="mindex%3">
-                        <div :class="$style.sitem">{{ monthTextList[month.value - 1] }}{{ $t('month') }}</div>
+                        <div :class="$style.sitem">{{ monthTextList[month.value - 1] }}{{ $tt('month') }}</div>
                     </li>
                 </ul>
             </div>
     </div>
     <div :class="$style.content" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
-        <div :class="$style.week"><span :class="$style.dayitem" role="week">{{ $t('Sunday') }}</span><span :class="$style.dayitem">{{ $t('Monday') }}</span><span :class="$style.dayitem">{{ $t('Tuesday') }}</span><span :class="$style.dayitem">{{ $t('Wednesday') }}</span><span :class="$style.dayitem">{{ $t('Thursday') }}</span><span :class="$style.dayitem">{{ $t('Friday') }}</span><span :class="$style.dayitem" role="week">{{ $t('Saturday') }}</span></div>
+        <div :class="$style.week"><span :class="$style.dayitem" role="week">{{ $tt('Sunday') }}</span><span :class="$style.dayitem">{{ $tt('Monday') }}</span><span :class="$style.dayitem">{{ $tt('Tuesday') }}</span><span :class="$style.dayitem">{{ $tt('Wednesday') }}</span><span :class="$style.dayitem">{{ $tt('Thursday') }}</span><span :class="$style.dayitem">{{ $tt('Friday') }}</span><span :class="$style.dayitem" role="week">{{ $tt('Saturday') }}</span></div>
         <div :class="$style.day">
             <span v-for="(day, index) in days_"
                 :key="index"
@@ -112,6 +112,7 @@ const MS_OF_DAY = 24 * 3600 * 1000;
 import i18n from './i18n';
 import { format, transformDate, ChangeDate } from '../../utils/date';
 import YearPage from './yearpage';
+import i18nMixin from '../../mixins/i18n';
 
 const DateRangeError = function (minDate, maxDate) {
     this.name = 'DateRangeError';
@@ -127,7 +128,8 @@ DateRangeError.prototype.constructor = DateRangeError;
 
 export default {
     name: 'u-calendar',
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-calendar')],
     filters: { format },
     components: {
         YearPage,
@@ -169,20 +171,20 @@ export default {
             yearvisible: false,
             monthvisible: false,
             selectedDate: new Date(this.transformDate(this.date)),
-            quarterTextList: [this.$t('Q1'), this.$t('Q2'), this.$t('Q3'), this.$t('Q4')],
+            quarterTextList: [this.$tt('Q1'), this.$tt('Q2'), this.$tt('Q3'), this.$tt('Q4')],
             monthTextList: [
-                this.$t('January'),
-                this.$t('February'),
-                this.$t('March'),
-                this.$t('April'),
-                this.$t('May'),
-                this.$t('June'),
-                this.$t('July'),
-                this.$t('August'),
-                this.$t('September'),
-                this.$t('October'),
-                this.$t('November'),
-                this.$t('December'),
+                this.$tt('January'),
+                this.$tt('February'),
+                this.$tt('March'),
+                this.$tt('April'),
+                this.$tt('May'),
+                this.$tt('June'),
+                this.$tt('July'),
+                this.$tt('August'),
+                this.$tt('September'),
+                this.$tt('October'),
+                this.$tt('November'),
+                this.$tt('December'),
             ],
             currentDay: this.transformDate(new Date()),
             hoveredWeek: [],
@@ -657,7 +659,7 @@ date.setDate(0);
             }
         },
         onDayMouseEnter(day) {
-             // 周选择，当前所在周 hover 都为高亮
+            // 周选择，当前所在周 hover 都为高亮
             if (this.picker === 'week') {
                 const dayOfWeek = day.getDay();
                 const weekDiff = dayOfWeek === 0 ? 6 : dayOfWeek - 1;

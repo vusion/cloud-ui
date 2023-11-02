@@ -77,16 +77,16 @@
     </div>
     <div :class="$style.foot" :simple="simpleFoot" v-if="showFooterButton || showRightNowButton">
         <u-linear-layout justify="end" v-if="simpleFoot">
-            <u-link :class="{[$style.miniButtonStyle]: $i18n && $i18n.locale === 'ja', [$style.textbtn]:true}" @click="onCancel">{{ $t('cancel') }}</u-link>
-            <u-link :class="{[$style.miniButtonStyle]: $i18n && $i18n.locale === 'ja'}" @click="onConfirm" :disabled="confirmDisabled" color="primary">{{ $t('submit') }}</u-link>
+            <u-link :class="{[$style.miniButtonStyle]: $i18n && $i18n.locale === 'ja', [$style.textbtn]:true}" @click="onCancel">{{ $tt('cancel') }}</u-link>
+            <u-link :class="{[$style.miniButtonStyle]: $i18n && $i18n.locale === 'ja'}" @click="onConfirm" :disabled="confirmDisabled" color="primary">{{ $tt('submit') }}</u-link>
         </u-linear-layout>
         <u-linear-layout justify="space-between" v-else>
             <u-linear-layout :class="$style.ctimewrap">
-                <u-link @click="setCurrentTime" v-if="showRightNowButton">{{ rightNowTitle || $t('now') }}</u-link>
+                <u-link @click="setCurrentTime" v-if="showRightNowButton">{{ rightNowTitle || $tt('now') }}</u-link>
             </u-linear-layout>
             <u-linear-layout gap="small" v-if="showFooterButton">
-                <u-button :class="{[$style.miniButtonStyle]: $i18n && $i18n.locale === 'ja'}" @click="onCancel" size="small">{{ cancelTitle || $t('cancel') }}</u-button>
-                <u-button :class="{[$style.miniButtonStyle]: $i18n && $i18n.locale === 'ja'}" color="primary" @click="onConfirm" :disabled="confirmDisabled" size="small">{{ okTitle || $t('submit') }}</u-button>
+                <u-button :class="{[$style.miniButtonStyle]: $i18n && $i18n.locale === 'ja'}" @click="onCancel" size="small">{{ cancelTitle || $tt('cancel') }}</u-button>
+                <u-button :class="{[$style.miniButtonStyle]: $i18n && $i18n.locale === 'ja'}" color="primary" @click="onConfirm" :disabled="confirmDisabled" size="small">{{ okTitle || $tt('submit') }}</u-button>
             </u-linear-layout>
         </u-linear-layout>
     </div>
@@ -96,11 +96,12 @@
 <script>
 import i18n from './i18n';
 import MField from '../m-field.vue';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-time-picker-popper',
-    i18n,
-    mixins: [MField],
+    // i18n,
+    mixins: [MField, i18nMixin('u-time-picker')],
     props: {
         minUnit: { type: String, default: 'second' },
         time: { type: String, default: '' },
@@ -145,7 +146,7 @@ export default {
                 seconds: {},
             },
             isScrolling: false, // 控制滚动hover态
-            placeholder: this.$t('selectTimeText'),
+            placeholder: this.$tt('selectTimeText'),
             currentOpened: false,
             currentPopperWidth: '100%',
         };
