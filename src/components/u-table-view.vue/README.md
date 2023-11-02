@@ -2577,11 +2577,7 @@ export default {
 | remote-paging | boolean |  | `false` |  |
 | pagination | boolean |  |  | 设置是否分页展示数据 |
 | page-size | number |  | `20` |  |
-<<<<<<< HEAD
-| show-sizer | boolean |  | `true` | 显示每页条数切换器 |
-=======
 | show-sizer | boolean |  | `false` | 显示每页条数切换器 |
->>>>>>> test-ide-v3.3.3
 | page-size-options | Array\<number\> |  | `[10, 20, 50]` | 每页条数切换器的选项 |
 | page-number | number |  | `1` | 当前默认展示在第几页 |
 | show-total | boolean |  | `false` |  |
@@ -3065,7 +3061,6 @@ Methods
 
 自定义选项的结构和样式
 
-<<<<<<< HEAD
 ## UTableViewColumnGroup API
 ### Props/Attrs
 
@@ -3096,5 +3091,3 @@ Methods
 | expand-icon | icon |  |  | 展开时图标 |
 | collapse-icon | icon |  |  | 关闭时图标 |
 
-=======
->>>>>>> test-ide-v3.3.3
