@@ -35,9 +35,14 @@ jobs:
       # 创建一个临时目录
       - name: Create temp dir
         run: mkdir temp && cp -r ./dist-theme ./temp/dist-theme && cp -r ./src ./temp/src
+      
+      - name: Remove 'v' from VERSION
+        run: echo "VERSION=${VERSION#v}" >> $GITHUB_ENV
+        env:
+          VERSION: ${{ env.VERSION }}
 
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
-          name: 'cloud-ui.vusion@${{ env.VERSION#$"v" }}'
+          name: 'cloud-ui.vusion@${{ env.VERSION }}'
           path: temp
