@@ -23,11 +23,15 @@ jobs:
     - name: Get changed files
       id: files
       run: |
-        git fetch origin ${{ github.event.pull_request.head.sha }}
-        git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} > changed_files.txt
-        changed_count=$(cat changed_files.txt | grep -E "\.(vue|js|md)$" | wc -l | awk '{print $1}')
-        echo $changed_count
-        echo "::set-output name=changed::$([ $changed_count -gt 0 ] && echo "true" || echo "false")"
+        if [ "${{ github.event_name }}" = "push" ]; then
+          echo "::set-output name=changed::true"
+        elif [ "${{ github.event_name }}" = "pull_request" ]; then
+          git fetch origin ${{ github.event.pull_request.head.sha }}
+          git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} > changed_files.txt
+          changed_count=$(cat changed_files.txt | grep -E "\.(vue|js|md)$" | wc -l | awk '{print $1}')
+          echo $changed_count
+          echo "::set-output name=changed::$([ $changed_count -gt 0 ] && echo "true" || echo "false")"
+        fi
     - run: echo "${{ toJson(steps.files.outputs.changed) }}"
     - name: Use Node.js ${{ matrix.node-version }}
       if:  ${{ steps.files.outputs.changed == 'true' }}
