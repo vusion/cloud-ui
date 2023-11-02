@@ -149,6 +149,7 @@ export default {
 | show-basic | boolean |  | `true` | 是否展示顶部左侧的 "<" "今天" ">" 等基础配置功能 |
 | show-advance | boolean |  | `true` | 是否展示顶部右侧的年份、月份选项高级配置 |
 | first-day-of-week | number |  | `1` | 填写数字1~7，分别表示周一~周日 |
+| multiple | boolean |  | `false` | 开启可多选后，可通过ctrl/command+鼠标多选 |
 
 ### Slots
 

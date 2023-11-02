@@ -6,10 +6,10 @@
     <u-number-input v-model="value1" formatter="0000"></u-number-input>
     <u-number-input v-model="value2" :precision="0.01" :step="0.1" formatter="#,##0.00元"></u-number-input>
     <u-number-input v-model="value3" :precision="1" :step="1" formatter="0.000%"></u-number-input>
-    <u-number-input 
-        v-model="value4" 
-        :precision="0.005" 
-        :step="0.005" 
+    <u-number-input
+        v-model="value4"
+        :precision="0.005"
+        :step="0.005"
         :advanced-formatter="{ enable: false, value: '' }"
         :thousandths="true"
         :decimalPlaces="{ places: 3, omit: false }"
@@ -18,7 +18,6 @@
     ></u-number-input>
 </u-linear-layout>
 </template>
-
 <script>
     export default {
         data() {
@@ -63,13 +62,13 @@ export default {
 ``` vue
 <template>
     <div>
-        <div>普通前缀</div> 
+        <div>普通前缀</div>
         <u-number-input placeholder="abcdsdf"></u-number-input>
         <u-number-input :unit="{type:'prefix',value:'$'}" placeholder="abcdsdf"></u-number-input>
         <u-number-input :unit="{type:'prefix',value:'$'}" placeholder="abcdsdf" clearable></u-number-input>
         <u-number-input :unit="{type:'prefix',value:'$'}" placeholder="abcdsdf" hideButtons></u-number-input>
         <u-number-input :unit="{type:'prefix',value:'$'}" placeholder="abcdsdf" clearable hideButtons></u-number-input>
-        <div>普通后缀</div> 
+        <div>普通后缀</div>
         <u-number-input placeholder="abcdsdf"></u-number-input>
         <u-number-input :unit="{type:'suffix',value:'$'}" placeholder="abcdsdf"></u-number-input>
         <u-number-input :unit="{type:'suffix',value:'$'}" placeholder="abcdsdf" clearable></u-number-input>
@@ -109,26 +108,52 @@ export default {
 ```
 
 ### 高级格式化
+
 ``` vue
 <template>
 <div>
     <div>展示保留3位小数 不省略0；值保留2位小数</div>
-    <u-number-input 
-        v-model="value" 
-        placeholder="请输入" 
-        :decimal-places="{ places:3, omit:false }" 
-        :thousandths="false" 
+    <u-number-input
+        v-model="value"
+        placeholder="请输入"
+        :decimal-places="{ places:3, omit:false }"
+        :thousandths="false"
         :percent-sign="true"
         :decimalLength="2"></u-number-input>
     <div>值： {{value}}</div>
 </div>
 </template>
-
 <script>
 export default {
     data() {
         return {
             value: 1
+        }
+    }
+}
+</script>
+```
+
+### 高精度
+
+``` vue
+<template>
+<div>
+    <u-number-input
+        v-model="value"
+        highPrecision
+        :step="0.00000000000000000001"
+        placeholder="请输入"
+        :decimal-places="{ places:20, omit:false }"
+        :decimalLength="20"></u-number-input>
+    <div>值： {{value}}</div>
+</div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            value: '2.100'
         }
     }
 }

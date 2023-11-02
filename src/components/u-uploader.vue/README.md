@@ -401,6 +401,13 @@ export default {
 | max-size | string |  |  | 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`KB`、`MB`、`GB` |
 | list-type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'text'` |  |
 | url-field | string |  | `'url'` | 请求返回的 URL 字段名 |
+| file-icon-switcher | boolean |  | `true` | 是否展示文件图标 |
+| icon-map | Object |  | `[object Object]` | undefined |
+| file-type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'doc\|docx'` |  |
+| file-icon | file-icon |  |  |  |
+| download-icon-switcher | boolean |  | `true` | 是否展示下载图标 |
+| download-icon | icon |  | `'download'` |  |
+| file-size | boolean |  | `true` | 是否展示文件大小，单位小于1MB则展示KB，大于1MB则展示MB。 |
 | headers | Object |  |  |  |
 | multiple | boolean |  | `false` |  |
 | multiple-once | boolean |  | `false` | 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件 |
@@ -432,6 +439,10 @@ export default {
 #### (default)
 
 插入文本 或 HTML。
+
+#### file-list
+
+文件列表。
 
 ### Events
 

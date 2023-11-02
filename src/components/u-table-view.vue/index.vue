@@ -101,12 +101,13 @@
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
                             <tr :key="keyMap.getKey(item)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
-                            :draggable="(draggable || acrossTableDrag) && rowDraggable && item.draggable || undefined"
+                            :draggable="rowDraggable && item.draggable || undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
                             @dragstart="onDragStart($event, item, rowIndex)"
                             @dragover="onDragOver($event, item, rowIndex)"
-                            @click="onClickRow($event, item, rowIndex)">
+                            @click="onClickRow($event, item, rowIndex)"
+                            @dblclick="onDblclickRow($event, item, rowIndex)">
                                 <template v-if="$env.VUE_APP_DESIGNER">
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'" v-ellipsis-title
                                         vusion-slot-name="cell"
@@ -171,7 +172,7 @@
                                             </f-slot>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="(draggable || acrossTableDrag) && handlerDraggable && item.draggable || undefined" :disabled="!((draggable || acrossTableDrag) && handlerDraggable && item.draggable)"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable && item.draggable || undefined" :disabled="!(handlerDraggable && item.draggable)"></i-ico>
                                             </span>
 
                                             <!-- type === 'expander' right -->
@@ -259,11 +260,11 @@
                                             </template>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="(draggable || acrossTableDrag) && handlerDraggable && item.draggable || undefined" :disabled="!((draggable || acrossTableDrag) && handlerDraggable && item.draggable)"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable && item.draggable || undefined" :disabled="!(handlerDraggable && item.draggable)"></i-ico>
                                             </span>
                                             <!-- Normal text -->
                                             <template v-if="columnVM.type === 'editable'">
-                                                <div @dblclick="onSetEditing(item, columnVM)" :class="$style.editablewrap"
+                                                <div @dblclick.stop="onSetEditing(item, columnVM)" :class="$style.editablewrap"
                                                     :ellipsis="columnVM.ellipsis"
                                                     :style="{width:getEditablewrapWidth(item, columnIndex, treeColumnIndex)}"
                                                     :editing="item.editing === columnVM.field">
@@ -283,7 +284,9 @@
                                             </template>
                                             <template v-else>
                                                 <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
-                                                    <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                    <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">
+                                                        {{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}
+                                                    </span>
                                                 </f-slot>
                                             </template>
 
@@ -681,14 +684,22 @@ export default {
             return !!Object.keys(this.columnGroupVMs).length;
         },
         tableHeadTrArr() {
+            // 重置被自动合并的列
+            this.visibleColumnVMs.filter((column) => column.colSpan === 0)
+                .forEach((column) => column.colSpan = 1);
+            this.visibleColumnVMs.forEach((columnVM, index) => {
+                if (columnVM.colSpan > 1) {
+                    // 如果当前列有合并，那么后面的列自动覆盖不显示
+                    for (let i = index + 1; i < index + columnVM.colSpan && i < this.visibleColumnVMs.length; i++) {
+                        this.visibleColumnVMs[i].colSpan = 0;
+                    }
+                }
+            });
             if (!this.hasGroupedColumn) {
                 return [this.visibleColumnVMs];
             } else {
                 const result = [[]];
                 let dynamicOffset = 0;
-                // 重置被自动合并的列
-                this.visibleColumnVMs.filter((column) => column.colSpan === 0)
-                    .forEach((column) => column.colSpan = 1);
                 this.visibleColumnVMs.forEach((columnVM, index) => {
                     if (!columnVM.isUnderGroup) {
                         result[0].push(columnVM);
@@ -700,12 +711,6 @@ export default {
                     } else if (this.columnGroupVMs[index - dynamicOffset]) {
                         // 这里需要减去动态列带来的过多位移
                         result[0].push(this.columnGroupVMs[index - dynamicOffset]);
-                    }
-                    if (columnVM.colSpan > 1) {
-                        // 如果当前列有合并，那么后面的列自动覆盖不显示
-                        for (let i = index + 1; i < index + columnVM.colSpan && i < this.visibleColumnVMs.length; i++) {
-                            this.visibleColumnVMs[i].colSpan = 0;
-                        }
                     }
                 });
                 result[1] = this.visibleColumnVMs.filter((columnVM) => columnVM.isUnderGroup);
@@ -835,6 +840,12 @@ export default {
                 this.configColumnVM.handleColumnsData();
             }
         },
+        draggable() {
+            this.processTableDraggable(true);
+        },
+        acrossTableDrag() {
+            this.processTableDraggable(true);
+        },
     },
     created() {
         // 自动补充 pageSizeOptions
@@ -907,7 +918,7 @@ export default {
             try {
                 data.toggle = () => this.toggleExpanded(data);
             } catch (error) {
-                console.warning('当前data不是一个对象');
+                console.warn('当前data不是一个对象');
             }
             return data;
         },
@@ -930,11 +941,7 @@ export default {
             const expandable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'expander');
             const editable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'editable');
             // 拖拽设置
-            const dragHandler = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'dragHandler');
-            if (!this.$env.VUE_APP_DESIGNER) {
-                this.rowDraggable = (this.draggable || this.acrossTableDrag) && !dragHandler;
-                this.handlerDraggable = (this.draggable || this.acrossTableDrag) && dragHandler;
-            }
+            this.processTableDraggable();
             if (selectable) {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('disabled'))
@@ -2028,6 +2035,7 @@ export default {
                             position: 'sticky',
                             left: leftData.left + 'px',
                             zIndex,
+                            overflow: 'hidden',
                         });
                     }
                 }
@@ -2039,6 +2047,7 @@ export default {
                             position: 'sticky',
                             right: rightData.right + 'px',
                             zIndex,
+                            overflow: 'hidden',
                         });
                     }
                 }
@@ -2680,6 +2689,24 @@ export default {
                 item.disabledDrop = item.disabledDrop || !canDropinResult;
             } else {
                 item.disabledDrop = item.disabled;
+            }
+        },
+        onDblclickRow(e, item, rowIndex) {
+            this.$emit('dblclick-row', { item, index: rowIndex });
+        },
+        processTableDraggable(needProcessData) {
+            // 拖拽设置
+            const dragHandler = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'dragHandler');
+            if (!this.$env.VUE_APP_DESIGNER) {
+                this.rowDraggable = (this.draggable || this.acrossTableDrag) && !dragHandler;
+                this.handlerDraggable = (this.draggable || this.acrossTableDrag) && dragHandler;
+            }
+            if (needProcessData) {
+                if (this.draggable || this.acrossTableDrag) {
+                    this.currentData.forEach((item) => {
+                        this.canDraggable(item);
+                    });
+                }
             }
         },
     },

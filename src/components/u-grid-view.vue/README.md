@@ -1663,13 +1663,13 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | any |  |  | 当前选择的值 |
 | field | string |  | `'text'` | 选项文本的字段名 |
-| text-field | string |  | `'text'` | 选项文本的字段名 |
-| value-field | string |  | `'value'` | 选项值的字段名 |
 | cancelable | boolean |  | `false` |  |
 | multiple | boolean |  | `false` |  |
 | clearable | boolean |  | `false` | 搜索框是否有清除按钮 |
 | data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑 |
 | data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
+| text-field | string |  | `'text'` | 选项文本的字段名 |
+| value-field | string |  | `'value'` | 选项值的字段名 |
 | pageable | boolean |  | `false` | 设置是否分页展示数据 |
 | page-size | number |  | `50` |  |
 | page-number | number |  | `1` | 当前默认展示在第几页 |

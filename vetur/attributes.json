@@ -960,6 +960,20 @@
     "type": "icon",
     "description": ""
   },
+  "u-button/icon-position": {
+    "type": "string",
+    "options": [
+      {
+        "value": "left",
+        "title": "左"
+      },
+      {
+        "value": "right",
+        "title": "右"
+      }
+    ],
+    "description": "设置图标居左或居右显示"
+  },
   "u-button/linkType": {
     "type": "string",
     "options": [
@@ -1113,6 +1127,10 @@
   "u-calendar-view/first-day-of-week": {
     "type": "number",
     "description": "填写数字1~7，分别表示周一~周日"
+  },
+  "u-calendar-view/multiple": {
+    "type": "boolean",
+    "description": "开启可多选后，可通过ctrl/command+鼠标多选"
   },
   "u-calendar/date": {
     "type": "Date | string",
@@ -1648,6 +1666,28 @@
   "u-checkboxes/value": {
     "type": "Array",
     "description": "当前选中的值"
+  },
+  "u-checkboxes/check-all": {
+    "type": "boolean",
+    "description": "是否进行全选"
+  },
+  "u-checkboxes/check-all-text": {
+    "type": "string",
+    "description": "全选功能展示的文案内容"
+  },
+  "u-checkboxes/check-all-display": {
+    "type": "string",
+    "options": [
+      {
+        "value": "inline",
+        "title": "同行展示"
+      },
+      {
+        "value": "block",
+        "title": "分行展示"
+      }
+    ],
+    "description": "选择展开方式"
   },
   "u-checkboxes/min": {
     "type": "number",
@@ -3991,14 +4031,6 @@
     "type": "string",
     "description": "选项文本的字段名"
   },
-  "u-grid-view/text-field": {
-    "type": "string",
-    "description": "选项文本的字段名"
-  },
-  "u-grid-view/value-field": {
-    "type": "string",
-    "description": "选项值的字段名"
-  },
   "u-grid-view/cancelable": {
     "type": "boolean",
     "description": ""
@@ -4018,6 +4050,14 @@
   "u-grid-view/data-schema": {
     "type": "schema",
     "description": "数据源返回的数据结构的类型，自动识别类型进行展示说明"
+  },
+  "u-grid-view/text-field": {
+    "type": "string",
+    "description": "选项文本的字段名"
+  },
+  "u-grid-view/value-field": {
+    "type": "string",
+    "description": "选项值的字段名"
   },
   "u-grid-view/pageable": {
     "type": "boolean",
@@ -7034,6 +7074,14 @@
     "type": "boolean",
     "description": "设置是否可扩展下拉项,开启后可自定义下拉框选项"
   },
+  "u-select/hasAllCheckItem": {
+    "type": "boolean",
+    "description": "是否存在可以控制选项的全选/反选"
+  },
+  "u-select/allCheckItemText": {
+    "type": "string",
+    "description": "是否存在可以控制选项的全选/反选"
+  },
   "u-select/converter": {
     "type": "string",
     "options": [
@@ -7399,7 +7447,7 @@
   },
   "u-sidebar/collapsible": {
     "type": "boolean",
-    "description": "设置是否可以展开/折叠"
+    "description": "设置菜单项是否可以展开/折叠"
   },
   "u-sidebar/accordion": {
     "type": "boolean",
@@ -7418,6 +7466,32 @@
       }
     ],
     "description": "展开/折叠操作的触发方式"
+  },
+  "u-sidebar/enable-collapse": {
+    "type": "boolean",
+    "description": "设置侧边栏是否可以展开/折叠"
+  },
+  "u-sidebar/collapseMode": {
+    "type": "string",
+    "options": [
+      {
+        "value": "fold",
+        "title": "收起"
+      },
+      {
+        "value": "expand",
+        "title": "展开"
+      }
+    ],
+    "description": "侧边栏是否折叠"
+  },
+  "u-sidebar/expand-icon": {
+    "type": "icon",
+    "description": "侧边栏展开图标"
+  },
+  "u-sidebar/fold-icon": {
+    "type": "icon",
+    "description": "侧边栏折叠图标"
   },
   "u-sidebar/readonly": {
     "type": "boolean",
@@ -8010,9 +8084,29 @@
     "type": "boolean",
     "description": ""
   },
+  "u-table-view-column/expander-position": {
+    "type": "string",
+    "options": [
+      {
+        "value": "left",
+        "title": "左侧"
+      },
+      {
+        "value": "right",
+        "title": "右侧"
+      }
+    ],
+    "description": "展开列图标的位置"
+  },
   "u-table-view-column/width": {
     "type": "string | number",
     "description": "设置列宽度，可设置为数字或百分比"
+  },
+  "u-table-view-column/colSpan": {
+    "type": "number"
+  },
+  "u-table-view-column/autoRowSpan": {
+    "type": "boolean"
   },
   "u-table-view-column-config/text-field": {
     "type": "string",
@@ -8084,6 +8178,21 @@
     "type": "string | number",
     "description": "设置列宽度，可设置为数字或百分比"
   },
+<<<<<<< HEAD
+  "u-table-view-column-group/title": {
+    "type": "string",
+    "description": ""
+  },
+  "u-table-view-expander/expand-icon": {
+    "type": "icon",
+    "description": "展开时图标"
+  },
+  "u-table-view-expander/collapse-icon": {
+    "type": "icon",
+    "description": "关闭时图标"
+  },
+=======
+>>>>>>> test-ide-v3.3.3
   "u-tablets/value": {
     "type": "any",
     "description": "当前选择的值"
@@ -8808,7 +8917,44 @@
     "type": "string",
     "description": "指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值"
   },
-  "u-toast/position": {
+  "u-toast-single/text": {
+    "type": "string",
+    "description": "默认提示内容"
+  },
+  "u-toast-single/color": {
+    "type": "string",
+    "options": [
+      {
+        "value": "success",
+        "title": "成功"
+      },
+      {
+        "value": "warning",
+        "title": "警告"
+      },
+      {
+        "value": "error",
+        "title": "错误"
+      },
+      {
+        "value": "loading",
+        "title": "加载中"
+      },
+      {
+        "value": "custom",
+        "title": "自定义"
+      }
+    ],
+    "description": "提示的类型"
+  },
+  "u-toast-single/custom-icon": {
+    "type": "icon"
+  },
+  "u-toast-single/duration": {
+    "type": "number",
+    "description": "自动关闭的延时，单位毫秒。设为 0 时不自动关闭"
+  },
+  "u-toast-single/position": {
     "type": "string",
     "options": [
       {
@@ -8842,41 +8988,11 @@
     ],
     "description": "显示的位置"
   },
-  "u-toast/duration": {
-    "type": "number",
-    "description": "提示停留的时间。`0`表示常驻。"
-  },
-  "u-toast/single": {
+  "u-toast-single/single": {
     "type": "boolean",
     "description": "多个提示会合并为一个"
   },
-  "u-toast/text": {
-    "type": "string",
-    "description": "默认提示内容"
-  },
-  "u-toast/color": {
-    "type": "string",
-    "options": [
-      {
-        "value": "info",
-        "title": "信息提示"
-      },
-      {
-        "value": "success",
-        "title": "成功信息提示"
-      },
-      {
-        "value": "warning",
-        "title": "警告信息提示"
-      },
-      {
-        "value": "error",
-        "title": "错误信息提示"
-      }
-    ],
-    "description": "提示的颜色"
-  },
-  "u-toast/closable": {
+  "u-toast-single/closable": {
     "type": "boolean",
     "description": "是否可以关闭提示"
   },
@@ -9160,6 +9276,18 @@
     "type": "boolean",
     "description": "设置是否开启多选模式，显示多选框"
   },
+  "u-tree-select-new/placeholder": {
+    "type": "string",
+    "description": "为空时显示的占位符文本"
+  },
+  "u-tree-select-new/check-controlled": {
+    "type": "boolean",
+    "description": "开启后父节点选择不会全选子节点，子节点选择不会联动父节点"
+  },
+  "u-tree-select-new/disabled-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识节点的disabled属性"
+  },
   "u-tree-select-new/clearable": {
     "type": "boolean",
     "description": "设置是否开启可清除模式"
@@ -9423,6 +9551,67 @@
   "u-uploader/url-field": {
     "type": "string",
     "description": "请求返回的 URL 字段名"
+  },
+  "u-uploader/file-icon-switcher": {
+    "type": "boolean",
+    "description": "是否展示文件图标"
+  },
+  "u-uploader/icon-map": {
+    "type": "Object"
+  },
+  "u-uploader/file-type": {
+    "type": "string",
+    "options": [
+      {
+        "title": "文档",
+        "value": "doc|docx"
+      },
+      {
+        "title": "图片",
+        "value": "jpg|jpeg|png|bmp|gif|tiff|tif|webp|svg|psd|raw"
+      },
+      {
+        "title": "PDF",
+        "value": "pdf"
+      },
+      {
+        "title": "表格",
+        "value": "xlsx"
+      },
+      {
+        "title": "文本",
+        "value": "txt"
+      },
+      {
+        "title": "幻灯片",
+        "value": "ppt|pptx"
+      },
+      {
+        "title": "压缩包",
+        "value": "zip"
+      },
+      {
+        "title": "CSV",
+        "value": "csv"
+      }
+    ],
+    "description": ""
+  },
+  "u-uploader/file-icon": {
+    "type": "file-icon",
+    "description": ""
+  },
+  "u-uploader/download-icon-switcher": {
+    "type": "boolean",
+    "description": "是否展示下载图标"
+  },
+  "u-uploader/download-icon": {
+    "type": "icon",
+    "description": ""
+  },
+  "u-uploader/file-size": {
+    "type": "boolean",
+    "description": "是否展示文件大小，单位小于1MB则展示KB，大于1MB则展示MB。"
   },
   "u-uploader/headers": {
     "type": "Object",
