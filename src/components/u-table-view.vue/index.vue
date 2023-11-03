@@ -401,7 +401,7 @@
                     </tr>
                 </tbody>
             </u-table>
-            <div ref="virtualPlaceholder"></div>
+            <div ref="virtualPlaceholder" v-if="virtual"></div>
             </f-scroll-view>
         </div>
     </div>
