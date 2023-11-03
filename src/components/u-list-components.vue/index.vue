@@ -20,7 +20,7 @@
         </u-list-components-item>
       </div>
     </template>
-    <template v-else>
+    <template v-else-if="$env.VUE_APP_DESIGNER">
         <slot><s-empty v-if="!$slots.default && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty></slot>
     </template>
   </div>
