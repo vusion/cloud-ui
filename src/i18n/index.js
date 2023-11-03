@@ -10,6 +10,7 @@ const defaultMessages = {
     ja,
 };
 
+window.Vue = window.Vue || Vue;
 const proto = Vue.prototype;
 const { defineReactive } = Vue.util;
 

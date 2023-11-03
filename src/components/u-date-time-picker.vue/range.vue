@@ -9,7 +9,7 @@
         left-width="full"
         :left-value="genDisplayFormatText(finalStartDateTime)"
         :right-value="genDisplayFormatText(finalEndDateTime)"
-        :clearable="clearable" :placeholder="placeholder"
+        :clearable="clearable" :placeholder="placeholder || $tt('selectTimeText')"
         @left-click="toggleLeft(true)"
         @right-click="toggleRight(true)"
         @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
@@ -98,9 +98,6 @@ export default {
         disabled: { type: Boolean, default: false },
         placeholder: {
             type: String,
-            default() {
-                return this.$tt('selectTimeText');
-            },
         },
         readonly: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
@@ -155,7 +152,6 @@ export default {
             endMinTime: undefined,
             endMaxTime: undefined,
             currentMaxDate: this.getMaxDate(), // 可能会存在最大值小于最小值情况，组件需要内部处理让最大值和最小值一样
-            popperplaceholder: this.$tt('selectPopperDateText'),
             finalStartDateTime: this.format(this.startDate, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
             finalEndDateTime: this.format(this.endDate, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
             showDate: undefined, // popper里的日期输入框
@@ -164,6 +160,9 @@ export default {
         };
     },
     computed: {
+        popperplaceholder() {
+            return this.$tt('selectPopperDateText');
+        },
         // 基于编辑目标状态计算出来的最小值
         finalMinDate() {
             return this.editTarget === 'end' ? this.startDateTime : this.minDate;

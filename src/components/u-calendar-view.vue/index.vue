@@ -117,27 +117,6 @@ export default {
         const selectedDatesSnapshot = value.join(',');
         const selectedDate = selectedDates[0];
 
-        const fullMonths = [];
-        const monthTexts = [
-            this.$tt('January'),
-            this.$tt('February'),
-            this.$tt('March'),
-            this.$tt('April'),
-            this.$tt('May'),
-            this.$tt('June'),
-            this.$tt('July'),
-            this.$tt('August'),
-            this.$tt('September'),
-            this.$tt('October'),
-            this.$tt('November'),
-            this.$tt('December'),
-        ];
-        for (let m = 0; m <= 11; m++) {
-            fullMonths.push({
-                text: `${monthTexts[m]} ${this.$tt('month')}`,
-                value: m,
-            });
-        }
         return {
             dataFromDataSource: [],
             date,
@@ -152,12 +131,37 @@ export default {
             maxDay: null,
             maxYear: null,
             maxMonth: null,
-            monthTexts,
-            fullMonths,
             showToday: true,
         };
     },
     computed: {
+        monthTexts() {
+            return [
+                this.$tt('January'),
+                this.$tt('February'),
+                this.$tt('March'),
+                this.$tt('April'),
+                this.$tt('May'),
+                this.$tt('June'),
+                this.$tt('July'),
+                this.$tt('August'),
+                this.$tt('September'),
+                this.$tt('October'),
+                this.$tt('November'),
+                this.$tt('December'),
+            ];
+        },
+        fullMonths() {
+            const months = [];
+            for (let m = 0; m <= 11; m++) {
+                months.push({
+                    text: `${this.monthTexts[m]} ${this.$tt('month')}`,
+                    value: m,
+                });
+            }
+
+            return months;
+        },
         selectedDate() {
             return this.selectedDates[0];
         },

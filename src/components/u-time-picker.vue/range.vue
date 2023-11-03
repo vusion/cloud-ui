@@ -136,10 +136,12 @@ export default {
             startInputTime: this.startTime,
             endInputTime: this.endTime,
             editTarget: '', // 标明当前编辑的是起始/结束值
-            placeholder: this.$tt('selectTimeText'),
         };
     },
     computed: {
+        placeholder() {
+            return this.$tt('selectTimeText');
+        },
         maxStartTime() {
             return this.endInputTime || this.maxTime;
         },

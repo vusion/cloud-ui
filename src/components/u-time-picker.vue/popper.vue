@@ -146,12 +146,14 @@ export default {
                 seconds: {},
             },
             isScrolling: false, // 控制滚动hover态
-            placeholder: this.$tt('selectTimeText'),
             currentOpened: false,
             currentPopperWidth: '100%',
         };
     },
     computed: {
+        placeholder() {
+            return this.$tt('selectTimeText');
+        },
         hour() {
             return this.showTime && this.showTime.split(':')[0] / 1;
         },

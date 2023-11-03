@@ -80,7 +80,7 @@
             <slot></slot>
             <template v-if="currentData">
                 <div :class="$style.status" key="empty" v-if="!currentData.length && !currentLoading && showEmptyText">
-                    <slot name="empty">{{ emptyText }}</slot>
+                    <slot name="empty">{{ emptyText || $tt('empty') }}</slot>
                 </div>
                 <template v-else>
                     <component :is="ChildComponent"
@@ -173,9 +173,6 @@ export default {
         placement: { type: String, validator: (value) => /^(top|bottom|left|right)(-start|-end)?$/.test(value) },
         emptyText: {
             type: String,
-            default() {
-                return this.$tt('empty');
-            },
         },
         emptyDisabled: { type: Boolean, default: false }, // @inherit: initialLoad: { type: Boolean, default: true },
         // @inherit: pageable: { type: Boolean, default: false },

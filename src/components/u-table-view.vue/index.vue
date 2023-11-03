@@ -346,7 +346,7 @@
                     </tr>
                     <tr key="loading" v-else-if="(currentData === undefined && !currentError) || currentLoading"><!-- 初次加载与加载更多 loading 合并在一起 -->
                         <td :class="$style.center" :colspan="visibleColumnVMs.length" vusion-slot-name="loading">
-                            <slot name="loading"><u-spinner :class="$style.spinner"></u-spinner> {{ loadingText }}</slot>
+                            <slot name="loading"><u-spinner :class="$style.spinner"></u-spinner> {{ loadingText || $tt('loading') }}</slot>
                             <s-empty v-if="$env.VUE_APP_DESIGNER
                                 && !$slots.loading
                                 && $scopedSlots
@@ -360,7 +360,7 @@
                             <slot name="error">
                                 <u-image v-if="errorImage" :src="errorImage" fit="contain"></u-image>
                                 <u-linear-layout layout="block" justify="center">
-                                    {{ errorText }}
+                                    {{ errorText || $tt('error') }}
                                 </u-linear-layout>
                             </slot>
                             <s-empty v-if="$env.VUE_APP_DESIGNER
@@ -386,7 +386,7 @@
                             <slot name="empty">
                                 <u-image v-if="errorImage" :src="errorImage" fit="contain"></u-image>
                                 <u-linear-layout layout="block" justify="center">
-                                    {{ emptyText }}
+                                    {{ emptyText || $tt('empty') }}
                                 </u-linear-layout>
                             </slot>
                             <s-empty v-if="$env.VUE_APP_DESIGNER
@@ -486,22 +486,13 @@ export default {
         loading: { type: Boolean, default: undefined },
         loadingText: {
             type: String,
-            default() {
-                return this.$tt('loading');
-            },
         },
         error: Boolean,
         errorText: {
             type: String,
-            default() {
-                return this.$tt('error');
-            },
         },
         emptyText: {
             type: String,
-            default() {
-                return this.$tt('empty');
-            },
         },
         errorImage: {
             type: String,

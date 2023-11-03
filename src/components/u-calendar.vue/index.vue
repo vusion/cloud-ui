@@ -171,8 +171,16 @@ export default {
             yearvisible: false,
             monthvisible: false,
             selectedDate: new Date(this.transformDate(this.date)),
-            quarterTextList: [this.$tt('Q1'), this.$tt('Q2'), this.$tt('Q3'), this.$tt('Q4')],
-            monthTextList: [
+            currentDay: this.transformDate(new Date()),
+            hoveredWeek: [],
+        };
+    },
+    computed: {
+        quarterTextList() {
+            return [this.$tt('Q1'), this.$tt('Q2'), this.$tt('Q3'), this.$tt('Q4')];
+        },
+        monthTextList() {
+            return [
                 this.$tt('January'),
                 this.$tt('February'),
                 this.$tt('March'),
@@ -185,12 +193,8 @@ export default {
                 this.$tt('October'),
                 this.$tt('November'),
                 this.$tt('December'),
-            ],
-            currentDay: this.transformDate(new Date()),
-            hoveredWeek: [],
-        };
-    },
-    computed: {
+            ];
+        },
         showYear: {
             get() {
                 const date = this.transformDate(this.showDate);

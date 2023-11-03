@@ -8,7 +8,7 @@
                 :data="itemVM.$vnode.data" :children="itemVM.$slots.default">
             </u-create-element>
         </template>
-        <u-link v-if="insideVMs.length">{{ menuTitle }} ▾
+        <u-link v-if="insideVMs.length">{{ menuTitle || $tt('more') }} ▾
             <u-popup :placement="placement">
                 <u-menu slot="root">
                     <template v-for="itemVM in insideVMs">
@@ -37,9 +37,6 @@ export default {
         maxCount: { type: Number, default: 3 },
         menuTitle: {
             type: String,
-            default() {
-                return this.$tt('more');
-            },
         },
         placement: { type: String, default: 'bottom-end' },
     },

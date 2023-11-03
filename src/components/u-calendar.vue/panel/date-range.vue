@@ -107,7 +107,11 @@ export default {
             firstDayOfWeek: 7,
             format: '',
             unlinkPanels: false,
-            monthTextList: [
+        };
+    },
+    computed: {
+        monthTextList() {
+            return [
                 this.$tt('January'),
                 this.$tt('February'),
                 this.$tt('March'),
@@ -120,10 +124,8 @@ export default {
                 this.$tt('October'),
                 this.$tt('November'),
                 this.$tt('December'),
-            ],
-        };
-    },
-    computed: {
+            ];
+        },
         selectionMode() {
             return this.picker === 'date' ? 'range' : 'week-range';
         },

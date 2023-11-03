@@ -68,7 +68,15 @@ export default {
 
     data() {
         return {
-            monthTextList: [
+            tableRows: [[], [], [], []],
+            lastRow: null,
+            lastColumn: null,
+        };
+    },
+
+    computed: {
+        monthTextList() {
+            return [
                 this.$tt('January'),
                 this.$tt('February'),
                 this.$tt('March'),
@@ -81,14 +89,8 @@ export default {
                 this.$tt('October'),
                 this.$tt('November'),
                 this.$tt('December'),
-            ],
-            tableRows: [[], [], [], []],
-            lastRow: null,
-            lastColumn: null,
-        };
-    },
-
-    computed: {
+            ];
+        },
         rows() {
             // TODO: refactory rows / getCellClasses
             const rows = this.tableRows;

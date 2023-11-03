@@ -77,7 +77,14 @@ export default {
     },
     data() {
         return {
-            weekDayTexts: [
+            selectedDateKey: this.selectedDates.length > 0 ? this.selectedDates[0].format(DefaultFormatType) : undefined,
+            releaseKeyListeners: null,
+            isModKeyPressed: false,
+        };
+    },
+    computed: {
+        weekDayTexts() {
+            return [
                 this.$tt('Monday'),
                 this.$tt('Tuesday'),
                 this.$tt('Wednesday'),
@@ -85,13 +92,8 @@ export default {
                 this.$tt('Friday'),
                 this.$tt('Saturday'),
                 this.$tt('Sunday'),
-            ],
-            selectedDateKey: this.selectedDates.length > 0 ? this.selectedDates[0].format(DefaultFormatType) : undefined,
-            releaseKeyListeners: null,
-            isModKeyPressed: false,
-        };
-    },
-    computed: {
+            ];
+        },
         realWeekDayTexts() {
             const { firstDayOfWeek, weekDayTexts } = this;
             if (firstDayOfWeek === 1)

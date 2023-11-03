@@ -33,7 +33,7 @@
             </component>
         </div>
         <div :class="$style.status" status="loading" v-if="currentLoading" vusion-slot-name="loading">
-            <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
+            <slot name="loading"><u-spinner></u-spinner> {{ loadingText || $tt('loading') }}</slot>
             <s-empty v-if="$env.VUE_APP_DESIGNER
                 && !$slots.loading
                 && $scopedSlots
@@ -42,7 +42,7 @@
             </s-empty>
         </div>
         <div :class="$style.status" status="error" v-else-if="currentData === null || currentError" vusion-slot-name="error">
-            <slot name="error">{{ errorText }}</slot>
+            <slot name="error">{{ errorText || $tt('error') }}</slot>
             <s-empty v-if="$env.VUE_APP_DESIGNER
                 && !$slots.error
                 && $scopedSlots
@@ -57,7 +57,7 @@
             {{ $tt('noMore') }}
         </div>
         <div :class="$style.status" v-else-if="currentData && !currentData.length || currentEmpty" vusion-slot-name="empty">
-            <slot name="empty">{{ emptyText }}</slot>
+            <slot name="empty">{{ emptyText || $tt('empty') }}</slot>
             <s-empty v-if="$env.VUE_APP_DESIGNER
                 && !$slots.empty
                 && $scopedSlots
@@ -122,22 +122,13 @@ export default {
         loading: { type: Boolean, default: false },
         loadingText: {
             type: String,
-            default() {
-                return this.$tt('loading');
-            },
         },
         error: { type: Boolean, default: false },
         errorText: {
             type: String,
-            default() {
-                return this.$tt('error');
-            },
         },
         emptyText: {
             type: String,
-            default() {
-                return this.$tt('empty');
-            },
         },
         initialLoad: { type: Boolean, default: true },
         filterable: { type: Boolean, default: false },

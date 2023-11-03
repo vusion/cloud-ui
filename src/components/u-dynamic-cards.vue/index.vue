@@ -9,7 +9,7 @@
         </template>
         <slot :item="item" :index="index"></slot>
     </u-dynamic-card>
-    <u-form-table-add-button v-if="dynamic" :disabled="currentData.length >= maxCount" @click="add">{{ addButtonText }}</u-form-table-add-button>
+    <u-form-table-add-button v-if="dynamic" :disabled="currentData.length >= maxCount" @click="add">{{ addButtonText || $tt('add') }}</u-form-table-add-button>
 </u-linear-layout>
 </template>
 
@@ -30,9 +30,6 @@ export default {
         index: { type: Number, default: 0 },
         addButtonText: {
             type: String,
-            default() {
-                return this.$tt('add');
-            },
         },
         miniFormatter: Function,
     },

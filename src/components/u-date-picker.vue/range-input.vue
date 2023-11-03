@@ -11,7 +11,7 @@
             :autofocus="autofocus"
             :readonly="readonly"
             :disabled="disabled"
-            :placeholder="placeholder"
+            :placeholder="placeholder || $tt('selectDateText')"
             @click.stop="onLeftClick"
             @focus="onFocus"
             @blur="onBlur"
@@ -33,7 +33,7 @@
             :autofocus="autofocus"
             :readonly="readonly"
             :disabled="disabled"
-            :placeholder="placeholder"
+            :placeholder="placeholder || $tt('selectDateText')"
             :clearable="clearable"
             @click.stop="onRightClick"
             @focus="onFocus"
@@ -73,9 +73,6 @@ export default {
         readonly: { type: Boolean, default: false },
         placeholder: {
             type: String,
-            default() {
-                return this.$tt('selectDateText');
-            },
         },
         clearable: { type: Boolean, default: false },
         color: { type: String },

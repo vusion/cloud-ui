@@ -10,7 +10,7 @@
         :readonly="readonly"
         :disabled="disabled"
         :clearable="clearable"
-        :placeholder="placeholder"
+        :placeholder="placeholder || $tt('selectDateText')"
         :prefix="preIcon ? preIcon : undefined"
         :suffix="suffixIcon ? suffixIcon : undefined"
         :color="formItemVM && formItemVM.color"
@@ -81,9 +81,6 @@ export default {
         readonly: { type: Boolean, default: false },
         placeholder: {
             type: String,
-            default() {
-                return this.$tt('selectDateText');
-            },
         },
         alignment: {
             type: String,

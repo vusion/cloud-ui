@@ -106,10 +106,12 @@ export default {
     data() {
         return {
             inputTime: this.value || this.time,
-            placeholder: this.$tt('selectTimeText'),
         };
     },
     computed: {
+        placeholder() {
+            return this.$tt('selectTimeText');
+        },
         validShowFormatters() {
             return formatterOptions[this.minUnit];
         },

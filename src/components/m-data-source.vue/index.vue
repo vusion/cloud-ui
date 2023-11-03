@@ -14,22 +14,13 @@ export default {
         loading: { type: Boolean, default: false },
         loadingText: {
             type: String,
-            default() {
-                return this.$tt('loading');
-            },
         },
         error: { type: Boolean, default: false },
         errorText: {
             type: String,
-            default() {
-                return this.$tt('error');
-            },
         },
         emptyText: {
             type: String,
-            default() {
-                return this.$tt('empty');
-            },
         },
         filterable: { type: Boolean, default: false },
         placeholder: { type: String, default: '请输入' },
