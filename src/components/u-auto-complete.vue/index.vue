@@ -6,8 +6,8 @@
         @click.native="focus"
         @update="$emit('update', $event, this)"
         @change="$emit('change', $event, this)"
-        @keydown.prevent.up="$refs.listView && $refs.listView.shift(-1)"
-        @keydown.prevent.down="$refs.listView && $refs.listView.shift(+1)">
+        @keydown.prevent.stop.up="$refs.listView && $refs.listView.shift(-1)"
+        @keydown.prevent.stop.down="$refs.listView && $refs.listView.shift(+1)">
         <m-popper :class="$style.popper" ref="popper" :color="color" :opened.sync="currentOpened"
             append-to="reference"
             trigger="manual"
