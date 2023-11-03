@@ -93,7 +93,7 @@ export default {
         // 根据初始值计算 fix 精度
         const currentPrecision = this.getCurrentPrecision(this.value);
         if (typeof this.value === 'object') {
-            this.value = this.value + '';
+            this.value = String(this.value);
         }
         if (this.value === null || this.value === 'null') {
             this.value = undefined;
@@ -192,7 +192,7 @@ export default {
             }
             let curValue = value;
             if (typeof value === 'object') {
-                curValue = value + '';
+                curValue = String(value);
             }
             if (this.value === null || this.value === 'null') {
                 curValue = undefined;
