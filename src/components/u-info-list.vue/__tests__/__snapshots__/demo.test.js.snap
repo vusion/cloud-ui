@@ -278,7 +278,6 @@ exports[`u-info-list.vue Demo-与表格结合 1`] = `
                         </tr>
                       </tbody>
                     </table>
-                    <div></div>
                   </div>
                 </div>
                 <div class="root" direction="horizontal">

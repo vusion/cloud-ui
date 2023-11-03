@@ -175,7 +175,6 @@ exports[`u-footbar.vue Demo-与列表一起使用 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">

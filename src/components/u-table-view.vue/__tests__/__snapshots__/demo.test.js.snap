@@ -125,7 +125,6 @@ exports[`u-table-view.vue Demo-average 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -211,7 +210,6 @@ exports[`u-table-view.vue Demo-data-source Error 的情况 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -361,7 +359,6 @@ exports[`u-table-view.vue Demo-data-source 函数 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -512,7 +509,6 @@ exports[`u-table-view.vue Demo-data-source 数组 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -602,7 +598,6 @@ exports[`u-table-view.vue Demo-loading 的问题 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -788,7 +783,6 @@ exports[`u-table-view.vue Demo-none 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -943,7 +937,6 @@ exports[`u-table-view.vue Demo-sequence 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -1121,7 +1114,6 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
                             </tr>
                           </tbody>
                         </table>
-                        <div></div>
                       </div>
                     </div>
                     <div class="root" direction="horizontal">
@@ -1311,7 +1303,6 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
                             </tr>
                           </tbody>
                         </table>
-                        <div></div>
                       </div>
                     </div>
                     <div class="root" direction="horizontal">
@@ -1507,7 +1498,6 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
                             </tr>
                           </tbody>
                         </table>
-                        <div></div>
                       </div>
                     </div>
                     <div class="root" direction="horizontal">
@@ -1697,7 +1687,6 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
                             </tr>
                           </tbody>
                         </table>
-                        <div></div>
                       </div>
                     </div>
                     <div class="root" direction="horizontal">
@@ -1979,7 +1968,6 @@ exports[`u-table-view.vue Demo-v-show 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -2224,7 +2212,6 @@ exports[`u-table-view.vue Demo-value-field 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -2454,7 +2441,6 @@ exports[`u-table-view.vue Demo-两个表格拖拽 1`] = `
                       </tr>
                     </tbody>
                   </table>
-                  <div></div>
                 </div>
               </div>
               <div class="root" direction="horizontal">
@@ -2625,7 +2611,6 @@ exports[`u-table-view.vue Demo-两个表格拖拽 1`] = `
                       </tr>
                     </tbody>
                   </table>
-                  <div></div>
                 </div>
               </div>
               <div class="root" direction="horizontal">
@@ -2862,7 +2847,6 @@ exports[`u-table-view.vue Demo-两个表格拖拽 2`] = `
                       </tr>
                     </tbody>
                   </table>
-                  <div></div>
                 </div>
               </div>
               <div class="root" direction="horizontal">
@@ -3033,7 +3017,6 @@ exports[`u-table-view.vue Demo-两个表格拖拽 2`] = `
                       </tr>
                     </tbody>
                   </table>
-                  <div></div>
                 </div>
               </div>
               <div class="root" direction="horizontal">
@@ -3299,7 +3282,6 @@ exports[`u-table-view.vue Demo-两个表格拖拽 3`] = `
                       </tr>
                     </tbody>
                   </table>
-                  <div></div>
                 </div>
               </div>
               <div class="root" direction="horizontal">
@@ -3443,7 +3425,6 @@ exports[`u-table-view.vue Demo-两个表格拖拽 3`] = `
                       </tr>
                     </tbody>
                   </table>
-                  <div></div>
                 </div>
               </div>
               <div class="root" direction="horizontal">
@@ -3782,7 +3763,6 @@ exports[`u-table-view.vue Demo-全部百分比 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -3874,7 +3854,6 @@ exports[`u-table-view.vue Demo-切换时分页调整不回来，分页报错 1`]
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -4067,7 +4046,6 @@ exports[`u-table-view.vue Demo-列插槽 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -4153,7 +4131,6 @@ exports[`u-table-view.vue Demo-刚开始为空的情况 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -4238,7 +4215,6 @@ exports[`u-table-view.vue Demo-前端分页 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -4357,7 +4333,6 @@ exports[`u-table-view.vue Demo-前端排序 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -4482,7 +4457,6 @@ exports[`u-table-view.vue Demo-前端排序不需要 sorting 也能保持状态 
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -4627,7 +4601,6 @@ exports[`u-table-view.vue Demo-前端过滤（筛选） 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -4857,7 +4830,6 @@ exports[`u-table-view.vue Demo-前端过滤（筛选）- 筛选项可多选 1`] 
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -4974,7 +4946,6 @@ exports[`u-table-view.vue Demo-加载中 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -5061,7 +5032,6 @@ exports[`u-table-view.vue Demo-加载中 2`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -5148,7 +5118,6 @@ exports[`u-table-view.vue Demo-加载错误 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -5252,7 +5221,6 @@ exports[`u-table-view.vue Demo-加载错误 2`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -5527,7 +5495,6 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -5641,7 +5608,6 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       </tr>
                     </tbody>
                   </table>
-                  <div></div>
                 </div>
               </div>
               <div class="root" direction="horizontal">
@@ -5769,7 +5735,6 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -6046,7 +6011,6 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -6164,7 +6128,6 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -6358,7 +6321,6 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -6561,7 +6523,6 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -6714,7 +6675,6 @@ exports[`u-table-view.vue Demo-单行省略显示 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -6866,7 +6826,6 @@ exports[`u-table-view.vue Demo-单行颜色 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -7040,7 +6999,6 @@ exports[`u-table-view.vue Demo-单选列 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -7240,7 +7198,6 @@ exports[`u-table-view.vue Demo-单选列 2`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -7327,7 +7284,6 @@ exports[`u-table-view.vue Demo-后端分页 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -7459,7 +7415,6 @@ exports[`u-table-view.vue Demo-后端排序 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -7580,7 +7535,6 @@ exports[`u-table-view.vue Demo-后端排序 2`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -7699,7 +7653,6 @@ exports[`u-table-view.vue Demo-后端排序，前端分页 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -7843,7 +7796,6 @@ exports[`u-table-view.vue Demo-后端过滤（筛选） 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -8014,7 +7966,6 @@ exports[`u-table-view.vue Demo-后端过滤（筛选）- 筛选项可多选 1`] 
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -8158,7 +8109,6 @@ exports[`u-table-view.vue Demo-后端过滤，前端分页 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -8447,7 +8397,6 @@ exports[`u-table-view.vue Demo-固定列 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -8870,7 +8819,6 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -9293,7 +9241,6 @@ exports[`u-table-view.vue Demo-固定列 2`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -9506,7 +9453,6 @@ exports[`u-table-view.vue Demo-多选列 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -9711,7 +9657,6 @@ exports[`u-table-view.vue Demo-多选列 2`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -9916,7 +9861,6 @@ exports[`u-table-view.vue Demo-多选的问题 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -18644,7 +18588,6 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -18885,7 +18828,6 @@ exports[`u-table-view.vue Demo-局部报错 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -19074,7 +19016,6 @@ exports[`u-table-view.vue Demo-展开列 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -19263,7 +19204,6 @@ exports[`u-table-view.vue Demo-展开列 2`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -19452,7 +19392,6 @@ exports[`u-table-view.vue Demo-展开列 3`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -19627,7 +19566,6 @@ exports[`u-table-view.vue Demo-序号列 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -19715,7 +19653,6 @@ exports[`u-table-view.vue Demo-手动加载更多 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -19966,7 +19903,6 @@ exports[`u-table-view.vue Demo-排序+调整列宽 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -20096,7 +20032,6 @@ exports[`u-table-view.vue Demo-数据后来加载过来时，高度应当重新�
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -20353,7 +20288,6 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -20634,7 +20568,6 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -20878,7 +20811,6 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -21078,7 +21010,6 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -21352,7 +21283,6 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -21543,7 +21473,6 @@ exports[`u-table-view.vue Demo-显隐列配置 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
             <div class="root" direction="horizontal">
@@ -21600,7 +21529,6 @@ exports[`u-table-view.vue Demo-普通数据表格 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -21743,7 +21671,6 @@ exports[`u-table-view.vue Demo-条纹展示 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -22058,7 +21985,6 @@ exports[`u-table-view.vue Demo-树型展示 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -22162,7 +22088,6 @@ exports[`u-table-view.vue Demo-树型展示 2`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -22262,7 +22187,6 @@ exports[`u-table-view.vue Demo-树型展示，点击选中 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -22415,7 +22339,6 @@ exports[`u-table-view.vue Demo-格式器 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -22566,7 +22489,6 @@ exports[`u-table-view.vue Demo-格式器 2`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -22985,7 +22907,6 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -23243,7 +23164,6 @@ exports[`u-table-view.vue Demo-步骤条中使用 1`] = `
                       </tr>
                     </tbody>
                   </table>
-                  <div></div>
                 </div>
               </div>
               <div class="root" direction="horizontal">
@@ -23355,7 +23275,6 @@ exports[`u-table-view.vue Demo-没有数据 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -23441,7 +23360,6 @@ exports[`u-table-view.vue Demo-滚动加载更多 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -23669,7 +23587,6 @@ exports[`u-table-view.vue Demo-特殊列与普通功能共用 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -24003,7 +23920,6 @@ exports[`u-table-view.vue Demo-百分比与数字结合，横向滚动 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -24161,7 +24077,6 @@ exports[`u-table-view.vue Demo-省略显示 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -24251,7 +24166,6 @@ exports[`u-table-view.vue Demo-空表格显示数据异常 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -24373,7 +24287,6 @@ exports[`u-table-view.vue Demo-空表格添加数据不会 reload 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -24654,7 +24567,6 @@ exports[`u-table-view.vue Demo-纯前端过滤 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -24906,7 +24818,6 @@ exports[`u-table-view.vue Demo-纯数组前端分页 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -25167,7 +25078,6 @@ exports[`u-table-view.vue Demo-纯数组前端排序 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -25389,7 +25299,6 @@ exports[`u-table-view.vue Demo-编辑行 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -25583,7 +25492,6 @@ exports[`u-table-view.vue Demo-编辑行 2`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -25778,7 +25686,6 @@ exports[`u-table-view.vue Demo-编辑行-new 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -25868,7 +25775,6 @@ exports[`u-table-view.vue Demo-翻页器功能 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -26087,7 +25993,6 @@ exports[`u-table-view.vue Demo-自定义展开列图标 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -26377,7 +26282,6 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -26515,7 +26419,6 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -26945,7 +26848,6 @@ exports[`u-table-view.vue Demo-表头吸顶 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -27373,7 +27275,6 @@ exports[`u-table-view.vue Demo-表头吸顶 2`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -27603,7 +27504,6 @@ exports[`u-table-view.vue Demo-表头吸顶 3`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -27825,7 +27725,6 @@ exports[`u-table-view.vue Demo-表头固定 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -27977,7 +27876,6 @@ exports[`u-table-view.vue Demo-表格线条 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -28129,7 +28027,6 @@ exports[`u-table-view.vue Demo-表格行拖拽 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -28532,7 +28429,6 @@ exports[`u-table-view.vue Demo-表格行拖拽 2`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -31272,7 +31168,6 @@ exports[`u-table-view.vue Demo-表格行拖拽 4`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -31443,7 +31338,6 @@ exports[`u-table-view.vue Demo-表格行拖拽 4`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -31601,7 +31495,6 @@ exports[`u-table-view.vue Demo-表格颜色 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -31724,7 +31617,6 @@ exports[`u-table-view.vue Demo-过滤下拉菜单不应该嵌在表格内部 1`]
                 </tr>
               </tbody>
             </table>
-            <div></div>
           </div>
         </div>
         <div class="root" direction="horizontal">
@@ -31872,7 +31764,6 @@ exports[`u-table-view.vue Demo-隐藏头部 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -32244,7 +32135,6 @@ exports[`u-table-view.vue Demo-隐藏部分列 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -32404,7 +32294,6 @@ exports[`u-table-view.vue Demo-默认多行显示 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
@@ -32556,7 +32445,6 @@ exports[`u-table-view.vue Demo-默认多行显示 2`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">

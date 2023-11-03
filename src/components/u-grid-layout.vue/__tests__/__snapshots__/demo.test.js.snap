@@ -69,7 +69,6 @@ exports[`u-grid-layout.vue Demo- 1`] = `
                   </tr>
                 </tbody>
               </table>
-              <div></div>
             </div>
           </div>
           <div class="root" direction="horizontal">
