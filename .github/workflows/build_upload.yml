@@ -3,10 +3,7 @@ name: Build and Upload
 on:
   push:
     branches:
-      - release/*
-  pull_request:
-    branches:
-      - release/*
+      - release/**
 
 jobs:
   build:
@@ -19,7 +16,8 @@ jobs:
         run: echo "BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
 
       - name: Get version from branch name
-        run: echo "VERSION=$(echo ${{ env.BRANCH_NAME }} | cut -d'/' -f2)" >> $GITHUB_ENV
+        # 从分支名中获取版本号release/v1.0.0 => 1.0.0
+        run: echo "VERSION=$(echo $BRANCH_NAME | sed 's/release\/v//g')" >> $GITHUB_ENV
 
       - name: Set node
         uses: actions/setup-node@v3
