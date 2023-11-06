@@ -7,7 +7,7 @@
             type="text"
             :value="leftValue"
             ref="leftInput"
-            :prefix="preIcon"
+            :prefix="preIcon ? preIcon : undefined"
             :autofocus="autofocus"
             :readonly="readonly"
             :disabled="disabled"
@@ -29,7 +29,7 @@
             :value="rightValue"
             ref="rightInput"
             prefix
-            :suffix="suffixIcon"
+            :suffix="suffixIcon ? suffixIcon : undefined"
             :autofocus="autofocus"
             :readonly="readonly"
             :disabled="disabled"

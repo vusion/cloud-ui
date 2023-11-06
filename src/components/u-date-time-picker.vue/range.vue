@@ -305,8 +305,8 @@ export default {
             'update',
             this.startDateTime && this.endDateTime ? [startDateTime, endDateTime] : '',
         );
-        this.$emit('update:startDate', startDateTime);
-        this.$emit('update:endDate', endDateTime);
+        this.$emit('update:startDate', startDateTime === '' ? undefined : startDateTime);
+        this.$emit('update:endDate', endDateTime === '' ? undefined : endDateTime);
     },
     mounted() {
         this.autofocus && this.$refs.input.focus();
