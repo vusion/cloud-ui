@@ -169,7 +169,7 @@ export default {
         }
     },
     updated() {
-        if (this.enableCollapse && this.collapse && this.$el && this.currentWidth) {
+        if (this.enableCollapse && this.currentCollapse && this.$el && this.currentWidth) {
             this.$nextTick(() => {
                 this.$el.style.width = `${this.currentWidth}px`;
             });
