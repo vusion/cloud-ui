@@ -31,7 +31,7 @@ import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-dynamic-card',
-    mixins: [UValidator, i18nMixin('u-dynamic-card')],
+    mixins: [UValidator, i18nMixin('u-dynamic-cards')],
     // i18n,
     props: { item: Object, index: Number, disableRemove: Boolean },
     data() {
