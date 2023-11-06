@@ -11,7 +11,6 @@ on:
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -21,10 +20,26 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Get changed files
+      id: files
+      run: |
+        if [ "${{ github.event_name }}" = "push" ]; then
+          echo "::set-output name=changed::true"
+        elif [ "${{ github.event_name }}" = "pull_request" ]; then
+          git fetch origin ${{ github.event.pull_request.head.sha }}
+          git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} > changed_files.txt
+          changed_count=$(cat changed_files.txt | grep -E "\.(vue|js|md)$" | wc -l | awk '{print $1}')
+          echo $changed_count
+          echo "::set-output name=changed::$([ $changed_count -gt 0 ] && echo "true" || echo "false")"
+        fi
+    - run: echo "${{ toJson(steps.files.outputs.changed) }}"
     - name: Use Node.js ${{ matrix.node-version }}
+      if:  ${{ steps.files.outputs.changed == 'true' }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm test
+    - if: ${{ steps.files.outputs.changed == 'true' }}
+      run: npm ci
+    - if: ${{ steps.files.outputs.changed == 'true' }}
+      run: npm test

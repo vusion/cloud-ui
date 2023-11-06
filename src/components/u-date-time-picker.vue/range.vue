@@ -361,6 +361,7 @@ export default {
         clearValue() {
             this.finalStartDateTime = undefined;
             this.finalEndDateTime = undefined;
+            this.emitValue();
         },
         toValue(date) {
             if (!date)

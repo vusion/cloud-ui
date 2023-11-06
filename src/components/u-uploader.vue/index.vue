@@ -41,7 +41,7 @@
                 </div>
                 <div v-else>
                     <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
-                    <a :class="$style.link" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name }}</a>
+                    <a :class="$style.link" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name || item.url }}</a>
                     <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
                     <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                 </div>
@@ -201,12 +201,14 @@ export default {
                     }),
                 },
                 'file-name': {
-                    is: 'u-text',
-                    getProps: (item) => ({
-                        text: item.name,
-                        title: item.name,
-                    }),
-                },
+                    is: 'u-text', 
+                    getProps: (item) => {
+                        return {
+                            text: item.name || item.url,
+                            title: item.name || item.url,
+                        }
+                    }
+                }, 
                 'file-size': {
                     is: 'u-text',
                     getProps: (item) => ({
@@ -303,8 +305,8 @@ export default {
             return true;
         },
         fileTypeIcon(item) {
-            const iconInfo = Object.entries(this.iconMap).find(([type]) => type.includes(item.name.split('.').pop()));
-            return iconInfo ? (iconInfo[1] || 'file-default') : 'file-default';
+            const iconInfo = Object.entries(this.iconMap).find(([type]) => type.includes((item.name || item.url).split('.').pop()));
+            return !!iconInfo ? (iconInfo[1] || 'file-default') : 'file-default'
         },
         encodeUrl(url) {
             return encodeURI(url);
