@@ -31,9 +31,12 @@
 import UModalReal from './index.vue';
 import UVisibleModal from './visibleModal.vue';
 import i18n from './i18n';
+import i18nMixin from '../../mixins/i18n';
+
 export const UModal = {
     name: 'u-modal',
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-modal')],
     component: {
         UModalReal,
         UVisibleModal,
@@ -47,13 +50,13 @@ export const UModal = {
         okButton: {
             type: String,
             default() {
-                return this.$t('ok');
+                return this.$tt('ok');
             },
         },
         cancelButton: {
             type: String,
             default() {
-                return this.$t('cancel');
+                return this.$tt('cancel');
             },
         },
         primaryButton: { type: String, default: 'okButton' },

@@ -22,6 +22,7 @@ import {
     coerceTruthyValueToArray,
 } from '../util';
 import i18n from '../i18n';
+import i18nMixin from '../../../mixins/i18n';
 
 const datesInMonth = (year, month) => {
     const numOfDays = getDayCountOfMonth(year, month);
@@ -37,7 +38,8 @@ const removeFromArray = function (arr, pred) {
     return idx >= 0 ? [...arr.slice(0, idx), ...arr.slice(idx + 1)] : arr;
 };
 export default {
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-calendar')],
     props: {
         disabledDate: {},
         value: {},
@@ -67,18 +69,18 @@ export default {
     data() {
         return {
             monthTextList: [
-                this.$t('January'),
-                this.$t('February'),
-                this.$t('March'),
-                this.$t('April'),
-                this.$t('May'),
-                this.$t('June'),
-                this.$t('July'),
-                this.$t('August'),
-                this.$t('September'),
-                this.$t('October'),
-                this.$t('November'),
-                this.$t('December'),
+                this.$tt('January'),
+                this.$tt('February'),
+                this.$tt('March'),
+                this.$tt('April'),
+                this.$tt('May'),
+                this.$tt('June'),
+                this.$tt('July'),
+                this.$tt('August'),
+                this.$tt('September'),
+                this.$tt('October'),
+                this.$tt('November'),
+                this.$tt('December'),
             ],
             tableRows: [[], [], [], []],
             lastRow: null,

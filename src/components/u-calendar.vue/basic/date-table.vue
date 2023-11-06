@@ -11,7 +11,7 @@
         v-for="(week, index) in WEEKS"
         :class="{ [$style.weekend]: index === 0 || index === 6 }"
         :key="index">
-        {{ $t(week) }}
+        {{ $tt(week) }}
       </th>
     </tr>
     <tr
@@ -47,6 +47,7 @@ import {
 } from '../util';
 import i18n from '../i18n';
 import dayjs from '../../../utils/dayjs';
+import i18nMixin from '../../../mixins/i18n';
 
 const WEEKS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -59,7 +60,8 @@ const removeFromArray = function (arr, pred) {
 };
 
 export default {
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-calendar')],
 
     filters: {
         formatDay(value) {

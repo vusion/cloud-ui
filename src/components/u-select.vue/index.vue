@@ -135,6 +135,7 @@ import i18n from './i18n';
 import DataSource from '../../utils/DataSource';
 import DataSourceNew from '../../utils/DataSource/new';
 import AllCheck from './allCheck.vue';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-select',
@@ -146,7 +147,8 @@ export default {
     isSelect: true,
     directives: { ellipsisTitle },
     extends: UListView,
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-select')],
     props: {
         // @inherit: value: { type: String, default: '' },
         // @inherit: value: Array,
@@ -172,7 +174,7 @@ export default {
         emptyText: {
             type: String,
             default() {
-                return this.$t('empty');
+                return this.$tt('empty');
             },
         },
         emptyDisabled: { type: Boolean, default: false }, // @inherit: initialLoad: { type: Boolean, default: true },

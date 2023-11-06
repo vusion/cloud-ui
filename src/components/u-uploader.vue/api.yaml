@@ -603,3 +603,10 @@
       title: 选择
       description: 选择文件上传
       params: []
+  i18n:
+    zh-CN:
+      uUploader_extensionError: '只能上传{extensions}类型的文件！'
+    en-US:
+      uUploader_extensionError: 'Only {extensions} files are permitted to upload!'
+    ja:
+      uUploader_extensionError: 'ファイルタイプは{extensions}のみアップロードできます！'
