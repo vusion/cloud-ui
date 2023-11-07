@@ -283,7 +283,9 @@
                                             </template>
                                             <template v-else>
                                                 <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
-                                                    <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                    <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">
+                                                        {{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}
+                                                    </span>
                                                 </f-slot>
                                             </template>
 
