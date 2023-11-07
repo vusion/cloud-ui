@@ -4938,7 +4938,7 @@ exports[`u-time-picker.vue Demo-格式化 1`] = `
   </span>
   <span class="root">
     <div class="root input" prefix="time">
-      <div class="input" height="full" prefix="calendar">
+      <div class="input" height="full" prefix="calendar" width="full">
         <span>b</span>
         <span></span>
         <span name="calendar">
@@ -4952,14 +4952,12 @@ exports[`u-time-picker.vue Demo-格式化 1`] = `
             </div>
           </span>
         </span>
-        <input height="full" type="text">
+        <input height="full" type="text" width="full">
       </div>
-      <div class="input" clearable="18时18分33秒" height="full" prefix width="full">
+      <span class="toIcon"></span>
+      <div class="input" clearable="18时18分33秒" height="full" width="full">
         <span>b</span>
         <span></span>
-        <span name>
-          <span class="toIcon"></span>
-        </span>
         <input height="full" type="text" width="full">
         <span>
           <span></span>
@@ -6527,7 +6525,7 @@ exports[`u-time-picker.vue Demo-范围选择 1`] = `
 <div>
   <span class="root">
     <div class="root input" prefix="time">
-      <div class="input" height="full" prefix="calendar">
+      <div class="input" height="full" prefix="calendar" width="full">
         <span>b</span>
         <span></span>
         <span name="calendar">
@@ -6541,14 +6539,12 @@ exports[`u-time-picker.vue Demo-范围选择 1`] = `
             </div>
           </span>
         </span>
-        <input height="full" type="text">
+        <input height="full" type="text" width="full">
       </div>
-      <div class="input" clearable="18:18:33" height="full" prefix width="full">
+      <span class="toIcon"></span>
+      <div class="input" clearable="18:18:33" height="full" width="full">
         <span>b</span>
         <span></span>
-        <span name>
-          <span class="toIcon"></span>
-        </span>
         <input height="full" type="text" width="full">
         <span>
           <span></span>
@@ -7581,7 +7577,7 @@ exports[`u-time-picker.vue Demo-范围选择分钟 1`] = `
 <div>
   <span class="root">
     <div class="root input" prefix="time">
-      <div class="input" height="full" prefix="calendar">
+      <div class="input" height="full" prefix="calendar" width="full">
         <span>b</span>
         <span></span>
         <span name="calendar">
@@ -7595,14 +7591,12 @@ exports[`u-time-picker.vue Demo-范围选择分钟 1`] = `
             </div>
           </span>
         </span>
-        <input height="full" type="text">
+        <input height="full" type="text" width="full">
       </div>
-      <div class="input" clearable="18:18" height="full" prefix width="full">
+      <span class="toIcon"></span>
+      <div class="input" clearable="18:18" height="full" width="full">
         <span>b</span>
         <span></span>
-        <span name>
-          <span class="toIcon"></span>
-        </span>
         <input height="full" type="text" width="full">
         <span>
           <span></span>
@@ -8238,7 +8232,7 @@ exports[`u-time-picker.vue Demo-范围选择分钟 1`] = `
 exports[`u-time-picker.vue Demo-范围选择变量绑定 1`] = `
 <span class="root">
   <div class="root input" prefix="time">
-    <div class="input" height="full" prefix="calendar">
+    <div class="input" height="full" prefix="calendar" width="full">
       <span>b</span>
       <span></span>
       <span name="calendar">
@@ -8252,14 +8246,12 @@ exports[`u-time-picker.vue Demo-范围选择变量绑定 1`] = `
           </div>
         </span>
       </span>
-      <input height="full" type="text">
+      <input height="full" type="text" width="full">
     </div>
-    <div class="input" clearable="18:18:33" height="full" prefix width="full">
+    <span class="toIcon"></span>
+    <div class="input" clearable="18:18:33" height="full" width="full">
       <span>b</span>
       <span></span>
-      <span name>
-        <span class="toIcon"></span>
-      </span>
       <input height="full" type="text" width="full">
       <span>
         <span></span>
@@ -9839,7 +9831,7 @@ exports[`u-time-picker.vue Demo-表单验证 1`] = `
         <div class="wrap" vusion-slot-name="default">
           <span class="root">
             <div class="root input" color prefix="time">
-              <div class="input" height="full" prefix="calendar">
+              <div class="input" height="full" prefix="calendar" width="full">
                 <span>b</span>
                 <span></span>
                 <span name="calendar">
@@ -9853,14 +9845,12 @@ exports[`u-time-picker.vue Demo-表单验证 1`] = `
                     </div>
                   </span>
                 </span>
-                <input height="full" type="text">
+                <input height="full" type="text" width="full">
               </div>
-              <div class="input" clearable="18:18:33" height="full" prefix width="full">
+              <span class="toIcon"></span>
+              <div class="input" clearable="18:18:33" height="full" width="full">
                 <span>b</span>
                 <span></span>
-                <span name>
-                  <span class="toIcon"></span>
-                </span>
                 <input height="full" type="text" width="full">
                 <span>
                   <span></span>
