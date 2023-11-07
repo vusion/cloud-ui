@@ -765,7 +765,7 @@ exports[`u-date-picker.vue Demo-周范围选择 1`] = `
 <div>
   <div class="root">
     <div class="root input">
-      <div class="input" height="full" prefix="calendar">
+      <div class="input" height="full" prefix="calendar" width="full">
         <span>b</span>
         <span></span>
         <span name="calendar">
@@ -779,14 +779,12 @@ exports[`u-date-picker.vue Demo-周范围选择 1`] = `
             </div>
           </span>
         </span>
-        <input height="full" type="text">
+        <input height="full" type="text" width="full">
       </div>
-      <div class="input" clearable="2023-W12" height="full" prefix width="full">
+      <span class="toIcon"></span>
+      <div class="input" clearable="2023-W12" height="full" width="full">
         <span>b</span>
         <span></span>
-        <span name>
-          <span class="toIcon"></span>
-        </span>
         <input height="full" type="text" width="full">
         <span>
           <span></span>
@@ -2992,7 +2990,7 @@ exports[`u-date-picker.vue Demo-季度范围选择 1`] = `
 <div>
   <div class="root">
     <div class="root input">
-      <div class="input" height="full" prefix="calendar">
+      <div class="input" height="full" prefix="calendar" width="full">
         <span>b</span>
         <span></span>
         <span name="calendar">
@@ -3006,14 +3004,12 @@ exports[`u-date-picker.vue Demo-季度范围选择 1`] = `
             </div>
           </span>
         </span>
-        <input height="full" type="text">
+        <input height="full" type="text" width="full">
       </div>
-      <div class="input" height="full" prefix width="full">
+      <span class="toIcon"></span>
+      <div class="input" height="full" width="full">
         <span>b</span>
         <span></span>
-        <span name>
-          <span class="toIcon"></span>
-        </span>
         <input height="full" type="text" width="full">
       </div>
     </div>
@@ -3288,7 +3284,7 @@ exports[`u-date-picker.vue Demo-年度范围选择 1`] = `
 <div>
   <div class="root">
     <div class="root input">
-      <div class="input" height="full" prefix="calendar">
+      <div class="input" height="full" prefix="calendar" width="full">
         <span>b</span>
         <span></span>
         <span name="calendar">
@@ -3302,14 +3298,12 @@ exports[`u-date-picker.vue Demo-年度范围选择 1`] = `
             </div>
           </span>
         </span>
-        <input height="full" type="text">
+        <input height="full" type="text" width="full">
       </div>
-      <div class="input" height="full" prefix width="full">
+      <span class="toIcon"></span>
+      <div class="input" height="full" width="full">
         <span>b</span>
         <span></span>
-        <span name>
-          <span class="toIcon"></span>
-        </span>
         <input height="full" type="text" width="full">
       </div>
     </div>
@@ -4582,7 +4576,7 @@ exports[`u-date-picker.vue Demo-日期范围只读 1`] = `
 <div>
   <div class="root">
     <div class="root input">
-      <div class="input" height="full" prefix="calendar" readonly="readonly">
+      <div class="input" height="full" prefix="calendar" readonly="readonly" width="full">
         <span>b</span>
         <span></span>
         <span name="calendar">
@@ -4596,14 +4590,12 @@ exports[`u-date-picker.vue Demo-日期范围只读 1`] = `
             </div>
           </span>
         </span>
-        <input height="full" readonly="readonly" type="text">
+        <input height="full" readonly="readonly" type="text" width="full">
       </div>
-      <div class="input" height="full" prefix readonly="readonly" width="full">
+      <span class="toIcon"></span>
+      <div class="input" height="full" readonly="readonly" width="full">
         <span>b</span>
         <span></span>
-        <span name>
-          <span class="toIcon"></span>
-        </span>
         <input height="full" readonly="readonly" type="text" width="full">
       </div>
     </div>
@@ -5344,7 +5336,7 @@ exports[`u-date-picker.vue Demo-日期范围只读 1`] = `
 exports[`u-date-picker.vue Demo-日期范围复杂情况 1`] = `
 <div class="root" width="large">
   <div class="root input">
-    <div class="input" height="full" prefix="home">
+    <div class="input" height="full" prefix="home" width="full">
       <span>b</span>
       <span></span>
       <span name="home">
@@ -5358,14 +5350,12 @@ exports[`u-date-picker.vue Demo-日期范围复杂情况 1`] = `
           </div>
         </span>
       </span>
-      <input height="full" type="text">
+      <input height="full" type="text" width="full">
     </div>
-    <div class="input" clearable="2023-03-20" height="full" prefix suffix="time" width="full">
+    <span class="toIcon"></span>
+    <div class="input" clearable="2023-03-20" height="full" suffix="time" width="full">
       <span>b</span>
       <span></span>
-      <span name>
-        <span class="toIcon"></span>
-      </span>
       <input height="full" type="text" width="full">
       <span>
         <span>
@@ -6120,7 +6110,7 @@ exports[`u-date-picker.vue Demo-日期范围禁用 1`] = `
 <div>
   <div class="root">
     <div class="root input">
-      <div class="input" disabled="disabled" height="full" prefix="calendar">
+      <div class="input" disabled="disabled" height="full" prefix="calendar" width="full">
         <span>b</span>
         <span></span>
         <span name="calendar">
@@ -6134,14 +6124,12 @@ exports[`u-date-picker.vue Demo-日期范围禁用 1`] = `
             </div>
           </span>
         </span>
-        <input disabled="disabled" height="full" type="text">
+        <input disabled="disabled" height="full" type="text" width="full">
       </div>
-      <div class="input" disabled="disabled" height="full" prefix width="full">
+      <span class="toIcon"></span>
+      <div class="input" disabled="disabled" height="full" width="full">
         <span>b</span>
         <span></span>
-        <span name>
-          <span class="toIcon"></span>
-        </span>
         <input disabled="disabled" height="full" type="text" width="full">
       </div>
     </div>
@@ -6883,7 +6871,7 @@ exports[`u-date-picker.vue Demo-日期范围选择 1`] = `
 <div>
   <div class="root">
     <div class="root input">
-      <div class="input" height="full" prefix="calendar">
+      <div class="input" height="full" prefix="calendar" width="full">
         <span>b</span>
         <span></span>
         <span name="calendar">
@@ -6897,14 +6885,12 @@ exports[`u-date-picker.vue Demo-日期范围选择 1`] = `
             </div>
           </span>
         </span>
-        <input height="full" type="text">
+        <input height="full" type="text" width="full">
       </div>
-      <div class="input" clearable="2023-03-20" height="full" prefix width="full">
+      <span class="toIcon"></span>
+      <div class="input" clearable="2023-03-20" height="full" width="full">
         <span>b</span>
         <span></span>
-        <span name>
-          <span class="toIcon"></span>
-        </span>
         <input height="full" type="text" width="full">
         <span>
           <span></span>
@@ -8031,7 +8017,7 @@ exports[`u-date-picker.vue Demo-月份范围选择 1`] = `
 <div>
   <div class="root">
     <div class="root input">
-      <div class="input" height="full" prefix="calendar">
+      <div class="input" height="full" prefix="calendar" width="full">
         <span>b</span>
         <span></span>
         <span name="calendar">
@@ -8045,14 +8031,12 @@ exports[`u-date-picker.vue Demo-月份范围选择 1`] = `
             </div>
           </span>
         </span>
-        <input height="full" type="text">
+        <input height="full" type="text" width="full">
       </div>
-      <div class="input" clearable="2022-03" height="full" prefix width="full">
+      <span class="toIcon"></span>
+      <div class="input" clearable="2022-03" height="full" width="full">
         <span>b</span>
         <span></span>
-        <span name>
-          <span class="toIcon"></span>
-        </span>
         <input height="full" type="text" width="full">
         <span>
           <span></span>
@@ -9584,7 +9568,7 @@ exports[`u-date-picker.vue Demo-表单验证 1`] = `
         <div class="wrap" vusion-slot-name="default">
           <div class="root">
             <div class="root input" color>
-              <div class="input" height="full" prefix="calendar">
+              <div class="input" height="full" prefix="calendar" width="full">
                 <span>b</span>
                 <span></span>
                 <span name="calendar">
@@ -9598,14 +9582,12 @@ exports[`u-date-picker.vue Demo-表单验证 1`] = `
                     </div>
                   </span>
                 </span>
-                <input height="full" type="text">
+                <input height="full" type="text" width="full">
               </div>
-              <div class="input" clearable="2022-03-20" height="full" prefix width="full">
+              <span class="toIcon"></span>
+              <div class="input" clearable="2022-03-20" height="full" width="full">
                 <span>b</span>
                 <span></span>
-                <span name>
-                  <span class="toIcon"></span>
-                </span>
                 <input height="full" type="text" width="full">
                 <span>
                   <span></span>
