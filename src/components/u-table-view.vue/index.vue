@@ -900,7 +900,7 @@ export default {
         this.watchValue(this.value);
         this.watchValues(this.values);
         this.handleResize();
-        addResizeListener(this.$el, this.handleResize);
+        addResizeListener(this.$el, this.handleResizeListener);
 
         if (this.stickHead) {
             this.scrollParentEl = findScrollParent(this.$el);
@@ -908,7 +908,7 @@ export default {
         }
     },
     destroyed() {
-        removeResizeListener(this.$el, this.handleResize);
+        removeResizeListener(this.$el, this.handleResizeListener);
         if (this.stickHead) {
             this.scrollParentEl && this.scrollParentEl.removeEventListener('scroll', this.onScrollParentScroll);
         }
@@ -1070,7 +1070,7 @@ export default {
         number2Pixel(value) {
             return isNumber(value) ? value + 'px' : '';
         },
-        handleResize() {
+        handleResize(reComputedWidth = true) {
             if (this.resizeBodyHeight) {
                 this.bodyHeight = undefined;
             }
@@ -1079,10 +1079,6 @@ export default {
                 this.timer = undefined;
 
                 let rootWidth = this.$el.offsetWidth;
-                // 放在线性布局flex下，或者某些设置了fit-content，table-width会缓慢增长，导致表格一直动
-                if (rootWidth > this.tableWidth && rootWidth - this.tableWidth <= 5) {
-                    rootWidth = this.tableWidth;
-                }
                 if (!rootWidth) {
                     // 初始表格隐藏时，上面的值为0，需要特殊处理
                     let parentEl = this.$el && this.$el.parentElement;
@@ -1091,130 +1087,135 @@ export default {
                     rootWidth = parentEl ? parentEl.offsetWidth : 0;
                 }
 
-                // 分别获取有百分比、具体数值和无 width 的列
-                const percentColumnVMs = [];
-                const valueColumnVMs = [];
-                const noWidthColumnVMs = []; // 统计固定列的数量
-                let fixedLeftCount = 0;
-                let fixedRightCount = 0;
-                let lastIsFixed = false;
-                let defaultColumnWidth = this.defaultColumnWidth;
-                if (String(defaultColumnWidth).endsWith('%')) {
-                    defaultColumnWidth = (parseFloat(defaultColumnWidth) * rootWidth) / 100;
-                }
-                defaultColumnWidth = defaultColumnWidth || 0;
-                this.visibleColumnVMs.forEach((columnVM, index) => {
-                    if (!columnVM.currentWidth) {
-                        noWidthColumnVMs.push(columnVM);
-                    } else if (String(columnVM.currentWidth).endsWith('%'))
-                        percentColumnVMs.push(columnVM);
-                    else
-                        valueColumnVMs.push(columnVM);
-                    // 当右侧有fixed，到当前列的时候却是非fixed，fixedRightCount置为0
-                    if (fixedRightCount && !columnVM.fixed) {
-                        fixedRightCount = 0;
+                // 重新计算列宽等，会导致表格重新渲染，如果组件因为重新渲染而加载，会导致宽高变化，导致handleResize再次触发
+                // 如果是监听Resize事件进来的，如果reComputedWidth是false，就不要重复计算
+                if (reComputedWidth) {
+                    this.preRootWidth = rootWidth;
+                    // 分别获取有百分比、具体数值和无 width 的列
+                    const percentColumnVMs = [];
+                    const valueColumnVMs = [];
+                    const noWidthColumnVMs = []; // 统计固定列的数量
+                    let fixedLeftCount = 0;
+                    let fixedRightCount = 0;
+                    let lastIsFixed = false;
+                    let defaultColumnWidth = this.defaultColumnWidth;
+                    if (String(defaultColumnWidth).endsWith('%')) {
+                        defaultColumnWidth = (parseFloat(defaultColumnWidth) * rootWidth) / 100;
                     }
-                    if (columnVM.fixed) {
-                        if (index === 0)
-                            fixedLeftCount = 1;
-                        else if (fixedLeftCount === index && lastIsFixed)
-                            fixedLeftCount++;
-                        else if (!lastIsFixed) {
-                            fixedRightCount = 1;
-                        } else
-                            fixedRightCount++;
-                    }
-                    lastIsFixed = columnVM.fixed;
-                });
-
-                // 全部都是百分数的情况，按比例缩小
-                if (percentColumnVMs.length === this.visibleColumnVMs.length) {
-                    const sumWidth = percentColumnVMs.reduce((prev, columnVM) => prev + parseFloat(columnVM.currentWidth), 0);
-                    if (sumWidth !== 100) {
-                        percentColumnVMs.forEach((columnVM) => {
-                            columnVM.currentWidth = (parseFloat(columnVM.currentWidth) / sumWidth) * 100 + '%';
-                        });
-                    }
-                }
-
-                // 全部都是数值的情况，按实际大小
-                const percentWidthSum = percentColumnVMs.reduce((prev, columnVM) => {
-                    columnVM.computedWidth = (parseFloat(columnVM.currentWidth) * rootWidth) / 100;
-                    return prev + columnVM.computedWidth;
-                }, 0);
-                const valueWidthSum = valueColumnVMs.reduce((prev, columnVM) => {
-                    columnVM.computedWidth = parseFloat(columnVM.currentWidth);
-                    return prev + columnVM.computedWidth;
-                }, 0);
-
-                const remainingWidth = rootWidth - percentWidthSum - valueWidthSum;
-                if (remainingWidth > 0 && noWidthColumnVMs.length) {
-                    const averageWidth = remainingWidth / noWidthColumnVMs.length;
-                    const finalWidth = averageWidth > defaultColumnWidth ? averageWidth : defaultColumnWidth;
-                    noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = finalWidth);
-                } else if (remainingWidth > 0 && valueWidthSum !== 0) {
-                    const averageWidth = remainingWidth / valueColumnVMs.length;
-                    valueColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
-                } else if (remainingWidth < 0 && noWidthColumnVMs.length) {
-                    noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = defaultColumnWidth || 100);
-                }
-
-                // 如果所有列均有值，则总宽度有超出的可能。否则总宽度为根节点的宽度。
-                let tableWidth = '';
-                if (this.visibleColumnVMs.some((columnVM) => columnVM.currentWidth) || defaultColumnWidth) {
-                    tableWidth = this.visibleColumnVMs.reduce((prev, columnVM) => {
-                        if (String(columnVM.currentWidth).endsWith('%'))
-                            return (prev + (parseFloat(columnVM.currentWidth) * rootWidth) / 100);
+                    defaultColumnWidth = defaultColumnWidth || 0;
+                    this.visibleColumnVMs.forEach((columnVM, index) => {
+                        if (!columnVM.currentWidth) {
+                            noWidthColumnVMs.push(columnVM);
+                        } else if (String(columnVM.currentWidth).endsWith('%'))
+                            percentColumnVMs.push(columnVM);
                         else
-                            return prev + columnVM.computedWidth;
-                    }, 0);
-                    this.tableWidth = tableWidth;
-                } else
-                    this.tableWidth = tableWidth = rootWidth; // @important: Work with overflow-x: hidden to prevent two horizontal scrollbar
+                            valueColumnVMs.push(columnVM);
+                        // 当右侧有fixed，到当前列的时候却是非fixed，fixedRightCount置为0
+                        if (fixedRightCount && !columnVM.fixed) {
+                            fixedRightCount = 0;
+                        }
+                        if (columnVM.fixed) {
+                            if (index === 0)
+                                fixedLeftCount = 1;
+                            else if (fixedLeftCount === index && lastIsFixed)
+                                fixedLeftCount++;
+                            else if (!lastIsFixed) {
+                                fixedRightCount = 1;
+                            } else
+                                fixedRightCount++;
+                        }
+                        lastIsFixed = columnVM.fixed;
+                    });
 
-                const tableMetaList = [this.tableMetaList[0]];
-                tableMetaList[0].width = rootWidth;
-                if (!this.useStickyFixed) {
-                    if (fixedLeftCount) {
-                        tableMetaList.push({
-                            position: 'left',
-                            width: this.visibleColumnVMs.slice(0, fixedLeftCount)
-                                .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
-                        });
+                    // 全部都是百分数的情况，按比例缩小
+                    if (percentColumnVMs.length === this.visibleColumnVMs.length) {
+                        const sumWidth = percentColumnVMs.reduce((prev, columnVM) => prev + parseFloat(columnVM.currentWidth), 0);
+                        if (sumWidth !== 100) {
+                            percentColumnVMs.forEach((columnVM) => {
+                                columnVM.currentWidth = (parseFloat(columnVM.currentWidth) / sumWidth) * 100 + '%';
+                            });
+                        }
                     }
-                    if (fixedRightCount && tableWidth > rootWidth) {
-                        // 表格太短时，不固定右侧列
-                        tableMetaList.push({
-                            position: 'right',
-                            width: this.visibleColumnVMs.slice(-fixedRightCount)
-                                .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
-                        });
+
+                    // 全部都是数值的情况，按实际大小
+                    const percentWidthSum = percentColumnVMs.reduce((prev, columnVM) => {
+                        columnVM.computedWidth = (parseFloat(columnVM.currentWidth) * rootWidth) / 100;
+                        return prev + columnVM.computedWidth;
+                    }, 0);
+                    const valueWidthSum = valueColumnVMs.reduce((prev, columnVM) => {
+                        columnVM.computedWidth = parseFloat(columnVM.currentWidth);
+                        return prev + columnVM.computedWidth;
+                    }, 0);
+
+                    const remainingWidth = rootWidth - percentWidthSum - valueWidthSum;
+                    if (remainingWidth > 0 && noWidthColumnVMs.length) {
+                        const averageWidth = remainingWidth / noWidthColumnVMs.length;
+                        const finalWidth = averageWidth > defaultColumnWidth ? averageWidth : defaultColumnWidth;
+                        noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = finalWidth);
+                    } else if (remainingWidth > 0 && valueWidthSum !== 0) {
+                        const averageWidth = remainingWidth / valueColumnVMs.length;
+                        valueColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
+                    } else if (remainingWidth < 0 && noWidthColumnVMs.length) {
+                        noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = defaultColumnWidth || 100);
                     }
-                    this.tableMetaList = tableMetaList;
-                } else {
-                    this.fixedLeftList = [];
-                    this.fixedRightList = [];
-                    if (fixedLeftCount) {
-                        this.visibleColumnVMs.slice(0, fixedLeftCount)
-                            .reduce((prev, columnVM) => {
-                                this.fixedLeftList.push({
-                                    columnVM,
-                                    left: prev,
-                                });
+
+                    // 如果所有列均有值，则总宽度有超出的可能。否则总宽度为根节点的宽度。
+                    let tableWidth = '';
+                    if (this.visibleColumnVMs.some((columnVM) => columnVM.currentWidth) || defaultColumnWidth) {
+                        tableWidth = this.visibleColumnVMs.reduce((prev, columnVM) => {
+                            if (String(columnVM.currentWidth).endsWith('%'))
+                                return (prev + (parseFloat(columnVM.currentWidth) * rootWidth) / 100);
+                            else
                                 return prev + columnVM.computedWidth;
-                            }, 0);
-                    }
-                    if (fixedRightCount && tableWidth > rootWidth) {
-                        // 表格太短时，不固定右侧列
-                        const visibleColumnVMs = this.visibleColumnVMs.slice(-fixedRightCount);
-                        visibleColumnVMs.reverse()
-                            .reduce((prev, columnVM) => {
-                                this.fixedRightList.push({
-                                    columnVM,
-                                    right: prev,
-                                });
-                                return prev + columnVM.computedWidth;
-                            }, 0);
+                        }, 0);
+                        this.tableWidth = tableWidth;
+                    } else
+                        this.tableWidth = tableWidth = rootWidth; // @important: Work with overflow-x: hidden to prevent two horizontal scrollbar
+
+                    const tableMetaList = [this.tableMetaList[0]];
+                    tableMetaList[0].width = rootWidth;
+                    if (!this.useStickyFixed) {
+                        if (fixedLeftCount) {
+                            tableMetaList.push({
+                                position: 'left',
+                                width: this.visibleColumnVMs.slice(0, fixedLeftCount)
+                                    .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
+                            });
+                        }
+                        if (fixedRightCount && tableWidth > rootWidth) {
+                            // 表格太短时，不固定右侧列
+                            tableMetaList.push({
+                                position: 'right',
+                                width: this.visibleColumnVMs.slice(-fixedRightCount)
+                                    .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
+                            });
+                        }
+                        this.tableMetaList = tableMetaList;
+                    } else {
+                        this.fixedLeftList = [];
+                        this.fixedRightList = [];
+                        if (fixedLeftCount) {
+                            this.visibleColumnVMs.slice(0, fixedLeftCount)
+                                .reduce((prev, columnVM) => {
+                                    this.fixedLeftList.push({
+                                        columnVM,
+                                        left: prev,
+                                    });
+                                    return prev + columnVM.computedWidth;
+                                }, 0);
+                        }
+                        if (fixedRightCount && tableWidth > rootWidth) {
+                            // 表格太短时，不固定右侧列
+                            const visibleColumnVMs = this.visibleColumnVMs.slice(-fixedRightCount);
+                            visibleColumnVMs.reverse()
+                                .reduce((prev, columnVM) => {
+                                    this.fixedRightList.push({
+                                        columnVM,
+                                        right: prev,
+                                    });
+                                    return prev + columnVM.computedWidth;
+                                }, 0);
+                        }
                     }
                 }
 
@@ -2727,6 +2728,13 @@ export default {
                     });
                 }
             }
+        },
+        handleResizeListener() {
+            const rootWidth = this.$refs.root.offsetWidth;
+            // 放在线性布局flex下，或者某些设置了fit-content，table-width会缓慢增长，导致表格一直动
+            // 如果两次width变化不大，不要重新计算每列的computedWidth等
+            const reComputedWidth = !this.preRootWidth || Math.abs(this.preRootWidth - rootWidth) > 8;
+            this.handleResize(reComputedWidth);
         },
     },
 };
