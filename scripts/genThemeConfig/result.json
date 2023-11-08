@@ -3486,29 +3486,6 @@
                         "type": "color",
                         "group": "多选状态",
                         "desc": "选择框下拉项的背景颜色（多选hover状态下）,如 #223325"
-                    },
-                    "--select-multiple-background-color": {
-                        "type": "color",
-                        "group": "多选状态",
-                        "desc": "选择项checkbox的背景颜色"
-                    },
-                    "--select-multiple-icon-color": {
-                        "type": "color",
-                        "group": "多选状态",
-                        "desc": "选择项checkbox的选中图标颜色"
-                    },
-                    "--select-multiple-partial-icon-color": {
-                        "type": "color",
-                        "group": "多选状态",
-                        "desc": "选择项checkbox的半选择图标颜色"
-                    },
-                    "--select-multiple-border-color": {
-                        "type": "input",
-                        "group": "弹出层",
-                        "desc": "选择项checkbox的边框"
-                    },
-                    "--select-input-border-color-error": {
-                        "type": "input"
                     }
                 },
                 "preview": {

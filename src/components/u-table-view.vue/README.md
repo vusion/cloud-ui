@@ -2748,6 +2748,16 @@ export default {
 | $event.item | object | 点击行相关对象 |
 | $event.index | number | 点击行索引 |
 
+#### @dblclick-row
+
+双击某一行时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.item | object | 双击行相关对象 |
+| $event.index | number | 双击行索引 |
+
 #### @before-select
 
 选择某一项前触发

@@ -4909,7 +4909,7 @@
                             "name": "collapsible",
                             "title": "可折叠",
                             "type": "boolean",
-                            "default": false,
+                            "default": true,
                             "description": "设置是否可以展开/折叠",
                             "group": "交互属性",
                             "brifeDoc": "",
@@ -9795,7 +9795,7 @@
                         {
                             "name": "u-table-view-column",
                             "title": "表格列",
-                            "snippet": "<u-table-view-column> <template #cell=\"current\"></template> <template #title><u-text text=\"表格列\"></u-text></template> <template #expander=\"current\"><u-table-view-expander :item=\"current.item\" @toggle=\"current.toggle\"></u-table-view-expander></template> </u-table-view-column>"
+                            "snippet": "<u-table-view-column><template #cell=\"current\"></template><template #title><u-text text=\"表格列\"></u-text></template></u-table-view-column>"
                         },
                         {
                             "name": "u-table-view-column-dynamic",
@@ -9805,7 +9805,7 @@
                         {
                             "name": "u-table-view-column-group",
                             "title": "表格列分组",
-                            "snippet": "<u-table-view-column-group> <template #title><u-text text=\"表格列分组\"></u-text></template> <u-table-view-column> <template #cell=\"current\"></template> <template #title><u-text text=\"表格列\"></u-text></template> <template #expander=\"current\"><u-table-view-expander :item=\"current.item\" @toggle=\"current.toggle\"></u-table-view-expander></template> </u-table-view-column> </u-table-view-column-group>"
+                            "snippet": "<u-table-view-column-group> <template #title><u-text text=\"表格列分组\"></u-text></template> <u-table-view-column> <template #cell=\"current\"></template> <template #title><u-text text=\"表格列\"></u-text></template> </u-table-view-column> </u-table-view-column-group>"
                         }
                     ],
                     "supportGenericComponents": [
@@ -10221,6 +10221,34 @@
                             "name": "$event.index",
                             "type": "number",
                             "description": "点击行索引"
+                        }
+                    ]
+                },
+                {
+                    "name": "dblclick-row",
+                    "title": "双击行",
+                    "description": "双击某一行时触发",
+                    "schema": {
+                        "$ref": "#/systemTypes/Current"
+                    },
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/OperatorItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "双击行相关对象"
+                        },
+                        {
+                            "name": "$event.index",
+                            "type": "number",
+                            "description": "双击行索引"
                         }
                     ]
                 },
@@ -13048,14 +13076,6 @@
                     "brifeDoc": "",
                     "docDescription": "0～7 (周一～周日) 数字配置，自定义每行从周几开始展示，默认 1，**当开启展示周数时固定周一开始**。",
                     "tooltipLink": ""
-                },
-                {
-                    "name": "multiple",
-                    "title": "可多选",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "开启可多选后，可通过ctrl/command+鼠标多选",
-                    "group": "交互属性"
                 }
             ],
             "slots": [
@@ -15475,7 +15495,7 @@
                             "title": "竖直可调整"
                         }
                     ],
-                    "default": "none",
+                    "default": "vertical",
                     "description": "设置调整大小的方式",
                     "group": "交互属性",
                     "brifeDoc": "",
@@ -16510,41 +16530,6 @@
                     "tooltipLink": ""
                 },
                 {
-                    "name": "check-all",
-                    "title": "全选控制",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否进行全选",
-                    "group": "主要属性",
-                    "toggleclear": [
-                        "min",
-                        "max"
-                    ]
-                },
-                {
-                    "name": "check-all-display",
-                    "title": "展示方式",
-                    "type": "string",
-                    "default": false,
-                    "description": "选择展开方式",
-                    "group": "主要属性",
-                    "options": [
-                        {
-                            "value": "inline",
-                            "title": "同行展示"
-                        },
-                        {
-                            "value": "block",
-                            "title": "分行展示"
-                        }
-                    ],
-                    "dependency": [
-                        {
-                            "check-all": true
-                        }
-                    ]
-                },
-                {
                     "name": "min",
                     "title": "最小选中数",
                     "type": "number",
@@ -16553,12 +16538,7 @@
                     "group": "主要属性",
                     "brifeDoc": "",
                     "docDescription": "多选组可以勾选多选框的最小数量。",
-                    "tooltipLink": "",
-                    "dependency": [
-                        {
-                            "check-all": false
-                        }
-                    ]
+                    "tooltipLink": ""
                 },
                 {
                     "name": "max",
@@ -16568,12 +16548,7 @@
                     "group": "主要属性",
                     "brifeDoc": "",
                     "docDescription": "多选组可以勾选多选框的最大数量。",
-                    "tooltipLink": "",
-                    "dependency": [
-                        {
-                            "check-all": false
-                        }
-                    ]
+                    "tooltipLink": ""
                 },
                 {
                     "name": "converter",
@@ -16643,18 +16618,6 @@
                             "name": "u-checkbox",
                             "title": "多选项",
                             "snippet": "<u-checkbox><template slot=\"item\">节点</template></u-checkbox>"
-                        }
-                    ]
-                },
-                {
-                    "concept": "Slot",
-                    "name": "check-all",
-                    "description": "全选/反选",
-                    "support": [
-                        {
-                            "name": "u-text",
-                            "title": "全选/反选文本",
-                            "snippet": "<u-text text='全选'></u-text>"
                         }
                     ]
                 },
@@ -18320,27 +18283,18 @@
                     "name": "cropperBoxHeight",
                     "title": "图片裁剪框高度",
                     "type": "number",
-                    "default": 0,
+                    "default": 200,
                     "description": "",
                     "group": "主要属性",
                     "brifeDoc": "",
                     "docDescription": "",
-                    "tooltipLink": "",
-                    "dependency": [
-                        {
-                            "cropperPreviewShape": "rect"
-                        }
-                    ]
+                    "tooltipLink": ""
                 },
                 {
                     "name": "cropperPreviewShape",
                     "title": "图片裁剪框预览形状",
                     "type": "string",
                     "options": [
-                        {
-                            "title": "矩形",
-                            "value": "rect"
-                        },
                         {
                             "title": "正方形",
                             "value": "square"
@@ -18355,28 +18309,7 @@
                     "group": "主要属性",
                     "brifeDoc": "",
                     "docDescription": "",
-                    "tooltipLink": "",
-                    "toggleupdate": [
-                        {
-                            "value": "rect",
-                            "updateData": {
-                                "cropperBoxHeight": 200
-                            }
-                        },
-                        {
-                            "value": "circle",
-                            "updateData": {
-                                "cropperBoxHeight": 0
-                            }
-                        },
-                        {
-                            "value": "square",
-                            "updateData": {
-                                "cropperBoxHeight": 0
-                            }
-                        }
-                    ],
-                    "wrap": false
+                    "tooltipLink": ""
                 },
                 {
                     "name": "cropperTitle",
@@ -20885,17 +20818,6 @@
                     "group": "主要属性",
                     "brifeDoc": "",
                     "docDescription": "",
-                    "tooltipLink": ""
-                },
-                {
-                    "name": "hasAllCheckItem",
-                    "title": "全选控制",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否存在可以控制选项的全选/反选",
-                    "group": "主要属性",
-                    "brifeDoc": "",
-                    "docDescription": "是否存在可以控制选项的全选/反选",
                     "tooltipLink": ""
                 },
                 {

@@ -2276,6 +2276,8 @@
       "children-field",
       "value",
       "checkable",
+      "check-controlled",
+      "disabled-field",
       "clearable"
     ],
     "description": "树选择"
@@ -2366,6 +2368,13 @@
       "max-size",
       "list-type",
       "url-field",
+      "file-icon-switcher",
+      "icon-map",
+      "file-type",
+      "file-icon",
+      "download-icon-switcher",
+      "download-icon",
+      "file-size",
       "headers",
       "multiple",
       "multiple-once",

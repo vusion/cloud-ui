@@ -1104,8 +1104,6 @@
     "--select-padding-x-huge": "10px",
     "--select-padding-x-full": "10px",
     "--select-multiple-background-color": "white",
-    "--select-multiple-icon-color": "#517cff",
-    "--select-multiple-partial-icon-color": "#517cff",
     "--select-border-color-hover": "var(--brand-primary)",
     "--select-border-color-inverse": "var(--border-color-base-inverse)",
     "--select-border-color-disabled": "var(--brand-disabled)",

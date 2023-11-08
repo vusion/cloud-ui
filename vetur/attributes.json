@@ -9161,6 +9161,14 @@
     "type": "boolean",
     "description": "设置是否开启多选模式，显示多选框"
   },
+  "u-tree-select-new/check-controlled": {
+    "type": "boolean",
+    "description": "开启后父节点选择不会全选子节点，子节点选择不会联动父节点"
+  },
+  "u-tree-select-new/disabled-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识节点的disabled属性"
+  },
   "u-tree-select-new/clearable": {
     "type": "boolean",
     "description": "设置是否开启可清除模式"
@@ -9410,6 +9418,67 @@
   "u-uploader/url-field": {
     "type": "string",
     "description": "请求返回的 URL 字段名"
+  },
+  "u-uploader/file-icon-switcher": {
+    "type": "boolean",
+    "description": "是否展示文件图标"
+  },
+  "u-uploader/icon-map": {
+    "type": "Object"
+  },
+  "u-uploader/file-type": {
+    "type": "string",
+    "options": [
+      {
+        "title": "文档",
+        "value": "doc|docx"
+      },
+      {
+        "title": "图片",
+        "value": "jpg|jpeg|png|bmp|gif|tiff|tif|webp|svg|psd|raw"
+      },
+      {
+        "title": "PDF",
+        "value": "pdf"
+      },
+      {
+        "title": "表格",
+        "value": "xlsx"
+      },
+      {
+        "title": "文本",
+        "value": "txt"
+      },
+      {
+        "title": "幻灯片",
+        "value": "ppt|pptx"
+      },
+      {
+        "title": "压缩包",
+        "value": "zip"
+      },
+      {
+        "title": "CSV",
+        "value": "csv"
+      }
+    ],
+    "description": ""
+  },
+  "u-uploader/file-icon": {
+    "type": "file-icon",
+    "description": ""
+  },
+  "u-uploader/download-icon-switcher": {
+    "type": "boolean",
+    "description": "是否展示下载图标"
+  },
+  "u-uploader/download-icon": {
+    "type": "icon",
+    "description": ""
+  },
+  "u-uploader/file-size": {
+    "type": "boolean",
+    "description": "是否展示文件大小，单位小于1MB则展示KB，大于1MB则展示MB。"
   },
   "u-uploader/headers": {
     "type": "Object",
