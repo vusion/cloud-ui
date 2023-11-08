@@ -421,3 +421,16 @@
           description: 原生事件对象
         - name: senderVM
           description: 发送事件实例
+  i18n:
+    zh-CN:
+      uDatePicker_selectDateText: '请选择日期'
+      uDatePicker_integerTip: '请输入大于0的整数'
+      uDatePicker_formatErrorTip: '请输入正确的时分秒格式'
+    en-US:
+      uDatePicker_selectDateText: 'Please select date'
+      uDatePicker_integerTip: 'Please enter an integer greater than 0'
+      uDatePicker_formatErrorTip: 'Please enter the correct hour, minute and second format'
+    ja:
+      uDatePicker_selectDateText: '日付を選択'
+      uDatePicker_integerTip: '0 より大きい整数を入力'
+      uDatePicker_formatErrorTip: '正しい時、分、秒の形式で入力'

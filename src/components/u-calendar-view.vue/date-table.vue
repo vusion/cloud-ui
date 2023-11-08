@@ -5,7 +5,7 @@
         :class="$style.root"
     >
         <thead v-if="showWeekDays">
-            <th v-if="showWeeks" :class="{ [$style.th]: true, [$style.week]: true }">{{ $t('Week') }}</th>
+            <th v-if="showWeeks" :class="{ [$style.th]: true, [$style.week]: true }">{{ $tt('Week') }}</th>
             <th
                 v-for="item in realWeekDayTexts"
                 :key="item"
@@ -55,10 +55,12 @@ import dayjs from 'dayjs';
 import get from 'lodash/get';
 import i18n from './i18n';
 import { getDay, DefaultFormatType } from './utils';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'date-table',
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-calendar-view')],
     props: {
         selectedDates: Array,
         current: Object,
@@ -76,13 +78,13 @@ export default {
     data() {
         return {
             weekDayTexts: [
-                this.$t('Monday'),
-                this.$t('Tuesday'),
-                this.$t('Wednesday'),
-                this.$t('Thursday'),
-                this.$t('Friday'),
-                this.$t('Saturday'),
-                this.$t('Sunday'),
+                this.$tt('Monday'),
+                this.$tt('Tuesday'),
+                this.$tt('Wednesday'),
+                this.$tt('Thursday'),
+                this.$tt('Friday'),
+                this.$tt('Saturday'),
+                this.$tt('Sunday'),
             ],
             selectedDateKey: this.selectedDates.length > 0 ? this.selectedDates[0].format(DefaultFormatType) : undefined,
             releaseKeyListeners: null,

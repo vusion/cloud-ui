@@ -12,11 +12,11 @@
     </template>
     <template v-else>
         <span v-if="showTotal" :class="$style.total">
-            <slot name="total" :data="{totalItems,pageSize:currentPageSize,page:currentPage}">{{ $t('total', { totalItems }) }}</slot>
+            <slot name="total" :data="{totalItems,pageSize:currentPageSize,page:currentPage}">{{ $tt('total', { totalItems }) }}</slot>
         </span>
         <u-select v-if="showSizer" :class="$style.sizer" v-model="currentPageSize" :readonly="readonly" :disabled="disabled" @select="onSelectPageSize">
             <u-select-item v-for="pageSize in pageSizeOptions" :key="pageSize" :value="pageSize">
-                {{ pageSize }}{{ $t('pageSize') }}
+                {{ pageSize }}{{ $tt('pageSize') }}
             </u-select-item>
         </u-select>
         <a :class="$style['item-wrap']" :disabled="currentPage <= 1" @click="select(currentPage - 1)">
@@ -33,12 +33,12 @@
                 <i :class="$style.item" role="next"></i>
             </slot>
         </a>
-        <span v-if="showJumper" :class="$style['jumper-wrap']">{{ $t('goto') }}
+        <span v-if="showJumper" :class="$style['jumper-wrap']">{{ $tt('goto') }}
             <u-number-input :class="$style.jumper" :value="currentPage"
                 :min="1" :max="currentTotalPage" hide-buttons :readonly="readonly" :disabled="disabled"
                 @change="onChange($event.value, $event.oldValue)" :default-value="1">
             </u-number-input>
-            {{ $t('gotoPageUnit') }}</span>
+            {{ $tt('gotoPageUnit') }}</span>
         <slot></slot>
     </template>
 </nav>
@@ -47,10 +47,12 @@
 
 <script>
 import i18n from './i18n';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-pagination',
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-pagination')],
     props: {
         total: {
             type: Number,

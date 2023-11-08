@@ -77,6 +77,7 @@ import i18n from './i18n';
 import MField from '../m-field.vue';
 import UTimePickerPopper from './popper.vue';
 import URangeInput from '../u-date-picker.vue/range-input.vue';
+import i18nMixin from '../../mixins/i18n';
 
 /**
  * @class TimePicker
@@ -94,9 +95,9 @@ import URangeInput from '../u-date-picker.vue/range-input.vue';
 
 export default {
     name: 'u-time-range-picker',
-    i18n,
+    // i18n,
     components: { URangeInput, UTimePickerPopper },
-    mixins: [MField, DateFormatMixin],
+    mixins: [MField, DateFormatMixin, i18nMixin('u-time-picker')],
     props: {
         minUnit: { type: String, default: 'second' },
         startTime: { type: String, default: '' },
@@ -135,7 +136,7 @@ export default {
             startInputTime: this.startTime,
             endInputTime: this.endTime,
             editTarget: '', // 标明当前编辑的是起始/结束值
-            placeholder: this.$t('selectTimeText'),
+            placeholder: this.$tt('selectTimeText'),
         };
     },
     computed: {

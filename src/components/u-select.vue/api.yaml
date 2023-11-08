@@ -725,6 +725,26 @@
             type: BooleanLiteral
             value: false
             valueType: boolean
+  i18n:
+    zh-CN:
+      uSelect_loading: '正在加载中...'
+      uSelect_error: '加载失败，请重试'
+      uSelect_empty: '暂无数据'
+      uSelect_loadMore: '加载更多'
+      uSelect_noMore: '没有更多了'
+    en-US:
+      uSelect_loading: 'Loading...'
+      uSelect_error: 'Failed to load. Please try again'
+      uSelect_empty: 'No matching data'
+      uSelect_loadMore: 'Load more'
+      uSelect_noMore: 'No more items'
+    ja:
+      uSelect_loading: '読み込み中...'
+      uSelect_error: '読み込みに失敗しました。再試行してください。'
+      uSelect_empty: 'データがありません'
+      uSelect_loadMore: 'もっと読み込む'
+      uSelect_noMore: 'これ以上ありません'
+
 - name: u-select-item
   title: 选择项
   attrs:
