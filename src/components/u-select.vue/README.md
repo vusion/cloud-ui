@@ -1376,6 +1376,8 @@ export default {
 | remote-filtering | boolean |  | `false` | 设置是否使用后端筛选 |
 | match-method | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'includes'` | 过滤时的匹配方法 |
 | show-render-footer | boolean |  | `false` | 设置是否可扩展下拉项,开启后可自定义下拉框选项 |
+| hasAllCheckItem | boolean |  | `false` | 是否存在可以控制选项的全选/反选 |
+| allCheckItemText | string |  | `'全选'` | 是否存在可以控制选项的全选/反选 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。 |
 | placeholder | string |  | `'请选择'` | 为空时显示的占位符文本 |
 | autofocus | boolean |  | `false` | 设置是否自动获取焦点 |

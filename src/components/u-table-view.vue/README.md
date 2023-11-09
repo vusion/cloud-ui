@@ -42,6 +42,11 @@
 - [UTableViewColumnDynamic API](#utableviewcolumndynamic-api)
     - [Props/Attrs](#propsattrs-4)
     - [Slots](#slots-4)
+- [UTableViewColumnGroup API](#utableviewcolumngroup-api)
+    - [Props/Attrs](#propsattrs-5)
+    - [Slots](#slots-5)
+- [UTableViewExpander API](#utableviewexpander-api)
+    - [Props/Attrs](#propsattrs-6)
 
 **Table**
 
@@ -2558,9 +2563,6 @@ export default {
 </script>
 ```
 
-
-
-
 ## 常见问题
 暂无
 ## UTableView API
@@ -2931,7 +2933,10 @@ Methods
 | fixed | boolean |  | `false` | 该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。 |
 | ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | hidden | boolean |  | `false` |  |
+| expander-position | string | `[object Object]`<br/>`[object Object]` | `'left'` | 展开列图标的位置 |
 | width | string \| number |  |  | 设置列宽度，可设置为数字或百分比 |
+| colSpan | number |  |  | undefined |
+| autoRowSpan | boolean |  | `false` | undefined |
 
 ### Slots
 
@@ -2979,6 +2984,18 @@ Methods
 | columnVM | string | 展开列组件实例 |
 | rowIndex | number | 行的索引 |
 | columnIndex | number | 展开列的索引 |
+
+#### expander
+
+展开列图标
+
+| Prop | Type | Description |
+| ---- | ---- | ----------- |
+| item | object | 循环中的当前项 |
+| value | any | item 中 field 字段对应的值 |
+| columnVM | string | 该列组件实例 |
+| rowIndex | number | 行的索引 |
+| columnIndex | number | 列的索引 |
 
 ## UTableViewColumnConfig API
 ### Props/Attrs
@@ -3043,4 +3060,34 @@ Methods
 #### cell
 
 自定义选项的结构和样式
+
+## UTableViewColumnGroup API
+### Props/Attrs
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| title | string |  |  |  |
+
+### Slots
+
+#### (default)
+
+在表格中插入`<u-table-view-column>`子组件
+
+#### title
+
+对标题进行自定义
+
+| Prop | Type | Description |
+| ---- | ---- | ----------- |
+| columnVM | string | 该列组件实例 |
+| columnIndex | number | 列的索引 |
+
+## UTableViewExpander API
+### Props/Attrs
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| expand-icon | icon |  |  | 展开时图标 |
+| collapse-icon | icon |  |  | 关闭时图标 |
 

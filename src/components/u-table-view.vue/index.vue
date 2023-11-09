@@ -97,16 +97,18 @@
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth">
                 </colgroup>
-                <tbody>
+                <tbody ref="virtual">
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
-                        <template v-for="(item, rowIndex) in currentData">
-                            <tr :key="keyMap.getKey(item)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
-                            :draggable="(draggable || acrossTableDrag) && rowDraggable && item.draggable || undefined"
+                        <template v-for="(item, rowIndex) in virtualList">
+                            <tr :key="keyMap.getKey(item)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item"
+                            v-if="item.display !== 'none'"
+                            :draggable="rowDraggable && item.draggable || undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
-                            @dragstart="onDragStart($event, item, rowIndex)"
-                            @dragover="onDragOver($event, item, rowIndex)"
-                            @click="onClickRow($event, item, rowIndex)">
+                            @dragstart="onDragStart($event, item, rowIndex + virtualIndex)"
+                            @dragover="onDragOver($event, item, rowIndex + virtualIndex)"
+                            @click="onClickRow($event, item, rowIndex + virtualIndex)"
+                            @dblclick="onDblclickRow($event, item, rowIndex + virtualIndex)">
                                 <template v-if="$env.VUE_APP_DESIGNER">
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'" v-ellipsis-title
                                         vusion-slot-name="cell"
@@ -146,7 +148,7 @@
                                                 name="expander"
                                                 :vm="columnVM"
                                                 :props="{
-                                                    item: getRealItem(item, rowIndex),
+                                                    item: getRealItem(item, rowIndex + virtualIndex),
                                                     value: $at(item, columnVM.field),
                                                     columnVM,
                                                     rowIndex,
@@ -155,8 +157,8 @@
                                                     columnItem: columnVM.columnItem,
                                                 }">
                                                 <u-table-view-expander
-                                                    :item="getRealItem(item, rowIndex)"
-                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex))">
+                                                    :item="getRealItem(item, rowIndex + virtualIndex)"
+                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex + virtualIndex))">
                                                 </u-table-view-expander>
                                             </f-slot>
 
@@ -166,12 +168,12 @@
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- Normal text -->
-                                            <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
+                                            <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field) || item) }}</span>
                                             </f-slot>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="(draggable || acrossTableDrag) && handlerDraggable && item.draggable || undefined" :disabled="!((draggable || acrossTableDrag) && handlerDraggable && item.draggable)"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable && item.draggable || undefined" :disabled="!(handlerDraggable && item.draggable)"></i-ico>
                                             </span>
 
                                             <!-- type === 'expander' right -->
@@ -180,7 +182,7 @@
                                                 name="expander"
                                                 :vm="columnVM"
                                                 :props="{
-                                                    item: getRealItem(item, rowIndex),
+                                                    item: getRealItem(item, rowIndex + virtualIndex),
                                                     value: $at(item, columnVM.field),
                                                     columnVM,
                                                     rowIndex,
@@ -189,13 +191,13 @@
                                                     columnItem: columnVM.columnItem,
                                                 }">
                                                 <u-table-view-expander
-                                                    :item="getRealItem(item, rowIndex)"
-                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex))">
+                                                    :item="getRealItem(item, rowIndex + virtualIndex)"
+                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex + virtualIndex))">
                                                 </u-table-view-expander>
                                             </f-slot>
                                         </div>
                                         <div v-if="columnVM.type === 'editable'" vusion-slot-name="editcell" :plus-empty="columnVM.$attrs['editcell-plus-empty']" style="margin-top:10px">
-                                            <f-slot name="editcell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                            <f-slot name="editcell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                             </f-slot>
                                         </div>
                                     </td>
@@ -221,8 +223,8 @@
                                         >
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">
-                                                <template v-if="columnVM.autoIndex && usePagination && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
-                                                <template v-else>{{ (columnVM.startIndex - 0) + rowIndex }}</template>
+                                                <template v-if="columnVM.autoIndex && usePagination && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex + virtualIndex }}</template>
+                                                <template v-else>{{ (columnVM.startIndex - 0) + rowIndex + virtualIndex }}</template>
                                             </span>
                                             <!-- type === 'radio' -->
                                             <span v-if="columnVM.type === 'radio'">
@@ -238,18 +240,18 @@
                                                 name="expander"
                                                 :vm="columnVM"
                                                 :props="{
-                                                    item: getRealItem(item, rowIndex),
+                                                    item: getRealItem(item, rowIndex + virtualIndex),
                                                     value: $at(item, columnVM.field),
                                                     columnVM,
                                                     rowIndex,
                                                     columnIndex,
                                                     index: rowIndex,
                                                     columnItem: columnVM.columnItem,
-                                                    toggle: () => toggleExpanded(getRealItem(item, rowIndex))
+                                                    toggle: () => toggleExpanded(getRealItem(item, rowIndex + virtualIndex))
                                                 }">
                                                 <u-table-view-expander
-                                                    :item="getRealItem(item, rowIndex)"
-                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex))">
+                                                    :item="getRealItem(item, rowIndex + virtualIndex)"
+                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex + virtualIndex))">
                                                 </u-table-view-expander>
                                             </f-slot>
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
@@ -259,22 +261,22 @@
                                             </template>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="(draggable || acrossTableDrag) && handlerDraggable && item.draggable || undefined" :disabled="!((draggable || acrossTableDrag) && handlerDraggable && item.draggable)"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable && item.draggable || undefined" :disabled="!(handlerDraggable && item.draggable)"></i-ico>
                                             </span>
                                             <!-- Normal text -->
                                             <template v-if="columnVM.type === 'editable'">
-                                                <div @dblclick="onSetEditing(item, columnVM)" :class="$style.editablewrap"
+                                                <div @dblclick.stop="onSetEditing(item, columnVM)" :class="$style.editablewrap"
                                                     :ellipsis="columnVM.ellipsis"
                                                     :style="{width:getEditablewrapWidth(item, columnIndex, treeColumnIndex)}"
                                                     :editing="item.editing === columnVM.field">
                                                     <div>
                                                         <template v-if="item.editing === columnVM.field">
-                                                            <f-slot name="editcell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                            <f-slot name="editcell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex: rowIndex + virtualIndex, columnIndex, index: rowIndex + virtualIndex }">
                                                                 <span v-if="columnVM.field" vusion-slot-name="editcell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                             </f-slot>
                                                         </template>
                                                         <template v-else>
-                                                            <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
+                                                            <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex: rowIndex + virtualIndex, columnIndex, index: rowIndex + virtualIndex, columnItem: columnVM.columnItem }">
                                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                             </f-slot>
                                                         </template>
@@ -282,7 +284,7 @@
                                                 </div>
                                             </template>
                                             <template v-else>
-                                                <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
+                                                <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex: rowIndex + virtualIndex, columnIndex, index: rowIndex + virtualIndex, columnItem: columnVM.columnItem }">
                                                     <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                 </f-slot>
                                             </template>
@@ -293,18 +295,18 @@
                                                 name="expander"
                                                 :vm="columnVM"
                                                 :props="{
-                                                    item: getRealItem(item, rowIndex),
+                                                    item: getRealItem(item, rowIndex + virtualIndex),
                                                     value: $at(item, columnVM.field),
                                                     columnVM,
                                                     rowIndex,
                                                     columnIndex,
                                                     index: rowIndex,
                                                     columnItem: columnVM.columnItem,
-                                                    toggle: () => toggleExpanded(getRealItem(item, rowIndex))
+                                                    toggle: () => toggleExpanded(getRealItem(item, rowIndex + virtualIndex))
                                                 }">
                                                 <u-table-view-expander
-                                                    :item="getRealItem(item, rowIndex)"
-                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex))">
+                                                    :item="getRealItem(item, rowIndex + virtualIndex)"
+                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex + virtualIndex))">
                                                 </u-table-view-expander>
                                             </f-slot>
                                     </td>
@@ -332,7 +334,7 @@
                                 <tr :class="$style['expand-content']" v-if="expanderColumnVM && item.expanded">
                                     <f-collapse-transition>
                                         <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded">
-                                            <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
+                                            <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex: rowIndex + virtualIndex, index: rowIndex + virtualIndex }"></f-slot>
                                         </td>
                                     </f-collapse-transition>
                                 </tr>
@@ -399,6 +401,7 @@
                     </tr>
                 </tbody>
             </u-table>
+            <div ref="virtualPlaceholder" v-if="virtual"></div>
             </f-scroll-view>
         </div>
     </div>
@@ -440,6 +443,7 @@ import i18n from './i18n';
 import UTableViewDropGhost from './drop-ghost.vue';
 import SEmpty from '../../components/s-empty.vue';
 import throttle from 'lodash/throttle';
+import FVirtualTable from './f-virtual-table.vue';
 import i18nMixin from '../../mixins/i18n';
 
 export default {
@@ -448,7 +452,7 @@ export default {
         UTableViewDropGhost,
         SEmpty,
     },
-    mixins: [MEmitter, i18nMixin('u-table-view')],
+    mixins: [MEmitter, i18nMixin('u-table-view'), FVirtualTable],
     // i18n,
     props: {
         boldHeader: {
@@ -546,6 +550,10 @@ export default {
         canDragableHandler: Function,
         canDropinHandler: Function,
         acrossTableDrag: { type: Boolean, default: false }, // 是否跨表格拖拽
+        virtual: { type: Boolean, default: false },
+        // @inherit: virtualCount: { type: Number, default: 60 },
+        // @inherit: throttle: { type: Number, default: 60 },
+        listKey: { type: String, default: 'currentData' },
     },
     data() {
         return {
@@ -682,14 +690,22 @@ export default {
             return !!Object.keys(this.columnGroupVMs).length;
         },
         tableHeadTrArr() {
+            // 重置被自动合并的列
+            this.visibleColumnVMs.filter((column) => column.colSpan === 0)
+                .forEach((column) => column.colSpan = 1);
+            this.visibleColumnVMs.forEach((columnVM, index) => {
+                if (columnVM.colSpan > 1) {
+                    // 如果当前列有合并，那么后面的列自动覆盖不显示
+                    for (let i = index + 1; i < index + columnVM.colSpan && i < this.visibleColumnVMs.length; i++) {
+                        this.visibleColumnVMs[i].colSpan = 0;
+                    }
+                }
+            });
             if (!this.hasGroupedColumn) {
                 return [this.visibleColumnVMs];
             } else {
                 const result = [[]];
                 let dynamicOffset = 0;
-                // 重置被自动合并的列
-                this.visibleColumnVMs.filter((column) => column.colSpan === 0)
-                    .forEach((column) => column.colSpan = 1);
                 this.visibleColumnVMs.forEach((columnVM, index) => {
                     if (!columnVM.isUnderGroup) {
                         result[0].push(columnVM);
@@ -701,12 +717,6 @@ export default {
                     } else if (this.columnGroupVMs[index - dynamicOffset]) {
                         // 这里需要减去动态列带来的过多位移
                         result[0].push(this.columnGroupVMs[index - dynamicOffset]);
-                    }
-                    if (columnVM.colSpan > 1) {
-                        // 如果当前列有合并，那么后面的列自动覆盖不显示
-                        for (let i = index + 1; i < index + columnVM.colSpan && i < this.visibleColumnVMs.length; i++) {
-                            this.visibleColumnVMs[i].colSpan = 0;
-                        }
                     }
                 });
                 result[1] = this.visibleColumnVMs.filter((columnVM) => columnVM.isUnderGroup);
@@ -836,6 +846,19 @@ export default {
                 this.configColumnVM.handleColumnsData();
             }
         },
+        draggable() {
+            this.processTableDraggable(true);
+        },
+        acrossTableDrag() {
+            this.processTableDraggable(true);
+        },
+        virtualTop() {
+            this.$refs.virtualPlaceholder[0].style.height = this.virtualTop + this.virtualBottom + 'px';
+            this.$refs.bodyTable[0].$el.style.transform = `translateY(${this.virtualTop}px)`;
+        },
+        virtualBottom() {
+            this.$refs.virtualPlaceholder[0].style.height = this.virtualTop + this.virtualBottom + 'px';
+        },
     },
     created() {
         // 自动补充 pageSizeOptions
@@ -908,7 +931,7 @@ export default {
             try {
                 data.toggle = () => this.toggleExpanded(data);
             } catch (error) {
-                console.warning('当前data不是一个对象');
+                console.warn('当前data不是一个对象');
             }
             return data;
         },
@@ -931,11 +954,7 @@ export default {
             const expandable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'expander');
             const editable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'editable');
             // 拖拽设置
-            const dragHandler = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'dragHandler');
-            if (!this.$env.VUE_APP_DESIGNER) {
-                this.rowDraggable = (this.draggable || this.acrossTableDrag) && !dragHandler;
-                this.handlerDraggable = (this.draggable || this.acrossTableDrag) && dragHandler;
-            }
+            this.processTableDraggable();
             if (selectable) {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('disabled'))
@@ -1343,6 +1362,8 @@ export default {
             if (!this.useStickyFixed) {
                 this.syncScrollViewScroll(data.scrollTop, data.target);
             }
+            if (this.virtual)
+                this.throttledVirtualScroll(data);
             if (this.$refs.scrollView[0].$refs.wrap === data.target) {
                 this.$refs.head[0].scrollLeft = data.scrollLeft;
                 this.scrollXStart = data.scrollLeft === 0;
@@ -1971,6 +1992,9 @@ export default {
             } else {
                 this.updateTreeExpanded(item, expanded);
             }
+            if (this.virtual) {
+                this.throttledVirtualScroll({ target: this.$refs.scrollView[0].$refs.wrap });
+            }
         },
         /**
          * 递归处理children情况
@@ -2003,6 +2027,7 @@ export default {
                     }
                 });
             });
+            expandNode.expanded = expanded;
             this.$forceUpdate(); // 有loading的情况下，forceUpdate才会更新
         },
         onSetEditing(item, columnVM) {
@@ -2029,6 +2054,7 @@ export default {
                             position: 'sticky',
                             left: leftData.left + 'px',
                             zIndex,
+                            overflow: 'hidden',
                         });
                     }
                 }
@@ -2040,6 +2066,7 @@ export default {
                             position: 'sticky',
                             right: rightData.right + 'px',
                             zIndex,
+                            overflow: 'hidden',
                         });
                     }
                 }
@@ -2560,6 +2587,7 @@ export default {
                 const tableElCrt = tableEl.cloneNode(true);
                 const tbody = tableElCrt.getElementsByTagName('tbody')[0];
                 tbody.innerHTML = '';
+                tableElCrt.style.transform = 'none';
                 tbody.appendChild(crt);
                 this.$refs.trDragGhost.innerHTML = '';
                 this.$refs.trDragGhost.appendChild(tableElCrt);
@@ -2681,6 +2709,24 @@ export default {
                 item.disabledDrop = item.disabledDrop || !canDropinResult;
             } else {
                 item.disabledDrop = item.disabled;
+            }
+        },
+        onDblclickRow(e, item, rowIndex) {
+            this.$emit('dblclick-row', { item, index: rowIndex });
+        },
+        processTableDraggable(needProcessData) {
+            // 拖拽设置
+            const dragHandler = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'dragHandler');
+            if (!this.$env.VUE_APP_DESIGNER) {
+                this.rowDraggable = (this.draggable || this.acrossTableDrag) && !dragHandler;
+                this.handlerDraggable = (this.draggable || this.acrossTableDrag) && dragHandler;
+            }
+            if (needProcessData) {
+                if (this.draggable || this.acrossTableDrag) {
+                    this.currentData.forEach((item) => {
+                        this.canDraggable(item);
+                    });
+                }
             }
         },
     },

@@ -180,6 +180,7 @@ export default {
 | color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置主题颜色和按钮样式类型 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 行内展示，或块级换行展示 |
 | icon | icon |  | `''` |  |
+| icon-position | string | `[object Object]`<br/>`[object Object]` | `'left'` | 设置图标居左或居右显示 |
 | linkType | string | `[object Object]`<br/>`[object Object]` | `'destination'` |  |
 | hrefAndTo | string |  |  |  |
 | target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。 |

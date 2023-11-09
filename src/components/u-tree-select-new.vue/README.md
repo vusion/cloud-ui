@@ -317,6 +317,9 @@ export default {
 | children-field | string |  | `'children'` | 集合的元素类型中，用于标识子节点的属性，默认为children |
 | value.sync, v-model | any |  |  | 选择后，所选中的值 |
 | checkable | boolean |  | `false` | 设置是否开启多选模式，显示多选框 |
+| placeholder | string |  | `'请选择'` | 为空时显示的占位符文本 |
+| check-controlled | boolean |  | `false` | 开启后父节点选择不会全选子节点，子节点选择不会联动父节点 |
+| disabled-field | string |  | `'disabled'` | 集合的元素类型中，用于标识节点的disabled属性 |
 | clearable | boolean |  | `false` | 设置是否开启可清除模式 |
 | append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。 |
 

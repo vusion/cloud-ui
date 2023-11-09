@@ -354,6 +354,7 @@
       "color",
       "display",
       "icon",
+      "icon-position",
       "linkType",
       "hrefAndTo",
       "target",
@@ -378,7 +379,8 @@
       "show-weeks",
       "show-basic",
       "show-advance",
-      "first-day-of-week"
+      "first-day-of-week",
+      "multiple"
     ],
     "description": "用于展示大量结构化数据。支持日历结构展示。"
   },
@@ -544,6 +546,9 @@
       "text-field",
       "value-field",
       "value",
+      "check-all",
+      "check-all-text",
+      "check-all-display",
       "min",
       "max",
       "converter",
@@ -999,13 +1004,13 @@
     "attributes": [
       "value",
       "field",
-      "text-field",
-      "value-field",
       "cancelable",
       "multiple",
       "clearable",
       "data-source",
       "data-schema",
+      "text-field",
+      "value-field",
       "pageable",
       "page-size",
       "page-number",
@@ -1748,6 +1753,8 @@
       "remote-filtering",
       "match-method",
       "show-render-footer",
+      "hasAllCheckItem",
+      "allCheckItemText",
       "converter",
       "placeholder",
       "autofocus",
@@ -1841,6 +1848,10 @@
       "collapsible",
       "accordion",
       "expand-trigger",
+      "enable-collapse",
+      "collapseMode",
+      "expand-icon",
+      "fold-icon",
       "readonly",
       "disabled"
     ],
@@ -2003,7 +2014,9 @@
     "subtags": [
       "u-table-view-column",
       "u-table-view-column-config",
-      "u-table-view-column-dynamic"
+      "u-table-view-column-dynamic",
+      "u-table-view-column-group",
+      "u-table-view-expander"
     ]
   },
   "u-table-view-column": {
@@ -2021,7 +2034,10 @@
       "fixed",
       "ellipsis",
       "hidden",
-      "width"
+      "expander-position",
+      "width",
+      "colSpan",
+      "autoRowSpan"
     ],
     "description": "表格列"
   },
@@ -2046,6 +2062,17 @@
       "ellipsis",
       "hidden",
       "width"
+    ]
+  },
+  "u-table-view-column-group": {
+    "attributes": [
+      "title"
+    ]
+  },
+  "u-table-view-expander": {
+    "attributes": [
+      "expand-icon",
+      "collapse-icon"
     ]
   },
   "u-table": {
@@ -2197,16 +2224,17 @@
       "color"
     ]
   },
-  "u-toast": {
+  "u-toast-single": {
     "attributes": [
-      "position",
-      "duration",
-      "single",
       "text",
       "color",
+      "custom-icon",
+      "duration",
+      "position",
+      "single",
       "closable"
     ],
-    "description": "吐司提示"
+    "description": "弹出消息"
   },
   "u-toc": {
     "attributes": [
@@ -2272,6 +2300,9 @@
       "children-field",
       "value",
       "checkable",
+      "placeholder",
+      "check-controlled",
+      "disabled-field",
       "clearable",
       "append-to"
     ],
@@ -2363,6 +2394,13 @@
       "max-size",
       "list-type",
       "url-field",
+      "file-icon-switcher",
+      "icon-map",
+      "file-type",
+      "file-icon",
+      "download-icon-switcher",
+      "download-icon",
+      "file-size",
       "headers",
       "multiple",
       "multiple-once",
