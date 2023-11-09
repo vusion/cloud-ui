@@ -282,6 +282,36 @@ exports[`u-dropdown.vue Demo-基础按钮样式 1`] = `
 </div>
 `;
 
+exports[`u-dropdown.vue Demo-手动触发 1`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    弹出
+  </a>
+  <div class="root" type="text">
+    <div can-nodeinfo class="title" no-for-edit vusion-click-enabled vusion-slot-name="title" vusion-slot-name-edit="title">
+      <span class="root" vusion-slot-name-edit="text">下拉菜单</span>
+      <i class="icon"></i>
+    </div>
+    <transition-stub class="popper" name="fade">
+      <div class="root" style="display: none;">
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+          item
+        </a>
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+          item
+        </a>
+        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+          item
+        </a>
+        <a class="root" disabled="disabled" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+          item
+        </a>
+      </div>
+    </transition-stub>
+  </div>
+</div>
+`;
+
 exports[`u-dropdown.vue Demo-更多按钮样式 1`] = `
 <div>
   <div class="root" type="more">
@@ -351,6 +381,101 @@ exports[`u-dropdown.vue Demo-禁用状态 1`] = `
     <transition-stub class="popper" name="fade">
       <div class="root" style="display: none;"></div>
     </transition-stub>
+  </div>
+</div>
+`;
+
+exports[`u-dropdown.vue Demo-触发方式 1`] = `
+<div>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div class="root" type="text">
+      <div can-nodeinfo class="title" no-for-edit vusion-click-enabled vusion-slot-name="title" vusion-slot-name-edit="title">
+        <span class="root" vusion-slot-name-edit="text">下拉菜单hover展开</span>
+        <i class="icon"></i>
+      </div>
+      <transition-stub class="popper" name="fade">
+        <div class="root" style="display: none;">
+          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+          <a class="root" disabled="disabled" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+        </div>
+      </transition-stub>
+    </div>
+    <div class="root" type="text">
+      <div can-nodeinfo class="title" no-for-edit vusion-click-enabled vusion-slot-name="title" vusion-slot-name-edit="title">
+        <span class="root" vusion-slot-name-edit="text">下拉菜单click展开</span>
+        <i class="icon"></i>
+      </div>
+      <transition-stub class="popper" name="fade">
+        <div class="root" style="display: none;">
+          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+          <a class="root" disabled="disabled" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+        </div>
+      </transition-stub>
+    </div>
+    <div class="root" type="text">
+      <div can-nodeinfo class="title" no-for-edit vusion-click-enabled vusion-slot-name="title" vusion-slot-name-edit="title">
+        <span class="root" vusion-slot-name-edit="text">下拉菜单right-click展开</span>
+        <i class="icon"></i>
+      </div>
+      <transition-stub class="popper" name="fade">
+        <div class="root" style="display: none;">
+          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+          <a class="root" disabled="disabled" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+        </div>
+      </transition-stub>
+    </div>
+    <div class="root" type="text">
+      <div can-nodeinfo class="title" no-for-edit vusion-click-enabled vusion-slot-name="title" vusion-slot-name-edit="title">
+        <span class="root" vusion-slot-name-edit="text">下拉菜单double-click展开</span>
+        <i class="icon"></i>
+      </div>
+      <transition-stub class="popper" name="fade">
+        <div class="root" style="display: none;">
+          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+          <a class="root" disabled="disabled" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+            item
+          </a>
+        </div>
+      </transition-stub>
+    </div>
   </div>
 </div>
 `;

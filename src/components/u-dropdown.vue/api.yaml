@@ -95,7 +95,6 @@
     - name: trigger
       title: 触发方式
       type: string
-      advanced: true
       options:
         - value: click
           title: 点击
@@ -107,7 +106,7 @@
           title: 双击
         - value: manual
           title: 手动
-      default: hover
+      default: click
       description: 触发方式
     - name: type
       title: 样式类型
