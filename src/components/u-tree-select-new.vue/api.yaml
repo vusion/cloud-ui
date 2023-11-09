@@ -103,6 +103,15 @@
       brifeDoc: ""
       docDescription: 开启后支持清除按钮。默认关闭
       tooltipLink: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
