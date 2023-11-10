@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" v-on="$listeners" :shadow="shadow" :border="border" :split="split"
     :style="{width: /^\d+$/.test(width)? width+'px': width}" :designer="$env.VUE_APP_DESIGNER">
-    <f-scroll-view :class="$style.scrollview">
+    <f-scroll-view :class="$style.scrollview" :native="$env.VUE_APP_DESIGNER">
         <div :class="$style.cover" vusion-slot-name="cover">
             <slot name="cover"></slot>
             <s-empty v-if="coverSlot && (!$slots.cover) && !!$attrs['vusion-node-path']"></s-empty>
