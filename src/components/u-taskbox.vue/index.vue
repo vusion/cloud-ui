@@ -46,10 +46,6 @@ export default {
             type: String,
             default: '通知',
         },
-        title: {
-            type: String,
-            default: '通知',
-        },
         size: {
             type: Number,
             default: 5,
