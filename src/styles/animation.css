@@ -175,3 +175,65 @@
 .animate__fadeOutUpSmall {
     animation-name: fadeOutUpSmall;
 }
+
+@keyframes fadeInTop {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInTop {
+    animation-name: fadeInTop;
+}
+
+@keyframes fadeOutTop {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+}
+
+.animate__fadeOutTop {
+    animation-name: fadeOutTop;
+}
+
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInBottom {
+    animation-name: fadeInBottom;
+}
+
+@keyframes fadeOutBottom {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+.animate__fadeOutBottom {
+    animation-name: fadeOutBottom;
+}
