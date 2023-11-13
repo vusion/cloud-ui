@@ -38,9 +38,17 @@ export default {
     <u-drawer placement="right" :visible.sync="rightVisible" title="标题">
 
     </u-drawer>
+    <u-drawer placement="top" :visible.sync="topVisible" title="标题">
+
+    </u-drawer>
+    <u-drawer placement="bottom" :visible.sync="bottomVisible" title="标题">
+
+    </u-drawer>
     <u-linear-layout gap="small">
         <u-button @click="leftVisible = true">Left</u-button>
         <u-button @click="rightVisible = true">Right</u-button>
+        <u-button @click="topVisible = true">Top</u-button>
+        <u-button @click="bottomVisible = true">Bottom</u-button>
     </u-linear-layout>
 </div>
 </template>
@@ -51,6 +59,8 @@ export default {
         return {
             leftVisible: false,
             rightVisible: false,
+            topVisible: false,
+            bottomVisible: false,
         };
     },
 };
@@ -115,19 +125,31 @@ export default {
 ```vue
 <template>
 <div>
-    <u-drawer :visible.sync="leftVisible" size="small" title="标题">
+    <u-drawer :visible.sync="smallVisible" size="small" title="标题" :placement="placement">
     </u-drawer>
-    <u-drawer :visible.sync="middleVisible" size="normal" title="标题">
+    <u-drawer :visible.sync="normalVisible" size="normal" title="标题" :placement="placement">
    </u-drawer>
-   <u-drawer :visible.sync="rightVisible" size="large" title="标题">
+   <u-drawer :visible.sync="largeVisible" size="large" title="标题" :placement="placement">
    </u-drawer>
-   
-   <u-linear-layout gap="small">
-        <u-button @click="leftVisible = true">small</u-button>
-        <u-button @click="middleVisible = true">normal</u-button>
-        <u-button @click="rightVisible = true">large</u-button>
-    </u-linear-layout>
+   <u-drawer :visible.sync="autoVisible" size="auto" title="标题" :placement="placement">
+        <template #body>
+            <u-linear-layout :style="{ width: placement === 'right'?'500px':'', height: placement === 'bottom'?'calc(100vh - 200px)':''}">auto width/height</u-linear-layout>
+        </template>
+   </u-drawer>
+   <u-linear-layout direction="vertical">
+    <u-linear-layout gap="small">
+            <u-button @click="placement = 'right'">right</u-button>
+            <u-button @click="placement = 'bottom'">bottom</u-button>
+        </u-linear-layout>
 
+    <u-linear-layout gap="small">
+            <u-button @click="smallVisible = true">small</u-button>
+            <u-button @click="normalVisible = true">normal</u-button>
+            <u-button @click="largeVisible = true">large</u-button>
+            <u-button @click="autoVisible = true">auto</u-button>
+        </u-linear-layout>
+    </u-linear-layout>
+   
 </div>
 </template>
 
@@ -135,9 +157,11 @@ export default {
 export default {
     data() {
         return {
-            leftVisible: false,
-            middleVisible: false,
-            rightVisible: false,
+            smallVisible: false,
+            normalVisible: false,
+            largeVisible: false,
+            autoVisible: false,
+            placement: 'right'
         };
     },
 };
