@@ -1696,9 +1696,13 @@
     --modal-dialog-background-color: var(--modal-dialog-background); /* @hidden */
 
     /* @component u-drawer */
-    --drawer-width-small: 240px; /* @desc small抽屉宽度,如 1px */ /* @depAttrs {"size": ["small"]} */
-    --drawer-width: 400px; /* @desc normal抽屉宽度,如 1px */ /* @depAttrs {"size": ["normal", null]} */
-    --drawer-width-large: 600px; /* @desc large抽屉宽度,如 1px */ /* @depAttrs {"size": ["large"]} */
+    --drawer-width-small: 240px; /* @desc small抽屉宽度,如 1px */ /* @depAttrs {"size": ["small"], "placement": ["left", "right", null]} */
+    --drawer-width: 400px; /* @desc normal抽屉宽度,如 1px */ /* @depAttrs {"size": ["normal", null], "placement": ["left", "right", null]} */
+    --drawer-width-large: 600px; /* @desc large抽屉宽度,如 1px */ /* @depAttrs {"size": ["large"], "placement": ["left", "right", null]} */
+    --drawer-height-small: 240px; /* @desc small抽屉高度,如 1px */ /* @depAttrs {"size": ["small"], "placement": ["top", "bottom"]} */
+    --drawer-height: 400px; /* @desc normal抽屉高度,如 1px */ /* @depAttrs {"size": ["normal", null], "placement": ["top", "bottom"]} */
+    --drawer-height-large: 600px; /* @desc large抽屉高度,如 1px */ /* @depAttrs {"size": ["large"], "placement": ["top", "bottom"]} */
+    --drawer-max-height: auto; /* @desc large抽屉最大高度,如 1px */ /* @depAttrs {"size": ["auto"], "placement": ["top", "bottom"]} */
     --drawer-background: white; /* @type color */ /* @desc 抽屉背景色 */
     --drawer-wrap-background: rgba(0, 0, 0, 0.6); /* @type color */ /* @desc 遮罩背景色 */
     --drawer-close-size: 15px; /* @desc 关闭图标大小 */
@@ -1708,6 +1712,7 @@
     --drawer-body-padding: 15px; /* @desc 抽屉内容区内边距 */
     --drawer-foot-padding: 20px 24px; /* @desc 抽屉底部内边距 */
     --drawer-border-color: var(--gray-lightest); /* @type color */ /* @desc 抽屉边框颜色 */
+    --drawer-border-radius: none; /* @desc 抽屉边框圆角 */
 
     --drawer-body-overflow-y: auto;  /* @hidden */
     --drawer-static-padding: var(--space-base); /* @hidden */
