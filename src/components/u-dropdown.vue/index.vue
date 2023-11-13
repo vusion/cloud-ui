@@ -5,7 +5,6 @@
             vusion-slot-name="title"
             vusion-slot-name-edit="title"
             no-for-edit
-            vusion-click-enabled
             can-nodeinfo
         >
             <slot name="title"></slot>
@@ -23,6 +22,7 @@
             <i-ico name="more" v-else :class="$style.iconMore"></i-ico>
         </div>
         <m-popper
+            ref="popper"
             :style="{ width: currentPopperWidth }"
             :class="$style.popper"
             :trigger="trigger"
@@ -293,6 +293,10 @@ export default {
         },
         reload() {
             this.load();
+        },
+        // IDE里使用：单击打开弹出框
+        designerControl() {
+            this.$refs.popper.toggle();
         },
     },
 };
