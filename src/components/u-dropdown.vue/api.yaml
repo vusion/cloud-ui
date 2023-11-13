@@ -343,6 +343,16 @@
       brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
+    - name: opened
+      title: 显示状态
+      type: boolean
+      sync: true
+      default: false
+      description: ""
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 开启时进入页面即展示下拉菜单，默认关闭
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default
