@@ -6,7 +6,7 @@ exports[`u-cascade-select.vue Demo-Placeholder 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>学科门类</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -24,7 +24,7 @@ exports[`u-cascade-select.vue Demo-Placeholder 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>一级学科</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -36,7 +36,7 @@ exports[`u-cascade-select.vue Demo-Placeholder 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>二级学科</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -55,7 +55,7 @@ exports[`u-cascade-select.vue Demo-join 1`] = `
     <div class="root" clearable="true" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         工学
       </div>
       <span></span>
@@ -75,7 +75,7 @@ exports[`u-cascade-select.vue Demo-join 1`] = `
     <div class="root" clearable="true" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         计算机科学与技术
       </div>
       <span></span>
@@ -98,7 +98,7 @@ exports[`u-cascade-select.vue Demo-join 1`] = `
     <div class="root" clearable="true" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         计算机应用技术
       </div>
       <span></span>
@@ -129,7 +129,7 @@ exports[`u-cascade-select.vue Demo-join 2`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -150,7 +150,7 @@ exports[`u-cascade-select.vue Demo-join 2`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -162,7 +162,7 @@ exports[`u-cascade-select.vue Demo-join 2`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -182,7 +182,7 @@ exports[`u-cascade-select.vue Demo-last-value 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -200,7 +200,7 @@ exports[`u-cascade-select.vue Demo-last-value 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -212,7 +212,7 @@ exports[`u-cascade-select.vue Demo-last-value 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -232,7 +232,7 @@ exports[`u-cascade-select.vue Demo-基本用法 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>学科门类</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -250,7 +250,7 @@ exports[`u-cascade-select.vue Demo-基本用法 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>一级学科</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -262,7 +262,7 @@ exports[`u-cascade-select.vue Demo-基本用法 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>二级学科</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -281,7 +281,7 @@ exports[`u-cascade-select.vue Demo-基本用法 2`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -299,7 +299,7 @@ exports[`u-cascade-select.vue Demo-基本用法 2`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -311,7 +311,7 @@ exports[`u-cascade-select.vue Demo-基本用法 2`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -330,7 +330,7 @@ exports[`u-cascade-select.vue Demo-大小扩展 1`] = `
     <div class="root" size="medium" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -348,7 +348,7 @@ exports[`u-cascade-select.vue Demo-大小扩展 1`] = `
     <div class="root" size="medium" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -360,7 +360,7 @@ exports[`u-cascade-select.vue Demo-大小扩展 1`] = `
     <div class="root" size="medium" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -379,7 +379,7 @@ exports[`u-cascade-select.vue Demo-隐藏空列表 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>学科门类</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">

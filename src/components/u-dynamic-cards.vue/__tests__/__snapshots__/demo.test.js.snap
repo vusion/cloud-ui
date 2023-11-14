@@ -34,7 +34,7 @@ exports[`u-dynamic-cards.vue Demo-Mini 自定义 1`] = `
         <div class="root" size="huge normal" tabindex="0">
           <span>b</span>
           <span style="display: none;">请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
             abc
           </div>
           <transition-stub name="fade" style="width: 100%;">
@@ -93,7 +93,7 @@ exports[`u-dynamic-cards.vue Demo-Mini 自定义 1`] = `
         <div class="root" size="huge normal" tabindex="0">
           <span>b</span>
           <span style="display: none;">请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
             abc
           </div>
           <transition-stub name="fade" style="width: 100%;">
@@ -158,7 +158,7 @@ exports[`u-dynamic-cards.vue Demo-基本用法 1`] = `
         <div class="root" size="huge normal" tabindex="0">
           <span>b</span>
           <span style="display: none;">请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
             abc
           </div>
           <transition-stub name="fade" style="width: 100%;">
@@ -215,7 +215,7 @@ exports[`u-dynamic-cards.vue Demo-基本用法 1`] = `
         <div class="root" size="huge normal" tabindex="0">
           <span>b</span>
           <span style="display: none;">请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
             def
           </div>
           <transition-stub name="fade" style="width: 100%;">
@@ -285,7 +285,7 @@ exports[`u-dynamic-cards.vue Demo-表单验证 1`] = `
             <div class="root" color disabled="disabled" size="huge normal" tabindex>
               <span>b</span>
               <span>请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
               </div>
               <transition-stub name="fade" style="width: 100%;">
                 <div class="root" style="display: none;">
@@ -374,7 +374,7 @@ exports[`u-dynamic-cards.vue Demo-表单验证 2`] = `
                   <div class="root" color size="huge full" tabindex="0">
                     <span>b</span>
                     <span style="display: none;">服务</span>
-                    <div style="direction: ltr;" tags-overflow="collapse">
+                    <div class style="direction: ltr;" tags-overflow="collapse">
                       abc
                     </div>
                     <transition-stub name="fade" style="width: 100%;">
@@ -467,7 +467,7 @@ exports[`u-dynamic-cards.vue Demo-限制数量 1`] = `
         <div class="root" size="huge normal" tabindex="0">
           <span>b</span>
           <span style="display: none;">请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
             abc
           </div>
           <transition-stub name="fade" style="width: 100%;">
@@ -524,7 +524,7 @@ exports[`u-dynamic-cards.vue Demo-限制数量 1`] = `
         <div class="root" size="huge normal" tabindex="0">
           <span>b</span>
           <span style="display: none;">请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
             abc
           </div>
           <transition-stub name="fade" style="width: 100%;">
