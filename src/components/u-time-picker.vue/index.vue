@@ -109,6 +109,11 @@ export default {
             placeholder: this.$tt('selectTimeText'),
         };
     },
+    watch: {
+        time() {
+            this.inputTime = this.time;
+        },
+    },
     computed: {
         validShowFormatters() {
             return formatterOptions[this.minUnit];
