@@ -2429,7 +2429,7 @@
                     "--input-width-mini": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Mini输入框高度,如 1px",
+                        "desc": "Mini输入框宽度,如 1px",
                         "depAttrs": {
                             "width": [
                                 "mini"
@@ -2442,7 +2442,7 @@
                     "--input-width-small": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Small输入框高度,如 1px",
+                        "desc": "Small输入框宽度,如 1px",
                         "depAttrs": {
                             "width": [
                                 "small"
@@ -2455,7 +2455,7 @@
                     "--input-width": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "输入框高度,如 1px",
+                        "desc": "输入框宽度,如 1px",
                         "depAttrs": {
                             "width": [
                                 "normal",
@@ -2469,7 +2469,7 @@
                     "--input-width-medium": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Medium输入框高度,如 1px",
+                        "desc": "Medium输入框宽度,如 1px",
                         "depAttrs": {
                             "width": [
                                 "medium"
@@ -2482,7 +2482,7 @@
                     "--input-width-large": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Large输入框高度,如 1px",
+                        "desc": "Large输入框宽度,如 1px",
                         "depAttrs": {
                             "width": [
                                 "large"
@@ -2495,7 +2495,7 @@
                     "--input-width-huge": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Huge输入框高度,如 1px",
+                        "desc": "Huge输入框宽度,如 1px",
                         "depAttrs": {
                             "width": [
                                 "huge"
@@ -6748,6 +6748,384 @@
                         "desc": "胶囊标签字体颜色",
                         "prefix": "capsules-capsule"
                     }
+                }
+            },
+            {
+                "id": 59,
+                "name": "u-tree-select-new",
+                "children": [
+                    "u-tree-view-new"
+                ],
+                "title": "树选择器",
+                "toPosition": "treeSelectNew",
+                "type": [],
+                "cssProperty": {
+                    "--tree-select-new-width": {
+                        "type": "input",
+                        "group": "宽度",
+                        "desc": "树选择器宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "normal",
+                                null
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--tree-select-new-height": {
+                        "type": "input",
+                        "group": "高度",
+                        "desc": "树选择器高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "normal",
+                                null
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
+                    },
+                    "--tree-select-new-padding-x": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Mini树选择器水平方向内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "normal",
+                                null
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-width-mini": {
+                        "type": "input",
+                        "group": "宽度",
+                        "desc": "Mini树选择器宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "mini"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--tree-select-new-padding-x-mini": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Mini树选择器内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "mini"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-height-mini": {
+                        "type": "input",
+                        "group": "高度",
+                        "desc": "Mini树选择器高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "mini"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
+                    },
+                    "--tree-select-new-width-small": {
+                        "type": "input",
+                        "group": "宽度",
+                        "desc": "Small树选择器宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "small"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--tree-select-new-padding-x-small": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Small树选择器内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "small"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-height-small": {
+                        "type": "input",
+                        "group": "高度",
+                        "desc": "Mini树选择器高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "small"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
+                    },
+                    "--tree-select-new-width-medium": {
+                        "type": "input",
+                        "group": "宽度",
+                        "desc": "Medium树选择器宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "medium"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--tree-select-new-padding-x-medium": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Medium树选择器内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "medium"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-height-medium": {
+                        "type": "input",
+                        "group": "高度",
+                        "desc": "Medium树选择器高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "medium"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
+                    },
+                    "--tree-select-new-width-large": {
+                        "type": "input",
+                        "group": "宽度",
+                        "desc": "Large树选择器宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "large"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--tree-select-new-padding-x-large": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Large树选择器内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "large"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-height-large": {
+                        "type": "input",
+                        "group": "高度",
+                        "desc": "Large树选择器高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "large"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
+                    },
+                    "--tree-select-new-width-huge": {
+                        "type": "input",
+                        "group": "宽度",
+                        "desc": "Huge树选择器宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "huge"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--tree-select-new-padding-x-huge": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Huge树选择器内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "huge"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-height-huge": {
+                        "type": "input",
+                        "group": "高度",
+                        "desc": "Huge树选择器高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "huge"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
+                    },
+                    "--tree-select-new-padding-x-full": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Full树选择器内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "full"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-color": {
+                        "type": "color",
+                        "desc": "树选择器输入框字体颜色,如 #223325"
+                    },
+                    "--tree-select-new-color-disabled": {
+                        "type": "color",
+                        "desc": "树选择器输入框字体颜色（禁用状态）,如 #223325"
+                    },
+                    "--tree-select-new-border-width": {
+                        "type": "input",
+                        "group": "边框",
+                        "desc": "树选择器输入框边框宽度,如 1px"
+                    },
+                    "--tree-select-new-border-color": {
+                        "type": "color",
+                        "group": "边框",
+                        "desc": "树选择器输入框边框颜色,如 #223325"
+                    },
+                    "--tree-select-new-border-radius-base": {
+                        "type": "input",
+                        "group": "边框",
+                        "desc": "树选择器输入框圆角,如 1px"
+                    },
+                    "--tree-select-new-border-color-hover": {
+                        "type": "color",
+                        "group": "边框",
+                        "desc": "树选择器输入框边框颜色（hover状态）,如 #223325"
+                    },
+                    "--tree-select-new-border-color-disabled": {
+                        "type": "color",
+                        "group": "边框",
+                        "desc": "树选择器输入框边框颜色（禁用状态）,如 #223325"
+                    },
+                    "--tree-select-new-input-border-color-error": {
+                        "type": "color",
+                        "group": "边框",
+                        "desc": "树选择器输入框边框颜色（错误状态）,如 #223325"
+                    },
+                    "--tree-select-new-arrow-size": {
+                        "type": "input",
+                        "group": "下拉箭头",
+                        "desc": "树选择器输入框下拉箭头大小,如 1px"
+                    },
+                    "--tree-select-new-arrow-color": {
+                        "type": "color",
+                        "group": "下拉箭头",
+                        "desc": "树选择器输入框下拉箭头颜色,如 #223325"
+                    },
+                    "--tree-select-new-background": {
+                        "type": "color",
+                        "desc": "树选择器输入框背景颜色,如 #223325"
+                    },
+                    "--tree-select-new-background-disabled": {
+                        "type": "color",
+                        "desc": "树选择器输入框背景颜色（禁用状态）,如 #223325"
+                    },
+                    "--tree-select-new-focus-outline": {
+                        "type": "input",
+                        "desc": "树选择器输入框轮廓,如 1px ridge rgba(0, 0, 0, 0.2)"
+                    },
+                    "--tree-select-new-box-shadow-focus": {
+                        "type": "input",
+                        "group": "边框阴影",
+                        "desc": "树选择器输入框边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
+                    },
+                    "--tree-select-new-placeholder-color": {
+                        "type": "color",
+                        "group": "占位符",
+                        "desc": "树选择器的占位符文字颜色,如 #223325"
+                    },
+                    "--tree-select-new-popper-line-height": {
+                        "type": "input",
+                        "group": "弹出层",
+                        "desc": "树选择器弹出层下拉项行高"
+                    },
+                    "--tree-select-new-popper-max-height": {
+                        "type": "input",
+                        "group": "弹出层",
+                        "desc": "树选择器弹出层最大高度"
+                    },
+                    "--tree-select-new-popper-background": {
+                        "type": "color",
+                        "group": "弹出层",
+                        "desc": "选择框弹出层背景色,如 #223325"
+                    },
+                    "--tree-select-new-popper-border-color": {
+                        "type": "color",
+                        "group": "弹出层",
+                        "desc": "选择框弹出层边框颜色,如 #223325"
+                    },
+                    "--tree-select-new-popper-box-shadow": {
+                        "type": "input",
+                        "group": "弹出层",
+                        "desc": "树选择器弹出层边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
+                    },
+                    "--tree-select-new-popper-min-width": {
+                        "type": "input",
+                        "group": "弹出层",
+                        "desc": "树选择器弹出层最小宽度"
+                    },
+                    "--tree-select-new-popper-width": {
+                        "type": "input",
+                        "group": "弹出层",
+                        "desc": "树选择器弹出层宽度"
+                    }
+                },
+                "preview": {
+                    "template": "<u-tree-view :data=\"list\"></u-tree-view>",
+                    "script": "export default {\n    data() {\n        return {\n            list: [\n                {\n                    text: '一级分类',\n                    children: [\n                        {\n                            text: '二级分类选项文字极限很长...',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                },\n                            ],\n                        },\n                        {\n                            text: '二级分类',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                },\n                            ],\n                        },\n                        {\n                            text: '二级分类',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                    value: '3',\n                                    children: [\n                                        {\n                                            text: '四级分类',\n                                            value: '4',\n                                        },\n                                    ],\n                                },\n                            ],\n                        },\n                    ],\n                },\n                {\n                    text: '一级分类',\n                    children: [\n                        {\n                            text: '二级分类',\n                        },\n                        {\n                            text: '二级分类',\n                        },\n                    ],\n                },\n            ],\n        };\n    },\n};"
                 }
             }
         ]
