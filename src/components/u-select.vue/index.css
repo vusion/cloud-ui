@@ -117,10 +117,13 @@
     display: block;
     float: left;
     width: 100%;
-    /* overflow: hidden;
-    text-overflow: ellipsis; */
     white-space: nowrap;
     line-height: inherit;
+}
+
+.textEllipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .root[multiple-tags], .root[multiple-tags][size] {
