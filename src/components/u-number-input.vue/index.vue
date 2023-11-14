@@ -280,7 +280,7 @@ export default {
                 if (!this.Decimal && this?.decimalLength > -1) {
                     this.Decimal = this.getCloneDecimal();
                 }
-                value = this.Decimal.min(this.Decimal.max(this.min, new this.Decimal(value)), this.max).toString();
+                value = this.Decimal.min(this.Decimal.max(String(this.min), new this.Decimal(value)), String(this.max)).toString();
             } else {
                 value = Math.min(Math.max(this.min, value), this.max);
             }
