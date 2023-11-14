@@ -6861,6 +6861,22 @@
                         "prefix": "capsules-capsule"
                     }
                 }
+            },
+            {
+                "id": 59,
+                "name": "u-taskbox",
+                "title": "任务箱",
+                "toPosition": "taskbox",
+                "type": [],
+                "preview": {
+                    "template": "<u-taskbox icon=\"notice\"></u-taskbox>"
+                },
+                "cssProperty": {
+                    "--taskbox-icon-font-size": {
+                        "type": "input",
+                        "desc": "任务箱图标大小,如：1px"
+                    }
+                }
             }
         ]
     },
