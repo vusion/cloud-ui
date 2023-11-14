@@ -1,5 +1,5 @@
 <template>
-    <u-tree-view value="4" :data="list"></u-tree-view>
+    <u-tree-view :data="list"></u-tree-view>
 </template>
 
 <script>
