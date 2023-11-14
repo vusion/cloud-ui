@@ -188,10 +188,10 @@ export default {
     font-size: 12px;
 }
 .taskicon {
-    font-size: 24px;
+    font-size: var(--taskbox-icon-font-size);
 }
 .taskicon [class^="i-ico_iconwrap"] {
-   font-size: 24px;
+   font-size: inherit;
 }
 .badge [class^="u-badge_value__"]{
     box-shadow: var(--taskbox-badge-box-shadow);
