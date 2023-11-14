@@ -35,8 +35,8 @@ export default {
         // String 类型是为了验证抛出
         value: [Number, String, Object],
         defaultValue: [String, Number],
-        min: { type: Number, default: -Infinity },
-        max: { type: Number, default: Infinity },
+        min: { type: [Number, Object], default: -Infinity },
+        max: { type: [Number, Object], default: Infinity },
         step: { type: Number, default: 1, validator: (step) => step >= 0 },
         // 默认优先使用小数位数（废弃⚠️）
         precision: { type: Number, default: 1, validator: (precision) => precision >= 0 },
