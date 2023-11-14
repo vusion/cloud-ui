@@ -1,5 +1,5 @@
 <template>
-    <u-tree-select-new :data-source="list" text-field="title" value-field="title">
+    <u-tree-select-new :data-source="list" text-field="text1" value-field="text1">
     </u-tree-select-new>
 </template>
 
