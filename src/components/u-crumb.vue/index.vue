@@ -19,11 +19,12 @@ import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
 import MParent from '../m-parent.vue';
 import { getRouteComponentOptions } from '../../utils/vue';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-crumb',
     childName: 'u-crumb-item',
-    mixins: [MParent],
+    mixins: [MParent, i18nMixin],
     props: {
         auto: { type: Boolean, default: false },
         separator: { type: String, default: 'arrow' },
@@ -48,6 +49,14 @@ export default {
                     const meta = Object.assign({}, route.meta, componentOptions && componentOptions.meta);
 
                     let crumb = meta.crumb;
+
+                    // 面包屑国际化
+                    if (meta.crumbI18n) {
+                        const crumbI18nMsg = this.$tt(meta.crumbI18nMsg);
+                        if (crumbI18nMsg)
+                            crumb = crumbI18nMsg;
+                    }
+
                     if (crumb) {
                         if (isFunction(crumb))
                             crumb = crumb(route, to, from);
