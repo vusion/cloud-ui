@@ -586,7 +586,6 @@ export default {
             if (this.appendTo === 'body') {
                 const style = Object.assign({}, this.$vnode.data && this.$vnode.data.style);
                 const staticStyle = Object.assign({}, this.$vnode.data && this.$vnode.data.staticStyle);
-                console.log('getPopperStyle', style, staticStyle);
                 const newStyle = Object.assign({}, style, staticStyle);
                 const popperStyle = {};
                 Object.keys(newStyle).forEach((key) => {
