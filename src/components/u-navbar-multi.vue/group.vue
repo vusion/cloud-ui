@@ -1,6 +1,6 @@
 <template>
     <div :class="isInNavbar ? $style.root : $style.dropdownRoot" ref="root" @click.stop>
-        <div :class="$style.head" :selected="selected" vusion-click-enabled>
+        <div :class="$style.head" :selected="selected">
             <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
                 <i-ico v-if="icon" :name="icon" :class="$style.singleicon" notext></i-ico>
                 <slot name="title">
@@ -190,11 +190,14 @@ export default {
             this.load();
         },
         close() {
-            console.log('popper close');
             this.toggle(false);
             if (this.parentVM.close) {
                 this.parentVM.close();
             }
+        },
+        // IDE里使用：单击打开弹出框
+        designerControl() {
+            this.toggle();
         },
     },
 };
