@@ -298,6 +298,9 @@ export default {
         designerControl() {
             this.$refs.popper.toggle();
         },
+        close() {
+            this.$refs.popper.close();
+        },
     },
 };
 </script>
