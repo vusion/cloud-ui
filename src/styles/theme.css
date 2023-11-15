@@ -1904,8 +1904,9 @@
 
 
 
-    /* @component u-taskbox @hidden */
-    --taskbox-badge-box-shadow: none;
+    /* @component u-taskbox */
+    --taskbox-icon-font-size: 24px; /* @desc 任务箱图标大小,如：1px */
+    --taskbox-badge-box-shadow: none; /* @hidden */
 
     /**
      * ========================
