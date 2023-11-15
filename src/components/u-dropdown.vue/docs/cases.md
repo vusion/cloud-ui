@@ -17,6 +17,18 @@
             <u-dropdown-item text="item1"></u-dropdown-item>
             <u-dropdown-item text="item1"></u-dropdown-item>
             <u-dropdown-item disabled text="item1"></u-dropdown-item>
+            <u-dropdown-group title="下拉组">
+                <u-dropdown-item text="item1"></u-dropdown-item>
+                <u-dropdown-item text="item1"></u-dropdown-item>
+                <u-dropdown-item text="item1"></u-dropdown-item>
+                <u-dropdown-item disabled text="item1"></u-dropdown-item>
+                <u-dropdown-group title="下拉组">
+                    <u-dropdown-item text="item1"></u-dropdown-item>
+                    <u-dropdown-item text="item1"></u-dropdown-item>
+                    <u-dropdown-item text="item1"></u-dropdown-item>
+                    <u-dropdown-item disabled text="item1"></u-dropdown-item>
+                </u-dropdown-group>
+            </u-dropdown-group>
         </u-dropdown-group>
         <u-dropdown-group title="下拉组2" trigger="click">
             <u-dropdown-item text="item1"></u-dropdown-item>
@@ -50,6 +62,18 @@
             <u-dropdown-item text="item1"></u-dropdown-item>
             <u-dropdown-item text="item1"></u-dropdown-item>
             <u-dropdown-item disabled text="item1"></u-dropdown-item>
+            <u-dropdown-group title="下拉组">
+                <u-dropdown-item text="item1"></u-dropdown-item>
+                <u-dropdown-item text="item1"></u-dropdown-item>
+                <u-dropdown-item text="item1"></u-dropdown-item>
+                <u-dropdown-item disabled text="item1"></u-dropdown-item>
+                <u-dropdown-group title="下拉组">
+                    <u-dropdown-item text="item1"></u-dropdown-item>
+                    <u-dropdown-item text="item1"></u-dropdown-item>
+                    <u-dropdown-item text="item1"></u-dropdown-item>
+                    <u-dropdown-item disabled text="item1"></u-dropdown-item>
+                </u-dropdown-group>
+            </u-dropdown-group>
         </u-dropdown-group>
     </u-dropdown>
     <u-dropdown trigger="right-click">

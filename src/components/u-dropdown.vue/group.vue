@@ -194,6 +194,9 @@ export default {
         },
         close() {
             this.$refs.popper.close();
+            if (this.parentVM.close) {
+                this.parentVM.close();
+            }
         },
     },
 };

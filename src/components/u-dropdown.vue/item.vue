@@ -49,16 +49,24 @@ export default {
                     preventDefault: () => (cancel = true),
                 }, this);
                 if (cancel) {
-                    this.parentVM.close();
+                    this.close();
                     return;
                 }
                 this.parentVM.select(this, true);
             }
-            this.parentVM.close();
+            this.close();
         },
         onSelect(e) {
             this.select(e);
-            this.parentVM.close();
+            this.close();
+        },
+        close() {
+            if (this.groupVM && this.groupVM.close) {
+                this.groupVM.close();
+            }
+            if (this.parentVM.close) {
+                this.parentVM.close();
+            }
         },
     },
 };
