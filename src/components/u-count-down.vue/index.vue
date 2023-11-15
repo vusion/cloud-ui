@@ -57,7 +57,7 @@ export default {
     },
     data() {
         return {
-            second: this.timer,
+            second: Number(this.timer),
             worker: undefined,
             lastPauseTime: undefined,
         };
@@ -68,7 +68,7 @@ export default {
         },
         crtTime() {
             const { second } = this;
-            const totalSecond = this.timer;
+            const totalSecond = Number(this.timer);
             if (this.reverse === 'negative') {
                 const min = String(Math.floor(second / 60)).padStart(2, "0");
                 const sec = String(second % 60).padStart(2, "0");
@@ -81,7 +81,7 @@ export default {
 
         },
         initialTime() {
-          const totalSecond = this.timer;
+          const totalSecond = Number(this.timer);
           if (this.reverse === 'negative') {
             const min = String(Math.floor(totalSecond / 60)).padStart(2, "0");
             const sec = String(totalSecond % 60).padStart(2, "0");
@@ -131,7 +131,7 @@ export default {
           this.$emit("start");
           this.worker.postMessage({
                 state: "start",
-                second: this.timer,
+                second: Number(this.timer),
             });
         },
         stop() {
