@@ -6,12 +6,13 @@
         :disabled="disabled || parentVM.disabled || (groupVM && groupVM.disabled)"
         :href="currentHref"
         :target="target"
-        @click="parentVM.router ? onClick($event) : select($event)"
+        @click="parentVM.router ? onClick($event) : onSelect($event)"
         v-on="listeners"
         v-ellipsis-title
         vusion-slot-name="default"
         vusion-slot-name-edit="text"
-        vusion-click-enabled>
+        vusion-click-enabled
+        @click.stop>
         <i-ico
             v-if="icon"
             :name="icon"
@@ -47,10 +48,17 @@ export default {
                     itemVM: this,
                     preventDefault: () => (cancel = true),
                 }, this);
-                if (cancel)
+                if (cancel) {
+                    this.parentVM.close();
                     return;
+                }
                 this.parentVM.select(this, true);
             }
+            this.parentVM.close();
+        },
+        onSelect(e) {
+            this.select(e);
+            this.parentVM.close();
         },
     },
 };
