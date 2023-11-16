@@ -1,6 +1,6 @@
 <template>
     <div :class="isInNavbar ? $style.root : $style.dropdownRoot" ref="root" @click.stop>
-        <div :class="$style.head" :selected="selected" vusion-click-enabled>
+        <div :class="$style.head" :selected="selected">
             <div :class="$style.title" vusion-slot-name="title" vusion-slot-name-edit="title">
                 <i-ico v-if="icon" :name="icon" :class="$style.singleicon" notext></i-ico>
                 <slot name="title">
@@ -14,9 +14,10 @@
             </div>
         </div>
         <m-popper
+            ref="popper"
             v-if="!loading"
             :class="$style.popper"
-            :trigger="rootVM.trigger"
+            :trigger="trigger || rootVM.trigger"
             :placement="placement"
             :disabled="disabled"
             :reference="$refs.root"
@@ -35,7 +36,8 @@
                         :collapsible="$at2(childNode, rootVM.collapsibleField)"
                         :title="$at2(childNode, rootVM.textField)"
                         :icon="$at2(node, rootVM.iconField)"
-                        :inner-idx="idx"></u-navbar-group-multi>
+                        :inner-idx="idx"
+                        :trigger="childNode.trigger"></u-navbar-group-multi>
                     <u-navbar-item-multi
                         v-else
                         :key="`${$at2(childNode, rootVM.valueField) || idx}`"
@@ -78,6 +80,7 @@ export default {
         node: Object,
         innerIdx: { type: Number, default: undefined },
         icon: String,
+        trigger: String,
     },
 
     data() {
@@ -185,6 +188,16 @@ export default {
         },
         reload() {
             this.load();
+        },
+        close() {
+            this.toggle(false);
+            if (this.parentVM.close) {
+                this.parentVM.close();
+            }
+        },
+        // IDE里使用：单击打开弹出框
+        designerControl() {
+            this.toggle();
         },
     },
 };
