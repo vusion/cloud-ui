@@ -23,16 +23,16 @@ exports[`u-navbar-multi.vue Demo-导航栏 1`] = `
         <span class="root" size="large" style="color: white; --custom-start: auto; vertical-align: middle;" vusion-slot-name-edit="text">应用名称</span>
       </div>
       <div align-items="center" class="root" direction="horizontal" fixdirec="left" fixed="false" style="flex-grow: 1; flex-basis: 0px;" vusion-slot-name="default">
-        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
           Item 1
         </a>
-        <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+        <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
           Item 2
         </a>
       </div>
       <div align-items="center" class="root" direction="horizontal" fixdirec="left" fixed="false" justify="end" style="flex-grow: 1; flex-basis: 0px;" vusion-slot-name="default">
         <div class="root" style="margin-right: 10px;" type="text">
-          <div can-nodeinfo class="title" no-for-edit vusion-slot-name="title" vusion-slot-name-edit="title">
+          <div can-nodeinfo class="title" no-for-edit vusion-click-enabled vusion-slot-name="title" vusion-slot-name-edit="title">
             <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
               <div class="root" fit="cover" horizontal-center="center" style="width: 36px; height: 36px; vertical-align: middle;" vertical-center="center">
                 <div class="root loading" size="small">
@@ -57,7 +57,7 @@ exports[`u-navbar-multi.vue Demo-导航栏 1`] = `
           </div>
           <transition-stub class="popper" name="fade">
             <div class="root" style="display: none;">
-              <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+              <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
                 安全退出
               </a>
             </div>
@@ -93,14 +93,14 @@ exports[`u-navbar-multi.vue Demo-触发方式 1`] = `
           <span class="root" size="large" style="color: white; --custom-start: auto; vertical-align: middle;" vusion-slot-name-edit="text">应用名称</span>
         </div>
         <div align-items="center" class="root" direction="horizontal" fixdirec="left" fixed="false" style="flex-grow: 1; flex-basis: 0px;" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
             Item 1
           </a>
-          <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
             Item 2
           </a>
           <div class="root">
-            <div class="head">
+            <div class="head" vusion-click-enabled>
               <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
                 <span class="root" vusion-slot-name-edit="text">导航栏分组</span>
               </div>
@@ -117,11 +117,11 @@ exports[`u-navbar-multi.vue Demo-触发方式 1`] = `
             <transition-stub class="popper" data-popper-escaped data-popper-placement="bottom-start" data-popper-reference-hidden name="fade" style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 4px);">
               <div class="root" style="display: none;">
                 <div class="body" vusion-slot-name="default">
-                  <a class="dropdownRoot" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <a class="dropdownRoot" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
                     <span class="root" vusion-slot-name-edit="text">导航栏项</span>
                   </a>
                   <div class="dropdownRoot">
-                    <div class="head">
+                    <div class="head" vusion-click-enabled>
                       <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
                         <span class="root" vusion-slot-name-edit="text">导航栏分组</span>
                       </div>
@@ -132,7 +132,7 @@ exports[`u-navbar-multi.vue Demo-触发方式 1`] = `
                     <transition-stub class="popper" data-popper-escaped data-popper-placement="right-start" data-popper-reference-hidden name="fade" style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(4px, 0px);">
                       <div class="root" style="display: none;">
                         <div class="body" vusion-slot-name="default">
-                          <a class="dropdownRoot" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+                          <a class="dropdownRoot" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
                             <span class="root" vusion-slot-name-edit="text">导航栏项</span>
                           </a>
                         </div>
@@ -146,7 +146,7 @@ exports[`u-navbar-multi.vue Demo-触发方式 1`] = `
         </div>
         <div align-items="center" class="root" direction="horizontal" fixdirec="left" fixed="false" justify="end" style="flex-grow: 1; flex-basis: 0px;" vusion-slot-name="default">
           <div class="root" style="margin-right: 10px;" type="text">
-            <div can-nodeinfo class="title" no-for-edit vusion-slot-name="title" vusion-slot-name-edit="title">
+            <div can-nodeinfo class="title" no-for-edit vusion-click-enabled vusion-slot-name="title" vusion-slot-name-edit="title">
               <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                 <div class="root" fit="cover" horizontal-center="center" style="width: 36px; height: 36px; vertical-align: middle;" vertical-center="center">
                   <div class="root loading" size="small">
@@ -171,7 +171,7 @@ exports[`u-navbar-multi.vue Demo-触发方式 1`] = `
             </div>
             <transition-stub class="popper" name="fade">
               <div class="root" style="display: none;">
-                <a class="root" target="_self" vusion-click-enabled vusion-slot-name="default" vusion-slot-name-edit="text">
+                <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
                   安全退出
                 </a>
               </div>

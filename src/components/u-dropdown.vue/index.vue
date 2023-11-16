@@ -5,6 +5,7 @@
             vusion-slot-name="title"
             vusion-slot-name-edit="title"
             no-for-edit
+            vusion-click-enabled
             can-nodeinfo
         >
             <slot name="title"></slot>
@@ -25,7 +26,7 @@
             ref="popper"
             :style="{ width: currentPopperWidth }"
             :class="$style.popper"
-            :trigger="trigger"
+            :trigger="$env.VUE_APP_DESIGNER? 'click' : trigger"
             :placement="placement"
             :disabled="disabled"
             :append-to="appendTo"
@@ -293,10 +294,6 @@ export default {
         },
         reload() {
             this.load();
-        },
-        // IDE里使用：单击打开弹出框
-        designerControl() {
-            this.$refs.popper.toggle();
         },
         close() {
             this.$refs.popper.close();

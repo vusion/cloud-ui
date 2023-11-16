@@ -4,7 +4,6 @@
         :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : onSelect($event)" v-on="listeners"
         v-ellipsis-title
         vusion-slot-name-edit="text"
-        vusion-click-enabled
         vusion-slot-name="default">
         <i-ico v-if="icon" :name="icon" :class="$style.singleicon" notext></i-ico>
         <slot>{{ text }}</slot>
