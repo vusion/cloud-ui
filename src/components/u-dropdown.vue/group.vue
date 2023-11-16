@@ -30,7 +30,7 @@
             v-if="!loading"
             :class="$style.popper"
             :reference="$refs.root"
-            :trigger="trigger || rootVM.trigger"
+            :trigger="$env.VUE_APP_DESIGNER? 'click' : trigger || rootVM.trigger"
             placement="right-start"
             :disabled="disabled"
             append-to="reference"
