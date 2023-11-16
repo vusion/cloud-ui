@@ -11,7 +11,6 @@
         v-ellipsis-title
         vusion-slot-name="default"
         vusion-slot-name-edit="text"
-        vusion-click-enabled
         @click.stop>
         <i-ico
             v-if="icon"
