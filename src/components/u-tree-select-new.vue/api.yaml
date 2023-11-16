@@ -103,6 +103,63 @@
       brifeDoc: ""
       docDescription: 开启后支持清除按钮。默认关闭
       tooltipLink: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: width
+      title: 宽度
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
+      default: normal
+      description: 设置选择框宽度大小
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 设置选择框宽度大小，支持占满、巨大、大、中型、正常、小共6种模式
+      tooltipLink: ""
+    - name: height
+      title: 高度
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
+      default: normal
+      description: 设置选择框高度大小
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 设置选择框高度大小，支持占满、巨大、大、中型、正常、小共6种模式
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

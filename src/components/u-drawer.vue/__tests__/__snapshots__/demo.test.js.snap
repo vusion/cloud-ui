@@ -33,13 +33,23 @@ exports[`u-drawer.vue Demo-基本用法 2`] = `
 
 exports[`u-drawer.vue Demo-抽屉尺寸 1`] = `
 <div>
-  <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      small</a>
-    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      normal</a>
-    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      large</a>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        right</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        bottom</a>
+    </div>
+    <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        small</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        normal</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        large</a>
+      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+        auto</a>
+    </div>
   </div>
 </div>
 `;
@@ -51,6 +61,10 @@ exports[`u-drawer.vue Demo-抽屉显示位置 1`] = `
       Left</a>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
       Right</a>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      Top</a>
+    <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      Bottom</a>
   </div>
 </div>
 `;

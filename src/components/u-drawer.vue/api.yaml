@@ -14,6 +14,10 @@
           title: 左
         - value: right
           title: 右
+        - value: top
+          title: 上
+        - value: bottom
+          title: 下
       description: 抽屉弹出的位置
       group: 主要属性
       brifeDoc: ""
@@ -69,11 +73,13 @@
           title: 正常
         - value: large
           title: 大
+        - value: auto
+          title: 自适应
       default: normal
       description: 抽屉的尺寸
       group: 样式属性
       brifeDoc: ""
-      docDescription: 支持配置抽屉的宽度，支持小、正常、大三个尺寸
+      docDescription: 支持配置抽屉的宽度或者高度，支持小、正常、大、自适应四个尺寸
       tooltipLink: ""
   events:
     - name: open

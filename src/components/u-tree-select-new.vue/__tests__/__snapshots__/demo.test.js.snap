@@ -78,6 +78,95 @@ exports[`u-tree-select-new.vue Demo-一维Data 1`] = `
 </div>
 `;
 
+exports[`u-tree-select-new.vue Demo-修改尺寸 1`] = `
+<div class="root" direction="vertical" type vusion-slot-name="default">
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <div class="root" height="normal" tabindex="0" width="normal">
+      <span class="baseline">b</span>
+      <div class="text">
+        <span>
+          节点 1
+        </span>
+      </div>
+      <transition-stub class="popper" name="fade">
+        <div class="root" style="display: none;"></div>
+      </transition-stub>
+    </div>
+  </div>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <span class="root" vusion-slot-name-edit="text">选择尺寸</span>
+    <div class="root" tabindex="0">
+      <span>b</span>
+      <span style="display: none;">选择宽度</span>
+      <div style="direction: ltr;" tags-overflow="collapse">
+        正常
+      </div>
+      <transition-stub name="fade" style="width: 100%;">
+        <div class="root" style="display: none;">
+          <div>
+            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+              占满
+            </div>
+            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+              巨大
+            </div>
+            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+              大
+            </div>
+            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+              中型
+            </div>
+            <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+              正常
+            </div>
+            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+              小
+            </div>
+            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+              迷你
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+    <div class="root" tabindex="0">
+      <span>b</span>
+      <span style="display: none;">选择高度</span>
+      <div style="direction: ltr;" tags-overflow="collapse">
+        正常
+      </div>
+      <transition-stub name="fade" style="width: 100%;">
+        <div class="root" style="display: none;">
+          <div>
+            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+              占满
+            </div>
+            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+              巨大
+            </div>
+            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+              大
+            </div>
+            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+              中型
+            </div>
+            <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+              正常
+            </div>
+            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+              小
+            </div>
+            <div class="root" style="direction: ltr;" vusion-slot-name="default">
+              迷你
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`u-tree-select-new.vue Demo-动态插槽数据 1`] = `
 <div>
   <div class="root" tabindex="0">
@@ -208,6 +297,20 @@ exports[`u-tree-select-new.vue Demo-支持清除 2`] = `
 </div>
 `;
 
+exports[`u-tree-select-new.vue Demo-禁用状态 1`] = `
+<div class="root" disabled="disabled" tabindex>
+  <span class="baseline">b</span>
+  <div class="text">
+    <span>
+      节点 1
+    </span>
+  </div>
+  <transition-stub class="popper" name="fade">
+    <div class="root" style="display: none;"></div>
+  </transition-stub>
+</div>
+`;
+
 exports[`u-tree-select-new.vue Demo-表单验证 1`] = `
 <div class="root" layout="block">
   <div class="root" distance label-size="normal">
@@ -217,7 +320,7 @@ exports[`u-tree-select-new.vue Demo-表单验证 1`] = `
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
       <div class="wrap" vusion-slot-name="default">
-        <div class="root" color tabindex="0">
+        <div class="root" color style="width: 300px; height: 40px;" tabindex="0">
           <span class="baseline">b</span>
           <span class="placeholder">
             请选择

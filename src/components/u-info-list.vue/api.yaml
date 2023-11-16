@@ -68,7 +68,7 @@
       advanced: true
     - name: span
       title: 占据数
-      type: string
+      type: number
       description: 列跨越的格数
       group: 主要属性
       brifeDoc: ""

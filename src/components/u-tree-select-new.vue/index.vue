@@ -80,7 +80,8 @@
             @before-close="$emit('before-close', $event, this)"
             @open="onOpen"
             @close="onClose"
-            @click.stop>
+            @click.stop
+            :style="getPopperStyle()">
             <!-- 目前只支持单选 -->
             <u-tree-view-new v-if="popperOpened" ref="treeView"
                 :if-expanded="ifExpanded"
@@ -581,6 +582,20 @@ export default {
 
             this.$emit('clear', { ...itemInfo }, this);
         },
+        getPopperStyle() {
+            if (this.appendTo === 'body') {
+                const style = Object.assign({}, this.$vnode.data && this.$vnode.data.style);
+                const staticStyle = Object.assign({}, this.$vnode.data && this.$vnode.data.staticStyle);
+                const newStyle = Object.assign({}, style, staticStyle);
+                const popperStyle = {};
+                Object.keys(newStyle).forEach((key) => {
+                    if (key.startsWith('--tree-select-new-popper') || key.startsWith('--tree-view')) {
+                        popperStyle[key] = newStyle[key];
+                    }
+                });
+                return popperStyle;
+            }
+        },
     },
 };
 </script>
@@ -592,26 +607,26 @@ export default {
   user-select: none;
   max-width: 100%;
   cursor: var(--cursor-pointer);
-  width: var(--select-width);
-  height: var(--select-height);
-  line-height: calc(var(--select-height) - var(--select-border-width) * 2);
+  width: var(--tree-select-new-width);
+  height: var(--tree-select-new-height);
+  line-height: calc(var(--tree-select-new-height) - var(--tree-select-new-border-width) * 2);
   padding: 0 calc(
-    var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
-      var(--select-padding-x)
-  ) 0 var(--select-padding-x);
-  background: var(--select-background);
-  border: var(--select-border-width) solid var(--select-border-color);
-  color: var(--select-color);
-  border-radius: var(--border-radius-base);
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x)
+  ) 0 var(--tree-select-new-padding-x);
+  background: var(--tree-select-new-background);
+  border: var(--tree-select-new-border-width) solid var(--tree-select-new-border-color);
+  color: var(--tree-select-new-color);
+  border-radius: var(--tree-select-new-border-radius-base);
 }
 .root:hover {
-  border-color: var(--select-border-color-hover);
+  border-color: var(--tree-select-new-border-color-hover);
 }
 
 .root:focus {
-  outline: var(--focus-outline);
-  box-shadow: var(--select-box-shadow-focus);
-  border-color: var(--select-border-color-hover);
+  outline: var(--tree-select-new-focus-outline);
+  box-shadow: var(--tree-select-new-box-shadow-focus);
+  border-color: var(--tree-select-new-border-color-hover);
 }
 
 .baseline {
@@ -622,7 +637,7 @@ export default {
 }
 
 .placeholder {
-  color: var(--select-placeholder-color);
+  color: var(--tree-select-new-placeholder-color);
   position: absolute;
   left: 0;
   top: 0;
@@ -659,15 +674,15 @@ export default {
 .root::after {
   position: absolute;
   icon-font: url("../i-icon.vue/icons/keyboard-arrow-down.svg");
-  font-size: var(--select-arrow-size);
-  right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x));
+  font-size: var(--tree-select-new-arrow-size);
+  right: calc(var(--tree-select-new-arrow-right-ratio) * var(--tree-select-new-padding-x));
   top: 0;
   bottom: 0;
   line-height: 1.2;
   height: 1em;
   margin: auto;
-  color: var(--select-arrow-color);
-  transition: transform var(--transition-duration-base);
+  color: var(--tree-select-new-arrow-color);
+  transition: transform var(--tree-select-new-transition-duration-base);
 }
 .root[opened]::after {
   transform: rotate(-180deg);
@@ -683,9 +698,9 @@ export default {
 
 .root[disabled] {
   cursor: var(--cursor-not-allowed);
-  background: var(--select-background-disabled);
-  color: var(--select-color-disabled);
-  border: 1px solid var(--brand-disabled);
+  background: var(--tree-select-new-background-disabled);
+  color: var(--tree-select-new-color-disabled);
+  border: 1px solid var(--tree-select-new-border-color-disabled);
 }
 
 .text {
@@ -700,21 +715,21 @@ export default {
 
 .tag {
   display: inline-block;
-  padding: var(--select-tag-padding);
-  font-size: var(--font-size-small);
-  line-height: var(--select-tag-line-height);
-  vertical-align: 1px;
-  background: var(--select-tag-background);
-  border-radius: 2px;
+  padding: var(--tree-select-new-tag-padding);
+  font-size: var(--tree-select-new-tag-font-size-small);
+  line-height: var(--tree-select-new-tag-line-height);
+  vertical-align: var(--tree-select-new-tag-vertical-align);
+  background: var(--tree-select-new-tag-background);
+  border-radius: var(--tree-select-new-tag-border-radius);
 }
 
 .tag:not(:last-child) {
-  margin-right: var(--select-tag-margin-x);
+  margin-right: var(--tree-select-new-tag-margin-x);
 }
 
 .tag-remove {
-  margin-left: var(--select-tag-margin-x);
-  color: var(--select-tag-remove-color);
+  margin-left: var(--tree-select-new-tag-margin-x);
+  color: var(--tree-select-new-tag-remove-color);
 }
 
 .tag-remove::before {
@@ -722,7 +737,7 @@ export default {
 }
 
 .tag-remove:hover {
-  color: var(--select-tag-remove-color-hover);
+  color: var(--tree-select-new-tag-remove-color-hover);
 }
 
 .input {
@@ -739,251 +754,435 @@ export default {
 .popper {
   position: absolute;
   box-sizing: content-box;
-  line-height: var(--select-popper-line-height);
-  max-height: var(--select-popper-max-height);
+  line-height: var(--tree-select-new-popper-line-height);
+  max-height: var(--tree-select-new-popper-max-height);
   overflow: auto;
-  background: var(--select-popper-background);
-  border: 1px solid var(--select-popper-border-color);
-  z-index: var(--z-index-popper);
+  background: var(--tree-select-new-popper-background);
+  border: 1px solid var(--tree-select-new-popper-border-color);
+  z-index: var(--tree-select-new-z-index-popper);
   margin-top: 1px;
-  border-radius: var(--border-radius-base);
-  box-shadow: var(--select-popper-box-shadow);
+  border-radius: var(--tree-select-new-border-radius-base);
+  box-shadow: var(--tree-select-new-popper-box-shadow);
   padding: 0;
-  min-width: var(--select-popper-min-width);
-  width: var(--select-popper-width);
+  min-width: var(--tree-select-new-popper-min-width);
+  width: var(--tree-select-new-popper-width);
 }
 
 .root[size$="mini"] {
-  width: var(--select-width-mini);
+  width: var(--tree-select-new-width-mini);
   padding: 0 calc(
-    var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
-      var(--select-padding-x-mini)
-  ) 0 var(--select-padding-x-mini);
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x-mini)
+  ) 0 var(--tree-select-new-padding-x-mini);
 }
 .root[size$="mini"] .item {
-  padding: 0 var(--select-padding-x-mini);
+  padding: 0 var(--tree-select-new-padding-x-mini);
 }
 .root[size$="mini"]::after {
-  right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-mini));
+  right: calc(var(--tree-select-new-arrow-right-ratio) * var(--tree-select-new-padding-x-mini));
 }
 .root[size^="mini"] {
-  height: var(--select-height-mini);
-  line-height: calc(var(--select-height-mini) - var(--select-border-width) * 2);
+  height: var(--tree-select-new-height-mini);
+  line-height: calc(var(--tree-select-new-height-mini) - var(--tree-select-new-border-width) * 2);
 }
 .root[size^="mini"] .item {
-  line-height: calc(var(--select-height-mini) - var(--select-border-width) * 2);
+  line-height: calc(var(--tree-select-new-height-mini) - var(--tree-select-new-border-width) * 2);
 }
 .root[size^="mini"] .popper {
   max-height: calc(
-    6 * calc(var(--select-height-mini) - var(--select-border-width) * 2)
+    6 * calc(var(--tree-select-new-height-mini) - var(--tree-select-new-border-width) * 2)
   );
 }
 
 .root[size$="small"] {
-  width: var(--select-width-small);
+  width: var(--tree-select-new-width-small);
   padding: 0 calc(
-    var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
-      var(--select-padding-x-small)
-  ) 0 var(--select-padding-x-small);
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x-small)
+  ) 0 var(--tree-select-new-padding-x-small);
 }
 .root[size$="small"] .item {
-  padding: 0 var(--select-padding-x-small);
+  padding: 0 var(--tree-select-new-padding-x-small);
 }
 .root[size$="small"]::after {
-  right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-small));
+  right: calc(var(--tree-select-new-arrow-right-ratio) * var(--tree-select-new-padding-x-small));
 }
 .root[size^="small"] {
-  height: var(--select-height-small);
+  height: var(--tree-select-new-height-small);
   line-height: calc(
-    var(--select-height-small) - var(--select-border-width) * 2
+    var(--tree-select-new-height-small) - var(--tree-select-new-border-width) * 2
   );
 }
 .root[size^="small"] .item {
   line-height: calc(
-    var(--select-height-small) - var(--select-border-width) * 2
+    var(--tree-select-new-height-small) - var(--tree-select-new-border-width) * 2
   );
 }
 .root[size^="small"] .popper {
   max-height: calc(
-    6 * calc(var(--select-height-small) - var(--select-border-width) * 2)
+    6 * calc(var(--tree-select-new-height-small) - var(--tree-select-new-border-width) * 2)
   );
 }
 
 .root[size$="normal"] {
-  width: var(--select-width);
+  width: var(--tree-select-new-width);
   padding: 0 calc(
-    var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
-      var(--select-padding-x)
-  ) 0 var(--select-padding-x);
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x)
+  ) 0 var(--tree-select-new-padding-x);
 }
 .root[size$="normal"] .item {
-  padding: 0 var(--select-padding-x);
+  padding: 0 var(--tree-select-new-padding-x);
 }
 .root[size$="normal"]::after {
-  right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x));
+  right: calc(var(--tree-select-new-arrow-right-ratio) * var(--tree-select-new-padding-x));
 }
 .root[size^="normal"] {
-  height: var(--select-height);
-  line-height: calc(var(--select-height) - var(--select-border-width) * 2);
+  height: var(--tree-select-new-height);
+  line-height: calc(var(--tree-select-new-height) - var(--tree-select-new-border-width) * 2);
 }
 .root[size^="normal"] .item {
-  line-height: calc(var(--select-height) - var(--select-border-width) * 2);
+  line-height: calc(var(--tree-select-new-height) - var(--tree-select-new-border-width) * 2);
 }
 .root[size^="normal"] .popper {
   max-height: calc(
-    6 * calc(var(--select-height) - var(--select-border-width) * 2)
+    6 * calc(var(--tree-select-new-height) - var(--tree-select-new-border-width) * 2)
   );
 }
 
 .root[size$="medium"] {
-  width: var(--select-width-medium);
+  width: var(--tree-select-new-width-medium);
   padding: 0 calc(
-    var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
-      var(--select-padding-x-medium)
-  ) 0 var(--select-padding-x-medium);
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x-medium)
+  ) 0 var(--tree-select-new-padding-x-medium);
 }
 .root[size$="medium"] .item {
-  padding: 0 var(--select-padding-x-medium);
+  padding: 0 var(--tree-select-new-padding-x-medium);
 }
 .root[size$="medium"]::after {
-  right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-medium));
+  right: calc(var(--tree-select-new-arrow-right-ratio) * var(--tree-select-new-padding-x-medium));
 }
 .root[size^="medium"] {
-  height: var(--select-height-medium);
+  height: var(--tree-select-new-height-medium);
   line-height: calc(
-    var(--select-height-medium) - var(--select-border-width) * 2
+    var(--tree-select-new-height-medium) - var(--tree-select-new-border-width) * 2
   );
 }
 .root[size^="medium"] .item {
   line-height: calc(
-    var(--select-height-medium) - var(--select-border-width) * 2
+    var(--tree-select-new-height-medium) - var(--tree-select-new-border-width) * 2
   );
 }
 .root[size^="medium"] .popper {
   max-height: calc(
-    6 * calc(var(--select-height-medium) - var(--select-border-width) * 2)
+    6 * calc(var(--tree-select-new-height-medium) - var(--tree-select-new-border-width) * 2)
   );
 }
 
 .root[size$="large"] {
-  width: var(--select-width-large);
+  width: var(--tree-select-new-width-large);
   padding: 0 calc(
-    var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
-      var(--select-padding-x-large)
-  ) 0 var(--select-padding-x-large);
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x-large)
+  ) 0 var(--tree-select-new-padding-x-large);
 }
 .root[size$="large"] .item {
-  padding: 0 var(--select-padding-x-large);
+  padding: 0 var(--tree-select-new-padding-x-large);
 }
 .root[size$="large"]::after {
-  right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-large));
+  right: calc(var(--tree-select-new-arrow-right-ratio) * var(--tree-select-new-padding-x-large));
 }
 .root[size^="large"] {
-  height: var(--select-height-large);
+  height: var(--tree-select-new-height-large);
   line-height: calc(
-    var(--select-height-large) - var(--select-border-width) * 2
+    var(--tree-select-new-height-large) - var(--tree-select-new-border-width) * 2
   );
 }
 .root[size^="large"] .item {
   line-height: calc(
-    var(--select-height-large) - var(--select-border-width) * 2
+    var(--tree-select-new-height-large) - var(--tree-select-new-border-width) * 2
   );
 }
 .root[size^="large"] .popper {
   max-height: calc(
-    6 * calc(var(--select-height-large) - var(--select-border-width) * 2)
+    6 * calc(var(--tree-select-new-height-large) - var(--tree-select-new-border-width) * 2)
   );
 }
 
 .root[size$="huge"] {
-  width: var(--select-width-huge);
+  width: var(--tree-select-new-width-huge);
   padding: 0 calc(
-    var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
-      var(--select-padding-x-huge)
-  ) 0 var(--select-padding-x-huge);
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x-huge)
+  ) 0 var(--tree-select-new-padding-x-huge);
 }
 .root[size$="huge"] .item {
-  padding: 0 var(--select-padding-x-huge);
+  padding: 0 var(--tree-select-new-padding-x-huge);
 }
 .root[size$="huge"]::after {
-  right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-huge));
+  right: calc(var(--tree-select-new-arrow-right-ratio) * var(--tree-select-new-padding-x-huge));
 }
 .root[size^="huge"] {
-  height: var(--select-height-huge);
-  line-height: calc(var(--select-height-huge) - var(--select-border-width) * 2);
+  height: var(--tree-select-new-height-huge);
+  line-height: calc(var(--tree-select-new-height-huge) - var(--tree-select-new-border-width) * 2);
 }
 .root[size^="huge"] .item {
-  line-height: calc(var(--select-height-huge) - var(--select-border-width) * 2);
+  line-height: calc(var(--tree-select-new-height-huge) - var(--tree-select-new-border-width) * 2);
 }
 .root[size^="huge"] .popper {
   max-height: calc(
-    6 * calc(var(--select-height-huge) - var(--select-border-width) * 2)
+    6 * calc(var(--tree-select-new-height-huge) - var(--tree-select-new-border-width) * 2)
   );
 }
 
 .root[size$="full"] {
   width: 100%;
   padding: 0 calc(
-    var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) *
-      var(--select-padding-x-full)
-  ) 0 var(--select-padding-x-full);
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x-full)
+  ) 0 var(--tree-select-new-padding-x-full);
 }
 .root[size$="full"] .item {
-  padding: 0 var(--select-padding-x-full);
+  padding: 0 var(--tree-select-new-padding-x-full);
 }
 .root[size^="full"] {
   height: 100%;
 }
 
 .root[color="error"] {
-    border-color: var(--select-input-border-color-error);
+    border-color: var(--tree-select-new-input-border-color-error);
 }
 
 .root[color="inverse"] {
-  background: var(--select-background-inverse);
-  border-color: var(--select-border-color-inverse);
-  color: var(--select-color-inverse);
+  background: var(--tree-select-new-background-inverse);
+  border-color: var(--tree-select-new-border-color-inverse);
+  color: var(--tree-select-new-color-inverse);
 }
 
 .popper[color="inverse"] {
-  background: var(--select-popper-background-inverse);
-  color: var(--select-popper-color-inverse);
-  border-color: var(--select-popper-border-color-inverse);
+  background: var(--tree-select-new-popper-background-inverse);
+  color: var(--tree-select-new-popper-color-inverse);
+  border-color: var(--tree-select-new-popper-border-color-inverse);
 }
 
 .popper[color="inverse"] [class^="u-tree-view_node_item"]:hover {
-  background: var(--tree-view-node-background-active-inverse);
+  background: var(--tree-select-new-tree-view-node-background-active-inverse);
 }
 
 .popper[color="inverse"] [class^="u-tree-view_node_item"]:focus {
-  background: var(--tree-view-node-background-active-inverse);
+  background: var(--tree-select-new-tree-view-node-background-active-inverse);
 }
 
 .popper[color="inverse"] [class^="u-tree-view_node_item"][selected] {
-  background: var(--tree-view-node-background-selected-inverse);
+  background: var(--tree-select-new-tree-view-node-background-selected-inverse);
 }
 
 .popper[color="inverse"]
   [class^="u-tree-view_node_item"][selected]
   [class^="u-tree-view_node_text"] {
-  color: var(--tree-view-node-color-selected-inverse);
+  color: var(--tree-select-new-tree-view-node-color-selected-inverse);
 }
 
 .popper[color="inverse"]
   [class^="u-tree-view_node_item"][selected]
   [class^="u-tree-view_node_expander"] {
-  color: var(--tree-view-node-expander-color-selected-inverse);
+  color: var(--tree-select-new-tree-view-node-expander-color-selected-inverse);
 }
 
 .popper[color="inverse"] [class^="u-tree-view_node_item"][disabled] {
-  color: var(--tree-view-node-color-disabled-inverse);
+  color: var(--tree-select-new-tree-view-node-color-disabled-inverse);
 }
 
 .popper[color="inverse"] [class^="u-tree-view_node_item"][disabled] {
-  background: var(--tree-view-node-background-disabled-inverse);
+  background: var(--tree-select-new-tree-view-node-background-disabled-inverse);
 }
 
 .popper[color="inverse"] [class^="u-tree-view_node_item"][selected][disabled] {
-  background: var(--tree-view-node-background-selected-disabled-inverse);
+  background: var(--tree-select-new-tree-view-node-background-selected-disabled-inverse);
 }
+
+
+.root[width="mini"] {
+  width: var(--tree-select-new-width-mini);
+  padding: 0 calc(
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x-mini)
+  ) 0 var(--tree-select-new-padding-x-mini);
+}
+.root[width="mini"] .item {
+  padding: 0 var(--tree-select-new-padding-x-mini);
+}
+.root[width="mini"]::after {
+  right: calc(var(--tree-select-new-arrow-right-ratio) * var(--tree-select-new-padding-x-mini));
+}
+.root[height="mini"] {
+  height: var(--tree-select-new-height-mini);
+  line-height: calc(var(--tree-select-new-height-mini) - var(--tree-select-new-border-width) * 2);
+}
+.root[height="mini"] .item {
+  line-height: calc(var(--tree-select-new-height-mini) - var(--tree-select-new-border-width) * 2);
+}
+.root[height="mini"] .popper {
+  max-height: calc(
+    6 * calc(var(--tree-select-new-height-mini) - var(--tree-select-new-border-width) * 2)
+  );
+}
+
+.root[width="small"] {
+  width: var(--tree-select-new-width-small);
+  padding: 0 calc(
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x-small)
+  ) 0 var(--tree-select-new-padding-x-small);
+}
+.root[width="small"] .item {
+  padding: 0 var(--tree-select-new-padding-x-small);
+}
+.root[width="small"]::after {
+  right: calc(var(--tree-select-new-arrow-right-ratio) * var(--tree-select-new-padding-x-small));
+}
+.root[height="small"] {
+  height: var(--tree-select-new-height-small);
+  line-height: calc(
+    var(--tree-select-new-height-small) - var(--tree-select-new-border-width) * 2
+  );
+}
+.root[height="small"] .item {
+  line-height: calc(
+    var(--tree-select-new-height-small) - var(--tree-select-new-border-width) * 2
+  );
+}
+.root[height="small"] .popper {
+  max-height: calc(
+    6 * calc(var(--tree-select-new-height-small) - var(--tree-select-new-border-width) * 2)
+  );
+}
+
+.root[width="normal"] {
+  width: var(--tree-select-new-width);
+  padding: 0 calc(
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x)
+  ) 0 var(--tree-select-new-padding-x);
+}
+.root[width="normal"] .item {
+  padding: 0 var(--tree-select-new-padding-x);
+}
+.root[width="normal"]::after {
+  right: calc(var(--tree-select-new-arrow-right-ratio) * var(--tree-select-new-padding-x));
+}
+.root[height="normal"] {
+  height: var(--tree-select-new-height);
+  line-height: calc(var(--tree-select-new-height) - var(--tree-select-new-border-width) * 2);
+}
+.root[height="normal"] .item {
+  line-height: calc(var(--tree-select-new-height) - var(--tree-select-new-border-width) * 2);
+}
+.root[height="normal"] .popper {
+  max-height: calc(
+    6 * calc(var(--tree-select-new-height) - var(--tree-select-new-border-width) * 2)
+  );
+}
+
+.root[width="medium"] {
+  width: var(--tree-select-new-width-medium);
+  padding: 0 calc(
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x-medium)
+  ) 0 var(--tree-select-new-padding-x-medium);
+}
+.root[width="medium"] .item {
+  padding: 0 var(--tree-select-new-padding-x-medium);
+}
+.root[width="medium"]::after {
+  right: calc(var(--tree-select-new-arrow-right-ratio) * var(--tree-select-new-padding-x-medium));
+}
+.root[height="medium"] {
+  height: var(--tree-select-new-height-medium);
+  line-height: calc(
+    var(--tree-select-new-height-medium) - var(--tree-select-new-border-width) * 2
+  );
+}
+.root[height="medium"] .item {
+  line-height: calc(
+    var(--tree-select-new-height-medium) - var(--tree-select-new-border-width) * 2
+  );
+}
+.root[height="medium"] .popper {
+  max-height: calc(
+    6 * calc(var(--tree-select-new-height-medium) - var(--tree-select-new-border-width) * 2)
+  );
+}
+
+.root[width="large"] {
+  width: var(--tree-select-new-width-large);
+  padding: 0 calc(
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x-large)
+  ) 0 var(--tree-select-new-padding-x-large);
+}
+.root[width="large"] .item {
+  padding: 0 var(--tree-select-new-padding-x-large);
+}
+.root[width="large"]::after {
+  right: calc(var(--tree-select-new-arrow-right-ratio) * var(--tree-select-new-padding-x-large));
+}
+.root[height="large"] {
+  height: var(--tree-select-new-height-large);
+  line-height: calc(
+    var(--tree-select-new-height-large) - var(--tree-select-new-border-width) * 2
+  );
+}
+.root[height="large"] .item {
+  line-height: calc(
+    var(--tree-select-new-height-large) - var(--tree-select-new-border-width) * 2
+  );
+}
+.root[height="large"] .popper {
+  max-height: calc(
+    6 * calc(var(--tree-select-new-height-large) - var(--tree-select-new-border-width) * 2)
+  );
+}
+
+.root[width="huge"] {
+  width: var(--tree-select-new-width-huge);
+  padding: 0 calc(
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x-huge)
+  ) 0 var(--tree-select-new-padding-x-huge);
+}
+.root[width="huge"] .item {
+  padding: 0 var(--tree-select-new-padding-x-huge);
+}
+.root[width="huge"]::after {
+  right: calc(var(--tree-select-new-arrow-right-ratio) * var(--tree-select-new-padding-x-huge));
+}
+.root[height="huge"] {
+  height: var(--tree-select-new-height-huge);
+  line-height: calc(var(--tree-select-new-height-huge) - var(--tree-select-new-border-width) * 2);
+}
+.root[height="huge"] .item {
+  line-height: calc(var(--tree-select-new-height-huge) - var(--tree-select-new-border-width) * 2);
+}
+.root[height="huge"] .popper {
+  max-height: calc(
+    6 * calc(var(--tree-select-new-height-huge) - var(--tree-select-new-border-width) * 2)
+  );
+}
+
+.root[width="full"] {
+  width: 100%;
+  padding: 0 calc(
+    var(--tree-select-new-arrow-size) * 7 / 9 + var(--tree-select-new-arrow-right-ratio) *
+      var(--tree-select-new-padding-x-full)
+  ) 0 var(--tree-select-new-padding-x-full);
+}
+.root[width="full"] .item {
+  padding: 0 var(--tree-select-new-padding-x-full);
+}
+.root[height="full"] {
+  height: 100%;
+}
+
 </style>
