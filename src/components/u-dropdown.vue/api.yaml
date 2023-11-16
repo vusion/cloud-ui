@@ -347,7 +347,10 @@
           title: 右击
         - value: double-click
           title: 双击
-      default: click
+        - value: none
+          title: 与父级同步
+          disabled: true
+      default: none
       description: 触发方式
       group: 交互属性
     - name: expanded
