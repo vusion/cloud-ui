@@ -100,7 +100,7 @@ exports[`u-navbar-multi.vue Demo-触发方式 1`] = `
             Item 2
           </a>
           <div class="root">
-            <div class="head" vusion-click-enabled>
+            <div class="head">
               <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
                 <span class="root" vusion-slot-name-edit="text">导航栏分组</span>
               </div>
@@ -121,7 +121,7 @@ exports[`u-navbar-multi.vue Demo-触发方式 1`] = `
                     <span class="root" vusion-slot-name-edit="text">导航栏项</span>
                   </a>
                   <div class="dropdownRoot">
-                    <div class="head" vusion-click-enabled>
+                    <div class="head">
                       <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
                         <span class="root" vusion-slot-name-edit="text">导航栏分组</span>
                       </div>
