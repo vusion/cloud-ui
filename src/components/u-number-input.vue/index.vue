@@ -667,6 +667,18 @@ export default {
     bottom: 0;
 }
 
+.root[size="small"] .button[role="up"] , .root[height="small"] .button[role="up"]{
+    height: calc((100% - 1px) / 2 + 1px);
+    display: flex;
+    align-items: center;
+}
+
+.root[size="small"] .button[role="down"] , .root[height="small"] .button[role="down"] {
+    height: calc((100% - 1px) / 2 + 1px);
+    display: flex;
+    align-items: center;
+}
+
 /* normal */
 .root[prefix] input {
     padding-left: 24px;
