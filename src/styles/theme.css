@@ -472,7 +472,8 @@
 
     /* @component u-button */
     /* 宽度 */
-    --button-min-width: 78px; /* @hidden */
+    --button-min-width: 78px; /* @desc 按钮最小宽度,如：1px */
+    --button-max-width: none; /* @desc 按钮最大宽度,如：100px */
     /* 高度 */
     --button-height-mini: var(--height-mini); /* @desc Mini按钮高度,如：1px */ /* @depAttrs {"size": ["mini"]} */ /* @depStaticStyles ["height"] */
     --button-height-small: var(--height-small); /* @desc Small按钮高度,如：1px */ /* @depAttrs {"size": ["small"]} */ /* @depStaticStyles ["height"] */
@@ -480,6 +481,7 @@
     --button-height-medium: var(--height-medium); /* @desc Medium按钮高度,如：1px */  /* @depAttrs {"size": ["medium"]} */ /* @depStaticStyles ["height"] */
     --button-height-large: var(--height-large); /* @desc Large按钮高度,如：1px */ /* @depAttrs {"size": ["large"]} */ /* @depStaticStyles ["height"] */
     --button-height-huge: var(--height-huge); /* @desc Huge按钮高度,如：1px */ /* @depAttrs {"size": ["huge"]} */ /* @depStaticStyles ["height"] */
+
     /* 上下边距 */
     --button-padding-y-mini: var(--button-padding-y); /* @desc Mini按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["mini"]} */ /* @depStaticStyles ["padding-top", "padding-bottom"] */
     --button-padding-y-small: var(--button-padding-y); /* @desc Small按钮垂直方向内边距,如：1px */ /* @depAttrs {"size": ["small"]} */ /* @depStaticStyles ["padding-top", "padding-bottom"] */

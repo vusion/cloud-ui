@@ -38,6 +38,7 @@ export default {
     font-weight: var(--button-font-weight);
     font-size: var(--button-font-size);
     min-width: var(--button-min-width);
+    max-width: var(--button-max-width);
 }
 
 .root:hover {

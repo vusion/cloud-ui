@@ -1339,6 +1339,14 @@
                     ""
                 ],
                 "cssProperty": {
+                    "--button-min-width": {
+                        "type": "input",
+                        "desc": "按钮最小宽度,如：1px"
+                    },
+                    "--button-max-width": {
+                        "type": "input",
+                        "desc": "按钮最大宽度,如：100px"
+                    },
                     "--button-height-mini": {
                         "type": "input",
                         "desc": "Mini按钮高度,如：1px",

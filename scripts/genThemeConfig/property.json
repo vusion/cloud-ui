@@ -386,6 +386,7 @@
     "--link-color-error-hover": "var(--brand-error-light)",
     "--link-color-white": "white",
     "--button-min-width": "78px",
+    "--button-max-width": "none",
     "--button-height-mini": "var(--height-mini)",
     "--button-height-small": "var(--height-small)",
     "--button-height": "var(--height-base)",
