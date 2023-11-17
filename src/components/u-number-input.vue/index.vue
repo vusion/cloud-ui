@@ -1,5 +1,5 @@
 <template>
-    <u-input ref="input" :class="$style.root" :button-display="buttonDisplay" :value="formattedValue"
+    <u-input ref="input" :class="$style.root" :button-display="buttonDisplay" :value="focused ? currentValue : formattedValue"
         :readonly="readonly" :disabled="disabled" :clearable="clearable"
         @keydown.native.up.prevent.stop="increase" @keydown.native.down.prevent.stop="decrease" @keydown.native.enter="onEnter"
         @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside"
@@ -92,6 +92,7 @@ export default {
     data() {
         // 根据初始值计算 fix 精度
         const currentPrecision = this.getCurrentPrecision(this.value);
+        // 数字包装类转string
         if (typeof this.value === 'object') {
             this.value = String(this.value);
         }
@@ -109,6 +110,8 @@ export default {
             currentValue: this.fix(this.value, currentPrecision), // 格式化后的 value，与`<input>`中的实际值保持一致
             formattedValue: this.value,
             currentFormatter: undefined,
+
+            focused: false,
         };
 
         if (this.formatter instanceof Object)
@@ -278,7 +281,7 @@ export default {
                 if (this.highPrecision) {
                     value = new this.Decimal(String(value)).toString();
                 } else {
-                    value = parseFloat(+value);
+                    value = parseFloat(+value.toFixed(Math.floor(this.decimalLength)));
                 }
             } else if (this.precision > 0) {
                 let decimalLength = 0;
@@ -295,11 +298,8 @@ export default {
                 } catch (error) {
                     console.log(error);
                 }
-                if (this.highPrecision) {
-                    value = new this.Decimal(String(value)).toFixed(this.Decimal.floor(decimalLength)).toString();
-                } else {
-                    value = parseFloat(+value.toFixed(Math.floor(decimalLength)));
-                }
+
+                value = parseFloat(+value.toFixed(Math.floor(decimalLength)));
             }
 
             return value;
@@ -418,10 +418,13 @@ export default {
         },
         onFocus(e) {
             this.$emit('focus', e, this);
+            this.focused = true;
         },
         onEnter(e) {
             const inputValue = this.$refs.input.currentValue;
             this.input(isNil(inputValue) ? inputValue : this.currentFormatter.parse(inputValue));
+
+            this.$refs.input.blur();
         },
         onBlur(e) {
             const inputValue = this.$refs.input.currentValue;
@@ -430,6 +433,8 @@ export default {
             if (this.preventBlur)
                 return (this.preventBlur = false);
             this.$emit('blur', e, this);
+
+            this.focused = false;
         },
         handleClickOutside() {
             if (this.hasFocus) {

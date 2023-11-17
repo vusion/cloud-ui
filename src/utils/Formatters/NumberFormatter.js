@@ -12,38 +12,85 @@ export class NumberFormatter extends Formatter {
     format(value, pattern) {
         pattern = pattern || this.pattern;
 
-        if (typeof value !== 'number')
-            return pattern.replace(/[0#.,]+/, value);
+        // 不是数字类型
+        if (typeof value !== 'number') {
+            if (!this.isDecimal) {
+                value = parseFloat(value);
+            }
+            // return pattern.replace(/[0#.,]+/, value);
+        }
 
-        const number = (pattern.match(/[0#.,]+/) || ['0'])[0];
+        const number = (pattern.match(/[0#.,]+/) || [
+            '0',
+        ])[0];
         const parts = number.split('.');
-        const fill = (parts[0].match(/0+$/) || ['0'])[0].length;
+        const fill = (parts[0].match(/0+$/) || ['0'])[0]
+            .length;
         const fixed = parts[1] ? parts[1].length : 0;
         const comma = pattern.includes(',');
 
-        // 百分号
-        if (this.options.percentSign) {
-            value = value * 100;
-        }
+        // 将下列逻辑统一用Decimal包装处理
         if (this.isDecimal) {
-            value = new Decimal(String(value)).toFixed(fixed).toString().padStart(fixed ? fill + 1 + fixed : fill, '0');
+            // 百分号前置将值乘以100
+            if (this.options.percentSign) {
+                value = value * 100;
+            }
+
+            value = value
+                .toFixed(fixed)
+                .padStart(
+                    fixed ? fill + 1 + fixed : fill,
+                    '0',
+                );
+
+            // 是否小数隐藏末尾0
+            if (fixed > 0 && /#$/.test(parts[1])) {
+                value = parseFloat(value) + ''; // 转字符串
+            }
+
+            if (comma)
+                value = value.replace(
+                    /\B(?=(\d{3})+(?!\d))/g,
+                    ',',
+                );
+
+            // 百分号
+            if (this.options.percentSign) {
+                value += '%';
+            }
+
+            value = pattern.replace(/[0#.,]+/, value);
         } else {
-            value = value.toFixed(fixed).padStart(fixed ? fill + 1 + fixed : fill, '0');
-        }
-        // 是否小数隐藏末尾0
-        if (fixed > 0 && /#$/.test(parts[1])) {
-            value = parseFloat(value) + ''; // 转字符串
-        }
+            // 百分号
+            if (this.options.percentSign) {
+                value = value * 100;
+            }
 
-        if (comma)
-            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            value = value
+                .toFixed(fixed)
+                .padStart(
+                    fixed ? fill + 1 + fixed : fill,
+                    '0',
+                );
 
-        // 百分号
-        if (this.options.percentSign) {
-            value += '%';
+            // 是否小数隐藏末尾0
+            if (fixed > 0 && /#$/.test(parts[1])) {
+                value = parseFloat(value) + ''; // 转字符串
+            }
+
+            if (comma)
+                value = value.replace(
+                    /\B(?=(\d{3})+(?!\d))/g,
+                    ',',
+                );
+
+            // 百分号
+            if (this.options.percentSign) {
+                value += '%';
+            }
+
+            value = pattern.replace(/[0#.,]+/, value);
         }
-
-        value = pattern.replace(/[0#.,]+/, value);
 
         return value;
     }

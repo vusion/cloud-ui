@@ -141,11 +141,12 @@ export default {
 <div>
     <u-number-input
         v-model="value"
-        highPrecision
-        :step="0.00000000000000000001"
         placeholder="请输入"
-        :decimal-places="{ places:20, omit:false }"
-        :decimalLength="20"></u-number-input>
+        highPrecision
+        :decimalLength="20"
+        :step="0.00000000000000000001"
+        :decimal-places="{ places: 10, omit:false }"
+        ></u-number-input>
     <div>值： {{value}}</div>
 </div>
 </template>
