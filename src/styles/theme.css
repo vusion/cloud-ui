@@ -1715,7 +1715,7 @@
     --drawer-height-small: 240px; /* @desc small抽屉高度,如 1px */ /* @depAttrs {"size": ["small"], "placement": ["top", "bottom"]} */
     --drawer-height: 400px; /* @desc normal抽屉高度,如 1px */ /* @depAttrs {"size": ["normal", null], "placement": ["top", "bottom"]} */
     --drawer-height-large: 600px; /* @desc large抽屉高度,如 1px */ /* @depAttrs {"size": ["large"], "placement": ["top", "bottom"]} */
-    --drawer-max-height: auto; /* @desc large抽屉最大高度,如 1px */ /* @depAttrs {"size": ["auto"], "placement": ["top", "bottom"]} */
+    --drawer-max-height: auto; /* @hidden */
     --drawer-background: white; /* @type color */ /* @desc 抽屉背景色 */
     --drawer-wrap-background: rgba(0, 0, 0, 0.6); /* @type color */ /* @desc 遮罩背景色 */
     --drawer-close-size: 15px; /* @desc 关闭图标大小 */
