@@ -143,9 +143,6 @@ export default {
         v-model="value"
         placeholder="请输入"
         highPrecision
-        :decimalLength="20"
-        :step="0.00000000000000000001"
-        :decimal-places="{ places: 10, omit:false }"
         ></u-number-input>
     <div>值： {{value}}</div>
 </div>

@@ -1,6 +1,8 @@
 import Formatter from './Formatter';
 import { Decimal } from 'decimal.js';
 
+const isDef = (val) => val !== undefined && val !== null;
+
 export class NumberFormatter extends Formatter {
     constructor(pattern = '0', options) {
         super();
@@ -12,21 +14,24 @@ export class NumberFormatter extends Formatter {
     format(value, pattern) {
         pattern = pattern || this.pattern;
 
+        if (value === '' || value === null || value === undefined)
+            return value;
+
         // 不是数字类型
         if (typeof value !== 'number') {
             if (!this.isDecimal) {
                 value = parseFloat(value);
             }
-            // return pattern.replace(/[0#.,]+/, value);
+            // return pattern.replace(/[0#.,*]+/, value);
         }
 
-        const number = (pattern.match(/[0#.,]+/) || [
+        const number = (pattern.match(/[0#.,*]+/) || [
             '0',
         ])[0];
         const parts = number.split('.');
-        const fill = (parts[0].match(/0+$/) || ['0'])[0]
-            .length;
-        const fixed = parts[1] ? parts[1].length : 0;
+        const fill = (parts[0].match(/0+$/) || ['0'])[0].length;
+        const unlimit = pattern.includes('*');
+        const fixed = unlimit ? null : (parts[1] ? parts[1].length : 0);
         const comma = pattern.includes(',');
 
         // 将下列逻辑统一用Decimal包装处理
@@ -35,7 +40,15 @@ export class NumberFormatter extends Formatter {
             if (this.options.percentSign) {
                 value = new Decimal(String(value)).mul('100').toString();
             }
-            value = new Decimal(String(value)).toFixed(fixed).toString().padStart(fixed ? fill + 1 + fixed : fill, '0');
+
+            if (isDef(fixed)) {
+                value = new Decimal(String(value))
+                    .toFixed(fixed)
+                    .toString()
+                    .padStart(fixed ? fill + 1 + fixed : fill, '0');
+            } else {
+                value = new Decimal(String(value)).toString();
+            }
 
             // 高精度情况下 本身为字符串不需要转 注释掉
             // 是否小数隐藏末尾0
@@ -54,19 +67,20 @@ export class NumberFormatter extends Formatter {
                 value += '%';
             }
 
-            value = pattern.replace(/[0#.,]+/, value);
+            value = pattern.replace(/[0#.,*]+/, value);
         } else {
             // 百分号
             if (this.options.percentSign) {
                 value = value * 100;
             }
 
-            value = value
-                .toFixed(fixed)
-                .padStart(
-                    fixed ? fill + 1 + fixed : fill,
-                    '0',
-                );
+            if (isDef(fixed)) {
+                value = value
+                    .toFixed(fixed)
+                    .padStart(fixed ? fill + 1 + fixed : fill, '0');
+            } else {
+                value = value.toString();
+            }
 
             // 是否小数隐藏末尾0
             if (fixed > 0 && /#$/.test(parts[1])) {
@@ -84,7 +98,7 @@ export class NumberFormatter extends Formatter {
                 value += '%';
             }
 
-            value = pattern.replace(/[0#.,]+/, value);
+            value = pattern.replace(/[0#.,*]+/, value);
         }
 
         return value;

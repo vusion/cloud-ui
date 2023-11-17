@@ -143,10 +143,10 @@ export default {
                         formatter += char;
                     }
                 } else if (this.decimalPlaces && this.decimalPlaces.places === '') {
-                    formatter += '.';
-                    for (let i = 0; i < 17; i++) {
-                        formatter += '#';
-                    }
+                    formatter += '*'; // 表示任意值
+                    // for (let i = 0; i < 17; i++) {
+                    //     formatter += '#';
+                    // }
                 }
 
                 // 单位
@@ -301,7 +301,6 @@ export default {
 
                 value = parseFloat(+value.toFixed(Math.floor(decimalLength)));
             }
-
             return value;
         },
         /**
@@ -407,7 +406,7 @@ export default {
         onInput(rawValue) {
             if (this.readonly || this.disabled)
                 return;
-            const parsedValue = isNil(rawValue) ? '' : this.currentFormatter.parse(rawValue); // 根据输入调整 fix 精度
+            const parsedValue = isNil(rawValue) ? '' : rawValue;
             const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(parsedValue));
             const value = this.fix(parsedValue, currentPrecision);
             const valid = String(value) === String(parsedValue);
@@ -422,14 +421,14 @@ export default {
         },
         onEnter(e) {
             const inputValue = this.$refs.input.currentValue;
-            this.input(isNil(inputValue) ? inputValue : this.currentFormatter.parse(inputValue));
+            this.input(isNil(inputValue) ? '' : inputValue);
 
             this.$refs.input.blur();
         },
         onBlur(e) {
             const inputValue = this.$refs.input.currentValue;
 
-            this.input(isNil(inputValue) ? inputValue : this.currentFormatter.parse(inputValue));
+            this.input(isNil(inputValue) ? '' : inputValue);
             if (this.preventBlur)
                 return (this.preventBlur = false);
             this.$emit('blur', e, this);
