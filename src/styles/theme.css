@@ -1684,7 +1684,8 @@
     --toast-item-icon-color-error: var(--brand-error); /* @hidden */
     --toast-background-color: rgba(48, 48, 48, 0.8); /* @type color */ /* @desc 弹出消息的背景色 */ /* @prefix toast */
     --toast-item-custom-icon-color: white; /* @type color */ /* @desc 弹出消息的自定义图标颜色 */ /* @prefix toast */
-
+    --toast-item-box-shadow: none; /* @desc 弹出消息的阴影效果，如 0px 2px 6px rgba(0, 0, 0, 0.1) */ /* @prefix toast */
+    
     /* @component u-modal */
     --modal-dialog-width: 400px; /* @desc 弹窗的宽度,如 1px */
     --modal-dialog-border-radius: var(--border-radius-base); /* @desc 弹窗圆角,如 1px */

@@ -247,6 +247,7 @@ export default {
     color: var(--toast-item-color);
     border-radius: var(--toast-item-border-radius);
     text-align: var(--toast-item-icon-text-align);
+    box-shadow: var(--toast-item-box-shadow);
 }
 
 .item[position='top-center'], .item[position='bottom-center'] {

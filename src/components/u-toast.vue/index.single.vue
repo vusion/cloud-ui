@@ -25,20 +25,22 @@ export default {
         open() {
             const staticStyle = this.$vnode.data.staticStyle;
 
-            this.$toast.openToast({
-                key: this.key,
-                text: this.text,
-                color: this.color,
-                duration: this.duration,
-                customIcon: this.customIcon,
-                onShow: () => {
-                    this.$emit('open');
-                },
-                onHide: () => {
-                    this.$emit('close');
-                },
+            this.$nextTick(() => {
+                this.$toast.openToast({
+                    key: this.key,
+                    text: this.text,
+                    color: this.color,
+                    duration: this.duration,
+                    customIcon: this.customIcon,
+                    onShow: () => {
+                        this.$emit('open');
+                    },
+                    onHide: () => {
+                        this.$emit('close');
+                    },
 
-                staticStyle: this.filterCSSVarInStyle(staticStyle),
+                    staticStyle: this.filterCSSVarInStyle(staticStyle),
+                });
             });
         },
         close() {

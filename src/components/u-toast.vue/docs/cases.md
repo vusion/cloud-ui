@@ -10,11 +10,12 @@
     <u-toast-single 
         :ref="`toast_single9`" 
         style="--toast-item-color:#ff0808;--toast-background-color:#8af70dcc; --toast-item-custom-icon-color: blue;"     
-        :text="`主题样式`" 
+        :text="msg" 
         :duration="0"
         :color="`custom`" 
         custom-icon="setting"></u-toast-single>
-    <u-button @click="$refs.toast_single9.open()">自定义图标</u-button>
+    <u-button @click="open">打开自定义图标</u-button>
+    <u-button @click="close">关闭自定义图标</u-button>
 
     <u-toast-single 
         :ref="`toast_single10`" 
@@ -29,6 +30,20 @@
 
 <script>
 export default {
+    data() {
+        return {
+            msg: 'hello world'
+        };
+    },
+    methods: {
+        open() {
+            this.msg = 'hello world1'
+            this.$refs.toast_single9.open()
+        },
+        close() {
+            this.$refs.toast_single9.close()
+        }
+    }
 };
 </script>
 ```
