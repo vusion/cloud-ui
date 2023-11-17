@@ -46,10 +46,6 @@ export default {
             type: String,
             default: '通知',
         },
-        title: {
-            type: String,
-            default: '通知',
-        },
         size: {
             type: Number,
             default: 5,
@@ -192,10 +188,10 @@ export default {
     font-size: 12px;
 }
 .taskicon {
-    font-size: 24px;
+    font-size: var(--taskbox-icon-font-size);
 }
 .taskicon [class^="i-ico_iconwrap"] {
-   font-size: 24px;
+   font-size: inherit;
 }
 .badge [class^="u-badge_value__"]{
     box-shadow: var(--taskbox-badge-box-shadow);

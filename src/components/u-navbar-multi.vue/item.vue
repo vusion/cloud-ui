@@ -1,10 +1,9 @@
 <template>
     <a :class="isInNavbar ? $style.root : $style.dropdownRoot"
         :selected="parentVM.router ? active : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
-        :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
+        :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : onSelect($event)" v-on="listeners"
         v-ellipsis-title
         vusion-slot-name-edit="text"
-        vusion-click-enabled
         vusion-slot-name="default">
         <i-ico v-if="icon" :name="icon" :class="$style.singleicon" notext></i-ico>
         <slot>{{ text }}</slot>
@@ -43,9 +42,21 @@ export default {
                     itemVM: this,
                     preventDefault: () => (cancel = true),
                 }, this);
-                if (cancel)
+                if (cancel) {
+                    this.close();
                     return;
+                }
                 this.parentVM.select(this, true);
+            }
+            this.close();
+        },
+        onSelect(e) {
+            this.select(e);
+            this.close();
+        },
+        close() {
+            if (this.groupVM.close) {
+                this.groupVM.close();
             }
         },
     },
