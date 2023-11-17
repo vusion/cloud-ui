@@ -24,9 +24,13 @@ _root.nodes.forEach((node) => {
                     if (lastComponent) {
                         const {
                             name: componentName,
-                            cssProperty
+                            cssProperty,
+                            dependencyComponents,
                         } = lastComponent;
-                        themeComponentsMap[componentName] = cssProperty;
+                        themeComponentsMap[componentName] = {
+                            cssProperty: cssProperty,
+                            dependencyComponents: dependencyComponents,
+                        }
                     }
 
                     lastComponent = {
@@ -36,6 +40,11 @@ _root.nodes.forEach((node) => {
                     if (hidden) {
                         lastComponent = undefined;
                     }
+                }
+            } else if (node.text.includes('@dependency-components ')) {
+                const cap = /@dependency-components\s+([\w-]+)/.exec(node.text.trim());
+                if (lastComponent) {
+                    lastComponent.dependencyComponents = cap[1].trim().split(',');
                 }
             }
         } else if (lastComponent) {
@@ -86,9 +95,13 @@ _root.nodes.forEach((node) => {
 if (lastComponent) {
     const {
         name: componentName,
-        cssProperty
+        cssProperty,
+        dependencyComponents,
     } = lastComponent;
-    themeComponentsMap[componentName] = cssProperty;
+    themeComponentsMap[componentName] = {
+        cssProperty: cssProperty,
+        dependencyComponents: dependencyComponents,
+    }
 }
 
 const resultPath = path.join(__dirname, './result.json');
@@ -101,9 +114,21 @@ if(Array.isArray(resultList)) {
             if(Array.isArray(items)) {
                 items.forEach((item) => {
                     const { name } = item || {};
-                    const cssProperty = themeComponentsMap[name];
-                    if(cssProperty) {
-                        item.cssProperty = cssProperty;
+                    const themeComponent = themeComponentsMap[name];
+                    if(themeComponent) {
+                        item.cssProperty = themeComponent.cssProperty;
+                        const dependencyComponents = themeComponent.dependencyComponents;
+                        if(dependencyComponents) {
+                            dependencyComponents.forEach((depName: any) => {
+                                const depThemeComponent = themeComponentsMap[depName];
+                                if(depThemeComponent) {
+                                    item.cssProperty = {
+                                        ...item.cssProperty,
+                                        ...depThemeComponent.cssProperty
+                                    }
+                                }
+                            });
+                        }
                     }
                 });
             }
