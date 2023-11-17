@@ -7,7 +7,9 @@
     padding: 0 var(--input-padding-x);
     line-height: calc(var(--input-height) - var(--input-border-width) * 2);
     background: var(--input-background);
-    border: var(--input-border-width) solid var(--input-border-color);
+    border-width:  var(--input-border-width);
+    border-style: solid;
+    border-color: var(--input-border-color);
     border-radius: var(--input-border-radius);
     cursor: text;
     color: var(--input-color);

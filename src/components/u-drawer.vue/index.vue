@@ -145,12 +145,14 @@ export default {
 
 <style module>
 .root {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: var(--z-index-modal);
+    position: fixed!important;
+    top: 0!important;
+    right: 0!important;
+    bottom: 0!important;
+    left: 0!important;
+    width: unset!important;
+    height: unset!important;
+    z-index: var(--z-index-modal)!important;
     -webkit-overflow-scrolling: touch;
     touch-action: cross-slide-y pinch-zoom double-tap-zoom;
     overflow: hidden;

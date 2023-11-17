@@ -1,9 +1,9 @@
 <template>
-<component :is="tagName" :class="$style.root" @scroll="onScroll" v-on="$listeners">
-    <div ref="virtual" :class="$style.virtual" :style="{ paddingTop: virtualTop + 'px', paddingBottom: virtualBottom + 'px' }">
-        <f-render :vnode="virtualSlot"></f-render>
-    </div>
-</component>
+    <component :is="tagName" :class="$style.root" @scroll="onScroll" v-on="$listeners">
+        <div ref="virtual" :class="$style.virtual" :style="{ paddingTop: virtualTop + 'px', paddingBottom: virtualBottom + 'px' }">
+            <f-render :vnode="virtualSlot"></f-render>
+        </div>
+    </component>
 </template>
 
 <script>

@@ -112,13 +112,16 @@ export default {
 
 <style module>
 .root {
-    position: fixed;
-    z-index: 999999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    position: fixed!important;
+    z-index: 999999!important;
+    left: 0!important;
+    top: 0!important;
+    width: 100%!important;
+    height: 100%!important;
     pointer-events: none;
+}
+[vusion-node-tag="u-absolute-layout"] > .root{
+    position: fixed!important;
 }
 
 .root[display="full"] {

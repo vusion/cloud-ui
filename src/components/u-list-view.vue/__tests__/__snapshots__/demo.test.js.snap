@@ -208,7 +208,8 @@ exports[`u-list-view.vue Demo-loading 1`] = `
   <div class="root">
     <div class="root" vusion-slot-name="default">
       <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-        加载</a>
+        加载
+      </a>
     </div>
   </div>
   <div class="root">
@@ -899,7 +900,8 @@ exports[`u-list-view.vue Demo-前端分页 1`] = `
     </div>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    传入</a>
+    传入
+  </a>
 </div>
 `;
 
@@ -1584,7 +1586,8 @@ exports[`u-list-view.vue Demo-加载更多 1`] = `
         </div>
         <div>
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            加载更多</a>
+            加载更多
+          </a>
         </div>
       </div>
       <div style="display: none;">
@@ -4122,7 +4125,8 @@ exports[`u-list-view.vue Demo-添加尾部 1`] = `
       <div style="display: none;">
         <div>
           <a class="root" hovertype="underline" size="small" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            操作</a>
+            操作
+          </a>
         </div>
       </div>
     </div>
@@ -4302,7 +4306,8 @@ exports[`u-list-view.vue Demo-添加尾部 1`] = `
       <div style="display: none;">
         <div>
           <a class="root" hovertype="underline" size="small" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            操作</a>
+            操作
+          </a>
         </div>
       </div>
     </div>
@@ -4768,8 +4773,8 @@ exports[`u-list-view.vue Demo-自定义内容 1`] = `
 
 exports[`u-list-view.vue Demo-表单验证 1`] = `
 <div class="root" distance label-size="auto">
-  <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-    <span vusion-slot-name-edit="label">选择语言 </span>
+  <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+    <span class="text" vusion-slot-name-edit="label">选择语言 </span>
   </label>
   <div class="field">
     <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>

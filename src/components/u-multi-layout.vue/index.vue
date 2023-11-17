@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" v-bind="$attrs" :direction="direction" :gap="gap" v-on="$listeners" vusion-slot-name="default">
+<div :class="$style.root" v-bind="$attrs" :direction="direction" :gap="gap" v-on="$listeners" vusion-slot-name="default" ref="root">
     <slot></slot>
     <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
 </div>
@@ -7,6 +7,7 @@
 
 <script>
 import SEmpty from '../s-empty.vue';
+import { throttle } from '../../utils/throttle';
 
 export default {
     name: 'u-multi-layout',
@@ -21,6 +22,23 @@ export default {
         gap: {
             type: String,
             default: 'none',
+        },
+    },
+    mounted() {
+        this.$refs.root.addEventListener('scroll', throttle(this.handleScroll.bind(this), 200));
+    },
+    methods: {
+        handleScroll(e) {
+            const el = e.target;
+            const { scrollHeight, scrollWidth, scrollTop, scrollLeft, clientHeight, clientWidth} = el;
+            this.$emit('scroll', {
+                scrollHeight,
+                scrollWidth,
+                scrollTop,
+                scrollLeft,
+                clientHeight,
+                clientWidth,
+            });
         },
     },
 };

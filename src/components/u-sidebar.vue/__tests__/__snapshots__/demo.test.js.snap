@@ -2,36 +2,52 @@
 
 exports[`u-sidebar.vue Demo-分组 1`] = `
 <div>
-  <nav class="root">
-    <div class="root">
-      <div class="head">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          <span class="root" vusion-slot-name-edit="text">导航一</span>
+  <nav class="root" style="min-width: 56px; transition: width 200ms;">
+    <div class="root content">
+      <div class="wrap">
+        <div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                <span class="root" vusion-slot-name-edit="text">导航一</span>
+              </div>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>
+                    <span class="root" vusion-slot-name-edit="text">选项一</span>
+                  </span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                <span class="root" vusion-slot-name-edit="text">导航二</span>
+              </div>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>
+                    <span class="root" vusion-slot-name-edit="text">选项一</span>
+                  </span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
         </div>
-        <span class="extra" vusion-slot-name="extra"></span>
       </div>
-      <transition-stub>
-        <div class="body" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            <span class="root" vusion-slot-name-edit="text">选项一</span>
-          </a>
-        </div>
-      </transition-stub>
-    </div>
-    <div class="root">
-      <div class="head">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          <span class="root" vusion-slot-name-edit="text">导航二</span>
-        </div>
-        <span class="extra" vusion-slot-name="extra"></span>
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
       </div>
-      <transition-stub>
-        <div class="body" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            <span class="root" vusion-slot-name-edit="text">选项一</span>
-          </a>
-        </div>
-      </transition-stub>
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+      </div>
     </div>
   </nav>
 </div>
@@ -39,36 +55,48 @@ exports[`u-sidebar.vue Demo-分组 1`] = `
 
 exports[`u-sidebar.vue Demo-分组 2`] = `
 <div>
-  <nav class="root">
-    <div class="root">
-      <div class="head" title="导航一">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          导航一
+  <nav class="root" style="min-width: 56px; transition: width 200ms;">
+    <div class="root content">
+      <div class="wrap">
+        <div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0" title="导航一">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                导航一
+              </div>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>选项一</span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0" title="导航二">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                导航二
+              </div>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>选项一</span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
         </div>
-        <span class="extra" vusion-slot-name="extra"></span>
       </div>
-      <transition-stub>
-        <div class="body" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            选项一
-          </a>
-        </div>
-      </transition-stub>
-    </div>
-    <div class="root">
-      <div class="head" title="导航二">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          导航二
-        </div>
-        <span class="extra" vusion-slot-name="extra"></span>
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
       </div>
-      <transition-stub>
-        <div class="body" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            选项一
-          </a>
-        </div>
-      </transition-stub>
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+      </div>
     </div>
   </nav>
 </div>
@@ -76,94 +104,143 @@ exports[`u-sidebar.vue Demo-分组 2`] = `
 
 exports[`u-sidebar.vue Demo-基本用法 1`] = `
 <div>
-  <nav class="root">
-    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-      <span class="root" vusion-slot-name-edit="text">导航一</span>
-    </a>
-    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-      <span class="root" vusion-slot-name-edit="text">导航二</span>
-    </a>
-    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-      <span class="root" vusion-slot-name-edit="text">导航三</span>
-    </a>
+  <nav class="root" style="min-width: 56px; transition: width 200ms;">
+    <div class="root content">
+      <div class="wrap">
+        <div>
+          <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+            <span>
+              <span class="root" vusion-slot-name-edit="text">导航一</span>
+            </span>
+          </a>
+          <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+            <span>
+              <span class="root" vusion-slot-name-edit="text">导航二</span>
+            </span>
+          </a>
+          <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+            <span>
+              <span class="root" vusion-slot-name-edit="text">导航三</span>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+      </div>
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+      </div>
+    </div>
   </nav>
 </div>
 `;
 
 exports[`u-sidebar.vue Demo-基本用法 2`] = `
 <div>
-  <nav class="root">
-    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-      <span class="lcp-iconv singleicon">
-        <span class="iconwrap">
-          <svg aria-hidden="true" class="iconsvg">
-            <use xlink:href="#pc-calendar" />
-          </svg>
-        </span>
-        <div class="icontext" vusion-slot-name="default">
+  <nav class="root" style="min-width: 56px; transition: width 200ms;">
+    <div class="root content">
+      <div class="wrap">
+        <div>
+          <a class="root normalRoot" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+            <span class="lcp-iconv singleicon">
+              <span class="iconwrap">
+                <svg aria-hidden="true" class="iconsvg">
+                  <use xlink:href="#pc-calendar" />
+                </svg>
+              </span>
+              <div class="icontext" vusion-slot-name="default">
+              </div>
+            </span>
+            <span>导航一</span>
+          </a>
+          <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+            <span>导航二</span>
+          </a>
+          <a class="root normalRoot" noicon="true" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+            <span>导航三</span>
+          </a>
         </div>
-      </span> 导航一
-    </a>
-    <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-      导航二
-    </a>
-    <a class="root" selected="selected" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-      导航三
-    </a>
+      </div>
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+      </div>
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+      </div>
+    </div>
   </nav>
 </div>
 `;
 
 exports[`u-sidebar.vue Demo-手风琴模式 1`] = `
 <div>
-  <nav class="root">
-    <div class="root">
-      <div class="head">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          <span class="root" vusion-slot-name-edit="text">导航一</span>
+  <nav class="root" style="min-width: 56px; transition: width 200ms;">
+    <div class="root content">
+      <div class="wrap">
+        <div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                <span class="root" vusion-slot-name-edit="text">导航一</span>
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>
+                    <span class="root" vusion-slot-name-edit="text">选项一</span>
+                  </span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                <span class="root" vusion-slot-name-edit="text">导航二</span>
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>
+                    <span class="root" vusion-slot-name-edit="text">选项一</span>
+                  </span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                <span class="root" vusion-slot-name-edit="text">导航三</span>
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>
+                    <span class="root" vusion-slot-name-edit="text">选项一</span>
+                  </span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
         </div>
-        <span class="expander"></span>
-        <span class="extra" vusion-slot-name="extra"></span>
       </div>
-      <transition-stub>
-        <div class="body" style="display: none;" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            <span class="root" vusion-slot-name-edit="text">选项一</span>
-          </a>
-        </div>
-      </transition-stub>
-    </div>
-    <div class="root">
-      <div class="head">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          <span class="root" vusion-slot-name-edit="text">导航二</span>
-        </div>
-        <span class="expander"></span>
-        <span class="extra" vusion-slot-name="extra"></span>
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
       </div>
-      <transition-stub>
-        <div class="body" style="display: none;" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            <span class="root" vusion-slot-name-edit="text">选项一</span>
-          </a>
-        </div>
-      </transition-stub>
-    </div>
-    <div class="root">
-      <div class="head">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          <span class="root" vusion-slot-name-edit="text">导航三</span>
-        </div>
-        <span class="expander"></span>
-        <span class="extra" vusion-slot-name="extra"></span>
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
-      <transition-stub>
-        <div class="body" style="display: none;" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            <span class="root" vusion-slot-name-edit="text">选项一</span>
-          </a>
-        </div>
-      </transition-stub>
     </div>
   </nav>
 </div>
@@ -171,54 +248,66 @@ exports[`u-sidebar.vue Demo-手风琴模式 1`] = `
 
 exports[`u-sidebar.vue Demo-手风琴模式 2`] = `
 <div>
-  <nav class="root">
-    <div class="root">
-      <div class="head" title="导航一">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          导航一
+  <nav class="root" style="min-width: 56px; transition: width 200ms;">
+    <div class="root content">
+      <div class="wrap">
+        <div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0" title="导航一">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                导航一
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>选项一</span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0" title="导航二">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                导航二
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>选项一</span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0" title="导航三">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                导航三
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>选项一</span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
         </div>
-        <span class="expander"></span>
-        <span class="extra" vusion-slot-name="extra"></span>
       </div>
-      <transition-stub>
-        <div class="body" style="display: none;" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            选项一
-          </a>
-        </div>
-      </transition-stub>
-    </div>
-    <div class="root">
-      <div class="head" title="导航二">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          导航二
-        </div>
-        <span class="expander"></span>
-        <span class="extra" vusion-slot-name="extra"></span>
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
       </div>
-      <transition-stub>
-        <div class="body" style="display: none;" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            选项一
-          </a>
-        </div>
-      </transition-stub>
-    </div>
-    <div class="root">
-      <div class="head" title="导航三">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          导航三
-        </div>
-        <span class="expander"></span>
-        <span class="extra" vusion-slot-name="extra"></span>
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
-      <transition-stub>
-        <div class="body" style="display: none;" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            选项一
-          </a>
-        </div>
-      </transition-stub>
     </div>
   </nav>
 </div>
@@ -226,38 +315,54 @@ exports[`u-sidebar.vue Demo-手风琴模式 2`] = `
 
 exports[`u-sidebar.vue Demo-折叠功能 1`] = `
 <div>
-  <nav class="root">
-    <div class="root">
-      <div class="head">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          <span class="root" vusion-slot-name-edit="text">导航一</span>
+  <nav class="root" style="min-width: 56px; transition: width 200ms;">
+    <div class="root content">
+      <div class="wrap">
+        <div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                <span class="root" vusion-slot-name-edit="text">导航一</span>
+              </div>
+              <span class="expander" expanded="true"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>
+                    <span class="root" vusion-slot-name-edit="text">选项一</span>
+                  </span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
+          <div class="root normalRoot" disabled="disabled" noicon="true">
+            <div class="head" data-group-nested-level="0">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                <span class="root" vusion-slot-name-edit="text">导航二</span>
+              </div>
+              <span class="expander" expanded="true"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>
+                    <span class="root" vusion-slot-name-edit="text">选项一</span>
+                  </span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
         </div>
-        <span class="expander" expanded="true"></span>
-        <span class="extra" vusion-slot-name="extra"></span>
       </div>
-      <transition-stub>
-        <div class="body" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            <span class="root" vusion-slot-name-edit="text">选项一</span>
-          </a>
-        </div>
-      </transition-stub>
-    </div>
-    <div class="root" disabled="disabled">
-      <div class="head">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          <span class="root" vusion-slot-name-edit="text">导航二</span>
-        </div>
-        <span class="expander" expanded="true"></span>
-        <span class="extra" vusion-slot-name="extra"></span>
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
       </div>
-      <transition-stub>
-        <div class="body" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            <span class="root" vusion-slot-name-edit="text">选项一</span>
-          </a>
-        </div>
-      </transition-stub>
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+      </div>
     </div>
   </nav>
 </div>
@@ -265,38 +370,66 @@ exports[`u-sidebar.vue Demo-折叠功能 1`] = `
 
 exports[`u-sidebar.vue Demo-折叠功能 2`] = `
 <div>
-  <nav class="root">
-    <div class="root">
-      <div class="head" title="导航一">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          导航一
+  <nav class="root" style="min-width: 56px; transition: width 200ms;">
+    <div class="root content">
+      <div class="wrap">
+        <div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0" title="导航一">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                导航一
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>选项一</span>
+                </a>
+                <div class="root normalRoot" noicon="true">
+                  <div class="head" data-group-nested-level="1" title="导航二">
+                    <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                      导航二
+                    </div>
+                    <span class="expander"></span>
+                    <span class="extra" vusion-slot-name="extra"></span>
+                  </div>
+                  <transition-stub>
+                    <div class="body" style="display: none;" vusion-slot-name="default">
+                      <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                        <span>选项一</span>
+                      </a>
+                    </div>
+                  </transition-stub>
+                </div>
+              </div>
+            </transition-stub>
+          </div>
+          <div class="root normalRoot" noicon="true">
+            <div class="head" data-group-nested-level="0" title="导航二">
+              <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                导航二
+              </div>
+              <span class="expander"></span>
+              <span class="extra" vusion-slot-name="extra"></span>
+            </div>
+            <transition-stub>
+              <div class="body" style="display: none;" vusion-slot-name="default">
+                <a class="root normalRoot" noicon="true" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
+                  <span>选项一</span>
+                </a>
+              </div>
+            </transition-stub>
+          </div>
         </div>
-        <span class="expander" expanded="true"></span>
-        <span class="extra" vusion-slot-name="extra"></span>
       </div>
-      <transition-stub>
-        <div class="body" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            选项一
-          </a>
-        </div>
-      </transition-stub>
-    </div>
-    <div class="root" disabled="disabled">
-      <div class="head" title="导航二">
-        <div class="title" vusion-slot-name="title" vusion-slot-name-edit="title">
-          导航二
-        </div>
-        <span class="expander" expanded="true"></span>
-        <span class="extra" vusion-slot-name="extra"></span>
+      <div class="root" direction="horizontal">
+        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
       </div>
-      <transition-stub>
-        <div class="body" vusion-slot-name="default">
-          <a class="root" target="_self" vusion-slot-name="default" vusion-slot-name-edit="text">
-            选项一
-          </a>
-        </div>
-      </transition-stub>
+      <div class="root" direction="vertical">
+        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+      </div>
     </div>
   </nav>
 </div>

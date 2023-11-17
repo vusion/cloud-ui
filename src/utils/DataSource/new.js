@@ -167,6 +167,13 @@ const VueDataSource = Vue.extend({
                 return this.arrangedData;
         },
     },
+    watch: {
+        data() {
+            if (!this.rawTreeDisplayOnlyForNotice && (!this.remote || !this._load)) {
+                this.arrange();
+            }
+        },
+    },
     // paging, sorting, filtering 暂不用 watch
     created() {
         this.remote = !!this._load;
@@ -178,7 +185,16 @@ const VueDataSource = Vue.extend({
         }
     },
     methods: {
+        isSimpleArray(arr) {
+            if (!Array.isArray(arr)) {
+              return false; // 如果不是数组类型，则不满足条件，直接返回 false
+            }
+            return arr.every(function(item) {
+              return typeof item !== 'object'; // 使用 typeof 判断是否为简单数据类型
+            });
+          },
         arrange(data = this.data) {
+           
             // 树形展示处理一下
             if (this.treeDisplay) {
                 data = this.listToTree(data, {
@@ -191,11 +207,13 @@ const VueDataSource = Vue.extend({
             }
 
             let arrangedData = Array.from(data);
-
+            if(this.isSimpleArray(arrangedData) && this.tag === "u-table-view") {
+                arrangedData = arrangedData.map(item => ({'simple': item}))
+            }
             const filtering = this.filtering;
             if (!this.remoteFiltering && filtering && Object.keys(filtering).length) {
                 arrangedData = arrangedData.filter((item) => solveCondition(filtering, item));
-                // 前端筛选， 且无后端分页 时重置originTotal
+                // // 前端筛选， 且无后端分页 时重置originTotal
                 !this.remotePaging && (this.originTotal = arrangedData.length);
             }
 
@@ -205,11 +223,11 @@ const VueDataSource = Vue.extend({
                 const orderSign = sorting.order === 'asc' ? 1 : -1;
                 if (sorting.compare) {
                     arrangedData.sort((item1, item2) =>
-                        sorting.compare(item1[field], item2[field], orderSign),
+                        sorting.compare(this.$at(item1, field), this.$at(item2, field), orderSign),
                     );
                 } else {
                     arrangedData.sort((item1, item2) =>
-                        this.defaultCompare(item1[field], item2[field], orderSign),
+                        this.defaultCompare(this.$at(item1, field), this.$at(item2, field), orderSign),
                     );
                 }
             }

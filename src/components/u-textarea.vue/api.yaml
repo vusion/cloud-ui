@@ -96,7 +96,7 @@
           title: 水平可调整
         - value: vertical
           title: 竖直可调整
-      default: none
+      default: vertical
       description: 设置调整大小的方式
       group: 交互属性
       docDescription: 设置多行输入框是否可以调整大小。包括：不可调整，可调整，水平可调整，竖直可调整四种设置

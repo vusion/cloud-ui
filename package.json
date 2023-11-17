@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.15.0",
+  "version": "0.19.0",
   "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -19,6 +19,7 @@
     "copyimg": "node bin/copy-lcp-images ",
     "build": "vue-cli-service library-build --apply-theme --theme default,dark,seagreen",
     "build:theme": "npm run check && npm run genThemeConfig && vue-cli-service library-build --dest dist-theme && npm run copyimg && node ./scripts/lcap",
+    "build:theme-local": "npm run genThemeConfig && vue-cli-service library-build --dest dist-theme && npm run copyimg && node ./scripts/lcap",
     "build:raw": "vue-cli-service library-build --vusion-mode raw --dest dist-raw",
     "build:docs": "vue-cli-service doc-build",
     "build:doc-entry": "cross-env VUE_CLI_SERVICE_CONFIG_PATH=$PWD/vue.config.doc-entry.js vue-cli-service build --output-path dist-doc-entry",
@@ -60,10 +61,11 @@
   "dependencies": {
     "@popperjs/core": "^2.10.2",
     "@vusion/utils": "0.4.11",
-    "@vusion/validator": "^0.4.6",
+    "@vusion/validator": "^0.4.8",
     "animate.css": "^4.1.1",
     "countup.js": "^1.9.3",
     "dayjs": "^1.10.7",
+    "decimal.js": "^10.4.2",
     "dompurify": "^2.0.15",
     "fs-extra": "^9.0.1",
     "i-material-design.vue": "^5.1.0",
@@ -81,6 +83,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "@babel/plugin-transform-nullish-coalescing-operator": "^7.22.5",
     "@types/jest": "^28.1.8",
     "@vant/area-data": "1.1.1",
     "@vue/cli-plugin-babel": "^4.3.0",
@@ -116,7 +119,7 @@
     "vue-i18n": "^8.15.5",
     "vue-router": "3.3.4",
     "vue-template-compiler": "2.6.12",
-    "vusion": "^0.12.21",
+    "vusion": "0.12.22-beta.0",
     "vusion-hooks": "^0.3.0"
   },
   "peerDependencies": {

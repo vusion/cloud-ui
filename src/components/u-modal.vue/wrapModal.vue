@@ -7,6 +7,7 @@
         v-on="$listeners"
         ref="item"
         :vusion-scope-id="$vnode.context.$options._scopeId"
+        :placeholder-in-designer="placeholderInDesigner"
     >
         <slot v-for="(item, name) in $slots" :name="name" :slot="name"></slot>
         <template v-for="(_, name) in $scopedSlots" :slot="name" slot-scope="slotData">
@@ -30,9 +31,12 @@
 import UModalReal from './index.vue';
 import UVisibleModal from './visibleModal.vue';
 import i18n from './i18n';
+import i18nMixin from '../../mixins/i18n';
+
 export const UModal = {
     name: 'u-modal',
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-modal')],
     component: {
         UModalReal,
         UVisibleModal,
@@ -46,13 +50,13 @@ export const UModal = {
         okButton: {
             type: String,
             default() {
-                return this.$t('ok');
+                return this.$tt('ok');
             },
         },
         cancelButton: {
             type: String,
             default() {
-                return this.$t('cancel');
+                return this.$tt('cancel');
             },
         },
         primaryButton: { type: String, default: 'okButton' },
@@ -70,6 +74,17 @@ export const UModal = {
         isTitleSlotEmpty: { type: Boolean, default: false }, // 有插槽template但是不想展示的情况
         isFootSlotEmpty: { type: Boolean, default: false },
         showHead: { type: Boolean, default: true },
+    },
+    data() {
+        return {
+            placeholderInDesigner: undefined,
+        };
+    },
+    mounted() {
+        this.getDynamicPlaceholderInDesigner();
+    },
+    updated() {
+        this.getDynamicPlaceholderInDesigner();
     },
     methods: {
         // 双击打开弹出框
@@ -91,6 +106,28 @@ export const UModal = {
         getStyle() {
             const { staticStyle = {}, style = {} } = this.$vnode.data;
             return { ...staticStyle, ...style };
+        },
+        getDynamicPlaceholderInDesigner() {
+            if (!(this.mode && this.$env.VUE_APP_DESIGNER)) {
+                return '双击编辑弹窗';
+            }
+            // readme: 由于$slots不是响应式数据，该函数无法改写为computed属性，需要手动在updated和mounted阶段调用
+            let title = this.$props.title;
+
+            if (this.$scopedSlots && this.$scopedSlots.title) {
+                const firstTextvnode = this.$scopedSlots.title().find((vnode) => vnode && vnode.componentOptions && vnode.componentOptions.tag === 'u-text');
+                if (firstTextvnode && firstTextvnode.componentOptions.propsData.text) {
+                    title = firstTextvnode.componentOptions.propsData.text;
+                }
+            }
+
+            const refName = this.$vnode.data.ref;
+            const oldPlaceHolder = this.placeholderInDesigner;
+            this.placeholderInDesigner = [title && `标题：${title}`, refName && `组件名称：${refName}`, '双击编辑弹窗']
+                .filter(Boolean).join('，'); // 注意中文的符号
+            if (this.placeholderInDesigner !== oldPlaceHolder) {
+                this.$forceUpdate(); // 解决某些情况下对$slots响应不及时导致的问题
+            }
         },
     },
 };

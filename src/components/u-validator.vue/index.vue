@@ -7,7 +7,7 @@
         </m-popper>
     </template>
     <template v-else>
-        <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !blurred" :class="$style.message" color="error">{{ message ||firstError }}</span>
+        <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !(blurred && blurReset)" :class="$style.message" color="error">{{ message ||firstError }}</span>
     </template>
     <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']"></s-empty>
 </div>
@@ -112,7 +112,7 @@ export default {
             return this.muted === 'all' || this.muted === 'message';
         },
         showMessage() {
-            return !this.mutedMessage && this.touched && !this.valid && this.firstError && !this.blurred;
+            return !this.mutedMessage && this.touched && !this.valid && this.firstError && !(this.blurred && this.blurReset);
         },
     },
     watch: {
@@ -176,6 +176,7 @@ export default {
                 vm.validatorVM = this;
                 vm.formItemVM = this; // @compat
                 this.fieldTouched = false;
+                this.blurred = false;
                 this.value = vm.value; // 初始化的时候自行验证一次。Fix #23
                 this.validate('submit', true);
             }; // @TODO: 一个`<u-form-item>`中，只注册一个`fieldVM`，其他的忽略
@@ -208,10 +209,11 @@ export default {
             if (this.currentTarget === 'validatorVMs' || this.manual)
                 return;
             this.hasUpdateEvent = true;
-            this.value = value; // 在没有触碰前，走 @update 事件；在触碰后，走 @input 事件
-            if (!this.fieldTouched) {
+            this.value = value;
+            // 在没有触碰前，走 @update 事件；在触碰后，走 @input 事件；已经 blur 后可以触发
+            if (!this.fieldTouched || this.blurred) {
                 this.oldValue = value;
-                this.$nextTick(() => this.validate('submit', true));
+                this.$nextTick(() => this.validate('submit', !this.blurred));
             }
         },
         onInput(value) {
@@ -247,8 +249,8 @@ export default {
             return !this.mutedMessage && this.touched && !this.valid && this.firstError;
         },
         onBlur($event) {
+            this.blurred = true;
             if (this.blurReset) {
-                this.blurred = true;
                 if (this.errorCheck()) {
                     this.fieldVM.currentValue = this.oldValue;
                 }

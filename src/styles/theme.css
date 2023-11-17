@@ -65,7 +65,7 @@
     --brand-danger-darkest: #c00000;
     --brand-danger-opacity-20: #f2495733;
     --brand-danger-disabled: #fbc2c7;
-   
+
 
     --brand-assist-lightest: #faf2ff;
     --brand-assist-lighter: #efd9ff;
@@ -302,56 +302,61 @@
     --card-title-font-size: 18px;
     --card-title-font-weight: bold;
 
-    /* @component u-navbar @hidden */
-    --navbar-height: 60px;
-    --navbar-space-x: 40px;
-    --navbar-background: #333333;
-    --navbar-background-inverse: var(--brand-primary);
-    --navbar-color: white;
-    --navbar-item-space: 30px;
-    --navbar-item-padding: 0 10px;
-    --navbar-item-font-size: var(--font-size-large);
-    --navbar-item-background: transparent;
-    --navbar-item-background-hover: transparent;
-    --navbar-item-background-selected: transparent;
-    --navbar-item-color: white;
-    --navbar-item-color-hover: white;
-    --navbar-item-color-selected: white;
-    --navbar-item-color-disabled: var(--brand-disabled);
-    --navbar-item-color-inverse: white;
-    --navbar-item-line-transition-duration: 0.5s;
-    --navbar-item-line-background: currentColor;
-    --navbar-item-line-height: 3px;
-    --navbar-divider-width: var(--border-width-base);
-    --navbar-divider-height: 20px;
-    --navbar-divider-background: #ddd;
-    --navbar-dropdown-padding: 0 30px 0 10px;
-    --navbar-dropdown-icon-font-size: 18px;
-    --navbar-dropdown-popper-line-height: var(--line-height-base);
-    --navbar-dropdown-popper-font-size: var(--font-size-base);
-    --navbar-dropdown-popper-padding: 8px 0;
-    --navbar-dropdown-popper-background: var(--navbar-menu-item-background);
-    --navbar-dropdown-color-disabled: var(--brand-disabled);
-    --navbar-menu-item-padding: 7px 18px;
-    --navbar-menu-item-background: #232d3e;
-    --navbar-menu-item-background-hover: #141d2b;
-    --navbar-menu-item-color: inherit;
-    --navbar-menu-item-color-hover: inherit;
-    --navbar-menu-border-color: #232d3e;
-    --navbar-menu-divider-background: var(--list-view-divider-background);
-    --navbar-menu-box-shadow: 0 0 6px rgba(47, 53, 58, 0.3);
-    --navbar-select-width: 90px;
-    --navbar-select-padding-left: 10px;
-    --navbar-select-padding-right: 30px;
-    --navbar-select-hover-background: none;
-    --navbar-select-focused-background: none;
-    --navbar-select-item-padding: 2px 18px;
-    --navbar-select-item-color: white;
-    --navbar-select-item-background: #232d3e;
-    --navbar-select-item-background-hover: #141d2b;
-    --navbar-select-item-background-selected: white;
-    --navbar-select-divider-background: var(--list-view-divider-background);
-    --navbar-select-box-shadow: 0 0 6px rgba(47, 53, 58, 0.3);
+    /* @component u-navbar-multi */
+    --navbar-height: 60px;/* @desc 导航栏高度 */
+    --navbar-space-x: 40px;/* @hidden */
+    --navbar-background: #333333;/* @type color */ /* @desc 导航栏背景颜色 */
+    --navbar-background-inverse: var(--brand-primary);/* @hidden */
+    --navbar-color: white;/* @type color */ /* @desc 导航栏字体颜色 */
+    --navbar-item-space: 30px;/* @hidden */
+    --navbar-item-padding: 0 10px;/* @hidden */
+    --navbar-item-font-size: var(--font-size-large);/* @hidden */
+    --navbar-item-background: transparent;/* @hidden */
+    --navbar-item-background-hover: transparent;/* @hidden */
+    --navbar-item-background-selected: transparent;/* @hidden */
+    --navbar-item-color: white;/* @type color */ /* @desc 导航栏菜单项字体颜色 */
+    --navbar-item-color-hover: white;/* @type color */ /* @desc 导航栏菜单项悬浮字体颜色 */
+    --navbar-item-color-selected: white;/* @type color */ /* @desc 导航栏菜单选中字体颜色 */
+    --navbar-item-color-disabled: var(--brand-disabled);/* @hidden */
+    --navbar-group-color: white;/* @type color */ /* @desc 导航栏分组字体颜色 */
+    --navbar-group-color-hover: white;/* @type color */ /* @desc 导航栏分组悬浮字体颜色 */
+
+    --navbar-divider-line-background: transparent;/* @type color */ /* @desc 导航栏菜单项分隔线颜色 */
+
+    --navbar-item-color-inverse: white;/* @hidden */
+    --navbar-item-line-transition-duration: 0.5s;/* @hidden */
+    --navbar-item-line-background: currentColor;/* @type color */ /* @desc 导航栏菜单项高亮线条颜色 */
+    --navbar-item-line-height: 3px;/* @hidden */
+    --navbar-divider-width: var(--border-width-base);/* @hidden */
+    --navbar-divider-height: 20px;/* @hidden */
+    --navbar-divider-background: #ddd;/* @type color */ /* @desc 导航栏分隔组件颜色 */
+    --navbar-dropdown-padding: 0 30px 0 10px;/* @hidden */
+    --navbar-dropdown-icon-font-size: 18px;/* @hidden */
+    --navbar-dropdown-popper-line-height: var(--line-height-base);/* @hidden */
+    --navbar-dropdown-popper-font-size: var(--font-size-base);/* @hidden */
+    --navbar-dropdown-popper-padding: 8px 0;/* @hidden */
+    --navbar-dropdown-popper-background: var(--navbar-menu-item-background);/* @hidden */
+    --navbar-dropdown-color-disabled: var(--brand-disabled);/* @hidden */
+    --navbar-menu-item-padding: 7px 18px;/* @hidden */
+    --navbar-menu-item-background: #232d3e;/* @hidden */
+    --navbar-menu-item-background-hover: #141d2b;/* @hidden */
+    --navbar-menu-item-color: inherit;/* @hidden */
+    --navbar-menu-item-color-hover: inherit;/* @hidden */
+    --navbar-menu-border-color: #232d3e;/* @hidden */
+    --navbar-menu-divider-background: var(--list-view-divider-background);/* @hidden */
+    --navbar-menu-box-shadow: 0 0 6px rgba(47, 53, 58, 0.3);/* @hidden */
+    --navbar-select-width: 90px;/* @hidden */
+    --navbar-select-padding-left: 10px;/* @hidden */
+    --navbar-select-padding-right: 30px;/* @hidden */
+    --navbar-select-hover-background: none;/* @hidden */
+    --navbar-select-focused-background: none;/* @hidden */
+    --navbar-select-item-padding: 2px 18px;/* @hidden */
+    --navbar-select-item-color: white;/* @hidden */
+    --navbar-select-item-background: #232d3e;/* @hidden */
+    --navbar-select-item-background-hover: #141d2b;/* @hidden */
+    --navbar-select-item-background-selected: white;/* @hidden */
+    --navbar-select-divider-background: var(--list-view-divider-background);/* @hidden */
+    --navbar-select-box-shadow: 0 0 6px rgba(47, 53, 58, 0.3);/* @hidden */
 
     /* @component u-sidebar */
     --sidebar-background: #ffffff; /* @desc 侧边栏背景色,如：#223325 */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-group,u-sidebar-divider */ /* @depStaticStyles { "u-sidebar": ["background-color"] } */
@@ -376,7 +381,7 @@
     --sidebar-item-icon-color-selected: var(--sidebar-item-icon-color); /* @group 项 */ /* @desc 侧边栏项图标颜色（选中状态）,如：#223325 */ /* @prefix sidebar-item */ /* @type color */ /* @excludeTags u-sidebar-divider */
     --sidebar-group-padding-left: 10px; /* @group 分组 */ /* @desc 侧边栏分组左边距,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */ /* @depStaticStyles { "u-sidebar-group": ["padding-left"] } */
     --sidebar-group-head-height: 52px; /* @group 分组 */ /* @desc 侧边栏分组头部高度,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
-    --sidebar-group-head-padding-left: 20px; /* @group 分组 */ /* @desc 侧边栏分组头部左边距,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-padding-left: 30px; /* @group 分组 */ /* @desc 侧边栏分组头部左边距,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
     --sidebar-group-head-font-weight: var(--font-weight-bold); /* @group 分组 */ /* @desc 侧边栏分组头部字重,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
     --sidebar-group-head-color: #333333; /* @group 分组 */ /* @desc 侧边栏分组头部字体颜色,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
     --sidebar-group-head-color-hover: var(--brand-primary); /* @group 分组 */ /* @desc 侧边栏分组头部字体颜色（hover状态）,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
@@ -740,6 +745,7 @@
     --timepicker-input-padding-x-huge: var(--input-padding-x-huge); /* @desc Huge时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["huge"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
     --timepicker-input-height-huge: var(--input-height-huge); /* @desc Huge时间选择框输入框高度,如 1px */ /* @depAttrs { "height": ["huge"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["height"] */
     --timepicker-input-padding-x-full: var(--input-padding-x-full); /* @desc Full时间选择框输入框水平内边距,如 1px */ /* @depAttrs { "width": ["full"] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --timepicker-range-input-width: var(--input-width-medium); /* @desc 时间选择框输入框宽度,如 1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix timepicker-input */ /* @depStaticStyles ["width"] */
 
     --timepicker-bacground-selected: var(--brand-primary-light); /* @hidden */
     --timepicker-color-selected: white; /* @hidden */
@@ -865,6 +871,8 @@
     --table-view-subrow-background-dragging:  rgba(237, 237, 237, 0.5);/* @type color */ /* @desc 表格被拖拽行子树背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-row-background-dragging: #e5e5e5;/* @type color */ /* @desc 表格被拖拽行背景颜色,如 #223325 */ /* @excludeElTags td,th */
     --table-view-drag-cursor: move;/* @desc 拖拽鼠标样式 */ /* @excludeElTags td,th */
+    --table-view-drag-cursor-disabled: not-allowed; /* @desc 拖拽鼠标样式（禁用状态） */ /* @excludeElTags td,th */
+    --table-view-drag-color-disabled: #ccc; /* @desc 拖拽图标颜色（禁用状态） */ /* @excludeElTags td,th */
 
     --table-view-head-background: #f7f8fa; /* @hidden */
     --table-view-head-title-sortable-hover: #eef2f8; /* @hidden */
@@ -892,26 +900,29 @@
     --table-view-sort-color: #ccc; /* @hidden */
     --table-view-sort-color-active: var(--brand-primary); /* @hidden */
     --table-view-sort-size: 1em; /* @hidden */
-    --table-view-expander-size: 16px; /* @hidden */
     --table-view-row-selected-background: #f5f5f5; /* @hidden */
     --table-view-pagination-space: var(--space-base); /* @hidden */
     --table-view-tree-expander-loading-size: 10px; /* @hidden */
     --table-view-tree-expander-loading-border-width: 1px; /* @hidden */
     --table-view-tree-expander-margin: 6px; /* @hidden */
-    --table-view-expander-border-radius: 4px; /* @hidden */
-    --table-view-expander-background: #f5f5f5; /* @hidden */
-    --table-view-expander-background-hover: #e5e5e5; /* @hidden */
-    --table-view-expander-background-disabled: #f5f5f5; /* @hidden */
-    --table-view-expander-color: #999; /* @hidden */
-    --table-view-expander-color-hover: #333; /* @hidden */
-    --table-view-expander-color-disabled: #ccc; /* @hidden */
-    --table-view-expander-border-color: var(--table-view-expander-background); /* @hidden */
-    --table-view-expander-border-color-hover: var(--table-view-expander-background-hover); /* @hidden */
-    --table-view-expander-border-color-disabled: #e5e5e5; /* @hidden */
     --table-view-expand-td-background: #F7F8FA; /* @hidden */
     --table-view-editable-td-min-height: 34px; /* @hidden */
     --table-view-overflow-x: auto; /* @hidden */
     --table-view-drop-ghost-disabled-border-color: var(--brand-error);/* @hidden */
+
+    /* @component u-table-view-expander */
+    --table-view-expander-size: 16px; /* @hidden */
+    --table-view-expander-background: #f5f5f5; /* @hidden */
+    --table-view-expander-border-color: var(--table-view-expander-background); /* @hidden */
+    --table-view-expander-border-radius: 4px; /* @hidden */
+    --table-view-expander-background-hover: #e5e5e5; /* @hidden */
+    --table-view-expander-border-color-hover: var(--table-view-expander-background-hover); /* @hidden */
+    --table-view-expander-color: #999; /* @hidden */
+    --table-view-expander-color-hover: #333; /* @hidden */
+    --table-view-expander-color-disabled: #ccc; /* @hidden */
+    --table-view-expander-border-color-disabled: #e5e5e5; /* @hidden */
+    --table-view-expander-background-disabled: #f5f5f5; /* @hidden */
+
 
     /* @component u-list-view @hidden */
     --list-view-width: var(--width-medium);
@@ -1306,11 +1317,13 @@
     --select-padding-x-large: 10px; /* @hidden */
     --select-padding-x-huge: 10px; /* @hidden */
     --select-padding-x-full: 10px; /* @hidden */
-    --select-multiple-background-color: white; /* @hidden */
+    --select-multiple-background-color: white; /* @type color */ /* @group 多选状态 */ /* @desc 选择项checkbox的背景颜色 */
+    --select-multiple-icon-color: #517cff; /* @type color */ /* @group 多选状态 */ /* @desc 选择项checkbox的选中图标颜色 */
+    --select-multiple-partial-icon-color: #517cff; /* @type color */ /* @group 多选状态 */ /* @desc 选择项checkbox的半选择图标颜色 */
     --select-border-color-hover: var(--brand-primary); /* @hidden */
     --select-border-color-inverse: var(--border-color-base-inverse); /* @hidden */
     --select-border-color-disabled: var(--brand-disabled); /* @hidden */
-    --select-multiple-border-color: var(--border-width-base) solid var(--border-color-darker); /* @hidden */
+    --select-multiple-border-color: var(--border-width-base) solid var(--border-color-darker); /* @group 弹出层 */ /* @desc 选择项checkbox的边框 */
     --select-color-inverse: var(--color-base-inverse); /* @hidden */
     --select-color-disabled: var(--brand-disabled-dark); /* @hidden */
     --select-popper-min-width: 300px; /* @hidden */
@@ -1341,6 +1354,8 @@
     --select-icon-width: 14px; /* @hidden */
     --select-icon-height: 14px; /* @hidden */
     --select-icon-border-radius: 14px;  /* @hidden */
+    --select-input-border-color-error: var(--input-border-color-error); /* hidden */
+
 
     /* @component u-rate */
     --rate-space: 6px; /* @desc 五角星之间的间距,如 1px */
@@ -1446,6 +1461,7 @@
     --tabs-font-size: var(--font-size-base); /* @desc tab项字体大小,如 1px */ /* @prefix tabs */
     --tabs-item-line-background: var(--brand-primary); /* @type color */ /* @desc tab选中项线条背景色（线条导航方式）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["line"] } */ /* @depParentAttrs { "appear": ["line"] } */
     --tabs-item-background-text: none; /* @type color */ /* @desc tab项背景色（文本模式, 未选中部分）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["text"] } */ /* @depParentAttrs { "appear": ["text"] } */
+    --tabs-item-background-split: none; /* @type color */ /* @desc tab项背景色（竖线分隔模式, 未选中部分）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["split"] } */ /* @depParentAttrs { "appear": ["split"] } */
     --tabs-item-background-capsule: none; /* @type color */ /* @desc tab项背景色（胶囊模式, 未选中部分）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["capsule"] } */ /* @depParentAttrs { "appear": ["capsule"] } */
     --tabs-item-background-hover: transparent; /* @type color */ /* @desc tab项背景色（hover状态, 胶囊模式和底线模式不生效）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": [null] } */ /* @depParentAttrs { "appear": [null] } */
     --tabs-item-background-selected: var(--background-color-default); /* @type color */ /* @desc tab项背景色（选中部分, 胶囊模式和底线模式不生效）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": [null] } */ /* @depParentAttrs { "appear": [null] } */
@@ -1455,10 +1471,15 @@
     --tabs-item-color-selected: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（未选中部分, hover状态, 文本模式和文本模式生效）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": [null] } */ /* @depParentAttrs { "appear": [null] } */
     --tabs-item-color-selected-capsule: var(--brand-primary); /* @type color */ /* @desc tab项文字颜色（胶囊模式, 选中部分）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["capsule"] } */ /* @depParentAttrs { "appear": ["capsule"] } */
     --tabs-item-color-disabled: #999; /* @type color */ /* @desc tab禁用项文字颜色,如 #223325 */ /* @prefix tabs */
+    --tabs-item-split-line-color: #CDCFD7; /* @type color */ /* @desc tab项分隔线颜色（竖线分隔模式, 未选中部分）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["split"] } */ /* @depParentAttrs { "appear": ["split"] } */
+    --tabs-item-split-line-height: 12px; /* @desc tab项分隔线高度（竖线分隔模式, 未选中部分）,如 1px */ /* @prefix tabs */ /* @depAttrs { "appear": ["split"] } */ /* @depParentAttrs { "appear": ["split"] } */
     --tabs-item-border-color-selected: var(--border-color-light); /* @type color */ /* @desc tab项边框颜色（选中部分, 默认模式和圆角模式生效）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": [null] } */ /* @depParentAttrs { "appear": [null] } */
     --tabs-item-border-color-selected-capsule: var(--brand-primary); /* @type color */ /* @desc tab项边框颜色（选中部分, 胶囊模式）,如 #223325 */ /* @prefix tabs */ /* @depAttrs { "appear": ["capsule"] } */ /* @depParentAttrs { "appear": ["capsule"] } */
     --tabs-item-border-radius-round: 5px; /* @desc tab项边框圆角（选中部分, 圆角模式）,如 1px */ /* @prefix tabs */
     --tabs-body-space: var(--space-base); /* @desc 组件的tab项和内容区之间的间距,如 1px */ /* @prefix tabs */
+    --tabs-item-close-margin-left: var(--space-small); /* @desc tab项关闭按钮左侧间距,如 1px */ /* @prefix tabs */
+    --tabs-item-close-color: var(--color-light); /* @type color */ /* @desc tab项关闭按钮颜色,如 #223325 */ /* @prefix tabs */
+    --tabs-item-close-hover-color: var(--color-base); /* @type color */ /* @desc tab项关闭按钮悬停颜色,如 #223325 */ /* @prefix tabs */
 
     --tabs-item-background-disabled: transparent; /* @hidden */
     --tabs-item-height-small: 30px; /* @hidden */
@@ -1641,27 +1662,28 @@
     --loading-full-background: rgba(255, 255, 255, 0.8);
     --loading-fullWindow-background: rgba(255, 255, 255, 0.6);
 
-    /* @component u-toast @hidden */
-    --toast-margin: 30px;
-    --toast-width: 300px;
-    --toast-max-width: 326px;
-    --toast-top: 90px;
-    --toast-close-font-size: 18px;
-    --toast-close-color: white;
-    --toast-item-color: white;
-    --toast-item-padding: 8px 16px;
-    --toast-item-space: 10px;
-    --toast-item-border-radius: var(--border-radius-large);
-    --toast-item-icon-top: 8px;
-    --toast-item-icon-margin-right: 8px;
-    --toast-item-icon-vertical-align: -1px;
-    --toast-item-icon-font-size: 16px;
-    --toast-item-icon-text-align: left;
-    --toast-item-icon-color-info: var(--brand-primary);
-    --toast-item-icon-color-success: var(--brand-success);
-    --toast-item-icon-color-warning: var(--brand-warning);
-    --toast-item-icon-color-error: var(--brand-error);
-    --toast-background-color: rgba(48, 48, 48, 0.8);
+    /* @component u-toast-single */
+    --toast-margin: 30px; /* @hidden */
+    --toast-width: 300px; /* @hidden */
+    --toast-max-width: 326px; /* @hidden */
+    --toast-top: 90px; /* @hidden */
+    --toast-close-font-size: 18px; /* @hidden */
+    --toast-close-color: white; /* @hidden */
+    --toast-item-color: white; /* @type color */ /* @desc 弹出消息的字体颜色 */ /* @prefix toast */
+    --toast-item-padding: 8px 16px; /* @hidden */
+    --toast-item-space: 10px; /* @hidden */
+    --toast-item-border-radius: var(--border-radius-large); /* @hidden */
+    --toast-item-icon-top: 8px; /* @hidden */
+    --toast-item-icon-margin-right: 8px; /* @hidden */
+    --toast-item-icon-vertical-align: -1px; /* @hidden */
+    --toast-item-icon-font-size: 16px; /* @hidden */
+    --toast-item-icon-text-align: left; /* @hidden */
+    --toast-item-icon-color-info: var(--brand-primary); /* @hidden */
+    --toast-item-icon-color-success: var(--brand-success); /* @hidden */
+    --toast-item-icon-color-warning: var(--brand-warning); /* @hidden */
+    --toast-item-icon-color-error: var(--brand-error); /* @hidden */
+    --toast-background-color: rgba(48, 48, 48, 0.8); /* @type color */ /* @desc 弹出消息的背景色 */ /* @prefix toast */
+    --toast-item-custom-icon-color: white; /* @type color */ /* @desc 弹出消息的自定义图标颜色 */ /* @prefix toast */
 
     /* @component u-modal */
     --modal-dialog-width: 400px; /* @desc 弹窗的宽度,如 1px */
@@ -1734,11 +1756,13 @@
     --calendar-background: var(--field-background); /* @type color */ /* @desc 日历面板背景颜色,如：#223325 */
     --calendar-border-radius: var(--border-radius-base); /* @desc 日历面板边框圆角,如：1px */
 
-
     --calendar-item-color: #333; /* @type color */ /* @desc 日历面板本月日期字体颜色,如：#223325 */
     --calendar-item-border-radius: 4px; /* @desc 日历面板日期圆角大小,如：1px */
     --calendar-item-border-color: transparent; /* @type color */ /* @desc 日历面板日期边框颜色,如：#223325 */
     --calendar-item-background: var(--calendar-background); /* @type color */ /* @desc 日历面板日期背景颜色,如：#223325 */
+
+    --calendar-item-background-inrange: rgba(51, 126, 255, 0.1); /* @type color */ /* @desc 日历选中范围背景色,如：#223325 */
+    --calendar-range-inner-border-color: var(--border-color-base); /* @type color */ /* @desc 日历范围选择内部分割线颜色,如：#223325 */
 
     --calendar-item-color-hover: #333; /* @type color */ /* @desc 日历面板日期字体颜色（hover状态）,如：#223325 */
     --calendar-item-border-color-hover: var(--calendar-item-border-color); /* @type color */ /* @desc 日历面板日期边框颜色（选中状态）,如：#223325 */
@@ -1759,6 +1783,7 @@
     --calendar-item-week-color: #F24957; /* @type color */ /* @desc 日历面板week字体颜色,如：#223325 */
 
     --calendar-width: 300px; /* @hidden */
+    --calendar-range-width: 600px; /* @hidden */
     --calendar-padding: 15px; /* @hidden */
 
     --calendar-icon-color: var(--gray-dark); /* @type color */ /* @desc 日历面板icon字体颜色,如：#223325 */
@@ -1786,6 +1811,7 @@
     --datepicker-popper-border-radius: var(--border-radius-base); /* hidden */
 
     --datepicker-input-width: var(--input-width); /* @desc 日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
+    --datepicker-range-input-width: var(--input-width-medium); /* @desc 日期选择器范围输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
     --datepicker-input-height: var(--input-height); /* @desc 日期选择器输入框高度,如：1px */ /* @depAttrs { "height": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["height"] */
     --datepicker-input-padding-x: var(--input-padding-x); /* @desc 日期选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
     --datepicker-input-width-mini: var(--input-width-mini); /* @desc Mini日期选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["mini"] } */ /* @prefix datepicker-input */ /* @depStaticStyles ["width"] */
@@ -1827,6 +1853,7 @@
     --datetime-input-background: var(--input-background); /* @type color */ /* @desc 日期时间选择器输入框背景颜色,如：#223325 */ /* @prefix datetime-input */
 
     --datetime-input-width: var(--input-width); /* @desc 日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */
+    --datetime-range-input-width: var(--input-width-large); /* @desc 日期时间范围选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */
     --datetime-input-height: var(--input-height); /* @desc 日期时间选择器输入框高度,如：1px */ /* @depAttrs { "height": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["height"] */
     --datetime-input-padding-x: var(--input-padding-x); /* @desc 日期时间选择器输入框水平内边距,如：1px */ /* @depAttrs { "width": ["normal", null] } */ /* @prefix datetime-input */ /* @depStaticStyles ["padding-left", "padding-right"] */
     --datetime-input-width-mini: var(--input-width-mini); /* @desc Mini日期时间选择器输入框宽度,如：1px */ /* @depAttrs { "width": ["mini"] } */ /* @prefix datetime-input */ /* @depStaticStyles ["width"] */
@@ -1850,35 +1877,36 @@
     --datetime-popper-border-radius: var(--border-radius-base); /* @desc 日期时间选择器选择框圆角,如：1px */ /* @prefix datetime */
 
     /* @component u-capsules */
-    --capsules-capsule-font-size: var(--font-size-base);
-    --capsules-capsule-padding-x: 4px;
-    --capsules-capsule-padding-y: 20px;
-    --capsules-capsule-background: var(--color-white);
-    --capsules-capsule-background-selected: var(--brand-primary);
-    --capsules-capsule-background-selected-hover: var(--brand-primary-light);
-    --capsules-capsule-background-selected-disabled: var(--brand-primary-disabled);
-    --capsules-capsule-background-disabled: var(--background-color-disabled);
-    --capsules-capsule-color: var(--color-base);
-    --capsules-capsule-color-hover: var(--brand-primary);
-    --capsules-capsule-color-selected: var(--color-white);
-    --capsules-capsule-color-disabled: var(--gray-base);
-    --capsules-capsule-color-selected-disabled: var(--color-white);
-    --capsules-capsule-cursor: var(--cursor-pointer);
-    --capsules-capsule-cursor-disabled: var(--cursor-not-allowed);
-    --capsules-capsule-border-color: var(--border-color-base);
-    --capsules-capsule-border-color-hover: var(--brand-primary);
-    --capsules-capsule-border-color-selected: var(--brand-primary);
-    --capsules-capsule-border-color-selected-hover: var(--brand-primary-light);
-    --capsules-capsule-border-color-selected-disabled: var(--brand-primary-disabled);
-    --capsules-capsule-flag-border-color: var(--brand-danger);
-    --capsules-capsule-label-background: var(--brand-error);
-    --capsules-capsule-label-color: var(--color-white);
+    --capsules-capsule-font-size: var(--font-size-base); /* @desc 胶囊字体大小 */ /* @prefix capsules-capsule */
+    --capsules-capsule-padding-x: 4px; /* @desc 胶囊水平内边距 */ /* @prefix capsules-capsule */
+    --capsules-capsule-padding-y: 20px; /* @desc 胶囊垂直内边距 */ /* @prefix capsules-capsule */
+    --capsules-capsule-background: var(--color-white); /* @type color */ /* @desc 胶囊背景色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-background-selected: var(--brand-primary); /* @type color */ /* @desc 胶囊选中项背景色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-background-selected-hover: var(--brand-primary-light); /* @type color */ /* @desc 胶囊选中项hover背景色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-background-selected-disabled: var(--brand-primary-disabled); /* @type color */ /* @desc 胶囊选中项禁用背景色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-background-disabled: var(--background-color-disabled); /* @type color */ /* @desc 胶囊禁用背景色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-color: var(--color-base); /* @type color */ /* @desc 胶囊字体颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-color-hover: var(--brand-primary); /* @type color */ /* @desc 胶囊hover字体颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-color-selected: var(--color-white); /* @type color */ /* @desc 胶囊选中项字体颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-color-disabled: var(--gray-base); /* @type color */ /* @desc 胶囊禁用字体颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-color-selected-disabled: var(--color-white); /* @type color */ /* @desc 胶囊选中项禁用字体颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-cursor: var(--cursor-pointer); /* @desc 胶囊鼠标样式 */ /* @prefix capsules-capsule */
+    --capsules-capsule-cursor-disabled: var(--cursor-not-allowed); /* @desc 胶囊禁用鼠标样式 */ /* @prefix capsules-capsule */
+    --capsules-capsule-border-color: var(--border-color-base); /* @type color */ /* @desc 胶囊边框颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-border-color-hover: var(--brand-primary); /* @type color */ /* @desc 胶囊hover边框颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-border-color-selected: var(--brand-primary); /* @type color */ /* @desc 胶囊选中项边框颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-border-color-selected-hover: var(--brand-primary-light); /* @type color */ /* @desc 胶囊选中项hover边框颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-border-color-selected-disabled: var(--brand-primary-disabled); /* @type color */ /* @desc 胶囊选中项禁用边框颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-flag-border-color: var(--brand-danger); /* @type color */ /* @desc 胶囊标记边框颜色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-label-background: var(--brand-error); /* @type color */ /* @desc 胶囊标签背景色 */ /* @prefix capsules-capsule */
+    --capsules-capsule-label-color: var(--color-white); /* @type color */ /* @desc 胶囊标签字体颜色 */ /* @prefix capsules-capsule */
 
 
 
 
-    /* @component u-taskbox @hidden */
-    --taskbox-badge-box-shadow: none;
+    /* @component u-taskbox */
+    --taskbox-icon-font-size: 24px; /* @desc 任务箱图标大小,如：1px */
+    --taskbox-badge-box-shadow: none; /* @hidden */
 
     /**
      * ========================

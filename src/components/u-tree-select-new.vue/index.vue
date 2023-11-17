@@ -1,10 +1,10 @@
 <template>
     <div :class="$style.root"
-        :color="color"
+        :color="color || formItemVM && formItemVM.color"
         :readonly="readonly"
         :disabled="currentDisabled"
         :opened="popperOpened"
-        :clearable="clearable && !!currentText"
+        :clearable="clearable && (!!checkableValue || !!selectedItem)"
         :tabindex="readonly || currentDisabled ? '' : 0"
         @click="focus"
         @keydown.up.prevent="$refs.popper.currentOpened ? shift(-1) : open()"
@@ -14,12 +14,19 @@
         @blur="onRootBlur">
         <!-- 用于基线对齐 -->
         <span :class="$style.baseline">b</span>
-        <span v-if="!filterText && !selectedItem"
+        <span v-if="(!filterText && !selectedItem && !checkable) || (checkable && !checkableValue)"
             :class="$style.placeholder">
             {{ placeholder }}
         </span>
         <div :class="$style.text" v-ellipsis-title>
-            <template v-if="selectedItem">
+            <template v-if="checkable">
+                <f-slot name="text" :vm="this">
+                    <span>
+                        {{ checkableValue }}
+                    </span>
+                </f-slot>
+            </template>
+            <template v-else-if="selectedItem">
                 <f-slot v-if="$scopedSlots.selected"
                     name="selected"
                     :vm="this"
@@ -58,9 +65,9 @@
               @input="onInput">
           </u-input>
         </div>
-        <span v-if="clearable && !!currentText"
+        <span v-if="clearable && (!!checkableValue || !!selectedItem)"
             :class="$style.clearable"
-            @click="clear">
+            @click.stop="clear">
         </span>
         <m-popper ref="popper"
             :class="$style.popper"
@@ -86,13 +93,15 @@
                 :parent-field="parentField"
                 :is-leaf-field="isLeafField"
                 :children-field="childrenField"
+                :disabled-field="disabledField"
                 :more-children-fields="moreChildrenFields"
                 :exclude-fields="excludeFields"
                 :checkable="checkable"
                 :cancelable="cancelable"
                 :accordion="accordion"
+                :check-controlled="checkControlled"
                 :tree-select-tip="treeSelectTip"
-                :expand-trigger="expandTrigger"
+                :expand-trigger="!checkable ? 'click-expander': expandTrigger"
                 :initial-load="initialLoad"
                 :readonly="readonly"
                 :disabled="disabled"
@@ -103,7 +112,7 @@
                 @change="$emit('change', $event, this)"
                 @before-select="$emit('before-select', $event, this)"
                 @select="$emit('select', $event, this)"
-                @input="$emit('input', $event, this)"
+                @input="onUpdateValue"
                 @update:value="onUpdateValue"
                 @toggle="$emit('toggle', $event, this)"
                 @check="$emit('check', $event, this)"
@@ -121,13 +130,13 @@
 
 <script>
 import MField from '../m-field.vue';
-import UTreeViewNodeNew from '../u-tree-view-new.vue/node.vue';
+// import UTreeViewNodeNew from '../u-tree-view-new.vue/node.vue';
 import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-tree-select-new',
     childName: 'u-tree-view-node-new',
-    components: { UTreeViewNodeNew, SEmpty },
+    components: { SEmpty },
     mixins: [MField],
     props: {
         value: null,
@@ -140,9 +149,11 @@ export default {
         parentField: { type: String, default: '' },
         isLeafField: { type: String, default: 'isLeaf' },
         childrenField: { type: String, default: 'children' },
+        disabledField: { type: String, default: 'disabled' },
         moreChildrenFields: Array,
         excludeFields: { type: Array, default: () => [] },
         checkable: { type: Boolean, default: false },
+        checkControlled: { type: Boolean, default: false },
         cancelable: { type: Boolean, default: false },
         accordion: { type: Boolean, default: false },
         expandTrigger: { type: String, default: 'click' },
@@ -163,7 +174,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: 'reference',
+            default: 'reference', // readme: 为了支持插槽拖入，必须作为UTreeSelectNew的子元素。
             validator: (value) => ['body', 'reference'].includes(value),
         },
         color: String,
@@ -172,7 +183,7 @@ export default {
             default: 30,
         },
         filterFields: { type: Array, default: () => ['text'] },
-        ifExpanded: { type: Boolean, default: true },
+        ifExpanded: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -209,6 +220,24 @@ export default {
                 return this.$at(this.dataSourceObj, this.actualValue);
             } else {
                 return this.$at(this.dataSourceNodeList, this.actualValue);
+            }
+        },
+        checkableValue() {
+            if (!this.checkable) {
+                return '';
+            } else if (Array.isArray(this.actualValue)) {
+                const textNode = [];
+                // 返现选项的字段从value转化为text
+                this.actualValue.forEach((item) => {
+                    if (this.$at(this.dataSourceObj, item)) {
+                        textNode.push(this.$at(this.dataSourceObj, item) && this.$at(this.dataSourceObj, item).text);
+                    } else {
+                        textNode.push(this.$at(this.dataSourceNodeList, item) && this.$at(this.dataSourceNodeList, item).text);
+                    }
+                });
+                return textNode.join('、');
+            } else {
+                return '';
             }
         },
     },
@@ -310,6 +339,7 @@ export default {
                         }
                         return item;
                     }
+                    return null;
                 }).filter((item) => !!item);
             }
         },
@@ -355,6 +385,12 @@ export default {
         onUpdateValue($event) {
             this.actualValue = $event;
             this.$emit('update:value', $event, this);
+            this.$emit('input', $event, this);
+            this.$nextTick(() => {
+                if (!!$event && !this.checkable) {
+                    this.close();
+                }
+            });
             if (this.filterable) {
                 this.filterText = '';
                 this.filtering = false;
@@ -486,8 +522,12 @@ export default {
             // this.fastLoad(false, true);
             this.open();
         },
-        onBlur() { },
-        onRootBlur() { },
+        onBlur() {
+            // Todo: onBlur
+        },
+        onRootBlur() {
+            // Todo: onRootBlur
+        },
         focus() {
             if (this.filterable)
                 this.$refs.input.focus();
@@ -513,6 +553,33 @@ export default {
         },
         onLoad() {
             this.$emit('load', undefined, this);
+        },
+        clear() {
+            const oldValue = this.actualValue;
+            const itemInfo = {
+                oldValue,
+                value: undefined,
+                valid: true,
+            };
+            if (this.$refs.treeView && this.$refs.treeView.selectedVM && this.$refs.treeView.selectedVM.$options.propsData) {
+                itemInfo.label = this.$refs.treeView.selectedVM.$options.propsData.text;
+            }
+            if (this.checkable) {
+                itemInfo.value = [];
+                itemInfo.values = [];
+                itemInfo.oldValue = [...oldValue];
+                itemInfo.oldValues = [...oldValue];
+            }
+            if (this.$emitPrevent('before-clear', { ...itemInfo }, this)) {
+                return;
+            }
+            if (this.$refs.treeView) {
+                this.$refs.treeView.checkAll(false);
+            } else {
+                this.onUpdateValue(itemInfo.value);
+            }
+
+            this.$emit('clear', { ...itemInfo }, this);
         },
     },
 };
@@ -567,6 +634,7 @@ export default {
 
 .clearable::before {
   display: block;
+  opacity: 0;
   position: absolute;
   right: 8px;
   top: 0;
@@ -578,6 +646,10 @@ export default {
   icon-font: url("../i-icon.vue/assets/close-solid.svg");
   cursor: var(--cursor-pointer);
   color: #a7afbb;
+}
+
+.root[clearable]:hover .clearable::before {
+  opacity: 1;
 }
 
 .root[filterable] {
@@ -861,6 +933,10 @@ export default {
 }
 .root[size^="full"] {
   height: 100%;
+}
+
+.root[color="error"] {
+    border-color: var(--select-input-border-color-error);
 }
 
 .root[color="inverse"] {

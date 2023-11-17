@@ -11,7 +11,7 @@
             :node="node"
         >
             <template #item="item">
-                <slot name="item" v-bind="item">
+                <slot name="item" v-bind="item" :index="index">
                     {{ $at(node, textField) }}
                 </slot>
             </template>
@@ -145,6 +145,7 @@ export default {
     overflow: hidden;
     width: var(--carousel-width);
     height: var(--carousel-height);
+    min-width: 350px;
 }
 
 .body {
@@ -171,7 +172,6 @@ export default {
     padding: var(--carousel-nav-item-padding);
     margin-right: 4px;
     background: var(--carousel-nav-item-background);
-    background-clip: content-box;
 }
 
 .nav-item:hover {
@@ -181,6 +181,10 @@ export default {
 .nav-item[selected] {
     width: 20px;
     background: var(--carousel-nav-item-background-hover);
+}
+
+.nav-item {
+    background-clip: content-box;
 }
 
 .button {

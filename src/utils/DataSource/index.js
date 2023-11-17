@@ -134,6 +134,13 @@ const VueDataSource = Vue.extend({
                 return this.arrangedData;
         },
     },
+    watch: {
+        data() {
+            if (!this.rawTreeDisplayOnlyForNotice && (!this.remote || !this._load)) {
+                this.arrange();
+            }
+        },
+    },
     // paging, sorting, filtering 暂不用 watch
     created() {
         this.remote = !!this._load;
@@ -147,7 +154,9 @@ const VueDataSource = Vue.extend({
     methods: {
         arrange() {
             let arrangedData = Array.from(this.data);
-
+            if(this.isSimpleArray(arrangedData) && this.tag === "u-table-view") {
+                arrangedData = arrangedData.map(item => ({'simple': item}))
+            }
             if (this.remotePaging)
                 return this.arrangedData = arrangedData;
 
@@ -159,10 +168,15 @@ const VueDataSource = Vue.extend({
             if (!this.remoteSorting && sorting && sorting.field) {
                 const field = sorting.field;
                 const orderSign = sorting.order === 'asc' ? 1 : -1;
-                if (sorting.compare)
-                    arrangedData.sort((item1, item2) => sorting.compare(item1[field], item2[field], orderSign));
-                else
-                    arrangedData.sort((item1, item2) => this.defaultCompare(item1[field], item2[field], orderSign));
+                if (sorting.compare) {
+                    arrangedData.sort((item1, item2) =>
+                        sorting.compare(this.$at(item1, field), this.$at(item2, field), orderSign),
+                    );
+                } else {
+                    arrangedData.sort((item1, item2) =>
+                        this.defaultCompare(this.$at(item1, field), this.$at(item2, field), orderSign),
+                    );
+                }
             }
 
             this.arrangedData = arrangedData;
@@ -224,6 +238,14 @@ const VueDataSource = Vue.extend({
         slice(offset, newOffset) {
             return this.arrangedData.slice(offset, newOffset);
         },
+        isSimpleArray(arr) {
+            if (!Array.isArray(arr)) {
+              return false; // 如果不是数组类型，则不满足条件，直接返回 false
+            }
+            return arr.every(function(item) {
+              return typeof item !== 'object'; // 使用 typeof 判断是否为简单数据类型
+            });
+          },
         // _load(params)
         load(offset, limit, newPageNumber) {
             if (offset === undefined)
@@ -282,7 +304,6 @@ const VueDataSource = Vue.extend({
 
             return this._load(params, extraParams).then((result) => {
                 this.initialLoaded = true;
-
                 // 支持 JDL
                 if (result instanceof Object) {
                     if (result.hasOwnProperty('list') && result.hasOwnProperty('total')) {

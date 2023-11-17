@@ -8,7 +8,7 @@
             :value="$at2(node, valueField)"
             :expanded="$at(node, expandedField)"
             :checked.sync="node.checked"
-            :disabled="node.disabled"
+            :disabled="$at2(node, disabledField)"
             :children-field="childrenField"
             :hidden="filterText ? $at(node, 'hiddenByFilter') : $at(node, hiddenField)"
             :node="node"
@@ -53,6 +53,7 @@ export default {
         expandedField: { type: String, default: 'expanded' },
         isLeafField: { type: String, default: 'isLeaf' },
         childrenField: { type: String, default: 'children' },
+        disabledField: { type: String, default: 'disabled' },
         parentField: { type: String, default: '' },
         treeSelectTip: { type: String, default: '请绑定数据源或插入树形视图节点' },
         moreChildrenFields: Array,
@@ -128,11 +129,13 @@ export default {
     mounted() {
         // Must trigger `value` watcher at mounted hook.
         // If not, nodeVMs have not been pushed.
-        this.watchValue(this.value);
+        this.watchValue(this.value, true);
     },
     methods: {
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+            if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
+                this.load();
         },
         list2tree(list, idField, pField) {
             const [map, treeData] = [{}, []];
@@ -211,9 +214,9 @@ export default {
 
             return final;
         },
-        watchValue(value) {
+        watchValue(value, isMounted = false) {
             if (this.checkable) {
-                return this.watchValues(value);
+                return this.watchValues(value, isMounted);
             }
 
             if (this.selectedVM && this.selectedVM.value === value)
@@ -231,12 +234,15 @@ export default {
                 }
             }
         },
-        watchValues(values) {
+        watchValues(values, isMounted = false) {
             if (values) {
                 this.currentValues = values;
                 this.walk((nodeVM) => {
-                    if (values.includes(nodeVM.value))
+                    if (values.includes(nodeVM.value)) {
                         nodeVM.check(true);
+                    } else if (isMounted) {
+                        nodeVM.check(false);
+                    }
                 });
             } else {
                 const values = [];
@@ -250,6 +256,10 @@ export default {
                     }
                 });
                 this.currentValues = values;
+                if (values.length > 0) {
+                    // 在组件非受控的情况下，当默认有值选中时，上报初始值以便外层组件数据同步
+                    this.$emit('update:value', this.currentValues, this);
+                }
             }
         },
         select(nodeVM) {

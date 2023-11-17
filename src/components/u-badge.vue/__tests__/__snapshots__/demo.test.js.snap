@@ -4,7 +4,8 @@ exports[`u-badge.vue Demo-右上角 1`] = `
 <div>
   <div class="root" corner>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      评论</a>
+      评论
+    </a>
     <span class="value">3</span>
   </div>
 </div>
@@ -45,7 +46,8 @@ exports[`u-badge.vue Demo-小圆点 2`] = `
   </p>
   <div class="root" corner dot>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      评论</a>
+      评论
+    </a>
     <span class="value">3</span>
   </div>
   <p></p>
@@ -65,7 +67,8 @@ exports[`u-badge.vue Demo-最大值 1`] = `
 <div>
   <div class="root" corner>
     <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-      评论</a>
+      评论
+    </a>
     <span class="value">99+</span>
   </div>
 </div>

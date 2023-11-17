@@ -19,18 +19,27 @@ export default {
     },
     created() {
         this.handleData();
-        if (this.currentDataSource && this.currentDataSource.load)
+        if (this.currentDataSource && this.currentDataSource.load) {
             this.load();
+        }
     },
     methods: {
         handleData() {
             this.currentDataSource = this.normalizeDataSource(this.dataSource, this.multiple);
         },
         normalizeDataSource(dataSource, multiple) {
-            const final = {
-                data: [],
-                load: undefined,
-            };
+            let final;
+            if (dataSource === undefined) {
+                final = {
+                    data: [],
+                    load: undefined,
+                };
+            } else {
+                final = this.currentDataSource || {
+                    data: [],
+                    load: undefined,
+                };
+            }
 
             function createLoad(rawLoad) {
                 return async function (params = {}) {

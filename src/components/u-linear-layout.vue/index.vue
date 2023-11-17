@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :type="type" :direction="direction" v-on="$listeners" vusion-slot-name="default" :nowrap="!wrap">
+<div :class="$style.root" :type="type" :direction="direction" v-on="$listeners" vusion-slot-name="default" :nowrap="!wrap" ref="root">
     <slot></slot>
     <template v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']">
         <div :class="$style.emptyTip" v-if="type === 'root'">拖拽右侧组件放至此处</div>
@@ -19,6 +19,7 @@
 <script>
 import SEmpty from '../s-empty.vue';
 import ULoading from '../u-loading.vue';
+import { throttle } from '../../utils/throttle';
 
 export default {
     name: 'u-linear-layout',
@@ -57,6 +58,9 @@ export default {
             showLoading: false,
         };
     },
+    mounted() {
+        this.$refs.root.addEventListener('scroll', throttle(this.handleScroll.bind(this), 200));
+    },
     methods: {
         openLoading() {
             this.showLoading = true;
@@ -64,6 +68,19 @@ export default {
         closeLoading() {
             this.showLoading = false;
         },
+        handleScroll(e) {
+            const el = e.target;
+            const { scrollHeight, scrollWidth, scrollTop, scrollLeft, clientHeight, clientWidth} = el;
+            this.$emit('scroll', {
+                scrollHeight,
+                scrollWidth,
+                scrollTop,
+                scrollLeft,
+                clientHeight,
+                clientWidth,
+            });
+        },
+
     },
 };
 </script>
@@ -177,8 +194,19 @@ export default {
     display: block;
 }
 
-.root[mode="flex"] { display: flex; text-align: inherit; flex-wrap: wrap }
-.root[mode="flex"][nowrap] {flex-wrap: nowrap}
+.root[mode="flex"] { display: flex; text-align: inherit; flex-wrap: wrap; }
+.root[mode="flex"][nowrap] {flex-wrap: nowrap;}
+/* 与主轴同向用 flex，否则用 align-self */
+.root[mode="flex"][direction="horizontal"] > [width-stretch="true"],
+.root[mode="flex"]:not([direction]) > [width-stretch="true"],
+.root[mode="flex"][direction="vertical"] > [height-stretch="true"] { flex: 1 0 0; }
+.root[mode="flex"][direction="vertical"] > [width-stretch="true"],
+.root[mode="flex"]:not([direction]) > [height-stretch="true"],
+.root[mode="flex"][direction="horizontal"] > [height-stretch="true"] { align-self: stretch; }
+/* width-stretch 强制 width 为 unset */
+.root[mode="flex"] > [width-stretch="true"] { width: unset !important; }
+/* height-stretch 强制 height 为 unset */
+.root[mode="flex"] > [height-stretch="true"] { height: unset !important; }
 
 .root[mode="flex"][direction="vertical"] { flex-direction: column; }
 
@@ -189,11 +217,11 @@ export default {
 .root[mode="flex"][justify="space-between"]::after { display: none; }
 .root[mode="flex"][justify="space-around"] { justify-content: space-around; }
 
-.root[mode="flex"][alignment="start"] { align-items: flex-start; }
-.root[mode="flex"][alignment="center"] { align-items: center; }
-.root[mode="flex"][alignment="end"] { align-items: flex-end; }
-.root[mode="flex"][alignment="baseline"] { align-items: baseline; }
-.root[mode="flex"][alignment="stretch"] { align-items: stretch; }
+.root[mode="flex"][alignment="start"] { align-items: flex-start; align-content: flex-start; }
+.root[mode="flex"][alignment="center"] { align-items: center; align-content: center; }
+.root[mode="flex"][alignment="end"] { align-items: flex-end; align-content: flex-end; }
+.root[mode="flex"][alignment="baseline"] { align-items: baseline; align-content: baseline; }
+.root[mode="flex"][alignment="stretch"] { align-items: stretch; align-content: stretch; }
 
 .emptyTip {
     position: absolute;

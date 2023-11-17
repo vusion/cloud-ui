@@ -29,11 +29,22 @@
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
         <template v-if="listType !== 'card'">
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
-                <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
-                <a :class="$style.link" :href="item.url" target="_blank">{{ item.name }}</a>
-                <!-- <span v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></span> -->
-                <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
-                <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+                <div :class="$style.textContainer" v-if="listType === 'text' && $slots['file-list']">
+                        <span v-for="flag in fileListFlags" :key="flag">
+                            <component v-if="flag !== 'download-icon' && isShowFileListItem(flag)" :style="fileListStyleInfos[flag]" :is="fileListComponentFlagMap[flag].is" v-bind="fileListComponentFlagMap[flag].getProps(item)"></component>
+                            <a v-else-if="downloadIconSwitcher && isShowFileListItem(flag)" :style="fileListStyleInfos['download-icon']" :href="encodeUrl(item.url)" target="_blank" download role="download">
+                                <i-ico :name="downloadIcon" icotype="only"></i-ico>
+                            </a>
+                        </span>
+                    <i-ico name="remove" :class="$style.remove" v-if="!readonly && !disabled && !$env.VUE_APP_DESIGNER" @click="remove(index)"></i-ico>
+                    <u-linear-progress v-if="item.showProgress && !$env.VUE_APP_DESIGNER" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+                </div>
+                <div v-else>
+                    <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
+                    <a :class="$style.link" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name || item.url }}</a>
+                    <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
+                    <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+                </div>
             </div>
         </template>
         <template v-else>
@@ -44,8 +55,8 @@
                     <div :class="$style.buttons">
                         <span v-if="!readonly && !disabled" :class="$style.button" role="remove" @click.stop="remove(index)"></span>
                         <span :class="$style.button" role="preview" @click.stop="onPreview(item, index)"></span>
-                        <a v-if="downLoadFilename" :class="$style.button" @click.stop :href="item.url" target="_blank" role="download" :download="downLoadFilename"></a>
-                        <a v-else :class="$style.button" :href="item.url" @click.stop target="_blank" role="download"></a>
+                        <a v-if="downLoadFilename" :class="$style.button" @click.stop :href="encodeUrl(item.url)" target="_blank" role="download" :download="downLoadFilename"></a>
+                        <a v-else :class="$style.button" :href="encodeUrl(item.url)" @click.stop target="_blank" download role="download"></a>
                     </div>
                 </div>
             </div>
@@ -61,9 +72,12 @@
                 </f-scroll-view>
             </div>
         </template>
+        <span v-show="$env.VUE_APP_DESIGNER && listType === 'text'" vusion-slot-name="file-list">
+            <slot name="file-list" ref="file-list"></slot>
+        </span>
     </div>
     <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
-        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url || item"></u-lightbox-item>
+        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="encodeURI(item.url || item)"></u-lightbox-item>
     </u-lightbox>
     <cropper
         v-if="openCropper"
@@ -82,6 +96,7 @@ import MField from '../m-field.vue';
 import i18n from './i18n';
 import ajax from './ajax';
 import cropper from './cropper';
+import i18nMixin from '../../mixins/i18n';
 
 const SIZE_UNITS = {
     kB: 1024,
@@ -94,8 +109,8 @@ const SIZE_UNITS = {
 export default {
     name: 'u-uploader',
     components: { cropper },
-    mixins: [MField],
-    i18n,
+    mixins: [MField, i18nMixin('u-uploader')],
+    // i18n,
     props: {
         value: [Array, String],
         url: { type: String, required: true },
@@ -135,9 +150,17 @@ export default {
         openCropper: { type: Boolean, default: false },
         fixedCropper: { type: Boolean, default: false },
         cropperBoxWidth: { type: Number, default: 200 },
-        cropperBoxHeight: { type: Number, default: 200 },
+        cropperBoxHeight: { type: Number, default: 0 },
         cropperTitle: { type: String, default: '图片裁剪' },
         cropperPreviewShape: { type: String, default: 'circle' },
+        viaOriginURL: { type: Boolean, default: false },
+        lcapIsCompress: { type: Boolean, default: false },
+        fileType: { type: String, default: 'default' },
+        iconMap: { type: Object, default: () => ({ 'doc|docx': 'file-doc', 'jpg|jpeg|png|bmp|gif|tiff|tif|webp|svg|psd|raw': 'file-jpg', pdf: 'file-pdf', xlsx: 'file-xlxs', txt: 'file-txt', 'ppt|pptx': 'file-ppt', zip: 'file-zip', csv: 'file-csv' }) },
+        downloadIcon: { type: String, default: 'download' },
+        fileIconSwitcher: { type: Boolean, default: true },
+        downloadIconSwitcher: { type: Boolean, default: true },
+        fileSize: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -160,11 +183,46 @@ export default {
                 title: this.cropperTitle,
                 previewShape: this.cropperPreviewShape,
             },
+            fileListStyleInfos: { 'file-icon': {}, 'file-name': {}, 'download-icon': {}, 'file-size': {} },
+            fileListFlags: [],
         };
     },
     computed: {
         uploadEnable() {
             return this.multiple ? this.currentValue.length < this.limit : this.currentValue.length === 0;
+        },
+        fileListComponentFlagMap() {
+            return {
+                'file-icon': {
+                    is: 'i-ico',
+                    getProps: (item) => ({
+                        name: this.fileTypeIcon(item),
+                        icotype: 'only',
+                    }),
+                },
+                'file-name': {
+                    is: 'u-text', 
+                    getProps: (item) => {
+                        return {
+                            text: item.name || item.url,
+                            title: item.name || item.url,
+                        }
+                    }
+                }, 
+                'file-size': {
+                    is: 'u-text',
+                    getProps: (item) => ({
+                        text: item.size ? this.displayFileSize(item.size) : '',
+                    }),
+                },
+                'download-icon': {
+                    is: 'i-ico',
+                    getProps: (item) => ({
+                        name: this.fileTypeIcon(item),
+                        icotype: 'only',
+                    }),
+                },
+            };
         },
     },
     watch: {
@@ -182,8 +240,77 @@ export default {
                 }, this);
             },
         },
+        fileIconSwitcher: {
+            handler(switcher) {
+                this.$nextTick(() => {
+                    if (this.$env.VUE_APP_DESIGNER && this.$children.some((vm) => vm.$attrs.flag === 'file-icon')) {
+                        this.$children.find((vm) => vm.$attrs.flag === 'file-icon').$el.style.display = switcher ? 'inline-block' : 'none';
+                    }
+                });
+            },
+            immediate: true,
+        },
+        downloadIconSwitcher: {
+            handler(switcher) {
+                this.$nextTick(() => {
+                    if (this.$env.VUE_APP_DESIGNER && this.$children.some((vm) => vm.$attrs.flag === 'download-icon')) {
+                        this.$children.find((vm) => vm.$attrs.flag === 'download-icon').$el.style.display = switcher ? 'inline-block' : 'none';
+                    }
+                });
+            },
+            immediate: true,
+        },
+        fileSize: {
+            handler(switcher) {
+                this.$nextTick(() => {
+                    if (this.$env.VUE_APP_DESIGNER && this.$children.some((vm) => vm.$attrs.flag === 'file-size')) {
+                        this.$children.find((vm) => vm.$attrs.flag === 'file-size').$el.style.display = switcher ? 'inline-block' : 'none';
+                    }
+                });
+            },
+            immediate: true,
+        },
+    },
+    mounted() {
+        if (!this.$env.VUE_APP_DESIGNER && this.$slots['file-list'] && this.listType === 'text') {
+            const fileListVms = this.$slots['file-list'].filter((item) => item.data && item.data.attrs && item.data.attrs.flag);
+            fileListVms.forEach((vm) => {
+                this.$set(this.fileListStyleInfos, [vm.data.attrs.flag], vm.data.staticStyle);
+            });
+            this.fileListFlags = fileListVms.map((item) => item.data.attrs.flag);
+        }
     },
     methods: {
+        displayFileSize(fileSizeInBytes) {
+            const ONE_MB = 1024 * 1024;
+            if (fileSizeInBytes < ONE_MB) {
+                // 文件大小小于1MB，展示为KB
+                const fileSizeInKB = Math.round(fileSizeInBytes / 1024);
+                return `${fileSizeInKB} KB`;
+            } else {
+                // 文件大小大于等于1MB，展示为MB
+                const fileSizeInMB = (fileSizeInBytes / ONE_MB).toFixed(2);
+                return `${fileSizeInMB} MB`;
+            }
+        },
+        isShowFileListItem(flag) {
+            if (flag !== 'file-name') {
+                const map = {
+                    'file-icon': 'fileIconSwitcher',
+                    'file-size': 'fileSize',
+                    'download-icon': 'downloadIconSwitcher',
+                };
+                return this[map[flag]];
+            }
+            return true;
+        },
+        fileTypeIcon(item) {
+            const iconInfo = Object.entries(this.iconMap).find(([type]) => type.includes((item.name || item.url).split('.').pop()));
+            return !!iconInfo ? (iconInfo[1] || 'file-default') : 'file-default'
+        },
+        encodeUrl(url) {
+            return encodeURI(url);
+        },
         fromValue(value) {
             if (this.converter === 'json')
                 try {
@@ -199,10 +326,11 @@ export default {
                         return noFinished && this.currentValue || [];
                     }
                     const values = value.split(',');
-                    const currentValue = this.currentValue || [];
+                    const currentValue = this.currentValue ? [...this.currentValue] : [];
                     values.forEach((item, index) => {
                         currentValue[index] = currentValue[index] || {};
                         currentValue[index].url = values[index];
+                        currentValue[index].name = this.handleFileName(values[index]);
                     });
                     return currentValue;
                 } catch (err) {
@@ -224,7 +352,7 @@ export default {
             return value.map((x) => (x.url || '')).join(',');
         },
         getUrl(item) {
-            return item.thumb || item.url || item;
+            return this.encodeUrl(item.thumb || item.url || item);
         },
         select() {
             if (this.readonly || this.disabled || this.sending)
@@ -238,7 +366,6 @@ export default {
             const fileEl = e.target;
 
             let files = fileEl.files;
-            // console.log(files);
             if (!files && fileEl.value) { // 老版浏览器不支持 files
                 const arr = fileEl.value.split(/[\\/]/g);
                 files = [{
@@ -274,7 +401,8 @@ export default {
             this.uploadFiles(files);
         },
         checkSize(file) {
-            if (this.maxSize === Infinity)
+            // 可能出现传入为空字符串的情况
+            if (this.maxSize === Infinity || this.maxSize === '')
                 return true;
 
             let maxSize;
@@ -453,15 +581,22 @@ export default {
             }
             if (window.appInfo && window.appInfo.domainName)
                 headers.DomainName = window.appInfo.domainName;
-
             const url = this.$formatMicroFrontUrl ? this.$formatMicroFrontUrl(this.url) : this.url;
-            const xhr = ajax({
+            const formData = {
+                ...this.data,
+                lcapIsCompress: this.lcapIsCompress,
+                viaOriginURL: this.viaOriginURL,
+            };
+            const requestData = {
                 url,
                 headers,
                 withCredentials: this.withCredentials,
-                file,
-                data: this.data,
+                file: Array.isArray(file) ? file.map((item) => (new File([item], item.name.replace(/[#\+]/g, ''), { type: item.type }))) : new File([file], file.name.replace(/[#\+]/g, ''), { type: file.type }),
+                data: formData,
                 name: this.name,
+            };
+            const xhr = ajax({
+                ...requestData,
                 onProgress: (e) => {
                     const item = this.currentValue[index];
                     item.percent = e.percent;
@@ -482,7 +617,9 @@ export default {
                     }
                     item.response = res;
                     item.showProgress = false;
-
+                    if (item.url) {
+                        item.name = this.handleFileName(item.url);
+                    }
                     // 一次上传多个文件，返回数据是数组，需要处理
                     if (res[this.urlField]) {
                         const url = res[this.urlField];
@@ -491,7 +628,7 @@ export default {
                             url.forEach((urlTemp, urlIndex) => {
                                 const urlItem = {
                                     status: 'success',
-                                    name: file[urlIndex].name,
+                                    name: urlTemp ? this.handleFileName(urlTemp) : file[urlIndex].name,
                                     size: file[urlIndex].size,
                                     showProgress: false,
                                     url: urlTemp,
@@ -659,6 +796,12 @@ export default {
             }
             return '';
         },
+        // 展示时使用接口返回路径对应的文件名
+        handleFileName(url) {
+            const match = url.match(/\/([^/]+)$/);
+            console.log('match', match);
+            return match ? match[1] : null;
+        },
     },
 };
 </script>
@@ -723,11 +866,8 @@ export default {
     /* min-width: 400px; */
 }
 
-.list[list-type="text"] .thumb::before {
-    icon-font: url('./assets/attachment.svg');
-    float: left;
-    margin-right: 8px;
-    color: var(--uploader-item-icon-color);
+.list[list-type="text"]  .item{
+    width: fit-content;
 }
 
 .list[list-type="image"] .item {
@@ -760,6 +900,21 @@ export default {
     white-space: nowrap;
     display: inline-block;
     vertical-align: middle;
+}
+.file-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+}
+.textContainer {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+.textContainer .remove{
+    margin-top: 0px;
 }
 
 .list[list-type="image"] .link {
@@ -976,5 +1131,4 @@ export default {
 .cardwrap .errwrap {
     max-width: var(--uploader-error-box-max-width);
 }
-
 </style>

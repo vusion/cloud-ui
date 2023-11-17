@@ -35,6 +35,34 @@
             :span="8"></u-grid-layout-column><u-grid-layout-column
             :span="8"></u-grid-layout-column><u-grid-layout-column
             :span="8"></u-grid-layout-column></u-grid-layout-row>
+  events:
+    - name: scroll
+      title: 滚动时
+      description: 滚动时触发
+      params:
+        - name: $event
+          type: object
+          description: 滚动事件对象
+          schema:
+            $ref: "#/systemTypes/ScrollEvent"
+        - name: $event.scrollHeight
+          type: any
+          description: 滚动内容高度
+        - name: $event.scrollWidth
+          type: any
+          description: 滚动内容宽度
+        - name: $event.scrollTop
+          type: any
+          description: 滚动内容距离顶部高度
+        - name: $event.scrollLeft
+          type: any
+          description: 滚动内容距离左侧宽度
+        - name: $event.clientHeight
+          type: any
+          description: 可视区域高度
+        - name: $event.clientWidth
+          type: any
+          description: 可视区域宽度
 - name: u-grid-layout-row
   title: 栅格行
   description: 内部元素行布局
@@ -370,7 +398,7 @@
       display: number
       default: 1
       description: 列占据栅格行的栅格数
-      precision: 1e-14
+      step: 1
       group: 主要属性
       docDescription: 支持设置当前栅格列占据的栅格数，不能超过当前栅格行栅格数。
       tooltipLink: ""
@@ -380,7 +408,7 @@
       display: number
       description: 列偏移的栅格数
       default: 0
-      precision: 1e-14
+      step: 1
       group: 主要属性
       docDescription: 支持设置栅格列偏移数，控制当前栅格列与其左侧栅格列的距离，处于当前栅格列右侧的栅格列也会同步偏移。
       tooltipLink: ""
@@ -390,7 +418,7 @@
       display: number
       description: 列向左移动的栅格数
       default: 0
-      precision: 1e-14
+      step: 1
       group: 主要属性
       docDescription: 向左移动的栅格数，支持栅格互相重合。
       tooltipLink: ""
@@ -400,7 +428,7 @@
       display: number
       description: 列向右移动的栅格数
       default: 0
-      precision: 1e-14
+      step: 1
       group: 主要属性
       docDescription: 向右移动的栅格数，支持栅格互相重合。
       tooltipLink: ""

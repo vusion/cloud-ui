@@ -346,6 +346,33 @@
     - name: mouseleave
       title: 鼠标移出
       description: 鼠标移出元素时触发。
+    - name: scroll
+      title: 滚动时
+      description: 滚动时触发
+      params:
+        - name: $event
+          type: object
+          description: 滚动事件对象
+          schema:
+            $ref: "#/systemTypes/ScrollEvent"
+        - name: $event.scrollHeight
+          type: any
+          description: 滚动内容高度
+        - name: $event.scrollWidth
+          type: any
+          description: 滚动内容宽度
+        - name: $event.scrollTop
+          type: any
+          description: 滚动内容距离顶部高度
+        - name: $event.scrollLeft
+          type: any
+          description: 滚动内容距离左侧宽度
+        - name: $event.clientHeight
+          type: any
+          description: 可视区域高度
+        - name: $event.clientWidth
+          type: any
+          description: 可视区域宽度
   methods:
     - name: openLoading
       title: 打开加载中

@@ -5,16 +5,6 @@
   labels:
     - Selector
   attrs:
-    - name: time
-      title: 值
-      type: string
-      sync: true
-      model: true
-      default: ""
-      description: 默认显示的时间值，格式如08:08:08
-      group: 数据属性
-      docDescription: 默认显示的日期值。
-      tooltipLink: ""
     - name: minUnit
       title: 最小单位
       type: string
@@ -28,10 +18,45 @@
       group: 数据属性
       docDescription: 最小时间单位，支持秒或分
       tooltipLink: ""
+    - name: range
+      title: 区间选择
+      type: boolean
+      default: false
+      description: 是否支持进行时间区间选择，关闭则为时间点选择
+      group: 数据属性
+    - name: value
+      title: 值
+      type: string
+      sync: true
+      model: true
+      default: ""
+      description: 默认显示的时间值，格式如08:08:08
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 默认显示的日期值。
+      tooltipLink: ""
+      dependency:
+        - '!range': true
+    - name: startTime
+      title: 起始值
+      type: string
+      sync: true
+      description: 默认显示的起始时间值，格式如08:08:08
+      group: 数据属性
+      dependency:
+        - range: true
+    - name: endTime
+      title: 结束值
+      type: string
+      sync: true
+      description: 默认显示的结束时间值，格式如08:08:08
+      group: 数据属性
+      dependency:
+        - range: true
     - name: min-time
       title: 最小时间值
       type: string
-      default: 00:00:00
+      default: "00:00:00"
       description: 最小可选的时间值，填写null则不限制，日期填写格式为“00:00:00”
       group: 数据属性
       docDescription: 支持输入的最小时间。
@@ -39,11 +64,48 @@
     - name: max-time
       title: 最大时间值
       type: string
-      default: 23:59:59
+      default: "23:59:59"
       description: 最大可选的时间值，填写null则不限制，日期填写格式为“00:00:00”
       group: 数据属性
       docDescription: 支持输入的最大时间
       tooltipLink: ""
+    - name: show-formatter
+      title: 时间展示格式
+      type: string
+      options:
+        - value: HH:mm:ss
+          title: "12:09:09"
+          dependency:
+            - minUnit: second
+        - value: HH时mm分ss秒
+          title: 12时09分09秒
+          dependency:
+            - minUnit: second
+        - value: HH:mm
+          title: "12:09"
+          dependency:
+            - minUnit: minute
+        - value: HH时mm分
+          title: 12时09分
+          dependency:
+            - minUnit: minute
+      description: ""
+      dependency:
+        - advanced-format.enable: false
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: advanced-format
+      title: 高级格式化
+      type: "{ enable: boolean, value: string }"
+      default: "{ enable: false, value: '' }"
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+      bindHide: true
     - name: autofocus
       title: 自动获取焦点
       type: boolean
@@ -233,3 +295,22 @@
           description: 原生事件对象
         - name: senderVM
           description: 发送事件实例
+  i18n:
+    zh-CN:
+      uTimePicker_selectTimeText: '请选择时间'
+      uTimePicker_now: '此刻'
+      uTimePicker_submit: '确 定'
+      uTimePicker_selectPopperDateText: '下方选择日期'
+      uTimePicker_cancel: '取 消'
+    en-US:
+      uTimePicker_selectTimeText: 'Please select time'
+      uTimePicker_now: 'now'
+      uTimePicker_submit: 'submit'
+      uTimePicker_selectPopperDateText: 'Please select date'
+      uTimePicker_cancel: 'cancel'
+    ja:
+      uTimePicker_selectTimeText: '時間を選択'
+      uTimePicker_now: '本日'
+      uTimePicker_submit: '確定'
+      uTimePicker_selectPopperDateText: '日付を選択'
+      uTimePicker_cancel: 'キャンセル'

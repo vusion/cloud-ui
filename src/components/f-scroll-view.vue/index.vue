@@ -112,7 +112,7 @@ export default {
 }
 
 .wrap {
-    overflow: scroll;
+    overflow: auto;
     height: 100%;
 }
 

@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.root" v-on="$listeners" vusion-slot-name="default">
+    <div :class="[$style.root, {[$style.empty]: (!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']}]" v-on="$listeners" vusion-slot-name="default">
         <slot></slot>
         <template v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !!$attrs['vusion-node-path']">
             <div :class="$style.emptyTip">拖入组件放至任意位置</div>
@@ -19,6 +19,10 @@ export default {
     position: relative;
     width: 100%;
     height: 300px;
+    min-height: 30px;
+}
+.root.empty{
+    background: #F7F8FA;
 }
 
 .root>* {

@@ -8,17 +8,10 @@
     line-height: 32px;
     color: var(--select-popper-item-color);
     background: var(--select-popper-item-background);
-}
-
-.root:hover {
-    color: var(--select-popper-item-color-hover);
-    background: var(--select-popper-item-background-hover);
-}
-
-.root {
     padding-top: 0;
     padding-bottom: 0;
 }
+
 
 .root[readonly] {
     cursor: default !important;
@@ -36,10 +29,17 @@
     background: var(--select-popper-item-background-selected);
 }
 
+.root:hover {
+    color: var(--select-popper-item-color-hover);
+    background: var(--select-popper-item-background-hover);
+}
+
+
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
     background: var(--list-view-item-background-disabled);
     color: var(--list-view-item-color-disabled);
+    opacity: 0.5;
 }
 
 .root[selected][disabled] {
@@ -60,8 +60,9 @@
 .root[isShowMultipleIcon]::before {
     content: "";
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
     border: var(--select-multiple-border-color);
     border-radius: 4px;
     vertical-align: text-top;
@@ -78,9 +79,10 @@
     left: 13px;
     top: 0px;
     font-size: 16px;
-    color: #517cff;
+    color: var(--select-multiple-icon-color);
     icon-font: url('../i-icon.vue/icons/select-dark.svg');
 }
+
 
 .flag {
     position: absolute;

@@ -15,7 +15,7 @@ exports[`u-grid-layout.vue Demo- 1`] = `
   <div class="root">
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table">
+        <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
             <col width="0">
@@ -52,7 +52,7 @@ exports[`u-grid-layout.vue Demo- 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root">
+              <table class="root" sticky-fixed="true">
                 <colgroup>
                   <col width="0">
                   <col width="0">
@@ -519,7 +519,7 @@ exports[`u-grid-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div class="root" tabindex="0">
           <span>b</span>
           <span>请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
@@ -542,7 +542,7 @@ exports[`u-grid-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div class="root" tabindex="0">
           <span>b</span>
           <span>请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
@@ -574,7 +574,7 @@ exports[`u-grid-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div class="root" tabindex="0">
           <span>b</span>
           <span>请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
@@ -635,7 +635,7 @@ exports[`u-grid-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div class="root" tabindex="0">
           <span>b</span>
           <span>请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
@@ -661,7 +661,7 @@ exports[`u-grid-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div class="root" tabindex="0">
           <span>b</span>
           <span>请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
@@ -684,7 +684,7 @@ exports[`u-grid-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div class="root" tabindex="0">
           <span>b</span>
           <span>请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
@@ -716,7 +716,7 @@ exports[`u-grid-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div class="root" tabindex="0">
           <span>b</span>
           <span>请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
@@ -748,7 +748,7 @@ exports[`u-grid-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div class="root" tabindex="0">
           <span>b</span>
           <span>请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">

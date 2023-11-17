@@ -1,8 +1,9 @@
 <template>
 <transition v-if="(currentVisible || animationVisible)"
     enter-active-class="animate__animated animate__fadeIn"
-    leave-active-class="animate__animated animate__fadeOut animate__fast">
-    <div :class="$style.root" :static="this.static" @click="handleClose" :functional-modal="functionalModal">
+    leave-active-class="animate__animated animate__fadeOut animate__fast"
+    >
+    <div :class="$style.root" :static="this.static" @click="handleClose" :functional-modal="functionalModal" :style="$env.VUE_APP_DESIGNER ? {zIndex: 7020} : {}">
         <transition
             enter-active-class="animate__animated animate__fadeInDownSmall"
             leave-active-class="animate__animated animate__fadeOutUpSmall animate__fast">
@@ -54,19 +55,20 @@ import { clickOutside } from '../../directives';
 import i18n from './i18n';
 import MEmitter from '../m-emitter.vue';
 import SEmpty from '../../components/s-empty.vue';
+import i18nMixin from '../../mixins/i18n';
 
 export const UModal = {
     name: 'u-modal',
     components: { SEmpty },
     directives: { clickOutside },
-    mixins: [MEmitter],
-    i18n,
+    mixins: [MEmitter, i18nMixin('u-modal')],
+    // i18n,
     props: {
         visible: { type: Boolean, default: false },
         title: {
             type: String,
             default() {
-                return this.$t('dialog');
+                return this.$tt('dialog');
             },
         },
         content: String,
@@ -75,13 +77,13 @@ export const UModal = {
         okButton: {
             type: String,
             default() {
-                return this.$t('ok');
+                return this.$tt('ok');
             },
         },
         cancelButton: {
             type: String,
             default() {
-                return this.$t('cancel');
+                return this.$tt('cancel');
             },
         },
         primaryButton: { type: String, default: 'okButton' },
@@ -127,14 +129,13 @@ export const UModal = {
             const container = window.LcapMicro && window.LcapMicro.appendTo ? window.LcapMicro.appendTo : document.body;
             container.appendChild(this.$el);
         }
-            
     },
     destroyed() {
         if (this.$el) {
             const container = window.LcapMicro && window.LcapMicro.appendTo ? window.LcapMicro.appendTo : document.body;
             this.$el.parentNode === container && container.removeChild(this.$el);
         }
-            
+
         if (this.currentVisible)
             document.removeEventListener('keydown', this.escPress);
     },
@@ -230,12 +231,14 @@ export default UModal;
 
 <style module>
 .root {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: var(--z-index-modal);
+    position: fixed!important;
+    top: 0!important;
+    right: 0!important;
+    bottom: 0!important;
+    left: 0!important;
+    width: unset!important;
+    height: unset!important;
+    z-index: var(--z-index-modal)!important;
     -webkit-overflow-scrolling: touch;
     touch-action: cross-slide-y pinch-zoom double-tap-zoom;
     text-align: center;

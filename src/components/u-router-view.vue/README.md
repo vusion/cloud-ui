@@ -5,7 +5,7 @@
 - [示例](#示例)
     - [基本用法](#基本用法)
 - [API]()
-
+    - [Props/Attrs](#propsattrs)
 
 **Container**
 
@@ -19,5 +19,9 @@
 ```
 
 ## API
+### Props/Attrs
 
-暂无
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| disableKeepAlive | boolean |  | `true` | 重新进入已打开页面时，会刷新页面 |
+

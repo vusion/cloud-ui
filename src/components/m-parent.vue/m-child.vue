@@ -13,9 +13,10 @@ export default {
     groupName: 'm-group',
     mixins: [MEmitter],
     data() {
-        return { parentVM: undefined, groupVM: undefined };
+        return { parentVM: undefined, groupVM: undefined, isCreated: false };
     },
     created() {
+        this.isCreated = true;
         !this.parentVM
             && this.$contact(this.$options.parentName, (parentVM) => {
                 this.parentVM = parentVM;
@@ -57,6 +58,7 @@ export default {
             });
     },
     destroyed() {
+        this.isCreated = false;
         this.$contact(this.$options.parentName, (parentVM) => {
             parentVM.itemVMs.splice(parentVM.itemVMs.indexOf(this), 1);
             this.parentVM = undefined;

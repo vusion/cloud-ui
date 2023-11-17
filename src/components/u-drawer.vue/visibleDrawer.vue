@@ -1,5 +1,7 @@
 <script>
 import UDrawerReal from './index.vue';
+import i18nMixin from '../../mixins/i18n';
+
 const normalizeSlots = (slots, context) => Object.keys(slots)
     .reduce((arr, key) => {
         slots[key].forEach((vnode) => {
@@ -16,9 +18,13 @@ const normalizeSlots = (slots, context) => Object.keys(slots)
 
 export default {
     name: 'u-visible-drawer',
-    i18n: UDrawerReal.i18n,
+    // i18n: UDrawerReal.i18n,
+    mixins: [i18nMixin('u-drawer')],
     component: {
         UDrawerReal,
+    },
+    props: {
+        placeholderInDesigner: String,
     },
     data() {
         return {
@@ -48,6 +54,7 @@ export default {
             return { ...staticStyle, ...style };
         },
     },
+
     render(h) {
         const ctrlSlot = h('d-ctrl', {
             on: {
@@ -83,7 +90,7 @@ export default {
                 scopedSlots: this.$scopedSlots,
                 ref: 'drawer',
             }, slots),
-            h('div', {}, ['双击编辑抽屉']),
+            h('div', {}, [this.placeholderInDesigner]),
         ]);
     },
 };

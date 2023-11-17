@@ -5,10 +5,6 @@
     - Process
   description: 用于展示流程任务箱
   attrs:
-    - name: title
-      title: 通知
-      type: string
-      description: 鼠标 hover 在图标上展示文案
     - name: icon
       title: 图标
       type: string

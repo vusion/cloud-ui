@@ -256,6 +256,10 @@
       "item"
     ]
   },
+  "u-absolute-layout": {
+    "attributes": [],
+    "description": "拖拽内部元素到任意位置"
+  },
   "u-actions": {
     "attributes": [
       "max-count",
@@ -350,6 +354,7 @@
       "color",
       "display",
       "icon",
+      "icon-position",
       "linkType",
       "hrefAndTo",
       "target",
@@ -374,7 +379,8 @@
       "show-weeks",
       "show-basic",
       "show-advance",
-      "first-day-of-week"
+      "first-day-of-week",
+      "multiple"
     ],
     "description": "用于展示大量结构化数据。支持日历结构展示。"
   },
@@ -497,6 +503,7 @@
       "children-field",
       "parent-field",
       "value",
+      "useArrayLikeValue",
       "filterable",
       "placeholder",
       "showFinalValue",
@@ -539,6 +546,9 @@
       "text-field",
       "value-field",
       "value",
+      "check-all",
+      "check-all-text",
+      "check-all-display",
       "min",
       "max",
       "converter",
@@ -664,17 +674,22 @@
   },
   "u-date-picker": {
     "attributes": [
-      "date",
+      "picker",
+      "range",
+      "value",
+      "startDate",
+      "endDate",
       "minDate",
       "maxDate",
       "time",
       "yearDiff",
       "yearAdd",
+      "show-formatter",
+      "advanced-format",
       "autofocus",
       "placeholder",
       "alignment",
       "converter",
-      "picker",
       "preIcon",
       "suffixIcon",
       "append-to",
@@ -689,11 +704,18 @@
   },
   "u-date-time-picker": {
     "attributes": [
-      "date",
+      "minUnit",
+      "range",
+      "value",
+      "startDate",
+      "endDate",
       "minDate",
       "maxDate",
       "yearDiff",
       "yearAdd",
+      "show-date-formatter",
+      "show-time-formatter",
+      "advanced-format",
       "placeholder",
       "autofocus",
       "showRightNowButton",
@@ -757,15 +779,26 @@
   },
   "u-dropdown": {
     "attributes": [
+      "has-data-source",
+      "data-source",
+      "data-schema",
+      "text-field",
+      "value-field",
+      "icon-field",
+      "to-field",
+      "parent-field",
       "trigger",
       "type",
       "placement",
       "append-to",
+      "router",
+      "value",
       "disabled"
     ],
     "description": "下拉菜单",
     "subtags": [
-      "u-dropdown-item"
+      "u-dropdown-item",
+      "u-dropdown-group"
     ]
   },
   "u-dropdown-item": {
@@ -779,6 +812,15 @@
       "disabled"
     ],
     "description": "下拉菜单项"
+  },
+  "u-dropdown-group": {
+    "attributes": [
+      "title",
+      "collapsible",
+      "expanded",
+      "disabled"
+    ],
+    "description": "侧边栏分组"
   },
   "u-dynamic-cards": {
     "attributes": [
@@ -884,6 +926,7 @@
       "label-layout",
       "label-ellipsis",
       "required",
+      "required-position",
       "message",
       "description",
       "layout",
@@ -961,13 +1004,13 @@
     "attributes": [
       "value",
       "field",
-      "text-field",
-      "value-field",
       "cancelable",
       "multiple",
       "clearable",
       "data-source",
       "data-schema",
+      "text-field",
+      "value-field",
       "pageable",
       "page-size",
       "page-number",
@@ -1040,7 +1083,9 @@
       "circle",
       "horizontalCenter",
       "verticalCenter",
-      "preview"
+      "preview",
+      "loading-type",
+      "placeholder-src"
     ],
     "description": "可以用来展示一张图片，支持设置图片地址。"
   },
@@ -1201,7 +1246,6 @@
       "show-head",
       "title",
       "show-foot",
-      "repeat",
       "initial-load",
       "designer-mode",
       "loading-text",
@@ -1323,6 +1367,14 @@
   },
   "u-navbar-multi": {
     "attributes": [
+      "has-data-source",
+      "data-source",
+      "data-schema",
+      "text-field",
+      "value-field",
+      "icon-field",
+      "to-field",
+      "parent-field",
       "router",
       "value",
       "field",
@@ -1341,7 +1393,8 @@
       "u-navbar-select-multi",
       "u-navbar-select-group-multi",
       "u-navbar-select-item-multi",
-      "u-navbar-select-divider-multi"
+      "u-navbar-select-divider-multi",
+      "u-navbar-group-multi"
     ]
   },
   "u-navbar-item-multi": {
@@ -1403,6 +1456,15 @@
   "u-navbar-select-divider-multi": {
     "attributes": [],
     "description": "导航选择分割线"
+  },
+  "u-navbar-group-multi": {
+    "attributes": [
+      "title",
+      "collapsible",
+      "expanded",
+      "disabled"
+    ],
+    "description": "导航栏分组"
   },
   "u-navbar": {
     "attributes": [
@@ -1504,6 +1566,12 @@
       "min",
       "max",
       "precision",
+      "decimal-length",
+      "decimal-places",
+      "thousandths",
+      "percent-sign",
+      "unit",
+      "advanced-format",
       "placeholder",
       "autofocus",
       "hide-buttons",
@@ -1660,7 +1728,9 @@
     "description": "该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。"
   },
   "u-router-view": {
-    "attributes": [],
+    "attributes": [
+      "disableKeepAlive"
+    ],
     "description": "用于嵌入子页面的容器。"
   },
   "u-select": {
@@ -1683,6 +1753,8 @@
       "remote-filtering",
       "match-method",
       "show-render-footer",
+      "hasAllCheckItem",
+      "allCheckItemText",
       "converter",
       "placeholder",
       "autofocus",
@@ -1763,11 +1835,23 @@
   },
   "u-sidebar": {
     "attributes": [
-      "value",
+      "has-data-source",
+      "data-source",
+      "data-schema",
+      "text-field",
+      "value-field",
+      "icon-field",
+      "to-field",
+      "parent-field",
       "router",
+      "value",
       "collapsible",
       "accordion",
       "expand-trigger",
+      "enable-collapse",
+      "collapseMode",
+      "expand-icon",
+      "fold-icon",
       "readonly",
       "disabled"
     ],
@@ -1903,6 +1987,9 @@
       "selectable",
       "cancelable",
       "draggable",
+      "acrossTableDrag",
+      "can-dragable-handler",
+      "can-dropin-handler",
       "accordion",
       "resizable",
       "resize-remaining",
@@ -1926,7 +2013,10 @@
     "description": "用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。",
     "subtags": [
       "u-table-view-column",
-      "u-table-view-column-config"
+      "u-table-view-column-config",
+      "u-table-view-column-dynamic",
+      "u-table-view-column-group",
+      "u-table-view-expander"
     ]
   },
   "u-table-view-column": {
@@ -1944,7 +2034,10 @@
       "fixed",
       "ellipsis",
       "hidden",
-      "width"
+      "expander-position",
+      "width",
+      "colSpan",
+      "autoRowSpan"
     ],
     "description": "表格列"
   },
@@ -1956,6 +2049,30 @@
       "value-field",
       "value",
       "show-footer"
+    ]
+  },
+  "u-table-view-column-dynamic": {
+    "attributes": [
+      "data-source",
+      "data-schema",
+      "value-field",
+      "sortable",
+      "default-order",
+      "fixed",
+      "ellipsis",
+      "hidden",
+      "width"
+    ]
+  },
+  "u-table-view-column-group": {
+    "attributes": [
+      "title"
+    ]
+  },
+  "u-table-view-expander": {
+    "attributes": [
+      "expand-icon",
+      "collapse-icon"
     ]
   },
   "u-table": {
@@ -2062,10 +2179,15 @@
   },
   "u-time-picker": {
     "attributes": [
-      "time",
       "minUnit",
+      "range",
+      "value",
+      "startTime",
+      "endTime",
       "min-time",
       "max-time",
+      "show-formatter",
+      "advanced-format",
       "autofocus",
       "showRightNowButton",
       "rightNowTitle",
@@ -2102,16 +2224,17 @@
       "color"
     ]
   },
-  "u-toast": {
+  "u-toast-single": {
     "attributes": [
-      "position",
-      "duration",
-      "single",
       "text",
       "color",
+      "custom-icon",
+      "duration",
+      "position",
+      "single",
       "closable"
     ],
-    "description": "吐司提示"
+    "description": "弹出消息"
   },
   "u-toc": {
     "attributes": [
@@ -2175,7 +2298,13 @@
       "value-field",
       "parent-field",
       "children-field",
-      "value"
+      "value",
+      "checkable",
+      "placeholder",
+      "check-controlled",
+      "disabled-field",
+      "clearable",
+      "append-to"
     ],
     "description": "树选择"
   },
@@ -2265,6 +2394,13 @@
       "max-size",
       "list-type",
       "url-field",
+      "file-icon-switcher",
+      "icon-map",
+      "file-type",
+      "file-icon",
+      "download-icon-switcher",
+      "download-icon",
+      "file-size",
       "headers",
       "multiple",
       "multiple-once",
@@ -2285,6 +2421,8 @@
       "access",
       "ttl",
       "ttlValue",
+      "viaOriginURL",
+      "lcapIsCompress",
       "draggable",
       "readonly",
       "disabled"

@@ -24,7 +24,7 @@
                 "type": [],
                 "cssProperty": {},
                 "preview": {
-                    "template": " <div style=\"height:100%;background: #F7F8FA;\">\n        <u-text :class=\"[$style.areaTitle, $style.base]\">视觉风格预览</u-text><br>\n        <div>\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 16px 0;\">顶部导航</div>\n            <u-navbar style=\"margin-bottom: 16px;\">\n                <u-navbar-item slot=\"left\">应用名称</u-navbar-item>\n                <u-navbar-item>菜单项 1</u-navbar-item>\n                <u-navbar-item>菜单项 2</u-navbar-item>\n            </u-navbar>\n        </div>\n        <div>\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 16px 0;\">侧边导航</div>\n            <u-sidebar value=\"1\" :router=\"false\">\n                <u-sidebar-item value=\"1\">菜单项 1</u-sidebar-item>\n                <u-sidebar-item value=\"2\">菜单项 2</u-sidebar-item>\n                <u-sidebar-item value=\"3\">菜单项 3</u-sidebar-item>\n            </u-sidebar>\n        </div>\n        <div :class=\"$style.table\">\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 0 0 16px;\">表单</div>\n            <u-form layout=\"inline\" label-size=\"auto\" style=\"background:white;padding: 8px;\">\n                <u-grid-layout>\n                    <u-grid-layout-row :repeat=\"1\">\n                        <u-grid-layout-column>\n                            <div style=\"height: 36px;line-height:36px;background: var(--background-color-base);text-indent: 15px;\">标题</div>\n                        </u-grid-layout-column>\n                    </u-grid-layout-row>\n                </u-grid-layout>\n                <u-grid-layout gap=\"normal none\">\n                    <u-grid-layout-row :repeat=\"2\">\n                        <u-grid-layout-column style=\"padding-right: 12px;\">\n                            <u-form-item label=\"名称\" style=\"margin-bottom: var(--space-base);width: 100%;\">\n                                <u-input maxlength=\"20\" placeholder=\"请输入\" style=\"border-radius: var(--border-radius-base);border-color: var(--border-color-base);\"></u-input>\n                            </u-form-item>\n                        </u-grid-layout-column>\n                        <u-grid-layout-column style=\"padding-left: 12px;\">\n                            <u-form-item label=\"名称\" style=\"margin-bottom: var(--space-base);width: 100%;\">\n                                <u-input maxlength=\"20\" placeholder=\"请输入\" style=\"border-radius: var(--border-radius-base);border-color: var(--border-color-base);\"></u-input>\n                            </u-form-item>\n                        </u-grid-layout-column>\n                    </u-grid-layout-row>\n                </u-grid-layout>\n            </u-form>\n        </div>\n    </div>",
+                    "template": " <div style=\"height:100%;background: #F7F8FA;\">\n        <u-text :class=\"[$style.areaTitle, $style.base]\">视觉风格预览</u-text><br>\n        <div>\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 16px 0;\">顶部导航</div>\n            <u-navbar-multi style=\"margin-bottom: 16px;\">\n                <u-text text=\"应用名称\" size=\"large\" slot=\"left\" style=\"margin-left:10px; margin-right: var(--navbar-space-x);\"></u-text>\n                      <u-navbar-item-multi>菜单项 1</u-navbar-item-multi>\n   <u-navbar-item-multi>菜单项 2</u-navbar-item-multi> \n      </u-navbar-multi>\n        </div>\n        <div>\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 16px 0;\">侧边导航</div>\n            <u-sidebar value=\"1\" :router=\"false\">\n                <u-sidebar-item value=\"1\">菜单项 1</u-sidebar-item>\n                <u-sidebar-item value=\"2\">菜单项 2</u-sidebar-item>\n                <u-sidebar-item value=\"3\">菜单项 3</u-sidebar-item>\n            </u-sidebar>\n        </div>\n        <div :class=\"$style.table\">\n            <div :class=\"[$style.sectionTitle, $style.base]\" style=\"margin: 0 0 16px;\">表单</div>\n            <u-form layout=\"inline\" label-size=\"auto\" style=\"background:white;padding: 8px;\">\n                <u-grid-layout style=\"width:100%\">\n                    <u-grid-layout-row  :repeat=\"1\">\n                        <u-grid-layout-column>\n                            <div style=\"height: 36px;line-height:36px;background: var(--background-color-base);text-indent: 15px;\">标题</div>\n                        </u-grid-layout-column>\n                    </u-grid-layout-row>\n                </u-grid-layout>\n                <u-grid-layout gap=\"normal none\">\n                    <u-grid-layout-row :repeat=\"2\">\n                        <u-grid-layout-column style=\"padding-right: 12px;\">\n                            <u-form-item label-layout=\"block\" label=\"名称\" style=\"margin-bottom: var(--space-base);width: 100%;\">\n                                <u-input maxlength=\"20\" placeholder=\"请输入\" style=\"border-radius: var(--border-radius-base);border-color: var(--border-color-base);\"></u-input>\n                            </u-form-item>\n                        </u-grid-layout-column>\n                        <u-grid-layout-column style=\"padding-left: 12px;\">\n                            <u-form-item label-layout=\"block\" label=\"名称\" style=\"margin-bottom: var(--space-base);width: 100%;\">\n                                <u-input maxlength=\"20\" placeholder=\"请输入\" style=\"border-radius: var(--border-radius-base);border-color: var(--border-color-base);\"></u-input>\n                            </u-form-item>\n                        </u-grid-layout-column>\n                    </u-grid-layout-row>\n                </u-grid-layout>\n            </u-form>\n        </div>\n    </div>",
                     "style": ".base {\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n}\n\n.areaTitle {\n    width: 108px;\n    height: 18px;\n    font-size: 18px;\n    line-height: 18px;\n    color: #333333;\n}\n\n.sectionTitle {\n    width: 320px;\n    height: 24px;\n    font-size: 14px;\n    line-height: 24px;\n    color: #666666;\n}\n\n.table {\n    margin-top: 16px;\n}\n\n.table [class^=\"u-form_item_label\"] {\n    padding-right: 12px !important;\n    height: 14px;\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n    font-size: 14px;\n    line-height: 14px;\n    color: #999999;\n}\n\n.table [class^=\"u-form_item_field__\"] {\n    width: calc(100% - 40px);\n}"
                 }
             },
@@ -37,7 +37,7 @@
                 "cssProperty": {},
                 "preview": {
                     "template": "<div style=\"height:100%;background: #F7F8FA;\">\n    <u-text :class=\"[$style.areaTitle, $style.base]\">字体预览\n        <u-icon-tooltip placement=\"right\" style=\"font-size:12px;vertical-align: 2px;\">若您未安装对应字体，则无法预览、使用</u-icon-tooltip>\n    </u-text><br>\n    <div :class=\"$style.section\">\n        <u-text :class=\"[$style.sectionTitle, $style.base]\" style=\"margin-bottom:4px;\">文本</u-text><br>\n        <u-text :class=\"$style.base\" style=\"font-family: var(--font-family-zh-CN);font-size: var(--font-size-base);line-height: 22px;color: var(--color-base);\">\n                您可以在此看到字体预览效果。\n        </u-text>\n        <u-link>超链接</u-link>\n        <u-text :class=\"[$style.sectionTitle, $style.base]\" style=\"margin-bottom:4px;margin-top:16px;\">Text</u-text><br>\n        <u-text :class=\"$style.base\" style=\"font-family: var(--font-family-zh-CN);font-size: var(--font-size-base);line-height: 22px;color: var(--color-base);\">\n                You can preview the font here.\n        </u-text>\n        <u-link>Link</u-link>\n    </div>\n</div>",
-                    "style": ".base {\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n}\n\n.areaTitle {\n    width: 108px;\n    height: 18px;\n    font-size: 18px;\n    line-height: 18px;\n    color: #333333;\n}\n\n.section {\n    margin: 16px 0 32px 0;\n}\n\n.sectionTitle {\n    display: inline-block;\n    width: 320px;\n    height: 24px;\n    margin-bottom: 16px;\n    font-size: 14px;\n    line-height: 24px;\n    color: #666666;\n}"
+                    "style": ".base {\n  white-space: initial;\n    font-family: PingFang SC;\n    font-style: normal;\n    font-weight: normal;\n}\n\n.areaTitle {\n    width: 108px;\n    height: 18px;\n    font-size: 18px;\n    line-height: 18px;\n    color: #333333;\n}\n\n.section {\n    margin: 16px 0 32px 0;\n}\n\n.sectionTitle {\n    display: inline-block;\n    width: 320px;\n    height: 24px;\n    margin-bottom: 16px;\n    font-size: 14px;\n    line-height: 24px;\n    color: #666666;\n}"
                 }
             }
         ]
@@ -3486,6 +3486,29 @@
                         "type": "color",
                         "group": "多选状态",
                         "desc": "选择框下拉项的背景颜色（多选hover状态下）,如 #223325"
+                    },
+                    "--select-multiple-background-color": {
+                        "type": "color",
+                        "group": "多选状态",
+                        "desc": "选择项checkbox的背景颜色"
+                    },
+                    "--select-multiple-icon-color": {
+                        "type": "color",
+                        "group": "多选状态",
+                        "desc": "选择项checkbox的选中图标颜色"
+                    },
+                    "--select-multiple-partial-icon-color": {
+                        "type": "color",
+                        "group": "多选状态",
+                        "desc": "选择项checkbox的半选择图标颜色"
+                    },
+                    "--select-multiple-border-color": {
+                        "type": "input",
+                        "group": "弹出层",
+                        "desc": "选择项checkbox的边框"
+                    },
+                    "--select-input-border-color-error": {
+                        "type": "input"
                     }
                 },
                 "preview": {
@@ -3942,6 +3965,22 @@
                             "td",
                             "th"
                         ]
+                    },
+                    "--table-view-drag-cursor-disabled": {
+                        "type": "input",
+                        "desc": "拖拽鼠标样式（禁用状态）",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
+                    },
+                    "--table-view-drag-color-disabled": {
+                        "type": "input",
+                        "desc": "拖拽图标颜色（禁用状态）",
+                        "excludeElTags": [
+                            "td",
+                            "th"
+                        ]
                     }
                 },
                 "preview": {
@@ -4031,6 +4070,21 @@
                         "depParentAttrs": {
                             "appear": [
                                 "text"
+                            ]
+                        }
+                    },
+                    "--tabs-item-background-split": {
+                        "type": "color",
+                        "desc": "tab项背景色（竖线分隔模式, 未选中部分）,如 #223325",
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                "split"
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                "split"
                             ]
                         }
                     },
@@ -4139,6 +4193,36 @@
                         "desc": "tab禁用项文字颜色,如 #223325",
                         "prefix": "tabs"
                     },
+                    "--tabs-item-split-line-color": {
+                        "type": "color",
+                        "desc": "tab项分隔线颜色（竖线分隔模式, 未选中部分）,如 #223325",
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                "split"
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                "split"
+                            ]
+                        }
+                    },
+                    "--tabs-item-split-line-height": {
+                        "type": "input",
+                        "desc": "tab项分隔线高度（竖线分隔模式, 未选中部分）,如 1px",
+                        "prefix": "tabs",
+                        "depAttrs": {
+                            "appear": [
+                                "split"
+                            ]
+                        },
+                        "depParentAttrs": {
+                            "appear": [
+                                "split"
+                            ]
+                        }
+                    },
                     "--tabs-item-border-color-selected": {
                         "type": "color",
                         "desc": "tab项边框颜色（选中部分, 默认模式和圆角模式生效）,如 #223325",
@@ -4177,6 +4261,21 @@
                     "--tabs-body-space": {
                         "type": "input",
                         "desc": "组件的tab项和内容区之间的间距,如 1px",
+                        "prefix": "tabs"
+                    },
+                    "--tabs-item-close-margin-left": {
+                        "type": "input",
+                        "desc": "tab项关闭按钮左侧间距,如 1px",
+                        "prefix": "tabs"
+                    },
+                    "--tabs-item-close-color": {
+                        "type": "color",
+                        "desc": "tab项关闭按钮颜色,如 #223325",
+                        "prefix": "tabs"
+                    },
+                    "--tabs-item-close-hover-color": {
+                        "type": "color",
+                        "desc": "tab项关闭按钮悬停颜色,如 #223325",
                         "prefix": "tabs"
                     }
                 },
@@ -5013,6 +5112,20 @@
                             "width"
                         ]
                     },
+                    "--datepicker-range-input-width": {
+                        "type": "input",
+                        "desc": "日期选择器范围输入框宽度,如：1px",
+                        "depAttrs": {
+                            "width": [
+                                "normal",
+                                null
+                            ]
+                        },
+                        "prefix": "datepicker-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
                     "--datepicker-input-height": {
                         "type": "input",
                         "desc": "日期选择器输入框高度,如：1px",
@@ -5311,6 +5424,20 @@
                     "--datetime-input-width": {
                         "type": "input",
                         "desc": "日期时间选择器输入框宽度,如：1px",
+                        "depAttrs": {
+                            "width": [
+                                "normal",
+                                null
+                            ]
+                        },
+                        "prefix": "datetime-input",
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--datetime-range-input-width": {
+                        "type": "input",
+                        "desc": "日期时间范围选择器输入框宽度,如：1px",
                         "depAttrs": {
                             "width": [
                                 "normal",
@@ -5877,6 +6004,20 @@
                         "depStaticStyles": [
                             "padding-left",
                             "padding-right"
+                        ]
+                    },
+                    "--timepicker-range-input-width": {
+                        "type": "input",
+                        "desc": "时间选择框输入框宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "normal",
+                                null
+                            ]
+                        },
+                        "prefix": "timepicker-input",
+                        "depStaticStyles": [
+                            "width"
                         ]
                     }
                 },
@@ -6503,6 +6644,238 @@
                 },
                 "preview": {
                     "template": "<u-alert type=\"info\"><template #title><u-text text=\"公告内容\"></u-text></template></u-alert>"
+                }
+            },
+            {
+                "id": 56,
+                "name": "u-navbar-multi",
+                "title": "导航栏",
+                "toPosition": "navbar-multi",
+                "children": [
+                    "u-navbar-item-multi",
+                    "u-navbar-group-multi",
+                    "u-navbar-divider-multi"
+                ],
+                "type": [],
+                "cssProperty": {
+                    "--navbar-height": {
+                        "type": "input",
+                        "desc": "导航栏高度"
+                    },
+                    "--navbar-background": {
+                        "type": "color",
+                        "desc": "导航栏背景颜色"
+                    },
+                    "--navbar-color": {
+                        "type": "color",
+                        "desc": "导航栏字体颜色"
+                    },
+                    "--navbar-item-color": {
+                        "type": "color",
+                        "desc": "导航栏菜单项字体颜色"
+                    },
+                    "--navbar-item-color-hover": {
+                        "type": "color",
+                        "desc": "导航栏菜单项悬浮字体颜色"
+                    },
+                    "--navbar-item-color-selected": {
+                        "type": "color",
+                        "desc": "导航栏菜单选中字体颜色"
+                    },
+                    "--navbar-group-color": {
+                        "type": "color",
+                        "desc": "导航栏分组字体颜色"
+                    },
+                    "--navbar-group-color-hover": {
+                        "type": "color",
+                        "desc": "导航栏分组悬浮字体颜色"
+                    },
+                    "--navbar-divider-line-background": {
+                        "type": "color",
+                        "desc": "导航栏菜单项分隔线颜色"
+                    },
+                    "--navbar-item-line-background": {
+                        "type": "color",
+                        "desc": "导航栏菜单项高亮线条颜色"
+                    },
+                    "--navbar-divider-background": {
+                        "type": "color",
+                        "desc": "导航栏分隔组件颜色"
+                    }
+                },
+                "preview": {
+                    "template": "<u-navbar-multi style=\"margin-bottom: 16px;\">\n                <u-text text=\"应用名称\" size=\"large\" slot=\"left\" style=\"margin-left:18px;\"></u-text>\n                      <u-navbar-item-multi>菜单项 1</u-navbar-item-multi>\n  <u-navbar-divider-multi></u-navbar-divider-multi>\n   <u-navbar-group-multi> \n <u-text slot=\"title\" text=\"导航栏分组\"></u-text> \n <u-navbar-item-multi> \n <u-text text=\"导航栏项\"></u-text> \n </u-navbar-item-multi> \n </u-navbar-group-multi> \n      </u-navbar-multi>"
+                }
+            },
+            {
+                "id": 57,
+                "name": "u-toast-single",
+                "title": "弹出消息",
+                "toPosition": "toast-single",
+                "type": [],
+                "preview": {
+                    "template": "<u-button @click=\"onOpen\">弹出消息</u-button>",
+                    "script": "export default {\n    data() {\n        return {\n     };\n    },\n    methods: {\n        onOpen() {\n            this.$toast.show(\"弹出消息\");\n        },\n    },\n};"
+                },
+                "cssProperty": {
+                    "--toast-item-color": {
+                        "type": "color",
+                        "desc": "弹出消息的字体颜色",
+                        "prefix": "toast"
+                    },
+                    "--toast-background-color": {
+                        "type": "color",
+                        "desc": "弹出消息的背景色",
+                        "prefix": "toast"
+                    },
+                    "--toast-item-custom-icon-color": {
+                        "type": "color",
+                        "desc": "弹出消息的自定义图标颜色",
+                        "prefix": "toast"
+                    }
+                }
+            },
+            {
+                "id": 58,
+                "name": "u-capsules",
+                "title": "胶囊",
+                "toPosition": "capsules",
+                "type": [],
+                "preview": {
+                    "template": "<u-capsules>\n        <u-capsule value=\"1\" disabled>胶囊项</u-capsule>\n        <u-capsule value=\"2\" flag>胶囊项</u-capsule>\n        <u-capsule value=\"3\" label=\"label\">胶囊项</u-capsule>\n      </u-capsules>"
+                },
+                "cssProperty": {
+                    "--capsules-capsule-font-size": {
+                        "type": "input",
+                        "desc": "胶囊字体大小",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-padding-x": {
+                        "type": "input",
+                        "desc": "胶囊水平内边距",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-padding-y": {
+                        "type": "input",
+                        "desc": "胶囊垂直内边距",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-background": {
+                        "type": "color",
+                        "desc": "胶囊背景色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-background-selected": {
+                        "type": "color",
+                        "desc": "胶囊选中项背景色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-background-selected-hover": {
+                        "type": "color",
+                        "desc": "胶囊选中项hover背景色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-background-selected-disabled": {
+                        "type": "color",
+                        "desc": "胶囊选中项禁用背景色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-background-disabled": {
+                        "type": "color",
+                        "desc": "胶囊禁用背景色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-color": {
+                        "type": "color",
+                        "desc": "胶囊字体颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-color-hover": {
+                        "type": "color",
+                        "desc": "胶囊hover字体颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-color-selected": {
+                        "type": "color",
+                        "desc": "胶囊选中项字体颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-color-disabled": {
+                        "type": "color",
+                        "desc": "胶囊禁用字体颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-color-selected-disabled": {
+                        "type": "color",
+                        "desc": "胶囊选中项禁用字体颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-cursor": {
+                        "type": "input",
+                        "desc": "胶囊鼠标样式",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-cursor-disabled": {
+                        "type": "input",
+                        "desc": "胶囊禁用鼠标样式",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-border-color": {
+                        "type": "color",
+                        "desc": "胶囊边框颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-border-color-hover": {
+                        "type": "color",
+                        "desc": "胶囊hover边框颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-border-color-selected": {
+                        "type": "color",
+                        "desc": "胶囊选中项边框颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-border-color-selected-hover": {
+                        "type": "color",
+                        "desc": "胶囊选中项hover边框颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-border-color-selected-disabled": {
+                        "type": "color",
+                        "desc": "胶囊选中项禁用边框颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-flag-border-color": {
+                        "type": "color",
+                        "desc": "胶囊标记边框颜色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-label-background": {
+                        "type": "color",
+                        "desc": "胶囊标签背景色",
+                        "prefix": "capsules-capsule"
+                    },
+                    "--capsules-capsule-label-color": {
+                        "type": "color",
+                        "desc": "胶囊标签字体颜色",
+                        "prefix": "capsules-capsule"
+                    }
+                }
+            },
+            {
+                "id": 59,
+                "name": "u-taskbox",
+                "title": "任务箱",
+                "toPosition": "taskbox",
+                "type": [],
+                "preview": {
+                    "template": "<u-taskbox icon=\"notice\"></u-taskbox>"
+                },
+                "cssProperty": {
+                    "--taskbox-icon-font-size": {
+                        "type": "input",
+                        "desc": "任务箱图标大小,如：1px"
+                    }
                 }
             }
         ]

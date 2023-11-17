@@ -507,6 +507,7 @@ Methods
 | label-layout | string | `[object Object]`<br/>`[object Object]` | `'inline'` |  |
 | label-ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | required | boolean |  | `false` | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
+| required-position | string | `[object Object]`<br/>`[object Object]` | `'right'` | undefined |
 | message | string |  |  | 鼠标悬浮标签后的图标显示释义提示信息 |
 | description | string |  |  | 辅助说明的文本信息 |
 | layout | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'center'` | 标签与表单元素的纵轴对齐方式，默认为顶对齐 |

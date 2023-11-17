@@ -1,4 +1,4 @@
-import UTimePicker from './index.vue';
+import UTimePicker from './wrap';
 
 export {
     UTimePicker,

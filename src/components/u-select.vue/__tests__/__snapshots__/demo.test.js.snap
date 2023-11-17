@@ -5,7 +5,7 @@ exports[`u-select.vue Demo-Data 方式 1`] = `
   <div class="root" disabled="disabled" tabindex>
     <span>b</span>
     <span>暂无可选的项</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -15,7 +15,8 @@ exports[`u-select.vue Demo-Data 方式 1`] = `
     </transition-stub>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    切换</a>
+    切换
+  </a>
 </div>
 `;
 
@@ -24,7 +25,7 @@ exports[`u-select.vue Demo-Flag 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <span></span>
       蛋糕
     </div>
@@ -52,7 +53,7 @@ exports[`u-select.vue Demo-Label 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <span>
         CPU
       </span> 4核
@@ -81,7 +82,7 @@ exports[`u-select.vue Demo-Layer 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <span layer="high"></span>
       蛋糕
     </div>
@@ -109,7 +110,7 @@ exports[`u-select.vue Demo-Tag 方式 1`] = `
   <div class="root" disabled="disabled" tabindex>
     <span>b</span>
     <span>暂无可选的项</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -119,7 +120,8 @@ exports[`u-select.vue Demo-Tag 方式 1`] = `
     </transition-stub>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    切换</a>
+    切换
+  </a>
 </div>
 `;
 
@@ -128,32 +130,32 @@ exports[`u-select.vue Demo-Tags 展示icon 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">过多时省略</span>
-    <div style="direction: ltr;" tags-overflow="hidden">
-      <span>
+    <div class style="direction: ltr;" tags-overflow="hidden">
+      <span style="display: none; vertical-align: middle;">
         <span class>
           <img src="https://t7.baidu.com/it/u=1831997705,836992814&amp;fm=193&amp;f=GIF">
           C
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none;">
         <span class> C#
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none;">
         <span class> C++
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none;">
         <span class>
           <img src="http://ceph.lcap.hatest.163yun.com/lcap-test-static/icon/p1.jpg">
           Java
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none; vertical-align: middle;">
         <span class> Go
         </span>
         <span></span>
@@ -209,8 +211,8 @@ exports[`u-select.vue Demo-Tags 展示icon 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">过多时收缩</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+    <div class style="direction: ltr;" tags-overflow="collapse">
+      <span style="display: none; vertical-align: middle;">
         <span class>
           <img src="https://t7.baidu.com/it/u=1831997705,836992814&amp;fm=193&amp;f=GIF">C
         </span>
@@ -230,12 +232,12 @@ exports[`u-select.vue Demo-Tags 展示icon 1`] = `
         </span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>Go</span>
         <span></span>
       </span>
-      <span>
-        <span>+5</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+5...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -288,7 +290,7 @@ exports[`u-select.vue Demo-Tags 展示icon 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">过多时显示</span>
-    <div style="direction: ltr;" tags-overflow="visible">
+    <div class style="direction: ltr;" tags-overflow="visible">
       <span>
         <span class>
           <img src="https://t7.baidu.com/it/u=1831997705,836992814&amp;fm=193&amp;f=GIF">
@@ -374,8 +376,8 @@ exports[`u-select.vue Demo-Tags 风格 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">过多时省略</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+    <div class style="direction: ltr;" tags-overflow="collapse">
+      <span style="display: none; vertical-align: middle;">
         <span class>沙发</span>
         <span></span>
       </span>
@@ -383,12 +385,12 @@ exports[`u-select.vue Demo-Tags 风格 1`] = `
         <span class>坚果</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>毛巾</span>
         <span></span>
       </span>
-      <span>
-        <span>+3</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+3...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -416,8 +418,8 @@ exports[`u-select.vue Demo-Tags 风格 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">过多时收缩</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+    <div class style="direction: ltr;" tags-overflow="collapse">
+      <span style="display: none; vertical-align: middle;">
         <span class>沙发</span>
         <span></span>
       </span>
@@ -425,12 +427,12 @@ exports[`u-select.vue Demo-Tags 风格 1`] = `
         <span class>坚果</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>毛巾</span>
         <span></span>
       </span>
-      <span>
-        <span>+3</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+3...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -458,7 +460,7 @@ exports[`u-select.vue Demo-Tags 风格 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">过多时显示</span>
-    <div style="direction: ltr;" tags-overflow="visible">
+    <div class style="direction: ltr;" tags-overflow="visible">
       <span>
         <span class> 沙发
         </span>
@@ -505,7 +507,7 @@ exports[`u-select.vue Demo-Tags 风格 2`] = `
   <div class="root" multiple="multiple" multiple-tags="true" size="large" tabindex="0">
     <span>b</span>
     <span style="display: none;">过多时显示</span>
-    <div style="direction: ltr;" tags-overflow="visible">
+    <div class style="direction: ltr;" tags-overflow="visible">
       <span>
         <span class> 沙发沙发沙发沙发沙发
         </span>
@@ -552,28 +554,28 @@ exports[`u-select.vue Demo-Tags 风格 3`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">过多时省略</span>
-    <div style="direction: ltr;" tags-overflow="hidden">
-      <span>
+    <div class style="direction: ltr;" tags-overflow="hidden">
+      <span style="display: none; vertical-align: middle;">
         <span class> C
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none;">
         <span class> C#
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none;">
         <span class> C++
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none;">
         <span class> Java
         </span>
         <span></span>
       </span>
-      <span>
+      <span style="display: none; vertical-align: middle;">
         <span class> Go
         </span>
         <span></span>
@@ -616,8 +618,8 @@ exports[`u-select.vue Demo-Tags 风格 3`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">过多时收缩</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+    <div class style="direction: ltr;" tags-overflow="collapse">
+      <span style="display: none; vertical-align: middle;">
         <span class>C</span>
         <span></span>
       </span>
@@ -633,12 +635,12 @@ exports[`u-select.vue Demo-Tags 风格 3`] = `
         <span class>Java</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>Go</span>
         <span></span>
       </span>
-      <span>
-        <span>+5</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+5...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -678,7 +680,7 @@ exports[`u-select.vue Demo-Tags 风格 3`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">过多时显示</span>
-    <div style="direction: ltr;" tags-overflow="visible">
+    <div class style="direction: ltr;" tags-overflow="visible">
       <span>
         <span class> C
         </span>
@@ -748,7 +750,7 @@ exports[`u-select.vue Demo-appendTo:body 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 0px;">
         <div class="root" style="display: none;">
@@ -769,7 +771,7 @@ exports[`u-select.vue Demo-appendTo:body 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 300px;">
         <div class="root" style="display: none;">
@@ -797,7 +799,7 @@ exports[`u-select.vue Demo-autofocus 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -827,7 +829,7 @@ exports[`u-select.vue Demo-autofocus 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -853,7 +855,7 @@ exports[`u-select.vue Demo-data-source 函数 1`] = `
 <div class="root" tabindex="0">
   <span>b</span>
   <span>请选择</span>
-  <div style="direction: ltr;" tags-overflow="collapse">
+  <div class style="direction: ltr;" tags-overflow="collapse">
   </div>
   <transition-stub name="fade" style="width: 100%;">
     <div class="root" style="display: none;">
@@ -871,7 +873,7 @@ exports[`u-select.vue Demo-data-source 数组 1`] = `
 <div class="root" tabindex="0">
   <span>b</span>
   <span style="display: none;">请选择</span>
-  <div style="direction: ltr;" tags-overflow="collapse">
+  <div class style="direction: ltr;" tags-overflow="collapse">
     C++
   </div>
   <transition-stub name="fade" style="width: 100%;">
@@ -1040,10 +1042,10 @@ exports[`u-select.vue Demo-data-source 数组 1`] = `
 `;
 
 exports[`u-select.vue Demo-prefix, suffix 1`] = `
-<div class="root" readonly="readonly" suffix="search" tabindex>
+<div class="root" end="true" readonly="readonly" suffix="search" tabindex>
   <span>b</span>
   <span>前端过滤</span>
-  <div style="direction: ltr;" tags-overflow="collapse">
+  <div class style="direction: ltr;" tags-overflow="collapse">
   </div>
   <span name="search"></span>
   <transition-stub name="fade" style="width: 100%;">
@@ -1064,7 +1066,7 @@ exports[`u-select.vue Demo-tag 方式 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -1097,7 +1099,7 @@ exports[`u-select.vue Demo-tag 方式 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>设置占位符</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -1135,7 +1137,7 @@ exports[`u-select.vue Demo-一次性后端数据，前端分页 1`] = `
 <div class="root" tabindex="0">
   <span>b</span>
   <span>前端分页</span>
-  <div style="direction: ltr;" tags-overflow="collapse">
+  <div class style="direction: ltr;" tags-overflow="collapse">
   </div>
   <transition-stub name="fade" style="width: 100%;">
     <div class="root" style="display: none;">
@@ -1153,7 +1155,7 @@ exports[`u-select.vue Demo-一次性后端数据，前端过滤 1`] = `
 <div class="root" tabindex="0">
   <span>b</span>
   <span>前端过滤</span>
-  <div style="direction: ltr;" tags-overflow="collapse">
+  <div class style="direction: ltr;" tags-overflow="collapse">
     <div filterable="true">
       <span>b</span>
       <span style="display: none;"></span>
@@ -1177,7 +1179,7 @@ exports[`u-select.vue Demo-为空禁用 1`] = `
   <div class="root" disabled="disabled" tabindex>
     <span>b</span>
     <span>暂无选项</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -1194,7 +1196,7 @@ exports[`u-select.vue Demo-保持顺序 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">不保持顺序（默认）</span>
-    <div style="direction: ltr;" tags-overflow="visible">
+    <div class style="direction: ltr;" tags-overflow="visible">
       <span>
         <span class> 坚果
         </span>
@@ -1231,7 +1233,7 @@ exports[`u-select.vue Demo-保持顺序 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">保持顺序</span>
-    <div style="direction: ltr;" tags-overflow="visible">
+    <div class style="direction: ltr;" tags-overflow="visible">
       <span>
         <span class> 坚果
         </span>
@@ -1275,7 +1277,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="mini" tabindex="0">
         <span>b</span>
         <span>mini</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1296,7 +1298,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="mini small" tabindex="0">
         <span>b</span>
         <span>mini small</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1317,7 +1319,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="mini normal" tabindex="0">
         <span>b</span>
         <span>mini normal</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1338,7 +1340,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="mini medium" tabindex="0">
         <span>b</span>
         <span>mini medium</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1361,7 +1363,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="small mini" tabindex="0">
         <span>b</span>
         <span>small mini</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1382,7 +1384,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="small" tabindex="0">
         <span>b</span>
         <span>small</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1403,7 +1405,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="small normal" tabindex="0">
         <span>b</span>
         <span>small normal</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1424,7 +1426,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="small medium" tabindex="0">
         <span>b</span>
         <span>small medium</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1447,7 +1449,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="normal mini" tabindex="0">
         <span>b</span>
         <span>normal mini</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1468,7 +1470,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="normal small" tabindex="0">
         <span>b</span>
         <span>normal small</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1489,7 +1491,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="normal" tabindex="0">
         <span>b</span>
         <span>normal</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1510,7 +1512,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="normal medium" tabindex="0">
         <span>b</span>
         <span>normal medium</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1533,7 +1535,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="medium mini" tabindex="0">
         <span>b</span>
         <span>medium mini</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1554,7 +1556,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="medium small" tabindex="0">
         <span>b</span>
         <span>medium small</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1575,7 +1577,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="medium normal" tabindex="0">
         <span>b</span>
         <span>medium normal</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1596,7 +1598,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="medium" tabindex="0">
         <span>b</span>
         <span>medium</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1619,7 +1621,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="large" tabindex="0">
         <span>b</span>
         <span>large</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1642,7 +1644,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="huge" tabindex="0">
         <span>b</span>
         <span>huge</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1665,7 +1667,7 @@ exports[`u-select.vue Demo-修改尺寸 1`] = `
       <div class="root" size="huge full" tabindex="0">
         <span>b</span>
         <span>huge full</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
         </div>
         <transition-stub name="fade" style="width: 100%;">
           <div class="root" style="display: none;">
@@ -1693,7 +1695,7 @@ exports[`u-select.vue Demo-分组 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -1764,7 +1766,7 @@ exports[`u-select.vue Demo-分组 2`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -1835,7 +1837,7 @@ exports[`u-select.vue Demo-分隔符 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       坚果
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -1869,7 +1871,7 @@ exports[`u-select.vue Demo-分隔符 2`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       坚果
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -1917,7 +1919,7 @@ exports[`u-select.vue Demo-列表与 value 同时改变的问题 1`] = `
       <div class="root" tabindex="0">
         <span>b</span>
         <span style="display: none;">请选择</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
           A classic
         </div>
         <transition-stub name="fade" style="width: 100%;">
@@ -1942,7 +1944,7 @@ exports[`u-select.vue Demo-前端加载更多 1`] = `
 <div class="root" tabindex="0">
   <span>b</span>
   <span>前端加载更多</span>
-  <div style="direction: ltr;" tags-overflow="collapse">
+  <div class style="direction: ltr;" tags-overflow="collapse">
   </div>
   <transition-stub name="fade" style="width: 100%;">
     <div class="root" style="display: none;">
@@ -1988,7 +1990,7 @@ exports[`u-select.vue Demo-前端过滤 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>前端过滤</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
         <span style="display: none;"></span>
@@ -2013,7 +2015,7 @@ exports[`u-select.vue Demo-前端过滤（搜索） 1`] = `
   <div class="root" clearable="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">前端过滤</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
         <span style="display: none;"></span>
@@ -2187,17 +2189,17 @@ exports[`u-select.vue Demo-前端过滤（搜索） 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" style="width: 240px;" tabindex="0">
     <span>b</span>
     <span style="display: none;">前端过滤（多选）</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+    <div class style="direction: ltr;" tags-overflow="collapse">
+      <span style="display: none; vertical-align: middle;">
         <span class>C</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>C++</span>
         <span></span>
       </span>
-      <span>
-        <span>+2</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+2...</span>
       </span>
       <div filterable="true" multiple-tags="true" style="width: 20px;">
         <span>b</span>
@@ -2378,7 +2380,7 @@ exports[`u-select.vue Demo-前缀方式 1`] = `
       <span>b</span>
       <span>请选择</span>
       <span name="search"></span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -2408,10 +2410,10 @@ exports[`u-select.vue Demo-前缀方式 1`] = `
         </div>
       </transition-stub>
     </div>
-    <div class="root" suffix="search" tabindex="0">
+    <div class="root" end="true" suffix="search" tabindex="0">
       <span>b</span>
       <span>设置占位符</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <span name="search"></span>
       <transition-stub name="fade" style="width: 100%;">
@@ -2451,7 +2453,7 @@ exports[`u-select.vue Demo-匹配方式 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>包括即可（默认）</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
         <span style="display: none;"></span>
@@ -2624,7 +2626,7 @@ exports[`u-select.vue Demo-匹配方式 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>只匹配开头</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
         <span style="display: none;"></span>
@@ -2797,7 +2799,7 @@ exports[`u-select.vue Demo-匹配方式 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>只匹配结尾</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
         <span style="display: none;"></span>
@@ -2975,7 +2977,7 @@ exports[`u-select.vue Demo-区分大小写 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>不区分大小写（默认）</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
         <span style="display: none;"></span>
@@ -3148,7 +3150,7 @@ exports[`u-select.vue Demo-区分大小写 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>区分大小写</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
         <span style="display: none;"></span>
@@ -3326,7 +3328,7 @@ exports[`u-select.vue Demo-双向绑定 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       毛巾
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -3354,7 +3356,7 @@ exports[`u-select.vue Demo-双向绑定 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       毛巾
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -3387,7 +3389,7 @@ exports[`u-select.vue Demo-双向绑定 2`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>v-model</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -3417,7 +3419,7 @@ exports[`u-select.vue Demo-双向绑定 2`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>:value.sync</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -3452,17 +3454,17 @@ exports[`u-select.vue Demo-双向绑定 3`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+    <div class style="direction: ltr;" tags-overflow="collapse">
+      <span style="display: none; vertical-align: middle;">
         <span class>坚果</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>毛巾</span>
         <span></span>
       </span>
-      <span>
-        <span>+2</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+2...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -3490,17 +3492,17 @@ exports[`u-select.vue Demo-双向绑定 3`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+    <div class style="direction: ltr;" tags-overflow="collapse">
+      <span style="display: none; vertical-align: middle;">
         <span class>坚果</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>毛巾</span>
         <span></span>
       </span>
-      <span>
-        <span>+2</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+2...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -3534,7 +3536,7 @@ exports[`u-select.vue Demo-反色 1`] = `
     <div class="root" color="inverse" readonly="readonly" tabindex>
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         坚果
       </div>
       <transition-stub color="inverse" name="fade" style="width: 100%;">
@@ -3556,7 +3558,7 @@ exports[`u-select.vue Demo-反色 1`] = `
     <div class="root" color="inverse" disabled="disabled" tabindex>
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         坚果
       </div>
       <transition-stub color="inverse" name="fade" style="width: 100%;">
@@ -3578,7 +3580,7 @@ exports[`u-select.vue Demo-反色 1`] = `
     <div class="root" color="inverse" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         坚果
       </div>
       <transition-stub color="inverse" name="fade" style="width: 100%;">
@@ -3607,7 +3609,7 @@ exports[`u-select.vue Demo-只读、禁用、禁用某一项 1`] = `
     <div class="root" readonly="readonly" tabindex>
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         坚果
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -3629,7 +3631,7 @@ exports[`u-select.vue Demo-只读、禁用、禁用某一项 1`] = `
     <div class="root" disabled="disabled" tabindex>
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         坚果
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -3651,7 +3653,7 @@ exports[`u-select.vue Demo-只读、禁用、禁用某一项 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         坚果
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -3678,8 +3680,8 @@ exports[`u-select.vue Demo-可以重复 1`] = `
 <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
   <span>b</span>
   <span style="display: none;">请选择</span>
-  <div style="direction: ltr;" tags-overflow="collapse">
-    <span style="display: none;">
+  <div class style="direction: ltr;" tags-overflow="collapse">
+    <span style="display: none; vertical-align: middle;">
       <span class>C</span>
       <span></span>
     </span>
@@ -3687,12 +3689,12 @@ exports[`u-select.vue Demo-可以重复 1`] = `
       <span class>C#</span>
       <span></span>
     </span>
-    <span style="display: none;">
+    <span style="display: none; vertical-align: middle;">
       <span class>C++</span>
       <span></span>
     </span>
-    <span>
-      <span>+3</span>
+    <span style="vertical-align: middle; padding-right: 6px;">
+      <span>+3...</span>
     </span>
   </div>
   <transition-stub name="fade" style="width: 100%;">
@@ -3736,7 +3738,7 @@ exports[`u-select.vue Demo-可清除 1`] = `
   <div class="root" clearable="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       咖啡
     </div>
     <span></span>
@@ -3764,7 +3766,7 @@ exports[`u-select.vue Demo-可清除 2`] = `
   <div class="root" clearable="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       Node.js
     </div>
     <span></span>
@@ -3804,7 +3806,7 @@ exports[`u-select.vue Demo-后端加载更多 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span>返回带 total</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -3819,7 +3821,7 @@ exports[`u-select.vue Demo-后端加载更多 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span>返回带 last</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -3834,7 +3836,7 @@ exports[`u-select.vue Demo-后端加载更多 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span>只返回数组</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -3854,7 +3856,7 @@ exports[`u-select.vue Demo-后端过滤（搜索） 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>后端过滤</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
         <span style="display: none;"></span>
@@ -3874,7 +3876,7 @@ exports[`u-select.vue Demo-后端过滤（搜索） 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" style="width: 240px;" tabindex="0">
     <span>b</span>
     <span>后端过滤（多选）</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true" multiple-tags="true" style="width: 20px;">
         <span>b</span>
         <span style="display: none;"></span>
@@ -3899,7 +3901,7 @@ exports[`u-select.vue Demo-后端过滤，后端分页 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>后端过滤，后端分页</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
         <span style="display: none;"></span>
@@ -3919,7 +3921,7 @@ exports[`u-select.vue Demo-后端过滤，后端分页 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" style="width: 240px;" tabindex="0">
     <span>b</span>
     <span>后端过滤，后端分页（多选）</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true" multiple-tags="true" style="width: 20px;">
         <span>b</span>
         <span style="display: none;"></span>
@@ -3945,7 +3947,7 @@ exports[`u-select.vue Demo-基本用法 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -3966,7 +3968,7 @@ exports[`u-select.vue Demo-基本用法 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -3987,7 +3989,7 @@ exports[`u-select.vue Demo-基本用法 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -4018,7 +4020,7 @@ exports[`u-select.vue Demo-基本用法 2`] = `
     <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -4039,7 +4041,7 @@ exports[`u-select.vue Demo-基本用法 2`] = `
     <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -4060,7 +4062,7 @@ exports[`u-select.vue Demo-基本用法 2`] = `
     <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
       <span>b</span>
       <span>请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
       </div>
       <transition-stub name="fade" style="width: 100%;">
         <div class="root" style="display: none;">
@@ -4089,17 +4091,17 @@ exports[`u-select.vue Demo-多项选择 1`] = `
 <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
   <span>b</span>
   <span style="display: none;">请选择</span>
-  <div style="direction: ltr;" tags-overflow="collapse">
-    <span style="display: none;">
+  <div class style="direction: ltr;" tags-overflow="collapse">
+    <span style="display: none; vertical-align: middle;">
       <span class>C</span>
       <span></span>
     </span>
-    <span style="display: none;">
+    <span style="display: none; vertical-align: middle;">
       <span class>C++</span>
       <span></span>
     </span>
-    <span>
-      <span>+2</span>
+    <span style="vertical-align: middle; padding-right: 6px;">
+      <span>+2...</span>
     </span>
   </div>
   <transition-stub name="fade" style="width: 100%;">
@@ -4142,7 +4144,7 @@ exports[`u-select.vue Demo-多项选择 2`] = `
 <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
   <span>b</span>
   <span>请选择</span>
-  <div style="direction: ltr;" tags-overflow="collapse">
+  <div class style="direction: ltr;" tags-overflow="collapse">
   </div>
   <transition-stub name="fade" style="width: 100%;">
     <div class="root" style="display: none;">
@@ -4184,7 +4186,7 @@ exports[`u-select.vue Demo-多项选择 3`] = `
 <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
   <span>b</span>
   <span>请选择</span>
-  <div style="direction: ltr;" tags-overflow="collapse">
+  <div class style="direction: ltr;" tags-overflow="collapse">
   </div>
   <transition-stub name="fade" style="width: 100%;">
     <div class="root" style="display: none;">
@@ -4227,17 +4229,17 @@ exports[`u-select.vue Demo-多项选择 4`] = `
   <div class="root" multiple="multiple" multiple-tags="true" style="width: 240px;" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+    <div class style="direction: ltr;" tags-overflow="collapse">
+      <span style="display: none; vertical-align: middle;">
         <span class>Java</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>Node.js</span>
         <span></span>
       </span>
-      <span>
-        <span>+2</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+2...</span>
       </span>
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -4267,7 +4269,7 @@ exports[`u-select.vue Demo-定位 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       咖啡
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -4294,8 +4296,8 @@ exports[`u-select.vue Demo-对齐和清空问题 1`] = `
   <div class="root" clearable="true" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">过多时省略</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+    <div class style="direction: ltr;" tags-overflow="collapse">
+      <span style="display: none; vertical-align: middle;">
         <span class>沙发</span>
         <span></span>
       </span>
@@ -4303,12 +4305,12 @@ exports[`u-select.vue Demo-对齐和清空问题 1`] = `
         <span class>坚果</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>毛巾</span>
         <span></span>
       </span>
-      <span>
-        <span>+3</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+3...</span>
       </span>
     </div>
     <span></span>
@@ -4337,8 +4339,8 @@ exports[`u-select.vue Demo-对齐和清空问题 1`] = `
   <div class="root" clearable="true" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">过多时收缩</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
-      <span style="display: none;">
+    <div class style="direction: ltr;" tags-overflow="collapse">
+      <span style="display: none; vertical-align: middle;">
         <span class>沙发</span>
         <span></span>
       </span>
@@ -4346,12 +4348,12 @@ exports[`u-select.vue Demo-对齐和清空问题 1`] = `
         <span class>坚果</span>
         <span></span>
       </span>
-      <span style="display: none;">
+      <span style="display: none; vertical-align: middle;">
         <span class>毛巾</span>
         <span></span>
       </span>
-      <span>
-        <span>+3</span>
+      <span style="vertical-align: middle; padding-right: 6px;">
+        <span>+3...</span>
       </span>
     </div>
     <span></span>
@@ -4381,7 +4383,7 @@ exports[`u-select.vue Demo-对齐和清空问题 1`] = `
   <div class="root" clearable="true" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span style="display: none;">过多时显示</span>
-    <div style="direction: ltr;" tags-overflow="visible">
+    <div class style="direction: ltr;" tags-overflow="visible">
       <span>
         <span class> 沙发
         </span>
@@ -4428,7 +4430,7 @@ exports[`u-select.vue Demo-指定选项字段名 1`] = `
 <div class="root" tabindex="0">
   <span>b</span>
   <span style="display: none;">请选择</span>
-  <div style="direction: ltr;" tags-overflow="collapse">
+  <div class style="direction: ltr;" tags-overflow="collapse">
     C++
   </div>
   <transition-stub name="fade" style="width: 100%;">
@@ -4601,7 +4603,7 @@ exports[`u-select.vue Demo-数据源 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span>前端过滤</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true" multiple-tags="true" style="width: 20px;">
         <span>b</span>
         <span style="display: none;"></span>
@@ -4619,7 +4621,8 @@ exports[`u-select.vue Demo-数据源 1`] = `
     </transition-stub>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    重新加载</a>
+    重新加载
+  </a>
 </div>
 `;
 
@@ -4628,7 +4631,7 @@ exports[`u-select.vue Demo-数据选择框 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -4645,7 +4648,7 @@ exports[`u-select.vue Demo-有空的项 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" tabindex="0">
     <span>b</span>
     <span>前端过滤</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true" multiple-tags="true" style="width: 20px;">
         <span>b</span>
         <span style="display: none;"></span>
@@ -4670,7 +4673,7 @@ exports[`u-select.vue Demo-标签和数据源混合使用 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>混合使用</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -4693,7 +4696,7 @@ exports[`u-select.vue Demo-清除缓存 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>前端过滤</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
         <span style="display: none;"></span>
@@ -4711,7 +4714,8 @@ exports[`u-select.vue Demo-清除缓存 1`] = `
     </transition-stub>
   </div>
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    重新加载</a>
+    重新加载
+  </a>
 </div>
 `;
 
@@ -4720,7 +4724,7 @@ exports[`u-select.vue Demo-禁用状态、禁用某一项 1`] = `
   <div class="root" disabled="disabled" tabindex>
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       Node.js
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -4754,7 +4758,7 @@ exports[`u-select.vue Demo-禁用状态、禁用某一项 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span style="display: none;">请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       Node.js
     </div>
     <transition-stub name="fade" style="width: 100%;">
@@ -4793,7 +4797,7 @@ exports[`u-select.vue Demo-自动补充 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>自动补充</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
         <span style="display: none;"></span>
@@ -4813,7 +4817,7 @@ exports[`u-select.vue Demo-自动补充 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" style="width: 240px;" tabindex="0">
     <span>b</span>
     <span>自动补充（多选）</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true" multiple-tags="true" style="width: 20px;">
         <span>b</span>
         <span style="display: none;"></span>
@@ -4838,7 +4842,7 @@ exports[`u-select.vue Demo-自定义可扩展下拉项 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub footer="true" name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -4894,7 +4898,7 @@ exports[`u-select.vue Demo-自定义可扩展下拉项 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub footer="true" name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -4939,7 +4943,7 @@ exports[`u-select.vue Demo-自定义可扩展下拉项 2`] = `
 <div class="root" tabindex="0">
   <span>b</span>
   <span>请选择</span>
-  <div style="direction: ltr;" tags-overflow="collapse">
+  <div class style="direction: ltr;" tags-overflow="collapse">
   </div>
   <transition-stub footer="true" name="fade" style="width: 100%;">
     <div class="root" style="display: none;">
@@ -4951,7 +4955,8 @@ exports[`u-select.vue Demo-自定义可扩展下拉项 2`] = `
       <div vusion-slot-name="renderFooter">
         <div style="padding: 6px 0px; text-align: center;">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            Click Me</a>
+            Click Me
+          </a>
         </div>
       </div>
     </div>
@@ -4964,7 +4969,7 @@ exports[`u-select.vue Demo-自定义选中值的展示形式，项可添加描�
   <div class="root" tabindex="0">
     <span>b</span>
     <span>自定义选中展示</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -5012,7 +5017,7 @@ exports[`u-select.vue Demo-自定义选中值的展示形式，项可添加描�
   <div class="root" tabindex="0">
     <span>b</span>
     <span>自定义选中展示</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -5047,7 +5052,7 @@ exports[`u-select.vue Demo-选中值是下一页数据的选中处理 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
         <span style="display: none;"></span>
@@ -5067,7 +5072,7 @@ exports[`u-select.vue Demo-选中值是下一页数据的选中处理 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -5082,7 +5087,7 @@ exports[`u-select.vue Demo-选中值是下一页数据的选中处理 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" style="width: 240px;" tabindex="0">
     <span>b</span>
     <span>请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -5097,7 +5102,7 @@ exports[`u-select.vue Demo-选中值是下一页数据的选中处理 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" style="width: 240px;" tabindex="0">
     <span>b</span>
     <span>请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -5112,7 +5117,7 @@ exports[`u-select.vue Demo-选中值是下一页数据的选中处理 1`] = `
   <div class="root" multiple="multiple" multiple-tags="true" style="width: 240px;" tabindex="0">
     <span>b</span>
     <span>请选择</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
     </div>
     <transition-stub name="fade" style="width: 100%;">
       <div class="root" style="display: none;">
@@ -5132,7 +5137,7 @@ exports[`u-select.vue Demo-选项初始值 1`] = `
   <div class="root" tabindex="0">
     <span>b</span>
     <span>前端过滤</span>
-    <div style="direction: ltr;" tags-overflow="collapse">
+    <div class style="direction: ltr;" tags-overflow="collapse">
       <div filterable="true">
         <span>b</span>
         <span style="display: none;"></span>

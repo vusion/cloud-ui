@@ -1,5 +1,7 @@
 <script>
 import UPopupReal from './index.vue';
+import i18nMixin from '../../mixins/i18n';
+
 const normalizeSlots = (slots, context) => Object.keys(slots)
     .reduce((arr, key) => {
         slots[key].forEach((vnode) => {
@@ -16,7 +18,8 @@ const normalizeSlots = (slots, context) => Object.keys(slots)
 
 export default {
     name: 'u-visible-popup',
-    i18n: UPopupReal.i18n,
+    // i18n: UPopupReal.i18n,
+    mixins: [i18nMixin('u-popup')],
     components: {
         UPopupReal,
     },

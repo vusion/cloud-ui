@@ -8,11 +8,27 @@ exports[`u-validator.vue Demo- 1`] = `
 </div>
 `;
 
+exports[`u-validator.vue Demo-blur 后从绑定变量更新 1`] = `
+<div class="root" direction="horizontal" type vusion-slot-name="default">
+  <div placement="bottom" vusion-slot-name="default">
+    <div color>
+      <span>b</span>
+      <span style="display: none;"></span>
+      <input type="text">
+    </div>
+    <span color="error" style="display: none;">false</span>
+  </div>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    change
+  </a>
+</div>
+`;
+
 exports[`u-validator.vue Demo-动态验证 1`] = `
 <div class="root" layout="block">
   <div class="root" distance label-size="normal">
-    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label"> </span>
+    <label class="label" position="right" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label"> </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -29,8 +45,8 @@ exports[`u-validator.vue Demo-动态验证 1`] = `
     </div>
   </div>
   <div class="root" distance label-size="normal">
-    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">端口 </span>
+    <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">端口 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -49,8 +65,8 @@ exports[`u-validator.vue Demo-动态验证 1`] = `
 exports[`u-validator.vue Demo-动态验证 2`] = `
 <div class="root" layout="block">
   <div class="root" distance label-size="normal">
-    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label"> </span>
+    <label class="label" position="right" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label"> </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -67,8 +83,8 @@ exports[`u-validator.vue Demo-动态验证 2`] = `
     </div>
   </div>
   <div class="root" distance label-size="normal">
-    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">端口 </span>
+    <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">端口 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -136,8 +152,8 @@ exports[`u-validator.vue Demo-单行嵌套 2`] = `
 exports[`u-validator.vue Demo-复合验证规则 1`] = `
 <div class="root" gap="large" layout="block">
   <div class="root" distance label-size="normal">
-    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">名称1 </span>
+    <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">名称1 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -151,8 +167,8 @@ exports[`u-validator.vue Demo-复合验证规则 1`] = `
     </div>
   </div>
   <div class="root" distance label-size="normal">
-    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">名称2 </span>
+    <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">名称2 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -171,8 +187,8 @@ exports[`u-validator.vue Demo-复合验证规则 1`] = `
 exports[`u-validator.vue Demo-失去焦点，还原正确的值 1`] = `
 <div>
   <div class="root" distance label-size="auto">
-    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">用户名 </span>
+    <label class="label" position="right" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">用户名 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -191,8 +207,8 @@ exports[`u-validator.vue Demo-失去焦点，还原正确的值 1`] = `
 exports[`u-validator.vue Demo-字符串简写说明： 1`] = `
 <div>
   <div class="root" distance label-size="auto">
-    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">用户名 </span>
+    <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">用户名 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -211,8 +227,8 @@ exports[`u-validator.vue Demo-字符串简写说明： 1`] = `
 exports[`u-validator.vue Demo-完整格式 1`] = `
 <div>
   <div class="root" distance label-size="auto">
-    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">用户名 </span>
+    <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">用户名 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -231,8 +247,8 @@ exports[`u-validator.vue Demo-完整格式 1`] = `
 exports[`u-validator.vue Demo-密码确认场景 1`] = `
 <div class="root" gap="large" layout="block">
   <div class="root" distance label-size="normal">
-    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">密码 </span>
+    <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">密码 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -246,8 +262,8 @@ exports[`u-validator.vue Demo-密码确认场景 1`] = `
     </div>
   </div>
   <div class="root" distance label-size="normal">
-    <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">确认密码 </span>
+    <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">确认密码 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -265,8 +281,8 @@ exports[`u-validator.vue Demo-密码确认场景 1`] = `
 
 exports[`u-validator.vue Demo-注册验证规则 1`] = `
 <div class="root" distance label-size="auto">
-  <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
-    <span vusion-slot-name-edit="label">颜色 </span>
+  <label class="label" position="right" vusion-slot-name="label" vusion-slot-name-edit="label">
+    <span class="text" vusion-slot-name-edit="label">颜色 </span>
   </label>
   <div class="field">
     <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -283,8 +299,8 @@ exports[`u-validator.vue Demo-注册验证规则 1`] = `
 
 exports[`u-validator.vue Demo-注册验证规则 2`] = `
 <div class="root" distance label-size="auto">
-  <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
-    <span vusion-slot-name-edit="label">颜色 </span>
+  <label class="label" position="right" vusion-slot-name="label" vusion-slot-name-edit="label">
+    <span class="text" vusion-slot-name-edit="label">颜色 </span>
   </label>
   <div class="field">
     <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -301,8 +317,8 @@ exports[`u-validator.vue Demo-注册验证规则 2`] = `
 
 exports[`u-validator.vue Demo-混合编写 1`] = `
 <div class="root" distance label-size="auto">
-  <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-    <span vusion-slot-name-edit="label">用户名 </span>
+  <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+    <span class="text" vusion-slot-name-edit="label">用户名 </span>
   </label>
   <div class="field">
     <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -319,8 +335,8 @@ exports[`u-validator.vue Demo-混合编写 1`] = `
 
 exports[`u-validator.vue Demo-混合编写 2`] = `
 <div class="root" distance label-size="auto">
-  <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-    <span vusion-slot-name-edit="label">用户名 </span>
+  <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+    <span class="text" vusion-slot-name-edit="label">用户名 </span>
   </label>
   <div class="field">
     <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -338,8 +354,8 @@ exports[`u-validator.vue Demo-混合编写 2`] = `
 exports[`u-validator.vue Demo-简写格式 1`] = `
 <div>
   <div class="root" distance label-size="auto">
-    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">用户名 </span>
+    <label class="label" position="right" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">用户名 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -359,8 +375,8 @@ exports[`u-validator.vue Demo-过长提示 1`] = `
 <div>
   <div class="root" layout="block">
     <div class="root" distance label-size="normal">
-      <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
-        <span vusion-slot-name-edit="label">用户名 </span>
+      <label class="label" position="right" vusion-slot-name="label" vusion-slot-name-edit="label">
+        <span class="text" vusion-slot-name-edit="label">用户名 </span>
       </label>
       <div class="field">
         <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -379,8 +395,8 @@ exports[`u-validator.vue Demo-过长提示 1`] = `
 
 exports[`u-validator.vue Demo-验证唯一性 1`] = `
 <div class="root" distance label-size="auto">
-  <label class="label" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
-    <span vusion-slot-name-edit="label">端口 </span>
+  <label class="label" position="right" required="required" vusion-slot-name="label" vusion-slot-name-edit="label">
+    <span class="text" vusion-slot-name-edit="label">端口 </span>
   </label>
   <div class="field">
     <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>

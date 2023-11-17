@@ -5,7 +5,29 @@
   labels:
     - Selector
   attrs:
-    - name: date
+    - name: minUnit
+      title: 最小单位
+      type: string
+      options:
+        - value: second
+          title: 秒
+        - value: minute
+          title: 分
+      default: second
+      description: 最小时间单位
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 最小时间单位，支持秒或分
+      tooltipLink: ""
+      dependency:
+        - advanced-format.enable: false
+    - name: range
+      title: 区间选择
+      type: boolean
+      default: false
+      description: 是否支持进行日期时间区间选择，关闭则为日期时间点选择
+      group: 数据属性
+    - name: value
       title: 值
       type: string | number | Date
       sync: true
@@ -14,6 +36,24 @@
       group: 数据属性
       docDescription: 默认显示的日期时间值
       tooltipLink: ""
+      dependency:
+        - '!range': true
+    - name: startDate
+      title: 起始值
+      type: string,number,Date
+      sync: true
+      description: 默认显示的起始日期时间值，格式如2018-08-08 08:08:08
+      group: 数据属性
+      dependency:
+        - range: true
+    - name: endDate
+      title: 结束值
+      type: string,number,Date
+      sync: true
+      description: 默认显示的结束日期时间值，格式如2018-08-08 08:08:08
+      group: 数据属性
+      dependency:
+        - range: true
     - name: minDate
       title: 最小日期时间值
       type: string | number | Date
@@ -36,6 +76,8 @@
       group: 数据属性
       docDescription: 最小可选年份值为当前年减去此值
       tooltipLink: ""
+      dependency:
+        - '!range': true
     - name: yearAdd
       title: 最大年份差值
       type: number
@@ -44,6 +86,66 @@
       group: 数据属性
       docDescription: 最大可选年份值为当前年加上此值
       tooltipLink: ""
+      dependency:
+        - '!range': true
+    - name: show-date-formatter
+      title: 日期展示格式
+      type: string
+      options:
+        - value: YYYY年M月D日
+          title: 中国（2023年7月26日）
+        - value: YYYY-MM-DD
+          title: ISO（2023-07-26）
+        - value: M/D/YYYY
+          title: US（7/26/2023）
+        - value: D/M/YYYY
+          title: EU（26/7/2023）
+      default: YYYY-MM-DD
+      description: ""
+      dependency:
+        - advanced-format.enable: false
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: show-time-formatter
+      title: 时间展示格式
+      type: string
+      options:
+        - value: HH:mm:ss
+          title: "12:09:09"
+          dependency:
+            - minUnit: second
+        - value: HH时mm分ss秒
+          title: 12时09分09秒
+          dependency:
+            - minUnit: second
+        - value: HH:mm
+          title: "12:09"
+          dependency:
+            - minUnit: minute
+        - value: HH时mm分
+          title: 12时09分
+          dependency:
+            - minUnit: minute
+      default: HH:mm:ss
+      description: ""
+      dependency:
+        - advanced-format.enable: false
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: advanced-format
+      title: 高级格式化
+      type: "{ enable: boolean, value: string }"
+      default: "{ enable: false, value: '' }"
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+      bindHide: true
     - name: placeholder
       title: 占位符
       type: string
@@ -116,7 +218,7 @@
           value: date
         - title: YYYY-MM-DD HH:mm:ss
           value: format
-      default: format
+      default: json 
       description: ""
       clearable: true
       group: 主要属性
@@ -169,7 +271,7 @@
       title: 弹出状态
       type: boolean
       default: false
-      description: 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”
+      description: 弹出状态分为“True(弹出)/False(关闭)”，默认为“关闭”
       group: 状态属性
       docDescription: ""
       tooltipLink: ""
@@ -273,3 +375,22 @@
           description: 原生事件对象
         - name: senderVM
           description: 发送事件实例
+  i18n:
+    zh-CN:
+      uDateTimePicker_selectTimeText: '请选择时间'
+      uDateTimePicker_now: '此刻'
+      uDateTimePicker_submit: '确 定'
+      uDateTimePicker_selectPopperDateText: '下方选择日期'
+      uDateTimePicker_cancel: '取 消'
+    en-US:
+      uDateTimePicker_selectTimeText: 'Please select time'
+      uDateTimePicker_now: 'now'
+      uDateTimePicker_submit: 'submit'
+      uDateTimePicker_selectPopperDateText: 'Please select date'
+      uDateTimePicker_cancel: 'cancel'
+    ja:
+      uDateTimePicker_selectTimeText: '時間を選択'
+      uDateTimePicker_now: '本日'
+      uDateTimePicker_submit: '確定'
+      uDateTimePicker_selectPopperDateText: '日付を選択'
+      uDateTimePicker_cancel: 'キャンセル'

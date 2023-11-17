@@ -207,3 +207,19 @@
     - name: clear
       description: 清空输入框。
       params: []
+  i18n:
+    zh-CN:
+      uRegionSelect_placeholder: '请选择'
+      uRegionSelect_province: '省'
+      uRegionSelect_city: '市'
+      uRegionSelect_district: '区'
+    en-US:
+      uRegionSelect_placeholder: 'Please select '
+      uRegionSelect_province: 'Province'
+      uRegionSelect_city: 'City'
+      uRegionSelect_district: 'District'
+    ja:
+      uRegionSelect_placeholder: '選択してください'
+      uRegionSelect_province: '省'
+      uRegionSelect_city: '市'
+      uRegionSelect_district: '区'

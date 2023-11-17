@@ -1,13 +1,17 @@
 import Formatter from './Formatter';
+import { Decimal } from 'decimal.js';
 
 export class NumberFormatter extends Formatter {
-    constructor(pattern = '0') {
+    constructor(pattern = '0', options) {
         super();
         this.pattern = pattern;
+        this.options = options || {};
+        this.isDecimal = options && options.isDecimal || false;
     }
 
     format(value, pattern) {
         pattern = pattern || this.pattern;
+
         if (typeof value !== 'number')
             return pattern.replace(/[0#.,]+/, value);
 
@@ -17,17 +21,52 @@ export class NumberFormatter extends Formatter {
         const fixed = parts[1] ? parts[1].length : 0;
         const comma = pattern.includes(',');
 
-        value = value.toFixed(fixed).padStart(fixed ? fill + 1 + fixed : fill, '0');
+        // 百分号
+        if (this.options.percentSign) {
+            value = value * 100;
+        }
+        if (this.isDecimal) {
+            value = new Decimal(String(value)).toFixed(fixed).toString().padStart(fixed ? fill + 1 + fixed : fill, '0');
+        } else {
+            value = value.toFixed(fixed).padStart(fixed ? fill + 1 + fixed : fill, '0');
+        }
+        // 是否小数隐藏末尾0
+        if (fixed > 0 && /#$/.test(parts[1])) {
+            value = parseFloat(value) + ''; // 转字符串
+        }
+
         if (comma)
             value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        return pattern.replace(/[0#.,]+/, value);
+
+        // 百分号
+        if (this.options.percentSign) {
+            value += '%';
+        }
+
+        value = pattern.replace(/[0#.,]+/, value);
+
+        return value;
     }
 
     parse(value, pattern) {
         pattern = pattern || this.pattern;
 
-        const number = (String(value).match(/[0-9.,]+/) || ['0'])[0];
-        return +number.replace(/,/g, '');
+        let number = (String(value).match(/-?([0-9.,]+)/) || ['0'])[0];
+        if (this.isDecimal) {
+            number = number.replace(/,/g, '');
+        } else {
+            number = +number.replace(/,/g, '');
+        }
+
+        if (this.options.percentSign && /%$/.test(value)) {
+            if (this.isDecimal) {
+                number = new Decimal(String(number)).div(100).toString();
+            } else {
+                number = number / 100;
+            }
+        }
+
+        return number;
     }
 }
 

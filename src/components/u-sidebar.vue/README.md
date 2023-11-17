@@ -38,12 +38,15 @@
 
 ### 折叠功能
 
-``` html
+``` html {width: 30%}
 <u-sidebar collapsible>
-    <u-sidebar-group title="导航一" expanded>
+    <u-sidebar-group title="导航一">
         <u-sidebar-item text="选项一"></u-sidebar-item>
+            <u-sidebar-group title="导航二">
+                <u-sidebar-item text="选项一"></u-sidebar-item>
+            </u-sidebar-group>
     </u-sidebar-group>
-    <u-sidebar-group title="导航二" expanded disabled>
+    <u-sidebar-group title="导航二">
         <u-sidebar-item text="选项一"></u-sidebar-item>
     </u-sidebar-group>
 </u-sidebar>
@@ -84,11 +87,23 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | any |  |  | 当前选中的值 |
+| has-data-source | boolean |  | `false` | undefined |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。 |
+| data-schema | schema |  |  | 数据源返回的数据结构的类型，自动识别类型进行展示说明 |
+| text-field | string |  | `'text'` | 集合的元素类型中，用于显示文本的属性名称 |
+| value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
+| icon-field | string |  | `'icon'` | 集合的元素类型中，用于图标的属性名称 |
+| to-field | string |  | `'to'` | 集合的元素类型中，用于跳转链接的属性名称 |
+| parent-field | string |  | `''` | 集合的元素类型中，用于标识父节点的属性 |
 | router | boolean |  | `true` | 是否根据 vue-router 来控制选择哪一项 |
+| value.sync, v-model | any |  |  | 当前选中的值 |
 | collapsible | boolean |  | `false` | 设置是否可以展开/折叠 |
 | accordion | boolean |  | `false` | 设置是否每次只展开一个 |
 | expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠操作的触发方式 |
+| enable-collapse | boolean |  | `false` | 设置侧边栏是否可以展开/折叠 |
+| collapseMode | string | `[object Object]`<br/>`[object Object]` | `'expand'` | 侧边栏是否折叠 |
+| expand-icon | icon |  | `'expand'` | 侧边栏展开图标 |
+| fold-icon | icon |  | `'fold'` | 侧边栏折叠图标 |
 | readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 

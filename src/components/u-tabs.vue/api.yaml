@@ -123,6 +123,8 @@
           title: 文本
         - value: capsule
           title: 胶囊
+        - value: split
+          title: 竖线分隔
       default: square
       description: ""
       group: 样式属性

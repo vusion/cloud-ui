@@ -1,5 +1,7 @@
 <script>
 import UModalReal from './index.vue';
+import i18nMixin from '../../mixins/i18n';
+
 const normalizeSlots = (slots, context) => Object.keys(slots)
     .reduce((arr, key) => {
         slots[key].forEach((vnode) => {
@@ -16,9 +18,13 @@ const normalizeSlots = (slots, context) => Object.keys(slots)
 
 export default {
     name: 'u-visible-modal',
-    i18n: UModalReal.i18n,
+    // i18n: UModalReal.i18n,
+    mixins: [i18nMixin('u-modal')],
     component: {
         UModalReal,
+    },
+    props: {
+        placeholderInDesigner: String,
     },
     data() {
         return {
@@ -45,7 +51,7 @@ export default {
         },
         getStyle() {
             const { staticStyle = {}, style = {} } = this.$vnode.data;
-            return {...staticStyle, ...style };
+            return { ...staticStyle, ...style };
         },
     },
     render(h) {
@@ -83,7 +89,7 @@ export default {
                 scopedSlots: this.$scopedSlots,
                 ref: 'modal',
             }, slots),
-            h('div', {}, ['双击编辑弹窗']),
+            h('div', {}, [this.placeholderInDesigner]),
         ]);
     },
 };

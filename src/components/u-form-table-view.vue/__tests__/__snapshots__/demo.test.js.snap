@@ -34,10 +34,10 @@ exports[`u-form-table-view.vue Demo-动态表格 1`] = `
         </td>
         <td>
           <div display="block" vusion-slot-name="default">
-            <div class="root" size="huge full" tabindex="0">
+            <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -97,10 +97,10 @@ exports[`u-form-table-view.vue Demo-动态表格 1`] = `
         </td>
         <td>
           <div display="block" vusion-slot-name="default">
-            <div class="root" size="huge full" tabindex="0">
+            <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -150,15 +150,16 @@ exports[`u-form-table-view.vue Demo-动态表格 1`] = `
     </tbody>
   </table>
   <a class="root add-button" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    添加</a>
+    添加
+  </a>
 </div>
 `;
 
 exports[`u-form-table-view.vue Demo-在表单中使用 1`] = `
 <div class="root" layout="block">
   <div class="root" distance label-size="normal" layout="block">
-    <label class="label" vusion-slot-name="label" vusion-slot-name-edit="label">
-      <span vusion-slot-name-edit="label">规则 </span>
+    <label class="label" position="right" vusion-slot-name="label" vusion-slot-name-edit="label">
+      <span class="text" vusion-slot-name-edit="label">规则 </span>
     </label>
     <div class="field">
       <div class="description" vusion-slot-name="description" vusion-slot-name-edit="description"></div>
@@ -196,10 +197,10 @@ exports[`u-form-table-view.vue Demo-在表单中使用 1`] = `
                 </td>
                 <td>
                   <div display="block" vusion-slot-name="default">
-                    <div class="root" size="huge full" tabindex="0">
+                    <div class="root" color size="huge full" tabindex="0">
                       <span>b</span>
                       <span style="display: none;">请选择</span>
-                      <div style="direction: ltr;" tags-overflow="collapse">
+                      <div class style="direction: ltr;" tags-overflow="collapse">
                         abc
                       </div>
                       <transition-stub name="fade" style="width: 100%;">
@@ -257,10 +258,10 @@ exports[`u-form-table-view.vue Demo-在表单中使用 1`] = `
                 </td>
                 <td>
                   <div display="block" vusion-slot-name="default">
-                    <div class="root" size="huge full" tabindex="0">
+                    <div class="root" color size="huge full" tabindex="0">
                       <span>b</span>
                       <span style="display: none;">请选择</span>
-                      <div style="direction: ltr;" tags-overflow="collapse">
+                      <div class style="direction: ltr;" tags-overflow="collapse">
                         abc
                       </div>
                       <transition-stub name="fade" style="width: 100%;">
@@ -432,10 +433,10 @@ exports[`u-form-table-view.vue Demo-基本用法 2`] = `
         </td>
         <td>
           <div display="block" vusion-slot-name="default">
-            <div class="root" size="huge full" tabindex="0">
+            <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -493,10 +494,10 @@ exports[`u-form-table-view.vue Demo-基本用法 2`] = `
         </td>
         <td>
           <div display="block" vusion-slot-name="default">
-            <div class="root" size="huge full" tabindex="0">
+            <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -611,9 +612,11 @@ exports[`u-form-table-view.vue Demo-自定义操作列 1`] = `
         <td class="last-column" dynamic="true">
           <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
             <a class="root" hovertype="underline" size="huge full" tabindex="0" target="_self" vusion-slot-name-edit="text">
-              复制</a>
+              复制
+            </a>
             <a class="root" hovertype="underline" size="huge full" tabindex="0" target="_self" vusion-slot-name-edit="text">
-              删除</a>
+              删除
+            </a>
           </div>
         </td>
       </tr>
@@ -661,9 +664,11 @@ exports[`u-form-table-view.vue Demo-自定义操作列 1`] = `
         <td class="last-column" dynamic="true">
           <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
             <a class="root" hovertype="underline" size="huge full" tabindex="0" target="_self" vusion-slot-name-edit="text">
-              复制</a>
+              复制
+            </a>
             <a class="root" hovertype="underline" size="huge full" tabindex="0" target="_self" vusion-slot-name-edit="text">
-              删除</a>
+              删除
+            </a>
           </div>
         </td>
       </tr>
@@ -717,10 +722,10 @@ exports[`u-form-table-view.vue Demo-表单验证 1`] = `
         </td>
         <td>
           <div display="block" vusion-slot-name="default">
-            <div class="root" size="huge full" tabindex="0">
+            <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -780,10 +785,10 @@ exports[`u-form-table-view.vue Demo-表单验证 1`] = `
         </td>
         <td>
           <div display="block" vusion-slot-name="default">
-            <div class="root" size="huge full" tabindex="0">
+            <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -833,7 +838,8 @@ exports[`u-form-table-view.vue Demo-表单验证 1`] = `
     </tbody>
   </table>
   <a class="root add-button" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    添加</a>
+    添加
+  </a>
 </div>
 `;
 
@@ -871,10 +877,10 @@ exports[`u-form-table-view.vue Demo-表单验证 2`] = `
         </td>
         <td>
           <div display="block" vusion-slot-name="default">
-            <div class="root" size="huge full" tabindex="0">
+            <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -958,10 +964,10 @@ exports[`u-form-table-view.vue Demo-限制数量 1`] = `
         </td>
         <td>
           <div display="block" vusion-slot-name="default">
-            <div class="root" size="huge full" tabindex="0">
+            <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -1021,10 +1027,10 @@ exports[`u-form-table-view.vue Demo-限制数量 1`] = `
         </td>
         <td>
           <div display="block" vusion-slot-name="default">
-            <div class="root" size="huge full" tabindex="0">
+            <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -1074,6 +1080,7 @@ exports[`u-form-table-view.vue Demo-限制数量 1`] = `
     </tbody>
   </table>
   <a class="root add-button" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    添加</a>
+    添加
+  </a>
 </div>
 `;

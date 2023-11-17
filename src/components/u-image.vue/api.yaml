@@ -84,6 +84,24 @@
       group: 交互属性
       docDescription: 是否支持点击放大全屏展示
       tooltipLink: ""
+    - name: loading-type
+      title: 加载样式
+      type: string
+      default: loading
+      options:
+        - value: loading
+          title: Loading
+        - value: none
+          title: 不显示加载状态
+        - value: placeholder
+          title: 自定义默认图
+    - name: placeholder-src
+      title: 默认图地址
+      type: string
+      default: https://static-vusion.nos-eastchina1.126.net/h5-template/lietu.png
+      required: true
+      dependency:
+        - 'loading-type': 'placeholder'
   slots: false
   events:
     - name: load

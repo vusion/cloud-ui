@@ -24,7 +24,7 @@ exports[`u-form-table.vue Demo-动态按钮 1`] = `
           <div class="root" disabled="disabled" size="huge full" tabindex>
             <span>b</span>
             <span>暂无可选择的 VPC</span>
-            <div style="direction: ltr;" tags-overflow="collapse">
+            <div class style="direction: ltr;" tags-overflow="collapse">
             </div>
             <transition-stub name="fade" style="width: 100%;">
               <div class="root" style="display: none;">
@@ -58,7 +58,7 @@ exports[`u-form-table.vue Demo-动态按钮 1`] = `
           <div class="root" disabled="disabled" size="huge full" tabindex>
             <span>b</span>
             <span>暂无可选择的 VPC</span>
-            <div style="direction: ltr;" tags-overflow="collapse">
+            <div class style="direction: ltr;" tags-overflow="collapse">
             </div>
             <transition-stub name="fade" style="width: 100%;">
               <div class="root" style="display: none;">
@@ -83,7 +83,8 @@ exports[`u-form-table.vue Demo-动态按钮 1`] = `
       <tr>
         <td colspan="4">
           <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-            添加项</a>
+            添加项
+          </a>
         </td>
       </tr>
     </tbody>
@@ -160,7 +161,7 @@ exports[`u-form-table.vue Demo-基本用法 2`] = `
         <div class="root" disabled="disabled" size="huge full" tabindex>
           <span>b</span>
           <span>暂无可选择的 VPC</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
@@ -190,7 +191,7 @@ exports[`u-form-table.vue Demo-基本用法 2`] = `
         <div class="root" disabled="disabled" size="huge full" tabindex>
           <span>b</span>
           <span>暂无可选择的 VPC</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">

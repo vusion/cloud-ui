@@ -37,6 +37,10 @@ export default {
     },
     methods: {
         select(e) {
+            // readme:点击事件可能在组件destoryed后在调用，多发于导航相关，使用isCreated来判断而不是使用parentVM来判断是因为防止有人单独mixin当前组件。
+            if (!this.isCreated) {
+                return;
+            }
             if (this.disabled || this.parentVM.readonly || this.parentVM.disabled)
                 return;
             this.$emit('click', e, this);
