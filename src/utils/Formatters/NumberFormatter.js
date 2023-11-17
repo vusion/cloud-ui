@@ -33,20 +33,15 @@ export class NumberFormatter extends Formatter {
         if (this.isDecimal) {
             // 百分号前置将值乘以100
             if (this.options.percentSign) {
-                value = value * 100;
+                value = new Decimal(String(value)).mul('100').toString();
             }
+            value = new Decimal(String(value)).toFixed(fixed).toString().padStart(fixed ? fill + 1 + fixed : fill, '0');
 
-            value = value
-                .toFixed(fixed)
-                .padStart(
-                    fixed ? fill + 1 + fixed : fill,
-                    '0',
-                );
-
+            // 高精度情况下 本身为字符串不需要转 注释掉
             // 是否小数隐藏末尾0
-            if (fixed > 0 && /#$/.test(parts[1])) {
-                value = parseFloat(value) + ''; // 转字符串
-            }
+            // if (fixed > 0 && /#$/.test(parts[1])) {
+            // value = parseFloat(value) + ''; // 转字符串
+            // }
 
             if (comma)
                 value = value.replace(
