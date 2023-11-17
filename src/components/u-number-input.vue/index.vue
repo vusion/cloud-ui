@@ -41,7 +41,7 @@ export default {
         // 默认优先使用小数位数（废弃⚠️）
         precision: { type: Number, default: 1, validator: (precision) => precision >= 0 },
         // 小数位数
-        decimalLength: { type: Number, validator: (value) => value >= 0 },
+        decimalLength: { type: Number, default: 40, validator: (value) => value >= 0 },
         formatter: { type: [String, Object] },
         hideButtons: { type: Boolean, default: false },
         // 按钮呈现形式 tail ｜ bothEnds
@@ -99,8 +99,7 @@ export default {
             this.value = undefined;
         }
         let CoDecimal;
-
-        if (this.highPrecision && this?.decimalLength > -1) {
+        if (this.highPrecision) {
             CoDecimal = this.getCloneDecimal();
         }
         const data = {
@@ -235,17 +234,7 @@ export default {
     },
     methods: {
         getCloneDecimal() {
-            let CoDecimal;
-            if (this?.decimalLength === 0) {
-                // 平台long类型 最大精度20
-                CoDecimal = Decimal.clone({ precision: 20 });
-            } else {
-                const valueLen = String(this.value).length;
-                const len = Math.max(valueLen, this.decimalLength);
-                const rounding = len + 1;
-                CoDecimal = Decimal.clone({ precision: rounding * 2 });
-            }
-            return CoDecimal;
+            return Decimal.clone({ precision: 40 });
         },
         strip(num, precision = 17) {
             return +parseFloat(num).toPrecision(precision);
@@ -277,20 +266,19 @@ export default {
                 // if (typeof value === 'object') {
                 //     value = value + '';
                 // }
-                if (!this.Decimal && this?.decimalLength > -1) {
+                if (!this.Decimal) {
                     this.Decimal = this.getCloneDecimal();
                 }
                 value = this.Decimal.min(this.Decimal.max(String(this.min), new this.Decimal(value)), String(this.max)).toString();
             } else {
                 value = Math.min(Math.max(this.min, value), this.max);
             }
-
             // 配置了新的精度
             if (this.decimalLength >= 0) {
                 if (this.highPrecision) {
-                    value = new this.Decimal(String(value)).toFixed(Math.floor(this.decimalLength)).toString();
+                    value = new this.Decimal(String(value)).toString();
                 } else {
-                    value = parseFloat(+value.toFixed(Math.floor(this.decimalLength)));
+                    value = parseFloat(+value);
                 }
             } else if (this.precision > 0) {
                 let decimalLength = 0;
