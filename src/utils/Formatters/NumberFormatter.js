@@ -13,7 +13,6 @@ export class NumberFormatter extends Formatter {
 
     format(value, pattern) {
         pattern = pattern || this.pattern;
-
         if (value === '' || value === null || value === undefined)
             return value;
 

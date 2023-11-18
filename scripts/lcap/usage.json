@@ -8304,7 +8304,7 @@
                         {
                             "name": "span",
                             "title": "占据数",
-                            "type": "string",
+                            "type": "number",
                             "description": "列跨越的格数",
                             "group": "主要属性",
                             "brifeDoc": "",
@@ -9860,6 +9860,48 @@
                     "group": "交互属性",
                     "tooltipLink": "",
                     "docDescription": ""
+                },
+                {
+                    "name": "virtual",
+                    "title": "虚拟滚动",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "虚拟滚动表示不展示所有的数据，只展示默认条数的数据，当滚动时再展示剩余的数据。当表格数据量大时，可设置为虚拟滚动，提高性能。默认关闭。",
+                    "group": "交互属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "item-height",
+                    "title": "每行高度",
+                    "type": "number",
+                    "description": "与虚拟滚动配合使用，表示每一行的高度。请确保行里的数据不要换行",
+                    "group": "交互属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": "",
+                    "dependency": [
+                        {
+                            "virtual": true
+                        }
+                    ]
+                },
+                {
+                    "name": "virtual-count",
+                    "title": "展示条数",
+                    "type": "number",
+                    "default": 60,
+                    "description": "与虚拟滚动配合使用，表示每屏展示的最大条数",
+                    "group": "交互属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": "",
+                    "dependency": [
+                        {
+                            "virtual": true
+                        }
+                    ]
                 },
                 {
                     "name": "initial-load",
@@ -15310,7 +15352,8 @@
                     "group": "数据属性",
                     "brifeDoc": "",
                     "docDescription": "限制值要保留的小数位数。默认0，不保留小数位",
-                    "tooltipLink": ""
+                    "tooltipLink": "",
+                    "advanced": true
                 },
                 {
                     "name": "decimal-places",
@@ -28068,12 +28111,6 @@
                 }
             ],
             "attrs": [
-                {
-                    "name": "title",
-                    "title": "通知",
-                    "type": "string",
-                    "description": "鼠标 hover 在图标上展示文案"
-                },
                 {
                     "name": "icon",
                     "title": "图标",

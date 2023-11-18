@@ -651,7 +651,7 @@ export default {
                         hashSet.add(id);
                     });
 
-                    checkedLength = this.currentValues.filter((v) => hashSet.has(v)).length;
+                    checkedLength = this.currentValues.filter((v) => hashSet.has(v) || hashSet.has(String(v))).length;
                 } else {
                     checkedLength = this.currentValues.length;
                 }
@@ -1720,7 +1720,7 @@ export default {
                 return;
             if (values) {
                 this.currentValues = values;
-                this.currentData && this.currentData.forEach((item) => (item.checked = values.includes(this.$at(item, this.valueField))));
+                this.currentData && this.currentData.forEach((item) => (item.checked = !!values.find(v=>v === this.$at(item, this.valueField) || String(v) === String(this.$at(item, this.valueField)))));
             } else {
                 const values = [];
                 this.currentData && this.currentData.forEach((item) => item.checked && values.push(this.$at(item, this.valueField)));

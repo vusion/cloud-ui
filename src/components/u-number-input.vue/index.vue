@@ -120,7 +120,6 @@ export default {
             data.currentFormatter = new NumberFormatter(this.formatter, { isDecimal: this.highPrecision });
         else
             data.currentFormatter = noopFormatter; // 初始值需要在最小值和最大值范围之内
-
         // advancedFormat最高权限
         if (this.advancedFormat) {
             let formatter;
@@ -158,7 +157,6 @@ export default {
                 //     }
                 // }
             }
-
             if (formatter) {
                 const option = { isDecimal: this.highPrecision };
                 if (!this.advancedFormat.enable) {
@@ -385,7 +383,11 @@ export default {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
             let result;
             if (this.highPrecision) {
-                result = new this.Decimal(String(this.currentValue)).add(new this.Decimal(String(step)));
+                let currentValue = this.currentValue
+                if(this.currentValue ==='' || this.currentValue ===undefined){
+                    currentValue = 1
+                }
+                result = new this.Decimal(String(currentValue)).add(new this.Decimal(String(step)));
             } else {
                 result = +this.currentValue + (step - 0);
             }
