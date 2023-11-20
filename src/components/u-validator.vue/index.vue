@@ -114,6 +114,14 @@ export default {
         showMessage() {
             return !this.mutedMessage && this.touched && !this.valid && this.firstError && !(this.blurred && this.blurReset);
         },
+        // 由于ignoreRules被标记为弃用，这里兼容一下
+        ignoreRulesValidation() {
+            if (this.ignoreValidation !== undefined) {
+                return this.ignoreValidation;
+            }
+
+            return this.ignoreRules;
+        },
     },
     watch: {
         currentRules() {
@@ -269,7 +277,7 @@ export default {
             } else {
                 this.triggerValid = true;
                 this.realValid = true;
-                if (this.ignoreRules || this.ignoreValidation) {
+                if (this.ignoreRulesValidation) {
                     this.firstErrorMessage = this.currentMessage = '';
                     this.color = '';
                     return Promise.resolve(this.onValidate(trigger));

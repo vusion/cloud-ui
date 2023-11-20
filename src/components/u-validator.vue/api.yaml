@@ -80,6 +80,7 @@
       default: false
       description: ""
       group: 主要属性
+      advanced: true
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
