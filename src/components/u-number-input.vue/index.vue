@@ -126,7 +126,7 @@ export default {
 
             if (this.advancedFormat.enable) {
                 formatter = this.advancedFormat.value;
-            } else if (this.thousandths || this.percentSign || this.decimalPlaces.places >= 0) {
+            } else if (this.thousandths || this.percentSign || !isNil(this.decimalPlaces.places)) {
                 formatter = '0';
                 // 千分位
                 if (this.thousandths) {
@@ -141,7 +141,7 @@ export default {
                     for (let i = 0; i < this.decimalPlaces.places; i++) {
                         formatter += char;
                     }
-                } else if (this.decimalPlaces && this.decimalPlaces.places === '') {
+                } else if (this.decimalPlaces && isNil(this.decimalPlaces.places)) {
                     formatter += '*'; // 表示任意值
                     // for (let i = 0; i < 17; i++) {
                     //     formatter += '#';
