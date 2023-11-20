@@ -853,7 +853,7 @@
 
     /* @component u-table-view */
     --table-view-row-hover-background: #f9f9f9; /* @type color */ /* @group 行 */ /* @prefix table-view-row */ /* @desc 表格行背景色（hover状态）,如 #223325 */ /* @excludeElTags th */
-    --table-head-font-weight: normal; /* @prefix table */ /* @desc 表格表头字体加粗,如 normal */ /* @excludeElTags td,th */
+    --table-head-font-weight: normal; /* @group 表头 */ /* @prefix table */ /* @desc 表格表头字体加粗,如 normal */ /* @excludeElTags td,th */ /* @depAttrs {"boldHeader": [false]} */
     --table-view-head-item-size: var(--font-size-base); /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头字体大小,如 1px */ /* @excludeElTags td */
     --table-row-background-striped: var(--background-color-lighter); /* @type color */ /* @group 行 */ /* @prefix table */ /* @desc 表格条纹展示行背景色,如 #223325 */ /* @excludeElTags th */
     --table-view-head-item-color: var(--gray-dark); /* @type color */ /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头文字颜色,如 #223325 */ /* @excludeElTags td */
