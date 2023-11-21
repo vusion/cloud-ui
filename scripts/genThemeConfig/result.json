@@ -3810,12 +3810,18 @@
                     },
                     "--table-head-font-weight": {
                         "type": "input",
+                        "group": "表头",
                         "prefix": "table",
                         "desc": "表格表头字体加粗,如 normal",
                         "excludeElTags": [
                             "td",
                             "th"
-                        ]
+                        ],
+                        "depAttrs": {
+                            "boldHeader": [
+                                false
+                            ]
+                        }
                     },
                     "--table-view-head-item-size": {
                         "type": "input",
