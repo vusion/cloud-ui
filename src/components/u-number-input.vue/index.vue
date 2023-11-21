@@ -142,10 +142,7 @@ export default {
                         formatter += char;
                     }
                 } else if (this.decimalPlaces && isNil(this.decimalPlaces.places)) {
-                    formatter += '*'; // 表示任意值
-                    // for (let i = 0; i < 17; i++) {
-                    //     formatter += '#';
-                    // }
+                    formatter += '.*'; // 表示任意值
                 }
 
                 // 单位
@@ -383,9 +380,9 @@ export default {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
             let result;
             if (this.highPrecision) {
-                let currentValue = this.currentValue
-                if(this.currentValue ==='' || this.currentValue ===undefined){
-                    currentValue = 1
+                let currentValue = this.currentValue;
+                if (this.currentValue === '' || this.currentValue === undefined) {
+                    currentValue = 1;
                 }
                 result = new this.Decimal(String(currentValue)).add(new this.Decimal(String(step)));
             } else {

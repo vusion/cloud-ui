@@ -29,8 +29,7 @@ export class NumberFormatter extends Formatter {
         ])[0];
         const parts = number.split('.');
         const fill = (parts[0].match(/0+$/) || ['0'])[0].length;
-        const unlimit = pattern.includes('*');
-        const fixed = unlimit ? null : (parts[1] ? parts[1].length : 0);
+        const fixed = parts[1] === '*' ? null : (parts[1] ? parts[1].length : 0);
         const comma = pattern.includes(',');
 
         // 将下列逻辑统一用Decimal包装处理
@@ -76,14 +75,17 @@ export class NumberFormatter extends Formatter {
             if (isDef(fixed)) {
                 value = value
                     .toFixed(fixed)
-                    .padStart(fixed ? fill + 1 + fixed : fill, '0');
+                    .padStart(
+                        fixed ? fill + 1 + fixed : fill,
+                        '0',
+                    );
+
+                // 是否小数隐藏末尾0
+                if (fixed > 0 && /#$/.test(parts[1])) {
+                    value = parseFloat(value) + ''; // 转字符串
+                }
             } else {
                 value = value.toString();
-            }
-
-            // 是否小数隐藏末尾0
-            if (fixed > 0 && /#$/.test(parts[1])) {
-                value = parseFloat(value) + ''; // 转字符串
             }
 
             if (comma)
