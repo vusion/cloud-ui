@@ -430,6 +430,7 @@
   slots:
     - concept: Slot
       name: default
+      title: 默认
       description: 插入`<u-select-item>`、`<u-select-divider>`或`<u-select-group>`子组件。
       support:
         - name: u-select-item

@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'sidebar',
         description: '通常用于页面左侧的导航栏。',
     })
-    export class USidebar extends VueComponent {
+    export class USidebar<T, V> extends VueComponent {
 
 
         @Method({
@@ -20,21 +20,82 @@ namespace nasl.ui {
             })
             expanded: nasl.core.Boolean,
         ): void {}
-        constructor(options?: Partial<USidebarOptions>) { super(); }
+        constructor(options?: Partial<USidebarOptions<T, V>>) { super(); }
     }
 
-    export class USidebarOptions {
-        @Prop<USidebarOptions, 'value'>({
+    export class USidebarOptions<T, V> {
+        @Prop<USidebarOptions<T, V>, 'hasDataSource'>({
             group: '数据属性',
-            title: '选中值',
-            description: '当前选中的值',
-            syncMode: 'both',
-            docDescription: '当前选择的值，值仅在不适用路由下支持编辑',
-            if: _ => _.router === false,
+            title: '数据源配置',
+            bindHide: true,
+            onToggle: [
+                { clear: ['data-source','data-schema','text-field','to-field','icon-field','value-field','parent-field','link-type-field','target-field'] }
+            ],
         })
-        value: nasl.core.String;
+        hasDataSource: nasl.core.Boolean = false;
 
-        @Prop<USidebarOptions, 'router'>({
+        @Prop<USidebarOptions<T, V>, 'dataSource'>({
+            group: '数据属性',
+            title: '数据源',
+            description: '展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。',
+            docDescription: '支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑',
+            designerValue: [{}, {}, {}],
+            if: _ => _.hasDataSource === true,
+        })
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
+
+        @Prop<USidebarOptions<T, V>, 'dataSchema'>({
+            group: '数据属性',
+            title: '数据类型',
+            description: '数据源返回的数据结构的类型，自动识别类型进行展示说明',
+            docDescription: '该属性为只读状态，当数据源动态绑定集合List<T>后，会自动识别T的类型并进行展示',
+            if: _ => _.hasDataSource === true,
+        })
+        dataSchema: T;
+
+        @Prop<USidebarOptions<T, V>, 'textField'>({
+            group: '数据属性',
+            title: '文本字段',
+            description: '集合的元素类型中，用于显示文本的属性名称',
+            if: _ => _.hasDataSource === true,
+        })
+        textField: nasl.core.String = 'text';
+
+        @Prop<USidebarOptions<T, V>, 'valueField'>({
+            group: '数据属性',
+            title: '值字段',
+            description: '集合的元素类型中，用于标识选中值的属性',
+            docDescription: '集合的元素类型中，用于标识选中值的属性，支持自定义变更',
+            if: _ => _.hasDataSource === true,
+        })
+        valueField: nasl.core.String = 'value';
+
+        @Prop<USidebarOptions<T, V>, 'iconField'>({
+            group: '数据属性',
+            title: '图标属性字段',
+            description: '集合的元素类型中，用于图标的属性名称',
+            if: _ => _.hasDataSource === true,
+        })
+        iconField: nasl.core.String = 'icon';
+
+        @Prop<USidebarOptions<T, V>, 'toField'>({
+            group: '数据属性',
+            title: '跳转链接字段',
+            description: '集合的元素类型中，用于跳转链接的属性名称',
+            if: _ => _.hasDataSource === true,
+        })
+        toField: nasl.core.String = 'to';
+
+        @Prop<USidebarOptions<T, V>, 'parentField'>({
+            group: '数据属性',
+            title: '父级值字段',
+            description: '集合的元素类型中，用于标识父节点的属性',
+            docDescription: '集合的元素类型中，用于标识父级字段的属性，支持自定义变更',
+            if: _ => _.hasDataSource === true,
+        })
+        parentField: nasl.core.String = '';
+
+        @Prop<USidebarOptions<T, V>, 'router'>({
             group: '数据属性',
             title: '使用路由',
             description: '是否根据 vue-router 来控制选择哪一项',
@@ -45,23 +106,34 @@ namespace nasl.ui {
         })
         router: nasl.core.Boolean = true;
 
+        @Prop<USidebarOptions<T, V>, 'value'>({
+            group: '数据属性',
+            title: '选中值',
+            description: '当前选中的值',
+            syncMode: 'both',
+            docDescription: '当前选择的值，值仅在不适用路由下支持编辑',
+            if: _ => _.router === false,
+        })
+        value: nasl.core.Any;
+
         @Prop({
             group: '交互属性',
-            title: '可折叠',
-            description: '设置是否可以展开/折叠',
+            title: '菜单项可折叠',
+            description: '设置菜单项是否可以展开/折叠',
             docDescription: '设置分组是否可折叠。',
         })
         collapsible: nasl.core.Boolean = false;
 
-        @Prop({
+        @Prop<USidebarOptions<T, V>, 'accordion'>({
             group: '交互属性',
             title: '手风琴模式',
             description: '设置是否每次只展开一个',
             docDescription: ' 开启后每次仅会展开一个分组。',
+            if: _ => _.collapsible === true,
         })
         accordion: nasl.core.Boolean = false;
 
-        @Prop({
+        @Prop<USidebarOptions<T, V>, 'expandTrigger'>({
             group: '交互属性',
             title: '展开触发方式',
             description: '展开/折叠操作的触发方式',
@@ -70,8 +142,50 @@ namespace nasl.ui {
                 type: 'enumSelect',
                 titles: ['整行点击均可触发', '仅点击小箭头时触发'],
             },
+            if: _ => _.collapsible === true,
         })
         expandTrigger: 'click' | 'click-expander' = 'click';
+
+        @Prop({
+            group: '交互属性',
+            title: '侧边栏可折叠',
+            description: '设置侧边栏是否可以展开/折叠',
+        })
+        enableCollapse: nasl.core.Boolean = false;
+
+        @Prop<USidebarOptions<T, V>, 'collapseMode'>({
+            group: '交互属性',
+            title: '默认状态',
+            description: '侧边栏是否折叠',
+            setter: {
+                type: 'enumSelect',
+                titles: ['收起', '展开'],
+            },
+            if: _ => _.enableCollapse === true,
+        })
+        collapseMode: 'fold' | 'expand' = 'expand';
+
+        @Prop<USidebarOptions<T, V>, 'expandIcon'>({
+            group: '交互属性',
+            title: '展开图标',
+            description: '侧边栏展开图标',
+            setter: {
+                type: 'iconSelect',
+            },
+            if: _ => _.enableCollapse === true,
+        })
+        expandIcon: nasl.core.String = 'expand';
+
+        @Prop<USidebarOptions<T, V>, 'foldIcon'>({
+            group: '交互属性',
+            title: '折叠图标',
+            description: '侧边栏折叠图标',
+            setter: {
+                type: 'iconSelect',
+            },
+            if: _ => _.enableCollapse === true,
+        })
+        foldIcon: nasl.core.String = 'fold';
 
         @Prop({
             group: '状态属性',

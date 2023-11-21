@@ -12,6 +12,10 @@ namespace nasl.ui {
     }
 
     export class URouterViewOptions {
-
+        @Prop({
+            title: '进入已打开页面时刷新',
+            description: '重新进入已打开页面时，会刷新页面',
+        })
+        disableKeepAlive: nasl.core.Boolean = true;
     }
 }

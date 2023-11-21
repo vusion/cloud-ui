@@ -331,6 +331,17 @@ namespace nasl.ui {
         })
         required: nasl.core.Boolean = false;
 
+        @Prop<UFormItemOptions, 'requiredPosition'>({
+            group: '主要属性',
+            title: '必填标记位置',
+            setter: {
+                type: 'enumSelect',
+                titles: ['文本左侧', '文本右侧'],
+            },
+            if: _ => _.required === true,
+        })
+        requiredPosition: 'left' | 'right' = 'right';
+
         @Prop({
             group: '主要属性',
             title: '释义提示',

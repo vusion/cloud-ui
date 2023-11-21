@@ -131,10 +131,10 @@ namespace nasl.ui {
             docDescription: '标签展示的外观',
             setter: {
                 type: 'enumSelect',
-                titles: ['方形卡片', '圆角卡片', '线条', '文本', '胶囊'],
+                titles: ['方形卡片', '圆角卡片', '线条', '文本', '胶囊', '竖线分隔'],
             },
         })
-        appear: 'square' | 'round' | 'line' | 'text' | 'capsule' = 'square';
+        appear: 'square' | 'round' | 'line' | 'text' | 'capsule' | 'split' = 'square';
 
         @Prop({
             group: '样式属性',

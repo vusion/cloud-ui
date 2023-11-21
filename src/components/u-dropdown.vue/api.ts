@@ -6,13 +6,85 @@ namespace nasl.ui {
         icon: 'dropdown-new',
         description: '下拉菜单',
     })
-    export class UDropdown extends VueComponent {
+    export class UDropdown<T, V> extends VueComponent {
 
-        constructor(options?: Partial<UDropdownOptions>) { super(); }
+        constructor(options?: Partial<UDropdownOptions<T, V>>) { super(); }
     }
 
-    export class UDropdownOptions {
+    export class UDropdownOptions<T, V> {
+        @Prop<UDropdownOptions<T, V>, 'hasDataSource'>({
+            group: '数据属性',
+            title: '数据源配置',
+            bindHide: true,
+            onToggle: [
+                { clear: ['data-source','data-schema','text-field','to-field','icon-field','value-field','parent-field','link-type-field','target-field'] }
+            ],
+        })
+        hasDataSource: nasl.core.Boolean = false;
+
+        @Prop<UDropdownOptions<T, V>, 'dataSource'>({
+            group: '数据属性',
+            title: '数据源',
+            description: '展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。',
+            docDescription: '支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑',
+            designerValue: [{}, {}, {}],
+            if: _ => _.hasDataSource === true,
+        })
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
+
+        @Prop<UDropdownOptions<T, V>, 'dataSchema'>({
+            group: '数据属性',
+            title: '数据类型',
+            description: '数据源返回的数据结构的类型，自动识别类型进行展示说明',
+            docDescription: '该属性为只读状态，当数据源动态绑定集合List<T>后，会自动识别T的类型并进行展示',
+            if: _ => _.hasDataSource === true,
+        })
+        dataSchema: T;
+
+        @Prop<UDropdownOptions<T, V>, 'textField'>({
+            group: '数据属性',
+            title: '文本字段',
+            description: '集合的元素类型中，用于显示文本的属性名称',
+            if: _ => _.hasDataSource === true,
+        })
+        textField: nasl.core.String = 'text';
+
+        @Prop<UDropdownOptions<T, V>, 'valueField'>({
+            group: '数据属性',
+            title: '值字段',
+            description: '集合的元素类型中，用于标识选中值的属性',
+            docDescription: '集合的元素类型中，用于标识选中值的属性，支持自定义变更',
+            if: _ => _.hasDataSource === true,
+        })
+        valueField: nasl.core.String = 'value';
+
+        @Prop<UDropdownOptions<T, V>, 'iconField'>({
+            group: '数据属性',
+            title: '图标属性字段',
+            description: '集合的元素类型中，用于图标的属性名称',
+            if: _ => _.hasDataSource === true,
+        })
+        iconField: nasl.core.String = 'icon';
+
+        @Prop<UDropdownOptions<T, V>, 'toField'>({
+            group: '数据属性',
+            title: '跳转链接字段',
+            description: '集合的元素类型中，用于跳转链接的属性名称',
+            if: _ => _.hasDataSource === true,
+        })
+        toField: nasl.core.String = 'to';
+
+        @Prop<UDropdownOptions<T, V>, 'parentField'>({
+            group: '数据属性',
+            title: '父级值字段',
+            description: '集合的元素类型中，用于标识父节点的属性',
+            docDescription: '集合的元素类型中，用于标识父级字段的属性，支持自定义变更',
+            if: _ => _.hasDataSource === true,
+        })
+        parentField: nasl.core.String = '';
+
         @Prop({
+            group: '交互属性',
             title: '触发方式',
             description: '触发方式',
             setter: {
@@ -20,7 +92,7 @@ namespace nasl.ui {
                 titles: ['点击', '悬浮', '右击', '双击', '手动'],
             },
         })
-        private trigger: 'click' | 'hover' | 'right-click' | 'double-click' | 'manual' = 'hover';
+        trigger: 'click' | 'hover' | 'right-click' | 'double-click' | 'manual' = 'click';
 
         @Prop({
             group: '主要属性',
@@ -58,6 +130,24 @@ namespace nasl.ui {
         appendTo: 'reference' | 'body' = 'reference';
 
         @Prop({
+            group: '数据属性',
+            title: '使用路由',
+            description: '是否使用 vue-router',
+            docDescription: '设置使用vue-router。',
+        })
+        router: nasl.core.Boolean = true;
+
+        @Prop<UDropdownOptions<T, V>, 'value'>({
+            group: '数据属性',
+            title: '选中值',
+            description: '当前选中的值',
+            syncMode: 'both',
+            docDescription: '当前选择的值，值仅在不适用路由下支持编辑',
+            if: _ => _.router === false,
+        })
+        value: nasl.core.Any;
+
+        @Prop({
             group: '状态属性',
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
@@ -65,17 +155,29 @@ namespace nasl.ui {
         })
         disabled: nasl.core.Boolean = false;
 
+        @Prop({
+            group: '状态属性',
+            title: '显示状态',
+            syncMode: 'onlySync',
+            docDescription: '开启时进入页面即展示下拉菜单，默认关闭',
+        })
+        opened: nasl.core.Boolean = false;
+
         @Slot({
             title: 'undefined',
-            description: '插入`<u-dropdown-item>`子组件。',
+            description: '插入`<u-dropdown>`子组件。',
             snippets: [
                 {
+                    title: '下拉菜单分组',
+                    code: '<u-dropdown-group><template #title><u-text text="菜单分组"></u-text></template><u-dropdown-item><u-text text="菜单项"></u-text></u-dropdown-item></u-dropdown-group>',
+                },
+                {
                     title: '菜单项',
-                    code: '<u-dropdown-item><u-text text="选项一"></u-text></u-dropdown-item>',
+                    code: '<u-dropdown-item><u-text text="菜单项"></u-text></u-dropdown-item>',
                 },
             ],
         })
-        slotDefault: () => Array<UDropdownItem>;
+        slotDefault: () => Array<UDropdownGroup | UDropdownItem>;
     }
 
     @Component({
@@ -152,5 +254,74 @@ namespace nasl.ui {
             description: '点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。',
         })
         onClick: () => void;
+    }
+
+    @Component({
+        title: '下拉菜单分组',
+        description: '侧边栏分组',
+    })
+    export class UDropdownGroup extends VueComponent {
+
+        constructor(options?: Partial<UDropdownGroupOptions>) { super(); }
+    }
+
+    export class UDropdownGroupOptions {
+        @Prop({
+            title: '标题',
+            description: '显示的标题',
+        })
+        private title: nasl.core.String;
+
+        @Prop({
+            group: '交互属性',
+            title: '可折叠',
+            description: '设置是否可以展开/折叠',
+            docDescription: '设置分组是否可折叠',
+        })
+        collapsible: nasl.core.Boolean = true;
+
+        @Prop({
+            group: '交互属性',
+            title: '触发方式',
+            description: '触发方式',
+            setter: {
+                type: 'enumSelect',
+                titles: ['点击', '悬浮', '右击', '双击', '与父级同步'],
+            },
+        })
+        trigger: 'click' | 'hover' | 'right-click' | 'double-click' | 'none' = 'none';
+
+        @Prop({
+            group: '状态属性',
+            title: '展开状态',
+            description: '展开状态分为“True(展开)/False(折叠)”，默认为“展开”',
+            syncMode: 'onlySync',
+            docDescription: '设置分组的展开折叠状态。在某些场景下需要预置分组的展开或者折叠状态',
+        })
+        expanded: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '状态属性',
+            title: '禁用展开/折叠',
+            description: '置灰显示，且禁止展开/折叠操作',
+            docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+        })
+        disabled: nasl.core.Boolean = false;
+
+        @Slot({
+            title: 'undefined',
+            description: '插入`<u-dropdown>`子组件。',
+            snippets: [
+                {
+                    title: '下拉菜单分组',
+                    code: '<u-dropdown-group><template #title><u-text text="菜单分组"></u-text></template><u-dropdown-item><u-text text="菜单项"></u-text></u-dropdown-item></u-dropdown-group>',
+                },
+                {
+                    title: '菜单项',
+                    code: '<u-dropdown-item><u-text text="菜单项"></u-text></u-dropdown-item>',
+                },
+            ],
+        })
+        slotDefault: () => Array<UDropdownGroup | UDropdownItem>;
     }
 }

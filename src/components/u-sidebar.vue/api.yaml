@@ -4,6 +4,7 @@
   labels:
     - Navigation
   description: 通常用于页面左侧的导航栏。
+  tsTypeParams: T, V
   attrs:
     - name: has-data-source
       title: 数据源配置
@@ -27,7 +28,7 @@
         - target-field
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function | object | DataSource
+      type: "nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer }"
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       designer-value: "[{}, {}, {}]"
       group: 数据属性
@@ -38,7 +39,7 @@
         - "has-data-source": true
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
@@ -172,7 +173,8 @@
         - "enable-collapse": true
     - name: expand-icon
       title: 展开图标
-      type: icon
+      type: string
+      setter: iconSelect
       default: expand
       description: 侧边栏展开图标
       group: 交互属性
@@ -180,7 +182,8 @@
         - "enable-collapse": true
     - name: fold-icon
       title: 折叠图标
-      type: icon
+      type: string
+      setter: iconSelect
       default: fold
       description: 侧边栏折叠图标
       group: 交互属性

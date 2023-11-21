@@ -121,7 +121,7 @@ namespace nasl.ui {
                 titles: ['不可调整', '可调整', '水平可调整', '竖直可调整'],
             },
         })
-        resize: 'none' | 'both' | 'horizontal' | 'vertical' = 'none';
+        resize: 'none' | 'both' | 'horizontal' | 'vertical' = 'vertical';
 
         @Prop({
             group: '状态属性',

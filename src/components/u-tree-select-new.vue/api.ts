@@ -52,7 +52,7 @@ namespace nasl.ui {
 
         @Prop({
             group: '数据属性',
-            title: '父节点字段',
+            title: '父级值字段',
             description: '集合的元素类型中，用于标识父节点的属性',
             docDescription: '集合的元素类型中，用于标识父节点的属性',
         })
@@ -60,7 +60,7 @@ namespace nasl.ui {
 
         @Prop({
             group: '数据属性',
-            title: '子节点字段',
+            title: '子级值字段',
             description: '集合的元素类型中，用于标识子节点的属性，默认为children',
             docDescription: '集合的元素类型中，用于标识子节点的属性',
         })
@@ -75,6 +75,59 @@ namespace nasl.ui {
         })
         value: V;
 
+        @Prop({
+            group: '交互属性',
+            title: '可多选',
+            description: '设置是否开启多选模式，显示多选框',
+            docDescription: '开启后支持选中多项。默认关闭',
+        })
+        checkable: nasl.core.Boolean = false;
+
+        @Prop({
+            title: '占位符',
+            description: '为空时显示的占位符文本',
+        })
+        placeholder: nasl.core.String = '请选择';
+
+        @Prop({
+            group: '交互属性',
+            title: '父子节点独立选择',
+            description: '开启后父节点选择不会全选子节点，子节点选择不会联动父节点',
+            docDescription: '开启后父节点选择不会全选子节点，子节点选择不会联动父节点',
+        })
+        checkControlled: nasl.core.Boolean = false;
+
+        @Prop<UTreeSelectNewOptions<T, V, M>, 'disabledField'>({
+            group: '交互属性',
+            title: '不可选择字段',
+            description: '集合的元素类型中，用于标识节点的disabled属性',
+            docDescription: '集合的元素类型中，用于标识父级字段的属性，支持自定义变更',
+            setter: {
+                type: 'propertySelect',
+            },
+        })
+        disabledField: nasl.core.String = 'disabled';
+
+        @Prop({
+            group: '交互属性',
+            title: '可清除',
+            description: '设置是否开启可清除模式',
+            docDescription: '开启后支持清除按钮。默认关闭',
+        })
+        clearable: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '主要属性',
+            title: '弹出层位置依据',
+            description: `设置弹出层依据哪个元素定位位置，可选值：'body'表示添加到 document.body，'reference'表示添加到参考元素中。`,
+            docDescription: '设置弹出层在html里的位置，支持引用元素下、全局body设置。当把当前组件放入某个组件，而组件overflow是hidden的时候，需要设置为全局body',
+            setter: {
+                type: 'enumSelect',
+                titles: ['引用元素下', '全局body'],
+            },
+        })
+        appendTo: 'reference' | 'body' = 'reference';
+
         @Event({
             title: 'undefined',
             description: '修改时触发',
@@ -88,6 +141,12 @@ namespace nasl.ui {
         onSelect: (event: nasl.ui.TreeChangeEvent) => void;
 
         @Event({
+            title: '选中或取消后',
+            description: '选中/取消节点时触发',
+        })
+        onCheck: (event: nasl.ui.CheckedEvent) => void;
+
+        @Event({
             title: '加载前',
             description: '加载前触发',
         })
@@ -98,6 +157,18 @@ namespace nasl.ui {
             description: '加载后触发',
         })
         onLoad: (event: null) => void;
+
+        @Event({
+            title: '清空前',
+            description: '清空前触发',
+        })
+        onBeforeClear: (event: nasl.ui.ChangeEvent) => void;
+
+        @Event({
+            title: '清空后',
+            description: '清空时触发',
+        })
+        onClear: (event: nasl.ui.ChangeEvent) => void;
 
         @Slot({
             title: 'undefined',

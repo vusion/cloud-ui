@@ -6,11 +6,11 @@ namespace nasl.ui {
         icon: 'table-view',
         description: '用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。',
     })
-    export class UTableView<T, V, P extends boolean, M extends boolean> extends VueComponent {
+    export class UTableView<T, T1, V, P extends boolean, M extends boolean> extends VueComponent {
         @Prop({
             title: '数据',
         })
-        data: UTableViewOptions<T, V, P, M>['dataSource'];
+        data: UTableViewOptions<T, T1, V, P, M>['dataSource'];
 
         @Method({
             title: 'undefined',
@@ -76,10 +76,10 @@ namespace nasl.ui {
             })
             item?: object,
         ): void {}
-        constructor(options?: Partial<UTableViewOptions<T, V, P, M>>) { super(); }
+        constructor(options?: Partial<UTableViewOptions<T, T1, V, P, M>>) { super(); }
     }
 
-    export class UTableViewOptions<T, V, P extends boolean, M extends boolean> {
+    export class UTableViewOptions<T, T1, V, P extends boolean, M extends boolean> {
         @Prop({
             group: '数据属性',
             title: '数据源',
@@ -111,7 +111,7 @@ namespace nasl.ui {
         })
         private pageable: nasl.core.Boolean = false;
 
-        @Prop<UTableViewOptions<T, V, P, M>, any>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, any>({
             group: '数据属性',
             title: '后端分页',
             if: _ => _.pageable === true,
@@ -126,44 +126,42 @@ namespace nasl.ui {
         })
         pagination: nasl.core.Boolean;
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'pageSize'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'pageSize'>({
             group: '数据属性',
             title: '默认每页条数',
-            syncMode: 'onlySync',
             docDescription: '每页的数据条数。默认20条。在"分页"属性开启时有效',
             if: _ => _.pagination === true,
         })
         pageSize: nasl.core.Decimal = 20;
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'showSizer'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'showSizer'>({
             group: '数据属性',
             title: '显示每页条数',
             description: '显示每页条数切换器',
             docDescription: '分页组件处是否展示数据条数的选择列表。默认开启。在"分页"属性开启时有效',
             if: _ => _.pagination === true,
         })
-        showSizer: nasl.core.Boolean = false;
+        showSizer: nasl.core.Boolean = true;
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'pageSizeOptions'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'pageSizeOptions'>({
             group: '数据属性',
             title: '每页条数选项',
             description: '每页条数切换器的选项',
             docDescription: '分页组件处是否展示每页显示数据条数的选择列表，需设置数组，如[10,20,30,40,50]。在"分页"属性开启时有效。',
-            if: _ => _.pagination === true,
+            if: _ => _.pagination === true && _.showSizer === true,
         })
         pageSizeOptions: Array<nasl.core.Decimal> = [10,20,50];
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'pageNumber'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'pageNumber'>({
             group: '数据属性',
             title: '当前页数',
             description: '当前默认展示在第几页',
-            syncMode: 'onlySync',
             docDescription: '当前加载的表格页。默认1。在"分页"属性开启时有效',
             if: _ => _.pagination === true,
         })
         pageNumber: nasl.core.Decimal = 1;
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'showTotal'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'showTotal'>({
             group: '数据属性',
             title: '显示总条数',
             docDescription: '分页组件处是否显示表格总数。默认关闭。在"分页"属性开启时有效',
@@ -171,7 +169,7 @@ namespace nasl.ui {
         })
         showTotal: nasl.core.Boolean = false;
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'showJumper'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'showJumper'>({
             group: '数据属性',
             title: '显示跳转输入',
             description: '显示页面跳转输入框',
@@ -184,10 +182,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '初始化排序规则',
             description: '设置数据初始化时的排序字段和顺序规则',
-            syncMode: 'onlySync',
             docDescription: '支持选择数据表格数据源中的某一条数据，配置默认排序规则，支持升序和降序',
         })
-        sorting: { field: nasl.core.String, order: nasl.core.String } = {field:null,order:'desc'};
+        sorting: { field: nasl.core.String, order: nasl.core.String, compare: Function } = "{ field: undefined, order: 'desc' }";
 
         @Prop({
             group: '数据属性',
@@ -195,7 +192,7 @@ namespace nasl.ui {
         })
         private remoteSorting: nasl.core.Boolean = false;
 
-        @Prop<UTableViewOptions<T, V, P, M>, any>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, any>({
             group: '数据属性',
             title: '排序初始顺序',
             setter: {
@@ -220,11 +217,14 @@ namespace nasl.ui {
         })
         private remoteFiltering: nasl.core.Boolean = false;
 
-        @Prop({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'valueField'>({
             group: '数据属性',
             title: '值字段',
             description: '在单选、多选操作、渲染树形数据中，指定数据唯一值的字段',
             docDescription: '在表格开启了单选、多选操作、渲染树形数据中，指定数据唯一值的字段',
+            setter: {
+                type: 'propertySelect',
+            },
         })
         valueField: (item: T) => V;
 
@@ -254,34 +254,43 @@ namespace nasl.ui {
         })
         treeDisplay: nasl.core.Boolean = false;
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'parentField'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'parentField'>({
             group: '数据属性',
-            title: '父节点字段',
+            title: '父级值字段',
             description: '当数据源为平铺数据时自动生成树形数据的节点字段名，重要：值字段名需要一起配置',
             docDescription: '标识父节点字段名，用于标识表格行取哪个数据作为父级的判断，需同步配置“值字段名”。在"树行模式"属性开启时有效',
+            setter: {
+                type: 'propertySelect',
+            },
             if: _ => _.treeDisplay === true,
         })
         parentField: (item: T) => V;
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'childrenField'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'childrenField'>({
             group: '数据属性',
-            title: '子节点字段',
+            title: '子级值字段',
             description: '树形数据子节点字段名，默认为children',
             docDescription: '标识子节点字段名，用于表格显示时取哪个数据展示子树。在"树行模式"属性开启时有效',
+            setter: {
+                type: 'propertySelect',
+            },
             if: _ => _.treeDisplay === true,
         })
-        childrenField: nasl.core.String = '(item: T) => nasl.collection.List<T>';
+        childrenField: nasl.core.String = 'children';
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'hasChildrenField'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'hasChildrenField'>({
             group: '数据属性',
-            title: '包含子节点字段',
+            title: '包含子级值字段',
             description: '该字段指定行数据是否包含子节点数据，默认为hasChildren',
             docDescription: '表示当前行是否需要展示子节点的"展开/收起"图标。在"树形模式"属性开启时有效',
+            setter: {
+                type: 'propertySelect',
+            },
             if: _ => _.treeDisplay === true,
         })
-        hasChildrenField: (item: T) => nasl.core.Boolean;
+        hasChildrenField: nasl.core.String = 'hasChildren';
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'treeCheckType'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'treeCheckType'>({
             group: '数据属性',
             title: '关联选中类型',
             description: '父子树节点是否关联选中',
@@ -347,11 +356,37 @@ namespace nasl.ui {
 
         @Prop({
             group: '交互属性',
-            title: '可拖拽',
+            title: '表格内可拖拽',
             description: '设置是否可以拖拽行排序',
             docDescription: '表格行是否可拖拽放置。默认关闭',
         })
         draggable: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '交互属性',
+            title: '表格间可拖拽',
+            description: '设置多个表格间是否可以拖拽放置',
+            docDescription: '表格间是否可拖拽放置。默认关闭',
+        })
+        acrossTableDrag: nasl.core.Boolean = false;
+
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'canDragableHandler'>({
+            group: '交互属性',
+            title: '可拖拽节点',
+            description: '设置表格行是否可拖拽起来。绑定逻辑',
+            bindOpen: true,
+            if: _ => _.draggable === true || _.acrossTableDrag === true,
+        })
+        canDragableHandler: Function;
+
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'canDropinHandler'>({
+            group: '交互属性',
+            title: '可放置节点',
+            description: '设置表格行是否可拖拽放入。绑定逻辑',
+            bindOpen: true,
+            if: _ => _.draggable === true || _.acrossTableDrag === true,
+        })
+        canDropinHandler: Function;
 
         @Prop({
             group: '交互属性',
@@ -389,6 +424,29 @@ namespace nasl.ui {
         configurable: nasl.core.Boolean = false;
 
         @Prop({
+            group: '交互属性',
+            title: '虚拟滚动',
+            description: '虚拟滚动表示不展示所有的数据，只展示默认条数的数据，当滚动时再展示剩余的数据。当表格数据量大时，可设置为虚拟滚动，提高性能。默认关闭。',
+        })
+        virtual: nasl.core.Boolean = false;
+
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'itemHeight'>({
+            group: '交互属性',
+            title: '每行高度',
+            description: '与虚拟滚动配合使用，表示每一行的高度。请确保行里的数据不要换行',
+            if: _ => _.virtual === true,
+        })
+        itemHeight: nasl.core.Decimal;
+
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'virtualCount'>({
+            group: '交互属性',
+            title: '展示条数',
+            description: '与虚拟滚动配合使用，表示每屏展示的最大条数',
+            if: _ => _.virtual === true,
+        })
+        virtualCount: nasl.core.Decimal = 60;
+
+        @Prop({
             group: '状态属性',
             title: '初始即加载',
             description: '设置初始时是否立即加载',
@@ -409,7 +467,7 @@ namespace nasl.ui {
         })
         designerMode: 'success' | 'empty' | 'loading' | 'error' = 'success';
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'loadingText'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'loadingText'>({
             group: '状态属性',
             title: '加载中文案',
             description: '加载中状态显示的提示文案',
@@ -418,7 +476,7 @@ namespace nasl.ui {
         })
         loadingText: nasl.core.String = '正在加载中...';
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'loading'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'loading'>({
             group: '状态属性',
             title: '加载中触发条件',
             description: '加载中状态的触发条件，未设置则默认为系统定义条件',
@@ -428,7 +486,7 @@ namespace nasl.ui {
         })
         loading: nasl.core.Boolean;
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'errorText'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'errorText'>({
             group: '状态属性',
             title: '加载失败文案',
             description: '加载失败状态显示的提示文案',
@@ -437,7 +495,7 @@ namespace nasl.ui {
         })
         errorText: nasl.core.String = '加载失败，请重试';
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'error'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'error'>({
             group: '状态属性',
             title: '加载失败触发条件',
             description: '加载失败状态的触发条件，未设置则默认为系统定义条件',
@@ -447,7 +505,7 @@ namespace nasl.ui {
         })
         error: nasl.core.Boolean;
 
-        @Prop<UTableViewOptions<T, V, P, M>, 'emptyText'>({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'emptyText'>({
             group: '状态属性',
             title: '暂无数据文案',
             description: '暂无数据状态显示的提示文案',
@@ -495,7 +553,7 @@ namespace nasl.ui {
             title: '显示边框',
             docDescription: '表格是否展示边框。默认关闭',
         })
-        border: nasl.core.Boolean = false;
+        private border: nasl.core.Boolean = false;
 
         @Prop({
             group: '样式属性',
@@ -570,6 +628,18 @@ namespace nasl.ui {
         onFilter: (event: object) => void;
 
         @Event({
+            title: '点击行',
+            description: '点击某一行时触发',
+        })
+        onClickRow: (event: nasl.ui.OperatorItemEvent) => void;
+
+        @Event({
+            title: '双击行',
+            description: '双击某一行时触发',
+        })
+        onDblclickRow: (event: nasl.ui.OperatorItemEvent) => void;
+
+        @Event({
             title: '选择前',
             description: '选择某一项前触发',
         })
@@ -642,11 +712,19 @@ namespace nasl.ui {
             snippets: [
                 {
                     title: '表格列',
-                    code: '<u-table-view-column><template #cell="current"></template><template #title><u-text text="表格列"></u-text></template></u-table-view-column>',
+                    code: '<u-table-view-column> <template #cell="current"></template> <template #title><u-text text="表格列"></u-text></template> <template #expander="current"><u-table-view-expander :item="current.item" @toggle="current.toggle"></u-table-view-expander></template> </u-table-view-column>',
+                },
+                {
+                    title: '表格动态列',
+                    code: '<u-table-view-column-dynamic><template #cell="current"></template><template #title="current"><u-text text="表格动态列"></u-text></template></u-table-view-column-dynamic>',
+                },
+                {
+                    title: '表格列分组',
+                    code: '<u-table-view-column-group> <template #title><u-text text="表格列分组"></u-text></template> <u-table-view-column> <template #cell="current"></template> <template #title><u-text text="表格列"></u-text></template> <template #expander="current"><u-table-view-expander :item="current.item" @toggle="current.toggle"></u-table-view-expander></template> </u-table-view-column> </u-table-view-column-group>',
                 },
             ],
         })
-        slotDefault: () => Array<UTableViewColumn<T, V, P, M>>;
+        slotDefault: () => Array<UTableViewColumn<T, V, P, M> | UTableViewColumnDynamic<T, T1, V, P, M> | UTableViewColumnGroup<T, V, P, M>>;
 
         @Slot({
             title: '加载中内容',
@@ -792,6 +870,19 @@ namespace nasl.ui {
         })
         hidden: nasl.core.Boolean = false;
 
+        @Prop<UTableViewColumnOptions<T, V, P, M>, 'expanderPosition'>({
+            group: '样式属性',
+            title: '展开列图标位置',
+            description: '展开列图标的位置',
+            docDescription: '展开列图标的位置。默认"左侧"。',
+            setter: {
+                type: 'enumSelect',
+                titles: ['左侧', '右侧'],
+            },
+            if: _ => _.type === 'expander',
+        })
+        expanderPosition: 'left' | 'right' = 'left';
+
         @Prop({
             group: '样式属性',
             title: '列宽度',
@@ -800,14 +891,26 @@ namespace nasl.ui {
         })
         width: nasl.core.String | nasl.core.Decimal;
 
+        @Prop({
+            group: '样式属性',
+            title: '合并列数',
+        })
+        colSpan: nasl.core.Decimal;
+
+        @Prop({
+            group: '样式属性',
+            title: '自动合并相同数据',
+        })
+        autoRowSpan: nasl.core.Boolean = false;
+
         @Slot({
-            title: 'undefined',
+            title: '单元格',
             description: '对单元格的数据展示进行自定义',
         })
         slotCell: (current: Current<T>) => Array<VueComponent>;
 
         @Slot({
-            title: 'undefined',
+            title: '编辑单元格',
             description: '对单元格的编辑数据展示进行自定义',
         })
         slotEditcell: (current: Current<T>) => Array<VueComponent>;
@@ -823,6 +926,12 @@ namespace nasl.ui {
             description: '展开列的内容',
         })
         slotExpandContent: (current: Current<T>) => Array<VueComponent>;
+
+        @Slot({
+            title: '展开列图标',
+            description: '展开列图标',
+        })
+        slotExpander: (current: Current<T>) => Array<VueComponent>;
     }
 
     @Component({
@@ -834,9 +943,12 @@ namespace nasl.ui {
     }
 
     export class UTableViewColumnConfigOptions<T, V> {
-        @Prop({
+        @Prop<UTableViewColumnConfigOptions<T, V>, any>({
             title: '文本字段',
             description: '配置列的下拉弹窗里，指定数据展示的字段',
+            setter: {
+                type: 'propertySelect',
+            },
         })
         private textField: nasl.core.String;
 
@@ -898,9 +1010,179 @@ namespace nasl.ui {
         slotTitle: () => Array<VueComponent>;
 
         @Slot({
-            title: 'undefined',
+            title: '配置列展示item',
             description: '自定义选项的结构和样式',
         })
         slotItem: (current: Current<T>) => Array<VueComponent>;
+    }
+
+    @Component({
+        title: '表格动态列',
+    })
+    export class UTableViewColumnDynamic<T, T1, V, P extends boolean, M extends boolean> extends VueComponent {
+        @Prop({
+            title: '数据',
+        })
+        data: UTableViewColumnDynamicOptions<T, T1, V, P, M>['dataSource'];
+        constructor(options?: Partial<UTableViewColumnDynamicOptions<T, T1, V, P, M>>) { super(); }
+    }
+
+    export class UTableViewColumnDynamicOptions<T, T1, V, P extends boolean, M extends boolean> {
+        @Prop({
+            group: '数据属性',
+            title: '数据源',
+            description: '展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑',
+            tooltipLink: 'https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html',
+            docDescription: '表格展示的数据。数据源可以绑定变量或者逻辑。变量或逻辑的返回值可以是数组，也可以是对象。对象格式为{list:[], total:10}',
+            designerValue: [{}],
+        })
+        dataSource: P extends true ? { list: nasl.collection.List<T1>; total: nasl.core.Integer } : nasl.collection.List<T1>;
+
+        @Prop({
+            group: '数据属性',
+            title: '数据类型',
+            description: '数据源返回的数据结构的类型，自动识别类型进行展示说明',
+            tooltipLink: 'https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html',
+            docDescription: '表格每一行的数据类型。该属性为展示属性，由数据源推导得到，无需填写',
+        })
+        dataSchema: T1;
+
+        @Prop<UTableViewColumnDynamicOptions<T, T1, V, P, M>, 'valueField'>({
+            group: '数据属性',
+            title: '值字段',
+            description: '在单选、多选操作、渲染树形数据中，指定数据唯一值的字段',
+            tooltipLink: 'https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html',
+            docDescription: '在表格开启了单选、多选操作、渲染树形数据中，指定数据唯一值的字段',
+            setter: {
+                type: 'propertySelect',
+            },
+            disabledIf: _ => _.dataSource !== null,
+        })
+        valueField: nasl.core.String = 'value';
+
+        @Prop({
+            group: '数据属性',
+            title: '排序',
+            description: '设置该列是否可以排序',
+            docDescription: '开启后该列可排序，可设置默认顺序，升序或倒序',
+        })
+        sortable: nasl.core.Boolean = false;
+
+        @Prop<UTableViewColumnDynamicOptions<T, T1, V, P, M>, 'defaultOrder'>({
+            group: '数据属性',
+            title: '排序初始顺序',
+            description: '该列首次点击时的排序顺序',
+            docDescription: '该列首次点击时的排序顺序。与表格属性中的"默认排序顺序"相同',
+            setter: {
+                type: 'enumSelect',
+                titles: ['升序', '倒序'],
+            },
+            if: _ => _.sortable === true,
+        })
+        defaultOrder: 'asc' | 'desc' = 'asc';
+
+        @Prop({
+            group: '主要属性',
+            title: '固定列',
+            description: '该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。',
+        })
+        fixed: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '主要属性',
+            title: '文本过长省略',
+            description: '文字过长是否省略显示。默认文字超出时会换行。',
+            docDescription: '开启后，该列文本过长会省略显示，否则换行显示，默认关闭',
+        })
+        ellipsis: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '主要属性',
+            title: '隐藏列',
+            docDescription: '开启后，当表格横向滚动条滚动时，该列会固定不会跟随滚动条滚动',
+        })
+        hidden: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '样式属性',
+            title: '列宽度',
+            description: '设置列宽度，可设置为数字或百分比',
+            docDescription: '指定列宽，可以是数字或百分比，如100，或10%。',
+        })
+        width: nasl.core.String | nasl.core.Decimal;
+
+        @Slot({
+            title: '配置列展示title',
+        })
+        slotTitle: (current: Current<T1>) => Array<VueComponent>;
+
+        @Slot({
+            title: '配置列展示item',
+            description: '自定义选项的结构和样式',
+        })
+        slotCell: (current: CurrentDynamic<T, T1>) => Array<VueComponent>;
+    }
+
+    @Component({
+        title: '表格列分组',
+    })
+    export class UTableViewColumnGroup<T, V, P extends boolean, M extends boolean> extends VueComponent {
+
+        constructor(options?: Partial<UTableViewColumnGroupOptions<T, V, P, M>>) { super(); }
+    }
+
+    export class UTableViewColumnGroupOptions<T, V, P extends boolean, M extends boolean> {
+        @Prop({
+            group: '主要属性',
+            title: '表格标题',
+        })
+        private title: nasl.core.String;
+
+        @Slot({
+            title: '默认',
+            description: '在表格中插入`<u-table-view-column>`子组件',
+            emptyBackground: 'drag-entity-here',
+            snippets: [
+                {
+                    title: '表格列',
+                    code: '<u-table-view-column><template #cell="current"></template><template #title><u-text text="表格列"></u-text></template></u-table-view-column>',
+                },
+            ],
+        })
+        slotDefault: () => Array<UTableViewColumn<T, V, P, M>>;
+
+        @Slot({
+            title: '标题',
+            description: '对标题进行自定义',
+        })
+        slotTitle: () => Array<VueComponent>;
+    }
+
+    @Component({
+        title: '展开列图标',
+    })
+    export class UTableViewExpander extends VueComponent {
+
+        constructor(options?: Partial<UTableViewExpanderOptions>) { super(); }
+    }
+
+    export class UTableViewExpanderOptions {
+        @Prop({
+            title: '展开时图标',
+            description: '展开时图标',
+            setter: {
+                type: 'iconSelect',
+            },
+        })
+        expandIcon: nasl.core.String;
+
+        @Prop({
+            title: '关闭时图标',
+            description: '关闭时图标',
+            setter: {
+                type: 'iconSelect',
+            },
+        })
+        collapseIcon: nasl.core.String;
     }
 }

@@ -73,6 +73,16 @@ namespace nasl.ui {
         icon: nasl.core.String = '';
 
         @Prop({
+            title: '图标位置',
+            description: '设置图标居左或居右显示',
+            setter: {
+                type: 'enumSelect',
+                titles: ['左', '右'],
+            },
+        })
+        iconPosition: 'left' | 'right' = 'left';
+
+        @Prop({
             group: '交互属性',
             title: '链接类型',
             docDescription: '支持页面跳转、普通链接、下载链接。',

@@ -78,7 +78,7 @@ namespace nasl.ui {
             description: '列跨越的格数',
             docDescription: '当前列表项占的列数，为空默认取列表组的列数值，优先取列表项的值',
         })
-        span: nasl.core.String;
+        span: nasl.core.Decimal;
 
         @Prop({
             group: '主要属性',

@@ -13,12 +13,6 @@ namespace nasl.ui {
 
     export class UTaskboxOptions {
         @Prop({
-            title: '通知',
-            description: '鼠标 hover 在图标上展示文案',
-        })
-        title: nasl.core.String;
-
-        @Prop({
             group: '主要属性',
             title: '图标',
             docDescription: '图标',

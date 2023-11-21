@@ -24,6 +24,12 @@ namespace nasl.ui {
         })
         gap: 'compact' | 'none' | 'small' | 'normal' | 'large' = 'normal';
 
+        @Event({
+            title: '滚动时',
+            description: '滚动时触发',
+        })
+        onScroll: (event: nasl.ui.ScrollEvent) => void;
+
         @Slot({
             title: 'undefined',
             description: '插入`<u-grid-layout-row>`或`<u-grid-layout-column>`子组件。',
@@ -264,7 +270,6 @@ namespace nasl.ui {
             docDescription: '支持设置当前栅格列占据的栅格数，不能超过当前栅格行栅格数。',
             setter: {
                 type: 'numberInput',
-                precision: 1e-14,
             },
         })
         span: nasl.core.Decimal = 1;
@@ -276,7 +281,6 @@ namespace nasl.ui {
             docDescription: '支持设置栅格列偏移数，控制当前栅格列与其左侧栅格列的距离，处于当前栅格列右侧的栅格列也会同步偏移。',
             setter: {
                 type: 'numberInput',
-                precision: 1e-14,
             },
         })
         offset: nasl.core.Decimal = 0;
@@ -288,7 +292,6 @@ namespace nasl.ui {
             docDescription: '向左移动的栅格数，支持栅格互相重合。',
             setter: {
                 type: 'numberInput',
-                precision: 1e-14,
             },
         })
         pull: nasl.core.Decimal = 0;
@@ -300,7 +303,6 @@ namespace nasl.ui {
             docDescription: '向右移动的栅格数，支持栅格互相重合。',
             setter: {
                 type: 'numberInput',
-                precision: 1e-14,
             },
         })
         push: nasl.core.Decimal = 0;

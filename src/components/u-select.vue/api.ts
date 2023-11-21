@@ -225,6 +225,23 @@ namespace nasl.ui {
 
         @Prop({
             group: '主要属性',
+            title: '全选控制',
+            description: '是否存在可以控制选项的全选/反选',
+            docDescription: '是否存在可以控制选项的全选/反选',
+        })
+        hasAllCheckItem: nasl.core.Boolean = false;
+
+        @Prop<USelectOptions<T, V, P, M, C>, 'allCheckItemText'>({
+            group: '主要属性',
+            title: '全选展示内容',
+            description: '是否存在可以控制选项的全选/反选',
+            docDescription: '是否存在可以控制选项的全选/反选',
+            if: _ => _.hasAllCheckItem === true,
+        })
+        allCheckItemText: nasl.core.String = '全选';
+
+        @Prop({
+            group: '主要属性',
             title: '转换器',
             description: '将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。',
             docDescription: '将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式',
@@ -508,7 +525,7 @@ namespace nasl.ui {
         onBeforeFilter: (event: DataSourceParams) => void;
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '插入`<u-select-item>`、`<u-select-divider>`或`<u-select-group>`子组件。',
             snippets: [
                 {

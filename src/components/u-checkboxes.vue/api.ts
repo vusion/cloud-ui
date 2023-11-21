@@ -25,7 +25,7 @@ namespace nasl.ui {
             docDescription: '支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑',
             designerValue: [{}, {}, {}],
         })
-        dataSource: nasl.collection.List<T>;
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
 
         @Prop({
             group: '数据属性',
@@ -62,19 +62,51 @@ namespace nasl.ui {
         })
         value: nasl.collection.List<V> = [];
 
-        @Prop({
+        @Prop<UCheckboxesOptions<T, V, C>, 'checkAll'>({
+            group: '主要属性',
+            title: '全选控制',
+            description: '是否进行全选',
+            onToggle: [
+                { clear: ['min','max'] }
+            ],
+        })
+        checkAll: nasl.core.Boolean = false;
+
+        @Prop<UCheckboxesOptions<T, V, C>, 'checkAllText'>({
+            group: '主要属性',
+            title: '全选展示内容',
+            description: '全选功能展示的文案内容',
+            if: _ => _.checkAll === true,
+        })
+        checkAllText: nasl.core.String = '全选';
+
+        @Prop<UCheckboxesOptions<T, V, C>, 'checkAllDisplay'>({
+            group: '主要属性',
+            title: '展示方式',
+            description: '选择展开方式',
+            setter: {
+                type: 'enumSelect',
+                titles: ['同行展示', '分行展示'],
+            },
+            if: _ => _.checkAll === true,
+        })
+        checkAllDisplay: 'inline' | 'block' = 'inline';
+
+        @Prop<UCheckboxesOptions<T, V, C>, 'min'>({
             group: '主要属性',
             title: '最小选中数',
             description: '可以勾选多选框的最小数量',
             docDescription: '多选组可以勾选多选框的最小数量。',
+            if: _ => _.checkAll === false,
         })
         min: nasl.core.Decimal = 0;
 
-        @Prop({
+        @Prop<UCheckboxesOptions<T, V, C>, 'max'>({
             group: '主要属性',
             title: '最大选中数',
             description: '可以勾选多选框的最大数量',
             docDescription: '多选组可以勾选多选框的最大数量。',
+            if: _ => _.checkAll === false,
         })
         max: nasl.core.Decimal;
 
@@ -149,6 +181,18 @@ namespace nasl.ui {
             ],
         })
         slotDefault: () => Array<UCheckbox<T, V>>;
+
+        @Slot({
+            title: 'undefined',
+            description: '全选/反选',
+            snippets: [
+                {
+                    title: '全选/反选文本',
+                    code: "<u-text text='全选'></u-text>",
+                },
+            ],
+        })
+        slotCheckAll: () => Array<UText>;
 
         @Slot({
             title: 'undefined',

@@ -273,7 +273,7 @@ namespace nasl.ui {
 
         @Prop({
             group: '交互属性',
-            title: '可选中/取消',
+            title: '默认选中',
             syncMode: 'onlySync',
         })
         checked: nasl.core.Boolean;

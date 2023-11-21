@@ -99,6 +99,12 @@ namespace nasl.ui {
         gap: 'shrink' | 'none' | 'small' | 'normal' | 'large' = 'none';
 
         @Event({
+            title: '滚动时',
+            description: '滚动时触发',
+        })
+        onScroll: (event: nasl.ui.ScrollEvent) => void;
+
+        @Event({
             title: '点击',
             description: '在元素上按下并释放任意鼠标按钮时触发。',
         })

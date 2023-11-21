@@ -76,6 +76,21 @@ namespace nasl.ui {
         })
         preview: nasl.core.Boolean = false;
 
+        @Prop({
+            title: '加载样式',
+            setter: {
+                type: 'enumSelect',
+                titles: ['Loading', '不显示加载状态', '自定义默认图'],
+            },
+        })
+        loadingType: 'loading' | 'none' | 'placeholder' = 'loading';
+
+        @Prop<UImageOptions, 'placeholderSrc'>({
+            title: '默认图地址',
+            if: _ => _.loadingType === 'placeholder',
+        })
+        placeholderSrc: nasl.core.String = 'https://static-vusion.nos-eastchina1.126.net/h5-template/lietu.png';
+
         @Event({
             title: '加载完成',
             description: '网页加载完成时触发',

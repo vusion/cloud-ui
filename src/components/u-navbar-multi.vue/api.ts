@@ -6,26 +6,101 @@ namespace nasl.ui {
         icon: 'navbar-multi',
         description: '通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。',
     })
-    export class UNavbarMulti extends VueComponent {
+    export class UNavbarMulti<T, V> extends VueComponent {
 
-        constructor(options?: Partial<UNavbarMultiOptions>) { super(); }
+        constructor(options?: Partial<UNavbarMultiOptions<T, V>>) { super(); }
     }
 
-    export class UNavbarMultiOptions {
-        @Prop({
+    export class UNavbarMultiOptions<T, V> {
+        @Prop<UNavbarMultiOptions<T, V>, 'hasDataSource'>({
+            group: '数据属性',
+            title: '数据源配置',
+            bindHide: true,
+            onToggle: [
+                { clear: ['data-source','data-schema','text-field','to-field','icon-field','value-field','parent-field','link-type-field','target-field'] }
+            ],
+        })
+        hasDataSource: nasl.core.Boolean = false;
+
+        @Prop<UNavbarMultiOptions<T, V>, 'dataSource'>({
+            group: '数据属性',
+            title: '数据源',
+            description: '展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。',
+            docDescription: '支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑',
+            designerValue: [{}, {}, {}],
+            if: _ => _.hasDataSource === true,
+        })
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
+
+        @Prop<UNavbarMultiOptions<T, V>, 'dataSchema'>({
+            group: '数据属性',
+            title: '数据类型',
+            description: '数据源返回的数据结构的类型，自动识别类型进行展示说明',
+            docDescription: '该属性为只读状态，当数据源动态绑定集合List<T>后，会自动识别T的类型并进行展示',
+            if: _ => _.hasDataSource === true,
+        })
+        dataSchema: T;
+
+        @Prop<UNavbarMultiOptions<T, V>, 'textField'>({
+            group: '数据属性',
+            title: '文本字段',
+            description: '集合的元素类型中，用于显示文本的属性名称',
+            if: _ => _.hasDataSource === true,
+        })
+        textField: nasl.core.String = 'text';
+
+        @Prop<UNavbarMultiOptions<T, V>, 'valueField'>({
+            group: '数据属性',
+            title: '值字段',
+            description: '集合的元素类型中，用于标识选中值的属性',
+            docDescription: '集合的元素类型中，用于标识选中值的属性，支持自定义变更',
+            if: _ => _.hasDataSource === true,
+        })
+        valueField: nasl.core.String = 'value';
+
+        @Prop<UNavbarMultiOptions<T, V>, 'iconField'>({
+            group: '数据属性',
+            title: '图标属性字段',
+            description: '集合的元素类型中，用于图标的属性名称',
+            if: _ => _.hasDataSource === true,
+        })
+        iconField: nasl.core.String = 'icon';
+
+        @Prop<UNavbarMultiOptions<T, V>, 'toField'>({
+            group: '数据属性',
+            title: '跳转链接字段',
+            description: '集合的元素类型中，用于跳转链接的属性名称',
+            if: _ => _.hasDataSource === true,
+        })
+        toField: nasl.core.String = 'to';
+
+        @Prop<UNavbarMultiOptions<T, V>, 'parentField'>({
+            group: '数据属性',
+            title: '父级值字段',
+            description: '集合的元素类型中，用于标识父节点的属性',
+            docDescription: '集合的元素类型中，用于标识父级字段的属性，支持自定义变更',
+            if: _ => _.hasDataSource === true,
+        })
+        parentField: nasl.core.String = '';
+
+        @Prop<UNavbarMultiOptions<T, V>, 'router'>({
             group: '数据属性',
             title: '使用路由',
             description: '是否根据 vue-router 来控制选择项',
             docDescription: '设置是否根据vue-router来控制选择哪一项，默认开启。开启后当前所在的导航栏项底部会有标识',
+            onToggle: [
+                { clear: ['value'] }
+            ],
         })
         router: nasl.core.Boolean = true;
 
-        @Prop({
+        @Prop<UNavbarMultiOptions<T, V>, 'value'>({
             group: '数据属性',
             title: '选中值',
             description: '当前选中的值',
             syncMode: 'both',
             docDescription: '当前选择的值',
+            if: _ => _.router === false,
         })
         value: nasl.core.String;
 
@@ -57,6 +132,26 @@ namespace nasl.ui {
             description: '选择某一项后触发。',
         })
         onSelect: (event: nasl.ui.ChangeItemEvent) => void;
+
+        @Slot({
+            title: 'undefined',
+            description: '插入`<u-navbar-multi>`子组件。',
+            snippets: [
+                {
+                    title: '导航栏分组',
+                    code: '<u-navbar-group-multi><template #title><u-text text="导航栏分组"></u-text></template><u-navbar-item-multi><u-text text="导航栏项"></u-text></u-navbar-item-multi></u-navbar-group-multi>',
+                },
+                {
+                    title: '导航栏项',
+                    code: '<u-navbar-item-multi><u-text text="导航栏项"></u-text></u-navbar-item-multi>',
+                },
+                {
+                    title: '分隔线',
+                    code: '<u-navbar-divider-multi></u-navbar-divider-multi>',
+                },
+            ],
+        })
+        slotDefault: () => Array<UNavbarGroupMulti | UNavbarItemMulti | UNavbarDividerMulti>;
     }
 
     @Component({
@@ -371,5 +466,73 @@ namespace nasl.ui {
 
     export class UNavbarSelectDividerMultiOptions {
 
+    }
+
+    @Component({
+        title: '导航栏分组',
+        description: '导航栏分组',
+    })
+    export class UNavbarGroupMulti extends VueComponent {
+
+        constructor(options?: Partial<UNavbarGroupMultiOptions>) { super(); }
+    }
+
+    export class UNavbarGroupMultiOptions {
+        @Prop({
+            title: '标题',
+            description: '显示的标题',
+        })
+        private title: nasl.core.String;
+
+        @Prop({
+            group: '交互属性',
+            title: '可折叠',
+            description: '设置是否可以展开/折叠',
+            docDescription: '设置分组是否可折叠',
+        })
+        collapsible: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '交互属性',
+            title: '触发方式',
+            setter: {
+                type: 'enumSelect',
+                titles: ['点击', '悬浮', '右击', '双击'],
+            },
+        })
+        trigger: 'click' | 'hover' | 'right-click' | 'double-click' = 'click';
+
+        @Prop({
+            group: '状态属性',
+            title: '展开状态',
+            description: '展开状态分为“True(展开)/False(折叠)”，默认为“展开”',
+            syncMode: 'onlySync',
+            docDescription: '设置分组的展开折叠状态。在某些场景下需要预置分组的展开或者折叠状态',
+        })
+        expanded: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '状态属性',
+            title: '禁用展开/折叠',
+            description: '置灰显示，且禁止展开/折叠操作',
+            docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+        })
+        disabled: nasl.core.Boolean = false;
+
+        @Slot({
+            title: 'undefined',
+            description: '插入`<u-navbar-multi>`子组件。',
+            snippets: [
+                {
+                    title: '导航栏分组',
+                    code: '<u-navbar-group-multi><template #title><u-text text="导航栏分组"></u-text></template><u-navbar-item-multi><u-text text="导航栏项"></u-text></u-navbar-item-multi></u-navbar-group-multi>',
+                },
+                {
+                    title: '导航栏项',
+                    code: '<u-navbar-item-multi><u-text text="导航栏项"></u-text></u-navbar-item-multi>',
+                },
+            ],
+        })
+        slotDefault: () => Array<UNavbarGroupMulti | UNavbarItemMulti>;
     }
 }

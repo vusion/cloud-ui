@@ -258,6 +258,12 @@ namespace nasl.ui {
         })
         onMouseleave: () => void;
 
+        @Event({
+            title: '滚动时',
+            description: '滚动时触发',
+        })
+        onScroll: (event: nasl.ui.ScrollEvent) => void;
+
         @Slot({
             title: 'undefined',
             description: '内容',

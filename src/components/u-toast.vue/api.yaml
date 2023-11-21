@@ -28,7 +28,8 @@
       description: 提示的类型
     - name: custom-icon
       title: 自定义图标
-      type: icon
+      type: string
+      setter: iconSelect
       dependency:
         - color: custom
     - name: duration

@@ -76,7 +76,7 @@ namespace nasl.ui {
 
         @Prop<UCascaderOptions<T, V>, 'childrenField'>({
             group: '数据属性',
-            title: '子级节点字段',
+            title: '子级值字段',
             description: '树形数据子节点字段名，默认为children',
             docDescription: '树形数据子节点字段名，默认为children',
             setter: {
@@ -88,7 +88,7 @@ namespace nasl.ui {
 
         @Prop<UCascaderOptions<T, V>, 'parentField'>({
             group: '数据属性',
-            title: '父级节点字段',
+            title: '父级值字段',
             description: '当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置',
             docDescription: '当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置',
             setter: {
@@ -105,6 +105,14 @@ namespace nasl.ui {
             docDescription: '选择器的值',
         })
         value: V;
+
+        @Prop({
+            group: '数据属性',
+            title: '绑定值使用值字段',
+            docDescription: '是否使用数组类型的value',
+            bindHide: true,
+        })
+        useArrayLikeValue: nasl.core.Boolean = false;
 
         @Prop({
             group: '数据属性',

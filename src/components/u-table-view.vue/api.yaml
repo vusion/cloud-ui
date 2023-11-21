@@ -4,7 +4,7 @@
   labels:
     - Table
   description: 用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。
-  tsTypeParams: T, V, P extends boolean, M extends boolean
+  tsTypeParams: T, T1, V, P extends boolean, M extends boolean
   attrs:
     - name: data-source
       title: 数据源
@@ -181,6 +181,7 @@
       group: 数据属性
       docDescription: 在表格开启了单选、多选操作、渲染树形数据中，指定数据唯一值的字段
       tooltipLink: ""
+      display: property-select
     - name: value
       title: 单选值
       type: T
@@ -215,19 +216,21 @@
         - tree-display: true
       docDescription: 标识父节点字段名，用于标识表格行取哪个数据作为父级的判断，需同步配置“值字段名”。在"树行模式"属性开启时有效
       tooltipLink: ""
+      display: property-select
     - name: children-field
       title: 子级值字段
       type: string
-      default: '(item: T) => nasl.collection.List<T>'
+      default: children
       description: 树形数据子节点字段名，默认为children
       group: 数据属性
       dependency:
         - tree-display: true
       docDescription: 标识子节点字段名，用于表格显示时取哪个数据展示子树。在"树行模式"属性开启时有效
       tooltipLink: ""
+      display: property-select
     - name: has-children-field
       title: 包含子级值字段
-      type: '(item: T) => nasl.core.Boolean'
+      type: string
       default: hasChildren
       description: 该字段指定行数据是否包含子节点数据，默认为hasChildren
       group: 数据属性
@@ -235,6 +238,7 @@
         - tree-display: true
       docDescription: 表示当前行是否需要展示子节点的"展开/收起"图标。在"树形模式"属性开启时有效
       tooltipLink: ""
+      display: property-select
     - name: tree-check-type
       title: 关联选中类型
       description: 父子树节点是否关联选中
@@ -584,11 +588,13 @@
             </u-table-view-column>'
         - name: u-table-view-column-dynamic
           title: 表格动态列
+          tsTypeArguments: T, T1, V, P, M
           snippet: '<u-table-view-column-dynamic><template #cell="current"></template><template
             #title="current"><u-text
             text="表格动态列"></u-text></template></u-table-view-column-dynamic>'
         - name: u-table-view-column-group
           title: 表格列分组
+          tsTypeArguments: T, V, P, M
           snippet: '<u-table-view-column-group>
               <template #title><u-text text="表格列分组"></u-text></template>
               <u-table-view-column>
@@ -1282,6 +1288,7 @@
   slots:
     - concept: Slot
       name: cell
+      title: 单元格
       plus-empty: true
       description: 对单元格的数据展示进行自定义
       slotProps:
@@ -1298,6 +1305,7 @@
               typeName: T
     - concept: Slot
       name: editcell
+      title: 编辑单元格
       plus-empty: true
       plus-empty-tag: editcell-plus-empty
       description: 对单元格的编辑数据展示进行自定义
@@ -1337,6 +1345,7 @@
               typeName: T
     - concept: Slot
       name: expander
+      title: 展开列图标
       plus-empty: true
       description: 展开列图标
       props:
@@ -1382,6 +1391,7 @@
       type: string
       description: 配置列的下拉弹窗里，指定数据展示的字段
       advanced: true
+      display: property-select
     - name: data-source
       title: 数据源
       type: nasl.collection.List<T>
@@ -1430,6 +1440,7 @@
       title: 配置列展示title
     - concept: Slot
       name: item
+      title: 配置列展示item
       description: 自定义选项的结构和样式
       slotProps:
         concept: Param
@@ -1475,10 +1486,14 @@
           description: 发送事件实例
 - name: u-table-view-column-dynamic
   title: 表格动态列
+  tsTypeParams: T, T1, V, P extends boolean, M extends boolean
   attrs:
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function | object | DataSource
+      type: "P extends true ? { list: nasl.collection.List<T1>; total: nasl.core.Integer } : nasl.collection.List<T1>"
+      readable: true
+      readableName: data
+      readableTitle: 数据
       designer-value: "[{}]"
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
@@ -1487,7 +1502,7 @@
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: data-schema
       title: 数据类型
-      type: schema
+      type: T1
       compType: dataTypeSelect
       group: 数据属性
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
@@ -1582,9 +1597,10 @@
           typeArguments:
             - concept: TypeAnnotation
               typeKind: typeParam
-              typeName: T
+              typeName: T1
     - concept: Slot
       name: cell
+      title: 配置列展示item
       plus-empty: true
       description: 自定义选项的结构和样式
       slotProps:
@@ -1604,6 +1620,7 @@
               typeName: T1
 - name: u-table-view-column-group
   title: 表格列分组
+  tsTypeParams: T, V, P extends boolean, M extends boolean
   attrs:
     - name: title
       title: 表格标题
@@ -1620,6 +1637,7 @@
       support:
         - name: u-table-view-column
           title: 表格列
+          tsTypeArguments: T, V, P, M
           snippet: '<u-table-view-column><template #cell="current"></template><template
             #title><u-text
             text="表格列"></u-text></template></u-table-view-column>'
@@ -1647,14 +1665,16 @@
   attrs:
     - name: expand-icon
       title: 展开时图标
-      type: icon
+      type: string
+      setter: iconSelect
       description: 展开时图标
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: collapse-icon
       title: 关闭时图标
-      type: icon
+      type: string
+      setter: iconSelect
       description: 关闭时图标
       brifeDoc: ""
       docDescription: ""
