@@ -66,11 +66,17 @@ namespace nasl.ui {
         @Prop({
             title: '分页',
             description: '是否需要分页',
+            setter: {
+                type: 'switch',
+            },
         })
         private pageable: nasl.core.Boolean = false;
 
         @Prop({
             title: '分页大小',
+            setter: {
+                type: 'numberInput',
+            },
         })
         private pageSize: nasl.core.Decimal = 50;
 
@@ -113,6 +119,9 @@ namespace nasl.ui {
             title: '筛选',
             description: '显示筛选（搜索框）',
             docDescription: '是否开启过滤输入框和过滤功能。默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         filterable: nasl.core.Boolean = false;
 
@@ -121,6 +130,9 @@ namespace nasl.ui {
             title: '大小写敏感',
             description: '设置是否区分大小写',
             docDescription: '搜索是否大小写敏感。默认关闭。在过滤属性开启后有效。',
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.filterable === true,
         })
         caseSensitive: nasl.core.Boolean = false;
@@ -130,6 +142,9 @@ namespace nasl.ui {
             title: '可清除筛选',
             description: '可点击清除按钮一键清除搜索框内容',
             docDescription: '过滤输入框是否开启清除按钮。默认开启。在过滤属性开启后有效',
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.filterable === true,
         })
         clearable: nasl.core.Boolean = false;
@@ -138,6 +153,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '显示头部',
             docDescription: '开启后会显示头部全选栏。默认开启',
+            setter: {
+                type: 'switch',
+            },
         })
         showHead: nasl.core.Boolean = false;
 
@@ -169,6 +187,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -177,6 +198,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

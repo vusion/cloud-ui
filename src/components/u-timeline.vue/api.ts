@@ -44,6 +44,9 @@ namespace nasl.ui {
             title: '待定节点',
             description: '待定节点连接线为虚线展示，用于表示即将发生或者正在进行的节点',
             docDescription: '待定节点连接线为虚线展示，用于表示即将发生或者正在进行的节点',
+            setter: {
+                type: 'switch',
+            },
         })
         pending: nasl.core.Boolean = false;
 

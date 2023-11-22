@@ -119,6 +119,9 @@ namespace nasl.ui {
             title: '标签过长省略',
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '文字过长是否省略显示，默认文字超出时会换行。',
+            setter: {
+                type: 'switch',
+            },
         })
         labelEllipsis: nasl.core.Boolean = false;
 
@@ -127,6 +130,9 @@ namespace nasl.ui {
             title: '可折叠',
             description: '设置是否可以展开/折叠',
             docDescription: '分组是否可以折叠。',
+            setter: {
+                type: 'switch',
+            },
         })
         collapsible: nasl.core.Boolean = false;
 
@@ -135,6 +141,9 @@ namespace nasl.ui {
             title: '手风琴模式',
             description: '设置是否每次只展开一个',
             docDescription: '是否每次只会展开一个分组。',
+            setter: {
+                type: 'switch',
+            },
         })
         accordion: nasl.core.Boolean = false;
 
@@ -275,6 +284,9 @@ namespace nasl.ui {
         @Prop({
             title: '忽略验证规则',
             description: '忽略验证规则。已废弃，同`ignore-validation`',
+            setter: {
+                type: 'switch',
+            },
         })
         private ignoreRules: nasl.core.Boolean = false;
 
@@ -301,6 +313,9 @@ namespace nasl.ui {
             title: '占据数',
             description: '列跨越的格数',
             docDescription: '列跨越的格数。',
+            setter: {
+                type: 'numberInput',
+            },
         })
         span: nasl.core.Decimal = 1;
 
@@ -320,6 +335,9 @@ namespace nasl.ui {
             title: '标签过长省略',
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '文字过长是否省略显示，默认文字超出时会换行。',
+            setter: {
+                type: 'switch',
+            },
         })
         labelEllipsis: nasl.core.Boolean = false;
 
@@ -328,6 +346,9 @@ namespace nasl.ui {
             title: '必填标记',
             description: '是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。',
             docDescription: '是否必填。仅显示样式，如果要验证必填项，需要在rules中添加必填规则。',
+            setter: {
+                type: 'switch',
+            },
         })
         required: nasl.core.Boolean = false;
 
@@ -383,6 +404,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '忽略验证',
             docDescription: '设置是否忽略验证。',
+            setter: {
+                type: 'switch',
+            },
         })
         ignoreValidation: nasl.core.Boolean = false;
 
@@ -462,6 +486,9 @@ namespace nasl.ui {
             title: '列数',
             description: '整个表单的划分列数',
             docDescription: '整个表单的划分列数。',
+            setter: {
+                type: 'numberInput',
+            },
         })
         repeat: nasl.core.Decimal = 1;
 
@@ -481,6 +508,9 @@ namespace nasl.ui {
             title: '标签过长省略',
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '文字过长是否省略显示。默认文字超出时会换行。',
+            setter: {
+                type: 'switch',
+            },
         })
         labelEllipsis: nasl.core.Boolean = false;
 
@@ -489,6 +519,9 @@ namespace nasl.ui {
             title: '可折叠',
             description: '设置是否可以展开/折叠',
             docDescription: '分组是否可以折叠。',
+            setter: {
+                type: 'switch',
+            },
         })
         collapsible: nasl.core.Boolean = false;
 
@@ -498,6 +531,9 @@ namespace nasl.ui {
             description: '展开状态分为“True(展开)/False(折叠)”，默认为“展开”',
             syncMode: 'onlySync',
             docDescription: '绑定展开/折叠状态的值',
+            setter: {
+                type: 'switch',
+            },
         })
         expanded: nasl.core.Boolean = false;
 
@@ -506,6 +542,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止展开/折叠操作',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

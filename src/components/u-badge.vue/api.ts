@@ -15,6 +15,9 @@ namespace nasl.ui {
         @Prop({
             title: '显示小圆点',
             description: '是否显示为小圆点',
+            setter: {
+                type: 'switch',
+            },
         })
         private dot: nasl.core.Boolean = false;
 
@@ -39,6 +42,9 @@ namespace nasl.ui {
             title: '角标在右上角',
             description: '开启时提醒角标位置显示在右上角，关闭时提醒角标显示在组件右侧。',
             docDescription: '开启时提醒角标位置显示在右上角，关闭时提醒角标显示在组件右侧。',
+            setter: {
+                type: 'switch',
+            },
         })
         corner: nasl.core.Boolean = false;
 

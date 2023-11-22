@@ -18,6 +18,9 @@ namespace nasl.ui {
             description: '当前默认展示在第几页',
             syncMode: 'onlySync',
             docDescription: '翻页器的当前页',
+            setter: {
+                type: 'numberInput',
+            },
         })
         page: nasl.core.Decimal = 1;
 
@@ -25,6 +28,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '总页数',
             docDescription: '翻页器的总页数',
+            setter: {
+                type: 'numberInput',
+            },
         })
         total: nasl.core.Decimal = 11;
 
@@ -33,6 +39,9 @@ namespace nasl.ui {
             title: '两端页码数量',
             description: '当页数多时，两端恒定显示的页码数量',
             docDescription: '当页数多时，两边恒定显示的数量',
+            setter: {
+                type: 'numberInput',
+            },
         })
         side: nasl.core.Decimal = 2;
 
@@ -41,6 +50,9 @@ namespace nasl.ui {
             title: '中间页码数量',
             description: '当页数多时，中间恒定显示的页码数量',
             docDescription: '当页数多时，左侧恒定显示的数量，若和两边的显示数量不一致，则取两者之间的最大值',
+            setter: {
+                type: 'numberInput',
+            },
         })
         around: nasl.core.Decimal = 5;
 
@@ -48,6 +60,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '总条数',
             docDescription: '数据的总条数目',
+            setter: {
+                type: 'numberInput',
+            },
         })
         totalItems: nasl.core.Decimal;
 
@@ -56,6 +71,9 @@ namespace nasl.ui {
             title: '默认每页条数',
             syncMode: 'onlySync',
             docDescription: '每页展示数据的条目数，默认为[10,20,50]',
+            setter: {
+                type: 'numberInput',
+            },
         })
         pageSize: nasl.core.Decimal = 20;
 
@@ -70,6 +88,9 @@ namespace nasl.ui {
         @Prop({
             group: '主要属性',
             title: '显示总条数',
+            setter: {
+                type: 'switch',
+            },
         })
         showTotal: nasl.core.Boolean = false;
 
@@ -78,6 +99,9 @@ namespace nasl.ui {
             title: '显示每页条数',
             description: '显示每页条数切换器',
             docDescription: '是否显示切换每页条数选项',
+            setter: {
+                type: 'switch',
+            },
         })
         showSizer: nasl.core.Boolean = false;
 
@@ -86,6 +110,9 @@ namespace nasl.ui {
             title: '显示跳转输入',
             description: '显示页面跳转输入框',
             docDescription: '是否显示页面跳转输入框',
+            setter: {
+                type: 'switch',
+            },
         })
         showJumper: nasl.core.Boolean = false;
 
@@ -93,6 +120,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '只读',
             description: '正常显示，但禁止选择/输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -100,6 +130,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

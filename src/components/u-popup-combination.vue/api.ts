@@ -57,6 +57,9 @@ namespace nasl.ui {
         @Prop({
             title: '合并边框',
             description: '是否自动合并内外边框',
+            setter: {
+                type: 'switch',
+            },
         })
         private mergeBorders: nasl.core.Boolean = true;
 
@@ -85,6 +88,9 @@ namespace nasl.ui {
             title: '消失延迟时间',
             description: `当触发方式为'悬浮'时，提示内容消失延迟时间，单位是毫秒(ms)`,
             docDescription: '当触发方式为悬浮时，弹出框内容消失的延迟时间，单位为ms',
+            setter: {
+                type: 'numberInput',
+            },
         })
         hideDelay: nasl.core.Decimal = 200;
 
@@ -92,6 +98,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '跟随鼠标',
             docDescription: '控制弹出框弹出位置，开启后会以鼠标点击位置为基点弹出，关闭则为默认弹出位置',
+            setter: {
+                type: 'switch',
+            },
         })
         followCursor: nasl.core.Boolean = false;
 
@@ -111,6 +120,9 @@ namespace nasl.ui {
             title: '文本过长省略',
             description: '文字过长是否省略显示。',
             docDescription: '开启时该项文本过长会省略显示，默认不开启为换行显示',
+            setter: {
+                type: 'switch',
+            },
         })
         ellipsis: nasl.core.Boolean = false;
 
@@ -137,6 +149,9 @@ namespace nasl.ui {
             description: '弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”',
             syncMode: 'onlySync',
             docDescription: '控制弹出框的默认状态。开启时弹出框默认为弹出状态，关闭时弹出框默认为关闭状态',
+            setter: {
+                type: 'switch',
+            },
         })
         opened: nasl.core.Boolean = false;
 
@@ -145,6 +160,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

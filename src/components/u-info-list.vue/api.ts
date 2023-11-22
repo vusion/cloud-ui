@@ -17,6 +17,9 @@ namespace nasl.ui {
             title: '列数',
             description: '整个详情列表的划分列数',
             docDescription: '- 设置列表信息展示的划分列数',
+            setter: {
+                type: 'numberInput',
+            },
         })
         repeat: nasl.core.Decimal = 3;
 
@@ -25,6 +28,9 @@ namespace nasl.ui {
             title: '显示表格头部',
             description: '是否显示表格头部',
             docDescription: '开启时会显示表格头部',
+            setter: {
+                type: 'switch',
+            },
         })
         showHead: nasl.core.Boolean = true;
 
@@ -77,6 +83,9 @@ namespace nasl.ui {
             title: '占据数',
             description: '列跨越的格数',
             docDescription: '当前列表项占的列数，为空默认取列表组的列数值，优先取列表项的值',
+            setter: {
+                type: 'numberInput',
+            },
         })
         span: nasl.core.Decimal;
 
@@ -85,6 +94,9 @@ namespace nasl.ui {
             title: '文本过长省略',
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '开启时该项文本过长会省略显示，默认不开启为换行显示',
+            setter: {
+                type: 'switch',
+            },
         })
         ellipsis: nasl.core.Boolean = false;
 
@@ -132,6 +144,9 @@ namespace nasl.ui {
             title: '列数',
             description: '当前组范围内的划分列数',
             docDescription: '当前组信息展示划分的列数，为空默认取详情列表的值，若和列表列数不一致，优先取列表组的值。',
+            setter: {
+                type: 'numberInput',
+            },
         })
         repeat: nasl.core.Decimal;
 

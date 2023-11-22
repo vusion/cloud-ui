@@ -25,7 +25,7 @@
       advanced: true
     - name: data-source
       title: 数据源
-      type: nasl.collection.List<T>
+      type: "nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer }"
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       designer-value: "[{}]"
       group: 数据属性
@@ -41,7 +41,7 @@
       tooltipLink: ""
     - name: value
       title: 值
-      type: any
+      type: nasl.core.Integer
       sync: true
       description: 播放位置
       advanced: true
@@ -58,6 +58,7 @@
       title: 切换间隔时间
       type: number
       default: 4000
+      precision: 0
       description: 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换
       group: 主要属性
       docDescription: 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换

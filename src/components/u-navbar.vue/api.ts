@@ -15,6 +15,9 @@ namespace nasl.ui {
         @Prop({
             title: '使用路由',
             description: '是否根据 vue-router 来控制选择项',
+            setter: {
+                type: 'switch',
+            },
         })
         router: nasl.core.Boolean = true;
 
@@ -34,12 +37,18 @@ namespace nasl.ui {
         @Prop({
             title: '只读',
             description: '是否只读',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
         @Prop({
             title: '禁用',
             description: '是否禁用',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -136,6 +145,9 @@ namespace nasl.ui {
         @Prop({
             title: '禁用',
             description: '禁用此项',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -181,12 +193,18 @@ namespace nasl.ui {
         @Prop({
             title: '替换地址',
             description: '需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。',
+            setter: {
+                type: 'switch',
+            },
         })
         private replace: nasl.core.Boolean = false;
 
         @Prop({
             title: '精确匹配',
             description: '需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。',
+            setter: {
+                type: 'switch',
+            },
         })
         private exact: nasl.core.Boolean = false;
 
@@ -255,6 +273,9 @@ namespace nasl.ui {
         @Prop({
             title: '禁用',
             description: '是否禁用',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
     }

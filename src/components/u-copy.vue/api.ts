@@ -47,8 +47,12 @@ namespace nasl.ui {
         @Prop({
             title: '提示框显示时长',
             description: '提示框显示时长',
+            setter: {
+                type: 'numberInput',
+                precision: 0,
+            },
         })
-        private hideDelay: nasl.core.Decimal = 3000;
+        private hideDelay: nasl.core.Integer = 3000;
 
         @Prop({
             group: '数据属性',
@@ -61,6 +65,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

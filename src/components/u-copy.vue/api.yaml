@@ -65,6 +65,7 @@
       title: 提示框显示时长
       type: number
       default: 3000
+      precision: 0
       description: 提示框显示时长
       advanced: true
     - name: value

@@ -57,18 +57,27 @@ namespace nasl.ui {
         @Prop({
             title: '嵌入页面显示',
             description: '是否嵌入页面显示',
+            setter: {
+                type: 'switch',
+            },
         })
         private static: nasl.core.Boolean = false;
 
         @Prop({
             group: '主要属性',
             title: '显示头部栏',
+            setter: {
+                type: 'switch',
+            },
         })
         showHead: nasl.core.Boolean = true;
 
         @Prop({
             group: '主要属性',
             title: '显示底部栏',
+            setter: {
+                type: 'switch',
+            },
         })
         showFoot: nasl.core.Boolean = true;
 
@@ -88,6 +97,9 @@ namespace nasl.ui {
             title: '点击遮罩关闭',
             description: '点击遮罩关闭弹窗',
             docDescription: '开启时，点击遮罩则自动关闭弹窗，若关闭，需要手动设置关闭事件，默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         maskClose: nasl.core.Boolean = false;
 
@@ -97,6 +109,9 @@ namespace nasl.ui {
             description: '显示状态分为“True(打开)/False(关闭)”，默认为“打开”',
             syncMode: 'onlySync',
             docDescription: '开启时进入页面即显示弹窗，默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         visible: nasl.core.Boolean = false;
 

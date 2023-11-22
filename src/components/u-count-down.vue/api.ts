@@ -41,6 +41,9 @@ namespace nasl.ui {
             title: '定时时长（秒）',
             description: '设置定时时间',
             docDescription: '计时器的总时长，单位为秒。支持手动输入或是动态绑定。',
+            setter: {
+                type: 'numberInput',
+            },
         })
         timer: nasl.core.Decimal = 60;
 
@@ -61,6 +64,9 @@ namespace nasl.ui {
             title: '自动计时',
             description: '设置是否自动开始计时',
             docDescription: '默认自动开始计时，支持动态绑定布尔类型（Boolean）的变量',
+            setter: {
+                type: 'switch',
+            },
         })
         autostart: nasl.core.Boolean = true;
 

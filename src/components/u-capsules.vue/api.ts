@@ -26,6 +26,9 @@ namespace nasl.ui {
             title: '自动选择',
             description: '是否自动选择第一个非禁用的项',
             docDescription: '是否自动选择第一个非禁用的项',
+            setter: {
+                type: 'switch',
+            },
         })
         autoSelect: nasl.core.Boolean = false;
 
@@ -34,6 +37,9 @@ namespace nasl.ui {
             title: '可取消',
             description: '是否可以取消选择',
             docDescription: '是否可以取消选择',
+            setter: {
+                type: 'switch',
+            },
         })
         cancelable: nasl.core.Boolean = false;
 
@@ -42,6 +48,9 @@ namespace nasl.ui {
             title: '可多选',
             description: '是否可以多选',
             docDescription: '是否可以多选',
+            setter: {
+                type: 'switch',
+            },
         })
         multiple: nasl.core.Boolean = false;
 
@@ -50,6 +59,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入。',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -58,6 +70,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -135,6 +150,9 @@ namespace nasl.ui {
             title: 'flag标志',
             description: '是否右上角有flag标志',
             docDescription: '是否右上角有flag标志',
+            setter: {
+                type: 'switch',
+            },
         })
         flag: nasl.core.Boolean = false;
 
@@ -143,6 +161,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

@@ -28,6 +28,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '数据源配置',
             bindHide: true,
+            setter: {
+                type: 'switch',
+            },
             onToggle: [
                 { clear: ['data-source','data-schema','text-field','to-field','icon-field','value-field','parent-field','link-type-field','target-field'] }
             ],
@@ -100,6 +103,9 @@ namespace nasl.ui {
             title: '使用路由',
             description: '是否根据 vue-router 来控制选择哪一项',
             docDescription: '设置是否根据vue-router来控制选择哪一项，默认关闭。开启后当前所在的侧边栏项底部会有标识，',
+            setter: {
+                type: 'switch',
+            },
             onToggle: [
                 { clear: ['value'] }
             ],
@@ -121,6 +127,9 @@ namespace nasl.ui {
             title: '菜单项可折叠',
             description: '设置菜单项是否可以展开/折叠',
             docDescription: '设置分组是否可折叠。',
+            setter: {
+                type: 'switch',
+            },
         })
         collapsible: nasl.core.Boolean = false;
 
@@ -129,6 +138,9 @@ namespace nasl.ui {
             title: '手风琴模式',
             description: '设置是否每次只展开一个',
             docDescription: ' 开启后每次仅会展开一个分组。',
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.collapsible === true,
         })
         accordion: nasl.core.Boolean = false;
@@ -150,6 +162,9 @@ namespace nasl.ui {
             group: '交互属性',
             title: '侧边栏可折叠',
             description: '设置侧边栏是否可以展开/折叠',
+            setter: {
+                type: 'switch',
+            },
         })
         enableCollapse: nasl.core.Boolean = false;
 
@@ -192,6 +207,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -200,6 +218,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -261,12 +282,18 @@ namespace nasl.ui {
         @Prop({
             title: '替换',
             description: '需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。',
+            setter: {
+                type: 'switch',
+            },
         })
         private replace: nasl.core.Boolean = false;
 
         @Prop({
             title: '精确匹配',
             description: '需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。',
+            setter: {
+                type: 'switch',
+            },
         })
         private exact: nasl.core.Boolean = false;
 
@@ -324,6 +351,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -409,6 +439,9 @@ namespace nasl.ui {
             title: '可折叠',
             description: '设置是否可以展开/折叠',
             docDescription: '设置分组是否可折叠',
+            setter: {
+                type: 'switch',
+            },
         })
         collapsible: nasl.core.Boolean = false;
 
@@ -418,6 +451,9 @@ namespace nasl.ui {
             description: '展开状态分为“True(展开)/False(折叠)”，默认为“展开”',
             syncMode: 'onlySync',
             docDescription: '设置分组的展开折叠状态。在某些场景下需要预置分组的展开或者折叠状态',
+            setter: {
+                type: 'switch',
+            },
         })
         expanded: nasl.core.Boolean = false;
 
@@ -426,6 +462,9 @@ namespace nasl.ui {
             title: '禁用展开/折叠',
             description: '置灰显示，且禁止展开/折叠操作',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

@@ -41,6 +41,9 @@ namespace nasl.ui {
             docDescription: `控制手风琴模式的开关，默认关闭。
 - 开启：展开一个面板项时，其他面板项全部折叠。
 - 关闭：可同时展开多个面板项。`,
+            setter: {
+                type: 'switch',
+            },
         })
         accordion: nasl.core.Boolean = false;
 
@@ -61,6 +64,9 @@ namespace nasl.ui {
             title: '禁用展开/折叠',
             description: '置灰显示，且禁止展开/折叠操作',
             docDescription: '开启后当前面板所有项均无法展开或折叠，默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -111,6 +117,9 @@ namespace nasl.ui {
             description: '展开状态分为“True(展开)/False(折叠)”，默认为“展开”',
             syncMode: 'onlySync',
             docDescription: '控制折叠面板项的默认状态，若开启当前面板项默认展开，若关闭当前面板项默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         expanded: nasl.core.Boolean = false;
 
@@ -119,6 +128,9 @@ namespace nasl.ui {
             title: '禁用展开/折叠',
             description: '置灰显示，且禁止展开/折叠操作',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

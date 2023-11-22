@@ -88,12 +88,18 @@ namespace nasl.ui {
             group: '主要属性',
             title: '忽略验证',
             docDescription: '忽略验证',
+            setter: {
+                type: 'switch',
+            },
         })
         ignoreValidation: nasl.core.Boolean = false;
 
         @Prop({
             group: '主要属性',
             title: '忽略验证规则',
+            setter: {
+                type: 'switch',
+            },
         })
         ignoreRules: nasl.core.Boolean = false;
 
@@ -111,6 +117,9 @@ namespace nasl.ui {
             description: `是否采取手动验证。如果为'true'，则 UValidator 将不会在监听到子组件的'input'、'change'和'blur'事件后进行相应的验证。`,
             docDescription: `是否采取手动验证。如果为'true'，则验证器。
     将不会在监听到子组件的'input'、'change'和'blur'事件后进行相应的验证`,
+            setter: {
+                type: 'switch',
+            },
         })
         manual: nasl.core.Boolean = false;
 

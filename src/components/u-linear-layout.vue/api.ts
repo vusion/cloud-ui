@@ -172,6 +172,9 @@ namespace nasl.ui {
             title: '换行',
             description: '设置弹性布局下子元素总宽度超出父级时子元素是否换行展示',
             docDescription: '支持控制弹性布局模式下，子元素总宽度超过父级时是否换行展示，默认开启。',
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.mode === 'flex',
         })
         wrap: nasl.core.Boolean = true;
@@ -192,6 +195,9 @@ namespace nasl.ui {
             title: '加载中图标旋转',
             description: '设置加载中图标是否旋转，默认开启。',
             docDescription: '支持控制加载中图标是否旋转，默认开启。',
+            setter: {
+                type: 'switch',
+            },
         })
         loadingIconRotate: nasl.core.Boolean = true;
 

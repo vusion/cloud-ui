@@ -60,6 +60,9 @@ namespace nasl.ui {
             title: '可关闭',
             description: '设置标签是否可点击删除图标进行关闭',
             docDescription: '支持控制删除图标的显隐，开启时显示删除图标',
+            setter: {
+                type: 'switch',
+            },
         })
         removable: nasl.core.Boolean = false;
 

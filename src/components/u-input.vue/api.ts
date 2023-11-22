@@ -38,6 +38,9 @@ namespace nasl.ui {
         @Prop({
             title: '拼写检查',
             description: '原生属性',
+            setter: {
+                type: 'switch',
+            },
         })
         private spellcheck: nasl.core.Boolean;
 
@@ -89,6 +92,9 @@ namespace nasl.ui {
             description: '设置是否自动获取焦点',
             docDescription: '是否自动获取输入框焦点。',
             designerValue: false,
+            setter: {
+                type: 'switch',
+            },
         })
         autofocus: nasl.core.Boolean = false;
 
@@ -117,6 +123,9 @@ namespace nasl.ui {
             title: '可清除',
             description: '可点击清除按钮一键清除内容',
             docDescription: '是否在输入框有内容时会显示清除内容的按钮。',
+            setter: {
+                type: 'switch',
+            },
         })
         clearable: nasl.core.Boolean;
 
@@ -125,6 +134,9 @@ namespace nasl.ui {
             title: '显示状态',
             description: '显示状态分为“True(显示)/False(隐藏)”，默认为“显示”',
             docDescription: '切换密码的显示/隐藏。',
+            setter: {
+                type: 'switch',
+            },
         })
         password: nasl.core.Boolean = false;
 
@@ -133,6 +145,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入。',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -141,6 +156,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -221,6 +239,18 @@ namespace nasl.ui {
             description: '点击后缀图标后触发',
         })
         onClickSuffix: (event: nasl.ui.MouseEvent) => void;
+
+        @Event({
+            title: '键盘按下',
+            description: '键盘按键按下时触发',
+        })
+        onKeydown: (event: nasl.ui.KeyboardEvent) => void;
+
+        @Event({
+            title: '键盘松开',
+            description: '键盘按键松开时触发',
+        })
+        onKeyup: (event: nasl.ui.KeyboardEvent) => void;
 
         @Slot({
             title: '默认',

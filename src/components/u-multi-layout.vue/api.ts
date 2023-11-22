@@ -173,6 +173,9 @@ namespace nasl.ui {
         @Prop({
             title: '固定展示',
             description: '开启后滚动时该项固定显示',
+            setter: {
+                type: 'switch',
+            },
         })
         private fixed: nasl.core.Boolean = false;
 

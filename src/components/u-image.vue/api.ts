@@ -43,6 +43,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '圆形遮罩',
             docDescription: '是否使用圆形进行图片展示。',
+            setter: {
+                type: 'switch',
+            },
         })
         circle: nasl.core.Boolean = false;
 
@@ -73,6 +76,9 @@ namespace nasl.ui {
             title: '点击放大',
             description: '是否支持点击放大全屏展示',
             docDescription: '是否支持点击放大全屏展示',
+            setter: {
+                type: 'switch',
+            },
         })
         preview: nasl.core.Boolean = false;
 

@@ -32,6 +32,9 @@ namespace nasl.ui {
             title: '显示边框',
             description: '设置是否显示边框',
             docDescription: '支持配置面板边框的显示和隐藏，默认显示',
+            setter: {
+                type: 'switch',
+            },
         })
         bordered: nasl.core.Boolean = true;
 

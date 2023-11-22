@@ -38,10 +38,9 @@
       tooltipLink: ""
     - name: value
       title: 选中值
-      type: nasl.collection.List<V>
+      type: "C extends '' ? nasl.collection.List<V> : nasl.core.String"
       sync: true
       model: true
-      default: []
       description: 当前选中的值
       group: 数据属性
       docDescription: 多选组的选中项，返还结构为List\<T>。

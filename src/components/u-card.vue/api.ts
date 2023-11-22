@@ -46,6 +46,9 @@ namespace nasl.ui {
             group: '样式属性',
             title: '显示边框',
             docDescription: '控制卡片边框的显隐，默认开启',
+            setter: {
+                type: 'switch',
+            },
         })
         border: nasl.core.Boolean = true;
 
@@ -53,6 +56,9 @@ namespace nasl.ui {
             group: '样式属性',
             title: '分割线',
             docDescription: '控制卡片标题和内容间分割线的显隐，默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         split: nasl.core.Boolean = false;
 

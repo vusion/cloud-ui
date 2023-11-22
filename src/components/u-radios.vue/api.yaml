@@ -8,7 +8,7 @@
   attrs:
     - name: data-source
       title: 数据源
-      type: nasl.collection.List<T>
+      type: "nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer }"
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       designer-value: "[{}, {}, {}]"
       group: 数据属性
@@ -28,6 +28,7 @@
       description: 集合的元素类型中，用于显示文本的属性名称
       group: 数据属性
       advanced: true
+      display: property-select
     - name: value-field
       title: 选项值字段
       type: "(item: T) => V"

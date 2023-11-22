@@ -33,6 +33,9 @@ namespace nasl.ui {
             title: '每行排列项数',
             description: '为空时默认为5',
             docDescription: '支持定义每一行排列的项数，为空时会自适应宽度并自动换行。',
+            setter: {
+                type: 'numberInput',
+            },
         })
         colnum: nasl.core.Decimal = 5;
 
@@ -43,6 +46,9 @@ namespace nasl.ui {
             docDescription: `支持根据组件列表所占宽度自动均匀排布各项。
 - 开启：默认根据组件列表宽度自动计算每一项内容宽度，宽度为 100% / 每行项数。
 - 关闭：每一项内容自适应宽度。`,
+            setter: {
+                type: 'switch',
+            },
         })
         equalWidth: nasl.core.Boolean = true;
 

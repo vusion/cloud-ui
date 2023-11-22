@@ -23,6 +23,9 @@ namespace nasl.ui {
             title: '当前进度(%)',
             description: '进度条显示的进度百分比，1-100之间的数字',
             docDescription: '进度条显示的进度百分比，1-100之间的数字',
+            setter: {
+                type: 'numberInput',
+            },
         })
         percent: nasl.core.Decimal = 0;
 

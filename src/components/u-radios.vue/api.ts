@@ -25,7 +25,7 @@ namespace nasl.ui {
             docDescription: '支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑',
             designerValue: [{}, {}, {}],
         })
-        dataSource: nasl.collection.List<T>;
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
 
         @Prop({
             group: '数据属性',
@@ -35,10 +35,13 @@ namespace nasl.ui {
         })
         dataSchema: T;
 
-        @Prop({
+        @Prop<URadiosOptions<T, V>, any>({
             group: '数据属性',
             title: '选项文本',
             description: '集合的元素类型中，用于显示文本的属性名称',
+            setter: {
+                type: 'propertySelect',
+            },
         })
         private textField: (item: T) => nasl.core.String;
 
@@ -67,6 +70,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -75,6 +81,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -162,6 +171,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '自动获取焦点',
             description: '设置是否自动获取焦点',
+            setter: {
+                type: 'switch',
+            },
         })
         autofocus: nasl.core.Boolean = false;
 
@@ -170,6 +182,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入。',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -178,6 +193,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

@@ -128,6 +128,9 @@ namespace nasl.ui {
             title: '父子节点独立选择',
             description: '开启后父节点选择不会全选子节点，子节点选择不会联动父节点',
             docDescription: '开启后父节点选择不会全选子节点，子节点选择不会联动父节点',
+            setter: {
+                type: 'switch',
+            },
         })
         checkControlled: nasl.core.Boolean = false;
 
@@ -136,6 +139,9 @@ namespace nasl.ui {
             title: '可多选',
             description: '设置是否开启多选模式，显示多选框',
             docDescription: '开启后支持选中多项。默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         checkable: nasl.core.Boolean = false;
 
@@ -144,6 +150,9 @@ namespace nasl.ui {
             title: '手风琴模式',
             description: '设置是否每次只展开一个',
             docDescription: '开启后每次只能展开一个分组，其他已经展开的分组会关闭。默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         accordion: nasl.core.Boolean = false;
 
@@ -164,6 +173,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -172,6 +184,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -275,6 +290,9 @@ namespace nasl.ui {
             group: '交互属性',
             title: '默认选中',
             syncMode: 'onlySync',
+            setter: {
+                type: 'switch',
+            },
         })
         checked: nasl.core.Boolean;
 
@@ -283,6 +301,9 @@ namespace nasl.ui {
             title: '展开状态',
             description: '展开状态分为“True(展开)/False(折叠)”，默认为“展开”',
             syncMode: 'onlySync',
+            setter: {
+                type: 'switch',
+            },
         })
         expanded: nasl.core.Boolean;
 
@@ -290,6 +311,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

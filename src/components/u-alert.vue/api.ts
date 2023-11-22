@@ -49,6 +49,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '显示图标',
             docDescription: '是否展开图标',
+            setter: {
+                type: 'switch',
+            },
         })
         showIcon: nasl.core.Boolean = true;
 
@@ -57,6 +60,9 @@ namespace nasl.ui {
             title: '手动关闭',
             description: '是否可手动关闭公告',
             docDescription: '是否显示关闭按钮',
+            setter: {
+                type: 'switch',
+            },
         })
         closeable: nasl.core.Boolean = false;
 
@@ -64,6 +70,9 @@ namespace nasl.ui {
             group: '样式属性',
             title: '显示边框',
             docDescription: '是否显示边框',
+            setter: {
+                type: 'switch',
+            },
         })
         bordered: nasl.core.Boolean = true;
 

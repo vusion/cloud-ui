@@ -31,6 +31,9 @@ namespace nasl.ui {
             title: '不透明度',
             description: '0-1之间的小数，0代表完全透明，1代表完全不透明',
             docDescription: '设置水印透明度，参数为0-1之间的小数，0代表完全透明，1代表完全不透明',
+            setter: {
+                type: 'numberInput',
+            },
         })
         opacity: nasl.core.Decimal = 0.1;
     }

@@ -21,6 +21,9 @@ namespace nasl.ui {
         @Prop({
             title: '循环播放',
             description: '是否循环播放',
+            setter: {
+                type: 'switch',
+            },
         })
         private loop: nasl.core.Boolean = true;
 
@@ -42,7 +45,7 @@ namespace nasl.ui {
             description: '展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。',
             designerValue: [{}],
         })
-        dataSource: nasl.collection.List<T>;
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
 
         @Prop({
             group: '数据属性',
@@ -58,12 +61,15 @@ namespace nasl.ui {
             description: '播放位置',
             syncMode: 'onlySync',
         })
-        private value: nasl.core.Any;
+        private value: nasl.core.Integer;
 
         @Prop({
             group: '主要属性',
             title: '轮播',
             docDescription: '是否循环播放所有图片',
+            setter: {
+                type: 'switch',
+            },
         })
         autoplay: nasl.core.Boolean = true;
 
@@ -72,8 +78,12 @@ namespace nasl.ui {
             title: '切换间隔时间',
             description: '单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换',
             docDescription: '单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换',
+            setter: {
+                type: 'numberInput',
+                precision: 0,
+            },
         })
-        interval: nasl.core.Decimal = 4000;
+        interval: nasl.core.Integer = 4000;
 
         @Event({
             title: '选择前',

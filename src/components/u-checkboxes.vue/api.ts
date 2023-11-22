@@ -60,12 +60,15 @@ namespace nasl.ui {
             syncMode: 'both',
             docDescription: '多选组的选中项，返还结构为List\<T>。',
         })
-        value: nasl.collection.List<V> = [];
+        value: C extends '' ? nasl.collection.List<V> : nasl.core.String;
 
         @Prop<UCheckboxesOptions<T, V, C>, 'checkAll'>({
             group: '主要属性',
             title: '全选控制',
             description: '是否进行全选',
+            setter: {
+                type: 'switch',
+            },
             onToggle: [
                 { clear: ['min','max'] }
             ],
@@ -97,6 +100,9 @@ namespace nasl.ui {
             title: '最小选中数',
             description: '可以勾选多选框的最小数量',
             docDescription: '多选组可以勾选多选框的最小数量。',
+            setter: {
+                type: 'numberInput',
+            },
             if: _ => _.checkAll === false,
         })
         min: nasl.core.Decimal = 0;
@@ -106,6 +112,9 @@ namespace nasl.ui {
             title: '最大选中数',
             description: '可以勾选多选框的最大数量',
             docDescription: '多选组可以勾选多选框的最大数量。',
+            setter: {
+                type: 'numberInput',
+            },
             if: _ => _.checkAll === false,
         })
         max: nasl.core.Decimal;
@@ -128,6 +137,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -136,6 +148,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -236,6 +251,9 @@ namespace nasl.ui {
         @Prop({
             group: '主要属性',
             title: '自动获取焦点',
+            setter: {
+                type: 'switch',
+            },
         })
         autofocus: nasl.core.Boolean = false;
 
@@ -244,6 +262,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -252,6 +273,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

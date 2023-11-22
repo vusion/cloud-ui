@@ -18,6 +18,9 @@ namespace nasl.ui {
             description: '标识开关状态的值',
             syncMode: 'both',
             docDescription: '开关状态，返还true或者false。',
+            setter: {
+                type: 'switch',
+            },
         })
         value: nasl.core.Boolean = false;
 
@@ -26,6 +29,9 @@ namespace nasl.ui {
             title: '显示开关文字',
             description: '是否显示开关`ON`和`OFF`文字',
             docDescription: '设置开关是否显示开关`ON`和`OFF`文字。',
+            setter: {
+                type: 'switch',
+            },
         })
         withText: nasl.core.Boolean = false;
 
@@ -34,6 +40,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入。',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -42,6 +51,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

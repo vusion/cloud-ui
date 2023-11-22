@@ -132,30 +132,45 @@ namespace nasl.ui {
         @Prop({
             title: '响应很大屏',
             description: '响应式布局`<=1440px`的列跨越栅格数',
+            setter: {
+                type: 'numberInput',
+            },
         })
         private mediaHuge: nasl.core.Decimal;
 
         @Prop({
             title: '响应大屏',
             description: '响应式布局`<=1200px`的列跨越栅格数',
+            setter: {
+                type: 'numberInput',
+            },
         })
         private mediaLarge: nasl.core.Decimal;
 
         @Prop({
             title: '响应中屏',
             description: '响应式布局`<=960px`的列跨越栅格数',
+            setter: {
+                type: 'numberInput',
+            },
         })
         private mediaMedium: nasl.core.Decimal;
 
         @Prop({
             title: '响应小屏',
             description: '响应式布局`<=768px`的列跨越栅格数',
+            setter: {
+                type: 'numberInput',
+            },
         })
         private mediaSmall: nasl.core.Decimal;
 
         @Prop({
             title: '响应迷你屏',
             description: '响应式布局`<=480px`的列跨越栅格数',
+            setter: {
+                type: 'numberInput',
+            },
         })
         private mediaMini: nasl.core.Decimal;
 
@@ -312,6 +327,9 @@ namespace nasl.ui {
             title: '换行',
             description: '设置弹性布局下子元素总宽度超出父级时子元素是否换行展示',
             docDescription: '支持控制弹性布局模式下，子元素总宽度超过父级时是否换行展示，默认开启。',
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.mode === 'flex',
         })
         wrap: nasl.core.Boolean = true;

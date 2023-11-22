@@ -17,6 +17,9 @@ namespace nasl.ui {
             title: '评分值',
             syncMode: 'both',
             docDescription: '当前选择的值',
+            setter: {
+                type: 'numberInput',
+            },
         })
         value: nasl.core.Decimal = 0;
 
@@ -24,6 +27,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '最大分数',
             docDescription: '评分组件的最大分数',
+            setter: {
+                type: 'numberInput',
+            },
         })
         max: nasl.core.Decimal = 5;
 
@@ -32,6 +38,9 @@ namespace nasl.ui {
             title: '展示辅助文本',
             description: '在评分后展示辅助文字',
             docDescription: '在评分后展示辅助文字',
+            setter: {
+                type: 'switch',
+            },
         })
         showText: nasl.core.Boolean = false;
 
@@ -48,6 +57,9 @@ namespace nasl.ui {
             title: '展示提示信息',
             description: '鼠标悬浮时展示Tooltip提示信息',
             docDescription: '鼠标悬浮时展示提示文字',
+            setter: {
+                type: 'switch',
+            },
         })
         showTooltip: nasl.core.Boolean = false;
 
@@ -64,6 +76,9 @@ namespace nasl.ui {
             title: '可半选',
             description: '是否允许半选',
             docDescription: '是否允许半选',
+            setter: {
+                type: 'switch',
+            },
         })
         allowHalf: nasl.core.Boolean = false;
 
@@ -72,6 +87,9 @@ namespace nasl.ui {
             title: '可清除',
             description: '可选中后再次点击以清除选中',
             docDescription: '是否允许选中后点击清除',
+            setter: {
+                type: 'switch',
+            },
         })
         clearable: nasl.core.Boolean = false;
 
@@ -80,6 +98,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 

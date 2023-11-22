@@ -40,6 +40,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '显示顶部栏',
             docDescription: '控制抽屉顶部栏的开启和关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         showHead: nasl.core.Boolean = true;
 
@@ -47,6 +50,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '显示底部栏',
             docDescription: '控制抽屉底部栏的开启和关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         showFoot: nasl.core.Boolean = true;
 
@@ -57,6 +63,9 @@ namespace nasl.ui {
             docDescription: `控制抽屉打开时，点击遮罩区域的作用，默认开启。
 - 开启：点击遮罩区域则自动关闭抽屉。
 - 关闭：点击遮罩区域无实际作用`,
+            setter: {
+                type: 'switch',
+            },
         })
         maskClosable: nasl.core.Boolean = true;
 
@@ -66,6 +75,9 @@ namespace nasl.ui {
             description: '显示状态分为“True(打开)/False(关闭)”，默认为“打开”',
             syncMode: 'onlySync',
             docDescription: '控制抽屉是否进入页面时自动显示。开启表示自动显示，关闭表示不自动显示',
+            setter: {
+                type: 'switch',
+            },
         })
         visible: nasl.core.Boolean = false;
 

@@ -52,6 +52,9 @@ namespace nasl.ui {
         @Prop({
             title: '停留时间',
             description: '自动关闭的延时，单位毫秒。设为 0 时不自动关闭',
+            setter: {
+                type: 'numberInput',
+            },
         })
         duration: nasl.core.Decimal = 2000;
 
@@ -68,12 +71,18 @@ namespace nasl.ui {
         @Prop({
             title: '合并',
             description: '多个提示会合并为一个',
+            setter: {
+                type: 'switch',
+            },
         })
         private single: nasl.core.Boolean = false;
 
         @Prop({
             title: '关闭提示',
             description: '是否可以关闭提示',
+            setter: {
+                type: 'switch',
+            },
         })
         private closable: nasl.core.Boolean = false;
 

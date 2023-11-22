@@ -29,6 +29,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '最小值',
             docDescription: '可设置的最大值 。',
+            setter: {
+                type: 'numberInput',
+            },
         })
         min: nasl.core.Decimal = 0;
 
@@ -36,6 +39,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '最大值',
             docDescription: '可设置的最小值 。',
+            setter: {
+                type: 'numberInput',
+            },
         })
         max: nasl.core.Decimal = 100;
 
@@ -44,6 +50,9 @@ namespace nasl.ui {
             title: '间隔',
             description: '间隔，`0`表示连续',
             docDescription: '表示点击按钮或按上下键所增加或减少的量，0表示连续',
+            setter: {
+                type: 'numberInput',
+            },
         })
         step: nasl.core.Decimal = 1;
 
@@ -52,6 +61,9 @@ namespace nasl.ui {
             title: '精度',
             description: '精度，表示数字要保留的最小单位，整数、小数均可',
             docDescription: '限制数字要保留的最小单位，整数、小数均可，如需要保留两位小数，则填入`0.01`',
+            setter: {
+                type: 'numberInput',
+            },
         })
         precision: nasl.core.Decimal = 1;
 
@@ -74,6 +86,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '双滑块',
             description: '设置是否展示双滑块',
+            setter: {
+                type: 'switch',
+            },
         })
         multiple: nasl.core.Boolean = false;
 
@@ -99,6 +114,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '隐藏按钮',
             docDescription: '是否隐藏上下调节按钮',
+            setter: {
+                type: 'switch',
+            },
         })
         hideButtons: nasl.core.Boolean = true;
 
@@ -107,6 +125,9 @@ namespace nasl.ui {
             title: '展示提示信息',
             description: '鼠标悬浮时展示Tooltip提示信息',
             docDescription: '鼠标悬浮时展示提示文字',
+            setter: {
+                type: 'switch',
+            },
         })
         showTooltip: nasl.core.Boolean = false;
 
@@ -123,6 +144,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -131,6 +155,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

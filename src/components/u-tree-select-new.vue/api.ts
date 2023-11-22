@@ -80,6 +80,9 @@ namespace nasl.ui {
             title: '可多选',
             description: '设置是否开启多选模式，显示多选框',
             docDescription: '开启后支持选中多项。默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         checkable: nasl.core.Boolean = false;
 
@@ -94,6 +97,9 @@ namespace nasl.ui {
             title: '父子节点独立选择',
             description: '开启后父节点选择不会全选子节点，子节点选择不会联动父节点',
             docDescription: '开启后父节点选择不会全选子节点，子节点选择不会联动父节点',
+            setter: {
+                type: 'switch',
+            },
         })
         checkControlled: nasl.core.Boolean = false;
 
@@ -113,6 +119,9 @@ namespace nasl.ui {
             title: '可清除',
             description: '设置是否开启可清除模式',
             docDescription: '开启后支持清除按钮。默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         clearable: nasl.core.Boolean = false;
 
