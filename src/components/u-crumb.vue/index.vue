@@ -52,7 +52,7 @@ export default {
 
                     // 面包屑国际化
                     if (meta.crumbI18n) {
-                        const crumbI18nMsg = this.$tt(meta.crumbI18nMsg);
+                        const crumbI18nMsg = this.$tt(meta.crumbI18n);
                         if (crumbI18nMsg)
                             crumb = crumbI18nMsg;
                     }
