@@ -21,7 +21,7 @@
                     <tr v-for="(headTr, trIndex) in tableHeadTrArr">
                         <template v-for="(columnVM, columnIndex) in headTr">
                         <th
-                            v-if="columnVM.colSpan !== 0"
+                            v-if="columnVM&&columnVM.colSpan !== 0"
                             ref="th"
                             :class="[$style['head-title'], boldHeader ? $style.boldHeader : null]"
                             :key="columnIndex"
@@ -715,10 +715,26 @@ export default {
                         }
                     } else if (this.columnGroupVMs[index - dynamicOffset]) {
                         // 这里需要减去动态列带来的过多位移
-                        result[0].push(this.columnGroupVMs[index - dynamicOffset]);
+                        const groupVM = this.columnGroupVMs[index - dynamicOffset];
+                        result[0].push(groupVM);
+                        // 使用null占位来确保导出数据的正确形状
+                        const children = groupVM.$children || [];
+                        for (let i = 1; i < children.length; ++i) {
+                            result[0].push(null);
+                        }
                     }
                 });
-                result[1] = this.visibleColumnVMs.filter((columnVM) => columnVM.isUnderGroup);
+                result[1] = result[0].reduce((acc, vm) => {
+                    if (vm === null) {
+                        return acc;
+                    }
+                    if (vm.$options.name !== 'u-table-view-column-group') {
+                        return [...acc, null]; // 使用null占位来确保导出数据的正确形状
+                    } else {
+                        return [...acc, ...vm.$children];
+                    }
+                }, []);
+                // result[1] = this.visibleColumnVMs.filter((columnVM) => columnVM.isUnderGroup);
                 return result;
             }
         },
@@ -1470,8 +1486,11 @@ export default {
                 const hasHeader = !!this.$el.querySelector('[position=static] thead tr');
 
                 let content = [];
+                let mergesMap = [];
                 if (!this.currentDataSource._load) {
-                    content = await this.getRenderResult(this.currentDataSource.data, excludeColumns, hasHeader);
+                    const result = await this.getRenderResult(this.currentDataSource.data, excludeColumns, hasHeader);
+                    content = result[0];
+                    mergesMap = result[1];
                 } else {
                     // console.time('加载数据');
                     let res = await this.currentDataSource._load({ page, size, filename, sort, order });
@@ -1490,15 +1509,15 @@ export default {
                         return;
                     }
 
-                    content = await this.getRenderResult(res, excludeColumns, hasHeader);
+                    const result = await this.getRenderResult(res, excludeColumns, hasHeader);
+                    content = result[0];
+                    mergesMap = result[1];
                 }
 
                 // console.time('生成文件');
-                const columns = this.visibleColumnVMs.length;
-                const sheetData = this.getSheetData(content, hasHeader, columns);
                 const sheetTitle = this.title || undefined;
                 const { exportExcel } = require('../../utils/xlsx');
-                exportExcel(sheetData, 'Sheet1', filename, sheetTitle, columns, hasHeader);
+                exportExcel(content, 'Sheet1', filename, sheetTitle, (content[0] || []).length, hasHeader, mergesMap);
                 // console.timeEnd('生成文件');
             } catch (err) {
                 console.error(err);
@@ -1511,16 +1530,46 @@ export default {
             document.removeEventListener('keydown', fn, true);
         },
         async getRenderResult(arr = [], excludeColumns = [], hasHeader = true) {
+            let mergesMap = [];
             if (arr.length === 0) {
                 if (!hasHeader)
                     return [];
-
-                let res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
-                res[1] = res[0].map((item) => '');
-                res = this.removeExcludeColumns(res, excludeColumns);
-                return res;
             }
 
+            const titleColIndexRelations = [];
+            let res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr, rowIndex) => Array.from(tr.childNodes).map((node, colIndex) => {
+                if (node.nodeName === 'TH') {
+                    const rowspan = parseInt(node.getAttribute('rowspan')) || 1;
+                    const colspan = parseInt(node.getAttribute('colspan')) || 1;
+                    let title = '';
+
+                    // 如果列表里是输入框，拿框里的结果填入excel
+                    const inputElement = node.getElementsByTagName('input');
+                    const placeholderElement = Array.from(node.getElementsByTagName('span')).filter((item) => item.className.includes('u-select_placeholder'));
+                    if (inputElement.length !== 0) {
+                        title = inputElement[0].value;
+                    } else {
+                        // 下拉框未选则时，placeholder内容不显示
+                        if (placeholderElement.length !== 0 && placeholderElement[0].innerText === node.innerText) {
+                            title = '';
+                        } else {
+                            title = node.innerText;
+                        }
+                    }
+                    if (rowspan !== 1 || colspan !== 1) {
+                        mergesMap.push({
+                            col: colIndex,
+                            row: rowIndex,
+                            rowspan,
+                            colspan,
+                        });
+                    }
+                    titleColIndexRelations.push([title, Array.from({ length: colspan }, (_, idx) => idx + colIndex)]);
+                    return title;
+                } else {
+                    return null;
+                }
+            }));
             // console.time('渲染数据');
             const startIndexes = [];
             for (let i = 0; i < this.visibleColumnVMs.length; i++) {
@@ -1529,27 +1578,45 @@ export default {
                     startIndexes[i] = +vm.startIndex;
             }
 
-            let res = [];
             // this.currentDataSource.paging.size 会受可分页选项影响，直接改成pageSize
             const page = this.pageSize;
+            const headerRowCount = res.length;
+
             for (let i = 0; i < arr.length; i += page) {
                 this.exportData = arr.slice(i, i + page);
                 await new Promise((res) => {
                     this.$once('hook:updated', res);
                 });
-                const res1 = Array.from(this.$el.querySelectorAll(i === 0 ? '[position=static] tr' : '[position=static] tbody tr')).map((tr) => Array.from(tr.querySelectorAll('th, td')).map(
-                    (node) => {
-                        // 如果列表里是输入框，拿框里的结果填入excel
-                        const inputElement = node.getElementsByTagName('input');
-                        const placeholderElement = Array.from(node.getElementsByTagName('span')).filter((item) => item.className.includes('u-select_placeholder'));
-                        if (inputElement.length !== 0) {
-                            return inputElement[0].value;
-                        } else {
-                            // 下拉框未选则时，placeholder内容不显示
-                            if (placeholderElement.length !== 0 && placeholderElement[0].innerText === node.innerText) {
-                                return '';
+                const res1 = Array.from(this.$el.querySelectorAll('[position=static] tbody tr')).map((tr, rowIndex) => Array.from(tr.childNodes).map(
+                    (node, colIndex) => {
+                        if (node.nodeName === 'TD' || node.nodeName === 'TH') {
+                            let title = '';
+                            const inputElement = node.getElementsByTagName('input');
+                            const placeholderElement = Array.from(node.getElementsByTagName('span')).filter((item) => item.className.includes('u-select_placeholder'));
+                            if (inputElement.length !== 0) {
+                                title = inputElement[0].value;
+                            } else {
+                                // 下拉框未选则时，placeholder内容不显示
+                                if (placeholderElement.length !== 0 && placeholderElement[0].innerText === node.innerText) {
+                                    title = '';
+                                } else {
+                                    title = node.innerText;
+                                }
                             }
-                            return node.innerText;
+                            const rowspan = parseInt(node.getAttribute('rowspan')) || 1;
+                            const colspan = parseInt(node.getAttribute('colspan')) || 1;
+
+                            if (rowspan !== 1 || colspan !== 1) {
+                                mergesMap.push({
+                                    col: colIndex,
+                                    row: rowIndex + i + headerRowCount,
+                                    rowspan,
+                                    colspan,
+                                });
+                            }
+                            return title;
+                        } else {
+                            return null;
                         }
                     },
                 ));
@@ -1560,11 +1627,13 @@ export default {
                 const item = res[rowIndex];
                 for (let j = 0; j < item.length; j++) {
                     if (startIndexes[j] !== undefined)
-                        item[j] = startIndexes[j] + (hasHeader ? rowIndex - 1 : rowIndex);
+                        item[j] = startIndexes[j] + (hasHeader ? rowIndex - headerRowCount : rowIndex);
                 }
             }
 
-            res = this.removeExcludeColumns(res, excludeColumns);
+            const newResult = this.removeExcludeColumns(res, excludeColumns, mergesMap, titleColIndexRelations);
+            res = newResult[0];
+            mergesMap = newResult[1];
 
             // console.timeEnd('渲染数据');
 
@@ -1575,26 +1644,51 @@ export default {
             });
             // console.timeEnd('复原表格');
 
-            return res;
+            return [res, mergesMap];
         },
-        removeExcludeColumns(data, excludeColumns) {
-            const excludeIndex = [];
-            // 如果表头加了其他组件，如筛选下拉框，可能后面会有空格，把空格去掉
-            const titles = (data[0] || []).map((title) => title.trim());
-            // 过滤掉title为空的，如多选列等
-            titles.forEach((title, index) => {
-                if (title === '') {
-                    excludeIndex.push(index);
+        removeExcludeColumns(data, excludeColumns, merges, titleColIndexRelations) {
+            const excludeIndexMap = {};
+            const excludeColumnsMap = excludeColumns.reduce((acc, title) => ({
+                ...acc,
+                [title]: true,
+            }), {});
+
+            titleColIndexRelations.forEach(([titleRaw, colIndexs]) => {
+                const title = titleRaw.trim();
+                if (title === '' || excludeColumnsMap[title]) { // 过滤掉title为空字符串和命中excludeColumns
+                    colIndexs.forEach((index) => {
+                        excludeIndexMap[index] = true;
+                    });
                 }
             });
-            for (const title of excludeColumns) {
-                const titleTemp = title.trim();
-                const pos = titles.indexOf(titleTemp);
-                if (pos >= 0)
-                    excludeIndex.push(pos);
-            }
 
-            return data.map((arr) => arr.filter((item, index) => !excludeIndex.includes(index)));
+            let removeColCount = 0;
+            const removeColHelperArr = Array.from({ length: (data[0] || []).length }).map((_, index) => {
+                if (excludeIndexMap[index]) {
+                    ++removeColCount;
+                }
+                return removeColCount;
+            });
+            const newMerges = merges.map((merge) => {
+                const colStart = merge.col;
+                const colEnd = merge.col + merge.colspan - 1;
+                if (merge.colspan === 1 && excludeIndexMap[colStart]) {
+                    return null;
+                }
+                const newColStart = Math.max(colStart - removeColHelperArr[colStart], 0);
+                const newColEnd = colEnd - removeColHelperArr[colEnd];
+                const newColspan = newColEnd - newColStart + 1;
+                if (newColspan <= 0 || newColspan === 1 && merge.rowspan === 1) {
+                    return null;
+                }
+                return {
+                    ...merge,
+                    col: newColStart,
+                    colspan: newColspan,
+                };
+            }).filter(Boolean);
+
+            return [data.map((arr) => arr.filter((item, index) => !excludeIndexMap[index])), newMerges];
         },
         getSheetData(arr, hasHeader = true, columns) {
             const titles = hasHeader ? arr[0] : Array.from({ length: columns }, (item, index) => index);
