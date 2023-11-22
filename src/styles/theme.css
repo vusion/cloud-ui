@@ -853,7 +853,7 @@
 
     /* @component u-table-view */
     --table-view-row-hover-background: #f9f9f9; /* @type color */ /* @group 行 */ /* @prefix table-view-row */ /* @desc 表格行背景色（hover状态）,如 #223325 */ /* @excludeElTags th */
-    --table-head-font-weight: normal; /* @prefix table */ /* @desc 表格表头字体加粗,如 normal */ /* @excludeElTags td,th */
+    --table-head-font-weight: normal; /* @group 表头 */ /* @prefix table */ /* @desc 表格表头字体加粗,如 normal */ /* @excludeElTags td,th */ /* @depAttrs {"boldHeader": [false]} */
     --table-view-head-item-size: var(--font-size-base); /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头字体大小,如 1px */ /* @excludeElTags td */
     --table-row-background-striped: var(--background-color-lighter); /* @type color */ /* @group 行 */ /* @prefix table */ /* @desc 表格条纹展示行背景色,如 #223325 */ /* @excludeElTags th */
     --table-view-head-item-color: var(--gray-dark); /* @type color */ /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头文字颜色,如 #223325 */ /* @excludeElTags td */
@@ -992,7 +992,7 @@
     --tree-view-node-background-selected-inverse: var(--brand-primary-light); /* @hidden */
     --tree-view-node-background-border-radius: none; /* @hidden */
     --tree-view-node-color-selected-inverse: white; /* @hidden */
-    --tree-view-node-color-disabled: var(--brand-disabled); /* @hidden */
+    --tree-view-node-color-disabled: var(--brand-disabled); /* @type color */ /* @desc 树形列表节点字体颜色（禁用状态）,如 #223325 */ /* @prefix tree-view-node */
     --tree-view-node-color-disabled-inverse: var(--brand-disabled); /* @hidden */
     --tree-view-node-expander-color: #999; /* @hidden */
     --tree-view-node-expander-color-hover: #333; /* @hidden */
@@ -1000,7 +1000,7 @@
     --tree-view-node-expander-color-selected-inverse:white; /* @hidden */
     --tree-view-node-expander-font-size: 14px; /* @hidden */
     --tree-view-node-background-readonly-initial: none; /* @hidden */
-    --tree-view-node-background-disabled: none; /* @hidden */
+    --tree-view-node-background-disabled: none; /* @type color */ /* @desc 树形列表节点背景色（禁用状态）,如 #223325 */ /* @prefix tree-view-node */
     --tree-view-node-background-disabled-inverse: none; /* @hidden */
     --tree-view-node-background-selected-disabled-inverse: var(--brand-disabled-light-inverse); /* @hidden */
     --table-view-tree-expander-size: 16px;
@@ -1092,12 +1092,12 @@
     --input-box-shadow-focus-color: var(--brand-primary-opacity-20); /* @type color */ /* @group 边框阴影 */ /* @desc 输入框边框阴影颜色（选中状态）,如 #223325 */
     --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color); /* @group 边框宽度 */ /* @desc 输入框边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2) */
     --input-placeholder-color: var(--color-lighter); /* @type color */ /* @group 占位符文本 */ /* @desc 输入框占位符文本颜色,如 #223325 */
-    --input-width-mini: var(--width-mini); /* @group 宽度 */ /* @desc Mini输入框高度,如 1px */ /* @depAttrs {"width": ["mini"]} */ /* @depStaticStyles ["width"] */
-    --input-width-small: var(--width-small); /* @group 宽度 */ /* @desc Small输入框高度,如 1px */ /* @depAttrs {"width": ["small"]} */ /* @depStaticStyles ["width"] */
-    --input-width: var(--width-base); /* @group 宽度 */ /* @desc 输入框高度,如 1px */ /* @depAttrs {"width": ["normal", null]} */ /* @depStaticStyles ["width"] */
-    --input-width-medium: var(--width-medium); /* @group 宽度 */ /* @desc Medium输入框高度,如 1px */ /* @depAttrs {"width": ["medium"]} */ /* @depStaticStyles ["width"] */
-    --input-width-large: var(--width-large); /* @group 宽度 */ /* @desc Large输入框高度,如 1px */ /* @depAttrs {"width": ["large"]} */ /* @depStaticStyles ["width"] */
-    --input-width-huge: var(--width-huge); /* @group 宽度 */ /* @desc Huge输入框高度,如 1px */ /* @depAttrs {"width": ["huge"]} */ /* @depStaticStyles ["width"] */
+    --input-width-mini: var(--width-mini); /* @group 宽度 */ /* @desc Mini输入框宽度,如 1px */ /* @depAttrs {"width": ["mini"]} */ /* @depStaticStyles ["width"] */
+    --input-width-small: var(--width-small); /* @group 宽度 */ /* @desc Small输入框宽度,如 1px */ /* @depAttrs {"width": ["small"]} */ /* @depStaticStyles ["width"] */
+    --input-width: var(--width-base); /* @group 宽度 */ /* @desc 输入框宽度,如 1px */ /* @depAttrs {"width": ["normal", null]} */ /* @depStaticStyles ["width"] */
+    --input-width-medium: var(--width-medium); /* @group 宽度 */ /* @desc Medium输入框宽度,如 1px */ /* @depAttrs {"width": ["medium"]} */ /* @depStaticStyles ["width"] */
+    --input-width-large: var(--width-large); /* @group 宽度 */ /* @desc Large输入框宽度,如 1px */ /* @depAttrs {"width": ["large"]} */ /* @depStaticStyles ["width"] */
+    --input-width-huge: var(--width-huge); /* @group 宽度 */ /* @desc Huge输入框宽度,如 1px */ /* @depAttrs {"width": ["huge"]} */ /* @depStaticStyles ["width"] */
     --input-height-mini: var(--height-mini); /* @group 高度 */ /* @desc Mini输入框高度,如 1px */ /* @depAttrs {"height": ["mini"]} */ /* @depStaticStyles ["height"] */
     --input-height-small: var(--height-small); /* @group 高度 */ /* @desc Small输入框高度,如 1px */ /* @depAttrs {"height": ["small"]} */ /* @depStaticStyles ["height"] */
     --input-height: var(--height-base); /* @group 高度 */ /* @desc 输入框高度,如 1px */ /* @depAttrs {"height": ["normal", null]} */ /* @depStaticStyles ["height"] */
@@ -1557,7 +1557,77 @@
     --pagination-sizer-width: 104px; /* @hidden */
     --pagination-jumper-width: 50px; /* @hidden */
     --pagination-item-height-small-line-height: var(--pagination-item-height-small); /* @hidden */
-
+    
+    /* @component u-tree-select-new */
+    /* @dependency-components u-tree-view */
+    --tree-select-new-width: var(--select-width); /* @group 宽度 */ /* @desc 树选择器宽度,如 1px */ /* @depAttrs {"width": ["normal", null]} */ /* @depStaticStyles ["width"] */
+    --tree-select-new-height: var(--select-height); /* @group 高度 */ /* @desc 树选择器高度,如 1px */ /* @depAttrs {"height": ["normal", null]} */ /* @depStaticStyles ["height"] */
+    --tree-select-new-padding-x: var(--select-padding-x); /* @group 内边距 */ /* @desc Mini树选择器水平方向内边距,如 1px */ /* @depAttrs {"width": ["normal", null]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --tree-select-new-width-mini: var(--select-width-mini); /* @group 宽度 */ /* @desc Mini树选择器宽度,如 1px */ /* @depAttrs {"width": ["mini"]} */ /* @depStaticStyles ["width"] */
+    --tree-select-new-padding-x-mini: var(--select-padding-x-mini); /* @group 内边距 */ /* @desc Mini树选择器内边距,如 1px */ /* @depAttrs {"width": ["mini"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --tree-select-new-height-mini: var(--select-height-mini);  /* @group 高度 */ /* @desc Mini树选择器高度,如 1px */ /* @depAttrs {"height": ["mini"]} */ /* @depStaticStyles ["height"] */
+    --tree-select-new-width-small: var(--select-width-small); /* @group 宽度 */ /* @desc Small树选择器宽度,如 1px */ /* @depAttrs {"width": ["small"]} */ /* @depStaticStyles ["width"] */
+    --tree-select-new-padding-x-small: var(--select-padding-x-small);  /* @group 内边距 */ /* @desc Small树选择器内边距,如 1px */ /* @depAttrs {"width": ["small"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --tree-select-new-height-small: var(--select-height-small); /* @group 高度 */ /* @desc Mini树选择器高度,如 1px */ /* @depAttrs {"height": ["small"]} */ /* @depStaticStyles ["height"] */
+    --tree-select-new-width-medium: var(--select-width-medium); /* @group 宽度 */ /* @desc Medium树选择器宽度,如 1px */ /* @depAttrs {"width": ["medium"]} */ /* @depStaticStyles ["width"] */
+    --tree-select-new-padding-x-medium: var(--select-padding-x-medium); /* @group 内边距 */ /* @desc Medium树选择器内边距,如 1px */ /* @depAttrs {"width": ["medium"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --tree-select-new-height-medium: var(--select-height-medium); /* @group 高度 */ /* @desc Medium树选择器高度,如 1px */ /* @depAttrs {"height": ["medium"]} */ /* @depStaticStyles ["height"] */
+    --tree-select-new-width-large: var(--select-width-large); /* @group 宽度 */ /* @desc Large树选择器宽度,如 1px */ /* @depAttrs {"width": ["large"]} */ /* @depStaticStyles ["width"] */
+    --tree-select-new-padding-x-large: var(--select-padding-x-large); /* @group 内边距 */ /* @desc Large树选择器内边距,如 1px */ /* @depAttrs {"width": ["large"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --tree-select-new-height-large: var(--select-height-large); /* @group 高度 */ /* @desc Large树选择器高度,如 1px */ /* @depAttrs {"height": ["large"]} */ /* @depStaticStyles ["height"] */
+    --tree-select-new-width-huge: var(--select-width-huge);  /* @group 宽度 */ /* @desc Huge树选择器宽度,如 1px */ /* @depAttrs {"width": ["huge"]} */ /* @depStaticStyles ["width"] */
+    --tree-select-new-padding-x-huge: var(--select-padding-x-huge); /* @group 内边距 */ /* @desc Huge树选择器内边距,如 1px */ /* @depAttrs {"width": ["huge"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --tree-select-new-height-huge: var(--select-height-huge); /* @group 高度 */ /* @desc Huge树选择器高度,如 1px */ /* @depAttrs {"height": ["huge"]} */ /* @depStaticStyles ["height"] */
+    --tree-select-new-padding-x-full: var(--select-padding-x-full); /* @group 内边距 */ /* @desc Full树选择器内边距,如 1px */ /* @depAttrs {"width": ["full"]} */ /* @depStaticStyles ["padding-left", "padding-right"] */
+    --tree-select-new-color: var(--select-color); /* @type color */ /* @desc 树选择器输入框字体颜色,如 #223325 */
+    --tree-select-new-color-disabled: var(--select-color-disabled); /* @type color */ /* @desc 树选择器输入框字体颜色（禁用状态）,如 #223325 */
+    --tree-select-new-border-width: var(--select-border-width); /* @group 边框 */ /* @desc 树选择器输入框边框宽度,如 1px */
+    --tree-select-new-border-color: var(--select-border-color); /* @group 边框 */ /* @type color */ /* @desc 树选择器输入框边框颜色,如 #223325 */
+    --tree-select-new-border-radius-base: var(--border-radius-base); /* @group 边框 */ /* @desc 树选择器输入框圆角,如 1px */
+    --tree-select-new-border-color-hover: var(--select-border-color-hover); /* @group 边框 */ /* @type color */ /* @desc 树选择器输入框边框颜色（hover状态）,如 #223325 */
+    --tree-select-new-border-color-disabled: var(--brand-disabled);  /* @group 边框 */ /* @type color */ /* @desc 树选择器输入框边框颜色（禁用状态）,如 #223325 */
+    --tree-select-new-input-border-color-error: var(--brand-error); /* @group 边框 */ /* @type color */ /* @desc 树选择器输入框边框颜色（错误状态）,如 #223325 */
+    --tree-select-new-arrow-size: var(--select-arrow-size); /* @group 下拉箭头 */ /* @desc 树选择器输入框下拉箭头大小,如 1px */
+    --tree-select-new-arrow-right-ratio: var(--select-arrow-right-ratio); /* @hidden */
+    --tree-select-new-arrow-color: var(--select-arrow-color); /* @group 下拉箭头 */ /* @type color */ /* @desc 树选择器输入框下拉箭头颜色,如 #223325 */
+    --tree-select-new-background: var(--select-background); /* @type color */ /* @desc 树选择器输入框背景颜色,如 #223325 */
+    --tree-select-new-background-disabled: var(--select-background-disabled);  /* @type color */ /* @desc 树选择器输入框背景颜色（禁用状态）,如 #223325 */
+    --tree-select-new-focus-outline: var(--focus-outline); /* @desc 树选择器输入框轮廓,如 1px ridge rgba(0, 0, 0, 0.2); */
+    --tree-select-new-box-shadow-focus: var(--select-box-shadow-focus); /* @group 边框阴影 */ /* @desc 树选择器输入框边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --tree-select-new-placeholder-color: var(--select-placeholder-color);  /* @type color */ /* @group 占位符 */ /* @desc  树选择器的占位符文字颜色,如 #223325 */
+    --tree-select-new-transition-duration-base: var(--transition-duration-base); /* @hidden */
+    --tree-select-new-tag-padding: var(--select-tag-padding); /* @hidden */
+    --tree-select-new-tag-font-size-small: var(--font-size-small); /* @hidden */
+    --tree-select-new-tag-line-height: var(--select-tag-line-height); /* @hidden */
+    --tree-select-new-tag-background: var(--select-tag-background); /* @hidden */
+    --tree-select-new-tag-vertical-align: 1px; /* @hidden */
+    --tree-select-new-tag-border-radius: 2px; /* @hidden */
+    --tree-select-new-tag-margin-x: var(--select-tag-margin-x); /* @hidden */
+    --tree-select-new-tag-remove-color: var(--select-tag-remove-color); /* @hidden */
+    --tree-select-new-tag-remove-color-hover: var(--select-tag-remove-color-hover); /* @hidden */
+    --tree-select-new-popper-line-height: var(--select-popper-line-height); /* @group 弹出层 */ /* @desc 树选择器弹出层下拉项行高 */
+    --tree-select-new-popper-max-height: var(--select-popper-max-height); /* @group 弹出层 */ /* @desc 树选择器弹出层最大高度 */
+    --tree-select-new-popper-background: var(--select-popper-background); /* @type color */ /* @group 弹出层 */ /* @desc 选择框弹出层背景色,如 #223325 */
+    --tree-select-new-popper-border-color: var(--select-popper-border-color); /* @type color */ /* @group 弹出层 */ /* @desc 选择框弹出层边框颜色,如 #223325 */
+    --tree-select-new-z-index-popper: var(--z-index-popper);  /* @hidden */
+    --tree-select-new-popper-box-shadow: var(--select-popper-box-shadow); /* @group 弹出层 */ /* @desc 树选择器弹出层边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --tree-select-new-popper-min-width: var(--select-popper-min-width); /* @group 弹出层 */ /* @desc 树选择器弹出层最小宽度 */
+    --tree-select-new-popper-width: var(--select-popper-width); /* @group 弹出层 */ /* @desc 树选择器弹出层宽度 */
+    
+    --tree-select-new-background-inverse: var(--select-background-inverse); /* @hidden */
+    --tree-select-new-border-color-inverse: var(--select-border-color-inverse); /* @hidden */
+    --tree-select-new-color-inverse: var(--select-color-inverse); /* @hidden */
+    --tree-select-new-popper-background-inverse: var(--select-popper-background-inverse); /* @hidden */
+    --tree-select-new-popper-color-inverse: var(--select-popper-color-inverse); /* @hidden */
+    --tree-select-new-popper-border-color-inverse: var(--select-popper-border-color-inverse); /* @hidden */
+    --tree-select-new-tree-view-node-background-active-inverse: var(--tree-view-node-background-active-inverse); /* @hidden */
+    --tree-select-new-tree-view-node-background-selected-inverse: var(--tree-view-node-background-selected-inverse); /* @hidden */
+    --tree-select-new-tree-view-node-color-selected-inverse: var(--tree-view-node-color-selected-inverse); /* @hidden */
+    --tree-select-new-tree-view-node-expander-color-selected-inverse: var(--tree-view-node-expander-color-selected-inverse); /* @hidden */
+    --tree-select-new-tree-view-node-color-disabled-inverse: var(--tree-view-node-color-disabled-inverse); /* @hidden */
+    --tree-select-new-tree-view-node-background-disabled-inverse: var(--tree-view-node-background-disabled-inverse); /* @hidden */
+    --tree-select-new-tree-view-node-background-selected-disabled-inverse: var(--tree-view-node-background-selected-disabled-inverse); /* @hidden */
+   
     /**
      * ========================
      *   图表
@@ -1709,9 +1779,13 @@
     --modal-dialog-background-color: var(--modal-dialog-background); /* @hidden */
 
     /* @component u-drawer */
-    --drawer-width-small: 240px; /* @desc small抽屉宽度,如 1px */ /* @depAttrs {"size": ["small"]} */
-    --drawer-width: 400px; /* @desc normal抽屉宽度,如 1px */ /* @depAttrs {"size": ["normal", null]} */
-    --drawer-width-large: 600px; /* @desc large抽屉宽度,如 1px */ /* @depAttrs {"size": ["large"]} */
+    --drawer-width-small: 240px; /* @desc small抽屉宽度,如 1px */ /* @depAttrs {"size": ["small"], "placement": ["left", "right", null]} */
+    --drawer-width: 400px; /* @desc normal抽屉宽度,如 1px */ /* @depAttrs {"size": ["normal", null], "placement": ["left", "right", null]} */
+    --drawer-width-large: 600px; /* @desc large抽屉宽度,如 1px */ /* @depAttrs {"size": ["large"], "placement": ["left", "right", null]} */
+    --drawer-height-small: 240px; /* @desc small抽屉高度,如 1px */ /* @depAttrs {"size": ["small"], "placement": ["top", "bottom"]} */
+    --drawer-height: 400px; /* @desc normal抽屉高度,如 1px */ /* @depAttrs {"size": ["normal", null], "placement": ["top", "bottom"]} */
+    --drawer-height-large: 600px; /* @desc large抽屉高度,如 1px */ /* @depAttrs {"size": ["large"], "placement": ["top", "bottom"]} */
+    --drawer-max-height: auto; /* @hidden */
     --drawer-background: white; /* @type color */ /* @desc 抽屉背景色 */
     --drawer-wrap-background: rgba(0, 0, 0, 0.6); /* @type color */ /* @desc 遮罩背景色 */
     --drawer-close-size: 15px; /* @desc 关闭图标大小 */
@@ -1721,6 +1795,7 @@
     --drawer-body-padding: 15px; /* @desc 抽屉内容区内边距 */
     --drawer-foot-padding: 20px 24px; /* @desc 抽屉底部内边距 */
     --drawer-border-color: var(--gray-lightest); /* @type color */ /* @desc 抽屉边框颜色 */
+    --drawer-border-radius: none; /* @desc 抽屉边框圆角 */
 
     --drawer-body-overflow-y: auto;  /* @hidden */
     --drawer-static-padding: var(--space-base); /* @hidden */
@@ -1904,8 +1979,9 @@
 
 
 
-    /* @component u-taskbox @hidden */
-    --taskbox-badge-box-shadow: none;
+    /* @component u-taskbox */
+    --taskbox-icon-font-size: 24px; /* @desc 任务箱图标大小,如：1px */
+    --taskbox-badge-box-shadow: none; /* @hidden */
 
     /**
      * ========================

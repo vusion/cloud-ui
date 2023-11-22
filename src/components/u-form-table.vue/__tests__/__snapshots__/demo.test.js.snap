@@ -24,7 +24,7 @@ exports[`u-form-table.vue Demo-动态按钮 1`] = `
           <div class="root" disabled="disabled" size="huge full" tabindex>
             <span>b</span>
             <span>暂无可选择的 VPC</span>
-            <div style="direction: ltr;" tags-overflow="collapse">
+            <div class style="direction: ltr;" tags-overflow="collapse">
             </div>
             <transition-stub name="fade" style="width: 100%;">
               <div class="root" style="display: none;">
@@ -58,7 +58,7 @@ exports[`u-form-table.vue Demo-动态按钮 1`] = `
           <div class="root" disabled="disabled" size="huge full" tabindex>
             <span>b</span>
             <span>暂无可选择的 VPC</span>
-            <div style="direction: ltr;" tags-overflow="collapse">
+            <div class style="direction: ltr;" tags-overflow="collapse">
             </div>
             <transition-stub name="fade" style="width: 100%;">
               <div class="root" style="display: none;">
@@ -161,7 +161,7 @@ exports[`u-form-table.vue Demo-基本用法 2`] = `
         <div class="root" disabled="disabled" size="huge full" tabindex>
           <span>b</span>
           <span>暂无可选择的 VPC</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
@@ -191,7 +191,7 @@ exports[`u-form-table.vue Demo-基本用法 2`] = `
         <div class="root" disabled="disabled" size="huge full" tabindex>
           <span>b</span>
           <span>暂无可选择的 VPC</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">

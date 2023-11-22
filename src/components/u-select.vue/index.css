@@ -117,10 +117,13 @@
     display: block;
     float: left;
     width: 100%;
-    /* overflow: hidden;
-    text-overflow: ellipsis; */
     white-space: nowrap;
     line-height: inherit;
+}
+
+.textEllipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .root[multiple-tags], .root[multiple-tags][size] {
@@ -178,7 +181,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent;
+    background: transparent !important; /* USelect有自己的disabled状态和placeholder */
 }
 
 .input[multiple-tags][filterable] {

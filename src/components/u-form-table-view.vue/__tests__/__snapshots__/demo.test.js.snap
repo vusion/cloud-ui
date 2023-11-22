@@ -37,7 +37,7 @@ exports[`u-form-table-view.vue Demo-动态表格 1`] = `
             <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -100,7 +100,7 @@ exports[`u-form-table-view.vue Demo-动态表格 1`] = `
             <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -200,7 +200,7 @@ exports[`u-form-table-view.vue Demo-在表单中使用 1`] = `
                     <div class="root" color size="huge full" tabindex="0">
                       <span>b</span>
                       <span style="display: none;">请选择</span>
-                      <div style="direction: ltr;" tags-overflow="collapse">
+                      <div class style="direction: ltr;" tags-overflow="collapse">
                         abc
                       </div>
                       <transition-stub name="fade" style="width: 100%;">
@@ -261,7 +261,7 @@ exports[`u-form-table-view.vue Demo-在表单中使用 1`] = `
                     <div class="root" color size="huge full" tabindex="0">
                       <span>b</span>
                       <span style="display: none;">请选择</span>
-                      <div style="direction: ltr;" tags-overflow="collapse">
+                      <div class style="direction: ltr;" tags-overflow="collapse">
                         abc
                       </div>
                       <transition-stub name="fade" style="width: 100%;">
@@ -436,7 +436,7 @@ exports[`u-form-table-view.vue Demo-基本用法 2`] = `
             <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -497,7 +497,7 @@ exports[`u-form-table-view.vue Demo-基本用法 2`] = `
             <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -725,7 +725,7 @@ exports[`u-form-table-view.vue Demo-表单验证 1`] = `
             <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -788,7 +788,7 @@ exports[`u-form-table-view.vue Demo-表单验证 1`] = `
             <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -880,7 +880,7 @@ exports[`u-form-table-view.vue Demo-表单验证 2`] = `
             <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -967,7 +967,7 @@ exports[`u-form-table-view.vue Demo-限制数量 1`] = `
             <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">
@@ -1030,7 +1030,7 @@ exports[`u-form-table-view.vue Demo-限制数量 1`] = `
             <div class="root" color size="huge full" tabindex="0">
               <span>b</span>
               <span style="display: none;">请选择</span>
-              <div style="direction: ltr;" tags-overflow="collapse">
+              <div class style="direction: ltr;" tags-overflow="collapse">
                 abc
               </div>
               <transition-stub name="fade" style="width: 100%;">

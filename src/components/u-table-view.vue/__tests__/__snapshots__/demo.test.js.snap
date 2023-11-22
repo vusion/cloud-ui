@@ -617,7 +617,7 @@ exports[`u-table-view.vue Demo-loading 的问题 1`] = `
       <div class="root sizer" tabindex="0">
         <span>b</span>
         <span style="display: none;">请选择</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
           10条/页
         </div>
         <transition-stub name="fade" style="width: 100%;">
@@ -1133,7 +1133,7 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
                 <div class="root sizer" tabindex="0">
                   <span>b</span>
                   <span style="display: none;">请选择</span>
-                  <div style="direction: ltr;" tags-overflow="collapse">
+                  <div class style="direction: ltr;" tags-overflow="collapse">
                     5条/页
                   </div>
                   <transition-stub name="fade" style="width: 100%;">
@@ -1322,7 +1322,7 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
                 <div class="root sizer" tabindex="0">
                   <span>b</span>
                   <span style="display: none;">请选择</span>
-                  <div style="direction: ltr;" tags-overflow="collapse">
+                  <div class style="direction: ltr;" tags-overflow="collapse">
                     5条/页
                   </div>
                   <transition-stub name="fade" style="width: 100%;">
@@ -1517,7 +1517,7 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
                 <div class="root sizer" tabindex="0">
                   <span>b</span>
                   <span style="display: none;">请选择</span>
-                  <div style="direction: ltr;" tags-overflow="collapse">
+                  <div class style="direction: ltr;" tags-overflow="collapse">
                     5条/页
                   </div>
                   <transition-stub name="fade" style="width: 100%;">
@@ -1706,7 +1706,7 @@ exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] =
                 <div class="root sizer" tabindex="0">
                   <span>b</span>
                   <span style="display: none;">请选择</span>
-                  <div style="direction: ltr;" tags-overflow="collapse">
+                  <div class style="direction: ltr;" tags-overflow="collapse">
                     5条/页
                   </div>
                   <transition-stub name="fade" style="width: 100%;">
@@ -3874,7 +3874,7 @@ exports[`u-table-view.vue Demo-切换时分页调整不回来，分页报错 1`]
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -4234,7 +4234,7 @@ exports[`u-table-view.vue Demo-前端分页 1`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -4352,7 +4352,7 @@ exports[`u-table-view.vue Demo-前端排序 1`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -4476,7 +4476,7 @@ exports[`u-table-view.vue Demo-前端排序不需要 sorting 也能保持状态 
       <div class="root sizer" tabindex="0">
         <span>b</span>
         <span style="display: none;">请选择</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
           10条/页
         </div>
         <transition-stub name="fade" style="width: 100%;">
@@ -4620,7 +4620,7 @@ exports[`u-table-view.vue Demo-前端过滤（筛选） 1`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -4849,7 +4849,7 @@ exports[`u-table-view.vue Demo-前端过滤（筛选）- 筛选项可多选 1`] 
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -6147,7 +6147,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
         <div class="root sizer" tabindex="0">
           <span>b</span>
           <span style="display: none;">请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
             20条/页
           </div>
           <transition-stub name="fade" style="width: 100%;">
@@ -7303,7 +7303,7 @@ exports[`u-table-view.vue Demo-后端分页 1`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -7434,7 +7434,7 @@ exports[`u-table-view.vue Demo-后端排序 1`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -7554,7 +7554,7 @@ exports[`u-table-view.vue Demo-后端排序 2`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -7672,7 +7672,7 @@ exports[`u-table-view.vue Demo-后端排序，前端分页 1`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -7815,7 +7815,7 @@ exports[`u-table-view.vue Demo-后端过滤（筛选） 1`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -7985,7 +7985,7 @@ exports[`u-table-view.vue Demo-后端过滤（筛选）- 筛选项可多选 1`] 
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -8128,7 +8128,7 @@ exports[`u-table-view.vue Demo-后端过滤，前端分页 1`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -9990,7 +9990,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -10421,7 +10421,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -10852,7 +10852,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -11283,7 +11283,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -11714,7 +11714,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -12145,7 +12145,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -12576,7 +12576,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -13007,7 +13007,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -13438,7 +13438,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -13869,7 +13869,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -14300,7 +14300,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -14731,7 +14731,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -15162,7 +15162,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -15593,7 +15593,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -16024,7 +16024,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -16455,7 +16455,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -16886,7 +16886,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -17317,7 +17317,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -17748,7 +17748,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -18179,7 +18179,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
                         <div class="root" tabindex="0">
                           <span>b</span>
                           <span>自定义</span>
-                          <div style="direction: ltr;" tags-overflow="collapse">
+                          <div class style="direction: ltr;" tags-overflow="collapse">
                           </div>
                           <transition-stub name="fade" style="width: 100%;">
                             <div class="root" style="display: none;">
@@ -18607,7 +18607,7 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
       <div class="root sizer" tabindex="0">
         <span>b</span>
         <span style="display: none;">请选择</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
           20条/页
         </div>
         <transition-stub name="fade" style="width: 100%;">
@@ -19922,7 +19922,7 @@ exports[`u-table-view.vue Demo-排序+调整列宽 1`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -21707,7 +21707,7 @@ exports[`u-table-view.vue Demo-树型展示 1`] = `
     <div class="root" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         父子双向关联选中（父选中子选中，子全选父也选中）
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -24186,7 +24186,7 @@ exports[`u-table-view.vue Demo-空表格显示数据异常 1`] = `
       <div class="root sizer" tabindex="0">
         <span>b</span>
         <span style="display: none;">请选择</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
           10条/页
         </div>
         <transition-stub name="fade" style="width: 100%;">
@@ -24307,7 +24307,7 @@ exports[`u-table-view.vue Demo-空表格添加数据不会 reload 1`] = `
       <div class="root sizer" tabindex="0">
         <span>b</span>
         <span style="display: none;">请选择</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
           10条/页
         </div>
         <transition-stub name="fade" style="width: 100%;">
@@ -24586,7 +24586,7 @@ exports[`u-table-view.vue Demo-纯前端过滤 1`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -24837,7 +24837,7 @@ exports[`u-table-view.vue Demo-纯数组前端分页 1`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -25097,7 +25097,7 @@ exports[`u-table-view.vue Demo-纯数组前端排序 1`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -25795,7 +25795,7 @@ exports[`u-table-view.vue Demo-翻页器功能 1`] = `
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">
@@ -31636,7 +31636,7 @@ exports[`u-table-view.vue Demo-过滤下拉菜单不应该嵌在表格内部 1`]
     <div class="root sizer" tabindex="0">
       <span>b</span>
       <span style="display: none;">请选择</span>
-      <div style="direction: ltr;" tags-overflow="collapse">
+      <div class style="direction: ltr;" tags-overflow="collapse">
         10条/页
       </div>
       <transition-stub name="fade" style="width: 100%;">

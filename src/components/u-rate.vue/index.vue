@@ -66,7 +66,7 @@ export default {
         for (let i = 0; i < 5; i++)
             list.push({ index: i });
         return {
-            currentValue: this.value,
+            currentValue: Number(this.value),
             list,
             isHover: false,
             hoverIndex: -1,
@@ -75,7 +75,7 @@ export default {
     },
     watch: {
         value(value, oldValue) {
-            this.currentValue = value;
+            this.currentValue = Number(value);
         },
         currentValue(value, oldValue) {
             this.$emit('change', {

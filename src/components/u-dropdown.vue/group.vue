@@ -26,10 +26,11 @@
             </div>
         </div>
         <m-popper
+            ref="popper"
             v-if="!loading"
             :class="$style.popper"
             :reference="$refs.root"
-            :trigger="rootVM.trigger"
+            :trigger="$env.VUE_APP_DESIGNER? 'click' : trigger || rootVM.trigger"
             placement="right-start"
             :disabled="disabled"
             append-to="reference"
@@ -49,6 +50,7 @@
                         :title="$at2(childNode, rootVM.textField)"
                         :icon="$at2(node, rootVM.iconField)"
                         :inner-idx="idx"
+                        :trigger="childNode.trigger"
                         ></u-dropdown-group>
                     <u-dropdown-item
                         v-else
@@ -88,6 +90,7 @@ export default {
         node: Object,
         innerIdx: { type: Number, default: undefined },
         icon: String,
+        trigger: String,
     },
 
     data() {
@@ -188,6 +191,12 @@ export default {
         },
         reload() {
             this.load();
+        },
+        close() {
+            this.$refs.popper.close();
+            if (this.parentVM.close) {
+                this.parentVM.close();
+            }
         },
     },
 };
