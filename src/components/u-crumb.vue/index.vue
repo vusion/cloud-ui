@@ -24,7 +24,7 @@ import i18nMixin from '../../mixins/i18n';
 export default {
     name: 'u-crumb',
     childName: 'u-crumb-item',
-    mixins: [MParent, i18nMixin],
+    mixins: [MParent, i18nMixin('u-crumb')],
     props: {
         auto: { type: Boolean, default: false },
         separator: { type: String, default: 'arrow' },
