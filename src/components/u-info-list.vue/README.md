@@ -187,7 +187,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | label | string |  |  |  |
-| span | string |  |  | 列跨越的格数 |
+| span | number |  |  | 列跨越的格数 |
 | ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` |  |
 
