@@ -720,8 +720,15 @@ export default {
                         result[0].push(groupVM);
                         // 使用null占位来确保导出数据的正确形状
                         const children = groupVM.$children || [];
-                        for (let i = 1; i < children.length; ++i) {
-                            result[0].push(null);
+                        let columnVMCount = 0;
+                        for (let i = 0; i < children.length; ++i) {
+                            const vnode = children[i];
+                            if (vnode && vnode.$options && vnode.$options.name === 'u-table-view-column') {
+                                ++columnVMCount;
+                                if (columnVMCount > 1) {
+                                    result[0].push(null);
+                                }
+                            }
                         }
                     }
                 });
@@ -732,7 +739,7 @@ export default {
                     if (vm.$options.name !== 'u-table-view-column-group') {
                         return [...acc, null]; // 使用null占位来确保导出数据的正确形状
                     } else {
-                        return [...acc, ...vm.$children];
+                        return [...acc, ...vm.$children.filter((vnode) => vnode && vnode.$options && vnode.$options.name === 'u-table-view-column')];
                     }
                 }, []);
                 // result[1] = this.visibleColumnVMs.filter((columnVM) => columnVM.isUnderGroup);
