@@ -89,6 +89,9 @@ namespace nasl.ui {
             title: '使用路由',
             description: '开启后，选项卡可设置跳转页面',
             docDescription: '开启后，选项卡可设置跳转页面',
+            setter: {
+                type: 'switch',
+            },
         })
         router: nasl.core.Boolean = false;
 
@@ -108,6 +111,9 @@ namespace nasl.ui {
             title: '可关闭',
             description: '设置标签是否可关闭',
             docDescription: '是否可以关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         closable: nasl.core.Boolean = false;
 
@@ -115,6 +121,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '只读',
             description: '正常显示，但禁止选择/输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -122,6 +131,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -260,18 +272,27 @@ namespace nasl.ui {
         @Prop({
             title: '替换',
             description: '需要 router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。',
+            setter: {
+                type: 'switch',
+            },
         })
         private replace: nasl.core.Boolean = false;
 
         @Prop({
             title: '追加路径',
             description: '需要 router 为 true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。',
+            setter: {
+                type: 'switch',
+            },
         })
         private append: nasl.core.Boolean = false;
 
         @Prop({
             title: '精确匹配',
             description: '需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。',
+            setter: {
+                type: 'switch',
+            },
         })
         private exact: nasl.core.Boolean = false;
 
@@ -304,6 +325,9 @@ namespace nasl.ui {
             title: '可关闭',
             description: '设置标签是否可关闭',
             docDescription: '控制标签页是否可关闭，开启效果如下',
+            setter: {
+                type: 'switch',
+            },
         })
         closable: nasl.core.Boolean = false;
 
@@ -312,6 +336,9 @@ namespace nasl.ui {
             title: '显示状态',
             description: '显示状态分为“True(显示)/False(隐藏)”，默认为“显示”',
             docDescription: '控制标签页是否默认显示',
+            setter: {
+                type: 'switch',
+            },
         })
         showTabItem: nasl.core.Boolean = true;
 
@@ -320,6 +347,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

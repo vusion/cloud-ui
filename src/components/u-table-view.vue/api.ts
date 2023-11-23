@@ -108,12 +108,18 @@ namespace nasl.ui {
         @Prop({
             group: '数据属性',
             title: '前端分页',
+            setter: {
+                type: 'switch',
+            },
         })
         private pageable: nasl.core.Boolean = false;
 
         @Prop<UTableViewOptions<T, T1, V, P, M>, any>({
             group: '数据属性',
             title: '后端分页',
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.pageable === true,
         })
         private remotePaging: nasl.core.Boolean = false;
@@ -123,6 +129,9 @@ namespace nasl.ui {
             title: '分页',
             description: '设置是否分页展示数据',
             docDescription: '是否展示分页组件，数据源调用接口是否加入分页参数。默认开启',
+            setter: {
+                type: 'switch',
+            },
         })
         pagination: nasl.core.Boolean;
 
@@ -130,6 +139,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '默认每页条数',
             docDescription: '每页的数据条数。默认20条。在"分页"属性开启时有效',
+            setter: {
+                type: 'numberInput',
+            },
             if: _ => _.pagination === true,
         })
         pageSize: nasl.core.Decimal = 20;
@@ -139,6 +151,9 @@ namespace nasl.ui {
             title: '显示每页条数',
             description: '显示每页条数切换器',
             docDescription: '分页组件处是否展示数据条数的选择列表。默认开启。在"分页"属性开启时有效',
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.pagination === true,
         })
         showSizer: nasl.core.Boolean = true;
@@ -157,6 +172,9 @@ namespace nasl.ui {
             title: '当前页数',
             description: '当前默认展示在第几页',
             docDescription: '当前加载的表格页。默认1。在"分页"属性开启时有效',
+            setter: {
+                type: 'numberInput',
+            },
             if: _ => _.pagination === true,
         })
         pageNumber: nasl.core.Decimal = 1;
@@ -165,6 +183,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '显示总条数',
             docDescription: '分页组件处是否显示表格总数。默认关闭。在"分页"属性开启时有效',
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.pagination === true,
         })
         showTotal: nasl.core.Boolean = false;
@@ -174,6 +195,9 @@ namespace nasl.ui {
             title: '显示跳转输入',
             description: '显示页面跳转输入框',
             docDescription: '分页组件处是否展示跳转到某一页的输入框。默认关闭。在"分页"属性开启时有效',
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.pagination === true,
         })
         showJumper: nasl.core.Boolean = false;
@@ -184,11 +208,14 @@ namespace nasl.ui {
             description: '设置数据初始化时的排序字段和顺序规则',
             docDescription: '支持选择数据表格数据源中的某一条数据，配置默认排序规则，支持升序和降序',
         })
-        sorting: { field: nasl.core.String, order: nasl.core.String, compare: Function } = "{ field: undefined, order: 'desc' }";
+        sorting: { field: nasl.core.String, order: nasl.core.String, compare?: Function } = { field: undefined, order: 'desc' };
 
         @Prop({
             group: '数据属性',
             title: '排序',
+            setter: {
+                type: 'switch',
+            },
         })
         private remoteSorting: nasl.core.Boolean = false;
 
@@ -214,6 +241,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '后端筛选',
             description: '是否使用后端筛选',
+            setter: {
+                type: 'switch',
+            },
         })
         private remoteFiltering: nasl.core.Boolean = false;
 
@@ -251,6 +281,9 @@ namespace nasl.ui {
             title: '树形模式',
             description: '以树形数据展示表格',
             docDescription: '表格是否以树型方式展示。默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         treeDisplay: nasl.core.Boolean = false;
 
@@ -314,6 +347,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '显示表格头部',
             docDescription: '是否显示表格头。默认开启',
+            setter: {
+                type: 'switch',
+            },
         })
         showHead: nasl.core.Boolean = true;
 
@@ -321,6 +357,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '表格头部吸顶',
             docDescription: '当页面滚动到顶时，表格头是否固定在头部，不随页面滚动。默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         stickHead: nasl.core.Boolean = false;
 
@@ -328,6 +367,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '表格头部吸顶偏移量',
             docDescription: '与"表格头部吸顶"选项配合使用，表示表格头吸顶时与顶部的距离',
+            setter: {
+                type: 'numberInput',
+            },
         })
         stickHeadOffset: nasl.core.Decimal = 0;
 
@@ -335,6 +377,9 @@ namespace nasl.ui {
             group: '交互属性',
             title: '悬浮高亮行',
             description: '表格行在悬浮时是否高亮显示',
+            setter: {
+                type: 'switch',
+            },
         })
         private hover: nasl.core.Boolean = false;
 
@@ -343,6 +388,9 @@ namespace nasl.ui {
             title: '可选行',
             description: '设置是否可以单选行',
             docDescription: '表格行是否可点击选中，该取值由值字段名决定，一般会是id等能唯一标识每一行数据的值。默认关闭。',
+            setter: {
+                type: 'switch',
+            },
         })
         selectable: nasl.core.Boolean = false;
 
@@ -351,6 +399,9 @@ namespace nasl.ui {
             title: '可取消',
             description: '设置是否可以取消选择',
             docDescription: '与"可选行"属性对应，表示选中的行再点击时是否可以取消选中。默认关闭。',
+            setter: {
+                type: 'switch',
+            },
         })
         cancelable: nasl.core.Boolean = false;
 
@@ -359,6 +410,9 @@ namespace nasl.ui {
             title: '表格内可拖拽',
             description: '设置是否可以拖拽行排序',
             docDescription: '表格行是否可拖拽放置。默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         draggable: nasl.core.Boolean = false;
 
@@ -367,6 +421,9 @@ namespace nasl.ui {
             title: '表格间可拖拽',
             description: '设置多个表格间是否可以拖拽放置',
             docDescription: '表格间是否可拖拽放置。默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         acrossTableDrag: nasl.core.Boolean = false;
 
@@ -393,6 +450,9 @@ namespace nasl.ui {
             title: '手风琴模式',
             description: '设置是否每次只展开一个',
             docDescription: '表示点击展开行时，其它已经展开的行是否收起。在表格存在"展开列"时有效',
+            setter: {
+                type: 'switch',
+            },
         })
         accordion: nasl.core.Boolean = false;
 
@@ -401,6 +461,9 @@ namespace nasl.ui {
             title: '可调整列宽',
             description: '设置是否可以调整列宽',
             docDescription: '表格列之间是否出现调整样式，可以手动调整列宽',
+            setter: {
+                type: 'switch',
+            },
         })
         resizable: nasl.core.Boolean = false;
 
@@ -420,6 +483,9 @@ namespace nasl.ui {
             group: '交互属性',
             title: '配置展示列',
             description: '设置是否可以配置展示列',
+            setter: {
+                type: 'switch',
+            },
         })
         configurable: nasl.core.Boolean = false;
 
@@ -427,6 +493,9 @@ namespace nasl.ui {
             group: '交互属性',
             title: '虚拟滚动',
             description: '虚拟滚动表示不展示所有的数据，只展示默认条数的数据，当滚动时再展示剩余的数据。当表格数据量大时，可设置为虚拟滚动，提高性能。默认关闭。',
+            setter: {
+                type: 'switch',
+            },
         })
         virtual: nasl.core.Boolean = false;
 
@@ -434,6 +503,9 @@ namespace nasl.ui {
             group: '交互属性',
             title: '每行高度',
             description: '与虚拟滚动配合使用，表示每一行的高度。请确保行里的数据不要换行',
+            setter: {
+                type: 'numberInput',
+            },
             if: _ => _.virtual === true,
         })
         itemHeight: nasl.core.Decimal;
@@ -442,6 +514,9 @@ namespace nasl.ui {
             group: '交互属性',
             title: '展示条数',
             description: '与虚拟滚动配合使用，表示每屏展示的最大条数',
+            setter: {
+                type: 'numberInput',
+            },
             if: _ => _.virtual === true,
         })
         virtualCount: nasl.core.Decimal = 60;
@@ -451,6 +526,9 @@ namespace nasl.ui {
             title: '初始即加载',
             description: '设置初始时是否立即加载',
             docDescription: '- 是否在表格出现时立即加载数据，默认开启。',
+            setter: {
+                type: 'switch',
+            },
         })
         initialLoad: nasl.core.Boolean = true;
 
@@ -482,6 +560,9 @@ namespace nasl.ui {
             description: '加载中状态的触发条件，未设置则默认为系统定义条件',
             docDescription: '支持自定义状态的触发条件，未设置则默认为系统定义条件。',
             bindOpen: true,
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.designerMode === 'loading',
         })
         loading: nasl.core.Boolean;
@@ -501,6 +582,9 @@ namespace nasl.ui {
             description: '加载失败状态的触发条件，未设置则默认为系统定义条件',
             docDescription: '支持自定义状态的触发条件，未设置则默认为系统定义条件。',
             bindOpen: true,
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.designerMode === 'error',
         })
         error: nasl.core.Boolean;
@@ -519,6 +603,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -527,6 +614,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -545,6 +635,9 @@ namespace nasl.ui {
             group: '样式属性',
             title: '表头加粗',
             docDescription: '表格每一列的表头文字是否加粗。默认开启',
+            setter: {
+                type: 'switch',
+            },
         })
         boldHeader: nasl.core.Boolean = true;
 
@@ -552,6 +645,9 @@ namespace nasl.ui {
             group: '样式属性',
             title: '显示边框',
             docDescription: '表格是否展示边框。默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         private border: nasl.core.Boolean = false;
 
@@ -560,6 +656,9 @@ namespace nasl.ui {
             title: '分隔线条',
             description: '单元格之间是否显示分隔线条',
             docDescription: '表格每列之间是否展示分隔线条。默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         line: nasl.core.Boolean = false;
 
@@ -568,6 +667,9 @@ namespace nasl.ui {
             title: '斑马条纹',
             description: '表格行是否按斑马线条纹显示',
             docDescription: '表格行是否按斑马线条纹显示。默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         striped: nasl.core.Boolean = false;
 
@@ -786,6 +888,9 @@ namespace nasl.ui {
             title: '排序',
             description: '设置该列是否可以排序',
             docDescription: '开启后该列可排序，可设置默认顺序，升序或倒序',
+            setter: {
+                type: 'switch',
+            },
         })
         sortable: nasl.core.Boolean = false;
 
@@ -819,6 +924,9 @@ namespace nasl.ui {
             title: '换页继续编号',
             description: '换页后，继续上一页的列序号进行编号',
             docDescription: '支持换页后，继续上一页的列序号进行编号',
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.type === 'index',
         })
         autoIndex: nasl.core.Boolean = false;
@@ -828,6 +936,9 @@ namespace nasl.ui {
             title: '起始序号',
             description: '序号列的起始序号',
             docDescription: '当列类型为"序号列"时有效。默认值为1',
+            setter: {
+                type: 'numberInput',
+            },
             if: _ => _.type === 'index' && _.autoIndex !== true,
         })
         startIndex: nasl.core.Decimal = 1;
@@ -852,6 +963,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '固定列',
             description: '该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。',
+            setter: {
+                type: 'switch',
+            },
         })
         fixed: nasl.core.Boolean = false;
 
@@ -860,6 +974,9 @@ namespace nasl.ui {
             title: '文本过长省略',
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '开启后，该列文本过长会省略显示，否则换行显示，默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         ellipsis: nasl.core.Boolean = false;
 
@@ -867,6 +984,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '隐藏列',
             docDescription: '开启后，当表格横向滚动条滚动时，该列会固定不会跟随滚动条滚动',
+            setter: {
+                type: 'switch',
+            },
         })
         hidden: nasl.core.Boolean = false;
 
@@ -894,12 +1014,20 @@ namespace nasl.ui {
         @Prop({
             group: '样式属性',
             title: '合并列数',
+            setter: {
+                type: 'numberInput',
+                min: 1,
+                precision: 0,
+            },
         })
-        colSpan: nasl.core.Decimal;
+        colSpan: nasl.core.Integer;
 
         @Prop({
             group: '样式属性',
             title: '自动合并相同数据',
+            setter: {
+                type: 'switch',
+            },
         })
         autoRowSpan: nasl.core.Boolean = false;
 
@@ -996,6 +1124,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '确定/取消按钮',
             description: '控制弹出层的确定/取消按钮是否展示',
+            setter: {
+                type: 'switch',
+            },
         })
         showFooter: nasl.core.Boolean = true;
 
@@ -1065,6 +1196,9 @@ namespace nasl.ui {
             title: '排序',
             description: '设置该列是否可以排序',
             docDescription: '开启后该列可排序，可设置默认顺序，升序或倒序',
+            setter: {
+                type: 'switch',
+            },
         })
         sortable: nasl.core.Boolean = false;
 
@@ -1085,6 +1219,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '固定列',
             description: '该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。',
+            setter: {
+                type: 'switch',
+            },
         })
         fixed: nasl.core.Boolean = false;
 
@@ -1093,6 +1230,9 @@ namespace nasl.ui {
             title: '文本过长省略',
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '开启后，该列文本过长会省略显示，否则换行显示，默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         ellipsis: nasl.core.Boolean = false;
 
@@ -1100,6 +1240,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '隐藏列',
             docDescription: '开启后，当表格横向滚动条滚动时，该列会固定不会跟随滚动条滚动',
+            setter: {
+                type: 'switch',
+            },
         })
         hidden: nasl.core.Boolean = false;
 

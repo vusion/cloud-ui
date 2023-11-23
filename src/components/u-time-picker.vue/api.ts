@@ -14,15 +14,6 @@ namespace nasl.ui {
     export class UTimePickerOptions {
         @Prop({
             group: '数据属性',
-            title: '值',
-            description: '默认显示的时间值，格式如08:08:08',
-            syncMode: 'both',
-            docDescription: '默认显示的日期值。',
-        })
-        time: nasl.core.String = '';
-
-        @Prop({
-            group: '数据属性',
             title: '最小单位',
             description: '最小时间单位',
             docDescription: '最小时间单位，支持秒或分',
@@ -32,6 +23,44 @@ namespace nasl.ui {
             },
         })
         minUnit: 'second' | 'minute' = 'second';
+
+        @Prop({
+            group: '数据属性',
+            title: '区间选择',
+            description: '是否支持进行时间区间选择，关闭则为时间点选择',
+            setter: {
+                type: 'switch',
+            },
+        })
+        range: nasl.core.Boolean = false;
+
+        @Prop<UTimePickerOptions, 'value'>({
+            group: '数据属性',
+            title: '值',
+            description: '默认显示的时间值，格式如08:08:08',
+            syncMode: 'both',
+            docDescription: '默认显示的日期值。',
+            if: _ => _.range !== true,
+        })
+        value: nasl.core.String = '';
+
+        @Prop<UTimePickerOptions, 'startTime'>({
+            group: '数据属性',
+            title: '起始值',
+            description: '默认显示的起始时间值，格式如08:08:08',
+            syncMode: 'onlySync',
+            if: _ => _.range === true,
+        })
+        startTime: nasl.core.String;
+
+        @Prop<UTimePickerOptions, 'endTime'>({
+            group: '数据属性',
+            title: '结束值',
+            description: '默认显示的结束时间值，格式如08:08:08',
+            syncMode: 'onlySync',
+            if: _ => _.range === true,
+        })
+        endTime: nasl.core.String;
 
         @Prop({
             group: '数据属性',
@@ -49,12 +78,33 @@ namespace nasl.ui {
         })
         maxTime: nasl.core.String = '23:59:59';
 
+        @Prop<UTimePickerOptions, 'showFormatter'>({
+            group: '主要属性',
+            title: '时间展示格式',
+            setter: {
+                type: 'enumSelect',
+                titles: ['12:09:09', '12时09分09秒', '12:09', '12时09分'],
+            },
+            if: _ => _.advancedFormat.enable === false,
+        })
+        showFormatter: 'HH:mm:ss' | 'HH时mm分ss秒' | 'HH:mm' | 'HH时mm分';
+
+        @Prop({
+            group: '主要属性',
+            title: '高级格式化',
+            bindHide: true,
+        })
+        advancedFormat: { enable: nasl.core.Boolean, value: nasl.core.String } = { enable: false, value: '' };
+
         @Prop({
             group: '主要属性',
             title: '自动获取焦点',
             description: '设置是否自动获取焦点',
             docDescription: '是否自动获得焦点',
             designerValue: false,
+            setter: {
+                type: 'switch',
+            },
         })
         autofocus: nasl.core.Boolean = false;
 
@@ -63,6 +113,9 @@ namespace nasl.ui {
             title: '此刻按钮',
             description: '点击可快捷选择当前时间',
             docDescription: '是否展示此刻按钮',
+            setter: {
+                type: 'switch',
+            },
         })
         showRightNowButton: nasl.core.Boolean = true;
 
@@ -78,6 +131,9 @@ namespace nasl.ui {
             title: '取消/确定按钮',
             description: '控制弹出层的关闭和设置的生效与否',
             docDescription: '是否展示取消/确定按钮',
+            setter: {
+                type: 'switch',
+            },
         })
         showFooterButton: nasl.core.Boolean = true;
 
@@ -135,6 +191,9 @@ namespace nasl.ui {
             title: '可清除',
             description: '可点击清除按钮一键清除内容',
             docDescription: '是否展示清除按钮',
+            setter: {
+                type: 'switch',
+            },
         })
         clearable: nasl.core.Boolean = true;
 
@@ -142,6 +201,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '只读',
             description: '正常显示，但禁止选择/输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -149,6 +211,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -156,6 +221,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '显示状态',
             description: '显示状态分为“True(打开)/False(关闭)”，默认为“打开”',
+            setter: {
+                type: 'switch',
+            },
         })
         private visible: nasl.core.Boolean = true;
 

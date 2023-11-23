@@ -33,17 +33,23 @@ namespace nasl.ui {
         })
         dataSchema: T;
 
-        @Prop({
+        @Prop<USelectableStepsOptions<T>, any>({
             group: '数据属性',
             title: '标签项标题',
             description: '数据源集合的元素，用于显示步骤标题的属性',
+            setter: {
+                type: 'propertySelect',
+            },
         })
         private titleField: (item: T) => nasl.core.String;
 
-        @Prop({
+        @Prop<USelectableStepsOptions<T>, any>({
             group: '数据属性',
             title: '描述项标题',
             description: '数据源集合的元素，用于显示步骤描述的属性',
+            setter: {
+                type: 'propertySelect',
+            },
         })
         private descField: (item: T) => nasl.core.String;
 
@@ -53,6 +59,9 @@ namespace nasl.ui {
             description: '设置当前处于选中状态的步骤',
             syncMode: 'both',
             docDescription: '当前步骤数',
+            setter: {
+                type: 'numberInput',
+            },
         })
         value: nasl.core.Decimal = 0;
 
@@ -72,6 +81,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '是否只读，非只读的情况下可以选择',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -79,6 +91,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -180,6 +195,9 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             tooltipLink: 'https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/170.%E6%AD%A5%E9%AA%A4%E6%9D%A1.html',
             docDescription: '是否只读，非只读的情况下可以选择',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -188,6 +206,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '禁用该项',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

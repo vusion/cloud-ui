@@ -32,6 +32,10 @@ namespace nasl.ui {
     export class UInputOptions {
         @Prop({
             title: '最小长度',
+            setter: {
+                type: 'numberInput',
+                precision: 0,
+            },
         })
         private minlength: nasl.core.Integer;
 
@@ -83,6 +87,10 @@ namespace nasl.ui {
             group: '主要属性',
             title: '最大字符数',
             docDescription: '限定输入文本最大长度。',
+            setter: {
+                type: 'numberInput',
+                precision: 0,
+            },
         })
         maxlength: nasl.core.Integer;
 

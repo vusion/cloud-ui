@@ -16,6 +16,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '数据源配置',
             bindHide: true,
+            setter: {
+                type: 'switch',
+            },
             onToggle: [
                 { clear: ['data-source','data-schema','text-field','to-field','icon-field','value-field','parent-field','link-type-field','target-field'] }
             ],
@@ -45,18 +48,24 @@ namespace nasl.ui {
             group: '数据属性',
             title: '文本字段',
             description: '集合的元素类型中，用于显示文本的属性名称',
+            setter: {
+                type: 'propertySelect',
+            },
             if: _ => _.hasDataSource === true,
         })
-        textField: nasl.core.String = 'text';
+        textField: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
 
         @Prop<UNavbarMultiOptions<T, V>, 'valueField'>({
             group: '数据属性',
             title: '值字段',
             description: '集合的元素类型中，用于标识选中值的属性',
             docDescription: '集合的元素类型中，用于标识选中值的属性，支持自定义变更',
+            setter: {
+                type: 'propertySelect',
+            },
             if: _ => _.hasDataSource === true,
         })
-        valueField: nasl.core.String = 'value';
+        valueField: (item: T) => V = ((item: any)  => item.value) as any;
 
         @Prop<UNavbarMultiOptions<T, V>, 'iconField'>({
             group: '数据属性',
@@ -64,30 +73,39 @@ namespace nasl.ui {
             description: '集合的元素类型中，用于图标的属性名称',
             if: _ => _.hasDataSource === true,
         })
-        iconField: nasl.core.String = 'icon';
+        iconField: (item: T) => nasl.core.String = ((item: any)  => item.icon) as any;
 
         @Prop<UNavbarMultiOptions<T, V>, 'toField'>({
             group: '数据属性',
             title: '跳转链接字段',
             description: '集合的元素类型中，用于跳转链接的属性名称',
+            setter: {
+                type: 'propertySelect',
+            },
             if: _ => _.hasDataSource === true,
         })
-        toField: nasl.core.String = 'to';
+        toField: (item: T) => nasl.core.String = ((item: any)  => item.to) as any;
 
         @Prop<UNavbarMultiOptions<T, V>, 'parentField'>({
             group: '数据属性',
             title: '父级值字段',
             description: '集合的元素类型中，用于标识父节点的属性',
             docDescription: '集合的元素类型中，用于标识父级字段的属性，支持自定义变更',
+            setter: {
+                type: 'propertySelect',
+            },
             if: _ => _.hasDataSource === true,
         })
-        parentField: nasl.core.String = '';
+        parentField: (item: T) => nasl.core.String;
 
         @Prop<UNavbarMultiOptions<T, V>, 'router'>({
             group: '数据属性',
             title: '使用路由',
             description: '是否根据 vue-router 来控制选择项',
             docDescription: '设置是否根据vue-router来控制选择哪一项，默认开启。开启后当前所在的导航栏项底部会有标识',
+            setter: {
+                type: 'switch',
+            },
             onToggle: [
                 { clear: ['value'] }
             ],
@@ -102,20 +120,26 @@ namespace nasl.ui {
             docDescription: '当前选择的值',
             if: _ => _.router === false,
         })
-        value: nasl.core.String;
+        value: V;
 
-        @Prop({
+        @Prop<UNavbarMultiOptions<T, V>, any>({
             group: '数据属性',
             title: '字段',
             description: '显示文本字段',
+            setter: {
+                type: 'propertySelect',
+            },
         })
-        private field: nasl.core.String = 'text';
+        private field: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
 
         @Prop({
             group: '状态属性',
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -124,6 +148,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -185,12 +212,18 @@ namespace nasl.ui {
         @Prop({
             title: '替换地址',
             description: '需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。',
+            setter: {
+                type: 'switch',
+            },
         })
         private replace: nasl.core.Boolean = false;
 
         @Prop({
             title: '精确匹配',
             description: '需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。',
+            setter: {
+                type: 'switch',
+            },
         })
         private exact: nasl.core.Boolean = false;
 
@@ -248,6 +281,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -360,6 +396,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
     }
@@ -489,6 +528,9 @@ namespace nasl.ui {
             title: '可折叠',
             description: '设置是否可以展开/折叠',
             docDescription: '设置分组是否可折叠',
+            setter: {
+                type: 'switch',
+            },
         })
         collapsible: nasl.core.Boolean = false;
 
@@ -508,6 +550,9 @@ namespace nasl.ui {
             description: '展开状态分为“True(展开)/False(折叠)”，默认为“展开”',
             syncMode: 'onlySync',
             docDescription: '设置分组的展开折叠状态。在某些场景下需要预置分组的展开或者折叠状态',
+            setter: {
+                type: 'switch',
+            },
         })
         expanded: nasl.core.Boolean = false;
 
@@ -516,6 +561,9 @@ namespace nasl.ui {
             title: '禁用展开/折叠',
             description: '置灰显示，且禁止展开/折叠操作',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

@@ -4,6 +4,7 @@
   labels:
     - Selector
   description: 该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。
+  tsTypeParams: T, V
   attrs:
     - name: join
       title: 连接符
@@ -29,7 +30,7 @@
       description: 选择地区名称，返回：浙江省/杭州市/滨江区（不加空格）；选择地区码，返回：330108
     - name: data
       title: 数据源
-      type: Array<{ text, value }>
+      type: "nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer }"
       description: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑。
       group: 数据属性
       docDescription: "- 支持动态绑定集合类型变量（List\\<T>）或输出参数为集合类型的逻辑。"

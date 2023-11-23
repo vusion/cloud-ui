@@ -20,10 +20,10 @@
       advanced: true
     - name: value
       title: 值
-      type: Array
+      type: nasl.collection.List<nasl.core.String>
       sync: true
       model: true
-      default: "[]"
+      default: []
       description: 当前文件列表
       group: 数据属性
       docDescription: 当前的文件列表
@@ -152,7 +152,9 @@
         list-type: text
     - name: file-icon
       title: 文件图标
-      type: file-icon
+      type: string
+      setter: iconSelect
+      setterTitle: 选择文件图标
       description: ""
       group: 主要属性
       brifeDoc: ""
@@ -174,7 +176,8 @@
       - list-type: text
     - name: download-icon
       title: 下载图标
-      type: icon
+      type: string
+      setter: iconSelect
       default: download
       description: ""
       group: 主要属性

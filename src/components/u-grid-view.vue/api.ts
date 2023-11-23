@@ -32,30 +32,24 @@ namespace nasl.ui {
         private field: (item: T) => nasl.core.String;
 
         @Prop({
-            title: '文本字段名',
-            description: '选项文本的字段名',
-        })
-        private textField: (item: T) => nasl.core.String;
-
-        @Prop({
-            title: '值字段名',
-            description: '选项值的字段名',
-        })
-        private valueField: (item: T) => V;
-
-        @Prop({
             title: '可取消',
+            setter: {
+                type: 'switch',
+            },
         })
         private cancelable: nasl.core.Boolean = false;
 
         @Prop({
             title: '可多选',
         })
-        private multiple: M = false;
+        private multiple: M = false as any;
 
         @Prop({
             title: '筛选清除按钮',
             description: '搜索框是否有清除按钮',
+            setter: {
+                type: 'switch',
+            },
         })
         private clearable: nasl.core.Boolean = false;
 
@@ -76,6 +70,26 @@ namespace nasl.ui {
         })
         dataSchema: T;
 
+        @Prop<UGridViewOptions<T, V, P, M, C>, 'textField'>({
+            group: '数据属性',
+            title: '文本字段名',
+            description: '选项文本的字段名',
+            setter: {
+                type: 'propertySelect',
+            },
+        })
+        textField: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
+
+        @Prop<UGridViewOptions<T, V, P, M, C>, 'valueField'>({
+            group: '数据属性',
+            title: '值字段名',
+            description: '选项值的字段名',
+            setter: {
+                type: 'propertySelect',
+            },
+        })
+        valueField: (item: T) => V = ((item: any)  => item.value) as any;
+
         @Prop({
             group: '数据属性',
             title: '分页',
@@ -83,6 +97,9 @@ namespace nasl.ui {
             docDescription: `可分页：是否需要数据分页展示，默认关闭。
 - 开启：展示分页内容，调用数据源逻辑时会将分页信息作为入参传入。
 - 关闭：不展示分页内容。`,
+            setter: {
+                type: 'switch',
+            },
         })
         pageable: nasl.core.Boolean = false;
 
@@ -90,17 +107,24 @@ namespace nasl.ui {
             group: '数据属性',
             title: '默认每页条数',
             docDescription: '每页的数据条数，默认 50。',
+            setter: {
+                type: 'numberInput',
+                precision: 0,
+            },
         })
-        pageSize: nasl.core.Decimal = 50;
+        pageSize: nasl.core.Integer = 50;
 
         @Prop({
             group: '数据属性',
             title: '当前页数',
             description: '当前默认展示在第几页',
-            syncMode: 'onlySync',
             docDescription: '可设置加载出的网格处于第几页的位置。',
+            setter: {
+                type: 'numberInput',
+                precision: 0,
+            },
         })
-        pageNumber: nasl.core.Decimal = 1;
+        pageNumber: nasl.core.Integer = 1;
 
         @Prop({
             group: '数据属性',
@@ -116,6 +140,9 @@ namespace nasl.ui {
             docDescription: `开启时显示列表所有行数，默认关闭。
 - 开启：展示分页内容，调用数据源时会将数据源作为入参传入。
 - 关闭：不展示分页内容。`,
+            setter: {
+                type: 'switch',
+            },
         })
         showTotal: nasl.core.Boolean = false;
 
@@ -124,6 +151,9 @@ namespace nasl.ui {
             title: '显示每页条数',
             description: '显示每页条数切换器',
             docDescription: '开启时显示分页大小选项，可选择每页显示条数，默认关闭。',
+            setter: {
+                type: 'switch',
+            },
         })
         showSizer: nasl.core.Boolean = false;
 
@@ -132,6 +162,9 @@ namespace nasl.ui {
             title: '显示跳转输入',
             description: '显示页面跳转输入框',
             docDescription: '开启时可直接输入要跳转的页数，默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         showJumper: nasl.core.Boolean = false;
 
@@ -139,12 +172,18 @@ namespace nasl.ui {
             group: '数据属性',
             title: '后端分页',
             docDescription: '数据网格内容展示，完全由数据源返回值控制，比如总条目数、数据展示条数等。默认开启。',
+            setter: {
+                type: 'switch',
+            },
         })
         remotePaging: nasl.core.Boolean = false;
 
         @Prop({
             group: '数据属性',
             title: '后端筛选',
+            setter: {
+                type: 'switch',
+            },
         })
         private remoteFiltering: nasl.core.Boolean = false;
 
@@ -174,6 +213,9 @@ namespace nasl.ui {
             title: '网格数',
             description: '每行排列几项',
             docDescription: '每行排列多少个网格。',
+            setter: {
+                type: 'numberInput',
+            },
         })
         repeat: nasl.core.Decimal = 5;
 
@@ -181,6 +223,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '显示头部',
             docDescription: '显示数据网格列表标题，默认关闭。',
+            setter: {
+                type: 'switch',
+            },
         })
         showHead: nasl.core.Boolean = false;
 
@@ -195,6 +240,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '显示底部',
             docDescription: '显示数据网格底部选项，如分页大小，跳转输入等，默认开启。',
+            setter: {
+                type: 'switch',
+            },
         })
         showFoot: nasl.core.Boolean = true;
 
@@ -203,6 +251,9 @@ namespace nasl.ui {
             title: '初始即加载',
             description: '设置初始时是否立即加载',
             docDescription: '是否在初始时立即加载，当数据源配置为逻辑时，组件首次渲染自动调用逻辑。',
+            setter: {
+                type: 'switch',
+            },
         })
         initialLoad: nasl.core.Boolean = true;
 
@@ -232,6 +283,9 @@ namespace nasl.ui {
             title: '自定义加载中触发条件',
             description: '支持自定义状态的触发条件，未设置则默认为系统定义条件',
             bindOpen: true,
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.designerMode === 'loading',
         })
         loading: nasl.core.Boolean;
@@ -251,6 +305,9 @@ namespace nasl.ui {
             description: '加载失败状态的触发条件，未设置则默认为系统定义条件',
             docDescription: '开启后所有数据均不展示，仅展示加载失败文字，常用在数据源不是逻辑的时候，由外部触发组件的加载失败状态，默认关闭',
             bindOpen: true,
+            setter: {
+                type: 'switch',
+            },
             if: _ => _.designerMode === 'error',
         })
         error: nasl.core.Boolean;
@@ -269,6 +326,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入。',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -277,6 +337,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

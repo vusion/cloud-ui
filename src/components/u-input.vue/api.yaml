@@ -7,7 +7,8 @@
   attrs:
     - name: minlength
       title: 最小长度
-      type: nasl.core.Integer
+      type: number
+      precision: 0
       description: ""
       advanced: true
     - name: spellcheck
@@ -51,7 +52,8 @@
       tooltipLink: ""
     - name: maxlength
       title: 最大字符数
-      type: nasl.core.Integer
+      type: number
+      precision: 0
       description: ""
       group: 主要属性
       docDescription: 限定输入文本最大长度。

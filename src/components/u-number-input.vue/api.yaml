@@ -54,7 +54,7 @@
     - name: decimal-places
       title: 小数位数
       type: "{ places: number, omit: boolean }"
-      default: "{ places: '', omit: true }"
+      default: "{ places: null, omit: true }"
       compose:
         - key: places 
           type: number

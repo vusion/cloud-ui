@@ -8,7 +8,7 @@
   attrs:
     - name: data-source
       title: 数据源
-      type: nasl.collection.List<T>
+      type: "nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer }"
       default: [{"url":
         "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_1.png"},{"url":
         "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_2.png"},{"url":
@@ -40,7 +40,7 @@
       tooltipLink: ""
     - name: num
       title: 显示图片数
-      type: nasl.core.Integer
+      type: number
       default: 5
       description: ""
       group: 主要属性

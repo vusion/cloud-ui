@@ -116,6 +116,9 @@ namespace nasl.ui {
             title: '分页加载更多',
             description: '设置是否分页加载更多',
             docDescription: '是否使用分页功能加载更多',
+            setter: {
+                type: 'switch',
+            },
         })
         private pageable: nasl.core.Boolean = false;
 
@@ -124,6 +127,9 @@ namespace nasl.ui {
             title: '后端分页',
             description: '是否使用后端分页',
             docDescription: '控制是否使用后端分页，不支持自定义分页条数，默认为50条',
+            setter: {
+                type: 'switch',
+            },
         })
         private remotePaging: nasl.core.Boolean = false;
 
@@ -156,6 +162,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选项辅助文本',
             description: '选项的辅助说明信息，展示在选项文本下方',
+            setter: {
+                type: 'switch',
+            },
         })
         description: nasl.core.Boolean = false;
 
@@ -194,6 +203,9 @@ namespace nasl.ui {
             title: '筛选',
             description: '设置是否可以筛选，开启将会支持搜索。',
             docDescription: '开启后选择框可输入文本进行筛选',
+            setter: {
+                type: 'switch',
+            },
         })
         filterable: nasl.core.Boolean = false;
 
@@ -201,6 +213,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '后端筛选',
             description: '设置是否使用后端筛选',
+            setter: {
+                type: 'switch',
+            },
         })
         private remoteFiltering: nasl.core.Boolean = false;
 
@@ -220,6 +235,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '可扩展下拉项',
             description: '设置是否可扩展下拉项,开启后可自定义下拉框选项',
+            setter: {
+                type: 'switch',
+            },
         })
         showRenderFooter: nasl.core.Boolean = false;
 
@@ -228,6 +246,9 @@ namespace nasl.ui {
             title: '全选控制',
             description: '是否存在可以控制选项的全选/反选',
             docDescription: '是否存在可以控制选项的全选/反选',
+            setter: {
+                type: 'switch',
+            },
         })
         hasAllCheckItem: nasl.core.Boolean = false;
 
@@ -267,6 +288,9 @@ namespace nasl.ui {
             description: '设置是否自动获取焦点',
             docDescription: '控制是否在进入页面时聚焦到该组件',
             designerValue: false,
+            setter: {
+                type: 'switch',
+            },
         })
         autofocus: nasl.core.Boolean = false;
 
@@ -309,6 +333,9 @@ namespace nasl.ui {
             title: '可清除',
             description: '可点击清除按钮一键清除所选内容',
             docDescription: '控制是否显示清除按钮，支持一键清除所选内容',
+            setter: {
+                type: 'switch',
+            },
         })
         clearable: nasl.core.Boolean = false;
 
@@ -327,6 +354,9 @@ namespace nasl.ui {
             group: '交互属性',
             title: '可取消',
             description: '设置是否可以取消选择',
+            setter: {
+                type: 'switch',
+            },
         })
         private cancelable: nasl.core.Boolean = false;
 
@@ -336,13 +366,16 @@ namespace nasl.ui {
             description: '设置是否可以多选行',
             docDescription: '是否可以多选',
         })
-        multiple: M = false;
+        multiple: M = false as any;
 
         @Prop({
             group: '状态属性',
             title: '初始即加载',
             description: '设置初始时是否立即加载',
             docDescription: '是否在初始时立即加载',
+            setter: {
+                type: 'switch',
+            },
         })
         initialLoad: nasl.core.Boolean = true;
 
@@ -358,6 +391,9 @@ namespace nasl.ui {
             title: '展示暂无数据文案',
             description: '是否在数据为空时展示暂无数据的文字提示',
             docDescription: '是否在数据为空时展示暂无数据的文字提示',
+            setter: {
+                type: 'switch',
+            },
         })
         showEmptyText: nasl.core.Boolean = true;
 
@@ -374,6 +410,9 @@ namespace nasl.ui {
             title: '为空自动禁用',
             description: '为空时置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         emptyDisabled: nasl.core.Boolean = false;
 
@@ -382,6 +421,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入。',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -390,6 +432,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -399,6 +444,9 @@ namespace nasl.ui {
             description: '弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”',
             syncMode: 'onlySync',
             docDescription: '开启时加载下拉框时，下拉框自动弹出，默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         opened: nasl.core.Boolean = false;
 
@@ -437,6 +485,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '自动补全',
             description: '是否开启自动补充模式，用于增加列表中没有的项',
+            setter: {
+                type: 'switch',
+            },
         })
         private autoComplete: nasl.core.Boolean = false;
 
@@ -590,6 +641,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '该项不可选，默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 

@@ -24,12 +24,14 @@
       description: 数据源集合的元素，用于显示步骤标题的属性
       group: 数据属性
       advanced: true
+      display: property-select
     - name: desc-field
       title: 描述项标题
       type: "(item: T) => nasl.core.String"
       description: 数据源集合的元素，用于显示步骤描述的属性
       group: 数据属性
       advanced: true
+      display: property-select
     - name: value
       title: 当前步骤
       type: number

@@ -42,7 +42,7 @@ namespace nasl.ui {
             description: '展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑',
             docDescription: '数据列表，支持直接放置多层的数据源也支持通过单层的数据和`父节点字段名`或`子节点字段名`构建树形',
         })
-        dataSource: nasl.collection.List<T>;
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
 
         @Prop({
             group: '数据属性',
@@ -82,9 +82,9 @@ namespace nasl.ui {
             setter: {
                 type: 'propertySelect',
             },
-            disabledIf: _ => _.parentField !== null && _.parentField !== '',
+            disabledIf: _ => _.parentField !== null,
         })
-        childrenField: nasl.core.String = 'children';
+        childrenField: (item: T) => nasl.collection.List<T> = ((item: any)  => item.children) as any;
 
         @Prop<UCascaderOptions<T, V>, 'parentField'>({
             group: '数据属性',
@@ -94,9 +94,9 @@ namespace nasl.ui {
             setter: {
                 type: 'propertySelect',
             },
-            disabledIf: _ => _.childrenField !== null && _.childrenField !== '',
+            disabledIf: _ => _.childrenField !== null,
         })
-        parentField: nasl.core.String;
+        parentField: (item: T) => nasl.core.String;
 
         @Prop({
             group: '数据属性',
@@ -111,6 +111,9 @@ namespace nasl.ui {
             title: '绑定值使用值字段',
             docDescription: '是否使用数组类型的value',
             bindHide: true,
+            setter: {
+                type: 'switch',
+            },
         })
         useArrayLikeValue: nasl.core.Boolean = false;
 
@@ -119,6 +122,9 @@ namespace nasl.ui {
             title: '筛选',
             description: '设置是否可以筛选，开启将会显示搜索框。',
             docDescription: '是否可以过滤（搜索），开启将会显示搜索框',
+            setter: {
+                type: 'switch',
+            },
         })
         filterable: nasl.core.Boolean = false;
 
@@ -135,6 +141,9 @@ namespace nasl.ui {
             title: '只显示最后一项',
             description: '定义是否显示完整的路径，ture时只显示最后一项',
             docDescription: '定义是否显示完整的路径，ture时只显示最后一项',
+            setter: {
+                type: 'switch',
+            },
         })
         showFinalValue: nasl.core.Boolean = false;
 
@@ -144,6 +153,9 @@ namespace nasl.ui {
             description: '设置是否自动获取焦点',
             docDescription: '是否自动获取焦点',
             designerValue: false,
+            setter: {
+                type: 'switch',
+            },
         })
         autofocus: nasl.core.Boolean = false;
 
@@ -163,6 +175,9 @@ namespace nasl.ui {
             title: '可清空',
             description: '设置是否可以清空搜索框，开启后将在有内容时显示清除按钮。',
             docDescription: '开启并在输入框有内容时会显示清除按钮',
+            setter: {
+                type: 'switch',
+            },
         })
         clearable: nasl.core.Boolean = false;
 
@@ -171,6 +186,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '禁用选择器',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -179,6 +197,9 @@ namespace nasl.ui {
             title: '弹出状态',
             description: '弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”',
             docDescription: '切换弹出/关闭状态',
+            setter: {
+                type: 'switch',
+            },
         })
         opened: nasl.core.Boolean = false;
 

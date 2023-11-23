@@ -49,15 +49,16 @@
         - "has-data-source": true
     - name: text-field
       title: 文本字段
-      type: string
+      type: "(item: T) => nasl.core.String"
       default: text
       description: 集合的元素类型中，用于显示文本的属性名称
       group: 数据属性
       dependency:
         - "has-data-source": true
+      display: property-select
     - name: value-field
       title: 值字段
-      type: string
+      type: "(item: T) => V"
       default: value
       description: 集合的元素类型中，用于标识选中值的属性
       group: 数据属性
@@ -66,26 +67,28 @@
       brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识选中值的属性，支持自定义变更
       tooltipLink: ""
+      display: property-select
     - name: icon-field
       title: 图标属性字段
-      type: string
+      type: "(item: T) => nasl.core.String"
       default: icon
       description: 集合的元素类型中，用于图标的属性名称
       group: 数据属性
       dependency:
         - "has-data-source": true
+      display: property-select
     - name: to-field
       title: 跳转链接字段
-      type: string
+      type: "(item: T) => nasl.core.String"
       default: to
       description: 集合的元素类型中，用于跳转链接的属性名称
       group: 数据属性
       dependency:
         - "has-data-source": true
+      display: property-select
     - name: parent-field
       title: 父级值字段
-      type: string
-      default: ""
+      type: "(item: T) => nasl.core.String"
       description: 集合的元素类型中，用于标识父节点的属性
       group: 数据属性
       dependency:
@@ -93,6 +96,7 @@
       brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识父级字段的属性，支持自定义变更
       tooltipLink: ""
+      display: property-select
     - name: trigger
       title: 触发方式
       type: string
@@ -186,7 +190,7 @@
       tooltipLink: ""
     - name: value
       title: 选中值
-      type: any
+      type: V
       sync: true
       model: true
       description: 当前选中的值

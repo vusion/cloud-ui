@@ -33,7 +33,7 @@
       group: 数据属性
     - name: value
       title: 值
-      type: string | number | Date
+      type: string | number | nasl.core.Date
       sync: true
       model: true
       description: 默认显示的日期值，格式如2018-08-08
@@ -44,7 +44,7 @@
         - '!range': true
     - name: startDate
       title: 起始值
-      type: string,number,Date
+      type: string | number | nasl.core.Date
       sync: true
       description: 默认显示的起始日期值，格式如2018-08-08
       group: 数据属性
@@ -52,7 +52,7 @@
         - range: true
     - name: endDate
       title: 结束值
-      type: string,number,Date
+      type: string | number | nasl.core.Date
       sync: true
       description: 默认显示的结束日期值，格式如2018-08-08
       group: 数据属性
@@ -60,14 +60,14 @@
         - range: true
     - name: minDate
       title: 最小日期值
-      type: string | number | Date
+      type: string | number | nasl.core.Date
       description: 最小可选的日期值，默认为10年前，日期填写格式为“yyyy-mm-dd”
       group: 数据属性
       docDescription: 设置日期范围，支持输入的最小日期
       tooltipLink: ""
     - name: maxDate
       title: 最大日期值
-      type: string | number | Date
+      type: string | number | nasl.core.Date
       description: 最大可选的日期值，默认为9年后，日期填写格式为“yyyy-mm-dd”
       group: 数据属性
       docDescription: 设置日期范围，支持输入的最大日期

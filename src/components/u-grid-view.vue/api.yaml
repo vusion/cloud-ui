@@ -83,6 +83,7 @@
       title: 默认每页条数
       type: number
       default: 50
+      precision: 0
       description: ""
       group: 数据属性
       docDescription: 每页的数据条数，默认 50。
@@ -91,6 +92,7 @@
       title: 当前页数
       type: number
       default: 1
+      precision: 0
       description: 当前默认展示在第几页
       group: 数据属性
       schema:

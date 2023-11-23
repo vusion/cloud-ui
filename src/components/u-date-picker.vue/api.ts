@@ -14,12 +14,53 @@ namespace nasl.ui {
     export class UDatePickerOptions {
         @Prop({
             group: '数据属性',
+            title: '日期类型',
+            description: '日期格式设置',
+            docDescription: '日期选择弹出层里的日期展示格式，支持日期、月份、季度、年份4种模式。默认日期格式',
+            setter: {
+                type: 'enumSelect',
+                titles: ['日期', '周', '月份', '季度', '年份'],
+            },
+        })
+        picker: 'date' | 'week' | 'month' | 'quarter' | 'year' = 'date';
+
+        @Prop({
+            group: '数据属性',
+            title: '区间选择',
+            description: '是否支持进行日期区间选择，关闭则为日期点选择',
+            setter: {
+                type: 'switch',
+            },
+        })
+        range: nasl.core.Boolean = false;
+
+        @Prop<UDatePickerOptions, 'value'>({
+            group: '数据属性',
             title: '值',
             description: '默认显示的日期值，格式如2018-08-08',
             syncMode: 'both',
             docDescription: '当前选择的值',
+            if: _ => _.range !== true,
         })
-        date: nasl.core.String | nasl.core.Decimal | Date;
+        value: nasl.core.String | nasl.core.Decimal | nasl.core.Date;
+
+        @Prop<UDatePickerOptions, 'startDate'>({
+            group: '数据属性',
+            title: '起始值',
+            description: '默认显示的起始日期值，格式如2018-08-08',
+            syncMode: 'onlySync',
+            if: _ => _.range === true,
+        })
+        startDate: nasl.core.String | nasl.core.Decimal | nasl.core.Date;
+
+        @Prop<UDatePickerOptions, 'endDate'>({
+            group: '数据属性',
+            title: '结束值',
+            description: '默认显示的结束日期值，格式如2018-08-08',
+            syncMode: 'onlySync',
+            if: _ => _.range === true,
+        })
+        endDate: nasl.core.String | nasl.core.Decimal | nasl.core.Date;
 
         @Prop({
             group: '数据属性',
@@ -27,7 +68,7 @@ namespace nasl.ui {
             description: '最小可选的日期值，默认为10年前，日期填写格式为“yyyy-mm-dd”',
             docDescription: '设置日期范围，支持输入的最小日期',
         })
-        minDate: nasl.core.String | nasl.core.Decimal | Date;
+        minDate: nasl.core.String | nasl.core.Decimal | nasl.core.Date;
 
         @Prop({
             group: '数据属性',
@@ -35,30 +76,56 @@ namespace nasl.ui {
             description: '最大可选的日期值，默认为9年后，日期填写格式为“yyyy-mm-dd”',
             docDescription: '设置日期范围，支持输入的最大日期',
         })
-        maxDate: nasl.core.String | nasl.core.Decimal | Date;
+        maxDate: nasl.core.String | nasl.core.Decimal | nasl.core.Date;
 
         @Prop({
             group: '数据属性',
             title: '时间格式',
             description: '输入对应格式的字符串（8:00:00）即可',
         })
-        time: nasl.core.String | nasl.core.Decimal = '00:00:00';
+        private time: nasl.core.String | nasl.core.Decimal = '00:00:00';
 
-        @Prop({
+        @Prop<UDatePickerOptions, 'yearDiff'>({
             group: '数据属性',
             title: '最小年份差值',
             description: '最小可选年份值与当前年份值的差值',
             docDescription: '设置日期范围，最小可选择的年份',
+            setter: {
+                type: 'numberInput',
+            },
+            if: _ => _.range !== true,
         })
         yearDiff: nasl.core.Decimal = 20;
 
-        @Prop({
+        @Prop<UDatePickerOptions, 'yearAdd'>({
             group: '数据属性',
             title: '最大年份差值',
             description: '最大可选年份值与当前年份值的差值',
             docDescription: '设置日期范围，最大可选择的年份',
+            setter: {
+                type: 'numberInput',
+            },
+            if: _ => _.range !== true,
         })
         yearAdd: nasl.core.Decimal = 20;
+
+        @Prop<UDatePickerOptions, 'showFormatter'>({
+            group: '主要属性',
+            title: '日期展示格式',
+            setter: {
+                type: 'enumSelect',
+                titles: ['中国（2023年7月26日）', 'ISO（2023-07-26）', 'US（7/26/2023）', 'EU（26/7/2023）', '2023-28周', '2023年第28周', '2023-W28', '中国（2023年7月）', 'ISO（2023-07）', 'US/EU（7/2023）', '2023年第3季度', '2023年Q3', '2023-Q3', '中国（2023年）', 'ISO（2023）'],
+            },
+            if: _ => _.advancedFormat.enable === false,
+        })
+        showFormatter: 'YYYY年M月D日' | 'YYYY-MM-DD' | 'M/D/YYYY' | 'D/M/YYYY' | 'GGGG-W周' | 'GGGG年第W周' | 'GGGG-WWWW' | 'YYYY年M月' | 'YYYY-MM' | 'M/YYYY' | 'YYYY年第Q季度' | 'YYYY年QQ' | 'YYYY-QQ' | 'YYYY年' | 'YYYY';
+
+        @Prop({
+            group: '主要属性',
+            title: '高级格式化',
+            bindHide: true,
+        })
+        advancedFormat: { enable: nasl.core.Boolean, value: nasl.core.String } = { enable: false, value: '' };
 
         @Prop({
             group: '主要属性',
@@ -66,6 +133,9 @@ namespace nasl.ui {
             description: '设置是否自动获取焦点',
             docDescription: '控制是否在进入页面时聚焦到该组件',
             designerValue: false,
+            setter: {
+                type: 'switch',
+            },
         })
         autofocus: nasl.core.Boolean = false;
 
@@ -100,18 +170,6 @@ namespace nasl.ui {
             },
         })
         converter: 'json' | 'timestamp' | 'date' | 'format' = 'format';
-
-        @Prop({
-            group: '主要属性',
-            title: '日期格式',
-            description: '日期格式设置',
-            docDescription: '日期选择弹出层里的日期展示格式，支持日期、月份、季度、年份4种模式。默认日期格式',
-            setter: {
-                type: 'enumSelect',
-                titles: ['日期', '月份', '季度', '年份'],
-            },
-        })
-        picker: 'date' | 'month' | 'quarter' | 'year' = 'date';
 
         @Prop({
             group: '主要属性',
@@ -152,6 +210,9 @@ namespace nasl.ui {
             title: '可清除',
             description: '可点击清除按钮一键清除内容',
             docDescription: '控制是否显示清除按钮，支持一键清除所选内容',
+            setter: {
+                type: 'switch',
+            },
         })
         clearable: nasl.core.Boolean;
 
@@ -160,6 +221,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -168,14 +232,20 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
         @Prop({
             group: '状态属性',
             title: '弹出状态',
-            description: '弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”',
+            description: '弹出状态分为“True(弹出)/False(关闭)”，默认为“关闭”',
             docDescription: '开启时加载日期组件时，下拉框自动弹出，默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         opened: nasl.core.Boolean = false;
 

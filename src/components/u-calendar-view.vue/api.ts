@@ -25,7 +25,7 @@ namespace nasl.ui {
             docDescription: '组件的数据源，配置内容为数据集对象或者返回数据集的逻辑。',
             designerValue: [{}],
         })
-        dataSource: nasl.collection.List<T>;
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
 
         @Prop({
             group: '数据属性',
@@ -44,7 +44,7 @@ namespace nasl.ui {
                 type: 'propertySelect',
             },
         })
-        startKey: nasl.core.String = 'startTime';
+        startKey: (item: T) => nasl.core.Date = ((item: any)  => item.startTime) as any;
 
         @Prop<UCalendarViewOptions<T>, 'endKey'>({
             group: '数据属性',
@@ -55,7 +55,7 @@ namespace nasl.ui {
                 type: 'propertySelect',
             },
         })
-        endKey: nasl.core.String = 'endTime';
+        endKey: (item: T) => nasl.core.Date = ((item: any)  => item.endTime) as any;
 
         @Prop({
             group: '数据属性',
@@ -86,6 +86,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '展示周天',
             docDescription: '控制头部示例星期几信息展示，默认开启',
+            setter: {
+                type: 'switch',
+            },
         })
         showWeekDays: nasl.core.Boolean = true;
 
@@ -93,6 +96,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '展示周数',
             docDescription: '控制当前周为第几周信息展示，默认关闭。',
+            setter: {
+                type: 'switch',
+            },
         })
         showWeeks: nasl.core.Boolean = false;
 
@@ -101,6 +107,9 @@ namespace nasl.ui {
             title: '展示基础配置',
             description: '是否展示顶部左侧的 "<" "今天" ">" 等基础配置功能',
             docDescription: '控制顶部左侧 上个月、当天、下个月 的快捷操作入口展示，默认开启。',
+            setter: {
+                type: 'switch',
+            },
         })
         showBasic: nasl.core.Boolean = true;
 
@@ -109,6 +118,9 @@ namespace nasl.ui {
             title: '展示高级配置',
             description: '是否展示顶部右侧的年份、月份选项高级配置',
             docDescription: '控制顶部右侧 年份、月份 快捷切换操作入口展示，默认开启。',
+            setter: {
+                type: 'switch',
+            },
         })
         showAdvance: nasl.core.Boolean = true;
 
@@ -117,8 +129,22 @@ namespace nasl.ui {
             title: '首列星期',
             description: '填写数字1~7，分别表示周一~周日',
             docDescription: '0～7 (周一～周日) 数字配置，自定义每行从周几开始展示，默认 1，**当开启展示周数时固定周一开始**。',
+            setter: {
+                type: 'numberInput',
+                precision: 0,
+            },
         })
-        firstDayOfWeek: nasl.core.Decimal = 1;
+        firstDayOfWeek: nasl.core.Integer = 1;
+
+        @Prop({
+            group: '交互属性',
+            title: '可多选',
+            description: '开启可多选后，可通过ctrl/command+鼠标多选',
+            setter: {
+                type: 'switch',
+            },
+        })
+        multiple: nasl.core.Boolean = false;
 
         @Event({
             title: '选择后',

@@ -24,7 +24,7 @@ namespace nasl.ui {
             description: '展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑',
             docDescription: '组件所展示数据的输入源，可以是逻辑、变量。格式可参见示例',
         })
-        dataSource: nasl.collection.List<T> = [{url:'https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_1.png'},{url:'https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_2.png'},{url:'https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_3.png'},{url:'https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_4.png'},{url:'https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_5.png'}];
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer } = [{url:'https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_1.png'},{url:'https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_2.png'},{url:'https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_3.png'},{url:'https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_4.png'},{url:'https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_5.png'}] as any;
 
         @Prop({
             group: '数据属性',
@@ -49,13 +49,19 @@ namespace nasl.ui {
             group: '主要属性',
             title: '显示图片数',
             docDescription: '同时展示的图片数量',
+            setter: {
+                type: 'numberInput',
+            },
         })
-        num: nasl.core.Integer = 5;
+        num: nasl.core.Decimal = 5;
 
         @Prop({
             group: '主要属性',
             title: '显示左右箭头',
             docDescription: '图片支持通过鼠标按住拖动或点击左右箭头的方式调整位置，关闭该选项后不显示左右箭头',
+            setter: {
+                type: 'switch',
+            },
         })
         arrow: nasl.core.Boolean = true;
 

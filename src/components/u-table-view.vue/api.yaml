@@ -129,7 +129,7 @@
       tooltipLink: ""
     - name: sorting
       title: 初始化排序规则
-      type: "{ field: string, order: string, compare: Function }"
+      type: "{ field: string, order: string, compare?: Function }"
       default: "{ field: undefined, order: 'desc' }"
       description: 设置数据初始化时的排序字段和顺序规则
       group: 数据属性

@@ -8,7 +8,7 @@
   attrs:
     - name: data-source
       title: 数据源
-      type: nasl.collection.List<T>
+      type: "nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer }"
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
       docDescription: 数据列表，支持直接放置多层的数据源也支持通过单层的数据和`父节点字段名`或`子节点字段名`构建树形
@@ -39,27 +39,25 @@
       tooltipLink: ""
     - name: children-field
       title: 子级值字段
-      type: string
+      type: "(item: T) => nasl.collection.List<T>"
       default: children
       description: 树形数据子节点字段名，默认为children
       display: property-select
       dependency:
         - +parent-field:
             - null
-            - ""
       dependencyDisplay: disabled
       group: 数据属性
       docDescription: 树形数据子节点字段名，默认为children
       tooltipLink: ""
     - name: parent-field
       title: 父级值字段
-      type: string
+      type: "(item: T) => nasl.core.String"
       description: 当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置
       display: property-select
       dependency:
         - +children-field:
             - null
-            - ""
       dependencyDisplay: disabled
       group: 数据属性
       docDescription: 当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置

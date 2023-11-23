@@ -8,7 +8,7 @@
   attrs:
     - name: data-source
       title: 数据源
-      type: nasl.collection.List<T>
+      type: "nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer }"
       designer-value: "[{}]"
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
@@ -23,7 +23,7 @@
       docDescription: IDE 根据配置的数据源动态计算返回内容的数据结构，用于动态配置项 current.item 的类型说明。
       tooltipLink: ""
     - name: start-key
-      type: string
+      type: "(item: T) => nasl.core.Date"
       title: 开始时间字段
       default: startTime
       description: 数据内表示开始时间的字段
@@ -32,7 +32,7 @@
       docDescription: 数据内表示开始时间的字段，要求对应数据必须包含日期（日期/日期时间格式），**单独使用表示当天**；跟结束时间字段配合使用表示日期区间，组件根据日期区间判断展示在哪些日期内。
       tooltipLink: ""
     - name: end-key
-      type: string
+      type: "(item: T) => nasl.core.Date"
       title: 结束时间字段
       default: endTime
       description: 数据内表示结束时间的字段
@@ -100,6 +100,7 @@
       title: 首列星期
       type: number
       default: 1
+      precision: 0
       description: 填写数字1~7，分别表示周一~周日
       group: 主要属性
       docDescription: 0～7 (周一～周日) 数字配置，自定义每行从周几开始展示，默认 1，**当开启展示周数时固定周一开始**。

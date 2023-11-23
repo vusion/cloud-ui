@@ -26,6 +26,9 @@ namespace nasl.ui {
 
         @Prop({
             title: '是否可以粘贴',
+            setter: {
+                type: 'switch',
+            },
         })
         private pastable: nasl.core.Boolean = false;
 
@@ -36,7 +39,7 @@ namespace nasl.ui {
             syncMode: 'both',
             docDescription: '当前的文件列表',
         })
-        value: Array = '[]';
+        value: nasl.collection.List<nasl.core.String> = [] as any;
 
         @Prop({
             group: '数据属性',
@@ -72,6 +75,9 @@ namespace nasl.ui {
             title: 'cookie值',
             description: '通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略',
             docDescription: '通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略',
+            setter: {
+                type: 'switch',
+            },
         })
         withCredentials: nasl.core.Boolean = false;
 
@@ -86,6 +92,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '列表数量上限',
             docDescription: '列表数量上限，默认为999',
+            setter: {
+                type: 'numberInput',
+            },
         })
         limit: nasl.core.Decimal;
 
@@ -116,6 +125,81 @@ namespace nasl.ui {
         })
         urlField: nasl.core.String = 'url';
 
+        @Prop<UUploaderOptions, 'fileIconSwitcher'>({
+            group: '主要属性',
+            title: '文件图标',
+            description: '是否展示文件图标',
+            docDescription: '是否展示文件图标',
+            setter: {
+                type: 'switch',
+            },
+            if: _ => _.listType === 'text',
+        })
+        fileIconSwitcher: nasl.core.Boolean = true;
+
+        @Prop({
+            title: 'undefined',
+        })
+        private iconMap: Object = {'doc|docx':'file-doc','jpg|jpeg|png|bmp|gif|tiff|tif|webp|svg|psd|raw':'file-jpg',pdf:'file-pdf',xlsx:'file-xlxs',txt:'file-txt','ppt|pptx':'file-ppt',zip:'file-zip',csv:'file-csv'};
+
+        @Prop<UUploaderOptions, 'fileType'>({
+            group: '主要属性',
+            title: '文件类型',
+            docDescription: '列表的展示类型，支持使用文本、图片和卡片',
+            setter: {
+                type: 'enumSelect',
+                titles: ['文档', '图片', 'PDF', '表格', '文本', '幻灯片', '压缩包', 'CSV'],
+            },
+            if: _ => _.fileIconSwitcher === true && _.listType === 'text',
+        })
+        fileType: 'doc|docx' | 'jpg|jpeg|png|bmp|gif|tiff|tif|webp|svg|psd|raw' | 'pdf' | 'xlsx' | 'txt' | 'ppt|pptx' | 'zip' | 'csv' = 'doc|docx';
+
+        @Prop<UUploaderOptions, 'fileIcon'>({
+            group: '主要属性',
+            title: '文件图标',
+            docDescription: '支持从图标库选择图标或上传自定义图标。',
+            setter: {
+                type: 'iconSelect',
+                title: '选择文件图标',
+            },
+            if: _ => _.fileIconSwitcher === true && _.listType === 'text',
+        })
+        fileIcon: nasl.core.String;
+
+        @Prop<UUploaderOptions, 'downloadIconSwitcher'>({
+            group: '主要属性',
+            title: '下载图标',
+            description: '是否展示下载图标',
+            docDescription: '是否展示下载图标',
+            setter: {
+                type: 'switch',
+            },
+            if: _ => _.listType === 'text',
+        })
+        downloadIconSwitcher: nasl.core.Boolean = true;
+
+        @Prop<UUploaderOptions, 'downloadIcon'>({
+            group: '主要属性',
+            title: '下载图标',
+            setter: {
+                type: 'iconSelect',
+            },
+            if: _ => _.downloadIconSwitcher === true && _.listType === 'text',
+        })
+        downloadIcon: nasl.core.String = 'download';
+
+        @Prop<UUploaderOptions, 'fileSize'>({
+            group: '主要属性',
+            title: '文件大小',
+            description: '是否展示文件大小，单位小于1MB则展示KB，大于1MB则展示MB。',
+            docDescription: '是否展示文件大小',
+            setter: {
+                type: 'switch',
+            },
+            if: _ => _.listType === 'text',
+        })
+        fileSize: nasl.core.Boolean = true;
+
         @Prop({
             group: '主要属性',
             title: '请求 headers',
@@ -127,6 +211,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '多文件上传',
             docDescription: '开启后可上传多个文件，默认关闭，多文件可设置数量上限',
+            setter: {
+                type: 'switch',
+            },
         })
         multiple: nasl.core.Boolean = false;
 
@@ -135,6 +222,9 @@ namespace nasl.ui {
             title: '一次性上传多文件',
             description: '利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件',
             docDescription: '开启后支持一次性上传多个文件',
+            setter: {
+                type: 'switch',
+            },
         })
         multipleOnce: nasl.core.Boolean = false;
 
@@ -143,36 +233,54 @@ namespace nasl.ui {
             title: '启用图片裁剪',
             description: '设置是否启用图片裁剪功能，只对单文件上传有效',
             docDescription: '开启后支持对选择的图片进行裁剪后上传',
+            setter: {
+                type: 'switch',
+            },
         })
         openCropper: nasl.core.Boolean = false;
 
         @Prop({
             group: '主要属性',
             title: '固定图片裁剪框大小',
+            setter: {
+                type: 'switch',
+            },
         })
         fixedCropper: nasl.core.Boolean = false;
 
         @Prop({
             group: '主要属性',
             title: '图片裁剪框宽度',
+            setter: {
+                type: 'numberInput',
+            },
         })
         cropperBoxWidth: nasl.core.Decimal = 200;
 
-        @Prop({
+        @Prop<UUploaderOptions, 'cropperBoxHeight'>({
             group: '主要属性',
             title: '图片裁剪框高度',
+            setter: {
+                type: 'numberInput',
+            },
+            if: _ => _.cropperPreviewShape === 'rect',
         })
-        cropperBoxHeight: nasl.core.Decimal = 200;
+        cropperBoxHeight: nasl.core.Decimal = 0;
 
-        @Prop({
+        @Prop<UUploaderOptions, 'cropperPreviewShape'>({
             group: '主要属性',
             title: '图片裁剪框预览形状',
             setter: {
                 type: 'enumSelect',
-                titles: ['正方形', '圆形'],
+                titles: ['矩形', '正方形', '圆形'],
             },
+            onToggle: [
+                { update: {cropperBoxHeight:200}, if: _ => _ === 'rect' },
+                { update: {cropperBoxHeight:0}, if: _ => _ === 'circle' },
+                { update: {cropperBoxHeight:0}, if: _ => _ === 'square' },
+            ],
         })
-        cropperPreviewShape: 'square' | 'circle' = 'circle';
+        cropperPreviewShape: 'rect' | 'square' | 'circle' = 'circle';
 
         @Prop({
             group: '主要属性',
@@ -184,13 +292,19 @@ namespace nasl.ui {
             group: '主要属性',
             title: '自动上传',
             docDescription: '开启后选择文件后会自动上传，默认开启',
+            setter: {
+                type: 'switch',
+            },
         })
-        autoUpload: nasl.core.Boolean = true;
+        private autoUpload: nasl.core.Boolean = true;
 
         @Prop({
             group: '主要属性',
             title: '显示文件列表',
             docDescription: '开启后上传多个文件时，会显示文件列表，默认开启',
+            setter: {
+                type: 'switch',
+            },
         })
         showFileList: nasl.core.Boolean = true;
 
@@ -230,6 +344,9 @@ namespace nasl.ui {
             title: '报错信息',
             description: '设置是否展示上传时的出错信息，如超出数量、大小',
             docDescription: '是否展示上传时的出错信息，如超出数量、大小',
+            setter: {
+                type: 'switch',
+            },
         })
         showErrorMessage: nasl.core.Boolean = true;
 
@@ -244,8 +361,8 @@ namespace nasl.ui {
         @Prop({
             group: '主要属性',
             title: '文件校验',
-            description: '文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息',
-            docDescription: '文件校验函数，可自定义校验规则，入文件名称包含特殊字符等，返回string类型的出错信息',
+            description: '文件校验函数，可自定义校验规则，如文件名称包含特殊字符等，返回string类型的出错信息',
+            docDescription: '文件校验函数，可自定义校验规则，如文件名称包含特殊字符等，返回string类型的出错信息',
         })
         checkFile: Function;
 
@@ -265,6 +382,9 @@ namespace nasl.ui {
             title: '文件有效期',
             description: '是否开启文件有效期控制',
             docDescription: '支持配置文件自动清理，开启后可自定义上传后有效天数',
+            setter: {
+                type: 'switch',
+            },
         })
         ttl: nasl.core.Boolean;
 
@@ -273,14 +393,42 @@ namespace nasl.ui {
             title: '上传后有效天数',
             description: '文件上传后的有效期天数',
             docDescription: '开启文件有效期开关后显示，可配置文件自动清理的时间',
+            setter: {
+                type: 'numberInput',
+            },
             if: _ => _.ttl === true,
         })
         ttlValue: nasl.core.Decimal;
 
         @Prop({
+            group: '主要属性',
+            title: '源地址访问',
+            description: '开启后支持通过文件存储源地址访问文件',
+            docDescription: '开启后支持通过文件存储源地址访问文件',
+            setter: {
+                type: 'switch',
+            },
+        })
+        viaOriginURL: nasl.core.Boolean;
+
+        @Prop({
+            group: '主要属性',
+            title: '启用压缩',
+            description: '启用压缩后上传的文件按压缩规则进行压缩后上传，压缩规则可在自定义配置参数管理',
+            docDescription: '启用压缩后上传的文件按压缩规则进行压缩后上传，压缩规则可在自定义配置参数管理',
+            setter: {
+                type: 'switch',
+            },
+        })
+        lcapIsCompress: nasl.core.Boolean;
+
+        @Prop({
             group: '交互属性',
             title: '可拖拽',
             docDescription: '开启后支持拖拽上传文件，默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         draggable: nasl.core.Boolean = false;
 
@@ -289,6 +437,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -297,6 +448,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -347,5 +501,11 @@ namespace nasl.ui {
             description: '插入文本 或 HTML。',
         })
         slotDefault: () => Array<VueComponent>;
+
+        @Slot({
+            title: '文件列表',
+            description: '文件列表。',
+        })
+        slotFileList: () => Array<VueComponent>;
     }
 }

@@ -12,14 +12,56 @@ namespace nasl.ui {
     }
 
     export class UDateTimePickerOptions {
+        @Prop<UDateTimePickerOptions, 'minUnit'>({
+            group: '主要属性',
+            title: '最小单位',
+            description: '最小时间单位',
+            docDescription: '最小时间单位，支持秒或分',
+            setter: {
+                type: 'enumSelect',
+                titles: ['秒', '分'],
+            },
+            if: _ => _.advancedFormat.enable === false,
+        })
+        minUnit: 'second' | 'minute' = 'second';
+
         @Prop({
+            group: '数据属性',
+            title: '区间选择',
+            description: '是否支持进行日期时间区间选择，关闭则为日期时间点选择',
+            setter: {
+                type: 'switch',
+            },
+        })
+        range: nasl.core.Boolean = false;
+
+        @Prop<UDateTimePickerOptions, 'value'>({
             group: '数据属性',
             title: '值',
             description: '默认显示的日期时间值，格式如2018-08-08 08:08:08',
             syncMode: 'both',
             docDescription: '默认显示的日期时间值',
+            if: _ => _.range !== true,
         })
-        date: nasl.core.String | nasl.core.Decimal | Date;
+        value: nasl.core.String | nasl.core.Decimal | nasl.core.Date;
+
+        @Prop<UDateTimePickerOptions, 'startDate'>({
+            group: '数据属性',
+            title: '起始值',
+            description: '默认显示的起始日期时间值，格式如2018-08-08 08:08:08',
+            syncMode: 'onlySync',
+            if: _ => _.range === true,
+        })
+        startDate: nasl.core.String | nasl.core.Decimal | nasl.core.Date;
+
+        @Prop<UDateTimePickerOptions, 'endDate'>({
+            group: '数据属性',
+            title: '结束值',
+            description: '默认显示的结束日期时间值，格式如2018-08-08 08:08:08',
+            syncMode: 'onlySync',
+            if: _ => _.range === true,
+        })
+        endDate: nasl.core.String | nasl.core.Decimal | nasl.core.Date;
 
         @Prop({
             group: '数据属性',
@@ -27,7 +69,7 @@ namespace nasl.ui {
             description: '最小可选的日期时间值，填写null则不限制，日期填写格式为“yyyy-mm-dd  00:00:00”',
             docDescription: '支持输入的最小日期时间',
         })
-        minDate: nasl.core.String | nasl.core.Decimal | Date;
+        minDate: nasl.core.String | nasl.core.Decimal | nasl.core.Date;
 
         @Prop({
             group: '数据属性',
@@ -35,23 +77,60 @@ namespace nasl.ui {
             description: '最大可选的日期时间值，填写null则不限制，日期填写格式为“yyyy-mm-dd  00:00:00”',
             docDescription: '支持输入的最大日期时间',
         })
-        maxDate: nasl.core.String | nasl.core.Decimal | Date;
+        maxDate: nasl.core.String | nasl.core.Decimal | nasl.core.Date;
 
-        @Prop({
+        @Prop<UDateTimePickerOptions, 'yearDiff'>({
             group: '数据属性',
             title: '最小年份差值',
             description: '最小可选年份值与当前年份值的差值',
             docDescription: '最小可选年份值为当前年减去此值',
+            setter: {
+                type: 'numberInput',
+            },
+            if: _ => _.range !== true,
         })
         yearDiff: nasl.core.Decimal = 20;
 
-        @Prop({
+        @Prop<UDateTimePickerOptions, 'yearAdd'>({
             group: '数据属性',
             title: '最大年份差值',
             description: '最大可选年份值与当前年份值的差值',
             docDescription: '最大可选年份值为当前年加上此值',
+            setter: {
+                type: 'numberInput',
+            },
+            if: _ => _.range !== true,
         })
         yearAdd: nasl.core.Decimal = 20;
+
+        @Prop<UDateTimePickerOptions, 'showDateFormatter'>({
+            group: '主要属性',
+            title: '日期展示格式',
+            setter: {
+                type: 'enumSelect',
+                titles: ['中国（2023年7月26日）', 'ISO（2023-07-26）', 'US（7/26/2023）', 'EU（26/7/2023）'],
+            },
+            if: _ => _.advancedFormat.enable === false,
+        })
+        showDateFormatter: 'YYYY年M月D日' | 'YYYY-MM-DD' | 'M/D/YYYY' | 'D/M/YYYY' = 'YYYY-MM-DD';
+
+        @Prop<UDateTimePickerOptions, 'showTimeFormatter'>({
+            group: '主要属性',
+            title: '时间展示格式',
+            setter: {
+                type: 'enumSelect',
+                titles: ['12:09:09', '12时09分09秒', '12:09', '12时09分'],
+            },
+            if: _ => _.advancedFormat.enable === false,
+        })
+        showTimeFormatter: 'HH:mm:ss' | 'HH时mm分ss秒' | 'HH:mm' | 'HH时mm分' = 'HH:mm:ss';
+
+        @Prop({
+            group: '主要属性',
+            title: '高级格式化',
+            bindHide: true,
+        })
+        advancedFormat: { enable: nasl.core.Boolean, value: nasl.core.String } = { enable: false, value: '' };
 
         @Prop({
             group: '主要属性',
@@ -67,6 +146,9 @@ namespace nasl.ui {
             description: '设置是否自动获取焦点',
             docDescription: '是否自动聚焦',
             designerValue: false,
+            setter: {
+                type: 'switch',
+            },
         })
         autofocus: nasl.core.Boolean = false;
 
@@ -75,6 +157,9 @@ namespace nasl.ui {
             title: '此刻按钮',
             description: '点击可快捷选择当前时间',
             docDescription: '快捷选择当前时间',
+            setter: {
+                type: 'switch',
+            },
         })
         showRightNowButton: nasl.core.Boolean = true;
 
@@ -90,6 +175,9 @@ namespace nasl.ui {
             title: '取消/确定按钮',
             description: '控制弹出层的关闭和设置的生效与否',
             docDescription: '是否显示取消/确定按钮。',
+            setter: {
+                type: 'switch',
+            },
         })
         showFooterButton: nasl.core.Boolean = true;
 
@@ -118,7 +206,7 @@ namespace nasl.ui {
                 titles: ['JSON', 'Unix 时间戳', 'Date 对象', 'YYYY-MM-DD HH:mm:ss'],
             },
         })
-        converter: 'json' | 'timestamp' | 'date' | 'format' = 'format';
+        converter: 'json' | 'timestamp' | 'date' | 'format' = 'json';
 
         @Prop({
             group: '主要属性',
@@ -159,13 +247,19 @@ namespace nasl.ui {
             title: '可清除',
             description: '可点击清除按钮一键清除内容',
             docDescription: '是否展示清除按钮',
+            setter: {
+                type: 'switch',
+            },
         })
         clearable: nasl.core.Boolean;
 
         @Prop({
             group: '状态属性',
             title: '弹出状态',
-            description: '弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”',
+            description: '弹出状态分为“True(弹出)/False(关闭)”，默认为“关闭”',
+            setter: {
+                type: 'switch',
+            },
         })
         opened: nasl.core.Boolean = false;
 
@@ -173,6 +267,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -180,6 +277,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '只读',
             description: '正常显示，但禁止选择/输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 

@@ -32,11 +32,17 @@ namespace nasl.ui {
     export class UTextareaOptions {
         @Prop({
             title: '最小长度',
+            setter: {
+                type: 'numberInput',
+            },
         })
         private minlength: nasl.core.Decimal;
 
         @Prop({
             title: '拼写检查',
+            setter: {
+                type: 'switch',
+            },
         })
         private spellcheck: nasl.core.Boolean;
 
@@ -77,7 +83,10 @@ namespace nasl.ui {
             title: '显示字数统计',
             description: '设置是否显示「最大字符数」的字数统计',
             docDescription: '开启后，会在组件上显示当前输入字数以及最大字符数，当前输入字数超过最大字符数时，不支持输入。',
-            if: _ => _.maxlength !== '',
+            setter: {
+                type: 'switch',
+            },
+            if: _ => _.maxlength !== null,
         })
         showWordLimit: nasl.core.Boolean;
 
@@ -100,6 +109,9 @@ namespace nasl.ui {
             description: '设置是否自动获取焦点',
             docDescription: '进入页面时，自动选中该输入框。',
             designerValue: false,
+            setter: {
+                type: 'switch',
+            },
         })
         autofocus: nasl.core.Boolean = false;
 
@@ -108,6 +120,9 @@ namespace nasl.ui {
             title: '可清除',
             description: '可点击清除按钮一键清除内容',
             docDescription: '是否可清空。开启并在输入框有内容时会显示清空按钮',
+            setter: {
+                type: 'switch',
+            },
         })
         clearable: nasl.core.Boolean = false;
 
@@ -128,6 +143,9 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
+            setter: {
+                type: 'switch',
+            },
         })
         readonly: nasl.core.Boolean = false;
 
@@ -136,6 +154,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -161,7 +182,7 @@ namespace nasl.ui {
                 placeholder: '不设置则根据输入内容自适应',
             },
         })
-        autosize: nasl.core.Boolean;
+        autosize: nasl.core.Boolean | object;
 
         @Event({
             title: '输入前',

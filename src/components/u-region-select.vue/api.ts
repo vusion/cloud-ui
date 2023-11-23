@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'region-select',
         description: '该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。',
     })
-    export class URegionSelect extends VueComponent {
+    export class URegionSelect<T, V> extends VueComponent {
 
 
         @Method({
@@ -26,10 +26,10 @@ namespace nasl.ui {
             description: '清空输入框。',
         })
         clear(): void {}
-        constructor(options?: Partial<URegionSelectOptions>) { super(); }
+        constructor(options?: Partial<URegionSelectOptions<T, V>>) { super(); }
     }
 
-    export class URegionSelectOptions {
+    export class URegionSelectOptions<T, V> {
         @Prop({
             title: '连接符',
             description: '将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值',
@@ -56,7 +56,7 @@ namespace nasl.ui {
             description: '支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑。',
             docDescription: '- 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑。',
         })
-        data: Array<{ text, value }>;
+        data: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
 
         @Prop({
             group: '数据属性',
@@ -78,6 +78,9 @@ namespace nasl.ui {
             title: '筛选',
             description: '设置是否可以筛选，开启将会显示搜索框。',
             docDescription: '开启后选择框可输入文本进行筛选',
+            setter: {
+                type: 'switch',
+            },
         })
         filterable: nasl.core.Boolean = false;
 
@@ -94,6 +97,9 @@ namespace nasl.ui {
             title: '只显示最后一项',
             description: '定义是否显示完整的路径，ture时只显示最后一项',
             docDescription: '控制选择地区项后输入框里展示的形式，开启时只展示最后一项目，未开启时展示所有项路径。默认关闭。',
+            setter: {
+                type: 'switch',
+            },
         })
         showFinalValue: nasl.core.Boolean = false;
 
@@ -103,6 +109,9 @@ namespace nasl.ui {
             description: '设置是否自动获取焦点',
             docDescription: '控制是否在进入页面时聚焦到该组件',
             designerValue: false,
+            setter: {
+                type: 'switch',
+            },
         })
         autofocus: nasl.core.Boolean = false;
 
@@ -122,6 +131,9 @@ namespace nasl.ui {
             title: '可清空',
             description: '设置是否可以清空搜索框，开启后将在有内容时显示清除按钮。',
             docDescription: '控制是否显示清除按钮，支持一键清除所选内容',
+            setter: {
+                type: 'switch',
+            },
         })
         clearable: nasl.core.Boolean = false;
 
@@ -130,6 +142,9 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
+            setter: {
+                type: 'switch',
+            },
         })
         disabled: nasl.core.Boolean = false;
 
@@ -138,6 +153,9 @@ namespace nasl.ui {
             title: '弹出状态',
             description: '弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”',
             docDescription: '开启时加载下拉框时，下拉框自动弹出，默认关闭',
+            setter: {
+                type: 'switch',
+            },
         })
         opened: nasl.core.Boolean = false;
 

@@ -49,7 +49,7 @@
       type: boolean
       description: 设置是否显示「最大字符数」的字数统计
       dependency:
-        - "!maxlength": ""
+        - "!maxlength": null
       group: 主要属性
       docDescription: 开启后，会在组件上显示当前输入字数以及最大字符数，当前输入字数超过最大字符数时，不支持输入。
       tooltipLink: ""
@@ -138,7 +138,7 @@
       tooltipLink: ""
     - name: autosize
       title: 自适应内容高度
-      type: boolean
+      type: boolean | object
       place: 不设置则根据输入内容自适应
       description: 可输入如{maxHeight:100,minHeight:50}，单位默认为px
       group: 样式属性
