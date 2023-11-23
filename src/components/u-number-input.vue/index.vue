@@ -41,7 +41,7 @@ export default {
         // 默认优先使用小数位数（废弃⚠️）
         precision: { type: Number, default: 1, validator: (precision) => precision >= 0 },
         // 小数位数
-        decimalLength: { type: Number, default: 40, validator: (value) => value >= 0 },
+        decimalLength: { type: Number, validator: (value) => value >= 0 },
         formatter: { type: [String, Object] },
         hideButtons: { type: Boolean, default: false },
         // 按钮呈现形式 tail ｜ bothEnds
@@ -124,7 +124,7 @@ export default {
 
             if (this.advancedFormat.enable) {
                 formatter = this.advancedFormat.value;
-            } else if (this.thousandths || this.percentSign || this.decimalPlaces.places >= 0) {
+            } else if (this.thousandths || this.percentSign || !isNil(this.decimalPlaces.places)) {
                 formatter = '0';
                 // 千分位
                 if (this.thousandths) {
@@ -139,11 +139,8 @@ export default {
                     for (let i = 0; i < this.decimalPlaces.places; i++) {
                         formatter += char;
                     }
-                } else if (this.decimalPlaces && this.decimalPlaces.places === '') {
-                    formatter += '.';
-                    for (let i = 0; i < 17; i++) {
-                        formatter += '#';
-                    }
+                } else if (this.decimalPlaces && isNil(this.decimalPlaces.places)) {
+                    formatter += '.*';
                 }
 
                 // 单位
@@ -278,7 +275,7 @@ export default {
                 if (this.highPrecision) {
                     value = new this.Decimal(String(value)).toString();
                 } else {
-                    value = parseFloat(+value);
+                    value = parseFloat(+value.toFixed(Math.floor(this.decimalLength)));
                 }
             } else if (this.precision > 0) {
                 let decimalLength = 0;
