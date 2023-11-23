@@ -57,15 +57,15 @@
                     "horizontal",
                     "space-between"
                 ],
+                "preview": {
+                    "template": "<div>\n        <u-linear-layout direction=\"vertical\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"width: 100%;\"></u-block>\n            <u-block style=\"width: 100%;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            justify=\"space-between\"\n            style=\"margin-bottom:8px;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n    </div>",
+                    "style": ".linearLayout [class^=\"u-block\"] {\n    height: 48px;\n    background: #337EFF !important;\n    opacity: 0.5;\n}"
+                },
                 "cssProperty": {
                     "--linear-layout-background": {
                         "type": "color",
                         "desc": "加载时遮罩背景颜色,如：#223325"
                     }
-                },
-                "preview": {
-                    "template": "<div>\n        <u-linear-layout direction=\"vertical\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"width: 100%;\"></u-block>\n            <u-block style=\"width: 100%;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            justify=\"space-between\"\n            style=\"margin-bottom:8px;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n    </div>",
-                    "style": ".linearLayout [class^=\"u-block\"] {\n    height: 48px;\n    background: #337EFF !important;\n    opacity: 0.5;\n}"
                 }
             },
             {
@@ -74,6 +74,9 @@
                 "title": "面包屑",
                 "toPosition": "crumb",
                 "type": [],
+                "preview": {
+                    "template": "<u-crumb>\n    <u-crumb-item to=\"/\">一级页面</u-crumb-item>\n    <u-crumb-item to=\"/two\">二级页面</u-crumb-item>\n    <u-crumb-item type=\"text\" to=\"/two/three\">三级页面</u-crumb-item>\n    <u-crumb-item disabled>四级页面</u-crumb-item>\n</u-crumb>"
+                },
                 "cssProperty": {
                     "--crumb-color-link": {
                         "type": "color",
@@ -87,9 +90,6 @@
                         "type": "input",
                         "desc": "链接与箭头符号之间的间距,如：1px"
                     }
-                },
-                "preview": {
-                    "template": "<u-crumb>\n    <u-crumb-item to=\"/\">一级页面</u-crumb-item>\n    <u-crumb-item to=\"/two\">二级页面</u-crumb-item>\n    <u-crumb-item type=\"text\" to=\"/two/three\">三级页面</u-crumb-item>\n    <u-crumb-item disabled>四级页面</u-crumb-item>\n</u-crumb>"
                 }
             },
             {
@@ -98,6 +98,9 @@
                 "title": "面板",
                 "toPosition": "u-panel",
                 "type": [],
+                "preview": {
+                    "template": "<u-panel title=\"面板标题\">\n                                <u-skeleton></u-skeleton>\n                            </u-panel>"
+                },
                 "cssProperty": {
                     "--panel-border-width": {
                         "type": "input",
@@ -154,9 +157,6 @@
                         "type": "input",
                         "desc": "面板标题字体粗细,如：bold"
                     }
-                },
-                "preview": {
-                    "template": "<u-panel title=\"面板标题\">\n                                <u-skeleton></u-skeleton>\n                            </u-panel>"
                 }
             },
             {
@@ -171,6 +171,9 @@
                     "base",
                     "simple"
                 ],
+                "preview": {
+                    "template": "<div>\n    <div class=\"componentClassTitle\">基础样式一</div>\n    <u-collapse style=\"margin-bottom:48px;\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n    <div class=\"componentClassTitle\">基础样式二</div>\n    <u-collapse appear=\"simple\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n</div>"
+                },
                 "cssProperty": {
                     "--collapse-item-fill-background": {
                         "type": "color",
@@ -220,9 +223,6 @@
                         "type": "input",
                         "desc": "面板展开动画快慢参数,如：0.2s"
                     }
-                },
-                "preview": {
-                    "template": "<div>\n    <div class=\"componentClassTitle\">基础样式一</div>\n    <u-collapse style=\"margin-bottom:48px;\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n    <div class=\"componentClassTitle\">基础样式二</div>\n    <u-collapse appear=\"simple\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n</div>"
                 }
             },
             {
@@ -242,6 +242,9 @@
                     "disabled",
                     "ellipsis"
                 ],
+                "preview": {
+                    "template": "<div>\n    <div class=\"componentClassTitle\">基础样式</div>\n    <div style=\"margin-bottom:40px;\">\n        <u-text size=\"normal\" color=\"normal\" style=\"margin-right:24px;\">\n            Normal\n        </u-text>\n        <u-text size=\"small\"  style=\"margin-right:24px;\">\n            Small\n        </u-text>\n        <u-text size=\"large\" style=\"margin-right:24px;\">\n            Large\n        </u-text>\n        <u-text size=\"primary\" color=\"primary\" style=\"margin-right:24px;\">\n            Primary\n        </u-text>\n        <u-text size=\"secondary\" color=\"secondary\" style=\"margin-right:24px;\">\n            Secondary\n        </u-text>\n        <u-text size=\"success\" color=\"success\" style=\"margin-right:24px;\">\n            Success\n        </u-text>\n        <u-text size=\"warning\" color=\"warning\" style=\"margin-right:24px;\">\n            Warning\n        </u-text>\n        <u-text size=\"error\" color=\"error\" style=\"margin-right:24px;\">\n            Error\n        </u-text>\n        <u-text size=\"disabled\" color=\"disabled\" style=\"margin-right:24px;\">\n            Disabled\n        </u-text>\n    </div>\n    <div class=\"componentClassTitle\">长文本</div>\n    <u-text overflow=\"ellipsis\" size=\"normal\">\n        Content content content content content content content content content content content content content content content content content content content content content content content content content content content...\n    </u-text>\n</div>"
+                },
                 "cssProperty": {
                     "--text-font-size": {
                         "type": "input",
@@ -360,9 +363,6 @@
                             ]
                         }
                     }
-                },
-                "preview": {
-                    "template": "<div>\n    <div class=\"componentClassTitle\">基础样式</div>\n    <div style=\"margin-bottom:40px;\">\n        <u-text size=\"normal\" color=\"normal\" style=\"margin-right:24px;\">\n            Normal\n        </u-text>\n        <u-text size=\"small\"  style=\"margin-right:24px;\">\n            Small\n        </u-text>\n        <u-text size=\"large\" style=\"margin-right:24px;\">\n            Large\n        </u-text>\n        <u-text size=\"primary\" color=\"primary\" style=\"margin-right:24px;\">\n            Primary\n        </u-text>\n        <u-text size=\"secondary\" color=\"secondary\" style=\"margin-right:24px;\">\n            Secondary\n        </u-text>\n        <u-text size=\"success\" color=\"success\" style=\"margin-right:24px;\">\n            Success\n        </u-text>\n        <u-text size=\"warning\" color=\"warning\" style=\"margin-right:24px;\">\n            Warning\n        </u-text>\n        <u-text size=\"error\" color=\"error\" style=\"margin-right:24px;\">\n            Error\n        </u-text>\n        <u-text size=\"disabled\" color=\"disabled\" style=\"margin-right:24px;\">\n            Disabled\n        </u-text>\n    </div>\n    <div class=\"componentClassTitle\">长文本</div>\n    <u-text overflow=\"ellipsis\" size=\"normal\">\n        Content content content content content content content content content content content content content content content content content content content content content content content content content content content...\n    </u-text>\n</div>"
                 }
             },
             {
@@ -376,6 +376,9 @@
                     "warning",
                     "danger"
                 ],
+                "preview": {
+                    "template": "<div>\n    <div style=\"margin-bottom: 40px;\">\n        <div class=\"componentClassTitle\">鼠标悬停状态为下划线</div>\n        <u-link style=\"margin-right:24px;\">Base</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link disabled>Disabled</u-link>\n    </div>\n    <div>\n        <div class=\"componentClassTitle\">鼠标悬停状态为颜色变化</div>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\">Base</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link hovertype=\"color\" disabled>Disabled</u-link>\n    </div>\n</div>"
+                },
                 "cssProperty": {
                     "--link-color": {
                         "type": "color",
@@ -479,9 +482,6 @@
                             ]
                         }
                     }
-                },
-                "preview": {
-                    "template": "<div>\n    <div style=\"margin-bottom: 40px;\">\n        <div class=\"componentClassTitle\">鼠标悬停状态为下划线</div>\n        <u-link style=\"margin-right:24px;\">Base</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link disabled>Disabled</u-link>\n    </div>\n    <div>\n        <div class=\"componentClassTitle\">鼠标悬停状态为颜色变化</div>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\">Base</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link hovertype=\"color\" disabled>Disabled</u-link>\n    </div>\n</div>"
                 }
             },
             {
@@ -498,6 +498,9 @@
                     "small",
                     "large"
                 ],
+                "preview": {
+                    "template": "<div>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Base</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"primary\">Primary</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"success\">Success</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"warning\">Warning</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"error\">Error</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-label>\n    <u-label removable>removable</u-label>\n</div>"
+                },
                 "cssProperty": {
                     "--label-padding-x": {
                         "type": "input",
@@ -1199,9 +1202,6 @@
                             "u-label"
                         ]
                     }
-                },
-                "preview": {
-                    "template": "<div>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Base</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"primary\">Primary</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"success\">Success</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"warning\">Warning</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"error\">Error</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-label>\n    <u-label removable>removable</u-label>\n</div>"
                 }
             },
             {
@@ -1213,6 +1213,9 @@
                     "",
                     "dot"
                 ],
+                "preview": {
+                    "template": "<div>\n    <p style=\"display:inline-block;margin-right:20px;\">\n        消息 <u-badge :value=\"3\"></u-badge>\n    </p>\n    <p style=\"display:inline-block;\">\n        <u-badge :value=\"3\" dot corner>消息</u-badge>\n    </p>\n</div>"
+                },
                 "cssProperty": {
                     "--badge-background": {
                         "type": "color",
@@ -1239,9 +1242,6 @@
                         "type": "input",
                         "desc": "徽章圆点大小（圆点模式）,如：1px"
                     }
-                },
-                "preview": {
-                    "template": "<div>\n    <p style=\"display:inline-block;margin-right:20px;\">\n        消息 <u-badge :value=\"3\"></u-badge>\n    </p>\n    <p style=\"display:inline-block;\">\n        <u-badge :value=\"3\" dot corner>消息</u-badge>\n    </p>\n</div>"
                 }
             },
             {
@@ -1250,6 +1250,9 @@
                 "title": "幻灯片",
                 "toPosition": "carousel",
                 "type": [],
+                "preview": {
+                    "template": "<u-carousel>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/2.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/3.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/4.jpg\">\n    </u-carousel-item>\n</u-carousel>"
+                },
                 "cssProperty": {
                     "--carousel-width": {
                         "type": "input",
@@ -1303,9 +1306,6 @@
                         "type": "input",
                         "desc": "幻灯片左右换页按钮显现动画快慢参数,如：all 0.2s"
                     }
-                },
-                "preview": {
-                    "template": "<u-carousel>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/2.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/3.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/4.jpg\">\n    </u-carousel-item>\n</u-carousel>"
                 }
             },
             {
@@ -1321,10 +1321,10 @@
                     "none",
                     "scale-down"
                 ],
-                "cssProperty": {},
                 "preview": {
                     "template": "<div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fill</div>\n        <u-image fit=\"fill\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fit</div>\n        <u-image fit=\"fit\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Contain</div>\n        <u-image fit=\"contain\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Cover</div>\n        <u-image fit=\"cover\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">None</div>\n        <u-image fit=\"none\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Scale-down</div>\n        <u-image fit=\"scale-down\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n</div>"
-                }
+                },
+                "cssProperty": {}
             },
             {
                 "id": 19,
@@ -1338,6 +1338,9 @@
                     "refresh",
                     ""
                 ],
+                "preview": {
+                    "template": "<div>\n        <div class=\"componentClassTitle\">类型</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\">主要按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary_secondary\">次要按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\">普通按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger\">危险操作按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger_secondary\">次要危险操作按钮</u-button>\n\n        <div class=\"componentClassTitle\">禁用</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\" disabled>主要按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary_secondary\" disabled>次要按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" disabled>普通按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger\" disabled>危险操作按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger_secondary\" disabled>次要危险操作按钮禁用</u-button>\n\n        <div class=\"componentClassTitle\">尺寸</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"mini\">Mini</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Normal</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"medium\">Medium</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"huge\">Huge</u-button>\n\n        <div class=\"componentClassTitle\">图标</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"add\">Add</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"refresh\">Refresh</u-button>\n    </div>"
+                },
                 "cssProperty": {
                     "--button-height-mini": {
                         "type": "input",
@@ -2316,9 +2319,6 @@
                             ]
                         }
                     }
-                },
-                "preview": {
-                    "template": "<div>\n        <div class=\"componentClassTitle\">类型</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\">主要按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary_secondary\">次要按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\">普通按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger\">危险操作按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger_secondary\">次要危险操作按钮</u-button>\n\n        <div class=\"componentClassTitle\">禁用</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\" disabled>主要按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary_secondary\" disabled>次要按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" disabled>普通按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger\" disabled>危险操作按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger_secondary\" disabled>次要危险操作按钮禁用</u-button>\n\n        <div class=\"componentClassTitle\">尺寸</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"mini\">Mini</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Normal</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"medium\">Medium</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"huge\">Huge</u-button>\n\n        <div class=\"componentClassTitle\">图标</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"add\">Add</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"refresh\">Refresh</u-button>\n    </div>"
                 }
             },
             {
@@ -2335,6 +2335,9 @@
                     "grid",
                     "group"
                 ],
+                "preview": {
+                    "template": "<div>\n    <div class=\"componentClassTitle\">基础布局</div>\n    <u-form gap=\"large\" style=\"margin-bottom: 40px;\">\n        <u-form-item label=\"状态\">\n            <u-select auto-select>\n                <u-select-item>认证中</u-select-item>\n            </u-select>\n        </u-form-item>\n        <u-form-item label=\"用户名\">\n            <u-input maxlength=\"63\" placeholder=\"请输入用户名\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"联系号码\">\n            <u-input maxlength=\"63\" placeholder=\"请输入联系号码\"></u-input>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">查询</u-button>\n        </u-form-item>\n    </u-form>\n    <div class=\"componentClassTitle\">行内布局</div>\n    <u-form layout=\"inline\" label-size=\"auto\" style=\"margin-bottom: 40px;\">\n        <u-form-item label=\"状态\">\n            <u-select auto-select>\n                <u-select-item>认证中</u-select-item>\n            </u-select>\n        </u-form-item>\n        <u-form-item label=\"用户名\">\n            <u-input maxlength=\"63\" placeholder=\"请输入用户名\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"联系号码\">\n            <u-input maxlength=\"63\" placeholder=\"请输入联系号码\"></u-input>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">查询</u-button>\n        </u-form-item>\n    </u-form>\n    <div class=\"componentClassTitle\">栅格布局</div>\n    <u-form layout=\"inline\" style=\"margin-bottom: 8px;\">\n        <u-grid-layout>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"状态\" style=\"width: 100%;\">\n                        <u-select auto-select>\n                            <u-select-item>认证中</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案类型\" style=\"width: 100%;\">\n                        <u-select auto-select>\n                            <u-select-item>全部</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案号\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入备案号\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"用户名\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入用户名\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"单位名称\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入单位名称\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item style=\"width: 100%;\">\n                        <u-button color=\"primary\">查询</u-button>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n        </u-grid-layout>\n    </u-form>\n</div>"
+                },
                 "cssProperty": {
                     "--form-item-label-color": {
                         "type": "color",
@@ -2354,9 +2357,6 @@
                         "prefix": "form-item",
                         "desc": "表单项 label宽度,如 1px"
                     }
-                },
-                "preview": {
-                    "template": "<div>\n    <div class=\"componentClassTitle\">基础布局</div>\n    <u-form gap=\"large\" style=\"margin-bottom: 40px;\">\n        <u-form-item label=\"状态\">\n            <u-select auto-select>\n                <u-select-item>认证中</u-select-item>\n            </u-select>\n        </u-form-item>\n        <u-form-item label=\"用户名\">\n            <u-input maxlength=\"63\" placeholder=\"请输入用户名\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"联系号码\">\n            <u-input maxlength=\"63\" placeholder=\"请输入联系号码\"></u-input>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">查询</u-button>\n        </u-form-item>\n    </u-form>\n    <div class=\"componentClassTitle\">行内布局</div>\n    <u-form layout=\"inline\" label-size=\"auto\" style=\"margin-bottom: 40px;\">\n        <u-form-item label=\"状态\">\n            <u-select auto-select>\n                <u-select-item>认证中</u-select-item>\n            </u-select>\n        </u-form-item>\n        <u-form-item label=\"用户名\">\n            <u-input maxlength=\"63\" placeholder=\"请输入用户名\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"联系号码\">\n            <u-input maxlength=\"63\" placeholder=\"请输入联系号码\"></u-input>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">查询</u-button>\n        </u-form-item>\n    </u-form>\n    <div class=\"componentClassTitle\">栅格布局</div>\n    <u-form layout=\"inline\" style=\"margin-bottom: 8px;\">\n        <u-grid-layout>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"状态\" style=\"width: 100%;\">\n                        <u-select auto-select>\n                            <u-select-item>认证中</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案类型\" style=\"width: 100%;\">\n                        <u-select auto-select>\n                            <u-select-item>全部</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案号\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入备案号\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"用户名\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入用户名\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"单位名称\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入单位名称\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item style=\"width: 100%;\">\n                        <u-button color=\"primary\">查询</u-button>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n        </u-grid-layout>\n    </u-form>\n</div>"
                 }
             },
             {
@@ -2365,6 +2365,9 @@
                 "title": "单行输入",
                 "toPosition": "input",
                 "type": [],
+                "preview": {
+                    "template": "<div>\n        <div class=\"componentClassTitle\">宽度迷你</div>\n        <u-input maxlength=\"12\" size=\"normal mini\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度小</div>\n        <u-input maxlength=\"12\" size=\"normal small\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-input maxlength=\"12\" size=\"normal medium\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-input maxlength=\"12\" size=\"normal large\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-input maxlength=\"12\" size=\"normal huge\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 80px;\"></u-input>\n\n        <div class=\"componentClassTitle\">高度迷你</div>\n        <u-input maxlength=\"12\" size=\"mini normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度小</div>\n        <u-input maxlength=\"12\" size=\"small normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-input maxlength=\"12\" size=\"medium normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-input maxlength=\"12\" size=\"large normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-input maxlength=\"12\" size=\"huge normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n\n        <div class=\"componentClassTitle\">禁用</div>\n        <u-input value=\"禁用\" maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\" disabled></u-input>\n    </div>"
+                },
                 "cssProperty": {
                     "--input-border-color": {
                         "type": "color",
@@ -2429,7 +2432,7 @@
                     "--input-width-mini": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Mini输入框高度,如 1px",
+                        "desc": "Mini输入框宽度,如 1px",
                         "depAttrs": {
                             "width": [
                                 "mini"
@@ -2442,7 +2445,7 @@
                     "--input-width-small": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Small输入框高度,如 1px",
+                        "desc": "Small输入框宽度,如 1px",
                         "depAttrs": {
                             "width": [
                                 "small"
@@ -2455,7 +2458,7 @@
                     "--input-width": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "输入框高度,如 1px",
+                        "desc": "输入框宽度,如 1px",
                         "depAttrs": {
                             "width": [
                                 "normal",
@@ -2469,7 +2472,7 @@
                     "--input-width-medium": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Medium输入框高度,如 1px",
+                        "desc": "Medium输入框宽度,如 1px",
                         "depAttrs": {
                             "width": [
                                 "medium"
@@ -2482,7 +2485,7 @@
                     "--input-width-large": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Large输入框高度,如 1px",
+                        "desc": "Large输入框宽度,如 1px",
                         "depAttrs": {
                             "width": [
                                 "large"
@@ -2495,7 +2498,7 @@
                     "--input-width-huge": {
                         "type": "input",
                         "group": "宽度",
-                        "desc": "Huge输入框高度,如 1px",
+                        "desc": "Huge输入框宽度,如 1px",
                         "depAttrs": {
                             "width": [
                                 "huge"
@@ -2724,9 +2727,6 @@
                         "group": "文字颜色",
                         "desc": "禁用输入框文字颜色,如 #223325"
                     }
-                },
-                "preview": {
-                    "template": "<div>\n        <div class=\"componentClassTitle\">宽度迷你</div>\n        <u-input maxlength=\"12\" size=\"normal mini\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度小</div>\n        <u-input maxlength=\"12\" size=\"normal small\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-input maxlength=\"12\" size=\"normal medium\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-input maxlength=\"12\" size=\"normal large\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-input maxlength=\"12\" size=\"normal huge\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 80px;\"></u-input>\n\n        <div class=\"componentClassTitle\">高度迷你</div>\n        <u-input maxlength=\"12\" size=\"mini normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度小</div>\n        <u-input maxlength=\"12\" size=\"small normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-input maxlength=\"12\" size=\"medium normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-input maxlength=\"12\" size=\"large normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-input maxlength=\"12\" size=\"huge normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n\n        <div class=\"componentClassTitle\">禁用</div>\n        <u-input value=\"禁用\" maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\" disabled></u-input>\n    </div>"
                 }
             },
             {
@@ -2735,6 +2735,9 @@
                 "title": "数字输入",
                 "toPosition": "numberInput",
                 "type": [],
+                "preview": {
+                    "template": "<div>\n        <div class=\"componentClassTitle\">基本用法</div>\n        <u-number-input :value=\"6\"></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\"></u-number-input>\n        <div class=\"componentClassTitle\" style=\"margin-top: 20px;\">禁用</div>\n        <u-number-input :value=\"6\" disabled></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\" disabled></u-number-input>\n    </div>"
+                },
                 "cssProperty": {
                     "--number-input-background": {
                         "type": "color",
@@ -2912,9 +2915,6 @@
                         "type": "input",
                         "desc": "输入框轮廓,如 1px ridge rgba(0, 0, 0, 0.2)"
                     }
-                },
-                "preview": {
-                    "template": "<div>\n        <div class=\"componentClassTitle\">基本用法</div>\n        <u-number-input :value=\"6\"></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\"></u-number-input>\n        <div class=\"componentClassTitle\" style=\"margin-top: 20px;\">禁用</div>\n        <u-number-input :value=\"6\" disabled></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\" disabled></u-number-input>\n    </div>"
                 }
             },
             {
@@ -2923,6 +2923,9 @@
                 "title": "多行输入",
                 "toPosition": "textareaInput",
                 "type": [],
+                "preview": {
+                    "template": "<div>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal medium\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal large\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal huge\" style=\"margin-bottom: 40px;\"></u-textarea>\n\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"medium normal\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"large normal\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"huge normal\" style=\"margin-bottom: 40px;\"></u-textarea>\n\n        <div class=\"componentClassTitle\">禁用</div>\n         <u-textarea value=\"禁用\" autofocus style=\"margin-bottom: 20px;\" disabled></u-textarea>\n    </div>"
+                },
                 "cssProperty": {
                     "--textarea-width": {
                         "type": "input",
@@ -3124,9 +3127,6 @@
                         "group": "边框阴影",
                         "desc": "选中状态文本框边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     }
-                },
-                "preview": {
-                    "template": "<div>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal medium\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal large\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal huge\" style=\"margin-bottom: 40px;\"></u-textarea>\n\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"medium normal\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"large normal\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"huge normal\" style=\"margin-bottom: 40px;\"></u-textarea>\n\n        <div class=\"componentClassTitle\">禁用</div>\n         <u-textarea value=\"禁用\" autofocus style=\"margin-bottom: 20px;\" disabled></u-textarea>\n    </div>"
                 }
             },
             {
@@ -3138,6 +3138,9 @@
                 ],
                 "toPosition": "radio",
                 "type": [],
+                "preview": {
+                    "template": "<div>\n    <u-radios style=\"margin-bottom:16px;\" value=\"开\">\n        <u-radio label=\"关\">关</u-radio>\n        <u-radio label=\"开\">开</u-radio>\n    </u-radios>\n    <u-radios value=\"开\">\n        <u-radio label=\"关\" disabled>关_禁用</u-radio>\n        <u-radio label=\"开\" disabled>开_禁用</u-radio>\n    </u-radios>\n</div>"
+                },
                 "cssProperty": {
                     "--radio-space-x": {
                         "type": "input",
@@ -3166,9 +3169,6 @@
                         "prefix": "radio",
                         "desc": "单选项边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     }
-                },
-                "preview": {
-                    "template": "<div>\n    <u-radios style=\"margin-bottom:16px;\" value=\"开\">\n        <u-radio label=\"关\">关</u-radio>\n        <u-radio label=\"开\">开</u-radio>\n    </u-radios>\n    <u-radios value=\"开\">\n        <u-radio label=\"关\" disabled>关_禁用</u-radio>\n        <u-radio label=\"开\" disabled>开_禁用</u-radio>\n    </u-radios>\n</div>"
                 }
             },
             {
@@ -3177,6 +3177,9 @@
                 "title": "开关",
                 "toPosition": "switch",
                 "type": [],
+                "preview": {
+                    "template": "<div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch style=\"margin-right:8px;\"></u-switch>\n        <u-text>关</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch value=\"true\" readonly style=\"margin-right:8px;\"></u-switch>\n        <u-text>开</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch disabled style=\"margin-right:8px;\"></u-switch>\n        <u-text>禁用</u-text>\n    </div>\n</div>"
+                },
                 "cssProperty": {
                     "--switch-width": {
                         "type": "input",
@@ -3236,9 +3239,6 @@
                         "type": "input",
                         "desc": "开关按钮移动动画快慢参数,如 all 2s"
                     }
-                },
-                "preview": {
-                    "template": "<div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch style=\"margin-right:8px;\"></u-switch>\n        <u-text>关</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch value=\"true\" readonly style=\"margin-right:8px;\"></u-switch>\n        <u-text>开</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch disabled style=\"margin-right:8px;\"></u-switch>\n        <u-text>禁用</u-text>\n    </div>\n</div>"
                 }
             },
             {
@@ -3250,6 +3250,9 @@
                 ],
                 "toPosition": "checkbox",
                 "type": [],
+                "preview": {
+                    "template": "<u-checkboxes><u-checkbox :value=\"false\">关</u-checkbox><u-checkbox :value=\"true\" readonly>开</u-checkbox><u-checkbox :value=\"false\" disabled>关_禁用</u-checkbox><u-checkbox :value=\"true\" disabled>开_禁用</u-checkbox></u-checkboxes>"
+                },
                 "cssProperty": {
                     "--checkbox-space-x": {
                         "type": "input",
@@ -3290,9 +3293,6 @@
                         "prefix": "checkbox",
                         "desc": "多选项按钮的阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
                     }
-                },
-                "preview": {
-                    "template": "<u-checkboxes><u-checkbox :value=\"false\">关</u-checkbox><u-checkbox :value=\"true\" readonly>开</u-checkbox><u-checkbox :value=\"false\" disabled>关_禁用</u-checkbox><u-checkbox :value=\"true\" disabled>开_禁用</u-checkbox></u-checkboxes>"
                 }
             },
             {
@@ -3301,6 +3301,9 @@
                 "title": "选择框",
                 "toPosition": "select",
                 "type": [],
+                "preview": {
+                    "template": "<u-select>\n                                <u-select-item value=\"java\">Java</u-select-item>\n                                <u-select-item value=\"nodejs\">Node.js</u-select-item>\n                                <u-select-item value=\"go\">Go</u-select-item>\n                            </u-select>"
+                },
                 "cssProperty": {
                     "--select-popper-item-background": {
                         "type": "color",
@@ -3510,9 +3513,6 @@
                     "--select-input-border-color-error": {
                         "type": "input"
                     }
-                },
-                "preview": {
-                    "template": "<u-select>\n                                <u-select-item value=\"java\">Java</u-select-item>\n                                <u-select-item value=\"nodejs\">Node.js</u-select-item>\n                                <u-select-item value=\"go\">Go</u-select-item>\n                            </u-select>"
                 }
             },
             {
@@ -3521,6 +3521,9 @@
                 "title": "评分",
                 "toPosition": "u-rate",
                 "type": [],
+                "preview": {
+                    "template": "<u-rate></u-rate>"
+                },
                 "cssProperty": {
                     "--rate-space": {
                         "type": "input",
@@ -3542,9 +3545,6 @@
                         "type": "color",
                         "desc": "字体颜色,如 #223325"
                     }
-                },
-                "preview": {
-                    "template": "<u-rate></u-rate>"
                 }
             },
             {
@@ -3553,6 +3553,9 @@
                 "title": "滑块",
                 "toPosition": "slider",
                 "type": [],
+                "preview": {
+                    "template": "<u-combo-slider :value=\"36\"></u-combo-slider>"
+                },
                 "cssProperty": {
                     "--slider-body-margin": {
                         "type": "input",
@@ -3662,9 +3665,6 @@
                         "type": "color",
                         "desc": "百分比值字体颜色,如 #223325"
                     }
-                },
-                "preview": {
-                    "template": "<u-combo-slider :value=\"36\"></u-combo-slider>"
                 }
             },
             {
@@ -3677,6 +3677,9 @@
                     "card",
                     "image"
                 ],
+                "preview": {
+                    "template": "<div>\n     <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">单文件按钮</div>\n        <u-uploader\n            url=\"http://localhost:7000/api/library/upload\" mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n    <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">单文件卡片</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"card\"\n            mutiple>\n        </u-uploader>\n    </div>\n    <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">多图片按钮</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"image\"\n            mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n</div>"
+                },
                 "cssProperty": {
                     "--uploader-list-margin-top": {
                         "type": "input",
@@ -3784,9 +3787,6 @@
                             ]
                         }
                     }
-                },
-                "preview": {
-                    "template": "<div>\n     <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">单文件按钮</div>\n        <u-uploader\n            url=\"http://localhost:7000/api/library/upload\" mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n    <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">单文件卡片</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"card\"\n            mutiple>\n        </u-uploader>\n    </div>\n    <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">多图片按钮</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"image\"\n            mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n</div>"
                 }
             },
             {
@@ -3798,6 +3798,10 @@
                 ],
                 "toPosition": "tableView",
                 "type": [],
+                "preview": {
+                    "template": "<div>\n        <u-switch v-model=\"striped\">打开斑马纹</u-switch>\n        <u-table-view :striped=\"striped\" :data-source=\"tableView\">\n            <u-table-view-column\n                title=\"用户名\"\n                field=\"name\"\n                width=\"20%\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"手机号码\"\n                field=\"phone\"\n                width=\"20%\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"地址\"\n                field=\"address\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"最近登录时间\"\n                field=\"loginTime\"\n                formatter=\"placeholder | date\"\n                width=\"20%\">\n            </u-table-view-column>\n        </u-table-view>\n    </div>",
+                    "script": "export default {\n    data() {\n        return {\n            striped: true,\n            tableView: [\n                {\n                    name: '张三',\n                    phone: '18612917895',\n                    email: 'zhangsan@163.com',\n                    address: '浙江省杭州市滨江区网商路599号网易大厦',\n                    createdTime: '1464421931000',\n                    loginTime: '1527515531000',\n                },\n                {\n                    name: '小明',\n                    phone: '13727160283',\n                    email: 'xiaoming@163.com',\n                    address: '浙江省杭州市滨江区江虹路459号英飞特科技园',\n                    createdTime: '1520864676000',\n                    loginTime: '1552400676000',\n                },\n                {\n                    name: '李四',\n                    phone: '18897127809',\n                    email: 'lisi@163.com',\n                    address: '浙江省杭州市滨江区秋溢路606号西可科技园',\n                    createdTime: '1494488730000',\n                    loginTime: '1558165530000',\n                },\n            ],\n        };\n    },\n};"
+                },
                 "cssProperty": {
                     "--table-view-row-hover-background": {
                         "type": "color",
@@ -3988,10 +3992,6 @@
                             "th"
                         ]
                     }
-                },
-                "preview": {
-                    "template": "<div>\n        <u-switch v-model=\"striped\">打开斑马纹</u-switch>\n        <u-table-view :striped=\"striped\" :data-source=\"tableView\">\n            <u-table-view-column\n                title=\"用户名\"\n                field=\"name\"\n                width=\"20%\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"手机号码\"\n                field=\"phone\"\n                width=\"20%\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"地址\"\n                field=\"address\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"最近登录时间\"\n                field=\"loginTime\"\n                formatter=\"placeholder | date\"\n                width=\"20%\">\n            </u-table-view-column>\n        </u-table-view>\n    </div>",
-                    "script": "export default {\n    data() {\n        return {\n            striped: true,\n            tableView: [\n                {\n                    name: '张三',\n                    phone: '18612917895',\n                    email: 'zhangsan@163.com',\n                    address: '浙江省杭州市滨江区网商路599号网易大厦',\n                    createdTime: '1464421931000',\n                    loginTime: '1527515531000',\n                },\n                {\n                    name: '小明',\n                    phone: '13727160283',\n                    email: 'xiaoming@163.com',\n                    address: '浙江省杭州市滨江区江虹路459号英飞特科技园',\n                    createdTime: '1520864676000',\n                    loginTime: '1552400676000',\n                },\n                {\n                    name: '李四',\n                    phone: '18897127809',\n                    email: 'lisi@163.com',\n                    address: '浙江省杭州市滨江区秋溢路606号西可科技园',\n                    createdTime: '1494488730000',\n                    loginTime: '1558165530000',\n                },\n            ],\n        };\n    },\n};"
                 }
             },
             {
@@ -4010,6 +4010,9 @@
                     "capsule",
                     "text"
                 ],
+                "preview": {
+                    "template": "<div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式1</div>\n            <u-tabs appear=\"square\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式2</div>\n            <u-tabs appear=\"round\" style=\"margin-bottom: 40px;\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式3</div>\n            <u-tabs appear=\"line\" style=\"margin-bottom: 40px;\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式4</div>\n            <u-tabs appear=\"capsule\" style=\"margin-bottom: 40px;\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式5</div>\n            <u-tabs appear=\"text\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n    </div>"
+                },
                 "cssProperty": {
                     "--tabs-border-width": {
                         "type": "input",
@@ -4284,9 +4287,6 @@
                         "desc": "tab项关闭按钮悬停颜色,如 #223325",
                         "prefix": "tabs"
                     }
-                },
-                "preview": {
-                    "template": "<div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式1</div>\n            <u-tabs appear=\"square\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式2</div>\n            <u-tabs appear=\"round\" style=\"margin-bottom: 40px;\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式3</div>\n            <u-tabs appear=\"line\" style=\"margin-bottom: 40px;\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式4</div>\n            <u-tabs appear=\"capsule\" style=\"margin-bottom: 40px;\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n        <div style=\"margin-bottom: 40px;\">\n            <div class=\"componentClassTitle\">基础样式5</div>\n            <u-tabs appear=\"text\">\n                <u-tab title=\"选项一\"></u-tab>\n                <u-tab title=\"选项二\"></u-tab>\n                <u-tab title=\"选项三\"></u-tab>\n                <u-tab title=\"选项四\" disabled></u-tab>\n            </u-tabs>\n        </div>\n    </div>"
                 }
             },
             {
@@ -4298,6 +4298,9 @@
                 ],
                 "toPosition": "select-steps",
                 "type": [],
+                "preview": {
+                    "template": "<u-selectable-steps :value=\"1\">\n    <u-selectable-step title=\"Step1\"></u-selectable-step>\n    <u-selectable-step title=\"Step2\"></u-selectable-step>\n    <u-selectable-step title=\"Step3\"></u-selectable-step>\n</u-selectable-steps>"
+                },
                 "cssProperty": {
                     "--steps-item-color-disabled": {
                         "type": "color",
@@ -4409,9 +4412,6 @@
                         "desc": "步骤条标题颜色（错误状态）,如 #223325",
                         "prefix": "steps-seleatable"
                     }
-                },
-                "preview": {
-                    "template": "<u-selectable-steps :value=\"1\">\n    <u-selectable-step title=\"Step1\"></u-selectable-step>\n    <u-selectable-step title=\"Step2\"></u-selectable-step>\n    <u-selectable-step title=\"Step3\"></u-selectable-step>\n</u-selectable-steps>"
                 }
             },
             {
@@ -4427,6 +4427,9 @@
                     "showAll",
                     "simple"
                 ],
+                "preview": {
+                    "template": "<div>\n        <u-pagination style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n        <u-pagination size=\"small\" style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n        <u-pagination style=\"margin-bottom:16px;\" :total=\"11\">\n            <a slot=\"prev\" role=\"text\">Previous</a>\n            <a slot=\"next\" role=\"text\">Next</a>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total-items=\"75\"\n            show-total>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total-items=\"75\"\n            show-total\n            show-sizer\n            show-jumper>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total=\"11\"\n            simple\n            readonly>\n        </u-pagination>\n        <u-pagination\n            :total=\"11\"\n            simple\n            disabled>\n        </u-pagination>\n    </div>"
+                },
                 "cssProperty": {
                     "--pagination-item-border-radius": {
                         "type": "input",
@@ -4530,9 +4533,6 @@
                         "type": "input",
                         "desc": "翻页器的内边距,如 1px"
                     }
-                },
-                "preview": {
-                    "template": "<div>\n        <u-pagination style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n        <u-pagination size=\"small\" style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n        <u-pagination style=\"margin-bottom:16px;\" :total=\"11\">\n            <a slot=\"prev\" role=\"text\">Previous</a>\n            <a slot=\"next\" role=\"text\">Next</a>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total-items=\"75\"\n            show-total>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total-items=\"75\"\n            show-total\n            show-sizer\n            show-jumper>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total=\"11\"\n            simple\n            readonly>\n        </u-pagination>\n        <u-pagination\n            :total=\"11\"\n            simple\n            disabled>\n        </u-pagination>\n    </div>"
                 }
             },
             {
@@ -4545,6 +4545,10 @@
                 ],
                 "toPosition": "treeView",
                 "type": [],
+                "preview": {
+                    "template": "<u-tree-view value=\"4\" :data=\"list\"></u-tree-view>",
+                    "script": "export default {\n    data() {\n        return {\n            list: [\n                {\n                    text: '一级分类',\n                    children: [\n                        {\n                            text: '二级分类选项文字极限很长...',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                },\n                            ],\n                        },\n                        {\n                            text: '二级分类',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                },\n                            ],\n                        },\n                        {\n                            text: '二级分类',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                    value: '3',\n                                    children: [\n                                        {\n                                            text: '四级分类',\n                                            value: '4',\n                                        },\n                                    ],\n                                },\n                            ],\n                        },\n                    ],\n                },\n                {\n                    text: '一级分类',\n                    children: [\n                        {\n                            text: '二级分类',\n                        },\n                        {\n                            text: '二级分类',\n                        },\n                    ],\n                },\n            ],\n        };\n    },\n};"
+                },
                 "cssProperty": {
                     "--tree-view-background": {
                         "type": "color",
@@ -4624,13 +4628,19 @@
                         "desc": "树形列表节点的背景色（选中且禁用）,如 #223325",
                         "prefix": "tree-view-node"
                     },
+                    "--tree-view-node-color-disabled": {
+                        "type": "color",
+                        "desc": "树形列表节点字体颜色（禁用状态）,如 #223325",
+                        "prefix": "tree-view-node"
+                    },
+                    "--tree-view-node-background-disabled": {
+                        "type": "color",
+                        "desc": "树形列表节点背景色（禁用状态）,如 #223325",
+                        "prefix": "tree-view-node"
+                    },
                     "--table-view-tree-expander-size": {
                         "type": "input"
                     }
-                },
-                "preview": {
-                    "template": "<u-tree-view value=\"4\" :data=\"list\"></u-tree-view>",
-                    "script": "export default {\n    data() {\n        return {\n            list: [\n                {\n                    text: '一级分类',\n                    children: [\n                        {\n                            text: '二级分类选项文字极限很长...',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                },\n                            ],\n                        },\n                        {\n                            text: '二级分类',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                },\n                            ],\n                        },\n                        {\n                            text: '二级分类',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                    value: '3',\n                                    children: [\n                                        {\n                                            text: '四级分类',\n                                            value: '4',\n                                        },\n                                    ],\n                                },\n                            ],\n                        },\n                    ],\n                },\n                {\n                    text: '一级分类',\n                    children: [\n                        {\n                            text: '二级分类',\n                        },\n                        {\n                            text: '二级分类',\n                        },\n                    ],\n                },\n            ],\n        };\n    },\n};"
                 }
             },
             {
@@ -4664,6 +4674,9 @@
                 "title": "线形进度条",
                 "toPosition": "linearProgress",
                 "type": [],
+                "preview": {
+                    "template": "<u-linear-progress :percent=\"25\"></u-linear-progress>"
+                },
                 "cssProperty": {
                     "--linear-progress-size": {
                         "type": "input",
@@ -4739,9 +4752,6 @@
                         "type": "input",
                         "desc": "进度条轨道的动画快慢参数,如 width 0.6s ease"
                     }
-                },
-                "preview": {
-                    "template": "<u-linear-progress :percent=\"25\"></u-linear-progress>"
                 }
             },
             {
@@ -4750,6 +4760,9 @@
                 "title": "圆形进度条",
                 "toPosition": "circularProgress",
                 "type": [],
+                "preview": {
+                    "template": "<u-circular-progress :percent=\"25\"></u-circular-progress>"
+                },
                 "cssProperty": {
                     "--circular-progress-size": {
                         "type": "input",
@@ -4878,9 +4891,6 @@
                         "type": "color",
                         "desc": "进度条文本内容字体颜色,如 #223325"
                     }
-                },
-                "preview": {
-                    "template": "<u-circular-progress :percent=\"25\"></u-circular-progress>"
                 }
             },
             {
@@ -4889,6 +4899,9 @@
                 "title": "弹出框",
                 "toPosition": "popup",
                 "type": [],
+                "preview": {
+                    "template": "<div>\n    <u-button style=\"box-shadow:none;margin-right:40px;\">\n        内容\n        <u-popup>使用 content 属性添加内容</u-popup>\n    </u-button>\n    <u-button style=\"box-shadow:none;\">\n        内容\n        <u-popup trigger=\"hover\">使用 content 属性添加内容</u-popup>\n    </u-button>\n</div>"
+                },
                 "cssProperty": {
                     "--popup-padding": {
                         "type": "input",
@@ -4918,9 +4931,6 @@
                         "type": "color",
                         "desc": "弹出层的边框颜色,如 #223325"
                     }
-                },
-                "preview": {
-                    "template": "<div>\n    <u-button style=\"box-shadow:none;margin-right:40px;\">\n        内容\n        <u-popup>使用 content 属性添加内容</u-popup>\n    </u-button>\n    <u-button style=\"box-shadow:none;\">\n        内容\n        <u-popup trigger=\"hover\">使用 content 属性添加内容</u-popup>\n    </u-button>\n</div>"
                 }
             },
             {
@@ -4929,6 +4939,10 @@
                 "name": "u-modal",
                 "toPosition": "modal",
                 "type": [],
+                "preview": {
+                    "template": "<div>\n        <u-modal :visible.sync=\"exampleModalvisible\" title=\"标题\">\n            <div style=\"position:relative;width:100%;height:85px;background:#F2F3F5;text-align:center;\">\n                <u-text style=\"position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);\">对话框内容</u-text>\n            </div>\n        </u-modal>\n        <u-linear-layout>\n            <u-button @click=\"onOpen\">Modal</u-button>\n        </u-linear-layout>\n    </div>",
+                    "script": "export default {\n    data() {\n        return {\n            exampleModalvisible: false,\n        };\n    },\n    methods: {\n        onOpen() {\n            this.exampleModalvisible = true;\n        },\n    },\n};"
+                },
                 "cssProperty": {
                     "--modal-dialog-width": {
                         "type": "input",
@@ -4974,10 +4988,6 @@
                         "type": "color",
                         "desc": "弹窗边框颜色,如 #223325"
                     }
-                },
-                "preview": {
-                    "template": "<div>\n        <u-modal :visible.sync=\"exampleModalvisible\" title=\"标题\">\n            <div style=\"position:relative;width:100%;height:85px;background:#F2F3F5;text-align:center;\">\n                <u-text style=\"position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);\">对话框内容</u-text>\n            </div>\n        </u-modal>\n        <u-linear-layout>\n            <u-button @click=\"onOpen\">Modal</u-button>\n        </u-linear-layout>\n    </div>",
-                    "script": "export default {\n    data() {\n        return {\n            exampleModalvisible: false,\n        };\n    },\n    methods: {\n        onOpen() {\n            this.exampleModalvisible = true;\n        },\n    },\n};"
                 }
             },
             {
@@ -4986,6 +4996,9 @@
                 "name": "u-calendar-view",
                 "toPosition": "calendar-view",
                 "type": [],
+                "preview": {
+                    "template": "<u-calendar-view></u-calendar-view>"
+                },
                 "cssProperty": {
                     "--calendar-date-height": {
                         "type": "input",
@@ -5007,9 +5020,6 @@
                         "desc": "日历日期选中项背景色,如：#223325",
                         "prefix": "calendar-date"
                     }
-                },
-                "preview": {
-                    "template": "<u-calendar-view></u-calendar-view>"
                 }
             },
             {
@@ -5018,6 +5028,9 @@
                 "name": "u-date-picker",
                 "toPosition": "u-date-picker",
                 "type": [],
+                "preview": {
+                    "template": "<u-date-picker date=\"2018-08-08\" clearable></u-date-picker>"
+                },
                 "cssProperty": {
                     "--datepicker-input-pre-icon-color": {
                         "type": "color",
@@ -5375,9 +5388,6 @@
                             "padding-right"
                         ]
                     }
-                },
-                "preview": {
-                    "template": "<u-date-picker date=\"2018-08-08\" clearable></u-date-picker>"
                 }
             },
             {
@@ -5386,6 +5396,9 @@
                 "title": "日期时间选择器",
                 "toPosition": "u-date-time-picker",
                 "type": [],
+                "preview": {
+                    "template": "<u-date-time-picker  date=\"2018-08-08\" clearable></u-date-time-picker>"
+                },
                 "cssProperty": {
                     "--datetime-input-pre-icon-color": {
                         "type": "color",
@@ -5708,9 +5721,6 @@
                         "desc": "日期时间选择器选择框圆角,如：1px",
                         "prefix": "datetime"
                     }
-                },
-                "preview": {
-                    "template": "<u-date-time-picker  date=\"2018-08-08\" clearable></u-date-time-picker>"
                 }
             },
             {
@@ -5719,6 +5729,9 @@
                 "title": "时间选择器",
                 "toPosition": "u-time-picker",
                 "type": [],
+                "preview": {
+                    "template": "<u-time-picker  date=\"15:46:33\"></u-time-picker>"
+                },
                 "cssProperty": {
                     "--timepicker-input-border-color": {
                         "type": "color",
@@ -6026,9 +6039,6 @@
                             "width"
                         ]
                     }
-                },
-                "preview": {
-                    "template": "<u-time-picker  date=\"15:46:33\"></u-time-picker>"
                 }
             },
             {
@@ -6037,6 +6047,9 @@
                 "title": "下拉菜单",
                 "toPosition": "dropdown",
                 "type": [],
+                "preview": {
+                    "template": "<u-dropdown><template #title=\"scope\"><u-text text=\"下拉菜单\"></u-text></template><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item disabled text=\"item\"></u-dropdown-item></u-dropdown>"
+                },
                 "cssProperty": {
                     "--dropdown-color-text": {
                         "type": "color",
@@ -6061,9 +6074,6 @@
                         "type": "input",
                         "desc": "下拉弹层宽度,如 1px"
                     }
-                },
-                "preview": {
-                    "template": "<u-dropdown><template #title=\"scope\"><u-text text=\"下拉菜单\"></u-text></template><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item text=\"item\"></u-dropdown-item><u-dropdown-item disabled text=\"item\"></u-dropdown-item></u-dropdown>"
                 }
             },
             {
@@ -6072,6 +6082,9 @@
                 "title": "抽屉",
                 "toPosition": "drawer",
                 "type": [],
+                "preview": {
+                    "template": "<u-drawer> <template #title> <u-text text=\"标题\"></u-text> </template> <template #body> <u-text>内容</u-text> </template> <template #foot> <u-linear-layout vusion-disabled-cut justify=\"start\"> <u-button color=\"primary\">确定</u-button> <u-button>取消</u-button> </u-linear-layout> </template> </u-drawer>"
+                },
                 "cssProperty": {
                     "--drawer-width-small": {
                         "type": "input",
@@ -6079,6 +6092,11 @@
                         "depAttrs": {
                             "size": [
                                 "small"
+                            ],
+                            "placement": [
+                                "left",
+                                "right",
+                                null
                             ]
                         }
                     },
@@ -6089,6 +6107,11 @@
                             "size": [
                                 "normal",
                                 null
+                            ],
+                            "placement": [
+                                "left",
+                                "right",
+                                null
                             ]
                         }
                     },
@@ -6098,6 +6121,64 @@
                         "depAttrs": {
                             "size": [
                                 "large"
+                            ],
+                            "placement": [
+                                "left",
+                                "right",
+                                null
+                            ]
+                        }
+                    },
+                    "--drawer-height-small": {
+                        "type": "input",
+                        "desc": "small抽屉高度,如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "small"
+                            ],
+                            "placement": [
+                                "top",
+                                "bottom"
+                            ]
+                        }
+                    },
+                    "--drawer-height": {
+                        "type": "input",
+                        "desc": "normal抽屉高度,如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "normal",
+                                null
+                            ],
+                            "placement": [
+                                "top",
+                                "bottom"
+                            ]
+                        }
+                    },
+                    "--drawer-height-large": {
+                        "type": "input",
+                        "desc": "large抽屉高度,如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "large"
+                            ],
+                            "placement": [
+                                "top",
+                                "bottom"
+                            ]
+                        }
+                    },
+                    "--drawer-max-height": {
+                        "type": "input",
+                        "desc": "large抽屉最大高度,如 1px",
+                        "depAttrs": {
+                            "size": [
+                                "auto"
+                            ],
+                            "placement": [
+                                "top",
+                                "bottom"
                             ]
                         }
                     },
@@ -6136,10 +6217,11 @@
                     "--drawer-border-color": {
                         "type": "color",
                         "desc": "抽屉边框颜色"
+                    },
+                    "--drawer-border-radius": {
+                        "type": "input",
+                        "desc": "抽屉边框圆角"
                     }
-                },
-                "preview": {
-                    "template": "<u-drawer> <template #title> <u-text text=\"标题\"></u-text> </template> <template #body> <u-text>内容</u-text> </template> <template #foot> <u-linear-layout vusion-disabled-cut justify=\"start\"> <u-button color=\"primary\">确定</u-button> <u-button>取消</u-button> </u-linear-layout> </template> </u-drawer>"
                 }
             },
             {
@@ -6153,6 +6235,9 @@
                     "u-sidebar-divider"
                 ],
                 "type": [],
+                "preview": {
+                    "template": "<u-sidebar :router=\"true\"> <u-sidebar-group expanded> <template #title><u-text text=\"导航一\"></u-text></template> <u-sidebar-item><u-text text=\"选项一\"></u-text></u-sidebar-item> </u-sidebar-group> <u-sidebar-group expanded> <template #title><u-text text=\"导航二\"></u-text></template> <u-sidebar-item><u-text text=\"选项一\"></u-text></u-sidebar-item> </u-sidebar-group> </u-sidebar>"
+                },
                 "cssProperty": {
                     "--sidebar-background": {
                         "type": "color",
@@ -6533,9 +6618,6 @@
                             ]
                         }
                     }
-                },
-                "preview": {
-                    "template": "<u-sidebar :router=\"true\"> <u-sidebar-group expanded> <template #title><u-text text=\"导航一\"></u-text></template> <u-sidebar-item><u-text text=\"选项一\"></u-text></u-sidebar-item> </u-sidebar-group> <u-sidebar-group expanded> <template #title><u-text text=\"导航二\"></u-text></template> <u-sidebar-item><u-text text=\"选项一\"></u-text></u-sidebar-item> </u-sidebar-group> </u-sidebar>"
                 }
             },
             {
@@ -6544,6 +6626,9 @@
                 "title": "公告",
                 "toPosition": "alert",
                 "type": [],
+                "preview": {
+                    "template": "<u-alert type=\"info\"><template #title><u-text text=\"公告内容\"></u-text></template></u-alert>"
+                },
                 "cssProperty": {
                     "--alert-title-color": {
                         "type": "color",
@@ -6647,9 +6732,6 @@
                         "type": "color",
                         "desc": "公告关闭按钮颜色（hover状态）"
                     }
-                },
-                "preview": {
-                    "template": "<u-alert type=\"info\"><template #title><u-text text=\"公告内容\"></u-text></template></u-alert>"
                 }
             },
             {
@@ -6738,6 +6820,491 @@
                         "type": "color",
                         "desc": "弹出消息的自定义图标颜色",
                         "prefix": "toast"
+                    }
+                }
+            },
+            {
+                "id": 59,
+                "name": "u-tree-select-new",
+                "children": [
+                    "u-tree-view-new"
+                ],
+                "title": "树选择器",
+                "toPosition": "treeSelectNew",
+                "type": [],
+                "preview": {
+                    "template": "<u-tree-select-new :data-source=\"list\" text-field=\"text1\" value-field=\"text1\"></u-tree-select-new>",
+                    "script": "export default {\n    data() {\n        return {\n            list: [\n                {\n                    text: '一级分类',\n                    children: [\n                        {\n                            text: '二级分类选项文字极限很长...',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                },\n                            ],\n                        },\n                        {\n                            text: '二级分类',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                },\n                            ],\n                        },\n                        {\n                            text: '二级分类',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                    value: '3',\n                                    children: [\n                                        {\n                                            text: '四级分类',\n                                            value: '4',\n                                        },\n                                    ],\n                                },\n                            ],\n                        },\n                    ],\n                },\n                {\n                    text: '一级分类',\n                    children: [\n                        {\n                            text: '二级分类',\n                        },\n                        {\n                            text: '二级分类',\n                        },\n                    ],\n                },\n            ],\n        };\n    },\n};"
+                },
+                "cssProperty": {
+                    "--tree-select-new-width": {
+                        "type": "input",
+                        "group": "宽度",
+                        "desc": "树选择器宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "normal",
+                                null
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--tree-select-new-height": {
+                        "type": "input",
+                        "group": "高度",
+                        "desc": "树选择器高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "normal",
+                                null
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
+                    },
+                    "--tree-select-new-padding-x": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Mini树选择器水平方向内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "normal",
+                                null
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-width-mini": {
+                        "type": "input",
+                        "group": "宽度",
+                        "desc": "Mini树选择器宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "mini"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--tree-select-new-padding-x-mini": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Mini树选择器内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "mini"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-height-mini": {
+                        "type": "input",
+                        "group": "高度",
+                        "desc": "Mini树选择器高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "mini"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
+                    },
+                    "--tree-select-new-width-small": {
+                        "type": "input",
+                        "group": "宽度",
+                        "desc": "Small树选择器宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "small"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--tree-select-new-padding-x-small": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Small树选择器内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "small"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-height-small": {
+                        "type": "input",
+                        "group": "高度",
+                        "desc": "Mini树选择器高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "small"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
+                    },
+                    "--tree-select-new-width-medium": {
+                        "type": "input",
+                        "group": "宽度",
+                        "desc": "Medium树选择器宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "medium"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--tree-select-new-padding-x-medium": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Medium树选择器内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "medium"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-height-medium": {
+                        "type": "input",
+                        "group": "高度",
+                        "desc": "Medium树选择器高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "medium"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
+                    },
+                    "--tree-select-new-width-large": {
+                        "type": "input",
+                        "group": "宽度",
+                        "desc": "Large树选择器宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "large"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--tree-select-new-padding-x-large": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Large树选择器内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "large"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-height-large": {
+                        "type": "input",
+                        "group": "高度",
+                        "desc": "Large树选择器高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "large"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
+                    },
+                    "--tree-select-new-width-huge": {
+                        "type": "input",
+                        "group": "宽度",
+                        "desc": "Huge树选择器宽度,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "huge"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "width"
+                        ]
+                    },
+                    "--tree-select-new-padding-x-huge": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Huge树选择器内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "huge"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-height-huge": {
+                        "type": "input",
+                        "group": "高度",
+                        "desc": "Huge树选择器高度,如 1px",
+                        "depAttrs": {
+                            "height": [
+                                "huge"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "height"
+                        ]
+                    },
+                    "--tree-select-new-padding-x-full": {
+                        "type": "input",
+                        "group": "内边距",
+                        "desc": "Full树选择器内边距,如 1px",
+                        "depAttrs": {
+                            "width": [
+                                "full"
+                            ]
+                        },
+                        "depStaticStyles": [
+                            "padding-left",
+                            "padding-right"
+                        ]
+                    },
+                    "--tree-select-new-color": {
+                        "type": "color",
+                        "desc": "树选择器输入框字体颜色,如 #223325"
+                    },
+                    "--tree-select-new-color-disabled": {
+                        "type": "color",
+                        "desc": "树选择器输入框字体颜色（禁用状态）,如 #223325"
+                    },
+                    "--tree-select-new-border-width": {
+                        "type": "input",
+                        "group": "边框",
+                        "desc": "树选择器输入框边框宽度,如 1px"
+                    },
+                    "--tree-select-new-border-color": {
+                        "type": "color",
+                        "group": "边框",
+                        "desc": "树选择器输入框边框颜色,如 #223325"
+                    },
+                    "--tree-select-new-border-radius-base": {
+                        "type": "input",
+                        "group": "边框",
+                        "desc": "树选择器输入框圆角,如 1px"
+                    },
+                    "--tree-select-new-border-color-hover": {
+                        "type": "color",
+                        "group": "边框",
+                        "desc": "树选择器输入框边框颜色（hover状态）,如 #223325"
+                    },
+                    "--tree-select-new-border-color-disabled": {
+                        "type": "color",
+                        "group": "边框",
+                        "desc": "树选择器输入框边框颜色（禁用状态）,如 #223325"
+                    },
+                    "--tree-select-new-input-border-color-error": {
+                        "type": "color",
+                        "group": "边框",
+                        "desc": "树选择器输入框边框颜色（错误状态）,如 #223325"
+                    },
+                    "--tree-select-new-arrow-size": {
+                        "type": "input",
+                        "group": "下拉箭头",
+                        "desc": "树选择器输入框下拉箭头大小,如 1px"
+                    },
+                    "--tree-select-new-arrow-color": {
+                        "type": "color",
+                        "group": "下拉箭头",
+                        "desc": "树选择器输入框下拉箭头颜色,如 #223325"
+                    },
+                    "--tree-select-new-background": {
+                        "type": "color",
+                        "desc": "树选择器输入框背景颜色,如 #223325"
+                    },
+                    "--tree-select-new-background-disabled": {
+                        "type": "color",
+                        "desc": "树选择器输入框背景颜色（禁用状态）,如 #223325"
+                    },
+                    "--tree-select-new-focus-outline": {
+                        "type": "input",
+                        "desc": "树选择器输入框轮廓,如 1px ridge rgba(0, 0, 0, 0.2)"
+                    },
+                    "--tree-select-new-box-shadow-focus": {
+                        "type": "input",
+                        "group": "边框阴影",
+                        "desc": "树选择器输入框边框阴影（选中状态）,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
+                    },
+                    "--tree-select-new-placeholder-color": {
+                        "type": "color",
+                        "group": "占位符",
+                        "desc": "树选择器的占位符文字颜色,如 #223325"
+                    },
+                    "--tree-select-new-popper-line-height": {
+                        "type": "input",
+                        "group": "弹出层",
+                        "desc": "树选择器弹出层下拉项行高"
+                    },
+                    "--tree-select-new-popper-max-height": {
+                        "type": "input",
+                        "group": "弹出层",
+                        "desc": "树选择器弹出层最大高度"
+                    },
+                    "--tree-select-new-popper-background": {
+                        "type": "color",
+                        "group": "弹出层",
+                        "desc": "选择框弹出层背景色,如 #223325"
+                    },
+                    "--tree-select-new-popper-border-color": {
+                        "type": "color",
+                        "group": "弹出层",
+                        "desc": "选择框弹出层边框颜色,如 #223325"
+                    },
+                    "--tree-select-new-popper-box-shadow": {
+                        "type": "input",
+                        "group": "弹出层",
+                        "desc": "树选择器弹出层边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2)"
+                    },
+                    "--tree-select-new-popper-min-width": {
+                        "type": "input",
+                        "group": "弹出层",
+                        "desc": "树选择器弹出层最小宽度"
+                    },
+                    "--tree-select-new-popper-width": {
+                        "type": "input",
+                        "group": "弹出层",
+                        "desc": "树选择器弹出层宽度"
+                    },
+                    "--tree-view-background": {
+                        "type": "color",
+                        "desc": "树形列表节点的背景色,如 #223325",
+                        "prefix": "tree-view",
+                        "depStaticStyles": [
+                            "background-color"
+                        ]
+                    },
+                    "--tree-view-node-background-dragging": {
+                        "type": "color",
+                        "desc": "树形列表可拖拽节点的背景色,如 #223325",
+                        "prefix": "tree-view-node"
+                    },
+                    "--tree-view-node-color-dragging": {
+                        "type": "color",
+                        "desc": "树形列表可拖拽节点的字体颜色,如 #223325",
+                        "prefix": "tree-view-node"
+                    },
+                    "--tree-view-subnode-background-selected": {
+                        "type": "color",
+                        "desc": "树形列表子节点的背景色（选中状态）,如 #223325",
+                        "prefix": "tree-view-subnode"
+                    },
+                    "--tree-view-subnode-background-dragging": {
+                        "type": "color",
+                        "desc": "树形列表可拖拽子节点的背景色,如 #223325",
+                        "prefix": "tree-view-subnode"
+                    },
+                    "--tree-view-subnode-color-dragging": {
+                        "type": "color",
+                        "desc": "树形列表可拖拽子节点的字体颜色,如 #223325",
+                        "prefix": "tree-view-subnode"
+                    },
+                    "--tree-view-subnode-background-selected-hover": {
+                        "type": "input",
+                        "desc": "树形列表子节点的背景色（选中状态）,如 #223325",
+                        "prefix": "tree-view-subnode"
+                    },
+                    "--tree-view-node-expander-color-dragging": {
+                        "type": "color",
+                        "desc": "树形列表可拖拽节点的前缀箭头颜色,如 #223325",
+                        "prefix": "tree-view-node"
+                    },
+                    "--tree-view-node-expander-size": {
+                        "type": "input",
+                        "desc": "树形列表节点的展开箭头的容器大小,如 1px",
+                        "prefix": "tree-view-node"
+                    },
+                    "--tree-view-node-text-padding": {
+                        "type": "input",
+                        "desc": "树形列表节点的文本内边距,如 1px",
+                        "prefix": "tree-view-node"
+                    },
+                    "--tree-view-node-background-active": {
+                        "type": "color",
+                        "desc": "树形列表节点的背景色（hover状态）,如 #223325",
+                        "prefix": "tree-view-node"
+                    },
+                    "--tree-view-node-background-selected": {
+                        "type": "color",
+                        "desc": "树形列表节点的背景色（选中状态）,如 #223325",
+                        "prefix": "tree-view-node"
+                    },
+                    "--tree-view-node-color-selected": {
+                        "type": "color",
+                        "desc": "树形列表节点的文本颜色（选中状态）,如 #223325",
+                        "prefix": "tree-view-node"
+                    },
+                    "--tree-view-node-expander-color-selected": {
+                        "type": "color",
+                        "desc": "树形列表节点的展开箭头颜色（选中状态）,如 #223325",
+                        "prefix": "tree-view-node"
+                    },
+                    "--tree-view-node-background-selected-disabled": {
+                        "type": "color",
+                        "desc": "树形列表节点的背景色（选中且禁用）,如 #223325",
+                        "prefix": "tree-view-node"
+                    },
+                    "--tree-view-node-color-disabled": {
+                        "type": "color",
+                        "desc": "树形列表节点字体颜色（禁用状态）,如 #223325",
+                        "prefix": "tree-view-node"
+                    },
+                    "--tree-view-node-background-disabled": {
+                        "type": "color",
+                        "desc": "树形列表节点背景色（禁用状态）,如 #223325",
+                        "prefix": "tree-view-node"
+                    },
+                    "--table-view-tree-expander-size": {
+                        "type": "input"
+                    }
+                }
+            },
+            {
+                "id": 59,
+                "name": "u-taskbox",
+                "title": "任务箱",
+                "toPosition": "taskbox",
+                "type": [],
+                "preview": {
+                    "template": "<u-taskbox icon=\"notice\"></u-taskbox>"
+                },
+                "cssProperty": {
+                    "--taskbox-icon-font-size": {
+                        "type": "input",
+                        "desc": "任务箱图标大小,如：1px"
                     }
                 }
             }

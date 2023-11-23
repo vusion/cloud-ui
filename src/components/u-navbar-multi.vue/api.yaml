@@ -434,6 +434,24 @@
       brifeDoc: ""
       docDescription: 设置分组是否可折叠
       tooltipLink: ""
+    - name: trigger
+      title: 触发方式
+      type: string
+      options:
+        - value: click
+          title: 点击
+        - value: hover
+          title: 悬浮
+        - value: right-click
+          title: 右击
+        - value: double-click
+          title: 双击
+      default: click
+      description: ""
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
     - name: expanded
       title: 展开状态
       type: boolean
