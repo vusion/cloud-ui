@@ -28,7 +28,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build:theme
+        run: LCAP_LIB_VERSION=${{ env.VERSION }} npm run build:theme-local
 
       # 创建一个临时目录
       - name: Create temp dir
