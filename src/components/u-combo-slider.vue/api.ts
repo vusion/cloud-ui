@@ -165,7 +165,7 @@ namespace nasl.ui {
             title: '值改变时',
             description: '滑块的值改变时触发',
         })
-        onInput: (event: Integer) => void;
+        onInput: (event: nasl.core.Integer) => void;
 
         @Event({
             title: '拖动滑块时',

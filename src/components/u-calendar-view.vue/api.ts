@@ -64,7 +64,7 @@ namespace nasl.ui {
             syncMode: 'both',
             docDescription: '当前选择的日期。',
         })
-        value: nasl.core.Date = 'TODAY';
+        value: nasl.core.Date = 'TODAY' as any;
 
         @Prop({
             group: '数据属性',
