@@ -309,7 +309,7 @@ namespace nasl.ui {
             },
             if: _ => _.treeDisplay === true,
         })
-        childrenField: nasl.core.String = 'children';
+        childrenField: (item: T) => nasl.collection.List<T> = ((item: any)  => item.children) as any;
 
         @Prop<UTableViewOptions<T, T1, V, P, M>, 'hasChildrenField'>({
             group: '数据属性',
@@ -321,7 +321,7 @@ namespace nasl.ui {
             },
             if: _ => _.treeDisplay === true,
         })
-        hasChildrenField: nasl.core.String = 'hasChildren';
+        hasChildrenField: (item: T) => nasl.core.Boolean = ((item: any)  => item.hasChildren) as any;
 
         @Prop<UTableViewOptions<T, T1, V, P, M>, 'treeCheckType'>({
             group: '数据属性',
@@ -1078,7 +1078,7 @@ namespace nasl.ui {
                 type: 'propertySelect',
             },
         })
-        private textField: nasl.core.String;
+        private textField: (item: T) => nasl.core.String;
 
         @Prop({
             group: '数据属性',
@@ -1088,7 +1088,7 @@ namespace nasl.ui {
             docDescription: '表格展示的数据。数据源可以绑定变量或者逻辑。变量或逻辑的返回值可以是数组，也可以是对象。对象格式为{list:[], total:10}',
             designerValue: [{}, {}, {}],
         })
-        dataSource: nasl.collection.List<T>;
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
 
         @Prop({
             group: '数据属性',
@@ -1189,7 +1189,7 @@ namespace nasl.ui {
             },
             disabledIf: _ => _.dataSource !== null,
         })
-        valueField: nasl.core.String = 'value';
+        valueField: (item: T) => V = ((item: any)  => item.value) as any;
 
         @Prop({
             group: '数据属性',

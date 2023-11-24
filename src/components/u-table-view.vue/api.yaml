@@ -219,7 +219,7 @@
       display: property-select
     - name: children-field
       title: 子级值字段
-      type: string
+      type: "(item: T) => nasl.collection.List<T>"
       default: children
       description: 树形数据子节点字段名，默认为children
       group: 数据属性
@@ -230,7 +230,7 @@
       display: property-select
     - name: has-children-field
       title: 包含子级值字段
-      type: string
+      type: "(item: T) => nasl.core.Boolean"
       default: hasChildren
       description: 该字段指定行数据是否包含子节点数据，默认为hasChildren
       group: 数据属性
@@ -1388,13 +1388,13 @@
   attrs:
     - name: text-field
       title: 文本字段
-      type: string
+      type: "(item: T) => nasl.core.String"
       description: 配置列的下拉弹窗里，指定数据展示的字段
       advanced: true
       display: property-select
     - name: data-source
       title: 数据源
-      type: nasl.collection.List<T>
+      type: "nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer }"
       designer-value: "[{}, {}, {}]"
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
@@ -1511,7 +1511,7 @@
       tooltipLink: https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html
     - name: value-field
       title: 值字段
-      type: string
+      type: '(item: T) => V'
       description: 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段
       display: property-select
       default: value
