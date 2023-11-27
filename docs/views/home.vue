@@ -13,7 +13,7 @@
                 <img src="@/assets/home/header.png" :class="$style.backgroundImage" />
             </div>
         </section>
-        <section style="width: max(1940px, 100%);">
+        <section style="width: max(1200px, 100%);">
             <div :class="$style.carouselContainer" style="overflow: hidden;">
                 <div :class="$style.title">完善的组件资源</div>
                 <div :class="$style.subtitle">海量组件，高灵活性满足企业定制化需求</div>
@@ -183,30 +183,10 @@ export default {
                 }
             })
         }
-
-        window.addEventListener("resize", this.handleResize);
-        this.handleResize();
-    },
-    beforeDestroy() {
-        window.removeEventListener("resize", this.handleResize);
     },
     methods: {
         routeJump() {
             this.$router.push('/components/quickstart');
-        },
-        handleResize() {
-            const windowWidth = window.innerWidth;
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            if (windowWidth < 1940) {
-                this.footerClassValid = true;
-                if (windowWidth > 1220) {
-                    window.scrollTo((1940 - windowWidth) / 2, scrollTop);
-                } else if (windowWidth < 1220) {
-                    window.scrollTo(360, scrollTop);
-                }
-            } else {
-                this.footerClassValid = false;
-            }
         }
     }
 }
@@ -221,16 +201,17 @@ export default {
     -ms-user-select: none;
     user-select: none;
     margin: 0 auto;
+    width: max(1200px, 100%);
+
 }
 
 .container {
     box-sizing: border-box;
-    width: 1940px;
     margin: 0 auto;
     margin-bottom: 80px;
-    padding: 0 10px;
     position: relative;
     z-index: 1;
+    overflow: hidden;
 }
 
 .carouselContainer {
@@ -238,7 +219,6 @@ export default {
     max-width: 3980px;
     margin: 0 auto;
     margin-bottom: 80px;
-    padding: 0 10px;
     position: relative;
     z-index: 1;
 }
@@ -307,8 +287,8 @@ export default {
 .backgroundImage {
     position: absolute;
     top: 0;
-    left: 10px;
     width: 1920px;
+    left: calc(50% - 960px);
     height: 100%;
     z-index: 1;
 }
